@@ -1,0 +1,93 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".generated.cs" #>
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Linq;
+using System.Threading.Tasks;
+using JetBrains.Annotations;
+
+namespace WeihanLi.Extensions
+{
+    public static partial class DataExtension
+    {
+        <#
+    var commandNames = new string[]{
+        "Select",
+        };
+    foreach(var cmd in commandNames)
+    { 
+#>      
+        public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbCommand command) where T:new()
+        {
+            using (var reader = command.ExecuteReader())
+            {
+                return reader.ToDataTable().ToEntities<T>();
+            }
+        }
+
+       public static async Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbCommand command) where T:new()
+       {
+           using (var reader = await command.ExecuteReaderAsync())
+           {
+                return reader.ToDataTable().ToEntities<T>();
+           }
+       }
+<#    }#>
+
+<#
+    var commandNames1 = new string[]{
+        "Fetch"
+        };
+    foreach(var cmd in commandNames1)
+    { 
+#>      
+        public static T <#=            cmd #><T>([NotNull]this DbCommand command) where T:new()
+        {
+            using (var reader = command.ExecuteReader())
+            {
+                reader.Read();
+                return reader.ToEntity<T>();
+            }
+        }
+
+       public static async Task<T> <#=            cmd #>Async<T>([NotNull]this DbCommand command) where T:new()
+       {
+           using (var reader = await command.ExecuteReaderAsync())
+            {
+                await reader.ReadAsync();
+                return reader.ToEntity<T>();
+            }
+       }
+<#    }#>
+
+<#
+    var commandNames2 = new string[]{
+        "ExecuteDataTable"
+        };
+    foreach(var cmd in commandNames2)
+    { 
+#>      
+        public static DataTable <#=            cmd #>([NotNull]this DbCommand command)
+        {
+            using (var reader = command.ExecuteReader())
+            {
+                return reader.ToDataTable();
+            }
+        }
+
+       public static async Task<DataTable> <#=            cmd #>Async([NotNull]this DbCommand command)
+       {
+           using (var reader = await command.ExecuteReaderAsync())
+            {
+                return reader.ToDataTable();
+            }
+       }
+<#    }#>
+    }
+}

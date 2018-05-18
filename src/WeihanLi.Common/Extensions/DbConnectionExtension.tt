@@ -1,0 +1,329 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".generated.cs" #>
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Threading.Tasks;
+using JetBrains.Annotations;
+
+namespace WeihanLi.Extensions
+{
+    public static partial class DataExtension
+    {
+        <#
+    var commandNames = new Tuple<string, string, string>[]{
+        Tuple.Create("Execute","int","ExecuteNonQuery"),
+        Tuple.Create("ExecuteScalar","object","ExecuteScalar"),        
+        Tuple.Create("ExecuteDataTable","DataTable","ExecuteDataTable"),        
+        };
+    var queryCommand= new Tuple<string,string,string>[]{
+        Tuple.Create("Select", "IEnumerable<T>", "ToEntities"),     
+        Tuple.Create("Fetch", "T", "ToEntity"),
+        };
+    var queryDataTableCommand= new Tuple<string,string>[]{
+        Tuple.Create("Query","T")
+    };
+    var queryScalarCommand= new Tuple<string,string>[]{
+        Tuple.Create("ExecuteScalarTo","To"),
+        Tuple.Create("ExecuteScalarToOrDefault","ToOrDefault"),
+        };
+    var queryColumnCommand = new string[]{"QueryColumn", "SelectColumn"};
+    foreach(var cmd in commandNames)
+    { 
+#>      public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>([NotNull]this DbConnection conn, string cmdText) => conn.<#=            cmd.Item1 #>(cmdText, null);
+
+        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>([NotNull]this DbConnection conn, string cmdText, object paramInfo) => conn.<#=            cmd.Item1 #>(cmdText, CommandType.Text, paramInfo, null, null);
+
+        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>([NotNull]this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)=> conn.<#=            cmd.Item1 #>(cmdText, CommandType.Text, paramInfo, paramters, null);
+
+        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters)=> conn.<#=            cmd.Item1 #>(cmdText, commandType, paramInfo, paramters, null);
+
+        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction)
+        {
+            conn.EnsureOpen();
+            using (var command = conn.CreateCommand())
+            {
+                command.CommandText = cmdText;
+                command.CommandType = commandType;
+                command.Transaction = transaction;
+
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
+                command.AttachDbParameters(paramInfo);
+                return command.<#=            cmd.Item3 #>();
+            }
+        }
+
+       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async([NotNull]this DbConnection conn, string cmdText) => conn.<#=            cmd.Item1 #>Async(cmdText, null);
+
+       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async([NotNull]this DbConnection conn, string cmdText, object paramInfo) => conn.<#=            cmd.Item1 #>Async(cmdText, CommandType.Text, paramInfo, null, null);
+
+       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo) => conn.<#=            cmd.Item1 #>Async(cmdText, commandType, paramInfo, null, null);
+
+       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async([NotNull]this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)=> conn.<#=            cmd.Item1 #>Async(cmdText, CommandType.Text, paramInfo, paramters, null);
+
+       public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction)
+       {
+           await conn.EnsureOpenAsync();
+           using (var command = conn.CreateCommand())
+           {
+               command.CommandText = cmdText;
+               command.CommandType = commandType;
+               command.Transaction = transaction;
+
+               if (parameters != null)
+               {
+                   command.Parameters.AddRange(parameters);
+               }
+
+               command.AttachDbParameters(paramInfo);
+               return await command.<#=            cmd.Item3 #>Async();
+           }
+       }
+<#    }#>
+
+<#
+    foreach(var cmd in queryCommand)
+    { 
+#>      public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText) where T:new() => conn.<#=            cmd.Item1 #><T>(cmdText,null, null);
+        
+        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, object paramInfo) where T:new() => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo,null, null);
+
+        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo) where T:new() => conn.<#=            cmd.Item1 #><T>(cmdText, commandType, paramInfo, null, null);
+
+        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters) where T:new()=> conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo , paramters, null);
+
+        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction) where T:new()
+        {
+            conn.EnsureOpen();
+            using (var command = conn.CreateCommand())
+            {
+                command.CommandText = cmdText;
+                command.CommandType = commandType;
+                command.Transaction = transaction;
+
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
+                command.AttachDbParameters(paramInfo);
+                return command.<#=            cmd.Item1 #><T>();
+            }
+        }
+
+       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText) where T:new() => conn.<#=            cmd.Item1 #>Async<T>(cmdText, null);
+
+       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo) where T:new() => conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, null, null);
+
+       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo) where T:new() => conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, null, null);
+
+       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters) where T:new()=> conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, paramters, null);
+
+       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters) where T:new()=> conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, paramters, null);
+
+       public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction) where T:new()
+       {
+           await conn.EnsureOpenAsync();
+           using (var command = conn.CreateCommand())
+           {
+               command.CommandText = cmdText;
+               command.CommandType = commandType;
+               command.Transaction = transaction;
+
+               if (parameters != null)
+               {
+                   command.Parameters.AddRange(parameters);
+               }
+               command.AttachDbParameters(paramInfo);
+
+               return await command.<#=            cmd.Item1 #>Async<T>();
+           }
+       }
+<#    }#>
+
+
+<#
+    foreach(var cmd in queryDataTableCommand)
+    { 
+#>      public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, Func<DataTable, T> func) where T:new() => conn.<#=            cmd.Item1 #><T>(cmdText,null, null, func);
+        
+        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, Func<DataTable, T> func) where T:new() => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo,null, null, func);
+
+        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, Func<DataTable, T> func) where T:new() => conn.<#=            cmd.Item1 #><T>(cmdText, commandType, paramInfo, null, null, func);
+
+        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, DbParameter[] paramters, Func<DataTable, T> func) where T:new()=> conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo , paramters, null, func);
+
+        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, Func<DataTable, T> func) where T:new()
+        {
+            conn.EnsureOpen();
+            using (var command = conn.CreateCommand())
+            {
+                command.CommandText = cmdText;
+                command.CommandType = commandType;
+                command.Transaction = transaction;
+
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
+                command.AttachDbParameters(paramInfo);
+                return command.ExecuteDataTable(func);
+            }
+        }
+
+       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText,Func<DataTable, T> func) where T:new() => conn.<#=            cmd.Item1 #>Async<T>(cmdText, null, func);
+
+       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo,Func<DataTable, T> func) where T:new() => conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, null, null, func);
+
+       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo,Func<DataTable, T> func) where T:new() => conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, null, null, func);
+
+       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, DbParameter[] paramters,Func<DataTable, T> func) where T:new()=> conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, paramters, null, func);
+
+       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters,Func<DataTable, T> func) where T:new()=> conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, paramters, null);
+
+       public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction,Func<DataTable, T> func) where T:new()
+       {
+           await conn.EnsureOpenAsync();
+           using (var command = conn.CreateCommand())
+           {
+               command.CommandText = cmdText;
+               command.CommandType = commandType;
+               command.Transaction = transaction;
+
+               if (parameters != null)
+               {
+                   command.Parameters.AddRange(parameters);
+               }
+               command.AttachDbParameters(paramInfo);
+               return func(await command.ExecuteDataTableAsync());
+           }
+       }
+<#    }#>
+
+<#
+    foreach(var cmd in queryScalarCommand)
+    { 
+#>      public static T <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText) => conn.<#=            cmd.Item1 #><T>(cmdText,null, null);
+        
+        public static T <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, object paramInfo) => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo,null, null);
+
+        public static T <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo) => conn.<#=            cmd.Item1 #><T>(cmdText, commandType, paramInfo, null, null);
+
+        public static T <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)=> conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo , paramters, null);
+
+        public static T <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction)
+        {
+            conn.EnsureOpen();
+            using (var command = conn.CreateCommand())
+            {
+                command.CommandText = cmdText;
+                command.CommandType = commandType;
+                command.Transaction = transaction;
+
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
+                command.AttachDbParameters(paramInfo);
+                return command.<#=            cmd.Item1 #><T>();
+            }
+        }
+
+       public static Task<T> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, null);
+
+       public static Task<T> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, null, null);
+
+       public static Task<T> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, null, null);
+
+       public static Task<T> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)=> conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, paramters, null);
+
+       public static Task<T> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters)=> conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, paramters, null);
+
+       public static async Task<T> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction)
+       {
+           await conn.EnsureOpenAsync();
+           using (var command = conn.CreateCommand())
+           {
+               command.CommandText = cmdText;
+               command.CommandType = commandType;
+               command.Transaction = transaction;
+
+               if (parameters != null)
+               {
+                   command.Parameters.AddRange(parameters);
+               }
+               command.AttachDbParameters(paramInfo);
+               return await command.<#=            cmd.Item1 #>Async<T>();
+           }
+       }
+<#    }#>
+
+<#
+    foreach(var cmd in queryColumnCommand)
+    { 
+#>      public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbConnection conn, string cmdText, int columnIndex = 0) => conn.<#=            cmd #><T>(cmdText, null, columnIndex);
+
+        public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0) => conn.<#=            cmd #><T>(cmdText, CommandType.Text, paramInfo, null, null, columnIndex);
+
+        public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int columnIndex = 0) => conn.<#=            cmd #><T>(cmdText, commandType, paramInfo, null, null, columnIndex);
+
+        public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0, params DbParameter[] paramters) => conn.<#=            cmd #><T>(cmdText, CommandType.Text, paramInfo, paramters, null, columnIndex);
+
+        public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int columnIndex = 0) => conn.<#=            cmd #><T>(cmdText, commandType, paramInfo, paramters, null, columnIndex);
+
+        public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int columnIndex = 0)
+        {
+            conn.EnsureOpen();
+            using (var command = conn.CreateCommand())
+            {
+                command.CommandText = cmdText;
+                command.CommandType = commandType;
+                command.Transaction = transaction;
+
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
+                command.AttachDbParameters(paramInfo);
+                return command.ExecuteDataTable().ColumnToList<T>(columnIndex);
+            }
+        }
+
+       public static Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, int columnIndex = 0)=> conn.<#=            cmd #>Async<T>(cmdText, null, columnIndex);
+
+       public static Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0)=> conn.<#=            cmd #>Async<T>(cmdText, CommandType.Text, paramInfo, null, null, columnIndex);
+
+
+       public static Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int columnIndex = 0)=> conn.<#=            cmd #>Async<T>(cmdText, commandType, paramInfo, null, null, columnIndex);
+
+       public static Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0, params DbParameter[] paramters)=> conn.<#=            cmd #>Async<T>(cmdText, CommandType.Text, paramInfo, paramters, null, columnIndex);
+
+       public static Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int columnIndex = 0) => conn.<#=            cmd #>Async<T>(cmdText, commandType, paramInfo, paramters, null, columnIndex);
+
+       public static async Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int columnIndex = 0)
+       {
+           await conn.EnsureOpenAsync();
+           using (var command = conn.CreateCommand())
+           {
+               command.CommandText = cmdText;
+               command.CommandType = commandType;
+               command.Transaction = transaction;
+
+               if (parameters != null)
+               {
+                   command.Parameters.AddRange(parameters);
+               }
+               command.AttachDbParameters(paramInfo);
+               return (await command.ExecuteDataTableAsync()).ColumnToList<T>(columnIndex);
+           }
+       }
+<#    }#>
+    }
+}
