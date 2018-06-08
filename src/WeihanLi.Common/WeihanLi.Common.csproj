@@ -64,12 +64,7 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DbCommandExtension.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Resource.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resource.resx</DependentUpon>
-    </Compile>
+    </Compile>    
     <None Update="Extensions\DbCommandExtension.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DbCommandExtension.generated.cs</LastGenOutput>
@@ -79,13 +74,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DbConnectionExtension.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Update="Resource.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Update="Extensions\DbConnectionExtension.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DbConnectionExtension.generated.cs</LastGenOutput>
     </None>
+    <Compile Update="Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>    
   </ItemGroup>
 </Project>
