@@ -44,9 +44,9 @@ skip_commits:
     - '**/*.md'
 
 # Including commits with particular message or from specific user
-only_commits:
-  message: /build/                # Start a new build if message contains 'build'
-  author: weihanli@outlook.com        # Start a new build for commit of user with email jack@company.com
+# only_commits:
+#  message: /build/                # Start a new build if message contains 'build'
+#  author: weihanli@outlook.com        # Start a new build for commit of user with email jack@company.com
 
 # Including commits affecting specific files (GitHub only). More details here: /docs/appveyor-yml
 #  files:
@@ -72,7 +72,7 @@ matrix:
 
 # scripts to run before build
 before_build:
-  - dotnet restore
+  # - dotnet restore
 # scripts to run *after* solution is built and *before* automatic packaging occurs (web apps, NuGet packages, Azure Cloud Services)
 before_package:
   
@@ -82,7 +82,7 @@ after_build:
 # to run your custom scripts instead of automatic MSBuild
 build_script:
   - dotnet --info
-  - dotnet build
+  - dotnet build -c Release  ./src/WeihanLi.Common/WeihanLi.Common.csproj
 # to disable automatic builds
 #build: off
 
