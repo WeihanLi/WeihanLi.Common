@@ -1,4 +1,5 @@
 ﻿using System;
+using BenchmarkDotNet.Running;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,9 +16,7 @@ namespace WeihanLi.Common.Benchmark
             serviceCollection.AddSingleton<IConfiguration>(configurationBuilder.Build());
             DependencyResolver.SetDependencyResolver(serviceCollection.BuildServiceProvider());
 
-            // BenchmarkRunner.Run<MapperTest>();
-
-            new DbExtensionsTest().MainTest();
+            BenchmarkRunner.Run<MapperTest>();
 
             Console.ReadLine();
         }
