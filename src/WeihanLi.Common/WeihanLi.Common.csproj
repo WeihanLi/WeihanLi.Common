@@ -27,6 +27,9 @@
     <Optimize>true</Optimize>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="AspectCore.Core" Version="0.3.1" />
     <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.1.2-alpha" PrivateAssets="All" />
     <PackageReference Include="JetBrains.Annotations" Version="11.1.0" PrivateAssets="All" />
