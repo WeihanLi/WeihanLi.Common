@@ -30,6 +30,6 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         /// <param name="virtualPath">虚拟路径</param>
         /// <returns>虚拟路径对应的物理路径</returns>
-        public static string MapPath(string virtualPath) => AppRoot + virtualPath;
+        public static string MapPath(string virtualPath) => AppRoot + virtualPath.TrimStart('~');
     }
 }
