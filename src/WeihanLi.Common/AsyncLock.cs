@@ -67,7 +67,7 @@ namespace WeihanLi.Common
 
             public void Dispose()
             {
-                _semaphoreSlim.Release();
+                _semaphoreSlim?.Release();
             }
         }
 

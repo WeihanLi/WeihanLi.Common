@@ -22,4 +22,12 @@ namespace WeihanLi.Common
     {
         public string NewId() => Guid.NewGuid().ToString("N");
     }
+
+    public class SnowflakeIdGenerator : IIdGenerator
+    {
+        public string NewId()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
