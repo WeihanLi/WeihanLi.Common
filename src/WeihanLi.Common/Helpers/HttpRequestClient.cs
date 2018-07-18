@@ -78,7 +78,7 @@ namespace WeihanLi.Common.Helpers
 
         #region private method
 
-        private static bool IsNeedRequestStream(string requestMethod) => requestMethod.EqualsIgnoreCase("POST");
+        private static bool IsNeedRequestStream(string requestMethod) => requestMethod.EqualsIgnoreCase("POST") || requestMethod.EqualsIgnoreCase("PUT");
 
         #endregion private method
 

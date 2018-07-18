@@ -2,7 +2,6 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 using log4net.Appender;
 using log4net.Core;
@@ -27,7 +26,6 @@ namespace WeihanLi.Common.Log
         public ElasticSearchAppender()
         {
             _httpClient = new HttpClient();
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
         }
 
@@ -52,7 +50,7 @@ namespace WeihanLi.Common.Log
 
             var uri = GetUri();
 
-            _httpClient.PostAsync(uri, new StringContent(sb.ToString())).ContinueWith(_ => _.Result.Dispose());//直接发送不等待
+            _httpClient.PostAsync(uri, new StringContent(sb.ToString())).ContinueWith(_ => _.Result.Dispose());
         }
 
         private Uri GetUri()

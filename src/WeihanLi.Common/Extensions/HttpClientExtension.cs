@@ -65,7 +65,25 @@ namespace WeihanLi.Extensions
 
     public static class HttpClientExtension
     {
-        // PostAsJson, PutAsJson 方法参见 System.Net.Http.Formatting
+        /// <summary>
+        /// PostAsJsonAsync
+        /// </summary>
+        /// <param name="httpClient">httpClient</param>
+        /// <param name="requestUri">requestUri</param>
+        /// <param name="parameter">parameter</param>
+        /// <returns></returns>
+        public static Task<HttpResponseMessage> PostAsJsonAsync<T>([NotNull]this HttpClient httpClient, string requestUri, T parameter)
+            => httpClient.PostAsync(requestUri, new ByteArrayContent((parameter?.ToJson() ?? "").GetBytes()));
+
+        /// <summary>
+        /// PutAsJsonAsync
+        /// </summary>
+        /// <param name="httpClient">httpClient</param>
+        /// <param name="requestUri">requestUri</param>
+        /// <param name="paramDic">paramDictionary</param>
+        /// <returns></returns>
+        public static Task<HttpResponseMessage> PutAsJsonAsync<T>([NotNull]this HttpClient httpClient, string requestUri, T parameter)
+            => httpClient.PutAsync(requestUri, new ByteArrayContent((parameter?.ToJson() ?? "").GetBytes()));
 
         /// <summary>
         /// PostAsFormAsync

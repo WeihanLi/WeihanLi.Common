@@ -20,9 +20,14 @@ namespace WeihanLi.Common
     /// </summary>
     public class GuidIdGenerator : IIdGenerator
     {
+        public static GuidIdGenerator Instance { get; } = new GuidIdGenerator();
+
         public string NewId() => Guid.NewGuid().ToString("N");
     }
 
+    /// <summary>
+    /// Snowflake IdGenerator
+    /// </summary>
     public class SnowflakeIdGenerator : IIdGenerator
     {
         public string NewId()
