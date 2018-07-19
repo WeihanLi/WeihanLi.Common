@@ -12,6 +12,7 @@
     <PackageReleaseNotes>
       remove reference for AspectCore
       add IProfiler/IIdGenerator
+      update SecurityHelper
     </PackageReleaseNotes>
     <Copyright>Copyright 2017 (c) WeihanLi</Copyright>
     <PackageTags>common utility lib libarary extensions</PackageTags>
@@ -22,6 +23,8 @@
     <RepositoryUrl>https://github.com/WeihanLi/WeihanLi.Common</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Optimize>true</Optimize>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>WeihanLi.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <None Remove=".gitignore" />
