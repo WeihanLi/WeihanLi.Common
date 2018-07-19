@@ -11,6 +11,11 @@ namespace WeihanLi.Common
     {
         public static IDependencyResolver Current { get; private set; }
 
+        /// <summary>
+        /// locker
+        /// </summary>
+        private static readonly object _lock = new object();
+
         static DependencyResolver()
         {
             Current = new DefaultDependencyResolver();
@@ -18,10 +23,13 @@ namespace WeihanLi.Common
 
         public static void SetDependencyResolver(IDependencyResolver dependencyResolver)
         {
-            Current = dependencyResolver;
+            lock (_lock)
+            {
+                Current = dependencyResolver;
+            }
         }
 
-        public static void SetDependencyResolver(Func<Type, object> getServiceFunc, Func<Type, IEnumerable<object>> getServicesFunc) => Current = new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc);
+        public static void SetDependencyResolver(Func<Type, object> getServiceFunc, Func<Type, IEnumerable<object>> getServicesFunc) => SetDependencyResolver(new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc));
 
         public static void SetDependencyResolver(IServiceProvider serviceProvider) => SetDependencyResolver(serviceProvider.GetService,
             serviceType => (IEnumerable<object>)serviceProvider.GetService(typeof(IEnumerable<>).MakeGenericType(serviceType)));

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
 
@@ -9,6 +10,9 @@ namespace DotNetCoreSample
     {
         public static async Task TaskWhenAllTest()
         {
+            ThreadPool.GetMaxThreads(out var workerThreads, out var completionPortThreads);
+            Console.WriteLine($"threadpool max threads setting:workerThreads:{workerThreads}, completionPortThreads:{completionPortThreads}");
+
             var time = await InvokeHelper.ProfileAsync(() => Task.WhenAll(Enumerable.Range(1, 5).Select(_ => Task.Delay(1000))));
             Console.WriteLine("await Task.WhenAll time:{0} ms", time);
 

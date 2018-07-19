@@ -353,11 +353,89 @@ namespace WeihanLi.Extensions
             return originName;
         }
 
+        /// <summary>
+        /// 从数据库中根据表名获取列名
+        /// </summary>
+        /// <param name="connection">数据库连接</param>
+        /// <param name="tableName">表名称</param>
+        /// <returns></returns>
+        public static IEnumerable<string> GetColumnNamesFromDb([NotNull]this DbConnection connection, string tableName)
+        {
+            connection.EnsureOpen();
+            return connection.QueryColumn<string>(@"SELECT c.[name]
+FROM sys.columns c
+    JOIN sys.tables t
+        ON c.object_id = t.object_id
+WHERE t.name = @tableName
+ORDER BY c.[column_id];", new { tableName });
+        }
+
+        /// <summary>
+        /// 从数据库中根据表名获取列名
+        /// </summary>
+        /// <param name="connection">数据库连接</param>
+        /// <param name="tableName">表名称</param>
+        /// <returns></returns>
+        public static Task<IEnumerable<string>> GetColumnNamesFromDbAsync([NotNull]this DbConnection connection, string tableName)
+        {
+            connection.EnsureOpen();
+            return connection.QueryColumnAsync<string>(@"SELECT c.[name]
+FROM sys.columns c
+    JOIN sys.tables t
+        ON c.object_id = t.object_id
+WHERE t.name = @tableName
+ORDER BY c.[column_id];", new { tableName });
+        }
+
         #endregion DbConnection
 
 #if NET45
 
         #region SqlConnection
+
+        public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName)
+        {
+            if (list == null || list.Count == 0)
+            {
+                return 0;
+            }
+            var props = CacheUtil.TypePropertyCache.GetOrAdd(typeof(T), t => t.GetProperties());
+            var cols = conn.GetColumnNamesFromDb(tableName).Where(_ => props.Any(p => p.Name.EqualsIgnoreCase(_))).ToArray();
+            var dataTable = new DataTable();
+            dataTable.Columns.AddRange(cols.Select(c => new DataColumn(c)).ToArray());
+            foreach (var item in list)
+            {
+                var row = dataTable.NewRow();
+                foreach (DataColumn col in dataTable.Columns)
+                {
+                    row[col] = props.FirstOrDefault(_ => _.Name.EqualsIgnoreCase(col.ColumnName)).GetValue(item);
+                }
+                dataTable.Rows.Add(row);
+            }
+            return conn.BulkCopy(dataTable, tableName);
+        }
+
+        public static async Task<int> BulkCopyAsync<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName)
+        {
+            if (list == null || list.Count == 0)
+            {
+                return 0;
+            }
+            var props = CacheUtil.TypePropertyCache.GetOrAdd(typeof(T), t => t.GetProperties());
+            var cols = (await conn.GetColumnNamesFromDbAsync(tableName)).Where(_ => props.Any(p => p.Name.EqualsIgnoreCase(_))).ToArray();
+            var dataTable = new DataTable();
+            dataTable.Columns.AddRange(cols.Select(c => new DataColumn(c)).ToArray());
+            foreach (var item in list)
+            {
+                var row = dataTable.NewRow();
+                foreach (DataColumn col in dataTable.Columns)
+                {
+                    row[col] = props.FirstOrDefault(_ => _.Name.EqualsIgnoreCase(col.ColumnName)).GetValue(item);
+                }
+                dataTable.Rows.Add(row);
+            }
+            return await conn.BulkCopyAsync(dataTable, tableName);
+        }
 
         /// <summary>
         /// BulkCopy

@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using log4net.Appender;
 using log4net.Core;
 using Newtonsoft.Json;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Log
 {
     public class ElasticSearchAppender : BufferingAppenderSkeleton
     {
-        private readonly IDictionary<LoggingEvent, object> LoggingEventCache = new ConcurrentDictionary<LoggingEvent, object>();
-
-        private static readonly string AppenderType = typeof(ElasticSearchAppender).Name;
-
         private const int DefaultOnCloseTimeout = 30000;
 
         public string Index { get; set; }
@@ -30,6 +25,8 @@ namespace WeihanLi.Common.Log
         }
 
         public string ConnectionString { get; set; }
+
+        public string ApplicationName { get; set; }
 
         protected override void SendBuffer(LoggingEvent[] events)
         {
@@ -57,7 +54,7 @@ namespace WeihanLi.Common.Log
         {
             var uri = new UriBuilder(ConnectionString)
             {
-                Path = $"/{Index}-{DateTime.Today}/{Type}/_bulk"
+                Path = $"/{ApplicationName ?? ApplicationHelper.ApplicationName}/{Index}-{DateTime.Today}/{Type}/_bulk"
             };
 
             return uri.Uri;

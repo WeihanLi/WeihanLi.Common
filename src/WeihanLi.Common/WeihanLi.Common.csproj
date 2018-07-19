@@ -11,7 +11,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
       remove reference for AspectCore
-      add IProfiler
+      add IProfiler/IIdGenerator
     </PackageReleaseNotes>
     <Copyright>Copyright 2017 (c) WeihanLi</Copyright>
     <PackageTags>common utility lib libarary extensions</PackageTags>
