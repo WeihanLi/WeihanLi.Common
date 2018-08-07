@@ -10,15 +10,12 @@
     <Summary>common .netstandard libarary and extensions</Summary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
-      remove reference for AutoFac
-      add reference for AspectCore
-      update Configuration.ConnectionString support for .net core
-      add TryInvokeInterceptor
-      update AsyncLock
+      add Base64UrlEncodeHelper
+      add StringExtenisons for Base64 and Base64Url encode/decode
     </PackageReleaseNotes>
     <Copyright>Copyright 2017 (c) WeihanLi</Copyright>
     <PackageTags>common utility lib libarary extensions</PackageTags>
-    <Version>1.0.9</Version>
+    <Version>1.0.9.2</Version>
     <PackageLicenseUrl>https://github.com/WeihanLi/WeihanLi.Common/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
@@ -67,7 +64,7 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DbCommandExtension.tt</DependentUpon>
-    </Compile>    
+    </Compile>
     <None Update="Extensions\DbCommandExtension.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DbCommandExtension.generated.cs</LastGenOutput>
@@ -89,6 +86,6 @@
     <EmbeddedResource Update="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>    
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
