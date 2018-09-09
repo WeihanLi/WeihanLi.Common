@@ -34,7 +34,9 @@ namespace DotNetCoreSample
 
             //InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
 
-            TaskTest.TaskWhenAllTest().GetAwaiter().GetResult();
+            //TaskTest.TaskWhenAllTest().GetAwaiter().GetResult();
+
+            Base64UrlEncodeTest.MainTest();
 
             Console.ReadLine();
         }
