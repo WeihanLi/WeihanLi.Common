@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>weihanli.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)weihanli.snk</AssemblyOriginatorKeyFile>
     <DelaySign>False</DelaySign>
   </PropertyGroup>
 </Project>
