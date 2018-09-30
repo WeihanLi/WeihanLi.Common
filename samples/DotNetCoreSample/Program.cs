@@ -1,6 +1,4 @@
 ﻿using System;
-using Microsoft.Extensions.DependencyInjection;
-using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 
 namespace DotNetCoreSample
@@ -14,11 +12,11 @@ namespace DotNetCoreSample
             // ReSharper disable once LocalizableElement
             Console.WriteLine("----------DotNetCoreSample----------");
 
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.AddScoped<IFly, MonkeyKing>();
+            //var serviceCollection = new ServiceCollection();
+            //serviceCollection.AddScoped<IFly, MonkeyKing>();
 
-            DependencyResolver.SetDependencyResolver(serviceCollection);
-            DependencyInjectionTest.Test();
+            //DependencyResolver.SetDependencyResolver(serviceCollection);
+            //DependencyInjectionTest.Test();
 
             //var builder = new ContainerBuilder();
             //builder.RegisterType<MonkeyKing>().As<IFly>();
@@ -31,6 +29,7 @@ namespace DotNetCoreSample
             //Console.WriteLine(JsonConvert.SerializeObject(a));// output 1
 
             // log test
+            LoggerTest.MainTest();
             //ILoggerFactory loggerFactory = new LoggerFactory();
             //loggerFactory.AddConsole();
             //loggerFactory.AddDebug();

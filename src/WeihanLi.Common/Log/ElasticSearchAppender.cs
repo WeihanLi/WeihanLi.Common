@@ -12,21 +12,21 @@ namespace WeihanLi.Common.Log
     {
         private const int DefaultOnCloseTimeout = 30000;
 
-        public string Index { get; set; }
-
         public string Type { get; set; } = "logEvent";
 
         private readonly HttpClient _httpClient;
 
         public ElasticSearchAppender()
         {
-            _httpClient = new HttpClient();
+            _httpClient = new HttpClient() { Timeout = TimeSpan.FromMilliseconds(DefaultOnCloseTimeout) };
             _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
         }
 
-        public string ConnectionString { get; set; }
+        public string ElasticSearchUrl { get; set; }
 
         public string ApplicationName { get; set; }
+
+        public string IndexFormat { get; set; } = "logstash-{applicationName}";
 
         protected override void SendBuffer(LoggingEvent[] events)
         {
@@ -35,8 +35,8 @@ namespace WeihanLi.Common.Log
             {
                 try
                 {
+                    sb.AppendLine("{ \"index\" : {} }");
                     var json = JsonConvert.SerializeObject(le);
-                    sb.AppendLine("{\"index\": {} }");
                     sb.AppendLine(json);
                 }
                 catch (Exception ex)
@@ -44,20 +44,11 @@ namespace WeihanLi.Common.Log
                     ErrorHandler.Error(ex.Message, ex);
                 }
             }
+            sb.Remove(sb.Length - 1, 1);
 
-            var uri = GetUri();
-
-            _httpClient.PostAsync(uri, new StringContent(sb.ToString())).ContinueWith(_ => _.Result.Dispose());
-        }
-
-        private Uri GetUri()
-        {
-            var uri = new UriBuilder(ConnectionString)
-            {
-                Path = $"/{ApplicationName ?? ApplicationHelper.ApplicationName}/{Index}-{DateTime.Today}/{Type}/_bulk"
-            };
-
-            return uri.Uri;
+            var url = $"{ElasticSearchUrl}/{IndexFormat.Replace("{applicationName}", (ApplicationName ?? ApplicationHelper.ApplicationName).ToLower())}-{DateTime.Today:yyyyMMdd}/{Type}/_bulk";
+            _httpClient.PostAsync(url, new StringContent(sb.ToString()))
+                .ContinueWith(_ => _.Result.Dispose());
         }
 
         #region Dispose
