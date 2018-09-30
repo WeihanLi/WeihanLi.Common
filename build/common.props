@@ -13,8 +13,8 @@
     <Summary>common .netstandard libarary and extensions</Summary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
-      add Base64UrlEncodeHelper
-      add StringExtenisons for Base64 and Base64Url encode/decode
+      add ElasticSearchAppender
+      add string SplitArray extension
     </PackageReleaseNotes>
     <Copyright>Copyright 2017 (c) WeihanLi</Copyright>
     <RepositoryType>git</RepositoryType>
