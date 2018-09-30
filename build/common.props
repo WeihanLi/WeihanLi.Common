@@ -1,0 +1,29 @@
+<Project>  
+  <Import Project="sign.props" />
+  <Import Project="version.props" />
+  <PropertyGroup>        
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
+    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/WeihanLi/WeihanLi.Common/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>common utility lib libarary extensions</PackageTags>    
+    <Authors>WeihanLi</Authors>
+    <Title>WeihanLi.Common</Title>
+    <Description>common .netstandard libarary and extensions</Description>
+    <Summary>common .netstandard libarary and extensions</Summary>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>
+      add ElasticSearchAppender
+      add string SplitArray extension
+    </PackageReleaseNotes>
+    <Copyright>Copyright 2017 (c) WeihanLi</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/WeihanLi/WeihanLi.Common</RepositoryUrl>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <Optimize>true</Optimize>
+    <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">True</GeneratePackageOnBuild>
+    <NoWarn>$(NoWarn);1591;DE0003;</NoWarn>
+  </PropertyGroup>
+</Project>

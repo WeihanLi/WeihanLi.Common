@@ -15,10 +15,9 @@ namespace WeihanLi.Extensions
         /// <param name="this">当前流</param>
         /// <param name="byteArray">要写入的字节数组</param>
         /// <returns></returns>
-        public static Stream Write([NotNull] this Stream @this, [NotNull]byte[] byteArray)
+        public static void Write([NotNull] this Stream @this, [NotNull]byte[] byteArray)
         {
             @this.Write(byteArray, 0, byteArray.Length);
-            return @this;
         }
 
         /// <summary>
@@ -27,14 +26,13 @@ namespace WeihanLi.Extensions
         /// <param name="this">当前流</param>
         /// <param name="byteArray">要写入的字节数组</param>
         /// <returns></returns>
-        public static async Task<Stream> WriteAsync([NotNull] this Stream @this, [NotNull]byte[] byteArray)
+        public static Task WriteAsync([NotNull] this Stream @this, [NotNull]byte[] byteArray)
         {
-            await @this.WriteAsync(byteArray, 0, byteArray.Length);
-            return @this;
+            return @this.WriteAsync(byteArray, 0, byteArray.Length);
         }
 
         /// <summary>
-        /// 将一个Stream添加到另外一个Stream中
+        /// 将一个Stream添加到当前Stream中
         /// </summary>
         /// <param name="this">当前Stream</param>
         /// <param name="stream">stream</param>
@@ -46,7 +44,7 @@ namespace WeihanLi.Extensions
         }
 
         /// <summary>
-        /// 将一个Stream添加到另外一个Stream中
+        /// 将一个Stream添加到当前Stream中
         /// </summary>
         /// <param name="this">当前Stream</param>
         /// <param name="stream">stream</param>

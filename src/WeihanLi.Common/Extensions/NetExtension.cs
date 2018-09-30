@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 
@@ -118,14 +119,11 @@ namespace WeihanLi.Extensions
         /// <returns>The response stream as byte array</returns>
         public static byte[] ReadAllBytes([NotNull]this WebResponse @this)
         {
-            using (var response = @this)
+            using (var stream = @this.GetResponseStream())
             {
-                using (var stream = response.GetResponseStream())
-                {
-                    var byteArray = new byte[stream.Length];
-                    stream.Write(byteArray, 0, byteArray.Length);
-                    return byteArray;
-                }
+                var byteArray = new byte[stream.Length];
+                stream.Write(byteArray, 0, byteArray.Length);
+                return byteArray;
             }
         }
 
@@ -136,30 +134,24 @@ namespace WeihanLi.Extensions
         /// <returns>The response stream as byte array</returns>
         public static async Task<byte[]> ReadAllBytesAsync([NotNull]this WebResponse @this)
         {
-            using (var response = @this)
+            using (var stream = @this.GetResponseStream())
             {
-                using (var stream = response.GetResponseStream())
-                {
-                    var byteArray = new byte[stream.Length];
-                    await stream.WriteAsync(byteArray, 0, byteArray.Length);
-                    return byteArray;
-                }
+                var byteArray = new byte[stream.Length];
+                await stream.WriteAsync(byteArray, 0, byteArray.Length);
+                return byteArray;
             }
         }
 
         /// <summary>
         ///     A WebResponse extension method that reads the response stream to the end.
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
+        /// <param name="response">The response to act on.</param>
         /// <returns>The response stream as a string, from the current position to the end.</returns>
-        public static string ReadToEnd([NotNull]this WebResponse @this)
+        public static string ReadToEnd([NotNull]this WebResponse response)
         {
-            using (var response = @this)
+            using (var stream = response.GetResponseStream())
             {
-                using (var stream = response.GetResponseStream())
-                {
-                    return stream.ReadToEnd();
-                }
+                return stream.ReadToEnd(Encoding.UTF8);
             }
         }
 
@@ -170,12 +162,9 @@ namespace WeihanLi.Extensions
         /// <returns>The response stream as a string, from the current position to the end.</returns>
         public static async Task<string> ReadToEndAsync([NotNull]this WebResponse @this)
         {
-            using (var response = @this)
+            using (var stream = @this.GetResponseStream())
             {
-                using (var stream = response.GetResponseStream())
-                {
-                    return await stream.ReadToEndAsync();
-                }
+                return await stream.ReadToEndAsync();
             }
         }
 

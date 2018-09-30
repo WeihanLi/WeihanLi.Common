@@ -1,36 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
-    <Product>WeihanLi.Common</Product>
-    <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>
-    <PackageId>WeihanLi.Common</PackageId>
-    <Authors>WeihanLi</Authors>
-    <Title>WeihanLi.Common</Title>
-    <Description>common .netstandard libarary and extensions</Description>
-    <Summary>common .netstandard libarary and extensions</Summary>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>
-      remove reference for AutoFac
-      add reference for AspectCore
-      update Configuration.ConnectionString support for .net core
-      add TryInvokeInterceptor
-      update AsyncLock
-    </PackageReleaseNotes>
-    <Copyright>Copyright 2017 (c) WeihanLi</Copyright>
-    <PackageTags>common utility lib libarary extensions</PackageTags>
-    <Version>1.0.9</Version>
-    <PackageLicenseUrl>https://github.com/WeihanLi/WeihanLi.Common/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common</PackageProjectUrl>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/WeihanLi/WeihanLi.Common</RepositoryUrl>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Optimize>true</Optimize>
-  </PropertyGroup>
+  <Import Project="../../build/common.props" />
   <ItemGroup>
     <None Remove=".gitignore" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AspectCore.Core" Version="0.3.1" />
     <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.1.2-alpha" PrivateAssets="All" />
     <PackageReference Include="JetBrains.Annotations" Version="11.1.0" PrivateAssets="All" />
   </ItemGroup>
@@ -67,7 +40,7 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DbCommandExtension.tt</DependentUpon>
-    </Compile>    
+    </Compile>
     <None Update="Extensions\DbCommandExtension.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DbCommandExtension.generated.cs</LastGenOutput>
@@ -89,6 +62,6 @@
     <EmbeddedResource Update="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>    
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

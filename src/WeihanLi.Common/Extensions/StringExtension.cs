@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Text;
 using System.Web;
 using JetBrains.Annotations;
+using WeihanLi.Common.Helpers;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
 {
     public static class StringExtension
     {
-        #region Html Encode Decode
+        #region Encode/Decode
 
         /// <summary>
         ///     Minimally converts a string to an HTML-encoded string.
@@ -128,7 +130,51 @@ namespace WeihanLi.Extensions
             return HttpUtility.UrlEncode(str, e);
         }
 
-        #endregion Html Encode Decode
+        /// <summary>
+        /// Base64Encode with utf8 encoding
+        /// </summary>
+        /// <param name="str">source string</param>
+        /// <returns>base64 encoded string</returns>
+        public static string Base64Encode([NotNull] this string str) => Base64Encode(str, Encoding.UTF8);
+
+        /// <summary>
+        /// Base64Encode
+        /// </summary>
+        /// <param name="str">source string</param>
+        /// <param name="encoding">encoding</param>
+        /// <returns>base64 encoded string</returns>
+        public static string Base64Encode([NotNull] this string str, Encoding encoding) => Convert.ToBase64String(str.GetBytes(encoding));
+
+        /// <summary>
+        /// Base64Decode with ytf8 encoding
+        /// </summary>
+        /// <param name="str">base64 encoded source string</param>
+        /// <returns>base64 decoded string</returns>
+        public static string Base64Decode([NotNull] this string str) => Base64Decode(str, Encoding.UTF8);
+
+        /// <summary>
+        /// Base64Decode
+        /// </summary>
+        /// <param name="str">base64 encoded source string</param>
+        /// <param name="encoding">encoding</param>
+        /// <returns>base64 decoded string</returns>
+        public static string Base64Decode([NotNull] this string str, Encoding encoding) => Convert.FromBase64String(str).GetString(encoding);
+
+        /// <summary>
+        /// Base64UrlEncode
+        /// </summary>
+        /// <param name="str">source string</param>
+        /// <returns>encoded string</returns>
+        public static string Base64UrlEncode([NotNull] this string str) => Base64UrlEncodeHelper.Encode(str);
+
+        /// <summary>
+        /// Base64UrlEncode
+        /// </summary>
+        /// <param name="str">base64url encoded string</param>
+        /// <returns>decode string</returns>
+        public static string Base64UrlDecode([NotNull] this string str) => Base64UrlEncodeHelper.Decode(str);
+
+        #endregion Encode/Decode
 
         /// <summary>
         /// 根据TypeName获取相应的Type
@@ -227,6 +273,32 @@ namespace WeihanLi.Extensions
         public static string GetValueOrDefault(this string str, Func<string> getDefault)
         {
             return str.IsNullOrWhiteSpace() ? getDefault() : str;
+        }
+
+        /// <summary>
+        /// string 转换为其他格式数据
+        /// 如："1,2,3,,4" => new int[] { 1,2,3,4 }
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="str">str</param>
+        /// <returns></returns>
+        public static T[] SplitArray<T>(this string str) => SplitArray<T>(str, new[] { ',' });
+
+        /// <summary>
+        /// string 转换为其他格式数据
+        /// 如："1,2,3,,4" => new int[] { 1,2,3,4 }
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="str">str</param>
+        /// <param name="separators">分隔符</param>
+        /// <returns></returns>
+        public static T[] SplitArray<T>(this string str, char[] separators)
+        {
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return new T[0];
+            }
+            return str.Split(separators, StringSplitOptions.RemoveEmptyEntries).Select(_ => _.To<T>()).ToArray();
         }
     }
 }

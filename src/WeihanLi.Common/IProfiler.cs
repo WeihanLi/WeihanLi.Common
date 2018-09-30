@@ -24,7 +24,7 @@ namespace WeihanLi.Common
     {
         private readonly Stopwatch _stopwatch;
 
-        public StopwatchProfiler()
+        private StopwatchProfiler()
         {
             _stopwatch = new Stopwatch();
         }

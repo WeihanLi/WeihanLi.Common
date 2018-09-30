@@ -1,6 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+
+#if NETSTANDARD2_0
+
+using Microsoft.Extensions.DependencyInjection;
+
+#endif
 
 namespace WeihanLi.Common
 {
@@ -11,20 +18,42 @@ namespace WeihanLi.Common
     {
         public static IDependencyResolver Current { get; private set; }
 
+        /// <summary>
+        /// locker
+        /// </summary>
+        private static readonly object _lock = new object();
+
         static DependencyResolver()
         {
             Current = new DefaultDependencyResolver();
         }
 
-        public static void SetDependencyResolver(IDependencyResolver dependencyResolver)
+#if NETSTANDARD2_0
+
+        public static void SetDependencyResolver(IServiceCollection services)
         {
-            Current = dependencyResolver;
+            SetDependencyResolver(new ServiceCollectionDependencyResolver(services));
         }
 
-        public static void SetDependencyResolver(Func<Type, object> getServiceFunc, Func<Type, IEnumerable<object>> getServicesFunc) => Current = new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc);
+        public static void SetDependencyResolver(IServiceProvider serviceProvider)
+        {
+            SetDependencyResolver(new ServiceCollectionDependencyResolver(serviceProvider));
+        }
 
+#else
         public static void SetDependencyResolver(IServiceProvider serviceProvider) => SetDependencyResolver(serviceProvider.GetService,
             serviceType => (IEnumerable<object>)serviceProvider.GetService(typeof(IEnumerable<>).MakeGenericType(serviceType)));
+#endif
+
+        public static void SetDependencyResolver(IDependencyResolver dependencyResolver)
+        {
+            lock (_lock)
+            {
+                Current = dependencyResolver;
+            }
+        }
+
+        public static void SetDependencyResolver(Func<Type, object> getServiceFunc, Func<Type, IEnumerable<object>> getServicesFunc) => SetDependencyResolver(new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc));
 
         public static void SetDependencyResolver(Func<Type, object> getServiceFunc) => SetDependencyResolver(getServiceFunc, serviceType => (IEnumerable<object>)getServiceFunc(typeof(IEnumerable<>).MakeGenericType(serviceType)));
 
@@ -90,5 +119,53 @@ namespace WeihanLi.Common
                 }
             }
         }
+
+#if NETSTANDARD2_0
+
+        private class ServiceCollectionDependencyResolver : IDependencyResolver
+        {
+            private readonly IServiceProvider _serviceProvider;
+
+            public ServiceCollectionDependencyResolver(IServiceCollection services)
+            {
+                if (null == services)
+                {
+                    throw new ArgumentNullException(nameof(services));
+                }
+                _serviceProvider = services.BuildServiceProvider();
+            }
+
+            public ServiceCollectionDependencyResolver(IServiceProvider serviceProvider)
+            {
+                _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
+            }
+
+            public object GetService(Type serviceType)
+            {
+                return _serviceProvider.GetService(serviceType);
+            }
+
+            public bool TryGetService(Type serviceType, out object service)
+            {
+                try
+                {
+                    service = _serviceProvider.GetService(serviceType);
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                    service = null;
+                    return false;
+                }
+            }
+
+            public IEnumerable<object> GetServices(Type serviceType)
+            {
+                return _serviceProvider.GetServices(serviceType);
+            }
+        }
+
+#endif
     }
 }

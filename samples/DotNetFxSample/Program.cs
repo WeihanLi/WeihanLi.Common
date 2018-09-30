@@ -13,7 +13,7 @@ namespace DotNetFxSample
             Console.WriteLine("----------DotNetFxSample----------");
 
             // 数据库扩展
-            DataExtensionTest.MainTest();
+            // DataExtensionTest.MainTest();
 
             //InvokeHelper.TryInvoke(LoggerTest.Test);
 

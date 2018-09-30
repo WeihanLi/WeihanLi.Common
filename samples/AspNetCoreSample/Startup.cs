@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WeihanLi.Common;
 
 namespace AspNetCoreSample
 {
@@ -18,6 +19,8 @@ namespace AspNetCoreSample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            DependencyResolver.SetDependencyResolver(services);
 
             // TestReplaceHolder
             var abc = Configuration["TestSetting2:Setting2"];
