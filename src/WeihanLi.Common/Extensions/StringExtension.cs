@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Text;
 using System.Web;
 using JetBrains.Annotations;
@@ -272,6 +273,32 @@ namespace WeihanLi.Extensions
         public static string GetValueOrDefault(this string str, Func<string> getDefault)
         {
             return str.IsNullOrWhiteSpace() ? getDefault() : str;
+        }
+
+        /// <summary>
+        /// string 转换为其他格式数据
+        /// 如："1,2,3,,4" => new int[] { 1,2,3,4 }
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="str">str</param>
+        /// <returns></returns>
+        public static T[] SplitArray<T>(this string str) => SplitArray<T>(str, new[] { ',' });
+
+        /// <summary>
+        /// string 转换为其他格式数据
+        /// 如："1,2,3,,4" => new int[] { 1,2,3,4 }
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="str">str</param>
+        /// <param name="separators">分隔符</param>
+        /// <returns></returns>
+        public static T[] SplitArray<T>(this string str, char[] separators)
+        {
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return new T[0];
+            }
+            return str.Split(separators, StringSplitOptions.RemoveEmptyEntries).Select(_ => _.To<T>()).ToArray();
         }
     }
 }

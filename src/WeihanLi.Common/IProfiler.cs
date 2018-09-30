@@ -22,11 +22,6 @@ namespace WeihanLi.Common
 
     public class StopwatchProfiler : IProfiler
     {
-        /// <summary>
-        /// Instance
-        /// </summary>
-        public static StopwatchProfiler Instance { get; } = new StopwatchProfiler();
-
         private readonly Stopwatch _stopwatch;
 
         private StopwatchProfiler()

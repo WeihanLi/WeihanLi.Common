@@ -24,13 +24,18 @@ namespace DotNetCoreSample
         void Fly();
     }
 
-    internal class MonkeyKing : IFly
+    internal class MonkeyKing : IFly, IDisposable
     {
         public string Name => "MonkeyKing";
 
         public void Fly()
         {
             Console.WriteLine("MonkeyKing is flying");
+        }
+
+        public void Dispose()
+        {
+            Console.WriteLine("MonkeyKing is disposing..");
         }
     }
 

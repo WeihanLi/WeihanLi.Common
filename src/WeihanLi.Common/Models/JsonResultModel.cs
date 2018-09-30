@@ -21,6 +21,16 @@ namespace WeihanLi.Common.Models
         /// ResponseData
         /// </summary>
         public object Result { get; set; }
+
+        public static JsonResultModel<T> Success<T>(T result)
+        {
+            return new JsonResultModel<T>()
+            {
+                ErrorMsg = string.Empty,
+                Status = JsonResultStatus.Success,
+                Result = result
+            };
+        }
     }
 
     /// <summary>
