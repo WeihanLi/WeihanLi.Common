@@ -20,7 +20,7 @@ namespace WeihanLi.Common
     /// </summary>
     public class GuidIdGenerator : IIdGenerator
     {
-        public static GuidIdGenerator Instance { get; } = new GuidIdGenerator();
+        public static readonly GuidIdGenerator Instance = new GuidIdGenerator();
 
         public string NewId() => Guid.NewGuid().ToString("N");
     }

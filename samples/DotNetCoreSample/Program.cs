@@ -13,6 +13,10 @@ namespace DotNetCoreSample
             Console.WriteLine("----------DotNetCoreSample----------");
 
             //var serviceCollection = new ServiceCollection();
+            //serviceCollection.AddScoped<IFly, MonkeyKing>();
+
+            //DependencyResolver.SetDependencyResolver(serviceCollection);
+            //DependencyInjectionTest.Test();
 
             //var builder = new ContainerBuilder();
             //builder.RegisterType<MonkeyKing>().As<IFly>();
@@ -25,6 +29,7 @@ namespace DotNetCoreSample
             //Console.WriteLine(JsonConvert.SerializeObject(a));// output 1
 
             // log test
+            LoggerTest.MainTest();
             //ILoggerFactory loggerFactory = new LoggerFactory();
             //loggerFactory.AddConsole();
             //loggerFactory.AddDebug();
@@ -36,7 +41,7 @@ namespace DotNetCoreSample
 
             //TaskTest.TaskWhenAllTest().GetAwaiter().GetResult();
 
-            Base64UrlEncodeTest.MainTest();
+            //Base64UrlEncodeTest.MainTest();
 
             Console.ReadLine();
         }

@@ -59,19 +59,6 @@ namespace WeihanLi.Common.Helpers
 
 #if NETSTANDARD2_0
 
-        #region AddMicrosoftLogging
-
-        public static void AddMicrosoftLogging(ILoggerFactory loggerFactory)
-        {
-            if (!_isInit)
-            {
-                throw new InvalidOperationException(Resource.LogHelperNotInitialized);
-            }
-            _loggerFactory.AddMicrosoftLogging(loggerFactory);
-        }
-
-        #endregion AddMicrosoftLogging
-
         #region Logger
 
         #region Info

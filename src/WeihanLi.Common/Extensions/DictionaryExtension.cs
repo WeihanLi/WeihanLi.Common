@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
@@ -318,29 +317,18 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a NameValueCollection.</returns>
-        public static NameValueCollection ToNameValueCollection([NotNull]this IDictionary<string, string> @this)
+        public static NameValueCollection ToNameValueCollection(this IDictionary<string, string> @this)
         {
             if (@this == null)
             {
                 return null;
             }
-
             var col = new NameValueCollection();
             foreach (var item in @this)
             {
                 col.Add(item.Key, item.Value);
             }
             return col;
-        }
-
-        /// <summary>
-        ///     An IDictionary extension method that converts the @this to a hashtable.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>@this as a Hashtable.</returns>
-        public static Hashtable ToHashtable([NotNull]this IDictionary @this)
-        {
-            return new Hashtable(@this);
         }
 
         /// <summary>

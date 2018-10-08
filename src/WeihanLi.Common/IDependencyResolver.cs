@@ -13,10 +13,10 @@ namespace WeihanLi.Common
         /// <summary>
         /// TryGetService
         /// </summary>
-        /// <param name="servicerType">serviceType</param>
+        /// <param name="serviceType">serviceType</param>
         /// <param name="service">service</param>
         /// <returns>true if successfully get service otherwise false</returns>
-        bool TryGetService(Type servicerType, out object service);
+        bool TryGetService(Type serviceType, out object service);
 
         /// <summary>
         /// GetServices
