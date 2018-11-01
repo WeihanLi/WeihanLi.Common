@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreSample", "samples
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmark", "benchmark", "{E7873908-B10D-4AA8-B2E0-198123026E0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeihanLi.Common.Benchmark", "benchmark\WeihanLi.Common.Benchmark\WeihanLi.Common.Benchmark.csproj", "{FE575EBF-A41F-41AE-A865-E7F2E2FD90B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeihanLi.Common.Benchmark", "benchmark\WeihanLi.Common.Benchmark\WeihanLi.Common.Benchmark.csproj", "{FE575EBF-A41F-41AE-A865-E7F2E2FD90B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeihanLi.Data", "src\WeihanLi.Data\WeihanLi.Data.csproj", "{911AB29A-5607-4CAF-B9FF-A20B0BDDA5B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{FE575EBF-A41F-41AE-A865-E7F2E2FD90B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE575EBF-A41F-41AE-A865-E7F2E2FD90B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE575EBF-A41F-41AE-A865-E7F2E2FD90B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{911AB29A-5607-4CAF-B9FF-A20B0BDDA5B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{911AB29A-5607-4CAF-B9FF-A20B0BDDA5B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{911AB29A-5607-4CAF-B9FF-A20B0BDDA5B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{911AB29A-5607-4CAF-B9FF-A20B0BDDA5B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 		{96ABA64E-FE2A-4103-8C53-C277AE506068} = {80015E01-44D6-4F23-BE7C-820A37074418}
 		{5A45C3FA-1E12-42A0-910E-18A0CF3D288A} = {80015E01-44D6-4F23-BE7C-820A37074418}
 		{FE575EBF-A41F-41AE-A865-E7F2E2FD90B4} = {E7873908-B10D-4AA8-B2E0-198123026E0B}
+		{911AB29A-5607-4CAF-B9FF-A20B0BDDA5B8} = {63395248-E549-4CEA-858B-DEAB098DF7E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {02FEB140-185F-4225-9FBE-BE7005ED6DC9}

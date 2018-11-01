@@ -4,24 +4,18 @@
   <Import Project="copyright.props" />
   <Import Project="repo.props" />
   <PropertyGroup>        
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/WeihanLi/WeihanLi.Common/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageTags>common utility lib libarary extensions</PackageTags>    
-    <Title>WeihanLi.Common</Title>
+    <PackageTags>db database sql data </PackageTags>
+    <Title>WeihanLi.Data</Title>
     <Description>common .netstandard libarary and extensions</Description>
-    <Summary>common .netstandard libarary and extensions</Summary>
+    <PackageSummary>sql data extensions</PackageSummary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
-      add ElasticSearchAppender
-      add string SplitArray extension
+      sql bulk copy extensions for SqlConnection
     </PackageReleaseNotes>    
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <Optimize>true</Optimize>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">True</GeneratePackageOnBuild>
-    <NoWarn>$(NoWarn);1591;DE0003;</NoWarn>
   </PropertyGroup>
 </Project>

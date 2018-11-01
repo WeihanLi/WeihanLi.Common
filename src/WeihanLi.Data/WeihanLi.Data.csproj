@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../../build/data.props" />
+  
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Condition="'$(Configuration)'=='Debug'" Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
+    <PackageReference Condition="'$(Configuration)'=='Release'" Include="WeihanLi.Common" Version ="1.0.10" />
+  </ItemGroup>
+</Project>
