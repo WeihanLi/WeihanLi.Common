@@ -300,21 +300,21 @@ namespace WeihanLi.Extensions
         /// <summary>
         ///     An IDbConnection extension method that ensures that open.
         /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        public static void EnsureOpen([NotNull]this IDbConnection @this)
+        /// <param name="connection">The connection to act on.</param>
+        public static void EnsureOpen([NotNull]this IDbConnection connection)
         {
-            if (@this.State == ConnectionState.Closed)
+            if (connection.State == ConnectionState.Closed)
             {
-                @this.Open();
+                connection.Open();
             }
         }
 
         /// <summary>A DbConnection extension method that queries if a connection is open.</summary>
-        /// <param name="this">The @this to act on.</param>
+        /// <param name="connection">The connection to act on.</param>
         /// <returns>true if a connection is open, false if not.</returns>
-        public static bool IsConnectionOpen([NotNull]this IDbConnection @this)
+        public static bool IsConnectionOpen([NotNull]this IDbConnection connection)
         {
-            return @this.State == ConnectionState.Open;
+            return connection.State == ConnectionState.Open;
         }
 
         #endregion IDbConnection
