@@ -34,7 +34,7 @@ namespace WeihanLi.Common.Helpers
                 foreach (var property in properties)
                 {
                     var sourceProperty = sourceType.GetProperty(property.Name);
-                    if (sourceProperty == null || !property.CanWrite)
+                    if (sourceProperty == null || !sourceProperty.CanRead || !property.CanWrite)
                     {
                         continue;
                     }
@@ -69,7 +69,7 @@ namespace WeihanLi.Common.Helpers
                 foreach (var property in properties)
                 {
                     var sourceProperty = sourceType.GetProperty(property.Name);
-                    if (sourceProperty == null || !property.CanWrite)
+                    if (sourceProperty == null || !sourceProperty.CanRead || !property.CanWrite)
                     {
                         continue;
                     }
@@ -107,7 +107,7 @@ namespace WeihanLi.Common.Helpers
                 foreach (var property in properties)
                 {
                     var sourceProperty = sourceType.GetProperty(property.Name);
-                    if (sourceProperty == null || !property.CanWrite)
+                    if (sourceProperty == null || !sourceProperty.CanRead || !property.CanWrite)
                     {
                         continue;
                     }
