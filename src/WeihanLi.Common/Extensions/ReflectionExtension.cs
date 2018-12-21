@@ -2,8 +2,10 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using JetBrains.Annotations;
+using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -86,7 +88,7 @@ namespace WeihanLi.Extensions
             var type = @this.GetType();
             var field = type.GetField(fieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
 
-            return field.GetValue(@this);
+            return field?.GetValue(@this);
         }
 
         /// <summary>
@@ -155,7 +157,7 @@ namespace WeihanLi.Extensions
         /// <returns>An array of property information.</returns>
         public static PropertyInfo[] GetProperties([NotNull]this object @this)
         {
-            return @this.GetType().GetProperties();
+            return CacheUtil.TypePropertyCache.GetOrAdd(@this.GetType(), type => type.GetProperties());
         }
 
         /// <summary>An object extension method that gets the properties.</summary>
@@ -311,7 +313,32 @@ namespace WeihanLi.Extensions
         {
             var type = @this.GetType();
             var property = type.GetProperty(propertyName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
-            property.SetValue(@this, value, null);
+            property?.SetValue(@this, value, null);
+        }
+
+        public static Func<T, object> GetValueGetter<T>(this PropertyInfo propertyInfo)
+        {
+            if (typeof(T) != propertyInfo.DeclaringType)
+            {
+                throw new ArgumentException();
+            }
+
+            var instance = Expression.Parameter(propertyInfo.DeclaringType, "i");
+            var property = Expression.Property(instance, propertyInfo);
+            var convert = Expression.TypeAs(property, typeof(object));
+            return (Func<T, object>)Expression.Lambda(convert, instance).Compile();
+        }
+
+        public static Action<T, object> GetValueSetter<T>(this PropertyInfo propertyInfo)
+        {
+            if (typeof(T) != propertyInfo.DeclaringType)
+            {
+                throw new ArgumentException();
+            }
+            var instance = Expression.Parameter(propertyInfo.DeclaringType, "i");
+            var argument = Expression.Parameter(typeof(object), "a");
+            var setterCall = Expression.Call(instance, propertyInfo.GetSetMethod(), Expression.Convert(argument, propertyInfo.PropertyType));
+            return (Action<T, object>)Expression.Lambda(setterCall, instance, argument).Compile();
         }
 
         public static bool HasEmptyConstructor<T>([NotNull]this T @this)
