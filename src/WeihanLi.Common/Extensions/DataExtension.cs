@@ -647,6 +647,24 @@ ORDER BY c.[column_id];", new { tableName });
             return func(@this.ExecuteScalar());
         }
 
+        private static DbCommand GetDbCommand([NotNull]this DbConnection conn, string cmdText, CommandType commandType = CommandType.Text, object paramInfo = null, DbParameter[] parameters = null, DbTransaction transaction = null, int commandTimeout = 60)
+        {
+            conn.EnsureOpen();
+            var command = conn.CreateCommand();
+
+            command.CommandText = cmdText;
+            command.CommandType = commandType;
+            command.Transaction = transaction;
+            command.CommandTimeout = commandTimeout;
+
+            if (parameters != null)
+            {
+                command.Parameters.AddRange(parameters);
+            }
+            command.AttachDbParameters(paramInfo);
+            return command;
+        }
+
         #endregion DbCommand
 
         #region DbParameter
