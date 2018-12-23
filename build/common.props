@@ -7,15 +7,15 @@
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/WeihanLi/WeihanLi.Common/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>common utility lib libarary extensions</PackageTags>    
     <Title>WeihanLi.Common</Title>
     <Description>common .netstandard libarary and extensions</Description>
     <Summary>common .netstandard libarary and extensions</Summary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
-      add ElasticSearchAppender
-      add string SplitArray extension
+      update db extensions
+      optimize performance for mapping
     </PackageReleaseNotes>    
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>

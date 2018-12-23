@@ -7,7 +7,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/WeihanLi/WeihanLi.Common/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>db database sql data </PackageTags>
     <Title>WeihanLi.Data</Title>
     <Description>common .netstandard libarary and extensions</Description>
