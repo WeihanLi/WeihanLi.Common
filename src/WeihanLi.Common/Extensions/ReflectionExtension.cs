@@ -228,7 +228,7 @@ namespace WeihanLi.Extensions
             var type = @this.GetType();
             var property = type.GetProperty(propertyName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
 
-            return property.GetValue(@this, null);
+            return property.GetValueGetter<T>().Invoke(@this);
         }
 
         /// <summary>
@@ -313,7 +313,7 @@ namespace WeihanLi.Extensions
         {
             var type = @this.GetType();
             var property = type.GetProperty(propertyName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
-            property?.SetValue(@this, value, null);
+            property?.GetValueSetter<T>().Invoke(@this, value);
         }
 
         public static Func<T, object> GetValueGetter<T>(this PropertyInfo propertyInfo)
@@ -322,11 +322,13 @@ namespace WeihanLi.Extensions
             {
                 throw new ArgumentException();
             }
-
-            var instance = Expression.Parameter(propertyInfo.DeclaringType, "i");
-            var property = Expression.Property(instance, propertyInfo);
-            var convert = Expression.TypeAs(property, typeof(object));
-            return (Func<T, object>)Expression.Lambda(convert, instance).Compile();
+            return PropertyInfoCache<T>.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
+            {
+                var instance = Expression.Parameter(prop.DeclaringType, "i");
+                var property = Expression.Property(instance, prop);
+                var convert = Expression.TypeAs(property, typeof(object));
+                return (Func<T, object>)Expression.Lambda(convert, instance).Compile();
+            });
         }
 
         public static Action<T, object> GetValueSetter<T>(this PropertyInfo propertyInfo)
@@ -335,10 +337,35 @@ namespace WeihanLi.Extensions
             {
                 throw new ArgumentException();
             }
-            var instance = Expression.Parameter(propertyInfo.DeclaringType, "i");
-            var argument = Expression.Parameter(typeof(object), "a");
-            var setterCall = Expression.Call(instance, propertyInfo.GetSetMethod(), Expression.Convert(argument, propertyInfo.PropertyType));
-            return (Action<T, object>)Expression.Lambda(setterCall, instance, argument).Compile();
+            return PropertyInfoCache<T>.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
+            {
+                var instance = Expression.Parameter(prop.DeclaringType, "i");
+                var argument = Expression.Parameter(typeof(object), "a");
+                var setterCall = Expression.Call(instance, prop.GetSetMethod(), Expression.Convert(argument, prop.PropertyType));
+                return (Action<T, object>)Expression.Lambda(setterCall, instance, argument).Compile();
+            });
+        }
+
+        public static Func<object, object> GetValueGetter(this PropertyInfo propertyInfo)
+        {
+            return CacheUtil.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
+            {
+                var instance = Expression.Parameter(prop.DeclaringType, "i");
+                var property = Expression.Property(instance, prop);
+                var convert = Expression.TypeAs(property, typeof(object));
+                return (Func<object, object>)Expression.Lambda(convert, instance).Compile();
+            });
+        }
+
+        public static Action<object, object> GetValueSetter(this PropertyInfo propertyInfo)
+        {
+            return CacheUtil.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
+            {
+                var instance = Expression.Parameter(prop.DeclaringType, "i");
+                var argument = Expression.Parameter(typeof(object), "a");
+                var setterCall = Expression.Call(instance, prop.GetSetMethod(), Expression.Convert(argument, prop.PropertyType));
+                return (Action<object, object>)Expression.Lambda(setterCall, instance, argument).Compile();
+            });
         }
 
         public static bool HasEmptyConstructor<T>([NotNull]this T @this)

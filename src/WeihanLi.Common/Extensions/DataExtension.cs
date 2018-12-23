@@ -6,12 +6,12 @@ using System.Data.Common;
 #if NET45
 
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 #endif
 
 using System.Dynamic;
 using System.Linq;
-using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
@@ -38,7 +38,7 @@ namespace WeihanLi.Extensions
                 var row = dataTable.NewRow();
                 foreach (var property in properties)
                 {
-                    row[property.Name] = property.GetValue(item);
+                    row[property.Name] = property.GetValueGetter<T>().Invoke(item);
                 }
                 dataTable.Rows.Add(row);
             }
@@ -64,7 +64,7 @@ namespace WeihanLi.Extensions
                 {
                     if (@this.Columns.Contains(property.Name))
                     {
-                        property.SetValue(entity, dr[property.Name].ToOrDefault(property.PropertyType), null);
+                        property.GetValueSetter<T>().Invoke(entity, dr[property.Name]);
                     }
                 }
 
@@ -132,7 +132,7 @@ namespace WeihanLi.Extensions
             {
                 if (@this.Table.Columns.Contains(property.Name))
                 {
-                    property.SetValue(entity, @this[property.Name].ToOrDefault(property.PropertyType), null);
+                    property.GetValueSetter<T>().Invoke(entity, @this[property.Name]);
                 }
             }
 
@@ -196,7 +196,7 @@ namespace WeihanLi.Extensions
                 {
                     if (hash.Contains(property.Name))
                     {
-                        property.SetValue(entity, @this[property.Name].ToOrDefault(property.PropertyType), null);
+                        property.GetValueSetter<T>().Invoke(entity, @this[property.Name]);
                     }
                 }
 
@@ -215,8 +215,7 @@ namespace WeihanLi.Extensions
             using (@this)
             {
                 var type = typeof(T);
-                var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
-                var fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
+                var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
 
                 var entity = new T();
 
@@ -228,20 +227,13 @@ namespace WeihanLi.Extensions
                     {
                         if (hash.Contains(property.Name))
                         {
-                            property.SetValue(entity, @this[property.Name].ToOrDefault(property.PropertyType), null);
-                        }
-                    }
-                    foreach (var field in fields)
-                    {
-                        if (hash.Contains(field.Name))
-                        {
-                            field.SetValue(entity, @this[field.Name].ToOrDefault(field.FieldType));
+                            property.GetValueSetter<T>().Invoke(entity, @this[property.Name]);
                         }
                     }
 
                     return entity;
                 }
-                catch (InvalidOperationException)
+                catch (InvalidOperationException e)
                 {
                     return default(T);
                 }
@@ -393,7 +385,9 @@ ORDER BY c.[column_id];", new { tableName });
 
         #region SqlConnection
 
-        public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName)
+        public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName) => BulkCopy<T>(conn, list, tableName, 60);
+
+        public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName, int bulkCopyTimeout)
         {
             if (list == null || list.Count == 0)
             {
@@ -412,10 +406,12 @@ ORDER BY c.[column_id];", new { tableName });
                 }
                 dataTable.Rows.Add(row);
             }
-            return conn.BulkCopy(dataTable, tableName);
+            return conn.BulkCopy(dataTable, tableName, bulkCopyTimeout);
         }
 
-        public static async Task<int> BulkCopyAsync<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName)
+        public static Task<int> BulkCopyAsync<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName) => BulkCopyAsync(conn, list, tableName, 60);
+
+        public static async Task<int> BulkCopyAsync<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName, int bulkCopyTimeout)
         {
             if (list == null || list.Count == 0)
             {
@@ -434,7 +430,7 @@ ORDER BY c.[column_id];", new { tableName });
                 }
                 dataTable.Rows.Add(row);
             }
-            return await conn.BulkCopyAsync(dataTable, tableName);
+            return await conn.BulkCopyAsync(dataTable, tableName, bulkCopyTimeout);
         }
 
         /// <summary>
@@ -443,7 +439,9 @@ ORDER BY c.[column_id];", new { tableName });
         /// <param name="conn">数据库连接</param>
         /// <param name="dataTable">dataTable</param>
         /// <returns></returns>
-        public static int BulkCopy([NotNull]this SqlConnection conn, DataTable dataTable) => BulkCopy(conn, dataTable, dataTable.TableName);
+        public static int BulkCopy([NotNull]this SqlConnection conn, DataTable dataTable) => BulkCopy(conn, dataTable, 60);
+
+        public static int BulkCopy([NotNull]this SqlConnection conn, DataTable dataTable, int bulkCopyTimeout) => BulkCopy(conn, dataTable, dataTable.TableName, bulkCopyTimeout);
 
         /// <summary>
         /// BulkCopy
@@ -452,7 +450,9 @@ ORDER BY c.[column_id];", new { tableName });
         /// <param name="dataTable">dataTable</param>
         /// <param name="destinationTableName">目标表</param>
         /// <returns></returns>
-        public static int BulkCopy([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName) => BulkCopy(conn, dataTable, destinationTableName, 1000);
+        public static int BulkCopy([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName) => BulkCopy(conn, dataTable, destinationTableName, 60);
+
+        public static int BulkCopy([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName, int bulkCopyTimeout) => BulkCopy(conn, dataTable, destinationTableName, 1000, bulkCopyTimeout: bulkCopyTimeout);
 
         /// <summary>
         /// BulkCopy
@@ -463,7 +463,7 @@ ORDER BY c.[column_id];", new { tableName });
         /// <param name="batchSize">批量处理数量</param>
         /// <param name="columnMappings">columnMappings</param>
         /// <returns></returns>
-        public static int BulkCopy([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string> columnMappings = null)
+        public static int BulkCopy([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string> columnMappings = null, int bulkCopyTimeout = 60)
         {
             conn.EnsureOpen();
             using (var bulkCopy = new SqlBulkCopy(conn))
@@ -484,6 +484,7 @@ ORDER BY c.[column_id];", new { tableName });
                 }
 
                 bulkCopy.BatchSize = batchSize;
+                bulkCopy.BulkCopyTimeout = bulkCopyTimeout;
                 bulkCopy.DestinationTableName = destinationTableName;
                 bulkCopy.WriteToServer(dataTable);
                 return 1;
@@ -496,7 +497,9 @@ ORDER BY c.[column_id];", new { tableName });
         /// <param name="conn">数据库连接</param>
         /// <param name="dataTable">dataTable</param>
         /// <returns></returns>
-        public static Task<int> BulkCopyAsync([NotNull]this SqlConnection conn, DataTable dataTable) => BulkCopyAsync(conn, dataTable, dataTable.TableName);
+        public static Task<int> BulkCopyAsync([NotNull]this SqlConnection conn, DataTable dataTable) => BulkCopyAsync(conn, dataTable, dataTable.TableName, 60);
+
+        public static Task<int> BulkCopyAsync([NotNull]this SqlConnection conn, DataTable dataTable, int bulkCopyTimeout) => BulkCopyAsync(conn, dataTable, dataTable.TableName);
 
         /// <summary>
         /// BulkCopyAsync
@@ -505,7 +508,9 @@ ORDER BY c.[column_id];", new { tableName });
         /// <param name="dataTable">dataTable</param>
         /// <param name="destinationTableName">目标表</param>
         /// <returns></returns>
-        public static Task<int> BulkCopyAsync([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName) => BulkCopyAsync(conn, dataTable, destinationTableName, 1000);
+        public static Task<int> BulkCopyAsync([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName) => BulkCopyAsync(conn, dataTable, destinationTableName, 1000, bulkCopyTimeout: 60);
+
+        public static Task<int> BulkCopyAsync([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName, int bulkCopyTimeout) => BulkCopyAsync(conn, dataTable, destinationTableName, 1000, bulkCopyTimeout: bulkCopyTimeout);
 
         /// <summary>
         /// BulkCopyAsync
@@ -516,7 +521,7 @@ ORDER BY c.[column_id];", new { tableName });
         /// <param name="batchSize">批量处理数量</param>
         /// <param name="columnMappings">columnMappings</param>
         /// <returns></returns>
-        public static async Task<int> BulkCopyAsync([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string> columnMappings = null)
+        public static async Task<int> BulkCopyAsync([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string> columnMappings = null, int bulkCopyTimeout = 60)
         {
             await conn.EnsureOpenAsync();
             using (var bulkCopy = new SqlBulkCopy(conn))
@@ -537,6 +542,7 @@ ORDER BY c.[column_id];", new { tableName });
                 }
 
                 bulkCopy.BatchSize = batchSize;
+                bulkCopy.BulkCopyTimeout = bulkCopyTimeout;
                 bulkCopy.DestinationTableName = destinationTableName;
                 await bulkCopy.WriteToServerAsync(dataTable);
                 return 1;
@@ -657,7 +663,7 @@ ORDER BY c.[column_id];", new { tableName });
         {
             if (paramInfo != null)
             {
-                if (paramInfo.IsValueTuple())
+                if (paramInfo.IsValueTuple())// Tuple
                 {
                     var fields = paramInfo.GetFields();
                     foreach (var field in fields)
@@ -671,13 +677,13 @@ ORDER BY c.[column_id];", new { tableName });
                         {
                             var param = command.CreateParameter();
                             param.ParameterName = GetParameterName(field.Name);
-                            param.Value = field.GetValue(paramInfo);
+                            param.Value = field.GetValue(paramInfo) ?? DBNull.Value;
                             param.DbType = field.FieldType.ToDbType();
                             command.Parameters.Add(param);
                         }
                     }
                 }
-                else if (paramInfo is IDictionary<string, object> paramDictionary)
+                else if (paramInfo is IDictionary<string, object> paramDictionary) // dictionary
                 {
                     foreach (var property in paramDictionary.Keys)
                     {
@@ -692,15 +698,15 @@ ORDER BY c.[column_id];", new { tableName });
                         {
                             var param = command.CreateParameter();
                             param.ParameterName = GetParameterName(property);
-                            param.Value = paramDictionary[property];
+                            param.Value = paramDictionary[property] ?? DBNull.Value;
                             param.DbType = param.Value.GetType().ToDbType();
                             command.Parameters.Add(param);
                         }
                     }
                 }
-                else
+                else // get properties
                 {
-                    var properties = paramInfo.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+                    var properties = paramInfo.GetProperties();
                     foreach (var property in properties)
                     {
                         if (command.Parameters.ContainsParam(property.Name)
@@ -712,7 +718,7 @@ ORDER BY c.[column_id];", new { tableName });
                         {
                             var param = command.CreateParameter();
                             param.ParameterName = GetParameterName(property.Name);
-                            param.Value = property.GetValue(paramInfo);
+                            param.Value = property.GetValueGetter().Invoke(paramInfo) ?? DBNull.Value;
                             param.DbType = property.PropertyType.ToDbType();
                             command.Parameters.Add(param);
                         }
