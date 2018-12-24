@@ -235,6 +235,7 @@ namespace WeihanLi.Extensions
                 }
                 catch (InvalidOperationException e)
                 {
+                    Console.WriteLine(e);
                     return default(T);
                 }
             }
