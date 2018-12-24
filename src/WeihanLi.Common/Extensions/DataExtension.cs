@@ -64,7 +64,7 @@ namespace WeihanLi.Extensions
                 {
                     if (@this.Columns.Contains(property.Name))
                     {
-                        property.GetValueSetter<T>().Invoke(entity, dr[property.Name]);
+                        property.GetValueSetter<T>().Invoke(entity, dr[property.Name] == DBNull.Value ? null : dr[property.Name]);
                     }
                 }
 
@@ -132,7 +132,7 @@ namespace WeihanLi.Extensions
             {
                 if (@this.Table.Columns.Contains(property.Name))
                 {
-                    property.GetValueSetter<T>().Invoke(entity, @this[property.Name]);
+                    property.GetValueSetter<T>().Invoke(entity, @this[property.Name] == DBNull.Value ? null : @this[property.Name]);
                 }
             }
 
@@ -196,7 +196,7 @@ namespace WeihanLi.Extensions
                 {
                     if (hash.Contains(property.Name))
                     {
-                        property.GetValueSetter<T>().Invoke(entity, @this[property.Name]);
+                        property.GetValueSetter<T>().Invoke(entity, @this[property.Name] == DBNull.Value ? null : @this[property.Name]);
                     }
                 }
 
@@ -227,7 +227,7 @@ namespace WeihanLi.Extensions
                     {
                         if (hash.Contains(property.Name))
                         {
-                            property.GetValueSetter<T>().Invoke(entity, @this[property.Name]);
+                            property.GetValueSetter<T>().Invoke(entity, @this[property.Name] == DBNull.Value ? null : @this[property.Name]);
                         }
                     }
 
