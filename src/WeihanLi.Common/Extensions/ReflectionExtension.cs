@@ -176,9 +176,9 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="name">The name.</param>
         /// <returns>The property.</returns>
-        public static PropertyInfo GetProperty<T>([NotNull]this T @this, string name)
+        public static PropertyInfo GetProperty<T>([NotNull]this T @this, [NotNull]string name)
         {
-            return @this.GetType().GetProperty(name);
+            return CacheUtil.TypePropertyCache.GetOrAdd(@this.GetType(), type => type.GetProperties()).FirstOrDefault(_ => _.Name == name);
         }
 
         /// <summary>
@@ -225,8 +225,7 @@ namespace WeihanLi.Extensions
         /// <returns>The property value.</returns>
         public static object GetPropertyValue<T>([NotNull]this T @this, string propertyName)
         {
-            var type = @this.GetType();
-            var property = type.GetProperty(propertyName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+            var property = @this.GetProperty(propertyName);
 
             return property.GetValueGetter<T>().Invoke(@this);
         }
@@ -244,7 +243,7 @@ namespace WeihanLi.Extensions
             var type = obj.GetType();
             var method = type.GetMethod(methodName, parameters.Select(o => o.GetType()).ToArray());
 
-            return method.Invoke(obj, parameters);
+            return method?.Invoke(obj, parameters);
         }
 
         /// <summary>
@@ -260,7 +259,7 @@ namespace WeihanLi.Extensions
             var type = obj.GetType();
             var method = type.GetMethod(methodName, parameters.Select(o => o.GetType()).ToArray());
 
-            var value = method.Invoke(obj, parameters);
+            var value = method?.Invoke(obj, parameters);
             return value.ToOrDefault<T>();
         }
 
@@ -299,7 +298,7 @@ namespace WeihanLi.Extensions
         {
             var type = @this.GetType();
             var field = type.GetField(fieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
-            field.SetValue(@this, value);
+            field?.SetValue(@this, value);
         }
 
         /// <summary>
@@ -311,14 +310,13 @@ namespace WeihanLi.Extensions
         /// <param name="value">The value.</param>
         public static void SetPropertyValue<T>([NotNull]this T @this, string propertyName, object value)
         {
-            var type = @this.GetType();
-            var property = type.GetProperty(propertyName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+            var property = @this.GetProperty(propertyName);
             property?.GetValueSetter<T>().Invoke(@this, value);
         }
 
         public static Func<T, object> GetValueGetter<T>(this PropertyInfo propertyInfo)
         {
-            if (typeof(T) != propertyInfo.DeclaringType)
+            if (typeof(T) != propertyInfo?.DeclaringType)
             {
                 throw new ArgumentException();
             }
@@ -333,7 +331,7 @@ namespace WeihanLi.Extensions
 
         public static Action<T, object> GetValueSetter<T>(this PropertyInfo propertyInfo)
         {
-            if (typeof(T) != propertyInfo.DeclaringType)
+            if (typeof(T) != propertyInfo?.DeclaringType)
             {
                 throw new ArgumentException();
             }
@@ -350,21 +348,11 @@ namespace WeihanLi.Extensions
         {
             return CacheUtil.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
             {
-                var instance = Expression.Parameter(prop.DeclaringType, "i");
-                var property = Expression.Property(instance, prop);
-                var convert = Expression.TypeAs(property, typeof(object));
-                return (Func<object, object>)Expression.Lambda(convert, instance).Compile();
-            });
-        }
+                var instance = Expression.Parameter(typeof(object), "obj");
+                var getterCall = Expression.Call(Expression.TypeAs(instance, prop.DeclaringType), prop.GetGetMethod());
+                var castToObject = Expression.Convert(getterCall, typeof(object));
 
-        public static Action<object, object> GetValueSetter(this PropertyInfo propertyInfo)
-        {
-            return CacheUtil.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
-            {
-                var instance = Expression.Parameter(prop.DeclaringType, "i");
-                var argument = Expression.Parameter(typeof(object), "a");
-                var setterCall = Expression.Call(instance, prop.GetSetMethod(), Expression.Convert(argument, prop.PropertyType));
-                return (Action<object, object>)Expression.Lambda(setterCall, instance, argument).Compile();
+                return (Func<object, object>)Expression.Lambda(castToObject, instance).Compile();
             });
         }
 

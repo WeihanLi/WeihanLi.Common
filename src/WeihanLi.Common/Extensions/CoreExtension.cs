@@ -2730,7 +2730,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">this.</param>
         /// <returns>The given data converted to a T.</returns>
-        public static T ToOrDefault<T>([NotNull]this object @this)
+        public static T ToOrDefault<T>([CanBeNull]this object @this)
         {
             return @this.ToOrDefault(x => default(T));
         }
@@ -2742,7 +2742,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">this.</param>
         /// <param name="defaultValue">The default value.</param>
         /// <returns>The given data converted to a T.</returns>
-        public static T ToOrDefault<T>([NotNull]this object @this, T defaultValue)
+        public static T ToOrDefault<T>([CanBeNull]this object @this, T defaultValue)
         {
             return @this.ToOrDefault(x => defaultValue);
         }
@@ -2780,7 +2780,7 @@ namespace WeihanLi.Extensions
         /// <returns>The @this acted on.</returns>
         public static T Chain<T>([NotNull]this T @this, Action<T> action)
         {
-            action(@this);
+            action.Invoke(@this);
 
             return @this;
         }

@@ -13,7 +13,7 @@ namespace WeihanLi.Data
     {
         #region SqlConnection
 
-        public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName) => BulkCopy<T>(conn, list, tableName, 60);
+        public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName) => BulkCopy(conn, list, tableName, 60);
 
         public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName, int bulkCopyTimeout)
         {
@@ -30,7 +30,7 @@ namespace WeihanLi.Data
                 var row = dataTable.NewRow();
                 foreach (DataColumn col in dataTable.Columns)
                 {
-                    row[col] = props.FirstOrDefault(_ => _.Name.EqualsIgnoreCase(col.ColumnName)).GetValue(item);
+                    row[col] = props.FirstOrDefault(_ => _.Name.EqualsIgnoreCase(col.ColumnName))?.GetValue(item);
                 }
                 dataTable.Rows.Add(row);
             }
@@ -54,7 +54,7 @@ namespace WeihanLi.Data
                 var row = dataTable.NewRow();
                 foreach (DataColumn col in dataTable.Columns)
                 {
-                    row[col] = props.FirstOrDefault(_ => _.Name.EqualsIgnoreCase(col.ColumnName)).GetValue(item);
+                    row[col] = props.FirstOrDefault(_ => _.Name.EqualsIgnoreCase(col.ColumnName))?.GetValue(item);
                 }
                 dataTable.Rows.Add(row);
             }

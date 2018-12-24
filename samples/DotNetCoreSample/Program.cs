@@ -1,5 +1,9 @@
 ﻿using System;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Extensions;
 
 namespace DotNetCoreSample
 {
@@ -12,10 +16,15 @@ namespace DotNetCoreSample
             // ReSharper disable once LocalizableElement
             Console.WriteLine("----------DotNetCoreSample----------");
 
-            //var serviceCollection = new ServiceCollection();
-            //serviceCollection.AddScoped<IFly, MonkeyKing>();
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddScoped<IFly, MonkeyKing>();
+            IConfiguration configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
+            serviceCollection.AddSingleton(configuration);
 
-            //DependencyResolver.SetDependencyResolver(serviceCollection);
+            DependencyResolver.SetDependencyResolver(serviceCollection);
+
             //DependencyInjectionTest.Test();
 
             //var builder = new ContainerBuilder();
@@ -29,7 +38,7 @@ namespace DotNetCoreSample
             //Console.WriteLine(JsonConvert.SerializeObject(a));// output 1
 
             // log test
-            LoggerTest.MainTest();
+            // LoggerTest.MainTest();
             //ILoggerFactory loggerFactory = new LoggerFactory();
             //loggerFactory.AddConsole();
             //loggerFactory.AddDebug();
@@ -37,12 +46,15 @@ namespace DotNetCoreSample
             //var logger = new Logger<Program>(loggerFactory);
             //logger.LogInformation("Logging information from Microsoft.Extensions.Logging");
 
-            //InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
+            InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
 
             //TaskTest.TaskWhenAllTest().GetAwaiter().GetResult();
 
             //Base64UrlEncodeTest.MainTest();
 
+            var a = new { Name = "2123" };
+            var name = a.GetProperty("Name").GetValueGetter().Invoke(a);
+            Console.WriteLine(name);
             Console.ReadLine();
         }
     }
