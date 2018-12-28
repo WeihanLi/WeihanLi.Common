@@ -45,6 +45,16 @@ namespace WeihanLi.Extensions
             return dataTable;
         }
 
+        private static object GetValueFromDb(this object obj)
+        {
+            if (obj == null || obj == DBNull.Value)
+            {
+                return null;
+            }
+
+            return obj;
+        }
+
         /// <summary>
         ///     Enumerates to entities in this collection.
         /// </summary>
@@ -59,15 +69,28 @@ namespace WeihanLi.Extensions
             foreach (DataRow dr in @this.Rows)
             {
                 var entity = new T();
-
-                foreach (var property in properties)
+                if (type.IsValueType)
                 {
-                    if (@this.Columns.Contains(property.Name))
+                    var obj = (object)entity;
+                    foreach (var property in properties)
                     {
-                        property.GetValueSetter<T>().Invoke(entity, dr[property.Name] == DBNull.Value ? null : dr[property.Name]);
+                        if (@this.Columns.Contains(property.Name))
+                        {
+                            property.GetValueSetter().Invoke(obj, dr[property.Name].GetValueFromDb());
+                        }
+                    }
+                    entity = (T)obj;
+                }
+                else
+                {
+                    foreach (var property in properties)
+                    {
+                        if (@this.Columns.Contains(property.Name))
+                        {
+                            property.GetValueSetter().Invoke(entity, dr[property.Name].GetValueFromDb());
+                        }
                     }
                 }
-
                 yield return entity;
             }
         }
@@ -119,20 +142,35 @@ namespace WeihanLi.Extensions
         ///     A DataRow extension method that converts the @this to the entities.
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
+        /// <param name="dr">The @this to act on.</param>
         /// <returns>@this as a T.</returns>
-        public static T ToEntity<T>([NotNull]this DataRow @this) where T : new()
+        public static T ToEntity<T>([NotNull]this DataRow dr) where T : new()
         {
             var type = typeof(T);
             var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
 
             var entity = new T();
 
-            foreach (var property in properties)
+            if (type.IsValueType)
             {
-                if (@this.Table.Columns.Contains(property.Name))
+                var obj = (object)entity;
+                foreach (var property in properties)
                 {
-                    property.GetValueSetter<T>().Invoke(entity, @this[property.Name] == DBNull.Value ? null : @this[property.Name]);
+                    if (dr.Table.Columns.Contains(property.Name))
+                    {
+                        property.GetValueSetter().Invoke(obj, dr[property.Name].GetValueFromDb());
+                    }
+                }
+                entity = (T)obj;
+            }
+            else
+            {
+                foreach (var property in properties)
+                {
+                    if (dr.Table.Columns.Contains(property.Name))
+                    {
+                        property.GetValueSetter().Invoke(entity, dr[property.Name].GetValueFromDb());
+                    }
                 }
             }
 
@@ -192,11 +230,26 @@ namespace WeihanLi.Extensions
             {
                 var entity = new T();
 
-                foreach (var property in properties)
+                if (type.IsValueType)
                 {
-                    if (hash.Contains(property.Name))
+                    var obj = (object)entity;
+                    foreach (var property in properties)
                     {
-                        property.GetValueSetter<T>().Invoke(entity, @this[property.Name] == DBNull.Value ? null : @this[property.Name]);
+                        if (hash.Contains(property.Name))
+                        {
+                            property.GetValueSetter().Invoke(obj, @this[property.Name].GetValueFromDb());
+                        }
+                    }
+                    entity = (T)obj;
+                }
+                else
+                {
+                    foreach (var property in properties)
+                    {
+                        if (hash.Contains(property.Name))
+                        {
+                            property.GetValueSetter().Invoke(entity, @this[property.Name].GetValueFromDb());
+                        }
                     }
                 }
 
@@ -223,11 +276,26 @@ namespace WeihanLi.Extensions
                     .Select(@this.GetName));
                 try
                 {
-                    foreach (var property in properties)
+                    if (type.IsValueType)
                     {
-                        if (hash.Contains(property.Name))
+                        var obj = (object)entity;
+                        foreach (var property in properties)
                         {
-                            property.GetValueSetter<T>().Invoke(entity, @this[property.Name] == DBNull.Value ? null : @this[property.Name]);
+                            if (hash.Contains(property.Name))
+                            {
+                                property.GetValueSetter().Invoke(obj, @this[property.Name].GetValueFromDb());
+                            }
+                        }
+                        entity = (T)obj;
+                    }
+                    else
+                    {
+                        foreach (var property in properties)
+                        {
+                            if (hash.Contains(property.Name))
+                            {
+                                property.GetValueSetter().Invoke(entity, @this[property.Name].GetValueFromDb());
+                            }
                         }
                     }
 

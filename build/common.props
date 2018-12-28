@@ -20,7 +20,7 @@
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <Optimize>true</Optimize>
+    <Optimize Condition="'$(Configuration)'=='Release'">true</Optimize>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">True</GeneratePackageOnBuild>
     <NoWarn>$(NoWarn);1591;DE0003;</NoWarn>
   </PropertyGroup>

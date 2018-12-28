@@ -55,7 +55,26 @@ namespace DotNetCoreSample
             var a = new { Name = "2123" };
             var name = a.GetProperty("Name").GetValueGetter().Invoke(a);
             Console.WriteLine(name);
+
+            var structTest = new TestStruct() { Name = "1233" };
+            var obj = (object)structTest;
+            Console.WriteLine(structTest.GetProperty("Name").GetValueGetter<TestStruct>().Invoke(structTest));
+            structTest.GetProperty("Name").GetValueSetter().Invoke(obj, "Name1");
+            structTest = (TestStruct)obj;
+
+            Console.WriteLine(structTest.Name);
+
             Console.ReadLine();
+        }
+
+        private struct TestStruct
+        {
+            public string Name { get; set; }
+        }
+
+        private class TestClass
+        {
+            public string Name { get; set; }
         }
     }
 }
