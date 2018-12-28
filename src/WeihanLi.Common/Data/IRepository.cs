@@ -12,7 +12,19 @@ namespace WeihanLi.Common.Data
     /// <typeparam name="TEntity">Entity type</typeparam>
     public interface IRepository<TEntity>
     {
-        #region Methods
+        /// <summary>
+        /// Count
+        /// </summary>
+        long Count(Expression<Func<TEntity, bool>> whereExpression);
+
+        Task<long> CountAsync(Expression<Func<TEntity, bool>> whereExpression);
+
+        /// <summary>
+        /// Exist
+        /// </summary>
+        bool Exist(Expression<Func<TEntity, bool>> whereExpression);
+
+        Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression);
 
         /// <summary>
         /// Get top 1 entity
@@ -74,7 +86,5 @@ namespace WeihanLi.Common.Data
         int Delete(Expression<Func<TEntity, bool>> whereExpression);
 
         Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression);
-
-        #endregion Methods
     }
 }

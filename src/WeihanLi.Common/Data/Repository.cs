@@ -28,6 +28,56 @@ namespace WeihanLi.Common.Data
                 : EntityType.Name;
         }
 
+        public long Count(Expression<Func<TEntity, bool>> whereExpression)
+        {
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+
+            var sql = $@"
+SELECT COUNT(1) FROM {_tableName}
+{whereSql.SqlText}
+";
+            var total = _dbConnection.ExecuteScalarTo<long>(sql, whereSql.Parameters);
+
+            return total;
+        }
+
+        public Task<long> CountAsync(Expression<Func<TEntity, bool>> whereExpression)
+        {
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+
+            var sql = $@"
+SELECT COUNT(1) FROM {_tableName}
+{whereSql.SqlText}
+";
+            return _dbConnection.ExecuteScalarToAsync<long>(sql, whereSql.Parameters);
+        }
+
+        public bool Exist(Expression<Func<TEntity, bool>> whereExpression)
+        {
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+
+            var sql = $@"
+SELECT TOP(1) 1 FROM {_tableName}
+{whereSql.SqlText}
+";
+            var result = _dbConnection.ExecuteScalarTo<int>(sql, whereSql.Parameters);
+
+            return result == 1;
+        }
+
+        public async Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression)
+        {
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+
+            var sql = $@"
+SELECT TOP(1) 1 FROM {_tableName}
+{whereSql.SqlText}
+";
+            var result = await _dbConnection.ExecuteScalarToAsync<int>(sql, whereSql.Parameters);
+
+            return result == 1;
+        }
+
         public TEntity Fetch(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
@@ -71,13 +121,6 @@ SELECT * FROM {_tableName}
         public PagedListModel<TEntity> Paged<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, int pageIndex, int pageSize)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
-
-            var sql = $@"
-SELECT COUNT(1) FROM {_tableName}
-{whereSql.SqlText}
-";
-            var total = _dbConnection.ExecuteScalarTo<int>(sql, whereSql.Parameters);
-
             if (pageIndex <= 0)
             {
                 pageIndex = 1;
@@ -85,6 +128,15 @@ SELECT COUNT(1) FROM {_tableName}
             if (pageSize <= 0)
             {
                 pageSize = 10;
+            }
+            var sql = $@"
+SELECT COUNT(1) FROM {_tableName}
+{whereSql.SqlText}
+";
+            var total = _dbConnection.ExecuteScalarTo<int>(sql, whereSql.Parameters);
+            if (total == 0)
+            {
+                return new TEntity[0].ToPagedListModel(pageIndex, pageSize, 0);
             }
 
             var offset = (pageIndex - 1) * pageSize;
@@ -103,13 +155,6 @@ FETCH NEXT {pageSize} ROWS ONLY
         public async Task<PagedListModel<TEntity>> PagedAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, int pageIndex, int pageSize)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
-
-            var sql = $@"
-SELECT COUNT(1) FROM {_tableName}
-{whereSql.SqlText}
-";
-            var total = await _dbConnection.ExecuteScalarToAsync<int>(sql, whereSql.Parameters);
-
             if (pageIndex <= 0)
             {
                 pageIndex = 1;
@@ -117,6 +162,15 @@ SELECT COUNT(1) FROM {_tableName}
             if (pageSize <= 0)
             {
                 pageSize = 10;
+            }
+            var sql = $@"
+SELECT COUNT(1) FROM {_tableName}
+{whereSql.SqlText}
+";
+            var total = await _dbConnection.ExecuteScalarToAsync<int>(sql, whereSql.Parameters);
+            if (total == 0)
+            {
+                return new TEntity[0].ToPagedListModel(pageIndex, pageSize, 0);
             }
 
             var offset = (pageIndex - 1) * pageSize;

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Linq.Expressions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WeihanLi.Common;
-using WeihanLi.Common.Data;
 using WeihanLi.Common.Helpers;
 
 namespace DotNetCoreSample
@@ -64,8 +62,10 @@ namespace DotNetCoreSample
             //structTest = (TestStruct)obj;
 
             //Console.WriteLine(structTest.Name);
-            Expression<Func<TestEntity, bool>> exp = t => t.PKID > 0;
-            SqlExpressionParser.ParseWhereExpression(exp);
+            //Expression<Func<TestEntity, bool>> exp = t => t.PKID > 0;
+            //SqlExpressionParser.ParseWhereExpression(exp);
+
+            RepositoryTest.MainTest();
 
             Console.ReadLine();
         }

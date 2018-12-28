@@ -17,7 +17,7 @@ namespace WeihanLi.Common.Data
         {
             var sqlText = new StringBuilder("WHERE 1=1");
             var dic = new Dictionary<string, object>();
-            if (exp.NodeType == ExpressionType.Lambda && exp is LambdaExpression expression)
+            if (exp != null && exp.NodeType == ExpressionType.Lambda && exp is LambdaExpression expression)
             {
                 switch (expression.Body.NodeType)
                 {
