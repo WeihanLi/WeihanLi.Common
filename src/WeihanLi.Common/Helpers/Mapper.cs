@@ -1,13 +1,12 @@
-namespace WeihanLi.Common.Helpers
+﻿namespace WeihanLi.Common.Helpers
 {
-    using System.Collections;
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
-
     using static System.Linq.Expressions.Expression;
 
     /// <summary>
@@ -135,7 +134,6 @@ namespace WeihanLi.Common.Helpers
         /// 类型是clas时赋值
         /// </summary>
         /// <param name="sourceProperty"></param>
-        /// <param name="targetProperty"></param>
         /// <param name="sourceType"></param>
         /// <param name="targetType"></param>
         /// <returns></returns>
@@ -208,7 +206,7 @@ namespace WeihanLi.Common.Helpers
             //创建一个表达式集合
             var expressions = new List<Expression>();
 
-            var targetTypes =  CacheUtil.TypePropertyCache.GetOrAdd(targetType, t => t.GetProperties()).Where(x => x.PropertyType.IsPublic && x.CanWrite);
+            var targetTypes = CacheUtil.TypePropertyCache.GetOrAdd(targetType, t => t.GetProperties()).Where(x => x.PropertyType.IsPublic && x.CanWrite);
             foreach (var targetItem in targetTypes)
             {
                 var sourceItem = sourceType.GetProperty(targetItem.Name);

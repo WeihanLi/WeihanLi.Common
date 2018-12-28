@@ -80,7 +80,7 @@ namespace WeihanLi.Data
         /// <returns></returns>
         public static int BulkCopy([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName) => BulkCopy(conn, dataTable, destinationTableName, 60);
 
-        public static int BulkCopy([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName, int bulkCopyTimeout) => BulkCopy(conn, dataTable, destinationTableName, 1000, bulkCopyTimeout: bulkCopyTimeout);
+        public static int BulkCopy([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName, int bulkCopyTimeout) => BulkCopy(conn, dataTable, destinationTableName, 1000, null, bulkCopyTimeout: bulkCopyTimeout);
 
         /// <summary>
         /// BulkCopy
@@ -90,8 +90,9 @@ namespace WeihanLi.Data
         /// <param name="destinationTableName">目标表名称</param>
         /// <param name="batchSize">批量处理数量</param>
         /// <param name="columnMappings">columnMappings</param>
+        /// <param name="bulkCopyTimeout">bulkCopyTimeout</param>
         /// <returns></returns>
-        public static int BulkCopy([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string> columnMappings = null, int bulkCopyTimeout = 60)
+        public static int BulkCopy([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string> columnMappings, int bulkCopyTimeout = 60)
         {
             conn.EnsureOpen();
             using (var bulkCopy = new SqlBulkCopy(conn))
@@ -136,9 +137,9 @@ namespace WeihanLi.Data
         /// <param name="dataTable">dataTable</param>
         /// <param name="destinationTableName">目标表</param>
         /// <returns></returns>
-        public static Task<int> BulkCopyAsync([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName) => BulkCopyAsync(conn, dataTable, destinationTableName, 1000, bulkCopyTimeout: 60);
+        public static Task<int> BulkCopyAsync([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName) => BulkCopyAsync(conn, dataTable, destinationTableName, bulkCopyTimeout: 60);
 
-        public static Task<int> BulkCopyAsync([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName, int bulkCopyTimeout) => BulkCopyAsync(conn, dataTable, destinationTableName, 1000, bulkCopyTimeout: bulkCopyTimeout);
+        public static Task<int> BulkCopyAsync([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName, int bulkCopyTimeout) => BulkCopyAsync(conn, dataTable, destinationTableName, 1000, null, bulkCopyTimeout: bulkCopyTimeout);
 
         /// <summary>
         /// BulkCopyAsync
@@ -148,8 +149,9 @@ namespace WeihanLi.Data
         /// <param name="destinationTableName">目标表名称</param>
         /// <param name="batchSize">批量处理数量</param>
         /// <param name="columnMappings">columnMappings</param>
+        /// <param name="bulkCopyTimeout">bulkCopyTimeout</param>
         /// <returns></returns>
-        public static async Task<int> BulkCopyAsync([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string> columnMappings = null, int bulkCopyTimeout = 60)
+        public static async Task<int> BulkCopyAsync([NotNull]this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string> columnMappings, int bulkCopyTimeout = 60)
         {
             await conn.EnsureOpenAsync();
             using (var bulkCopy = new SqlBulkCopy(conn))

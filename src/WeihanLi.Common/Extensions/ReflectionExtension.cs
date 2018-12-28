@@ -220,7 +220,7 @@ namespace WeihanLi.Extensions
         {
             var property = @this.GetProperty(propertyName);
 
-            return property.GetValueGetter<T>().Invoke(@this);
+            return property?.GetValueGetter<T>().Invoke(@this);
         }
 
         /// <summary>

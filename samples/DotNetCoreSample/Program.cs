@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Linq.Expressions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WeihanLi.Common;
+using WeihanLi.Common.Data;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Extensions;
 
 namespace DotNetCoreSample
 {
@@ -46,23 +47,25 @@ namespace DotNetCoreSample
             //var logger = new Logger<Program>(loggerFactory);
             //logger.LogInformation("Logging information from Microsoft.Extensions.Logging");
 
-            InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
+            // InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
 
             //TaskTest.TaskWhenAllTest().GetAwaiter().GetResult();
 
             //Base64UrlEncodeTest.MainTest();
 
-            var a = new { Name = "2123" };
-            var name = a.GetProperty("Name").GetValueGetter().Invoke(a);
-            Console.WriteLine(name);
+            //var a = new { Name = "2123" };
+            //var name = a.GetProperty("Name").GetValueGetter().Invoke(a);
+            //Console.WriteLine(name);
 
-            var structTest = new TestStruct() { Name = "1233" };
-            var obj = (object)structTest;
-            Console.WriteLine(structTest.GetProperty("Name").GetValueGetter<TestStruct>().Invoke(structTest));
-            structTest.GetProperty("Name").GetValueSetter().Invoke(obj, "Name1");
-            structTest = (TestStruct)obj;
+            //var structTest = new TestStruct() { Name = "1233" };
+            //var obj = (object)structTest;
+            //Console.WriteLine(structTest.GetProperty("Name").GetValueGetter<TestStruct>().Invoke(structTest));
+            //structTest.GetProperty("Name").GetValueSetter().Invoke(obj, "Name1");
+            //structTest = (TestStruct)obj;
 
-            Console.WriteLine(structTest.Name);
+            //Console.WriteLine(structTest.Name);
+            Expression<Func<TestEntity, bool>> exp = t => t.PKID > 0;
+            SqlExpressionParser.ParseWhereExpression(exp);
 
             Console.ReadLine();
         }
