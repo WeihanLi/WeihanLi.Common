@@ -17,11 +17,11 @@ namespace WeihanLi.Common.Data
         private static readonly Type EntityType = typeof(TEntity);
 
         private readonly string _tableName;
-        private readonly DbConnection _dbConnection;
+        private readonly Lazy<DbConnection> _dbConnection;
 
-        public Repository(DbConnection dbConnection)
+        public Repository(Func<DbConnection> dbConnectionFunc)
         {
-            _dbConnection = dbConnection;
+            _dbConnection = new Lazy<DbConnection>(dbConnectionFunc);
 
             _tableName = EntityType.IsDefined(typeof(TableAttribute))
                 ? EntityType.GetCustomAttribute<TableAttribute>().Name
@@ -36,7 +36,7 @@ namespace WeihanLi.Common.Data
 SELECT COUNT(1) FROM {_tableName}
 {whereSql.SqlText}
 ";
-            var total = _dbConnection.ExecuteScalarTo<long>(sql, whereSql.Parameters);
+            var total = _dbConnection.Value.ExecuteScalarTo<long>(sql, whereSql.Parameters);
 
             return total;
         }
@@ -49,7 +49,7 @@ SELECT COUNT(1) FROM {_tableName}
 SELECT COUNT(1) FROM {_tableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.ExecuteScalarToAsync<long>(sql, whereSql.Parameters);
+            return _dbConnection.Value.ExecuteScalarToAsync<long>(sql, whereSql.Parameters);
         }
 
         public bool Exist(Expression<Func<TEntity, bool>> whereExpression)
@@ -60,7 +60,7 @@ SELECT COUNT(1) FROM {_tableName}
 SELECT TOP(1) 1 FROM {_tableName}
 {whereSql.SqlText}
 ";
-            var result = _dbConnection.ExecuteScalarTo<int>(sql, whereSql.Parameters);
+            var result = _dbConnection.Value.ExecuteScalarTo<int>(sql, whereSql.Parameters);
 
             return result == 1;
         }
@@ -73,7 +73,7 @@ SELECT TOP(1) 1 FROM {_tableName}
 SELECT TOP(1) 1 FROM {_tableName}
 {whereSql.SqlText}
 ";
-            var result = await _dbConnection.ExecuteScalarToAsync<int>(sql, whereSql.Parameters);
+            var result = await _dbConnection.Value.ExecuteScalarToAsync<int>(sql, whereSql.Parameters);
 
             return result == 1;
         }
@@ -85,7 +85,7 @@ SELECT TOP(1) 1 FROM {_tableName}
 SELECT TOP 1 * FROM {_tableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Fetch<TEntity>(sql, whereSql.Parameters);
+            return _dbConnection.Value.Fetch<TEntity>(sql, whereSql.Parameters);
         }
 
         public Task<TEntity> FetchAsync(Expression<Func<TEntity, bool>> whereExpression)
@@ -95,7 +95,7 @@ SELECT TOP 1 * FROM {_tableName}
 SELECT TOP 1 * FROM {_tableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.FetchAsync<TEntity>(sql, whereSql.Parameters);
+            return _dbConnection.Value.FetchAsync<TEntity>(sql, whereSql.Parameters);
         }
 
         public IEnumerable<TEntity> Select(Expression<Func<TEntity, bool>> whereExpression)
@@ -105,7 +105,7 @@ SELECT TOP 1 * FROM {_tableName}
 SELECT * FROM {_tableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Select<TEntity>(sql, whereSql.Parameters);
+            return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters);
         }
 
         public Task<IEnumerable<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> whereExpression)
@@ -115,7 +115,7 @@ SELECT * FROM {_tableName}
 SELECT * FROM {_tableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.SelectAsync<TEntity>(sql, whereSql.Parameters);
+            return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters);
         }
 
         public PagedListModel<TEntity> Paged<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, int pageIndex, int pageSize)
@@ -133,7 +133,7 @@ SELECT * FROM {_tableName}
 SELECT COUNT(1) FROM {_tableName}
 {whereSql.SqlText}
 ";
-            var total = _dbConnection.ExecuteScalarTo<int>(sql, whereSql.Parameters);
+            var total = _dbConnection.Value.ExecuteScalarTo<int>(sql, whereSql.Parameters);
             if (total == 0)
             {
                 return new TEntity[0].ToPagedListModel(pageIndex, pageSize, 0);
@@ -149,7 +149,7 @@ OFFSET {offset} ROWS
 FETCH NEXT {pageSize} ROWS ONLY
 ";
 
-            return _dbConnection.Select<TEntity>(sql, whereSql.Parameters).ToPagedListModel(pageIndex, pageSize, total);
+            return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToPagedListModel(pageIndex, pageSize, total);
         }
 
         public async Task<PagedListModel<TEntity>> PagedAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, int pageIndex, int pageSize)
@@ -167,7 +167,7 @@ FETCH NEXT {pageSize} ROWS ONLY
 SELECT COUNT(1) FROM {_tableName}
 {whereSql.SqlText}
 ";
-            var total = await _dbConnection.ExecuteScalarToAsync<int>(sql, whereSql.Parameters);
+            var total = await _dbConnection.Value.ExecuteScalarToAsync<int>(sql, whereSql.Parameters);
             if (total == 0)
             {
                 return new TEntity[0].ToPagedListModel(pageIndex, pageSize, 0);
@@ -183,7 +183,7 @@ OFFSET {offset} ROWS
 FETCH NEXT {pageSize} ROWS ONLY
 ";
 
-            return (await _dbConnection.SelectAsync<TEntity>(sql, whereSql.Parameters)).ToPagedListModel(pageIndex, pageSize, total);
+            return (await _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters)).ToPagedListModel(pageIndex, pageSize, total);
         }
 
         public int Insert(TEntity entity)
@@ -194,27 +194,21 @@ FETCH NEXT {pageSize} ROWS ONLY
                 .ToArray();
 
             var paramDictionary = new Dictionary<string, object>();
-
-            var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName} (");
-            foreach (var field in fields)
-            {
-                sqlBuilder.AppendLine($"{field},");
-            }
-
-            sqlBuilder.Remove(sqlBuilder.Length - 2, 1);
+            var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName} ");
+            sqlBuilder.AppendLine("(");
+            sqlBuilder.AppendLine($"{fields.Select(_ => _).StringJoin($",{Environment.NewLine}")}");
             sqlBuilder.AppendLine(")");
-            sqlBuilder.AppendLine("VALUES (");
-
+            sqlBuilder.AppendLine("VALUES");
+            sqlBuilder.AppendLine("(");
+            sqlBuilder.AppendLine($"{fields.Select(_ => $"@{_}").StringJoin($",{Environment.NewLine}")}");
+            sqlBuilder.AppendLine(")");
             foreach (var field in fields)
             {
-                sqlBuilder.AppendLine($"@{field},");
                 paramDictionary.Add($"{field}", entity.GetPropertyValue(field));
             }
+            var sql = sqlBuilder.ToString();
 
-            sqlBuilder.Remove(sqlBuilder.Length - 2, 1);
-            sqlBuilder.AppendLine(")");
-
-            return _dbConnection.Execute(sqlBuilder.ToString(), paramDictionary);
+            return _dbConnection.Value.Execute(sql, paramDictionary);
         }
 
         public Task<int> InsertAsync(TEntity entity)
@@ -225,26 +219,19 @@ FETCH NEXT {pageSize} ROWS ONLY
                 .ToArray();
             var paramDictionary = new Dictionary<string, object>();
 
-            var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName} (");
-            foreach (var field in fields)
-            {
-                sqlBuilder.AppendLine($"{field},");
-            }
-
-            sqlBuilder.Remove(sqlBuilder.Length - 2, 1);
+            var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName}");
+            sqlBuilder.AppendLine("(");
+            sqlBuilder.AppendLine($"{fields.Select(_ => _).StringJoin($",{Environment.NewLine}")}");
             sqlBuilder.AppendLine(")");
             sqlBuilder.AppendLine("VALUES (");
-
+            sqlBuilder.AppendLine($"{fields.Select(_ => $"@{_}").StringJoin($",{Environment.NewLine}")}");
             foreach (var field in fields)
             {
-                sqlBuilder.AppendLine($"@{field},");
                 paramDictionary.Add($"{field}", entity.GetPropertyValue(field));
             }
 
-            sqlBuilder.Remove(sqlBuilder.Length - 2, 1);
             sqlBuilder.AppendLine(")");
-
-            return _dbConnection.ExecuteAsync(sqlBuilder.ToString(), paramDictionary);
+            return _dbConnection.Value.ExecuteAsync(sqlBuilder.ToString(), paramDictionary);
         }
 
         public int Insert(IEnumerable<TEntity> entities)
@@ -263,30 +250,26 @@ FETCH NEXT {pageSize} ROWS ONLY
                 .Select(_ => _.Name)
                 .ToArray();
             var paramDictionary = new Dictionary<string, object>();
-            var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName} (");
-            foreach (var field in fields)
-            {
-                sqlBuilder.AppendLine($"{field},");
-            }
-
-            sqlBuilder.Remove(sqlBuilder.Length - 2, 1);
+            var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName}");
+            sqlBuilder.AppendLine("(");
+            sqlBuilder.AppendLine($"{fields.Select(_ => _).StringJoin($",{Environment.NewLine}")}");
             sqlBuilder.AppendLine(")");
             sqlBuilder.AppendLine("VALUES");
 
             for (var i = 0; i < count; i++)
             {
+                sqlBuilder.AppendLine();
                 sqlBuilder.AppendLine("(");
+                sqlBuilder.AppendLine($"{fields.Select(_ => $"@{_}_{i}").StringJoin($",{Environment.NewLine}")}");
                 foreach (var field in fields)
                 {
-                    sqlBuilder.AppendLine($"@{field}_{i},");
                     paramDictionary.Add($"{field}_{i}", EntityType.GetPropertyValue(field));
                 }
-                sqlBuilder.Remove(sqlBuilder.Length - 2, 1);
-                sqlBuilder.AppendLine("),");
+                sqlBuilder.Append("),");
             }
             sqlBuilder.Remove(sqlBuilder.Length - 2, 1);
 
-            return _dbConnection.Execute(sqlBuilder.ToString(), paramDictionary);
+            return _dbConnection.Value.Execute(sqlBuilder.ToString(), paramDictionary);
         }
 
         public Task<int> InsertAsync(IEnumerable<TEntity> entities)
@@ -305,30 +288,26 @@ FETCH NEXT {pageSize} ROWS ONLY
                 .Select(_ => _.Name)
                 .ToArray();
             var paramDictionary = new Dictionary<string, object>();
-            var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName} (");
-            foreach (var field in fields)
-            {
-                sqlBuilder.AppendLine($"{field},");
-            }
-
-            sqlBuilder.Remove(sqlBuilder.Length - 2, 1);
+            var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName}");
+            sqlBuilder.AppendLine("(");
+            sqlBuilder.AppendLine($"{fields.Select(_ => _).StringJoin($",{Environment.NewLine}")}");
             sqlBuilder.AppendLine(")");
             sqlBuilder.AppendLine("VALUES");
 
             for (var i = 0; i < count; i++)
             {
+                sqlBuilder.AppendLine();
                 sqlBuilder.AppendLine("(");
+                sqlBuilder.AppendLine($"{fields.Select(_ => $"@{_}_{i}").StringJoin($",{Environment.NewLine}")}");
                 foreach (var field in fields)
                 {
-                    sqlBuilder.AppendLine($"@{field}_{i},");
                     paramDictionary.Add($"{field}_{i}", EntityType.GetPropertyValue(field));
                 }
-                sqlBuilder.Remove(sqlBuilder.Length - 2, 1);
-                sqlBuilder.AppendLine("),");
+                sqlBuilder.Append("),");
             }
             sqlBuilder.Remove(sqlBuilder.Length - 2, 1);
 
-            return _dbConnection.ExecuteAsync(sqlBuilder.ToString(), paramDictionary);
+            return _dbConnection.Value.ExecuteAsync(sqlBuilder.ToString(), paramDictionary);
         }
 
         public int Update<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value)
@@ -341,7 +320,7 @@ SET {propertyName} = @set_{propertyName}
 {whereSql.SqlText}
 ";
             whereSql.Parameters.Add($"set_{propertyName}", value);
-            return _dbConnection.Execute(sql, whereSql.Parameters);
+            return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
         public Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value)
@@ -354,7 +333,7 @@ SET {propertyName} = @set_{propertyName}
 {whereSql.SqlText}
 ";
             whereSql.Parameters.Add($"set_{propertyName}", value);
-            return _dbConnection.ExecuteAsync(sql, whereSql.Parameters);
+            return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters);
         }
 
         public int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues)
@@ -373,7 +352,7 @@ SET {propertyValues.Keys.Select(p => $"{p}=@set_{p}").StringJoin($",{Environment
             {
                 whereSql.Parameters.Add($"set_{propertyValue.Key}", propertyValue.Value);
             }
-            return _dbConnection.Execute(sql, whereSql.Parameters);
+            return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
         public Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues)
@@ -392,7 +371,7 @@ SET {propertyValues.Keys.Select(p => $"{p}=@set_{p}").StringJoin($",{Environment
             {
                 whereSql.Parameters.Add($"set_{propertyValue.Key}", propertyValue.Value);
             }
-            return _dbConnection.ExecuteAsync(sql, whereSql.Parameters);
+            return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters);
         }
 
         public int Delete(Expression<Func<TEntity, bool>> whereExpression)
@@ -402,7 +381,7 @@ SET {propertyValues.Keys.Select(p => $"{p}=@set_{p}").StringJoin($",{Environment
 DELETE FROM {_tableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Execute(sql, whereSql.Parameters);
+            return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
         public Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression)
@@ -412,7 +391,7 @@ DELETE FROM {_tableName}
 DELETE FROM {_tableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.ExecuteAsync(sql, whereSql.Parameters);
+            return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters);
         }
     }
 }

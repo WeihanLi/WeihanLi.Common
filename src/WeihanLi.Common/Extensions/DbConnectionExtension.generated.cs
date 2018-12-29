@@ -223,6 +223,7 @@ namespace WeihanLi.Extensions
         {
             using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
             {
+                
                 return command.ExecuteScalarTo<T>();
             }
         }

@@ -117,9 +117,10 @@ namespace DotNetCoreSample
         }
     }
 
-    [Table("tabTest")]
+    [Table("tabTestEntity")]
     internal class TestEntity
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PKID { get; set; }
 
         public string Token { get; set; }
