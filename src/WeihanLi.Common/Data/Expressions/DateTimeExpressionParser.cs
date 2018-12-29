@@ -24,6 +24,9 @@ namespace WeihanLi.Common.Data
 
                 case "UtcNow":
                     return $"GETUTCDATE()";
+
+                case "Today":
+                    return "CONVERT(CHAR(10), GETDATE(),120)";
             }
             return string.Empty;
         }

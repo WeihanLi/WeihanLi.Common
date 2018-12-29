@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -6,10 +7,10 @@ using System.Data.Common;
 #if NET45
 
 using System.Data.SqlClient;
-using System.Diagnostics;
 
 #endif
 
+using System.Diagnostics;
 using System.Dynamic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -22,6 +23,35 @@ namespace WeihanLi.Extensions
 {
     public static partial class DataExtension
     {
+        private class DbParameterReadOnlyCollection : IReadOnlyCollection<DbParameter>
+        {
+            private readonly DbParameterCollection _paramCollection;
+
+            public DbParameterReadOnlyCollection(DbParameterCollection parameterCollection)
+            {
+                _paramCollection = parameterCollection;
+            }
+
+            public int Count => _paramCollection.Count;
+
+            public IEnumerator<DbParameter> GetEnumerator()
+            {
+                return (IEnumerator<DbParameter>)_paramCollection.GetEnumerator();
+            }
+
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return GetEnumerator();
+            }
+        }
+
+        private static DbParameterReadOnlyCollection GetReadOnlyCollection(this DbParameterCollection collection) => new DbParameterReadOnlyCollection(collection);
+
+        public static Func<DbCommand, string> CommandLogFormatterFunc = command =>
+         $"DbCommand log: CommandText:{command.CommandText},CommandType:{command.CommandType},Parameters:{command.Parameters.GetReadOnlyCollection().Select(p => $"{p.ParameterName}={p.Value}").StringJoin(",")},CommandTimeout:{command.CommandTimeout}s";
+
+        public static Action<string> CommandLogAction = log => Debug.WriteLine(log);
+
         #region DataTable
 
         public static DataTable ToDataTable<T>([NotNull]this IEnumerable<T> entities)
@@ -223,8 +253,8 @@ namespace WeihanLi.Extensions
             var type = typeof(T);
             var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
 
-            var hash = new HashSet<string>(Enumerable.Range(0, @this.FieldCount)
-                .Select(@this.GetName));
+            var dic = Enumerable.Range(0, @this.FieldCount)
+                    .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDb());
 
             while (@this.Read())
             {
@@ -235,9 +265,9 @@ namespace WeihanLi.Extensions
                     var obj = (object)entity;
                     foreach (var property in properties)
                     {
-                        if (hash.Contains(property.Name))
+                        if (dic.ContainsKey(property.Name.ToUpper()))
                         {
-                            property.GetValueSetter().Invoke(obj, @this[property.Name].GetValueFromDb());
+                            property.GetValueSetter().Invoke(obj, dic[property.Name.ToUpper()]);
                         }
                     }
                     entity = (T)obj;
@@ -246,9 +276,9 @@ namespace WeihanLi.Extensions
                 {
                     foreach (var property in properties)
                     {
-                        if (hash.Contains(property.Name))
+                        if (dic.ContainsKey(property.Name.ToUpper()))
                         {
-                            property.GetValueSetter().Invoke(entity, @this[property.Name].GetValueFromDb());
+                            property.GetValueSetter().Invoke(entity, dic[property.Name.ToUpper()]);
                         }
                     }
                 }
@@ -265,15 +295,15 @@ namespace WeihanLi.Extensions
         /// <returns>@this as a T.</returns>
         public static T ToEntity<T>([NotNull]this IDataReader @this) where T : new()
         {
-            using (@this)
+            if (@this.Read())
             {
                 var type = typeof(T);
                 var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
 
                 var entity = new T();
 
-                var hash = new HashSet<string>(Enumerable.Range(0, @this.FieldCount)
-                    .Select(@this.GetName));
+                var dic = Enumerable.Range(0, @this.FieldCount)
+                    .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDb());
                 try
                 {
                     if (type.IsValueType)
@@ -281,9 +311,9 @@ namespace WeihanLi.Extensions
                         var obj = (object)entity;
                         foreach (var property in properties)
                         {
-                            if (hash.Contains(property.Name))
+                            if (dic.ContainsKey(property.Name.ToUpper()))
                             {
-                                property.GetValueSetter().Invoke(obj, @this[property.Name].GetValueFromDb());
+                                property.GetValueSetter().Invoke(obj, dic[property.Name.ToUpper()]);
                             }
                         }
                         entity = (T)obj;
@@ -292,9 +322,9 @@ namespace WeihanLi.Extensions
                     {
                         foreach (var property in properties)
                         {
-                            if (hash.Contains(property.Name))
+                            if (dic.ContainsKey(property.Name.ToUpper()))
                             {
-                                property.GetValueSetter().Invoke(entity, @this[property.Name].GetValueFromDb());
+                                property.GetValueSetter().Invoke(entity, dic[property.Name.ToUpper()]);
                             }
                         }
                     }
@@ -304,9 +334,10 @@ namespace WeihanLi.Extensions
                 catch (InvalidOperationException e)
                 {
                     Console.WriteLine(e);
-                    return default(T);
                 }
             }
+
+            return default(T);
         }
 
         /// <summary>
@@ -733,6 +764,9 @@ ORDER BY c.[column_id];", new { tableName });
                 command.Parameters.AddRange(parameters);
             }
             command.AttachDbParameters(paramInfo);
+            //
+            CommandLogAction?.Invoke(CommandLogFormatterFunc(command));
+
             return command;
         }
 

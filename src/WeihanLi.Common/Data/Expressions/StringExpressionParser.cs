@@ -18,7 +18,15 @@ namespace WeihanLi.Common.Data
     {
         public static string ParseStringMemberAccess([NotNull]MemberExpression exp)
         {
-            return string.Empty;
+            switch (exp.Member.Name)
+            {
+                case "Empty":
+                    return string.Empty;
+
+                case "Length":
+                    return $"LEN({ParseExpression(exp.Expression)})";
+            }
+            throw new NotImplementedException();
         }
 
         public static string ParseStringMethodCall([NotNull]MethodCallExpression exp)

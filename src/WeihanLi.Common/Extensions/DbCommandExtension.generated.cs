@@ -32,7 +32,6 @@ namespace WeihanLi.Extensions
         {
             using (var reader = command.ExecuteReader())
             {
-                reader.Read();
                 return reader.ToEntity<T>();
             }
         }
@@ -41,7 +40,6 @@ namespace WeihanLi.Extensions
        {
            using (var reader = await command.ExecuteReaderAsync())
             {
-                await reader.ReadAsync();
                 return reader.ToEntity<T>();
             }
        }

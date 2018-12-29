@@ -69,6 +69,10 @@ namespace DotNetCoreSample
             var str = SqlExpressionParser.ParseExpression(exp);
             Console.WriteLine("sql: {0}", str);
 
+            exp = t => true;
+            str = SqlExpressionParser.ParseExpression(exp);
+            Console.WriteLine("sql: {0}", str);
+
             RepositoryTest.MainTest();
 
             Console.ReadLine();
