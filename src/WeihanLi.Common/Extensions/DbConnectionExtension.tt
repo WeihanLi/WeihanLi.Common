@@ -45,10 +45,15 @@ namespace WeihanLi.Extensions
 
         public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60)
         {
+try{
             using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
             {
                 return command.<#=            cmd.Item3 #>();
             }
+}
+finally{
+   conn.Close();
+}
         }
 
        public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async([NotNull]this DbConnection conn, string cmdText, int commandTimeout = 60) => conn.<#=            cmd.Item1 #>Async(cmdText, null, commandTimeout);
@@ -62,10 +67,15 @@ namespace WeihanLi.Extensions
        public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60)
        {
            await conn.EnsureOpenAsync();
-           using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
+try{        
+   using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
                return await command.<#=            cmd.Item3 #>Async();
            }
+}
+finally{
+   conn.Close();
+}
        }
 <#    }#>
 
@@ -82,10 +92,15 @@ namespace WeihanLi.Extensions
 
         public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60) where T:new()
         {
+try{
             using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
             {
                 return command.<#=            cmd.Item1 #><T>();
             }
+}
+finally{
+   conn.Close();
+}
         }
 
        public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, int commandTimeout=60) where T:new() => conn.<#=            cmd.Item1 #>Async<T>(cmdText, null, commandTimeout);
@@ -101,10 +116,15 @@ namespace WeihanLi.Extensions
        public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60) where T:new()
        {
            await conn.EnsureOpenAsync();
+try{
            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
                return await command.<#=            cmd.Item1 #>Async<T>();
            }
+}
+finally{
+   conn.Close();
+}
        }
 <#    }#>
 
@@ -122,10 +142,15 @@ namespace WeihanLi.Extensions
 
         public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, Func<DataTable, T> func, int commandTimeout = 60) where T:new()
         {
+try{
             using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
             {
                 return command.ExecuteDataTable(func);
             }
+}
+finally{
+   conn.Close();
+}
         }
 
        public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText,Func<DataTable, T> func) where T:new() => conn.<#=            cmd.Item1 #>Async<T>(cmdText, null, func);
@@ -141,10 +166,15 @@ namespace WeihanLi.Extensions
        public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction,Func<DataTable, T> func, int commandTimeout = 60) where T:new()
        {
            await conn.EnsureOpenAsync();
+try{
            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
                return func(await command.ExecuteDataTableAsync());
            }
+}
+finally{
+   conn.Close();
+}
        }
 <#    }#>
 
@@ -161,10 +191,16 @@ namespace WeihanLi.Extensions
 
         public static T <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout=60)
         {
+try
+{
             using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
             {
                 return command.<#=            cmd.Item1 #><T>();
             }
+}
+finally{
+   conn.Close();
+}
         }
 
        public static Task<T> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, null);
@@ -180,10 +216,15 @@ namespace WeihanLi.Extensions
        public static async Task<T> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout=60)
        {
            await conn.EnsureOpenAsync();
+try{
            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
                return await command.<#=            cmd.Item1 #>Async<T>();
            }
+}
+finally{
+   conn.Close();
+}
        }
 <#    }#>
 
@@ -202,10 +243,15 @@ namespace WeihanLi.Extensions
 
         public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int columnIndex = 0, int commandTimeout = 60)
         {
+try{
             using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
             {
                 return command.ExecuteDataTable().ColumnToList<T>(columnIndex);
             }
+}
+finally{
+   conn.Close();
+}
         }
 
        public static Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, int columnIndex = 0)=> conn.<#=            cmd #>Async<T>(cmdText, null, columnIndex);
@@ -222,10 +268,15 @@ namespace WeihanLi.Extensions
        public static async Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int columnIndex = 0, int commandTimeout=60)
        {
            await conn.EnsureOpenAsync();
+try{
            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
                return (await command.ExecuteDataTableAsync()).ColumnToList<T>(columnIndex);
            }
+}
+finally{
+   conn.Close();
+}
        }
 <#    }#>
     }

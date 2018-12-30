@@ -86,5 +86,13 @@ namespace WeihanLi.Common.Data
         int Delete(Expression<Func<TEntity, bool>> whereExpression);
 
         Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression);
+
+        int Execute(string sqlStr, object param = null);
+
+        Task<int> ExecuteAsync(string sqlStr, object param = null);
+
+        TResult ExecuteScalar<TResult>(string sqlStr, object param = null);
+
+        Task<TResult> ExecuteScalarAsync<TResult>(string sqlStr, object param = null);
     }
 }

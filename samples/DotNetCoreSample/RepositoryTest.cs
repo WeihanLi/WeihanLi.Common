@@ -33,6 +33,8 @@ namespace DotNetCoreSample
             entity = repo.Fetch(t => t.PKID == 1);
             System.Console.WriteLine($"delete operation {(entity == null ? "Success" : "Failed")}");
 
+            repo.Execute("TRUNCATE TABLE dbo.tabTestEntity");
+
             Console.WriteLine("finished.");
         }
 

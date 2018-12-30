@@ -393,5 +393,19 @@ DELETE FROM {_tableName}
 ";
             return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters);
         }
+
+        public int Execute(string sqlStr, object param = null)
+        => _dbConnection.Value.Execute(sqlStr, paramInfo: param);
+
+        public Task<int> ExecuteAsync(string sqlStr, object param = null)
+        => _dbConnection.Value.ExecuteAsync(sqlStr, paramInfo: param);
+
+        public TResult ExecuteScalar<TResult>(string sqlStr, object param = null)
+
+        => _dbConnection.Value.ExecuteScalarTo<TResult>(sqlStr, paramInfo: param);
+
+        public Task<TResult> ExecuteScalarAsync<TResult>(string sqlStr, object param = null)
+
+        => _dbConnection.Value.ExecuteScalarToAsync<TResult>(sqlStr, paramInfo: param);
     }
 }

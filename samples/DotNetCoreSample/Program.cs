@@ -47,7 +47,7 @@ namespace DotNetCoreSample
             //var logger = new Logger<Program>(loggerFactory);
             //logger.LogInformation("Logging information from Microsoft.Extensions.Logging");
 
-            // InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
+            InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
 
             //TaskTest.TaskWhenAllTest().GetAwaiter().GetResult();
 
