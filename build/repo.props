@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/WeihanLi/WeihanLi.Common</RepositoryUrl>
+  </PropertyGroup>
+</Project>

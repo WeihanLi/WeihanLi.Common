@@ -22,25 +22,36 @@ namespace WeihanLi.Extensions
         }
 
         /// <summary>
+        /// GetMemberName
+        /// </summary>
+        /// <typeparam name="TEntity">TEntity</typeparam>
+        /// <typeparam name="TMember">TMember</typeparam>
+        /// <param name="memberExpression">get member expression</param>
+        /// <returns></returns>
+        public static string
+            GetMemberName<TEntity, TMember>([NotNull] this Expression<Func<TEntity, TMember>> memberExpression) =>
+            GetMemberInfo(memberExpression).Name;
+
+        /// <summary>
         /// GetMemberInfo
         /// </summary>
         /// <typeparam name="TEntity">TEntity</typeparam>
         /// <typeparam name="TMember">TMember</typeparam>
-        /// <param name="member">get member expression</param>
+        /// <param name="expression">get member expression</param>
         /// <returns></returns>
-        public static MemberInfo GetMemberInfo<TEntity, TMember>([NotNull]this Expression<Func<TEntity, TMember>> member)
+        public static MemberInfo GetMemberInfo<TEntity, TMember>([NotNull]this Expression<Func<TEntity, TMember>> expression)
         {
-            if (member.NodeType != ExpressionType.Lambda)
+            if (expression.NodeType != ExpressionType.Lambda)
             {
-                throw new ArgumentException(string.Format(Resource.propertyExpression_must_be_lambda_expression, nameof(member)), nameof(member));
+                throw new ArgumentException(string.Format(Resource.propertyExpression_must_be_lambda_expression, nameof(expression)), nameof(expression));
             }
 
-            var lambda = (LambdaExpression)member;
+            var lambda = (LambdaExpression)expression;
 
             var memberExpression = ExtractMemberExpression(lambda.Body);
             if (memberExpression == null)
             {
-                throw new ArgumentException(string.Format(Resource.propertyExpression_must_be_lambda_expression, nameof(member)), nameof(member));
+                throw new ArgumentException(string.Format(Resource.propertyExpression_must_be_lambda_expression, nameof(memberExpression)), nameof(memberExpression));
             }
             return memberExpression.Member;
         }

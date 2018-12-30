@@ -6,40 +6,6 @@ namespace WeihanLi.Common.Test.HelpersTest
 {
     public class SecurityHelperTest
     {
-        #region IsSafeSqlString
-
-        [Fact]
-        public void IsSafeSqlStringNullOrEmptyTest()
-        {
-            // no strict
-            Assert.True(SecurityHelper.IsSafeSqlString("", false));
-            Assert.True(SecurityHelper.IsSafeSqlString(null, false));
-
-            // strict
-            Assert.True(SecurityHelper.IsSafeSqlString(""));
-            Assert.True(SecurityHelper.IsSafeSqlString(null));
-        }
-
-        [Fact]
-        public void IsSafeSqlStringBlackTest()
-        {
-            Assert.False(SecurityHelper.IsSafeSqlString("drop table test", false));
-            Assert.False(SecurityHelper.IsSafeSqlString("drop table test"));
-
-            Assert.True(SecurityHelper.IsSafeSqlString(";ll,ss", false));
-            Assert.False(SecurityHelper.IsSafeSqlString(";ll,ss"));
-        }
-
-        [Theory]
-        [InlineData("abcde")]
-        [InlineData("12345")]
-        public void IsSafeSqlStringWhiteTest(string testString)
-        {
-            Assert.True(SecurityHelper.IsSafeSqlString(testString));
-        }
-
-        #endregion IsSafeSqlString
-
         #region GenerateRandomCode
 
         [Theory]

@@ -45,6 +45,12 @@ namespace WeihanLi.Common.Benchmark
             return MapHelper.Map<A, B>(_source);
         }
 
+        [Benchmark]
+        public B MyMapperBenchmark()
+        {
+            return Mapper<A, B>.Map(_source);
+        }
+
         #region TestType
 
         public class A

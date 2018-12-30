@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Common;
 using System.Data.SqlClient;
 using WeihanLi.Common.Helpers;
@@ -116,8 +117,10 @@ namespace DotNetCoreSample
         }
     }
 
+    [Table("tabTestEntity")]
     internal class TestEntity
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PKID { get; set; }
 
         public string Token { get; set; }

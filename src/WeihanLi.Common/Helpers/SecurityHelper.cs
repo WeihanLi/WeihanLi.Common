@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
-using System.Text.RegularExpressions;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers
@@ -11,12 +10,6 @@ namespace WeihanLi.Common.Helpers
     /// </summary>
     public static class SecurityHelper
     {
-        //防SQL注入正则表达式1
-        private static readonly Regex Sqlkeywordregex1 = new Regex(@"(select|insert|delete|from|count\(|drop|table|update|truncate|asc\(|mid\(|char\(|xp_cmdshell|exec|master|net|local|group|administrators|user|or|and)", RegexOptions.IgnoreCase);
-
-        //防SQL注入正则表达式2
-        private static readonly Regex Sqlkeywordregex2 = new Regex(@"(select|insert|delete|from|count\(|drop|table|update|truncate|asc\(|mid\(|char\(|xp_cmdshell|exec|master|net|local|group|administrators|user|or|and|-|;|,|\(|\)|\[|\]|\{|\}|%|@|\*|!|\')", RegexOptions.IgnoreCase);
-
         private static readonly char[] Constant = new[]
         {
             '0',
@@ -98,28 +91,6 @@ namespace WeihanLi.Common.Helpers
                 stringBuilder.Append(array[random.Next(num)]);
             }
             return stringBuilder.ToString();
-        }
-
-        /// <summary>
-        /// 判断当前字符串是否存在SQL注入
-        /// </summary>
-        /// <param name="sql">sqlstring</param>
-        /// <param name="isStrict">是否严格控制</param>
-        /// <returns></returns>
-        public static bool IsSafeSqlString(string sql, bool isStrict = true)
-        {
-            if (sql != null)
-            {
-                if (isStrict)
-                {
-                    return !Sqlkeywordregex2.IsMatch(sql);
-                }
-                else
-                {
-                    return !Sqlkeywordregex1.IsMatch(sql);
-                }
-            }
-            return true;
         }
 
         /// <summary>

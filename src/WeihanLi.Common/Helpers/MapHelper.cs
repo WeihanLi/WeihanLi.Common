@@ -15,6 +15,8 @@ namespace WeihanLi.Common.Helpers
         /// <typeparam name="TTarget">TargetType</typeparam>
         /// <param name="source">source</param>
         /// <returns>destination</returns>
+
+        [Obsolete("Please use Mapper.Mapfor instead")]
         public static TTarget Map<TSource, TTarget>(TSource source) where TTarget : new()
         {
             if (source == null)
@@ -34,7 +36,7 @@ namespace WeihanLi.Common.Helpers
                 foreach (var property in properties)
                 {
                     var sourceProperty = sourceType.GetProperty(property.Name);
-                    if (sourceProperty == null || !property.CanWrite)
+                    if (sourceProperty == null || !sourceProperty.CanRead || !property.CanWrite)
                     {
                         continue;
                     }
@@ -69,7 +71,7 @@ namespace WeihanLi.Common.Helpers
                 foreach (var property in properties)
                 {
                     var sourceProperty = sourceType.GetProperty(property.Name);
-                    if (sourceProperty == null || !property.CanWrite)
+                    if (sourceProperty == null || !sourceProperty.CanRead || !property.CanWrite)
                     {
                         continue;
                     }
@@ -107,7 +109,7 @@ namespace WeihanLi.Common.Helpers
                 foreach (var property in properties)
                 {
                     var sourceProperty = sourceType.GetProperty(property.Name);
-                    if (sourceProperty == null || !property.CanWrite)
+                    if (sourceProperty == null || !sourceProperty.CanRead || !property.CanWrite)
                     {
                         continue;
                     }
