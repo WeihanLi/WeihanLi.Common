@@ -10,6 +10,7 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Helpers
 {
+    [ProviderAlias("log4net")]
     internal class Log4NetLogger : ILogger
     {
         private readonly ILog _logger;

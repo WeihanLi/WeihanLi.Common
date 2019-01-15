@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using JetBrains.Annotations;
+using WeihanLi.Extensions;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.Configuration
@@ -20,7 +22,7 @@ namespace Microsoft.Extensions.Configuration
         /// </summary>
         /// <param name="configuration">The <see cref="IConfiguration"/> instance to replace placeholders in.</param>
         /// <returns>The given <see cref="IConfiguration"/> instance.</returns>
-        public static IConfiguration ReplacePlaceholders(this IConfiguration configuration)
+        public static IConfiguration ReplacePlaceholders([NotNull]this IConfiguration configuration)
         {
             foreach (var kvp in configuration.AsEnumerable())
             {
@@ -61,6 +63,52 @@ namespace Microsoft.Extensions.Configuration
             }
 
             return configuration;
+        }
+
+        /// <summary>
+        /// GetAppSettings
+        /// </summary>
+        /// <param name="configuration">IConfiguration instance</param>
+        /// <param name="key">appSettings key</param>
+        /// <returns>app setting value</returns>
+        public static string GetAppSettings([NotNull]this IConfiguration configuration, string key)
+        {
+            return configuration.GetSection("AppSettings")[key];
+        }
+
+        /// <summary>
+        /// GetAppSettings
+        /// </summary>
+        /// <param name="configuration">IConfiguration instance</param>
+        /// <param name="key">appSettings key</param>
+        /// <returns>app setting value</returns>
+        public static T GetAppSettings<T>([NotNull]this IConfiguration configuration, string key)
+        {
+            return configuration.GetSection("AppSettings")[key].To<T>();
+        }
+
+        /// <summary>
+        /// GetAppSettings
+        /// </summary>
+        /// <param name="configuration">IConfiguration instance</param>
+        /// <param name="key">appSettings key</param>
+        /// <param name="defaultValue">default value if not exist</param>
+        /// <returns>app setting value</returns>
+        public static T GetAppSettings<T>([NotNull] this IConfiguration configuration, string key, T defaultValue)
+        {
+            return configuration.GetSection("AppSettings")[key].ToOrDefault(defaultValue);
+        }
+
+        /// <summary>
+        /// GetAppSettings
+        /// </summary>
+        /// <param name="configuration">IConfiguration instance</param>
+        /// <param name="key">appSettings key</param>
+        /// <param name="defaultValueFunc">default value func if not exist to get a default value</param>
+        /// <returns>app setting value</returns>
+        public static T GetAppSettings<T>([NotNull] this IConfiguration configuration, string key, Func<T> defaultValueFunc)
+        {
+            return configuration.GetSection("AppSettings")[key].ToOrDefault(defaultValueFunc);
         }
 
         private class InvalidConfigurationPlaceholderException : InvalidOperationException

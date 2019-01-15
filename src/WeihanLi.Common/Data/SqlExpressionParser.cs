@@ -139,7 +139,6 @@ namespace WeihanLi.Common.Data
             //{
             //    return ParseDateTimeMethodCall(expression);
             //}
-            return string.Empty;
         }
     }
 
