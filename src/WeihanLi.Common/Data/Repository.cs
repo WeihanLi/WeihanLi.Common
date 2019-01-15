@@ -118,7 +118,7 @@ SELECT * FROM {_tableName}
             return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters);
         }
 
-        public PagedListModel<TEntity> Paged<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, int pageIndex, int pageSize)
+        public PagedListModel<TEntity> Paged<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
             if (pageIndex <= 0)
@@ -144,7 +144,7 @@ SELECT COUNT(1) FROM {_tableName}
             sql = $@"
 SELECT * FROM {_tableName}
 {whereSql.SqlText}
-ORDER BY {orderByExpression.GetMemberName()}
+ORDER BY {orderByExpression.GetMemberName()}{(isAsc ? "" : " DESC")}
 OFFSET {offset} ROWS
 FETCH NEXT {pageSize} ROWS ONLY
 ";
@@ -152,7 +152,7 @@ FETCH NEXT {pageSize} ROWS ONLY
             return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToPagedListModel(pageIndex, pageSize, total);
         }
 
-        public async Task<PagedListModel<TEntity>> PagedAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, int pageIndex, int pageSize)
+        public async Task<PagedListModel<TEntity>> PagedAsync<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
             if (pageIndex <= 0)
@@ -178,7 +178,7 @@ SELECT COUNT(1) FROM {_tableName}
             sql = $@"
 SELECT * FROM {_tableName}
 {whereSql.SqlText}
-ORDER BY {orderByExpression.GetMemberName()}
+ORDER BY {orderByExpression.GetMemberName()}{(isAsc ? "" : " DESC")}
 OFFSET {offset} ROWS
 FETCH NEXT {pageSize} ROWS ONLY
 ";
@@ -393,5 +393,19 @@ DELETE FROM {_tableName}
 ";
             return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters);
         }
+
+        public int Execute(string sqlStr, object param = null)
+        => _dbConnection.Value.Execute(sqlStr, paramInfo: param);
+
+        public Task<int> ExecuteAsync(string sqlStr, object param = null)
+        => _dbConnection.Value.ExecuteAsync(sqlStr, paramInfo: param);
+
+        public TResult ExecuteScalar<TResult>(string sqlStr, object param = null)
+
+        => _dbConnection.Value.ExecuteScalarTo<TResult>(sqlStr, paramInfo: param);
+
+        public Task<TResult> ExecuteScalarAsync<TResult>(string sqlStr, object param = null)
+
+        => _dbConnection.Value.ExecuteScalarToAsync<TResult>(sqlStr, paramInfo: param);
     }
 }

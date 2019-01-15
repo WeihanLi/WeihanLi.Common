@@ -45,9 +45,9 @@ namespace WeihanLi.Common.Data
         /// <summary>
         /// Get Paged List
         /// </summary>
-        PagedListModel<TEntity> Paged<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, int pageIndex, int pageSize);
+        PagedListModel<TEntity> Paged<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
 
-        Task<PagedListModel<TEntity>> PagedAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, int pageIndex, int pageSize);
+        Task<PagedListModel<TEntity>> PagedAsync<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
 
         /// <summary>
         /// Insert entity
@@ -86,5 +86,13 @@ namespace WeihanLi.Common.Data
         int Delete(Expression<Func<TEntity, bool>> whereExpression);
 
         Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression);
+
+        int Execute(string sqlStr, object param = null);
+
+        Task<int> ExecuteAsync(string sqlStr, object param = null);
+
+        TResult ExecuteScalar<TResult>(string sqlStr, object param = null);
+
+        Task<TResult> ExecuteScalarAsync<TResult>(string sqlStr, object param = null);
     }
 }

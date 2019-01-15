@@ -82,9 +82,13 @@ namespace WeihanLi.Common.Data
             {
                 return string.Empty;
             }
-            if (exp.Member.Name == "Now" && exp.Type == typeof(DateTime))
+            if (exp.Member.DeclaringType == typeof(DateTime))
             {
-                return "GETDATE()";
+                return ParseDateTimeMemberAccess(exp);
+            }
+            if (exp.Member.DeclaringType == typeof(string))
+            {
+                return ParseStringMemberAccess(exp);
             }
 
             return exp.Member.Name;
@@ -139,6 +143,7 @@ namespace WeihanLi.Common.Data
             //{
             //    return ParseDateTimeMethodCall(expression);
             //}
+            // return string.Empty;
         }
     }
 
