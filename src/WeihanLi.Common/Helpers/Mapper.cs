@@ -10,7 +10,8 @@
     using static System.Linq.Expressions.Expression;
 
     /// <summary>
-    /// Mapper // https://github.com/bieyuan/.net-core-DTO.git
+    /// Mapper
+    /// https://github.com/bieyuan/.net-core-DTO.git
     /// </summary>
     /// <typeparam name="TSource">TSource</typeparam>
     /// <typeparam name="TTarget">TTarget</typeparam>
@@ -155,7 +156,6 @@
         /// 类型为集合时赋值
         /// </summary>
         /// <param name="sourceProperty"></param>
-        /// <param name="targetProperty"></param>
         /// <param name="sourceType"></param>
         /// <param name="targetType"></param>
         /// <returns></returns>

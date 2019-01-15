@@ -48,7 +48,7 @@ namespace WeihanLi.Common.Log
 
             var url = $"{ElasticSearchUrl}/{IndexFormat.Replace("{applicationName}", (ApplicationName ?? ApplicationHelper.ApplicationName).ToLower())}-{DateTime.Today:yyyyMMdd}/{Type}/_bulk";
             _httpClient.PostAsync(url, new StringContent(sb.ToString()))
-                .ContinueWith(_ => _.Result.Dispose());
+                .ContinueWith(_ => _.Result.Dispose()).ConfigureAwait(false);
         }
 
         #region Dispose

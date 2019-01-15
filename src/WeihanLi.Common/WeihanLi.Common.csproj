@@ -30,9 +30,9 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
-    <PackageReference Include="log4net" Version="2.0.8" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
     <None Include="log4net.config" Pack="true" PackagePath="content\log4net.config" />
   </ItemGroup>
   <ItemGroup>

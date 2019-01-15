@@ -10,6 +10,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Condition="'$(Configuration)'=='Debug'" Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
-    <PackageReference Condition="'$(Configuration)'=='Release'" Include="WeihanLi.Common" Version ="1.0.10" />
+    <PackageReference Condition="'$(Configuration)'=='Release'" Include="WeihanLi.Common" Version ="1.0.11" />
   </ItemGroup>
 </Project>
