@@ -22,6 +22,11 @@ namespace DotNetCoreSample
             IConfiguration configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
+
+            var city = configuration.GetAppSettings("City");
+            var number = configuration.GetAppSettings<int>("Number");
+            System.Console.WriteLine($"City:{city}, Number:{number}");
+
             serviceCollection.AddSingleton(configuration);
 
             DependencyResolver.SetDependencyResolver(serviceCollection);
@@ -73,7 +78,7 @@ namespace DotNetCoreSample
             str = SqlExpressionParser.ParseExpression(exp);
             Console.WriteLine("sql: {0}", str);
 
-            RepositoryTest.MainTest();
+            // RepositoryTest.MainTest();
 
             Console.ReadLine();
         }
