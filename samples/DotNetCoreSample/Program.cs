@@ -23,8 +23,8 @@ namespace DotNetCoreSample
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            var city = configuration.GetAppSettings("City");
-            var number = configuration.GetAppSettings<int>("Number");
+            var city = configuration.GetAppSetting("City");
+            var number = configuration.GetAppSetting<int>("Number");
             System.Console.WriteLine($"City:{city}, Number:{number}");
 
             serviceCollection.AddSingleton(configuration);

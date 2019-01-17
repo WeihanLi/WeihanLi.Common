@@ -66,47 +66,51 @@ namespace Microsoft.Extensions.Configuration
         }
 
         /// <summary>
-        /// GetAppSettings
+        /// GetAppSetting
+        /// Shorthand for GetSection("AppSettings")[key]
         /// </summary>
         /// <param name="configuration">IConfiguration instance</param>
         /// <param name="key">appSettings key</param>
         /// <returns>app setting value</returns>
-        public static string GetAppSettings([NotNull]this IConfiguration configuration, string key)
+        public static string GetAppSetting([NotNull]this IConfiguration configuration, string key)
         {
             return configuration.GetSection("AppSettings")[key];
         }
 
         /// <summary>
-        /// GetAppSettings
+        /// GetAppSetting
+        /// Shorthand for GetSection("AppSettings")[key]
         /// </summary>
         /// <param name="configuration">IConfiguration instance</param>
         /// <param name="key">appSettings key</param>
         /// <returns>app setting value</returns>
-        public static T GetAppSettings<T>([NotNull]this IConfiguration configuration, string key)
+        public static T GetAppSetting<T>([NotNull]this IConfiguration configuration, string key)
         {
             return configuration.GetSection("AppSettings")[key].To<T>();
         }
 
         /// <summary>
-        /// GetAppSettings
+        /// GetAppSetting
+        /// Shorthand for GetSection("AppSettings")[key]
         /// </summary>
         /// <param name="configuration">IConfiguration instance</param>
         /// <param name="key">appSettings key</param>
         /// <param name="defaultValue">default value if not exist</param>
         /// <returns>app setting value</returns>
-        public static T GetAppSettings<T>([NotNull] this IConfiguration configuration, string key, T defaultValue)
+        public static T GetAppSetting<T>([NotNull] this IConfiguration configuration, string key, T defaultValue)
         {
             return configuration.GetSection("AppSettings")[key].ToOrDefault(defaultValue);
         }
 
         /// <summary>
-        /// GetAppSettings
+        /// GetAppSetting
+        /// Shorthand for GetSection("AppSettings")[key]
         /// </summary>
         /// <param name="configuration">IConfiguration instance</param>
         /// <param name="key">appSettings key</param>
         /// <param name="defaultValueFunc">default value func if not exist to get a default value</param>
         /// <returns>app setting value</returns>
-        public static T GetAppSettings<T>([NotNull] this IConfiguration configuration, string key, Func<T> defaultValueFunc)
+        public static T GetAppSetting<T>([NotNull] this IConfiguration configuration, string key, Func<T> defaultValueFunc)
         {
             return configuration.GetSection("AppSettings")[key].ToOrDefault(defaultValueFunc);
         }
