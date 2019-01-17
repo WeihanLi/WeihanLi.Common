@@ -15,8 +15,6 @@ namespace WeihanLi.Common.Helpers
         /// <typeparam name="TTarget">TargetType</typeparam>
         /// <param name="source">source</param>
         /// <returns>destination</returns>
-
-        [Obsolete("Please use Mapper.Mapfor instead")]
         public static TTarget Map<TSource, TTarget>(TSource source) where TTarget : new()
         {
             if (source == null)

@@ -74,7 +74,7 @@ namespace Microsoft.Extensions.Configuration
         /// <returns>app setting value</returns>
         public static string GetAppSetting([NotNull]this IConfiguration configuration, string key)
         {
-            return configuration.GetSection("AppSettings")[key];
+            return configuration.GetSection("AppSettings")?[key];
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Microsoft.Extensions.Configuration
         /// <returns>app setting value</returns>
         public static T GetAppSetting<T>([NotNull]this IConfiguration configuration, string key)
         {
-            return configuration.GetSection("AppSettings")[key].To<T>();
+            return configuration.GetAppSetting(key).To<T>();
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace Microsoft.Extensions.Configuration
         /// <returns>app setting value</returns>
         public static T GetAppSetting<T>([NotNull] this IConfiguration configuration, string key, T defaultValue)
         {
-            return configuration.GetSection("AppSettings")[key].ToOrDefault(defaultValue);
+            return configuration.GetAppSetting(key).ToOrDefault(defaultValue);
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace Microsoft.Extensions.Configuration
         /// <returns>app setting value</returns>
         public static T GetAppSetting<T>([NotNull] this IConfiguration configuration, string key, Func<T> defaultValueFunc)
         {
-            return configuration.GetSection("AppSettings")[key].ToOrDefault(defaultValueFunc);
+            return configuration.GetAppSetting(key).ToOrDefault(defaultValueFunc);
         }
 
         private class InvalidConfigurationPlaceholderException : InvalidOperationException
