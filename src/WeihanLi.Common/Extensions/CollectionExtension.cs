@@ -320,5 +320,24 @@ namespace WeihanLi.Extensions
                 @this.Remove(item);
             }
         }
+
+        /// <summary>
+        /// 获取随机排序后列表
+        /// </summary>
+        /// <typeparam name="T">T</typeparam>
+        /// <param name="list">list</param>
+        /// <returns></returns>
+        private static List<T> GetRandomList<T>([NotNull]this IList<T> list)
+        {
+            var random = new Random();
+            var randomList = new List<T>(list.Count);
+            while (list.Count > 0)
+            {
+                int index = random.Next(list.Count);
+                randomList.Add(list[index]);
+                list.RemoveAt(index);
+            }
+            return randomList;
+        }
     }
 }
