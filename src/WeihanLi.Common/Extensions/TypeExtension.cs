@@ -73,6 +73,8 @@ namespace WeihanLi.Extensions
 
         public static bool IsBasicType<T>() => typeof(T).IsBasicType();
 
+        public static bool IsBasicType<T>(this T value) => typeof(T).IsBasicType();
+
         /// <summary>
         /// Finds best constructor
         /// </summary>
