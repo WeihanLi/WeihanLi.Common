@@ -118,6 +118,28 @@ SELECT * FROM {_tableName}
             return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters).ContinueWith(r => r.Result.ToList());
         }
 
+        public List<TEntity> Select<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        {
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var sql = $@"
+SELECT TOP 10 * FROM {_tableName}
+{whereSql.SqlText}
+ORDER BY {orderByExpression.GetMemberName()} {(isAsc ? "" : "DESC")}
+";
+            return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToList();
+        }
+
+        public Task<List<TEntity>> SelectAsync<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        {
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var sql = $@"
+SELECT TOP 10 * FROM {_tableName}
+{whereSql.SqlText}
+ORDER BY {orderByExpression.GetMemberName()} {(isAsc ? "" : "DESC")}
+";
+            return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters).ContinueWith(_ => _.Result.ToList());
+        }
+
         public virtual PagedListModel<TEntity> Paged<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);

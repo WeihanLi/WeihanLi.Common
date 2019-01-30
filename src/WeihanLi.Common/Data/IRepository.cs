@@ -43,6 +43,15 @@ namespace WeihanLi.Common.Data
         Task<List<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> whereExpression);
 
         /// <summary>
+        /// Get List
+        /// </summary>
+        /// <param name="whereExpression">whereExpression</param>
+        /// <returns></returns>
+        List<TEntity> Select<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
+
+        Task<List<TEntity>> SelectAsync<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
+
+        /// <summary>
         /// Get Paged List
         /// </summary>
         PagedListModel<TEntity> Paged<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
