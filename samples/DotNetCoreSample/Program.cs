@@ -31,7 +31,7 @@ namespace DotNetCoreSample
 
             DependencyResolver.SetDependencyResolver(serviceCollection);
 
-            //DependencyInjectionTest.Test();
+            DependencyInjectionTest.Test();
 
             //var builder = new ContainerBuilder();
             //builder.RegisterType<MonkeyKing>().As<IFly>();

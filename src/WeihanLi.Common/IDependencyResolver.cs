@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace WeihanLi.Common
 {
@@ -23,6 +24,15 @@ namespace WeihanLi.Common
         /// </summary>
         /// <returns></returns>
         IEnumerable<object> GetServices(Type serviceType);
+
+        /// <summary>
+        /// Invoke action via get a service instance internal
+        /// </summary>
+        /// <typeparam name="TService">service type</typeparam>
+        /// <param name="action">action</param>
+        bool TryInvokeService<TService>(Action<TService> action);
+
+        Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action);
     }
 
     /// <summary>
@@ -30,6 +40,14 @@ namespace WeihanLi.Common
     /// </summary>
     public static class DependencyResolverExtensions
     {
+        public static bool TryResolveService<TService>(this IDependencyResolver dependencyResolver,
+            out TService service)
+        {
+            var result = dependencyResolver.TryGetService(typeof(TService), out var serviceObj);
+            service = (TService)serviceObj;
+            return result;
+        }
+
         public static TService ResolveService<TService>(this IDependencyResolver dependencyResolver)
             => (TService)dependencyResolver.GetService(typeof(TService));
 
