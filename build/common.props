@@ -14,8 +14,9 @@
     <Summary>common .netstandard libarary and extensions</Summary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
-      update db extensions
-      optimize performance for mapping
+      update Repository, DependencyResolver
+      add GetAppSetting extension method for IConfiguration
+      add GetRandomList extension method for IList
     </PackageReleaseNotes>    
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
