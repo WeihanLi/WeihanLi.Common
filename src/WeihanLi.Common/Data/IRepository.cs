@@ -38,9 +38,9 @@ namespace WeihanLi.Common.Data
         /// </summary>
         /// <param name="whereExpression">whereExpression</param>
         /// <returns></returns>
-        IEnumerable<TEntity> Select(Expression<Func<TEntity, bool>> whereExpression);
+        List<TEntity> Select(Expression<Func<TEntity, bool>> whereExpression);
 
-        Task<IEnumerable<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> whereExpression);
+        Task<List<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> whereExpression);
 
         /// <summary>
         /// Get Paged List
@@ -86,13 +86,5 @@ namespace WeihanLi.Common.Data
         int Delete(Expression<Func<TEntity, bool>> whereExpression);
 
         Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression);
-
-        int Execute(string sqlStr, object param = null);
-
-        Task<int> ExecuteAsync(string sqlStr, object param = null);
-
-        TResult ExecuteScalar<TResult>(string sqlStr, object param = null);
-
-        Task<TResult> ExecuteScalarAsync<TResult>(string sqlStr, object param = null);
     }
 }

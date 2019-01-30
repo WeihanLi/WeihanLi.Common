@@ -17,7 +17,7 @@ namespace WeihanLi.Common.Data
         private static readonly Type EntityType = typeof(TEntity);
 
         private readonly string _tableName;
-        private readonly Lazy<DbConnection> _dbConnection;
+        protected readonly Lazy<DbConnection> _dbConnection;
 
         public Repository(Func<DbConnection> dbConnectionFunc)
         {
@@ -28,7 +28,7 @@ namespace WeihanLi.Common.Data
                 : EntityType.Name;
         }
 
-        public long Count(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual long Count(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
 
@@ -41,7 +41,7 @@ SELECT COUNT(1) FROM {_tableName}
             return total;
         }
 
-        public Task<long> CountAsync(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual Task<long> CountAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
 
@@ -52,7 +52,7 @@ SELECT COUNT(1) FROM {_tableName}
             return _dbConnection.Value.ExecuteScalarToAsync<long>(sql, whereSql.Parameters);
         }
 
-        public bool Exist(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual bool Exist(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
 
@@ -65,7 +65,7 @@ SELECT TOP(1) 1 FROM {_tableName}
             return result == 1;
         }
 
-        public async Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual async Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
 
@@ -78,7 +78,7 @@ SELECT TOP(1) 1 FROM {_tableName}
             return result == 1;
         }
 
-        public TEntity Fetch(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual TEntity Fetch(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
             var sql = $@"
@@ -88,7 +88,7 @@ SELECT TOP 1 * FROM {_tableName}
             return _dbConnection.Value.Fetch<TEntity>(sql, whereSql.Parameters);
         }
 
-        public Task<TEntity> FetchAsync(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual Task<TEntity> FetchAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
             var sql = $@"
@@ -98,27 +98,27 @@ SELECT TOP 1 * FROM {_tableName}
             return _dbConnection.Value.FetchAsync<TEntity>(sql, whereSql.Parameters);
         }
 
-        public IEnumerable<TEntity> Select(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual List<TEntity> Select(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
             var sql = $@"
 SELECT * FROM {_tableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters);
+            return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToList();
         }
 
-        public Task<IEnumerable<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual Task<List<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
             var sql = $@"
 SELECT * FROM {_tableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters);
+            return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters).ContinueWith(r => r.Result.ToList());
         }
 
-        public PagedListModel<TEntity> Paged<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        public virtual PagedListModel<TEntity> Paged<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
             if (pageIndex <= 0)
@@ -152,7 +152,7 @@ FETCH NEXT {pageSize} ROWS ONLY
             return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToPagedListModel(pageIndex, pageSize, total);
         }
 
-        public async Task<PagedListModel<TEntity>> PagedAsync<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        public virtual async Task<PagedListModel<TEntity>> PagedAsync<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
             if (pageIndex <= 0)
@@ -186,7 +186,7 @@ FETCH NEXT {pageSize} ROWS ONLY
             return (await _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters)).ToPagedListModel(pageIndex, pageSize, total);
         }
 
-        public int Insert(TEntity entity)
+        public virtual int Insert(TEntity entity)
         {
             var fields = CacheUtil.TypePropertyCache.GetOrAdd(EntityType, t => t.GetProperties())
                 .Where(p => !p.IsDefined(typeof(DatabaseGeneratedAttribute)) && !p.IsDefined(typeof(NotMappedAttribute)))
@@ -211,7 +211,7 @@ FETCH NEXT {pageSize} ROWS ONLY
             return _dbConnection.Value.Execute(sql, paramDictionary);
         }
 
-        public Task<int> InsertAsync(TEntity entity)
+        public virtual Task<int> InsertAsync(TEntity entity)
         {
             var fields = CacheUtil.TypePropertyCache.GetOrAdd(EntityType, t => t.GetProperties())
                 .Where(p => !p.IsDefined(typeof(DatabaseGeneratedAttribute)) && !p.IsDefined(typeof(NotMappedAttribute)))
@@ -234,7 +234,7 @@ FETCH NEXT {pageSize} ROWS ONLY
             return _dbConnection.Value.ExecuteAsync(sqlBuilder.ToString(), paramDictionary);
         }
 
-        public int Insert(IEnumerable<TEntity> entities)
+        public virtual int Insert(IEnumerable<TEntity> entities)
         {
             var count = entities?.Count() ?? 0;
             if (count == 0)
@@ -272,7 +272,7 @@ FETCH NEXT {pageSize} ROWS ONLY
             return _dbConnection.Value.Execute(sqlBuilder.ToString(), paramDictionary);
         }
 
-        public Task<int> InsertAsync(IEnumerable<TEntity> entities)
+        public virtual Task<int> InsertAsync(IEnumerable<TEntity> entities)
         {
             var count = entities?.Count() ?? 0;
             if (count == 0)
@@ -310,7 +310,7 @@ FETCH NEXT {pageSize} ROWS ONLY
             return _dbConnection.Value.ExecuteAsync(sqlBuilder.ToString(), paramDictionary);
         }
 
-        public int Update<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value)
+        public virtual int Update<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
             var propertyName = propertyExpression.GetMemberName();
@@ -323,7 +323,7 @@ SET {propertyName} = @set_{propertyName}
             return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
-        public Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value)
+        public virtual Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
             var propertyName = propertyExpression.GetMemberName();
@@ -336,7 +336,7 @@ SET {propertyName} = @set_{propertyName}
             return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters);
         }
 
-        public int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues)
+        public virtual int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues)
         {
             if (propertyValues == null || propertyValues.Count == 0)
             {
@@ -355,7 +355,7 @@ SET {propertyValues.Keys.Select(p => $"{p}=@set_{p}").StringJoin($",{Environment
             return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
-        public Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues)
+        public virtual Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues)
         {
             if (propertyValues == null || propertyValues.Count == 0)
             {
@@ -374,7 +374,7 @@ SET {propertyValues.Keys.Select(p => $"{p}=@set_{p}").StringJoin($",{Environment
             return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters);
         }
 
-        public int Delete(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual int Delete(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
             var sql = $@"
@@ -384,7 +384,7 @@ DELETE FROM {_tableName}
             return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
-        public Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
             var sql = $@"
@@ -394,17 +394,17 @@ DELETE FROM {_tableName}
             return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters);
         }
 
-        public int Execute(string sqlStr, object param = null)
+        public virtual int Execute(string sqlStr, object param = null)
         => _dbConnection.Value.Execute(sqlStr, paramInfo: param);
 
-        public Task<int> ExecuteAsync(string sqlStr, object param = null)
+        public virtual Task<int> ExecuteAsync(string sqlStr, object param = null)
         => _dbConnection.Value.ExecuteAsync(sqlStr, paramInfo: param);
 
-        public TResult ExecuteScalar<TResult>(string sqlStr, object param = null)
+        public virtual TResult ExecuteScalar<TResult>(string sqlStr, object param = null)
 
         => _dbConnection.Value.ExecuteScalarTo<TResult>(sqlStr, paramInfo: param);
 
-        public Task<TResult> ExecuteScalarAsync<TResult>(string sqlStr, object param = null)
+        public virtual Task<TResult> ExecuteScalarAsync<TResult>(string sqlStr, object param = null)
 
         => _dbConnection.Value.ExecuteScalarToAsync<TResult>(sqlStr, paramInfo: param);
     }

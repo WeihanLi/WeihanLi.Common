@@ -13,10 +13,15 @@ namespace WeihanLi.Common
         /// <summary>Stops time interval measurement and resets the elapsed time to zero.</summary>
         void Reset();
 
-        /// <summary>Stops time interval measurement, resets the elapsed time to zero, and starts measuring elapsed time.</summary>
+        /// <summary>
+        /// Stops time interval measurement, resets the elapsed time to zero, and starts measuring elapsed time.
+        /// Restart = Reset + Start
+        /// </summary>
         void Restart();
 
-        /// <summary>Gets the total elapsed time measured by the current instance, in milliseconds.</summary>
+        /// <summary>
+        /// Gets the total elapsed time measured by the current instance, in milliseconds.
+        /// </summary>
         long ElapsedMilliseconds { get; }
     }
 

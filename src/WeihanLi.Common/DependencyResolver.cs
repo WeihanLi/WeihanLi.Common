@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 
 #if NETSTANDARD2_0
 
@@ -33,11 +34,6 @@ namespace WeihanLi.Common
         public static void SetDependencyResolver(IServiceCollection services)
         {
             SetDependencyResolver(new ServiceCollectionDependencyResolver(services));
-        }
-
-        public static void SetDependencyResolver(IServiceProvider serviceProvider)
-        {
-            SetDependencyResolver(new ServiceCollectionDependencyResolver(serviceProvider));
         }
 
 #else
@@ -81,6 +77,28 @@ namespace WeihanLi.Common
             public IEnumerable<object> GetServices(Type serviceType)
             => Enumerable.Empty<object>();
 
+            public bool TryInvokeService<TService>(Action<TService> action)
+            {
+                var service = (TService)GetService(typeof(TService));
+                if (null == service || action == null)
+                {
+                    return false;
+                }
+                action.Invoke(service);
+                return true;
+            }
+
+            public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
+            {
+                var service = (TService)GetService(typeof(TService));
+                if (null == service || action == null)
+                {
+                    return false;
+                }
+                await action.Invoke(service);
+                return true;
+            }
+
             public bool TryGetService(Type serviceType, out object service)
             {
                 service = GetService(serviceType);
@@ -105,6 +123,28 @@ namespace WeihanLi.Common
             public IEnumerable<object> GetServices(Type serviceType)
                 => _getServices(serviceType);
 
+            public bool TryInvokeService<TService>(Action<TService> action)
+            {
+                var service = (TService)GetService(typeof(TService));
+                if (null == service || action == null)
+                {
+                    return false;
+                }
+                action.Invoke(service);
+                return true;
+            }
+
+            public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
+            {
+                var service = (TService)GetService(typeof(TService));
+                if (null == service || action == null)
+                {
+                    return false;
+                }
+                await action.Invoke(service);
+                return true;
+            }
+
             public bool TryGetService(Type serviceType, out object service)
             {
                 try
@@ -125,23 +165,29 @@ namespace WeihanLi.Common
         private class ServiceCollectionDependencyResolver : IDependencyResolver
         {
             private readonly IServiceProvider _serviceProvider;
+            private readonly IServiceCollection _services;
 
             public ServiceCollectionDependencyResolver(IServiceCollection services)
             {
-                if (null == services)
-                {
-                    throw new ArgumentNullException(nameof(services));
-                }
+                _services = services ?? throw new ArgumentNullException(nameof(services));
                 _serviceProvider = services.BuildServiceProvider();
-            }
-
-            public ServiceCollectionDependencyResolver(IServiceProvider serviceProvider)
-            {
-                _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
             }
 
             public object GetService(Type serviceType)
             {
+                var serviceDescriptor = _services.FirstOrDefault(_ => _.ServiceType == serviceType);
+                if (serviceDescriptor == null)
+                {
+                    throw new InvalidOperationException($"service type {serviceType.FullName} has not been registered");
+                }
+
+                if (serviceDescriptor.Lifetime == ServiceLifetime.Scoped) // 这样返回的话，如果是一个 IDisposable 对象的话，返回的是一个已经被 dispose 掉的对象
+                {
+                    using (var scope = _serviceProvider.CreateScope())
+                    {
+                        return scope.ServiceProvider.GetService(serviceType);
+                    }
+                }
                 return _serviceProvider.GetService(serviceType);
             }
 
@@ -149,7 +195,7 @@ namespace WeihanLi.Common
             {
                 try
                 {
-                    service = _serviceProvider.GetService(serviceType);
+                    service = GetService(serviceType);
                     return true;
                 }
                 catch (Exception e)
@@ -163,6 +209,76 @@ namespace WeihanLi.Common
             public IEnumerable<object> GetServices(Type serviceType)
             {
                 return _serviceProvider.GetServices(serviceType);
+            }
+
+            public bool TryInvokeService<TService>(Action<TService> action)
+            {
+                if (action == null)
+                {
+                    return false;
+                }
+                var serviceType = typeof(TService);
+                var serviceDescriptor = _services.FirstOrDefault(_ => _.ServiceType == serviceType);
+                if (serviceDescriptor == null)
+                {
+                    return false;
+                }
+
+                if (serviceDescriptor.Lifetime == ServiceLifetime.Scoped) // 这样返回的话，如果是一个 IDisposable 对象的话，返回的是一个已经被 dispose 掉的对象
+                {
+                    using (var scope = _serviceProvider.CreateScope())
+                    {
+                        var svc = (TService)scope.ServiceProvider.GetService(serviceType);
+                        if (svc == null)
+                        {
+                            return false;
+                        }
+                        action.Invoke(svc);
+                        return true;
+                    }
+                }
+                var service = (TService)GetService(typeof(TService));
+                if (null == service)
+                {
+                    return false;
+                }
+                action.Invoke(service);
+                return true;
+            }
+
+            public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
+            {
+                if (action == null)
+                {
+                    return false;
+                }
+                var serviceType = typeof(TService);
+                var serviceDescriptor = _services.FirstOrDefault(_ => _.ServiceType == serviceType);
+                if (serviceDescriptor == null)
+                {
+                    return false;
+                }
+
+                if (serviceDescriptor.Lifetime == ServiceLifetime.Scoped) // 这样返回的话，如果是一个 IDisposable 对象的话，返回的是一个已经被 dispose 掉的对象
+                {
+                    using (var scope = _serviceProvider.CreateScope())
+                    {
+                        var svc = (TService)scope.ServiceProvider.GetService(serviceType);
+                        if (svc == null)
+                        {
+                            return false;
+                        }
+                        await action.Invoke(svc);
+                        return true;
+                    }
+                }
+                var service = (TService)GetService(typeof(TService));
+                if (null == service)
+                {
+                    return false;
+                }
+                await action.Invoke(service);
+                return true;
             }
         }
 
