@@ -176,19 +176,14 @@ namespace WeihanLi.Common
             public object GetService(Type serviceType)
             {
                 var serviceDescriptor = _services.FirstOrDefault(_ => _.ServiceType == serviceType);
-                if (serviceDescriptor == null)
-                {
-                    throw new InvalidOperationException($"service type {serviceType.FullName} has not been registered");
-                }
-
-                if (serviceDescriptor.Lifetime == ServiceLifetime.Scoped) // 这样返回的话，如果是一个 IDisposable 对象的话，返回的是一个已经被 dispose 掉的对象
+                if (serviceDescriptor?.Lifetime == ServiceLifetime.Scoped) // 这样返回的话，如果是一个 IDisposable 对象的话，返回的是一个已经被 dispose 掉的对象
                 {
                     using (var scope = _serviceProvider.CreateScope())
                     {
-                        return scope.ServiceProvider.GetService(serviceType);
+                        return scope.ServiceProvider.GetRequiredService(serviceType);
                     }
                 }
-                return _serviceProvider.GetService(serviceType);
+                return _serviceProvider.GetRequiredService(serviceType);
             }
 
             public bool TryGetService(Type serviceType, out object service)
@@ -219,12 +214,7 @@ namespace WeihanLi.Common
                 }
                 var serviceType = typeof(TService);
                 var serviceDescriptor = _services.FirstOrDefault(_ => _.ServiceType == serviceType);
-                if (serviceDescriptor == null)
-                {
-                    return false;
-                }
-
-                if (serviceDescriptor.Lifetime == ServiceLifetime.Scoped) // 这样返回的话，如果是一个 IDisposable 对象的话，返回的是一个已经被 dispose 掉的对象
+                if (serviceDescriptor?.Lifetime == ServiceLifetime.Scoped) // 这样返回的话，如果是一个 IDisposable 对象的话，返回的是一个已经被 dispose 掉的对象
                 {
                     using (var scope = _serviceProvider.CreateScope())
                     {
@@ -237,7 +227,7 @@ namespace WeihanLi.Common
                         return true;
                     }
                 }
-                var service = (TService)GetService(typeof(TService));
+                var service = (TService)_serviceProvider.GetService(typeof(TService));
                 if (null == service)
                 {
                     return false;
@@ -254,12 +244,7 @@ namespace WeihanLi.Common
                 }
                 var serviceType = typeof(TService);
                 var serviceDescriptor = _services.FirstOrDefault(_ => _.ServiceType == serviceType);
-                if (serviceDescriptor == null)
-                {
-                    return false;
-                }
-
-                if (serviceDescriptor.Lifetime == ServiceLifetime.Scoped) // 这样返回的话，如果是一个 IDisposable 对象的话，返回的是一个已经被 dispose 掉的对象
+                if (serviceDescriptor?.Lifetime == ServiceLifetime.Scoped) // 这样返回的话，如果是一个 IDisposable 对象的话，返回的是一个已经被 dispose 掉的对象
                 {
                     using (var scope = _serviceProvider.CreateScope())
                     {
@@ -272,7 +257,7 @@ namespace WeihanLi.Common
                         return true;
                     }
                 }
-                var service = (TService)GetService(typeof(TService));
+                var service = (TService) _serviceProvider.GetService(typeof(TService));
                 if (null == service)
                 {
                     return false;
