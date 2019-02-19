@@ -6,16 +6,16 @@
   <PropertyGroup>        
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
-    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common.Logging.Log4Net</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>common utility lib libarary extensions</PackageTags>    
+    <PackageTags>logging log4net</PackageTags>    
     <Title>WeihanLi.Common</Title>
-    <Description>common .netstandard libarary and extensions</Description>
-    <Summary>common .netstandard libarary and extensions</Summary>
+    <Description>log4net logging provider for WeihanLi.Common.Logging, and log4net extensions</Description>
+    <Summary>log4net logging provider for WeihanLi.Common.Logging, and log4net extensions</Summary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
-      refact logging and remove package dependency for log4net
-    </PackageReleaseNotes>
+      init
+    </PackageReleaseNotes>    
     <Optimize Condition="'$(Configuration)'=='Release'">true</Optimize>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">True</GeneratePackageOnBuild>
     <NoWarn>$(NoWarn);1591;DE0003;</NoWarn>

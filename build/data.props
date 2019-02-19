@@ -6,7 +6,7 @@
   <PropertyGroup>        
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
-    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Data</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>db database sql data </PackageTags>
     <Title>WeihanLi.Data</Title>

@@ -17,7 +17,6 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Net.Http" />
     <Compile Remove="Extensions\ConfigurationExtension.cs" />
-    <Compile Remove="Logging\Log4NetLoggerProvider.cs" />
     <Compile Remove="Logging\MicrosoftLoggingLogHelperProvider.cs" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
@@ -30,10 +29,6 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
-  </ItemGroup>
-  <ItemGroup>
-
-    <None Include="log4net.config" Pack="true" PackagePath="content\log4net.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
