@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using WeihanLi.Common;
 using WeihanLi.Common.Data;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Common.Logging.Log4Net;
 
 namespace DotNetCoreSample
 {
@@ -12,7 +13,7 @@ namespace DotNetCoreSample
     {
         public static void Main(string[] args)
         {
-            LogHelper.LogInit();
+            LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
             Console.WriteLine(SystemHelper.OsType);
             // ReSharper disable once LocalizableElement
             Console.WriteLine("----------DotNetCoreSample----------");
@@ -44,7 +45,7 @@ namespace DotNetCoreSample
             //Console.WriteLine(JsonConvert.SerializeObject(a));// output 1
 
             // log test
-            // LoggerTest.MainTest();
+            LoggerTest.MainTest();
             //ILoggerFactory loggerFactory = new LoggerFactory();
             //loggerFactory.AddConsole();
             //loggerFactory.AddDebug();

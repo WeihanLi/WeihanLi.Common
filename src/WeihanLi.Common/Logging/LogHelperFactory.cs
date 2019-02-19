@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace WeihanLi.Common.Log
+namespace WeihanLi.Common.Logging
 {
     public interface ILogHelperFactory
     {
@@ -11,7 +11,7 @@ namespace WeihanLi.Common.Log
         /// Creates a new ILogHelper instance.
         /// </summary>
         /// <param name="categoryName">The category name for messages produced by the logger.</param>
-        ILogHelper CreateLogHelper(string categoryName);
+        ILogHelperLogger CreateLogHelper(string categoryName);
 
         /// <summary>
         /// Adds an ILogHelperProvider to the logging system.
@@ -41,7 +41,7 @@ namespace WeihanLi.Common.Log
             }
         }
 
-        public ILogHelper CreateLogHelper(string categoryName) => _logHelpers.GetOrAdd(categoryName, _ => new LogHelper(_logHelperProviders.Values, _));
+        public ILogHelperLogger CreateLogHelper(string categoryName) => _logHelpers.GetOrAdd(categoryName, _ => new LogHelper(_logHelperProviders.Values, _));
 
         public bool AddProvider(ILogHelperProvider provider) => _logHelperProviders.TryAdd(provider.GetType(), provider);
     }

@@ -17,8 +17,8 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Net.Http" />
     <Compile Remove="Extensions\ConfigurationExtension.cs" />
-    <Compile Remove="Log\Log4NetLoggerProvider.cs" />
-    <Compile Remove="Log\MicrosoftLoggingLogHelperProvider.cs" />
+    <Compile Remove="Logging\Log4NetLoggerProvider.cs" />
+    <Compile Remove="Logging\MicrosoftLoggingLogHelperProvider.cs" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
@@ -32,7 +32,7 @@
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="log4net" Version="2.0.8" />
+
     <None Include="log4net.config" Pack="true" PackagePath="content\log4net.config" />
   </ItemGroup>
   <ItemGroup>

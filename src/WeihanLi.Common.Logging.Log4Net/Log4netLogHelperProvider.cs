@@ -6,27 +6,26 @@ using log4net;
 using log4net.Config;
 using WeihanLi.Common.Helpers;
 
-namespace WeihanLi.Common.Log
+namespace WeihanLi.Common.Logging.Log4Net
 {
-    public interface ILogHelperProvider
-    {
-        ILogHelper CreateLogHelper(string categoryName);
-    }
-
-    internal class Log4NetLogHelperProvider : ILogHelperProvider
+    public class Log4NetLogHelperProvider : ILogHelperProvider
     {
         private readonly ConcurrentDictionary<string, Log4NetLogHelper> _loggers =
             new ConcurrentDictionary<string, Log4NetLogHelper>(StringComparer.Ordinal);
 
-        public Log4NetLogHelperProvider(string configuartionFilePath)
+        public Log4NetLogHelperProvider() : this(ApplicationHelper.MapPath("log4net.config"))
+        {
+        }
+
+        public Log4NetLogHelperProvider(string configurationFilePath)
         {
             if (null == LogManager.GetAllRepositories()?.FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))
             {
                 XmlConfigurator.ConfigureAndWatch(LogManager.CreateRepository(ApplicationHelper.ApplicationName),
-                    new FileInfo(configuartionFilePath));
+                    new FileInfo(configurationFilePath));
             }
         }
 
-        public ILogHelper CreateLogHelper(string categoryName) => _loggers.GetOrAdd(categoryName, loggerName => new Log4NetLogHelper(loggerName));
+        public ILogHelperLogger CreateLogger(string categoryName) => _loggers.GetOrAdd(categoryName, loggerName => new Log4NetLogHelper(loggerName));
     }
 }

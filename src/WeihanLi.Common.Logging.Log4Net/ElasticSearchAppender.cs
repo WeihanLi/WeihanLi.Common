@@ -6,7 +6,7 @@ using log4net.Core;
 using Newtonsoft.Json;
 using WeihanLi.Common.Helpers;
 
-namespace WeihanLi.Common.Log
+namespace WeihanLi.Common.Logging.Log4Net
 {
     public class ElasticSearchAppender : BufferingAppenderSkeleton
     {

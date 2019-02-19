@@ -1,12 +1,12 @@
 ﻿using System;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Common.Log;
+using WeihanLi.Common.Logging;
 
 namespace DotNetFxSample
 {
     public class LoggerTest
     {
-        private static readonly ILogHelper Logger = LogHelper.GetLogHelper<LoggerTest>();
+        private static readonly ILogHelperLogger Logger = LogHelper.GetLogger<LoggerTest>();
 
         public static void Test()
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 #if NETSTANDARD2_0
 
@@ -7,59 +8,55 @@ using Microsoft.Extensions.Logging;
 
 #endif
 
-using WeihanLi.Common.Log;
+using WeihanLi.Common.Logging;
 
 namespace WeihanLi.Common.Helpers
 {
     /// <summary>
     /// LogHelper
-    /// Logger
+    /// Logging
     /// </summary>
     public static class LogHelper
     {
-        private static ILogHelperFactory _loggerFactory;
+        private static readonly Lazy<ILogHelperFactory> _loggerFactory = new Lazy<ILogHelperFactory>(() => new LogHelperFactory());
 
-        public static ILogHelper GetLogHelper<T>() => GetLogHelper(typeof(T));
+        public static ILogHelperLogger GetLogger<T>() => GetLogger(typeof(T));
 
-        public static ILogHelper GetLogHelper(Type type) => GetLogHelper(type.FullName);
+        public static ILogHelperLogger GetLogger(Type type) => GetLogger(type.FullName);
 
-        public static ILogHelper GetLogHelper(string categoryName)
+        public static ILogHelperLogger GetLogger(string categoryName)
         {
-            if (!_isInit)
-            {
-                throw new InvalidOperationException(Resource.LogHelperNotInitialized);
-            }
-            return _loggerFactory.CreateLogHelper(categoryName);
+            return _loggerFactory.Value.CreateLogHelper(categoryName);
         }
 
-        #region LogInit
-
-        private static bool _isInit;
-
-        public static void LogInit() => LogInit(ApplicationHelper.MapPath("log4net.config"));
-
-        public static void LogInit(string configurationFilePath) => LogInit(configurationFilePath, null);
-
-        public static void LogInit(ICollection<ILogHelperProvider> logProviders) => LogInit(ApplicationHelper.MapPath("log4net.config"), null);
-
-        public static void LogInit(string configurationFilePath, ICollection<ILogHelperProvider> logProviders)
+        public static bool AddLogProvider(ILogHelperProvider logHelperProvider)
         {
-            if (_isInit)
-            {
-                return;
-            }
-            _loggerFactory = logProviders == null ? new LogHelperFactory() : new LogHelperFactory(logProviders);
-
-            _loggerFactory.AddProvider(new Log4NetLogHelperProvider(configurationFilePath));
-
-            _isInit = true;
+            return _loggerFactory.Value.AddProvider(logHelperProvider);
         }
 
-        #endregion LogInit
+        public static int AddLogProvider(ICollection<ILogHelperProvider> logProviders)
+        {
+            if (logProviders != null && logProviders.Count > 0)
+            {
+                var results = new bool[logProviders.Count];
+                var idx = 0;
+                foreach (var provider in logProviders)
+                {
+                    if (provider != null)
+                    {
+                        results[idx] = _loggerFactory.Value.AddProvider(provider);
+                    }
+                    idx++;
+                }
+                return results.Count(_ => _);
+            }
+
+            return 0;
+        }
 
 #if NETSTANDARD2_0
 
-        #region Logger
+        #region LoggerExrtensions
 
         #region Info
 
@@ -119,7 +116,7 @@ namespace WeihanLi.Common.Helpers
 
         #endregion Fatal
 
-        #endregion Logger
+        #endregion LoggerExrtensions
 
 #endif
     }

@@ -3,13 +3,13 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Common.Log;
+using WeihanLi.Common.Logging;
 
 namespace DotNetCoreSample
 {
     internal class RequestHelperTest
     {
-        private static readonly ILogHelper Logger = LogHelper.GetLogHelper<RequestHelperTest>();
+        private static readonly ILogHelperLogger Logger = LogHelper.GetLogger<RequestHelperTest>();
 
         public static void GetRequestParamTest()
         {

@@ -1,13 +1,13 @@
 ﻿using System;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Common.Log;
+using WeihanLi.Common.Logging;
 
 namespace DotNetCoreSample
 {
     internal class DependencyInjectionTest
     {
-        private static readonly ILogHelper Logger = LogHelper.GetLogHelper<DependencyInjectionTest>();
+        private static readonly ILogHelperLogger Logger = LogHelper.GetLogger<DependencyInjectionTest>();
 
         public static void Test()
         {
