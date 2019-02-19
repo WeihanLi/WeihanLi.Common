@@ -44,7 +44,14 @@ namespace WeihanLi.Common
             out TService service)
         {
             var result = dependencyResolver.TryGetService(typeof(TService), out var serviceObj);
-            service = (TService)serviceObj;
+            if(result)
+            {
+                service = (TService)serviceObj;
+            }
+            else
+            {
+                service = default(TService);
+            }
             return result;
         }
 
