@@ -44,7 +44,7 @@ namespace WeihanLi.Common.Models
             }
         }
 
-        private int _pageSize;
+        private int _pageSize = 10;
 
         public int PageSize
         {

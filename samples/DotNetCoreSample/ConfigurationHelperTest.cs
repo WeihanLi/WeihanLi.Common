@@ -23,7 +23,7 @@ namespace DotNetCoreSample
             Console.WriteLine(ConfigurationHelper.AppSetting("key1"));
             ConfigurationHelper.AddAppSetting("jsonKey", new TestEntity
             {
-                PKID = 1,
+                Id = 1,
                 Token = Guid.NewGuid().ToString("N"),
                 CreatedTime = DateTime.Now
             });

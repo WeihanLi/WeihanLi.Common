@@ -53,7 +53,7 @@ namespace DotNetCoreSample
             //var logger = new Logger<Program>(loggerFactory);
             //logger.LogInformation("Logging information from Microsoft.Extensions.Logging");
 
-            InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
+            //InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
 
             //TaskTest.TaskWhenAllTest().GetAwaiter().GetResult();
 
@@ -71,7 +71,7 @@ namespace DotNetCoreSample
 
             //Console.WriteLine(structTest.Name);
 
-            Expression<Func<TestEntity, bool>> exp = t => t.PKID > 10 && t.Token == "123" && t.Token.Contains("12");
+            Expression<Func<TestEntity, bool>> exp = t => t.Id > 10 && t.Token == "123" && t.Token.Contains("12");
             var str = SqlExpressionParser.ParseExpression(exp);
             Console.WriteLine("sql: {0}", str);
 
@@ -79,7 +79,7 @@ namespace DotNetCoreSample
             str = SqlExpressionParser.ParseExpression(exp);
             Console.WriteLine("sql: {0}", str);
 
-            // RepositoryTest.MainTest();
+            RepositoryTest.MainTest();
 
             Console.ReadLine();
         }

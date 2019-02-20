@@ -121,7 +121,8 @@ namespace DotNetCoreSample
     internal class TestEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int PKID { get; set; }
+        [Column("PKID")]
+        public int Id { get; set; }
 
         public string Token { get; set; }
 

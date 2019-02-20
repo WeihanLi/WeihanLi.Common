@@ -14,16 +14,26 @@ namespace WeihanLi.Common.Data
 #endif
         static partial class SqlExpressionParser
     {
-        public static SqlParseResult ParseWhereExpression(Expression exp)
+        public static SqlParseResult ParseWhereExpression(Expression exp, IDictionary<string, string> columnMappings)
         {
-            var sqlText = new StringBuilder("WHERE ");
+            var sqlText = new StringBuilder("");
             var dic = new Dictionary<string, object>();
-            if (exp != null && exp.NodeType == ExpressionType.Lambda && exp is LambdaExpression expression)
+            if (exp != null && exp.NodeType == ExpressionType.Lambda && exp is LambdaExpression)
             {
                 var condition = ParseExpression(exp);
-                sqlText.Append(condition.IsNullOrWhiteSpace() ? "1=1" : condition);
+                if (condition.IsNotNullOrWhiteSpace())
+                {
+                    sqlText.Append("WHERE ");
+                    foreach (var mapping in columnMappings)
+                    {
+                        if (mapping.Key != mapping.Value)
+                        {
+                            condition = condition.Replace(mapping.Value, mapping.Key);
+                        }
+                    }
+                    sqlText.Append(condition);
+                }
             }
-
             return new SqlParseResult(sqlText.ToString(), dic);
         }
 

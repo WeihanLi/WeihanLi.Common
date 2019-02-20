@@ -12,7 +12,7 @@ namespace DotNetCoreSample
     {
         public static void MainTest()
         {
-            var connectionPool = new DbConnectionPool(new DbConnectionPoolPolicy(ConfigurationHelper.ConnectionString("TestDb")));
+            var connectionPool = new DbConnectionPool(new DbConnectionPoolPolicy(ConfigurationHelper.ConnectionString("Test")));
 
             var repo = new Repository<TestEntity>(() => connectionPool.Get());
             repo.Execute("TRUNCATE TABLE dbo.tabTestEntity");
@@ -23,22 +23,22 @@ namespace DotNetCoreSample
                 CreatedTime = DateTime.UtcNow
             });
 
-            var entity = repo.Fetch(t => t.PKID == 1);
+            var entity = repo.Fetch(t => t.Id == 1);
             System.Console.WriteLine(entity.Token);
 
-            repo.Update(t => t.PKID == 1, t => t.Token, 1);
+            repo.Update(t => t.Id == 1, t => t.Token, 1);
 
-            entity = repo.Fetch(t => t.PKID == 1);
+            entity = repo.Fetch(t => t.Id == 1);
             System.Console.WriteLine(entity.Token);
 
-            var exists = repo.Exist(e => e.PKID == 1);
+            var exists = repo.Exist(e => e.Id == 1);
             Console.WriteLine($"exists pkid == 1: {exists}");
 
-            repo.Delete(t => t.PKID == 1);
-            entity = repo.Fetch(t => t.PKID == 1);
+            repo.Delete(t => t.Id == 1);
+            entity = repo.Fetch(t => t.Id == 1);
             System.Console.WriteLine($"delete operation {(entity == null ? "Success" : "Failed")}");
 
-            exists = repo.Exist(e => e.PKID > 1000);
+            exists = repo.Exist(e => e.Id > 1000);
             Console.WriteLine($"exists PKID > 1000: {exists}");
             repo.Execute("TRUNCATE TABLE dbo.tabTestEntity");
 
