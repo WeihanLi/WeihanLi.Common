@@ -87,14 +87,14 @@ SELECT COUNT(1) FROM {TableName}
         public virtual bool Exist(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
-            var sql = $@"SELECT IIF(EXISTS (SELECT TOP(1) 1 FROM {TableName} {whereSql.SqlText}), 1, 0) AS BIT";
+            var sql = $@"SELECT CAST(IIF(EXISTS (SELECT TOP(1) 1 FROM {TableName} {whereSql.SqlText}), 1, 0) AS BIT)";
             return _dbConnection.Value.ExecuteScalarTo<bool>(sql, GetDbParameters(whereSql.Parameters));
         }
 
         public virtual Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
-            var sql = $@"SELECT IIF(EXISTS (SELECT TOP(1) 1 FROM {TableName} {whereSql.SqlText}), 1, 0) AS BIT";
+            var sql = $@"SELECT CAST(IIF(EXISTS (SELECT TOP(1) 1 FROM {TableName} {whereSql.SqlText}), 1, 0) AS BIT)";
             return _dbConnection.Value.ExecuteScalarToAsync<bool>(sql, GetDbParameters(whereSql.Parameters));
         }
 

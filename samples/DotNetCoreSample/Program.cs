@@ -6,6 +6,7 @@ using WeihanLi.Common;
 using WeihanLi.Common.Data;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging.Log4Net;
+using WeihanLi.Extensions;
 
 namespace DotNetCoreSample
 {
@@ -14,6 +15,7 @@ namespace DotNetCoreSample
         public static void Main(string[] args)
         {
             LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
+            DataExtension.CommandLogAction = Console.WriteLine;
             Console.WriteLine(SystemHelper.OsType);
             // ReSharper disable once LocalizableElement
             Console.WriteLine("----------DotNetCoreSample----------");
