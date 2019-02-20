@@ -15,6 +15,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
       refact logging and remove package dependency for log4net
+      update repository, add supprot for columns mapping
     </PackageReleaseNotes>
     <Optimize Condition="'$(Configuration)'=='Release'">true</Optimize>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">True</GeneratePackageOnBuild>
