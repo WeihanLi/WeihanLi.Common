@@ -15,9 +15,16 @@ namespace WeihanLi.Common.Data
         /// <summary>
         /// Count
         /// </summary>
-        long Count(Expression<Func<TEntity, bool>> whereExpression);
+        int Count(Expression<Func<TEntity, bool>> whereExpression);
 
-        Task<long> CountAsync(Expression<Func<TEntity, bool>> whereExpression);
+        Task<int> CountAsync(Expression<Func<TEntity, bool>> whereExpression);
+
+        /// <summary>
+        /// LongCount
+        /// </summary>
+        long LongCount(Expression<Func<TEntity, bool>> whereExpression);
+
+        Task<long> LongCountAsync(Expression<Func<TEntity, bool>> whereExpression);
 
         /// <summary>
         /// Exist

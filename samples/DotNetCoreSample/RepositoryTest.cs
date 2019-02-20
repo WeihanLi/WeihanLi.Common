@@ -15,6 +15,8 @@ namespace DotNetCoreSample
             var connectionPool = new DbConnectionPool(new DbConnectionPoolPolicy(ConfigurationHelper.ConnectionString("TestDb")));
 
             var repo = new Repository<TestEntity>(() => connectionPool.Get());
+            repo.Execute("TRUNCATE TABLE dbo.tabTestEntity");
+
             repo.Insert(new TestEntity
             {
                 Token = "1233",
@@ -29,10 +31,15 @@ namespace DotNetCoreSample
             entity = repo.Fetch(t => t.PKID == 1);
             System.Console.WriteLine(entity.Token);
 
+            var exists = repo.Exist(e => e.PKID == 1);
+            Console.WriteLine($"exists pkid == 1: {exists}");
+
             repo.Delete(t => t.PKID == 1);
             entity = repo.Fetch(t => t.PKID == 1);
             System.Console.WriteLine($"delete operation {(entity == null ? "Success" : "Failed")}");
 
+            exists = repo.Exist(e => e.PKID > 1000);
+            Console.WriteLine($"exists PKID > 1000: {exists}");
             repo.Execute("TRUNCATE TABLE dbo.tabTestEntity");
 
             Console.WriteLine("finished.");

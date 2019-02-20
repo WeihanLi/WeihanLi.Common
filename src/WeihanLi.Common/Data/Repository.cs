@@ -28,7 +28,7 @@ namespace WeihanLi.Common.Data
                 : EntityType.Name;
         }
 
-        public virtual long Count(Expression<Func<TEntity, bool>> whereExpression)
+        public int Count(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
 
@@ -36,12 +36,32 @@ namespace WeihanLi.Common.Data
 SELECT COUNT(1) FROM {_tableName}
 {whereSql.SqlText}
 ";
-            var total = _dbConnection.Value.ExecuteScalarTo<long>(sql, whereSql.Parameters);
-
-            return total;
+            return _dbConnection.Value.ExecuteScalarTo<int>(sql, whereSql.Parameters);
         }
 
-        public virtual Task<long> CountAsync(Expression<Func<TEntity, bool>> whereExpression)
+        public Task<int> CountAsync(Expression<Func<TEntity, bool>> whereExpression)
+        {
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+
+            var sql = $@"
+SELECT COUNT(1) FROM {_tableName}
+{whereSql.SqlText}
+";
+            return _dbConnection.Value.ExecuteScalarToAsync<int>(sql, whereSql.Parameters);
+        }
+
+        public virtual long LongCount(Expression<Func<TEntity, bool>> whereExpression)
+        {
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+
+            var sql = $@"
+SELECT COUNT(1) FROM {_tableName}
+{whereSql.SqlText}
+";
+            return _dbConnection.Value.ExecuteScalarTo<long>(sql, whereSql.Parameters);
+        }
+
+        public virtual Task<long> LongCountAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
 
@@ -55,27 +75,15 @@ SELECT COUNT(1) FROM {_tableName}
         public virtual bool Exist(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
-
-            var sql = $@"
-SELECT TOP(1) 1 FROM {_tableName}
-{whereSql.SqlText}
-";
-            var result = _dbConnection.Value.ExecuteScalarTo<int>(sql, whereSql.Parameters);
-
-            return result == 1;
+            var sql = $@"SELECT IIF(EXISTS (SELECT TOP(1) 1 FROM {_tableName} {whereSql.SqlText}), 1, 0) AS BIT";
+            return _dbConnection.Value.ExecuteScalarTo<bool>(sql, whereSql.Parameters);
         }
 
-        public virtual async Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
-
-            var sql = $@"
-SELECT TOP(1) 1 FROM {_tableName}
-{whereSql.SqlText}
-";
-            var result = await _dbConnection.Value.ExecuteScalarToAsync<int>(sql, whereSql.Parameters);
-
-            return result == 1;
+            var sql = $@"SELECT IIF(EXISTS (SELECT TOP(1) 1 FROM {_tableName} {whereSql.SqlText}), 1, 0) AS BIT";
+            return _dbConnection.Value.ExecuteScalarToAsync<bool>(sql, whereSql.Parameters);
         }
 
         public virtual TEntity Fetch(Expression<Func<TEntity, bool>> whereExpression)
