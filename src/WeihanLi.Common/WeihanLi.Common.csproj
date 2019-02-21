@@ -1,12 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="../../build/common.props" />
-  <ItemGroup>
-    <None Remove=".gitignore" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.1.2-alpha" PrivateAssets="All" />
-    <PackageReference Include="JetBrains.Annotations" Version="11.1.0" PrivateAssets="All" />
-  </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Configuration" />
@@ -17,22 +10,18 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Net.Http" />
     <Compile Remove="Extensions\ConfigurationExtension.cs" />
-    <Compile Remove="Log\Log4NetLoggerProvider.cs" />
-    <Compile Remove="Log\MicrosoftLoggingLogHelperProvider.cs" />
+    <Compile Remove="Logging\MicrosoftLoggingLogHelperProvider.cs" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.0" />
+    <Compile Remove="ObjectPool\*.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
-    <PackageReference Include="log4net" Version="2.0.8" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="log4net.config" Pack="true" PackagePath="content\log4net.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Common.Log;
+using WeihanLi.Common.Logging;
 using WeihanLi.Extensions;
 
 namespace DotNetFxSample
@@ -14,7 +15,7 @@ namespace DotNetFxSample
         /// <summary>
         /// Logger
         /// </summary>
-        private static readonly ILogHelper Logger = LogHelper.GetLogHelper<DataExtensionTest>();
+        private static readonly ILogHelperLogger Logger = LogHelper.GetLogger<DataExtensionTest>();
 
         private static void Init(DbConnection conn)
         {
@@ -173,6 +174,7 @@ namespace DotNetFxSample
 
     internal class TestEntity
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PKID { get; set; }
 
         public string Token { get; set; }

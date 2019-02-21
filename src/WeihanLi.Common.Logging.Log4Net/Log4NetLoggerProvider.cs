@@ -7,9 +7,12 @@ using log4net.Config;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions.Internal;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Common.Logging.Log4Net;
+using ILogger = Microsoft.Extensions.Logging.ILogger;
 
-namespace WeihanLi.Common.Helpers
+namespace WeihanLi.Common.Logging.Log4Net
 {
+    [ProviderAlias("log4net")]
     internal class Log4NetLogger : ILogger
     {
         private readonly ILog _logger;

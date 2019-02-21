@@ -66,12 +66,14 @@ namespace WeihanLi.Extensions
         public static bool IsPrimitiveType([NotNull]this Type type)
             => (Nullable.GetUnderlyingType(type) ?? type).IsPrimitive;
 
-        public static bool IsPrimitiveType<T>([NotNull]this T t)
+        public static bool IsPrimitiveType<T>()
             => typeof(T).IsPrimitiveType();
 
         public static bool IsBasicType([NotNull]this Type type) => BasicTypes.Contains(type) || type.IsEnum;
 
-        public static bool IsBasicType<T>([NotNull]this T t) => typeof(T).IsBasicType();
+        public static bool IsBasicType<T>() => typeof(T).IsBasicType();
+
+        public static bool IsBasicType<T>(this T value) => typeof(T).IsBasicType();
 
         /// <summary>
         /// Finds best constructor

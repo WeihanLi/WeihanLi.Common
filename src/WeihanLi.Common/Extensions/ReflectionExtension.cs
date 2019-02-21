@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -19,6 +20,12 @@ namespace WeihanLi.Extensions
         /// <returns>The custom attribute.</returns>
         public static string GetDisplayName([NotNull]this MemberInfo @this)
             => @this.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? @this.GetCustomAttribute<DisplayAttribute>()?.Name ?? @this.Name;
+
+        /// <summary>
+        /// GetColumnName
+        /// </summary>
+        /// <returns></returns>
+        public static string GetColumnName([NotNull] this PropertyInfo propertyInfo) => propertyInfo.GetCustomAttribute<ColumnAttribute>()?.Name ?? propertyInfo.Name;
 
         /// <summary>
         /// GetDescription

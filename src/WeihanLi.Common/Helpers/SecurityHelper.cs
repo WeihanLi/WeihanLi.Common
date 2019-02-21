@@ -64,6 +64,8 @@ namespace WeihanLi.Common.Helpers
             '9'
         };
 
+        public static readonly Random Random = new Random();
+
         /// <summary>
         /// 生成随机验证码
         /// </summary>
@@ -85,10 +87,9 @@ namespace WeihanLi.Common.Helpers
                 array = Constant;
             }
             var stringBuilder = new StringBuilder(num);
-            var random = new Random();
             for (var i = 0; i < length; i++)
             {
-                stringBuilder.Append(array[random.Next(num)]);
+                stringBuilder.Append(array[Random.Next(num)]);
             }
             return stringBuilder.ToString();
         }

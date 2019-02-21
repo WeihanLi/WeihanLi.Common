@@ -14,7 +14,7 @@ namespace WeihanLi.Common.Benchmark
 
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddSingleton<IConfiguration>(configurationBuilder.Build());
-            DependencyResolver.SetDependencyResolver(serviceCollection.BuildServiceProvider());
+            DependencyResolver.SetDependencyResolver(serviceCollection);
 
             BenchmarkRunner.Run<MapperTest>();
 

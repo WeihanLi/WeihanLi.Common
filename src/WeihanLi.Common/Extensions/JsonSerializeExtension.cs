@@ -132,7 +132,7 @@ namespace WeihanLi.Extensions
             {
                 return defaultValue;
             }
-            if (defaultValue.IsBasicType())
+            if (typeof(T).IsBasicType())
             {
                 return jsonString.ToOrDefault(defaultValue);
             }

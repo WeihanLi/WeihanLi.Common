@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Collections.Generic;
+using System.Linq.Expressions;
 using JetBrains.Annotations;
 
 // ReSharper disable once CheckNamespace
@@ -15,7 +16,7 @@ namespace WeihanLi.Common.Data
 #endif
         static partial class SqlExpressionParser
     {
-        public static string ParseDateTimeMemberAccess([NotNull]MemberExpression exp)
+        public static string ParseDateTimeMemberAccess([NotNull]MemberExpression exp, IDictionary<string, string> columnMappings)
         {
             switch (exp.Member.Name)
             {
@@ -31,7 +32,7 @@ namespace WeihanLi.Common.Data
             return string.Empty;
         }
 
-        public static string ParseDateTimeMethodCall([NotNull]MethodCallExpression exp)
+        public static string ParseDateTimeMethodCall([NotNull]MethodCallExpression exp, IDictionary<string, string> columnMappings)
         {
             return string.Empty;
         }

@@ -16,111 +16,153 @@ namespace WeihanLi.Common.Data
     {
         private static readonly Type EntityType = typeof(TEntity);
 
-        private readonly string _tableName;
-        private readonly Lazy<DbConnection> _dbConnection;
+        private static readonly Dictionary<string, string> ColumnMappings = CacheUtil.TypePropertyCache.GetOrAdd(typeof(TEntity), t => t.GetProperties())
+             .Where(_ => !_.IsDefined(typeof(NotMappedAttribute)))
+             .Select(p => new KeyValuePair<string, string>(p.GetColumnName(), p.Name))
+             .ToDictionary(p => p.Key, p => p.Value);
+
+        private static readonly string SelectColumnsString = CacheUtil.TypePropertyCache.GetOrAdd(typeof(TEntity), t => t.GetProperties())
+            .Where(_ => !_.IsDefined(typeof(NotMappedAttribute))).Select(_ => $"{_.GetColumnName()} AS {_.Name}").StringJoin(",");
+
+        private static readonly Lazy<Dictionary<string, string>> InsertColumnMappings = new Lazy<Dictionary<string, string>>(() => CacheUtil.TypePropertyCache.GetOrAdd(typeof(TEntity), t => t.GetProperties())
+            .Where(_ => !_.IsDefined(typeof(NotMappedAttribute)) && !_.IsDefined(typeof(DatabaseGeneratedAttribute)))
+            .Select(p => new KeyValuePair<string, string>(p.GetColumnName(), p.Name))
+            .ToDictionary(_ => _.Key, _ => _.Value));
+
+        private static readonly string TableName = typeof(TEntity).IsDefined(typeof(TableAttribute))
+            ? EntityType.GetCustomAttribute<TableAttribute>().Name
+            : EntityType.Name;
+
+        protected readonly Lazy<DbConnection> _dbConnection;
 
         public Repository(Func<DbConnection> dbConnectionFunc)
         {
             _dbConnection = new Lazy<DbConnection>(dbConnectionFunc);
-
-            _tableName = EntityType.IsDefined(typeof(TableAttribute))
-                ? EntityType.GetCustomAttribute<TableAttribute>().Name
-                : EntityType.Name;
         }
 
-        public long Count(Expression<Func<TEntity, bool>> whereExpression)
+        public int Count(Expression<Func<TEntity, bool>> whereExpression)
         {
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
 
             var sql = $@"
-SELECT COUNT(1) FROM {_tableName}
+SELECT COUNT(1) FROM {TableName}
 {whereSql.SqlText}
 ";
-            var total = _dbConnection.Value.ExecuteScalarTo<long>(sql, whereSql.Parameters);
-
-            return total;
+            return _dbConnection.Value.ExecuteScalarTo<int>(sql, GetDbParameters(whereSql.Parameters));
         }
 
-        public Task<long> CountAsync(Expression<Func<TEntity, bool>> whereExpression)
+        public Task<int> CountAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
 
             var sql = $@"
-SELECT COUNT(1) FROM {_tableName}
+SELECT COUNT(1) FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.ExecuteScalarToAsync<long>(sql, whereSql.Parameters);
+            return _dbConnection.Value.ExecuteScalarToAsync<int>(sql, GetDbParameters(whereSql.Parameters));
         }
 
-        public bool Exist(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual long LongCount(Expression<Func<TEntity, bool>> whereExpression)
         {
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
 
             var sql = $@"
-SELECT TOP(1) 1 FROM {_tableName}
+SELECT COUNT(1) FROM {TableName}
 {whereSql.SqlText}
 ";
-            var result = _dbConnection.Value.ExecuteScalarTo<int>(sql, whereSql.Parameters);
-
-            return result == 1;
+            return _dbConnection.Value.ExecuteScalarTo<long>(sql, GetDbParameters(whereSql.Parameters));
         }
 
-        public async Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual Task<long> LongCountAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
 
             var sql = $@"
-SELECT TOP(1) 1 FROM {_tableName}
+SELECT COUNT(1) FROM {TableName}
 {whereSql.SqlText}
 ";
-            var result = await _dbConnection.Value.ExecuteScalarToAsync<int>(sql, whereSql.Parameters);
-
-            return result == 1;
+            return _dbConnection.Value.ExecuteScalarToAsync<long>(sql, GetDbParameters(whereSql.Parameters));
         }
 
-        public TEntity Fetch(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual bool Exist(Expression<Func<TEntity, bool>> whereExpression)
         {
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
+            var sql = $@"SELECT CAST(IIF(EXISTS (SELECT TOP(1) 1 FROM {TableName} {whereSql.SqlText}), 1, 0) AS BIT)";
+            return _dbConnection.Value.ExecuteScalarTo<bool>(sql, GetDbParameters(whereSql.Parameters));
+        }
+
+        public virtual Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression)
+        {
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
+            var sql = $@"SELECT CAST(IIF(EXISTS (SELECT TOP(1) 1 FROM {TableName} {whereSql.SqlText}), 1, 0) AS BIT)";
+            return _dbConnection.Value.ExecuteScalarToAsync<bool>(sql, GetDbParameters(whereSql.Parameters));
+        }
+
+        public virtual TEntity Fetch(Expression<Func<TEntity, bool>> whereExpression)
+        {
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
-SELECT TOP 1 * FROM {_tableName}
+SELECT TOP(1) {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.Fetch<TEntity>(sql, whereSql.Parameters);
+            return _dbConnection.Value.Fetch<TEntity>(sql, GetDbParameters(whereSql.Parameters));
         }
 
-        public Task<TEntity> FetchAsync(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual Task<TEntity> FetchAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
-SELECT TOP 1 * FROM {_tableName}
+SELECT TOP 1 {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.FetchAsync<TEntity>(sql, whereSql.Parameters);
+            return _dbConnection.Value.FetchAsync<TEntity>(sql, GetDbParameters(whereSql.Parameters));
         }
 
-        public IEnumerable<TEntity> Select(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual List<TEntity> Select(Expression<Func<TEntity, bool>> whereExpression)
         {
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
-SELECT * FROM {_tableName}
+SELECT {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters);
+            return _dbConnection.Value.Select<TEntity>(sql, GetDbParameters(whereSql.Parameters)).ToList();
         }
 
-        public Task<IEnumerable<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual Task<List<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
-SELECT * FROM {_tableName}
+SELECT {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters);
+            return _dbConnection.Value.SelectAsync<TEntity>(sql, GetDbParameters(whereSql.Parameters)).ContinueWith(r => r.Result.ToList());
         }
 
-        public PagedListModel<TEntity> Paged<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        public List<TEntity> Select<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
         {
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
+            var sql = $@"
+SELECT TOP({count}) {SelectColumnsString} FROM {TableName}
+{whereSql.SqlText}
+ORDER BY {orderByExpression.GetMemberName()} {(isAsc ? "" : "DESC")}
+";
+            return _dbConnection.Value.Select<TEntity>(sql, GetDbParameters(whereSql.Parameters)).ToList();
+        }
+
+        public Task<List<TEntity>> SelectAsync<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        {
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
+            var sql = $@"
+SELECT TOP({count}) {SelectColumnsString} FROM {TableName}
+{whereSql.SqlText}
+ORDER BY {orderByExpression.GetMemberName()} {(isAsc ? "" : "DESC")}
+";
+            return _dbConnection.Value.SelectAsync<TEntity>(sql, GetDbParameters(whereSql.Parameters)).ContinueWith(_ => _.Result.ToList());
+        }
+
+        public virtual PagedListModel<TEntity> Paged<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        {
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             if (pageIndex <= 0)
             {
                 pageIndex = 1;
@@ -130,31 +172,31 @@ SELECT * FROM {_tableName}
                 pageSize = 10;
             }
             var sql = $@"
-SELECT COUNT(1) FROM {_tableName}
+SELECT COUNT(1) FROM {TableName}
 {whereSql.SqlText}
 ";
-            var total = _dbConnection.Value.ExecuteScalarTo<int>(sql, whereSql.Parameters);
+            var total = _dbConnection.Value.ExecuteScalarTo<int>(sql, GetDbParameters(whereSql.Parameters));
             if (total == 0)
             {
-                return new TEntity[0].ToPagedListModel(pageIndex, pageSize, 0);
+                return new PagedListModel<TEntity>();
             }
 
             var offset = (pageIndex - 1) * pageSize;
 
             sql = $@"
-SELECT * FROM {_tableName}
+SELECT {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
 ORDER BY {orderByExpression.GetMemberName()}{(isAsc ? "" : " DESC")}
 OFFSET {offset} ROWS
 FETCH NEXT {pageSize} ROWS ONLY
 ";
 
-            return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToPagedListModel(pageIndex, pageSize, total);
+            return _dbConnection.Value.Select<TEntity>(sql, GetDbParameters(whereSql.Parameters)).ToPagedListModel(pageIndex, pageSize, total);
         }
 
-        public async Task<PagedListModel<TEntity>> PagedAsync<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        public virtual async Task<PagedListModel<TEntity>> PagedAsync<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
         {
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             if (pageIndex <= 0)
             {
                 pageIndex = 1;
@@ -164,10 +206,10 @@ FETCH NEXT {pageSize} ROWS ONLY
                 pageSize = 10;
             }
             var sql = $@"
-SELECT COUNT(1) FROM {_tableName}
+SELECT COUNT(1) FROM {TableName}
 {whereSql.SqlText}
 ";
-            var total = await _dbConnection.Value.ExecuteScalarToAsync<int>(sql, whereSql.Parameters);
+            var total = await _dbConnection.Value.ExecuteScalarToAsync<int>(sql, GetDbParameters(whereSql.Parameters));
             if (total == 0)
             {
                 return new TEntity[0].ToPagedListModel(pageIndex, pageSize, 0);
@@ -176,65 +218,57 @@ SELECT COUNT(1) FROM {_tableName}
             var offset = (pageIndex - 1) * pageSize;
 
             sql = $@"
-SELECT * FROM {_tableName}
+SELECT {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
 ORDER BY {orderByExpression.GetMemberName()}{(isAsc ? "" : " DESC")}
 OFFSET {offset} ROWS
 FETCH NEXT {pageSize} ROWS ONLY
 ";
 
-            return (await _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters)).ToPagedListModel(pageIndex, pageSize, total);
+            return (await _dbConnection.Value.SelectAsync<TEntity>(sql, GetDbParameters(whereSql.Parameters))).ToPagedListModel(pageIndex, pageSize, total);
         }
 
-        public int Insert(TEntity entity)
+        public virtual int Insert(TEntity entity)
         {
-            var fields = CacheUtil.TypePropertyCache.GetOrAdd(EntityType, t => t.GetProperties())
-                .Where(p => !p.IsDefined(typeof(DatabaseGeneratedAttribute)) && !p.IsDefined(typeof(NotMappedAttribute)))
-                .Select(_ => _.Name)
-                .ToArray();
-
             var paramDictionary = new Dictionary<string, object>();
-            var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName} ");
+            var sqlBuilder = new StringBuilder($@"INSERT INTO {TableName}");
+            sqlBuilder.AppendLine();
             sqlBuilder.AppendLine("(");
-            sqlBuilder.AppendLine($"{fields.Select(_ => _).StringJoin($",{Environment.NewLine}")}");
+            sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => _).StringJoin($",{Environment.NewLine}")}");
             sqlBuilder.AppendLine(")");
             sqlBuilder.AppendLine("VALUES");
             sqlBuilder.AppendLine("(");
-            sqlBuilder.AppendLine($"{fields.Select(_ => $"@{_}").StringJoin($",{Environment.NewLine}")}");
+            sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => $"@{_}").StringJoin($",{Environment.NewLine}")}");
             sqlBuilder.AppendLine(")");
-            foreach (var field in fields)
+            foreach (var field in InsertColumnMappings.Value.Keys)
             {
-                paramDictionary.Add($"{field}", entity.GetPropertyValue(field));
+                paramDictionary.Add($"{field}", entity.GetPropertyValue(InsertColumnMappings.Value[field]));
             }
             var sql = sqlBuilder.ToString();
 
             return _dbConnection.Value.Execute(sql, paramDictionary);
         }
 
-        public Task<int> InsertAsync(TEntity entity)
+        public virtual Task<int> InsertAsync(TEntity entity)
         {
-            var fields = CacheUtil.TypePropertyCache.GetOrAdd(EntityType, t => t.GetProperties())
-                .Where(p => !p.IsDefined(typeof(DatabaseGeneratedAttribute)) && !p.IsDefined(typeof(NotMappedAttribute)))
-                .Select(_ => _.Name)
-                .ToArray();
             var paramDictionary = new Dictionary<string, object>();
 
-            var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName}");
+            var sqlBuilder = new StringBuilder($@"INSERT INTO {TableName}");
             sqlBuilder.AppendLine("(");
-            sqlBuilder.AppendLine($"{fields.Select(_ => _).StringJoin($",{Environment.NewLine}")}");
+            sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => _).StringJoin($",{Environment.NewLine}")}");
             sqlBuilder.AppendLine(")");
             sqlBuilder.AppendLine("VALUES (");
-            sqlBuilder.AppendLine($"{fields.Select(_ => $"@{_}").StringJoin($",{Environment.NewLine}")}");
-            foreach (var field in fields)
+            sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => $"@{_}").StringJoin($",{Environment.NewLine}")}");
+            foreach (var field in InsertColumnMappings.Value.Keys)
             {
-                paramDictionary.Add($"{field}", entity.GetPropertyValue(field));
+                paramDictionary.Add($"{field}", entity.GetPropertyValue(InsertColumnMappings.Value[field]));
             }
 
             sqlBuilder.AppendLine(")");
             return _dbConnection.Value.ExecuteAsync(sqlBuilder.ToString(), paramDictionary);
         }
 
-        public int Insert(IEnumerable<TEntity> entities)
+        public virtual int Insert(IEnumerable<TEntity> entities)
         {
             var count = entities?.Count() ?? 0;
             if (count == 0)
@@ -245,14 +279,10 @@ FETCH NEXT {pageSize} ROWS ONLY
             {
                 return -1; // too large, not supported
             }
-            var fields = CacheUtil.TypePropertyCache.GetOrAdd(EntityType, t => t.GetProperties())
-                .Where(p => !p.IsDefined(typeof(DatabaseGeneratedAttribute)) && !p.IsDefined(typeof(NotMappedAttribute)))
-                .Select(_ => _.Name)
-                .ToArray();
             var paramDictionary = new Dictionary<string, object>();
-            var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName}");
+            var sqlBuilder = new StringBuilder($@"INSERT INTO {TableName}");
             sqlBuilder.AppendLine("(");
-            sqlBuilder.AppendLine($"{fields.Select(_ => _).StringJoin($",{Environment.NewLine}")}");
+            sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => _).StringJoin($",{Environment.NewLine}")}");
             sqlBuilder.AppendLine(")");
             sqlBuilder.AppendLine("VALUES");
 
@@ -260,10 +290,10 @@ FETCH NEXT {pageSize} ROWS ONLY
             {
                 sqlBuilder.AppendLine();
                 sqlBuilder.AppendLine("(");
-                sqlBuilder.AppendLine($"{fields.Select(_ => $"@{_}_{i}").StringJoin($",{Environment.NewLine}")}");
-                foreach (var field in fields)
+                sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => $"@{_}_{i}").StringJoin($",{Environment.NewLine}")}");
+                foreach (var field in InsertColumnMappings.Value.Keys)
                 {
-                    paramDictionary.Add($"{field}_{i}", EntityType.GetPropertyValue(field));
+                    paramDictionary.Add($"{field}_{i}", EntityType.GetPropertyValue(InsertColumnMappings.Value[field]));
                 }
                 sqlBuilder.Append("),");
             }
@@ -272,7 +302,7 @@ FETCH NEXT {pageSize} ROWS ONLY
             return _dbConnection.Value.Execute(sqlBuilder.ToString(), paramDictionary);
         }
 
-        public Task<int> InsertAsync(IEnumerable<TEntity> entities)
+        public virtual Task<int> InsertAsync(IEnumerable<TEntity> entities)
         {
             var count = entities?.Count() ?? 0;
             if (count == 0)
@@ -283,14 +313,10 @@ FETCH NEXT {pageSize} ROWS ONLY
             {
                 return Task.FromResult(-1); // too large, not supported
             }
-            var fields = CacheUtil.TypePropertyCache.GetOrAdd(EntityType, t => t.GetProperties())
-                .Where(p => !p.IsDefined(typeof(DatabaseGeneratedAttribute)) && !p.IsDefined(typeof(NotMappedAttribute)))
-                .Select(_ => _.Name)
-                .ToArray();
             var paramDictionary = new Dictionary<string, object>();
-            var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName}");
+            var sqlBuilder = new StringBuilder($@"INSERT INTO {TableName}");
             sqlBuilder.AppendLine("(");
-            sqlBuilder.AppendLine($"{fields.Select(_ => _).StringJoin($",{Environment.NewLine}")}");
+            sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => _).StringJoin($",{Environment.NewLine}")}");
             sqlBuilder.AppendLine(")");
             sqlBuilder.AppendLine("VALUES");
 
@@ -298,10 +324,10 @@ FETCH NEXT {pageSize} ROWS ONLY
             {
                 sqlBuilder.AppendLine();
                 sqlBuilder.AppendLine("(");
-                sqlBuilder.AppendLine($"{fields.Select(_ => $"@{_}_{i}").StringJoin($",{Environment.NewLine}")}");
-                foreach (var field in fields)
+                sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => $"@{_}_{i}").StringJoin($",{Environment.NewLine}")}");
+                foreach (var field in InsertColumnMappings.Value.Keys)
                 {
-                    paramDictionary.Add($"{field}_{i}", EntityType.GetPropertyValue(field));
+                    paramDictionary.Add($"{field}_{i}", EntityType.GetPropertyValue(InsertColumnMappings.Value[field]));
                 }
                 sqlBuilder.Append("),");
             }
@@ -310,41 +336,41 @@ FETCH NEXT {pageSize} ROWS ONLY
             return _dbConnection.Value.ExecuteAsync(sqlBuilder.ToString(), paramDictionary);
         }
 
-        public int Update<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value)
+        public virtual int Update<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value)
         {
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var propertyName = propertyExpression.GetMemberName();
             var sql = $@"
-UPDATE {_tableName}
+UPDATE {TableName}
 SET {propertyName} = @set_{propertyName}
 {whereSql.SqlText}
 ";
             whereSql.Parameters.Add($"set_{propertyName}", value);
-            return _dbConnection.Value.Execute(sql, whereSql.Parameters);
+            return _dbConnection.Value.Execute(sql, GetDbParameters(whereSql.Parameters));
         }
 
-        public Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value)
+        public virtual Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value)
         {
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var propertyName = propertyExpression.GetMemberName();
             var sql = $@"
-UPDATE {_tableName}
+UPDATE {TableName}
 SET {propertyName} = @set_{propertyName}
 {whereSql.SqlText}
 ";
             whereSql.Parameters.Add($"set_{propertyName}", value);
-            return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters);
+            return _dbConnection.Value.ExecuteAsync(sql, GetDbParameters(whereSql.Parameters));
         }
 
-        public int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues)
+        public virtual int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues)
         {
             if (propertyValues == null || propertyValues.Count == 0)
             {
                 return 0;
             }
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
-UPDATE {_tableName}
+UPDATE {TableName}
 SET {propertyValues.Keys.Select(p => $"{p}=@set_{p}").StringJoin($",{Environment.NewLine}")}
 {whereSql.SqlText}
 ";
@@ -352,18 +378,18 @@ SET {propertyValues.Keys.Select(p => $"{p}=@set_{p}").StringJoin($",{Environment
             {
                 whereSql.Parameters.Add($"set_{propertyValue.Key}", propertyValue.Value);
             }
-            return _dbConnection.Value.Execute(sql, whereSql.Parameters);
+            return _dbConnection.Value.Execute(sql, GetDbParameters(whereSql.Parameters));
         }
 
-        public Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues)
+        public virtual Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues)
         {
             if (propertyValues == null || propertyValues.Count == 0)
             {
                 return Task.FromResult(0);
             }
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
-UPDATE {_tableName}
+UPDATE {TableName}
 SET {propertyValues.Keys.Select(p => $"{p}=@set_{p}").StringJoin($",{Environment.NewLine}")}
 {whereSql.SqlText}
 ";
@@ -371,41 +397,59 @@ SET {propertyValues.Keys.Select(p => $"{p}=@set_{p}").StringJoin($",{Environment
             {
                 whereSql.Parameters.Add($"set_{propertyValue.Key}", propertyValue.Value);
             }
-            return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters);
+            return _dbConnection.Value.ExecuteAsync(sql, GetDbParameters(whereSql.Parameters));
         }
 
-        public int Delete(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual int Delete(Expression<Func<TEntity, bool>> whereExpression)
         {
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
-DELETE FROM {_tableName}
+DELETE FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.Execute(sql, whereSql.Parameters);
+            return _dbConnection.Value.Execute(sql, GetDbParameters(whereSql.Parameters));
         }
 
-        public Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
-            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression);
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
-DELETE FROM {_tableName}
+DELETE FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters);
+            return _dbConnection.Value.ExecuteAsync(sql, GetDbParameters(whereSql.Parameters));
         }
 
-        public int Execute(string sqlStr, object param = null)
+        public virtual int Execute(string sqlStr, object param = null)
         => _dbConnection.Value.Execute(sqlStr, paramInfo: param);
 
-        public Task<int> ExecuteAsync(string sqlStr, object param = null)
+        public virtual Task<int> ExecuteAsync(string sqlStr, object param = null)
         => _dbConnection.Value.ExecuteAsync(sqlStr, paramInfo: param);
 
-        public TResult ExecuteScalar<TResult>(string sqlStr, object param = null)
+        public virtual TResult ExecuteScalar<TResult>(string sqlStr, object param = null)
 
         => _dbConnection.Value.ExecuteScalarTo<TResult>(sqlStr, paramInfo: param);
 
-        public Task<TResult> ExecuteScalarAsync<TResult>(string sqlStr, object param = null)
+        public virtual Task<TResult> ExecuteScalarAsync<TResult>(string sqlStr, object param = null)
 
         => _dbConnection.Value.ExecuteScalarToAsync<TResult>(sqlStr, paramInfo: param);
+
+        private static string GetColumnName(string propertyName)
+        {
+            return ColumnMappings.FirstOrDefault(_ => _.Value == propertyName).Key ?? propertyName;
+        }
+
+        private static IDictionary<string, object> GetDbParameters(IDictionary<string, object> parameter)
+        {
+            if (parameter.Count == 0)
+                return parameter;
+
+            var dic = new Dictionary<string, object>();
+            foreach (var p in parameter)
+            {
+                dic.Add(GetColumnName(p.Key), p.Value);
+            }
+            return dic;
+        }
     }
 }

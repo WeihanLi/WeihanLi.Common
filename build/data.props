@@ -3,16 +3,18 @@
   <Import Project="version.props" />
   <Import Project="copyright.props" />
   <Import Project="repo.props" />
-  <PropertyGroup>        
-    <TargetFramework>netstandard2.0</TargetFramework>
+  <Import Project="analyzer.props" />
+  <PropertyGroup>            
+    <PackageId>WeihanLi.Data</PackageId>
+    <Title>WeihanLi.Data</Title>    
+    <Description>sql database data extensions</Description>
+    <PackageSummary>sql database data extensions</PackageSummary>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
-    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Data</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>db database sql data </PackageTags>
-    <Title>WeihanLi.Data</Title>
-    <Description>common .netstandard libarary and extensions</Description>
-    <PackageSummary>sql data extensions</PackageSummary>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
       sql bulk copy extensions for SqlConnection
     </PackageReleaseNotes>    

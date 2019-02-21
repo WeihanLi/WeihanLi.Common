@@ -2,7 +2,7 @@
 using System.Collections.Concurrent;
 using Microsoft.Extensions.Logging;
 
-namespace WeihanLi.Common.Log
+namespace WeihanLi.Common.Logging
 {
     internal class MicrosoftLoggingLogHelperProvider : ILogHelperProvider
     {
@@ -15,10 +15,10 @@ namespace WeihanLi.Common.Log
             _loggerFactory = loggerFactory;
         }
 
-        public ILogHelper CreateLogHelper(string categoryName) => _loggers.GetOrAdd(categoryName, _ => new MicrosoftLoggingLogHelper(_loggerFactory.CreateLogger(_)));
+        public ILogHelperLogger CreateLogger(string categoryName) => _loggers.GetOrAdd(categoryName, _ => new MicrosoftLoggingLogHelper(_loggerFactory.CreateLogger(_)));
     }
 
-    internal class MicrosoftLoggingLogHelper : ILogHelper
+    internal class MicrosoftLoggingLogHelper : ILogHelperLogger
     {
         private readonly ILogger _logger;
 

@@ -25,4 +25,6 @@ install:
   
 script:
   - dotnet build -c Release -f netstandard2.0 ./src/WeihanLi.Common/WeihanLi.Common.csproj
+  - dotnet build -c Release -f netstandard2.0 ./src/WeihanLi.Common.Logging.Log4Net/WeihanLi.Common.Logging.Log4Net.csproj
+  - dotnet build -c Release -f netstandard2.0 ./src/WeihanLi.Data/WeihanLi.Data.csproj
 #  - dotnet test ./WeihanLi.Common.Test/WeihanLi.Common.Test.csproj

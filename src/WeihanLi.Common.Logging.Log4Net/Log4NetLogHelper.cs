@@ -1,40 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using log4net;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
-namespace WeihanLi.Common.Log
+namespace WeihanLi.Common.Logging.Log4Net
 {
-    public interface ILogHelper
-    {
-        void Log(LogHelperLevel loggerLevel, string message, Exception exception);
-
-        bool IsEnabled(LogHelperLevel loggerLevel);
-    }
-
-    internal class LogHelper : ILogHelper
-    {
-        private readonly IReadOnlyCollection<ILogHelper> _logHelpers;
-
-        public LogHelper(ICollection<ILogHelperProvider> logHelperProviders, string categoryName)
-        {
-            _logHelpers = logHelperProviders.Select(_ => _.CreateLogHelper(categoryName)).ToArray();
-        }
-
-        public void Log(LogHelperLevel loggerLevel, string message, Exception exception)
-        {
-            _logHelpers.ForEach(logHelper =>
-            {
-                logHelper.Log(loggerLevel, message, exception);
-            });
-        }
-
-        public bool IsEnabled(LogHelperLevel loggerLevel) => true;
-    }
-
-    internal class Log4NetLogHelper : ILogHelper
+    public class Log4NetLogHelper : ILogHelperLogger
     {
         private readonly ILog _logger;
 
@@ -68,7 +39,7 @@ namespace WeihanLi.Common.Log
                     return false;
 
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(loggerHelperLevel), loggerHelperLevel, Resource.UnSupportedLogHelperLevel);
+                    throw new ArgumentOutOfRangeException(nameof(loggerHelperLevel), loggerHelperLevel, "UnSupportedLogHelperLevel");
             }
         }
 

@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using WeihanLi.Common;
 using WeihanLi.Common.Data;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Common.Logging.Log4Net;
+using WeihanLi.Extensions;
 
 namespace DotNetCoreSample
 {
@@ -12,7 +14,8 @@ namespace DotNetCoreSample
     {
         public static void Main(string[] args)
         {
-            LogHelper.LogInit();
+            LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
+            DataExtension.CommandLogAction = Console.WriteLine;
             Console.WriteLine(SystemHelper.OsType);
             // ReSharper disable once LocalizableElement
             Console.WriteLine("----------DotNetCoreSample----------");
@@ -22,11 +25,16 @@ namespace DotNetCoreSample
             IConfiguration configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
+
+            var city = configuration.GetAppSetting("City");
+            var number = configuration.GetAppSetting<int>("Number");
+            System.Console.WriteLine($"City:{city}, Number:{number}");
+
             serviceCollection.AddSingleton(configuration);
 
             DependencyResolver.SetDependencyResolver(serviceCollection);
 
-            //DependencyInjectionTest.Test();
+            DependencyInjectionTest.Test();
 
             //var builder = new ContainerBuilder();
             //builder.RegisterType<MonkeyKing>().As<IFly>();
@@ -39,7 +47,7 @@ namespace DotNetCoreSample
             //Console.WriteLine(JsonConvert.SerializeObject(a));// output 1
 
             // log test
-            // LoggerTest.MainTest();
+            LoggerTest.MainTest();
             //ILoggerFactory loggerFactory = new LoggerFactory();
             //loggerFactory.AddConsole();
             //loggerFactory.AddDebug();
@@ -47,7 +55,7 @@ namespace DotNetCoreSample
             //var logger = new Logger<Program>(loggerFactory);
             //logger.LogInformation("Logging information from Microsoft.Extensions.Logging");
 
-            InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
+            //InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
 
             //TaskTest.TaskWhenAllTest().GetAwaiter().GetResult();
 
@@ -65,7 +73,7 @@ namespace DotNetCoreSample
 
             //Console.WriteLine(structTest.Name);
 
-            Expression<Func<TestEntity, bool>> exp = t => t.PKID > 10 && t.Token == "123" && t.Token.Contains("12");
+            Expression<Func<TestEntity, bool>> exp = t => t.Id > 10 && t.Token == "123" && t.Token.Contains("12");
             var str = SqlExpressionParser.ParseExpression(exp);
             Console.WriteLine("sql: {0}", str);
 

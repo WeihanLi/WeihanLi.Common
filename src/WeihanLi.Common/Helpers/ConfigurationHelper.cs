@@ -91,12 +91,6 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         /// <param name="key">键值</param>
         /// <returns>键值对应的连接字符串值</returns>
-        public static string ConnectionString(string key) =>
-#if NET45
-        ConfigurationManager.ConnectionStrings[key].ConnectionString;
-#else
-        DependencyResolver.Current.ResolveService<IConfiguration>()?.GetConnectionString(key);
-
-#endif
+        public static string ConnectionString(string key) => ConfigurationManager.ConnectionStrings[key].ConnectionString;
     }
 }

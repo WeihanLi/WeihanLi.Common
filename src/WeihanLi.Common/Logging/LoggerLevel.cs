@@ -1,4 +1,4 @@
-﻿namespace WeihanLi.Common.Log
+﻿namespace WeihanLi.Common.Logging
 {
     /// <summary>
     /// LoggerLevel

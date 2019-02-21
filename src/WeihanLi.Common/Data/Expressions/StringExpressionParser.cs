@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using JetBrains.Annotations;
 
@@ -16,7 +17,7 @@ namespace WeihanLi.Common.Data
 #endif
     static partial class SqlExpressionParser
     {
-        public static string ParseStringMemberAccess([NotNull]MemberExpression exp)
+        public static string ParseStringMemberAccess([NotNull]MemberExpression exp, IDictionary<string, string> columnMappings)
         {
             switch (exp.Member.Name)
             {
@@ -24,12 +25,12 @@ namespace WeihanLi.Common.Data
                     return string.Empty;
 
                 case "Length":
-                    return $"LEN({ParseExpression(exp.Expression)})";
+                    return $"LEN({ParseExpression(exp.Expression, columnMappings)})";
             }
             throw new NotImplementedException();
         }
 
-        public static string ParseStringMethodCall([NotNull]MethodCallExpression exp)
+        public static string ParseStringMethodCall([NotNull]MethodCallExpression exp, IDictionary<string, string> columnMappings)
         {
             if (exp.Object == null)
             {
@@ -50,11 +51,11 @@ namespace WeihanLi.Common.Data
             }
             else
             {
-                var left = ParseExpression(exp.Object);
+                var left = ParseExpression(exp.Object, null);
                 string arg0 = string.Empty;
                 if (exp.Arguments.Count > 0)
                 {
-                    arg0 = ParseExpression(exp.Arguments[0]);
+                    arg0 = ParseExpression(exp.Arguments[0], null);
                 }
 
                 switch (exp.Method.Name)

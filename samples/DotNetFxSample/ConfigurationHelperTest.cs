@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Reflection;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Common.Log;
+using WeihanLi.Common.Logging;
 
 namespace DotNetFxSample
 {
     internal class ConfigurationHelperTest
     {
-        private static readonly ILogHelper Logger = LogHelper.GetLogHelper<ConfigurationHelperTest>();
+        private static readonly ILogHelperLogger Logger = LogHelper.GetLogger<ConfigurationHelperTest>();
 
         public static void TestConfigurationHelper()
         {

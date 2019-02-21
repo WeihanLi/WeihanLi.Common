@@ -1,15 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="../../build/data.props" />
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
+    <Compile Remove="SqlExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
   </ItemGroup>
+
   <ItemGroup>
-    <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.1.2-alpha" PrivateAssets="All" />
-    <PackageReference Include="JetBrains.Annotations" Version="11.1.0" PrivateAssets="All" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Condition="'$(Configuration)'=='Debug'" Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
-    <PackageReference Condition="'$(Configuration)'=='Release'" Include="WeihanLi.Common" Version ="1.0.10" />
+    <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
   </ItemGroup>
 </Project>

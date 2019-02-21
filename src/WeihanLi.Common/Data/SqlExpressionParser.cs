@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Data
@@ -14,17 +14,19 @@ namespace WeihanLi.Common.Data
 #endif
         static partial class SqlExpressionParser
     {
-        public static SqlParseResult ParseWhereExpression(Expression exp)
+        public static SqlParseResult ParseWhereExpression(Expression exp, IDictionary<string, string> columnMappings)
         {
-            var sqlText = new StringBuilder("WHERE ");
+            var sqlText = string.Empty;
             var dic = new Dictionary<string, object>();
-            if (exp != null && exp.NodeType == ExpressionType.Lambda && exp is LambdaExpression expression)
+            if (exp != null && exp.NodeType == ExpressionType.Lambda && exp is LambdaExpression)
             {
-                var condition = ParseExpression(exp);
-                sqlText.Append(condition.IsNullOrWhiteSpace() ? "1=1" : condition);
+                var condition = ParseExpression(exp, columnMappings);
+                if (condition.IsNotNullOrWhiteSpace())
+                {
+                    sqlText = $"WHERE {condition}";
+                }
             }
-
-            return new SqlParseResult(sqlText.ToString(), dic);
+            return new SqlParseResult(sqlText, dic);
         }
 
 #if DEBUG
@@ -33,17 +35,17 @@ namespace WeihanLi.Common.Data
 #else
         private
 #endif
-            static string ParseExpression(Expression exp)
+            static string ParseExpression(Expression exp, IDictionary<string, string> columnMappings = null)
         {
             if (exp is LambdaExpression lambdaExpression)
             {
-                return ParseExpression(lambdaExpression.Body);
+                return ParseExpression(lambdaExpression.Body, columnMappings);
             }
             if (exp is BinaryExpression binaryExpression)
             {
-                var left = ParseExpression(binaryExpression.Left);
+                var left = ParseExpression(binaryExpression.Left, columnMappings);
                 var oper = GetExpressionOperatorString(binaryExpression);
-                var right = ParseExpression(binaryExpression.Right);
+                var right = ParseExpression(binaryExpression.Right, columnMappings);
                 if (left == "NULL")
                 {
                     var tmp = right;
@@ -58,11 +60,11 @@ namespace WeihanLi.Common.Data
             }
             if (exp is MemberExpression memberExpression)
             {
-                return ParseMemberExpression(memberExpression);
+                return ParseMemberExpression(memberExpression, columnMappings);
             }
             if (exp is MethodCallExpression methodCallExpression)
             {
-                return ParseMethodCallExpression(methodCallExpression);
+                return ParseMethodCallExpression(methodCallExpression, columnMappings);
             }
             if (exp is ConstantExpression constantExpression)
             {
@@ -70,13 +72,13 @@ namespace WeihanLi.Common.Data
             }
             if (exp is UnaryExpression unaryExpression)
             {
-                return ParseExpression(unaryExpression.Operand);
+                return ParseExpression(unaryExpression.Operand, columnMappings);
             }
 
             return string.Empty;
         }
 
-        private static string ParseMemberExpression(MemberExpression exp)
+        private static string ParseMemberExpression(MemberExpression exp, IDictionary<string, string> columnMappings)
         {
             if (exp == null)
             {
@@ -84,14 +86,22 @@ namespace WeihanLi.Common.Data
             }
             if (exp.Member.DeclaringType == typeof(DateTime))
             {
-                return ParseDateTimeMemberAccess(exp);
+                return ParseDateTimeMemberAccess(exp, columnMappings);
             }
             if (exp.Member.DeclaringType == typeof(string))
             {
-                return ParseStringMemberAccess(exp);
+                return ParseStringMemberAccess(exp, columnMappings);
             }
-
-            return exp.Member.Name;
+            var memberName = exp.Member.Name;
+            if (columnMappings != null && columnMappings.Count > 0)
+            {
+                var mapping = columnMappings.FirstOrDefault(_ => _.Value == memberName);
+                if (mapping.Key.IsNotNullOrWhiteSpace())
+                {
+                    return mapping.Key;
+                }
+            }
+            return memberName;
         }
 
         private static string GetExpressionOperatorString(BinaryExpression exp)
@@ -130,12 +140,12 @@ namespace WeihanLi.Common.Data
             return $"{exp.Value.ToString().Replace("'", "''")}";
         }
 
-        private static string ParseMethodCallExpression(MethodCallExpression expression)
+        private static string ParseMethodCallExpression(MethodCallExpression expression, IDictionary<string, string> columnMappings)
         {
             // TODO:完善 Method Call 解析
             if (expression.Object.Type == typeof(string))
             {
-                return ParseStringMethodCall(expression);
+                return ParseStringMethodCall(expression, columnMappings);
             }
             //
             throw new NotImplementedException();

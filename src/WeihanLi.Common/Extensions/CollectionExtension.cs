@@ -320,5 +320,16 @@ namespace WeihanLi.Extensions
                 @this.Remove(item);
             }
         }
+
+        /// <summary>
+        /// 获取随机排序后列表
+        /// </summary>
+        /// <typeparam name="T">T</typeparam>
+        /// <param name="list">list</param>
+        /// <returns></returns>
+        private static List<T> GetRandomList<T>([NotNull]this IList<T> list)
+        {
+            return Enumerable.Range(0, list.Count).OrderBy(_ => WeihanLi.Common.Helpers.SecurityHelper.Random.Next(1000)).Select(i => list[i]).ToList();
+        }
     }
 }

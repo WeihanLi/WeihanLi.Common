@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Common;
 using System.Data.SqlClient;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Common.Log;
+using WeihanLi.Common.Logging;
 using WeihanLi.Extensions;
 
 namespace DotNetCoreSample
@@ -13,7 +13,7 @@ namespace DotNetCoreSample
         /// <summary>
         /// Logger
         /// </summary>
-        private static readonly ILogHelper Logger = LogHelper.GetLogHelper<DataExtensionTest>();
+        private static readonly ILogHelperLogger Logger = LogHelper.GetLogger<DataExtensionTest>();
 
         private static void Init(DbConnection conn)
         {
@@ -121,7 +121,8 @@ namespace DotNetCoreSample
     internal class TestEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int PKID { get; set; }
+        [Column("PKID")]
+        public int Id { get; set; }
 
         public string Token { get; set; }
 

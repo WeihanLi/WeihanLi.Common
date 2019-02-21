@@ -15,9 +15,16 @@ namespace WeihanLi.Common.Data
         /// <summary>
         /// Count
         /// </summary>
-        long Count(Expression<Func<TEntity, bool>> whereExpression);
+        int Count(Expression<Func<TEntity, bool>> whereExpression);
 
-        Task<long> CountAsync(Expression<Func<TEntity, bool>> whereExpression);
+        Task<int> CountAsync(Expression<Func<TEntity, bool>> whereExpression);
+
+        /// <summary>
+        /// LongCount
+        /// </summary>
+        long LongCount(Expression<Func<TEntity, bool>> whereExpression);
+
+        Task<long> LongCountAsync(Expression<Func<TEntity, bool>> whereExpression);
 
         /// <summary>
         /// Exist
@@ -38,9 +45,18 @@ namespace WeihanLi.Common.Data
         /// </summary>
         /// <param name="whereExpression">whereExpression</param>
         /// <returns></returns>
-        IEnumerable<TEntity> Select(Expression<Func<TEntity, bool>> whereExpression);
+        List<TEntity> Select(Expression<Func<TEntity, bool>> whereExpression);
 
-        Task<IEnumerable<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> whereExpression);
+        Task<List<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> whereExpression);
+
+        /// <summary>
+        /// Get List
+        /// </summary>
+        /// <param name="whereExpression">whereExpression</param>
+        /// <returns></returns>
+        List<TEntity> Select<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
+
+        Task<List<TEntity>> SelectAsync<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
 
         /// <summary>
         /// Get Paged List
@@ -86,13 +102,5 @@ namespace WeihanLi.Common.Data
         int Delete(Expression<Func<TEntity, bool>> whereExpression);
 
         Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression);
-
-        int Execute(string sqlStr, object param = null);
-
-        Task<int> ExecuteAsync(string sqlStr, object param = null);
-
-        TResult ExecuteScalar<TResult>(string sqlStr, object param = null);
-
-        Task<TResult> ExecuteScalarAsync<TResult>(string sqlStr, object param = null);
     }
 }

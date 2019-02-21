@@ -17,6 +17,10 @@ namespace WeihanLi.Common.Test.ExtensionsTest
             var toNum1 = num1.To<decimal>();
             Assert.Equal(typeof(decimal), toNum1.GetType());
             Assert.Equal(typeof(double), toNum1.To<double>().GetType());
+
+            // int to bool test
+            Assert.False(0.To<bool>());
+            Assert.True(1.To<bool>());            
         }
 
         #endregion ObjectExtension

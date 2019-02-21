@@ -1,19 +1,25 @@
 ﻿using System;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Common.Log;
+using WeihanLi.Common.Logging;
 
 namespace DotNetCoreSample
 {
     internal class DependencyInjectionTest
     {
-        private static readonly ILogHelper Logger = LogHelper.GetLogHelper<DependencyInjectionTest>();
+        private static readonly ILogHelperLogger Logger = LogHelper.GetLogger<DependencyInjectionTest>();
 
         public static void Test()
         {
             var fly = DependencyResolver.Current.ResolveService<IFly>();
             Console.WriteLine(fly.Name);
             fly.Fly();
+
+            DependencyResolver.Current.TryInvokeService<IFly>(f =>
+            {
+                Console.WriteLine(f.Name);
+                f.Fly();
+            });
         }
     }
 
