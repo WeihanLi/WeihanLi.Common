@@ -3,20 +3,22 @@
   <Import Project="version.props" />
   <Import Project="copyright.props" />
   <Import Project="repo.props" />
-  <PropertyGroup>        
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
-    <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
-    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>common utility lib libarary extensions</PackageTags>    
+  <Import Project="analyzer.props" />
+  <PropertyGroup>            
+    <PackageId>WeihanLi.Common</PackageId>
     <Title>WeihanLi.Common</Title>
-    <Description>common .netstandard libarary and extensions</Description>
-    <Summary>common .netstandard libarary and extensions</Summary>
+    <Description>common netfx and netstandard libarary and extensions</Description>
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>    
+    <PackageTags>common utility lib libarary extensions</PackageTags>
+    <PackageSummary>common netfx and netstandard libarary and extensions</PackageSummary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
       refact logging and remove package dependency for log4net
-      update repository, add supprot for columns mapping
+      update repository, add support for columns mapping
     </PackageReleaseNotes>
+    <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
+    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Optimize Condition="'$(Configuration)'=='Release'">true</Optimize>
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">True</GeneratePackageOnBuild>
     <NoWarn>$(NoWarn);1591;DE0003;</NoWarn>
