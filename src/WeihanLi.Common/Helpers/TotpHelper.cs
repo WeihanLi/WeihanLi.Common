@@ -11,7 +11,7 @@ namespace WeihanLi.Common.Helpers
     /// <summary>
     /// https://tools.ietf.org/html/rfc6238
     /// </summary>
-    public static class Totp
+    public static class TotpHelper
     {
         private static readonly DateTime _unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         private static TimeSpan _timestep = TimeSpan.FromMinutes(3);
