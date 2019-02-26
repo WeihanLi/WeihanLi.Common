@@ -5,7 +5,8 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
-    <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
+    <PackageReference Include="WeihanLi.Common" Version="1.0.12" />
+    <!-- <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" /> -->
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
     <Reference Include="Microsoft.CSharp" />
@@ -17,6 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="log4net.config" Pack="true" PackagePath="content\log4net.config" />
+    <None Include="log4net.config" Pack="true" PackageCopyToOutput="true" />
   </ItemGroup>
 </Project>

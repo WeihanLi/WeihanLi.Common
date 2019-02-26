@@ -5,11 +5,11 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Logging.Log4Net
 {
-    public class Log4NetLogHelper : ILogHelperLogger
+    internal class Log4NetLogHelperLogger : ILogHelperLogger
     {
         private readonly ILog _logger;
 
-        public Log4NetLogHelper(string loggerName) =>
+        public Log4NetLogHelperLogger(string loggerName) =>
             _logger = LogManager.GetLogger(ApplicationHelper.ApplicationName, loggerName);
 
         public bool IsEnabled(LogHelperLevel loggerHelperLevel)

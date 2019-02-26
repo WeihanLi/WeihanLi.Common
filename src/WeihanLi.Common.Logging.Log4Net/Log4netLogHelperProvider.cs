@@ -10,8 +10,8 @@ namespace WeihanLi.Common.Logging.Log4Net
 {
     public class Log4NetLogHelperProvider : ILogHelperProvider
     {
-        private readonly ConcurrentDictionary<string, Log4NetLogHelper> _loggers =
-            new ConcurrentDictionary<string, Log4NetLogHelper>(StringComparer.Ordinal);
+        private readonly ConcurrentDictionary<string, Log4NetLogHelperLogger> _loggers =
+            new ConcurrentDictionary<string, Log4NetLogHelperLogger>(StringComparer.Ordinal);
 
         public Log4NetLogHelperProvider() : this(ApplicationHelper.MapPath("log4net.config"))
         {
@@ -26,6 +26,6 @@ namespace WeihanLi.Common.Logging.Log4Net
             }
         }
 
-        public ILogHelperLogger CreateLogger(string categoryName) => _loggers.GetOrAdd(categoryName, loggerName => new Log4NetLogHelper(loggerName));
+        public ILogHelperLogger CreateLogger(string categoryName) => _loggers.GetOrAdd(categoryName, loggerName => new Log4NetLogHelperLogger(loggerName));
     }
 }
