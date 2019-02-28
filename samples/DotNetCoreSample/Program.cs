@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Linq.Expressions;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using WeihanLi.Common;
-using WeihanLi.Common.Data;
-using WeihanLi.Common.Helpers;
-using WeihanLi.Common.Logging.Log4Net;
-using WeihanLi.Extensions;
 
 namespace DotNetCoreSample
 {
@@ -14,27 +6,29 @@ namespace DotNetCoreSample
     {
         public static void Main(string[] args)
         {
-            LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
-            DataExtension.CommandLogAction = Console.WriteLine;
-            Console.WriteLine(SystemHelper.OsType);
-            // ReSharper disable once LocalizableElement
-            Console.WriteLine("----------DotNetCoreSample----------");
+            // LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
 
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.AddScoped<IFly, MonkeyKing>();
-            IConfiguration configuration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .Build();
+            //DataExtension.CommandLogAction = Console.WriteLine;
 
-            var city = configuration.GetAppSetting("City");
-            var number = configuration.GetAppSetting<int>("Number");
-            System.Console.WriteLine($"City:{city}, Number:{number}");
+            //Console.WriteLine(SystemHelper.OsType);
+            //// ReSharper disable once LocalizableElement
+            //Console.WriteLine("----------DotNetCoreSample----------");
 
-            serviceCollection.AddSingleton(configuration);
+            //var serviceCollection = new ServiceCollection();
+            //serviceCollection.AddScoped<IFly, MonkeyKing>();
+            //IConfiguration configuration = new ConfigurationBuilder()
+            //    .AddJsonFile("appsettings.json")
+            //    .Build();
 
-            DependencyResolver.SetDependencyResolver(serviceCollection);
+            //var city = configuration.GetAppSetting("City");
+            //var number = configuration.GetAppSetting<int>("Number");
+            //System.Console.WriteLine($"City:{city}, Number:{number}");
 
-            DependencyInjectionTest.Test();
+            //serviceCollection.AddSingleton(configuration);
+
+            //DependencyResolver.SetDependencyResolver(serviceCollection);
+
+            //DependencyInjectionTest.Test();
 
             //var builder = new ContainerBuilder();
             //builder.RegisterType<MonkeyKing>().As<IFly>();
@@ -47,7 +41,9 @@ namespace DotNetCoreSample
             //Console.WriteLine(JsonConvert.SerializeObject(a));// output 1
 
             // log test
-            LoggerTest.MainTest();
+            // LoggerTest.MainTest();
+            Log4NetTest.MainTest();
+
             //ILoggerFactory loggerFactory = new LoggerFactory();
             //loggerFactory.AddConsole();
             //loggerFactory.AddDebug();
@@ -73,15 +69,15 @@ namespace DotNetCoreSample
 
             //Console.WriteLine(structTest.Name);
 
-            Expression<Func<TestEntity, bool>> exp = t => t.Id > 10 && t.Token == "123" && t.Token.Contains("12");
-            var str = SqlExpressionParser.ParseExpression(exp);
-            Console.WriteLine("sql: {0}", str);
+            //Expression<Func<TestEntity, bool>> exp = t => t.Id > 10 && t.Token == "123" && t.Token.Contains("12");
+            //var str = SqlExpressionParser.ParseExpression(exp);
+            //Console.WriteLine("sql: {0}", str);
 
-            exp = t => true;
-            str = SqlExpressionParser.ParseExpression(exp);
-            Console.WriteLine("sql: {0}", str);
+            //exp = t => true;
+            //str = SqlExpressionParser.ParseExpression(exp);
+            //Console.WriteLine("sql: {0}", str);
 
-            RepositoryTest.MainTest();
+            //RepositoryTest.MainTest();
 
             Console.ReadLine();
         }

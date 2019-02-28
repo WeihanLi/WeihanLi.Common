@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using log4net;
 using log4net.Config;
@@ -28,6 +29,21 @@ namespace WeihanLi.Common.Logging.Log4Net
                 return 1;
             }
             return 0;
+        }
+
+        public static ILog GetLogger<TCategory>()
+        {
+            return LogManager.GetLogger(ApplicationHelper.ApplicationName, typeof(TCategory));
+        }
+
+        public static ILog GetLogger(Type type)
+        {
+            return LogManager.GetLogger(ApplicationHelper.ApplicationName, type);
+        }
+
+        public static ILog GetLogger(string loggerName)
+        {
+            return LogManager.GetLogger(ApplicationHelper.ApplicationName, loggerName);
         }
     }
 }

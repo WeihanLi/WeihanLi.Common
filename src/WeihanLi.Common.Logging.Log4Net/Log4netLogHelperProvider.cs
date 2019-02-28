@@ -19,7 +19,7 @@ namespace WeihanLi.Common.Logging.Log4Net
 
         public Log4NetLogHelperProvider(string configurationFilePath)
         {
-            if (null == LogManager.GetAllRepositories()?.FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))
+            if (null == LogManager.GetAllRepositories().FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))
             {
                 XmlConfigurator.ConfigureAndWatch(LogManager.CreateRepository(ApplicationHelper.ApplicationName),
                     new FileInfo(configurationFilePath));
