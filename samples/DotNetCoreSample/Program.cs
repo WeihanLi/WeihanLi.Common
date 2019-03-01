@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using WeihanLi.Common.Helpers;
 
 namespace DotNetCoreSample
 {
@@ -42,7 +44,7 @@ namespace DotNetCoreSample
 
             // log test
             // LoggerTest.MainTest();
-            Log4NetTest.MainTest();
+            // Log4NetTest.MainTest();
 
             //ILoggerFactory loggerFactory = new LoggerFactory();
             //loggerFactory.AddConsole();
@@ -78,6 +80,23 @@ namespace DotNetCoreSample
             //Console.WriteLine("sql: {0}", str);
 
             //RepositoryTest.MainTest();
+            var securityToken = ApplicationHelper.ApplicationName + "test_123";
+            var code123 = TotpHelper.GenerateCode(securityToken);
+            Console.WriteLine(code123);
+
+            var result = TotpHelper.ValidateCode(securityToken, code123);
+            Console.WriteLine($"validate result: {result}");
+            var ttl = 2;
+            while (ttl > 1)
+            {
+                ttl = TotpHelper.TTL(securityToken);
+                Console.WriteLine($"Current ttl: {ttl}");
+                Thread.Sleep(1000);
+            }
+            result = TotpHelper.ValidateCode(securityToken, code123);
+            Console.WriteLine($"validate result: {result}");
+            var code1234 = TotpHelper.GenerateCode(ApplicationHelper.ApplicationName + "test_1234");
+            Console.WriteLine(code1234);
 
             Console.ReadLine();
         }
