@@ -18,5 +18,6 @@
 
   <ItemGroup>
     <None Include="log4net.config" Pack="true" PackageCopyToOutput="true" />
+    <Content Include="README.md" Pack="true" />
   </ItemGroup>
 </Project>
