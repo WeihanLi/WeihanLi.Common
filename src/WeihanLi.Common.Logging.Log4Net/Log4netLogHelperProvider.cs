@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.IO;
 using System.Linq;
+using JetBrains.Annotations;
 using log4net;
 using log4net.Config;
 using WeihanLi.Common.Helpers;
@@ -27,5 +28,21 @@ namespace WeihanLi.Common.Logging.Log4Net
         }
 
         public ILogHelperLogger CreateLogger(string categoryName) => _loggers.GetOrAdd(categoryName, loggerName => new Log4NetLogHelperLogger(loggerName));
+    }
+
+    public static class LogHelperFactoryExtensions
+    {
+        public static ILogHelperFactory AddLog4Net([NotNull]this ILogHelperFactory logHelperFactory)
+        {
+            logHelperFactory.AddProvider(new Log4NetLogHelperProvider());
+            return logHelperFactory;
+        }
+
+        public static ILogHelperFactory AddLog4Net([NotNull] this ILogHelperFactory logHelperFactory,
+            string configFilePath)
+        {
+            logHelperFactory.AddProvider(new Log4NetLogHelperProvider(configFilePath));
+            return logHelperFactory;
+        }
     }
 }

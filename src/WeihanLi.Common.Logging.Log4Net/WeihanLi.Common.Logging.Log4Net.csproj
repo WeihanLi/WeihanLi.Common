@@ -6,7 +6,7 @@
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="WeihanLi.Common" Version="1.0.12" />
-    <!-- <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" /> -->
+     <!--<ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />--> 
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
     <Reference Include="Microsoft.CSharp" />
@@ -14,7 +14,6 @@
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http" />
     <Compile Remove="Log4NetLoggerProvider.cs" />
-    <Compile Remove="MicrosoftLoggingLogHelperProvider.cs" />
   </ItemGroup>
 
   <ItemGroup>

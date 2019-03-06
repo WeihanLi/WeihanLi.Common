@@ -31,16 +31,25 @@ namespace WeihanLi.Common.Logging.Log4Net
             return 0;
         }
 
+        /// <summary>
+        /// Get a log4net logger
+        /// </summary>
         public static ILog GetLogger<TCategory>()
         {
             return LogManager.GetLogger(ApplicationHelper.ApplicationName, typeof(TCategory));
         }
 
+        /// <summary>
+        /// Get a log4net logger
+        /// </summary>
         public static ILog GetLogger(Type type)
         {
             return LogManager.GetLogger(ApplicationHelper.ApplicationName, type);
         }
 
+        /// <summary>
+        /// Get a log4net logger
+        /// </summary>
         public static ILog GetLogger(string loggerName)
         {
             return LogManager.GetLogger(ApplicationHelper.ApplicationName, loggerName);
