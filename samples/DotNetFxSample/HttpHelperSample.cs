@@ -124,37 +124,39 @@ namespace DotNetFxSample
             //var client = new HttpRequestClient("https://weihanli.xyz");
             //var result = client.Execute();
             //Console.WriteLine(result);
-            //client = new HttpRequestClient(PostUploadFileUrl, "POST");
-            //client.AddFile(@"C:\Users\liweihan.TUHU\Pictures\temp\7604648.jpg");
+            //client = new HttpRequestClient(PostUploadFileUrl, HttpMethod.Post);
+            //client.WithFile(@"C:\Users\liweihan.TUHU\Pictures\temp\7604648.jpg");
             //result = client.Execute();
             //Console.WriteLine(result);
 
-            //var response1 = new HttpRequestClient("https://initwords.com/").ExecuteForResponse();
+            //var response1 = new HttpRequestClient("https://initwords.com/")
+            //    .ExecuteForResponse();
             //var sessionId = response1.Cookies["JSESSIONID"]?.Value ?? "E641209D81307143F8B2482B7B2C6ED2";
 
-            //var client = new HttpRequestClient("https://initwords.com/login/authless/ajaxLogin.do", "POST");
-            //client.AddCustomHeaders(new Dictionary<string, string>
-            //{
-            //    { "em-tokencode","a287f418-ed57-439c-bdb8-734baa00d9e4" },
-            //    { "em-usercode","a01836e9-f566-46c5-b3df-528c65e78dbd" },
-            //    {"cookie", $"Hm_lvt_49a5957871e8051bc1a873596375812d=1519034509; JSESSIONID=E641209D81307143F8B2482B7B2C6ED2; Hm_lpvt_49a5957871e8051bc1a873596375812d=1519034755" },
-            //    { "origin", "https://initwords.com" },
-            //    { "referer", "https://initwords.com/" },
-            //    { "x-requested-with", "XMLHttpRequest" }
-            //});
-            //client.AddParameters(new Dictionary<string, string>
-            //{
-            //    { "loginType", "studentLogin" },
-            //    { "siteName", "xfinit" },
-            //    { "userId", "lby13460426337"},
-            //    { "userPwd", "lby13460426337" }
-            //});
-            //client.SetUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36");
+            //var client = new HttpRequestClient("https://initwords.com/login/authless/ajaxLogin.do", HttpMethod.Post);
+            //client
+            //    .WithHeaders(new Dictionary<string, string>
+            //    {
+            //        { "em-tokencode","a287f418-ed57-439c-bdb8-734baa00d9e4" },
+            //        { "em-usercode","a01836e9-f566-46c5-b3df-528c65e78dbd" },
+            //        {"cookie", $"Hm_lvt_49a5957871e8051bc1a873596375812d=1519034509; JSESSIONID=E641209D81307143F8B2482B7B2C6ED2; Hm_lpvt_49a5957871e8051bc1a873596375812d=1519034755" },
+            //        { "origin", "https://initwords.com" },
+            //        { "referer", "https://initwords.com/" },
+            //        { "x-requested-with", "XMLHttpRequest" }
+            //    })
+            //    .WithParameters(new Dictionary<string, string>
+            //    {
+            //        { "loginType", "studentLogin" },
+            //        { "siteName", "xfinit" },
+            //        { "userId", "lby13460426337"},
+            //        { "userPwd", "lby13460426337" }
+            //    })
+            //    .WithUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36");
             //var response = client.Execute();
             //Console.WriteLine(response);
 
-            var activateClient = new HttpRequestClient("https://initwords.com/book/ajaxRegisterBook.do", "POST");
-            activateClient.AddCustomHeaders(new Dictionary<string, string>
+            var activateClient = new HttpRequestClient("https://initwords.com/book/ajaxRegisterBook.do", HttpMethod.Post);
+            activateClient.WithHeaders(new Dictionary<string, string>
             {
                 { "em-tokencode", "a287f418-ed57-439c-bdb8-734baa00d9e4" },
                 { "em-usercode", "a01836e9-f566-46c5-b3df-528c65e78dbd" },
@@ -162,15 +164,15 @@ namespace DotNetFxSample
                 { "origin", "https://initwords.com" },
                 { "referer", "https://initwords.com/" },
                 { "x-requested-with", "XMLHttpRequest" }
-            });
-            activateClient.AddParameters(new Dictionary<string, string>
+            })
+            .WithParameters(new Dictionary<string, string>
             {
                 { "moduleCode", "8a108cb74c7ae17a014c7d671d430771" },
                 { "cardNo", "20180218018071452273218" },
                 { "cardPwd", "bz6Bj568" },
                 { "userCode", "a01836e9-f566-46c5-b3df-528c65e78dbd" }
-            });
-            activateClient.SetUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36");
+            })
+            .WithUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36");
             var result = activateClient.Execute<TempResponseEntity>();
             Console.Write(result);
         }

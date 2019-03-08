@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
@@ -27,39 +28,52 @@ namespace WeihanLi.Common.Helpers
         /// Create HttpRequestClient with GET Request Method
         /// </summary>
         /// <param name="requestUrl">requestUrl</param>
-        public HttpRequestClient(string requestUrl) : this(requestUrl, "GET")
+        public HttpRequestClient(string requestUrl) : this(requestUrl, HttpMethod.Get)
         {
         }
 
-        public HttpRequestClient(string requestUrl, string method)
+        /// <summary>
+        /// Create HttpRequestClient with GET Request Method
+        /// </summary>
+        /// <param name="requestUrl">requestUrl</param>
+        /// <param name="queryDictionary">queryDictionary</param>
+        /// <param name="method">method</param>
+        public HttpRequestClient(string requestUrl, IDictionary<string, string> queryDictionary, HttpMethod method)
+        {
+            _requestUrl = $"{requestUrl}{(requestUrl.Contains("?") ? "&" : "?")}{queryDictionary.ToQueryString()}";
+            _request = WebRequest.CreateHttp(requestUrl);
+            _request.UserAgent = HttpHelper.GetUserAgent();
+
+            _request.Method = method.Method;
+        }
+
+        public HttpRequestClient(string requestUrl, HttpMethod method)
         {
             _requestUrl = requestUrl;
             _request = WebRequest.CreateHttp(requestUrl);
             _request.UserAgent = HttpHelper.GetUserAgent();
-            if (!string.IsNullOrWhiteSpace(method))
-            {
-                _request.Method = method.ToUpper();
-            }
+
+            _request.Method = method.Method;
         }
 
         #endregion ctor
 
         #region AddHeader
 
-        public void AddCustomHeaders([NotNull]NameValueCollection customHeaders) => AddCustomHeaders(customHeaders.ToDictionary());
+        public HttpRequestClient WithHeaders([NotNull]NameValueCollection customHeaders) => WithHeaders(customHeaders.ToDictionary());
 
-        public void AddCustomHeaders([NotNull]IEnumerable<KeyValuePair<string, string>> customHeaders)
+        public HttpRequestClient WithHeaders([NotNull]IEnumerable<KeyValuePair<string, string>> customHeaders)
         {
             foreach (var header in customHeaders)
             {
                 if (header.Key.EqualsIgnoreCase("REFERER"))
                 {
-                    SetReferer(header.Value);
+                    _request.Referer = header.Value;
                     continue;
                 }
                 if (header.Key.EqualsIgnoreCase("User-Agent"))
                 {
-                    SetUserAgent(header.Value);
+                    _request.UserAgent = header.Value;
                     continue;
                 }
                 if (header.Key.EqualsIgnoreCase("COOKIE"))
@@ -67,11 +81,12 @@ namespace WeihanLi.Common.Helpers
                     var cookieCollection = new CookieCollection();
                     var host = new Uri(_requestUrl).Host;
                     header.Value.Split(';').ForEach(c => cookieCollection.Add(new Cookie(c.Split('=')[0].Trim(), c.Split('=')[1].Trim(), "/", host)));
-                    AddCookies(cookieCollection);
+                    WithCookie(cookieCollection);
                     continue;
                 }
                 _request.Headers[header.Key] = header.Value;
             }
+            return this;
         }
 
         #endregion AddHeader
@@ -84,109 +99,121 @@ namespace WeihanLi.Common.Helpers
 
         #region UserAgent
 
-        public void SetUserAgent(bool isMobile)
+        public HttpRequestClient WithUserAgent(bool isMobile)
         {
             _request.UserAgent = HttpHelper.GetUserAgent(isMobile);
+            return this;
         }
 
-        public void SetUserAgent(string userAgent)
+        public HttpRequestClient WithUserAgent(string userAgent)
         {
             _request.UserAgent = userAgent;
+            return this;
         }
 
         #endregion UserAgent
 
         #region Referer
 
-        public void SetReferer(string referer)
+        public HttpRequestClient WithReferer(string referer)
         {
             _request.Referer = referer;
+            return this;
         }
 
         #endregion Referer
 
         #region Proxy
 
-        public void AddProxy(string url)
+        public HttpRequestClient WithProxy(string url)
         {
             _request.Proxy = new WebProxy(new Uri(url));
+            return this;
         }
 
-        public void AddProxy(string url, string userName, string password)
+        public HttpRequestClient AddProxy(string url, string userName, string password)
         {
             _request.Proxy = new WebProxy(new Uri(url))
             {
                 Credentials = new NetworkCredential(userName, password)
             };
+            return this;
         }
 
-        public void AddProxy(WebProxy proxy)
+        public HttpRequestClient AddProxy(WebProxy proxy)
         {
             _request.Proxy = proxy;
+            return this;
         }
 
         #endregion Proxy
 
         #region Cookie
 
-        public void AddCookie(Cookie cookie)
+        public HttpRequestClient WithCookie(Cookie cookie)
         {
             if (null == _request.CookieContainer)
             {
                 _request.CookieContainer = new CookieContainer();
             }
             _request.CookieContainer.Add(cookie);
+            return this;
         }
 
-        public void AddCookie(string url, Cookie cookie)
+        public HttpRequestClient WithCookie(string url, Cookie cookie)
         {
             if (null == _request.CookieContainer)
             {
                 _request.CookieContainer = new CookieContainer();
             }
             _request.CookieContainer.Add(new Uri(url), cookie);
+            return this;
         }
 
-        public void AddCookies(CookieCollection cookies)
+        public HttpRequestClient WithCookie(CookieCollection cookies)
         {
             if (null == _request.CookieContainer)
             {
                 _request.CookieContainer = new CookieContainer();
             }
             _request.CookieContainer.Add(cookies);
+            return this;
         }
 
-        public void AddCookies(string url, CookieCollection cookies)
+        public HttpRequestClient AddCookies(string url, CookieCollection cookies)
         {
             if (null == _request.CookieContainer)
             {
                 _request.CookieContainer = new CookieContainer();
             }
             _request.CookieContainer.Add(new Uri(url), cookies);
+            return this;
         }
 
         #endregion Cookie
 
         #region Parameter
 
-        public void AddParameters([NotNull] NameValueCollection parameters) => AddParameters(parameters.ToDictionary());
+        public HttpRequestClient WithParameters([NotNull] NameValueCollection parameters) => WithParameters(parameters.ToDictionary());
 
-        public void AddParameters([NotNull]IEnumerable<KeyValuePair<string, string>> parameters)
+        public HttpRequestClient WithParameters([NotNull]IEnumerable<KeyValuePair<string, string>> parameters)
         {
             _requestDataBytes = Encoding.UTF8.GetBytes(parameters.ToQueryString());
             _request.ContentType = "application/x-www-form-urlencoded";
+            return this;
         }
 
-        public void AddEntityParameter<TEntity>([NotNull] TEntity entity)
+        public HttpRequestClient WithJsonParameter<TEntity>([NotNull] TEntity entity)
         {
             _requestDataBytes = Encoding.UTF8.GetBytes(entity.ToJson());
             _request.ContentType = "application/json;charset=UTF-8";
+            return this;
         }
 
-        public void AddParameters([NotNull] byte[] requestBytes)
-            => AddParameters(requestBytes, null);
+        public HttpRequestClient WithParameters([NotNull] byte[] requestBytes)
+            => WithParameters(requestBytes, null);
 
-        public void AddParameters([NotNull] byte[] requestBytes, string contentType)
+        public HttpRequestClient WithParameters([NotNull] byte[] requestBytes, string contentType)
         {
             _requestDataBytes = requestBytes;
             if (string.IsNullOrWhiteSpace(contentType))
@@ -194,22 +221,23 @@ namespace WeihanLi.Common.Helpers
                 contentType = "application/x-www-form-urlencoded";
             }
             _request.ContentType = contentType;
+            return this;
         }
 
         #endregion Parameter
 
         #region AddFile
 
-        public void AddFile(string filePath, string fileKey = "file",
+        public HttpRequestClient WithFile(string filePath, string fileKey = "file",
             IEnumerable<KeyValuePair<string, string>> formFields = null)
-            => AddFile(Path.GetFileName(filePath), File.ReadAllBytes(filePath), fileKey, formFields);
+            => WithFile(Path.GetFileName(filePath), File.ReadAllBytes(filePath), fileKey, formFields);
 
-        public void AddFile(string fileName, byte[] fileBytes, string fileKey = "file",
+        public HttpRequestClient WithFile(string fileName, byte[] fileBytes, string fileKey = "file",
             IEnumerable<KeyValuePair<string, string>> formFields = null)
         {
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
 
-            var boundarybytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
+            var boundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
             var endBoundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}--");
 
             using (var memStream = new MemoryStream())
@@ -221,34 +249,30 @@ namespace WeihanLi.Common.Helpers
                         memStream.Write(Encoding.UTF8.GetBytes(string.Format(HttpHelper.FormDataFormat, pair.Key, pair.Value, boundary)));
                     }
                 }
-
-                memStream.Write(boundarybytes);
-
+                memStream.Write(boundaryBytes);
                 memStream.Write(Encoding.UTF8.GetBytes(string.Format(HttpHelper.FileHeaderFormat, fileKey, fileName)));
-
                 memStream.Write(fileBytes);
-
                 memStream.Write(endBoundaryBytes);
-
                 _requestDataBytes = memStream.ToArray();
             }
 
             _request.ContentType = $"multipart/form-data; boundary={boundary}";
-            _request.Method = "POST";
             _request.KeepAlive = true;
+
+            return this;
         }
 
-        public void AddFiles(IEnumerable<string> filePaths, IEnumerable<KeyValuePair<string, string>> formFields = null)
-            => AddFiles(
+        public HttpRequestClient WithFiles(IEnumerable<string> filePaths, IEnumerable<KeyValuePair<string, string>> formFields = null)
+            => WithFiles(
                 filePaths.Select(_ => new KeyValuePair<string, byte[]>(Path.GetFileName(_), File.ReadAllBytes(_))),
                 formFields);
 
-        public void AddFiles(IEnumerable<KeyValuePair<string, byte[]>> files,
+        public HttpRequestClient WithFiles(IEnumerable<KeyValuePair<string, byte[]>> files,
             IEnumerable<KeyValuePair<string, string>> formFields = null)
         {
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
 
-            var boundarybytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
+            var boundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
             var endBoundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}--");
 
             using (var memStream = new MemoryStream())
@@ -263,7 +287,7 @@ namespace WeihanLi.Common.Helpers
 
                 foreach (var file in files)
                 {
-                    memStream.Write(boundarybytes);
+                    memStream.Write(boundaryBytes);
 
                     memStream.Write(Encoding.UTF8.GetBytes(string.Format(HttpHelper.FileHeaderFormat, Path.GetFileNameWithoutExtension(file.Key), file.Key)));
                     memStream.Write(file.Value);
@@ -274,8 +298,9 @@ namespace WeihanLi.Common.Helpers
             }
 
             _request.ContentType = $"multipart/form-data; boundary={boundary}";
-            _request.Method = "POST";
             _request.KeepAlive = true;
+
+            return this;
         }
 
         #endregion AddFile

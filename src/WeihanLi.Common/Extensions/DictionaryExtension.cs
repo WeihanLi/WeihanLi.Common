@@ -4,8 +4,8 @@ using System.Collections.Specialized;
 using System.Data;
 using System.Data.Common;
 using System.Linq;
-using System.Net;
 using System.Text;
+using System.Web;
 using JetBrains.Annotations;
 
 // ReSharper disable once CheckNamespace
@@ -441,7 +441,7 @@ namespace WeihanLi.Extensions
         {
             if (source == null)
             {
-                return null;
+                return string.Empty;
             }
 
             var sb = new StringBuilder(1024);
@@ -452,15 +452,14 @@ namespace WeihanLi.Extensions
                 {
                     continue;
                 }
-
                 sb.Append("&");
-                sb.Append(WebUtility.UrlEncode(item.Key));
+                sb.Append(HttpUtility.UrlEncode(item.Key));
                 sb.Append("=");
                 if (item.Value != null)
-                    sb.Append(WebUtility.UrlEncode(item.Value));
+                    sb.Append(HttpUtility.UrlEncode(item.Value));
             }
 
-            return sb.Length > 0 ? sb.ToString(1, sb.Length - 1) : "";
+            return sb.Length > 1 ? sb.ToString(1, sb.Length - 1) : "";
         }
     }
 }
