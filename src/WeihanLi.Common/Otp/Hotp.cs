@@ -47,7 +47,7 @@ namespace WeihanLi.Common.Otp
         /// Verify a value that has been provided with the calculated value
         /// </summary>
         /// <param name="hotp">the trial HOTP value</param>
-        /// <param name="counter">The counter value to verify/param>
+        /// <param name="counter">The counter value to verify</param>
         /// <returns>True if there is a match.</returns>
         public bool VerifyHotp(string hotp, long counter)
         {

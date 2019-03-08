@@ -107,7 +107,7 @@ namespace WeihanLi.Common.Otp
         /// <param name="totp">the trial TOTP value</param>
         /// <param name="timeStepMatched">
         /// This is an output parameter that gives that time step that was used to find a match.
-        /// This is usefule in cases where a TOTP value should only be used once.  This value is a unique identifier of the
+        /// This is useful in cases where a TOTP value should only be used once.  This value is a unique identifier of the
         /// time step (not the value) that can be used to prevent the same step from being used multiple times
         /// </param>
         /// <param name="window">The window of steps to verify</param>

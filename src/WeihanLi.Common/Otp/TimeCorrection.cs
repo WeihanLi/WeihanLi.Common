@@ -28,7 +28,7 @@ namespace WeihanLi.Common.Otp
         /// </summary>
         private TimeCorrection()
         {
-            this.timeCorrectionFactor = TimeSpan.FromSeconds(0);
+            this.timeCorrectionFactor = TimeSpan.Zero;
         }
 
         /// <summary>
