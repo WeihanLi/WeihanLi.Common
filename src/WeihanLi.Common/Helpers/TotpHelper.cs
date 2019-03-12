@@ -6,26 +6,22 @@ using WeihanLi.Common.Otp;
 
 namespace WeihanLi.Common.Helpers
 {
-    /// <summary>
-    /// https://tools.ietf.org/html/rfc6238
-    /// </summary>
-    public static class TotpHelper
+    public class TotpHelper
     {
         /// <summary>
         /// Generates code for the specified <paramref name="securityToken"/>.
         /// </summary>
         /// <param name="securityToken">The security token to generate code.</param>
-        /// <param name="expiresIn">expiresIn, in seconds</param>
         /// <param name="size">return  code size</param>
         /// <returns>The generated code.</returns>
-        public static string GenerateCode(byte[] securityToken, int expiresIn = 30, int size = 6)
+        public static string GenerateCode(byte[] securityToken, int size = 6)
         {
             if (securityToken == null)
             {
                 throw new ArgumentNullException(nameof(securityToken));
             }
 
-            return new Totp(securityToken, expiresIn, totpSize: size).ComputeTotp();
+            return new Totp(securityToken, totpSize: size).ComputeTotp();
         }
 
         /// <summary>
@@ -63,9 +59,14 @@ namespace WeihanLi.Common.Helpers
             {
                 return false;
             }
-
+            var factor = 1;
+            if (expiresIn > 30)
+            {
+                factor = expiresIn / 30;
+            }
             var validateResult =
-                new Totp(securityToken, expiresIn, totpSize: size).VerifyTotp(code, out var timeStepMatched);
+                new Totp(securityToken, totpSize: size)
+                    .VerifyTotp(code, out var timeStepMatched, new VerificationWindow(0, factor));
             return validateResult && timeStepMatched > 0;
         }
 
@@ -73,10 +74,9 @@ namespace WeihanLi.Common.Helpers
         /// Generates code for the specified <paramref name="securityToken"/>.
         /// </summary>
         /// <param name="securityToken">The security token to generate code.</param>
-        /// <param name="expiresIn">expiresIn, in seconds</param>
         /// <param name="size">return  code size</param>
         /// <returns>The generated code.</returns>
-        public static string GenerateCode(string securityToken, int expiresIn = 30, int size = 6) => GenerateCode(Encoding.Unicode.GetBytes(securityToken), expiresIn, size);
+        public static string GenerateCode(string securityToken, int size = 6) => GenerateCode(Encoding.UTF8.GetBytes(securityToken), size);
 
         /// <summary>
         /// ttl of the code for the specified <paramref name="securityToken"/>.

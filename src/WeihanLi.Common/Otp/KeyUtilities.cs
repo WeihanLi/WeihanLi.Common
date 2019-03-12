@@ -35,7 +35,10 @@ namespace WeihanLi.Common.Otp
         {
             // Since .net uses little endian numbers, we need to reverse the byte order to get big endian.
             var data = BitConverter.GetBytes(input);
-            Array.Reverse(data);
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(data);
+            }
             return data;
         }
 
