@@ -1,19 +1,21 @@
 ﻿using System;
-using System.Threading;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Common.Logging.Log4Net;
+using WeihanLi.Extensions;
 
+// ReSharper disable once LocalizableElement
 namespace DotNetCoreSample
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            // LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
+            LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
 
-            //DataExtension.CommandLogAction = Console.WriteLine;
+            DataExtension.CommandLogAction = Console.WriteLine;
 
             //Console.WriteLine(SystemHelper.OsType);
-            //// ReSharper disable once LocalizableElement
+
             //Console.WriteLine("----------DotNetCoreSample----------");
 
             //var serviceCollection = new ServiceCollection();
@@ -53,7 +55,7 @@ namespace DotNetCoreSample
             //var logger = new Logger<Program>(loggerFactory);
             //logger.LogInformation("Logging information from Microsoft.Extensions.Logging");
 
-            //InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
+            InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
 
             //TaskTest.TaskWhenAllTest().GetAwaiter().GetResult();
 
@@ -80,23 +82,23 @@ namespace DotNetCoreSample
             //Console.WriteLine("sql: {0}", str);
 
             //RepositoryTest.MainTest();
-            var securityToken = ApplicationHelper.ApplicationName + "test_123";
-            var code123 = TotpHelper.GenerateCode(securityToken);
-            Console.WriteLine(code123);
+            //var securityToken = ApplicationHelper.ApplicationName + "test_123";
+            //var code123 = TotpHelper.GenerateCode(securityToken);
+            //Console.WriteLine(code123);
 
-            var result = TotpHelper.ValidateCode(securityToken, code123);
-            Console.WriteLine($"validate result: {result}");
-            var ttl = 2;
-            while (ttl > 1)
-            {
-                ttl = TotpHelper.TTL(securityToken);
-                Console.WriteLine($"Current ttl: {ttl}");
-                Thread.Sleep(1000);
-            }
-            result = TotpHelper.ValidateCode(securityToken, code123);
-            Console.WriteLine($"validate result: {result}");
-            var code1234 = TotpHelper.GenerateCode(ApplicationHelper.ApplicationName + "test_1234");
-            Console.WriteLine(code1234);
+            //var result = TotpHelper.ValidateCode(securityToken, code123);
+            //Console.WriteLine($"validate result: {result}");
+            //var ttl = 2;
+            //while (ttl > 1)
+            //{
+            //    ttl = TotpHelper.TTL(securityToken);
+            //    Console.WriteLine($"Current ttl: {ttl}, newId: {ObjectIdGenerator.Instance.NewId()}");
+            //    Thread.Sleep(1000);
+            //}
+            //result = TotpHelper.ValidateCode(securityToken, code123);
+            //Console.WriteLine($"validate result: {result}");
+            //var code1234 = TotpHelper.GenerateCode(ApplicationHelper.ApplicationName + "test_1234");
+            //Console.WriteLine(code1234);
 
             Console.ReadLine();
         }

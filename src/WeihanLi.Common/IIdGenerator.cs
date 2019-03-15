@@ -18,11 +18,29 @@ namespace WeihanLi.Common
     /// <summary>
     /// IdGenerator based on Guid
     /// </summary>
-    public class GuidIdGenerator : IIdGenerator
+    public sealed class GuidIdGenerator : IIdGenerator
     {
+        private GuidIdGenerator()
+        {
+        }
+
         public static readonly GuidIdGenerator Instance = new GuidIdGenerator();
 
         public string NewId() => Guid.NewGuid().ToString("N");
+    }
+
+    /// <summary>
+    /// IdGenerator based on ObjectId
+    /// </summary>
+    public class ObjectIdGenerator : IIdGenerator
+    {
+        private ObjectIdGenerator()
+        {
+        }
+
+        public static readonly ObjectIdGenerator Instance = new ObjectIdGenerator();
+
+        public string NewId() => ObjectId.GenerateNewStringId();
     }
 
     /// <summary>
