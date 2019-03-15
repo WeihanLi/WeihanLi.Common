@@ -7,7 +7,7 @@ using WeihanLi.Extensions;
 namespace Microsoft.Extensions.Configuration
 {
     /// <summary>
-    /// Prvodides extensions for <see cref="IConfiguration"/> instances.
+    /// Provides extensions for <see cref="IConfiguration"/> instances.
     /// </summary>
     public static class ConfigurationExtensions
     {
