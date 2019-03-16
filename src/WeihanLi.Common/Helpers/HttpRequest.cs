@@ -136,7 +136,7 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public HttpRequest AddProxy(string url, string userName, string password)
+        public HttpRequest WithProxy(string url, string userName, string password)
         {
             _request.Proxy = new WebProxy(new Uri(url))
             {
@@ -145,7 +145,7 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public HttpRequest AddProxy(WebProxy proxy)
+        public HttpRequest WithProxy(WebProxy proxy)
         {
             _request.Proxy = proxy;
             return this;
@@ -185,7 +185,7 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public HttpRequest AddCookies(string url, CookieCollection cookies)
+        public HttpRequest WithCookie(string url, CookieCollection cookies)
         {
             if (null == _request.CookieContainer)
             {
