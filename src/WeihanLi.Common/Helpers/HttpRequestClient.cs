@@ -194,9 +194,9 @@ namespace WeihanLi.Common.Helpers
 
         #region Parameter
 
-        public HttpRequestClient WithParameters([NotNull] NameValueCollection parameters) => WithParameters(parameters.ToDictionary());
+        public HttpRequestClient WithFormParameters([NotNull] NameValueCollection parameters) => WithFormParameters(parameters.ToDictionary());
 
-        public HttpRequestClient WithParameters([NotNull]IEnumerable<KeyValuePair<string, string>> parameters)
+        public HttpRequestClient WithFormParameters([NotNull]IEnumerable<KeyValuePair<string, string>> parameters)
         {
             _requestDataBytes = Encoding.UTF8.GetBytes(parameters.ToQueryString());
             _request.ContentType = "application/x-www-form-urlencoded";
@@ -239,7 +239,6 @@ namespace WeihanLi.Common.Helpers
 
             var boundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
             var endBoundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}--");
-
             using (var memStream = new MemoryStream())
             {
                 if (formFields != null)
@@ -264,7 +263,9 @@ namespace WeihanLi.Common.Helpers
 
         public HttpRequestClient WithFiles(IEnumerable<string> filePaths, IEnumerable<KeyValuePair<string, string>> formFields = null)
             => WithFiles(
-                filePaths.Select(_ => new KeyValuePair<string, byte[]>(Path.GetFileName(_), File.ReadAllBytes(_))),
+                filePaths.Select(_ => new KeyValuePair<string, byte[]>(
+                    Path.GetFileName(_),
+                    File.ReadAllBytes(_))),
                 formFields);
 
         public HttpRequestClient WithFiles(IEnumerable<KeyValuePair<string, byte[]>> files,
@@ -307,47 +308,51 @@ namespace WeihanLi.Common.Helpers
 
         #region Execute
 
-        public HttpWebResponse ExecuteForResponse()
+        private void BuildRequest()
         {
-            if (IsNeedRequestStream(_request.Method))
+            if (IsNeedRequestStream(_request.Method)
+                && _requestDataBytes != null
+                && _requestDataBytes.Length > 0)
             {
                 _request.ContentLength = _requestDataBytes.Length;
                 var requestStream = _request.GetRequestStream();
                 requestStream.Write(_requestDataBytes);
             }
-            return (HttpWebResponse)_request.GetResponse();
         }
 
-        public async Task<HttpWebResponse> ExecuteForResponseAsync()
+        private async Task BuildRequestAsync()
         {
-            if (IsNeedRequestStream(_request.Method))
+            if (IsNeedRequestStream(_request.Method)
+                && _requestDataBytes != null
+                && _requestDataBytes.Length > 0)
             {
                 _request.ContentLength = _requestDataBytes.Length;
                 var requestStream = await _request.GetRequestStreamAsync();
                 await requestStream.WriteAsync(_requestDataBytes);
             }
+        }
+
+        public HttpWebResponse ExecuteForResponse()
+        {
+            BuildRequest();
+            return (HttpWebResponse)_request.GetResponse();
+        }
+
+        public async Task<HttpWebResponse> ExecuteForResponseAsync()
+        {
+            await BuildRequestAsync();
             return (HttpWebResponse)(await _request.GetResponseAsync());
         }
 
         public byte[] ExecuteBytes()
         {
-            if (IsNeedRequestStream(_request.Method))
-            {
-                _request.ContentLength = _requestDataBytes.Length;
-                var requestStream = _request.GetRequestStream();
-                requestStream.Write(_requestDataBytes);
-            }
+            BuildRequest();
             return _request.GetReponseBytesSafe();
         }
 
         public string Execute()
         {
-            if (IsNeedRequestStream(_request.Method))
-            {
-                _request.ContentLength = _requestDataBytes.Length;
-                var requestStream = _request.GetRequestStream();
-                requestStream.Write(_requestDataBytes);
-            }
+            BuildRequest();
             return _request.GetReponseStringSafe();
         }
 
@@ -357,23 +362,13 @@ namespace WeihanLi.Common.Helpers
 
         public async Task<byte[]> ExecuteBytesAsync()
         {
-            if (IsNeedRequestStream(_request.Method))
-            {
-                _request.ContentLength = _requestDataBytes.Length;
-                var requestStream = await _request.GetRequestStreamAsync();
-                await requestStream.WriteAsync(_requestDataBytes);
-            }
+            await BuildRequestAsync();
             return await _request.GetReponseBytesSafeAsync();
         }
 
         public async Task<string> ExecuteAsync()
         {
-            if (IsNeedRequestStream(_request.Method))
-            {
-                _request.ContentLength = _requestDataBytes.Length;
-                var requestStream = await _request.GetRequestStreamAsync();
-                await requestStream.WriteAsync(_requestDataBytes);
-            }
+            await BuildRequestAsync();
             return await _request.GetReponseStringSafeAsync();
         }
 

@@ -165,7 +165,7 @@ namespace DotNetFxSample
                 { "referer", "https://initwords.com/" },
                 { "x-requested-with", "XMLHttpRequest" }
             })
-            .WithParameters(new Dictionary<string, string>
+            .WithFormParameters(new Dictionary<string, string>
             {
                 { "moduleCode", "8a108cb74c7ae17a014c7d671d430771" },
                 { "cardNo", "20180218018071452273218" },
