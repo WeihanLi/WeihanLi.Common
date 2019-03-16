@@ -1,5 +1,6 @@
 ﻿using System;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Common.Logging;
 using WeihanLi.Common.Logging.Log4Net;
 using WeihanLi.Extensions;
 
@@ -11,10 +12,8 @@ namespace DotNetCoreSample
         public static void Main(string[] args)
         {
             LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
-
-            DataExtension.CommandLogAction = Console.WriteLine;
-
-            //Console.WriteLine(SystemHelper.OsType);
+            var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
+            DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
 
             //Console.WriteLine("----------DotNetCoreSample----------");
 
