@@ -7,14 +7,15 @@
   <PropertyGroup>            
     <PackageId>WeihanLi.Common</PackageId>
     <Title>WeihanLi.Common</Title>
-    <Description>common netfx and netstandard libarary and extensions</Description>
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>    
-    <PackageTags>common utility lib libarary extensions</PackageTags>
-    <PackageSummary>common netfx and netstandard libarary and extensions</PackageSummary>
+    <Description>common netfx and netstandard libarary,extensions helpers and useful utilities</Description>
+    <PackageTags>common utility lib libarary extensions helper</PackageTags>
+    <PackageSummary>common netfx and netstandard libarary,extensions helpers and useful utilities</PackageSummary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
-      refact logging and remove package dependency for log4net
-      update repository, add support for columns mapping
+      update DataExtension, add support for DbConnection Extension select/fetch int
+      refact HttpRequestClient => HttpRequest with fluent api
+      add TotpHelper/ObjectId/ObjectIdGenerator 
     </PackageReleaseNotes>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
