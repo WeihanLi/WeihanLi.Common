@@ -14,7 +14,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
       update DataExtension, add support for DbConnection Extension select/fetch int
-      refact HttpRequestClient => HttpRequest with fluent api
+      refact HttpRequestClient => HttpRequester with fluent api
       add TotpHelper/ObjectId/ObjectIdGenerator 
     </PackageReleaseNotes>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
