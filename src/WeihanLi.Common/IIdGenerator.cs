@@ -11,7 +11,7 @@ namespace WeihanLi.Common
         /// 生成新的id
         /// Generate a new id
         /// </summary>
-        /// <returns></returns>
+        /// <returns>new id</returns>
         string NewId();
     }
 
@@ -32,7 +32,7 @@ namespace WeihanLi.Common
     /// <summary>
     /// IdGenerator based on ObjectId
     /// </summary>
-    public class ObjectIdGenerator : IIdGenerator
+    public sealed class ObjectIdGenerator : IIdGenerator
     {
         private ObjectIdGenerator()
         {
@@ -46,7 +46,7 @@ namespace WeihanLi.Common
     /// <summary>
     /// Snowflake IdGenerator
     /// </summary>
-    public class SnowflakeIdGenerator : IIdGenerator
+    public sealed class SnowflakeIdGenerator : IIdGenerator
     {
         public string NewId()
         {
