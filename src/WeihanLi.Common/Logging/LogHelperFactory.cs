@@ -11,7 +11,7 @@ namespace WeihanLi.Common.Logging
         /// Creates a new ILogHelper instance.
         /// </summary>
         /// <param name="categoryName">The category name for messages produced by the logger.</param>
-        ILogHelperLogger CreateLogHelper(string categoryName);
+        ILogHelperLogger CreateLogger(string categoryName);
 
         /// <summary>
         /// Adds an ILogHelperProvider to the logging system.
@@ -20,11 +20,24 @@ namespace WeihanLi.Common.Logging
         bool AddProvider(ILogHelperProvider provider);
     }
 
+    public class NullLogHelperFactory : ILogHelperFactory
+    {
+        public static readonly ILogHelperFactory Instance = new NullLogHelperFactory();
+
+        private NullLogHelperFactory()
+        {
+        }
+
+        public bool AddProvider(ILogHelperProvider provider) => false;
+
+        public ILogHelperLogger CreateLogger(string categoryName) => NullLogHelperLogger.Instance;
+    }
+
     internal class LogHelperFactory : ILogHelperFactory
     {
         private readonly ConcurrentDictionary<Type, ILogHelperProvider> _logHelperProviders = new ConcurrentDictionary<Type, ILogHelperProvider>();
 
-        private readonly ConcurrentDictionary<string, LogHelper> _logHelpers = new ConcurrentDictionary<string, LogHelper>();
+        private readonly ConcurrentDictionary<string, ILogHelperLogger> _logHelpers = new ConcurrentDictionary<string, ILogHelperLogger>();
 
         public LogHelperFactory() : this(Enumerable.Empty<ILogHelperProvider>())
         {
@@ -41,7 +54,7 @@ namespace WeihanLi.Common.Logging
             }
         }
 
-        public ILogHelperLogger CreateLogHelper(string categoryName) => _logHelpers.GetOrAdd(categoryName, _ => new LogHelper(_logHelperProviders.Values, _));
+        public ILogHelperLogger CreateLogger(string categoryName) => _logHelpers.GetOrAdd(categoryName, _ => new LogHelper(_logHelperProviders.Values, _));
 
         public bool AddProvider(ILogHelperProvider provider) => _logHelperProviders.TryAdd(provider.GetType(), provider);
     }

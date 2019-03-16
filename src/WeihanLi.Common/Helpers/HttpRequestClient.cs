@@ -353,6 +353,8 @@ namespace WeihanLi.Common.Helpers
 
         public T Execute<T>() => Execute().StringToType<T>();
 
+        public T Execute<T>(T defaultValue) => Execute().StringToType(defaultValue);
+
         public async Task<byte[]> ExecuteBytesAsync()
         {
             if (IsNeedRequestStream(_request.Method))
@@ -376,6 +378,8 @@ namespace WeihanLi.Common.Helpers
         }
 
         public Task<T> ExecuteAsync<T>() => ExecuteAsync().ContinueWith(_ => _.Result.StringToType<T>());
+
+        public Task<T> ExecuteAsync<T>(T defaultValue) => ExecuteAsync().ContinueWith(_ => _.Result.StringToType<T>(defaultValue));
 
         #endregion Execute
     }

@@ -26,7 +26,7 @@ namespace WeihanLi.Common.Helpers
 
         public static ILogHelperLogger GetLogger(string categoryName)
         {
-            return _loggerFactory.Value.CreateLogHelper(categoryName);
+            return _loggerFactory.Value.CreateLogger(categoryName);
         }
 
         public static bool AddLogProvider(ILogHelperProvider logHelperProvider)
