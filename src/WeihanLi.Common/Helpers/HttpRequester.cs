@@ -12,7 +12,7 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers
 {
-    public class HttpRequest
+    public class HttpRequester
     {
         #region private fields
 
@@ -28,7 +28,7 @@ namespace WeihanLi.Common.Helpers
         /// Create HttpRequest with GET Request Method
         /// </summary>
         /// <param name="requestUrl">requestUrl</param>
-        public HttpRequest(string requestUrl) : this(requestUrl, HttpMethod.Get)
+        public HttpRequester(string requestUrl) : this(requestUrl, HttpMethod.Get)
         {
         }
 
@@ -38,7 +38,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="requestUrl">requestUrl</param>
         /// <param name="queryDictionary">queryDictionary</param>
         /// <param name="method">method</param>
-        public HttpRequest(string requestUrl, IDictionary<string, string> queryDictionary, HttpMethod method)
+        public HttpRequester(string requestUrl, IDictionary<string, string> queryDictionary, HttpMethod method)
         {
             _requestUrl = $"{requestUrl}{(requestUrl.Contains("?") ? "&" : "?")}{queryDictionary.ToQueryString()}";
             _request = WebRequest.CreateHttp(requestUrl);
@@ -52,7 +52,7 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         /// <param name="requestUrl">requestUrl</param>
         /// <param name="method">request method</param>
-        public HttpRequest(string requestUrl, HttpMethod method)
+        public HttpRequester(string requestUrl, HttpMethod method)
         {
             _requestUrl = requestUrl;
             _request = WebRequest.CreateHttp(requestUrl);
@@ -65,9 +65,9 @@ namespace WeihanLi.Common.Helpers
 
         #region AddHeader
 
-        public HttpRequest WithHeaders([NotNull]NameValueCollection customHeaders) => WithHeaders(customHeaders.ToDictionary());
+        public HttpRequester WithHeaders([NotNull]NameValueCollection customHeaders) => WithHeaders(customHeaders.ToDictionary());
 
-        public HttpRequest WithHeaders([NotNull]IEnumerable<KeyValuePair<string, string>> customHeaders)
+        public HttpRequester WithHeaders([NotNull]IEnumerable<KeyValuePair<string, string>> customHeaders)
         {
             foreach (var header in customHeaders)
             {
@@ -104,13 +104,13 @@ namespace WeihanLi.Common.Helpers
 
         #region UserAgent
 
-        public HttpRequest WithUserAgent(bool isMobile)
+        public HttpRequester WithUserAgent(bool isMobile)
         {
             _request.UserAgent = HttpHelper.GetUserAgent(isMobile);
             return this;
         }
 
-        public HttpRequest WithUserAgent(string userAgent)
+        public HttpRequester WithUserAgent(string userAgent)
         {
             _request.UserAgent = userAgent;
             return this;
@@ -120,7 +120,7 @@ namespace WeihanLi.Common.Helpers
 
         #region Referer
 
-        public HttpRequest WithReferer(string referer)
+        public HttpRequester WithReferer(string referer)
         {
             _request.Referer = referer;
             return this;
@@ -130,13 +130,13 @@ namespace WeihanLi.Common.Helpers
 
         #region Proxy
 
-        public HttpRequest WithProxy(string url)
+        public HttpRequester WithProxy(string url)
         {
             _request.Proxy = new WebProxy(new Uri(url));
             return this;
         }
 
-        public HttpRequest WithProxy(string url, string userName, string password)
+        public HttpRequester WithProxy(string url, string userName, string password)
         {
             _request.Proxy = new WebProxy(new Uri(url))
             {
@@ -145,7 +145,7 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public HttpRequest WithProxy(WebProxy proxy)
+        public HttpRequester WithProxy(WebProxy proxy)
         {
             _request.Proxy = proxy;
             return this;
@@ -155,7 +155,7 @@ namespace WeihanLi.Common.Helpers
 
         #region Cookie
 
-        public HttpRequest WithCookie(Cookie cookie)
+        public HttpRequester WithCookie(Cookie cookie)
         {
             if (null == _request.CookieContainer)
             {
@@ -165,7 +165,7 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public HttpRequest WithCookie(string url, Cookie cookie)
+        public HttpRequester WithCookie(string url, Cookie cookie)
         {
             if (null == _request.CookieContainer)
             {
@@ -175,7 +175,7 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public HttpRequest WithCookie(CookieCollection cookies)
+        public HttpRequester WithCookie(CookieCollection cookies)
         {
             if (null == _request.CookieContainer)
             {
@@ -185,7 +185,7 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public HttpRequest WithCookie(string url, CookieCollection cookies)
+        public HttpRequester WithCookie(string url, CookieCollection cookies)
         {
             if (null == _request.CookieContainer)
             {
@@ -199,26 +199,26 @@ namespace WeihanLi.Common.Helpers
 
         #region Parameter
 
-        public HttpRequest WithFormParameters([NotNull] NameValueCollection parameters) => WithFormParameters(parameters.ToDictionary());
+        public HttpRequester WithFormParameters([NotNull] NameValueCollection parameters) => WithFormParameters(parameters.ToDictionary());
 
-        public HttpRequest WithFormParameters([NotNull]IEnumerable<KeyValuePair<string, string>> parameters)
+        public HttpRequester WithFormParameters([NotNull]IEnumerable<KeyValuePair<string, string>> parameters)
         {
             _requestDataBytes = Encoding.UTF8.GetBytes(parameters.ToQueryString());
             _request.ContentType = "application/x-www-form-urlencoded";
             return this;
         }
 
-        public HttpRequest WithJsonParameter<TEntity>([NotNull] TEntity entity)
+        public HttpRequester WithJsonParameter<TEntity>([NotNull] TEntity entity)
         {
             _requestDataBytes = Encoding.UTF8.GetBytes(entity.ToJson());
             _request.ContentType = "application/json;charset=UTF-8";
             return this;
         }
 
-        public HttpRequest WithParameters([NotNull] byte[] requestBytes)
+        public HttpRequester WithParameters([NotNull] byte[] requestBytes)
             => WithParameters(requestBytes, null);
 
-        public HttpRequest WithParameters([NotNull] byte[] requestBytes, string contentType)
+        public HttpRequester WithParameters([NotNull] byte[] requestBytes, string contentType)
         {
             _requestDataBytes = requestBytes;
             if (string.IsNullOrWhiteSpace(contentType))
@@ -233,11 +233,11 @@ namespace WeihanLi.Common.Helpers
 
         #region AddFile
 
-        public HttpRequest WithFile(string filePath, string fileKey = "file",
+        public HttpRequester WithFile(string filePath, string fileKey = "file",
             IEnumerable<KeyValuePair<string, string>> formFields = null)
             => WithFile(Path.GetFileName(filePath), File.ReadAllBytes(filePath), fileKey, formFields);
 
-        public HttpRequest WithFile(string fileName, byte[] fileBytes, string fileKey = "file",
+        public HttpRequester WithFile(string fileName, byte[] fileBytes, string fileKey = "file",
             IEnumerable<KeyValuePair<string, string>> formFields = null)
         {
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
@@ -266,14 +266,14 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public HttpRequest WithFiles(IEnumerable<string> filePaths, IEnumerable<KeyValuePair<string, string>> formFields = null)
+        public HttpRequester WithFiles(IEnumerable<string> filePaths, IEnumerable<KeyValuePair<string, string>> formFields = null)
             => WithFiles(
                 filePaths.Select(_ => new KeyValuePair<string, byte[]>(
                     Path.GetFileName(_),
                     File.ReadAllBytes(_))),
                 formFields);
 
-        public HttpRequest WithFiles(IEnumerable<KeyValuePair<string, byte[]>> files,
+        public HttpRequester WithFiles(IEnumerable<KeyValuePair<string, byte[]>> files,
             IEnumerable<KeyValuePair<string, string>> formFields = null)
         {
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
@@ -313,7 +313,7 @@ namespace WeihanLi.Common.Helpers
 
         #region Other
 
-        public HttpRequest AjaxRequest(bool isAjaxRequest)
+        public HttpRequester AjaxRequest(bool isAjaxRequest)
         {
             _request.Headers["X-Requested-With"] = "XMLHttpRequest";
             return this;

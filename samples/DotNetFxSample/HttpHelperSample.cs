@@ -119,9 +119,9 @@ namespace DotNetFxSample
             }
         }
 
-        public static void HttpRequest()
+        public static void HttpRequesterTest()
         {
-            //var client = new HttpRequest("https://weihanli.xyz");
+            //var client = new HttpRequester("https://weihanli.xyz");
             //var result = client.Execute();
             //Console.WriteLine(result);
             //client = new HttpRequest(PostUploadFileUrl, HttpMethod.Post);
@@ -129,11 +129,11 @@ namespace DotNetFxSample
             //result = client.Execute();
             //Console.WriteLine(result);
 
-            //var response1 = new HttpRequest("https://initwords.com/")
+            //var response1 = new HttpRequester("https://initwords.com/")
             //    .ExecuteForResponse();
             //var sessionId = response1.Cookies["JSESSIONID"]?.Value ?? "E641209D81307143F8B2482B7B2C6ED2";
 
-            //var client = new HttpRequest("https://initwords.com/login/authless/ajaxLogin.do", HttpMethod.Post);
+            //var client = new HttpRequester("https://initwords.com/login/authless/ajaxLogin.do", HttpMethod.Post);
             //client
             //    .WithHeaders(new Dictionary<string, string>
             //    {
@@ -155,7 +155,7 @@ namespace DotNetFxSample
             //var response = client.Execute();
             //Console.WriteLine(response);
 
-            var activateClient = new HttpRequest("https://initwords.com/book/ajaxRegisterBook.do", HttpMethod.Post);
+            var activateClient = new HttpRequester("https://initwords.com/book/ajaxRegisterBook.do", HttpMethod.Post);
             activateClient.WithHeaders(new Dictionary<string, string>
             {
                 { "em-tokencode", "a287f418-ed57-439c-bdb8-734baa00d9e4" },

@@ -102,7 +102,7 @@ namespace DotNetCoreSample
             //var code1234 = TotpHelper.GenerateCode(ApplicationHelper.ApplicationName + "test_1234");
             //Console.WriteLine(code1234);
 
-            InvokeHelper.TryInvoke(HttpRequestTest.MainTest);
+            InvokeHelper.TryInvoke(HttpRequesterTest.MainTest);
 
             Console.ReadLine();
         }

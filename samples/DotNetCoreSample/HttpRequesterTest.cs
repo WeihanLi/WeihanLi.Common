@@ -5,20 +5,19 @@ using WeihanLi.Extensions;
 
 namespace DotNetCoreSample
 {
-    internal class HttpRequestTest
+    internal class HttpRequesterTest
     {
         public static void MainTest()
         {
-            var request = new HttpRequest("https://weihanli.xyz")
+            var result = new HttpRequester("https://weihanli.xyz")
                 .WithReferer("https://weihanli.xyz")
                 .WithHeaders(new System.Collections.Specialized.NameValueCollection
                 {
                     {"Header1", "Header1" }
-                });
-            var result = request.Execute();
+                }).Execute();
             System.Console.WriteLine(result);
 
-            var loginResult = new HttpRequest("https://accounting.weihanli.xyz/Account/LogOn", HttpMethod.Post)
+            var loginResult = new HttpRequester("https://accounting.weihanli.xyz/Account/LogOn", HttpMethod.Post)
                 .WithHeaders(new Dictionary<string, string>()
                 {
                     { "X-Requested-With", "XMLHttpRequest" },
@@ -35,7 +34,7 @@ namespace DotNetCoreSample
                 .Execute<WeihanLi.Common.Models.JsonResultModel<bool>>();
             System.Console.WriteLine(loginResult.ToJson());
 
-            var uploadFileResponse = new HttpRequest("https://graph.baidu.com/upload", HttpMethod.Post)
+            var uploadFileResponse = new HttpRequester("https://graph.baidu.com/upload", HttpMethod.Post)
                 .WithFile($@"{System.Environment.GetEnvironmentVariable("USERPROFILE")}\Pictures\4e6ab53e383863ed4d15252039f70423.jpg", "image", new Dictionary<string, string>()
                 {
                     { "tn","pc" },
