@@ -311,6 +311,16 @@ namespace WeihanLi.Common.Helpers
 
         #endregion AddFile
 
+        #region Other
+
+        public HttpRequest AjaxRequest(bool isAjaxRequest)
+        {
+            _request.Headers["X-Requested-With"] = "XMLHttpRequest";
+            return this;
+        }
+
+        #endregion Other
+
         #region Execute
 
         private void BuildRequest()
