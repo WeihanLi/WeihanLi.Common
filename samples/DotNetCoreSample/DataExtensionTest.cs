@@ -34,7 +34,8 @@ namespace DotNetCoreSample
 
         public static void MainTest()
         {
-            using (var conn = new SqlConnection(ConfigurationHelper.ConnectionString("TestDb")))
+            var connString = ConfigurationHelper.ConnectionString("TestDb");
+            using (var conn = new SqlConnection(connString))
             {
                 Init(conn);
 
@@ -95,6 +96,12 @@ namespace DotNetCoreSample
 
                 var tokens = conn.QueryColumn<string>("SELECT Token FROM [dbo].[TestTable111]");
                 Console.WriteLine("tokens:{0}", string.Join(",", tokens));
+
+                var ids = conn.Select<int>("SELECT PKID FROM [dbo].[TestTable111]");
+                Console.WriteLine("ids:{0}", string.Join(",", ids));
+
+                var lastId = conn.Fetch<int>("SELECT TOP 1 PKID FROM [dbo].[TestTable111] ORDER BY PKID DESC");
+                Console.WriteLine("lastId:{0}", lastId);
 
                 conn.Execute("Delete from TestTable111 where PKID > @pkid", new { pkid = 888 });
 

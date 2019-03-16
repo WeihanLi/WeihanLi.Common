@@ -12,7 +12,26 @@ using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace WeihanLi.Common.Logging.Log4Net
 {
+    
     [ProviderAlias("log4net")]
+    internal class Log4NetLoggerProvider : ILoggerProvider
+    {
+        private readonly ConcurrentDictionary<string, Log4NetLogger> _loggers =
+            new ConcurrentDictionary<string, Log4NetLogger>(StringComparer.Ordinal);
+
+        public Log4NetLoggerProvider(string confFilePath)
+        {
+            if (null == LogManager.GetAllRepositories()?.FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))
+            {
+                XmlConfigurator.ConfigureAndWatch(LogManager.CreateRepository(ApplicationHelper.ApplicationName), new FileInfo(confFilePath));
+            }
+        }
+
+        public void Dispose() => _loggers.Clear();
+
+        public ILogger CreateLogger(string categoryName) => _loggers.GetOrAdd(categoryName, loggerName => new Log4NetLogger(loggerName));
+    }
+    
     internal class Log4NetLogger : ILogger
     {
         private readonly ILog _logger;
@@ -96,24 +115,6 @@ namespace WeihanLi.Common.Logging.Log4Net
                 }
             }
         }
-    }
-
-    internal class Log4NetLoggerProvider : ILoggerProvider
-    {
-        private readonly ConcurrentDictionary<string, Log4NetLogger> _loggers =
-            new ConcurrentDictionary<string, Log4NetLogger>(StringComparer.Ordinal);
-
-        public Log4NetLoggerProvider(string confFilePath)
-        {
-            if (null == LogManager.GetAllRepositories()?.FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))
-            {
-                XmlConfigurator.ConfigureAndWatch(LogManager.CreateRepository(ApplicationHelper.ApplicationName), new FileInfo(confFilePath));
-            }
-        }
-
-        public void Dispose() => _loggers.Clear();
-
-        public ILogger CreateLogger(string categoryName) => _loggers.GetOrAdd(categoryName, loggerName => new Log4NetLogger(loggerName));
     }
 }
 

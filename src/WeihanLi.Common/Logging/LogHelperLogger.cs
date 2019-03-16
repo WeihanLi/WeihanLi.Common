@@ -12,32 +12,42 @@ namespace WeihanLi.Common.Logging
         bool IsEnabled(LogHelperLevel loggerLevel);
     }
 
+    public interface ILogHelperLogger<out T> : ILogHelperLogger
+    {
+    }
+
     public class NullLogHelperLogger : ILogHelperLogger
     {
+        public static readonly ILogHelperLogger Instance = new NullLogHelperLogger();
+
+        private NullLogHelperLogger()
+        {
+        }
+
         public void Log(LogHelperLevel loggerLevel, string message, Exception exception)
         {
         }
 
-        public bool IsEnabled(LogHelperLevel loggerLevel)
-        {
-            return false;
-        }
+        public bool IsEnabled(LogHelperLevel loggerLevel) => false;
     }
 
     internal class LogHelper : ILogHelperLogger
     {
-        private readonly IReadOnlyCollection<ILogHelperLogger> _logHelpers;
+        private readonly IReadOnlyCollection<ILogHelperLogger> _loggers;
 
         public LogHelper(ICollection<ILogHelperProvider> logHelperProviders, string categoryName)
         {
-            _logHelpers = logHelperProviders.Select(_ => _.CreateLogger(categoryName)).ToArray();
+            _loggers = logHelperProviders.Select(_ => _.CreateLogger(categoryName)).ToArray();
         }
 
         public void Log(LogHelperLevel loggerLevel, string message, Exception exception)
         {
-            _logHelpers.ForEach(logHelper =>
+            _loggers.ForEach(logger =>
             {
-                logHelper.Log(loggerLevel, message, exception);
+                if (logger.IsEnabled(loggerLevel))
+                {
+                    logger.Log(loggerLevel, message, exception);
+                }
             });
         }
 

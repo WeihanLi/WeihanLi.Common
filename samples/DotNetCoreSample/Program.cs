@@ -1,40 +1,36 @@
 ﻿using System;
-using System.Linq.Expressions;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using WeihanLi.Common;
-using WeihanLi.Common.Data;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging.Log4Net;
 using WeihanLi.Extensions;
 
+// ReSharper disable once LocalizableElement
 namespace DotNetCoreSample
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
-            DataExtension.CommandLogAction = Console.WriteLine;
-            Console.WriteLine(SystemHelper.OsType);
-            // ReSharper disable once LocalizableElement
             Console.WriteLine("----------DotNetCoreSample----------");
 
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.AddScoped<IFly, MonkeyKing>();
-            IConfiguration configuration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .Build();
+            LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
+            var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
+            // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
 
-            var city = configuration.GetAppSetting("City");
-            var number = configuration.GetAppSetting<int>("Number");
-            System.Console.WriteLine($"City:{city}, Number:{number}");
+            //var serviceCollection = new ServiceCollection();
+            //serviceCollection.AddScoped<IFly, MonkeyKing>();
+            //IConfiguration configuration = new ConfigurationBuilder()
+            //    .AddJsonFile("appsettings.json")
+            //    .Build();
 
-            serviceCollection.AddSingleton(configuration);
+            //var city = configuration.GetAppSetting("City");
+            //var number = configuration.GetAppSetting<int>("Number");
+            //System.Console.WriteLine($"City:{city}, Number:{number}");
 
-            DependencyResolver.SetDependencyResolver(serviceCollection);
+            //serviceCollection.AddSingleton(configuration);
 
-            DependencyInjectionTest.Test();
+            //DependencyResolver.SetDependencyResolver(serviceCollection);
+
+            //DependencyInjectionTest.Test();
 
             //var builder = new ContainerBuilder();
             //builder.RegisterType<MonkeyKing>().As<IFly>();
@@ -47,7 +43,9 @@ namespace DotNetCoreSample
             //Console.WriteLine(JsonConvert.SerializeObject(a));// output 1
 
             // log test
-            LoggerTest.MainTest();
+            // LoggerTest.MainTest();
+            // Log4NetTest.MainTest();
+
             //ILoggerFactory loggerFactory = new LoggerFactory();
             //loggerFactory.AddConsole();
             //loggerFactory.AddDebug();
@@ -55,7 +53,7 @@ namespace DotNetCoreSample
             //var logger = new Logger<Program>(loggerFactory);
             //logger.LogInformation("Logging information from Microsoft.Extensions.Logging");
 
-            //InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
+            // InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
 
             //TaskTest.TaskWhenAllTest().GetAwaiter().GetResult();
 
@@ -73,15 +71,38 @@ namespace DotNetCoreSample
 
             //Console.WriteLine(structTest.Name);
 
-            Expression<Func<TestEntity, bool>> exp = t => t.Id > 10 && t.Token == "123" && t.Token.Contains("12");
-            var str = SqlExpressionParser.ParseExpression(exp);
-            Console.WriteLine("sql: {0}", str);
+            //Expression<Func<TestEntity, bool>> exp = t => t.Id > 10 && t.Token == "123" && t.Token.Contains("12");
+            //var str = SqlExpressionParser.ParseExpression(exp);
+            //Console.WriteLine("sql: {0}", str);
 
-            exp = t => true;
-            str = SqlExpressionParser.ParseExpression(exp);
-            Console.WriteLine("sql: {0}", str);
+            //exp = t => true;
+            //str = SqlExpressionParser.ParseExpression(exp);
+            //Console.WriteLine("sql: {0}", str);
 
-            RepositoryTest.MainTest();
+            //RepositoryTest.MainTest();
+
+            //var securityToken = ApplicationHelper.ApplicationName + "_test_123";
+            //var code123 = TotpHelper.GenerateCode(securityToken);
+            //Console.WriteLine(code123);
+            //var result = TotpHelper.ValidateCode(securityToken, code123);
+            //Console.WriteLine($"validate result: {result}");
+
+            //var ttl = 2;
+            //while (ttl > 1)
+            //{
+            //    ttl = TotpHelper.TTL(securityToken);
+            //    Console.WriteLine($"Current ttl: {ttl}, newId: {ObjectIdGenerator.Instance.NewId()}");
+            //    Thread.Sleep(1000);
+            //}
+            //result = TotpHelper.ValidateCode(securityToken, code123);
+            //Console.WriteLine($"validate result1: {result}");
+
+            //result = TotpHelper.ValidateCode(securityToken, code123, 60);
+            //Console.WriteLine($"validate result2: {result}");
+            //var code1234 = TotpHelper.GenerateCode(ApplicationHelper.ApplicationName + "test_1234");
+            //Console.WriteLine(code1234);
+
+            InvokeHelper.TryInvoke(HttpRequesterTest.MainTest);
 
             Console.ReadLine();
         }

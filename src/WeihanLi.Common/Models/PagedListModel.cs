@@ -15,8 +15,22 @@ namespace WeihanLi.Common.Models
         /// </summary>
         IReadOnlyList<T> Data { get; }
 
+        [Obsolete("Use PageNumber instead", true)]
         int PageIndex { get; }
+
+        /// <summary>
+        /// PageNumber
+        /// </summary>
+        int PageNumber { get; }
+
+        /// <summary>
+        /// PageSize
+        /// </summary>
         int PageSize { get; }
+
+        /// <summary>
+        /// TotalDataCount
+        /// </summary>
         int TotalCount { get; set; }
     }
 
@@ -30,16 +44,28 @@ namespace WeihanLi.Common.Models
     {
         public IReadOnlyList<T> Data { get; set; }
 
-        private int _pageIndex = 1;
+        private int _pageNumber = 1;
 
-        public int PageIndex
+        public int PageNumber
         {
-            get => _pageIndex;
+            get => _pageNumber;
             set
             {
                 if (value > 0)
                 {
-                    _pageIndex = value;
+                    _pageNumber = value;
+                }
+            }
+        }
+
+        public int PageIndex
+        {
+            get => _pageNumber;
+            set
+            {
+                if (value > 0)
+                {
+                    _pageNumber = value;
                 }
             }
         }

@@ -31,7 +31,7 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         /// <param name="key">key</param>
         /// <returns>绝对路径</returns>
-        public static string AppSettingMapPath(string key) => ApplicationHelper.AppRoot + AppSetting(key);
+        public static string AppSettingMapPath(string key) => ApplicationHelper.MapPath(AppSetting(key));
 
         /// <summary>
         /// 获取配置文件中AppSetting节点的值
