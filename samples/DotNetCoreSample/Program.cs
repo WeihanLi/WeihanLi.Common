@@ -10,13 +10,11 @@ namespace DotNetCoreSample
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine("----------DotNetCoreSample----------");
+
             LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
-
-            DataExtension.CommandLogAction = Console.WriteLine;
-
-            //Console.WriteLine(SystemHelper.OsType);
-
-            //Console.WriteLine("----------DotNetCoreSample----------");
+            var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
+            // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
 
             //var serviceCollection = new ServiceCollection();
             //serviceCollection.AddScoped<IFly, MonkeyKing>();
@@ -55,7 +53,7 @@ namespace DotNetCoreSample
             //var logger = new Logger<Program>(loggerFactory);
             //logger.LogInformation("Logging information from Microsoft.Extensions.Logging");
 
-            InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
+            // InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
 
             //TaskTest.TaskWhenAllTest().GetAwaiter().GetResult();
 
@@ -82,12 +80,13 @@ namespace DotNetCoreSample
             //Console.WriteLine("sql: {0}", str);
 
             //RepositoryTest.MainTest();
-            //var securityToken = ApplicationHelper.ApplicationName + "test_123";
+
+            //var securityToken = ApplicationHelper.ApplicationName + "_test_123";
             //var code123 = TotpHelper.GenerateCode(securityToken);
             //Console.WriteLine(code123);
-
             //var result = TotpHelper.ValidateCode(securityToken, code123);
             //Console.WriteLine($"validate result: {result}");
+
             //var ttl = 2;
             //while (ttl > 1)
             //{
@@ -96,9 +95,14 @@ namespace DotNetCoreSample
             //    Thread.Sleep(1000);
             //}
             //result = TotpHelper.ValidateCode(securityToken, code123);
-            //Console.WriteLine($"validate result: {result}");
+            //Console.WriteLine($"validate result1: {result}");
+
+            //result = TotpHelper.ValidateCode(securityToken, code123, 60);
+            //Console.WriteLine($"validate result2: {result}");
             //var code1234 = TotpHelper.GenerateCode(ApplicationHelper.ApplicationName + "test_1234");
             //Console.WriteLine(code1234);
+
+            InvokeHelper.TryInvoke(HttpRequesterTest.MainTest);
 
             Console.ReadLine();
         }

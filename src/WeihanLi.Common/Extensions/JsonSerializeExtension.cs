@@ -101,7 +101,7 @@ namespace WeihanLi.Extensions
         }
 
         /// <summary>
-        /// 字符串数据转换为相应类型的对象，如果是基元类型则转换类型，是Entity则Json反序列化
+        /// 字符串数据转换为相应类型的对象，如果是基本数据类型则转换类型，是Entity则Json反序列化
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="jsonString">字符串</param>
@@ -114,7 +114,7 @@ namespace WeihanLi.Extensions
             }
             if (typeof(T).IsBasicType())
             {
-                return jsonString.ToOrDefault<T>();
+                return jsonString.To<T>();
             }
             return jsonString.JsonToType<T>();
         }
@@ -136,7 +136,14 @@ namespace WeihanLi.Extensions
             {
                 return jsonString.ToOrDefault(defaultValue);
             }
-            return jsonString.JsonToType<T>();
+            try
+            {
+                return jsonString.JsonToType<T>();
+            }
+            catch
+            {
+                return defaultValue;
+            }
         }
     }
 }

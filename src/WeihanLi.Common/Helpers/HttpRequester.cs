@@ -12,7 +12,7 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers
 {
-    public class HttpRequestClient
+    public class HttpRequester
     {
         #region private fields
 
@@ -25,20 +25,20 @@ namespace WeihanLi.Common.Helpers
         #region ctor
 
         /// <summary>
-        /// Create HttpRequestClient with GET Request Method
+        /// Create HttpRequest with GET Request Method
         /// </summary>
         /// <param name="requestUrl">requestUrl</param>
-        public HttpRequestClient(string requestUrl) : this(requestUrl, HttpMethod.Get)
+        public HttpRequester(string requestUrl) : this(requestUrl, HttpMethod.Get)
         {
         }
 
         /// <summary>
-        /// Create HttpRequestClient with GET Request Method
+        /// Create HttpRequest with specific Request Method
         /// </summary>
         /// <param name="requestUrl">requestUrl</param>
         /// <param name="queryDictionary">queryDictionary</param>
         /// <param name="method">method</param>
-        public HttpRequestClient(string requestUrl, IDictionary<string, string> queryDictionary, HttpMethod method)
+        public HttpRequester(string requestUrl, IDictionary<string, string> queryDictionary, HttpMethod method)
         {
             _requestUrl = $"{requestUrl}{(requestUrl.Contains("?") ? "&" : "?")}{queryDictionary.ToQueryString()}";
             _request = WebRequest.CreateHttp(requestUrl);
@@ -47,7 +47,12 @@ namespace WeihanLi.Common.Helpers
             _request.Method = method.Method;
         }
 
-        public HttpRequestClient(string requestUrl, HttpMethod method)
+        /// <summary>
+        /// Create HttpRequest with specific Request Method
+        /// </summary>
+        /// <param name="requestUrl">requestUrl</param>
+        /// <param name="method">request method</param>
+        public HttpRequester(string requestUrl, HttpMethod method)
         {
             _requestUrl = requestUrl;
             _request = WebRequest.CreateHttp(requestUrl);
@@ -60,9 +65,9 @@ namespace WeihanLi.Common.Helpers
 
         #region AddHeader
 
-        public HttpRequestClient WithHeaders([NotNull]NameValueCollection customHeaders) => WithHeaders(customHeaders.ToDictionary());
+        public HttpRequester WithHeaders([NotNull]NameValueCollection customHeaders) => WithHeaders(customHeaders.ToDictionary());
 
-        public HttpRequestClient WithHeaders([NotNull]IEnumerable<KeyValuePair<string, string>> customHeaders)
+        public HttpRequester WithHeaders([NotNull]IEnumerable<KeyValuePair<string, string>> customHeaders)
         {
             foreach (var header in customHeaders)
             {
@@ -99,13 +104,13 @@ namespace WeihanLi.Common.Helpers
 
         #region UserAgent
 
-        public HttpRequestClient WithUserAgent(bool isMobile)
+        public HttpRequester WithUserAgent(bool isMobile)
         {
             _request.UserAgent = HttpHelper.GetUserAgent(isMobile);
             return this;
         }
 
-        public HttpRequestClient WithUserAgent(string userAgent)
+        public HttpRequester WithUserAgent(string userAgent)
         {
             _request.UserAgent = userAgent;
             return this;
@@ -115,7 +120,7 @@ namespace WeihanLi.Common.Helpers
 
         #region Referer
 
-        public HttpRequestClient WithReferer(string referer)
+        public HttpRequester WithReferer(string referer)
         {
             _request.Referer = referer;
             return this;
@@ -125,13 +130,13 @@ namespace WeihanLi.Common.Helpers
 
         #region Proxy
 
-        public HttpRequestClient WithProxy(string url)
+        public HttpRequester WithProxy(string url)
         {
             _request.Proxy = new WebProxy(new Uri(url));
             return this;
         }
 
-        public HttpRequestClient AddProxy(string url, string userName, string password)
+        public HttpRequester WithProxy(string url, string userName, string password)
         {
             _request.Proxy = new WebProxy(new Uri(url))
             {
@@ -140,7 +145,7 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public HttpRequestClient AddProxy(WebProxy proxy)
+        public HttpRequester WithProxy(WebProxy proxy)
         {
             _request.Proxy = proxy;
             return this;
@@ -150,7 +155,7 @@ namespace WeihanLi.Common.Helpers
 
         #region Cookie
 
-        public HttpRequestClient WithCookie(Cookie cookie)
+        public HttpRequester WithCookie(Cookie cookie)
         {
             if (null == _request.CookieContainer)
             {
@@ -160,7 +165,7 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public HttpRequestClient WithCookie(string url, Cookie cookie)
+        public HttpRequester WithCookie(string url, Cookie cookie)
         {
             if (null == _request.CookieContainer)
             {
@@ -170,7 +175,7 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public HttpRequestClient WithCookie(CookieCollection cookies)
+        public HttpRequester WithCookie(CookieCollection cookies)
         {
             if (null == _request.CookieContainer)
             {
@@ -180,7 +185,7 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public HttpRequestClient AddCookies(string url, CookieCollection cookies)
+        public HttpRequester WithCookie(string url, CookieCollection cookies)
         {
             if (null == _request.CookieContainer)
             {
@@ -194,26 +199,26 @@ namespace WeihanLi.Common.Helpers
 
         #region Parameter
 
-        public HttpRequestClient WithParameters([NotNull] NameValueCollection parameters) => WithParameters(parameters.ToDictionary());
+        public HttpRequester WithFormParameters([NotNull] NameValueCollection parameters) => WithFormParameters(parameters.ToDictionary());
 
-        public HttpRequestClient WithParameters([NotNull]IEnumerable<KeyValuePair<string, string>> parameters)
+        public HttpRequester WithFormParameters([NotNull]IEnumerable<KeyValuePair<string, string>> parameters)
         {
             _requestDataBytes = Encoding.UTF8.GetBytes(parameters.ToQueryString());
             _request.ContentType = "application/x-www-form-urlencoded";
             return this;
         }
 
-        public HttpRequestClient WithJsonParameter<TEntity>([NotNull] TEntity entity)
+        public HttpRequester WithJsonParameter<TEntity>([NotNull] TEntity entity)
         {
             _requestDataBytes = Encoding.UTF8.GetBytes(entity.ToJson());
             _request.ContentType = "application/json;charset=UTF-8";
             return this;
         }
 
-        public HttpRequestClient WithParameters([NotNull] byte[] requestBytes)
+        public HttpRequester WithParameters([NotNull] byte[] requestBytes)
             => WithParameters(requestBytes, null);
 
-        public HttpRequestClient WithParameters([NotNull] byte[] requestBytes, string contentType)
+        public HttpRequester WithParameters([NotNull] byte[] requestBytes, string contentType)
         {
             _requestDataBytes = requestBytes;
             if (string.IsNullOrWhiteSpace(contentType))
@@ -228,18 +233,17 @@ namespace WeihanLi.Common.Helpers
 
         #region AddFile
 
-        public HttpRequestClient WithFile(string filePath, string fileKey = "file",
+        public HttpRequester WithFile(string filePath, string fileKey = "file",
             IEnumerable<KeyValuePair<string, string>> formFields = null)
             => WithFile(Path.GetFileName(filePath), File.ReadAllBytes(filePath), fileKey, formFields);
 
-        public HttpRequestClient WithFile(string fileName, byte[] fileBytes, string fileKey = "file",
+        public HttpRequester WithFile(string fileName, byte[] fileBytes, string fileKey = "file",
             IEnumerable<KeyValuePair<string, string>> formFields = null)
         {
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
 
             var boundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
             var endBoundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}--");
-
             using (var memStream = new MemoryStream())
             {
                 if (formFields != null)
@@ -262,12 +266,14 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public HttpRequestClient WithFiles(IEnumerable<string> filePaths, IEnumerable<KeyValuePair<string, string>> formFields = null)
+        public HttpRequester WithFiles(IEnumerable<string> filePaths, IEnumerable<KeyValuePair<string, string>> formFields = null)
             => WithFiles(
-                filePaths.Select(_ => new KeyValuePair<string, byte[]>(Path.GetFileName(_), File.ReadAllBytes(_))),
+                filePaths.Select(_ => new KeyValuePair<string, byte[]>(
+                    Path.GetFileName(_),
+                    File.ReadAllBytes(_))),
                 formFields);
 
-        public HttpRequestClient WithFiles(IEnumerable<KeyValuePair<string, byte[]>> files,
+        public HttpRequester WithFiles(IEnumerable<KeyValuePair<string, byte[]>> files,
             IEnumerable<KeyValuePair<string, string>> formFields = null)
         {
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
@@ -305,77 +311,85 @@ namespace WeihanLi.Common.Helpers
 
         #endregion AddFile
 
+        #region Other
+
+        public HttpRequester AjaxRequest(bool isAjaxRequest)
+        {
+            _request.Headers["X-Requested-With"] = "XMLHttpRequest";
+            return this;
+        }
+
+        #endregion Other
+
         #region Execute
 
-        public HttpWebResponse ExecuteForResponse()
+        private void BuildRequest()
         {
-            if (IsNeedRequestStream(_request.Method))
+            if (IsNeedRequestStream(_request.Method)
+                && _requestDataBytes != null
+                && _requestDataBytes.Length > 0)
             {
                 _request.ContentLength = _requestDataBytes.Length;
                 var requestStream = _request.GetRequestStream();
                 requestStream.Write(_requestDataBytes);
             }
+        }
+
+        private async Task BuildRequestAsync()
+        {
+            if (IsNeedRequestStream(_request.Method)
+                && _requestDataBytes != null
+                && _requestDataBytes.Length > 0)
+            {
+                _request.ContentLength = _requestDataBytes.Length;
+                var requestStream = await _request.GetRequestStreamAsync();
+                await requestStream.WriteAsync(_requestDataBytes);
+            }
+        }
+
+        public HttpWebResponse ExecuteForResponse()
+        {
+            BuildRequest();
             return (HttpWebResponse)_request.GetResponse();
         }
 
         public async Task<HttpWebResponse> ExecuteForResponseAsync()
         {
-            if (IsNeedRequestStream(_request.Method))
-            {
-                _request.ContentLength = _requestDataBytes.Length;
-                var requestStream = await _request.GetRequestStreamAsync();
-                await requestStream.WriteAsync(_requestDataBytes);
-            }
+            await BuildRequestAsync();
             return (HttpWebResponse)(await _request.GetResponseAsync());
         }
 
         public byte[] ExecuteBytes()
         {
-            if (IsNeedRequestStream(_request.Method))
-            {
-                _request.ContentLength = _requestDataBytes.Length;
-                var requestStream = _request.GetRequestStream();
-                requestStream.Write(_requestDataBytes);
-            }
+            BuildRequest();
             return _request.GetReponseBytesSafe();
         }
 
         public string Execute()
         {
-            if (IsNeedRequestStream(_request.Method))
-            {
-                _request.ContentLength = _requestDataBytes.Length;
-                var requestStream = _request.GetRequestStream();
-                requestStream.Write(_requestDataBytes);
-            }
+            BuildRequest();
             return _request.GetReponseStringSafe();
         }
 
         public T Execute<T>() => Execute().StringToType<T>();
 
+        public T Execute<T>(T defaultValue) => Execute().StringToType(defaultValue);
+
         public async Task<byte[]> ExecuteBytesAsync()
         {
-            if (IsNeedRequestStream(_request.Method))
-            {
-                _request.ContentLength = _requestDataBytes.Length;
-                var requestStream = await _request.GetRequestStreamAsync();
-                await requestStream.WriteAsync(_requestDataBytes);
-            }
+            await BuildRequestAsync();
             return await _request.GetReponseBytesSafeAsync();
         }
 
         public async Task<string> ExecuteAsync()
         {
-            if (IsNeedRequestStream(_request.Method))
-            {
-                _request.ContentLength = _requestDataBytes.Length;
-                var requestStream = await _request.GetRequestStreamAsync();
-                await requestStream.WriteAsync(_requestDataBytes);
-            }
+            await BuildRequestAsync();
             return await _request.GetReponseStringSafeAsync();
         }
 
         public Task<T> ExecuteAsync<T>() => ExecuteAsync().ContinueWith(_ => _.Result.StringToType<T>());
+
+        public Task<T> ExecuteAsync<T>(T defaultValue) => ExecuteAsync().ContinueWith(_ => _.Result.StringToType<T>(defaultValue));
 
         #endregion Execute
     }

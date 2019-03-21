@@ -17,6 +17,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using WeihanLi.Common;
+using WeihanLi.Common.Logging;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -94,34 +95,52 @@ namespace WeihanLi.Extensions
         public static IEnumerable<T> ToEntities<T>([NotNull]this DataTable @this) where T : new()
         {
             var type = typeof(T);
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
 
-            foreach (DataRow dr in @this.Rows)
+            if (@this.Columns.Count == 0)
             {
-                var entity = new T();
-                if (type.IsValueType)
+                yield return default(T);
+            }
+            else
+            {
+                if (type.IsBasicType())
                 {
-                    var obj = (object)entity;
-                    foreach (var property in properties)
+                    foreach (DataRow row in @this.Rows)
                     {
-                        if (@this.Columns.Contains(property.Name))
-                        {
-                            property.GetValueSetter().Invoke(obj, dr[property.Name].GetValueFromDb());
-                        }
+                        yield return row[0].ToOrDefault<T>();
                     }
-                    entity = (T)obj;
                 }
                 else
                 {
-                    foreach (var property in properties)
+                    var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
+
+                    foreach (DataRow dr in @this.Rows)
                     {
-                        if (@this.Columns.Contains(property.Name))
+                        var entity = new T();
+                        if (type.IsValueType)
                         {
-                            property.GetValueSetter().Invoke(entity, dr[property.Name].GetValueFromDb());
+                            var obj = (object)entity;
+                            foreach (var property in properties)
+                            {
+                                if (@this.Columns.Contains(property.Name))
+                                {
+                                    property.GetValueSetter().Invoke(obj, dr[property.Name].GetValueFromDb());
+                                }
+                            }
+                            entity = (T)obj;
                         }
+                        else
+                        {
+                            foreach (var property in properties)
+                            {
+                                if (@this.Columns.Contains(property.Name))
+                                {
+                                    property.GetValueSetter().Invoke(entity, dr[property.Name].GetValueFromDb());
+                                }
+                            }
+                        }
+                        yield return entity;
                     }
                 }
-                yield return entity;
             }
         }
 
@@ -250,40 +269,56 @@ namespace WeihanLi.Extensions
         /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
         public static IEnumerable<T> ToEntities<T>([NotNull]this IDataReader @this) where T : new()
         {
-            var type = typeof(T);
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
-
-            var dic = Enumerable.Range(0, @this.FieldCount)
-                    .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDb());
-
-            while (@this.Read())
+            if (@this.FieldCount > 0)
             {
-                var entity = new T();
-
-                if (type.IsValueType)
+                yield return default(T);
+            }
+            else
+            {
+                var type = typeof(T);
+                if (type.IsBasicType())
                 {
-                    var obj = (object)entity;
-                    foreach (var property in properties)
+                    while (@this.Read())
                     {
-                        if (dic.ContainsKey(property.Name.ToUpper()))
-                        {
-                            property.GetValueSetter().Invoke(obj, dic[property.Name.ToUpper()]);
-                        }
+                        yield return @this[0].ToOrDefault<T>();
                     }
-                    entity = (T)obj;
                 }
                 else
                 {
-                    foreach (var property in properties)
+                    var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
+
+                    var dic = Enumerable.Range(0, @this.FieldCount)
+                            .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDb());
+                    while (@this.Read())
                     {
-                        if (dic.ContainsKey(property.Name.ToUpper()))
+                        var entity = new T();
+
+                        if (type.IsValueType)
                         {
-                            property.GetValueSetter().Invoke(entity, dic[property.Name.ToUpper()]);
+                            var obj = (object)entity;
+                            foreach (var property in properties)
+                            {
+                                if (dic.ContainsKey(property.Name.ToUpper()))
+                                {
+                                    property.GetValueSetter().Invoke(obj, dic[property.Name.ToUpper()]);
+                                }
+                            }
+                            entity = (T)obj;
                         }
+                        else
+                        {
+                            foreach (var property in properties)
+                            {
+                                if (dic.ContainsKey(property.Name.ToUpper()))
+                                {
+                                    property.GetValueSetter().Invoke(entity, dic[property.Name.ToUpper()]);
+                                }
+                            }
+                        }
+
+                        yield return entity;
                     }
                 }
-
-                yield return entity;
             }
         }
 
@@ -295,9 +330,14 @@ namespace WeihanLi.Extensions
         /// <returns>@this as a T.</returns>
         public static T ToEntity<T>([NotNull]this IDataReader @this) where T : new()
         {
-            if (@this.Read())
+            if (@this.FieldCount > 0 && @this.Read())
             {
                 var type = typeof(T);
+                if (type.IsBasicType())
+                {
+                    return @this[0].ToOrDefault<T>();
+                }
+
                 var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
 
                 var entity = new T();
@@ -331,9 +371,9 @@ namespace WeihanLi.Extensions
 
                     return entity;
                 }
-                catch (InvalidOperationException e)
+                catch (Exception e)
                 {
-                    Console.WriteLine(e);
+                    WeihanLi.Common.Helpers.LogHelper.GetLogger(typeof(DataExtension)).Error(e);
                 }
             }
 

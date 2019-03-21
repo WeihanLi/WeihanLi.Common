@@ -119,21 +119,21 @@ namespace DotNetFxSample
             }
         }
 
-        public static void HttpRequestClient()
+        public static void HttpRequesterTest()
         {
-            //var client = new HttpRequestClient("https://weihanli.xyz");
+            //var client = new HttpRequester("https://weihanli.xyz");
             //var result = client.Execute();
             //Console.WriteLine(result);
-            //client = new HttpRequestClient(PostUploadFileUrl, HttpMethod.Post);
+            //client = new HttpRequest(PostUploadFileUrl, HttpMethod.Post);
             //client.WithFile(@"C:\Users\liweihan.TUHU\Pictures\temp\7604648.jpg");
             //result = client.Execute();
             //Console.WriteLine(result);
 
-            //var response1 = new HttpRequestClient("https://initwords.com/")
+            //var response1 = new HttpRequester("https://initwords.com/")
             //    .ExecuteForResponse();
             //var sessionId = response1.Cookies["JSESSIONID"]?.Value ?? "E641209D81307143F8B2482B7B2C6ED2";
 
-            //var client = new HttpRequestClient("https://initwords.com/login/authless/ajaxLogin.do", HttpMethod.Post);
+            //var client = new HttpRequester("https://initwords.com/login/authless/ajaxLogin.do", HttpMethod.Post);
             //client
             //    .WithHeaders(new Dictionary<string, string>
             //    {
@@ -155,7 +155,7 @@ namespace DotNetFxSample
             //var response = client.Execute();
             //Console.WriteLine(response);
 
-            var activateClient = new HttpRequestClient("https://initwords.com/book/ajaxRegisterBook.do", HttpMethod.Post);
+            var activateClient = new HttpRequester("https://initwords.com/book/ajaxRegisterBook.do", HttpMethod.Post);
             activateClient.WithHeaders(new Dictionary<string, string>
             {
                 { "em-tokencode", "a287f418-ed57-439c-bdb8-734baa00d9e4" },
@@ -165,7 +165,7 @@ namespace DotNetFxSample
                 { "referer", "https://initwords.com/" },
                 { "x-requested-with", "XMLHttpRequest" }
             })
-            .WithParameters(new Dictionary<string, string>
+            .WithFormParameters(new Dictionary<string, string>
             {
                 { "moduleCode", "8a108cb74c7ae17a014c7d671d430771" },
                 { "cardNo", "20180218018071452273218" },
