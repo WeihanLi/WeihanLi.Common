@@ -118,6 +118,28 @@ SELECT TOP 1 {SelectColumnsString} FROM {TableName}
             return _dbConnection.Value.FetchAsync<TEntity>(sql, GetDbParameters(whereSql.Parameters));
         }
 
+        public TEntity Fetch<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        {
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
+            var sql = $@"
+SELECT TOP(1) {SelectColumnsString} FROM {TableName}
+{whereSql.SqlText}
+ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))}  {(isAsc ? "" : "DESC")}
+";
+            return _dbConnection.Value.Fetch<TEntity>(sql, GetDbParameters(whereSql.Parameters));
+        }
+
+        public Task<TEntity> FetchAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        {
+            var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
+            var sql = $@"
+SELECT TOP(1) {SelectColumnsString} FROM {TableName}
+{whereSql.SqlText}
+ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))}  {(isAsc ? "" : "DESC")}
+";
+            return _dbConnection.Value.FetchAsync<TEntity>(sql, GetDbParameters(whereSql.Parameters));
+        }
+
         public virtual List<TEntity> Select(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -144,7 +166,7 @@ SELECT {SelectColumnsString} FROM {TableName}
             var sql = $@"
 SELECT TOP({count}) {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {orderByExpression.GetMemberName()} {(isAsc ? "" : "DESC")}
+ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))} {(isAsc ? "" : "DESC")}
 ";
             return _dbConnection.Value.Select<TEntity>(sql, GetDbParameters(whereSql.Parameters)).ToList();
         }
@@ -155,7 +177,7 @@ ORDER BY {orderByExpression.GetMemberName()} {(isAsc ? "" : "DESC")}
             var sql = $@"
 SELECT TOP({count}) {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {orderByExpression.GetMemberName()} {(isAsc ? "" : "DESC")}
+ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))} {(isAsc ? "" : "DESC")}
 ";
             return _dbConnection.Value.SelectAsync<TEntity>(sql, GetDbParameters(whereSql.Parameters)).ContinueWith(_ => _.Result.ToList());
         }
@@ -186,7 +208,7 @@ SELECT COUNT(1) FROM {TableName}
             sql = $@"
 SELECT {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {orderByExpression.GetMemberName()}{(isAsc ? "" : " DESC")}
+ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))}{(isAsc ? "" : " DESC")}
 OFFSET {offset} ROWS
 FETCH NEXT {pageSize} ROWS ONLY
 ";
@@ -220,7 +242,7 @@ SELECT COUNT(1) FROM {TableName}
             sql = $@"
 SELECT {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {orderByExpression.GetMemberName()}{(isAsc ? "" : " DESC")}
+ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))}{(isAsc ? "" : " DESC")}
 OFFSET {offset} ROWS
 FETCH NEXT {pageSize} ROWS ONLY
 ";

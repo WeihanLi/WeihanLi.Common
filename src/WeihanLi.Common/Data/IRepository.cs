@@ -40,6 +40,10 @@ namespace WeihanLi.Common.Data
 
         Task<TEntity> FetchAsync(Expression<Func<TEntity, bool>> whereExpression);
 
+        TEntity Fetch<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
+
+        Task<TEntity> FetchAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
+
         /// <summary>
         /// Get List
         /// </summary>
@@ -73,25 +77,25 @@ namespace WeihanLi.Common.Data
         /// Get Paged List
         /// </summary>
         /// <typeparam name="TProperty">property to orderBy</typeparam>
-        /// <param name="pageIndex">pageIndex</param>
+        /// <param name="pageNumber">pageNumber from 1</param>
         /// <param name="pageSize">pageSize</param>
         /// <param name="whereExpression">whereExpression</param>
         /// <param name="orderByExpression">orderByExpression</param>
         /// <param name="isAsc">is ascending</param>
         /// <returns></returns>
-        PagedListModel<TEntity> Paged<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
+        PagedListModel<TEntity> Paged<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
 
         /// <summary>
         /// Get Paged List
         /// </summary>
         /// <typeparam name="TProperty">property to orderBy</typeparam>
-        /// <param name="pageIndex">pageIndex</param>
+        /// <param name="pageNumber">pageNumber from 1</param>
         /// <param name="pageSize">pageSize</param>
         /// <param name="whereExpression">whereExpression</param>
         /// <param name="orderByExpression">orderByExpression</param>
         /// <param name="isAsc">is ascending</param>
         /// <returns></returns>
-        Task<PagedListModel<TEntity>> PagedAsync<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
+        Task<PagedListModel<TEntity>> PagedAsync<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
 
         /// <summary>
         /// Insert a entity
