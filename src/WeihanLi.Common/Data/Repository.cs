@@ -48,7 +48,7 @@ namespace WeihanLi.Common.Data
 SELECT COUNT(1) FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.ExecuteScalarTo<int>(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.ExecuteScalarTo<int>(sql, whereSql.Parameters);
         }
 
         public Task<int> CountAsync(Expression<Func<TEntity, bool>> whereExpression)
@@ -59,7 +59,7 @@ SELECT COUNT(1) FROM {TableName}
 SELECT COUNT(1) FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.ExecuteScalarToAsync<int>(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.ExecuteScalarToAsync<int>(sql, whereSql.Parameters);
         }
 
         public virtual long LongCount(Expression<Func<TEntity, bool>> whereExpression)
@@ -70,7 +70,7 @@ SELECT COUNT(1) FROM {TableName}
 SELECT COUNT(1) FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.ExecuteScalarTo<long>(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.ExecuteScalarTo<long>(sql, whereSql.Parameters);
         }
 
         public virtual Task<long> LongCountAsync(Expression<Func<TEntity, bool>> whereExpression)
@@ -81,21 +81,21 @@ SELECT COUNT(1) FROM {TableName}
 SELECT COUNT(1) FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.ExecuteScalarToAsync<long>(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.ExecuteScalarToAsync<long>(sql, whereSql.Parameters);
         }
 
         public virtual bool Exist(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"SELECT CAST(IIF(EXISTS (SELECT TOP(1) 1 FROM {TableName} {whereSql.SqlText}), 1, 0) AS BIT)";
-            return _dbConnection.Value.ExecuteScalarTo<bool>(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.ExecuteScalarTo<bool>(sql, whereSql.Parameters);
         }
 
         public virtual Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"SELECT CAST(IIF(EXISTS (SELECT TOP(1) 1 FROM {TableName} {whereSql.SqlText}), 1, 0) AS BIT)";
-            return _dbConnection.Value.ExecuteScalarToAsync<bool>(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.ExecuteScalarToAsync<bool>(sql, whereSql.Parameters);
         }
 
         public virtual TEntity Fetch(Expression<Func<TEntity, bool>> whereExpression)
@@ -105,7 +105,7 @@ SELECT COUNT(1) FROM {TableName}
 SELECT TOP(1) {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.Fetch<TEntity>(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.Fetch<TEntity>(sql, whereSql.Parameters);
         }
 
         public virtual Task<TEntity> FetchAsync(Expression<Func<TEntity, bool>> whereExpression)
@@ -115,7 +115,7 @@ SELECT TOP(1) {SelectColumnsString} FROM {TableName}
 SELECT TOP 1 {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.FetchAsync<TEntity>(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.FetchAsync<TEntity>(sql, whereSql.Parameters);
         }
 
         public TEntity Fetch<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
@@ -124,9 +124,9 @@ SELECT TOP 1 {SelectColumnsString} FROM {TableName}
             var sql = $@"
 SELECT TOP(1) {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))}  {(isAsc ? "" : "DESC")}
+ORDER BY {GetColumnName(orderByExpression.GetMemberName())}  {(isAsc ? "" : "DESC")}
 ";
-            return _dbConnection.Value.Fetch<TEntity>(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.Fetch<TEntity>(sql, whereSql.Parameters);
         }
 
         public Task<TEntity> FetchAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
@@ -135,9 +135,9 @@ ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))}  {(is
             var sql = $@"
 SELECT TOP(1) {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))}  {(isAsc ? "" : "DESC")}
+ORDER BY {GetColumnName(orderByExpression.GetMemberName())}  {(isAsc ? "" : "DESC")}
 ";
-            return _dbConnection.Value.FetchAsync<TEntity>(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.FetchAsync<TEntity>(sql, whereSql.Parameters);
         }
 
         public virtual List<TEntity> Select(Expression<Func<TEntity, bool>> whereExpression)
@@ -147,7 +147,7 @@ ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))}  {(is
 SELECT {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.Select<TEntity>(sql, GetDbParameters(whereSql.Parameters)).ToList();
+            return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToList();
         }
 
         public virtual Task<List<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> whereExpression)
@@ -157,7 +157,7 @@ SELECT {SelectColumnsString} FROM {TableName}
 SELECT {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.SelectAsync<TEntity>(sql, GetDbParameters(whereSql.Parameters)).ContinueWith(r => r.Result.ToList());
+            return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters).ContinueWith(r => r.Result.ToList());
         }
 
         public List<TEntity> Select<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
@@ -166,9 +166,9 @@ SELECT {SelectColumnsString} FROM {TableName}
             var sql = $@"
 SELECT TOP({count}) {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))} {(isAsc ? "" : "DESC")}
+ORDER BY {GetColumnName(orderByExpression.GetMemberName())} {(isAsc ? "" : "DESC")}
 ";
-            return _dbConnection.Value.Select<TEntity>(sql, GetDbParameters(whereSql.Parameters)).ToList();
+            return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToList();
         }
 
         public Task<List<TEntity>> SelectAsync<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
@@ -177,9 +177,9 @@ ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))} {(isA
             var sql = $@"
 SELECT TOP({count}) {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))} {(isAsc ? "" : "DESC")}
+ORDER BY {GetColumnName(orderByExpression.GetMemberName())} {(isAsc ? "" : "DESC")}
 ";
-            return _dbConnection.Value.SelectAsync<TEntity>(sql, GetDbParameters(whereSql.Parameters)).ContinueWith(_ => _.Result.ToList());
+            return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters).ContinueWith(_ => _.Result.ToList());
         }
 
         public virtual PagedListModel<TEntity> Paged<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
@@ -197,7 +197,7 @@ ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))} {(isA
 SELECT COUNT(1) FROM {TableName}
 {whereSql.SqlText}
 ";
-            var total = _dbConnection.Value.ExecuteScalarTo<int>(sql, GetDbParameters(whereSql.Parameters));
+            var total = _dbConnection.Value.ExecuteScalarTo<int>(sql, whereSql.Parameters);
             if (total == 0)
             {
                 return new PagedListModel<TEntity>();
@@ -208,12 +208,12 @@ SELECT COUNT(1) FROM {TableName}
             sql = $@"
 SELECT {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))}{(isAsc ? "" : " DESC")}
+ORDER BY {GetColumnName(orderByExpression.GetMemberName())}{(isAsc ? "" : " DESC")}
 OFFSET {offset} ROWS
 FETCH NEXT {pageSize} ROWS ONLY
 ";
 
-            return _dbConnection.Value.Select<TEntity>(sql, GetDbParameters(whereSql.Parameters)).ToPagedListModel(pageIndex, pageSize, total);
+            return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToPagedListModel(pageIndex, pageSize, total);
         }
 
         public virtual async Task<PagedListModel<TEntity>> PagedAsync<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
@@ -231,7 +231,7 @@ FETCH NEXT {pageSize} ROWS ONLY
 SELECT COUNT(1) FROM {TableName}
 {whereSql.SqlText}
 ";
-            var total = await _dbConnection.Value.ExecuteScalarToAsync<int>(sql, GetDbParameters(whereSql.Parameters));
+            var total = await _dbConnection.Value.ExecuteScalarToAsync<int>(sql, whereSql.Parameters);
             if (total == 0)
             {
                 return new TEntity[0].ToPagedListModel(pageIndex, pageSize, 0);
@@ -242,12 +242,12 @@ SELECT COUNT(1) FROM {TableName}
             sql = $@"
 SELECT {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {GetColumnName(GetColumnName(orderByExpression.GetMemberName()))}{(isAsc ? "" : " DESC")}
+ORDER BY {GetColumnName(orderByExpression.GetMemberName())}{(isAsc ? "" : " DESC")}
 OFFSET {offset} ROWS
 FETCH NEXT {pageSize} ROWS ONLY
 ";
 
-            return (await _dbConnection.Value.SelectAsync<TEntity>(sql, GetDbParameters(whereSql.Parameters))).ToPagedListModel(pageIndex, pageSize, total);
+            return (await _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters)).ToPagedListModel(pageIndex, pageSize, total);
         }
 
         public virtual int Insert(TEntity entity)
@@ -364,11 +364,11 @@ FETCH NEXT {pageSize} ROWS ONLY
             var propertyName = propertyExpression.GetMemberName();
             var sql = $@"
 UPDATE {TableName}
-SET {propertyName} = @set_{propertyName}
+SET {GetColumnName(propertyName)} = @set_{propertyName}
 {whereSql.SqlText}
 ";
             whereSql.Parameters.Add($"set_{propertyName}", value);
-            return _dbConnection.Value.Execute(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
         public virtual Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value)
@@ -377,11 +377,11 @@ SET {propertyName} = @set_{propertyName}
             var propertyName = propertyExpression.GetMemberName();
             var sql = $@"
 UPDATE {TableName}
-SET {propertyName} = @set_{propertyName}
+SET {GetColumnName(propertyName)} = @set_{propertyName}
 {whereSql.SqlText}
 ";
             whereSql.Parameters.Add($"set_{propertyName}", value);
-            return _dbConnection.Value.ExecuteAsync(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters);
         }
 
         public virtual int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues)
@@ -393,14 +393,14 @@ SET {propertyName} = @set_{propertyName}
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
 UPDATE {TableName}
-SET {propertyValues.Keys.Select(p => $"{p}=@set_{p}").StringJoin($",{Environment.NewLine}")}
+SET {propertyValues.Keys.Select(p => $"{GetColumnName(p)}=@set_{p}").StringJoin($",{Environment.NewLine}")}
 {whereSql.SqlText}
 ";
             foreach (var propertyValue in propertyValues)
             {
                 whereSql.Parameters.Add($"set_{propertyValue.Key}", propertyValue.Value);
             }
-            return _dbConnection.Value.Execute(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
         public virtual Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues)
@@ -412,14 +412,14 @@ SET {propertyValues.Keys.Select(p => $"{p}=@set_{p}").StringJoin($",{Environment
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
 UPDATE {TableName}
-SET {propertyValues.Keys.Select(p => $"{p}=@set_{p}").StringJoin($",{Environment.NewLine}")}
+SET {propertyValues.Keys.Select(p => $"{GetColumnName(p)}=@set_{p}").StringJoin($",{Environment.NewLine}")}
 {whereSql.SqlText}
 ";
             foreach (var propertyValue in propertyValues)
             {
                 whereSql.Parameters.Add($"set_{propertyValue.Key}", propertyValue.Value);
             }
-            return _dbConnection.Value.ExecuteAsync(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters);
         }
 
         public virtual int Delete(Expression<Func<TEntity, bool>> whereExpression)
@@ -429,7 +429,7 @@ SET {propertyValues.Keys.Select(p => $"{p}=@set_{p}").StringJoin($",{Environment
 DELETE FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.Execute(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
         public virtual Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression)
@@ -439,7 +439,7 @@ DELETE FROM {TableName}
 DELETE FROM {TableName}
 {whereSql.SqlText}
 ";
-            return _dbConnection.Value.ExecuteAsync(sql, GetDbParameters(whereSql.Parameters));
+            return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters);
         }
 
         public virtual int Execute(string sqlStr, object param = null)
@@ -459,19 +459,6 @@ DELETE FROM {TableName}
         private static string GetColumnName(string propertyName)
         {
             return ColumnMappings.FirstOrDefault(_ => _.Value == propertyName).Key ?? propertyName;
-        }
-
-        private static IDictionary<string, object> GetDbParameters(IDictionary<string, object> parameter)
-        {
-            if (parameter.Count == 0)
-                return parameter;
-
-            var dic = new Dictionary<string, object>();
-            foreach (var p in parameter)
-            {
-                dic.Add(GetColumnName(p.Key), p.Value);
-            }
-            return dic;
         }
     }
 }
