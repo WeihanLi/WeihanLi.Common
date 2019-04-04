@@ -4,8 +4,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-  branch:
-    - '*'
+  branches:
+    include:
+    - '*' # must quote since "*" is a YAML reserved character; we want a string  
+  # no PR builds
+  pr: none
 
 pool:
   vmImage: 'vs2019-win2019'
