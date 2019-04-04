@@ -13,9 +13,8 @@
     <PackageSummary>common netfx and netstandard libarary,extensions helpers and useful utilities</PackageSummary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
-      update DataExtension, add support for DbConnection Extension select/fetch int
-      refact HttpRequestClient => HttpRequester with fluent api
-      add TotpHelper/ObjectId/ObjectIdGenerator 
+      update Repository
+      update AsyncLock
     </PackageReleaseNotes>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>

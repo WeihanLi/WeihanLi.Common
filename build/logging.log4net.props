@@ -17,8 +17,6 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
       Add Log4NetHelper
-    </PackageReleaseNotes>    
-    <Optimize Condition="'$(Configuration)'=='Release'">true</Optimize>
-    <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">True</GeneratePackageOnBuild>
+    </PackageReleaseNotes>
   </PropertyGroup>
 </Project>
