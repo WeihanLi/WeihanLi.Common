@@ -72,6 +72,6 @@ Task("pack")
     });
 
 Task("Default")
-    .IsDependentOn("pack");
+    .IsDependentOn("build");
 
 RunTarget(target);

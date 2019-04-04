@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 namespace WeihanLi.Common
 {
     /// <summary>
+    /// AsyncLock basedOn SemaphoreSlim
     /// 基于 SemaphoreSlim 的 异步锁
     /// </summary>
     public sealed class AsyncLock : IDisposable
@@ -32,7 +33,7 @@ namespace WeihanLi.Common
 
         private bool _disposed; // 要检测冗余调用
 
-        protected virtual void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
             if (!_disposed)
             {
