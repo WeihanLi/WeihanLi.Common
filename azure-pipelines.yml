@@ -15,5 +15,8 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
+- script: |
+    dotnet build -c $(buildConfiguration) src/WeihanLi.Common/WeihanLi.Common.csproj
+    dotnet build -c $(buildConfiguration) src/WeihanLi.Data/WeihanLi.Data.csproj
+    dotnet build -c $(buildConfiguration) src/WeihanLi.Common.Logging.Log4Net/WeihanLi.Common.Logging.Log4Net.csproj
   displayName: 'dotnet build $(buildConfiguration)'
