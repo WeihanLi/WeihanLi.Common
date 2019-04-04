@@ -1,5 +1,5 @@
 <Project>
-  <PropertyGroup Condition="'$(Configuration)'=='Release' AND '$(OS)' == 'Windows_NT'">
+  <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)weihanli.snk</AssemblyOriginatorKeyFile>
     <DelaySign>False</DelaySign>

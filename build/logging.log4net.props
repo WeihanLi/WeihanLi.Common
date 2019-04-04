@@ -10,15 +10,13 @@
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common.Logging.Log4Net</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>logging log4net</PackageTags>    
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <Title>WeihanLi.Common.Logging.Log4Net</Title>
-    <Description>log4net logging provider for WeihanLi.Common.Logging, and log4net extensions</Description>
+    <Description>log4net logging provider for WeihanLi.Common.Logging, and log4net extensions, see details https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common.Logging.Log4Net/README.md</Description>
     <PackageSummary>log4net logging provider for WeihanLi.Common.Logging, and log4net extensions</PackageSummary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
-      init
-    </PackageReleaseNotes>    
-    <Optimize Condition="'$(Configuration)'=='Release'">true</Optimize>
-    <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">True</GeneratePackageOnBuild>
-    <NoWarn>$(NoWarn);1591;DE0003;</NoWarn>
+      Add Log4NetHelper
+    </PackageReleaseNotes>
   </PropertyGroup>
 </Project>

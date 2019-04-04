@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{63395248-E549-4CEA-858B-DEAB098DF7E3}"
 EndProject
@@ -17,14 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetFxSample", "samples\D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCoreSample", "samples\DotNetCoreSample\DotNetCoreSample.csproj", "{96ABA64E-FE2A-4103-8C53-C277AE506068}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E69E1E9F-80BD-4145-AFAC-2CA8746C96A5}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-		.travis.yml = .travis.yml
-		appveyor.yml = appveyor.yml
-		README.md = README.md
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreSample", "samples\AspNetCoreSample\AspNetCoreSample.csproj", "{5A45C3FA-1E12-42A0-910E-18A0CF3D288A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmark", "benchmark", "{E7873908-B10D-4AA8-B2E0-198123026E0B}"
@@ -33,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeihanLi.Common.Benchmark",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeihanLi.Data", "src\WeihanLi.Data\WeihanLi.Data.csproj", "{911AB29A-5607-4CAF-B9FF-A20B0BDDA5B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeihanLi.Common.Logging.Log4Net", "src\WeihanLi.Common.Logging.Log4net\WeihanLi.Common.Logging.Log4Net.csproj", "{3EC7DC81-3B6A-4C7B-BF25-AD14F7BDC6D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeihanLi.Common.Logging.Log4Net", "src\WeihanLi.Common.Logging.Log4net\WeihanLi.Common.Logging.Log4Net.csproj", "{3EC7DC81-3B6A-4C7B-BF25-AD14F7BDC6D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

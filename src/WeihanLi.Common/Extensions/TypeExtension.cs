@@ -42,6 +42,13 @@ namespace WeihanLi.Extensions
         };
 
         /// <summary>
+        /// get TypeCode for specific type
+        /// </summary>
+        /// <param name="type">type</param>
+        /// <returns></returns>
+        public static TypeCode GetTypeCode(this Type type) => Type.GetTypeCode(type);
+
+        /// <summary>
         /// 是否是 ValueTuple
         /// </summary>
         /// <param name="type">type</param>
@@ -66,8 +73,7 @@ namespace WeihanLi.Extensions
         public static bool IsPrimitiveType([NotNull]this Type type)
             => (Nullable.GetUnderlyingType(type) ?? type).IsPrimitive;
 
-        public static bool IsPrimitiveType<T>()
-            => typeof(T).IsPrimitiveType();
+        public static bool IsPrimitiveType<T>() => typeof(T).IsPrimitiveType();
 
         public static bool IsBasicType([NotNull]this Type type) => BasicTypes.Contains(type) || type.IsEnum;
 

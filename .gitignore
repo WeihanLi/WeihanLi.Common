@@ -289,3 +289,7 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+# Cake - C# Make
+build/tools/*
+tools/*

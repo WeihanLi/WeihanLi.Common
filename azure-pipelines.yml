@@ -1,0 +1,22 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+  branches:
+    include:
+    - '*' # must quote since "*" is a YAML reserved character; we want a string
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- script: |
+    dotnet build -c $(buildConfiguration) src/WeihanLi.Common/WeihanLi.Common.csproj
+    dotnet build -c $(buildConfiguration) src/WeihanLi.Data/WeihanLi.Data.csproj
+    dotnet build -c $(buildConfiguration) src/WeihanLi.Common.Logging.Log4Net/WeihanLi.Common.Logging.Log4Net.csproj
+  displayName: 'dotnet build $(buildConfiguration)'

@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 namespace WeihanLi.Common
 {
     /// <summary>
+    /// AsyncLock basedOn SemaphoreSlim
     /// 基于 SemaphoreSlim 的 异步锁
     /// </summary>
-    public class AsyncLock : IDisposable
+    public sealed class AsyncLock : IDisposable
     {
         private readonly SemaphoreSlim _mutex = new SemaphoreSlim(1, 1);
 
@@ -32,7 +33,7 @@ namespace WeihanLi.Common
 
         private bool _disposed; // 要检测冗余调用
 
-        protected virtual void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
             if (!_disposed)
             {
@@ -59,7 +60,7 @@ namespace WeihanLi.Common
 
         #region AsyncLockReleaser
 
-        private sealed class AsyncLockReleaser : IDisposable
+        private struct AsyncLockReleaser : IDisposable
         {
             private readonly SemaphoreSlim _semaphoreSlim;
 
