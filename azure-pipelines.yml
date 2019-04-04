@@ -5,7 +5,7 @@
 
 trigger:
   branch:
-    - *
+    - '*'
 
 pool:
   vmImage: 'vs2019-win2019'
