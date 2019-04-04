@@ -7,7 +7,7 @@ namespace WeihanLi.Common
     /// <summary>
     /// 基于 SemaphoreSlim 的 异步锁
     /// </summary>
-    public class AsyncLock : IDisposable
+    public sealed class AsyncLock : IDisposable
     {
         private readonly SemaphoreSlim _mutex = new SemaphoreSlim(1, 1);
 
@@ -59,7 +59,7 @@ namespace WeihanLi.Common
 
         #region AsyncLockReleaser
 
-        private sealed class AsyncLockReleaser : IDisposable
+        private struct AsyncLockReleaser : IDisposable
         {
             private readonly SemaphoreSlim _semaphoreSlim;
 
