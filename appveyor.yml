@@ -44,9 +44,9 @@ skip_commits:
     - '**/*.md'
 
 # Including commits with particular message or from specific user
-# only_commits:
-  # message: /build/                # Start a new build if message contains 'build'
-  # author: weihanli@outlook.com        # Start a new build for commit of user with email jack@company.com
+only_commits:
+  message: *                # Start a new build if message contains 'build'
+  author: weihanli@outlook.com        # Start a new build for commit of user with email jack@company.com
 
 # Including commits affecting specific files (GitHub only). More details here: /docs/appveyor-yml
 #  files:
@@ -54,7 +54,7 @@ skip_commits:
 #    - Project-B/
 
 # Do not build feature branch with open Pull Requests
-skip_branch_with_pr: true
+# skip_branch_with_pr: true
 
 # Maximum number of concurrent jobs for the project
 max_jobs: 1
@@ -82,9 +82,7 @@ after_build:
 # to run your custom scripts instead of automatic MSBuild
 build_script:
   - dotnet --info
-  - dotnet build -c Release  ./src/WeihanLi.Common/WeihanLi.Common.csproj
-  - dotnet build -c Release  ./src/WeihanLi.Common.Logging.Log4Net/WeihanLi.Common.Logging.Log4Net.csproj
-  - dotnet build -c Release  ./src/WeihanLi.Data/WeihanLi.Data.csproj
+  - build.ps1
 # to disable automatic builds
 #build: off
 
