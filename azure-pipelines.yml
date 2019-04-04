@@ -6,10 +6,7 @@
 trigger:
   branches:
     include:
-    - '*' # must quote since "*" is a YAML reserved character; we want a string  
-
-# no PR builds
-pr: none
+    - '*' # must quote since "*" is a YAML reserved character; we want a string
 
 pool:
   vmImage: 'vs2017-win2016'
