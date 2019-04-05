@@ -59,9 +59,13 @@ Task("build")
     .IsDependentOn("restore")
     .Does(() =>
     {
+      var buildSetting = new DotNetCoreBuildSettings{
+         NoRestore = true,
+         Configuration = configuration
+      };
       foreach(var project in srcProjects)
       {
-         DotNetCoreBuild(project.FullPath);
+         DotNetCoreBuild(project.FullPath, buildSetting);
       }
     });
 
@@ -74,7 +78,9 @@ Task("pack")
       {
          Configuration = configuration,
          OutputDirectory = artifacts,
-         VersionSuffix = ""
+         VersionSuffix = "",
+         NoRestore = true,
+         NoBuild = true
       };
       if(branchName != "master"){
          settings.VersionSuffix = $"preview-{DateTime.UtcNow:yyyyMMdd-HHmmss}";
