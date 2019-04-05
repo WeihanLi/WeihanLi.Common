@@ -8,6 +8,11 @@ var configuration = Argument("configuration", "Release");
 var solutionPath = "./WeihanLi.Common.sln";
 var srcProjects  = GetFiles("./src/**/*.csproj");
 
+var artifacts = "./artifacts/packages";
+var isPr = int.TryParse(EnvironmentVariable("System.PullRequest.PullRequestNumber"), out var prId) && prId > 0;
+var isWindowsAgent = (EnvironmentVariable("Agent_OS") ?? "Windows_NT") == "Windows_NT";
+var branchName = EnvironmentVariable("BUILD_SOURCEBRANCHNAME") ?? "dev";
+
 ///////////////////////////////////////////////////////////////////////////////
 // SETUP / TEARDOWN
 ///////////////////////////////////////////////////////////////////////////////
@@ -28,14 +33,13 @@ Teardown(ctx =>
 // TASKS
 ///////////////////////////////////////////////////////////////////////////////
 
-
 Task("clean")
     .Description("Clean")
     .Does(() =>
     {
-      if (DirectoryExists("./artifacts"))
+      if (DirectoryExists(artifacts))
       {
-         DeleteDirectory("./artifacts", true);
+         DeleteDirectory(artifacts, true);
       }
     });
 
@@ -43,7 +47,10 @@ Task("restore")
     .Description("Restore")
     .Does(() => 
     {
-       DotNetCoreRestore(solutionPath);
+      foreach(var project in srcProjects)
+      {
+         DotNetCoreRestore(project.FullPath);
+      }
     });
 
 Task("build")    
@@ -52,7 +59,10 @@ Task("build")
     .IsDependentOn("restore")
     .Does(() =>
     {
-      DotNetCoreRestore(solutionPath);
+      foreach(var project in srcProjects)
+      {
+         DotNetCoreBuild(project.FullPath);
+      }
     });
 
 Task("pack")
@@ -63,15 +73,37 @@ Task("pack")
       var settings = new DotNetCorePackSettings
       {
          Configuration = configuration,
-         OutputDirectory = "./artifacts/packages"
+         OutputDirectory = artifacts,
+         VersionSuffix = ""
       };
+      if(branchName != "master"){
+         settings.VersionSuffix = $"preview-{DateTime.UtcNow:yyyyMMdd-HHmmss}";
+      }
+      Information($"branch:{branchName}, isPr:{isPr}, isWindows={isWindowsAgent}");
       foreach (var project in srcProjects)
       {
          DotNetCorePack(project.FullPath, settings);
       }
+      PublishArtifacts();
     });
 
+bool PublishArtifacts(){
+   if(isPr || !isWindowsAgent){
+      return false;
+   }
+   if(branchName == "master" || branchName == "preview"){
+      var pushSetting =new DotNetCoreNuGetPushSettings
+      {
+         Source = EnvironmentVariable("nugetSourceUrl") ?? "https://api.nuget.org/v3/index.json",
+         ApiKey = EnvironmentVariable("nugetApiKey")
+      };
+      DotNetCoreNuGetPush($"{artifacts}/*.nupkg", pushSetting);
+      return true;
+   }
+   return false;
+}
+
 Task("Default")
-    .IsDependentOn("build");
+    .IsDependentOn("pack");
 
 RunTarget(target);
