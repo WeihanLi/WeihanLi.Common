@@ -37,9 +37,14 @@ Task("clean")
     .Description("Clean")
     .Does(() =>
     {
+       var deleteSetting = new DeleteDirectorySettings()
+       {
+          Force = true,
+          Recursive = true
+       };
       if (DirectoryExists(artifacts))
       {
-         DeleteDirectory(artifacts, true);
+         DeleteDirectory(artifacts, deleteSetting);
       }
     });
 

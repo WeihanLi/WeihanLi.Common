@@ -19,8 +19,6 @@
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Optimize Condition="'$(Configuration)'=='Release'">true</Optimize>
-    <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">True</GeneratePackageOnBuild>
     <NoWarn>$(NoWarn);1591;DE0003;</NoWarn>
   </PropertyGroup>
 </Project>
