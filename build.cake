@@ -21,6 +21,7 @@ Setup(ctx =>
 {
    // Executed BEFORE the first task.
    Information("Running tasks...");
+   PrintBuildInfo();
 });
 
 Teardown(ctx =>
@@ -118,9 +119,6 @@ void PrintBuildInfo(){
 }
 
 Task("Default")
-    .IsDependentOn("pack")
-    .Dose(()=>{
-       PrintBuildInfo();
-    });
+    .IsDependentOn("pack");
 
 RunTarget(target);
