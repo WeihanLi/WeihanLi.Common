@@ -11,7 +11,7 @@ var srcProjects  = GetFiles("./src/**/*.csproj");
 var artifacts = "./artifacts/packages";
 var isPr = int.TryParse(EnvironmentVariable("System.PullRequest.PullRequestNumber"), out var prId) && prId > 0;
 var isWindowsAgent = (EnvironmentVariable("Agent_OS") ?? "Windows_NT") == "Windows_NT";
-var branchName = EnvironmentVariable("BUILD_SOURCEBRANCHNAME") ?? "dev";
+var branchName = EnvironmentVariable("BUILD_SOURCEBRANCHNAME") ?? "local";
 
 ///////////////////////////////////////////////////////////////////////////////
 // SETUP / TEARDOWN
@@ -90,7 +90,6 @@ Task("pack")
       if(branchName != "master"){
          settings.VersionSuffix = $"preview-{DateTime.UtcNow:yyyyMMdd-HHmmss}";
       }
-      Information($"branch:{branchName}, isPr:{isPr}, isWindows={isWindowsAgent}");
       foreach (var project in srcProjects)
       {
          DotNetCorePack(project.FullPath, settings);
@@ -114,7 +113,14 @@ bool PublishArtifacts(){
    return false;
 }
 
+void PrintBuildInfo(){
+   Information($"branch:{branchName}, isPr:{isPr}, isWindows={isWindowsAgent}");
+}
+
 Task("Default")
-    .IsDependentOn("pack");
+    .IsDependentOn("pack")
+    .Dose(()=>{
+       PrintBuildInfo();
+    });
 
 RunTarget(target);
