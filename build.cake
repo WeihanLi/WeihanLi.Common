@@ -101,13 +101,18 @@ bool PublishArtifacts(){
    if(!isWindowsAgent){
       return false;
    }
-   if(branchName == "master" || branchName == "preview"){
+   if(branchName == "master" || branchName == "preview")
+   {
       var pushSetting =new DotNetCoreNuGetPushSettings
       {
-         Source = EnvironmentVariable("nugetSourceUrl") ?? "https://api.nuget.org/v3/index.json",
-         ApiKey = EnvironmentVariable("nugetApiKey")
+         Source = EnvironmentVariable("Nuget__SourceUrl") ?? "https://api.nuget.org/v3/index.json",
+         ApiKey = EnvironmentVariable("Nuget__ApiKey")
       };
-      DotNetCoreNuGetPush($"{artifacts}/*.nupkg", pushSetting);
+      var packages = GetFiles($"{artifacts}/*.nupkg");
+      foreach(var package in packages)
+      {
+         DotNetCoreNuGetPush(package.FullPath, pushSetting);
+      }
       return true;
    }
    return false;

@@ -15,8 +15,8 @@ steps:
 - script: dotnet --info
   displayName: 'dotnet info'
 
-- task: PowerShell@2
+- powershell: ./build.ps1
   displayName: 'Powershell Script'
-  inputs:
-    targetType: filePath
-    filePath: ./build.ps1
+  env:
+    Nuget__ApiKey: $(nugetApiKey)
+    Nuget__SourceUrl: $(nugetSourceUrl)
