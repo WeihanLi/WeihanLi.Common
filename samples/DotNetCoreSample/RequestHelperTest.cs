@@ -31,7 +31,7 @@ namespace DotNetCoreSample
         private static NameValueCollection GetParamInfo(string url)
         {
             var param = RequestHelper.GetParamCollection(url);
-            Logger.Debug("\n url:{0} \n param info:\n {1}", url, String.Join(",", param.AllKeys.Select(p => p + ":" + param.Get(p))));
+            Logger.Debug("\n url:{0} \n param info:\n {1}", url, string.Join(",", param.AllKeys.Select(p => p + ":" + param.Get(p))));
             return param;
         }
     }

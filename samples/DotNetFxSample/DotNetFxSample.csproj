@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\WeihanLi.Common.Logging.Log4net\WeihanLi.Common.Logging.Log4Net.csproj" />
+    <PackageReference Include="WeihanLi.Common" Version="1.0.15" />
+    <PackageReference Include="WeihanLi.Common.Logging.Log4net" Version="1.0.13" />
   </ItemGroup>
 
   <ItemGroup>
