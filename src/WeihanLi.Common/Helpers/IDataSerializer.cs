@@ -27,7 +27,62 @@ namespace WeihanLi.Common.Helpers
         T Deserializer<T>([NotNull]byte[] bytes);
     }
 
-    public interface ICompressSerializer { }
+    /// <summary>
+    /// DataCompressor
+    /// </summary>
+    public interface IDataCompressor
+    {
+        /// <summary>
+        /// compress data
+        /// </summary>
+        /// <param name="sourceData">source data</param>
+        /// <returns>copmpressed data</returns>
+        byte[] Compress([NotNull]byte[] sourceData);
+
+        /// <summary>
+        /// compress data async
+        /// </summary>
+        /// <param name="sourceData">source data</param>
+        /// <returns>copmpressed data</returns>
+        Task<byte[]> CompressAsync([NotNull]byte[] sourceData);
+
+        /// <summary>
+        /// decompress compressed data
+        /// </summary>
+        /// <param name="compressedData">copmpressed data</param>
+        /// <returns>source data</returns>
+        byte[] Decompress([NotNull]byte[] compressedData);
+
+        /// <summary>
+        /// decompress compressed data async
+        /// </summary>
+        /// <param name="compressedData">copmpressed data</param>
+        /// <returns>source data</returns>
+        Task<byte[]> DecompressAsync([NotNull]byte[] compressedData);
+    }
+
+    public class GZipDataCompressor : IDataCompressor
+    {
+        public byte[] Compress([NotNull]byte[] sourceData)
+        {
+            return sourceData.CompressGZip();
+        }
+
+        public Task<byte[]> CompressAsync([NotNull]byte[] sourceData)
+        {
+            return sourceData.CompressGZipAsync();
+        }
+
+        public byte[] Decompress([NotNull]byte[] compressedData)
+        {
+            return compressedData.DecompressGZip();
+        }
+
+        public Task<byte[]> DecompressAsync([NotNull]byte[] compressedData)
+        {
+            return compressedData.DecompressGZipAsync();
+        }
+    }
 
     public class BinaryDataSerializer : IDataSerializer
     {
@@ -110,7 +165,7 @@ namespace WeihanLi.Common.Helpers
         }
     }
 
-    public class CompressGZipSerilizer : IDataSerializer, ICompressSerializer
+    public class CompressGZipSerilizer : IDataSerializer
     {
         private readonly IDataSerializer _serializer;
 
@@ -127,6 +182,28 @@ namespace WeihanLi.Common.Helpers
         public T Deserializer<T>(byte[] bytes)
         {
             return _serializer.Deserializer<T>(bytes.DecompressGZip());
+        }
+    }
+
+    public class CompressDataSerilizer : IDataSerializer
+    {
+        private readonly IDataSerializer _serializer;
+        private readonly IDataCompressor _compressor;
+
+        public CompressDataSerilizer(IDataSerializer serializer, IDataCompressor compressor)
+        {
+            _serializer = serializer;
+            _compressor = compressor;
+        }
+
+        public byte[] Serialize<T>(T obj)
+        {
+            return _compressor.Compress(_serializer.Serialize(obj));
+        }
+
+        public T Deserializer<T>(byte[] bytes)
+        {
+            return _serializer.Deserializer<T>(_compressor.Decompress(bytes));
         }
     }
 }

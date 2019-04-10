@@ -166,10 +166,19 @@ namespace DotNetFxSample
             conn.Execute("DROP TABLE [dbo].[TestTable111]");
         }
 
+#if NET47
         private static (string Token, DateTime CreatedTime) GetValueTupleParam()
         {
             return ("token from valueTuple", DateTime.Now);
         }
+#else
+
+        private static Tuple<string, DateTime> GetValueTupleParam()
+        {
+            return Tuple.Create("token from valueTuple", DateTime.Now);
+        }
+
+#endif
     }
 
     internal class TestEntity
