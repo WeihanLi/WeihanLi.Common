@@ -4,6 +4,11 @@
 
 .netstandard based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.15](https://www.nuget.org/packages/WeihanLi.Common/1.0.15)
+
+- update Repository
+- update `AsyncLock`
+
 ### [WeihanLi.Common 1.0.14](https://www.nuget.org/packages/WeihanLi.Common/1.0.14)
 
 - update DataExtension, add support for DbConnection Extension select/fetch int

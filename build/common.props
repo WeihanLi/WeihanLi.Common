@@ -13,14 +13,13 @@
     <PackageSummary>common netfx and netstandard libarary,extensions helpers and useful utilities</PackageSummary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
-      update Repository
-      update AsyncLock
+      update PagedListModel
+      add IDataCompressor
+      add RepositoryExtension
     </PackageReleaseNotes>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Optimize Condition="'$(Configuration)'=='Release'">true</Optimize>
-    <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">True</GeneratePackageOnBuild>
     <NoWarn>$(NoWarn);1591;DE0003;</NoWarn>
   </PropertyGroup>
 </Project>

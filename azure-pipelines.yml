@@ -11,12 +11,12 @@ trigger:
 pool:
   vmImage: 'vs2017-win2016'
 
-variables:
-  buildConfiguration: 'Release'
-
 steps:
-- script: |
-    dotnet build -c $(buildConfiguration) src/WeihanLi.Common/WeihanLi.Common.csproj
-    dotnet build -c $(buildConfiguration) src/WeihanLi.Data/WeihanLi.Data.csproj
-    dotnet build -c $(buildConfiguration) src/WeihanLi.Common.Logging.Log4Net/WeihanLi.Common.Logging.Log4Net.csproj
-  displayName: 'dotnet build $(buildConfiguration)'
+- script: dotnet --info
+  displayName: 'dotnet info'
+
+- powershell: ./build.ps1
+  displayName: 'Powershell Script'
+  env:
+    Nuget__ApiKey: $(nugetApiKey)
+    Nuget__SourceUrl: $(nugetSourceUrl)

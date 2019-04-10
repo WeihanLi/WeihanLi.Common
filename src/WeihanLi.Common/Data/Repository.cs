@@ -40,7 +40,7 @@ namespace WeihanLi.Common.Data
             _dbConnection = new Lazy<DbConnection>(dbConnectionFunc);
         }
 
-        public int Count(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual int Count(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
 
@@ -51,7 +51,7 @@ SELECT COUNT(1) FROM {TableName}
             return _dbConnection.Value.ExecuteScalarTo<int>(sql, whereSql.Parameters);
         }
 
-        public Task<int> CountAsync(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual Task<int> CountAsync(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
 
@@ -118,24 +118,24 @@ SELECT TOP 1 {SelectColumnsString} FROM {TableName}
             return _dbConnection.Value.FetchAsync<TEntity>(sql, whereSql.Parameters);
         }
 
-        public TEntity Fetch<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        public virtual TEntity Fetch<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
 SELECT TOP(1) {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {GetColumnName(orderByExpression.GetMemberName())}  {(isAsc ? "" : "DESC")}
+ORDER BY {GetColumnName(orderByExpression.GetMemberName())}  {(ascending ? "" : "DESC")}
 ";
             return _dbConnection.Value.Fetch<TEntity>(sql, whereSql.Parameters);
         }
 
-        public Task<TEntity> FetchAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        public virtual Task<TEntity> FetchAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
 SELECT TOP(1) {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {GetColumnName(orderByExpression.GetMemberName())}  {(isAsc ? "" : "DESC")}
+ORDER BY {GetColumnName(orderByExpression.GetMemberName())}  {(ascending ? "" : "DESC")}
 ";
             return _dbConnection.Value.FetchAsync<TEntity>(sql, whereSql.Parameters);
         }
@@ -160,34 +160,34 @@ SELECT {SelectColumnsString} FROM {TableName}
             return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters).ContinueWith(r => r.Result.ToList());
         }
 
-        public List<TEntity> Select<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        public virtual List<TEntity> Select<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
 SELECT TOP({count}) {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {GetColumnName(orderByExpression.GetMemberName())} {(isAsc ? "" : "DESC")}
+ORDER BY {GetColumnName(orderByExpression.GetMemberName())} {(ascending ? "" : "DESC")}
 ";
             return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToList();
         }
 
-        public Task<List<TEntity>> SelectAsync<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        public virtual Task<List<TEntity>> SelectAsync<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
 SELECT TOP({count}) {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {GetColumnName(orderByExpression.GetMemberName())} {(isAsc ? "" : "DESC")}
+ORDER BY {GetColumnName(orderByExpression.GetMemberName())} {(ascending ? "" : "DESC")}
 ";
             return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters).ContinueWith(_ => _.Result.ToList());
         }
 
-        public virtual PagedListModel<TEntity> Paged<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        public virtual PagedListModel<TEntity> Paged<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
-            if (pageIndex <= 0)
+            if (pageNumber <= 0)
             {
-                pageIndex = 1;
+                pageNumber = 1;
             }
             if (pageSize <= 0)
             {
@@ -203,25 +203,25 @@ SELECT COUNT(1) FROM {TableName}
                 return new PagedListModel<TEntity>();
             }
 
-            var offset = (pageIndex - 1) * pageSize;
+            var offset = (pageNumber - 1) * pageSize;
 
             sql = $@"
 SELECT {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {GetColumnName(orderByExpression.GetMemberName())}{(isAsc ? "" : " DESC")}
+ORDER BY {GetColumnName(orderByExpression.GetMemberName())}{(ascending ? "" : " DESC")}
 OFFSET {offset} ROWS
 FETCH NEXT {pageSize} ROWS ONLY
 ";
 
-            return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToPagedListModel(pageIndex, pageSize, total);
+            return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToPagedListModel(pageNumber, pageSize, total);
         }
 
-        public virtual async Task<PagedListModel<TEntity>> PagedAsync<TProperty>(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false)
+        public virtual async Task<PagedListModel<TEntity>> PagedAsync<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
-            if (pageIndex <= 0)
+            if (pageNumber <= 0)
             {
-                pageIndex = 1;
+                pageNumber = 1;
             }
             if (pageSize <= 0)
             {
@@ -234,20 +234,20 @@ SELECT COUNT(1) FROM {TableName}
             var total = await _dbConnection.Value.ExecuteScalarToAsync<int>(sql, whereSql.Parameters);
             if (total == 0)
             {
-                return new TEntity[0].ToPagedListModel(pageIndex, pageSize, 0);
+                return new TEntity[0].ToPagedListModel(pageNumber, pageSize, 0);
             }
 
-            var offset = (pageIndex - 1) * pageSize;
+            var offset = (pageNumber - 1) * pageSize;
 
             sql = $@"
 SELECT {SelectColumnsString} FROM {TableName}
 {whereSql.SqlText}
-ORDER BY {GetColumnName(orderByExpression.GetMemberName())}{(isAsc ? "" : " DESC")}
+ORDER BY {GetColumnName(orderByExpression.GetMemberName())}{(ascending ? "" : " DESC")}
 OFFSET {offset} ROWS
 FETCH NEXT {pageSize} ROWS ONLY
 ";
 
-            return (await _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters)).ToPagedListModel(pageIndex, pageSize, total);
+            return (await _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters)).ToPagedListModel(pageNumber, pageSize, total);
         }
 
         public virtual int Insert(TEntity entity)
