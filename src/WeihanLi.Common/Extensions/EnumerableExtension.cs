@@ -151,14 +151,14 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="data">data</param>
-        /// <param name="pageIndex">pageIndex</param>
+        /// <param name="pageNumber">pageNumber</param>
         /// <param name="pageSize">pageSize</param>
         /// <param name="totalCount">totalCount</param>
         /// <returns></returns>
-        public static PagedListModel<T> ToPagedListModel<T>([NotNull]this IEnumerable<T> data, int pageIndex, int pageSize, int totalCount)
+        public static PagedListModel<T> ToPagedListModel<T>([NotNull]this IEnumerable<T> data, int pageNumber, int pageSize, int totalCount)
             => new PagedListModel<T>
             {
-                PageIndex = pageIndex,
+                PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalCount = totalCount,
                 Data = data.ToArray()
@@ -169,14 +169,14 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="data">data</param>
-        /// <param name="pageIndex">pageIndex</param>
+        /// <param name="pageNumber">pageNumber</param>
         /// <param name="pageSize">pageSize</param>
         /// <param name="totalCount">totalCount</param>
         /// <returns></returns>
-        public static async Task<PagedListModel<T>> ToPagedListModelAsync<T>([NotNull]this Task<IEnumerable<T>> data, int pageIndex, int pageSize, int totalCount)
+        public static async Task<PagedListModel<T>> ToPagedListModelAsync<T>([NotNull]this Task<IEnumerable<T>> data, int pageNumber, int pageSize, int totalCount)
         => new PagedListModel<T>
         {
-            PageIndex = pageIndex,
+            PageNumber = pageNumber,
             PageSize = pageSize,
             TotalCount = totalCount,
             Data = (await data).ToArray()

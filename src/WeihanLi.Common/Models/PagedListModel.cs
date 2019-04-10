@@ -58,6 +58,7 @@ namespace WeihanLi.Common.Models
             }
         }
 
+        [Obsolete("Please use PageNumber for instead", true)]
         public int PageIndex
         {
             get => _pageNumber;

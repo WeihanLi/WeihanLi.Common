@@ -40,9 +40,9 @@ namespace WeihanLi.Common.Data
 
         Task<TEntity> FetchAsync(Expression<Func<TEntity, bool>> whereExpression);
 
-        TEntity Fetch<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
+        TEntity Fetch<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
 
-        Task<TEntity> FetchAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
+        Task<TEntity> FetchAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
 
         /// <summary>
         /// Get List
@@ -59,9 +59,9 @@ namespace WeihanLi.Common.Data
         /// <param name="count">count</param>
         /// <param name="whereExpression">whereExpression</param>
         /// <param name="orderByExpression">orderBy</param>
-        /// <param name="isAsc">is ascending</param>
+        /// <param name="ascending">is ascending</param>
         /// <returns></returns>
-        List<TEntity> Select<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
+        List<TEntity> Select<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
 
         /// <summary>
         /// Get List, Top n
@@ -69,9 +69,9 @@ namespace WeihanLi.Common.Data
         /// <param name="count">count</param>
         /// <param name="whereExpression">whereExpression</param>
         /// <param name="orderByExpression">orderBy</param>
-        /// <param name="isAsc">is ascending</param>
+        /// <param name="ascending">is ascending</param>
         /// <returns></returns>
-        Task<List<TEntity>> SelectAsync<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
+        Task<List<TEntity>> SelectAsync<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
 
         /// <summary>
         /// Get Paged List
@@ -81,9 +81,9 @@ namespace WeihanLi.Common.Data
         /// <param name="pageSize">pageSize</param>
         /// <param name="whereExpression">whereExpression</param>
         /// <param name="orderByExpression">orderByExpression</param>
-        /// <param name="isAsc">is ascending</param>
+        /// <param name="ascending">is ascending</param>
         /// <returns></returns>
-        PagedListModel<TEntity> Paged<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
+        PagedListModel<TEntity> Paged<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
 
         /// <summary>
         /// Get Paged List
@@ -93,9 +93,9 @@ namespace WeihanLi.Common.Data
         /// <param name="pageSize">pageSize</param>
         /// <param name="whereExpression">whereExpression</param>
         /// <param name="orderByExpression">orderByExpression</param>
-        /// <param name="isAsc">is ascending</param>
+        /// <param name="ascending">is ascending</param>
         /// <returns></returns>
-        Task<PagedListModel<TEntity>> PagedAsync<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool isAsc = false);
+        Task<PagedListModel<TEntity>> PagedAsync<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
 
         /// <summary>
         /// Insert a entity
