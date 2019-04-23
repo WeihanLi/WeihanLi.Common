@@ -1,43 +1,42 @@
-﻿// Copyright (c) Arch team. All rights reserved.
-
-using System;
+﻿using System;
 using WeihanLi.Common.Otp;
 
 namespace WeihanLi.Common.Helpers
 {
     public class TotpHelper
     {
+        private static readonly Lazy<Totp> Totp = new Lazy<Totp>(() => new Totp());
+
         /// <summary>
         /// Generates code for the specified <paramref name="securityToken"/>.
         /// </summary>
         /// <param name="securityToken">The security token to generate code.</param>
         /// <param name="size">return  code size</param>
         /// <returns>The generated code.</returns>
-        public static string GenerateCode(byte[] securityToken, int size = 6)
+        public static string GenerateCode(byte[] securityToken)
         {
             if (securityToken == null)
             {
                 throw new ArgumentNullException(nameof(securityToken));
             }
 
-            return new Totp(securityToken, totpSize: size).ComputeTotp();
+            return Totp.Value.Compute(securityToken);
         }
 
         /// <summary>
         /// ttl of the code for the specified <paramref name="securityToken"/>.
         /// </summary>
         /// <param name="securityToken">The security token to generate code.</param>
-        /// <param name="expiresIn">expiresIn, in seconds</param>
         /// <param name="size">return  code size</param>
         /// <returns>the code remaining seconds expires in</returns>
-        public static int TTL(byte[] securityToken, int size = 6)
+        public static int TTL(byte[] securityToken)
         {
             if (securityToken == null)
             {
                 throw new ArgumentNullException(nameof(securityToken));
             }
 
-            return new Totp(securityToken, totpSize: size).RemainingSeconds();
+            return Totp.Value.RemainingSeconds();
         }
 
         /// <summary>
@@ -46,27 +45,18 @@ namespace WeihanLi.Common.Helpers
         /// <param name="securityToken">The security token for verifying.</param>
         /// <param name="code">The code to validate.</param>
         /// <param name="expiresIn">expiresIn, in seconds</param>
-        /// <param name="size">return  code size</param>
         /// <returns><c>True</c> if validate succeed, otherwise, <c>false</c>.</returns>
-        public static bool ValidateCode(byte[] securityToken, string code, int expiresIn = 30, int size = 6)
+        public static bool VerifyCode(byte[] securityToken, string code, int expiresIn = 30)
         {
             if (securityToken == null)
             {
                 throw new ArgumentNullException(nameof(securityToken));
             }
-            if (string.IsNullOrWhiteSpace(code) || code.Trim().Length != size)
+            if (string.IsNullOrWhiteSpace(code))
             {
                 return false;
             }
-            var factor = 1;
-            if (expiresIn > 30)
-            {
-                factor = expiresIn / 30;
-            }
-            factor -= 1;
-            var validateResult =
-                new Totp(securityToken, totpSize: size)
-                    .VerifyTotp(code, out var timeStepMatched, new VerificationWindow(factor, factor));
+            var validateResult = Totp.Value.Verify(securityToken, code, TimeSpan.FromSeconds(expiresIn));
             return validateResult;
         }
 
@@ -74,18 +64,14 @@ namespace WeihanLi.Common.Helpers
         /// Generates code for the specified <paramref name="securityToken"/>.
         /// </summary>
         /// <param name="securityToken">The security token to generate code.</param>
-        /// <param name="size">return  code size</param>
         /// <returns>The generated code.</returns>
-        public static string GenerateCode(string securityToken, int size = 6) => GenerateCode(System.Text.Encoding.UTF8.GetBytes(securityToken), size);
+        public static string GenerateCode(string securityToken) => GenerateCode(System.Text.Encoding.UTF8.GetBytes(securityToken));
 
         /// <summary>
         /// ttl of the code for the specified <paramref name="securityToken"/>.
         /// </summary>
         /// <param name="securityToken">The security token to generate code.</param>
-        /// <param name="expiresIn">expiresIn, in seconds</param>
-        /// <param name="size">return  code size</param>
-        /// <returns>the code remaining seconds expires in</returns>
-        public static int TTL(string securityToken, int size = 6) => TTL(System.Text.Encoding.UTF8.GetBytes(securityToken), size);
+        public static int TTL(string securityToken) => TTL(System.Text.Encoding.UTF8.GetBytes(securityToken));
 
         /// <summary>
         /// Validates the code for the specified <paramref name="securityToken"/>.
@@ -93,8 +79,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="securityToken">The security token for verifying.</param>
         /// <param name="code">The code to validate.</param>
         /// <param name="expiresIn">expiresIn, in seconds</param>
-        /// <param name="size">return  code size</param>
         /// <returns><c>True</c> if validate succeed, otherwise, <c>false</c>.</returns>
-        public static bool ValidateCode(string securityToken, string code, int expiresIn = 30, int size = 6) => ValidateCode(System.Text.Encoding.UTF8.GetBytes(securityToken), code, expiresIn, size);
+        public static bool VerifyCode(string securityToken, string code, int expiresIn = 30) => VerifyCode(System.Text.Encoding.UTF8.GetBytes(securityToken), code, expiresIn);
     }
 }

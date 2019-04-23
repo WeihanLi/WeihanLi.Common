@@ -1,23 +1,20 @@
 ﻿namespace WeihanLi.Common.Otp
 {
-    /// <summary>
-    /// Indicates which HMAC hashing algorithm should be used
-    /// </summary>
-    internal enum OtpHashMode
+    public enum OtpHashAlgorithm
     {
         /// <summary>
         /// Sha1 is used as the HMAC hashing algorithm
         /// </summary>
-        Sha1,
+        SHA1 = 0,
 
         /// <summary>
         /// Sha256 is used as the HMAC hashing algorithm
         /// </summary>
-        Sha256,
+        SHA256 = 1,
 
         /// <summary>
         /// Sha512 is used as the HMAC hashing algorithm
         /// </summary>
-        Sha512
+        SHA512 = 2,
     }
 }
