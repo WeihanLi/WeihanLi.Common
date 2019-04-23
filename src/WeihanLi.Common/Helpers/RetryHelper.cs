@@ -14,7 +14,14 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!result && time++ < maxRetryTimes)
             {
-                result = func();
+                try
+                {
+                    result = func();
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -25,7 +32,14 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!result && time++ < maxRetryTimes)
             {
-                result = await func();
+                try
+                {
+                    result = await func();
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -36,8 +50,15 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!result && time < maxRetryTimes)
             {
-                Task.WaitAll(Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++))));
-                result = func();
+                Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++))).Wait();
+                try
+                {
+                    result = func();
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -49,7 +70,14 @@ namespace WeihanLi.Common.Helpers
             while (!result && time < maxRetryTimes)
             {
                 await Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++)));
-                result = await func();
+                try
+                {
+                    result = await func();
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -62,7 +90,14 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!validFunc(result) && time++ < maxRetryTimes)
             {
-                result = func();
+                try
+                {
+                    result = func();
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -73,7 +108,14 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!validFunc(result) && time++ < maxRetryTimes)
             {
-                result = func(t1);
+                try
+                {
+                    result = func(t1);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -84,7 +126,14 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!validFunc(result) && time++ < maxRetryTimes)
             {
-                result = func(t1, t2);
+                try
+                {
+                    result = func(t1, t2);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -95,7 +144,14 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!validFunc(result) && time++ < maxRetryTimes)
             {
-                result = func(t1, t2, t3);
+                try
+                {
+                    result = func(t1, t2, t3);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -106,7 +162,14 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!validFunc(result) && time++ < maxRetryTimes)
             {
-                result = func(t1, t2, t3, t4);
+                try
+                {
+                    result = func(t1, t2, t3, t4);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -121,8 +184,15 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!validFunc(result) && time < maxRetryTimes)
             {
-                Task.WaitAll(Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++))));
-                result = func();
+                Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++))).Wait();
+                try
+                {
+                    result = func();
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -133,8 +203,15 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!validFunc(result) && time < maxRetryTimes)
             {
-                Task.WaitAll(Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++))));
-                result = func(t1);
+                Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++))).Wait();
+                try
+                {
+                    result = func(t1);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -145,8 +222,15 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!validFunc(result) && time < maxRetryTimes)
             {
-                Task.WaitAll(Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++))));
-                result = func(t1, t2);
+                Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++))).Wait();
+                try
+                {
+                    result = func(t1, t2);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -157,8 +241,15 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!validFunc(result) && time < maxRetryTimes)
             {
-                Task.WaitAll(Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++))));
-                result = func(t1, t2, t3);
+                Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++))).Wait();
+                try
+                {
+                    result = func(t1, t2, t3);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -169,8 +260,15 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!validFunc(result) && time < maxRetryTimes)
             {
-                Task.WaitAll(Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++))));
-                result = func(t1, t2, t3, t4);
+                Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++))).Wait();
+                try
+                {
+                    result = func(t1, t2, t3, t4);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -185,7 +283,14 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!validFunc(result) && time++ < maxRetryTimes)
             {
-                result = await func();
+                try
+                {
+                    result = await func();
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -207,7 +312,14 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!validFunc(result) && time++ < maxRetryTimes)
             {
-                result = await func(t1, t2);
+                try
+                {
+                    result = await func(t1, t2);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -218,7 +330,14 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!validFunc(result) && time++ < maxRetryTimes)
             {
-                result = await func(t1, t2, t3);
+                try
+                {
+                    result = await func(t1, t2, t3);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -229,7 +348,14 @@ namespace WeihanLi.Common.Helpers
             var time = 1;
             while (!validFunc(result) && time++ < maxRetryTimes)
             {
-                result = await func(t1, t2, t3, t4);
+                try
+                {
+                    result = await func(t1, t2, t3, t4);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -245,7 +371,14 @@ namespace WeihanLi.Common.Helpers
             while (!validFunc(result) && time < maxRetryTimes)
             {
                 await Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++)));
-                result = await func();
+                try
+                {
+                    result = await func();
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -257,7 +390,14 @@ namespace WeihanLi.Common.Helpers
             while (!validFunc(result) && time < maxRetryTimes)
             {
                 await Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++)));
-                result = await func(t1);
+                try
+                {
+                    result = await func(t1);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -269,7 +409,14 @@ namespace WeihanLi.Common.Helpers
             while (!validFunc(result) && time < maxRetryTimes)
             {
                 await Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++)));
-                result = await func(t1, t2);
+                try
+                {
+                    result = await func(t1, t2);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -281,7 +428,14 @@ namespace WeihanLi.Common.Helpers
             while (!validFunc(result) && time < maxRetryTimes)
             {
                 await Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++)));
-                result = await func(t1, t2, t3);
+                try
+                {
+                    result = await func(t1, t2, t3);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
@@ -293,7 +447,14 @@ namespace WeihanLi.Common.Helpers
             while (!validFunc(result) && time < maxRetryTimes)
             {
                 await Task.Delay(TimeSpan.FromSeconds(Math.Pow(delay.TotalSeconds, time++)));
-                result = await func(t1, t2, t3, t4);
+                try
+                {
+                    result = await func(t1, t2, t3, t4);
+                }
+                catch (Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
             return result;
         }
