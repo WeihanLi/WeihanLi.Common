@@ -4,6 +4,11 @@
 
 .netstandard based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.17](https://www.nuget.org/packages/WeihanLi.Common/1.0.17)
+
+- Add `IDataCompressor`/`NullDataCompressor`
+- Update `RetryHelper`/`TotpHelper`
+
 ### [WeihanLi.Common 1.0.15](https://www.nuget.org/packages/WeihanLi.Common/1.0.15)
 
 - update Repository
@@ -21,6 +26,11 @@
 - update repository, add support for columns mapping
 
 ## WeihanLi.Common.Logging.Log4Net
+
+### [WeihanLi.Common.Logging.Log4Net 1.0.13](https://www.nuget.org/packages/WeihanLi.Common/1.0.13)
+
+- Update `ElasticSearchAppender` index format, update DateTime => `DateTime.UtcNow`
+- Remove `PackageCopyToOutput="true"` to fix some bug when you change the default config file
 
 ### [WeihanLi.Common.Logging.Log4Net 1.0.13](https://www.nuget.org/packages/WeihanLi.Common/1.0.13)
 
