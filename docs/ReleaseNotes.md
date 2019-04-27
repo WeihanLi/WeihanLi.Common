@@ -31,11 +31,11 @@
 
 ## WeihanLi.Common.Logging.Log4Net
 
-### [WeihanLi.Common.Logging.Log4Net 1.0.17](https://www.nuget.org/packages/WeihanLi.Common/1.0.17)
+### [WeihanLi.Common.Logging.Log4Net 1.0.17](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.17)
 
 - Update `ElasticSearchAppender` index format, update DateTime => `DateTime.UtcNow`
 - Remove `PackageCopyToOutput="true"` to fix some bug when you change the default config file
 
-### [WeihanLi.Common.Logging.Log4Net 1.0.13](https://www.nuget.org/packages/WeihanLi.Common/1.0.13)
+### [WeihanLi.Common.Logging.Log4Net 1.0.13](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.13)
 
 - AddLog4NetHelper to use log4net inpendently easily
