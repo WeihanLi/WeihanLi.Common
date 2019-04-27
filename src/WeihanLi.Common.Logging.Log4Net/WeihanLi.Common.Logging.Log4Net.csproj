@@ -10,6 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="log4net.config" Pack="true" PackageCopyToOutput="true" />
+    <None Include="log4net.config" Pack="true" />
   </ItemGroup>
 </Project>
