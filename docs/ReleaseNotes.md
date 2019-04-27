@@ -4,6 +4,10 @@
 
 .netstandard based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.18](https://www.nuget.org/packages/WeihanLi.Common/1.0.18)
+
+- Update `IDataSerializer` method `Desrializer` => `Deserialize`
+
 ### [WeihanLi.Common 1.0.17](https://www.nuget.org/packages/WeihanLi.Common/1.0.17)
 
 - Add `IDataCompressor`/`NullDataCompressor`
@@ -27,7 +31,7 @@
 
 ## WeihanLi.Common.Logging.Log4Net
 
-### [WeihanLi.Common.Logging.Log4Net 1.0.13](https://www.nuget.org/packages/WeihanLi.Common/1.0.13)
+### [WeihanLi.Common.Logging.Log4Net 1.0.17](https://www.nuget.org/packages/WeihanLi.Common/1.0.17)
 
 - Update `ElasticSearchAppender` index format, update DateTime => `DateTime.UtcNow`
 - Remove `PackageCopyToOutput="true"` to fix some bug when you change the default config file
