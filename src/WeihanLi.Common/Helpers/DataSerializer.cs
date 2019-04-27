@@ -24,14 +24,14 @@ namespace WeihanLi.Common.Helpers
         /// <typeparam name="T">Type</typeparam>
         /// <param name="bytes">bytes</param>
         /// <returns>obj</returns>
-        T Deserializer<T>([NotNull]byte[] bytes);
+        T Deserialize<T>([NotNull]byte[] bytes);
     }
 
     public class BinaryDataSerializer : IDataSerializer
     {
         private readonly BinaryFormatter _binaryFormatter = new BinaryFormatter();
 
-        public T Deserializer<T>(byte[] bytes)
+        public T Deserialize<T>(byte[] bytes)
         {
             if (typeof(Task).IsAssignableFrom(typeof(T)))
             {
@@ -59,7 +59,7 @@ namespace WeihanLi.Common.Helpers
 
     public class XmlDataSerializer : IDataSerializer
     {
-        public T Deserializer<T>(byte[] bytes)
+        public T Deserialize<T>(byte[] bytes)
         {
             if (typeof(Task).IsAssignableFrom(typeof(T)))
             {
@@ -89,7 +89,7 @@ namespace WeihanLi.Common.Helpers
 
     public class JsonDataSerializer : IDataSerializer
     {
-        public T Deserializer<T>(byte[] bytes)
+        public T Deserialize<T>(byte[] bytes)
         {
             if (typeof(Task).IsAssignableFrom(typeof(T)))
             {
@@ -124,9 +124,9 @@ namespace WeihanLi.Common.Helpers
             return _compressor.Compress(_serializer.Serialize(obj));
         }
 
-        public T Deserializer<T>(byte[] bytes)
+        public T Deserialize<T>(byte[] bytes)
         {
-            return _serializer.Deserializer<T>(_compressor.Decompress(bytes));
+            return _serializer.Deserialize<T>(_compressor.Decompress(bytes));
         }
     }
 }
