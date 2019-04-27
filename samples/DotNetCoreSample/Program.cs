@@ -43,7 +43,7 @@ namespace DotNetCoreSample
             //Console.WriteLine(JsonConvert.SerializeObject(a));// output 1
 
             // log test
-            // LoggerTest.MainTest();
+            LoggerTest.MainTest();
             // Log4NetTest.MainTest();
 
             //ILoggerFactory loggerFactory = new LoggerFactory();
@@ -102,7 +102,7 @@ namespace DotNetCoreSample
             //var code1234 = TotpHelper.GenerateCode(ApplicationHelper.ApplicationName + "test_1234");
             //Console.WriteLine(code1234);
 
-            InvokeHelper.TryInvoke(HttpRequesterTest.MainTest);
+            //InvokeHelper.TryInvoke(HttpRequesterTest.MainTest);
 
             Console.ReadLine();
         }
