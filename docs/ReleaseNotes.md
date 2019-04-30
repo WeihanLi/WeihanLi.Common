@@ -4,9 +4,11 @@
 
 .netstandard based also support for netfx4.5 common helpers and extensions
 
-### [WeihanLi.Common 1.0.18](https://www.nuget.org/packages/WeihanLi.Common/1.0.18)
+### [WeihanLi.Common 1.0.19](https://www.nuget.org/packages/WeihanLi.Common/1.0.19)
 
 - Update `IDataSerializer` method `Desrializer` => `Deserialize`
+- update HttpRequester
+- update logging extensions
 
 ### [WeihanLi.Common 1.0.17](https://www.nuget.org/packages/WeihanLi.Common/1.0.17)
 

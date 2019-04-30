@@ -21,9 +21,10 @@ namespace DotNetCoreSample
             var loginResult = new HttpRequester("https://accounting.weihanli.xyz/Account/LogOn", HttpMethod.Post)
                 .WithHeaders(new Dictionary<string, string>()
                 {
-                    { "X-Requested-With", "XMLHttpRequest" },
+                    // { "X-Requested-With", "XMLHttpRequest" },
+                    {"Header1", "Header1" }
                 })
-                // .AjaxRequest()
+                .AjaxRequest()
                 .WithReferer("https://accounting.weihanli.xyz/Account/Login?ReturnUrl=%2F")
                 .WithUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36")
                 .WithFormParameters(new Dictionary<string, string>()
@@ -32,7 +33,7 @@ namespace DotNetCoreSample
                     {"Password", "112233" },
                     {"RememberMe","false" }
                 })
-                .Execute<WeihanLi.Common.Models.JsonResultModel<bool>>();
+                .ExecuteForJson<WeihanLi.Common.Models.JsonResultModel<bool>>();
             System.Console.WriteLine(loginResult.ToJson());
 
             var uploadFileResponse = new HttpRequester("https://graph.baidu.com/upload", HttpMethod.Post)
