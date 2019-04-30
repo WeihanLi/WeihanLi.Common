@@ -7,6 +7,8 @@
 ### [WeihanLi.Common 1.0.18](https://www.nuget.org/packages/WeihanLi.Common/1.0.18)
 
 - Update `IDataSerializer` method `Desrializer` => `Deserialize`
+- update HttpRequester
+- update logging extensions
 
 ### [WeihanLi.Common 1.0.17](https://www.nuget.org/packages/WeihanLi.Common/1.0.17)
 
