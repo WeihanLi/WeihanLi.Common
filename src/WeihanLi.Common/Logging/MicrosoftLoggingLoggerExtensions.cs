@@ -1,7 +1,6 @@
 ﻿using System;
-using Microsoft.Extensions.Logging;
 
-namespace WeihanLi.Common.Logging
+namespace Microsoft.Extensions.Logging
 {
     public static class LoggerExtensions
     {
