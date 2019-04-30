@@ -3,12 +3,6 @@ using System.Collections.Specialized;
 using System.Configuration;
 using WeihanLi.Extensions;
 
-#if NETSTANDARD2_0
-
-using Microsoft.Extensions.Configuration;
-
-#endif
-
 namespace WeihanLi.Common.Helpers
 {
     public static class ConfigurationHelper

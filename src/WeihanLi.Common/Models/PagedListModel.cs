@@ -15,9 +15,6 @@ namespace WeihanLi.Common.Models
         /// </summary>
         IReadOnlyList<T> Data { get; }
 
-        [Obsolete("Use PageNumber instead", true)]
-        int PageIndex { get; }
-
         /// <summary>
         /// PageNumber
         /// </summary>
@@ -47,19 +44,6 @@ namespace WeihanLi.Common.Models
         private int _pageNumber = 1;
 
         public int PageNumber
-        {
-            get => _pageNumber;
-            set
-            {
-                if (value > 0)
-                {
-                    _pageNumber = value;
-                }
-            }
-        }
-
-        [Obsolete("Please use PageNumber for instead", true)]
-        public int PageIndex
         {
             get => _pageNumber;
             set

@@ -59,6 +59,8 @@ namespace WeihanLi.Common.Helpers
 
     public class XmlDataSerializer : IDataSerializer
     {
+        public static Lazy<XmlDataSerializer> Instance = new Lazy<XmlDataSerializer>();
+
         public T Deserialize<T>(byte[] bytes)
         {
             if (typeof(Task).IsAssignableFrom(typeof(T)))
