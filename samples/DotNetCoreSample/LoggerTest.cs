@@ -9,8 +9,9 @@ namespace DotNetCoreSample
 
         public static void MainTest()
         {
-            Logger.Info("122334334");
-            Logger.Debug("12333");
+            var abc = "1233";
+            Logger.Info($"122334334 {abc}");
+            Logger.Debug($"12333 {abc}");
             Logger.Trace("122334334");
             Logger.Warn("12333");
             Logger.Error("122334334");

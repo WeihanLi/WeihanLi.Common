@@ -16,7 +16,8 @@
     <PackageSummary>log4net logging provider for WeihanLi.Common.Logging, and log4net extensions</PackageSummary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
-      Add Log4NetHelper
+      Update ElasticSearchAppender index format
+      set log4net.config copytooutput false(it may cause some bug if you changed the file)
     </PackageReleaseNotes>
   </PropertyGroup>
 </Project>

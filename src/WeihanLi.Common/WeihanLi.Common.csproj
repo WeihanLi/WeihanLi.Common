@@ -10,7 +10,7 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Net.Http" />
     <Compile Remove="Extensions\ConfigurationExtension.cs" />
-    <Compile Remove="Logging\MicrosoftLoggingLogHelperProvider.cs" />
+    <Compile Remove="Logging\MicrosoftLogging*.cs" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />

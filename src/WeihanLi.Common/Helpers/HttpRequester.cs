@@ -98,7 +98,7 @@ namespace WeihanLi.Common.Helpers
 
         #region private method
 
-        private static bool IsNeedRequestStream(string requestMethod) => requestMethod.EqualsIgnoreCase("POST") || requestMethod.EqualsIgnoreCase("PUT");
+        private static bool IsNeedRequestStream(string requestMethod) => requestMethod.EqualsIgnoreCase("POST") || requestMethod.EqualsIgnoreCase("PUT") || requestMethod.EqualsIgnoreCase("PATCH");
 
         #endregion private method
 
@@ -154,6 +154,11 @@ namespace WeihanLi.Common.Helpers
         #endregion Proxy
 
         #region Cookie
+
+        public HttpRequester WithCookie(string cookieName, string cookieValue)
+        {
+            return WithCookie(new Cookie(cookieName, cookieValue));
+        }
 
         public HttpRequester WithCookie(Cookie cookie)
         {
@@ -215,6 +220,13 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
+        public HttpRequester WithXmlParameter<TEntity>([NotNull] TEntity entity)
+        {
+            _requestDataBytes = XmlDataSerializer.Instance.Value.Serialize(entity);
+            _request.ContentType = "application/xml;charset=UTF-8";
+            return this;
+        }
+
         public HttpRequester WithParameters([NotNull] byte[] requestBytes)
             => WithParameters(requestBytes, null);
 
@@ -223,7 +235,7 @@ namespace WeihanLi.Common.Helpers
             _requestDataBytes = requestBytes;
             if (string.IsNullOrWhiteSpace(contentType))
             {
-                contentType = "application/x-www-form-urlencoded";
+                contentType = "application/json;charset=utf-8";
             }
             _request.ContentType = contentType;
             return this;
@@ -313,7 +325,7 @@ namespace WeihanLi.Common.Helpers
 
         #region Other
 
-        public HttpRequester AjaxRequest(bool isAjaxRequest)
+        public HttpRequester AjaxRequest()
         {
             _request.Headers["X-Requested-With"] = "XMLHttpRequest";
             return this;
@@ -359,7 +371,7 @@ namespace WeihanLi.Common.Helpers
             return (HttpWebResponse)(await _request.GetResponseAsync());
         }
 
-        public byte[] ExecuteBytes()
+        public byte[] ExecuteForBytes()
         {
             BuildRequest();
             return _request.GetReponseBytesSafe();
@@ -373,9 +385,13 @@ namespace WeihanLi.Common.Helpers
 
         public T Execute<T>() => Execute().StringToType<T>();
 
+        public TEntity ExecuteForJson<TEntity>() => Execute().JsonToType<TEntity>();
+
+        public TEntity ExecuteForXml<TEntity>() => XmlDataSerializer.Instance.Value.Deserialize<TEntity>(ExecuteForBytes());
+
         public T Execute<T>(T defaultValue) => Execute().StringToType(defaultValue);
 
-        public async Task<byte[]> ExecuteBytesAsync()
+        public async Task<byte[]> ExecuteForBytesAsync()
         {
             await BuildRequestAsync();
             return await _request.GetReponseBytesSafeAsync();
@@ -390,6 +406,10 @@ namespace WeihanLi.Common.Helpers
         public Task<T> ExecuteAsync<T>() => ExecuteAsync().ContinueWith(_ => _.Result.StringToType<T>());
 
         public Task<T> ExecuteAsync<T>(T defaultValue) => ExecuteAsync().ContinueWith(_ => _.Result.StringToType<T>(defaultValue));
+
+        public Task<TEntity> ExecuteForJsonAsync<TEntity>() => ExecuteAsync().ContinueWith(_ => _.Result.JsonToType<TEntity>());
+
+        public Task<TEntity> ExecuteForXmlAsync<TEntity>() => ExecuteForBytesAsync().ContinueWith(_ => XmlDataSerializer.Instance.Value.Deserialize<TEntity>(_.Result));
 
         #endregion Execute
     }

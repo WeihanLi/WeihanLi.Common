@@ -298,7 +298,9 @@ namespace WeihanLi.Extensions
             {
                 return new T[0];
             }
-            return str.Split(separators, StringSplitOptions.RemoveEmptyEntries).Select(_ => _.To<T>()).ToArray();
+            return str.Split(separators, StringSplitOptions.RemoveEmptyEntries)
+                .Select(_ => _.To<T>())
+                .ToArray();
         }
     }
 }

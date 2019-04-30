@@ -46,7 +46,7 @@ namespace WeihanLi.Common.Logging.Log4Net
             }
             sb.Remove(sb.Length - 1, 1);
 
-            var url = $"{ElasticSearchUrl}/{IndexFormat.Replace("{applicationName}", (ApplicationName ?? ApplicationHelper.ApplicationName).ToLower())}-{DateTime.Today:yyyyMMdd}/{Type}/_bulk";
+            var url = $"{ElasticSearchUrl}/{IndexFormat.Replace("{applicationName}", (ApplicationName ?? ApplicationHelper.ApplicationName).ToLower())}-{DateTime.UtcNow:yyyyMMdd}/{Type}/_bulk";
             _httpClient.PostAsync(url, new StringContent(sb.ToString()))
                 .ContinueWith(_ => _.Result.Dispose()).ConfigureAwait(false);
         }

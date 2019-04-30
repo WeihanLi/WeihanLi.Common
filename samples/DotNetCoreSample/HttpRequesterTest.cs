@@ -14,7 +14,8 @@ namespace DotNetCoreSample
                 .WithHeaders(new System.Collections.Specialized.NameValueCollection
                 {
                     {"Header1", "Header1" }
-                }).Execute();
+                })
+                .Execute();
             System.Console.WriteLine(result);
 
             var loginResult = new HttpRequester("https://accounting.weihanli.xyz/Account/LogOn", HttpMethod.Post)
@@ -22,7 +23,7 @@ namespace DotNetCoreSample
                 {
                     { "X-Requested-With", "XMLHttpRequest" },
                 })
-                // .AjaxRequest(true)
+                // .AjaxRequest()
                 .WithReferer("https://accounting.weihanli.xyz/Account/Login?ReturnUrl=%2F")
                 .WithUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36")
                 .WithFormParameters(new Dictionary<string, string>()
