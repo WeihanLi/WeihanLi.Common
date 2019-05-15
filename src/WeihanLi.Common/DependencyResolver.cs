@@ -29,18 +29,6 @@ namespace WeihanLi.Common
             Current = new DefaultDependencyResolver();
         }
 
-#if NETSTANDARD2_0
-
-        public static void SetDependencyResolver(IServiceCollection services)
-        {
-            SetDependencyResolver(new ServiceCollectionDependencyResolver(services));
-        }
-
-#else
-        public static void SetDependencyResolver(IServiceProvider serviceProvider) => SetDependencyResolver(serviceProvider.GetService,
-            serviceType => (IEnumerable<object>)serviceProvider.GetService(typeof(IEnumerable<>).MakeGenericType(serviceType)));
-#endif
-
         public static void SetDependencyResolver(IDependencyResolver dependencyResolver)
         {
             lock (_lock)
@@ -48,6 +36,8 @@ namespace WeihanLi.Common
                 Current = dependencyResolver;
             }
         }
+
+        public static void SetDependencyResolver(IServiceProvider serviceProvider) => SetDependencyResolver(serviceProvider.GetService);
 
         public static void SetDependencyResolver(Func<Type, object> getServiceFunc, Func<Type, IEnumerable<object>> getServicesFunc) => SetDependencyResolver(new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc));
 
@@ -162,6 +152,8 @@ namespace WeihanLi.Common
 
 #if NETSTANDARD2_0
 
+        public static void SetDependencyResolver(IServiceCollection services) => SetDependencyResolver(new ServiceCollectionDependencyResolver(services));
+
         private class ServiceCollectionDependencyResolver : IDependencyResolver
         {
             private readonly IServiceProvider _serviceProvider;
@@ -257,7 +249,7 @@ namespace WeihanLi.Common
                         return true;
                     }
                 }
-                var service = (TService) _serviceProvider.GetService(typeof(TService));
+                var service = (TService)_serviceProvider.GetService(typeof(TService));
                 if (null == service)
                 {
                     return false;
