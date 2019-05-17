@@ -1,9 +1,10 @@
-<Project>  
-  <Import Project="sign.props" />
-  <Import Project="version.props" />
-  <Import Project="copyright.props" />
-  <Import Project="repo.props" />
+<Project>
   <Import Project="analyzer.props" />
+  <Import Project="copyright.props" />
+  <Import Project="repo.props" />  
+  <Import Project="sign.props" />
+  <Import Project="sourceLink.props" />
+  <Import Project="version.props" />
   <PropertyGroup>            
     <PackageId>WeihanLi.Common</PackageId>
     <Title>WeihanLi.Common</Title>
@@ -21,7 +22,5 @@
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <NoWarn>$(NoWarn);1591;DE0003;</NoWarn>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 </Project>
