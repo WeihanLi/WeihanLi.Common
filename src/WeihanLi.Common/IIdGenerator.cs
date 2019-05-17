@@ -45,6 +45,7 @@ namespace WeihanLi.Common
 
     /// <summary>
     /// Snowflake IdGenerator
+    /// WARNING: NotImplemented, do not use
     /// </summary>
     public sealed class SnowflakeIdGenerator : IIdGenerator
     {

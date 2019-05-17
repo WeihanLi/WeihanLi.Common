@@ -80,7 +80,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="httpClient">httpClient</param>
         /// <param name="requestUri">requestUri</param>
-        /// <param name="paramDic">paramDictionary</param>
+        /// <param name="parameter">param</param>
         /// <returns></returns>
         public static Task<HttpResponseMessage> PutAsJsonAsync<T>([NotNull]this HttpClient httpClient, string requestUri, T parameter)
             => httpClient.PutAsync(requestUri, new ByteArrayContent((parameter?.ToJson() ?? "").GetBytes()));

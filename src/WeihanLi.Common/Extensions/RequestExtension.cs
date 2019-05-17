@@ -8,6 +8,7 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Extensions
 {
+    // TODO: move to WeihanLi.Web.Extensions
     public static class RequestExtension
     {
 #if NET45

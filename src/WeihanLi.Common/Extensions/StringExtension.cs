@@ -243,7 +243,7 @@ namespace WeihanLi.Extensions
         }
 
         /// <summary>
-        /// Return value if value IsNotNullOrEmpty else return dafaultValue
+        /// Return value if value IsNotNullOrEmpty else return defaultValue
         /// </summary>
         /// <param name="str">string value</param>
         /// <param name="defaultValue">defaultValue</param>
@@ -254,7 +254,7 @@ namespace WeihanLi.Extensions
         }
 
         /// <summary>
-        /// Return value if value IsNotNullOrWhiteSpace else return dafaultValue
+        /// Return value if value IsNotNullOrWhiteSpace else return defaultValue
         /// </summary>
         /// <param name="str">string value</param>
         /// <param name="defaultValue">defaultValue</param>
@@ -265,7 +265,7 @@ namespace WeihanLi.Extensions
         }
 
         /// <summary>
-        /// Return value if value IsNotNullOrWhiteSpace else return dafaultValue
+        /// Return value if value IsNotNullOrWhiteSpace else return defaultValue
         /// </summary>
         /// <param name="str">string value</param>
         /// <param name="getDefault">get defaultValue func</param>

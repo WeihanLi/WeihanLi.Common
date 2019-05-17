@@ -125,10 +125,10 @@ namespace WeihanLi.Common.Otp
         private static readonly DateTime _unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
         /// <summary>
-        /// timestep
+        /// time step
         /// 30s(Recommend)
         /// </summary>
-        private static readonly long _timeStepTicks = TimeSpan.TicksPerSecond * 30;
+        private const long _timeStepTicks = TimeSpan.TicksPerSecond * 30;
 
         // More info: https://tools.ietf.org/html/rfc6238#section-4
         private static long GetCurrentTimeStepNumber() => (DateTime.UtcNow - _unixEpoch).Ticks / _timeStepTicks;
