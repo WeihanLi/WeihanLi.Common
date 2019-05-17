@@ -6,5 +6,6 @@
 		<VersionRevision></VersionRevision>
 		<VersionPrefix>$(VersionMajor).$(VersionMinor).$(VersionPatch)</VersionPrefix>
 		<VersionSuffix Condition="'$(Configuration)'=='DEBUG'">preview-$([System.DateTime]::Now.ToString("yyyyMMdd-HHmmss"))</VersionSuffix>
+    <InformationalVersion>$(PackageVersion)</InformationalVersion>
 	</PropertyGroup>
 </Project>

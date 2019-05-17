@@ -21,5 +21,7 @@
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <NoWarn>$(NoWarn);1591;DE0003;</NoWarn>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 </Project>
