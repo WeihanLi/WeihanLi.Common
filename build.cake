@@ -114,11 +114,6 @@ bool PublishArtifacts(){
       {
          DotNetCoreNuGetPush(package.FullPath, pushSetting);
       }
-      var symbolsPackages = GetFiles($"{artifacts}/*.snupkg");
-      foreach(var package in symbolsPackages)
-      {
-         DotNetCoreNuGetPush(package.FullPath, pushSetting);
-      }
       return true;
    }
    return false;
