@@ -270,7 +270,7 @@ namespace WeihanLi.Extensions
         /// <param name="attributeType">Type of the attribute.</param>
         /// <param name="inherit">true to inherit.</param>
         /// <returns>true if attribute defined, false if not.</returns>
-        public static bool IsAttributeDefined([NotNull]this object @this, Type attributeType, bool inherit)
+        public static bool IsAttributeDefined([NotNull]this object @this, Type attributeType, bool inherit = true)
         {
             return @this.GetType().IsDefined(attributeType, inherit);
         }
@@ -282,7 +282,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="inherit">true to inherit.</param>
         /// <returns>true if attribute defined, false if not.</returns>
-        public static bool IsAttributeDefined<T>([NotNull]this object @this, bool inherit) where T : Attribute
+        public static bool IsAttributeDefined<T>([NotNull]this object @this, bool inherit = true) where T : Attribute
         {
             return @this.GetType().IsDefined(typeof(T), inherit);
         }
