@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 
@@ -7,6 +8,18 @@ namespace WeihanLi.Common.Helpers
 {
     public interface IHttpRequester
     {
+        #region WithUrl
+
+        IHttpRequester WithUrl(string url);
+
+        #endregion WithUrl
+
+        #region Method
+
+        IHttpRequester WithMethod(HttpMethod method);
+
+        #endregion Method
+
         #region AddHeader
 
         IHttpRequester WithHeaders([NotNull]IEnumerable<KeyValuePair<string, string>> customHeaders);
@@ -15,29 +28,29 @@ namespace WeihanLi.Common.Helpers
 
         #region UserAgent
 
-        IHttpRequester WithUserAgent(string userAgent);
+        IHttpRequester WithUserAgent([NotNull]string userAgent);
 
         #endregion UserAgent
 
         #region Referer
 
-        IHttpRequester WithReferer(string referer);
+        IHttpRequester WithReferer([NotNull]string referer);
 
         #endregion Referer
 
         #region Cookie
 
-        IHttpRequester WithCookie(string cookieName, string cookieValue);
-
-        IHttpRequester WithCookie(Cookie cookie);
-
         IHttpRequester WithCookie(string url, Cookie cookie);
-
-        IHttpRequester WithCookie(CookieCollection cookies);
 
         IHttpRequester WithCookie(string url, CookieCollection cookies);
 
         #endregion Cookie
+
+        #region Proxy
+
+        IHttpRequester WithProxy(IWebProxy proxy);
+
+        #endregion Proxy
 
         #region Parameter
 
