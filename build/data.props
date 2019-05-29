@@ -16,7 +16,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>db database sql data </PackageTags>
     <PackageReleaseNotes>
-      sql bulk copy extensions for SqlConnection
+      https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
     </PackageReleaseNotes>    
     <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">True</GeneratePackageOnBuild>
   </PropertyGroup>

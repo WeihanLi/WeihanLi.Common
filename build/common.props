@@ -14,9 +14,7 @@
     <PackageSummary>common netfx and netstandard libarary,extensions helpers and useful utilities</PackageSummary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
-      update HttpRequester
-      Update `IDataSerializer` method `Desrializer` => `Deserialize`
-      update logging extensions
+      https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
     </PackageReleaseNotes>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
