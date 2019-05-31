@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using WeihanLi.Common.Extensions;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 

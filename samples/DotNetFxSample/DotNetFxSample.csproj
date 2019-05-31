@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="WeihanLi.Common" Version="1.0.20-preview-20190529-091204" />
+    <PackageReference Include="WeihanLi.Common" Version="1.0.20-preview-20190531-122044" />
     <PackageReference Include="WeihanLi.Common.Logging.Log4net" Version="1.0.17" />
   </ItemGroup>
 
