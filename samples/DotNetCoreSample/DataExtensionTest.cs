@@ -2,6 +2,8 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Common;
 using System.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
 using WeihanLi.Extensions;
@@ -34,7 +36,7 @@ namespace DotNetCoreSample
 
         public static void MainTest()
         {
-            var connString = ConfigurationHelper.ConnectionString("TestDb");
+            var connString = DependencyResolver.Current.ResolveService<IConfiguration>().GetConnectionString("TestDb");
             using (var conn = new SqlConnection(connString))
             {
                 Init(conn);

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Data.Common;
 using System.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.ObjectPool;
+using WeihanLi.Common;
 using WeihanLi.Common.Data;
-using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
 namespace DotNetCoreSample
@@ -12,7 +13,7 @@ namespace DotNetCoreSample
     {
         public static void MainTest()
         {
-            var connectionPool = new DbConnectionPool(new DbConnectionPoolPolicy(ConfigurationHelper.ConnectionString("Test")));
+            var connectionPool = new DbConnectionPool(new DbConnectionPoolPolicy(DependencyResolver.Current.ResolveService<IConfiguration>().GetConnectionString("Test")));
 
             var repo = new Repository<TestEntity>(() => connectionPool.Get());
             repo.Execute("TRUNCATE TABLE dbo.tabTestEntity");
