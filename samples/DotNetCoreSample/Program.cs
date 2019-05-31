@@ -1,4 +1,7 @@
 ﻿using System;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging.Log4Net;
 using WeihanLi.Extensions;
@@ -16,19 +19,19 @@ namespace DotNetCoreSample
             var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
             // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
 
-            //var serviceCollection = new ServiceCollection();
-            //serviceCollection.AddScoped<IFly, MonkeyKing>();
-            //IConfiguration configuration = new ConfigurationBuilder()
-            //    .AddJsonFile("appsettings.json")
-            //    .Build();
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddScoped<IFly, MonkeyKing>();
+            IConfiguration configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
 
-            //var city = configuration.GetAppSetting("City");
-            //var number = configuration.GetAppSetting<int>("Number");
-            //System.Console.WriteLine($"City:{city}, Number:{number}");
+            var city = configuration.GetAppSetting("City");
+            var number = configuration.GetAppSetting<int>("Number");
+            System.Console.WriteLine($"City:{city}, Number:{number}");
 
-            //serviceCollection.AddSingleton(configuration);
+            serviceCollection.AddSingleton(configuration);
 
-            //DependencyResolver.SetDependencyResolver(serviceCollection);
+            DependencyResolver.SetDependencyResolver(serviceCollection);
 
             //DependencyInjectionTest.Test();
 
@@ -102,7 +105,7 @@ namespace DotNetCoreSample
             //var code1234 = TotpHelper.GenerateCode(ApplicationHelper.ApplicationName + "test_1234");
             //Console.WriteLine(code1234);
 
-            //InvokeHelper.TryInvoke(HttpRequesterTest.MainTest);
+            InvokeHelper.TryInvoke(HttpRequesterTest.MainTest);
 
             Console.ReadLine();
         }

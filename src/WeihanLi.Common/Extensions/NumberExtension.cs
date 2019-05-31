@@ -15,9 +15,7 @@ namespace WeihanLi.Extensions
         /// <returns></returns>
         public static string Number2Percent(this double number, int digits = 2)
         {
-            var bValue = Math.Round(number, digits + 2);
-            bValue = bValue * 100;
-            return bValue.ToString("0.00") + "%";
+            return (Math.Round(number, digits + 2) * 100).ToString("0.00") + "%";
         }
 
         /// <summary>
@@ -28,9 +26,7 @@ namespace WeihanLi.Extensions
         /// <returns></returns>
         public static string Number2Percent(this decimal number, int digits = 2)
         {
-            var bValue = Math.Round(number, digits + 2);
-            bValue = bValue * 100;
-            return bValue.ToString("0.00") + "%";
+            return (Math.Round(number, digits + 2) * 100).ToString("0.00") + "%";
         }
 
         #endregion 数字格式修改

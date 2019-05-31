@@ -5,14 +5,11 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers
 {
+    /// <summary>
+    /// Helper for ConfigurationManager
+    /// </summary>
     public static class ConfigurationHelper
     {
-        /// <summary>
-        /// ApplicationName
-        /// </summary>
-        [Obsolete("Please use ApplicationHelper.ApplicationName", true)]
-        public static string ApplicationName => ApplicationHelper.ApplicationName;
-
         private static NameValueCollection _appSettings;
 
         static ConfigurationHelper()

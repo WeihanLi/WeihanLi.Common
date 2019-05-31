@@ -1,9 +1,4 @@
-<Project>  
-  <Import Project="sign.props" />
-  <Import Project="version.props" />
-  <Import Project="copyright.props" />
-  <Import Project="repo.props" />
-  <Import Project="analyzer.props" />
+<Project>
   <PropertyGroup>        
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
@@ -16,8 +11,7 @@
     <PackageSummary>log4net logging provider for WeihanLi.Common.Logging, and log4net extensions</PackageSummary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
-      Update ElasticSearchAppender index format
-      set log4net.config copytooutput false(it may cause some bug if you changed the file)
+      https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
     </PackageReleaseNotes>
   </PropertyGroup>
 </Project>

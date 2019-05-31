@@ -10,7 +10,7 @@ namespace WeihanLi.Extensions
         /// <summary>
         /// DefaultSerializerSettings
         /// </summary>
-        public static readonly JsonSerializerSettings DefaultSerializerSettings = new JsonSerializerSettings
+        public static JsonSerializerSettings DefaultSerializerSettings = new JsonSerializerSettings
         {
             ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
             MissingMemberHandling = MissingMemberHandling.Ignore,
