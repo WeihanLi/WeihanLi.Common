@@ -1,10 +1,4 @@
 <Project>
-  <Import Project="analyzer.props" />
-  <Import Project="copyright.props" />
-  <Import Project="repo.props" />  
-  <Import Project="sign.props" />
-  <Import Project="sourceLink.props" />
-  <Import Project="version.props" />
   <PropertyGroup>            
     <PackageId>WeihanLi.Common</PackageId>
     <Title>WeihanLi.Common</Title>

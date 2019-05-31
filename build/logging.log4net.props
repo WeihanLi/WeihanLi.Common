@@ -1,9 +1,4 @@
-<Project>  
-  <Import Project="sign.props" />
-  <Import Project="version.props" />
-  <Import Project="copyright.props" />
-  <Import Project="repo.props" />
-  <Import Project="analyzer.props" />
+<Project>
   <PropertyGroup>        
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
