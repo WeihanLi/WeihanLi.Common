@@ -2,7 +2,6 @@
 using System.Net.Http;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
-using WeihanLi.Common.Extensions;
 
 namespace DotNetCoreSample
 {
