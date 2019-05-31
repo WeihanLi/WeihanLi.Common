@@ -204,29 +204,6 @@ namespace WeihanLi.Common.Helpers
 
         #region Parameter
 
-        public IHttpRequester WithFormParameters([NotNull] NameValueCollection parameters) => WithFormParameters(parameters.ToDictionary());
-
-        public IHttpRequester WithFormParameters([NotNull]IEnumerable<KeyValuePair<string, string>> parameters)
-        {
-            _requestDataBytes = Encoding.UTF8.GetBytes(parameters.ToQueryString());
-            _request.ContentType = "application/x-www-form-urlencoded";
-            return this;
-        }
-
-        public IHttpRequester WithJsonParameter<TEntity>([NotNull] TEntity entity)
-        {
-            _requestDataBytes = Encoding.UTF8.GetBytes(entity.ToJson());
-            _request.ContentType = "application/json;charset=UTF-8";
-            return this;
-        }
-
-        public IHttpRequester WithXmlParameter<TEntity>([NotNull] TEntity entity)
-        {
-            _requestDataBytes = XmlDataSerializer.Instance.Value.Serialize(entity);
-            _request.ContentType = "application/xml;charset=UTF-8";
-            return this;
-        }
-
         public IHttpRequester WithParameters([NotNull] byte[] requestBytes)
             => WithParameters(requestBytes, null);
 
@@ -374,27 +351,13 @@ namespace WeihanLi.Common.Helpers
             };
         }
 
-        public byte[] ExecuteForBytes()
+        public byte[] ExecuteBytes()
         {
             BuildRequest();
             return _request.GetReponseBytesSafe();
         }
 
-        public string Execute()
-        {
-            BuildRequest();
-            return _request.GetReponseStringSafe();
-        }
-
-        public T Execute<T>() => Execute().StringToType<T>();
-
-        public TEntity ExecuteForJson<TEntity>() => Execute().JsonToType<TEntity>();
-
-        public TEntity ExecuteForXml<TEntity>() => XmlDataSerializer.Instance.Value.Deserialize<TEntity>(ExecuteForBytes());
-
-        public T Execute<T>(T defaultValue) => Execute().StringToType(defaultValue);
-
-        public async Task<byte[]> ExecuteForBytesAsync()
+        public async Task<byte[]> ExecuteBytesAsync()
         {
             await BuildRequestAsync();
             return await _request.GetReponseBytesSafeAsync();
@@ -405,14 +368,6 @@ namespace WeihanLi.Common.Helpers
             await BuildRequestAsync();
             return await _request.GetReponseStringSafeAsync();
         }
-
-        public Task<T> ExecuteAsync<T>() => ExecuteAsync().ContinueWith(_ => _.Result.StringToType<T>());
-
-        public Task<T> ExecuteAsync<T>(T defaultValue) => ExecuteAsync().ContinueWith(_ => _.Result.StringToType<T>(defaultValue));
-
-        public Task<TEntity> ExecuteForJsonAsync<TEntity>() => ExecuteAsync().ContinueWith(_ => _.Result.JsonToType<TEntity>());
-
-        public Task<TEntity> ExecuteForXmlAsync<TEntity>() => ExecuteForBytesAsync().ContinueWith(_ => XmlDataSerializer.Instance.Value.Deserialize<TEntity>(_.Result));
 
         #endregion Execute
     }
@@ -476,19 +431,19 @@ namespace WeihanLi.Common.Helpers
             Client = new HttpClient(handler);
         }
 
-        public string Execute()
+        public byte[] ExecuteBytes()
         {
             BuildHttpClient();
             return Client.SendAsync(_request)
-                .ContinueWith(res => res.Result.Content.ReadAsStringAsync().ContinueWith(r => r.Result))
+                .ContinueWith(res => res.Result.Content.ReadAsByteArrayAsync().ContinueWith(r => r.Result))
                 .Result.GetAwaiter().GetResult();
         }
 
-        public async Task<string> ExecuteAsync()
+        public async Task<byte[]> ExecuteBytesAsync()
         {
             BuildHttpClient();
             var response = await Client.SendAsync(_request);
-            var result = await response.Content.ReadAsStringAsync();
+            var result = await response.Content.ReadAsByteArrayAsync();
             return result;
         }
 
@@ -633,11 +588,14 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public IHttpRequester WithParameters([NotNull] byte[] requestBytes, string contentType)
+        public IHttpRequester WithParameters(byte[] requestBytes, string contentType)
         {
             _request.Content = new ByteArrayContent(requestBytes);
             _request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse(contentType);
-            return this;
+            return WithHeaders(new Dictionary<string, string>
+            {
+                {HttpKnownHeaderNames.ContentType, contentType}
+            });
         }
 
         public IHttpRequester WithReferer(string referer)

@@ -66,9 +66,9 @@ namespace WeihanLi.Common.Helpers
 
         #region Execute
 
-        string Execute();
+        byte[] ExecuteBytes();
 
-        Task<string> ExecuteAsync();
+        Task<byte[]> ExecuteBytesAsync();
 
         HttpResponse ExecuteForResponse();
 

@@ -155,7 +155,7 @@ namespace DotNetFxSample
             //var response = client.Execute();
             //Console.WriteLine(response);
 
-            var activateClient = new HttpRequester("https://initwords.com/book/ajaxRegisterBook.do", HttpMethod.Post);
+            var activateClient = new WebRequestHttpRequester("https://initwords.com/book/ajaxRegisterBook.do", HttpMethod.Post);
             activateClient.WithHeaders(new Dictionary<string, string>
             {
                 { "em-tokencode", "a287f418-ed57-439c-bdb8-734baa00d9e4" },
@@ -165,13 +165,13 @@ namespace DotNetFxSample
                 { "referer", "https://initwords.com/" },
                 { "x-requested-with", "XMLHttpRequest" }
             })
-            .WithFormParameters(new Dictionary<string, string>
-            {
-                { "moduleCode", "8a108cb74c7ae17a014c7d671d430771" },
-                { "cardNo", "20180218018071452273218" },
-                { "cardPwd", "bz6Bj568" },
-                { "userCode", "a01836e9-f566-46c5-b3df-528c65e78dbd" }
-            })
+            //.WithFormParameters(new Dictionary<string, string>
+            //{
+            //    { "moduleCode", "8a108cb74c7ae17a014c7d671d430771" },
+            //    { "cardNo", "20180218018071452273218" },
+            //    { "cardPwd", "bz6Bj568" },
+            //    { "userCode", "a01836e9-f566-46c5-b3df-528c65e78dbd" }
+            //})
             .WithUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36");
             var result = activateClient.Execute<TempResponseEntity>();
             Console.Write(result);

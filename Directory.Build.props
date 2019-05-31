@@ -1,0 +1,33 @@
+<Project>
+  <Import Project="./build/sign.props" />
+
+  <PropertyGroup>
+		<VersionMajor>1</VersionMajor>
+		<VersionMinor>0</VersionMinor>
+		<VersionPatch>20</VersionPatch>
+		<VersionRevision></VersionRevision>
+		<VersionPrefix>$(VersionMajor).$(VersionMinor).$(VersionPatch)</VersionPrefix>
+		<VersionSuffix Condition="'$(Configuration)'=='DEBUG'">preview-$([System.DateTime]::Now.ToString("yyyyMMdd-HHmmss"))</VersionSuffix>
+    <InformationalVersion>$(PackageVersion)</InformationalVersion>
+	</PropertyGroup>
+  
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/WeihanLi/WeihanLi.Common</RepositoryUrl>
+    <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <!-- Optional: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <Authors>WeihanLi</Authors>
+    <Copyright>Copyright 2018-2019 (c) WeihanLi</Copyright>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Condition="'$(OS)' == 'Windows_NT'" Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-18618-05" PrivateAssets="All"/>
+    <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.2.12-alpha" PrivateAssets="All" />
+    <PackageReference Include="JetBrains.Annotations" Version="2018.3.0" PrivateAssets="All" />
+  </ItemGroup>
+</Project>

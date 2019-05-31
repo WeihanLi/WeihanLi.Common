@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
+using JetBrains.Annotations;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
@@ -54,6 +56,22 @@ namespace WeihanLi.Common.Extensions
             });
         }
 
+        public static IHttpRequester WithXmlParameter<TEntity>(this IHttpRequester httpRequester, [NotNull] TEntity entity)
+        {
+            return httpRequester.WithParameters(XmlDataSerializer.Instance.Value.Serialize(entity), "application/xml;charset=UTF-8");
+        }
+
+        public static IHttpRequester WithJsonParameter<TEntity>(this IHttpRequester httpRequester, [NotNull] TEntity entity)
+        {
+            return httpRequester.WithParameters(entity.ToJson().GetBytes(), "application/json;charset=UTF-8");
+        }
+
+        public static IHttpRequester WithFormParams(this IHttpRequester httpRequester,
+            IEnumerable<KeyValuePair<string, string>> formParams)
+        {
+            return httpRequester.WithParameters(formParams.ToQueryString().GetBytes(), "application/x-www-form-urlencoded;charset=UTF-8");
+        }
+
         public static IHttpRequester WithFile(this IHttpRequester httpRequester, string filePath, string fileKey = "file",
             IEnumerable<KeyValuePair<string, string>> formFields = null)
             => httpRequester.WithFile(Path.GetFileName(filePath), File.ReadAllBytes(filePath), fileKey, formFields);
@@ -64,5 +82,39 @@ namespace WeihanLi.Common.Extensions
                     Path.GetFileName(_),
                     File.ReadAllBytes(_))),
                 formFields);
+
+        public static string Execute(this IHttpRequester httpRequester) => httpRequester.ExecuteBytes().GetString();
+
+        public static Task<string> ExecuteAsync(this IHttpRequester httpRequester)
+        {
+            return httpRequester.ExecuteBytesAsync().ContinueWith(r => r.Result.GetString());
+        }
+
+        public static T Execute<T>(this IHttpRequester httpRequester, T defaultVal = default) => httpRequester.ExecuteBytes().GetString().ToOrDefault(defaultVal);
+
+        public static Task<T> ExecuteAsync<T>(this IHttpRequester httpRequester, T defaultVal = default)
+        {
+            return httpRequester.ExecuteBytesAsync().ContinueWith(r => r.Result.GetString().ToOrDefault(defaultVal));
+        }
+
+        public static TEntity ExecuteForJson<TEntity>(this IHttpRequester httpRequester)
+        {
+            return httpRequester.Execute().JsonToType<TEntity>();
+        }
+
+        public static Task<TEntity> ExecuteForJsonAsync<TEntity>(this IHttpRequester httpRequester)
+        {
+            return httpRequester.ExecuteAsync().ContinueWith(r => r.Result.JsonToType<TEntity>());
+        }
+
+        public static TEntity ExecuteForXml<TEntity>(this IHttpRequester httpRequester)
+        {
+            return XmlDataSerializer.Instance.Value.Deserialize<TEntity>(httpRequester.ExecuteBytes());
+        }
+
+        public static Task<TEntity> ExecuteForXmlAsync<TEntity>(this IHttpRequester httpRequester)
+        {
+            return httpRequester.ExecuteBytesAsync().ContinueWith(r => XmlDataSerializer.Instance.Value.Deserialize<TEntity>(r.Result));
+        }
     }
 }
