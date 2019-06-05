@@ -10,7 +10,8 @@ namespace WeihanLi.Common.Data
 
     public
 #else
-        internal
+
+    internal
 #endif
         static partial class SqlExpressionParser
     {
@@ -33,6 +34,7 @@ namespace WeihanLi.Common.Data
 
         public
 #else
+
         private
 #endif
             static string ParseExpression(Expression exp, IDictionary<string, string> columnMappings = null)
@@ -44,7 +46,7 @@ namespace WeihanLi.Common.Data
             if (exp is BinaryExpression binaryExpression)
             {
                 var left = ParseExpression(binaryExpression.Left, columnMappings);
-                var oper = GetExpressionOperatorString(binaryExpression);
+                var @operator = GetExpressionOperatorString(binaryExpression);
                 var right = ParseExpression(binaryExpression.Right, columnMappings);
                 if (left == "NULL")
                 {
@@ -54,9 +56,9 @@ namespace WeihanLi.Common.Data
                 }
                 if (right == "NULL")
                 {
-                    oper = oper == "=" ? " IS " : " IS NOT ";
+                    @operator = @operator == "=" ? " IS " : " IS NOT ";
                 }
-                return $"{left} {oper} {right}";
+                return $"{left} {@operator} {right}";
             }
             if (exp is MemberExpression memberExpression)
             {
@@ -161,7 +163,8 @@ namespace WeihanLi.Common.Data
 
     public
 #else
-        internal
+
+    internal
 #endif
             class SqlParseResult
     {

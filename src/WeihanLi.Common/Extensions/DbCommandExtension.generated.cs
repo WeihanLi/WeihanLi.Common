@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 
@@ -11,7 +12,7 @@ namespace WeihanLi.Extensions
     public static partial class DataExtension
     {
               
-        public static IEnumerable<T> Select<T>([NotNull]this DbCommand command) where T:new()
+        public static IEnumerable<T> Select<T>([NotNull]this DbCommand command) 
         {
             using (var reader = command.ExecuteReader())
             {
@@ -19,16 +20,16 @@ namespace WeihanLi.Extensions
             }
         }
 
-       public static async Task<IEnumerable<T>> SelectAsync<T>([NotNull]this DbCommand command) where T:new()
+       public static async Task<IEnumerable<T>> SelectAsync<T>([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
        {
-           using (var reader = await command.ExecuteReaderAsync())
+           using (var reader = await command.ExecuteReaderAsync(cancellationToken))
            {
                 return reader.ToDataTable().ToEntities<T>();
            }
        }
 
       
-        public static T Fetch<T>([NotNull]this DbCommand command) where T:new()
+        public static T Fetch<T>([NotNull]this DbCommand command)
         {
             using (var reader = command.ExecuteReader())
             {
@@ -36,9 +37,9 @@ namespace WeihanLi.Extensions
             }
         }
 
-       public static async Task<T> FetchAsync<T>([NotNull]this DbCommand command) where T:new()
+       public static async Task<T> FetchAsync<T>([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
        {
-           using (var reader = await command.ExecuteReaderAsync())
+           using (var reader = await command.ExecuteReaderAsync(cancellationToken))
             {
                 return reader.ToEntity<T>();
             }
@@ -53,9 +54,9 @@ namespace WeihanLi.Extensions
             }
         }
 
-       public static async Task<DataTable> ExecuteDataTableAsync([NotNull]this DbCommand command)
+       public static async Task<DataTable> ExecuteDataTableAsync([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
        {
-           using (var reader = await command.ExecuteReaderAsync())
+           using (var reader = await command.ExecuteReaderAsync(cancellationToken))
             {
                 return reader.ToDataTable();
             }

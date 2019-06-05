@@ -8,7 +8,8 @@ using JetBrains.Annotations;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
-namespace WeihanLi.Common.Extensions
+// ReSharper disable once CheckNamespace
+namespace WeihanLi.Extensions
 {
     public static class HttpRequesterExtension
     {

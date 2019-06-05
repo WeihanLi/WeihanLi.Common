@@ -14,6 +14,7 @@ using System.Diagnostics;
 using System.Dynamic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using WeihanLi.Common;
@@ -92,7 +93,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
-        public static IEnumerable<T> ToEntities<T>([NotNull]this DataTable @this) where T : new()
+        public static IEnumerable<T> ToEntities<T>([NotNull]this DataTable @this)
         {
             var type = typeof(T);
 
@@ -115,7 +116,7 @@ namespace WeihanLi.Extensions
 
                     foreach (DataRow dr in @this.Rows)
                     {
-                        var entity = new T();
+                        var entity = Activator.CreateInstance<T>();
                         if (type.IsValueType)
                         {
                             var obj = (object)entity;
@@ -267,7 +268,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
-        public static IEnumerable<T> ToEntities<T>([NotNull]this IDataReader @this) where T : new()
+        public static IEnumerable<T> ToEntities<T>([NotNull]this IDataReader @this)
         {
             if (@this.FieldCount > 0)
             {
@@ -291,7 +292,7 @@ namespace WeihanLi.Extensions
                             .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDb());
                     while (@this.Read())
                     {
-                        var entity = new T();
+                        var entity = Activator.CreateInstance<T>();
 
                         if (type.IsValueType)
                         {
@@ -328,7 +329,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a T.</returns>
-        public static T ToEntity<T>([NotNull]this IDataReader @this) where T : new()
+        public static T ToEntity<T>([NotNull]this IDataReader @this)
         {
             if (@this.FieldCount > 0 && @this.Read())
             {
@@ -340,7 +341,7 @@ namespace WeihanLi.Extensions
 
                 var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
 
-                var entity = new T();
+                var entity = Activator.CreateInstance<T>();
 
                 var dic = Enumerable.Range(0, @this.FieldCount)
                     .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDb());
@@ -465,25 +466,11 @@ namespace WeihanLi.Extensions
             }
         }
 
-        /// <summary>
-        /// 获取参数名称
-        /// </summary>
-        /// <param name="originName">原参数名</param>
-        /// <returns>格式化后的参数名</returns>
-        private static string GetParameterName(string originName)
-        {
-            if (!string.IsNullOrEmpty(originName))
-            {
-                switch (originName[0])
-                {
-                    case '@':
-                    case ':':
-                    case '?':
-                        return originName.Substring(1);
-                }
-            }
-            return originName;
-        }
+        #endregion DbConnection
+
+#if NET45
+
+        #region SqlConnection
 
         /// <summary>
         /// 从数据库中根据表名获取列名
@@ -491,7 +478,7 @@ namespace WeihanLi.Extensions
         /// <param name="connection">数据库连接</param>
         /// <param name="tableName">表名称</param>
         /// <returns></returns>
-        public static IEnumerable<string> GetColumnNamesFromDb([NotNull]this DbConnection connection, string tableName)
+        public static IEnumerable<string> GetColumnNamesFromDb([NotNull]this SqlConnection connection, string tableName)
         {
             connection.EnsureOpen();
             return connection.QueryColumn<string>(@"SELECT c.[name]
@@ -508,7 +495,7 @@ ORDER BY c.[column_id];", new { tableName });
         /// <param name="connection">数据库连接</param>
         /// <param name="tableName">表名称</param>
         /// <returns></returns>
-        public static Task<IEnumerable<string>> GetColumnNamesFromDbAsync([NotNull]this DbConnection connection, string tableName)
+        public static Task<IEnumerable<string>> GetColumnNamesFromDbAsync([NotNull]this SqlConnection connection, string tableName)
         {
             connection.EnsureOpen();
             return connection.QueryColumnAsync<string>(@"SELECT c.[name]
@@ -518,12 +505,6 @@ FROM sys.columns c
 WHERE t.name = @tableName
 ORDER BY c.[column_id];", new { tableName });
         }
-
-        #endregion DbConnection
-
-#if NET45
-
-        #region SqlConnection
 
         public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName) => BulkCopy<T>(conn, list, tableName, 60);
 
@@ -741,9 +722,14 @@ ORDER BY c.[column_id];", new { tableName });
         /// <typeparam name="T">Type</typeparam>
         /// <param name="this">db command</param>
         /// <param name="func">function</param>
+        /// <param name="cancellationToken">cancellationToken</param>
         /// <returns></returns>
-        public static Task<T> ExecuteDataTableAsync<T>([NotNull]this DbCommand @this, Func<DataTable, Task<T>> func) =>
-            @this.ExecuteDataTableAsync().ContinueWith(result => func(result.Result)).Result;
+        public static async Task<T> ExecuteDataTableAsync<T>([NotNull]this DbCommand @this, Func<DataTable, Task<T>> func, CancellationToken cancellationToken = default)
+        {
+            var dataTable = await @this.ExecuteDataTableAsync(cancellationToken);
+            var result = await func(dataTable);
+            return result;
+        }
 
         /// <summary>
         ///     A DbCommand extension method that executes the scalar to operation.
@@ -758,8 +744,9 @@ ORDER BY c.[column_id];", new { tableName });
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>A T.</returns>
-        public static async Task<T> ExecuteScalarToAsync<T>([NotNull]this DbCommand @this) => (await @this.ExecuteScalarAsync()).To<T>();
+        public static async Task<T> ExecuteScalarToAsync<T>([NotNull]this DbCommand @this, CancellationToken cancellationToken = default) => (await @this.ExecuteScalarAsync(cancellationToken)).To<T>();
 
         /// <summary>
         ///     A DbCommand extension method that executes the scalar to operation.
@@ -774,8 +761,9 @@ ORDER BY c.[column_id];", new { tableName });
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>A T.</returns>
-        public static async Task<T> ExecuteScalarToOrDefaultAsync<T>([NotNull]this DbCommand @this) => (await @this.ExecuteScalarAsync()).ToOrDefault<T>();
+        public static async Task<T> ExecuteScalarToOrDefaultAsync<T>([NotNull]this DbCommand @this, CancellationToken cancellationToken = default) => (await @this.ExecuteScalarAsync(cancellationToken)).ToOrDefault<T>();
 
         /// <summary>
         ///     A DbCommand extension method that executes the scalar to or default operation.
@@ -888,6 +876,26 @@ ORDER BY c.[column_id];", new { tableName });
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// 获取参数名称
+        /// </summary>
+        /// <param name="originName">原参数名</param>
+        /// <returns>格式化后的参数名</returns>
+        private static string GetParameterName(string originName)
+        {
+            if (!string.IsNullOrEmpty(originName))
+            {
+                switch (originName[0])
+                {
+                    case '@':
+                    case ':':
+                    case '?':
+                        return originName.Substring(1);
+                }
+            }
+            return originName;
         }
 
         private static readonly Dictionary<Type, DbType> TypeMap = new Dictionary<Type, DbType>

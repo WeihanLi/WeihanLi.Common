@@ -27,7 +27,7 @@ namespace DotNetCoreSample
 
             var city = configuration.GetAppSetting("City");
             var number = configuration.GetAppSetting<int>("Number");
-            System.Console.WriteLine($"City:{city}, Number:{number}");
+            Console.WriteLine($"City:{city}, Number:{number}");
 
             serviceCollection.AddSingleton(configuration);
 

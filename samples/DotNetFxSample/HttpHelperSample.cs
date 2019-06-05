@@ -173,7 +173,7 @@ namespace DotNetFxSample
             //    { "userCode", "a01836e9-f566-46c5-b3df-528c65e78dbd" }
             //})
             .WithUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36");
-            var result = activateClient.Execute<TempResponseEntity>();
+            var result = activateClient.ExecuteForJson<TempResponseEntity>();
             Console.Write(result);
         }
 

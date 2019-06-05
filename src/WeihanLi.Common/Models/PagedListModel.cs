@@ -8,7 +8,7 @@ namespace WeihanLi.Common.Models
     /// IPagedListModel
     /// </summary>
     /// <typeparam name="T">Type</typeparam>
-    public interface IPagedListModel<out T> : IEnumerable<T>
+    public interface IPagedListModel<out T> : IReadOnlyList<T>
     {
         /// <summary>
         /// Data
