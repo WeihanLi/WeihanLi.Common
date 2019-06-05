@@ -93,7 +93,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
-        public static IEnumerable<T> ToEntities<T>([NotNull]this DataTable @this) where T : new()
+        public static IEnumerable<T> ToEntities<T>([NotNull]this DataTable @this)
         {
             var type = typeof(T);
 
@@ -116,7 +116,7 @@ namespace WeihanLi.Extensions
 
                     foreach (DataRow dr in @this.Rows)
                     {
-                        var entity = new T();
+                        var entity = Activator.CreateInstance<T>();
                         if (type.IsValueType)
                         {
                             var obj = (object)entity;
@@ -268,7 +268,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
-        public static IEnumerable<T> ToEntities<T>([NotNull]this IDataReader @this) where T : new()
+        public static IEnumerable<T> ToEntities<T>([NotNull]this IDataReader @this)
         {
             if (@this.FieldCount > 0)
             {
@@ -292,7 +292,7 @@ namespace WeihanLi.Extensions
                             .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDb());
                     while (@this.Read())
                     {
-                        var entity = new T();
+                        var entity = Activator.CreateInstance<T>();
 
                         if (type.IsValueType)
                         {
@@ -329,7 +329,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a T.</returns>
-        public static T ToEntity<T>([NotNull]this IDataReader @this) where T : new()
+        public static T ToEntity<T>([NotNull]this IDataReader @this)
         {
             if (@this.FieldCount > 0 && @this.Read())
             {
@@ -341,7 +341,7 @@ namespace WeihanLi.Extensions
 
                 var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
 
-                var entity = new T();
+                var entity = Activator.CreateInstance<T>();
 
                 var dic = Enumerable.Range(0, @this.FieldCount)
                     .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDb());
