@@ -13,6 +13,40 @@ namespace WeihanLi.Data
     {
         #region SqlConnection
 
+        /// <summary>
+        /// 从数据库中根据表名获取列名
+        /// </summary>
+        /// <param name="connection">数据库连接</param>
+        /// <param name="tableName">表名称</param>
+        /// <returns></returns>
+        public static IEnumerable<string> GetColumnNamesFromDb([NotNull]this SqlConnection connection, string tableName)
+        {
+            connection.EnsureOpen();
+            return connection.QueryColumn<string>(@"SELECT c.[name]
+FROM sys.columns c
+    JOIN sys.tables t
+        ON c.object_id = t.object_id
+WHERE t.name = @tableName
+ORDER BY c.[column_id];", new { tableName });
+        }
+
+        /// <summary>
+        /// 从数据库中根据表名获取列名
+        /// </summary>
+        /// <param name="connection">数据库连接</param>
+        /// <param name="tableName">表名称</param>
+        /// <returns></returns>
+        public static Task<IEnumerable<string>> GetColumnNamesFromDbAsync([NotNull]this SqlConnection connection, string tableName)
+        {
+            connection.EnsureOpen();
+            return connection.QueryColumnAsync<string>(@"SELECT c.[name]
+FROM sys.columns c
+    JOIN sys.tables t
+        ON c.object_id = t.object_id
+WHERE t.name = @tableName
+ORDER BY c.[column_id];", new { tableName });
+        }
+
         public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName) => BulkCopy(conn, list, tableName, 60);
 
         public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName, int bulkCopyTimeout)

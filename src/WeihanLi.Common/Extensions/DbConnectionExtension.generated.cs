@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using System.Threading;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 
@@ -30,21 +31,21 @@ finally{
 }
         }
 
-       public static Task<int> ExecuteAsync([NotNull]this DbConnection conn, string cmdText, int commandTimeout = 60) => conn.ExecuteAsync(cmdText, null, commandTimeout);
+       public static Task<int> ExecuteAsync([NotNull]this DbConnection conn, string cmdText, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.ExecuteAsync(cmdText, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static Task<int> ExecuteAsync([NotNull]this DbConnection conn, string cmdText, object paramInfo, int commandTimeout = 60) => conn.ExecuteAsync(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout);
+       public static Task<int> ExecuteAsync([NotNull]this DbConnection conn, string cmdText, object paramInfo, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.ExecuteAsync(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static Task<int> ExecuteAsync([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int commandTimeout = 60) => conn.ExecuteAsync(cmdText, commandType, paramInfo, null, null, commandTimeout);
+       public static Task<int> ExecuteAsync([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.ExecuteAsync(cmdText, commandType, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
        public static Task<int> ExecuteAsync([NotNull]this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)=> conn.ExecuteAsync(cmdText, CommandType.Text, paramInfo, paramters, null);
 
-       public static async Task<int> ExecuteAsync([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60)
+       public static async Task<int> ExecuteAsync([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default)
        {
            await conn.EnsureOpenAsync();
 try{        
    using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
-               return await command.ExecuteNonQueryAsync();
+               return await command.ExecuteNonQueryAsync(cancellationToken);
            }
 }
 finally{
@@ -72,21 +73,21 @@ finally{
 }
         }
 
-       public static Task<object> ExecuteScalarAsync([NotNull]this DbConnection conn, string cmdText, int commandTimeout = 60) => conn.ExecuteScalarAsync(cmdText, null, commandTimeout);
+       public static Task<object> ExecuteScalarAsync([NotNull]this DbConnection conn, string cmdText, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.ExecuteScalarAsync(cmdText, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static Task<object> ExecuteScalarAsync([NotNull]this DbConnection conn, string cmdText, object paramInfo, int commandTimeout = 60) => conn.ExecuteScalarAsync(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout);
+       public static Task<object> ExecuteScalarAsync([NotNull]this DbConnection conn, string cmdText, object paramInfo, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.ExecuteScalarAsync(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static Task<object> ExecuteScalarAsync([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int commandTimeout = 60) => conn.ExecuteScalarAsync(cmdText, commandType, paramInfo, null, null, commandTimeout);
+       public static Task<object> ExecuteScalarAsync([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.ExecuteScalarAsync(cmdText, commandType, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
        public static Task<object> ExecuteScalarAsync([NotNull]this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)=> conn.ExecuteScalarAsync(cmdText, CommandType.Text, paramInfo, paramters, null);
 
-       public static async Task<object> ExecuteScalarAsync([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60)
+       public static async Task<object> ExecuteScalarAsync([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default)
        {
            await conn.EnsureOpenAsync();
 try{        
    using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
-               return await command.ExecuteScalarAsync();
+               return await command.ExecuteScalarAsync(cancellationToken);
            }
 }
 finally{
@@ -114,21 +115,21 @@ finally{
 }
         }
 
-       public static Task<DataTable> ExecuteDataTableAsync([NotNull]this DbConnection conn, string cmdText, int commandTimeout = 60) => conn.ExecuteDataTableAsync(cmdText, null, commandTimeout);
+       public static Task<DataTable> ExecuteDataTableAsync([NotNull]this DbConnection conn, string cmdText, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.ExecuteDataTableAsync(cmdText, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static Task<DataTable> ExecuteDataTableAsync([NotNull]this DbConnection conn, string cmdText, object paramInfo, int commandTimeout = 60) => conn.ExecuteDataTableAsync(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout);
+       public static Task<DataTable> ExecuteDataTableAsync([NotNull]this DbConnection conn, string cmdText, object paramInfo, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.ExecuteDataTableAsync(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static Task<DataTable> ExecuteDataTableAsync([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int commandTimeout = 60) => conn.ExecuteDataTableAsync(cmdText, commandType, paramInfo, null, null, commandTimeout);
+       public static Task<DataTable> ExecuteDataTableAsync([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.ExecuteDataTableAsync(cmdText, commandType, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
        public static Task<DataTable> ExecuteDataTableAsync([NotNull]this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)=> conn.ExecuteDataTableAsync(cmdText, CommandType.Text, paramInfo, paramters, null);
 
-       public static async Task<DataTable> ExecuteDataTableAsync([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60)
+       public static async Task<DataTable> ExecuteDataTableAsync([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default)
        {
            await conn.EnsureOpenAsync();
 try{        
    using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
-               return await command.ExecuteDataTableAsync();
+               return await command.ExecuteDataTableAsync(cancellationToken);
            }
 }
 finally{
@@ -157,23 +158,23 @@ finally{
 }
         }
 
-       public static Task<IEnumerable<T>> SelectAsync<T>([NotNull]this DbConnection conn, string cmdText, int commandTimeout=60) where T:new() => conn.SelectAsync<T>(cmdText, null, commandTimeout);
+       public static Task<IEnumerable<T>> SelectAsync<T>([NotNull]this DbConnection conn, string cmdText, int commandTimeout=60, CancellationToken cancellationToken = default) where T:new() => conn.SelectAsync<T>(cmdText, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static Task<IEnumerable<T>> SelectAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, int commandTimeout=60) where T:new() => conn.SelectAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout);
+       public static Task<IEnumerable<T>> SelectAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, int commandTimeout=60, CancellationToken cancellationToken = default) where T:new() => conn.SelectAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static Task<IEnumerable<T>> SelectAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int commandTimeout=60) where T:new() => conn.SelectAsync<T>(cmdText, commandType, paramInfo, null, null, commandTimeout);
+       public static Task<IEnumerable<T>> SelectAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int commandTimeout=60, CancellationToken cancellationToken = default) where T:new() => conn.SelectAsync<T>(cmdText, commandType, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
        public static Task<IEnumerable<T>> SelectAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters) where T:new()=> conn.SelectAsync<T>(cmdText, CommandType.Text, paramInfo, paramters, null);
 
-       public static Task<IEnumerable<T>> SelectAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int commandTimeout=60) where T:new()=> conn.SelectAsync<T>(cmdText, commandType, paramInfo, paramters, null, commandTimeout);
+       public static Task<IEnumerable<T>> SelectAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int commandTimeout=60, CancellationToken cancellationToken = default) where T:new()=> conn.SelectAsync<T>(cmdText, commandType, paramInfo, paramters, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static async Task<IEnumerable<T>> SelectAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60) where T:new()
+       public static async Task<IEnumerable<T>> SelectAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default) where T:new()
        {
            await conn.EnsureOpenAsync();
 try{
            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
-               return await command.SelectAsync<T>();
+               return await command.SelectAsync<T>(cancellationToken);
            }
 }
 finally{
@@ -201,23 +202,23 @@ finally{
 }
         }
 
-       public static Task<T> FetchAsync<T>([NotNull]this DbConnection conn, string cmdText, int commandTimeout=60) where T:new() => conn.FetchAsync<T>(cmdText, null, commandTimeout);
+       public static Task<T> FetchAsync<T>([NotNull]this DbConnection conn, string cmdText, int commandTimeout=60, CancellationToken cancellationToken = default) where T:new() => conn.FetchAsync<T>(cmdText, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static Task<T> FetchAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, int commandTimeout=60) where T:new() => conn.FetchAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout);
+       public static Task<T> FetchAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, int commandTimeout=60, CancellationToken cancellationToken = default) where T:new() => conn.FetchAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static Task<T> FetchAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int commandTimeout=60) where T:new() => conn.FetchAsync<T>(cmdText, commandType, paramInfo, null, null, commandTimeout);
+       public static Task<T> FetchAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int commandTimeout=60, CancellationToken cancellationToken = default) where T:new() => conn.FetchAsync<T>(cmdText, commandType, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
        public static Task<T> FetchAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters) where T:new()=> conn.FetchAsync<T>(cmdText, CommandType.Text, paramInfo, paramters, null);
 
-       public static Task<T> FetchAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int commandTimeout=60) where T:new()=> conn.FetchAsync<T>(cmdText, commandType, paramInfo, paramters, null, commandTimeout);
+       public static Task<T> FetchAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int commandTimeout=60, CancellationToken cancellationToken = default) where T:new()=> conn.FetchAsync<T>(cmdText, commandType, paramInfo, paramters, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static async Task<T> FetchAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60) where T:new()
+       public static async Task<T> FetchAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default) where T:new()
        {
            await conn.EnsureOpenAsync();
 try{
            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
-               return await command.FetchAsync<T>();
+               return await command.FetchAsync<T>(cancellationToken);
            }
 }
 finally{
@@ -247,23 +248,23 @@ finally{
 }
         }
 
-       public static Task<T> ExecuteDataTableAsync<T>([NotNull]this DbConnection conn, string cmdText,Func<DataTable, T> func) where T:new() => conn.ExecuteDataTableAsync<T>(cmdText, null, func);
+       public static Task<T> ExecuteDataTableAsync<T>([NotNull]this DbConnection conn, string cmdText,Func<DataTable, T> func, CancellationToken cancellationToken = default) where T:new() => conn.ExecuteDataTableAsync<T>(cmdText, null, func, cancellationToken: cancellationToken);
 
-       public static Task<T> ExecuteDataTableAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo,Func<DataTable, T> func) where T:new() => conn.ExecuteDataTableAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, func);
+       public static Task<T> ExecuteDataTableAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo,Func<DataTable, T> func, CancellationToken cancellationToken = default) where T:new() => conn.ExecuteDataTableAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, func, cancellationToken: cancellationToken);
 
-       public static Task<T> ExecuteDataTableAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo,Func<DataTable, T> func) where T:new() => conn.ExecuteDataTableAsync<T>(cmdText, commandType, paramInfo, null, null, func);
+       public static Task<T> ExecuteDataTableAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo,Func<DataTable, T> func, CancellationToken cancellationToken = default) where T:new() => conn.ExecuteDataTableAsync<T>(cmdText, commandType, paramInfo, null, null, func, cancellationToken: cancellationToken);
 
-       public static Task<T> ExecuteDataTableAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, DbParameter[] paramters,Func<DataTable, T> func) where T:new()=> conn.ExecuteDataTableAsync<T>(cmdText, CommandType.Text, paramInfo, paramters, null, func);
+       public static Task<T> ExecuteDataTableAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, DbParameter[] paramters,Func<DataTable, T> func, CancellationToken cancellationToken = default) where T:new()=> conn.ExecuteDataTableAsync<T>(cmdText, CommandType.Text, paramInfo, paramters, null, func, cancellationToken: cancellationToken);
 
-       public static Task<T> ExecuteDataTableAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters,Func<DataTable, T> func) where T:new()=> conn.ExecuteDataTableAsync<T>(cmdText, commandType, paramInfo, paramters, null);
+       public static Task<T> ExecuteDataTableAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters,Func<DataTable, T> func, CancellationToken cancellationToken = default) where T:new()=> conn.ExecuteDataTableAsync<T>(cmdText, commandType, paramInfo, paramters, null, cancellationToken: cancellationToken);
 
-       public static async Task<T> ExecuteDataTableAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction,Func<DataTable, T> func, int commandTimeout = 60) where T:new()
+       public static async Task<T> ExecuteDataTableAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction,Func<DataTable, T> func, int commandTimeout = 60, CancellationToken cancellationToken = default) where T:new()
        {
            await conn.EnsureOpenAsync();
 try{
            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
-               return func(await command.ExecuteDataTableAsync());
+               return func(await command.ExecuteDataTableAsync(cancellationToken));
            }
 }
 finally{
@@ -293,23 +294,23 @@ finally{
 }
         }
 
-       public static Task<T> ExecuteScalarToAsync<T>([NotNull]this DbConnection conn, string cmdText) => conn.ExecuteScalarToAsync<T>(cmdText, null);
+       public static Task<T> ExecuteScalarToAsync<T>([NotNull]this DbConnection conn, string cmdText, CancellationToken cancellationToken = default) => conn.ExecuteScalarToAsync<T>(cmdText, null, cancellationToken: cancellationToken);
 
-       public static Task<T> ExecuteScalarToAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo) => conn.ExecuteScalarToAsync<T>(cmdText, CommandType.Text, paramInfo, null, null);
+       public static Task<T> ExecuteScalarToAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, CancellationToken cancellationToken = default) => conn.ExecuteScalarToAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, cancellationToken: cancellationToken);
 
-       public static Task<T> ExecuteScalarToAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo) => conn.ExecuteScalarToAsync<T>(cmdText, commandType, paramInfo, null, null);
+       public static Task<T> ExecuteScalarToAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, CancellationToken cancellationToken = default) => conn.ExecuteScalarToAsync<T>(cmdText, commandType, paramInfo, null, null, cancellationToken: cancellationToken);
 
        public static Task<T> ExecuteScalarToAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)=> conn.ExecuteScalarToAsync<T>(cmdText, CommandType.Text, paramInfo, paramters, null);
 
-       public static Task<T> ExecuteScalarToAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters)=> conn.ExecuteScalarToAsync<T>(cmdText, commandType, paramInfo, paramters, null);
+       public static Task<T> ExecuteScalarToAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, CancellationToken cancellationToken = default)=> conn.ExecuteScalarToAsync<T>(cmdText, commandType, paramInfo, paramters, null, cancellationToken: cancellationToken);
 
-       public static async Task<T> ExecuteScalarToAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout=60)
+       public static async Task<T> ExecuteScalarToAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout=60, CancellationToken cancellationToken = default)
        {
            await conn.EnsureOpenAsync();
 try{
            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
-               return await command.ExecuteScalarToAsync<T>();
+               return await command.ExecuteScalarToAsync<T>(cancellationToken);
            }
 }
 finally{
@@ -338,23 +339,23 @@ finally{
 }
         }
 
-       public static Task<T> ExecuteScalarToOrDefaultAsync<T>([NotNull]this DbConnection conn, string cmdText) => conn.ExecuteScalarToOrDefaultAsync<T>(cmdText, null);
+       public static Task<T> ExecuteScalarToOrDefaultAsync<T>([NotNull]this DbConnection conn, string cmdText, CancellationToken cancellationToken = default) => conn.ExecuteScalarToOrDefaultAsync<T>(cmdText, null, cancellationToken: cancellationToken);
 
-       public static Task<T> ExecuteScalarToOrDefaultAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo) => conn.ExecuteScalarToOrDefaultAsync<T>(cmdText, CommandType.Text, paramInfo, null, null);
+       public static Task<T> ExecuteScalarToOrDefaultAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, CancellationToken cancellationToken = default) => conn.ExecuteScalarToOrDefaultAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, cancellationToken: cancellationToken);
 
-       public static Task<T> ExecuteScalarToOrDefaultAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo) => conn.ExecuteScalarToOrDefaultAsync<T>(cmdText, commandType, paramInfo, null, null);
+       public static Task<T> ExecuteScalarToOrDefaultAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, CancellationToken cancellationToken = default) => conn.ExecuteScalarToOrDefaultAsync<T>(cmdText, commandType, paramInfo, null, null, cancellationToken: cancellationToken);
 
        public static Task<T> ExecuteScalarToOrDefaultAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)=> conn.ExecuteScalarToOrDefaultAsync<T>(cmdText, CommandType.Text, paramInfo, paramters, null);
 
-       public static Task<T> ExecuteScalarToOrDefaultAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters)=> conn.ExecuteScalarToOrDefaultAsync<T>(cmdText, commandType, paramInfo, paramters, null);
+       public static Task<T> ExecuteScalarToOrDefaultAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, CancellationToken cancellationToken = default)=> conn.ExecuteScalarToOrDefaultAsync<T>(cmdText, commandType, paramInfo, paramters, null, cancellationToken: cancellationToken);
 
-       public static async Task<T> ExecuteScalarToOrDefaultAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout=60)
+       public static async Task<T> ExecuteScalarToOrDefaultAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout=60, CancellationToken cancellationToken = default)
        {
            await conn.EnsureOpenAsync();
 try{
            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
-               return await command.ExecuteScalarToOrDefaultAsync<T>();
+               return await command.ExecuteScalarToOrDefaultAsync<T>(cancellationToken);
            }
 }
 finally{
@@ -385,24 +386,24 @@ finally{
 }
         }
 
-       public static Task<IEnumerable<T>> QueryColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, int columnIndex = 0)=> conn.QueryColumnAsync<T>(cmdText, null, columnIndex);
+       public static Task<IEnumerable<T>> QueryColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.QueryColumnAsync<T>(cmdText, null, columnIndex);
 
-       public static Task<IEnumerable<T>> QueryColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0)=> conn.QueryColumnAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, columnIndex);
+       public static Task<IEnumerable<T>> QueryColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.QueryColumnAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, columnIndex);
 
 
-       public static Task<IEnumerable<T>> QueryColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int columnIndex = 0)=> conn.QueryColumnAsync<T>(cmdText, commandType, paramInfo, null, null, columnIndex);
+       public static Task<IEnumerable<T>> QueryColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.QueryColumnAsync<T>(cmdText, commandType, paramInfo, null, null, columnIndex, cancellationToken: cancellationToken);
 
        public static Task<IEnumerable<T>> QueryColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0, params DbParameter[] paramters)=> conn.QueryColumnAsync<T>(cmdText, CommandType.Text, paramInfo, paramters, null, columnIndex);
 
-       public static Task<IEnumerable<T>> QueryColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int columnIndex = 0) => conn.QueryColumnAsync<T>(cmdText, commandType, paramInfo, paramters, null, columnIndex);
+       public static Task<IEnumerable<T>> QueryColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int columnIndex = 0, CancellationToken cancellationToken = default) => conn.QueryColumnAsync<T>(cmdText, commandType, paramInfo, paramters, null, columnIndex, cancellationToken: cancellationToken);
 
-       public static async Task<IEnumerable<T>> QueryColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int columnIndex = 0, int commandTimeout=60)
+       public static async Task<IEnumerable<T>> QueryColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int columnIndex = 0, int commandTimeout=60, CancellationToken cancellationToken = default)
        {
            await conn.EnsureOpenAsync();
 try{
            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
-               return (await command.ExecuteDataTableAsync()).ColumnToList<T>(columnIndex);
+               return (await command.ExecuteDataTableAsync(cancellationToken)).ColumnToList<T>(columnIndex);
            }
 }
 finally{
@@ -432,24 +433,24 @@ finally{
 }
         }
 
-       public static Task<IEnumerable<T>> SelectColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, int columnIndex = 0)=> conn.SelectColumnAsync<T>(cmdText, null, columnIndex);
+       public static Task<IEnumerable<T>> SelectColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.SelectColumnAsync<T>(cmdText, null, columnIndex);
 
-       public static Task<IEnumerable<T>> SelectColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0)=> conn.SelectColumnAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, columnIndex);
+       public static Task<IEnumerable<T>> SelectColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.SelectColumnAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, columnIndex);
 
 
-       public static Task<IEnumerable<T>> SelectColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int columnIndex = 0)=> conn.SelectColumnAsync<T>(cmdText, commandType, paramInfo, null, null, columnIndex);
+       public static Task<IEnumerable<T>> SelectColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.SelectColumnAsync<T>(cmdText, commandType, paramInfo, null, null, columnIndex, cancellationToken: cancellationToken);
 
        public static Task<IEnumerable<T>> SelectColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0, params DbParameter[] paramters)=> conn.SelectColumnAsync<T>(cmdText, CommandType.Text, paramInfo, paramters, null, columnIndex);
 
-       public static Task<IEnumerable<T>> SelectColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int columnIndex = 0) => conn.SelectColumnAsync<T>(cmdText, commandType, paramInfo, paramters, null, columnIndex);
+       public static Task<IEnumerable<T>> SelectColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int columnIndex = 0, CancellationToken cancellationToken = default) => conn.SelectColumnAsync<T>(cmdText, commandType, paramInfo, paramters, null, columnIndex, cancellationToken: cancellationToken);
 
-       public static async Task<IEnumerable<T>> SelectColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int columnIndex = 0, int commandTimeout=60)
+       public static async Task<IEnumerable<T>> SelectColumnAsync<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int columnIndex = 0, int commandTimeout=60, CancellationToken cancellationToken = default)
        {
            await conn.EnsureOpenAsync();
 try{
            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
-               return (await command.ExecuteDataTableAsync()).ColumnToList<T>(columnIndex);
+               return (await command.ExecuteDataTableAsync(cancellationToken)).ColumnToList<T>(columnIndex);
            }
 }
 finally{
