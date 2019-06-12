@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Threading;
 using System.Threading.Tasks;
 using WeihanLi.Common.Models;
 
@@ -17,32 +18,32 @@ namespace WeihanLi.Common.Data
         /// </summary>
         int Count(Expression<Func<TEntity, bool>> whereExpression);
 
-        Task<int> CountAsync(Expression<Func<TEntity, bool>> whereExpression);
+        Task<int> CountAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// LongCount
         /// </summary>
         long LongCount(Expression<Func<TEntity, bool>> whereExpression);
 
-        Task<long> LongCountAsync(Expression<Func<TEntity, bool>> whereExpression);
+        Task<long> LongCountAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Exist
         /// </summary>
         bool Exist(Expression<Func<TEntity, bool>> whereExpression);
 
-        Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression);
+        Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get top 1 entity
         /// </summary>
         TEntity Fetch(Expression<Func<TEntity, bool>> whereExpression);
 
-        Task<TEntity> FetchAsync(Expression<Func<TEntity, bool>> whereExpression);
+        Task<TEntity> FetchAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default);
 
         TEntity Fetch<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
 
-        Task<TEntity> FetchAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
+        Task<TEntity> FetchAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get List
@@ -51,7 +52,13 @@ namespace WeihanLi.Common.Data
         /// <returns></returns>
         List<TEntity> Select(Expression<Func<TEntity, bool>> whereExpression);
 
-        Task<List<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> whereExpression);
+        /// <summary>
+        /// Get Entity List
+        /// </summary>
+        /// <param name="whereExpression">where Expression</param>
+        /// <param name="cancellationToken">cancellationToken</param>
+        /// <returns></returns>
+        Task<List<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get List, Top n
@@ -70,8 +77,9 @@ namespace WeihanLi.Common.Data
         /// <param name="whereExpression">whereExpression</param>
         /// <param name="orderByExpression">orderBy</param>
         /// <param name="ascending">is ascending</param>
+        /// <param name="cancellationToken">cancellationToken</param>
         /// <returns></returns>
-        Task<List<TEntity>> SelectAsync<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
+        Task<List<TEntity>> SelectAsync<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Paged List
@@ -83,7 +91,7 @@ namespace WeihanLi.Common.Data
         /// <param name="orderByExpression">orderByExpression</param>
         /// <param name="ascending">is ascending</param>
         /// <returns></returns>
-        PagedListModel<TEntity> Paged<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
+        IPagedListModel<TEntity> Paged<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
 
         /// <summary>
         /// Get Paged List
@@ -94,8 +102,9 @@ namespace WeihanLi.Common.Data
         /// <param name="whereExpression">whereExpression</param>
         /// <param name="orderByExpression">orderByExpression</param>
         /// <param name="ascending">is ascending</param>
+        /// <param name="cancellationToken">cancellationToken</param>
         /// <returns></returns>
-        Task<PagedListModel<TEntity>> PagedAsync<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
+        Task<IPagedListModel<TEntity>> PagedAsync<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Insert a entity
@@ -107,7 +116,8 @@ namespace WeihanLi.Common.Data
         /// Insert a entity
         /// </summary>
         /// <param name="entity">Entity</param>
-        Task<int> InsertAsync(TEntity entity);
+        /// <param name="cancellationToken">cancellationToken</param>
+        Task<int> InsertAsync(TEntity entity, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Insert entities
@@ -119,7 +129,9 @@ namespace WeihanLi.Common.Data
         /// Insert entities
         /// </summary>
         /// <param name="entities">Entities</param>
-        Task<int> InsertAsync(IEnumerable<TEntity> entities);
+        /// <param name="cancellationToken">cancellationToken</param>
+        /// <returns>rows affected</returns>
+        Task<int> InsertAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// update entity specific property by where
@@ -138,8 +150,9 @@ namespace WeihanLi.Common.Data
         /// <param name="whereExpression">where</param>
         /// <param name="propertyExpression">property</param>
         /// <param name="value">new property value</param>
+        /// <param name="cancellationToken">cancellationToken</param>
         /// <returns></returns>
-        Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value);
+        Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update entities properties by where
@@ -154,8 +167,9 @@ namespace WeihanLi.Common.Data
         /// </summary>
         /// <param name="whereExpression">whereExpression</param>
         /// <param name="propertyValues">propertyValues to update</param>
+        /// <param name="cancellationToken">cancellationToken</param>
         /// <returns>updated rows count</returns>
-        Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues);
+        Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete entities by where
@@ -167,6 +181,7 @@ namespace WeihanLi.Common.Data
         /// Delete entities by  where
         /// </summary>
         /// <param name="whereExpression">whereExpression</param>
-        Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression);
+        /// <param name="cancellationToken">cancellationToken</param>
+        Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default);
     }
 }

@@ -36,12 +36,12 @@ namespace DotNetCoreSample
 
         public void Fly()
         {
-            Console.WriteLine("MonkeyKing is flying");
+            Console.WriteLine($"{Name} is flying");
         }
 
         public void Dispose()
         {
-            Console.WriteLine("MonkeyKing is disposing..");
+            Console.WriteLine($"{Name}  disposed...");
         }
     }
 

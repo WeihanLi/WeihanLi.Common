@@ -4,6 +4,11 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.21](https://www.nuget.org/packages/WeihanLi.Common/1.0.21)
+
+- add `CancellationToken` support for Repository and DataExtensions async operations
+- optimize DataExtension remove `new()` LIMIT
+
 ### [WeihanLi.Common 1.0.20](https://www.nuget.org/packages/WeihanLi.Common/1.0.20)
 
 - add [sourceLink](https://github.com/dotnet/sourcelink) support
