@@ -6,7 +6,7 @@
 
 ### [WeihanLi.Common 1.0.21](https://www.nuget.org/packages/WeihanLi.Common/1.0.21)
 
-- add `CancelationToken` support for Repository and DataExtensions async operations
+- add `CancellationToken` support for Repository and DataExtensions async operations
 - optimize DataExtension remove `new()` LIMIT
 
 ### [WeihanLi.Common 1.0.20](https://www.nuget.org/packages/WeihanLi.Common/1.0.20)
