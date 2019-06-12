@@ -53,4 +53,10 @@
 
 ### [WeihanLi.Common.Logging.Log4Net 1.0.13](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.13)
 
-- AddLog4NetHelper to use log4net inpendently easily
+- Add `Log4NetHelper` to use log4net inpendently easily
+
+## WeihanLi.Data
+
+### [WeihanLi.Data 1.0.21](https://www.nuget.org/packages/WeihanLi.Data/1.0.21)
+
+- add [sourceLink](https://github.com/dotnet/sourcelink) support
