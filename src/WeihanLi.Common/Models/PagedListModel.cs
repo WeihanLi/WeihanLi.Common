@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace WeihanLi.Common.Models
@@ -8,7 +7,7 @@ namespace WeihanLi.Common.Models
     /// IPagedListModel
     /// </summary>
     /// <typeparam name="T">Type</typeparam>
-    public interface IPagedListModel<out T> : IReadOnlyList<T>
+    public interface IPagedListModel<out T>
     {
         /// <summary>
         /// Data
@@ -84,16 +83,6 @@ namespace WeihanLi.Common.Models
         }
 
         public int PageCount => Convert.ToInt32(Math.Ceiling(_totalCount * 1.0 / _pageSize));
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            return Data.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return Data.GetEnumerator();
-        }
 
         public T this[int index] => Data[index];
 
