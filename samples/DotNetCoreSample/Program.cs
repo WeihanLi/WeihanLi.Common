@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging.Log4Net;
+using WeihanLi.Common.Models;
 using WeihanLi.Extensions;
 
 // ReSharper disable once LocalizableElement
@@ -44,6 +45,15 @@ namespace DotNetCoreSample
 
             //int a = 1;
             //Console.WriteLine(JsonConvert.SerializeObject(a));// output 1
+
+            var pagedListModel = new PagedListModel<int>()
+            {
+                PageNumber = 1,
+                PageSize = 4,
+                TotalCount = 10,
+                Data = new[] { 1, 2, 3, 4 }
+            };
+            Console.WriteLine(pagedListModel.ToJson());
 
             // log test
             LoggerTest.MainTest();
