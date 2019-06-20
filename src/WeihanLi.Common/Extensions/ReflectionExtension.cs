@@ -385,7 +385,7 @@ namespace WeihanLi.Extensions
         /// 是否是 ValueTuple
         /// </summary>
         /// <returns></returns>
-        public static bool IsValueTuple<T>([NotNull]this T @this)
+        public static bool IsValueTuple<T>([NotNull]this T t)
             => typeof(T).IsValueTuple();
 
         /// <summary>
@@ -394,7 +394,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static bool IsValueType<T>([NotNull]this T @this)
+        public static bool IsValueType<T>([NotNull]this T t)
             => typeof(T).IsValueType;
 
         /// <summary>

@@ -13,7 +13,7 @@ namespace WeihanLi.Common.Test.HelpersTest
             Assert.Equal("132****5489", StringHelper.HideTelDetails("13212345489"));
             Assert.Equal("123***901", StringHelper.HideSensitiveInfo(testString, 3, 3, sensitiveCharCount: 3));
             Assert.Equal("1****", StringHelper.HideSensitiveInfo(testString, 11, 1));
-            Assert.Equal("***1", StringHelper.HideSensitiveInfo(testString, 11, 1, false, 3));
+            Assert.Equal("***1", StringHelper.HideSensitiveInfo(testString, 11, 1, 3, false));
         }
     }
 }
