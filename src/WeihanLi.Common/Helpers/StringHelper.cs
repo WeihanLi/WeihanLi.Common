@@ -18,15 +18,18 @@ namespace WeihanLi.Common.Helpers
         /// <param name="info">信息实体</param>
         /// <param name="left">左边保留的字符数</param>
         /// <param name="right">右边保留的字符数</param>
-        /// <param name="basedOnLeft">当长度异常时，是否显示左边 ，true显示左边，false显示右边 </param>
         /// <param name="sensitiveCharCount">敏感字符数量</param>
+        /// <param name="basedOnLeft">当长度异常时，是否显示左边 ，true显示左边，false显示右边 </param>
         /// <returns></returns>
-        public static string HideSensitiveInfo(string info, int left, int right, bool basedOnLeft = true, int sensitiveCharCount = 4)
+        public static string HideSensitiveInfo(string info, int left, int right, int sensitiveCharCount = 4, bool basedOnLeft = true)
         {
             if (string.IsNullOrEmpty(info))
             {
                 return "";
             }
+
+            if (right < 0) right = 0;
+            if (left < 0) left = 0;
 
             if (info.Length - left - right > 0)
             {
@@ -45,27 +48,6 @@ namespace WeihanLi.Common.Helpers
             return info.Length > right && right > 0
                 ? info.Substring(info.Length - right).PadLeft(right + sensitiveCharCount, SensitiveChar)
                 : info.Substring(0, 1).PadLeft(1 + sensitiveCharCount, SensitiveChar);
-        }
-
-        /// <summary>
-        /// 隐藏敏感信息
-        /// </summary>
-        /// <param name="info">信息</param>
-        /// <param name="sublen">信息总长与左子串（或右子串）的比例</param>
-        /// <param name="basedOnLeft">当长度异常时，是否显示左边 ，true显示左边，false显示右边 </param>
-        /// <returns></returns>
-        public static string HideSensitiveInfo(string info, int sublen = 3, bool basedOnLeft = true)
-        {
-            if (string.IsNullOrEmpty(info))
-            {
-                return "";
-            }
-            if (sublen <= 1)
-            {
-                sublen = 3;
-            }
-            var subLength = info.Length / sublen;
-            return HideSensitiveInfo(info, sublen, subLength, basedOnLeft);
         }
 
         /// <summary>
@@ -93,10 +75,10 @@ namespace WeihanLi.Common.Helpers
             if (email.IsMatch(@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"))//如果是邮件地址
             {
                 var suffixLen = email.Length - email.LastIndexOf('@');
-                return HideSensitiveInfo(email, left, suffixLen, false);
+                return HideSensitiveInfo(email, left, suffixLen, basedOnLeft: false);
             }
 
-            return HideSensitiveInfo(email);
+            return HideSensitiveInfo(email, left, 0);
         }
 
         #endregion 隐藏敏感信息

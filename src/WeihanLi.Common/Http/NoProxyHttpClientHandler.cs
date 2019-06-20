@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 
-namespace WeihanLi.Common
+namespace WeihanLi.Common.Http
 {
     public class NoProxyHttpClientHandler : HttpClientHandler
     {

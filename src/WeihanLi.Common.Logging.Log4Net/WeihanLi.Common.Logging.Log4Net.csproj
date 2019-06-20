@@ -2,7 +2,6 @@
   <Import Project="../../build/logging.log4net.props" />
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
-    <PackageReference Include="WeihanLi.Common" Version="1.0.12" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
     <Reference Include="System.Net.Http" />
@@ -11,5 +10,9 @@
 
   <ItemGroup>
     <None Include="log4net.config" Pack="true" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
   </ItemGroup>
 </Project>

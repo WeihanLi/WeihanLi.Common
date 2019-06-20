@@ -17,11 +17,6 @@ namespace WeihanLi.Common.Models
         /// </summary>
         public string ErrorMsg { get; set; }
 
-        /// <summary>
-        /// ResponseData
-        /// </summary>
-        public object Result { get; set; }
-
         public static JsonResultModel<T> Success<T>(T result)
         {
             return new JsonResultModel<T>()
@@ -37,18 +32,8 @@ namespace WeihanLi.Common.Models
     /// JsonResultModel
     /// </summary>
     /// <typeparam name="T">Type</typeparam>
-    public class JsonResultModel<T>
+    public class JsonResultModel<T> : JsonResultModel
     {
-        /// <summary>
-        /// JsonResultStatus
-        /// </summary>
-        public JsonResultStatus Status { get; set; }
-
-        /// <summary>
-        /// Message
-        /// </summary>
-        public string ErrorMsg { get; set; }
-
         /// <summary>
         /// ResponseData
         /// </summary>

@@ -82,11 +82,38 @@ namespace WeihanLi.Extensions
         public static bool IsBasicType<T>(this T value) => typeof(T).IsBasicType();
 
         /// <summary>
-        /// Finds best constructor
+        /// Finds best constructor, least parameter
         /// </summary>
         /// <param name="type">type</param>
+        /// <param name="parameterTypes"></param>
         /// <returns>Matching constructor or default one</returns>
-        public static ConstructorInfo FindEmptyConstructor(this Type type)
+        [CanBeNull]
+        public static ConstructorInfo GetConstructor<T>(this Type type, params Type[] parameterTypes)
+        {
+            if (parameterTypes == null || parameterTypes.Length == 0)
+                return GetEmptyConstructor(type);
+
+            var constructors = type.GetConstructors();
+
+            var ctors = constructors
+                .OrderBy(c => c.IsPublic ? 0 : (c.IsPrivate ? 2 : 1))
+                .ThenBy(c => c.GetParameters().Length)
+                .ToArray();
+
+            foreach (var ctor in ctors)
+            {
+                var parameters = ctor.GetParameters();
+                if (parameters.All(p => parameterTypes.Contains(p.ParameterType)))
+                {
+                    return ctor;
+                }
+            }
+
+            return null;
+        }
+
+        [CanBeNull]
+        public static ConstructorInfo GetEmptyConstructor(this Type type)
         {
             var constructors = type.GetConstructors();
 
@@ -119,10 +146,13 @@ namespace WeihanLi.Extensions
         /// <param name="type">The type being tested.</param>
         /// <param name="constructorParameterTypes">The types of the contractor to find.</param>
         /// <returns>The <see cref="ConstructorInfo"/> is a match is found; otherwise, <c>null</c>.</returns>
+        [CanBeNull]
         public static ConstructorInfo GetMatchingConstructor(this Type type, Type[] constructorParameterTypes)
         {
-            return type.GetConstructors().FirstOrDefault(
-                c => c.GetParameters().Select(p => p.ParameterType).SequenceEqual(constructorParameterTypes));
+            if (constructorParameterTypes == null || constructorParameterTypes.Length == 0)
+                return GetEmptyConstructor(type);
+
+            return type.GetConstructors().FirstOrDefault(c => c.GetParameters().Select(p => p.ParameterType).SequenceEqual(constructorParameterTypes));
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WeihanLi.Common;
@@ -16,7 +17,7 @@ namespace DotNetCoreSample
             Console.WriteLine("----------DotNetCoreSample----------");
 
             LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
-            var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
+            // var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
             // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
 
             var serviceCollection = new ServiceCollection();
@@ -25,9 +26,9 @@ namespace DotNetCoreSample
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            var city = configuration.GetAppSetting("City");
-            var number = configuration.GetAppSetting<int>("Number");
-            Console.WriteLine($"City:{city}, Number:{number}");
+            //var city = configuration.GetAppSetting("City");
+            //var number = configuration.GetAppSetting<int>("Number");
+            //Console.WriteLine($"City:{city}, Number:{number}");
 
             serviceCollection.AddSingleton(configuration);
 
@@ -45,8 +46,17 @@ namespace DotNetCoreSample
             //int a = 1;
             //Console.WriteLine(JsonConvert.SerializeObject(a));// output 1
 
+            //var pagedListModel = new PagedListModel<int>()
+            //{
+            //    PageNumber = 1,
+            //    PageSize = 4,
+            //    TotalCount = 10,
+            //    Data = new[] { 1, 2, 3, 4 }
+            //};
+            //Console.WriteLine(pagedListModel.ToJson());
+
             // log test
-            LoggerTest.MainTest();
+            // LoggerTest.MainTest();
             // Log4NetTest.MainTest();
 
             //ILoggerFactory loggerFactory = new LoggerFactory();
@@ -105,7 +115,15 @@ namespace DotNetCoreSample
             //var code1234 = TotpHelper.GenerateCode(ApplicationHelper.ApplicationName + "test_1234");
             //Console.WriteLine(code1234);
 
-            InvokeHelper.TryInvoke(HttpRequesterTest.MainTest);
+            // InvokeHelper.TryInvoke(HttpRequesterTest.MainTest);
+
+#if DEBUG
+            var posts = new[] { new { PostId = 1, PostTitle = "12333", }, new { PostId = 2, PostTitle = "12333", }, };
+            var postTags = new[] { new { PostId = 1, Tag = "HHH" } };
+
+            var result = posts.LeftJoin(postTags, p => p.PostId, pt => pt.PostId, (p, pt) => new { p.PostId, p.PostTitle, pt?.Tag }).ToArray();
+            Console.WriteLine(result.ToJson());
+#endif
 
             Console.ReadLine();
         }

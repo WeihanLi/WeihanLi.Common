@@ -329,7 +329,7 @@ namespace WeihanLi.Extensions
         /// <returns></returns>
         private static List<T> GetRandomList<T>([NotNull]this IList<T> list)
         {
-            return Enumerable.Range(0, list.Count).OrderBy(_ => WeihanLi.Common.Helpers.SecurityHelper.Random.Next(1000)).Select(i => list[i]).ToList();
+            return Enumerable.Range(0, list.Count).OrderBy(_ => Common.Helpers.SecurityHelper.Random.Next(list.Count)).Select(i => list[i]).ToList();
         }
     }
 }

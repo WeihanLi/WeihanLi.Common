@@ -6,7 +6,6 @@ using System.Net;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Extensions;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
