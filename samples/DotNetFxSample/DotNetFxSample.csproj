@@ -4,9 +4,12 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net45</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Condition="'$(Configuration)'=='Debug'" Include="..\..\src\WeihanLi.Common\WeihanLi.Common.csproj" />
+    <PackageReference Condition="'$(Configuration)'!='Debug'" Include="WeihanLi.Common" Version="1.0.21" />
+  </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WeihanLi.Common" Version="1.0.20" />
     <PackageReference Include="WeihanLi.Common.Logging.Log4net" Version="1.0.17" />
   </ItemGroup>
 

@@ -117,11 +117,13 @@ namespace DotNetCoreSample
 
             // InvokeHelper.TryInvoke(HttpRequesterTest.MainTest);
 
+#if DEBUG
             var posts = new[] { new { PostId = 1, PostTitle = "12333", }, new { PostId = 2, PostTitle = "12333", }, };
             var postTags = new[] { new { PostId = 1, Tag = "HHH" } };
 
             var result = posts.LeftJoin(postTags, p => p.PostId, pt => pt.PostId, (p, pt) => new { p.PostId, p.PostTitle, pt?.Tag }).ToArray();
             Console.WriteLine(result.ToJson());
+#endif
 
             Console.ReadLine();
         }
