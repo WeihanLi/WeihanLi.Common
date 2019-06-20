@@ -74,22 +74,19 @@ namespace WeihanLi.Common.Helpers
         /// <returns></returns>
         public static string GenerateRandomCode(int length, bool isNumberOnly = false)
         {
-            int num;
             char[] array;
             if (isNumberOnly)
             {
-                num = ConstantNumber.Length;
                 array = ConstantNumber;
             }
             else
             {
-                num = Constant.Length;
                 array = Constant;
             }
-            var stringBuilder = new StringBuilder(num);
+            var stringBuilder = new StringBuilder(length);
             for (var i = 0; i < length; i++)
             {
-                stringBuilder.Append(array[Random.Next(num)]);
+                stringBuilder.Append(array[Random.Next(array.Length)]);
             }
             return stringBuilder.ToString();
         }
@@ -164,6 +161,7 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         /// <param name="type">hash类型</param>
         /// <param name="str">要hash的字符串</param>
+        /// <param name="key">key</param>
         /// <returns>hash过的字节数组</returns>
         public static byte[] GetHashedBytes(HashType type, string str, string key) => GetHashedBytes(type, key.IsNotNullOrEmpty() ? key.GetBytes() : null, str.GetBytes());
 

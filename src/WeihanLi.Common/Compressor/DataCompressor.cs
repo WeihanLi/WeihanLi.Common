@@ -14,6 +14,7 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         /// <param name="sourceData">source data</param>
         /// <returns>compressed data</returns>
+        [NotNull]
         byte[] Compress([NotNull]byte[] sourceData);
 
         /// <summary>
@@ -21,6 +22,7 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         /// <param name="sourceData">source data</param>
         /// <returns>compressed data</returns>
+        [NotNull]
         Task<byte[]> CompressAsync([NotNull]byte[] sourceData);
 
         /// <summary>
@@ -28,6 +30,7 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         /// <param name="compressedData">compressed data</param>
         /// <returns>source data</returns>
+        [NotNull]
         byte[] Decompress([NotNull]byte[] compressedData);
 
         /// <summary>
@@ -35,6 +38,7 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         /// <param name="compressedData">compressed data</param>
         /// <returns>source data</returns>
+        [NotNull]
         Task<byte[]> DecompressAsync([NotNull]byte[] compressedData);
     }
 
@@ -70,22 +74,22 @@ namespace WeihanLi.Common.Helpers
     /// </summary>
     public class GZipDataCompressor : IDataCompressor
     {
-        public byte[] Compress([NotNull]byte[] sourceData)
+        public byte[] Compress(byte[] sourceData)
         {
             return sourceData.CompressGZip();
         }
 
-        public Task<byte[]> CompressAsync([NotNull]byte[] sourceData)
+        public Task<byte[]> CompressAsync(byte[] sourceData)
         {
             return sourceData.CompressGZipAsync();
         }
 
-        public byte[] Decompress([NotNull]byte[] compressedData)
+        public byte[] Decompress(byte[] compressedData)
         {
             return compressedData.DecompressGZip();
         }
 
-        public Task<byte[]> DecompressAsync([NotNull]byte[] compressedData)
+        public Task<byte[]> DecompressAsync(byte[] compressedData)
         {
             return compressedData.DecompressGZipAsync();
         }

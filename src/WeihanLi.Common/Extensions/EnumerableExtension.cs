@@ -147,7 +147,7 @@ namespace WeihanLi.Extensions
         #region PagedListModel
 
         /// <summary>
-        /// ToPagedListModelAsync
+        /// ToPagedListModel
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="data">data</param>
@@ -165,7 +165,7 @@ namespace WeihanLi.Extensions
             };
 
         /// <summary>
-        /// ToPagedListModelAsync
+        /// ToPagedListModel
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="data">data</param>
@@ -173,14 +173,14 @@ namespace WeihanLi.Extensions
         /// <param name="pageSize">pageSize</param>
         /// <param name="totalCount">totalCount</param>
         /// <returns></returns>
-        public static async Task<PagedListModel<T>> ToPagedListModelAsync<T>([NotNull]this Task<IEnumerable<T>> data, int pageNumber, int pageSize, int totalCount)
-        => new PagedListModel<T>
-        {
-            PageNumber = pageNumber,
-            PageSize = pageSize,
-            TotalCount = totalCount,
-            Data = (await data).ToArray()
-        };
+        public static PagedListModel<T> ToPagedListModel<T>([NotNull]this IReadOnlyList<T> data, int pageNumber, int pageSize, int totalCount)
+            => new PagedListModel<T>
+            {
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalCount = totalCount,
+                Data = data
+            };
 
         #endregion PagedListModel
     }
