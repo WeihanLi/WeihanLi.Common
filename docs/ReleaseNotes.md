@@ -4,6 +4,15 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.22](https://www.nuget.org/packages/WeihanLi.Common/1.0.22)
+
+- add `DateTimeFormatConverter`
+- add `LeftJoin` extension linq method for `IEnumerable`
+- add `ActivatorHelper` to create instance
+- update `Newtonsoft.Json` package version
+- update `JsonResultModel`
+- update `Pagedlistmodel`, fix json serialize bug
+
 ### [WeihanLi.Common 1.0.21](https://www.nuget.org/packages/WeihanLi.Common/1.0.21)
 
 - add `CancellationToken` support for Repository and DataExtensions async operations
