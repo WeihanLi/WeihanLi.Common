@@ -20,9 +20,9 @@ namespace WeihanLi.Common.Helpers
         /// 应用根目录
         /// </summary>
 #if NET45
-        internal static readonly string AppRoot = System.Web.Hosting.HostingEnvironment.IsHosted ? System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath : AppDomain.CurrentDomain.BaseDirectory;
+        public static readonly string AppRoot = System.Web.Hosting.HostingEnvironment.IsHosted ? System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath : AppDomain.CurrentDomain.BaseDirectory;
 #else
-        internal static readonly string AppRoot = AppDomain.CurrentDomain.BaseDirectory;
+        public static readonly string AppRoot = AppDomain.CurrentDomain.BaseDirectory;
 #endif
 
         /// <summary>
