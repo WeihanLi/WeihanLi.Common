@@ -36,7 +36,21 @@ namespace WeihanLi.Common.Logging.Log4Net
                 try
                 {
                     sb.AppendLine("{ \"index\" : {} }");
-                    var json = JsonConvert.SerializeObject(le);
+                    var json = JsonConvert.SerializeObject(new
+                    {
+                        le.ThreadName,
+                        Level = le.Level.Name,
+                        le.LoggerName,
+                        Exception = le.GetExceptionString(),
+                        le.Properties,
+                        TimeStamp = le.TimeStampUtc,
+                        Message = le.RenderedMessage,
+                        le.Domain,
+                        le.Repository,
+                        le.Identity,
+                        le.UserName,
+                        le.LocationInformation
+                    });
                     sb.AppendLine(json);
                 }
                 catch (Exception ex)
