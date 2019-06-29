@@ -3,8 +3,8 @@ using System.Net.Http;
 using System.Text;
 using log4net.Appender;
 using log4net.Core;
-using Newtonsoft.Json;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Logging.Log4Net
 {
@@ -12,31 +12,37 @@ namespace WeihanLi.Common.Logging.Log4Net
     {
         private const int DefaultOnCloseTimeout = 30000;
 
-        public string Type { get; set; } = "logEvent";
+        private static readonly HttpClient _httpClient;
 
-        private readonly HttpClient _httpClient;
-
-        public ElasticSearchAppender()
+        static ElasticSearchAppender()
         {
             _httpClient = new HttpClient() { Timeout = TimeSpan.FromMilliseconds(DefaultOnCloseTimeout) };
             _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
         }
 
+        /// <summary>
+        /// ElasticSearchUrl
+        /// </summary>
         public string ElasticSearchUrl { get; set; }
 
         public string ApplicationName { get; set; }
 
         public string IndexFormat { get; set; } = "logstash-{applicationName}";
 
+        public string Type { get; set; } = "logEvent";
+
         protected override void SendBuffer(LoggingEvent[] events)
         {
+            if (events == null || events.Length == 0)
+                return;
+
             var sb = new StringBuilder(4096);
             foreach (var le in events)
             {
                 try
                 {
                     sb.AppendLine("{ \"index\" : {} }");
-                    var json = JsonConvert.SerializeObject(new
+                    var json = new
                     {
                         le.ThreadName,
                         Level = le.Level.Name,
@@ -46,10 +52,15 @@ namespace WeihanLi.Common.Logging.Log4Net
                         TimeStamp = le.TimeStampUtc,
                         Message = le.RenderedMessage,
                         le.Domain,
-                        le.Repository,
                         le.Identity,
                         le.UserName,
                         le.LocationInformation
+                    }.ToJson(new Newtonsoft.Json.JsonSerializerSettings()
+                    {
+                        NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
+                        DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Utc,
+                        ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore,
+                        MissingMemberHandling = Newtonsoft.Json.MissingMemberHandling.Ignore,
                     });
                     sb.AppendLine(json);
                 }
@@ -60,42 +71,9 @@ namespace WeihanLi.Common.Logging.Log4Net
             }
             sb.Remove(sb.Length - 1, 1);
 
-            var url = $"{ElasticSearchUrl}/{IndexFormat.Replace("{applicationName}", (ApplicationName ?? ApplicationHelper.ApplicationName).ToLower())}-{DateTime.UtcNow:yyyyMMdd}/{Type}/_bulk";
+            var url = $"{ElasticSearchUrl}/{IndexFormat.Replace("{applicationName}", ApplicationName.GetValueOrDefault(ApplicationHelper.ApplicationName).ToLower())}-{DateTime.UtcNow:yyyyMMdd}/{Type}/_bulk";
             _httpClient.PostAsync(url, new StringContent(sb.ToString()))
                 .ContinueWith(_ => _.Result.Dispose()).ConfigureAwait(false);
         }
-
-        #region Dispose
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        private bool _disposed;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (_disposed)
-                return;
-
-            if (disposing)
-            {
-                //释放托管资源，比如将对象设置为null
-            }
-
-            //释放非托管资源
-            _httpClient?.Dispose();
-
-            _disposed = true;
-        }
-
-        ~ElasticSearchAppender()
-        {
-            Dispose(false);
-        }
-
-        #endregion Dispose
     }
 }
