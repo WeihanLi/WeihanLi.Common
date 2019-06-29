@@ -7,9 +7,10 @@ trigger:
   branches:
     include:
     - '*' # must quote since "*" is a YAML reserved character; we want a string
-  path:
+  paths:
     exclude:
     - '*.md'
+    - /docs/
 
 pool:
   vmImage: 'vs2017-win2016'
