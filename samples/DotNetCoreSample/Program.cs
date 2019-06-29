@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Linq;
-using DotNetCoreSample.Test;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging.Log4Net;
-using WeihanLi.Common.Models;
-using WeihanLi.Extensions;
 
 // ReSharper disable once LocalizableElement
 namespace DotNetCoreSample
@@ -59,7 +54,7 @@ namespace DotNetCoreSample
             //Console.WriteLine(pagedListModel.ToJson());
 
             // log test
-            // LoggerTest.MainTest();
+            LoggerTest.MainTest();
             // Log4NetTest.MainTest();
 
             //ILoggerFactory loggerFactory = new LoggerFactory();
@@ -120,24 +115,24 @@ namespace DotNetCoreSample
 
             // InvokeHelper.TryInvoke(HttpRequesterTest.MainTest);
 
-            var pagedListModel = new PagedListModel<int>()
-            {
-                PageNumber = 2, PageSize = 2, TotalCount = 6, Data = new int[] {1, 2},
-            };
-            var pagedListModel1 = new PagedListModel1<int>()
-            {
-                PageNumber = 2,
-                PageSize = 2,
-                TotalCount = 6,
-                Data = new int[] { 1, 2 },
-            };
-            Console.WriteLine($"pagedListModel:{JsonConvert.SerializeObject(pagedListModel)}, pagedListModel1:{JsonConvert.SerializeObject(pagedListModel1)}");
+            //var pagedListModel = new PagedListModel<int>()
+            //{
+            //    PageNumber = 2, PageSize = 2, TotalCount = 6, Data = new int[] {1, 2},
+            //};
+            //var pagedListModel1 = new PagedListModel1<int>()
+            //{
+            //    PageNumber = 2,
+            //    PageSize = 2,
+            //    TotalCount = 6,
+            //    Data = new int[] { 1, 2 },
+            //};
+            //Console.WriteLine($"pagedListModel:{JsonConvert.SerializeObject(pagedListModel)}, pagedListModel1:{JsonConvert.SerializeObject(pagedListModel1)}");
 
-            var posts = new[] { new { PostId = 1, PostTitle = "12333", }, new { PostId = 2, PostTitle = "12333", }, };
-            var postTags = new[] { new { PostId = 1, Tag = "HHH" } };
+            //var posts = new[] { new { PostId = 1, PostTitle = "12333", }, new { PostId = 2, PostTitle = "12333", }, };
+            //var postTags = new[] { new { PostId = 1, Tag = "HHH" } };
 
-            var result = posts.LeftJoin(postTags, p => p.PostId, pt => pt.PostId, (p, pt) => new { p.PostId, p.PostTitle, pt?.Tag }).ToArray();
-            Console.WriteLine(result.ToJson());
+            //var result = posts.LeftJoin(postTags, p => p.PostId, pt => pt.PostId, (p, pt) => new { p.PostId, p.PostTitle, pt?.Tag }).ToArray();
+            //Console.WriteLine(result.ToJson());
 
             Console.ReadLine();
         }
