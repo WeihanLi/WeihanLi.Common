@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using log4net.Appender;
@@ -48,13 +49,19 @@ namespace WeihanLi.Common.Logging.Log4Net
                         Level = le.Level.Name,
                         le.LoggerName,
                         Exception = le.GetExceptionString(),
-                        le.Properties,
+                        Properties = le.Properties.GetKeys().ToDictionary(x => x, x => le.Properties[x]),
                         TimeStamp = le.TimeStampUtc,
                         Message = le.RenderedMessage,
                         le.Domain,
                         le.Identity,
                         le.UserName,
-                        le.LocationInformation
+                        Location = new
+                        {
+                            le.LocationInformation.ClassName,
+                            le.LocationInformation.FileName,
+                            le.LocationInformation.MethodName,
+                            le.LocationInformation.LineNumber
+                        }
                     }.ToJson(new Newtonsoft.Json.JsonSerializerSettings()
                     {
                         NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
