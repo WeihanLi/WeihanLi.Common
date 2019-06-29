@@ -18,7 +18,6 @@ namespace WeihanLi.Common.Logging.Log4Net
         static ElasticSearchAppender()
         {
             _httpClient = new HttpClient() { Timeout = TimeSpan.FromMilliseconds(DefaultOnCloseTimeout) };
-            _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
         }
 
         /// <summary>
@@ -52,7 +51,6 @@ namespace WeihanLi.Common.Logging.Log4Net
                         Properties = le.Properties.GetKeys().ToDictionary(x => x, x => le.Properties[x]),
                         TimeStamp = le.TimeStampUtc,
                         Message = le.RenderedMessage,
-                        le.Domain,
                         le.Identity,
                         le.UserName,
                         Location = new
@@ -74,13 +72,22 @@ namespace WeihanLi.Common.Logging.Log4Net
                 catch (Exception ex)
                 {
                     ErrorHandler.Error(ex.Message, ex);
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
                 }
             }
             sb.Remove(sb.Length - 1, 1);
 
             var url = $"{ElasticSearchUrl}/{IndexFormat.Replace("{applicationName}", ApplicationName.GetValueOrDefault(ApplicationHelper.ApplicationName).ToLower())}-{DateTime.UtcNow:yyyyMMdd}/{Type}/_bulk";
-            _httpClient.PostAsync(url, new StringContent(sb.ToString()))
-                .ContinueWith(_ => _.Result.Dispose()).ConfigureAwait(false);
+            try
+            {
+                _httpClient.PostAsync(url, new StringContent(sb.ToString(), Encoding.UTF8, "application/json"))
+                    .ContinueWith(_ => _.Result.Dispose()).ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                ErrorHandler.Error(ex.Message, ex);
+                InvokeHelper.OnInvokeException?.Invoke(ex);
+            }
         }
     }
 }
