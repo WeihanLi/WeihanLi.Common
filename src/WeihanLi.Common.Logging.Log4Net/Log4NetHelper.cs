@@ -26,6 +26,9 @@ namespace WeihanLi.Common.Logging.Log4Net
             if (null == LogManager.GetAllRepositories()?.FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))
             {
                 XmlConfigurator.ConfigureAndWatch(LogManager.CreateRepository(ApplicationHelper.ApplicationName), new FileInfo(configFilePath));
+#if NET45
+                XmlConfigurator.ConfigureAndWatch(new FileInfo(configFilePath));
+#endif
                 return 1;
             }
             return 0;

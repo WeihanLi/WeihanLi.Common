@@ -1,5 +1,4 @@
-﻿using System;
-using WeihanLi.Common.Helpers;
+﻿using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
 
 namespace DotNetFxSample
@@ -16,7 +15,7 @@ namespace DotNetFxSample
             Logger.Error("Error messsage");
             Logger.Fatal("Fatal message");
 
-            throw new ArgumentNullException();
+            log4net.LogManager.GetLogger("testTtTLogger").Info("121313");
         }
     }
 }
