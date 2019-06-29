@@ -55,6 +55,12 @@
 
 ## WeihanLi.Common.Logging.Log4Net
 
+
+### [WeihanLi.Common.Logging.Log4Net 1.0.22](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.22)
+
+- Update `ElasticSearchAppender` log fields
+- Optimize Log4Net for netframework, add support for `LogManager.GetLogger(loggerName)`/`LogManager.GetLogger(loggerType)`
+
 ### [WeihanLi.Common.Logging.Log4Net 1.0.17](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.17)
 
 - Update `ElasticSearchAppender` index format, update DateTime => `DateTime.UtcNow`
