@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using log4net.Appender;
@@ -27,7 +27,7 @@ namespace WeihanLi.Common.Logging.Log4Net
 
         public string ApplicationName { get; set; }
 
-        public string IndexFormat { get; set; } = "logstash-{applicationName}";
+        public string IndexFormat { get; set; } = "logstash-{applicationName}-{rollingDate}";
 
         public string Type { get; set; } = "logEvent";
 
@@ -44,22 +44,12 @@ namespace WeihanLi.Common.Logging.Log4Net
                     sb.AppendLine("{ \"index\" : {} }");
                     var json = new
                     {
-                        le.ThreadName,
-                        Level = le.Level.Name,
                         le.LoggerName,
-                        Exception = le.GetExceptionString(),
-                        Properties = le.Properties.GetKeys().ToDictionary(x => x, x => le.Properties[x]),
+                        Level = le.Level.Name,
                         TimeStamp = le.TimeStampUtc,
                         Message = le.RenderedMessage,
-                        le.Identity,
-                        le.UserName,
-                        Location = new
-                        {
-                            le.LocationInformation.ClassName,
-                            le.LocationInformation.FileName,
-                            le.LocationInformation.MethodName,
-                            le.LocationInformation.LineNumber
-                        }
+                        Exception = le.GetExceptionString(),
+                        Properties = GetLoggingEventProperties(le).ToDictionary(),
                     }.ToJson(new Newtonsoft.Json.JsonSerializerSettings()
                     {
                         NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
@@ -77,7 +67,7 @@ namespace WeihanLi.Common.Logging.Log4Net
             }
             sb.Remove(sb.Length - 1, 1);
 
-            var url = $"{ElasticSearchUrl}/{IndexFormat.Replace("{applicationName}", ApplicationName.GetValueOrDefault(ApplicationHelper.ApplicationName).ToLower())}-{DateTime.UtcNow:yyyyMMdd}/{Type}/_bulk";
+            var url = $"{ElasticSearchUrl}/{IndexFormat.Replace("{applicationName}", ApplicationName.GetValueOrDefault(ApplicationHelper.ApplicationName).ToLower()).Replace("{rollingDate}", DateTime.UtcNow.ToString("yyyyMMdd"))}/{Type}/_bulk";
             try
             {
                 _httpClient.PostAsync(url, new StringContent(sb.ToString(), Encoding.UTF8, "application/json"))
@@ -87,6 +77,89 @@ namespace WeihanLi.Common.Logging.Log4Net
             {
                 ErrorHandler.Error(ex.Message, ex);
                 InvokeHelper.OnInvokeException?.Invoke(ex);
+            }
+        }
+
+        private static bool IsValidLog4NetPropertyValue(string value)
+        {
+            if (value.IsNullOrWhiteSpace())
+            {
+                return false;
+            }
+            value = value.Trim();
+            if ("?" == value)
+            {
+                return false;
+            }
+            if ("NOT AVAILABLE" == value)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private static IEnumerable<KeyValuePair<string, object>> GetLoggingEventProperties(LoggingEvent loggingEvent)
+        {
+            var properties = loggingEvent.GetProperties();
+            if (properties == null)
+            {
+                yield break;
+            }
+
+            foreach (var key in properties.GetKeys())
+            {
+                if (!string.IsNullOrWhiteSpace(key)
+                    && !key.StartsWith("log4net:", StringComparison.OrdinalIgnoreCase))
+                {
+                    var value = properties[key];
+                    if (value != null
+                        && (!(value is string stringValue) || IsValidLog4NetPropertyValue(stringValue)))
+                    {
+                        yield return new KeyValuePair<string, object>(key, value);
+                    }
+                }
+            }
+
+            var locInfo = loggingEvent.LocationInformation;
+            if (locInfo != null)
+            {
+                if (IsValidLog4NetPropertyValue(locInfo.ClassName))
+                {
+                    yield return new KeyValuePair<string, object>(nameof(locInfo.ClassName), locInfo.ClassName);
+                }
+
+                if (IsValidLog4NetPropertyValue(locInfo.FileName))
+                {
+                    yield return new KeyValuePair<string, object>(nameof(locInfo.FileName), locInfo.FileName);
+                }
+
+                if (IsValidLog4NetPropertyValue(locInfo.LineNumber) && int.TryParse(locInfo.LineNumber, out var lineNumber) && lineNumber != 0)
+                {
+                    yield return new KeyValuePair<string, object>(nameof(locInfo.LineNumber), lineNumber);
+                }
+
+                if (IsValidLog4NetPropertyValue(locInfo.MethodName))
+                {
+                    yield return new KeyValuePair<string, object>(nameof(locInfo.MethodName), locInfo.MethodName);
+                }
+            }
+
+            if (IsValidLog4NetPropertyValue(loggingEvent.ThreadName))
+            {
+                yield return new KeyValuePair<string, object>(nameof(loggingEvent.ThreadName), loggingEvent.ThreadName);
+            }
+            if (IsValidLog4NetPropertyValue(loggingEvent.Identity))
+            {
+                yield return new KeyValuePair<string, object>(nameof(loggingEvent.Identity), loggingEvent.Identity);
+            }
+            if (IsValidLog4NetPropertyValue(loggingEvent.UserName))
+            {
+                yield return new KeyValuePair<string, object>(nameof(loggingEvent.UserName), loggingEvent.UserName);
+            }
+            if (IsValidLog4NetPropertyValue(loggingEvent.Domain))
+            {
+                yield return new KeyValuePair<string, object>(nameof(loggingEvent.Domain), loggingEvent.Domain);
             }
         }
     }

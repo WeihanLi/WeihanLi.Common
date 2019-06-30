@@ -56,9 +56,9 @@
 ## WeihanLi.Common.Logging.Log4Net
 
 
-### [WeihanLi.Common.Logging.Log4Net 1.0.22.1](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.22.1)
+### [WeihanLi.Common.Logging.Log4Net 1.0.22.4](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.22.4)
 
-- Update `ElasticSearchAppender` log fields
+- Optimize `ElasticSearchAppender`, add support for none rolling date index, update LogFields, fix Content-Type warning
 - Optimize Log4Net for netframework, add support for `LogManager.GetLogger(loggerName)`/`LogManager.GetLogger(loggerType)`
 
 ### [WeihanLi.Common.Logging.Log4Net 1.0.17](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.17)
