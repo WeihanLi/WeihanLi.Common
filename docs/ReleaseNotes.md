@@ -55,9 +55,9 @@
 
 ## WeihanLi.Common.Logging.Log4Net
 
-
 ### [WeihanLi.Common.Logging.Log4Net 1.0.22.4](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.22.4)
 
+- add [sourceLink](https://github.com/dotnet/sourcelink) support
 - Optimize `ElasticSearchAppender`, add support for none rolling date index, update LogFields, fix Content-Type warning
 - Optimize Log4Net for netframework, add support for `LogManager.GetLogger(loggerName)`/`LogManager.GetLogger(loggerType)`
 
