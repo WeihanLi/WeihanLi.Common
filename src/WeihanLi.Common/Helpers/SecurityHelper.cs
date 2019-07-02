@@ -97,7 +97,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="sourceString">原字符串</param>
         /// <param name="isLower">加密后的字符串是否为小写</param>
         /// <returns>加密后字符串</returns>
-        public static string MD5_Encrypt(string sourceString, bool isLower = false)
+        public static string MD5(string sourceString, bool isLower = false)
         {
             if (string.IsNullOrEmpty(sourceString))
             {
@@ -109,37 +109,13 @@ namespace WeihanLi.Common.Helpers
         /// <summary>
         /// use sha1 to encrypt string
         /// </summary>
-        public static string SHA1_Encrypt(string sourceString, bool isLower = false)
+        public static string SHA1(string sourceString, bool isLower = false)
         {
             if (string.IsNullOrEmpty(sourceString))
             {
                 return "";
             }
             return HashHelper.GetHashedString(HashType.SHA1, sourceString, isLower);
-        }
-
-        /// <summary>
-        /// SHA256 加密
-        /// </summary>
-        public static string SHA256_Encrypt(string sourceString, bool isLower = false)
-        {
-            if (string.IsNullOrEmpty(sourceString))
-            {
-                return "";
-            }
-            return HashHelper.GetHashedString(HashType.SHA256, sourceString, isLower);
-        }
-
-        /// <summary>
-        /// SHA512_加密
-        /// </summary>
-        public static string SHA512_Encrypt(string sourceString, bool isLower = false)
-        {
-            if (string.IsNullOrEmpty(sourceString))
-            {
-                return "";
-            }
-            return HashHelper.GetHashedString(HashType.SHA512, sourceString, isLower);
         }
     }
 
@@ -203,7 +179,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="key">key</param>
         /// <param name="isLower">是否是小写</param>
         /// <returns>哈希算法处理之后的字符串</returns>
-        public static string GetHashedString(HashType type, string str, string key, bool isLower) => GetHashedString(type, str, key, Encoding.UTF8, isLower);
+        public static string GetHashedString(HashType type, string str, string key, bool isLower = false) => GetHashedString(type, str, key, Encoding.UTF8, isLower);
 
         /// <summary>
         /// 获取哈希之后的字符串

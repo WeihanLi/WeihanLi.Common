@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 
-namespace WeihanLi.Common.Helpers
+namespace WeihanLi.Common.Http
 {
     public interface IHttpRequester
     {

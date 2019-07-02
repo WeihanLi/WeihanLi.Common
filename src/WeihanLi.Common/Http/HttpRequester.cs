@@ -9,10 +9,10 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
-using WeihanLi.Common.Extensions;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
-namespace WeihanLi.Common.Helpers
+namespace WeihanLi.Common.Http
 {
     public class HttpResponse
     {

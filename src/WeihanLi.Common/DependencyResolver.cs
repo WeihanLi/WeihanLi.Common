@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
@@ -89,12 +88,6 @@ namespace WeihanLi.Common
                 await action.Invoke(service);
                 return true;
             }
-
-            public bool TryGetService(Type serviceType, out object service)
-            {
-                service = GetService(serviceType);
-                return serviceType != null;
-            }
         }
 
         private class DelegateBasedDependencyResolver : IDependencyResolver
@@ -135,20 +128,6 @@ namespace WeihanLi.Common
                 await action.Invoke(service);
                 return true;
             }
-
-            public bool TryGetService(Type serviceType, out object service)
-            {
-                try
-                {
-                    service = _getService(serviceType);
-                    return true;
-                }
-                catch
-                {
-                    service = null;
-                    return false;
-                }
-            }
         }
 
 #if NETSTANDARD2_0
@@ -177,21 +156,6 @@ namespace WeihanLi.Common
                     }
                 }
                 return _serviceProvider.GetRequiredService(serviceType);
-            }
-
-            public bool TryGetService(Type serviceType, out object service)
-            {
-                try
-                {
-                    service = GetService(serviceType);
-                    return true;
-                }
-                catch (Exception e)
-                {
-                    Debug.WriteLine(e);
-                    service = null;
-                    return false;
-                }
             }
 
             public IEnumerable<object> GetServices(Type serviceType)
