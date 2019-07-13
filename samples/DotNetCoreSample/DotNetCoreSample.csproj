@@ -12,11 +12,13 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="2.2.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.2-dev-00802" />
     <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\WeihanLi.Common.Logging.Log4net\WeihanLi.Common.Logging.Log4Net.csproj" />
+    <ProjectReference Include="..\..\src\WeihanLi.Common.Logging.Serilog\WeihanLi.Common.Logging.Serilog.csproj" />
     <ProjectReference Include="..\..\src\WeihanLi.Common\WeihanLi.Common.csproj" />
   </ItemGroup>
 

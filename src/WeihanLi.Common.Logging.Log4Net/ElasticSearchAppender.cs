@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using log4net.Appender;
 using log4net.Core;
 using WeihanLi.Common.Helpers;
@@ -101,24 +102,26 @@ namespace WeihanLi.Common.Logging.Log4Net
 
         private static IEnumerable<KeyValuePair<string, object>> GetLoggingEventProperties(LoggingEvent loggingEvent)
         {
-            var properties = loggingEvent.GetProperties();
-            if (properties == null)
+            yield return new KeyValuePair<string, object>("Host", Environment.MachineName);
+            if (IsValidLog4NetPropertyValue(loggingEvent.ThreadName))
             {
-                yield break;
+                yield return new KeyValuePair<string, object>(nameof(loggingEvent.ThreadName), loggingEvent.ThreadName);
             }
-
-            foreach (var key in properties.GetKeys())
+            else
             {
-                if (!string.IsNullOrWhiteSpace(key)
-                    && !key.StartsWith("log4net:", StringComparison.OrdinalIgnoreCase))
-                {
-                    var value = properties[key];
-                    if (value != null
-                        && (!(value is string stringValue) || IsValidLog4NetPropertyValue(stringValue)))
-                    {
-                        yield return new KeyValuePair<string, object>(key, value);
-                    }
-                }
+                yield return new KeyValuePair<string, object>(nameof(loggingEvent.ThreadName), Thread.CurrentThread.Name);
+            }
+            if (IsValidLog4NetPropertyValue(loggingEvent.Identity))
+            {
+                yield return new KeyValuePair<string, object>(nameof(loggingEvent.Identity), loggingEvent.Identity);
+            }
+            if (IsValidLog4NetPropertyValue(loggingEvent.UserName))
+            {
+                yield return new KeyValuePair<string, object>(nameof(loggingEvent.UserName), loggingEvent.UserName);
+            }
+            if (IsValidLog4NetPropertyValue(loggingEvent.Domain))
+            {
+                yield return new KeyValuePair<string, object>(nameof(loggingEvent.Domain), loggingEvent.Domain);
             }
 
             var locInfo = loggingEvent.LocationInformation;
@@ -145,21 +148,24 @@ namespace WeihanLi.Common.Logging.Log4Net
                 }
             }
 
-            if (IsValidLog4NetPropertyValue(loggingEvent.ThreadName))
+            var properties = loggingEvent.GetProperties();
+            if (properties == null)
             {
-                yield return new KeyValuePair<string, object>(nameof(loggingEvent.ThreadName), loggingEvent.ThreadName);
+                yield break;
             }
-            if (IsValidLog4NetPropertyValue(loggingEvent.Identity))
+
+            foreach (var key in properties.GetKeys())
             {
-                yield return new KeyValuePair<string, object>(nameof(loggingEvent.Identity), loggingEvent.Identity);
-            }
-            if (IsValidLog4NetPropertyValue(loggingEvent.UserName))
-            {
-                yield return new KeyValuePair<string, object>(nameof(loggingEvent.UserName), loggingEvent.UserName);
-            }
-            if (IsValidLog4NetPropertyValue(loggingEvent.Domain))
-            {
-                yield return new KeyValuePair<string, object>(nameof(loggingEvent.Domain), loggingEvent.Domain);
+                if (!string.IsNullOrWhiteSpace(key)
+                    && !key.StartsWith("log4net:", StringComparison.OrdinalIgnoreCase))
+                {
+                    var value = properties[key];
+                    if (value != null
+                        && (!(value is string stringValue) || IsValidLog4NetPropertyValue(stringValue)))
+                    {
+                        yield return new KeyValuePair<string, object>(key, value);
+                    }
+                }
             }
         }
     }

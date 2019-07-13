@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace WeihanLi.Common.Logging
 {
-    public interface ILogHelperFactory
+    public interface ILogHelperFactory : IDisposable
     {
         /// <summary>
         /// Creates a new ILogHelper instance.
@@ -20,9 +20,13 @@ namespace WeihanLi.Common.Logging
         bool AddProvider(ILogHelperProvider provider);
     }
 
-    public class NullLogHelperFactory : ILogHelperFactory
+    internal class NullLogHelperFactory : ILogHelperFactory
     {
         public static readonly ILogHelperFactory Instance = new NullLogHelperFactory();
+
+        public void Dispose()
+        {
+        }
 
         private NullLogHelperFactory()
         {
@@ -57,5 +61,21 @@ namespace WeihanLi.Common.Logging
         public ILogHelperLogger CreateLogger(string categoryName) => _logHelpers.GetOrAdd(categoryName, _ => new LogHelper(_logHelperProviders.Values, _));
 
         public bool AddProvider(ILogHelperProvider provider) => _logHelperProviders.TryAdd(provider.GetType(), provider);
+
+        public void Dispose()
+        {
+            if (_logHelperProviders.Count == 0)
+                return;
+
+            foreach (var provider in _logHelperProviders.Values)
+            {
+                if (provider is IDisposable disposable)
+                {
+                    disposable.Dispose();
+                }
+            }
+
+            _logHelperProviders.Clear();
+        }
     }
 }

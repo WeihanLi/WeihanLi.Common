@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Common.Logging.Log4Net;
 
 // ReSharper disable once LocalizableElement
 namespace DotNetCoreSample
@@ -14,7 +14,10 @@ namespace DotNetCoreSample
         {
             Console.WriteLine("----------DotNetCoreSample----------");
 
-            LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
+            // LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
+            // LogHelper.LogFactory.AddLog4Net();
+            LogHelper.LogFactory.AddSerilog(loggerConfig => loggerConfig.WriteTo.Console());
+
             // var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
             // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
 
@@ -135,6 +138,8 @@ namespace DotNetCoreSample
             //Console.WriteLine(result.ToJson());
 
             Console.ReadLine();
+
+            LogHelper.LogFactory.Dispose();
         }
 
         private struct TestStruct

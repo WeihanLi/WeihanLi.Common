@@ -18,7 +18,9 @@ namespace WeihanLi.Common.Helpers
     /// </summary>
     public static class LogHelper
     {
-        private static readonly Lazy<ILogHelperFactory> _loggerFactory = new Lazy<ILogHelperFactory>(() => new LogHelperFactory());
+        private static readonly Lazy<ILogHelperFactory> _logFactory = new Lazy<ILogHelperFactory>(() => new LogHelperFactory());
+
+        public static ILogHelperFactory LogFactory => _logFactory.Value;
 
         public static ILogHelperLogger GetLogger<T>() => GetLogger(typeof(T));
 
@@ -26,12 +28,12 @@ namespace WeihanLi.Common.Helpers
 
         public static ILogHelperLogger GetLogger(string categoryName)
         {
-            return _loggerFactory.Value.CreateLogger(categoryName);
+            return _logFactory.Value.CreateLogger(categoryName);
         }
 
         public static bool AddLogProvider(ILogHelperProvider logHelperProvider)
         {
-            return _loggerFactory.Value.AddProvider(logHelperProvider);
+            return _logFactory.Value.AddProvider(logHelperProvider);
         }
 
         public static int AddLogProvider(ICollection<ILogHelperProvider> logProviders)
@@ -44,7 +46,7 @@ namespace WeihanLi.Common.Helpers
                 {
                     if (provider != null)
                     {
-                        results[idx] = _loggerFactory.Value.AddProvider(provider);
+                        results[idx] = _logFactory.Value.AddProvider(provider);
                     }
                     idx++;
                 }
