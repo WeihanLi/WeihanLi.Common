@@ -1,4 +1,4 @@
-﻿namespace WeihanLi.Common.Otp
+﻿namespace WeihanLi.Common
 {
     public enum OtpHashAlgorithm
     {
