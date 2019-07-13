@@ -1,11 +1,11 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 using WeihanLi.Common;
+using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Common.Logging.Log4Net;
-using WeihanLi.Common.Models;
-using WeihanLi.Extensions;
+using WeihanLi.Common.Logging.Serilog;
 
 // ReSharper disable once LocalizableElement
 namespace DotNetCoreSample
@@ -16,8 +16,11 @@ namespace DotNetCoreSample
         {
             Console.WriteLine("----------DotNetCoreSample----------");
 
-            LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
-            var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
+            // LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
+            // LogHelper.LogFactory.AddLog4Net();
+            LogHelper.LogFactory.AddSerilog(loggerConfig => loggerConfig.WriteTo.Console());
+
+            // var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
             // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
 
             var serviceCollection = new ServiceCollection();
@@ -26,15 +29,23 @@ namespace DotNetCoreSample
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            var city = configuration.GetAppSetting("City");
-            var number = configuration.GetAppSetting<int>("Number");
-            Console.WriteLine($"City:{city}, Number:{number}");
+            //var city = configuration.GetAppSetting("City");
+            //var number = configuration.GetAppSetting<int>("Number");
+            //Console.WriteLine($"City:{city}, Number:{number}");
 
             serviceCollection.AddSingleton(configuration);
+
+            serviceCollection.AddSingleton<CounterEventHandler1>();
+            serviceCollection.AddSingleton<CounterEventHandler2>();
+
+            serviceCollection.AddSingleton<IEventStore, EventStoreInMemory>();
+            serviceCollection.AddSingleton<IEventBus, EventBus>();
 
             DependencyResolver.SetDependencyResolver(serviceCollection);
 
             //DependencyInjectionTest.Test();
+
+            EventTest.MainTest();
 
             //var builder = new ContainerBuilder();
             //builder.RegisterType<MonkeyKing>().As<IFly>();
@@ -46,17 +57,17 @@ namespace DotNetCoreSample
             //int a = 1;
             //Console.WriteLine(JsonConvert.SerializeObject(a));// output 1
 
-            var pagedListModel = new PagedListModel<int>()
-            {
-                PageNumber = 1,
-                PageSize = 4,
-                TotalCount = 10,
-                Data = new[] { 1, 2, 3, 4 }
-            };
-            Console.WriteLine(pagedListModel.ToJson());
+            //var pagedListModel = new PagedListModel<int>()
+            //{
+            //    PageNumber = 1,
+            //    PageSize = 4,
+            //    TotalCount = 10,
+            //    Data = new[] { 1, 2, 3, 4 }
+            //};
+            //Console.WriteLine(pagedListModel.ToJson());
 
             // log test
-            LoggerTest.MainTest();
+            // LoggerTest.MainTest();
             // Log4NetTest.MainTest();
 
             //ILoggerFactory loggerFactory = new LoggerFactory();
@@ -115,9 +126,30 @@ namespace DotNetCoreSample
             //var code1234 = TotpHelper.GenerateCode(ApplicationHelper.ApplicationName + "test_1234");
             //Console.WriteLine(code1234);
 
-            InvokeHelper.TryInvoke(HttpRequesterTest.MainTest);
+            // InvokeHelper.TryInvoke(HttpRequesterTest.MainTest);
+
+            //var pagedListModel = new PagedListModel<int>()
+            //{
+            //    PageNumber = 2, PageSize = 2, TotalCount = 6, Data = new int[] {1, 2},
+            //};
+            //var pagedListModel1 = new PagedListModel1<int>()
+            //{
+            //    PageNumber = 2,
+            //    PageSize = 2,
+            //    TotalCount = 6,
+            //    Data = new int[] { 1, 2 },
+            //};
+            //Console.WriteLine($"pagedListModel:{JsonConvert.SerializeObject(pagedListModel)}, pagedListModel1:{JsonConvert.SerializeObject(pagedListModel1)}");
+
+            //var posts = new[] { new { PostId = 1, PostTitle = "12333", }, new { PostId = 2, PostTitle = "12333", }, };
+            //var postTags = new[] { new { PostId = 1, Tag = "HHH" } };
+
+            //var result = posts.LeftJoin(postTags, p => p.PostId, pt => pt.PostId, (p, pt) => new { p.PostId, p.PostTitle, pt?.Tag }).ToArray();
+            //Console.WriteLine(result.ToJson());
 
             Console.ReadLine();
+
+            LogHelper.LogFactory.Dispose();
         }
 
         private struct TestStruct

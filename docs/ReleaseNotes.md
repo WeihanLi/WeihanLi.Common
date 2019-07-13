@@ -4,6 +4,15 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.22](https://www.nuget.org/packages/WeihanLi.Common/1.0.22)
+
+- add `DateTimeFormatConverter`
+- add `LeftJoin` extension linq method for `IEnumerable`
+- add `ActivatorHelper` to create instance
+- update `Newtonsoft.Json` package version
+- update `JsonResultModel`
+- update `Pagedlistmodel`, fix json serialize bug
+
 ### [WeihanLi.Common 1.0.21](https://www.nuget.org/packages/WeihanLi.Common/1.0.21)
 
 - add `CancellationToken` support for Repository and DataExtensions async operations
@@ -45,6 +54,12 @@
 - update repository, add support for columns mapping
 
 ## WeihanLi.Common.Logging.Log4Net
+
+### [WeihanLi.Common.Logging.Log4Net 1.0.22.4](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.22.4)
+
+- add [sourceLink](https://github.com/dotnet/sourcelink) support
+- Optimize `ElasticSearchAppender`, add support for none rolling date index, update LogFields, fix Content-Type warning
+- Optimize Log4Net for netframework, add support for `LogManager.GetLogger(loggerName)`/`LogManager.GetLogger(loggerType)`
 
 ### [WeihanLi.Common.Logging.Log4Net 1.0.17](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.17)
 

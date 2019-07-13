@@ -144,6 +144,36 @@ namespace WeihanLi.Extensions
 
         #endregion Split
 
+        #region Linq
+
+        /// <summary>
+        /// LeftJoin extension
+        /// </summary>
+        /// <typeparam name="TOuter">outer</typeparam>
+        /// <typeparam name="TInner">inner</typeparam>
+        /// <typeparam name="TKey">TKey</typeparam>
+        /// <typeparam name="TResult">TResult</typeparam>
+        /// <param name="outer">outer collection</param>
+        /// <param name="inner">inner collection</param>
+        /// <param name="outerKeySelector">outerKeySelector</param>
+        /// <param name="innerKeySelector">innerKeySelector</param>
+        /// <param name="resultSelector">resultSelector</param>
+        /// <returns></returns>
+        public static IEnumerable<TResult> LeftJoin<TOuter, TInner, TKey, TResult>(this IEnumerable<TOuter> outer,
+            IEnumerable<TInner> inner, Func<TOuter, TKey> outerKeySelector, Func<TInner, TKey> innerKeySelector,
+            Func<TOuter, TInner, TResult> resultSelector)
+        {
+            return outer
+                .GroupJoin(inner, outerKeySelector, innerKeySelector, (outerObj, inners) => new
+                {
+                    outerObj,
+                    inners = inners.DefaultIfEmpty()
+                })
+                .SelectMany(a => a.inners.Select(innerObj => resultSelector(a.outerObj, innerObj)));
+        }
+
+        #endregion Linq
+
         #region PagedListModel
 
         /// <summary>

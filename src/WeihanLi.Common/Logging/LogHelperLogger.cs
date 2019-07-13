@@ -35,8 +35,11 @@ namespace WeihanLi.Common.Logging
     {
         private readonly IReadOnlyCollection<ILogHelperLogger> _loggers;
 
+        public string CategoryName { get; }
+
         public LogHelper(ICollection<ILogHelperProvider> logHelperProviders, string categoryName)
         {
+            CategoryName = categoryName;
             _loggers = logHelperProviders.Select(_ => _.CreateLogger(categoryName)).ToArray();
         }
 
@@ -51,6 +54,6 @@ namespace WeihanLi.Common.Logging
             });
         }
 
-        public bool IsEnabled(LogHelperLevel loggerLevel) => true;
+        public bool IsEnabled(LogHelperLevel loggerLevel) => loggerLevel != LogHelperLevel.None;
     }
 }
