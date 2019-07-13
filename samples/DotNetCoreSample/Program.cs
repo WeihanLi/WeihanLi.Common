@@ -3,7 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using WeihanLi.Common;
+using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Common.Logging.Serilog;
 
 // ReSharper disable once LocalizableElement
 namespace DotNetCoreSample
@@ -33,9 +35,17 @@ namespace DotNetCoreSample
 
             serviceCollection.AddSingleton(configuration);
 
+            serviceCollection.AddSingleton<CounterEventHandler1>();
+            serviceCollection.AddSingleton<CounterEventHandler2>();
+
+            serviceCollection.AddSingleton<IEventStore, EventStoreInMemory>();
+            serviceCollection.AddSingleton<IEventBus, EventBus>();
+
             DependencyResolver.SetDependencyResolver(serviceCollection);
 
             //DependencyInjectionTest.Test();
+
+            EventTest.MainTest();
 
             //var builder = new ContainerBuilder();
             //builder.RegisterType<MonkeyKing>().As<IFly>();
@@ -57,7 +67,7 @@ namespace DotNetCoreSample
             //Console.WriteLine(pagedListModel.ToJson());
 
             // log test
-            LoggerTest.MainTest();
+            // LoggerTest.MainTest();
             // Log4NetTest.MainTest();
 
             //ILoggerFactory loggerFactory = new LoggerFactory();
