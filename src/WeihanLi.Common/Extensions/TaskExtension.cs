@@ -15,7 +15,5 @@ namespace WeihanLi.Extensions
 
         public static Task<TResult[]> WhenAll<TResult>(this IEnumerable<Task<TResult>> tasks)
             => Task.WhenAll(tasks);
-
-        public static Task<T> FromDefault<T>() => Task.FromResult(default(T));
     }
 }
