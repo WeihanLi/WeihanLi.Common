@@ -79,7 +79,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="instanceType">The type to activate</param>
         /// <param name="parameters">Constructor arguments not provided by the <paramref name="provider"/>.</param>
         /// <returns>An activated object of type instanceType</returns>
-        public static object CreateInstance(IServiceProvider provider, Type instanceType, params object[] parameters)
+        public static object CreateInstance(this IServiceProvider provider, Type instanceType, params object[] parameters)
         {
             int bestLength = -1;
 
@@ -148,7 +148,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="provider">The service provider used to resolve dependencies</param>
         /// <param name="parameters">Constructor arguments not provided by the <paramref name="provider"/>.</param>
         /// <returns>An activated object of type T</returns>
-        public static T CreateInstance<T>(IServiceProvider provider, params object[] parameters)
+        public static T CreateInstance<T>(this IServiceProvider provider, params object[] parameters)
         {
             return (T)CreateInstance(provider, typeof(T), parameters);
         }
@@ -159,7 +159,7 @@ namespace WeihanLi.Common.Helpers
         /// <typeparam name="T">The type of the service</typeparam>
         /// <param name="provider">The service provider used to resolve dependencies</param>
         /// <returns>The resolved service or created instance</returns>
-        public static T GetServiceOrCreateInstance<T>(IServiceProvider provider)
+        public static T GetServiceOrCreateInstance<T>(this IServiceProvider provider)
         {
             return (T)GetServiceOrCreateInstance(provider, typeof(T));
         }
@@ -170,7 +170,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="provider">The service provider</param>
         /// <param name="type">The type of the service</param>
         /// <returns>The resolved service or created instance</returns>
-        public static object GetServiceOrCreateInstance(IServiceProvider provider, Type type)
+        public static object GetServiceOrCreateInstance(this IServiceProvider provider, Type type)
         {
             return provider.GetService(type) ?? CreateInstance(provider, type);
         }
