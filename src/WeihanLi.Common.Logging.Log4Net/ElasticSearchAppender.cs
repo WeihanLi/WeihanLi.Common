@@ -66,7 +66,6 @@ namespace WeihanLi.Common.Logging.Log4Net
                     InvokeHelper.OnInvokeException?.Invoke(ex);
                 }
             }
-            sb.Remove(sb.Length - 1, 1);
 
             var url = $"{ElasticSearchUrl}/{IndexFormat.Replace("{applicationName}", ApplicationName.GetValueOrDefault(ApplicationHelper.ApplicationName).ToLower()).Replace("{rollingDate}", DateTime.UtcNow.ToString("yyyyMMdd"))}/{Type}/_bulk";
             try

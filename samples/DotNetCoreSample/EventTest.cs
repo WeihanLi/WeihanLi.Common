@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using WeihanLi.Common;
 using WeihanLi.Common.Event;
+using WeihanLi.Common.Helpers;
+using WeihanLi.Common.Logging;
 using WeihanLi.Extensions;
 
 namespace DotNetCoreSample
@@ -30,7 +32,7 @@ namespace DotNetCoreSample
     {
         public Task Handle(CounterEvent @event, CancellationToken cancellationToken = default)
         {
-            System.Console.WriteLine($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
+            LogHelper.GetLogger<CounterEventHandler1>().Info($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
             return Task.CompletedTask;
         }
     }
@@ -39,7 +41,7 @@ namespace DotNetCoreSample
     {
         public Task Handle(CounterEvent @event, CancellationToken cancellationToken = default)
         {
-            System.Console.WriteLine($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
+            LogHelper.GetLogger<CounterEventHandler2>().Info($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
             return Task.CompletedTask;
         }
     }
