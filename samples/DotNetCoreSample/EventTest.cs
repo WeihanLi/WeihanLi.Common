@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using WeihanLi.Common;
 using WeihanLi.Common.Event;
 using WeihanLi.Extensions;
@@ -27,7 +28,7 @@ namespace DotNetCoreSample
 
     internal class CounterEventHandler1 : IEventHandler<CounterEvent>
     {
-        public Task Handle(CounterEvent @event)
+        public Task Handle(CounterEvent @event, CancellationToken cancellationToken = default)
         {
             System.Console.WriteLine($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
             return Task.CompletedTask;
@@ -36,7 +37,7 @@ namespace DotNetCoreSample
 
     internal class CounterEventHandler2 : IEventHandler<CounterEvent>
     {
-        public Task Handle(CounterEvent @event)
+        public Task Handle(CounterEvent @event, CancellationToken cancellationToken = default)
         {
             System.Console.WriteLine($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
             return Task.CompletedTask;

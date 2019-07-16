@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace WeihanLi.Common.Event
 {
-    public interface IEventHandler<TEvent> where TEvent : EventBase
+    public interface IEventHandler<in TEvent> where TEvent : EventBase
     {
-        Task Handle(TEvent @event);
+        Task Handle(TEvent @event, CancellationToken cancellationToken = default);
     }
 }

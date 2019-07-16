@@ -19,17 +19,16 @@ namespace WeihanLi.Common.Event
 
         public bool Publish<TEvent>(TEvent @event) where TEvent : EventBase
         {
-            var hanlders = _eventStore.GetEventHandlerTypes<TEvent>();
-            if (hanlders.Count > 0)
+            var handlers = _eventStore.GetEventHandlerTypes<TEvent>();
+            if (handlers.Count > 0)
             {
                 var handlerTasks = new List<Task>();
 
-                foreach (var handlerType in hanlders)
+                foreach (var handlerType in handlers)
                 {
                     try
                     {
-                        var handler = DependencyResolver.Current.GetService(handlerType) as IEventHandler<TEvent>;
-                        if (handler != null)
+                        if (DependencyResolver.Current.GetService(handlerType) is IEventHandler<TEvent> handler)
                         {
                             handlerTasks.Add(handler.Handle(@event));
                         }
