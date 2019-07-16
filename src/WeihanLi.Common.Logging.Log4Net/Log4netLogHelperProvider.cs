@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.IO;
-using System.Linq;
 using JetBrains.Annotations;
-using log4net;
-using log4net.Config;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Logging.Log4Net
@@ -20,11 +16,7 @@ namespace WeihanLi.Common.Logging.Log4Net
 
         public Log4NetLogHelperProvider(string configurationFilePath)
         {
-            if (null == LogManager.GetAllRepositories().FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))
-            {
-                XmlConfigurator.ConfigureAndWatch(LogManager.CreateRepository(ApplicationHelper.ApplicationName),
-                    new FileInfo(configurationFilePath));
-            }
+            Log4NetHelper.LogInit(configurationFilePath);
         }
 
         public ILogHelperLogger CreateLogger(string categoryName) => _loggers.GetOrAdd(categoryName, loggerName => new Log4NetLogHelperLogger(loggerName));

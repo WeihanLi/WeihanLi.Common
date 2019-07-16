@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../../build/logging.serilog.props" />
+
+  <ItemGroup>
+    <PackageReference Include="Serilog" Version="2.9.0-dev-01116" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
+    <!-- <PackageReference Include="WeihanLi.Common" Version="1.0.22" /> -->
+  </ItemGroup>
+
+</Project>

@@ -15,6 +15,7 @@ Build status: [![Build Status](https://travis-ci.org/WeihanLi/WeihanLi.Common.sv
 - [WeihanLi.Common](https://www.nuget.org/packages/WeihanLi.Common) 基本组件
 - [WeihanLi.Data](https://www.nuget.org/packages/WeihanLi.Data) 数据库扩展
 - [WeihanLi.Common.Logging.Log4Net](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net) log4net 扩展
+- [WeihanLi.Common.Logging.Serilog](https://www.nuget.org/packages/WeihanLi.Common.Logging.Serilog) serilog 扩展
 
 ## Extensions
 

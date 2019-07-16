@@ -154,7 +154,7 @@ namespace WeihanLi.Extensions
         ///     A 64-bit integer that represents the number of elements to copy. The integer must be between
         ///     zero and , inclusive.
         /// </param>
-        public static void Copy([NotNull]this Array sourceArray, Array destinationArray, Int64 length)
+        public static void Copy([NotNull]this Array sourceArray, Array destinationArray, long length)
         {
             Array.Copy(sourceArray, destinationArray, length);
         }
@@ -171,7 +171,7 @@ namespace WeihanLi.Extensions
         ///     A 64-bit integer that represents the number of elements to copy. The integer must be between
         ///     zero and , inclusive.
         /// </param>
-        public static void Copy([NotNull]this Array sourceArray, Int64 sourceIndex, Array destinationArray, Int64 destinationIndex, Int64 length)
+        public static void Copy([NotNull]this Array sourceArray, long sourceIndex, Array destinationArray, long destinationIndex, long length)
         {
             Array.Copy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
         }
@@ -951,31 +951,6 @@ namespace WeihanLi.Extensions
         }
 
         /// <summary>
-        ///     Converts a time to the time in another time zone based on the time zone&#39;s identifier.
-        /// </summary>
-        /// <param name="dateTime">The date and time to convert.</param>
-        /// <param name="destinationTimeZoneId">The identifier of the destination time zone.</param>
-        /// <returns>The date and time in the destination time zone.</returns>
-        public static DateTime ConvertTimeBySystemTimeZoneId(this DateTime dateTime, string destinationTimeZoneId)
-        {
-            return TimeZoneInfo.ConvertTimeBySystemTimeZoneId(dateTime, destinationTimeZoneId);
-        }
-
-        /// <summary>
-        ///     Converts a time from one time zone to another based on time zone identifiers.
-        /// </summary>
-        /// <param name="dateTime">The date and time to convert.</param>
-        /// <param name="sourceTimeZoneId">The identifier of the source time zone.</param>
-        /// <param name="destinationTimeZoneId">The identifier of the destination time zone.</param>
-        /// <returns>
-        ///     The date and time in the destination time zone that corresponds to the  parameter in the source time zone.
-        /// </returns>
-        public static DateTime ConvertTimeBySystemTimeZoneId(this DateTime dateTime, string sourceTimeZoneId, string destinationTimeZoneId)
-        {
-            return TimeZoneInfo.ConvertTimeBySystemTimeZoneId(dateTime, sourceTimeZoneId, destinationTimeZoneId);
-        }
-
-        /// <summary>
         ///     Converts a Coordinated Universal Time (UTC) to the time in a specified time zone.
         /// </summary>
         /// <param name="dateTime">The Coordinated Universal Time (UTC).</param>
@@ -1013,424 +988,6 @@ namespace WeihanLi.Extensions
         public static DateTime ConvertTimeToUtc(this DateTime dateTime, TimeZoneInfo sourceTimeZone)
         {
             return TimeZoneInfo.ConvertTimeToUtc(dateTime, sourceTimeZone);
-        }
-
-        public static long ToTimestamp(this DateTime dateTime) => Convert.ToInt64(dateTime.ToEpochTimeSpan().TotalMilliseconds);
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a full date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToFullDateTimeString(this DateTime @this)
-        {
-            return @this.ToString("F", DateTimeFormatInfo.CurrentInfo);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a full date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToFullDateTimeString(this DateTime @this, string culture)
-        {
-            return @this.ToString("F", new CultureInfo(culture));
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a full date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToFullDateTimeString(this DateTime @this, CultureInfo culture)
-        {
-            return @this.ToString("F", culture);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a long date short time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToLongDateShortTimeString(this DateTime @this)
-        {
-            return @this.ToString("f", DateTimeFormatInfo.CurrentInfo);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a long date short time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToLongDateShortTimeString(this DateTime @this, string culture)
-        {
-            return @this.ToString("f", new CultureInfo(culture));
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a long date short time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToLongDateShortTimeString(this DateTime @this, CultureInfo culture)
-        {
-            return @this.ToString("f", culture);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a long date string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToLongDateString(this DateTime @this)
-        {
-            return @this.ToString("D", DateTimeFormatInfo.CurrentInfo);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a long date string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToLongDateString(this DateTime @this, string culture)
-        {
-            return @this.ToString("D", new CultureInfo(culture));
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a long date string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToLongDateString(this DateTime @this, CultureInfo culture)
-        {
-            return @this.ToString("D", culture);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a long date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToLongDateTimeString(this DateTime @this)
-        {
-            return @this.ToString("F", DateTimeFormatInfo.CurrentInfo);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a long date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToLongDateTimeString(this DateTime @this, string culture)
-        {
-            return @this.ToString("F", new CultureInfo(culture));
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a long date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToLongDateTimeString(this DateTime @this, CultureInfo culture)
-        {
-            return @this.ToString("F", culture);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a long time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToLongTimeString(this DateTime @this)
-        {
-            return @this.ToString("T", DateTimeFormatInfo.CurrentInfo);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a long time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToLongTimeString(this DateTime @this, string culture)
-        {
-            return @this.ToString("T", new CultureInfo(culture));
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a long time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToLongTimeString(this DateTime @this, CultureInfo culture)
-        {
-            return @this.ToString("T", culture);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a month day string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToMonthDayString(this DateTime @this)
-        {
-            return @this.ToString("m", DateTimeFormatInfo.CurrentInfo);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a month day string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToMonthDayString(this DateTime @this, string culture)
-        {
-            return @this.ToString("m", new CultureInfo(culture));
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a month day string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToMonthDayString(this DateTime @this, CultureInfo culture)
-        {
-            return @this.ToString("m", culture);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a short date long time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToShortDateLongTimeString(this DateTime @this)
-        {
-            return @this.ToString("G", DateTimeFormatInfo.CurrentInfo);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a short date long time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToShortDateLongTimeString(this DateTime @this, string culture)
-        {
-            return @this.ToString("G", new CultureInfo(culture));
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a short date long time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToShortDateLongTimeString(this DateTime @this, CultureInfo culture)
-        {
-            return @this.ToString("G", culture);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a short date string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToShortDateString(this DateTime @this)
-        {
-            return @this.ToString("d", DateTimeFormatInfo.CurrentInfo);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a short date string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToShortDateString(this DateTime @this, string culture)
-        {
-            return @this.ToString("d", new CultureInfo(culture));
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a short date string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToShortDateString(this DateTime @this, CultureInfo culture)
-        {
-            return @this.ToString("d", culture);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a short date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToShortDateTimeString(this DateTime @this)
-        {
-            return @this.ToString("g", DateTimeFormatInfo.CurrentInfo);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a short date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToShortDateTimeString(this DateTime @this, string culture)
-        {
-            return @this.ToString("g", new CultureInfo(culture));
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a short date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToShortDateTimeString(this DateTime @this, CultureInfo culture)
-        {
-            return @this.ToString("g", culture);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a short time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToShortTimeString(this DateTime @this)
-        {
-            return @this.ToString("t", DateTimeFormatInfo.CurrentInfo);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a short time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToShortTimeString(this DateTime @this, string culture)
-        {
-            return @this.ToString("t", new CultureInfo(culture));
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a short time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToShortTimeString(this DateTime @this, CultureInfo culture)
-        {
-            return @this.ToString("t", culture);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a sortable date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToSortableDateTimeString(this DateTime @this)
-        {
-            return @this.ToString("s", DateTimeFormatInfo.CurrentInfo);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a sortable date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToSortableDateTimeString(this DateTime @this, string culture)
-        {
-            return @this.ToString("s", new CultureInfo(culture));
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to a sortable date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToSortableDateTimeString(this DateTime @this, CultureInfo culture)
-        {
-            return @this.ToString("s", culture);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to an universal sortable date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToUniversalSortableDateTimeString(this DateTime @this)
-        {
-            return @this.ToString("u", DateTimeFormatInfo.CurrentInfo);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to an universal sortable date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToUniversalSortableDateTimeString(this DateTime @this, string culture)
-        {
-            return @this.ToString("u", new CultureInfo(culture));
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to an universal sortable date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToUniversalSortableDateTimeString(this DateTime @this, CultureInfo culture)
-        {
-            return @this.ToString("u", culture);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to an universal sortable long date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToUniversalSortableLongDateTimeString(this DateTime @this)
-        {
-            return @this.ToString("U", DateTimeFormatInfo.CurrentInfo);
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to an universal sortable long date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToUniversalSortableLongDateTimeString(this DateTime @this, string culture)
-        {
-            return @this.ToString("U", new CultureInfo(culture));
-        }
-
-        /// <summary>
-        ///     A DateTime extension method that converts this object to an universal sortable long date time string.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The given data converted to a string.</returns>
-        public static string ToUniversalSortableLongDateTimeString(this DateTime @this, CultureInfo culture)
-        {
-            return @this.ToString("U", culture);
         }
 
         /// <summary>
@@ -2193,7 +1750,7 @@ namespace WeihanLi.Extensions
             }
 
             var sqrt = (short)Math.Sqrt(@this);
-            for (Int64 t = 3; t <= sqrt; t = t + 2)
+            for (long t = 3; t <= sqrt; t = t + 2)
             {
                 if (@this % t == 0)
                 {
@@ -2419,7 +1976,7 @@ namespace WeihanLi.Extensions
         /// <param name="a">The first number to multiply.</param>
         /// <param name="b">The second number to multiply.</param>
         /// <returns>The number containing the product of the specified numbers.</returns>
-        public static Int64 BigMul(this int a, int b)
+        public static long BigMul(this int a, int b)
         {
             return Math.BigMul(a, b);
         }
@@ -2480,7 +2037,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="value">A number of ticks that represent a time.</param>
         /// <returns>An object that represents .</returns>
-        public static TimeSpan FromTicks(this Int64 value)
+        public static TimeSpan FromTicks(this long value)
         {
             return TimeSpan.FromTicks(value);
         }
@@ -2490,7 +2047,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="value">The number to convert.</param>
         /// <returns>An array of bytes with length 8.</returns>
-        public static byte[] GetBytes(this Int64 value)
+        public static byte[] GetBytes(this long value)
         {
             return BitConverter.GetBytes(value);
         }
@@ -2500,7 +2057,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="value">The number to convert.</param>
         /// <returns>A double-precision floating point number whose value is equivalent to .</returns>
-        public static double Int64BitsToDouble(this Int64 value)
+        public static double Int64BitsToDouble(this long value)
         {
             return BitConverter.Int64BitsToDouble(value);
         }
@@ -3557,7 +3114,7 @@ namespace WeihanLi.Extensions
         /// <param name="type">type</param>
         /// <returns></returns>
         public static bool HasEmptyConstructor([NotNull]this Type type)
-            => type.GetConstructors().Any(c => c.GetParameters().Length == 0);
+            => type.GetConstructors(BindingFlags.Instance).Any(c => c.GetParameters().Length == 0);
 
         /// <summary>
         /// 根据 Type 获取默认值，实现类似 default(T) 的功能

@@ -32,33 +32,22 @@ namespace WeihanLi.Common.Test.HelpersTest
         {
             // MD5
             // Hash result test
-            Assert.Equal(HashHelper.GetHashedString(HashType.MD5, str), SecurityHelper.MD5_Encrypt(str));
+            Assert.Equal(HashHelper.GetHashedString(HashType.MD5, str), SecurityHelper.MD5(str));
             // case
-            Assert.Equal(HashHelper.GetHashedString(HashType.MD5, str, true), SecurityHelper.MD5_Encrypt(str, true));
+            Assert.Equal(HashHelper.GetHashedString(HashType.MD5, str, true), SecurityHelper.MD5(str, true));
             // Encoding test
             Assert.Equal(HashHelper.GetHashedString(HashType.MD5, str), HashHelper.GetHashedString(HashType.MD5, str, Encoding.UTF8));
             // SHA1
             // Hash result test
-            Assert.Equal(HashHelper.GetHashedString(HashType.SHA1, str), SecurityHelper.SHA1_Encrypt(str));
+            Assert.Equal(HashHelper.GetHashedString(HashType.SHA1, str), SecurityHelper.SHA1(str));
             // case
-            Assert.Equal(HashHelper.GetHashedString(HashType.SHA1, str, true), SecurityHelper.SHA1_Encrypt(str, true));
+            Assert.Equal(HashHelper.GetHashedString(HashType.SHA1, str, true), SecurityHelper.SHA1(str, true));
             // Encoding test
             Assert.Equal(HashHelper.GetHashedString(HashType.SHA1, str), HashHelper.GetHashedString(HashType.SHA1, str, Encoding.UTF8));
-            // SHA256
-            // Hash result test
-            Assert.Equal(HashHelper.GetHashedString(HashType.SHA256, str), SecurityHelper.SHA256_Encrypt(str));
-            // case
-            Assert.Equal(HashHelper.GetHashedString(HashType.SHA256, str, true), SecurityHelper.SHA256_Encrypt(str, true));
+
             // Encoding test
             Assert.Equal(HashHelper.GetHashedString(HashType.SHA256, str), HashHelper.GetHashedString(HashType.SHA256, str, Encoding.UTF8));
-            // SHA384
-            // Encoding test
-            Assert.Equal(HashHelper.GetHashedString(HashType.SHA384, str), HashHelper.GetHashedString(HashType.SHA384, str, Encoding.UTF8));
-            // SHA512
-            // Hash result test
-            Assert.Equal(HashHelper.GetHashedString(HashType.SHA512, str), SecurityHelper.SHA512_Encrypt(str));
-            // case
-            Assert.Equal(HashHelper.GetHashedString(HashType.SHA512, str, true), SecurityHelper.SHA512_Encrypt(str, true));
+
             // Encoding test
             Assert.Equal(HashHelper.GetHashedString(HashType.SHA512, str), HashHelper.GetHashedString(HashType.SHA512, str, Encoding.UTF8));
         }
@@ -66,10 +55,10 @@ namespace WeihanLi.Common.Test.HelpersTest
         [Fact]
         public void HashNullOrEmptyTest()
         {
-            Assert.Equal("", SecurityHelper.MD5_Encrypt(null));
-            Assert.Equal(SecurityHelper.MD5_Encrypt(null), HashHelper.GetHashedString(HashType.MD5, null));
-            Assert.Equal("", SecurityHelper.MD5_Encrypt(""));
-            Assert.Equal(SecurityHelper.MD5_Encrypt(""), HashHelper.GetHashedString(HashType.MD5, ""));
+            Assert.Equal("", SecurityHelper.MD5(null));
+            Assert.Equal(SecurityHelper.MD5(null), HashHelper.GetHashedString(HashType.MD5, null));
+            Assert.Equal("", SecurityHelper.MD5(""));
+            Assert.Equal(SecurityHelper.MD5(""), HashHelper.GetHashedString(HashType.MD5, ""));
         }
 
         #endregion Hash

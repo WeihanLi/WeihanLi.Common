@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace WeihanLi.Common.Otp
+namespace WeihanLi.Common
 {
     public class Totp
     {

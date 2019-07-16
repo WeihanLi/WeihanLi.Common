@@ -92,12 +92,12 @@ namespace WeihanLi.Common.Helpers
         }
 
         /// <summary>
-        /// MD5加密
+        /// get MD5 hashed string
         /// </summary>
         /// <param name="sourceString">原字符串</param>
         /// <param name="isLower">加密后的字符串是否为小写</param>
         /// <returns>加密后字符串</returns>
-        public static string MD5_Encrypt(string sourceString, bool isLower = false)
+        public static string MD5(string sourceString, bool isLower = false)
         {
             if (string.IsNullOrEmpty(sourceString))
             {
@@ -107,9 +107,9 @@ namespace WeihanLi.Common.Helpers
         }
 
         /// <summary>
-        /// use sha1 to encrypt string
+        /// get SHA1 hashed string
         /// </summary>
-        public static string SHA1_Encrypt(string sourceString, bool isLower = false)
+        public static string SHA1(string sourceString, bool isLower = false)
         {
             if (string.IsNullOrEmpty(sourceString))
             {
@@ -119,27 +119,15 @@ namespace WeihanLi.Common.Helpers
         }
 
         /// <summary>
-        /// SHA256 加密
+        /// get SHA256 hashed string
         /// </summary>
-        public static string SHA256_Encrypt(string sourceString, bool isLower = false)
+        public static string SHA256(string sourceString, bool isLower = false)
         {
             if (string.IsNullOrEmpty(sourceString))
             {
                 return "";
             }
             return HashHelper.GetHashedString(HashType.SHA256, sourceString, isLower);
-        }
-
-        /// <summary>
-        /// SHA512_加密
-        /// </summary>
-        public static string SHA512_Encrypt(string sourceString, bool isLower = false)
-        {
-            if (string.IsNullOrEmpty(sourceString))
-            {
-                return "";
-            }
-            return HashHelper.GetHashedString(HashType.SHA512, sourceString, isLower);
         }
     }
 
@@ -163,7 +151,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="str">要hash的字符串</param>
         /// <param name="key">key</param>
         /// <returns>hash过的字节数组</returns>
-        public static byte[] GetHashedBytes(HashType type, string str, string key) => GetHashedBytes(type, key.IsNotNullOrEmpty() ? key.GetBytes() : null, str.GetBytes());
+        public static byte[] GetHashedBytes(HashType type, string str, string key) => GetHashedBytes(type, str.GetBytes(), key.IsNotNullOrEmpty() ? key.GetBytes() : null);
 
         /// <summary>
         /// 计算字符串Hash值
@@ -203,7 +191,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="key">key</param>
         /// <param name="isLower">是否是小写</param>
         /// <returns>哈希算法处理之后的字符串</returns>
-        public static string GetHashedString(HashType type, string str, string key, bool isLower) => GetHashedString(type, str, key, Encoding.UTF8, isLower);
+        public static string GetHashedString(HashType type, string str, string key, bool isLower = false) => GetHashedString(type, str, key, Encoding.UTF8, isLower);
 
         /// <summary>
         /// 获取哈希之后的字符串
@@ -230,7 +218,7 @@ namespace WeihanLi.Common.Helpers
             {
                 return "";
             }
-            var hashedBytes = GetHashedBytes(type, key.IsNotNullOrEmpty() ? encoding.GetBytes(key) : null, encoding.GetBytes(str));
+            var hashedBytes = GetHashedBytes(type, encoding.GetBytes(str), key.IsNotNullOrEmpty() ? encoding.GetBytes(key) : null);
             var sbText = new StringBuilder();
             if (isLower)
             {
@@ -255,7 +243,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="type">哈希类型</param>
         /// <param name="bytes">原字节数组</param>
         /// <returns></returns>
-        public static byte[] GetHashedBytes(HashType type, byte[] bytes) => GetHashedBytes(type, null, bytes);
+        public static byte[] GetHashedBytes(HashType type, byte[] bytes) => GetHashedBytes(type, bytes, null);
 
         /// <summary>
         /// 获取Hash后的字节数组
@@ -264,7 +252,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="key">key</param>
         /// <param name="bytes">原字节数组</param>
         /// <returns></returns>
-        public static byte[] GetHashedBytes(HashType type, byte[] key, byte[] bytes)
+        public static byte[] GetHashedBytes(HashType type, byte[] bytes, byte[] key)
         {
             HashAlgorithm algorithm = null;
             try
