@@ -4,6 +4,13 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.23.1](https://www.nuget.org/packages/WeihanLi.Common/1.0.23.1)
+
+- expose `ApplicationHelper.AppRoot`
+- update sourceLink
+- add eventLog/funcExtension
+- update `HttpClientExtensions`/`SecurityHelper`
+
 ### [WeihanLi.Common 1.0.22](https://www.nuget.org/packages/WeihanLi.Common/1.0.22)
 
 - add `DateTimeFormatConverter`
@@ -55,7 +62,7 @@
 
 ## WeihanLi.Common.Logging.Log4Net
 
-### [WeihanLi.Common.Logging.Log4Net 1.0.22.4](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.22.4)
+### [WeihanLi.Common.Logging.Log4Net 1.0.22.6](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.22.6)
 
 - add [sourceLink](https://github.com/dotnet/sourcelink) support
 - Optimize `ElasticSearchAppender`, add support for none rolling date index, update LogFields, fix Content-Type warning
