@@ -11,7 +11,7 @@ namespace WeihanLi.Common.Event
         [JsonProperty]
         public string EventId { get; private set; }
 
-        public EventBase()
+        protected EventBase()
         {
             EventId = GuidIdGenerator.Instance.NewId();
             EventAt = DateTimeOffset.UtcNow;

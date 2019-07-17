@@ -30,7 +30,7 @@ namespace DotNetCoreSample
 
     internal class CounterEventHandler1 : IEventHandler<CounterEvent>
     {
-        public Task Handle(CounterEvent @event, CancellationToken cancellationToken = default)
+        public Task Handle(CounterEvent @event)
         {
             LogHelper.GetLogger<CounterEventHandler1>().Info($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
             return Task.CompletedTask;
@@ -39,7 +39,7 @@ namespace DotNetCoreSample
 
     internal class CounterEventHandler2 : IEventHandler<CounterEvent>
     {
-        public Task Handle(CounterEvent @event, CancellationToken cancellationToken = default)
+        public Task Handle(CounterEvent @event)
         {
             LogHelper.GetLogger<CounterEventHandler2>().Info($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
             return Task.CompletedTask;
