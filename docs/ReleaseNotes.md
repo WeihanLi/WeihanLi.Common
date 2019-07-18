@@ -4,11 +4,11 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
-### [WeihanLi.Common 1.0.23.1](https://www.nuget.org/packages/WeihanLi.Common/1.0.23.1)
+### [WeihanLi.Common 1.0.23.4](https://www.nuget.org/packages/WeihanLi.Common/1.0.23.4)
 
-- expose `ApplicationHelper.AppRoot`
 - update sourceLink
-- add eventLog/funcExtension
+- expose `ApplicationHelper.AppRoot`
+- add `IEventBus`/`IPAddressConverter`/`IPEndPointConverter`/`FuncExtension`
 - update `HttpClientExtensions`/`SecurityHelper`
 
 ### [WeihanLi.Common 1.0.22](https://www.nuget.org/packages/WeihanLi.Common/1.0.22)
