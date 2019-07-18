@@ -4,7 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using WeihanLi.Common;
 using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Common.Logging;
 using WeihanLi.Common.Logging.Log4Net;
+using WeihanLi.Extensions;
 
 // ReSharper disable once LocalizableElement
 namespace DotNetCoreSample
@@ -22,8 +24,8 @@ namespace DotNetCoreSample
             // var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
             // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
 
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.AddScoped<IFly, MonkeyKing>();
+            var services = new ServiceCollection();
+            services.AddScoped<IFly, MonkeyKing>();
             IConfiguration configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
@@ -32,12 +34,18 @@ namespace DotNetCoreSample
             //var number = configuration.GetAppSetting<int>("Number");
             //Console.WriteLine($"City:{city}, Number:{number}");
 
-            serviceCollection.AddSingleton(configuration);
+            services.AddSingleton(configuration);
 
-            serviceCollection.AddSingleton<IEventStore, EventStoreInMemory>();
-            serviceCollection.AddSingleton<IEventBus, EventBus>();
+            services.AddSingleton<IEventStore, EventStoreInMemory>();
+            services.AddSingleton<IEventBus, EventBus>();
 
-            DependencyResolver.SetDependencyResolver(serviceCollection);
+            services.AddSingleton(DelegateEventHandler.FromAction<CounterEvent>(@event =>
+                LogHelper.GetLogger(typeof(DelegateEventHandler<CounterEvent>))
+                    .Info($"Event Info: {@event.ToJson()}")
+                )
+            );
+
+            DependencyResolver.SetDependencyResolver(services);
 
             //DependencyInjectionTest.Test();
 
