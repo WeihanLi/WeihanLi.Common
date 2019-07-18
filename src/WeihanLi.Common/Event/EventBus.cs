@@ -23,7 +23,7 @@ namespace WeihanLi.Common.Event
             _serviceProvider = serviceProvider ?? DependencyResolver.Current;
         }
 
-        public bool Publish<TEvent>(TEvent @event) where TEvent : EventBase
+        public bool Publish<TEvent>(TEvent @event) where TEvent : IEventBase
         {
             if (_eventStore.IsEmpty || !_eventStore.HasSubscriptionsForEvent<TEvent>())
             {
@@ -55,14 +55,14 @@ namespace WeihanLi.Common.Event
         }
 
         public bool Subscribe<TEvent, TEventHandler>()
-            where TEvent : EventBase
+            where TEvent : IEventBase
             where TEventHandler : IEventHandler<TEvent>
         {
             return _eventStore.AddSubscription<TEvent, TEventHandler>();
         }
 
         public bool Unsubscribe<TEvent, TEventHandler>()
-            where TEvent : EventBase
+            where TEvent : IEventBase
             where TEventHandler : IEventHandler<TEvent>
         {
             return _eventStore.RemoveSubscription<TEvent, TEventHandler>();
