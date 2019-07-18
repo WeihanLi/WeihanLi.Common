@@ -19,6 +19,9 @@ namespace DotNetCoreSample
             eventBus.Subscribe<CounterEvent, DelegateEventHandler<CounterEvent>>();
 
             eventBus.Publish(new CounterEvent { Counter = 1 });
+
+            eventBus.Unsubscribe<CounterEvent, CounterEventHandler1>();
+            eventBus.Unsubscribe<CounterEvent, DelegateEventHandler<CounterEvent>>();
             eventBus.Publish(new CounterEvent { Counter = 2 });
         }
     }
