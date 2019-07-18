@@ -129,6 +129,18 @@ namespace WeihanLi.Common.Helpers
             }
             return HashHelper.GetHashedString(HashType.SHA256, sourceString, isLower);
         }
+
+        /// <summary>
+        /// get SHA512 hashed string
+        /// </summary>
+        public static string SHA512(string sourceString, bool isLower = false)
+        {
+            if (string.IsNullOrEmpty(sourceString))
+            {
+                return "";
+            }
+            return HashHelper.GetHashedString(HashType.SHA512, sourceString, isLower);
+        }
     }
 
     /// <summary>

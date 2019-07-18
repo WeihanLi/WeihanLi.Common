@@ -53,7 +53,6 @@ namespace WeihanLi.Common
                 {
                     return null;
                 }
-
                 try
                 {
                     return Activator.CreateInstance(serviceType);
@@ -64,8 +63,7 @@ namespace WeihanLi.Common
                 }
             }
 
-            public IEnumerable<object> GetServices(Type serviceType)
-            => Enumerable.Empty<object>();
+            public IEnumerable<object> GetServices(Type serviceType) => Enumerable.Empty<object>();
 
             public bool TryInvokeService<TService>(Action<TService> action)
             {
@@ -152,10 +150,10 @@ namespace WeihanLi.Common
                 {
                     using (var scope = _serviceProvider.CreateScope())
                     {
-                        return scope.ServiceProvider.GetRequiredService(serviceType);
+                        return scope.ServiceProvider.GetService(serviceType);
                     }
                 }
-                return _serviceProvider.GetRequiredService(serviceType);
+                return _serviceProvider.GetService(serviceType);
             }
 
             public IEnumerable<object> GetServices(Type serviceType)
@@ -171,7 +169,8 @@ namespace WeihanLi.Common
                 }
                 var serviceType = typeof(TService);
                 var serviceDescriptor = _services.FirstOrDefault(_ => _.ServiceType == serviceType);
-                if (serviceDescriptor?.Lifetime == ServiceLifetime.Scoped) // 这样返回的话，如果是一个 IDisposable 对象的话，返回的是一个已经被 dispose 掉的对象
+                // 请注意 这样返回的话，如果是一个 IDisposable 对象的话，返回的是一个已经被 dispose 掉的对象
+                if (serviceDescriptor?.Lifetime == ServiceLifetime.Scoped)
                 {
                     using (var scope = _serviceProvider.CreateScope())
                     {

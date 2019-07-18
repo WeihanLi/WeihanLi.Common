@@ -3,7 +3,7 @@
     public interface IEventBus
     {
         /// <summary>
-        /// register event handler
+        /// add event handler for event
         /// </summary>
         /// <typeparam name="TEvent">TEvent</typeparam>
         /// <typeparam name="TEventHandler">TEventHandler</typeparam>
@@ -11,7 +11,7 @@
         bool Subscribe<TEvent, TEventHandler>() where TEventHandler : IEventHandler<TEvent> where TEvent : EventBase;
 
         /// <summary>
-        /// unregister event handler
+        /// remove event handler for event
         /// </summary>
         /// <typeparam name="TEvent">TEvent</typeparam>
         /// <typeparam name="TEventHandler">TEventHandler</typeparam>
@@ -19,7 +19,7 @@
         bool Unsubscribe<TEvent, TEventHandler>() where TEventHandler : IEventHandler<TEvent> where TEvent : EventBase;
 
         /// <summary>
-        /// Publish event
+        /// publish event
         /// </summary>
         /// <typeparam name="TEvent">event type</typeparam>
         /// <param name="event">event</param>

@@ -3,7 +3,20 @@ using Newtonsoft.Json;
 
 namespace WeihanLi.Common.Event
 {
-    public abstract class EventBase
+    public interface IEventBase
+    {
+        /// <summary>
+        /// Event publish time
+        /// </summary>
+        DateTimeOffset EventAt { get; }
+
+        /// <summary>
+        /// eventId
+        /// </summary>
+        string EventId { get; }
+    }
+
+    public abstract class EventBase : IEventBase
     {
         [JsonProperty]
         public DateTimeOffset EventAt { get; private set; }
