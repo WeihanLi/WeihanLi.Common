@@ -34,9 +34,6 @@ namespace DotNetCoreSample
 
             serviceCollection.AddSingleton(configuration);
 
-            serviceCollection.AddSingleton<CounterEventHandler1>();
-            serviceCollection.AddSingleton<CounterEventHandler2>();
-
             serviceCollection.AddSingleton<IEventStore, EventStoreInMemory>();
             serviceCollection.AddSingleton<IEventBus, EventBus>();
 
