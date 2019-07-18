@@ -131,7 +131,7 @@ namespace WeihanLi.Common.Helpers
         }
 
         /// <summary>
-        /// get SHA256 hashed string
+        /// get SHA512 hashed string
         /// </summary>
         public static string SHA512(string sourceString, bool isLower = false)
         {
