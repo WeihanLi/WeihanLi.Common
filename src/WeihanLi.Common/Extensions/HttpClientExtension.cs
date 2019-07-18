@@ -61,6 +61,8 @@ namespace WeihanLi.Extensions
 
     public static class HttpClientExtension
     {
+        private const string JsonMediaType = "application/json";
+
         /// <summary>
         /// PostAsJsonAsync
         /// </summary>
@@ -69,7 +71,7 @@ namespace WeihanLi.Extensions
         /// <param name="parameter">parameter</param>
         /// <returns></returns>
         public static Task<HttpResponseMessage> PostAsJsonAsync<T>([NotNull]this HttpClient httpClient, string requestUri, T parameter)
-            => httpClient.PostAsync(requestUri, new StringContent(parameter?.ToJson() ?? "", Encoding.UTF8, "application.json"));
+            => httpClient.PostAsync(requestUri, new StringContent(parameter?.ToJson() ?? "", Encoding.UTF8, JsonMediaType));
 
         /// <summary>
         /// PutAsJsonAsync
@@ -79,7 +81,7 @@ namespace WeihanLi.Extensions
         /// <param name="parameter">param</param>
         /// <returns></returns>
         public static Task<HttpResponseMessage> PutAsJsonAsync<T>([NotNull]this HttpClient httpClient, string requestUri, T parameter)
-            => httpClient.PutAsync(requestUri, new StringContent(parameter?.ToJson() ?? "", Encoding.UTF8, "application.json"));
+            => httpClient.PutAsync(requestUri, new StringContent(parameter?.ToJson() ?? "", Encoding.UTF8, JsonMediaType));
 
         /// <summary>
         /// PostAsFormAsync
