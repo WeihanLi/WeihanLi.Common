@@ -25,7 +25,7 @@ namespace WeihanLi.Common.Event
 
         public bool Publish<TEvent>(TEvent @event) where TEvent : IEventBase
         {
-            if (_eventStore.IsEmpty || !_eventStore.HasSubscriptionsForEvent<TEvent>())
+            if (!_eventStore.HasSubscriptionsForEvent<TEvent>())
             {
                 return false;
             }
@@ -47,7 +47,7 @@ namespace WeihanLi.Common.Event
                         Logger.Error(ex, $"handle event [{_eventStore.GetEventKey<TEvent>()}] error, eventHandlerType:{handlerType.FullName}");
                     }
                 }
-                Task.Run(handlerTasks.WhenAll).ConfigureAwait(false);
+                handlerTasks.WhenAll().ConfigureAwait(false);
 
                 return true;
             }

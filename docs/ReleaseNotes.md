@@ -4,9 +4,13 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.23.6](https://www.nuget.org/packages/WeihanLi.Common/1.0.23.6)
+
+- remove `IsEmpty` for `IEventStore`
+- fix `EventStore` `RemoveSubscribtion` bug
+
 ### [WeihanLi.Common 1.0.23.4](https://www.nuget.org/packages/WeihanLi.Common/1.0.23.4)
 
-- update sourceLink
 - expose `ApplicationHelper.AppRoot`
 - add `IEventBus`/`IPAddressConverter`/`IPEndPointConverter`/`FuncExtension`
 - update `HttpClientExtensions`/`SecurityHelper`
