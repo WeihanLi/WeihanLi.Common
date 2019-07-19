@@ -68,7 +68,7 @@ namespace WeihanLi.Common.Event
             var eventKey = GetEventKey<TEvent>();
             if (_eventHandlers.ContainsKey(eventKey))
             {
-                return _eventHandlers[eventKey].Remove(typeof(TEvent));
+                return _eventHandlers[eventKey].Remove(typeof(TEventHandler));
             }
             return false;
         }
