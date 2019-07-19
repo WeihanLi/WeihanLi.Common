@@ -16,6 +16,8 @@ namespace WeihanLi.Common.Logging.Log4Net
         /// <returns>1 config success,0 config has existed</returns>
         public static int LogInit() => LogInit(ApplicationHelper.MapPath("log4net.config"));
 
+        private static readonly object ConfigInitLock = new object();
+
         /// <summary>
         /// log4net init
         /// </summary>
@@ -25,11 +27,18 @@ namespace WeihanLi.Common.Logging.Log4Net
         {
             if (null == LogManager.GetAllRepositories()?.FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))
             {
-                XmlConfigurator.ConfigureAndWatch(LogManager.CreateRepository(ApplicationHelper.ApplicationName), new FileInfo(configFilePath));
+                lock (ConfigInitLock)
+                {
+                    if (null == LogManager.GetAllRepositories()
+                            ?.FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))
+                    {
+                        XmlConfigurator.ConfigureAndWatch(LogManager.CreateRepository(ApplicationHelper.ApplicationName), new FileInfo(configFilePath));
 #if NET45
-                XmlConfigurator.ConfigureAndWatch(new FileInfo(configFilePath));
+                        XmlConfigurator.ConfigureAndWatch(new FileInfo(configFilePath));
 #endif
-                return 1;
+                        return 1;
+                    }
+                }
             }
             return 0;
         }

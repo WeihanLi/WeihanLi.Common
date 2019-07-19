@@ -5,11 +5,6 @@ namespace WeihanLi.Common.Event
 {
     public interface IEventStore
     {
-        /// <summary>
-        /// IsEmpty
-        /// </summary>
-        bool IsEmpty { get; }
-
         bool AddSubscription<TEvent, TEventHandler>()
            where TEvent : IEventBase
            where TEventHandler : IEventHandler<TEvent>;
