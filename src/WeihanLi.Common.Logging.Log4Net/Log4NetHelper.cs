@@ -16,7 +16,7 @@ namespace WeihanLi.Common.Logging.Log4Net
         /// <returns>1 config success,0 config has existed</returns>
         public static int LogInit() => LogInit(ApplicationHelper.MapPath("log4net.config"));
 
-        private static readonly object configInitLock = new object();
+        private static readonly object ConfigInitLock = new object();
 
         /// <summary>
         /// log4net init
@@ -27,7 +27,7 @@ namespace WeihanLi.Common.Logging.Log4Net
         {
             if (null == LogManager.GetAllRepositories()?.FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))
             {
-                lock (configInitLock)
+                lock (ConfigInitLock)
                 {
                     if (null == LogManager.GetAllRepositories()
                             ?.FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))
