@@ -8,10 +8,8 @@ namespace WeihanLi.Common.Event
     {
         private readonly ConcurrentDictionary<string, HashSet<Type>> _eventHandlers = new ConcurrentDictionary<string, HashSet<Type>>();
 
-        public bool IsEmpty => _eventHandlers.Count == 0;
-
         public bool AddSubscription<TEvent, TEventHandler>()
-            where TEvent : EventBase
+            where TEvent : IEventBase
             where TEventHandler : IEventHandler<TEvent>
         {
             var eventKey = GetEventKey<TEvent>();
@@ -34,8 +32,10 @@ namespace WeihanLi.Common.Event
             return true;
         }
 
-        public ICollection<Type> GetEventHandlerTypes<TEvent>() where TEvent : EventBase
+        public ICollection<Type> GetEventHandlerTypes<TEvent>() where TEvent : IEventBase
         {
+            if(_eventHandlers.Count == 0)
+                return  new Type[0];
             var eventKey = GetEventKey<TEvent>();
             if (_eventHandlers.TryGetValue(eventKey, out var handlers))
             {
@@ -49,20 +49,26 @@ namespace WeihanLi.Common.Event
             return typeof(TEvent).FullName;
         }
 
-        public bool HasSubscriptionsForEvent<TEvent>() where TEvent : EventBase
+        public bool HasSubscriptionsForEvent<TEvent>() where TEvent : IEventBase
         {
+            if(_eventHandlers.Count == 0)
+                return false;
+
             var eventKey = GetEventKey<TEvent>();
             return _eventHandlers.ContainsKey(eventKey);
         }
 
         public bool RemoveSubscription<TEvent, TEventHandler>()
-            where TEvent : EventBase
+            where TEvent : IEventBase
             where TEventHandler : IEventHandler<TEvent>
         {
+            if(_eventHandlers.Count == 0)
+                return false;
+
             var eventKey = GetEventKey<TEvent>();
             if (_eventHandlers.ContainsKey(eventKey))
             {
-                return _eventHandlers[eventKey].Remove(typeof(TEvent));
+                return _eventHandlers[eventKey].Remove(typeof(TEventHandler));
             }
             return false;
         }

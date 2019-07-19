@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Common.Logging;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Event
@@ -10,36 +12,42 @@ namespace WeihanLi.Common.Event
     /// </summary>
     public class EventBus : IEventBus
     {
-        private readonly IEventStore _eventStore;
+        private static readonly ILogHelperLogger Logger = Helpers.LogHelper.GetLogger<EventBus>();
 
-        public EventBus(IEventStore eventStore)
+        private readonly IEventStore _eventStore;
+        private readonly IServiceProvider _serviceProvider;
+
+        public EventBus(IEventStore eventStore, IServiceProvider serviceProvider = null)
         {
             _eventStore = eventStore;
+            _serviceProvider = serviceProvider ?? DependencyResolver.Current;
         }
 
-        public bool Publish<TEvent>(TEvent @event) where TEvent : EventBase
+        public bool Publish<TEvent>(TEvent @event) where TEvent : IEventBase
         {
-            var hanlders = _eventStore.GetEventHandlerTypes<TEvent>();
-            if (hanlders.Count > 0)
+            if (!_eventStore.HasSubscriptionsForEvent<TEvent>())
+            {
+                return false;
+            }
+            var handlers = _eventStore.GetEventHandlerTypes<TEvent>();
+            if (handlers.Count > 0)
             {
                 var handlerTasks = new List<Task>();
-
-                foreach (var handlerType in hanlders)
+                foreach (var handlerType in handlers)
                 {
                     try
                     {
-                        var handler = DependencyResolver.Current.GetService(handlerType) as IEventHandler<TEvent>;
-                        if (handler != null)
+                        if (_serviceProvider.GetServiceOrCreateInstance(handlerType) is IEventHandler<TEvent> handler)
                         {
                             handlerTasks.Add(handler.Handle(@event));
                         }
                     }
-                    catch (System.Exception ex)
+                    catch (Exception ex)
                     {
-                        InvokeHelper.OnInvokeException?.Invoke(ex);
+                        Logger.Error(ex, $"handle event [{_eventStore.GetEventKey<TEvent>()}] error, eventHandlerType:{handlerType.FullName}");
                     }
                 }
-                Task.Run(handlerTasks.WhenAll).ConfigureAwait(false);
+                handlerTasks.WhenAll().ConfigureAwait(false);
 
                 return true;
             }
@@ -47,14 +55,14 @@ namespace WeihanLi.Common.Event
         }
 
         public bool Subscribe<TEvent, TEventHandler>()
-            where TEvent : EventBase
+            where TEvent : IEventBase
             where TEventHandler : IEventHandler<TEvent>
         {
             return _eventStore.AddSubscription<TEvent, TEventHandler>();
         }
 
         public bool Unsubscribe<TEvent, TEventHandler>()
-            where TEvent : EventBase
+            where TEvent : IEventBase
             where TEventHandler : IEventHandler<TEvent>
         {
             return _eventStore.RemoveSubscription<TEvent, TEventHandler>();

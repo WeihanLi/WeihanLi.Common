@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
-#if NETSTANDARD2_0
-
-using Microsoft.Extensions.Logging;
-
-#endif
-
 using WeihanLi.Common.Logging;
 
 namespace WeihanLi.Common.Helpers

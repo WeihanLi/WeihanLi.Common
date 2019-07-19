@@ -14,10 +14,7 @@ namespace WeihanLi.Common.Logging.Log4Net
         {
         }
 
-        public Log4NetLogHelperProvider(string configurationFilePath)
-        {
-            Log4NetHelper.LogInit(configurationFilePath);
-        }
+        public Log4NetLogHelperProvider(string configurationFilePath) => Log4NetHelper.LogInit(configurationFilePath);
 
         public ILogHelperLogger CreateLogger(string categoryName) => _loggers.GetOrAdd(categoryName, loggerName => new Log4NetLogHelperLogger(loggerName));
     }

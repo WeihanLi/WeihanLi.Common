@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
 using WeihanLi.Common;
 using WeihanLi.Common.Event;
+using WeihanLi.Common.Helpers;
+using WeihanLi.Common.Logging;
 using WeihanLi.Extensions;
 
 namespace DotNetCoreSample
@@ -14,8 +16,12 @@ namespace DotNetCoreSample
             eventBus.Subscribe<CounterEvent, CounterEventHandler1>();
 
             eventBus.Subscribe<CounterEvent, CounterEventHandler2>();
+            eventBus.Subscribe<CounterEvent, DelegateEventHandler<CounterEvent>>();
 
             eventBus.Publish(new CounterEvent { Counter = 1 });
+
+            eventBus.Unsubscribe<CounterEvent, CounterEventHandler1>();
+            eventBus.Unsubscribe<CounterEvent, DelegateEventHandler<CounterEvent>>();
             eventBus.Publish(new CounterEvent { Counter = 2 });
         }
     }
@@ -29,7 +35,7 @@ namespace DotNetCoreSample
     {
         public Task Handle(CounterEvent @event)
         {
-            System.Console.WriteLine($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
+            LogHelper.GetLogger<CounterEventHandler1>().Info($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
             return Task.CompletedTask;
         }
     }
@@ -38,7 +44,7 @@ namespace DotNetCoreSample
     {
         public Task Handle(CounterEvent @event)
         {
-            System.Console.WriteLine($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
+            LogHelper.GetLogger<CounterEventHandler2>().Info($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
             return Task.CompletedTask;
         }
     }

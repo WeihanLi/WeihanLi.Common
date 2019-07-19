@@ -18,9 +18,7 @@ namespace WeihanLi.Extensions
         /// <inheritdoc />
         /// <param name="userName">Name of the user.</param>
         /// <param name="password">The password.</param>
-        public BasicAuthenticationHeaderValue(string userName, string password) : base("Basic", EncodeCredential(userName, password)) { }
-
-        private static string EncodeCredential(string userName, string password) => Convert.ToBase64String(Encoding.UTF8.GetBytes($"{userName}:{password}"));
+        public BasicAuthenticationHeaderValue(string userName, string password) : base("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"{userName}:{password}"))) { }
     }
 
     /// <summary>
@@ -48,9 +46,7 @@ namespace WeihanLi.Extensions
             {
                 password = "";
             }
-            return Convert.ToBase64String(
-                $"{UrlEncode(userName)}:{UrlEncode(password)}"
-                    .ToByteArray());
+            return Convert.ToBase64String($"{UrlEncode(userName)}:{UrlEncode(password)}".ToByteArray());
         }
 
         private static string UrlEncode(string value)
@@ -65,6 +61,8 @@ namespace WeihanLi.Extensions
 
     public static class HttpClientExtension
     {
+        private const string JsonMediaType = "application/json";
+
         /// <summary>
         /// PostAsJsonAsync
         /// </summary>
@@ -73,7 +71,7 @@ namespace WeihanLi.Extensions
         /// <param name="parameter">parameter</param>
         /// <returns></returns>
         public static Task<HttpResponseMessage> PostAsJsonAsync<T>([NotNull]this HttpClient httpClient, string requestUri, T parameter)
-            => httpClient.PostAsync(requestUri, new ByteArrayContent((parameter?.ToJson() ?? "").GetBytes()));
+            => httpClient.PostAsync(requestUri, new StringContent(parameter?.ToJson() ?? "", Encoding.UTF8, JsonMediaType));
 
         /// <summary>
         /// PutAsJsonAsync
@@ -83,7 +81,7 @@ namespace WeihanLi.Extensions
         /// <param name="parameter">param</param>
         /// <returns></returns>
         public static Task<HttpResponseMessage> PutAsJsonAsync<T>([NotNull]this HttpClient httpClient, string requestUri, T parameter)
-            => httpClient.PutAsync(requestUri, new ByteArrayContent((parameter?.ToJson() ?? "").GetBytes()));
+            => httpClient.PutAsync(requestUri, new StringContent(parameter?.ToJson() ?? "", Encoding.UTF8, JsonMediaType));
 
         /// <summary>
         /// PostAsFormAsync
@@ -244,10 +242,7 @@ namespace WeihanLi.Extensions
         /// <param name="request">The HTTP request message.</param>
         /// <param name="userName">Name of the user.</param>
         /// <param name="password">The password.</param>
-        public static void SetBasicAuthentication(this HttpRequestMessage request, string userName, string password)
-        {
-            request.Headers.Authorization = new BasicAuthenticationHeaderValue(userName, password);
-        }
+        public static void SetBasicAuthentication(this HttpRequestMessage request, string userName, string password) => request.Headers.Authorization = new BasicAuthenticationHeaderValue(userName, password);
 
         /// <summary>
         /// Sets a basic authentication header for RFC6749 client authentication.
@@ -255,10 +250,7 @@ namespace WeihanLi.Extensions
         /// <param name="request">The HTTP request message.</param>
         /// <param name="userName">Name of the user.</param>
         /// <param name="password">The password.</param>
-        public static void SetBasicAuthenticationOAuth(this HttpRequestMessage request, string userName, string password)
-        {
-            request.Headers.Authorization = new BasicAuthenticationOAuthHeaderValue(userName, password);
-        }
+        public static void SetBasicAuthenticationOAuth(this HttpRequestMessage request, string userName, string password) => request.Headers.Authorization = new BasicAuthenticationOAuthHeaderValue(userName, password);
 
         /// <summary>
         /// Sets an authorization header with a given scheme and value.
@@ -266,19 +258,13 @@ namespace WeihanLi.Extensions
         /// <param name="request">The HTTP request message.</param>
         /// <param name="scheme">The scheme.</param>
         /// <param name="token">The token.</param>
-        public static void SetToken(this HttpRequestMessage request, string scheme, string token)
-        {
-            request.Headers.Authorization = new AuthenticationHeaderValue(scheme, token);
-        }
+        public static void SetToken(this HttpRequestMessage request, string scheme, string token) => request.Headers.Authorization = new AuthenticationHeaderValue(scheme, token);
 
         /// <summary>
         /// Sets an authorization header with a bearer token.
         /// </summary>
         /// <param name="request">The HTTP request message.</param>
         /// <param name="token">The token.</param>
-        public static void SetBearerToken(this HttpRequestMessage request, string token)
-        {
-            request.SetToken("Bearer", token);
-        }
+        public static void SetBearerToken(this HttpRequestMessage request, string token) => request.SetToken("Bearer", token);
     }
 }

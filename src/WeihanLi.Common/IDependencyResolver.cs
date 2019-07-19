@@ -45,7 +45,7 @@ namespace WeihanLi.Common
             try
             {
                 service = dependencyResolver.GetService(serviceType);
-                return true;
+                return service != null;
             }
             catch (Exception e)
             {
@@ -65,7 +65,7 @@ namespace WeihanLi.Common
             }
             else
             {
-                service = default(TService);
+                service = default;
             }
             return result;
         }

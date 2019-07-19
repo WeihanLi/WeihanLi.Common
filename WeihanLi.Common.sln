@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeihanLi.Data", "src\Weihan
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeihanLi.Common.Logging.Log4Net", "src\WeihanLi.Common.Logging.Log4net\WeihanLi.Common.Logging.Log4Net.csproj", "{3EC7DC81-3B6A-4C7B-BF25-AD14F7BDC6D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeihanLi.Common.Logging.Serilog", "src\WeihanLi.Common.Logging.Serilog\WeihanLi.Common.Logging.Serilog.csproj", "{BBD103A7-78BC-4B31-9DA7-2E79FA266E22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeihanLi.Common.Logging.Serilog", "src\WeihanLi.Common.Logging.Serilog\WeihanLi.Common.Logging.Serilog.csproj", "{BBD103A7-78BC-4B31-9DA7-2E79FA266E22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
