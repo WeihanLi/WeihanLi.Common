@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using WeihanLi.Common.Http;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers
@@ -38,6 +39,29 @@ namespace WeihanLi.Common.Helpers
         #endregion UploadFileHeaderFormat
 
         #endregion Constants
+
+        /// <summary>
+        /// Content Header
+        /// get latest from https://github.com/dotnet/corefx/blob/master/src/System.Net.Requests/src/System/Net/HttpWebRequest.cs#L1420
+        /// </summary>
+        public static readonly HashSet<string> WellKnownContentHeaders = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            HttpKnownHeaderNames.ContentDisposition,
+            HttpKnownHeaderNames.ContentEncoding,
+            HttpKnownHeaderNames.ContentLanguage,
+            HttpKnownHeaderNames.ContentLength,
+            HttpKnownHeaderNames.ContentLocation,
+            HttpKnownHeaderNames.ContentMD5,
+            HttpKnownHeaderNames.ContentRange,
+            HttpKnownHeaderNames.ContentType,
+            HttpKnownHeaderNames.Expires,
+            HttpKnownHeaderNames.LastModified
+        };
+
+        public static bool IsWellKnownContentHeader(string header)
+        {
+            return WellKnownContentHeaders.Contains(header);
+        }
 
         #region WebRequest
 

@@ -18,14 +18,12 @@ namespace WeihanLi.Common.Logging.Serilog
 
         public SerilogLogHelperProvider(LoggerConfiguration configuration)
         {
-            Log.Logger = (configuration ?? new LoggerConfiguration()).CreateLogger();
+            SerilogHelper.LogInit(configuration);
         }
 
         public SerilogLogHelperProvider(Action<LoggerConfiguration> configurationAction)
         {
-            var configuration = new LoggerConfiguration();
-            configurationAction?.Invoke(configuration);
-            Log.Logger = configuration.CreateLogger();
+            SerilogHelper.LogInit(configurationAction);
         }
 
         public void Dispose()
