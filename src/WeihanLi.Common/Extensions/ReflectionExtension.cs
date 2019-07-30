@@ -316,13 +316,9 @@ namespace WeihanLi.Extensions
 
         public static Func<T, object> GetValueGetter<T>(this PropertyInfo propertyInfo)
         {
-            if (typeof(T) != propertyInfo?.DeclaringType)
-            {
-                throw new ArgumentException();
-            }
             return PropertyInfoCache<T>.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
             {
-                var instance = Expression.Parameter(prop.DeclaringType, "i");
+                var instance = Expression.Parameter(typeof(T), "i");
                 var property = Expression.Property(instance, prop);
                 var convert = Expression.TypeAs(property, typeof(object));
                 return (Func<T, object>)Expression.Lambda(convert, instance).Compile();
@@ -331,20 +327,16 @@ namespace WeihanLi.Extensions
 
         public static Action<T, object> GetValueSetter<T>(this PropertyInfo propertyInfo) where T : class
         {
-            if (typeof(T) != propertyInfo?.DeclaringType)
-            {
-                throw new ArgumentException();
-            }
             return PropertyInfoCache<T>.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
             {
-                var instance = Expression.Parameter(prop.DeclaringType, "i");
+                var instance = Expression.Parameter(typeof(T), "i");
                 var argument = Expression.Parameter(typeof(object), "a");
                 var setterCall = Expression.Call(instance, prop.GetSetMethod(), Expression.Convert(argument, prop.PropertyType));
                 return (Action<T, object>)Expression.Lambda(setterCall, instance, argument).Compile();
             });
         }
 
-        public static Func<object, object> GetValueGetter(this PropertyInfo propertyInfo)
+        public static Func<object, object> GetValueGetter([NotNull]this PropertyInfo propertyInfo)
         {
             return CacheUtil.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
             {
