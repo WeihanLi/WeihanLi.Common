@@ -169,7 +169,6 @@ namespace WeihanLi.Common
                 }
                 var serviceType = typeof(TService);
                 var serviceDescriptor = _services.FirstOrDefault(_ => _.ServiceType == serviceType);
-                // 请注意 这样返回的话，如果是一个 IDisposable 对象的话，返回的是一个已经被 dispose 掉的对象
                 if (serviceDescriptor?.Lifetime == ServiceLifetime.Scoped)
                 {
                     using (var scope = _serviceProvider.CreateScope())
@@ -200,7 +199,7 @@ namespace WeihanLi.Common
                 }
                 var serviceType = typeof(TService);
                 var serviceDescriptor = _services.FirstOrDefault(_ => _.ServiceType == serviceType);
-                if (serviceDescriptor?.Lifetime == ServiceLifetime.Scoped) // 这样返回的话，如果是一个 IDisposable 对象的话，返回的是一个已经被 dispose 掉的对象
+                if (serviceDescriptor?.Lifetime == ServiceLifetime.Scoped)
                 {
                     using (var scope = _serviceProvider.CreateScope())
                     {
