@@ -2,11 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WeihanLi.Common;
-using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Common.Logging;
 using WeihanLi.Common.Logging.Log4Net;
-using WeihanLi.Extensions;
 
 // ReSharper disable once LocalizableElement
 namespace DotNetCoreSample
@@ -36,20 +33,22 @@ namespace DotNetCoreSample
 
             services.AddSingleton(configuration);
 
-            services.AddSingleton<IEventStore, EventStoreInMemory>();
-            services.AddSingleton<IEventBus, EventBus>();
+            //services.AddSingleton<IEventStore, EventStoreInMemory>();
+            //services.AddSingleton<IEventBus, EventBus>();
 
-            services.AddSingleton(DelegateEventHandler.FromAction<CounterEvent>(@event =>
-                LogHelper.GetLogger(typeof(DelegateEventHandler<CounterEvent>))
-                    .Info($"Event Info: {@event.ToJson()}")
-                )
-            );
+            //services.AddSingleton(DelegateEventHandler.FromAction<CounterEvent>(@event =>
+            //    LogHelper.GetLogger(typeof(DelegateEventHandler<CounterEvent>))
+            //        .Info($"Event Info: {@event.ToJson()}")
+            //    )
+            //);
 
             DependencyResolver.SetDependencyResolver(services);
 
             //DependencyInjectionTest.Test();
 
-            EventTest.MainTest();
+            // EventTest.MainTest();
+
+            SerilogTest.MainTest();
 
             //var builder = new ContainerBuilder();
             //builder.RegisterType<MonkeyKing>().As<IFly>();

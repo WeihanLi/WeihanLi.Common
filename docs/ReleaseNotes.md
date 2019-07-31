@@ -66,6 +66,10 @@
 
 ## WeihanLi.Common.Logging.Log4Net
 
+### [WeihanLi.Common.Logging.Log4Net 1.0.23.7](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.23.7)
+
+- add lock for ConfigInit, fix concurrent LogInit bug
+
 ### [WeihanLi.Common.Logging.Log4Net 1.0.22.6](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.22.6)
 
 - add [sourceLink](https://github.com/dotnet/sourcelink) support
