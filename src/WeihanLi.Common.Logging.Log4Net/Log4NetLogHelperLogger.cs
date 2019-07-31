@@ -43,12 +43,17 @@ namespace WeihanLi.Common.Logging.Log4Net
             }
         }
 
-        public void Log(LogHelperLevel loggerLevel, string message, Exception exception)
+        public void Log(LogHelperLevel loggerLevel, Exception exception, string message, params object[] parameters)
         {
             if (IsEnabled(loggerLevel))
             {
                 if (message.IsNotNullOrEmpty() || exception != null)
                 {
+                    if (parameters != null && parameters.Length > 0)
+                    {
+                        message = message.FormatWith(parameters);
+                    }
+
                     switch (loggerLevel)
                     {
                         case LogHelperLevel.Info:

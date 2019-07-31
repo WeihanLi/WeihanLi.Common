@@ -4,6 +4,11 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.23.7](https://www.nuget.org/packages/WeihanLi.Common/1.0.23.7)
+
+- add `PeriodBatching`
+- update `GetValueGetter`/`GetValueSetter`
+
 ### [WeihanLi.Common 1.0.23.6](https://www.nuget.org/packages/WeihanLi.Common/1.0.23.6)
 
 - remove `IsEmpty` for `IEventStore`

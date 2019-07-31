@@ -7,13 +7,9 @@ namespace WeihanLi.Common.Logging
 {
     public interface ILogHelperLogger
     {
-        void Log(LogHelperLevel loggerLevel, string message, Exception exception);
+        void Log(LogHelperLevel loggerLevel, Exception exception, string message, params object[] parameters);
 
         bool IsEnabled(LogHelperLevel loggerLevel);
-    }
-
-    public interface ILogHelperLogger<out T> : ILogHelperLogger
-    {
     }
 
     public class NullLogHelperLogger : ILogHelperLogger
@@ -24,11 +20,41 @@ namespace WeihanLi.Common.Logging
         {
         }
 
-        public void Log(LogHelperLevel loggerLevel, string message, Exception exception)
+        public void Log(LogHelperLevel loggerLevel, Exception exception, string message, params object[] parameters)
         {
         }
 
         public bool IsEnabled(LogHelperLevel loggerLevel) => false;
+    }
+
+    public interface ILogHelperLogger<TCategory> : ILogHelperLogger
+    {
+    }
+
+    internal class LogHelper<TCategory> : ILogHelperLogger<TCategory>
+    {
+        private readonly IReadOnlyCollection<ILogHelperLogger> _loggers;
+
+        public string CategoryName { get; }
+
+        public LogHelper(ICollection<ILogHelperProvider> logHelperProviders)
+        {
+            CategoryName = typeof(TCategory).FullName;
+            _loggers = logHelperProviders.Select(_ => _.CreateLogger(CategoryName)).ToArray();
+        }
+
+        public void Log(LogHelperLevel loggerLevel, Exception exception, string message, params object[] parameters)
+        {
+            _loggers.ForEach(logger =>
+            {
+                if (logger.IsEnabled(loggerLevel))
+                {
+                    logger.Log(loggerLevel, exception, message, parameters);
+                }
+            });
+        }
+
+        public bool IsEnabled(LogHelperLevel loggerLevel) => loggerLevel != LogHelperLevel.None;
     }
 
     internal class LogHelper : ILogHelperLogger
@@ -43,13 +69,13 @@ namespace WeihanLi.Common.Logging
             _loggers = logHelperProviders.Select(_ => _.CreateLogger(categoryName)).ToArray();
         }
 
-        public void Log(LogHelperLevel loggerLevel, string message, Exception exception)
+        public void Log(LogHelperLevel loggerLevel, Exception exception, string message, params object[] parameters)
         {
             _loggers.ForEach(logger =>
             {
                 if (logger.IsEnabled(loggerLevel))
                 {
-                    logger.Log(loggerLevel, message, exception);
+                    logger.Log(loggerLevel, exception, message, parameters);
                 }
             });
         }

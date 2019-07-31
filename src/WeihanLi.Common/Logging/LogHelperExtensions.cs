@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Logging
     /// </summary>
     public static class LogHelperExtensions
     {
-        public static void Log(this ILogHelperLogger logger, LogHelperLevel loggerLevel, string msg) => logger.Log(loggerLevel, msg, null);
+        public static void Log(this ILogHelperLogger logger, LogHelperLevel loggerLevel, string msg) => logger.Log(loggerLevel, null, msg);
 
         #region Info
 
@@ -19,13 +19,13 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Info, string.Format(msg, parameters));
+                logger.Log(LogHelperLevel.Info, null, msg, parameters);
             }
         }
 
-        public static void Info(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Info, msg, ex);
+        public static void Info(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Info, ex, msg);
 
-        public static void Info(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Info, ex?.Message, ex);
+        public static void Info(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Info, ex, ex?.Message);
 
         #endregion Info
 
@@ -39,13 +39,13 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Trace, string.Format(msg, parameters));
+                logger.Log(LogHelperLevel.Trace, null, msg, parameters);
             }
         }
 
-        public static void Trace(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Trace, msg, ex);
+        public static void Trace(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Trace, ex, msg);
 
-        public static void Trace(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Trace, ex?.Message, ex);
+        public static void Trace(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Trace, ex, ex?.Message);
 
         #endregion Trace
 
@@ -59,13 +59,13 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Debug, string.Format(msg, parameters));
+                logger.Log(LogHelperLevel.Debug, null, msg, parameters);
             }
         }
 
-        public static void Debug(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Debug, msg, ex);
+        public static void Debug(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Debug, ex, msg);
 
-        public static void Debug(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Debug, ex?.Message, ex);
+        public static void Debug(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Debug, ex, ex?.Message);
 
         #endregion Debug
 
@@ -75,17 +75,17 @@ namespace WeihanLi.Common.Logging
         {
             if (parameters == null || parameters.Length == 0)
             {
-                logger.Log(LogHelperLevel.Warn, msg);
+                logger.Log(LogHelperLevel.Warn, null, msg);
             }
             else
             {
-                logger.Log(LogHelperLevel.Warn, string.Format(msg, parameters));
+                logger.Log(LogHelperLevel.Warn, null, msg, parameters);
             }
         }
 
-        public static void Warn(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Warn, msg, ex);
+        public static void Warn(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Warn, ex, msg);
 
-        public static void Warn(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Warn, ex?.Message, ex);
+        public static void Warn(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Warn, ex, ex?.Message);
 
         #endregion Warn
 
@@ -95,17 +95,17 @@ namespace WeihanLi.Common.Logging
         {
             if (parameters == null || parameters.Length == 0)
             {
-                logger.Log(LogHelperLevel.Error, msg);
+                logger.Log(LogHelperLevel.Error, null, msg);
             }
             else
             {
-                logger.Log(LogHelperLevel.Error, string.Format(msg, parameters));
+                logger.Log(LogHelperLevel.Error, null, msg, parameters);
             }
         }
 
-        public static void Error(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Error, msg, ex);
+        public static void Error(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Error, ex, msg);
 
-        public static void Error(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Error, ex?.Message, ex);
+        public static void Error(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Error, ex, ex?.Message);
 
         #endregion Error
 
@@ -115,17 +115,17 @@ namespace WeihanLi.Common.Logging
         {
             if (parameters == null || parameters.Length == 0)
             {
-                logger.Log(LogHelperLevel.Fatal, msg);
+                logger.Log(LogHelperLevel.Fatal, null, msg);
             }
             else
             {
-                logger.Log(LogHelperLevel.Fatal, string.Format(msg, parameters));
+                logger.Log(LogHelperLevel.Fatal, null, msg, parameters);
             }
         }
 
-        public static void Fatal(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Fatal, msg, ex);
+        public static void Fatal(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Fatal, ex, msg);
 
-        public static void Fatal(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Fatal, ex?.Message, ex);
+        public static void Fatal(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Fatal, ex, ex?.Message);
 
         #endregion Fatal
 
@@ -143,7 +143,7 @@ namespace WeihanLi.Common.Logging
         /// Create generic logger
         /// </summary>
         /// <param name="logHelperProvider">logHelperProvider</param>
-        /// <typeparam name="type">logger type</typeparam>
+        /// <param name="type">logger type</param>
         /// <returns>ILogHelperLogger</returns>
         public static ILogHelperLogger CreateLogger(this ILogHelperProvider logHelperProvider, Type type) => logHelperProvider.CreateLogger(type.FullName);
 
