@@ -58,7 +58,7 @@ namespace Serilog.Extensions.Logging
             // The outermost scope pushes and pops the Serilog `LogContext` - once
             // this enricher is on the stack, the `CurrentScope` property takes care
             // of the rest of the `BeginScope()` stack.
-            var popSerilogContext = LogContext.PushProperties(this);
+            var popSerilogContext = LogContext.Push(this);
             return new SerilogLoggerScope(this, state, popSerilogContext);
         }
 
@@ -67,8 +67,7 @@ namespace Serilog.Extensions.Logging
             List<LogEventPropertyValue> scopeItems = null;
             for (var scope = CurrentScope; scope != null; scope = scope.Parent)
             {
-                LogEventPropertyValue scopeItem;
-                scope.EnrichAndCreateScopeItem(logEvent, propertyFactory, out scopeItem);
+                scope.EnrichAndCreateScopeItem(logEvent, propertyFactory, out var scopeItem);
 
                 if (scopeItem != null)
                 {
@@ -88,14 +87,8 @@ namespace Serilog.Extensions.Logging
 
         internal SerilogLoggerScope CurrentScope
         {
-            get
-            {
-                return _value.Value;
-            }
-            set
-            {
-                _value.Value = value;
-            }
+            get => _value.Value;
+            set => _value.Value = value;
         }
 
         public void Dispose()
