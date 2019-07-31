@@ -24,12 +24,10 @@ namespace Serilog.Extensions.Logging
             ILogger logger = null,
             string name = null)
         {
-            if (provider == null) throw new ArgumentNullException(nameof(provider));
-            _provider = provider;
-            _logger = logger;
+            _provider = provider ?? throw new ArgumentNullException(nameof(provider));
 
             // If a logger was passed, the provider has already added itself as an enricher
-            _logger = _logger ?? Serilog.Log.Logger.ForContext(new[] { provider });
+            _logger = logger ?? Serilog.Log.Logger.ForContext(new[] { provider });
 
             if (name != null)
             {
@@ -60,8 +58,7 @@ namespace Serilog.Extensions.Logging
 
             var properties = new List<LogEventProperty>();
 
-            var structure = state as IEnumerable<KeyValuePair<string, object>>;
-            if (structure != null)
+            if (state is IEnumerable<KeyValuePair<string, object>> structure)
             {
                 foreach (var property in structure)
                 {
@@ -71,14 +68,12 @@ namespace Serilog.Extensions.Logging
                     }
                     else if (property.Key.StartsWith("@"))
                     {
-                        LogEventProperty destructured;
-                        if (logger.BindProperty(property.Key.Substring(1), property.Value, true, out destructured))
+                        if (logger.BindProperty(property.Key.Substring(1), property.Value, true, out var destructured))
                             properties.Add(destructured);
                     }
                     else
                     {
-                        LogEventProperty bound;
-                        if (logger.BindProperty(property.Key, property.Value, false, out bound))
+                        if (logger.BindProperty(property.Key, property.Value, false, out var bound))
                             properties.Add(bound);
                     }
                 }
@@ -89,8 +84,7 @@ namespace Serilog.Extensions.Logging
                 if (messageTemplate == null && !stateTypeInfo.IsGenericType)
                 {
                     messageTemplate = "{" + stateType.Name + ":l}";
-                    LogEventProperty stateTypeProperty;
-                    if (logger.BindProperty(stateType.Name, AsLoggableValue(state, formatter), false, out stateTypeProperty))
+                    if (logger.BindProperty(stateType.Name, AsLoggableValue(state, formatter), false, out var stateTypeProperty))
                         properties.Add(stateTypeProperty);
                 }
             }
@@ -111,8 +105,7 @@ namespace Serilog.Extensions.Logging
 
                 if (propertyName != null)
                 {
-                    LogEventProperty property;
-                    if (logger.BindProperty(propertyName, AsLoggableValue(state, formatter), false, out property))
+                    if (logger.BindProperty(propertyName, AsLoggableValue(state, formatter), false, out var property))
                         properties.Add(property);
                 }
             }

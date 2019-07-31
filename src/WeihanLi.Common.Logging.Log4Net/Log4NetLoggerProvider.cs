@@ -112,18 +112,66 @@ namespace Microsoft.Extensions.Logging
 {
     public static class Log4NetLoggerFactoryExtensions
     {
-        public static ILoggerFactory AddLog4Net(this ILoggerFactory factory)
+        /// <summary>
+        /// Add Serilog to the logging pipeline.
+        /// </summary>
+        /// <param name="loggerFactory">The logger factory to configure.</param>
+        /// <returns>the logger factory</returns>
+        public static ILoggerFactory AddLog4Net(this ILoggerFactory loggerFactory)
         {
-            factory.AddProvider(new Log4NetLoggerProvider(ApplicationHelper.MapPath("log4net.config")));
+            if (null == loggerFactory)
+                throw new ArgumentNullException(nameof(loggerFactory));
 
-            return factory;
+            loggerFactory.AddProvider(new Log4NetLoggerProvider(ApplicationHelper.MapPath("log4net.config")));
+
+            return loggerFactory;
         }
 
-        public static ILoggerFactory AddLog4Net(this ILoggerFactory factory, string configFile)
+        /// <summary>
+        /// Add Serilog to the logging pipeline.
+        /// </summary>
+        /// <param name="loggerFactory">The logger factory to configure.</param>
+        /// <param name="configFilePath">log4net config file path</param>
+        /// <returns>the logger factory</returns>
+        public static ILoggerFactory AddLog4Net(this ILoggerFactory loggerFactory, string configFilePath)
         {
-            factory.AddProvider(new Log4NetLoggerProvider(configFile));
+            if (null == loggerFactory)
+                throw new ArgumentNullException(nameof(loggerFactory));
 
-            return factory;
+            loggerFactory.AddProvider(new Log4NetLoggerProvider(configFilePath));
+
+            return loggerFactory;
+        }
+
+        /// <summary>
+        /// Add log4net to the logging pipeline.
+        /// </summary>
+        /// <param name="builder">The <see cref="T:Microsoft.Extensions.Logging.ILoggingBuilder" /> to add logging provider to.</param>
+        /// <returns>The logging builder.</returns>
+        public static ILoggingBuilder AddLog4Net(this ILoggingBuilder builder)
+        {
+            if (builder == null)
+                throw new ArgumentNullException(nameof(builder));
+
+            builder.AddProvider(new Log4NetLoggerProvider(ApplicationHelper.MapPath("log4net.config")));
+
+            return builder;
+        }
+
+        /// <summary>
+        /// Add log4net to the logging pipeline.
+        /// </summary>
+        /// <param name="builder">The <see cref="T:Microsoft.Extensions.Logging.ILoggingBuilder" /> to add logging provider to.</param>
+        /// <param name="configFilePath">log4net config file path</param>
+        /// <returns>The logging builder.</returns>
+        public static ILoggingBuilder AddLog4Net(this ILoggingBuilder builder, string configFilePath)
+        {
+            if (builder == null)
+                throw new ArgumentNullException(nameof(builder));
+
+            builder.AddProvider(new Log4NetLoggerProvider(configFilePath));
+
+            return builder;
         }
     }
 }
