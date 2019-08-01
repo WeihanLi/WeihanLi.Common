@@ -150,6 +150,8 @@ namespace DotNetCoreSample
             //var result = posts.LeftJoin(postTags, p => p.PostId, pt => pt.PostId, (p, pt) => new { p.PostId, p.PostTitle, pt?.Tag }).ToArray();
             //Console.WriteLine(result.ToJson());
 
+            CronHelperTest.MainTest();
+
             Console.ReadLine();
 
             LogHelper.LogFactory.Dispose();
