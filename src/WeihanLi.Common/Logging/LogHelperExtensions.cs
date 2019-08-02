@@ -1,4 +1,5 @@
 ﻿using System;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Logging
 {
@@ -19,7 +20,7 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Info, null, msg, parameters);
+                logger.Log(LogHelperLevel.Info, null, msg.FormatWith(parameters));
             }
         }
 
@@ -39,7 +40,7 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Trace, null, msg, parameters);
+                logger.Log(LogHelperLevel.Trace, null, msg.FormatWith(parameters));
             }
         }
 
@@ -59,7 +60,7 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Debug, null, msg, parameters);
+                logger.Log(LogHelperLevel.Debug, null, msg.FormatWith(parameters));
             }
         }
 
@@ -79,7 +80,7 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Warn, null, msg, parameters);
+                logger.Log(LogHelperLevel.Warn, null, msg.FormatWith(parameters));
             }
         }
 
@@ -99,7 +100,7 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Error, null, msg, parameters);
+                logger.Log(LogHelperLevel.Error, null, msg.FormatWith(parameters));
             }
         }
 
@@ -119,7 +120,7 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Fatal, null, msg, parameters);
+                logger.Log(LogHelperLevel.Fatal, null, msg.FormatWith(parameters));
             }
         }
 

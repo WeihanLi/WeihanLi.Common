@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Logging
 {
     public interface ILogHelperLogger
     {
-        void Log(LogHelperLevel loggerLevel, Exception exception, string message, params object[] parameters);
+        void Log(LogHelperLevel loggerLevel, Exception exception, string message);
 
         bool IsEnabled(LogHelperLevel loggerLevel);
     }
@@ -20,7 +20,7 @@ namespace WeihanLi.Common.Logging
         {
         }
 
-        public void Log(LogHelperLevel loggerLevel, Exception exception, string message, params object[] parameters)
+        public void Log(LogHelperLevel loggerLevel, Exception exception, string message)
         {
         }
 
@@ -43,13 +43,13 @@ namespace WeihanLi.Common.Logging
             _loggers = logHelperProviders.Select(_ => _.CreateLogger(CategoryName)).ToArray();
         }
 
-        public void Log(LogHelperLevel loggerLevel, Exception exception, string message, params object[] parameters)
+        public void Log(LogHelperLevel loggerLevel, Exception exception, string message)
         {
             _loggers.ForEach(logger =>
             {
                 if (logger.IsEnabled(loggerLevel))
                 {
-                    logger.Log(loggerLevel, exception, message, parameters);
+                    logger.Log(loggerLevel, exception, message);
                 }
             });
         }
@@ -69,13 +69,13 @@ namespace WeihanLi.Common.Logging
             _loggers = logHelperProviders.Select(_ => _.CreateLogger(categoryName)).ToArray();
         }
 
-        public void Log(LogHelperLevel loggerLevel, Exception exception, string message, params object[] parameters)
+        public void Log(LogHelperLevel loggerLevel, Exception exception, string message)
         {
             _loggers.ForEach(logger =>
             {
                 if (logger.IsEnabled(loggerLevel))
                 {
-                    logger.Log(loggerLevel, exception, message, parameters);
+                    logger.Log(loggerLevel, exception, message);
                 }
             });
         }
