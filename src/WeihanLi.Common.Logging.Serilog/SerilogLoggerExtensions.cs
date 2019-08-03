@@ -38,7 +38,7 @@ namespace WeihanLi.Common.Logging.Serilog
         /// <param name="dispose">When true, dispose <paramref name="logger"/> when the framework disposes the provider. If the
         /// logger is not specified but <paramref name="dispose"/> is true, the <see cref="Log.CloseAndFlush()"/> method will be
         /// called on the static <see cref="Log"/> class instead.</param>
-        /// <returns>The logger factory.</returns>
+        /// <returns>The logging builder.</returns>
         public static ILoggingBuilder AddSerilog(this ILoggingBuilder builder, ILogger logger = null, bool dispose = false)
         {
             if (builder == null)

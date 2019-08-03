@@ -75,7 +75,7 @@ namespace WeihanLi.Common.Logging.Serilog
             }
         }
 
-        public void Log(LogHelperLevel loggerLevel, string message, Exception exception)
+        public void Log(LogHelperLevel loggerLevel, Exception exception, string message)
         {
             if (IsEnabled(loggerLevel))
             {

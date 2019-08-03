@@ -4,6 +4,18 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+
+### [WeihanLi.Common 1.0.23.8](https://www.nuget.org/packages/WeihanLi.Common/1.0.23.8)
+
+- add `CronHelper`/`ConcurrentSet`
+- update `EventStoreInMemory`
+- update logging
+
+### [WeihanLi.Common 1.0.23.7](https://www.nuget.org/packages/WeihanLi.Common/1.0.23.7)
+
+- add `PeriodBatching`
+- update `GetValueGetter`/`GetValueSetter`
+
 ### [WeihanLi.Common 1.0.23.6](https://www.nuget.org/packages/WeihanLi.Common/1.0.23.6)
 
 - remove `IsEmpty` for `IEventStore`
@@ -65,6 +77,10 @@
 - update repository, add support for columns mapping
 
 ## WeihanLi.Common.Logging.Log4Net
+
+### [WeihanLi.Common.Logging.Log4Net 1.0.23.8](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.23.8)
+
+- add `ILoggingBuilder` extension for log4net
 
 ### [WeihanLi.Common.Logging.Log4Net 1.0.23.7](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.23.7)
 

@@ -12,7 +12,6 @@
     <PackageTags>db database sql data </PackageTags>
     <PackageReleaseNotes>
       https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
-    </PackageReleaseNotes>    
-    <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">True</GeneratePackageOnBuild>
+    </PackageReleaseNotes>
   </PropertyGroup>
 </Project>
