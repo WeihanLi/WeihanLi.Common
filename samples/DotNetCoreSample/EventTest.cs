@@ -16,7 +16,7 @@ namespace DotNetCoreSample
             eventBus.Subscribe<CounterEvent, CounterEventHandler1>();
 
             eventBus.Subscribe<CounterEvent, CounterEventHandler2>();
-            eventBus.Subscribe<CounterEvent, DelegateEventHandler<CounterEvent>>();
+            // eventBus.Subscribe<CounterEvent, DelegateEventHandler<CounterEvent>>(); // counld be used for eventLogging
 
             eventBus.Publish(new CounterEvent { Counter = 1 });
 

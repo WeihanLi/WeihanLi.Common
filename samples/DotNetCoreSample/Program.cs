@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WeihanLi.Common;
+using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging.Log4Net;
 
@@ -33,8 +34,8 @@ namespace DotNetCoreSample
 
             services.AddSingleton(configuration);
 
-            //services.AddSingleton<IEventStore, EventStoreInMemory>();
-            //services.AddSingleton<IEventBus, EventBus>();
+            services.AddSingleton<IEventStore, EventStoreInMemory>();
+            services.AddSingleton<IEventBus, EventBus>();
 
             //services.AddSingleton(DelegateEventHandler.FromAction<CounterEvent>(@event =>
             //    LogHelper.GetLogger(typeof(DelegateEventHandler<CounterEvent>))
@@ -46,9 +47,9 @@ namespace DotNetCoreSample
 
             //DependencyInjectionTest.Test();
 
-            // EventTest.MainTest();
+            EventTest.MainTest();
 
-            SerilogTest.MainTest();
+            // SerilogTest.MainTest();
 
             //var builder = new ContainerBuilder();
             //builder.RegisterType<MonkeyKing>().As<IFly>();
