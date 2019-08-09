@@ -5,7 +5,7 @@
         ILogHelperLogger CreateLogger(string categoryName);
     }
 
-    public class NullLogHelperProvider : ILogHelperProvider
+    internal class NullLogHelperProvider : ILogHelperProvider
     {
         public ILogHelperLogger CreateLogger(string categoryName) => NullLogHelperLogger.Instance;
     }

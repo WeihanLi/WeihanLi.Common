@@ -76,7 +76,7 @@ namespace WeihanLi.Common.Logging
             {
                 foreach (var logFilter in _logHelperFactory._logFilters)
                 {
-                    if (!logFilter.Invoke(logHelperProvider.Key, CategoryName, exception))
+                    if (!logFilter.Invoke(logHelperProvider.Key, CategoryName, loggerLevel, exception))
                     {
                         logProviders.Remove(logHelperProvider.Value);
                     }

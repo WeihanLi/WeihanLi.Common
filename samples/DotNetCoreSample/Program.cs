@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using WeihanLi.Common;
 using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
@@ -47,7 +48,7 @@ namespace DotNetCoreSample
 
             //DependencyInjectionTest.Test();
 
-            EventTest.MainTest();
+            // EventTest.MainTest();
 
             // SerilogTest.MainTest();
 
@@ -71,7 +72,7 @@ namespace DotNetCoreSample
             //Console.WriteLine(pagedListModel.ToJson());
 
             // log test
-            // LoggerTest.MainTest();
+            LoggerTest.MainTest();
             // Log4NetTest.MainTest();
 
             //ILoggerFactory loggerFactory = new LoggerFactory();
@@ -151,7 +152,7 @@ namespace DotNetCoreSample
             //var result = posts.LeftJoin(postTags, p => p.PostId, pt => pt.PostId, (p, pt) => new { p.PostId, p.PostTitle, pt?.Tag }).ToArray();
             //Console.WriteLine(result.ToJson());
 
-            CronHelperTest.MainTest();
+            // CronHelperTest.MainTest();
 
             Console.ReadLine();
 
