@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Event
 {
     public class EventStoreInMemory : IEventStore
     {
-        private readonly ConcurrentDictionary<string, HashSet<Type>> _eventHandlers = new ConcurrentDictionary<string, HashSet<Type>>();
+        private readonly ConcurrentDictionary<string, ConcurrentSet<Type>> _eventHandlers = new ConcurrentDictionary<string, ConcurrentSet<Type>>();
 
         public bool AddSubscription<TEvent, TEventHandler>()
             where TEvent : IEventBase
@@ -15,11 +16,11 @@ namespace WeihanLi.Common.Event
             var eventKey = GetEventKey<TEvent>();
             if (_eventHandlers.ContainsKey(eventKey))
             {
-                return _eventHandlers[eventKey].Add(typeof(TEventHandler));
+                return _eventHandlers[eventKey].TryAdd(typeof(TEventHandler));
             }
             else
             {
-                return _eventHandlers.TryAdd(eventKey, new HashSet<Type>()
+                return _eventHandlers.TryAdd(eventKey, new ConcurrentSet<Type>()
                 {
                     typeof(TEventHandler)
                 });
@@ -34,8 +35,8 @@ namespace WeihanLi.Common.Event
 
         public ICollection<Type> GetEventHandlerTypes<TEvent>() where TEvent : IEventBase
         {
-            if(_eventHandlers.Count == 0)
-                return  new Type[0];
+            if (_eventHandlers.Count == 0)
+                return new Type[0];
             var eventKey = GetEventKey<TEvent>();
             if (_eventHandlers.TryGetValue(eventKey, out var handlers))
             {
@@ -51,7 +52,7 @@ namespace WeihanLi.Common.Event
 
         public bool HasSubscriptionsForEvent<TEvent>() where TEvent : IEventBase
         {
-            if(_eventHandlers.Count == 0)
+            if (_eventHandlers.Count == 0)
                 return false;
 
             var eventKey = GetEventKey<TEvent>();
@@ -62,13 +63,13 @@ namespace WeihanLi.Common.Event
             where TEvent : IEventBase
             where TEventHandler : IEventHandler<TEvent>
         {
-            if(_eventHandlers.Count == 0)
+            if (_eventHandlers.Count == 0)
                 return false;
 
             var eventKey = GetEventKey<TEvent>();
             if (_eventHandlers.ContainsKey(eventKey))
             {
-                return _eventHandlers[eventKey].Remove(typeof(TEventHandler));
+                return _eventHandlers[eventKey].TryRemove(typeof(TEventHandler));
             }
             return false;
         }

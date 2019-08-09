@@ -60,39 +60,39 @@ namespace WeihanLi.Common.Logging
             }
         }
 
-        public void Log(LogHelperLevel loggerLevel, Exception exception, string message, params object[] parameters)
+        public void Log(LogHelperLevel loggerLevel, Exception exception, string message)
         {
             if (IsEnabled(loggerLevel))
             {
                 switch (loggerLevel)
                 {
                     case LogHelperLevel.Info:
-                        _logger.LogInformation(exception, message, parameters);
+                        _logger.LogInformation(exception, message);
                         break;
 
                     case LogHelperLevel.Debug:
-                        _logger.LogDebug(exception, message, parameters);
+                        _logger.LogDebug(exception, message);
                         break;
 
                     case LogHelperLevel.Trace:
-                        _logger.LogTrace(exception, message, parameters);
+                        _logger.LogTrace(exception, message);
                         break;
 
                     case LogHelperLevel.Warn:
-                        _logger.LogWarning(exception, message, parameters);
+                        _logger.LogWarning(exception, message);
                         break;
 
                     case LogHelperLevel.Error:
-                        _logger.LogError(exception, message, parameters);
+                        _logger.LogError(exception, message);
                         break;
 
                     case LogHelperLevel.Fatal:
-                        _logger.LogError(exception, message, parameters);
+                        _logger.LogError(exception, message);
                         break;
 
                     default:
                         _logger.LogWarning($"Encountered unknown log level {loggerLevel}, writing out as Info.");
-                        _logger.LogInformation(exception, message, parameters);
+                        _logger.LogInformation(exception, message);
                         break;
                 }
             }

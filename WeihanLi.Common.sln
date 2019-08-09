@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCoreSample", "samples
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreSample", "samples\AspNetCoreSample\AspNetCoreSample.csproj", "{5A45C3FA-1E12-42A0-910E-18A0CF3D288A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmark", "benchmark", "{E7873908-B10D-4AA8-B2E0-198123026E0B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "perf", "perf", "{E7873908-B10D-4AA8-B2E0-198123026E0B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeihanLi.Common.Benchmark", "benchmark\WeihanLi.Common.Benchmark\WeihanLi.Common.Benchmark.csproj", "{FE575EBF-A41F-41AE-A865-E7F2E2FD90B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeihanLi.Common.Benchmark", "perf\WeihanLi.Common.Benchmark\WeihanLi.Common.Benchmark.csproj", "{FE575EBF-A41F-41AE-A865-E7F2E2FD90B4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeihanLi.Data", "src\WeihanLi.Data\WeihanLi.Data.csproj", "{911AB29A-5607-4CAF-B9FF-A20B0BDDA5B8}"
 EndProject

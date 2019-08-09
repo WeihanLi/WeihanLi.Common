@@ -5,13 +5,14 @@
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
 
+var branchName = EnvironmentVariable("BUILD_SOURCEBRANCHNAME") ?? "local";
+var isWindowsAgent = EnvironmentVariable("Agent_OS") == "Windows_NT" || branchName == "local";
+
 var solutionPath = "./WeihanLi.Common.sln";
 var srcProjects  = GetFiles("./src/**/*.csproj");
-var packProjects = GetFiles("./src/WeihanLi.Common/*.csproj");
+var packProjects = branchName == "local" ? GetFiles("./src/**/*.csproj") : GetFiles("./src/WeihanLi.Common/*.csproj");
 
 var artifacts = "./artifacts/packages";
-var isWindowsAgent = (EnvironmentVariable("Agent_OS") ?? "Windows_NT") == "Windows_NT";
-var branchName = EnvironmentVariable("BUILD_SOURCEBRANCHNAME") ?? "local";
 
 ///////////////////////////////////////////////////////////////////////////////
 // SETUP / TEARDOWN

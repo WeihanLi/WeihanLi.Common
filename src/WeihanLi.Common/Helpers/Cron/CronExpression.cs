@@ -44,13 +44,13 @@ namespace WeihanLi.Common.Helpers.Cron
 
         private static readonly TimeZoneInfo UtcTimeZone = TimeZoneInfo.Utc;
 
-        private static readonly CronExpression Yearly = Parse("0 0 1 1 *");
-        private static readonly CronExpression Weekly = Parse("0 0 * * 0");
-        private static readonly CronExpression Monthly = Parse("0 0 1 * *");
-        private static readonly CronExpression Daily = Parse("0 0 * * *");
-        private static readonly CronExpression Hourly = Parse("0 * * * *");
-        private static readonly CronExpression Minutely = Parse("* * * * *");
-        private static readonly CronExpression Secondly = Parse("* * * * * *", CronFormat.IncludeSeconds);
+        internal static readonly CronExpression Yearly = Parse("0 0 1 1 *");
+        internal static readonly CronExpression Weekly = Parse("0 0 * * 0");
+        internal static readonly CronExpression Monthly = Parse("0 0 1 * *");
+        internal static readonly CronExpression Daily = Parse("0 0 * * *");
+        internal static readonly CronExpression Hourly = Parse("0 * * * *");
+        internal static readonly CronExpression Minutely = Parse("* * * * *");
+        internal static readonly CronExpression Secondly = Parse("* * * * * *", CronFormat.IncludeSeconds);
 
         private static readonly int[] DeBruijnPositions =
         {

@@ -75,7 +75,7 @@ namespace WeihanLi.Common.Logging.Serilog
             }
         }
 
-        public void Log(LogHelperLevel loggerLevel, Exception exception, string message, params object[] parameters)
+        public void Log(LogHelperLevel loggerLevel, Exception exception, string message)
         {
             if (IsEnabled(loggerLevel))
             {
@@ -83,27 +83,27 @@ namespace WeihanLi.Common.Logging.Serilog
                 {
                     case LogHelperLevel.All:
                     case LogHelperLevel.Trace:
-                        SSerilog.Log.Verbose(exception, message, parameters);
+                        SSerilog.Log.Verbose(exception, message);
                         break;
 
                     case LogHelperLevel.Debug:
-                        SSerilog.Log.Debug(exception, message, parameters);
+                        SSerilog.Log.Debug(exception, message);
                         break;
 
                     case LogHelperLevel.Info:
-                        SSerilog.Log.Information(exception, message, parameters);
+                        SSerilog.Log.Information(exception, message);
                         break;
 
                     case LogHelperLevel.Warn:
-                        SSerilog.Log.Warning(exception, message, parameters);
+                        SSerilog.Log.Warning(exception, message);
                         break;
 
                     case LogHelperLevel.Error:
-                        SSerilog.Log.Error(exception, message, parameters);
+                        SSerilog.Log.Error(exception, message);
                         break;
 
                     case LogHelperLevel.Fatal:
-                        SSerilog.Log.Fatal(exception, message, parameters);
+                        SSerilog.Log.Fatal(exception, message);
                         break;
                 }
             }

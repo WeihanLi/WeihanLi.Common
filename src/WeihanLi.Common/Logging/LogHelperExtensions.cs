@@ -1,4 +1,5 @@
 ﻿using System;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Logging
 {
@@ -19,7 +20,7 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Info, null, msg, parameters);
+                logger.Log(LogHelperLevel.Info, null, msg.FormatWith(parameters));
             }
         }
 
@@ -39,7 +40,7 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Trace, null, msg, parameters);
+                logger.Log(LogHelperLevel.Trace, null, msg.FormatWith(parameters));
             }
         }
 
@@ -59,7 +60,7 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Debug, null, msg, parameters);
+                logger.Log(LogHelperLevel.Debug, null, msg.FormatWith(parameters));
             }
         }
 
@@ -79,7 +80,7 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Warn, null, msg, parameters);
+                logger.Log(LogHelperLevel.Warn, null, msg.FormatWith(parameters));
             }
         }
 
@@ -99,7 +100,7 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Error, null, msg, parameters);
+                logger.Log(LogHelperLevel.Error, null, msg.FormatWith(parameters));
             }
         }
 
@@ -119,7 +120,7 @@ namespace WeihanLi.Common.Logging
             }
             else
             {
-                logger.Log(LogHelperLevel.Fatal, null, msg, parameters);
+                logger.Log(LogHelperLevel.Fatal, null, msg.FormatWith(parameters));
             }
         }
 
@@ -148,5 +149,44 @@ namespace WeihanLi.Common.Logging
         public static ILogHelperLogger CreateLogger(this ILogHelperProvider logHelperProvider, Type type) => logHelperProvider.CreateLogger(type.FullName);
 
         #endregion LoggerHelperProvider
+
+        #region LogHelperFactory
+
+        public static ILogHelperFactory WithMinimumLevel(this ILogHelperFactory logHelperFactory, LogHelperLevel logLevel)
+        {
+            return logHelperFactory.WithFilter(level => level >= logLevel);
+        }
+
+        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<LogHelperLevel, bool> filterFunc)
+        {
+            logHelperFactory.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(logLevel));
+            return logHelperFactory;
+        }
+
+        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<string, LogHelperLevel, bool> filterFunc)
+        {
+            logHelperFactory.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(categoryName, logLevel));
+            return logHelperFactory;
+        }
+
+        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<Type, string, LogHelperLevel, bool> filterFunc)
+        {
+            logHelperFactory.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(type, categoryName, logLevel));
+            return logHelperFactory;
+        }
+
+        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<Type, string, LogHelperLevel, Exception, bool> filterFunc)
+        {
+            logHelperFactory.AddFilter(filterFunc);
+            return logHelperFactory;
+        }
+
+        public static ILogHelperFactory WithProvider(this ILogHelperFactory logHelperFactory, ILogHelperProvider logHelperProvider)
+        {
+            logHelperFactory.AddProvider(logHelperProvider);
+            return logHelperFactory;
+        }
+
+        #endregion LogHelperFactory
     }
 }
