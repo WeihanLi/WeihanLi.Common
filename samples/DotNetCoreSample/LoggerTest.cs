@@ -10,7 +10,7 @@ namespace DotNetCoreSample
         public static void MainTest()
         {
             var abc = "1233";
-            LogHelper.LogFactory.WithFilter((level) => level > LogHelperLevel.Info);
+            LogHelper.LogFactory.WithMinimumLevel(LogHelperLevel.Info);
 
             Logger.Debug($"12333 {abc}");
             Logger.Trace("122334334");
