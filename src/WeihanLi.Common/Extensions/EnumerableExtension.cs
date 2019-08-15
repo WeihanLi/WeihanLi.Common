@@ -144,6 +144,25 @@ namespace WeihanLi.Extensions
 
         #endregion Split
 
+        public static IEnumerable<T> Distinct<T>(this IEnumerable<T> source, Func<T, T, bool> comparer) where T : class
+            => source.Distinct(new DynamicEqualityComparer<T>(comparer));
+
+        // https://github.com/aspnet/EntityFrameworkCore/blob/release/3.0/src/EFCore.SqlServer/Utilities/EnumerableExtensions.cs
+        private sealed class DynamicEqualityComparer<T> : IEqualityComparer<T>
+            where T : class
+        {
+            private readonly Func<T, T, bool> _func;
+
+            public DynamicEqualityComparer(Func<T, T, bool> func)
+            {
+                _func = func;
+            }
+
+            public bool Equals(T x, T y) => _func(x, y);
+
+            public int GetHashCode(T obj) => 0; // force Equals
+        }
+
         #region Linq
 
         /// <summary>
