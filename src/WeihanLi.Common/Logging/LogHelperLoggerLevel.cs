@@ -11,9 +11,9 @@
         All = 0,
 
         /// <summary>
-        /// A info logging level
+        /// A trace logging level
         /// </summary>
-        Info = 1,
+        Trace = 1,
 
         /// <summary>
         /// A debug logging level
@@ -21,9 +21,9 @@
         Debug = 2,
 
         /// <summary>
-        /// A trace logging level
+        /// A info logging level
         /// </summary>
-        Trace = 4,
+        Info = 4,
 
         /// <summary>
         /// A warn logging level

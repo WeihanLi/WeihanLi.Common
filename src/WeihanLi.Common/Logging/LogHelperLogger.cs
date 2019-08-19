@@ -59,19 +59,35 @@ namespace WeihanLi.Common.Logging
 
     internal class LogHelper : ILogHelperLogger
     {
-        private readonly IReadOnlyCollection<ILogHelperLogger> _loggers;
+        private readonly LogHelperFactory _logHelperFactory;
 
         public string CategoryName { get; }
 
-        public LogHelper(ICollection<ILogHelperProvider> logHelperProviders, string categoryName)
+        public LogHelper(LogHelperFactory logHelperFactory, string categoryName)
         {
+            _logHelperFactory = logHelperFactory;
             CategoryName = categoryName;
-            _loggers = logHelperProviders.Select(_ => _.CreateLogger(categoryName)).ToArray();
         }
 
         public void Log(LogHelperLevel loggerLevel, Exception exception, string message)
         {
-            _loggers.ForEach(logger =>
+            var logProviders = new List<ILogHelperProvider>(_logHelperFactory._logHelperProviders.Values);
+            foreach (var logHelperProvider in _logHelperFactory._logHelperProviders)
+            {
+                foreach (var logFilter in _logHelperFactory._logFilters)
+                {
+                    if (!logFilter.Invoke(logHelperProvider.Key, CategoryName, loggerLevel, exception))
+                    {
+                        logProviders.Remove(logHelperProvider.Value);
+                    }
+                }
+            }
+
+            if (logProviders.Count == 0)
+                return;
+
+            var loggers = logProviders.Select(_ => _.CreateLogger(CategoryName)).ToArray();
+            loggers.ForEach(logger =>
             {
                 if (logger.IsEnabled(loggerLevel))
                 {

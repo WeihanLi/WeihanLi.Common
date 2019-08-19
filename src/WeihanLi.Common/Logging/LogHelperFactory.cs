@@ -18,6 +18,12 @@ namespace WeihanLi.Common.Logging
         /// </summary>
         /// <param name="provider">The ILogHelperProvider.</param>
         bool AddProvider(ILogHelperProvider provider);
+
+        /// <summary>
+        /// Add logs filter
+        /// </summary>
+        /// <param name="filterFunc">filterFunc, logProviderType/categoryName/Exception, whether to write log</param>
+        bool AddFilter(Func<Type, string, LogHelperLevel, Exception, bool> filterFunc);
     }
 
     internal class NullLogHelperFactory : ILogHelperFactory
@@ -35,13 +41,20 @@ namespace WeihanLi.Common.Logging
         public bool AddProvider(ILogHelperProvider provider) => false;
 
         public ILogHelperLogger CreateLogger(string categoryName) => NullLogHelperLogger.Instance;
+
+        public bool AddFilter(Func<Type, string, LogHelperLevel, Exception, bool> filterFunc)
+        {
+            return filterFunc != null;
+        }
     }
 
     internal class LogHelperFactory : ILogHelperFactory
     {
-        private readonly ConcurrentDictionary<Type, ILogHelperProvider> _logHelperProviders = new ConcurrentDictionary<Type, ILogHelperProvider>();
+        internal readonly ConcurrentDictionary<Type, ILogHelperProvider> _logHelperProviders = new ConcurrentDictionary<Type, ILogHelperProvider>();
 
-        private readonly ConcurrentDictionary<string, ILogHelperLogger> _logHelpers = new ConcurrentDictionary<string, ILogHelperLogger>();
+        private readonly ConcurrentDictionary<string, ILogHelperLogger> _loggers = new ConcurrentDictionary<string, ILogHelperLogger>();
+
+        internal readonly ConcurrentBag<Func<Type, string, LogHelperLevel, Exception, bool>> _logFilters = new ConcurrentBag<Func<Type, string, LogHelperLevel, Exception, bool>>();
 
         public LogHelperFactory() : this(Enumerable.Empty<ILogHelperProvider>())
         {
@@ -58,9 +71,20 @@ namespace WeihanLi.Common.Logging
             }
         }
 
-        public ILogHelperLogger CreateLogger(string categoryName) => _logHelpers.GetOrAdd(categoryName, _ => new LogHelper(_logHelperProviders.Values, _));
+        public ILogHelperLogger CreateLogger(string categoryName) => _loggers.GetOrAdd(categoryName, _ => new LogHelper(this, _));
 
         public bool AddProvider(ILogHelperProvider provider) => _logHelperProviders.TryAdd(provider.GetType(), provider);
+
+        public bool AddFilter(Func<Type, string, LogHelperLevel, Exception, bool> filterFunc)
+        {
+            if (null == filterFunc)
+            {
+                return false;
+            }
+
+            _logFilters.Add(filterFunc);
+            return true;
+        }
 
         public void Dispose()
         {
