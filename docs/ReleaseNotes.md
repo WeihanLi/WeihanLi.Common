@@ -4,6 +4,10 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.24](https://www.nuget.org/packages/WeihanLi.Common/1.0.24)
+
+- add logging filter
+- add `Distinct<T>(Func<T, T, bool> compareFunc)` extension
 
 ### [WeihanLi.Common 1.0.23.8](https://www.nuget.org/packages/WeihanLi.Common/1.0.23.8)
 
