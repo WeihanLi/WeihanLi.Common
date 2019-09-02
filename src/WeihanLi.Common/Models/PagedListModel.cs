@@ -86,6 +86,6 @@ namespace WeihanLi.Common.Models
 
         public T this[int index] => Data[index];
 
-        public int Count => Data.Count;
+        public int Count => Data?.Count ?? 0;
     }
 }
