@@ -89,7 +89,9 @@ namespace WeihanLi.Common.Helpers.Cron
         /// </summary>
         public static CronExpression Parse(string expression)
         {
-            return Parse(expression, CronFormat.Standard);
+            return expression.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length == 5
+                 ? Parse(expression, CronFormat.Standard)
+                 : Parse(expression, CronFormat.IncludeSeconds);
         }
 
         ///<summary>
@@ -377,7 +379,7 @@ namespace WeihanLi.Common.Helpers.Cron
             if (!GetBit(_dayOfMonth, day) && !Move(_dayOfMonth, ref day)) goto RetryMonth;
             if (!GetBit(_month, month)) goto RetryMonth;
 
-Retry:
+            Retry:
 
             if (day > GetLastDayOfMonth(year, month)) goto RetryMonth;
 
@@ -394,11 +396,11 @@ Retry:
                 if (minute > startMinute) goto RolloverMinute;
                 goto ReturnResult;
 
-RolloverDay: hour = GetFirstSet(_hour);
-RolloverHour: minute = GetFirstSet(_minute);
-RolloverMinute: second = GetFirstSet(_second);
+            RolloverDay: hour = GetFirstSet(_hour);
+            RolloverHour: minute = GetFirstSet(_minute);
+            RolloverMinute: second = GetFirstSet(_second);
 
-ReturnResult:
+            ReturnResult:
 
                 var found = CalendarHelper.DateTimeToTicks(year, month, day, hour, minute, second);
                 if (found >= ticks) return found;
@@ -407,7 +409,7 @@ ReturnResult:
             day = lastCheckedDay;
             if (Move(_dayOfMonth, ref day)) goto Retry;
 
-RetryMonth:
+            RetryMonth:
 
             if (!Move(_month, ref month) && ++year >= MaxYear) return NotFound;
             day = minMatchedDay;
