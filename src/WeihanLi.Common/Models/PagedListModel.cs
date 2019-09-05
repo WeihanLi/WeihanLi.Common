@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 
 namespace WeihanLi.Common.Models
@@ -38,7 +39,21 @@ namespace WeihanLi.Common.Models
     [Serializable]
     public class PagedListModel<T> : IPagedListModel<T>
     {
-        public IReadOnlyList<T> Data { get; set; }
+        private IReadOnlyList<T> _data = new T[0];
+
+        [NotNull]
+        public IReadOnlyList<T> Data
+        {
+            get => _data;
+            set
+            {
+                // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+                if (value != null)
+                {
+                    _data = value;
+                }
+            }
+        }
 
         private int _pageNumber = 1;
 
@@ -86,6 +101,6 @@ namespace WeihanLi.Common.Models
 
         public T this[int index] => Data[index];
 
-        public int Count => Data?.Count ?? 0;
+        public int Count => Data.Count;
     }
 }

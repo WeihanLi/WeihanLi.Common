@@ -25,7 +25,7 @@ namespace WeihanLi.Common.Helpers
         /// <returns>next occurrence time</returns>
         public static DateTimeOffset? GetNextOccurrence(string cron)
         {
-            var expression = CronExpression.Parse(cron, CronFormat.IncludeSeconds);
+            var expression = CronExpression.Parse(cron);
             return expression.GetNextOccurrence(DateTimeOffset.UtcNow, TimeZoneInfo.Utc);
         }
 
@@ -37,7 +37,7 @@ namespace WeihanLi.Common.Helpers
         /// <returns>next occurrence time</returns>
         public static DateTimeOffset? GetNextOccurrence(string cron, TimeZoneInfo timeZoneInfo)
         {
-            var expression = CronExpression.Parse(cron, CronFormat.IncludeSeconds);
+            var expression = CronExpression.Parse(cron);
             return expression.GetNextOccurrence(DateTimeOffset.UtcNow, timeZoneInfo);
         }
 
@@ -49,7 +49,7 @@ namespace WeihanLi.Common.Helpers
         /// <returns>next occurrence times</returns>
         public static IEnumerable<DateTimeOffset> GetNextOccurrences(string cron, TimeSpan period)
         {
-            var expression = CronExpression.Parse(cron, CronFormat.IncludeSeconds);
+            var expression = CronExpression.Parse(cron);
             var fromUtc = DateTime.UtcNow;
             return expression.GetOccurrences(fromUtc, fromUtc.Add(period), TimeZoneInfo.Utc);
         }
@@ -63,7 +63,7 @@ namespace WeihanLi.Common.Helpers
         /// <returns>next occurrence times</returns>
         public static IEnumerable<DateTimeOffset> GetNextOccurrences(string cron, TimeSpan period, TimeZoneInfo timeZoneInfo)
         {
-            var expression = CronExpression.Parse(cron, CronFormat.IncludeSeconds);
+            var expression = CronExpression.Parse(cron);
             var fromUtc = DateTime.UtcNow;
             return expression.GetOccurrences(fromUtc, fromUtc.Add(period), timeZoneInfo);
         }
