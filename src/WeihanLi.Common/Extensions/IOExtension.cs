@@ -1,7 +1,7 @@
-﻿using System.IO;
+﻿using JetBrains.Annotations;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -62,6 +62,9 @@ namespace WeihanLi.Extensions
         /// <returns>The Stream as a byte[].</returns>
         public static byte[] ToByteArray([NotNull]this Stream @this)
         {
+            if (@this is MemoryStream ms0)
+                return ms0.ToArray();
+
             using (var ms = new MemoryStream())
             {
                 @this.CopyTo(ms);
@@ -76,6 +79,9 @@ namespace WeihanLi.Extensions
         /// <returns>The Stream as a byte[].</returns>
         public static async Task<byte[]> ToByteArrayAsync([NotNull]this Stream @this)
         {
+            if (@this is MemoryStream ms0)
+                return ms0.ToArray();
+
             using (var ms = new MemoryStream())
             {
                 await @this.CopyToAsync(ms);
