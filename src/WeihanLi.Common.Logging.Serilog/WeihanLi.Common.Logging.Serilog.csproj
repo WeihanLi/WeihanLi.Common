@@ -2,7 +2,7 @@
   <Import Project="../../build/logging.serilog.props" />
 
   <ItemGroup>
-    <PackageReference Include="Serilog" Version="2.9.0-dev-01116" />
+    <PackageReference Include="Serilog" Version="2.9.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
     <Compile Remove="SerilogLogger.cs" />
