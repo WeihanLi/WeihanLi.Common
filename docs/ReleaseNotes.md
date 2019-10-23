@@ -4,6 +4,17 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.24.3](https://www.nuget.org/packages/WeihanLi.Common/1.0.24.3)
+
+- add `NetHelper.GetRandomPort`
+- add `TaskHelper.CompletedTask`
+- optimize `ToByteArray(this Stream @this)`/`ToByteArrayAsync(this Stream @this)`
+- add `ExpressionExtension.True<T>`/`ExpressionExtension.False<T>`
+
+### [WeihanLi.Common 1.0.24.2](https://www.nuget.org/packages/WeihanLi.Common/1.0.24.2)
+
+- optimize `CronHelper` and `PagedListModel`
+
 ### [WeihanLi.Common 1.0.24](https://www.nuget.org/packages/WeihanLi.Common/1.0.24)
 
 - add logging filter
