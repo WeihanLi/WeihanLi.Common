@@ -2,8 +2,8 @@ language: csharp
 solution: WeihanLi.Common.sln
 # runtime config
 mono: none
-dotnet: 2.0.0
-dist: trusty
+dotnet: 3.0.100
+dist: bionic
 
 # branch build config
 branches:
