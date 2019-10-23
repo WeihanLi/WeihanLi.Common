@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
 
@@ -69,11 +68,5 @@ namespace WeihanLi.Common
             }
             return result;
         }
-
-        public static TService ResolveService<TService>(this IDependencyResolver dependencyResolver)
-            => (TService)dependencyResolver.GetService(typeof(TService));
-
-        public static IEnumerable<TService> ResolveServices<TService>(this IDependencyResolver dependencyResolver)
-            => dependencyResolver.GetServices(typeof(TService)).Cast<TService>();
     }
 }
