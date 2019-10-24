@@ -21,4 +21,4 @@ git:
   lfs_skip_smudge: true # disable the download of LFS objects when cloning
   
 script:
-  - build.sh
+  - bash build.sh
