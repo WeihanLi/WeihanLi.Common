@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
 using WeihanLi.Common;
+using WeihanLi.Common.DependencyInjection;
 using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging.Log4Net;
@@ -153,6 +154,18 @@ namespace DotNetCoreSample
             //Console.WriteLine(result.ToJson());
 
             // CronHelperTest.MainTest();
+
+            using (IServiceContainer container = new ServiceContainer())
+            {
+                container.AddSingleton<IConfiguration>(configuration);
+                container.AddScoped<IFly, MonkeyKing>();
+
+                using (var scope = container.CreateScope())
+                {
+                    var config = scope.ResolveService<IConfiguration>();
+                    scope.ResolveService<IFly>().Fly();
+                }
+            }
 
             Console.ReadLine();
 

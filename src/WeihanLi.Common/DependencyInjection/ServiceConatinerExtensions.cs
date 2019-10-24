@@ -5,6 +5,12 @@ namespace WeihanLi.Common.DependencyInjection
 {
     public static class ServiceContainerExtensions
     {
+        public static IServiceContainer AddSingleton<TService>([NotNull]this IServiceContainer serviceContainer, [NotNull]TService service)
+        {
+            serviceContainer.Add(new ServiceDefinition(service, typeof(TService)));
+            return serviceContainer;
+        }
+
         public static IServiceContainer AddSingleton<TService>([NotNull]this IServiceContainer serviceContainer, [NotNull]Func<IServiceProvider, object> func)
         {
             serviceContainer.Add(ServiceDefinition.Singleton<TService>(func));

@@ -13,6 +13,11 @@ namespace WeihanLi.Common.DependencyInjection
             _serviceContainer = serviceContainer;
         }
 
+        public ServiceContainerServiceProvider(IReadOnlyCollection<ServiceDefinition> serviceContainer, ServiceContainerServiceProvider root)
+        {
+            _serviceContainer = serviceContainer;
+        }
+
         public object GetService(Type serviceType)
         {
             if (typeof(IEnumerable<>).MakeGenericType(typeof(object)).IsAssignableFrom(serviceType))

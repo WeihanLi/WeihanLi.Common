@@ -1,25 +1,20 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 
 namespace WeihanLi.Common.DependencyInjection
 {
-    public interface IServiceContainer : IList<ServiceDefinition>
+    public interface IServiceContainer : IScope, IServiceProvider
     {
+        void Add(ServiceDefinition item);
+
+        void Clear();
+
+        IServiceContainer CreateScope();
     }
 
     public class ServiceContainer : IServiceContainer
     {
         private readonly List<ServiceDefinition> _services = new List<ServiceDefinition>();
-
-        public ServiceDefinition this[int index]
-        {
-            get => _services[index];
-            set => _services[index] = value;
-        }
-
-        public int Count => _services.Count;
-
-        public bool IsReadOnly => false;
 
         public void Add(ServiceDefinition item)
         {
@@ -31,44 +26,19 @@ namespace WeihanLi.Common.DependencyInjection
             _services.Clear();
         }
 
-        public bool Contains(ServiceDefinition item)
+        public IServiceContainer CreateScope()
         {
-            return _services.Contains(item);
+            throw new NotImplementedException();
         }
 
-        public void CopyTo(ServiceDefinition[] array, int arrayIndex)
+        public void Dispose()
         {
-            _services.CopyTo(array, arrayIndex);
+            throw new NotImplementedException();
         }
 
-        public IEnumerator<ServiceDefinition> GetEnumerator()
+        public object GetService(Type serviceType)
         {
-            return _services.GetEnumerator();
-        }
-
-        public int IndexOf(ServiceDefinition item)
-        {
-            return _services.IndexOf(item);
-        }
-
-        public void Insert(int index, ServiceDefinition item)
-        {
-            _services.Insert(index, item);
-        }
-
-        public bool Remove(ServiceDefinition item)
-        {
-            return _services.Remove(item);
-        }
-
-        public void RemoveAt(int index)
-        {
-            _services.RemoveAt(index);
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
+            throw new NotImplementedException();
         }
     }
 }
