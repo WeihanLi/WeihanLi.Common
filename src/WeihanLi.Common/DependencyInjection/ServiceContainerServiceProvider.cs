@@ -1,32 +1,37 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace WeihanLi.Common.DependencyInjection
 {
     internal class ServiceContainerServiceProvider : IServiceProvider
     {
-        private readonly ServiceContainer _serviceContainer;
+        private readonly IReadOnlyCollection<ServiceDefinition> _serviceContainer;
 
-        public ServiceContainerServiceProvider(ServiceContainer serviceContainer)
+        public ServiceContainerServiceProvider(IReadOnlyCollection<ServiceDefinition> serviceContainer)
         {
             _serviceContainer = serviceContainer;
         }
 
         public object GetService(Type serviceType)
         {
-            //if (serviceType.IsAssignableFrom(typeof(IEnumerable<>)))
-            //{
-            //    _serviceContainer.services.
-            //}
-
-            var service = _serviceContainer.LastOrDefault(s => s.ServiceType == serviceType);
-            if (null == service)
+            if (typeof(IEnumerable<>).MakeGenericType(typeof(object)).IsAssignableFrom(serviceType))
             {
-                throw new InvalidOperationException($"service {serviceType.FullName} had not been registered");
-            }
+                // get service collection
+                var services = _serviceContainer.Where(_ => _.ServiceType == serviceType).ToArray();
 
-            // 由 serviceFactory 去创建一个实例
-            return service.ImplementationInstance;
+                return services.Select(s => s.ImplementationInstance).ToArray();
+            }
+            else
+            {
+                var service = _serviceContainer.LastOrDefault(s => s.ServiceType == serviceType);
+                if (null == service)
+                {
+                    throw new InvalidOperationException($"service {serviceType.FullName} had not been registered");
+                }
+                // 由 serviceFactory 去创建一个实例
+                return service.ImplementationInstance;
+            }
         }
     }
 }
