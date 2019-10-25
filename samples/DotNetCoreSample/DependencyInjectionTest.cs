@@ -33,18 +33,20 @@ namespace DotNetCoreSample
                     .Build()
                 );
                 container.AddScoped<IFly, MonkeyKing>();
+                container.AddScoped<HasDependencyTest>();
                 container.AddTransient<WuKong>();
                 container.AddScoped<WuJing>(serviceProvider => new WuJing());
+                container.AddSingleton(typeof(GenericServiceTest<>));
 
                 var rootConfig = container.ResolveService<IConfiguration>();
-                try
-                {
-                    container.ResolveService<IFly>();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
+                //try
+                //{
+                //    container.ResolveService<IFly>();
+                //}
+                //catch (Exception e)
+                //{
+                //    Console.WriteLine(e);
+                //}
 
                 using (var scope = container.CreateScope())
                 {
@@ -70,9 +72,28 @@ namespace DotNetCoreSample
 
                     wuJing1.Eat();
 
+                    var s1 = scope.ResolveRequiredService<HasDependencyTest>();
+                    s1.Test();
+
+                    Console.WriteLine($"s1._fly == fly1 : {s1._fly == fly1}");
+
+                    using (var innerScope = scope.CreateScope())
+                    {
+                        var config2 = innerScope.ResolveRequiredService<IConfiguration>();
+                        Console.WriteLine("rootConfig == config2, {0}", rootConfig == config2);
+                        var fly3 = innerScope.ResolveRequiredService<IFly>();
+                        fly3.Fly();
+                    }
+
                     var number = config.GetAppSetting<int>("Number");
                     Console.WriteLine(number);
                 }
+
+                var genericService1 = container.ResolveRequiredService<GenericServiceTest<int>>();
+                genericService1.Test();
+
+                var genericService2 = container.ResolveRequiredService<GenericServiceTest<string>>();
+                genericService2.Test();
             }
         }
 
@@ -109,6 +130,30 @@ namespace DotNetCoreSample
             public void Dispose()
             {
                 Console.WriteLine("WuJing disposed");
+            }
+        }
+
+        private class GenericServiceTest<T>
+        {
+            public void Test()
+            {
+                Console.WriteLine($"generic type: {typeof(T).FullName}");
+            }
+        }
+
+        private class HasDependencyTest
+        {
+            public readonly IFly _fly;
+
+            public HasDependencyTest(IFly fly)
+            {
+                _fly = fly;
+            }
+
+            public void Test()
+            {
+                Console.WriteLine($"test in {nameof(HasDependencyTest)}");
+                _fly.Fly();
             }
         }
     }

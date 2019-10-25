@@ -131,6 +131,11 @@ namespace WeihanLi.Common.DependencyInjection
                 throw new InvalidOperationException($"invalid service registered, serviceType: {serviceType.FullName}, implementType: {serviceDefinition.ImplementType}");
             }
 
+            if (implementType.IsGenericType)
+            {
+                implementType = implementType.MakeGenericType(serviceType.GetGenericArguments());
+            }
+
             var ctorInfos = implementType.GetConstructors(BindingFlags.Instance | BindingFlags.Public);
             if (ctorInfos.Length == 0)
             {
@@ -144,7 +149,7 @@ namespace WeihanLi.Common.DependencyInjection
             }
             else
             {
-                // try find best ctor
+                // TODO: try find best ctor
                 ctor = ctorInfos
                     .OrderBy(_ => _.GetParameters().Length)
                     .First();
@@ -179,7 +184,20 @@ namespace WeihanLi.Common.DependencyInjection
             var serviceDefinition = _services.LastOrDefault(_ => _.ServiceType == serviceType);
             if (null == serviceDefinition)
             {
-                return null;
+                //
+                if (serviceType.IsGenericType)
+                {
+                    var genericType = serviceType.GetGenericTypeDefinition();
+                    serviceDefinition = _services.LastOrDefault(_ => _.ServiceType == genericType);
+                    if (null == serviceDefinition)
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
             }
 
             if (_isRootScope && serviceDefinition.ServiceLifetime == ServiceLifetime.Scoped)

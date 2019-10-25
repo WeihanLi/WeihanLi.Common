@@ -11,6 +11,42 @@ namespace WeihanLi.Common.DependencyInjection
             return serviceContainer;
         }
 
+        public static IServiceContainer AddSingleton([NotNull]this IServiceContainer serviceContainer, [NotNull]Type serviceType)
+        {
+            serviceContainer.Add(new ServiceDefinition(serviceType, ServiceLifetime.Singleton));
+            return serviceContainer;
+        }
+
+        public static IServiceContainer AddScoped([NotNull]this IServiceContainer serviceContainer, [NotNull]Type serviceType)
+        {
+            serviceContainer.Add(new ServiceDefinition(serviceType, ServiceLifetime.Scoped));
+            return serviceContainer;
+        }
+
+        public static IServiceContainer AddTransient([NotNull]this IServiceContainer serviceContainer, [NotNull]Type serviceType)
+        {
+            serviceContainer.Add(new ServiceDefinition(serviceType, ServiceLifetime.Transient));
+            return serviceContainer;
+        }
+
+        public static IServiceContainer AddSingleton([NotNull]this IServiceContainer serviceContainer, [NotNull]Type serviceType, [NotNull]Type implementType)
+        {
+            serviceContainer.Add(new ServiceDefinition(serviceType, implementType, ServiceLifetime.Singleton));
+            return serviceContainer;
+        }
+
+        public static IServiceContainer AddScoped([NotNull]this IServiceContainer serviceContainer, [NotNull]Type serviceType, [NotNull]Type implementType)
+        {
+            serviceContainer.Add(new ServiceDefinition(serviceType, implementType, ServiceLifetime.Scoped));
+            return serviceContainer;
+        }
+
+        public static IServiceContainer AddTransient([NotNull]this IServiceContainer serviceContainer, [NotNull]Type serviceType, [NotNull]Type implementType)
+        {
+            serviceContainer.Add(new ServiceDefinition(serviceType, implementType, ServiceLifetime.Transient));
+            return serviceContainer;
+        }
+
         public static IServiceContainer AddSingleton<TService>([NotNull]this IServiceContainer serviceContainer, [NotNull]Func<IServiceProvider, object> func)
         {
             serviceContainer.Add(ServiceDefinition.Singleton<TService>(func));
