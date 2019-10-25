@@ -11,19 +11,17 @@ namespace WeihanLi.Common.DependencyInjection
     {
         void Add(ServiceDefinition item);
 
-        void Clear();
-
         IServiceContainer CreateScope();
     }
 
     public class ServiceContainer : IServiceContainer
     {
-        internal readonly List<ServiceDefinition> _services;
+        internal readonly ConcurrentBag<ServiceDefinition> _services;
 
         private readonly ConcurrentDictionary<ServiceDefinitionKey, object> _singletonInstances;
 
         private readonly ConcurrentDictionary<ServiceDefinitionKey, object> _scopedInstances;
-        private readonly List<object> _transientDisposables = new List<object>();
+        private ConcurrentBag<object> _transientDisposables = new ConcurrentBag<object>();
 
         private class ServiceDefinitionKey
         {
@@ -44,10 +42,10 @@ namespace WeihanLi.Common.DependencyInjection
         {
             _isRootScope = true;
             _singletonInstances = new ConcurrentDictionary<ServiceDefinitionKey, object>();
-            _services = new List<ServiceDefinition>();
+            _services = new ConcurrentBag<ServiceDefinition>();
         }
 
-        internal ServiceContainer(ServiceContainer serviceContainer)
+        private ServiceContainer(ServiceContainer serviceContainer)
         {
             _isRootScope = false;
             _singletonInstances = serviceContainer._singletonInstances;
@@ -57,12 +55,11 @@ namespace WeihanLi.Common.DependencyInjection
 
         public void Add(ServiceDefinition item)
         {
+            if (_disposed)
+            {
+                return;
+            }
             _services.Add(item);
-        }
-
-        public void Clear()
-        {
-            _services.Clear();
         }
 
         public IServiceContainer CreateScope()
@@ -100,7 +97,7 @@ namespace WeihanLi.Common.DependencyInjection
                     }
 
                     _singletonInstances.Clear();
-                    _transientDisposables.Clear();
+                    _transientDisposables = null;
                 }
             }
             else
@@ -124,7 +121,7 @@ namespace WeihanLi.Common.DependencyInjection
                     }
 
                     _scopedInstances.Clear();
-                    _transientDisposables.Clear();
+                    _transientDisposables = null;
                 }
             }
         }
@@ -194,6 +191,11 @@ namespace WeihanLi.Common.DependencyInjection
 
         public object GetService(Type serviceType)
         {
+            if (_disposed)
+            {
+                throw new InvalidOperationException($"can not get scope service from a disposed scope, serviceType: {serviceType.FullName}");
+            }
+
             var serviceDefinition = _services.LastOrDefault(_ => _.ServiceType == serviceType);
             if (null == serviceDefinition)
             {
