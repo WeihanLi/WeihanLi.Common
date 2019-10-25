@@ -1,6 +1,7 @@
 ﻿using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Common
@@ -41,6 +42,8 @@ namespace WeihanLi.Common
         /// <param name="serviceProvider">serviceProvider</param>
         /// <returns></returns>
         public static IEnumerable<TService> ResolveServices<TService>([NotNull]this IServiceProvider serviceProvider)
-            => serviceProvider.ResolveService<IEnumerable<TService>>();
+            =>
+            ((IEnumerable<object>)serviceProvider.GetService((typeof(IEnumerable<>).MakeGenericType(typeof(TService))))
+            ).Cast<TService>();
     }
 }

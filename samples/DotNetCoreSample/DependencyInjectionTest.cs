@@ -33,6 +33,8 @@ namespace DotNetCoreSample
                     .Build()
                 );
                 container.AddScoped<IFly, MonkeyKing>();
+                container.AddScoped<IFly, Superman>();
+
                 container.AddScoped<HasDependencyTest>();
                 container.AddTransient<WuKong>();
                 container.AddScoped<WuJing>(serviceProvider => new WuJing());
@@ -87,6 +89,10 @@ namespace DotNetCoreSample
 
                     var number = config.GetAppSetting<int>("Number");
                     Console.WriteLine(number);
+
+                    var flySvcs = scope.ResolveServices<IFly>();
+                    foreach (var f in flySvcs)
+                        f.Fly();
                 }
 
                 var genericService1 = container.ResolveRequiredService<GenericServiceTest<int>>();

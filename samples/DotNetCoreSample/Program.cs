@@ -25,7 +25,7 @@ namespace DotNetCoreSample
             // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
 
             var services = new ServiceCollection();
-            services.AddScoped<IFly, MonkeyKing>();
+            services.AddTransient<IFly, MonkeyKing>();
             IConfiguration configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
@@ -46,6 +46,9 @@ namespace DotNetCoreSample
             //);
 
             DependencyResolver.SetDependencyResolver(services);
+
+            //DependencyResolver.Current.ResolveRequiredService<IFly>()
+            //    .Fly();
 
             //DependencyInjectionTest.Test();
 
@@ -158,8 +161,6 @@ namespace DotNetCoreSample
             DependencyInjectionTest.BuiltInIocTest();
 
             Console.ReadLine();
-
-            LogHelper.LogFactory.Dispose();
         }
 
         private struct TestStruct

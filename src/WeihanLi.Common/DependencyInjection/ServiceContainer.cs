@@ -20,17 +20,30 @@ namespace WeihanLi.Common.DependencyInjection
     {
         internal readonly List<ServiceDefinition> _services;
 
-        private readonly ConcurrentDictionary<Type, object> _singletonInstances;
+        private readonly ConcurrentDictionary<ServiceDefinitionKey, object> _singletonInstances;
 
-        private readonly ConcurrentDictionary<Type, object> _scopedInstances;
+        private readonly ConcurrentDictionary<ServiceDefinitionKey, object> _scopedInstances;
         private readonly List<object> _transientDisposables = new List<object>();
+
+        private class ServiceDefinitionKey
+        {
+            public Type ServiceType { get; }
+
+            public Type ImplementType { get; }
+
+            public ServiceDefinitionKey(Type serviceType, ServiceDefinition definition)
+            {
+                ServiceType = serviceType;
+                ImplementType = definition.GetImplementType();
+            }
+        }
 
         private readonly bool _isRootScope;
 
         public ServiceContainer()
         {
             _isRootScope = true;
-            _singletonInstances = new ConcurrentDictionary<Type, object>();
+            _singletonInstances = new ConcurrentDictionary<ServiceDefinitionKey, object>();
             _services = new List<ServiceDefinition>();
         }
 
@@ -39,7 +52,7 @@ namespace WeihanLi.Common.DependencyInjection
             _isRootScope = false;
             _singletonInstances = serviceContainer._singletonInstances;
             _services = serviceContainer._services;
-            _scopedInstances = new ConcurrentDictionary<Type, object>();
+            _scopedInstances = new ConcurrentDictionary<ServiceDefinitionKey, object>();
         }
 
         public void Add(ServiceDefinition item)
@@ -184,13 +197,49 @@ namespace WeihanLi.Common.DependencyInjection
             var serviceDefinition = _services.LastOrDefault(_ => _.ServiceType == serviceType);
             if (null == serviceDefinition)
             {
-                //
                 if (serviceType.IsGenericType)
                 {
                     var genericType = serviceType.GetGenericTypeDefinition();
                     serviceDefinition = _services.LastOrDefault(_ => _.ServiceType == genericType);
                     if (null == serviceDefinition)
                     {
+                        var innerServiceType = serviceType.GetGenericArguments().First();
+                        if (typeof(IEnumerable<>).MakeGenericType(innerServiceType)
+                            .IsAssignableFrom(serviceType))
+                        {
+                            if (innerServiceType.IsGenericType)
+                            {
+                                innerServiceType = innerServiceType.GetGenericTypeDefinition();
+                            }
+                            //
+                            var list = new List<object>(4);
+                            foreach (var def in _services.Where(_ => _.ServiceType == innerServiceType))
+                            {
+                                object svc;
+                                if (def.ServiceLifetime == ServiceLifetime.Singleton)
+                                {
+                                    svc = _singletonInstances.GetOrAdd(new ServiceDefinitionKey(innerServiceType, def), (t) => GetServiceInstance(innerServiceType, def));
+                                }
+                                else if (def.ServiceLifetime == ServiceLifetime.Scoped)
+                                {
+                                    svc = _scopedInstances.GetOrAdd(new ServiceDefinitionKey(innerServiceType, def), (t) => GetServiceInstance(innerServiceType, def));
+                                }
+                                else
+                                {
+                                    svc = GetServiceInstance(innerServiceType, def);
+                                    if (svc is IDisposable)
+                                    {
+                                        _transientDisposables.Add(svc);
+                                    }
+                                }
+                                if (null != svc)
+                                {
+                                    list.Add(svc);
+                                }
+                            }
+                            return list;
+                        }
+
                         return null;
                     }
                 }
@@ -207,12 +256,12 @@ namespace WeihanLi.Common.DependencyInjection
 
             if (serviceDefinition.ServiceLifetime == ServiceLifetime.Singleton)
             {
-                var svc = _singletonInstances.GetOrAdd(serviceType, (t) => GetServiceInstance(t, serviceDefinition));
+                var svc = _singletonInstances.GetOrAdd(new ServiceDefinitionKey(serviceType, serviceDefinition), (t) => GetServiceInstance(t.ServiceType, serviceDefinition));
                 return svc;
             }
             else if (serviceDefinition.ServiceLifetime == ServiceLifetime.Scoped)
             {
-                var svc = _scopedInstances.GetOrAdd(serviceType, (t) => GetServiceInstance(t, serviceDefinition));
+                var svc = _scopedInstances.GetOrAdd(new ServiceDefinitionKey(serviceType, serviceDefinition), (t) => GetServiceInstance(t.ServiceType, serviceDefinition));
                 return svc;
             }
             else
