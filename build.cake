@@ -22,7 +22,7 @@ Setup(ctx =>
 {
    // Executed BEFORE the first task.
    Information("Running tasks...");
-   PrintBuildInfo();
+   PrintBuildInfo(ctx);
 });
 
 Teardown(ctx =>
@@ -79,7 +79,7 @@ Task("build")
 Task("pack")
     .Description("Pack package")
     .IsDependentOn("build")
-    .Does(() =>
+    .Does((cakeContext) =>
     {
       var settings = new DotNetCorePackSettings
       {
@@ -96,11 +96,13 @@ Task("pack")
       {
          DotNetCorePack(project.FullPath, settings);
       }
-      PublishArtifacts();
+      PublishArtifacts(cakeContext);
     });
 
-bool PublishArtifacts(){
-   if(!isWindowsAgent){
+bool PublishArtifacts(ICakeContext context)
+{
+   if(context.Environment.Platform.IsUnix())
+   {
       return false;
    }
    if(branchName == "master" || branchName == "preview")
@@ -120,8 +122,8 @@ bool PublishArtifacts(){
    return false;
 }
 
-void PrintBuildInfo(){
-   Information($@"branch:{branchName}, agentOs={EnvironmentVariable("Agent_OS")}
+void PrintBuildInfo(ICakeContext context){
+   Information($@"branch:{branchName}, agentOs={EnvironmentVariable("Agent_OS")},Platform: {context.Environment.Platform.Family}, IsUnix: {context.Environment.Platform.IsUnix()}
    BuildID:{EnvironmentVariable("BUILD_BUILDID")},BuildNumber:{EnvironmentVariable("BUILD_BUILDNUMBER")},BuildReason:{EnvironmentVariable("BUILD_REASON")}
    ");
 }
