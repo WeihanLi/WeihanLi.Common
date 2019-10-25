@@ -14,10 +14,6 @@ namespace WeihanLi.Common.DependencyInjection
 
         public Func<IServiceProvider, object> ImplementationFactory { get; }
 
-        public ServiceDefinition(object instance) : this(instance, instance.GetType())
-        {
-        }
-
         public ServiceDefinition(object instance, Type serviceType)
         {
             ImplementationInstance = instance;

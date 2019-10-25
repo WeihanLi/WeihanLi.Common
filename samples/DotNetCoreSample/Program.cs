@@ -73,7 +73,7 @@ namespace DotNetCoreSample
             //Console.WriteLine(pagedListModel.ToJson());
 
             // log test
-            LoggerTest.MainTest();
+            // LoggerTest.MainTest();
             // Log4NetTest.MainTest();
 
             //ILoggerFactory loggerFactory = new LoggerFactory();
@@ -160,10 +160,29 @@ namespace DotNetCoreSample
                 container.AddSingleton<IConfiguration>(configuration);
                 container.AddScoped<IFly, MonkeyKing>();
 
+                var rootConfig = container.ResolveService<IConfiguration>();
+                try
+                {
+                    container.ResolveService<IFly>();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+
                 using (var scope = container.CreateScope())
                 {
                     var config = scope.ResolveService<IConfiguration>();
-                    scope.ResolveService<IFly>().Fly();
+                    var fly1 = scope.ResolveService<IFly>();
+                    var fly2 = scope.ResolveService<IFly>();
+
+                    Console.WriteLine("fly1 == fly2,  {0}", fly1 == fly2);
+                    Console.WriteLine("rootConfig == config, {0}", rootConfig == config);
+
+                    fly1.Fly();
+
+                    var number = config.GetAppSetting<int>("Number");
+                    Console.WriteLine(number);
                 }
             }
 
