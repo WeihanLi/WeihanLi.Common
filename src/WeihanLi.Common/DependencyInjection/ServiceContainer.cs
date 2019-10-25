@@ -85,6 +85,9 @@ namespace WeihanLi.Common.DependencyInjection
                     {
                         (o as IDisposable)?.Dispose();
                     }
+
+                    _singletonInstances.Clear();
+                    _transientDisposables.Clear();
                 }
             }
             else
@@ -106,6 +109,9 @@ namespace WeihanLi.Common.DependencyInjection
                     {
                         (o as IDisposable)?.Dispose();
                     }
+
+                    _scopedInstances.Clear();
+                    _transientDisposables.Clear();
                 }
             }
         }
