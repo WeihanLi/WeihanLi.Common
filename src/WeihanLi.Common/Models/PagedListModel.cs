@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 
 namespace WeihanLi.Common.Models
@@ -14,6 +15,8 @@ namespace WeihanLi.Common.Models
         /// </summary>
         IReadOnlyList<T> Data { get; }
 
+        int Count { get; }
+
         /// <summary>
         /// PageNumber
         /// </summary>
@@ -28,9 +31,13 @@ namespace WeihanLi.Common.Models
         /// TotalDataCount
         /// </summary>
         int TotalCount { get; set; }
+
+        /// <summary>
+        /// PageCount
+        /// </summary>
+        int PageCount { get; }
     }
 
-    /// <inheritdoc />
     /// <summary>
     /// 分页Model
     /// </summary>
@@ -38,7 +45,29 @@ namespace WeihanLi.Common.Models
     [Serializable]
     public class PagedListModel<T> : IPagedListModel<T>
     {
-        public IReadOnlyList<T> Data { get; set; }
+        public static readonly IPagedListModel<T> Empty = new PagedListModel<T>();
+
+        private IReadOnlyList<T> _data =
+#if NET45
+    new T[0]
+#else
+            Array.Empty<T>()
+#endif
+        ;
+
+        [NotNull]
+        public IReadOnlyList<T> Data
+        {
+            get => _data;
+            set
+            {
+                // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+                if (value != null)
+                {
+                    _data = value;
+                }
+            }
+        }
 
         private int _pageNumber = 1;
 
@@ -82,7 +111,9 @@ namespace WeihanLi.Common.Models
             }
         }
 
-        public int PageCount => Convert.ToInt32(Math.Ceiling(_totalCount * 1.0 / _pageSize));
+        public int PageCount => ((_totalCount % _pageSize) == 0)
+            ? _totalCount / _pageSize
+            : Convert.ToInt32(Math.Ceiling(_totalCount * 1.0 / _pageSize));
 
         public T this[int index] => Data[index];
 

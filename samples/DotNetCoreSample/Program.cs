@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
 using WeihanLi.Common;
+using WeihanLi.Common.DependencyInjection;
 using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging.Log4Net;
@@ -24,7 +25,7 @@ namespace DotNetCoreSample
             // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
 
             var services = new ServiceCollection();
-            services.AddScoped<IFly, MonkeyKing>();
+            services.AddTransient<IFly, MonkeyKing>();
             IConfiguration configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
@@ -45,6 +46,9 @@ namespace DotNetCoreSample
             //);
 
             DependencyResolver.SetDependencyResolver(services);
+
+            //DependencyResolver.Current.ResolveRequiredService<IFly>()
+            //    .Fly();
 
             //DependencyInjectionTest.Test();
 
@@ -72,7 +76,7 @@ namespace DotNetCoreSample
             //Console.WriteLine(pagedListModel.ToJson());
 
             // log test
-            LoggerTest.MainTest();
+            // LoggerTest.MainTest();
             // Log4NetTest.MainTest();
 
             //ILoggerFactory loggerFactory = new LoggerFactory();
@@ -154,9 +158,9 @@ namespace DotNetCoreSample
 
             // CronHelperTest.MainTest();
 
-            Console.ReadLine();
+            DependencyInjectionTest.BuiltInIocTest();
 
-            LogHelper.LogFactory.Dispose();
+            Console.ReadLine();
         }
 
         private struct TestStruct

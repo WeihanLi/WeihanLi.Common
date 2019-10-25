@@ -1,7 +1,7 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Linq.Expressions;
 using System.Reflection;
-using JetBrains.Annotations;
 using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
@@ -9,6 +9,16 @@ namespace WeihanLi.Extensions
 {
     public static class ExpressionExtension
     {
+        public static Expression<Func<T, bool>> True<T>()
+        {
+            return param => true;
+        }
+
+        public static Expression<Func<T, bool>> False<T>()
+        {
+            return param => false;
+        }
+
         public static Expression<Func<T, bool>> Or<T>([NotNull]this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2)
         {
             var invokedExpr = Expression.Invoke(expr2, expr1.Parameters);
