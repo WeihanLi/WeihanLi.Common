@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using WeihanLi.Common;
 using WeihanLi.Common.DependencyInjection;
 using WeihanLi.Common.Helpers;
@@ -36,6 +38,11 @@ namespace DotNetCoreSample
                 container.AddScoped<IFly, Superman>();
 
                 container.AddScoped<HasDependencyTest>();
+                container.AddScoped<HasDependencyTest1>();
+                container.AddScoped<HasDependencyTest2>();
+                container.AddScoped<HasDependencyTest3>();
+                container.AddScoped(typeof(HasDependencyTest4<>));
+
                 container.AddTransient<WuKong>();
                 container.AddScoped<WuJing>(serviceProvider => new WuJing());
                 container.AddSingleton(typeof(GenericServiceTest<>));
@@ -74,10 +81,21 @@ namespace DotNetCoreSample
 
                     wuJing1.Eat();
 
-                    var s1 = scope.ResolveRequiredService<HasDependencyTest>();
+                    var s0 = scope.ResolveRequiredService<HasDependencyTest>();
+                    s0.Test();
+                    Console.WriteLine($"s0._fly == fly1 : {s0._fly == fly1}");
+
+                    var s1 = scope.ResolveService<HasDependencyTest1>();
                     s1.Test();
 
-                    Console.WriteLine($"s1._fly == fly1 : {s1._fly == fly1}");
+                    var s2 = scope.ResolveService<HasDependencyTest2>();
+                    s2.Test();
+
+                    var s3 = scope.ResolveService<HasDependencyTest3>();
+                    s3.Test();
+
+                    var s4 = scope.ResolveService<HasDependencyTest4<string>>();
+                    s4.Test();
 
                     using (var innerScope = scope.CreateScope())
                     {
@@ -160,6 +178,82 @@ namespace DotNetCoreSample
             {
                 Console.WriteLine($"test in {nameof(HasDependencyTest)}");
                 _fly.Fly();
+            }
+        }
+
+        private class HasDependencyTest1
+        {
+            public readonly IReadOnlyCollection<IFly> _flys;
+
+            public HasDependencyTest1(IEnumerable<IFly> flys)
+            {
+                _flys = flys.ToArray();
+            }
+
+            public void Test()
+            {
+                Console.WriteLine($"test in {nameof(HasDependencyTest1)}");
+                foreach (var item in _flys)
+                {
+                    item.Fly();
+                }
+            }
+        }
+
+        private class HasDependencyTest2
+        {
+            public readonly IReadOnlyCollection<IFly> _flys;
+
+            public HasDependencyTest2(IReadOnlyCollection<IFly> flys)
+            {
+                _flys = flys;
+            }
+
+            public void Test()
+            {
+                Console.WriteLine($"test in {nameof(HasDependencyTest2)}");
+                foreach (var item in _flys)
+                {
+                    item.Fly();
+                }
+            }
+        }
+
+        private class HasDependencyTest3
+        {
+            private readonly IReadOnlyCollection<GenericServiceTest<int>> _svcs;
+
+            public HasDependencyTest3(IEnumerable<GenericServiceTest<int>> svcs)
+            {
+                _svcs = svcs.ToArray();
+            }
+
+            public void Test()
+            {
+                Console.WriteLine($"test in {nameof(HasDependencyTest3)}");
+                foreach (var item in _svcs)
+                {
+                    item.Test();
+                }
+            }
+        }
+
+        private class HasDependencyTest4<T>
+        {
+            private readonly IReadOnlyCollection<GenericServiceTest<T>> _svcs;
+
+            public HasDependencyTest4(IEnumerable<GenericServiceTest<T>> svcs)
+            {
+                _svcs = svcs.ToArray();
+            }
+
+            public void Test()
+            {
+                Console.WriteLine($"test in {GetType().FullName}");
+                foreach (var item in _svcs)
+                {
+                    item.Test();
+                }
             }
         }
     }

@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.DependencyInjection
 {
     public interface IServiceContainer : IScope, IServiceProvider
     {
-        void Add(ServiceDefinition item);
+        IServiceContainer Add(ServiceDefinition item);
+
+        IServiceContainer TryAdd(ServiceDefinition item);
 
         IServiceContainer CreateScope();
     }
@@ -23,6 +26,8 @@ namespace WeihanLi.Common.DependencyInjection
         private readonly ConcurrentDictionary<ServiceDefinitionKey, object> _scopedInstances;
         private ConcurrentBag<object> _transientDisposables = new ConcurrentBag<object>();
 
+        // struct 更好一些 ??
+        // 性能测试
         private class ServiceDefinitionKey
         {
             public Type ServiceType { get; }
@@ -53,13 +58,33 @@ namespace WeihanLi.Common.DependencyInjection
             _scopedInstances = new ConcurrentDictionary<ServiceDefinitionKey, object>();
         }
 
-        public void Add(ServiceDefinition item)
+        public IServiceContainer Add(ServiceDefinition item)
         {
             if (_disposed)
             {
-                return;
+                throw new InvalidOperationException("the service container had been disposed");
+            }
+            if (_services.Any(_ => _.ServiceType == item.ServiceType && _.GetImplementType() == item.GetImplementType()))
+            {
+                return this;
+            }
+
+            _services.Add(item);
+            return this;
+        }
+
+        public IServiceContainer TryAdd(ServiceDefinition item)
+        {
+            if (_disposed)
+            {
+                throw new InvalidOperationException("the service container had been disposed");
+            }
+            if (_services.Any(_ => _.ServiceType == item.ServiceType))
+            {
+                return this;
             }
             _services.Add(item);
+            return this;
         }
 
         public IServiceContainer CreateScope()
@@ -209,26 +234,27 @@ namespace WeihanLi.Common.DependencyInjection
                         if (typeof(IEnumerable<>).MakeGenericType(innerServiceType)
                             .IsAssignableFrom(serviceType))
                         {
+                            var innerType = innerServiceType;
                             if (innerServiceType.IsGenericType)
                             {
-                                innerServiceType = innerServiceType.GetGenericTypeDefinition();
+                                innerType = innerServiceType.GetGenericTypeDefinition();
                             }
                             //
                             var list = new List<object>(4);
-                            foreach (var def in _services.Where(_ => _.ServiceType == innerServiceType))
+                            foreach (var def in _services.Where(_ => _.ServiceType == innerType))
                             {
                                 object svc;
                                 if (def.ServiceLifetime == ServiceLifetime.Singleton)
                                 {
-                                    svc = _singletonInstances.GetOrAdd(new ServiceDefinitionKey(innerServiceType, def), (t) => GetServiceInstance(innerServiceType, def));
+                                    svc = _singletonInstances.GetOrAdd(new ServiceDefinitionKey(innerType, def), (t) => GetServiceInstance(innerServiceType, def));
                                 }
                                 else if (def.ServiceLifetime == ServiceLifetime.Scoped)
                                 {
-                                    svc = _scopedInstances.GetOrAdd(new ServiceDefinitionKey(innerServiceType, def), (t) => GetServiceInstance(innerServiceType, def));
+                                    svc = _scopedInstances.GetOrAdd(new ServiceDefinitionKey(innerType, def), (t) => GetServiceInstance(innerServiceType, def));
                                 }
                                 else
                                 {
-                                    svc = GetServiceInstance(innerServiceType, def);
+                                    svc = GetServiceInstance(innerType, def);
                                     if (svc is IDisposable)
                                     {
                                         _transientDisposables.Add(svc);
@@ -238,6 +264,22 @@ namespace WeihanLi.Common.DependencyInjection
                                 {
                                     list.Add(svc);
                                 }
+                            }
+
+                            var methodInfo = typeof(Enumerable)
+                                .GetMethod("Cast", BindingFlags.Static | BindingFlags.Public);
+                            if (methodInfo != null)
+                            {
+                                var genericMethod = methodInfo.MakeGenericMethod(innerServiceType);
+                                var castedValue = genericMethod.Invoke(null, new object[] { list });
+                                if (typeof(IEnumerable<>).MakeGenericType(innerServiceType) == serviceType)
+                                {
+                                    return castedValue;
+                                }
+                                var toArrayMethod = typeof(Enumerable).GetMethod("ToArray", BindingFlags.Static | BindingFlags.Public)
+                                    .MakeGenericMethod(innerServiceType);
+
+                                return toArrayMethod.Invoke(null, new object[] { castedValue });
                             }
                             return list;
                         }

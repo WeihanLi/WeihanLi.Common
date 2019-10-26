@@ -103,6 +103,7 @@ bool PublishArtifacts(ICakeContext context)
 {
    if(context.Environment.Platform.IsUnix())
    {
+      Information($@"none windows build agent, do not publish packages");
       return false;
    }
    if(branchName == "master" || branchName == "preview")
@@ -119,6 +120,7 @@ bool PublishArtifacts(ICakeContext context)
       }
       return true;
    }
+   Information($@"branch name does not match, do not publish packages");
    return false;
 }
 
