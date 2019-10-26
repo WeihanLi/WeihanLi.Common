@@ -10,7 +10,9 @@ namespace WeihanLi.Common.DependencyInjection
 {
     public interface IServiceContainer : IScope, IServiceProvider
     {
-        void Add(ServiceDefinition item);
+        IServiceContainer Add(ServiceDefinition item);
+
+        IServiceContainer TryAdd(ServiceDefinition item);
 
         IServiceContainer CreateScope();
     }
@@ -24,6 +26,8 @@ namespace WeihanLi.Common.DependencyInjection
         private readonly ConcurrentDictionary<ServiceDefinitionKey, object> _scopedInstances;
         private ConcurrentBag<object> _transientDisposables = new ConcurrentBag<object>();
 
+        // struct 更好一些 ??
+        // 性能测试
         private class ServiceDefinitionKey
         {
             public Type ServiceType { get; }
@@ -54,13 +58,33 @@ namespace WeihanLi.Common.DependencyInjection
             _scopedInstances = new ConcurrentDictionary<ServiceDefinitionKey, object>();
         }
 
-        public void Add(ServiceDefinition item)
+        public IServiceContainer Add(ServiceDefinition item)
         {
             if (_disposed)
             {
-                return;
+                throw new InvalidOperationException("the service container had been disposed");
+            }
+            if (_services.Any(_ => _.ServiceType == item.ServiceType && _.GetImplementType() == item.GetImplementType()))
+            {
+                return this;
+            }
+
+            _services.Add(item);
+            return this;
+        }
+
+        public IServiceContainer TryAdd(ServiceDefinition item)
+        {
+            if (_disposed)
+            {
+                throw new InvalidOperationException("the service container had been disposed");
+            }
+            if (_services.Any(_ => _.ServiceType == item.ServiceType))
+            {
+                return this;
             }
             _services.Add(item);
+            return this;
         }
 
         public IServiceContainer CreateScope()
