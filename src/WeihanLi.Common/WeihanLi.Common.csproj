@@ -29,11 +29,25 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+    <None Include="DependencyInjection\ServiceContainerExtensions.generated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceContainerExtensions.tt</DependentUpon>
+    </None>
+    <Compile Update="DependencyInjection\ServiceContainerExtensions.generated.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceContainerExtensions.tt</DependentUpon>
+    </Compile>
     <Compile Update="Extensions\DbCommandExtension.generated.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DbCommandExtension.tt</DependentUpon>
     </Compile>
+    <None Update="DependencyInjection\ServiceContainerExtensions.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceContainerExtensions.generated.cs</LastGenOutput>
+    </None>
     <None Update="Extensions\DbCommandExtension.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DbCommandExtension.generated.cs</LastGenOutput>

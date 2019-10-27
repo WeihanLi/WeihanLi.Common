@@ -1,15 +1,15 @@
 language: csharp
-solution: WeihanLi.Common.sln
 # runtime config
 mono: none
-dotnet: 2.0.0
-dist: trusty
+dotnet: 3.0.100
+dist: bionic
 
 # branch build config
 branches:
   only:
     - master
     - dev
+    - preview
 
   except:
     - gh-pages
@@ -19,12 +19,6 @@ branches:
 git:
   depth: 1
   lfs_skip_smudge: true # disable the download of LFS objects when cloning
-
-install:
-  - dotnet restore
   
 script:
-  - dotnet build -c Release -f netstandard2.0 ./src/WeihanLi.Common/WeihanLi.Common.csproj
-  - dotnet build -c Release -f netstandard2.0 ./src/WeihanLi.Common.Logging.Log4Net/WeihanLi.Common.Logging.Log4Net.csproj
-  - dotnet build -c Release -f netstandard2.0 ./src/WeihanLi.Data/WeihanLi.Data.csproj
-#  - dotnet test ./WeihanLi.Common.Test/WeihanLi.Common.Test.csproj
+  - bash build.sh

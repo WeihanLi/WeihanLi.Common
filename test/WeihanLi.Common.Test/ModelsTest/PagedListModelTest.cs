@@ -20,5 +20,16 @@ namespace WeihanLi.Common.Test.ModelsTest
             var dModel = json.JsonToType<PagedListModel<int>>();
             Assert.Equal(model.PageSize, dModel.PageSize);
         }
+
+        [Fact]
+        public void EmptyTest()
+        {
+            var empty = PagedListModel<int>.Empty;
+            Assert.Empty(empty.Data);
+            Assert.Equal(0, empty.TotalCount);
+            Assert.Equal(1, empty.PageNumber);
+            Assert.Equal(10, empty.PageSize);
+            Assert.Equal(0, empty.PageCount);
+        }
     }
 }
