@@ -4,6 +4,12 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.25](https://www.nuget.org/packages/WeihanLi.Common/1.0.25)
+
+- add `ValidateResultModel`
+- update `PagedListModel`
+- add build-in di support
+
 ### [WeihanLi.Common 1.0.24.3](https://www.nuget.org/packages/WeihanLi.Common/1.0.24.3)
 
 - add `NetHelper.GetRandomPort`
