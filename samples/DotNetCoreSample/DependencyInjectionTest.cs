@@ -183,7 +183,7 @@ namespace DotNetCoreSample
 
         private class HasDependencyTest1
         {
-            public readonly IReadOnlyCollection<IFly> _flys;
+            private readonly IReadOnlyCollection<IFly> _flys;
 
             public HasDependencyTest1(IEnumerable<IFly> flys)
             {
@@ -202,7 +202,7 @@ namespace DotNetCoreSample
 
         private class HasDependencyTest2
         {
-            public readonly IReadOnlyCollection<IFly> _flys;
+            private readonly IReadOnlyCollection<IFly> _flys;
 
             public HasDependencyTest2(IReadOnlyCollection<IFly> flys)
             {
