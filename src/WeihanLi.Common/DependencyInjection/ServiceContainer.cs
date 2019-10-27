@@ -39,7 +39,7 @@ namespace WeihanLi.Common.DependencyInjection
 
             public bool Equals(ServiceKey other)
             {
-                return ServiceType == other.ServiceType && ImplementType == other.ImplementType;
+                return ServiceType == other?.ServiceType && ImplementType == other?.ImplementType;
             }
 
             public override bool Equals(object obj)
@@ -230,12 +230,31 @@ namespace WeihanLi.Common.DependencyInjection
 
             if (parameters.Length == 0)
             {
+                if (serviceDefinition.ServiceLifetime == ServiceLifetime.Singleton)
+                {
+                    return Activator.CreateInstance(implementType);
+                }
                 var func = _newFuncCache.GetOrAdd(implementType, (t) => Expression.Lambda<Func<object>>(Expression.New(ctor)).Compile());
                 return func.Invoke();
             }
             else
             {
-                // 优化创建带参数的构造方法的执行
+                var ctorParams = new object[parameters.Length];
+                for (var index = 0; index < parameters.Length; index++)
+                {
+                    var param = GetService(parameters[index].ParameterType);
+                    if (param == null && parameters[index].HasDefaultValue)
+                    {
+                        param = parameters[index].DefaultValue;
+                    }
+                    ctorParams[index] = param;
+                }
+
+                if (serviceDefinition.ServiceLifetime == ServiceLifetime.Singleton)
+                {
+                    return Activator.CreateInstance(implementType, ctorParams);
+                }
+
                 var func = _newFuncCache2.GetOrAdd(implementType, (t) =>
                 {
                     var parameterExpression = Expression.Parameter(typeof(object[]), "arguments"); // create parameter Expression
@@ -268,17 +287,6 @@ namespace WeihanLi.Common.DependencyInjection
                     return Expression.Lambda<Func<object[], object>>(newExpression, parameterExpression)
                         .Compile();
                 });
-
-                var ctorParams = new object[parameters.Length];
-                for (var index = 0; index < parameters.Length; index++)
-                {
-                    var param = GetService(parameters[index].ParameterType);
-                    if (param == null && parameters[index].HasDefaultValue)
-                    {
-                        param = parameters[index].DefaultValue;
-                    }
-                    ctorParams[index] = param;
-                }
                 return func(ctorParams);
             }
         }
