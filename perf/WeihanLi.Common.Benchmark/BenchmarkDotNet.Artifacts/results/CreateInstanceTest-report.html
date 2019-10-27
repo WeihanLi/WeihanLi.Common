@@ -15,19 +15,19 @@
 <pre><code>
 BenchmarkDotNet=v0.10.14, OS=Windows 10.0.18362
 Intel Core i5-6300U CPU 2.40GHz (Skylake), 1 CPU, 4 logical and 2 physical cores
-.NET Core SDK=2.2.300
-  [Host]     : .NET Core 2.1.12 (CoreCLR 4.6.27817.01, CoreFX 4.6.27818.01), 64bit RyuJIT
-  DefaultJob : .NET Core 2.1.12 (CoreCLR 4.6.27817.01, CoreFX 4.6.27818.01), 64bit RyuJIT
+.NET Core SDK=3.0.100
+  [Host]     : .NET Core 2.1.13 (CoreCLR 4.6.28008.01, CoreFX 4.6.28008.01), 64bit RyuJIT
+  DefaultJob : .NET Core 2.1.13 (CoreCLR 4.6.28008.01, CoreFX 4.6.28008.01), 64bit RyuJIT
 </code></pre>
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>                Method</th><th>   Mean</th><th>Error</th><th>StdDev</th>
+<thead><tr><th>                Method</th><th>Mean</th><th>Error</th><th>StdDev</th>
 </tr>
-</thead><tbody><tr><td>NewInstanceByExpression</td><td>110,455.34 ns</td><td>857.5566 ns</td><td>669.5237 ns</td>
-</tr><tr><td>NewInstanceByReflection</td><td>61.80 ns</td><td>1.3049 ns</td><td>1.2816 ns</td>
-</tr><tr><td>NewInstanceByActivatorHelper</td><td>311.31 ns</td><td>5.2091 ns</td><td>4.8726 ns</td>
-</tr><tr><td>NewInstance</td><td>10.07 ns</td><td>0.3579 ns</td><td>0.3172 ns</td>
+</thead><tbody><tr><td>NewInstanceByExpression</td><td>17.02 ns</td><td>0.7622 ns</td><td>2.211 ns</td>
+</tr><tr><td>NewInstanceByReflection</td><td>75.10 ns</td><td>2.4788 ns</td><td>7.032 ns</td>
+</tr><tr><td>NewInstanceByActivatorHelper</td><td>411.30 ns</td><td>19.5452 ns</td><td>57.014 ns</td>
+</tr><tr><td>NewInstance</td><td>15.23 ns</td><td>1.0839 ns</td><td>3.196 ns</td>
 </tr></tbody></table>
 </body>
 </html>

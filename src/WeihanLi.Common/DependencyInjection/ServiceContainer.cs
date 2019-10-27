@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.DependencyInjection
 {
@@ -19,15 +18,13 @@ namespace WeihanLi.Common.DependencyInjection
 
     public class ServiceContainer : IServiceContainer
     {
-        internal readonly ConcurrentBag<ServiceDefinition> _services;
+        private readonly ConcurrentBag<ServiceDefinition> _services;
 
         private readonly ConcurrentDictionary<ServiceKey, object> _singletonInstances;
 
         private readonly ConcurrentDictionary<ServiceKey, object> _scopedInstances;
         private ConcurrentBag<object> _transientDisposables = new ConcurrentBag<object>();
 
-        // struct 更好一些 ??
-        // 性能测试
         private class ServiceKey : IEquatable<ServiceKey>
         {
             public Type ServiceType { get; }
@@ -70,6 +67,7 @@ namespace WeihanLi.Common.DependencyInjection
         {
             _isRootScope = false;
             _singletonInstances = serviceContainer._singletonInstances;
+
             _services = serviceContainer._services;
             _scopedInstances = new ConcurrentDictionary<ServiceKey, object>();
         }
@@ -167,6 +165,15 @@ namespace WeihanLi.Common.DependencyInjection
             }
         }
 
+        private readonly ConcurrentDictionary<Type, Func<object>> _newFuncCache =
+            new ConcurrentDictionary<Type, Func<object>>();
+
+        private readonly ConcurrentDictionary<Type, Func<object[], object>> _newFuncCache2 =
+            new ConcurrentDictionary<Type, Func<object[], object>>();
+
+        private readonly ConcurrentDictionary<Type, ConstructorInfo> _serviceCtorCache =
+            new ConcurrentDictionary<Type, ConstructorInfo>();
+
         private object GetServiceInstance(Type serviceType, ServiceDefinition serviceDefinition)
         {
             if (serviceDefinition.ImplementationInstance != null)
@@ -187,46 +194,88 @@ namespace WeihanLi.Common.DependencyInjection
                 implementType = implementType.MakeGenericType(serviceType.GetGenericArguments());
             }
 
-            var ctorInfos = implementType.GetConstructors(BindingFlags.Instance | BindingFlags.Public);
-            if (ctorInfos.Length == 0)
+            var ctor = _serviceCtorCache.GetOrAdd(implementType, (t) =>
+            {
+                var ctorInfos = implementType.GetConstructors(BindingFlags.Instance | BindingFlags.Public);
+                if (ctorInfos.Length == 0)
+                {
+                    return null;
+                }
+
+                ConstructorInfo ctorInfo;
+                if (ctorInfos.Length == 1)
+                {
+                    ctorInfo = ctorInfos[0];
+                }
+                else
+                {
+                    // TODO: try find best ctor
+                    ctorInfo = ctorInfos
+                        .OrderBy(_ => _.GetParameters().Length)
+                        .First();
+                }
+
+                return ctorInfo;
+            });
+            if (null == ctor)
             {
                 throw new InvalidOperationException($"service {serviceType.FullName} does not have any public constructors");
             }
 
-            ConstructorInfo ctor;
-            if (ctorInfos.Length == 1)
-            {
-                ctor = ctorInfos[0];
-            }
-            else
-            {
-                // TODO: try find best ctor
-                ctor = ctorInfos
-                    .OrderBy(_ => _.GetParameters().Length)
-                    .First();
-            }
-
             var parameters = ctor.GetParameters();
+
             if (parameters.Length == 0)
             {
-                // TODO: cache New Func
-                return Expression.Lambda<Func<object>>(Expression.New(ctor)).Compile().Invoke();
+                var func = _newFuncCache.GetOrAdd(implementType, (t) => Expression.Lambda<Func<object>>(Expression.New(ctor)).Compile());
+                return func.Invoke();
             }
             else
             {
+                // 优化创建带参数的构造方法的执行
+                var func = _newFuncCache2.GetOrAdd(implementType, (t) =>
+                {
+                    var parameterExpression = Expression.Parameter(typeof(object[]), "arguments"); // create parameter Expression
+                    var argExpressions = new Expression[parameters.Length]; // array that will contains parameter expessions
+                    for (var i = 0; i < parameters.Length; i++)
+                    {
+                        var indexedAccess = Expression.ArrayIndex(parameterExpression, Expression.Constant(i));
+
+                        if (!parameters[i].ParameterType.IsClass) // check if parameter is a value type
+                        {
+                            var localVariable = Expression.Variable(parameters[i].ParameterType, "localVariable"); // if so - we should create local variable that will store paraameter value
+
+                            var block = Expression.Block(new[] { localVariable },
+                                Expression.IfThenElse(Expression.Equal(indexedAccess, Expression.Constant(null)),
+                                    Expression.Assign(localVariable, Expression.Default(parameters[i].ParameterType)),
+                                    Expression.Assign(localVariable, Expression.Convert(indexedAccess, parameters[i].ParameterType))
+                                ),
+                                localVariable
+                            );
+
+                            argExpressions[i] = block;
+                        }
+                        else
+                        {
+                            argExpressions[i] = Expression.Convert(indexedAccess, parameters[i].ParameterType);
+                        }
+                    }
+                    var newExpression = Expression.New(ctor, argExpressions); // create expression that represents call to specified ctor with the specified arguments.
+
+                    return Expression.Lambda<Func<object[], object>>(newExpression, parameterExpression)
+                        .Compile();
+                });
+
                 var ctorParams = new object[parameters.Length];
                 for (var index = 0; index < parameters.Length; index++)
                 {
-                    var parameter = parameters[index];
-                    var param = GetService(parameter.ParameterType);
-                    if (param == null && parameter.HasDefaultValue)
+                    var param = GetService(parameters[index].ParameterType);
+                    if (param == null && parameters[index].HasDefaultValue)
                     {
-                        param = parameter.DefaultValue;
+                        param = parameters[index].DefaultValue;
                     }
-
                     ctorParams[index] = param;
                 }
-                return Expression.Lambda<Func<object>>(Expression.New(ctor, ctorParams.Select(Expression.Constant))).Compile().Invoke();
+                return func(ctorParams);
             }
         }
 
@@ -293,9 +342,9 @@ namespace WeihanLi.Common.DependencyInjection
                                     return castedValue;
                                 }
                                 var toArrayMethod = typeof(Enumerable).GetMethod("ToArray", BindingFlags.Static | BindingFlags.Public)
-                                    .MakeGenericMethod(innerServiceType);
+                                    ?.MakeGenericMethod(innerServiceType);
 
-                                return toArrayMethod.Invoke(null, new object[] { castedValue });
+                                return toArrayMethod?.Invoke(null, new object[] { castedValue });
                             }
                             return list;
                         }
@@ -316,13 +365,11 @@ namespace WeihanLi.Common.DependencyInjection
 
             if (serviceDefinition.ServiceLifetime == ServiceLifetime.Singleton)
             {
-                var svc = _singletonInstances.GetOrAdd(new ServiceKey(serviceType, serviceDefinition), (t) => GetServiceInstance(t.ServiceType, serviceDefinition));
-                return svc;
+                return _singletonInstances.GetOrAdd(new ServiceKey(serviceType, serviceDefinition), (t) => GetServiceInstance(t.ServiceType, serviceDefinition));
             }
             else if (serviceDefinition.ServiceLifetime == ServiceLifetime.Scoped)
             {
-                var svc = _scopedInstances.GetOrAdd(new ServiceKey(serviceType, serviceDefinition), (t) => GetServiceInstance(t.ServiceType, serviceDefinition));
-                return svc;
+                return _scopedInstances.GetOrAdd(new ServiceKey(serviceType, serviceDefinition), (t) => GetServiceInstance(t.ServiceType, serviceDefinition));
             }
             else
             {
