@@ -36,7 +36,7 @@ namespace WeihanLi.Common.Benchmark
             }
         }
 
-        private const int OperationsPerInvoke = 1;
+        private const int OperationsPerInvoke = 100;
 
         private IServiceProvider _transientSp;
         private IServiceScope _scopedSp;

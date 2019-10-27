@@ -163,6 +163,10 @@ namespace WeihanLi.Common.DependencyInjection
                     _transientDisposables = null;
                 }
             }
+
+            _serviceCtorCache.Clear();
+            _newFuncCache.Clear();
+            _newFuncCache2.Clear();
         }
 
         private readonly ConcurrentDictionary<Type, Func<object>> _newFuncCache =
