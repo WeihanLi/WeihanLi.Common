@@ -10,6 +10,7 @@ var isWindowsAgent = EnvironmentVariable("Agent_OS") == "Windows_NT" || branchNa
 
 var solutionPath = "./WeihanLi.Common.sln";
 var srcProjects  = GetFiles("./src/**/*.csproj");
+var testProjects = GetFiles("./test/**/*.csproj");
 var packProjects = branchName == "local" ? GetFiles("./src/**/*.csproj") : GetFiles("./src/WeihanLi.Common/*.csproj");
 
 var artifacts = "./artifacts/packages";
@@ -76,9 +77,26 @@ Task("build")
       }
     });
 
+
+Task("test")    
+    .Description("Tests")
+    .IsDependentOn("build")
+    .Does(() =>
+    {
+      var testSettings = new DotNetCoreTestSettings
+      {
+        NoRestore = false,
+        Configuration = configuration
+      };
+      foreach(var project in testProjects)
+      {
+        DotNetCoreTest(project.FullPath, testSettings);
+      }
+    });
+
 Task("pack")
     .Description("Pack package")
-    .IsDependentOn("build")
+    .IsDependentOn("test")
     .Does((cakeContext) =>
     {
       var settings = new DotNetCorePackSettings
