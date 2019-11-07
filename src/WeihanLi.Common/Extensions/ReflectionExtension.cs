@@ -1,11 +1,11 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using JetBrains.Annotations;
 using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
@@ -227,7 +227,7 @@ namespace WeihanLi.Extensions
         {
             var property = @this.GetProperty(propertyName);
 
-            return property?.GetValueGetter<T>().Invoke(@this);
+            return property?.GetValueGetter<T>()?.Invoke(@this);
         }
 
         /// <summary>
@@ -311,13 +311,17 @@ namespace WeihanLi.Extensions
         public static void SetPropertyValue<T>([NotNull]this T @this, string propertyName, object value) where T : class
         {
             var property = @this.GetProperty(propertyName);
-            property?.GetValueSetter().Invoke(@this, value);
+            property?.GetValueSetter()?.Invoke(@this, value);
         }
 
+        [CanBeNull]
         public static Func<T, object> GetValueGetter<T>(this PropertyInfo propertyInfo)
         {
             return PropertyInfoCache<T>.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
             {
+                if (!prop.CanRead)
+                    return null;
+
                 var instance = Expression.Parameter(typeof(T), "i");
                 var property = Expression.Property(instance, prop);
                 var convert = Expression.TypeAs(property, typeof(object));
@@ -325,10 +329,14 @@ namespace WeihanLi.Extensions
             });
         }
 
+        [CanBeNull]
         public static Action<T, object> GetValueSetter<T>(this PropertyInfo propertyInfo) where T : class
         {
             return PropertyInfoCache<T>.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
             {
+                if (!prop.CanWrite)
+                    return null;
+
                 var instance = Expression.Parameter(typeof(T), "i");
                 var argument = Expression.Parameter(typeof(object), "a");
                 var setterCall = Expression.Call(instance, prop.GetSetMethod(), Expression.Convert(argument, prop.PropertyType));
@@ -336,10 +344,14 @@ namespace WeihanLi.Extensions
             });
         }
 
+        [CanBeNull]
         public static Func<object, object> GetValueGetter([NotNull]this PropertyInfo propertyInfo)
         {
             return CacheUtil.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
             {
+                if (!prop.CanRead)
+                    return null;
+
                 var instance = Expression.Parameter(typeof(object), "obj");
                 var getterCall = Expression.Call(propertyInfo.DeclaringType.IsValueType
                     ? Expression.Unbox(instance, propertyInfo.DeclaringType)
@@ -349,10 +361,14 @@ namespace WeihanLi.Extensions
             });
         }
 
+        [CanBeNull]
         public static Action<object, object> GetValueSetter([NotNull]this PropertyInfo propertyInfo)
         {
             return CacheUtil.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
             {
+                if (!prop.CanWrite)
+                    return null;
+
                 var obj = Expression.Parameter(typeof(object), "o");
                 var value = Expression.Parameter(typeof(object));
 

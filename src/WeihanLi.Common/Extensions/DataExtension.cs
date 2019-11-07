@@ -18,6 +18,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using WeihanLi.Common;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
 
 // ReSharper disable once CheckNamespace
@@ -70,7 +71,7 @@ namespace WeihanLi.Extensions
                 var row = dataTable.NewRow();
                 foreach (var property in properties)
                 {
-                    row[property.Name] = property.GetValueGetter<T>().Invoke(item);
+                    row[property.Name] = property.GetValueGetter<T>()?.Invoke(item);
                 }
                 dataTable.Rows.Add(row);
             }
@@ -112,34 +113,9 @@ namespace WeihanLi.Extensions
                 }
                 else
                 {
-                    var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
-
                     foreach (DataRow dr in @this.Rows)
                     {
-                        var entity = Activator.CreateInstance<T>();
-                        if (type.IsValueType)
-                        {
-                            var obj = (object)entity;
-                            foreach (var property in properties)
-                            {
-                                if (@this.Columns.Contains(property.Name))
-                                {
-                                    property.GetValueSetter().Invoke(obj, dr[property.Name].GetValueFromDb());
-                                }
-                            }
-                            entity = (T)obj;
-                        }
-                        else
-                        {
-                            foreach (var property in properties)
-                            {
-                                if (@this.Columns.Contains(property.Name))
-                                {
-                                    property.GetValueSetter().Invoke(entity, dr[property.Name].GetValueFromDb());
-                                }
-                            }
-                        }
-                        yield return entity;
+                        yield return dr.ToEntity<T>();
                     }
                 }
             }
@@ -194,12 +170,12 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="dr">The @this to act on.</param>
         /// <returns>@this as a T.</returns>
-        public static T ToEntity<T>([NotNull]this DataRow dr) where T : new()
+        public static T ToEntity<T>([NotNull]this DataRow dr)
         {
             var type = typeof(T);
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
+            var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties()).Where(p => p.CanWrite).ToArray();
 
-            var entity = new T();
+            var entity = NewFuncHelper<T>.Instance();
 
             if (type.IsValueType)
             {
@@ -208,7 +184,7 @@ namespace WeihanLi.Extensions
                 {
                     if (dr.Table.Columns.Contains(property.Name))
                     {
-                        property.GetValueSetter().Invoke(obj, dr[property.Name].GetValueFromDb());
+                        property.GetValueSetter()?.Invoke(obj, dr[property.Name].GetValueFromDb());
                     }
                 }
                 entity = (T)obj;
@@ -219,7 +195,7 @@ namespace WeihanLi.Extensions
                 {
                     if (dr.Table.Columns.Contains(property.Name))
                     {
-                        property.GetValueSetter().Invoke(entity, dr[property.Name].GetValueFromDb());
+                        property.GetValueSetter()?.Invoke(entity, dr[property.Name].GetValueFromDb());
                     }
                 }
             }
@@ -286,38 +262,9 @@ namespace WeihanLi.Extensions
                 }
                 else
                 {
-                    var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
-
-                    var dic = Enumerable.Range(0, @this.FieldCount)
-                            .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDb());
                     while (@this.Read())
                     {
-                        var entity = Activator.CreateInstance<T>();
-
-                        if (type.IsValueType)
-                        {
-                            var obj = (object)entity;
-                            foreach (var property in properties)
-                            {
-                                if (dic.ContainsKey(property.Name.ToUpper()))
-                                {
-                                    property.GetValueSetter().Invoke(obj, dic[property.Name.ToUpper()]);
-                                }
-                            }
-                            entity = (T)obj;
-                        }
-                        else
-                        {
-                            foreach (var property in properties)
-                            {
-                                if (dic.ContainsKey(property.Name.ToUpper()))
-                                {
-                                    property.GetValueSetter().Invoke(entity, dic[property.Name.ToUpper()]);
-                                }
-                            }
-                        }
-
-                        yield return entity;
+                        yield return @this.ToEntity<T>();
                     }
                 }
             }
@@ -339,9 +286,9 @@ namespace WeihanLi.Extensions
                     return @this[0].ToOrDefault<T>();
                 }
 
-                var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
+                var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties()).Where(p => p.CanWrite).ToArray();
 
-                var entity = Activator.CreateInstance<T>();
+                var entity = NewFuncHelper<T>.Instance();
 
                 var dic = Enumerable.Range(0, @this.FieldCount)
                     .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDb());
@@ -354,7 +301,7 @@ namespace WeihanLi.Extensions
                         {
                             if (dic.ContainsKey(property.Name.ToUpper()))
                             {
-                                property.GetValueSetter().Invoke(obj, dic[property.Name.ToUpper()]);
+                                property.GetValueSetter()?.Invoke(obj, dic[property.Name.ToUpper()]);
                             }
                         }
                         entity = (T)obj;
@@ -365,7 +312,7 @@ namespace WeihanLi.Extensions
                         {
                             if (dic.ContainsKey(property.Name.ToUpper()))
                             {
-                                property.GetValueSetter().Invoke(entity, dic[property.Name.ToUpper()]);
+                                property.GetValueSetter()?.Invoke(entity, dic[property.Name.ToUpper()]);
                             }
                         }
                     }
@@ -374,7 +321,7 @@ namespace WeihanLi.Extensions
                 }
                 catch (Exception e)
                 {
-                    WeihanLi.Common.Helpers.LogHelper.GetLogger(typeof(DataExtension)).Error(e);
+                    Common.Helpers.LogHelper.GetLogger(typeof(DataExtension)).Error(e);
                 }
             }
 
@@ -869,7 +816,7 @@ ORDER BY c.[column_id];", new { tableName });
                         {
                             var param = command.CreateParameter();
                             param.ParameterName = GetParameterName(property.Name);
-                            param.Value = property.GetValueGetter().Invoke(paramInfo) ?? DBNull.Value;
+                            param.Value = property.GetValueGetter()?.Invoke(paramInfo) ?? DBNull.Value;
                             param.DbType = property.PropertyType.ToDbType();
                             command.Parameters.Add(param);
                         }

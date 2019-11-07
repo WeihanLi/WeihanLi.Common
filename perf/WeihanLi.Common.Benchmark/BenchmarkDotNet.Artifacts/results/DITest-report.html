@@ -14,25 +14,25 @@
 <body>
 <pre><code>
 BenchmarkDotNet=v0.10.14, OS=Windows 10.0.18362
-Intel Core i5-6300U CPU 2.40GHz (Skylake), 1 CPU, 4 logical and 2 physical cores
+Intel Core i5-3470 CPU 3.20GHz (Ivy Bridge), 1 CPU, 4 logical and 4 physical cores
 .NET Core SDK=3.0.100
   [Host]     : .NET Core 2.1.13 (CoreCLR 4.6.28008.01, CoreFX 4.6.28008.01), 64bit RyuJIT
-  Job-WYOCTV : .NET Core 2.1.13 (CoreCLR 4.6.28008.01, CoreFX 4.6.28008.01), 64bit RyuJIT
+  Job-DCPQUK : .NET Core 2.1.13 (CoreCLR 4.6.28008.01, CoreFX 4.6.28008.01), 64bit RyuJIT
 </code></pre>
 <pre><code>RemoveOutliers=False  Runtime=Core  LaunchCount=3  
 RunStrategy=Throughput  TargetCount=10  WarmupCount=5  
 </code></pre>
 
 <table>
-<thead><tr><th>                 Method</th><th>  Mean</th><th>Error</th><th>StdDev</th><th>   Op/s</th><th>Scaled</th><th>ScaledSD</th><th>Gen 0</th><th>Allocated</th>
+<thead><tr><th>                 Method</th><th>  Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>   Op/s</th><th>Scaled</th><th>ScaledSD</th><th>Gen 0</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>NoDI</td><td>7.339 ns</td><td>0.4238 ns</td><td>0.6343 ns</td><td>136,254,586.0</td><td>1.00</td><td>0.00</td><td>7.6256</td><td>12000 B</td>
-</tr><tr><td>Singleton</td><td>122.726 ns</td><td>10.2681 ns</td><td>15.3688 ns</td><td>8,148,233.7</td><td>16.83</td><td>2.42</td><td>-</td><td>0 B</td>
-</tr><tr><td>Scoped</td><td>115.013 ns</td><td>4.3511 ns</td><td>6.5125 ns</td><td>8,694,685.5</td><td>15.77</td><td>1.47</td><td>-</td><td>0 B</td>
-</tr><tr><td>Transient</td><td>55.458 ns</td><td>2.3618 ns</td><td>3.5350 ns</td><td>18,031,583.2</td><td>7.60</td><td>0.74</td><td>7.5989</td><td>12000 B</td>
-</tr><tr><td>ServiceContainerSingletonTest</td><td>567.988 ns</td><td>27.2793 ns</td><td>40.8304 ns</td><td>1,760,601.5</td><td>77.88</td><td>8.00</td><td>144.5313</td><td>228000 B</td>
-</tr><tr><td>ServiceContainerScopedTest</td><td>602.487 ns</td><td>37.9224 ns</td><td>56.7604 ns</td><td>1,659,786.3</td><td>82.61</td><td>9.83</td><td>144.5313</td><td>228000 B</td>
-</tr><tr><td>ServiceContainerTransientTest</td><td>1,478.825 ns</td><td>57.9028 ns</td><td>86.6661 ns</td><td>676,212.6</td><td>202.77</td><td>19.08</td><td>406.2500</td><td>640000 B</td>
+</thead><tbody><tr><td>NoDI</td><td>6.346 ns</td><td>0.0894 ns</td><td>0.1338 ns</td><td>6.335 ns</td><td>157,571,216.1</td><td>1.00</td><td>0.00</td><td>381.3477</td><td>1200000 B</td>
+</tr><tr><td>Singleton</td><td>100.551 ns</td><td>0.3524 ns</td><td>0.5275 ns</td><td>100.452 ns</td><td>9,945,239.1</td><td>15.85</td><td>0.34</td><td>-</td><td>0 B</td>
+</tr><tr><td>Scoped</td><td>93.423 ns</td><td>0.4487 ns</td><td>0.6716 ns</td><td>93.274 ns</td><td>10,703,980.5</td><td>14.73</td><td>0.32</td><td>-</td><td>0 B</td>
+</tr><tr><td>Transient</td><td>47.579 ns</td><td>0.3155 ns</td><td>0.4722 ns</td><td>47.537 ns</td><td>21,017,706.1</td><td>7.50</td><td>0.17</td><td>378.9063</td><td>1200000 B</td>
+</tr><tr><td>ServiceContainerSingletonTest</td><td>577.192 ns</td><td>16.8483 ns</td><td>25.2178 ns</td><td>590.905 ns</td><td>1,732,524.5</td><td>90.99</td><td>4.33</td><td>7218.7500</td><td>22800000 B</td>
+</tr><tr><td>ServiceContainerScopedTest</td><td>595.382 ns</td><td>5.9631 ns</td><td>8.9253 ns</td><td>593.293 ns</td><td>1,679,594.8</td><td>93.85</td><td>2.37</td><td>7218.7500</td><td>22800000 B</td>
+</tr><tr><td>ServiceContainerTransientTest</td><td>1,356.705 ns</td><td>14.3341 ns</td><td>21.4547 ns</td><td>1,357.348 ns</td><td>737,080.1</td><td>213.87</td><td>5.51</td><td>20312.5000</td><td>64000000 B</td>
 </tr></tbody></table>
 </body>
 </html>
