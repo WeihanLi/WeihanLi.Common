@@ -70,7 +70,7 @@ namespace WeihanLi.Extensions
                 var row = dataTable.NewRow();
                 foreach (var property in properties)
                 {
-                    row[property.Name] = property.GetValueGetter<T>().Invoke(item);
+                    row[property.Name] = property.GetValueGetter<T>()?.Invoke(item);
                 }
                 dataTable.Rows.Add(row);
             }
@@ -112,10 +112,11 @@ namespace WeihanLi.Extensions
                 }
                 else
                 {
-                    var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
+                    var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties()).Where(p => p.CanWrite).ToArray();
 
                     foreach (DataRow dr in @this.Rows)
                     {
+                        // TODO: 反射优化
                         var entity = Activator.CreateInstance<T>();
                         if (type.IsValueType)
                         {
@@ -124,7 +125,7 @@ namespace WeihanLi.Extensions
                             {
                                 if (@this.Columns.Contains(property.Name))
                                 {
-                                    property.GetValueSetter().Invoke(obj, dr[property.Name].GetValueFromDb());
+                                    property.GetValueSetter()?.Invoke(obj, dr[property.Name].GetValueFromDb());
                                 }
                             }
                             entity = (T)obj;
@@ -135,7 +136,7 @@ namespace WeihanLi.Extensions
                             {
                                 if (@this.Columns.Contains(property.Name))
                                 {
-                                    property.GetValueSetter().Invoke(entity, dr[property.Name].GetValueFromDb());
+                                    property.GetValueSetter()?.Invoke(entity, dr[property.Name].GetValueFromDb());
                                 }
                             }
                         }
@@ -197,7 +198,7 @@ namespace WeihanLi.Extensions
         public static T ToEntity<T>([NotNull]this DataRow dr) where T : new()
         {
             var type = typeof(T);
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
+            var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties()).Where(p => p.CanWrite).ToArray();
 
             var entity = new T();
 
@@ -208,7 +209,7 @@ namespace WeihanLi.Extensions
                 {
                     if (dr.Table.Columns.Contains(property.Name))
                     {
-                        property.GetValueSetter().Invoke(obj, dr[property.Name].GetValueFromDb());
+                        property.GetValueSetter()?.Invoke(obj, dr[property.Name].GetValueFromDb());
                     }
                 }
                 entity = (T)obj;
@@ -219,7 +220,7 @@ namespace WeihanLi.Extensions
                 {
                     if (dr.Table.Columns.Contains(property.Name))
                     {
-                        property.GetValueSetter().Invoke(entity, dr[property.Name].GetValueFromDb());
+                        property.GetValueSetter()?.Invoke(entity, dr[property.Name].GetValueFromDb());
                     }
                 }
             }
@@ -286,7 +287,7 @@ namespace WeihanLi.Extensions
                 }
                 else
                 {
-                    var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
+                    var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties()).Where(p => p.CanWrite).ToArray();
 
                     var dic = Enumerable.Range(0, @this.FieldCount)
                             .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDb());
@@ -301,7 +302,7 @@ namespace WeihanLi.Extensions
                             {
                                 if (dic.ContainsKey(property.Name.ToUpper()))
                                 {
-                                    property.GetValueSetter().Invoke(obj, dic[property.Name.ToUpper()]);
+                                    property.GetValueSetter()?.Invoke(obj, dic[property.Name.ToUpper()]);
                                 }
                             }
                             entity = (T)obj;
@@ -312,7 +313,7 @@ namespace WeihanLi.Extensions
                             {
                                 if (dic.ContainsKey(property.Name.ToUpper()))
                                 {
-                                    property.GetValueSetter().Invoke(entity, dic[property.Name.ToUpper()]);
+                                    property.GetValueSetter()?.Invoke(entity, dic[property.Name.ToUpper()]);
                                 }
                             }
                         }
@@ -339,7 +340,7 @@ namespace WeihanLi.Extensions
                     return @this[0].ToOrDefault<T>();
                 }
 
-                var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
+                var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties()).Where(p => p.CanWrite).ToArray();
 
                 var entity = Activator.CreateInstance<T>();
 
@@ -354,7 +355,7 @@ namespace WeihanLi.Extensions
                         {
                             if (dic.ContainsKey(property.Name.ToUpper()))
                             {
-                                property.GetValueSetter().Invoke(obj, dic[property.Name.ToUpper()]);
+                                property.GetValueSetter()?.Invoke(obj, dic[property.Name.ToUpper()]);
                             }
                         }
                         entity = (T)obj;
@@ -365,7 +366,7 @@ namespace WeihanLi.Extensions
                         {
                             if (dic.ContainsKey(property.Name.ToUpper()))
                             {
-                                property.GetValueSetter().Invoke(entity, dic[property.Name.ToUpper()]);
+                                property.GetValueSetter()?.Invoke(entity, dic[property.Name.ToUpper()]);
                             }
                         }
                     }
@@ -374,7 +375,7 @@ namespace WeihanLi.Extensions
                 }
                 catch (Exception e)
                 {
-                    WeihanLi.Common.Helpers.LogHelper.GetLogger(typeof(DataExtension)).Error(e);
+                    Common.Helpers.LogHelper.GetLogger(typeof(DataExtension)).Error(e);
                 }
             }
 
@@ -869,7 +870,7 @@ ORDER BY c.[column_id];", new { tableName });
                         {
                             var param = command.CreateParameter();
                             param.ParameterName = GetParameterName(property.Name);
-                            param.Value = property.GetValueGetter().Invoke(paramInfo) ?? DBNull.Value;
+                            param.Value = property.GetValueGetter()?.Invoke(paramInfo) ?? DBNull.Value;
                             param.DbType = property.PropertyType.ToDbType();
                             command.Parameters.Add(param);
                         }

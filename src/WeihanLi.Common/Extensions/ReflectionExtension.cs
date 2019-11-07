@@ -227,7 +227,7 @@ namespace WeihanLi.Extensions
         {
             var property = @this.GetProperty(propertyName);
 
-            return property?.GetValueGetter<T>().Invoke(@this);
+            return property?.GetValueGetter<T>()?.Invoke(@this);
         }
 
         /// <summary>
@@ -311,7 +311,7 @@ namespace WeihanLi.Extensions
         public static void SetPropertyValue<T>([NotNull]this T @this, string propertyName, object value) where T : class
         {
             var property = @this.GetProperty(propertyName);
-            property?.GetValueSetter().Invoke(@this, value);
+            property?.GetValueSetter()?.Invoke(@this, value);
         }
 
         [CanBeNull]
