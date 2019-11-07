@@ -452,7 +452,6 @@ namespace WeihanLi.Common.Helpers.Cron
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static int GetFirstSet(long value)
         {
-            // TODO: Add description and source
             ulong res = unchecked((ulong)(value & -value) * 0x022fdd63cc95386d) >> 58;
             return DeBruijnPositions[res];
         }

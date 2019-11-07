@@ -18,6 +18,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using WeihanLi.Common;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
 
 // ReSharper disable once CheckNamespace
@@ -112,35 +113,9 @@ namespace WeihanLi.Extensions
                 }
                 else
                 {
-                    var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties()).Where(p => p.CanWrite).ToArray();
-
                     foreach (DataRow dr in @this.Rows)
                     {
-                        // TODO: 反射优化
-                        var entity = Activator.CreateInstance<T>();
-                        if (type.IsValueType)
-                        {
-                            var obj = (object)entity;
-                            foreach (var property in properties)
-                            {
-                                if (@this.Columns.Contains(property.Name))
-                                {
-                                    property.GetValueSetter()?.Invoke(obj, dr[property.Name].GetValueFromDb());
-                                }
-                            }
-                            entity = (T)obj;
-                        }
-                        else
-                        {
-                            foreach (var property in properties)
-                            {
-                                if (@this.Columns.Contains(property.Name))
-                                {
-                                    property.GetValueSetter()?.Invoke(entity, dr[property.Name].GetValueFromDb());
-                                }
-                            }
-                        }
-                        yield return entity;
+                        yield return dr.ToEntity<T>();
                     }
                 }
             }
@@ -195,12 +170,12 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="dr">The @this to act on.</param>
         /// <returns>@this as a T.</returns>
-        public static T ToEntity<T>([NotNull]this DataRow dr) where T : new()
+        public static T ToEntity<T>([NotNull]this DataRow dr)
         {
             var type = typeof(T);
             var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties()).Where(p => p.CanWrite).ToArray();
 
-            var entity = new T();
+            var entity = NewFuncHelper<T>.Instance();
 
             if (type.IsValueType)
             {
@@ -287,38 +262,9 @@ namespace WeihanLi.Extensions
                 }
                 else
                 {
-                    var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties()).Where(p => p.CanWrite).ToArray();
-
-                    var dic = Enumerable.Range(0, @this.FieldCount)
-                            .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDb());
                     while (@this.Read())
                     {
-                        var entity = Activator.CreateInstance<T>();
-
-                        if (type.IsValueType)
-                        {
-                            var obj = (object)entity;
-                            foreach (var property in properties)
-                            {
-                                if (dic.ContainsKey(property.Name.ToUpper()))
-                                {
-                                    property.GetValueSetter()?.Invoke(obj, dic[property.Name.ToUpper()]);
-                                }
-                            }
-                            entity = (T)obj;
-                        }
-                        else
-                        {
-                            foreach (var property in properties)
-                            {
-                                if (dic.ContainsKey(property.Name.ToUpper()))
-                                {
-                                    property.GetValueSetter()?.Invoke(entity, dic[property.Name.ToUpper()]);
-                                }
-                            }
-                        }
-
-                        yield return entity;
+                        yield return @this.ToEntity<T>();
                     }
                 }
             }
@@ -342,7 +288,7 @@ namespace WeihanLi.Extensions
 
                 var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties()).Where(p => p.CanWrite).ToArray();
 
-                var entity = Activator.CreateInstance<T>();
+                var entity = NewFuncHelper<T>.Instance();
 
                 var dic = Enumerable.Range(0, @this.FieldCount)
                     .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDb());
