@@ -18,12 +18,12 @@ namespace WeihanLi.Common.DependencyInjection
 
     public class ServiceContainer : IServiceContainer
     {
-        private readonly ConcurrentBag<ServiceDefinition> _services;
+        private readonly List<ServiceDefinition> _services;
 
         private readonly ConcurrentDictionary<ServiceKey, object> _singletonInstances;
 
         private readonly ConcurrentDictionary<ServiceKey, object> _scopedInstances;
-        private ConcurrentBag<object> _transientDisposables = new ConcurrentBag<object>();
+        private readonly ConcurrentBag<object> _transientDisposables = new ConcurrentBag<object>();
 
         private class ServiceKey : IEquatable<ServiceKey>
         {
@@ -60,7 +60,7 @@ namespace WeihanLi.Common.DependencyInjection
         {
             _isRootScope = true;
             _singletonInstances = new ConcurrentDictionary<ServiceKey, object>();
-            _services = new ConcurrentBag<ServiceDefinition>();
+            _services = new List<ServiceDefinition>();
         }
 
         private ServiceContainer(ServiceContainer serviceContainer)
@@ -136,7 +136,6 @@ namespace WeihanLi.Common.DependencyInjection
                     }
 
                     _singletonInstances.Clear();
-                    _transientDisposables = null;
                 }
             }
             else
@@ -160,23 +159,9 @@ namespace WeihanLi.Common.DependencyInjection
                     }
 
                     _scopedInstances.Clear();
-                    _transientDisposables = null;
                 }
             }
-
-            _serviceCtorCache.Clear();
-            _newFuncCache.Clear();
-            _newFuncCache2.Clear();
         }
-
-        private readonly ConcurrentDictionary<Type, Func<object>> _newFuncCache =
-            new ConcurrentDictionary<Type, Func<object>>();
-
-        private readonly ConcurrentDictionary<Type, Func<object[], object>> _newFuncCache2 =
-            new ConcurrentDictionary<Type, Func<object[], object>>();
-
-        private readonly ConcurrentDictionary<Type, ConstructorInfo> _serviceCtorCache =
-            new ConcurrentDictionary<Type, ConstructorInfo>();
 
         private object GetServiceInstance(Type serviceType, ServiceDefinition serviceDefinition)
         {
@@ -198,51 +183,55 @@ namespace WeihanLi.Common.DependencyInjection
                 implementType = implementType.MakeGenericType(serviceType.GetGenericArguments());
             }
 
-            var ctor = _serviceCtorCache.GetOrAdd(implementType, (t) =>
+            var newFunc = CacheUtil.TypeNewFuncCache.GetOrAdd(implementType, (serviceContainer) =>
             {
-                var ctorInfos = implementType.GetConstructors(BindingFlags.Instance | BindingFlags.Public);
-                if (ctorInfos.Length == 0)
+                if (
+                    CacheUtil.TypeEmptyConstructorFuncCache.TryGetValue(implementType, out var emptyFunc))
                 {
-                    return null;
+                    return emptyFunc.Invoke();
                 }
 
-                ConstructorInfo ctorInfo;
-                if (ctorInfos.Length == 1)
+                var ctor = CacheUtil.TypeConstructorCache.GetOrAdd(implementType, t =>
                 {
-                    ctorInfo = ctorInfos[0];
-                }
-                else
+                    var ctorInfos = t.GetConstructors(BindingFlags.Instance | BindingFlags.Public);
+                    if (ctorInfos.Length == 0)
+                    {
+                        return null;
+                    }
+
+                    ConstructorInfo ctorInfo;
+                    if (ctorInfos.Length == 1)
+                    {
+                        ctorInfo = ctorInfos[0];
+                    }
+                    else
+                    {
+                        // TODO: try find best ctor
+                        ctorInfo = ctorInfos
+                            .OrderBy(_ => _.GetParameters().Length)
+                            .First();
+                    }
+
+                    return ctorInfo;
+                });
+                if (ctor == null)
                 {
-                    // TODO: try find best ctor
-                    ctorInfo = ctorInfos
-                        .OrderBy(_ => _.GetParameters().Length)
-                        .First();
+                    throw new InvalidOperationException(
+                        $"service {serviceType.FullName} does not have any public constructors");
                 }
 
-                return ctorInfo;
-            });
-            if (null == ctor)
-            {
-                throw new InvalidOperationException($"service {serviceType.FullName} does not have any public constructors");
-            }
-
-            var parameters = ctor.GetParameters();
-
-            if (parameters.Length == 0)
-            {
-                if (serviceDefinition.ServiceLifetime == ServiceLifetime.Singleton)
+                var parameters = ctor.GetParameters();
+                if (parameters.Length == 0)
                 {
-                    return Activator.CreateInstance(implementType);
+                    var func00 = Expression.Lambda<Func<object>>(Expression.New(ctor)).Compile();
+                    CacheUtil.TypeEmptyConstructorFuncCache.TryAdd(implementType, func00);
+                    return func00.Invoke();
                 }
-                var func = _newFuncCache.GetOrAdd(implementType, (t) => Expression.Lambda<Func<object>>(Expression.New(ctor)).Compile());
-                return func.Invoke();
-            }
-            else
-            {
+
                 var ctorParams = new object[parameters.Length];
                 for (var index = 0; index < parameters.Length; index++)
                 {
-                    var param = GetService(parameters[index].ParameterType);
+                    var param = serviceContainer.GetService(parameters[index].ParameterType);
                     if (param == null && parameters[index].HasDefaultValue)
                     {
                         param = parameters[index].DefaultValue;
@@ -250,45 +239,48 @@ namespace WeihanLi.Common.DependencyInjection
                     ctorParams[index] = param;
                 }
 
-                if (serviceDefinition.ServiceLifetime == ServiceLifetime.Singleton)
+                var func = CacheUtil.TypeConstructorFuncCache.GetOrAdd(implementType, t =>
                 {
-                    return Activator.CreateInstance(implementType, ctorParams);
-                }
+                    if (!CacheUtil.TypeConstructorCache.TryGetValue(t, out var ctorInfo))
+                    {
+                        return null;
+                    }
 
-                var func = _newFuncCache2.GetOrAdd(implementType, (t) =>
-                {
+                    var innerParameters = ctorInfo.GetParameters();
                     var parameterExpression = Expression.Parameter(typeof(object[]), "arguments"); // create parameter Expression
-                    var argExpressions = new Expression[parameters.Length]; // array that will contains parameter expessions
-                    for (var i = 0; i < parameters.Length; i++)
+                    var argExpressions = new Expression[innerParameters.Length]; // array that will contains parameter expessions
+                    for (var i = 0; i < innerParameters.Length; i++)
                     {
                         var indexedAccess = Expression.ArrayIndex(parameterExpression, Expression.Constant(i));
 
-                        if (!parameters[i].ParameterType.IsClass) // check if parameter is a value type
+                        if (!innerParameters[i].ParameterType.IsClass) // check if parameter is a value type
                         {
-                            var localVariable = Expression.Variable(parameters[i].ParameterType, "localVariable"); // if so - we should create local variable that will store paraameter value
+                            var localVariable = Expression.Variable(innerParameters[i].ParameterType, "localVariable"); // if so - we should create local variable that will store paraameter value
 
                             var block = Expression.Block(new[] { localVariable },
-                                Expression.IfThenElse(Expression.Equal(indexedAccess, Expression.Constant(null)),
-                                    Expression.Assign(localVariable, Expression.Default(parameters[i].ParameterType)),
-                                    Expression.Assign(localVariable, Expression.Convert(indexedAccess, parameters[i].ParameterType))
-                                ),
-                                localVariable
-                            );
+                            Expression.IfThenElse(Expression.Equal(indexedAccess, Expression.Constant(null)),
+                                Expression.Assign(localVariable, Expression.Default(innerParameters[i].ParameterType)),
+                                Expression.Assign(localVariable, Expression.Convert(indexedAccess, innerParameters[i].ParameterType))
+                            ),
+                            localVariable
+                        );
 
                             argExpressions[i] = block;
                         }
                         else
                         {
-                            argExpressions[i] = Expression.Convert(indexedAccess, parameters[i].ParameterType);
+                            argExpressions[i] = Expression.Convert(indexedAccess, innerParameters[i].ParameterType);
                         }
                     }
-                    var newExpression = Expression.New(ctor, argExpressions); // create expression that represents call to specified ctor with the specified arguments.
+                    var newExpression = Expression.New(ctorInfo, argExpressions); // create expression that represents call to specified ctor with the specified arguments.
 
                     return Expression.Lambda<Func<object[], object>>(newExpression, parameterExpression)
-                        .Compile();
+                    .Compile();
                 });
-                return func(ctorParams);
-            }
+                return func.Invoke(ctorParams);
+            });
+
+            return newFunc?.Invoke(this);
         }
 
         public object GetService(Type serviceType)

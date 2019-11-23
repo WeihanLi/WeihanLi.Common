@@ -1,7 +1,7 @@
-﻿using System;
-using System.Net;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Net;
 
 namespace WeihanLi.Common.Json
 {
@@ -9,6 +9,7 @@ namespace WeihanLi.Common.Json
     /// <summary>
     /// IPAddress JsonConverter
     /// </summary>
+    // ReSharper disable once InconsistentNaming
     public class IPAddressConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
@@ -30,6 +31,7 @@ namespace WeihanLi.Common.Json
     /// <summary>
     /// IpEndPoint JsonConverter
     /// </summary>
+    // ReSharper disable once InconsistentNaming
     public class IPEndPointConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)

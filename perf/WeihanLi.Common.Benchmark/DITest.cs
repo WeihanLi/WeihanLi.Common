@@ -2,8 +2,6 @@
 using BenchmarkDotNet.Columns;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Diagnosers;
-using BenchmarkDotNet.Engines;
-using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Validators;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -24,15 +22,6 @@ namespace WeihanLi.Common.Benchmark
                 Add(JitOptimizationsValidator.FailOnError);
                 Add(MemoryDiagnoser.Default);
                 Add(StatisticColumn.OperationsPerSecond);
-
-                Add(Job.Default
-                    .With(BenchmarkDotNet.Environments.Runtime.Core)
-                    .WithRemoveOutliers(false)
-                    .With(RunStrategy.Throughput)
-                    .WithLaunchCount(3)
-                    .WithWarmupCount(5)
-                    .WithTargetCount(10)
-                    );
             }
         }
 
@@ -51,10 +40,10 @@ namespace WeihanLi.Common.Benchmark
         public void Setup()
         {
             var services = new ServiceCollection();
-            services.AddTransient<A>();
-            services.AddTransient<B>();
-            services.AddTransient<C>();
-            _transientSp = services.BuildServiceProvider();
+            services.AddSingleton<A>();
+            services.AddSingleton<B>();
+            services.AddSingleton<C>();
+            _singletonSp = services.BuildServiceProvider();
 
             services = new ServiceCollection();
             services.AddScoped<A>();
@@ -63,10 +52,10 @@ namespace WeihanLi.Common.Benchmark
             _scopedSp = services.BuildServiceProvider().CreateScope();
 
             services = new ServiceCollection();
-            services.AddSingleton<A>();
-            services.AddSingleton<B>();
-            services.AddSingleton<C>();
-            _singletonSp = services.BuildServiceProvider();
+            services.AddTransient<A>();
+            services.AddTransient<B>();
+            services.AddTransient<C>();
+            _transientSp = services.BuildServiceProvider();
 
             _singletonContainer = new ServiceContainer();
             _singletonContainer.AddSingleton<A>();
@@ -97,37 +86,50 @@ namespace WeihanLi.Common.Benchmark
         [Benchmark(Baseline = true, OperationsPerInvoke = OperationsPerInvoke)]
         public void NoDI()
         {
-            for (int i = 0; i < OperationsPerInvoke; i++)
+            for (var i = 0; i < OperationsPerInvoke; i++)
             {
                 var temp = new A(new B(new C()));
                 temp.Foo();
             }
         }
 
+        //[Benchmark(OperationsPerInvoke = OperationsPerInvoke)]
+        //public void Reflection()
+        //{
+        //    for (var i = 0; i < OperationsPerInvoke; i++)
+        //    {
+        //        var temp = (A)Activator.CreateInstance(typeof(A),
+        //                Activator.CreateInstance(typeof(B),
+        //                    Activator.CreateInstance(typeof(C))))
+        //            ;
+        //        temp.Foo();
+        //    }
+        //}
+
         [Benchmark(OperationsPerInvoke = OperationsPerInvoke)]
         public void Singleton()
         {
-            for (int i = 0; i < OperationsPerInvoke; i++)
+            for (var i = 0; i < OperationsPerInvoke; i++)
             {
                 var temp = _singletonSp.GetService<A>();
                 temp.Foo();
             }
         }
 
-        [Benchmark(OperationsPerInvoke = OperationsPerInvoke)]
-        public void Scoped()
-        {
-            for (int i = 0; i < OperationsPerInvoke; i++)
-            {
-                var temp = _scopedSp.ServiceProvider.GetService<A>();
-                temp.Foo();
-            }
-        }
+        //[Benchmark(OperationsPerInvoke = OperationsPerInvoke)]
+        //public void Scoped()
+        //{
+        //    for (var i = 0; i < OperationsPerInvoke; i++)
+        //    {
+        //        var temp = _scopedSp.ServiceProvider.GetService<A>();
+        //        temp.Foo();
+        //    }
+        //}
 
         [Benchmark(OperationsPerInvoke = OperationsPerInvoke)]
         public void Transient()
         {
-            for (int i = 0; i < OperationsPerInvoke; i++)
+            for (var i = 0; i < OperationsPerInvoke; i++)
             {
                 var temp = _transientSp.GetService<A>();
                 temp.Foo();
@@ -137,27 +139,27 @@ namespace WeihanLi.Common.Benchmark
         [Benchmark(OperationsPerInvoke = OperationsPerInvoke)]
         public void ServiceContainerSingletonTest()
         {
-            for (int i = 0; i < OperationsPerInvoke; i++)
+            for (var i = 0; i < OperationsPerInvoke; i++)
             {
                 var temp = _singletonContainer.GetService<A>();
                 temp.Foo();
             }
         }
 
-        [Benchmark(OperationsPerInvoke = OperationsPerInvoke)]
-        public void ServiceContainerScopedTest()
-        {
-            for (int i = 0; i < OperationsPerInvoke; i++)
-            {
-                var temp = _scopedContainer.GetService<A>();
-                temp.Foo();
-            }
-        }
+        //[Benchmark(OperationsPerInvoke = OperationsPerInvoke)]
+        //public void ServiceContainerScopedTest()
+        //{
+        //    for (var i = 0; i < OperationsPerInvoke; i++)
+        //    {
+        //        var temp = _scopedContainer.GetService<A>();
+        //        temp.Foo();
+        //    }
+        //}
 
         [Benchmark(OperationsPerInvoke = OperationsPerInvoke)]
         public void ServiceContainerTransientTest()
         {
-            for (int i = 0; i < OperationsPerInvoke; i++)
+            for (var i = 0; i < OperationsPerInvoke; i++)
             {
                 var temp = _transientContainer.GetService<A>();
                 temp.Foo();

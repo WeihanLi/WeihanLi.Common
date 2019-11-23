@@ -317,7 +317,7 @@ namespace WeihanLi.Extensions
         [CanBeNull]
         public static Func<T, object> GetValueGetter<T>(this PropertyInfo propertyInfo)
         {
-            return PropertyInfoCache<T>.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
+            return StrongTypedCache<T>.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
             {
                 if (!prop.CanRead)
                     return null;
@@ -332,7 +332,7 @@ namespace WeihanLi.Extensions
         [CanBeNull]
         public static Action<T, object> GetValueSetter<T>(this PropertyInfo propertyInfo) where T : class
         {
-            return PropertyInfoCache<T>.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
+            return StrongTypedCache<T>.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
             {
                 if (!prop.CanWrite)
                     return null;
