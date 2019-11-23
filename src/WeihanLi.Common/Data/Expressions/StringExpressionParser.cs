@@ -1,7 +1,7 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using JetBrains.Annotations;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Common.Data
@@ -52,7 +52,7 @@ namespace WeihanLi.Common.Data
             else
             {
                 var left = ParseExpression(exp.Object, null);
-                string arg0 = string.Empty;
+                var arg0 = string.Empty;
                 if (exp.Arguments.Count > 0)
                 {
                     arg0 = ParseExpression(exp.Arguments[0], null);
