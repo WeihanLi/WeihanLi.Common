@@ -13,21 +13,22 @@ namespace WeihanLi.Common.Test
 
         public DependencyInjectionTest()
         {
-            _container = new ServiceContainer();
+            var containerBuilder = new ServiceContainerBuilder();
+            containerBuilder.AddSingleton<IConfiguration>(new ConfigurationBuilder().Build());
+            containerBuilder.AddScoped<IFly, MonkeyKing>();
+            containerBuilder.AddScoped<IFly, Superman>();
 
-            _container.AddSingleton<IConfiguration>(new ConfigurationBuilder().Build());
-            _container.AddScoped<IFly, MonkeyKing>();
-            _container.AddScoped<IFly, Superman>();
+            containerBuilder.AddScoped<HasDependencyTest>();
+            containerBuilder.AddScoped<HasDependencyTest1>();
+            containerBuilder.AddScoped<HasDependencyTest2>();
+            containerBuilder.AddScoped<HasDependencyTest3>();
+            containerBuilder.AddScoped(typeof(HasDependencyTest4<>));
 
-            _container.AddScoped<HasDependencyTest>();
-            _container.AddScoped<HasDependencyTest1>();
-            _container.AddScoped<HasDependencyTest2>();
-            _container.AddScoped<HasDependencyTest3>();
-            _container.AddScoped(typeof(HasDependencyTest4<>));
+            containerBuilder.AddTransient<WuKong>();
+            containerBuilder.AddScoped<WuJing>(serviceProvider => new WuJing());
+            containerBuilder.AddSingleton(typeof(GenericServiceTest<>));
 
-            _container.AddTransient<WuKong>();
-            _container.AddScoped<WuJing>(serviceProvider => new WuJing());
-            _container.AddSingleton(typeof(GenericServiceTest<>));
+            _container = containerBuilder.Build();
         }
 
         [Fact]
@@ -166,7 +167,7 @@ namespace WeihanLi.Common.Test
 
         private class HasDependencyTest1
         {
-            public readonly IReadOnlyCollection<IFly> _flys;
+            private readonly IReadOnlyCollection<IFly> _flys;
 
             public HasDependencyTest1(IEnumerable<IFly> flys)
             {
@@ -185,7 +186,7 @@ namespace WeihanLi.Common.Test
 
         private class HasDependencyTest2
         {
-            public readonly IReadOnlyCollection<IFly> _flys;
+            private readonly IReadOnlyCollection<IFly> _flys;
 
             public HasDependencyTest2(IReadOnlyCollection<IFly> flys)
             {

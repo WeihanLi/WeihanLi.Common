@@ -17,7 +17,7 @@ namespace DotNetFxSample
             // DataExtensionTest.MainTest();
 
             InvokeHelper.TryInvoke(LoggerTest.Test);
-
+            var emptyArray = ArrayHelper.Empty<int>();
             Console.ReadLine();
         }
     }

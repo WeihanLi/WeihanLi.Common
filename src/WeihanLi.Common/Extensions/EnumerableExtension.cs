@@ -1,9 +1,9 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 using WeihanLi.Common.Models;
 
 // ReSharper disable once CheckNamespace
@@ -143,6 +143,9 @@ namespace WeihanLi.Extensions
         }
 
         #endregion Split
+
+        public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T> source) where T : class
+            => source?.Where(_ => _ != null);
 
         public static IEnumerable<T> Distinct<T>(this IEnumerable<T> source, Func<T, T, bool> comparer) where T : class
             => source.Distinct(new DynamicEqualityComparer<T>(comparer));

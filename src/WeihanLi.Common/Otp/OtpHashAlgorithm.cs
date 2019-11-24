@@ -1,4 +1,5 @@
-﻿namespace WeihanLi.Common
+﻿// ReSharper disable InconsistentNaming
+namespace WeihanLi.Common.Otp
 {
     public enum OtpHashAlgorithm
     {

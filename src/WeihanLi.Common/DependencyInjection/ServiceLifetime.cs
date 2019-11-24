@@ -1,6 +1,6 @@
 ﻿namespace WeihanLi.Common.DependencyInjection
 {
-    public enum ServiceLifetime
+    public enum ServiceLifetime : sbyte
     {
         /// <summary>
         /// Specifies that a single instance of the service will be created.
@@ -15,6 +15,6 @@
         /// <summary>
         /// Specifies that a new instance of the service will be created every time it is requested.
         /// </summary>
-        Transient,
+        Transient = 2,
     }
 }

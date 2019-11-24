@@ -49,7 +49,7 @@ namespace WeihanLi.Common.Models
 
         private IReadOnlyList<T> _data =
 #if NET45
-    new T[0]
+    Helpers.ArrayHelper.Empty<T>()
 #else
             Array.Empty<T>()
 #endif

@@ -1,16 +1,20 @@
-﻿using System;
+﻿using BenchmarkDotNet.Attributes;
+using System;
 using System.Linq.Expressions;
-using BenchmarkDotNet.Attributes;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Benchmark
 {
     public class CreateInstanceTest
     {
+        private static readonly Lazy<Func<MapperTest.B>> lazyFunc = new Lazy<Func<MapperTest.B>>(
+            Expression.Lambda<Func<MapperTest.B>>(Expression.New(typeof(MapperTest.B))).Compile()
+            );
+
         [Benchmark]
         public MapperTest.B NewInstanceByExpression()
         {
-            return Expression.Lambda<Func<MapperTest.B>>(Expression.New(typeof(MapperTest.B))).Compile().Invoke();
+            return lazyFunc.Value.Invoke();
         }
 
         [Benchmark]
@@ -22,7 +26,7 @@ namespace WeihanLi.Common.Benchmark
         [Benchmark]
         public MapperTest.B NewInstanceByActivatorHelper()
         {
-            return ActivatorHelper.CreateInstance<MapperTest.B>(DependencyResolver.Current);
+            return ActivatorHelper.CreateInstance<MapperTest.B>(null);
         }
 
         [Benchmark]

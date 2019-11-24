@@ -1010,8 +1010,6 @@ namespace WeihanLi.Common.Helpers
             "Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Mobile/14D27 MicroMessenger/6.5.6 NetType/4G Language/zh_CN"
         };
 
-        private static readonly Random Random = new Random();
-
         /// <summary>
         /// GetUserAgent
         /// </summary>
@@ -1019,7 +1017,7 @@ namespace WeihanLi.Common.Helpers
         /// <returns>UserAgent</returns>
         public static string GetUserAgent(bool isMobileUserAgent = false)
         {
-            return isMobileUserAgent ? MobileUserAgents[Random.Next(MobileUserAgents.Length)] : DesktopUserAgents[Random.Next(DesktopUserAgents.Length)];
+            return isMobileUserAgent ? MobileUserAgents[SecurityHelper.Random.Next(MobileUserAgents.Length)] : DesktopUserAgents[SecurityHelper.Random.Next(DesktopUserAgents.Length)];
         }
 
         /// <summary>
@@ -1027,7 +1025,7 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         /// <returns></returns>
         public static string GetWechatUserAgent()
-            => WechatUserAgents[Random.Next(WechatUserAgents.Length)];
+            => WechatUserAgents[SecurityHelper.Random.Next(WechatUserAgents.Length)];
 
         #endregion UserAgents
     }

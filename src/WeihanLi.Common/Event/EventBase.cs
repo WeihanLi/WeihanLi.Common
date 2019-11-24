@@ -1,5 +1,5 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace WeihanLi.Common.Event
 {
@@ -27,6 +27,12 @@ namespace WeihanLi.Common.Event
         protected EventBase()
         {
             EventId = GuidIdGenerator.Instance.NewId();
+            EventAt = DateTimeOffset.UtcNow;
+        }
+
+        public EventBase(string eventId)
+        {
+            EventId = eventId;
             EventAt = DateTimeOffset.UtcNow;
         }
 

@@ -1,7 +1,7 @@
-﻿using System;
-using BenchmarkDotNet.Running;
+﻿using BenchmarkDotNet.Running;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace WeihanLi.Common.Benchmark
 {
@@ -17,7 +17,8 @@ namespace WeihanLi.Common.Benchmark
             DependencyResolver.SetDependencyResolver(serviceCollection);
 
             // BenchmarkRunner.Run<MapperTest>();
-            BenchmarkRunner.Run<CreateInstanceTest>();
+            // BenchmarkRunner.Run<CreateInstanceTest>();
+            BenchmarkRunner.Run<DITest>();
 
             Console.ReadLine();
         }
