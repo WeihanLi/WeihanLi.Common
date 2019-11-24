@@ -162,7 +162,7 @@ namespace DotNetCoreSample
 
             // CronHelperTest.MainTest();
 
-            // DependencyInjectionTest.BuiltInIocTest();
+            DependencyInjectionTest.BuiltInIocTest();
 
             Console.ReadLine();
         }
