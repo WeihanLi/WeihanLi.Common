@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
+using System.Threading.Tasks;
 using WeihanLi.Extensions;
 
-namespace WeihanLi.Common.Helpers
+namespace WeihanLi.Common.Compressor
 {
     /// <summary>
     /// DataCompressor

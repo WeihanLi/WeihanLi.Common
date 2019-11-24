@@ -1,9 +1,10 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
+using WeihanLi.Common.Compressor;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers
