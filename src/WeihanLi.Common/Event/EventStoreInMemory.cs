@@ -10,7 +10,7 @@ namespace WeihanLi.Common.Event
         private readonly ConcurrentDictionary<string, ConcurrentSet<Type>> _eventHandlers = new ConcurrentDictionary<string, ConcurrentSet<Type>>();
 
         public bool AddSubscription<TEvent, TEventHandler>()
-            where TEvent : IEventBase
+            where TEvent : class, IEventBase
             where TEventHandler : IEventHandler<TEvent>
         {
             var eventKey = GetEventKey<TEvent>();
@@ -33,7 +33,7 @@ namespace WeihanLi.Common.Event
             return true;
         }
 
-        public ICollection<Type> GetEventHandlerTypes<TEvent>() where TEvent : IEventBase
+        public ICollection<Type> GetEventHandlerTypes<TEvent>() where TEvent : class, IEventBase
         {
             if (_eventHandlers.Count == 0)
                 return new Type[0];
@@ -50,7 +50,7 @@ namespace WeihanLi.Common.Event
             return typeof(TEvent).FullName;
         }
 
-        public bool HasSubscriptionsForEvent<TEvent>() where TEvent : IEventBase
+        public bool HasSubscriptionsForEvent<TEvent>() where TEvent : class, IEventBase
         {
             if (_eventHandlers.Count == 0)
                 return false;
@@ -60,7 +60,7 @@ namespace WeihanLi.Common.Event
         }
 
         public bool RemoveSubscription<TEvent, TEventHandler>()
-            where TEvent : IEventBase
+            where TEvent : class, IEventBase
             where TEventHandler : IEventHandler<TEvent>
         {
             if (_eventHandlers.Count == 0)

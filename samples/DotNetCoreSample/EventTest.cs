@@ -16,12 +16,12 @@ namespace DotNetCoreSample
             eventBus.Subscribe<CounterEvent, CounterEventHandler1>();
 
             eventBus.Subscribe<CounterEvent, CounterEventHandler2>();
-            // eventBus.Subscribe<CounterEvent, DelegateEventHandler<CounterEvent>>(); // counld be used for eventLogging
+            eventBus.Subscribe<CounterEvent, DelegateEventHandler<CounterEvent>>(); // could be used for eventLogging
 
             eventBus.Publish(new CounterEvent { Counter = 1 });
 
             eventBus.Unsubscribe<CounterEvent, CounterEventHandler1>();
-            eventBus.Unsubscribe<CounterEvent, DelegateEventHandler<CounterEvent>>();
+            // eventBus.Unsubscribe<CounterEvent, DelegateEventHandler<CounterEvent>>();
             eventBus.Publish(new CounterEvent { Counter = 2 });
         }
     }
@@ -31,18 +31,18 @@ namespace DotNetCoreSample
         public int Counter { get; set; }
     }
 
-    internal class CounterEventHandler1 : IEventHandler<CounterEvent>
+    internal class CounterEventHandler1 : EventHandlerBase<CounterEvent>
     {
-        public Task Handle(CounterEvent @event)
+        public override Task Handle(CounterEvent @event)
         {
             LogHelper.GetLogger<CounterEventHandler1>().Info($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
             return Task.CompletedTask;
         }
     }
 
-    internal class CounterEventHandler2 : IEventHandler<CounterEvent>
+    internal class CounterEventHandler2 : EventHandlerBase<CounterEvent>
     {
-        public Task Handle(CounterEvent @event)
+        public override Task Handle(CounterEvent @event)
         {
             LogHelper.GetLogger<CounterEventHandler2>().Info($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
             return Task.CompletedTask;
