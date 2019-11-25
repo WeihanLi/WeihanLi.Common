@@ -28,25 +28,30 @@ namespace DotNetCoreSample
 
         public static void BuiltInIocTest()
         {
-            using (IServiceContainer container = new ServiceContainer())
+            IServiceContainerBuilder containerBuilder = new ServiceContainerBuilder();
+            containerBuilder.AddSingleton<IConfiguration>(new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build()
+            );
+            containerBuilder.AddScoped<IFly, MonkeyKing>();
+            containerBuilder.AddScoped<IFly, Superman>();
+
+            containerBuilder.AddScoped<HasDependencyTest>();
+            containerBuilder.AddScoped<HasDependencyTest1>();
+            containerBuilder.AddScoped<HasDependencyTest2>();
+            containerBuilder.AddScoped<HasDependencyTest3>();
+            containerBuilder.AddScoped(typeof(HasDependencyTest4<>));
+
+            containerBuilder.AddTransient<WuKong>();
+            containerBuilder.AddScoped<WuJing>(serviceProvider => new WuJing());
+            containerBuilder.AddSingleton(typeof(GenericServiceTest<>));
+
+            containerBuilder.RegisterAssemblyModules();
+
+            using (var container = containerBuilder.Build())
             {
-                container.AddSingleton<IConfiguration>(new ConfigurationBuilder()
-                    .AddJsonFile("appsettings.json")
-                    .Build()
-                );
-                container.AddScoped<IFly, MonkeyKing>();
-                container.AddScoped<IFly, Superman>();
-
-                container.AddScoped<HasDependencyTest>();
-                container.AddScoped<HasDependencyTest1>();
-                container.AddScoped<HasDependencyTest2>();
-                container.AddScoped<HasDependencyTest3>();
-                container.AddScoped(typeof(HasDependencyTest4<>));
-
-                container.AddTransient<WuKong>();
-                container.AddScoped<WuJing>(serviceProvider => new WuJing());
-                container.AddSingleton(typeof(GenericServiceTest<>));
-
+                var idGenerator = container.ResolveRequiredService<IIdGenerator>();
+                Console.WriteLine(idGenerator.NewId());
                 var rootConfig = container.ResolveService<IConfiguration>();
                 //try
                 //{
@@ -287,6 +292,14 @@ namespace DotNetCoreSample
         public void Fly()
         {
             Console.WriteLine("Superman is flying");
+        }
+    }
+
+    internal class TestServiceContainerModule : ServiceContainerModule
+    {
+        public override void ConfigureServices(IServiceContainerBuilder serviceContainerBuilder)
+        {
+            serviceContainerBuilder.AddSingleton<IIdGenerator>(GuidIdGenerator.Instance);
         }
     }
 }

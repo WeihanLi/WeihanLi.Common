@@ -57,21 +57,27 @@ namespace WeihanLi.Common.Benchmark
             services.AddTransient<C>();
             _transientSp = services.BuildServiceProvider();
 
-            _singletonContainer = new ServiceContainer();
-            _singletonContainer.AddSingleton<A>();
-            _singletonContainer.AddSingleton<B>();
-            _singletonContainer.AddSingleton<C>();
+            var containerBuilder = new ServiceContainerBuilder();
+            containerBuilder.AddSingleton<A>();
+            containerBuilder.AddSingleton<B>();
+            containerBuilder.AddSingleton<C>();
 
-            _scopedRootContainer = new ServiceContainer();
-            _scopedRootContainer.AddScoped<A>();
-            _scopedRootContainer.AddScoped<B>();
-            _scopedRootContainer.AddScoped<C>();
+            _singletonContainer = containerBuilder.Build();
+
+            containerBuilder = new ServiceContainerBuilder();
+            containerBuilder.AddScoped<A>();
+            containerBuilder.AddScoped<B>();
+            containerBuilder.AddScoped<C>();
+
+            _scopedRootContainer = containerBuilder.Build();
             _scopedContainer = _scopedRootContainer.CreateScope();
 
-            _transientContainer = new ServiceContainer();
-            _transientContainer.AddTransient<A>();
-            _transientContainer.AddTransient<B>();
-            _transientContainer.AddTransient<C>();
+            containerBuilder = new ServiceContainerBuilder();
+            containerBuilder.AddTransient<A>();
+            containerBuilder.AddTransient<B>();
+            containerBuilder.AddTransient<C>();
+
+            _transientContainer = containerBuilder.Build();
         }
 
         [GlobalCleanup]

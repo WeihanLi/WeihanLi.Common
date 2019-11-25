@@ -38,7 +38,7 @@ namespace WeihanLi.Common.Data
 
         public Repository(Func<DbConnection> dbConnectionFunc)
         {
-            _dbConnection = new Lazy<DbConnection>(dbConnectionFunc);
+            _dbConnection = new Lazy<DbConnection>(dbConnectionFunc, true);
         }
 
         public virtual int Count(Expression<Func<TEntity, bool>> whereExpression)

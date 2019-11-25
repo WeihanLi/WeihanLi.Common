@@ -6,7 +6,11 @@ using WeihanLi.Common;
 using WeihanLi.Common.DependencyInjection;
 using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Common.Logging;
 using WeihanLi.Common.Logging.Log4Net;
+using WeihanLi.Extensions;
+
+// ReSharper disable LocalizableElement
 
 // ReSharper disable once LocalizableElement
 namespace DotNetCoreSample
@@ -30,20 +34,20 @@ namespace DotNetCoreSample
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            //var city = configuration.GetAppSetting("City");
-            //var number = configuration.GetAppSetting<int>("Number");
-            //Console.WriteLine($"City:{city}, Number:{number}");
+            var city = configuration.GetAppSetting("City");
+            var number = configuration.GetAppSetting<int>("Number");
+            Console.WriteLine($"City:{city}, Number:{number}");
 
             services.AddSingleton(configuration);
 
             services.AddSingleton<IEventStore, EventStoreInMemory>();
             services.AddSingleton<IEventBus, EventBus>();
 
-            //services.AddSingleton(DelegateEventHandler.FromAction<CounterEvent>(@event =>
-            //    LogHelper.GetLogger(typeof(DelegateEventHandler<CounterEvent>))
-            //        .Info($"Event Info: {@event.ToJson()}")
-            //    )
-            //);
+            services.AddSingleton(DelegateEventHandler.FromAction<CounterEvent>(@event =>
+                LogHelper.GetLogger(typeof(DelegateEventHandler<CounterEvent>))
+                    .Info($"Event Info: {@event.ToJson()}")
+                )
+            );
 
             DependencyResolver.SetDependencyResolver(services);
 
@@ -52,7 +56,7 @@ namespace DotNetCoreSample
 
             //DependencyInjectionTest.Test();
 
-            // EventTest.MainTest();
+            EventTest.MainTest();
 
             // SerilogTest.MainTest();
 

@@ -9,16 +9,12 @@ namespace WeihanLi.Common.DependencyInjection
 {
     public interface IServiceContainer : IScope, IServiceProvider
     {
-        IServiceContainer Add(ServiceDefinition item);
-
-        IServiceContainer TryAdd(ServiceDefinition item);
-
         IServiceContainer CreateScope();
     }
 
-    public class ServiceContainer : IServiceContainer
+    internal class ServiceContainer : IServiceContainer
     {
-        private readonly List<ServiceDefinition> _services;
+        private readonly IReadOnlyList<ServiceDefinition> _services;
 
         private readonly ConcurrentDictionary<ServiceKey, object> _singletonInstances;
 
@@ -56,11 +52,12 @@ namespace WeihanLi.Common.DependencyInjection
 
         private readonly bool _isRootScope;
 
-        public ServiceContainer()
+        public ServiceContainer(IReadOnlyList<ServiceDefinition> serviceDefinitions)
         {
+            _services = serviceDefinitions;
+
             _isRootScope = true;
             _singletonInstances = new ConcurrentDictionary<ServiceKey, object>();
-            _services = new List<ServiceDefinition>();
         }
 
         private ServiceContainer(ServiceContainer serviceContainer)
@@ -70,35 +67,6 @@ namespace WeihanLi.Common.DependencyInjection
 
             _services = serviceContainer._services;
             _scopedInstances = new ConcurrentDictionary<ServiceKey, object>();
-        }
-
-        public IServiceContainer Add(ServiceDefinition item)
-        {
-            if (_disposed)
-            {
-                throw new InvalidOperationException("the service container had been disposed");
-            }
-            if (_services.Any(_ => _.ServiceType == item.ServiceType && _.GetImplementType() == item.GetImplementType()))
-            {
-                return this;
-            }
-
-            _services.Add(item);
-            return this;
-        }
-
-        public IServiceContainer TryAdd(ServiceDefinition item)
-        {
-            if (_disposed)
-            {
-                throw new InvalidOperationException("the service container had been disposed");
-            }
-            if (_services.Any(_ => _.ServiceType == item.ServiceType))
-            {
-                return this;
-            }
-            _services.Add(item);
-            return this;
         }
 
         public IServiceContainer CreateScope()

@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace WeihanLi.Common
+namespace WeihanLi.Common.Otp
 {
     public class Totp
     {
@@ -119,18 +119,18 @@ namespace WeihanLi.Common
 
         public int RemainingSeconds()
         {
-            return (int)(_timeStepTicks - ((DateTime.UtcNow - _unixEpoch).Ticks / TimeSpan.TicksPerSecond) % _timeStepTicks);
+            return (int)(TimeStepTicks - ((DateTime.UtcNow - UnixEpoch).Ticks / TimeSpan.TicksPerSecond) % TimeStepTicks);
         }
 
-        private static readonly DateTime _unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        private static readonly DateTime UnixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
         /// <summary>
         /// time step
         /// 30s(Recommend)
         /// </summary>
-        private const long _timeStepTicks = TimeSpan.TicksPerSecond * 30;
+        private const long TimeStepTicks = TimeSpan.TicksPerSecond * 30;
 
         // More info: https://tools.ietf.org/html/rfc6238#section-4
-        private static long GetCurrentTimeStepNumber() => (DateTime.UtcNow - _unixEpoch).Ticks / _timeStepTicks;
+        private static long GetCurrentTimeStepNumber() => (DateTime.UtcNow - UnixEpoch).Ticks / TimeStepTicks;
     }
 }
