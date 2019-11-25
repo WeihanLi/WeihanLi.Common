@@ -11,7 +11,7 @@ namespace WeihanLi.Common.Helpers
     /// </summary>
     public static class LogHelper
     {
-        private static readonly Lazy<ILogHelperFactory> _logFactory = new Lazy<ILogHelperFactory>(() => new LogHelperFactory());
+        private static readonly Lazy<ILogHelperFactory> _logFactory = new Lazy<ILogHelperFactory>(() => new LogHelperFactory(), true);
 
         public static ILogHelperFactory LogFactory => _logFactory.Value;
 

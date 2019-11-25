@@ -10,8 +10,6 @@ using Microsoft.Extensions.Configuration;
 
 #endif
 
-using System.Threading;
-
 namespace WeihanLi.Common.Helpers
 {
     /// <summary>
@@ -97,7 +95,7 @@ namespace WeihanLi.Common.Helpers
 
 #else
 
-        private static readonly Lazy<IConfiguration> _defaultConfiguration = new Lazy<IConfiguration>(() => DependencyResolver.Current.ResolveService<IConfiguration>(), LazyThreadSafetyMode.ExecutionAndPublication);
+        private static readonly Lazy<IConfiguration> _defaultConfiguration = new Lazy<IConfiguration>(() => DependencyResolver.Current.ResolveService<IConfiguration>(), true);
         public static IConfiguration Configuration => _defaultConfiguration.Value;
 
         public static string ConnectionString(string key) => Configuration.GetConnectionString(key);
