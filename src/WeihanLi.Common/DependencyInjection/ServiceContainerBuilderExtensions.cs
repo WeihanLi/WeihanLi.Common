@@ -34,7 +34,7 @@ namespace WeihanLi.Common.DependencyInjection
             }
 
             foreach (var type in assemblies.WhereNotNull().SelectMany(ass => ass.GetTypes())
-                .Where(t => t.IsClass && !t.IsAbstract && typeof(ServiceContainerModule).IsAssignableFrom(t))
+                .Where(t => t.IsClass && !t.IsAbstract && typeof(IServiceContainerModule).IsAssignableFrom(t))
             )
             {
                 try
