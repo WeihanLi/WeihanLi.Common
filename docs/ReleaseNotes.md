@@ -4,6 +4,13 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.26](https://www.nuget.org/packages/WeihanLi.Common/1.0.26)
+
+- update event, add async support for publish and subscribe/unsubscribe
+- update di, add `ServiceContainerBuilder`/`ServiceContainerModule` to register service
+- update cron, export `CronExpression`
+- add `ArrayHelper.Empty` for net45,update `ConfigurationHelper` for netstandard2.0
+
 ### [WeihanLi.Common 1.0.25](https://www.nuget.org/packages/WeihanLi.Common/1.0.25)
 
 - add `ValidateResultModel`
