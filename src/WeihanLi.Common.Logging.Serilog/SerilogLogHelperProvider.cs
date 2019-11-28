@@ -7,13 +7,13 @@ using SSerilog = Serilog;
 
 namespace WeihanLi.Common.Logging.Serilog
 {
-    public class SerilogLogHelperProvider : ILogHelperProvider, IDisposable
+    internal class SerilogLogHelperProvider : ILogHelperProvider, IDisposable
     {
-        private readonly ConcurrentDictionary<int, ILogHelperLogger> _loggers = new ConcurrentDictionary<int, ILogHelperLogger>();
+        private readonly Lazy<SerilogLogHelperLogger> _logger = new Lazy<SerilogLogHelperLogger>(()=> new SerilogLogHelperLogger());
 
         public ILogHelperLogger CreateLogger(string categoryName)
         {
-            return _loggers.GetOrAdd(1, t => new SerilogLogHelperLogger());
+            return _logger.Value;
         }
 
         public SerilogLogHelperProvider(LoggerConfiguration configuration)

@@ -9,13 +9,10 @@ namespace WeihanLi.Common.Logging.Serilog
 
         public static void LogInit(Action<LoggerConfiguration> configAction)
         {
-            lock (Locker)
-            {
-                var loggerConfiguration = new LoggerConfiguration();
-                loggerConfiguration.Enrich.FromLogContext();
-                configAction?.Invoke(loggerConfiguration);
-                Log.Logger = loggerConfiguration.CreateLogger();
-            }
+            var loggerConfiguration = new LoggerConfiguration();
+            loggerConfiguration.Enrich.FromLogContext();
+            configAction?.Invoke(loggerConfiguration);
+            LogInit(loggerConfiguration);
         }
 
         public static void LogInit(LoggerConfiguration loggerConfiguration)

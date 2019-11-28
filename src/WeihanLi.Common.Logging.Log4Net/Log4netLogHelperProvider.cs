@@ -5,7 +5,7 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Logging.Log4Net
 {
-    public class Log4NetLogHelperProvider : ILogHelperProvider
+    internal class Log4NetLogHelperProvider : ILogHelperProvider
     {
         private readonly ConcurrentDictionary<string, Log4NetLogHelperLogger> _loggers =
             new ConcurrentDictionary<string, Log4NetLogHelperLogger>(StringComparer.Ordinal);
