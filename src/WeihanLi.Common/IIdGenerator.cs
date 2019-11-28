@@ -8,7 +8,6 @@ namespace WeihanLi.Common
     public interface IIdGenerator
     {
         /// <summary>
-        /// 生成新的id
         /// Generate a new id
         /// </summary>
         /// <returns>new id</returns>
