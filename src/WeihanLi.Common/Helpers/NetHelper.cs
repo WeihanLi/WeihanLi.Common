@@ -1,10 +1,80 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Net;
 using System.Net.NetworkInformation;
 
 namespace WeihanLi.Common.Helpers
 {
     public static class NetHelper
     {
+        /// <summary>
+        /// IPNetwork
+        /// https://source.dot.net/#Microsoft.AspNetCore.HttpOverrides/IPNetwork.cs,ab4d458482303384
+        /// </summary>
+        private class IPNetwork
+        {
+            public IPNetwork(string ipPrefix, int prefixLength) : this(IPAddress.Parse(ipPrefix), prefixLength)
+            {
+            }
+
+            public IPNetwork(IPAddress prefix, int prefixLength)
+            {
+                Prefix = prefix;
+                PrefixLength = prefixLength;
+                PrefixBytes = Prefix.GetAddressBytes();
+                Mask = CreateMask();
+            }
+
+            public IPAddress Prefix { get; }
+
+            private byte[] PrefixBytes { get; }
+
+            /// <summary>
+            /// The CIDR notation of the subnet mask
+            /// </summary>
+            public int PrefixLength { get; }
+
+            private byte[] Mask { get; }
+
+            public bool Contains(IPAddress address)
+            {
+                if (Prefix.AddressFamily != address.AddressFamily)
+                {
+                    return false;
+                }
+
+                var addressBytes = address.GetAddressBytes();
+                for (var i = 0; i < PrefixBytes.Length && Mask[i] != 0; i++)
+                {
+                    if (PrefixBytes[i] != (addressBytes[i] & Mask[i]))
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            private byte[] CreateMask()
+            {
+                var mask = new byte[PrefixBytes.Length];
+                var remainingBits = PrefixLength;
+                var i = 0;
+                while (remainingBits >= 8)
+                {
+                    mask[i] = 0xFF;
+                    i++;
+                    remainingBits -= 8;
+                }
+                if (remainingBits > 0)
+                {
+                    mask[i] = (byte)(0xFF << (8 - remainingBits));
+                }
+
+                return mask;
+            }
+        }
+
         /// <summary>
         /// get a random port not used
         /// </summary>
@@ -28,6 +98,38 @@ namespace WeihanLi.Common.Helpers
                 randomPort = SecurityHelper.Random.Next(min, max);
             } while (IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners().Any(p => p.Port == randomPort));
             return randomPort;
+        }
+
+        private static readonly Lazy<IPNetwork> PrivateAddressBlockANetwork = new Lazy<IPNetwork>(() => new IPNetwork("10.0.0.0", 8));
+        private static readonly Lazy<IPNetwork> PrivateAddressBlockBNetwork = new Lazy<IPNetwork>(() => new IPNetwork("172.16.0.0", 12));
+        private static readonly Lazy<IPNetwork> PrivateAddressBlockCNetwork = new Lazy<IPNetwork>(() => new IPNetwork("192.168.0.0", 16));
+
+        /// <summary>
+        /// whether the ip is a private ip
+        /// </summary>
+        /// <param name="ip">ipAddress</param>
+        /// <returns></returns>
+        public static bool IsPrivateIP(string ip)
+        {
+            if (!IPAddress.TryParse(ip, out var ipAddress))
+            {
+                throw new ArgumentException("invalid ip address");
+            }
+
+            return IsPrivateIP(ipAddress);
+        }
+
+        /// <summary>
+        /// whether the ip is a private ip
+        /// </summary>
+        /// <param name="ipAddress">ipAddress</param>
+        /// <returns></returns>
+        public static bool IsPrivateIP(IPAddress ipAddress)
+        {
+            return PrivateAddressBlockANetwork.Value.Contains(ipAddress)
+                   || PrivateAddressBlockBNetwork.Value.Contains(ipAddress)
+                   || PrivateAddressBlockCNetwork.Value.Contains(ipAddress)
+                ;
         }
     }
 }
