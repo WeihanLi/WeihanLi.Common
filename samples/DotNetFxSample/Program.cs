@@ -10,7 +10,7 @@ namespace DotNetFxSample
     {
         public static void Main(string[] args)
         {
-            LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
+            LogHelper.LogFactory.AddLog4Net();
             Console.WriteLine("----------DotNetFxSample----------");
 
             // 数据库扩展
