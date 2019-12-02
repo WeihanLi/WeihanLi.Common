@@ -36,8 +36,7 @@ namespace WeihanLi.Extensions
         /// <returns>next occurrence times</returns>
         public static IEnumerable<DateTimeOffset> GetNextOccurrences(this CronExpression expression, TimeSpan period)
         {
-            var fromUtc = DateTime.UtcNow;
-            return expression?.GetOccurrences(fromUtc, fromUtc.Add(period), TimeZoneInfo.Utc);
+            return expression?.GetOccurrences(DateTime.UtcNow, fromUtc.Add(period), TimeZoneInfo.Utc);
         }
 
         /// <summary>
@@ -49,8 +48,7 @@ namespace WeihanLi.Extensions
         /// <returns>next occurrence times</returns>
         public static IEnumerable<DateTimeOffset> GetNextOccurrences(this CronExpression expression, TimeSpan period, TimeZoneInfo timeZoneInfo)
         {
-            var fromUtc = DateTime.UtcNow;
-            return expression.GetOccurrences(fromUtc, fromUtc.Add(period), timeZoneInfo);
+            return expression.GetOccurrences(DateTime.UtcNow, fromUtc.Add(period), timeZoneInfo);
         }
     }
 }
