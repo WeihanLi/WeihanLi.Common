@@ -16,4 +16,4 @@ jobs:
     - name: dotnet info
       run: dotnet --info
     - name: build
-      run: build.sh
+      run: bash build.sh
