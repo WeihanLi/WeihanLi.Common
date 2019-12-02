@@ -6,7 +6,7 @@
 
 [![Pipelines Build Status](https://weihanli.visualstudio.com/Pipelines/_apis/build/status/WeihanLi.WeihanLi.Common?branchName=dev)](https://weihanli.visualstudio.com/Pipelines/_build/latest?definitionId=16&branchName=dev)
 
-[![Github Build Status](https://github.com/WeihanLi/WeihanLi.Common/actions?query=workflow%3Adotnetcore+branch%3Adev)](https://github.com/WeihanLi/WeihanLi.Common/workflows/dotnetcore/badge.svg?branch=dev)
+[![Github Build Status](https://github.com/WeihanLi/WeihanLi.Common/workflows/dotnetcore/badge.svg?branch=dev)](https://github.com/WeihanLi/WeihanLi.Common/actions?query=workflow%3Adotnetcore+branch%3Adev)
 
 
 ## Intro
