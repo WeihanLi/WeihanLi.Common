@@ -140,15 +140,7 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         /// <param name="ip">ipAddress</param>
         /// <returns></returns>
-        public static bool IsPrivateIP(string ip)
-        {
-            if (!IPAddress.TryParse(ip, out var ipAddress))
-            {
-                throw new ArgumentException("invalid ip address");
-            }
-
-            return IsPrivateIP(ipAddress);
-        }
+        public static bool IsPrivateIP(string ip) => IsPrivateIP(IPAddress.Parse(ip));
 
         /// <summary>
         /// whether the ip is a private ip
