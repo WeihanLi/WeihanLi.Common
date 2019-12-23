@@ -130,26 +130,6 @@ namespace WeihanLi.Common.Logging
 
         #endregion Fatal
 
-        #region LoggerHelperProvider
-
-        /// <summary>
-        /// Create generic logger
-        /// </summary>
-        /// <typeparam name="TCategory">logger type</typeparam>
-        /// <param name="logHelperProvider">logHelperProvider</param>
-        /// <returns>ILogHelperLogger</returns>
-        public static ILogHelperLogger CreateLogger<TCategory>(this ILogHelperProvider logHelperProvider) => logHelperProvider.CreateLogger(typeof(TCategory));
-
-        /// <summary>
-        /// Create generic logger
-        /// </summary>
-        /// <param name="logHelperProvider">logHelperProvider</param>
-        /// <param name="type">logger type</param>
-        /// <returns>ILogHelperLogger</returns>
-        public static ILogHelperLogger CreateLogger(this ILogHelperProvider logHelperProvider, Type type) => logHelperProvider.CreateLogger(type.FullName);
-
-        #endregion LoggerHelperProvider
-
         #region LogHelperFactory
 
         public static ILogHelperFactory WithMinimumLevel(this ILogHelperFactory logHelperFactory, LogHelperLevel logLevel)

@@ -1,7 +1,10 @@
-﻿using System;
-using System.Collections.Concurrent;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using Serilog;
+using Serilog.Events;
+using Serilog.Parsing;
+using System;
+using System.Threading.Tasks;
+using WeihanLi.Common.Helpers;
 
 using SSerilog = Serilog;
 
@@ -9,13 +12,6 @@ namespace WeihanLi.Common.Logging.Serilog
 {
     internal class SerilogLogHelperProvider : ILogHelperProvider, IDisposable
     {
-        private readonly Lazy<SerilogLogHelperLogger> _logger = new Lazy<SerilogLogHelperLogger>(()=> new SerilogLogHelperLogger());
-
-        public ILogHelperLogger CreateLogger(string categoryName)
-        {
-            return _logger.Value;
-        }
-
         public SerilogLogHelperProvider(LoggerConfiguration configuration)
         {
             SerilogHelper.LogInit(configuration);
@@ -28,12 +24,19 @@ namespace WeihanLi.Common.Logging.Serilog
 
         public void Dispose()
         {
-            Log.CloseAndFlush();
+            SSerilog.Log.CloseAndFlush();
         }
-    }
 
-    internal class SerilogLogHelperLogger : ILogHelperLogger
-    {
+        public Task Log(LogHelperLoggingEvent loggingEvent)
+        {
+            var logger = SSerilog.Log.ForContext(SourceContextPropName, loggingEvent.CategoryName);
+            if (IsEnabled(loggingEvent.LogLevel))
+                logger.Write(new LogEvent(loggingEvent.DateTime, GetSerilogEventLevel(loggingEvent.LogLevel), loggingEvent.Exception, new MessageTemplate(loggingEvent.Message, new MessageTemplateToken[0]),
+                    new[] { new LogEventProperty(SourceContextPropName, new ScalarValue(loggingEvent.CategoryName)), }));
+
+            return TaskHelper.CompletedTask;
+        }
+
         public bool IsEnabled(LogHelperLevel loggerHelperLevel)
         {
             if (loggerHelperLevel == LogHelperLevel.None)
@@ -75,7 +78,9 @@ namespace WeihanLi.Common.Logging.Serilog
             }
         }
 
-        public void Log(LogHelperLevel loggerLevel, Exception exception, string message)
+        private const string SourceContextPropName = "SourceContext";
+
+        public void Log(SSerilog.ILogger logger, LogHelperLevel loggerLevel, Exception exception, string message)
         {
             if (IsEnabled(loggerLevel))
             {
@@ -83,27 +88,27 @@ namespace WeihanLi.Common.Logging.Serilog
                 {
                     case LogHelperLevel.All:
                     case LogHelperLevel.Trace:
-                        SSerilog.Log.Verbose(exception, message);
+                        logger.Verbose(exception, message);
                         break;
 
                     case LogHelperLevel.Debug:
-                        SSerilog.Log.Debug(exception, message);
+                        logger.Debug(exception, message);
                         break;
 
                     case LogHelperLevel.Info:
-                        SSerilog.Log.Information(exception, message);
+                        logger.Information(exception, message);
                         break;
 
                     case LogHelperLevel.Warn:
-                        SSerilog.Log.Warning(exception, message);
+                        logger.Warning(exception, message);
                         break;
 
                     case LogHelperLevel.Error:
-                        SSerilog.Log.Error(exception, message);
+                        logger.Error(exception, message);
                         break;
 
                     case LogHelperLevel.Fatal:
-                        SSerilog.Log.Fatal(exception, message);
+                        logger.Fatal(exception, message);
                         break;
                 }
             }

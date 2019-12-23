@@ -24,6 +24,13 @@ namespace WeihanLi.Common.Logging
         /// </summary>
         /// <param name="filterFunc">filterFunc, logProviderType/categoryName/Exception, whether to write log</param>
         bool AddFilter(Func<Type, string, LogHelperLevel, Exception, bool> filterFunc);
+
+        /// <summary>
+        /// config period batching
+        /// </summary>
+        /// <param name="period">period</param>
+        /// <param name="batchSize">batchSize</param>
+        void PeriodBatchingConfig(TimeSpan period, int batchSize);
     }
 
     internal class NullLogHelperFactory : ILogHelperFactory
@@ -46,10 +53,17 @@ namespace WeihanLi.Common.Logging
         {
             return filterFunc != null;
         }
+
+        public void PeriodBatchingConfig(TimeSpan period, int batchSize)
+        {
+        }
     }
 
     internal class LogHelperFactory : ILogHelperFactory
     {
+        internal TimeSpan Period { get; private set; } = TimeSpan.FromSeconds(5);
+        internal int BatchSize { get; private set; } = 1000;
+
         internal readonly ConcurrentDictionary<Type, ILogHelperProvider> _logHelperProviders = new ConcurrentDictionary<Type, ILogHelperProvider>();
 
         private readonly ConcurrentDictionary<string, ILogHelperLogger> _loggers = new ConcurrentDictionary<string, ILogHelperLogger>();
@@ -84,6 +98,22 @@ namespace WeihanLi.Common.Logging
 
             _logFilters.Add(filterFunc);
             return true;
+        }
+
+        public void PeriodBatchingConfig(TimeSpan period, int batchSize)
+        {
+            if (period > TimeSpan.Zero)
+            {
+                Period = period;
+            }
+            if (batchSize > 0)
+            {
+                BatchSize = batchSize;
+            }
+            else if (batchSize == 0)
+            {
+                BatchSize = 1;
+            }
         }
 
         public void Dispose()
