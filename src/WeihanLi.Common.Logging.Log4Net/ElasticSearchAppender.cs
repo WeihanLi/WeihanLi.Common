@@ -1,4 +1,5 @@
 ﻿using log4net.Appender;
+using log4net.Core;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -31,7 +32,7 @@ namespace WeihanLi.Common.Logging.Log4Net
 
         public string Type { get; set; } = "logEvent";
 
-        protected override void SendBuffer(LogHelperLoggingEvent[] events)
+        protected override void SendBuffer(LoggingEvent[] events)
         {
             if (events == null || events.Length == 0)
                 return;
@@ -45,7 +46,7 @@ namespace WeihanLi.Common.Logging.Log4Net
                     var json = new
                     {
                         le.LoggerName,
-                        Level = le.LogLevel.Name,
+                        Level = le.Level.Name,
                         TimeStamp = le.TimeStampUtc,
                         Message = le.RenderedMessage,
                         Exception = le.GetExceptionString(),
@@ -98,7 +99,7 @@ namespace WeihanLi.Common.Logging.Log4Net
             return true;
         }
 
-        private static IEnumerable<KeyValuePair<string, object>> GetLoggingEventProperties(LogHelperLoggingEvent loggingEvent)
+        private static IEnumerable<KeyValuePair<string, object>> GetLoggingEventProperties(LoggingEvent loggingEvent)
         {
             yield return new KeyValuePair<string, object>("Host", Environment.MachineName);
             if (IsValidLog4NetPropertyValue(loggingEvent.ThreadName))

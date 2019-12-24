@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Logging
@@ -11,10 +10,6 @@ namespace WeihanLi.Common.Logging
 
     internal class NullLogHelperProvider : ILogHelperProvider
     {
-        public bool BatchSupported => false;
-
         public Task Log(LogHelperLoggingEvent loggingEvent) => TaskHelper.CompletedTask;
-
-        public Task Log(IEnumerable<LogHelperLoggingEvent> loggingEvents) => TaskHelper.CompletedTask;
     }
 }

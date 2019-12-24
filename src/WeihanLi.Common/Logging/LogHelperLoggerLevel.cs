@@ -1,7 +1,7 @@
 ﻿namespace WeihanLi.Common.Logging
 {
     /// <summary>
-    /// LoggerLevel
+    /// LogLevel
     /// </summary>
     public enum LogHelperLevel
     {
