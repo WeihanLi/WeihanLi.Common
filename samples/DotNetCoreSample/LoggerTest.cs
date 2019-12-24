@@ -1,6 +1,7 @@
-﻿using WeihanLi.Common.Helpers;
+﻿using Serilog;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
-using WeihanLi.Common.Logging.Log4Net;
+using WeihanLi.Common.Logging.Serilog;
 
 namespace DotNetCoreSample
 {
@@ -11,7 +12,8 @@ namespace DotNetCoreSample
         public static void MainTest()
         {
             var abc = "1233";
-            LogHelper.LogFactory.AddLog4Net();
+            // LogHelper.LogFactory.AddLog4Net();
+            LogHelper.LogFactory.AddSerilog(loggerConfig => loggerConfig.WriteTo.Console());
             LogHelper.LogFactory.WithMinimumLevel(LogHelperLevel.Info);
 
             Logger.Debug($"12333 {abc}");

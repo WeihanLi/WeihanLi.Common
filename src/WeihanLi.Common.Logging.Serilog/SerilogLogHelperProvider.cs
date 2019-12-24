@@ -1,7 +1,5 @@
 ﻿using JetBrains.Annotations;
 using Serilog;
-using Serilog.Events;
-using Serilog.Parsing;
 using System;
 using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
@@ -30,10 +28,7 @@ namespace WeihanLi.Common.Logging.Serilog
         public Task Log(LogHelperLoggingEvent loggingEvent)
         {
             var logger = SSerilog.Log.ForContext(SourceContextPropName, loggingEvent.CategoryName);
-            if (IsEnabled(loggingEvent.LogLevel))
-                logger.Write(new LogEvent(loggingEvent.DateTime, GetSerilogEventLevel(loggingEvent.LogLevel), loggingEvent.Exception, new MessageTemplate(loggingEvent.Message, new MessageTemplateToken[0]),
-                    new[] { new LogEventProperty(SourceContextPropName, new ScalarValue(loggingEvent.CategoryName)), }));
-
+            Log(logger, loggingEvent.LogLevel, loggingEvent.Exception, loggingEvent.Message);
             return TaskHelper.CompletedTask;
         }
 
@@ -86,7 +81,6 @@ namespace WeihanLi.Common.Logging.Serilog
             {
                 switch (loggerLevel)
                 {
-                    case LogHelperLevel.All:
                     case LogHelperLevel.Trace:
                         logger.Verbose(exception, message);
                         break;
