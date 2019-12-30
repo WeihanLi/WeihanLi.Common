@@ -3,7 +3,7 @@
     /// <summary>
     /// LogLevel
     /// </summary>
-    public enum LogHelperLevel
+    public enum LogHelperLogLevel
     {
         /// <summary>
         /// All logging levels

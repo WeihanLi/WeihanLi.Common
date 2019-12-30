@@ -30,32 +30,32 @@ namespace WeihanLi.Common.Logging
             var logged = false;
             switch (loggingEvent.LogLevel)
             {
-                case LogHelperLevel.Debug:
+                case LogHelperLogLevel.Debug:
                     logger.LogDebug(loggingEvent.Exception, loggingEvent.Message);
                     logged = true;
                     break;
 
-                case LogHelperLevel.Trace:
+                case LogHelperLogLevel.Trace:
                     logger.LogTrace(loggingEvent.Exception, loggingEvent.Message);
                     logged = true;
                     break;
 
-                case LogHelperLevel.Info:
+                case LogHelperLogLevel.Info:
                     logger.LogInformation(loggingEvent.Exception, loggingEvent.Message);
                     logged = true;
                     break;
 
-                case LogHelperLevel.Warn:
+                case LogHelperLogLevel.Warn:
                     logger.LogWarning(loggingEvent.Exception, loggingEvent.Message);
                     logged = true;
                     break;
 
-                case LogHelperLevel.Error:
+                case LogHelperLogLevel.Error:
                     logger.LogError(loggingEvent.Exception, loggingEvent.Message);
                     logged = true;
                     break;
 
-                case LogHelperLevel.Fatal:
+                case LogHelperLogLevel.Fatal:
                     logger.LogError(loggingEvent.Exception, loggingEvent.Message);
                     logged = true;
                     break;
@@ -64,32 +64,32 @@ namespace WeihanLi.Common.Logging
             return logged;
         }
 
-        private static LogLevel ConvertLogLevel(LogHelperLevel logHelperLevel)
+        private static LogLevel ConvertLogLevel(LogHelperLogLevel logHelperLevel)
         {
             switch (logHelperLevel)
             {
-                case LogHelperLevel.All:
+                case LogHelperLogLevel.All:
                     return LogLevel.Debug;
 
-                case LogHelperLevel.Info:
+                case LogHelperLogLevel.Info:
                     return LogLevel.Information;
 
-                case LogHelperLevel.Debug:
+                case LogHelperLogLevel.Debug:
                     return LogLevel.Debug;
 
-                case LogHelperLevel.Trace:
+                case LogHelperLogLevel.Trace:
                     return LogLevel.Trace;
 
-                case LogHelperLevel.Warn:
+                case LogHelperLogLevel.Warn:
                     return LogLevel.Warning;
 
-                case LogHelperLevel.Error:
+                case LogHelperLogLevel.Error:
                     return LogLevel.Error;
 
-                case LogHelperLevel.Fatal:
+                case LogHelperLogLevel.Fatal:
                     return LogLevel.Critical;
 
-                case LogHelperLevel.None:
+                case LogHelperLogLevel.None:
                     return LogLevel.None;
 
                 default:

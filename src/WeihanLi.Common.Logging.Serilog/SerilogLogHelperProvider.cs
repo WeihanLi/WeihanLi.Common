@@ -53,32 +53,32 @@ namespace WeihanLi.Common.Logging.Serilog
             return TaskHelper.CompletedTask;
         }
 
-        private SSerilog.Events.LogEventLevel GetSerilogEventLevel(LogHelperLevel logHelperLevel)
+        private SSerilog.Events.LogEventLevel GetSerilogEventLevel(LogHelperLogLevel logHelperLevel)
         {
             switch (logHelperLevel)
             {
-                case LogHelperLevel.All:
+                case LogHelperLogLevel.All:
                     return SSerilog.Events.LogEventLevel.Verbose;
 
-                case LogHelperLevel.Debug:
+                case LogHelperLogLevel.Debug:
                     return SSerilog.Events.LogEventLevel.Debug;
 
-                case LogHelperLevel.Info:
+                case LogHelperLogLevel.Info:
                     return SSerilog.Events.LogEventLevel.Information;
 
-                case LogHelperLevel.Trace:
+                case LogHelperLogLevel.Trace:
                     return SSerilog.Events.LogEventLevel.Debug;
 
-                case LogHelperLevel.Warn:
+                case LogHelperLogLevel.Warn:
                     return SSerilog.Events.LogEventLevel.Warning;
 
-                case LogHelperLevel.Error:
+                case LogHelperLogLevel.Error:
                     return SSerilog.Events.LogEventLevel.Error;
 
-                case LogHelperLevel.Fatal:
+                case LogHelperLogLevel.Fatal:
                     return SSerilog.Events.LogEventLevel.Fatal;
 
-                case LogHelperLevel.None:
+                case LogHelperLogLevel.None:
                     return SSerilog.Events.LogEventLevel.Fatal;
 
                 default:

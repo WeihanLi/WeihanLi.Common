@@ -31,7 +31,7 @@ namespace WeihanLi.Common.Logging
         /// Add logs filter
         /// </summary>
         /// <param name="filterFunc">filterFunc, logProviderType/categoryName/Exception, whether to write log</param>
-        bool AddFilter(Func<Type, string, LogHelperLevel, Exception, bool> filterFunc);
+        bool AddFilter(Func<Type, string, LogHelperLogLevel, Exception, bool> filterFunc);
 
         ///// <summary>
         ///// config period batching
@@ -59,7 +59,7 @@ namespace WeihanLi.Common.Logging
 
         public ILogHelperLogger CreateLogger(string categoryName) => NullLogHelperLogger.Instance;
 
-        public bool AddFilter(Func<Type, string, LogHelperLevel, Exception, bool> filterFunc)
+        public bool AddFilter(Func<Type, string, LogHelperLogLevel, Exception, bool> filterFunc)
         {
             return filterFunc != null;
         }
@@ -76,7 +76,7 @@ namespace WeihanLi.Common.Logging
 
         private readonly ConcurrentDictionary<string, ILogHelperLogger> _loggers = new ConcurrentDictionary<string, ILogHelperLogger>();
 
-        internal readonly List<Func<Type, string, LogHelperLevel, Exception, bool>> _logFilters = new List<Func<Type, string, LogHelperLevel, Exception, bool>>();
+        internal readonly List<Func<Type, string, LogHelperLogLevel, Exception, bool>> _logFilters = new List<Func<Type, string, LogHelperLogLevel, Exception, bool>>();
 
         public LogHelperFactory() : this(Enumerable.Empty<ILogHelperProvider>())
         {
@@ -113,7 +113,7 @@ namespace WeihanLi.Common.Logging
             return false;
         }
 
-        public bool AddFilter(Func<Type, string, LogHelperLevel, Exception, bool> filterFunc)
+        public bool AddFilter(Func<Type, string, LogHelperLogLevel, Exception, bool> filterFunc)
         {
             if (null == filterFunc)
             {

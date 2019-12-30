@@ -1,5 +1,6 @@
 ﻿using JetBrains.Annotations;
 using log4net;
+using log4net.Core;
 using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
@@ -21,58 +22,71 @@ namespace WeihanLi.Common.Logging.Log4Net
             {
                 if (loggingEvent.Message.IsNotNullOrEmpty() || loggingEvent.Exception != null)
                 {
-                    switch (loggingEvent.LogLevel)
+                    var logLevel = GetLog4NetLogLevel(loggingEvent.LogLevel);
+                    var log4netEvent = new LoggingEvent(null, LogManager.GetRepository(ApplicationHelper.ApplicationName), loggingEvent.CategoryName, logLevel, loggingEvent.Message, loggingEvent.Exception);
+
+                    if (loggingEvent.Properties != null)
                     {
-                        case LogHelperLevel.Info:
-                            logger.Info(loggingEvent.Message, loggingEvent.Exception);
-                            break;
-
-                        case LogHelperLevel.Debug:
-                        case LogHelperLevel.Trace:
-                            logger.Debug(loggingEvent.Message, loggingEvent.Exception);
-                            break;
-
-                        case LogHelperLevel.Warn:
-                            logger.Warn(loggingEvent.Message, loggingEvent.Exception);
-                            break;
-
-                        case LogHelperLevel.Error:
-                            logger.Error(loggingEvent.Message, loggingEvent.Exception);
-                            break;
-
-                        case LogHelperLevel.Fatal:
-                            logger.Fatal(loggingEvent.Message, loggingEvent.Exception);
-                            break;
-
-                        default:
-                            logger.Warn($"Encountered unknown log level {loggingEvent.LogLevel}, writing out as Info.");
-                            logger.Info(loggingEvent.Message, loggingEvent.Exception);
-                            break;
+                        foreach (var property in loggingEvent.Properties)
+                        {
+                            if (!log4netEvent.Properties.Contains(property.Key))
+                            {
+                                log4netEvent.Properties[property.Key] = property.Value;
+                            }
+                        }
                     }
+                    logger.Logger.Log(log4netEvent);
                 }
             }
 
             return TaskHelper.CompletedTask;
         }
 
-        private static bool IsEnabled(LogHelperLevel loggerHelperLevel, ILog logger)
+        private static Level GetLog4NetLogLevel(LogHelperLogLevel logHelperLevel)
+        {
+            switch (logHelperLevel)
+            {
+                case LogHelperLogLevel.Info:
+                    return Level.Info;
+
+                case LogHelperLogLevel.Debug:
+                    return Level.Debug;
+
+                case LogHelperLogLevel.Trace:
+                    return Level.Trace;
+
+                case LogHelperLogLevel.Warn:
+                    return Level.Warn;
+
+                case LogHelperLogLevel.Error:
+                    return Level.Error;
+
+                case LogHelperLogLevel.Fatal:
+                    return Level.Fatal;
+
+                default:
+                    return Level.Alert;
+            }
+        }
+
+        private static bool IsEnabled(LogHelperLogLevel loggerHelperLevel, ILog logger)
         {
             switch (loggerHelperLevel)
             {
-                case LogHelperLevel.Info:
+                case LogHelperLogLevel.Info:
                     return logger.IsInfoEnabled;
 
-                case LogHelperLevel.Debug:
-                case LogHelperLevel.Trace:
+                case LogHelperLogLevel.Debug:
+                case LogHelperLogLevel.Trace:
                     return logger.IsDebugEnabled;
 
-                case LogHelperLevel.Warn:
+                case LogHelperLogLevel.Warn:
                     return logger.IsWarnEnabled;
 
-                case LogHelperLevel.Error:
+                case LogHelperLogLevel.Error:
                     return logger.IsErrorEnabled;
 
-                case LogHelperLevel.Fatal:
+                case LogHelperLogLevel.Fatal:
                     return logger.IsFatalEnabled;
 
                 default:

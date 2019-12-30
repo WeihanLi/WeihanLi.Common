@@ -15,7 +15,7 @@ namespace WeihanLi.Common.Logging
 
         public Exception Exception { get; set; }
 
-        public LogHelperLevel LogLevel { get; set; }
+        public LogHelperLogLevel LogLevel { get; set; }
 
         public Dictionary<string, object> Properties { get; set; }
 

@@ -8,7 +8,7 @@ namespace WeihanLi.Common.Logging
     /// </summary>
     public static class LogHelperExtensions
     {
-        public static void Log(this ILogHelperLogger logger, LogHelperLevel loggerLevel, string msg) => logger.Log(loggerLevel, null, msg);
+        public static void Log(this ILogHelperLogger logger, LogHelperLogLevel loggerLevel, string msg) => logger.Log(loggerLevel, null, msg);
 
         #region Info
 
@@ -16,17 +16,17 @@ namespace WeihanLi.Common.Logging
         {
             if (parameters == null || parameters.Length == 0)
             {
-                logger.Log(LogHelperLevel.Info, msg);
+                logger.Log(LogHelperLogLevel.Info, msg);
             }
             else
             {
-                logger.Log(LogHelperLevel.Info, null, msg, parameters);
+                logger.Log(LogHelperLogLevel.Info, null, msg, parameters);
             }
         }
 
-        public static void Info(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Info, ex, msg);
+        public static void Info(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLogLevel.Info, ex, msg);
 
-        public static void Info(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Info, ex, ex?.Message);
+        public static void Info(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLogLevel.Info, ex, ex?.Message);
 
         #endregion Info
 
@@ -36,17 +36,17 @@ namespace WeihanLi.Common.Logging
         {
             if (parameters == null || parameters.Length == 0)
             {
-                logger.Log(LogHelperLevel.Trace, msg);
+                logger.Log(LogHelperLogLevel.Trace, msg);
             }
             else
             {
-                logger.Log(LogHelperLevel.Trace, null, msg, parameters);
+                logger.Log(LogHelperLogLevel.Trace, null, msg, parameters);
             }
         }
 
-        public static void Trace(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Trace, ex, msg);
+        public static void Trace(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLogLevel.Trace, ex, msg);
 
-        public static void Trace(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Trace, ex, ex?.Message);
+        public static void Trace(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLogLevel.Trace, ex, ex?.Message);
 
         #endregion Trace
 
@@ -56,17 +56,17 @@ namespace WeihanLi.Common.Logging
         {
             if (parameters == null || parameters.Length == 0)
             {
-                logger.Log(LogHelperLevel.Debug, msg);
+                logger.Log(LogHelperLogLevel.Debug, msg);
             }
             else
             {
-                logger.Log(LogHelperLevel.Debug, null, msg, parameters);
+                logger.Log(LogHelperLogLevel.Debug, null, msg, parameters);
             }
         }
 
-        public static void Debug(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Debug, ex, msg);
+        public static void Debug(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLogLevel.Debug, ex, msg);
 
-        public static void Debug(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Debug, ex, ex?.Message);
+        public static void Debug(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLogLevel.Debug, ex, ex?.Message);
 
         #endregion Debug
 
@@ -76,17 +76,17 @@ namespace WeihanLi.Common.Logging
         {
             if (parameters == null || parameters.Length == 0)
             {
-                logger.Log(LogHelperLevel.Warn, null, msg);
+                logger.Log(LogHelperLogLevel.Warn, null, msg);
             }
             else
             {
-                logger.Log(LogHelperLevel.Warn, null, msg, parameters);
+                logger.Log(LogHelperLogLevel.Warn, null, msg, parameters);
             }
         }
 
-        public static void Warn(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Warn, ex, msg);
+        public static void Warn(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLogLevel.Warn, ex, msg);
 
-        public static void Warn(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Warn, ex, ex?.Message);
+        public static void Warn(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLogLevel.Warn, ex, ex?.Message);
 
         #endregion Warn
 
@@ -96,17 +96,17 @@ namespace WeihanLi.Common.Logging
         {
             if (parameters == null || parameters.Length == 0)
             {
-                logger.Log(LogHelperLevel.Error, null, msg);
+                logger.Log(LogHelperLogLevel.Error, null, msg);
             }
             else
             {
-                logger.Log(LogHelperLevel.Error, null, msg, parameters);
+                logger.Log(LogHelperLogLevel.Error, null, msg, parameters);
             }
         }
 
-        public static void Error(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Error, ex, msg);
+        public static void Error(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLogLevel.Error, ex, msg);
 
-        public static void Error(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Error, ex, ex?.Message);
+        public static void Error(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLogLevel.Error, ex, ex?.Message);
 
         #endregion Error
 
@@ -116,46 +116,46 @@ namespace WeihanLi.Common.Logging
         {
             if (parameters == null || parameters.Length == 0)
             {
-                logger.Log(LogHelperLevel.Fatal, null, msg);
+                logger.Log(LogHelperLogLevel.Fatal, null, msg);
             }
             else
             {
-                logger.Log(LogHelperLevel.Fatal, null, msg, parameters);
+                logger.Log(LogHelperLogLevel.Fatal, null, msg, parameters);
             }
         }
 
-        public static void Fatal(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Fatal, ex, msg);
+        public static void Fatal(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLogLevel.Fatal, ex, msg);
 
-        public static void Fatal(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Fatal, ex, ex?.Message);
+        public static void Fatal(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLogLevel.Fatal, ex, ex?.Message);
 
         #endregion Fatal
 
         #region LogHelperFactory
 
-        public static ILogHelperFactory WithMinimumLevel(this ILogHelperFactory logHelperFactory, LogHelperLevel logLevel)
+        public static ILogHelperFactory WithMinimumLevel(this ILogHelperFactory logHelperFactory, LogHelperLogLevel logLevel)
         {
             return logHelperFactory.WithFilter(level => level >= logLevel);
         }
 
-        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<LogHelperLevel, bool> filterFunc)
+        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<LogHelperLogLevel, bool> filterFunc)
         {
             logHelperFactory.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(logLevel));
             return logHelperFactory;
         }
 
-        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<string, LogHelperLevel, bool> filterFunc)
+        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<string, LogHelperLogLevel, bool> filterFunc)
         {
             logHelperFactory.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(categoryName, logLevel));
             return logHelperFactory;
         }
 
-        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<Type, string, LogHelperLevel, bool> filterFunc)
+        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<Type, string, LogHelperLogLevel, bool> filterFunc)
         {
             logHelperFactory.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(type, categoryName, logLevel));
             return logHelperFactory;
         }
 
-        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<Type, string, LogHelperLevel, Exception, bool> filterFunc)
+        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<Type, string, LogHelperLogLevel, Exception, bool> filterFunc)
         {
             logHelperFactory.AddFilter(filterFunc);
             return logHelperFactory;

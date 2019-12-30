@@ -8,9 +8,9 @@ namespace WeihanLi.Common.Logging
 {
     public interface ILogHelperLogger
     {
-        void Log(LogHelperLevel logLevel, Exception exception, string messageTemplate, params object[] parameters);
+        void Log(LogHelperLogLevel logLevel, Exception exception, string messageTemplate, params object[] parameters);
 
-        bool IsEnabled(LogHelperLevel logLevel);
+        bool IsEnabled(LogHelperLogLevel logLevel);
     }
 
     public class NullLogHelperLogger : ILogHelperLogger
@@ -21,11 +21,11 @@ namespace WeihanLi.Common.Logging
         {
         }
 
-        public void Log(LogHelperLevel logLevel, Exception exception, string messageTemplate, params object[] parameters)
+        public void Log(LogHelperLogLevel logLevel, Exception exception, string messageTemplate, params object[] parameters)
         {
         }
 
-        public bool IsEnabled(LogHelperLevel logLevel) => false;
+        public bool IsEnabled(LogHelperLogLevel logLevel) => false;
     }
 
     public interface ILogHelperLogger<TCategory> : ILogHelperLogger
@@ -44,7 +44,7 @@ namespace WeihanLi.Common.Logging
             CategoryName = categoryName;
         }
 
-        public void Log(LogHelperLevel logLevel, Exception exception, string messageTemplate, params object[] parameters)
+        public void Log(LogHelperLogLevel logLevel, Exception exception, string messageTemplate, params object[] parameters)
         {
             if (!IsEnabled(logLevel))
                 return;
@@ -83,6 +83,6 @@ namespace WeihanLi.Common.Logging
                     ).ToArray());
         }
 
-        public bool IsEnabled(LogHelperLevel logLevel) => logLevel != LogHelperLevel.None;
+        public bool IsEnabled(LogHelperLogLevel logLevel) => logLevel != LogHelperLogLevel.None;
     }
 }
