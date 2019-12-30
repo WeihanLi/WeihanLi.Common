@@ -16,11 +16,11 @@ namespace DotNetCoreSample
             LogHelper.LogFactory.AddSerilog(loggerConfig => loggerConfig.WriteTo.Console());
             LogHelper.LogFactory.WithMinimumLevel(LogHelperLevel.Info);
 
-            Logger.Debug($"12333 {abc}");
+            Logger.Debug("12333 {abc}", abc);
             Logger.Trace("122334334");
             Logger.Info($"122334334 {abc}");
 
-            Logger.Warn("12333");
+            Logger.Warn("12333, err:{err}", "hahaha");
             Logger.Error("122334334");
             Logger.Fatal("12333");
         }

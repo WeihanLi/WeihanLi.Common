@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Logging
 {
     public interface ILogHelperLogger
     {
-        void Log(LogHelperLevel logLevel, Exception exception, string message);
+        void Log(LogHelperLevel logLevel, Exception exception, string messageTemplate, params object[] parameters);
 
         bool IsEnabled(LogHelperLevel logLevel);
     }
@@ -20,7 +20,7 @@ namespace WeihanLi.Common.Logging
         {
         }
 
-        public void Log(LogHelperLevel logLevel, Exception exception, string message)
+        public void Log(LogHelperLevel logLevel, Exception exception, string messageTemplate, params object[] parameters)
         {
         }
 
@@ -34,8 +34,6 @@ namespace WeihanLi.Common.Logging
     internal class LogHelper : ILogHelperLogger
     {
         private readonly LogHelperFactory _logHelperFactory;
-        //private static volatile PeriodBatchingLoggingService _loggingService = null;
-        //private static readonly object _loggingServiceLock = new object();
 
         public string CategoryName { get; }
 
@@ -45,18 +43,26 @@ namespace WeihanLi.Common.Logging
             CategoryName = categoryName;
         }
 
-        public void Log(LogHelperLevel logLevel, Exception exception, string message)
+        public void Log(LogHelperLevel logLevel, Exception exception, string messageTemplate, params object[] parameters)
         {
             if (!IsEnabled(logLevel))
                 return;
 
+            if (!_logHelperFactory._logFilters.Any(x => x.Invoke(typeof(int), CategoryName, logLevel, exception)))
+            {
+                return;
+            }
+
+            var formattedLog = LoggingFormatter.Format(messageTemplate, parameters);
             var loggingEvent = new LogHelperLoggingEvent()
             {
                 CategoryName = CategoryName,
                 DateTime = DateTimeOffset.UtcNow,
                 Exception = exception,
                 LogLevel = logLevel,
-                Message = message,
+                MessageTemplate = messageTemplate,
+                Message = formattedLog.Msg,
+                Properties = formattedLog.Values,
             };
 
             Task.WaitAll(_logHelperFactory._logHelperProviders.Select(logHelperProvider =>
@@ -69,19 +75,6 @@ namespace WeihanLi.Common.Logging
                     return TaskHelper.CompletedTask;
                 }
                     ).ToArray());
-
-            //if (null == _loggingService)
-            //{
-            //    lock (_loggingServiceLock)
-            //    {
-            //        if (null == _loggingService)
-            //        {
-            //            _loggingService = new PeriodBatchingLoggingService(_logHelperFactory.BatchSize, _logHelperFactory.Period, _logHelperFactory);
-            //        }
-            //    }
-            //}
-            //
-            //_loggingService.Emit(loggingEvent);
         }
 
         public bool IsEnabled(LogHelperLevel logLevel) => logLevel != LogHelperLevel.None;

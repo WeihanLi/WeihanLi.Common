@@ -9,6 +9,8 @@ namespace WeihanLi.Common.Logging
 
         public DateTimeOffset DateTime { get; set; }
 
+        public string MessageTemplate { get; set; }
+
         public string Message { get; set; }
 
         public Exception Exception { get; set; }
