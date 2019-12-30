@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Logging
 {
@@ -64,6 +65,11 @@ namespace WeihanLi.Common.Logging
                 Message = formattedLog.Msg,
                 Properties = formattedLog.Values,
             };
+
+            foreach (var enricher in _logHelperFactory._logHelperEnrichers)
+            {
+                enricher.Enrich(loggingEvent);
+            }
 
             Task.WaitAll(_logHelperFactory._logHelperProviders.Select(logHelperProvider =>
                 {

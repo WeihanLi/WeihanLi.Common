@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Logging
 {
@@ -18,6 +19,13 @@ namespace WeihanLi.Common.Logging
         /// </summary>
         /// <param name="provider">The ILogHelperProvider.</param>
         bool AddProvider(ILogHelperProvider provider);
+
+        /// <summary>
+        /// add log enricher
+        /// </summary>
+        /// <param name="enricher">log enricher</param>
+        /// <returns></returns>
+        bool AddEnricher(ILogHelperLoggingEnricher enricher);
 
         /// <summary>
         /// Add logs filter
@@ -47,6 +55,8 @@ namespace WeihanLi.Common.Logging
 
         public bool AddProvider(ILogHelperProvider provider) => false;
 
+        public bool AddEnricher(ILogHelperLoggingEnricher enricher) => throw new NotImplementedException();
+
         public ILogHelperLogger CreateLogger(string categoryName) => NullLogHelperLogger.Instance;
 
         public bool AddFilter(Func<Type, string, LogHelperLevel, Exception, bool> filterFunc)
@@ -61,11 +71,12 @@ namespace WeihanLi.Common.Logging
 
     internal class LogHelperFactory : ILogHelperFactory
     {
-        internal readonly ConcurrentDictionary<Type, ILogHelperProvider> _logHelperProviders = new ConcurrentDictionary<Type, ILogHelperProvider>();
+        internal readonly Dictionary<Type, ILogHelperProvider> _logHelperProviders = new Dictionary<Type, ILogHelperProvider>();
+        internal readonly List<ILogHelperLoggingEnricher> _logHelperEnrichers = new List<ILogHelperLoggingEnricher>();
 
         private readonly ConcurrentDictionary<string, ILogHelperLogger> _loggers = new ConcurrentDictionary<string, ILogHelperLogger>();
 
-        internal readonly ConcurrentBag<Func<Type, string, LogHelperLevel, Exception, bool>> _logFilters = new ConcurrentBag<Func<Type, string, LogHelperLevel, Exception, bool>>();
+        internal readonly List<Func<Type, string, LogHelperLevel, Exception, bool>> _logFilters = new List<Func<Type, string, LogHelperLevel, Exception, bool>>();
 
         public LogHelperFactory() : this(Enumerable.Empty<ILogHelperProvider>())
         {
@@ -77,14 +88,30 @@ namespace WeihanLi.Common.Logging
             {
                 if (provider != null)
                 {
-                    _logHelperProviders.TryAdd(provider.GetType(), provider);
+                    _logHelperProviders.AddIfNotContainsKey(provider.GetType(), provider);
                 }
             }
         }
 
         public ILogHelperLogger CreateLogger(string categoryName) => _loggers.GetOrAdd(categoryName, _ => new LogHelper(this, _));
 
-        public bool AddProvider(ILogHelperProvider provider) => _logHelperProviders.TryAdd(provider.GetType(), provider);
+        public bool AddProvider(ILogHelperProvider provider)
+        {
+            if (null == provider)
+                return false;
+
+            return _logHelperProviders.AddIfNotContainsKey(provider.GetType(), provider);
+        }
+
+        public bool AddEnricher(ILogHelperLoggingEnricher enricher)
+        {
+            if (null != enricher)
+            {
+                _logHelperEnrichers.Add(enricher);
+                return true;
+            }
+            return false;
+        }
 
         public bool AddFilter(Func<Type, string, LogHelperLevel, Exception, bool> filterFunc)
         {
@@ -96,24 +123,6 @@ namespace WeihanLi.Common.Logging
             _logFilters.Add(filterFunc);
             return true;
         }
-
-        //internal TimeSpan Period { get; private set; } = TimeSpan.FromSeconds(5);
-        //internal int BatchSize { get; private set; } = 1000;
-        //public void PeriodBatchingConfig(TimeSpan period, int batchSize)
-        //{
-        //    if (period > TimeSpan.Zero)
-        //    {
-        //        Period = period;
-        //    }
-        //    if (batchSize > 0)
-        //    {
-        //        BatchSize = batchSize;
-        //    }
-        //    else if (batchSize == 0)
-        //    {
-        //        BatchSize = 1;
-        //    }
-        //}
 
         public void Dispose()
         {

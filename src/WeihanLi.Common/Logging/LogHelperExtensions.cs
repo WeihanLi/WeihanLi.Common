@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace WeihanLi.Common.Logging
 {
@@ -166,6 +167,82 @@ namespace WeihanLi.Common.Logging
             return logHelperFactory;
         }
 
+        public static ILogHelperFactory WithEnricher<TEnricher>(this ILogHelperFactory logHelperFactory,
+            TEnricher enricher) where TEnricher : ILogHelperLoggingEnricher
+        {
+            logHelperFactory.AddEnricher(enricher);
+            return logHelperFactory;
+        }
+
+        public static ILogHelperFactory WithEnricher<TEnricher>(this ILogHelperFactory logHelperFactory) where TEnricher : ILogHelperLoggingEnricher, new()
+        {
+            logHelperFactory.AddEnricher(new TEnricher());
+            return logHelperFactory;
+        }
+
+        public static ILogHelperFactory EnrichWithProperty(this ILogHelperFactory logHelperFactory, string propertyName, object value, bool overwrite = false)
+        {
+            logHelperFactory.AddEnricher(new PropertyLoggingEnricher(propertyName, value, overwrite));
+            return logHelperFactory;
+        }
+
+        public static ILogHelperFactory EnrichWithProperty(this ILogHelperFactory logHelperFactory, string propertyName, Func<LogHelperLoggingEvent> valueFactory, bool overwrite = false)
+        {
+            logHelperFactory.AddEnricher(new PropertyLoggingEnricher(propertyName, valueFactory, overwrite));
+            return logHelperFactory;
+        }
+
+        public static ILogHelperFactory EnrichWithProperty(this ILogHelperFactory logHelperFactory, string propertyName, Func<LogHelperLoggingEvent, object> valueFactory, Func<LogHelperLoggingEvent, bool> predict, bool overwrite = false)
+        {
+            logHelperFactory.AddEnricher(new PropertyLoggingEnricher(propertyName, valueFactory, predict, overwrite));
+            return logHelperFactory;
+        }
+
         #endregion LogHelperFactory
+
+        #region LoggingEnricher
+
+        public static void AddProperty(this LogHelperLoggingEvent loggingEvent, string propertyName,
+            object propertyValue, bool overwrite = false)
+        {
+            if (null == loggingEvent)
+            {
+                throw new ArgumentNullException(nameof(loggingEvent));
+            }
+
+            if (loggingEvent.Properties == null)
+            {
+                loggingEvent.Properties = new Dictionary<string, object>();
+            }
+            if (loggingEvent.Properties.ContainsKey(propertyName) && overwrite == false)
+            {
+                return;
+            }
+
+            loggingEvent.Properties[propertyName] = propertyValue;
+        }
+
+        public static void AddProperty(this LogHelperLoggingEvent loggingEvent, string propertyName,
+            Func<LogHelperLoggingEvent, object> propertyValueFactory, bool overwrite = false)
+        {
+            if (null == loggingEvent)
+            {
+                throw new ArgumentNullException(nameof(loggingEvent));
+            }
+
+            if (loggingEvent.Properties == null)
+            {
+                loggingEvent.Properties = new Dictionary<string, object>();
+            }
+
+            if (loggingEvent.Properties.ContainsKey(propertyName) && overwrite == false)
+            {
+                return;
+            }
+
+            loggingEvent.Properties[propertyName] = propertyValueFactory?.Invoke(loggingEvent);
+        }
+
+        #endregion LoggingEnricher
     }
 }
