@@ -18,9 +18,9 @@ namespace WeihanLi.Common.Helpers
             LogFactory = loggingBuilder.Build();
         }
 
-        public static ILogHelperLogger GetLogger<T>() => GetLogger(typeof(T));
+        public static ILogHelperLogger GetLogger<T>() => LogFactory.GetLogger(typeof(T));
 
-        public static ILogHelperLogger GetLogger(Type type) => GetLogger(type.FullName);
+        public static ILogHelperLogger GetLogger(Type type) => LogFactory.GetLogger(type);
 
         public static ILogHelperLogger GetLogger(string categoryName)
         {

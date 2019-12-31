@@ -130,6 +130,18 @@ namespace WeihanLi.Common.Logging
 
         #endregion Fatal
 
+        #region ILogHelperFactory
+
+        public static ILogHelperLogger GetLogger<T>(this ILogHelperFactory logHelperFactory) =>
+            GetLogger(logHelperFactory, typeof(T));
+
+        public static ILogHelperLogger GetLogger(this ILogHelperFactory logHelperFactory, Type type)
+        {
+            return logHelperFactory.CreateLogger(type.FullName);
+        }
+
+        #endregion ILogHelperFactory
+
         #region ILogHelperLoggingBuilder
 
         public static ILogHelperLoggingBuilder WithMinimumLevel(this ILogHelperLoggingBuilder loggingBuilder, LogHelperLogLevel logLevel)

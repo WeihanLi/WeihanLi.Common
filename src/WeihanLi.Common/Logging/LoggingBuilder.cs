@@ -39,7 +39,7 @@ namespace WeihanLi.Common.Logging
         ILogHelperFactory Build();
     }
 
-    public class LogHelperLoggingBuilder : ILogHelperLoggingBuilder
+    internal class LogHelperLoggingBuilder : ILogHelperLoggingBuilder
     {
         internal readonly Dictionary<Type, ILogHelperProvider> _logHelperProviders = new Dictionary<Type, ILogHelperProvider>();
         internal readonly List<ILogHelperLoggingEnricher> _logHelperEnrichers = new List<ILogHelperLoggingEnricher>();
