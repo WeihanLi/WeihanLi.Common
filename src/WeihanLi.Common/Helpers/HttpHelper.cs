@@ -711,10 +711,11 @@ namespace WeihanLi.Common.Helpers
         /// <param name="filePath">filePath</param>
         /// <param name="fileKey">fileKey in form,default is "file"</param>
         /// <param name="formFields">other form fields</param>
+        /// <param name="headers">headers</param>
         /// <returns></returns>
         public static string HttpPostFile(string url, string filePath, string fileKey = "file",
-            IEnumerable<KeyValuePair<string, string>> formFields = null)
-            => HttpPostFile(url, Path.GetFileName(filePath), File.ReadAllBytes(filePath), fileKey, formFields);
+            IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
+            => HttpPostFile(url, Path.GetFileName(filePath), File.ReadAllBytes(filePath), fileKey, formFields, headers);
 
         /// <summary>
         /// PostFile
@@ -724,8 +725,9 @@ namespace WeihanLi.Common.Helpers
         /// <param name="fileBytes">fileBytes</param>
         /// <param name="fileKey">fileKey in form,default is "file"</param>
         /// <param name="formFields">other form fields</param>
+        /// <param name="headers">request headers</param>
         /// <returns></returns>
-        public static string HttpPostFile(string url, string fileName, byte[] fileBytes, string fileKey = "file", IEnumerable<KeyValuePair<string, string>> formFields = null)
+        public static string HttpPostFile(string url, string fileName, byte[] fileBytes, string fileKey = "file", IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
         {
             var request = WebRequest.CreateHttp(url);
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
@@ -733,6 +735,14 @@ namespace WeihanLi.Common.Helpers
             request.ContentType = $"multipart/form-data; boundary={boundary}";
             request.Method = "POST";
             request.KeepAlive = true;
+
+            if (headers != null)
+            {
+                foreach (var header in headers)
+                {
+                    request.Headers[header.Key] = header.Value;
+                }
+            }
 
             var boundarybytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
             var endBoundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}--");
@@ -773,12 +783,13 @@ namespace WeihanLi.Common.Helpers
         /// <param name="url">post url</param>
         /// <param name="filePaths">files</param>
         /// <param name="formFields">other form fields</param>
+        /// <param name="headers">request headers</param>
         /// <returns></returns>
         public static string HttpPostFile(string url, IEnumerable<string> filePaths,
-            IEnumerable<KeyValuePair<string, string>> formFields = null)
+            IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
             => HttpPostFile(url,
                 filePaths.Select(_ => new KeyValuePair<string, byte[]>(Path.GetFileName(_), File.ReadAllBytes(_))),
-                formFields);
+                formFields, headers);
 
         /// <summary>
         /// PostMultiFile
@@ -786,8 +797,9 @@ namespace WeihanLi.Common.Helpers
         /// <param name="url">post url</param>
         /// <param name="files">files</param>
         /// <param name="formFields">other form fields</param>
+        /// <param name="headers">request headers</param>
         /// <returns></returns>
-        public static string HttpPostFile(string url, IEnumerable<KeyValuePair<string, byte[]>> files, IEnumerable<KeyValuePair<string, string>> formFields = null)
+        public static string HttpPostFile(string url, IEnumerable<KeyValuePair<string, byte[]>> files, IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
         {
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
 
@@ -795,6 +807,14 @@ namespace WeihanLi.Common.Helpers
             request.ContentType = $"multipart/form-data; boundary={boundary}";
             request.Method = "POST";
             request.KeepAlive = true;
+
+            if (headers != null)
+            {
+                foreach (var header in headers)
+                {
+                    request.Headers[header.Key] = header.Value;
+                }
+            }
 
             var boundarybytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
             var endBoundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}--");
@@ -839,10 +859,11 @@ namespace WeihanLi.Common.Helpers
         /// <param name="filePath">filePath</param>
         /// <param name="fileKey">fileKey in form,default is "file"</param>
         /// <param name="formFields">other form fields</param>
+        /// <param name="headers">request headers</param>
         /// <returns>response text</returns>
         public static Task<string> HttpPostFileAsync(string url, string filePath, string fileKey = "file",
-            IEnumerable<KeyValuePair<string, string>> formFields = null)
-            => HttpPostFileAsync(url, Path.GetFileName(filePath), File.ReadAllBytes(filePath), fileKey, formFields);
+            IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
+            => HttpPostFileAsync(url, Path.GetFileName(filePath), File.ReadAllBytes(filePath), fileKey, formFields, headers);
 
         /// <summary>
         /// PostFileAsync
@@ -852,8 +873,9 @@ namespace WeihanLi.Common.Helpers
         /// <param name="fileBytes">fileBytes</param>
         /// <param name="fileKey">fileKey in form,default is "file"</param>
         /// <param name="formFields">other form fields</param>
+        /// <param name="headers">request headers</param>
         /// <returns></returns>
-        public static async Task<string> HttpPostFileAsync(string url, string fileName, byte[] fileBytes, string fileKey = "file", IEnumerable<KeyValuePair<string, string>> formFields = null)
+        public static async Task<string> HttpPostFileAsync(string url, string fileName, byte[] fileBytes, string fileKey = "file", IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
         {
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
 
@@ -861,20 +883,27 @@ namespace WeihanLi.Common.Helpers
             request.ContentType = $"multipart/form-data; boundary={boundary}";
             request.Method = "POST";
             request.KeepAlive = true;
-
-            var boundarybytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
+            if (headers != null)
+            {
+                foreach (var header in headers)
+                {
+                    request.Headers[header.Key] = header.Value;
+                }
+            }
+            var boundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
             var endBoundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}--");
 
             using (var memStream = new MemoryStream())
             {
                 if (formFields != null)
                 {
-                    await Task.WhenAll(formFields.Select(pair =>
-                        memStream.WriteAsync(
-                            Encoding.UTF8.GetBytes(string.Format(FormDataFormat, pair.Key, pair.Value, boundary)))).ToArray());
+                    foreach (var pair in formFields)
+                    {
+                        memStream.Write(Encoding.UTF8.GetBytes(string.Format(FormDataFormat, pair.Key, pair.Value, boundary)));
+                    }
                 }
 
-                await memStream.WriteAsync(boundarybytes);
+                await memStream.WriteAsync(boundaryBytes);
 
                 await memStream.WriteAsync(Encoding.UTF8.GetBytes(string.Format(FileHeaderFormat, fileKey, fileName)));
 
@@ -900,12 +929,13 @@ namespace WeihanLi.Common.Helpers
         /// <param name="url">post url</param>
         /// <param name="filePaths">files</param>
         /// <param name="formFields">other form fields</param>
+        /// <param name="headers">request headers</param>
         /// <returns></returns>
         public static Task<string> HttpPostFileAsync(string url, IEnumerable<string> filePaths,
-            IEnumerable<KeyValuePair<string, string>> formFields = null)
+            IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
             => HttpPostFileAsync(url,
                 filePaths.Select(_ => new KeyValuePair<string, byte[]>(Path.GetFileName(_), File.ReadAllBytes(_))),
-                formFields);
+                formFields, headers);
 
         /// <summary>
         /// Post Multi File Async
@@ -913,8 +943,9 @@ namespace WeihanLi.Common.Helpers
         /// <param name="url">post url</param>
         /// <param name="files">files</param>
         /// <param name="formFields">other form fields</param>
+        /// <param name="headers">request headers</param>
         /// <returns></returns>
-        public static async Task<string> HttpPostFileAsync(string url, IEnumerable<KeyValuePair<string, byte[]>> files, IEnumerable<KeyValuePair<string, string>> formFields = null)
+        public static async Task<string> HttpPostFileAsync(string url, IEnumerable<KeyValuePair<string, byte[]>> files, IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
         {
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
 
@@ -922,23 +953,30 @@ namespace WeihanLi.Common.Helpers
             request.ContentType = $"multipart/form-data; boundary={boundary}";
             request.Method = "POST";
             request.KeepAlive = true;
-
-            var boundarybytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
+            if (headers != null)
+            {
+                foreach (var header in headers)
+                {
+                    request.Headers[header.Key] = header.Value;
+                }
+            }
+            var boundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
             var endBoundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}--");
 
             using (var memStream = new MemoryStream())
             {
                 if (formFields != null)
                 {
-                    await Task.WhenAll(formFields.Select(pair =>
-                        memStream.WriteAsync(
-                            Encoding.UTF8.GetBytes(string.Format(FormDataFormat, pair.Key, pair.Value, boundary)))
-                        ));
+                    foreach (var pair in formFields)
+                    {
+                        memStream.Write(
+                            Encoding.UTF8.GetBytes(string.Format(FormDataFormat, pair.Key, pair.Value, boundary)));
+                    }
                 }
 
                 foreach (var file in files)
                 {
-                    await memStream.WriteAsync(boundarybytes);
+                    await memStream.WriteAsync(boundaryBytes);
 
                     await memStream.WriteAsync(Encoding.UTF8.GetBytes(
                         string.Format(FileHeaderFormat, Path.GetFileNameWithoutExtension(file.Key), file.Key)));

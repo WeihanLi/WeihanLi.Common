@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Concurrent;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using Serilog;
+using Serilog.Events;
+using Serilog.Parsing;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using WeihanLi.Common.Helpers;
 
 using SSerilog = Serilog;
 
 namespace WeihanLi.Common.Logging.Serilog
 {
-    public class SerilogLogHelperProvider : ILogHelperProvider, IDisposable
+    internal class SerilogLogHelperProvider : ILogHelperProvider, IDisposable
     {
-        private readonly ConcurrentDictionary<int, ILogHelperLogger> _loggers = new ConcurrentDictionary<int, ILogHelperLogger>();
-
-        public ILogHelperLogger CreateLogger(string categoryName)
-        {
-            return _loggers.GetOrAdd(1, t => new SerilogLogHelperLogger());
-        }
+        private static readonly MessageTemplateParser MessageTemplateParser = new MessageTemplateParser();
 
         public SerilogLogHelperProvider(LoggerConfiguration configuration)
         {
@@ -28,46 +27,58 @@ namespace WeihanLi.Common.Logging.Serilog
 
         public void Dispose()
         {
-            Log.CloseAndFlush();
+            SSerilog.Log.CloseAndFlush();
         }
-    }
 
-    internal class SerilogLogHelperLogger : ILogHelperLogger
-    {
-        public bool IsEnabled(LogHelperLevel loggerHelperLevel)
+        public Task Log(LogHelperLoggingEvent loggingEvent)
         {
-            if (loggerHelperLevel == LogHelperLevel.None)
-                return false;
-
-            return SSerilog.Log.IsEnabled(GetSerilogEventLevel(loggerHelperLevel));
+            var logger = SSerilog.Log.ForContext(SourceContextPropName, loggingEvent.CategoryName);
+            //Log(logger, loggingEvent.LogLevel, loggingEvent.Exception, loggingEvent.Message);
+            var logLevel = GetSerilogEventLevel(loggingEvent.LogLevel);
+            if (logger.IsEnabled(logLevel))
+            {
+                var messageTemplate = loggingEvent.MessageTemplate;
+                var properties = new List<LogEventProperty>();
+                if (loggingEvent.Properties != null)
+                {
+                    foreach (var property in loggingEvent.Properties)
+                    {
+                        if (logger.BindProperty(property.Key, property.Value, false, out var bound))
+                            properties.Add(bound);
+                    }
+                }
+                var parsedTemplate = MessageTemplateParser.Parse(messageTemplate ?? "");
+                logger.Write(new LogEvent(loggingEvent.DateTime, logLevel, loggingEvent.Exception, parsedTemplate, properties));
+            }
+            return TaskHelper.CompletedTask;
         }
 
-        private SSerilog.Events.LogEventLevel GetSerilogEventLevel(LogHelperLevel logHelperLevel)
+        private SSerilog.Events.LogEventLevel GetSerilogEventLevel(LogHelperLogLevel logHelperLevel)
         {
             switch (logHelperLevel)
             {
-                case LogHelperLevel.All:
+                case LogHelperLogLevel.All:
                     return SSerilog.Events.LogEventLevel.Verbose;
 
-                case LogHelperLevel.Debug:
+                case LogHelperLogLevel.Debug:
                     return SSerilog.Events.LogEventLevel.Debug;
 
-                case LogHelperLevel.Info:
+                case LogHelperLogLevel.Info:
                     return SSerilog.Events.LogEventLevel.Information;
 
-                case LogHelperLevel.Trace:
+                case LogHelperLogLevel.Trace:
                     return SSerilog.Events.LogEventLevel.Debug;
 
-                case LogHelperLevel.Warn:
+                case LogHelperLogLevel.Warn:
                     return SSerilog.Events.LogEventLevel.Warning;
 
-                case LogHelperLevel.Error:
+                case LogHelperLogLevel.Error:
                     return SSerilog.Events.LogEventLevel.Error;
 
-                case LogHelperLevel.Fatal:
+                case LogHelperLogLevel.Fatal:
                     return SSerilog.Events.LogEventLevel.Fatal;
 
-                case LogHelperLevel.None:
+                case LogHelperLogLevel.None:
                     return SSerilog.Events.LogEventLevel.Fatal;
 
                 default:
@@ -75,54 +86,22 @@ namespace WeihanLi.Common.Logging.Serilog
             }
         }
 
-        public void Log(LogHelperLevel loggerLevel, Exception exception, string message)
-        {
-            if (IsEnabled(loggerLevel))
-            {
-                switch (loggerLevel)
-                {
-                    case LogHelperLevel.All:
-                    case LogHelperLevel.Trace:
-                        SSerilog.Log.Verbose(exception, message);
-                        break;
-
-                    case LogHelperLevel.Debug:
-                        SSerilog.Log.Debug(exception, message);
-                        break;
-
-                    case LogHelperLevel.Info:
-                        SSerilog.Log.Information(exception, message);
-                        break;
-
-                    case LogHelperLevel.Warn:
-                        SSerilog.Log.Warning(exception, message);
-                        break;
-
-                    case LogHelperLevel.Error:
-                        SSerilog.Log.Error(exception, message);
-                        break;
-
-                    case LogHelperLevel.Fatal:
-                        SSerilog.Log.Fatal(exception, message);
-                        break;
-                }
-            }
-        }
+        private const string SourceContextPropName = "SourceContext";
     }
 
     public static class LogHelperFactoryExtensions
     {
-        public static ILogHelperFactory AddSerilog([NotNull]this ILogHelperFactory logHelperFactory, Action<LoggerConfiguration> loggerConfigurationAction)
+        public static ILogHelperLoggingBuilder AddSerilog([NotNull]this ILogHelperLoggingBuilder loggingBuilder, Action<LoggerConfiguration> loggerConfigurationAction)
         {
-            logHelperFactory.AddProvider(new SerilogLogHelperProvider(loggerConfigurationAction));
-            return logHelperFactory;
+            loggingBuilder.AddProvider(new SerilogLogHelperProvider(loggerConfigurationAction));
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory AddSerilog([NotNull] this ILogHelperFactory logHelperFactory,
+        public static ILogHelperLoggingBuilder AddSerilog([NotNull] this ILogHelperLoggingBuilder loggingBuilder,
             LoggerConfiguration loggerConfiguration)
         {
-            logHelperFactory.AddProvider(new SerilogLogHelperProvider(loggerConfiguration));
-            return logHelperFactory;
+            loggingBuilder.AddProvider(new SerilogLogHelperProvider(loggerConfiguration));
+            return loggingBuilder;
         }
     }
 }

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Concurrent;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Logging
 {
     internal class MicrosoftLoggingLogHelperProvider : ILogHelperProvider
     {
-        private readonly ConcurrentDictionary<string, MicrosoftLoggingLogHelper> _loggers = new ConcurrentDictionary<string, MicrosoftLoggingLogHelper>();
-
         private readonly ILoggerFactory _loggerFactory;
 
         public MicrosoftLoggingLogHelperProvider(ILoggerFactory loggerFactory)
@@ -15,93 +13,94 @@ namespace WeihanLi.Common.Logging
             _loggerFactory = loggerFactory;
         }
 
-        public ILogHelperLogger CreateLogger(string categoryName) => _loggers.GetOrAdd(categoryName, _ => new MicrosoftLoggingLogHelper(_loggerFactory.CreateLogger(_)));
-    }
-
-    internal class MicrosoftLoggingLogHelper : ILogHelperLogger
-    {
-        private readonly ILogger _logger;
-
-        public MicrosoftLoggingLogHelper(ILogger logger)
+        public Task Log(LogHelperLoggingEvent loggingEvent)
         {
-            _logger = logger;
+            var logger = _loggerFactory.CreateLogger(loggingEvent.CategoryName);
+            LogInternal(logger, loggingEvent);
+            return TaskHelper.CompletedTask;
         }
 
-        public bool IsEnabled(LogHelperLevel loggerLevel)
+        private static bool LogInternal(ILogger logger, LogHelperLoggingEvent loggingEvent)
         {
-            switch (loggerLevel)
+            var logLevel = ConvertLogLevel(loggingEvent.LogLevel);
+            if (!logger.IsEnabled(logLevel))
             {
-                case LogHelperLevel.All:
-                    return true;
+                return false;
+            }
+            var logged = false;
+            switch (loggingEvent.LogLevel)
+            {
+                case LogHelperLogLevel.Debug:
+                    logger.LogDebug(loggingEvent.Exception, loggingEvent.Message);
+                    logged = true;
+                    break;
 
-                case LogHelperLevel.Info:
-                    return _logger.IsEnabled(LogLevel.Information);
+                case LogHelperLogLevel.Trace:
+                    logger.LogTrace(loggingEvent.Exception, loggingEvent.Message);
+                    logged = true;
+                    break;
 
-                case LogHelperLevel.Debug:
-                    return _logger.IsEnabled(LogLevel.Debug);
+                case LogHelperLogLevel.Info:
+                    logger.LogInformation(loggingEvent.Exception, loggingEvent.Message);
+                    logged = true;
+                    break;
 
-                case LogHelperLevel.Trace:
-                    return _logger.IsEnabled(LogLevel.Trace);
+                case LogHelperLogLevel.Warn:
+                    logger.LogWarning(loggingEvent.Exception, loggingEvent.Message);
+                    logged = true;
+                    break;
 
-                case LogHelperLevel.Warn:
-                    return _logger.IsEnabled(LogLevel.Warning);
+                case LogHelperLogLevel.Error:
+                    logger.LogError(loggingEvent.Exception, loggingEvent.Message);
+                    logged = true;
+                    break;
 
-                case LogHelperLevel.Error:
-                    return _logger.IsEnabled(LogLevel.Error);
+                case LogHelperLogLevel.Fatal:
+                    logger.LogError(loggingEvent.Exception, loggingEvent.Message);
+                    logged = true;
+                    break;
+            }
 
-                case LogHelperLevel.Fatal:
-                    return _logger.IsEnabled(LogLevel.Critical);
+            return logged;
+        }
 
-                case LogHelperLevel.None:
-                    return false;
+        private static LogLevel ConvertLogLevel(LogHelperLogLevel logHelperLevel)
+        {
+            switch (logHelperLevel)
+            {
+                case LogHelperLogLevel.All:
+                    return LogLevel.Debug;
+
+                case LogHelperLogLevel.Info:
+                    return LogLevel.Information;
+
+                case LogHelperLogLevel.Debug:
+                    return LogLevel.Debug;
+
+                case LogHelperLogLevel.Trace:
+                    return LogLevel.Trace;
+
+                case LogHelperLogLevel.Warn:
+                    return LogLevel.Warning;
+
+                case LogHelperLogLevel.Error:
+                    return LogLevel.Error;
+
+                case LogHelperLogLevel.Fatal:
+                    return LogLevel.Critical;
+
+                case LogHelperLogLevel.None:
+                    return LogLevel.None;
 
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(loggerLevel), loggerLevel, null);
-            }
-        }
-
-        public void Log(LogHelperLevel loggerLevel, Exception exception, string message)
-        {
-            if (IsEnabled(loggerLevel))
-            {
-                switch (loggerLevel)
-                {
-                    case LogHelperLevel.Info:
-                        _logger.LogInformation(exception, message);
-                        break;
-
-                    case LogHelperLevel.Debug:
-                        _logger.LogDebug(exception, message);
-                        break;
-
-                    case LogHelperLevel.Trace:
-                        _logger.LogTrace(exception, message);
-                        break;
-
-                    case LogHelperLevel.Warn:
-                        _logger.LogWarning(exception, message);
-                        break;
-
-                    case LogHelperLevel.Error:
-                        _logger.LogError(exception, message);
-                        break;
-
-                    case LogHelperLevel.Fatal:
-                        _logger.LogError(exception, message);
-                        break;
-
-                    default:
-                        _logger.LogWarning($"Encountered unknown log level {loggerLevel}, writing out as Info.");
-                        _logger.LogInformation(exception, message);
-                        break;
-                }
+                    return LogLevel.Warning;
             }
         }
     }
 
     internal static class MicrosoftLoggingExtensions
     {
-        internal static void AddMicrosoftLogging(this ILogHelperFactory logHelperFactory, ILoggerFactory loggerFactory)
+        internal static void AddMicrosoftLogging(this ILogHelperLoggingBuilder logHelperFactory, ILoggerFactory loggerFactory)
         {
             logHelperFactory.AddProvider(new MicrosoftLoggingLogHelperProvider(loggerFactory));
         }

@@ -1,5 +1,6 @@
 ﻿using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
+using WeihanLi.Common.Logging.Log4Net;
 
 namespace DotNetFxSample
 {
@@ -9,6 +10,8 @@ namespace DotNetFxSample
 
         public static void Test()
         {
+            LogHelper.ConfigureLogging(builder => builder.AddLog4Net());
+
             Logger.Info("info message");
             Logger.Debug("debug message");
             Logger.Trace("Trace message");
