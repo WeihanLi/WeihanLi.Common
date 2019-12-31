@@ -192,6 +192,12 @@ namespace WeihanLi.Common.Logging
             return logHelperFactory;
         }
 
+        public static ILogHelperFactory EnrichWithProperty(this ILogHelperFactory logHelperFactory, string propertyName, object value, Func<LogHelperLoggingEvent, bool> predict, bool overwrite = false)
+        {
+            logHelperFactory.AddEnricher(new PropertyLoggingEnricher(propertyName, e => value, predict, overwrite));
+            return logHelperFactory;
+        }
+
         public static ILogHelperFactory EnrichWithProperty(this ILogHelperFactory logHelperFactory, string propertyName, Func<LogHelperLoggingEvent, object> valueFactory, Func<LogHelperLoggingEvent, bool> predict, bool overwrite = false)
         {
             logHelperFactory.AddEnricher(new PropertyLoggingEnricher(propertyName, valueFactory, predict, overwrite));

@@ -15,7 +15,8 @@ namespace DotNetCoreSample
             // LogHelper.LogFactory.AddSerilog(loggerConfig => loggerConfig.WriteTo.Console());
 
             LogHelper.LogFactory.WithMinimumLevel(LogHelperLogLevel.Info);
-            LogHelper.LogFactory.EnrichWithProperty("Entry", ApplicationHelper.ApplicationName);
+            LogHelper.LogFactory.EnrichWithProperty("Entry0", ApplicationHelper.ApplicationName);
+            LogHelper.LogFactory.EnrichWithProperty("Entry1", ApplicationHelper.ApplicationName, e => e.LogLevel >= LogHelperLogLevel.Error);
 
             Logger.Debug("12333 {abc}", abc);
             Logger.Trace("122334334");
