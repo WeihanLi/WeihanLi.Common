@@ -4,6 +4,7 @@
 
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
+var stable = Argument("stable", "false");
 
 var branchName = EnvironmentVariable("BUILD_SOURCEBRANCHNAME") ?? "local";
 var isWindowsAgent = EnvironmentVariable("Agent_OS") == "Windows_NT" || branchName == "local";
@@ -107,7 +108,7 @@ Task("pack")
          NoRestore = true,
          NoBuild = true
       };
-      if(branchName != "master"){
+      if(branchName != "master" && stable != "true"){
          settings.VersionSuffix = $"preview-{DateTime.UtcNow:yyyyMMdd-HHmmss}";
       }
       foreach (var project in packProjects)
