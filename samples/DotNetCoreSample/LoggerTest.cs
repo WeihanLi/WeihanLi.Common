@@ -11,12 +11,17 @@ namespace DotNetCoreSample
         public static void MainTest()
         {
             var abc = "1233";
-            LogHelper.LogFactory.AddLog4Net();
-            // LogHelper.LogFactory.AddSerilog(loggerConfig => loggerConfig.WriteTo.Console());
-
-            LogHelper.LogFactory.WithMinimumLevel(LogHelperLogLevel.Info);
-            LogHelper.LogFactory.EnrichWithProperty("Entry0", ApplicationHelper.ApplicationName);
-            LogHelper.LogFactory.EnrichWithProperty("Entry1", ApplicationHelper.ApplicationName, e => e.LogLevel >= LogHelperLogLevel.Error);
+            LogHelper.ConfigureLogging(builder =>
+            {
+                builder
+                    .AddLog4Net()
+                    //.AddSerilog(loggerConfig => loggerConfig.WriteTo.Console())
+                    .WithMinimumLevel(LogHelperLogLevel.Info)
+                    .WithFilter((category, level) => level > LogHelperLogLevel.Error && category.StartsWith("System"))
+                    .EnrichWithProperty("Entry0", ApplicationHelper.ApplicationName)
+                    .EnrichWithProperty("Entry1", ApplicationHelper.ApplicationName, e => e.LogLevel >= LogHelperLogLevel.Error)
+                    ;
+            });
 
             Logger.Debug("12333 {abc}", abc);
             Logger.Trace("122334334");

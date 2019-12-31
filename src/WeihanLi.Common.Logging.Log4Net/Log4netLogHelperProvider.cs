@@ -97,17 +97,17 @@ namespace WeihanLi.Common.Logging.Log4Net
 
     public static class LogHelperFactoryExtensions
     {
-        public static ILogHelperFactory AddLog4Net([NotNull]this ILogHelperFactory logHelperFactory)
+        public static ILogHelperLoggingBuilder AddLog4Net([NotNull]this ILogHelperLoggingBuilder loggingBuilder)
         {
-            logHelperFactory.AddProvider(new Log4NetLogHelperProvider());
-            return logHelperFactory;
+            loggingBuilder.AddProvider(new Log4NetLogHelperProvider());
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory AddLog4Net([NotNull] this ILogHelperFactory logHelperFactory,
+        public static ILogHelperLoggingBuilder AddLog4Net([NotNull] this ILogHelperLoggingBuilder loggingBuilder,
             string configFilePath)
         {
-            logHelperFactory.AddProvider(new Log4NetLogHelperProvider(configFilePath));
-            return logHelperFactory;
+            loggingBuilder.AddProvider(new Log4NetLogHelperProvider(configFilePath));
+            return loggingBuilder;
         }
     }
 }

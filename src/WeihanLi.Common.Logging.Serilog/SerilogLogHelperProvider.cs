@@ -91,17 +91,17 @@ namespace WeihanLi.Common.Logging.Serilog
 
     public static class LogHelperFactoryExtensions
     {
-        public static ILogHelperFactory AddSerilog([NotNull]this ILogHelperFactory logHelperFactory, Action<LoggerConfiguration> loggerConfigurationAction)
+        public static ILogHelperLoggingBuilder AddSerilog([NotNull]this ILogHelperLoggingBuilder loggingBuilder, Action<LoggerConfiguration> loggerConfigurationAction)
         {
-            logHelperFactory.AddProvider(new SerilogLogHelperProvider(loggerConfigurationAction));
-            return logHelperFactory;
+            loggingBuilder.AddProvider(new SerilogLogHelperProvider(loggerConfigurationAction));
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory AddSerilog([NotNull] this ILogHelperFactory logHelperFactory,
+        public static ILogHelperLoggingBuilder AddSerilog([NotNull] this ILogHelperLoggingBuilder loggingBuilder,
             LoggerConfiguration loggerConfiguration)
         {
-            logHelperFactory.AddProvider(new SerilogLogHelperProvider(loggerConfiguration));
-            return logHelperFactory;
+            loggingBuilder.AddProvider(new SerilogLogHelperProvider(loggerConfiguration));
+            return loggingBuilder;
         }
     }
 }

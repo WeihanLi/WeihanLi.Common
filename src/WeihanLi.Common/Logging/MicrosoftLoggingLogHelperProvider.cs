@@ -100,7 +100,7 @@ namespace WeihanLi.Common.Logging
 
     internal static class MicrosoftLoggingExtensions
     {
-        internal static void AddMicrosoftLogging(this ILogHelperFactory logHelperFactory, ILoggerFactory loggerFactory)
+        internal static void AddMicrosoftLogging(this ILogHelperLoggingBuilder logHelperFactory, ILoggerFactory loggerFactory)
         {
             logHelperFactory.AddProvider(new MicrosoftLoggingLogHelperProvider(loggerFactory));
         }

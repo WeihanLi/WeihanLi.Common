@@ -130,81 +130,81 @@ namespace WeihanLi.Common.Logging
 
         #endregion Fatal
 
-        #region LogHelperFactory
+        #region ILogHelperLoggingBuilder
 
-        public static ILogHelperFactory WithMinimumLevel(this ILogHelperFactory logHelperFactory, LogHelperLogLevel logLevel)
+        public static ILogHelperLoggingBuilder WithMinimumLevel(this ILogHelperLoggingBuilder loggingBuilder, LogHelperLogLevel logLevel)
         {
-            return logHelperFactory.WithFilter(level => level >= logLevel);
+            return loggingBuilder.WithFilter(level => level >= logLevel);
         }
 
-        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<LogHelperLogLevel, bool> filterFunc)
+        public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func<LogHelperLogLevel, bool> filterFunc)
         {
-            logHelperFactory.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(logLevel));
-            return logHelperFactory;
+            loggingBuilder.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(logLevel));
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<string, LogHelperLogLevel, bool> filterFunc)
+        public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func<string, LogHelperLogLevel, bool> filterFunc)
         {
-            logHelperFactory.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(categoryName, logLevel));
-            return logHelperFactory;
+            loggingBuilder.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(categoryName, logLevel));
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<Type, string, LogHelperLogLevel, bool> filterFunc)
+        public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func<Type, string, LogHelperLogLevel, bool> filterFunc)
         {
-            logHelperFactory.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(type, categoryName, logLevel));
-            return logHelperFactory;
+            loggingBuilder.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(type, categoryName, logLevel));
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<Type, string, LogHelperLogLevel, Exception, bool> filterFunc)
+        public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func<Type, string, LogHelperLogLevel, Exception, bool> filterFunc)
         {
-            logHelperFactory.AddFilter(filterFunc);
-            return logHelperFactory;
+            loggingBuilder.AddFilter(filterFunc);
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory WithProvider(this ILogHelperFactory logHelperFactory, ILogHelperProvider logHelperProvider)
+        public static ILogHelperLoggingBuilder WithProvider(this ILogHelperLoggingBuilder loggingBuilder, ILogHelperProvider logHelperProvider)
         {
-            logHelperFactory.AddProvider(logHelperProvider);
-            return logHelperFactory;
+            loggingBuilder.AddProvider(logHelperProvider);
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory WithEnricher<TEnricher>(this ILogHelperFactory logHelperFactory,
+        public static ILogHelperLoggingBuilder WithEnricher<TEnricher>(this ILogHelperLoggingBuilder loggingBuilder,
             TEnricher enricher) where TEnricher : ILogHelperLoggingEnricher
         {
-            logHelperFactory.AddEnricher(enricher);
-            return logHelperFactory;
+            loggingBuilder.AddEnricher(enricher);
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory WithEnricher<TEnricher>(this ILogHelperFactory logHelperFactory) where TEnricher : ILogHelperLoggingEnricher, new()
+        public static ILogHelperLoggingBuilder WithEnricher<TEnricher>(this ILogHelperLoggingBuilder loggingBuilder) where TEnricher : ILogHelperLoggingEnricher, new()
         {
-            logHelperFactory.AddEnricher(new TEnricher());
-            return logHelperFactory;
+            loggingBuilder.AddEnricher(new TEnricher());
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory EnrichWithProperty(this ILogHelperFactory logHelperFactory, string propertyName, object value, bool overwrite = false)
+        public static ILogHelperLoggingBuilder EnrichWithProperty(this ILogHelperLoggingBuilder loggingBuilder, string propertyName, object value, bool overwrite = false)
         {
-            logHelperFactory.AddEnricher(new PropertyLoggingEnricher(propertyName, value, overwrite));
-            return logHelperFactory;
+            loggingBuilder.AddEnricher(new PropertyLoggingEnricher(propertyName, value, overwrite));
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory EnrichWithProperty(this ILogHelperFactory logHelperFactory, string propertyName, Func<LogHelperLoggingEvent> valueFactory, bool overwrite = false)
+        public static ILogHelperLoggingBuilder EnrichWithProperty(this ILogHelperLoggingBuilder loggingBuilder, string propertyName, Func<LogHelperLoggingEvent> valueFactory, bool overwrite = false)
         {
-            logHelperFactory.AddEnricher(new PropertyLoggingEnricher(propertyName, valueFactory, overwrite));
-            return logHelperFactory;
+            loggingBuilder.AddEnricher(new PropertyLoggingEnricher(propertyName, valueFactory, overwrite));
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory EnrichWithProperty(this ILogHelperFactory logHelperFactory, string propertyName, object value, Func<LogHelperLoggingEvent, bool> predict, bool overwrite = false)
+        public static ILogHelperLoggingBuilder EnrichWithProperty(this ILogHelperLoggingBuilder loggingBuilder, string propertyName, object value, Func<LogHelperLoggingEvent, bool> predict, bool overwrite = false)
         {
-            logHelperFactory.AddEnricher(new PropertyLoggingEnricher(propertyName, e => value, predict, overwrite));
-            return logHelperFactory;
+            loggingBuilder.AddEnricher(new PropertyLoggingEnricher(propertyName, e => value, predict, overwrite));
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory EnrichWithProperty(this ILogHelperFactory logHelperFactory, string propertyName, Func<LogHelperLoggingEvent, object> valueFactory, Func<LogHelperLoggingEvent, bool> predict, bool overwrite = false)
+        public static ILogHelperLoggingBuilder EnrichWithProperty(this ILogHelperLoggingBuilder loggingBuilder, string propertyName, Func<LogHelperLoggingEvent, object> valueFactory, Func<LogHelperLoggingEvent, bool> predict, bool overwrite = false)
         {
-            logHelperFactory.AddEnricher(new PropertyLoggingEnricher(propertyName, valueFactory, predict, overwrite));
-            return logHelperFactory;
+            loggingBuilder.AddEnricher(new PropertyLoggingEnricher(propertyName, valueFactory, predict, overwrite));
+            return loggingBuilder;
         }
 
-        #endregion LogHelperFactory
+        #endregion ILogHelperLoggingBuilder
 
         #region LoggingEnricher
 

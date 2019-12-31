@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using WeihanLi.Common.Logging;
 
 namespace WeihanLi.Common.Helpers
@@ -11,9 +9,14 @@ namespace WeihanLi.Common.Helpers
     /// </summary>
     public static class LogHelper
     {
-        private static readonly Lazy<ILogHelperFactory> _logFactory = new Lazy<ILogHelperFactory>(() => new LogHelperFactory(), true);
+        public static ILogHelperFactory LogFactory { get; private set; } = NullLogHelperFactory.Instance;
 
-        public static ILogHelperFactory LogFactory => _logFactory.Value;
+        public static void ConfigureLogging(Action<ILogHelperLoggingBuilder> configureAction)
+        {
+            var loggingBuilder = new LogHelperLoggingBuilder();
+            configureAction?.Invoke(loggingBuilder);
+            LogFactory = loggingBuilder.Build();
+        }
 
         public static ILogHelperLogger GetLogger<T>() => GetLogger(typeof(T));
 
@@ -21,32 +24,7 @@ namespace WeihanLi.Common.Helpers
 
         public static ILogHelperLogger GetLogger(string categoryName)
         {
-            return _logFactory.Value.CreateLogger(categoryName);
-        }
-
-        public static bool AddLogProvider(ILogHelperProvider logHelperProvider)
-        {
-            return _logFactory.Value.AddProvider(logHelperProvider);
-        }
-
-        public static int AddLogProvider(ICollection<ILogHelperProvider> logProviders)
-        {
-            if (logProviders != null && logProviders.Count > 0)
-            {
-                var results = new bool[logProviders.Count];
-                var idx = 0;
-                foreach (var provider in logProviders)
-                {
-                    if (provider != null)
-                    {
-                        results[idx] = _logFactory.Value.AddProvider(provider);
-                    }
-                    idx++;
-                }
-                return results.Count(_ => _);
-            }
-
-            return 0;
+            return LogFactory.CreateLogger(categoryName);
         }
     }
 }
