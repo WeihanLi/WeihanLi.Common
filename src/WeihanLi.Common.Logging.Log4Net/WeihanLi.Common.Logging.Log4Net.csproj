@@ -14,6 +14,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
-    <!-- <PackageReference Include="WeihanLi.Common" Version="1.0.23.6" /> -->
   </ItemGroup>
 </Project>

@@ -27,13 +27,12 @@ namespace WeihanLi.Common.Logging
                 var tasks = events.Select(loggingEvent => _logHelperFactory._logHelperProviders.Select(
                     async logHelperProvider =>
                     {
-                        if (_logHelperFactory._logFilters.All(x => x.Invoke(logHelperProvider.Key,
-                            loggingEvent.CategoryName, loggingEvent.LogLevel, loggingEvent.Exception)))
+                        if (_logHelperFactory._logFilters.All(x => x.Invoke(logHelperProvider.Key, loggingEvent)))
                         {
                             try
                             {
                                 await _semaphore.WaitAsync();
-                                await logHelperProvider.Value.Log(loggingEvent);
+                                logHelperProvider.Value.Log(loggingEvent);
                             }
                             catch (Exception e)
                             {

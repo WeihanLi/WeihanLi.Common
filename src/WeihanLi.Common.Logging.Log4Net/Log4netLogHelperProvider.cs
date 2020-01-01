@@ -1,7 +1,6 @@
 ﻿using JetBrains.Annotations;
 using log4net;
 using log4net.Core;
-using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
@@ -15,7 +14,7 @@ namespace WeihanLi.Common.Logging.Log4Net
 
         public Log4NetLogHelperProvider(string configurationFilePath) => Log4NetHelper.LogInit(configurationFilePath);
 
-        public Task Log(LogHelperLoggingEvent loggingEvent)
+        public void Log(LogHelperLoggingEvent loggingEvent)
         {
             var logger = LogManager.GetLogger(ApplicationHelper.ApplicationName, loggingEvent.CategoryName);
             if (IsEnabled(loggingEvent.LogLevel, logger))
@@ -38,8 +37,6 @@ namespace WeihanLi.Common.Logging.Log4Net
                     logger.Logger.Log(log4netEvent);
                 }
             }
-
-            return TaskHelper.CompletedTask;
         }
 
         private static Level GetLog4NetLogLevel(LogHelperLogLevel logHelperLevel)

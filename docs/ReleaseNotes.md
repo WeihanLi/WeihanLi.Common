@@ -4,6 +4,12 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.27](https://www.nuget.org/packages/WeihanLi.Common/1.0.27)
+
+- refact logging
+- add `NetHelper.IsPrivateIP`/`IPNetwork`
+- add httpHeader parameters for `HttpHelper.HttpPostFile`
+
 ### [WeihanLi.Common 1.0.26](https://www.nuget.org/packages/WeihanLi.Common/1.0.26)
 
 - update event, add async support for publish and subscribe/unsubscribe

@@ -400,7 +400,6 @@ namespace WeihanLi.Extensions
         /// 是否是值类型
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="this"></param>
         /// <returns></returns>
         public static bool IsValueType<T>([NotNull]this T t)
             => typeof(T).IsValueType;

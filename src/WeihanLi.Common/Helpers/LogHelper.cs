@@ -9,7 +9,7 @@ namespace WeihanLi.Common.Helpers
     /// </summary>
     public static class LogHelper
     {
-        public static ILogHelperFactory LogFactory { get; private set; } = NullLogHelperFactory.Instance;
+        private static ILogHelperFactory LogFactory { get; set; } = NullLogHelperFactory.Instance;
 
         public static void ConfigureLogging(Action<ILogHelperLoggingBuilder> configureAction)
         {

@@ -23,7 +23,7 @@ namespace WeihanLi.Common.Logging
         /// Add logs filter
         /// </summary>
         /// <param name="filterFunc">filterFunc, logProviderType/categoryName/Exception, whether to write log</param>
-        bool AddFilter(Func<Type, string, LogHelperLogLevel, Exception, bool> filterFunc);
+        bool AddFilter(Func<Type, LogHelperLoggingEvent, bool> filterFunc);
 
         ///// <summary>
         ///// config period batching
@@ -43,7 +43,7 @@ namespace WeihanLi.Common.Logging
     {
         internal readonly Dictionary<Type, ILogHelperProvider> _logHelperProviders = new Dictionary<Type, ILogHelperProvider>();
         internal readonly List<ILogHelperLoggingEnricher> _logHelperEnrichers = new List<ILogHelperLoggingEnricher>();
-        internal readonly List<Func<Type, string, LogHelperLogLevel, Exception, bool>> _logFilters = new List<Func<Type, string, LogHelperLogLevel, Exception, bool>>();
+        internal readonly List<Func<Type, LogHelperLoggingEvent, bool>> _logFilters = new List<Func<Type, LogHelperLoggingEvent, bool>>();
 
         public bool AddProvider(ILogHelperProvider provider)
         {
@@ -63,7 +63,7 @@ namespace WeihanLi.Common.Logging
             return false;
         }
 
-        public bool AddFilter(Func<Type, string, LogHelperLogLevel, Exception, bool> filterFunc)
+        public bool AddFilter(Func<Type, LogHelperLoggingEvent, bool> filterFunc)
         {
             if (null == filterFunc)
             {

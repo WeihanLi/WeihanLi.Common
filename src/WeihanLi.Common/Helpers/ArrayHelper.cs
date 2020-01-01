@@ -1,10 +1,19 @@
-﻿namespace WeihanLi.Common.Helpers
+﻿using System;
+
+namespace WeihanLi.Common.Helpers
 {
     public static class ArrayHelper
     {
+        public static T[] Empty<T>() =>
 #if NET45
-        public static T[] Empty<T>() => EmptyArray<T>.Value;
 
+            EmptyArray<T>.Value
+#else
+        Array.Empty<T>()
+#endif
+        ;
+
+#if NET45
         private static class EmptyArray<T>
         {
             public static readonly T[] Value = new T[0];
