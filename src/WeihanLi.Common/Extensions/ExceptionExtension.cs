@@ -1,5 +1,5 @@
-﻿using System;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
+using System;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -10,25 +10,18 @@ namespace WeihanLi.Extensions
     public static class ExceptionExtension
     {
         /// <summary>
-        /// 获取真实的异常信息
+        /// get inner exception of AggregateException
         /// </summary>
-        /// <param name="ex">原始异常</param>
-        /// <returns>真实异常</returns>
-        public static Exception Unwrap([NotNull]this Exception ex)
+        /// <param name="exception">origin exception</param>
+        /// <param name="depth">depth</param>
+        /// <returns>inner exception</returns>
+        public static Exception Unwrap([NotNull]this Exception exception, int depth = 16)
         {
-            var counter = 64;
-            while (counter-- > 0)
+            while (exception is AggregateException && exception.InnerException != null && depth-- > 0)
             {
-                if (ex is AggregateException && ex.InnerException != null)
-                {
-                    ex = ex.InnerException;
-                }
-                else
-                {
-                    break;
-                }
+                exception = exception.InnerException;
             }
-            return ex;
+            return exception;
         }
     }
 }

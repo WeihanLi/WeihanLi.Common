@@ -20,11 +20,12 @@ namespace WeihanLi.Common.Helpers
             var returnArray = new byte[byteCount];
 
             byte curByte = 0, bitsRemaining = 8;
-            int mask = 0, arrayIndex = 0;
-            foreach (char c in input)
+            var arrayIndex = 0;
+            foreach (var c in input)
             {
-                int cValue = CharToValue(c);
+                var cValue = CharToValue(c);
 
+                var mask = 0;
                 if (bitsRemaining > 5)
                 {
                     mask = cValue << (bitsRemaining - 5);
@@ -57,13 +58,13 @@ namespace WeihanLi.Common.Helpers
                 throw new ArgumentNullException(nameof(input));
             }
 
-            int charCount = (int)Math.Ceiling(input.Length / 5d) * 8;
-            char[] returnArray = new char[charCount];
+            var charCount = (int)Math.Ceiling(input.Length / 5d) * 8;
+            var returnArray = new char[charCount];
 
             byte nextChar = 0, bitsRemaining = 5;
-            int arrayIndex = 0;
+            var arrayIndex = 0;
 
-            foreach (byte b in input)
+            foreach (var b in input)
             {
                 nextChar = (byte)(nextChar | (b >> (8 - bitsRemaining)));
                 returnArray[arrayIndex++] = ValueToChar(nextChar);
@@ -91,7 +92,7 @@ namespace WeihanLi.Common.Helpers
 
         private static int CharToValue(char c)
         {
-            int value = (int)c;
+            var value = (int)c;
 
             //65-90 == uppercase letters
             if (value < 91 && value > 64)

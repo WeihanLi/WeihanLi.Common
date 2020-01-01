@@ -30,6 +30,13 @@ namespace WeihanLi.Common.Logging
     {
     }
 
+    internal class LogHelperGenericLogger<TCategory> : LogHelper, ILogHelperLogger<TCategory>
+    {
+        public LogHelperGenericLogger(LogHelperFactory logHelperFactory, string categoryName) : base(logHelperFactory, categoryName)
+        {
+        }
+    }
+
     internal class LogHelper : ILogHelperLogger
     {
         private readonly LogHelperFactory _logHelperFactory;

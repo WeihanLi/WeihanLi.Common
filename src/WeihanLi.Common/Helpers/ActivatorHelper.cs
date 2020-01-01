@@ -81,7 +81,7 @@ namespace WeihanLi.Common.Helpers
         /// <returns>An activated object of type instanceType</returns>
         public static object CreateInstance(this IServiceProvider provider, Type instanceType, params object[] parameters)
         {
-            int bestLength = -1;
+            var bestLength = -1;
 
             ConstructorMatcher bestMatcher = default;
 
@@ -213,7 +213,7 @@ namespace WeihanLi.Common.Helpers
                 }
                 else
                 {
-                    var parameterTypeExpression = new Expression[] { serviceProvider,
+                    var parameterTypeExpression = new[] { serviceProvider,
                         Expression.Constant(parameterType, typeof(Type)),
                         Expression.Constant(constructor.DeclaringType, typeof(Type)),
                         Expression.Constant(hasDefaultValue) };

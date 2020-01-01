@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
@@ -8,7 +9,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
@@ -25,6 +25,8 @@ namespace WeihanLi.Common.Http
 
     public class WebRequestHttpRequester : IHttpRequester
     {
+        public static IHttpRequester New() => new WebRequestHttpRequester();
+
         #region private fields
 
         private HttpWebRequest _request;
@@ -34,6 +36,10 @@ namespace WeihanLi.Common.Http
         #endregion private fields
 
         #region ctor
+
+        public WebRequestHttpRequester()
+        {
+        }
 
         /// <summary>
         /// Create HttpRequest with GET Request Method
@@ -380,6 +386,8 @@ namespace WeihanLi.Common.Http
 
         private CookieContainer _cookieContainer = null;
         private IWebProxy _proxy = null;
+
+        public static IHttpRequester New() => new HttpClientHttpRequester();
 
         private void BuildHttpClient()
         {
