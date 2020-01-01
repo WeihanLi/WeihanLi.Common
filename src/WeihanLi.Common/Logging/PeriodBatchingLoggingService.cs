@@ -27,8 +27,7 @@ namespace WeihanLi.Common.Logging
                 var tasks = events.Select(loggingEvent => _logHelperFactory._logHelperProviders.Select(
                     async logHelperProvider =>
                     {
-                        if (_logHelperFactory._logFilters.All(x => x.Invoke(logHelperProvider.Key,
-                            loggingEvent.CategoryName, loggingEvent.LogLevel, loggingEvent.Exception)))
+                        if (_logHelperFactory._logFilters.All(x => x.Invoke(logHelperProvider.Key, loggingEvent)))
                         {
                             try
                             {

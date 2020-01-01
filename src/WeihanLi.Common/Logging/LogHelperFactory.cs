@@ -32,13 +32,13 @@ namespace WeihanLi.Common.Logging
     {
         internal readonly IReadOnlyDictionary<Type, ILogHelperProvider> _logHelperProviders;
         internal readonly IReadOnlyCollection<ILogHelperLoggingEnricher> _logHelperEnrichers;
-        internal readonly IReadOnlyCollection<Func<Type, string, LogHelperLogLevel, Exception, bool>> _logFilters;
+        internal readonly IReadOnlyCollection<Func<Type, LogHelperLoggingEvent, bool>> _logFilters;
 
         private readonly ConcurrentDictionary<string, ILogHelperLogger> _loggers = new ConcurrentDictionary<string, ILogHelperLogger>();
 
         public LogHelperFactory(IReadOnlyDictionary<Type, ILogHelperProvider> logHelperProviders,
             IReadOnlyCollection<ILogHelperLoggingEnricher> logHelperEnrichers,
-            IReadOnlyCollection<Func<Type, string, LogHelperLogLevel, Exception, bool>> logFilters
+            IReadOnlyCollection<Func<Type, LogHelperLoggingEvent, bool>> logFilters
             )
         {
             _logHelperProviders = logHelperProviders;

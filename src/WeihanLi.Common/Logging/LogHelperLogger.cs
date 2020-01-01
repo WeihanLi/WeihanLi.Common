@@ -47,12 +47,6 @@ namespace WeihanLi.Common.Logging
             if (!IsEnabled(logLevel))
                 return;
 
-            if (!_logHelperFactory._logFilters.Any(x => x.Invoke(typeof(int), CategoryName, logLevel, exception)))
-            {
-                return;
-            }
-
-            var formattedLog = LoggingFormatter.Format(messageTemplate, parameters);
             var loggingEvent = new LogHelperLoggingEvent()
             {
                 CategoryName = CategoryName,
@@ -60,9 +54,16 @@ namespace WeihanLi.Common.Logging
                 Exception = exception,
                 LogLevel = logLevel,
                 MessageTemplate = messageTemplate,
-                Message = formattedLog.Msg,
-                Properties = formattedLog.Values,
             };
+
+            if (!_logHelperFactory._logFilters.Any(x => x.Invoke(typeof(int), loggingEvent)))
+            {
+                return;
+            }
+
+            var formattedLog = LoggingFormatter.Format(messageTemplate, parameters);
+            loggingEvent.Message = formattedLog.Msg;
+            loggingEvent.Properties = formattedLog.Values;
 
             foreach (var enricher in _logHelperFactory._logHelperEnrichers)
             {
@@ -71,8 +72,7 @@ namespace WeihanLi.Common.Logging
 
             Parallel.ForEach(_logHelperFactory._logHelperProviders, logHelperProvider =>
             {
-                if (_logHelperFactory._logFilters.All(x => x.Invoke(logHelperProvider.Key,
-                    loggingEvent.CategoryName, loggingEvent.LogLevel, loggingEvent.Exception)))
+                if (_logHelperFactory._logFilters.All(x => x.Invoke(logHelperProvider.Key, loggingEvent)))
                 {
                     logHelperProvider.Value.Log(loggingEvent);
                 }

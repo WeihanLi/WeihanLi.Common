@@ -109,23 +109,29 @@ namespace WeihanLi.Common.Logging
 
         public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func<LogHelperLogLevel, bool> filterFunc)
         {
-            loggingBuilder.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(logLevel));
+            loggingBuilder.AddFilter((type, e) => filterFunc.Invoke(e.LogLevel));
             return loggingBuilder;
         }
 
         public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func<string, LogHelperLogLevel, bool> filterFunc)
         {
-            loggingBuilder.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(categoryName, logLevel));
+            loggingBuilder.AddFilter((type, e) => filterFunc.Invoke(e.CategoryName, e.LogLevel));
             return loggingBuilder;
         }
 
         public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func<Type, string, LogHelperLogLevel, bool> filterFunc)
         {
-            loggingBuilder.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(type, categoryName, logLevel));
+            loggingBuilder.AddFilter((type, e) => filterFunc.Invoke(type, e.CategoryName, e.LogLevel));
             return loggingBuilder;
         }
 
         public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func<Type, string, LogHelperLogLevel, Exception, bool> filterFunc)
+        {
+            loggingBuilder.AddFilter((type, e) => filterFunc.Invoke(type, e.CategoryName, e.LogLevel, e.Exception));
+            return loggingBuilder;
+        }
+
+        public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func<Type, LogHelperLoggingEvent, bool> filterFunc)
         {
             loggingBuilder.AddFilter(filterFunc);
             return loggingBuilder;
