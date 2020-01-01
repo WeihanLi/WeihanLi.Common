@@ -3,36 +3,45 @@
 namespace WeihanLi.Common.Models
 {
     /// <summary>
-    /// JsonResultModel
+    /// ResultModel
     /// </summary>
-    public class JsonResultModel
+    public class ResultModel
     {
         /// <summary>
-        /// JsonResultStatus
+        /// ResultStatus
         /// </summary>
-        public JsonResultStatus Status { get; set; }
+        public ResultStatus Status { get; set; }
 
         /// <summary>
         /// Message
         /// </summary>
         public string ErrorMsg { get; set; }
 
-        public static JsonResultModel<T> Success<T>(T result)
+        public static ResultModel<T> Success<T>(T result)
         {
-            return new JsonResultModel<T>()
+            return new ResultModel<T>()
             {
                 ErrorMsg = string.Empty,
-                Status = JsonResultStatus.Success,
+                Status = ResultStatus.Success,
                 Result = result
+            };
+        }
+
+        public static ResultModel<T> Fail<T>(string errorMsg, ResultStatus status = ResultStatus.RequestError)
+        {
+            return new ResultModel<T>()
+            {
+                ErrorMsg = errorMsg,
+                Status = status,
             };
         }
     }
 
     /// <summary>
-    /// JsonResultModel
+    /// ResultModel
     /// </summary>
     /// <typeparam name="T">Type</typeparam>
-    public class JsonResultModel<T> : JsonResultModel
+    public class ResultModel<T> : ResultModel
     {
         /// <summary>
         /// ResponseData
@@ -41,22 +50,22 @@ namespace WeihanLi.Common.Models
 
         public void SetSuccessResult(T result)
         {
-            ErrorMsg = string.Empty;
-            Status = JsonResultStatus.Success;
+            Status = ResultStatus.Success;
             Result = result;
         }
 
         public void SetProcessFailResult()
         {
             ErrorMsg = Resource.InvokeFail;
-            Status = JsonResultStatus.ProcessFail;
+            Status = ResultStatus.ProcessFail;
         }
     }
 
     /// <summary>
+    /// ResultStatus
     /// 返回的结果状态
     /// </summary>
-    public enum JsonResultStatus
+    public enum ResultStatus
     {
         [Description("Empty Status")]
         None = 0,
