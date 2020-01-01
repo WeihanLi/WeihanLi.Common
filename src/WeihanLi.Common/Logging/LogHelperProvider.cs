@@ -1,15 +1,14 @@
-﻿using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
-
-namespace WeihanLi.Common.Logging
+﻿namespace WeihanLi.Common.Logging
 {
     public interface ILogHelperProvider
     {
-        Task Log(LogHelperLoggingEvent loggingEvent);
+        void Log(LogHelperLoggingEvent loggingEvent);
     }
 
     internal class NullLogHelperProvider : ILogHelperProvider
     {
-        public Task Log(LogHelperLoggingEvent loggingEvent) => TaskHelper.CompletedTask;
+        public void Log(LogHelperLoggingEvent loggingEvent)
+        {
+        }
     }
 }

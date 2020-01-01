@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Logging
 {
@@ -13,11 +11,10 @@ namespace WeihanLi.Common.Logging
             _loggerFactory = loggerFactory;
         }
 
-        public Task Log(LogHelperLoggingEvent loggingEvent)
+        public void Log(LogHelperLoggingEvent loggingEvent)
         {
             var logger = _loggerFactory.CreateLogger(loggingEvent.CategoryName);
             LogInternal(logger, loggingEvent);
-            return TaskHelper.CompletedTask;
         }
 
         private static bool LogInternal(ILogger logger, LogHelperLoggingEvent loggingEvent)

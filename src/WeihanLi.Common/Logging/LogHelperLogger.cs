@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
-using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Logging
 {
@@ -71,16 +69,14 @@ namespace WeihanLi.Common.Logging
                 enricher.Enrich(loggingEvent);
             }
 
-            Task.WaitAll(_logHelperFactory._logHelperProviders.Select(logHelperProvider =>
+            Parallel.ForEach(_logHelperFactory._logHelperProviders, logHelperProvider =>
+            {
+                if (_logHelperFactory._logFilters.All(x => x.Invoke(logHelperProvider.Key,
+                    loggingEvent.CategoryName, loggingEvent.LogLevel, loggingEvent.Exception)))
                 {
-                    if (_logHelperFactory._logFilters.All(x => x.Invoke(logHelperProvider.Key,
-                        loggingEvent.CategoryName, loggingEvent.LogLevel, loggingEvent.Exception)))
-                    {
-                        return logHelperProvider.Value.Log(loggingEvent);
-                    }
-                    return TaskHelper.CompletedTask;
+                    logHelperProvider.Value.Log(loggingEvent);
                 }
-                    ).ToArray());
+            });
         }
 
         public bool IsEnabled(LogHelperLogLevel logLevel) => logLevel != LogHelperLogLevel.None;

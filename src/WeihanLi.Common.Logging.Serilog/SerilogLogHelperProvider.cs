@@ -4,8 +4,6 @@ using Serilog.Events;
 using Serilog.Parsing;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
 
 using SSerilog = Serilog;
 
@@ -30,7 +28,7 @@ namespace WeihanLi.Common.Logging.Serilog
             SSerilog.Log.CloseAndFlush();
         }
 
-        public Task Log(LogHelperLoggingEvent loggingEvent)
+        public void Log(LogHelperLoggingEvent loggingEvent)
         {
             var logger = SSerilog.Log.ForContext(SourceContextPropName, loggingEvent.CategoryName);
             //Log(logger, loggingEvent.LogLevel, loggingEvent.Exception, loggingEvent.Message);
@@ -50,7 +48,6 @@ namespace WeihanLi.Common.Logging.Serilog
                 var parsedTemplate = MessageTemplateParser.Parse(messageTemplate ?? "");
                 logger.Write(new LogEvent(loggingEvent.DateTime, logLevel, loggingEvent.Exception, parsedTemplate, properties));
             }
-            return TaskHelper.CompletedTask;
         }
 
         private SSerilog.Events.LogEventLevel GetSerilogEventLevel(LogHelperLogLevel logHelperLevel)

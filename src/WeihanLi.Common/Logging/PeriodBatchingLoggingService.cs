@@ -33,7 +33,7 @@ namespace WeihanLi.Common.Logging
                             try
                             {
                                 await _semaphore.WaitAsync();
-                                await logHelperProvider.Value.Log(loggingEvent);
+                                logHelperProvider.Value.Log(loggingEvent);
                             }
                             catch (Exception e)
                             {
