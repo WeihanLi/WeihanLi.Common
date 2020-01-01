@@ -13,7 +13,7 @@ namespace WeihanLi.Common.Logging
         bool IsEnabled(LogHelperLogLevel logLevel);
     }
 
-    public class NullLogHelperLogger : ILogHelperLogger
+    internal class NullLogHelperLogger : ILogHelperLogger
     {
         public static readonly ILogHelperLogger Instance = new NullLogHelperLogger();
 

@@ -12,7 +12,7 @@ namespace WeihanLi.Common.Logging
         private readonly string _propertyName;
         private readonly Func<LogHelperLoggingEvent, object> _propertyValueFactory;
         private readonly bool _overwrite;
-        private readonly Func<LogHelperLoggingEvent, bool> _logPropertyPredict = null;
+        private readonly Func<LogHelperLoggingEvent, bool> _logPropertyPredict;
 
         public PropertyLoggingEnricher(string propertyName, object propertyValue, bool overwrite = false) : this(propertyName, (loggingEvent) => propertyValue, overwrite)
         {
