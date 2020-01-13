@@ -149,9 +149,8 @@ namespace WeihanLi.Common.Helpers.PeriodBatching
                 bool batchWasFull;
                 do
                 {
-                    TEvent next;
                     while (_waitingBatch.Count < _batchSizeLimit &&
-                        _queue.TryDequeue(out next))
+                        _queue.TryDequeue(out var next))
                     {
                         if (CanInclude(next))
                             _waitingBatch.Enqueue(next);
@@ -183,8 +182,7 @@ namespace WeihanLi.Common.Helpers.PeriodBatching
 
                 if (_status.ShouldDropQueue)
                 {
-                    TEvent evt;
-                    while (_queue.TryDequeue(out evt)) { }
+                    while (_queue.TryDequeue(out _)) { }
                 }
 
                 lock (_stateLock)
