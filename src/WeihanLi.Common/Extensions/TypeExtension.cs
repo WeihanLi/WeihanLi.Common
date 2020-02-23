@@ -1,9 +1,9 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-using JetBrains.Annotations;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -54,7 +54,7 @@ namespace WeihanLi.Extensions
         /// <param name="type">type</param>
         /// <returns></returns>
         public static bool IsValueTuple([NotNull]this Type type)
-                => type.IsValueType && type.FullName.StartsWith("System.ValueTuple`", StringComparison.Ordinal);
+                => type.IsValueType && type.FullName?.StartsWith("System.ValueTuple`", StringComparison.Ordinal) == true;
 
         /// <summary>
         /// GetDescription
@@ -137,7 +137,7 @@ namespace WeihanLi.Extensions
                 throw new ArgumentNullException(nameof(@this));
             }
 
-            return typeof(T).GetTypeInfo().IsAssignableFrom(@this);
+            return typeof(T).IsAssignableFrom(@this);
         }
 
         /// <summary>
