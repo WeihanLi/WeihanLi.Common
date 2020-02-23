@@ -6,9 +6,12 @@ namespace WeihanLi.Common.Helpers
     {
         public static Task<T> FromDefault<T>() => Task.FromResult(default(T));
 
+        public static readonly Task CompletedTask =
 #if NET45
 
-        public static readonly Task CompletedTask = Task.FromResult(true);
+            Task.FromResult(true);
+#else
+        Task.CompletedTask;
 
 #endif
     }

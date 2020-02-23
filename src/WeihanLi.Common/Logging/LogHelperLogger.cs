@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using WeihanLi.Extensions;
+using System.Threading.Tasks;
 
 namespace WeihanLi.Common.Logging
 {
     public interface ILogHelperLogger
     {
-        void Log(LogHelperLevel loggerLevel, Exception exception, string message);
+        void Log(LogHelperLogLevel logLevel, Exception exception, string messageTemplate, params object[] parameters);
 
-        bool IsEnabled(LogHelperLevel loggerLevel);
+        bool IsEnabled(LogHelperLogLevel logLevel);
     }
 
-    public class NullLogHelperLogger : ILogHelperLogger
+    internal class NullLogHelperLogger : ILogHelperLogger
     {
         public static readonly ILogHelperLogger Instance = new NullLogHelperLogger();
 
@@ -20,41 +19,22 @@ namespace WeihanLi.Common.Logging
         {
         }
 
-        public void Log(LogHelperLevel loggerLevel, Exception exception, string message)
+        public void Log(LogHelperLogLevel logLevel, Exception exception, string messageTemplate, params object[] parameters)
         {
         }
 
-        public bool IsEnabled(LogHelperLevel loggerLevel) => false;
+        public bool IsEnabled(LogHelperLogLevel logLevel) => false;
     }
 
     public interface ILogHelperLogger<TCategory> : ILogHelperLogger
     {
     }
 
-    internal class LogHelper<TCategory> : ILogHelperLogger<TCategory>
+    internal class LogHelperGenericLogger<TCategory> : LogHelper, ILogHelperLogger<TCategory>
     {
-        private readonly IReadOnlyCollection<ILogHelperLogger> _loggers;
-
-        public string CategoryName { get; }
-
-        public LogHelper(ICollection<ILogHelperProvider> logHelperProviders)
+        public LogHelperGenericLogger(LogHelperFactory logHelperFactory, string categoryName) : base(logHelperFactory, categoryName)
         {
-            CategoryName = typeof(TCategory).FullName;
-            _loggers = logHelperProviders.Select(_ => _.CreateLogger(CategoryName)).ToArray();
         }
-
-        public void Log(LogHelperLevel loggerLevel, Exception exception, string message)
-        {
-            _loggers.ForEach(logger =>
-            {
-                if (logger.IsEnabled(loggerLevel))
-                {
-                    logger.Log(loggerLevel, exception, message);
-                }
-            });
-        }
-
-        public bool IsEnabled(LogHelperLevel loggerLevel) => loggerLevel != LogHelperLevel.None;
     }
 
     internal class LogHelper : ILogHelperLogger
@@ -69,33 +49,43 @@ namespace WeihanLi.Common.Logging
             CategoryName = categoryName;
         }
 
-        public void Log(LogHelperLevel loggerLevel, Exception exception, string message)
+        public void Log(LogHelperLogLevel logLevel, Exception exception, string messageTemplate, params object[] parameters)
         {
-            var logProviders = new List<ILogHelperProvider>(_logHelperFactory._logHelperProviders.Values);
-            foreach (var logHelperProvider in _logHelperFactory._logHelperProviders)
-            {
-                foreach (var logFilter in _logHelperFactory._logFilters)
-                {
-                    if (!logFilter.Invoke(logHelperProvider.Key, CategoryName, loggerLevel, exception))
-                    {
-                        logProviders.Remove(logHelperProvider.Value);
-                    }
-                }
-            }
-
-            if (logProviders.Count == 0)
+            if (!IsEnabled(logLevel))
                 return;
 
-            var loggers = logProviders.Select(_ => _.CreateLogger(CategoryName)).ToArray();
-            loggers.ForEach(logger =>
+            var loggingEvent = new LogHelperLoggingEvent()
             {
-                if (logger.IsEnabled(loggerLevel))
+                CategoryName = CategoryName,
+                DateTime = DateTimeOffset.UtcNow,
+                Exception = exception,
+                LogLevel = logLevel,
+                MessageTemplate = messageTemplate,
+            };
+
+            if (!_logHelperFactory._logFilters.Any(x => x.Invoke(typeof(int), loggingEvent)))
+            {
+                return;
+            }
+
+            var formattedLog = LoggingFormatter.Format(messageTemplate, parameters);
+            loggingEvent.Message = formattedLog.Msg;
+            loggingEvent.Properties = formattedLog.Values;
+
+            foreach (var enricher in _logHelperFactory._logHelperEnrichers)
+            {
+                enricher.Enrich(loggingEvent);
+            }
+
+            Parallel.ForEach(_logHelperFactory._logHelperProviders, logHelperProvider =>
+            {
+                if (_logHelperFactory._logFilters.All(x => x.Invoke(logHelperProvider.Key, loggingEvent)))
                 {
-                    logger.Log(loggerLevel, exception, message);
+                    logHelperProvider.Value.Log(loggingEvent);
                 }
             });
         }
 
-        public bool IsEnabled(LogHelperLevel loggerLevel) => loggerLevel != LogHelperLevel.None;
+        public bool IsEnabled(LogHelperLogLevel logLevel) => logLevel != LogHelperLogLevel.None;
     }
 }

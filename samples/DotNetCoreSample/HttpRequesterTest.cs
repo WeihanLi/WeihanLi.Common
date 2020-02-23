@@ -44,7 +44,7 @@ namespace DotNetCoreSample
                    {"Password", "112233" },
                    {"RememberMe","false" }
                })
-               .ExecuteForJson<WeihanLi.Common.Models.JsonResultModel<bool>>();
+               .ExecuteForJson<WeihanLi.Common.Models.ResultModel<bool>>();
             System.Console.WriteLine(loginResult.ToJson());
 
             var uploadFileResponse = new WebRequestHttpRequester("https://graph.baidu.com/upload", HttpMethod.Post)

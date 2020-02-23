@@ -7,7 +7,6 @@ using WeihanLi.Common.DependencyInjection;
 using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
-using WeihanLi.Common.Logging.Log4Net;
 using WeihanLi.Extensions;
 
 // ReSharper disable LocalizableElement
@@ -21,8 +20,7 @@ namespace DotNetCoreSample
         {
             Console.WriteLine("----------DotNetCoreSample----------");
 
-            // LogHelper.AddLogProvider(new Log4NetLogHelperProvider());
-            LogHelper.LogFactory.AddLog4Net();
+            // LogHelper.LogFactory.AddLog4Net();
             // LogHelper.LogFactory.AddSerilog(loggerConfig => loggerConfig.WriteTo.Console());
 
             // var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
@@ -80,7 +78,7 @@ namespace DotNetCoreSample
             //Console.WriteLine(pagedListModel.ToJson());
 
             // log test
-            // LoggerTest.MainTest();
+            LoggerTest.MainTest();
             // Log4NetTest.MainTest();
 
             //ILoggerFactory loggerFactory = new LoggerFactory();

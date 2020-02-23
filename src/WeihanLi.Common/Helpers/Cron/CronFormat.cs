@@ -25,7 +25,7 @@ namespace WeihanLi.Common.Helpers.Cron
     /// <summary>
     /// Defines the cron format options that customize string parsing for <see cref="CronExpression.Parse(string, CronFormat)"/>.
     /// </summary>
-    internal enum CronFormat : byte
+    public enum CronFormat : byte
     {
         /// <summary>
         /// Parsing string must contain only 5 fields: minute, hour, day of month, month, day of week.

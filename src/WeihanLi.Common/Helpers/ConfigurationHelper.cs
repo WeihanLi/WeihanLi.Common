@@ -1,7 +1,14 @@
 ﻿using System;
+
+#if NET45
 using System.Collections.Specialized;
 using System.Configuration;
 using WeihanLi.Extensions;
+#else
+
+using Microsoft.Extensions.Configuration;
+
+#endif
 
 namespace WeihanLi.Common.Helpers
 {
@@ -10,6 +17,8 @@ namespace WeihanLi.Common.Helpers
     /// </summary>
     public static class ConfigurationHelper
     {
+#if NET45
+
         private static NameValueCollection _appSettings;
 
         static ConfigurationHelper()
@@ -83,5 +92,22 @@ namespace WeihanLi.Common.Helpers
         /// <param name="key">键值</param>
         /// <returns>键值对应的连接字符串值</returns>
         public static string ConnectionString(string key) => ConfigurationManager.ConnectionStrings[key].ConnectionString;
+
+#else
+
+        private static readonly Lazy<IConfiguration> _defaultConfiguration = new Lazy<IConfiguration>(() => DependencyResolver.Current.ResolveService<IConfiguration>(), true);
+        public static IConfiguration Configuration => _defaultConfiguration.Value;
+
+        public static string ConnectionString(string key) => Configuration.GetConnectionString(key);
+
+        public static string AppSetting(string key) => Configuration.GetAppSetting(key);
+
+        public static T AppSetting<T>(string key) => Configuration.GetAppSetting<T>(key);
+
+        public static T AppSetting<T>(string key, T defaultValue) => Configuration.GetAppSetting<T>(key, defaultValue);
+
+        public static T AppSetting<T>(string key, Func<T> defaultValueFactory) => Configuration.GetAppSetting<T>(key, defaultValueFactory());
+
+#endif
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using WeihanLi.Extensions;
+using System.Collections.Generic;
 
 namespace WeihanLi.Common.Logging
 {
@@ -8,25 +8,18 @@ namespace WeihanLi.Common.Logging
     /// </summary>
     public static class LogHelperExtensions
     {
-        public static void Log(this ILogHelperLogger logger, LogHelperLevel loggerLevel, string msg) => logger.Log(loggerLevel, null, msg);
+        public static void Log(this ILogHelperLogger logger, LogHelperLogLevel loggerLevel, string msg) => logger.Log(loggerLevel, null, msg);
 
         #region Info
 
         public static void Info(this ILogHelperLogger logger, string msg, params object[] parameters)
         {
-            if (parameters == null || parameters.Length == 0)
-            {
-                logger.Log(LogHelperLevel.Info, msg);
-            }
-            else
-            {
-                logger.Log(LogHelperLevel.Info, null, msg.FormatWith(parameters));
-            }
+            logger.Log(LogHelperLogLevel.Info, null, msg, parameters);
         }
 
-        public static void Info(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Info, ex, msg);
+        public static void Info(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLogLevel.Info, ex, msg);
 
-        public static void Info(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Info, ex, ex?.Message);
+        public static void Info(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLogLevel.Info, ex, ex?.Message);
 
         #endregion Info
 
@@ -34,19 +27,12 @@ namespace WeihanLi.Common.Logging
 
         public static void Trace(this ILogHelperLogger logger, string msg, params object[] parameters)
         {
-            if (parameters == null || parameters.Length == 0)
-            {
-                logger.Log(LogHelperLevel.Trace, msg);
-            }
-            else
-            {
-                logger.Log(LogHelperLevel.Trace, null, msg.FormatWith(parameters));
-            }
+            logger.Log(LogHelperLogLevel.Trace, null, msg, parameters);
         }
 
-        public static void Trace(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Trace, ex, msg);
+        public static void Trace(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLogLevel.Trace, ex, msg);
 
-        public static void Trace(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Trace, ex, ex?.Message);
+        public static void Trace(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLogLevel.Trace, ex, ex?.Message);
 
         #endregion Trace
 
@@ -54,19 +40,12 @@ namespace WeihanLi.Common.Logging
 
         public static void Debug(this ILogHelperLogger logger, string msg, params object[] parameters)
         {
-            if (parameters == null || parameters.Length == 0)
-            {
-                logger.Log(LogHelperLevel.Debug, msg);
-            }
-            else
-            {
-                logger.Log(LogHelperLevel.Debug, null, msg.FormatWith(parameters));
-            }
+            logger.Log(LogHelperLogLevel.Debug, null, msg, parameters);
         }
 
-        public static void Debug(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Debug, ex, msg);
+        public static void Debug(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLogLevel.Debug, ex, msg);
 
-        public static void Debug(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Debug, ex, ex?.Message);
+        public static void Debug(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLogLevel.Debug, ex, ex?.Message);
 
         #endregion Debug
 
@@ -74,19 +53,12 @@ namespace WeihanLi.Common.Logging
 
         public static void Warn(this ILogHelperLogger logger, string msg, params object[] parameters)
         {
-            if (parameters == null || parameters.Length == 0)
-            {
-                logger.Log(LogHelperLevel.Warn, null, msg);
-            }
-            else
-            {
-                logger.Log(LogHelperLevel.Warn, null, msg.FormatWith(parameters));
-            }
+            logger.Log(LogHelperLogLevel.Warn, null, msg, parameters);
         }
 
-        public static void Warn(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Warn, ex, msg);
+        public static void Warn(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLogLevel.Warn, ex, msg);
 
-        public static void Warn(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Warn, ex, ex?.Message);
+        public static void Warn(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLogLevel.Warn, ex, ex?.Message);
 
         #endregion Warn
 
@@ -94,19 +66,12 @@ namespace WeihanLi.Common.Logging
 
         public static void Error(this ILogHelperLogger logger, string msg, params object[] parameters)
         {
-            if (parameters == null || parameters.Length == 0)
-            {
-                logger.Log(LogHelperLevel.Error, null, msg);
-            }
-            else
-            {
-                logger.Log(LogHelperLevel.Error, null, msg.FormatWith(parameters));
-            }
+            logger.Log(LogHelperLogLevel.Error, null, msg, parameters);
         }
 
-        public static void Error(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Error, ex, msg);
+        public static void Error(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLogLevel.Error, ex, msg);
 
-        public static void Error(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Error, ex, ex?.Message);
+        public static void Error(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLogLevel.Error, ex, ex?.Message);
 
         #endregion Error
 
@@ -114,79 +79,152 @@ namespace WeihanLi.Common.Logging
 
         public static void Fatal(this ILogHelperLogger logger, string msg, params object[] parameters)
         {
-            if (parameters == null || parameters.Length == 0)
-            {
-                logger.Log(LogHelperLevel.Fatal, null, msg);
-            }
-            else
-            {
-                logger.Log(LogHelperLevel.Fatal, null, msg.FormatWith(parameters));
-            }
+            logger.Log(LogHelperLogLevel.Fatal, null, msg, parameters);
         }
 
-        public static void Fatal(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLevel.Fatal, ex, msg);
+        public static void Fatal(this ILogHelperLogger logger, Exception ex, string msg) => logger.Log(LogHelperLogLevel.Fatal, ex, msg);
 
-        public static void Fatal(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLevel.Fatal, ex, ex?.Message);
+        public static void Fatal(this ILogHelperLogger logger, Exception ex) => logger.Log(LogHelperLogLevel.Fatal, ex, ex?.Message);
 
         #endregion Fatal
 
-        #region LoggerHelperProvider
+        #region ILogHelperFactory
 
-        /// <summary>
-        /// Create generic logger
-        /// </summary>
-        /// <typeparam name="TCategory">logger type</typeparam>
-        /// <param name="logHelperProvider">logHelperProvider</param>
-        /// <returns>ILogHelperLogger</returns>
-        public static ILogHelperLogger CreateLogger<TCategory>(this ILogHelperProvider logHelperProvider) => logHelperProvider.CreateLogger(typeof(TCategory));
+        public static ILogHelperLogger GetLogger<T>(this ILogHelperFactory logHelperFactory) =>
+            GetLogger(logHelperFactory, typeof(T));
 
-        /// <summary>
-        /// Create generic logger
-        /// </summary>
-        /// <param name="logHelperProvider">logHelperProvider</param>
-        /// <param name="type">logger type</param>
-        /// <returns>ILogHelperLogger</returns>
-        public static ILogHelperLogger CreateLogger(this ILogHelperProvider logHelperProvider, Type type) => logHelperProvider.CreateLogger(type.FullName);
-
-        #endregion LoggerHelperProvider
-
-        #region LogHelperFactory
-
-        public static ILogHelperFactory WithMinimumLevel(this ILogHelperFactory logHelperFactory, LogHelperLevel logLevel)
+        public static ILogHelperLogger GetLogger(this ILogHelperFactory logHelperFactory, Type type)
         {
-            return logHelperFactory.WithFilter(level => level >= logLevel);
+            return logHelperFactory.CreateLogger(type.FullName);
         }
 
-        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<LogHelperLevel, bool> filterFunc)
+        #endregion ILogHelperFactory
+
+        #region ILogHelperLoggingBuilder
+
+        public static ILogHelperLoggingBuilder WithMinimumLevel(this ILogHelperLoggingBuilder loggingBuilder, LogHelperLogLevel logLevel)
         {
-            logHelperFactory.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(logLevel));
-            return logHelperFactory;
+            return loggingBuilder.WithFilter(level => level >= logLevel);
         }
 
-        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<string, LogHelperLevel, bool> filterFunc)
+        public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func<LogHelperLogLevel, bool> filterFunc)
         {
-            logHelperFactory.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(categoryName, logLevel));
-            return logHelperFactory;
+            loggingBuilder.AddFilter((type, e) => filterFunc.Invoke(e.LogLevel));
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<Type, string, LogHelperLevel, bool> filterFunc)
+        public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func<string, LogHelperLogLevel, bool> filterFunc)
         {
-            logHelperFactory.AddFilter((type, categoryName, logLevel, exception) => filterFunc.Invoke(type, categoryName, logLevel));
-            return logHelperFactory;
+            loggingBuilder.AddFilter((type, e) => filterFunc.Invoke(e.CategoryName, e.LogLevel));
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory WithFilter(this ILogHelperFactory logHelperFactory, Func<Type, string, LogHelperLevel, Exception, bool> filterFunc)
+        public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func<Type, string, LogHelperLogLevel, bool> filterFunc)
         {
-            logHelperFactory.AddFilter(filterFunc);
-            return logHelperFactory;
+            loggingBuilder.AddFilter((type, e) => filterFunc.Invoke(type, e.CategoryName, e.LogLevel));
+            return loggingBuilder;
         }
 
-        public static ILogHelperFactory WithProvider(this ILogHelperFactory logHelperFactory, ILogHelperProvider logHelperProvider)
+        public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func<Type, string, LogHelperLogLevel, Exception, bool> filterFunc)
         {
-            logHelperFactory.AddProvider(logHelperProvider);
-            return logHelperFactory;
+            loggingBuilder.AddFilter((type, e) => filterFunc.Invoke(type, e.CategoryName, e.LogLevel, e.Exception));
+            return loggingBuilder;
         }
 
-        #endregion LogHelperFactory
+        public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func<Type, LogHelperLoggingEvent, bool> filterFunc)
+        {
+            loggingBuilder.AddFilter(filterFunc);
+            return loggingBuilder;
+        }
+
+        public static ILogHelperLoggingBuilder WithProvider(this ILogHelperLoggingBuilder loggingBuilder, ILogHelperProvider logHelperProvider)
+        {
+            loggingBuilder.AddProvider(logHelperProvider);
+            return loggingBuilder;
+        }
+
+        public static ILogHelperLoggingBuilder WithEnricher<TEnricher>(this ILogHelperLoggingBuilder loggingBuilder,
+            TEnricher enricher) where TEnricher : ILogHelperLoggingEnricher
+        {
+            loggingBuilder.AddEnricher(enricher);
+            return loggingBuilder;
+        }
+
+        public static ILogHelperLoggingBuilder WithEnricher<TEnricher>(this ILogHelperLoggingBuilder loggingBuilder) where TEnricher : ILogHelperLoggingEnricher, new()
+        {
+            loggingBuilder.AddEnricher(new TEnricher());
+            return loggingBuilder;
+        }
+
+        public static ILogHelperLoggingBuilder EnrichWithProperty(this ILogHelperLoggingBuilder loggingBuilder, string propertyName, object value, bool overwrite = false)
+        {
+            loggingBuilder.AddEnricher(new PropertyLoggingEnricher(propertyName, value, overwrite));
+            return loggingBuilder;
+        }
+
+        public static ILogHelperLoggingBuilder EnrichWithProperty(this ILogHelperLoggingBuilder loggingBuilder, string propertyName, Func<LogHelperLoggingEvent> valueFactory, bool overwrite = false)
+        {
+            loggingBuilder.AddEnricher(new PropertyLoggingEnricher(propertyName, valueFactory, overwrite));
+            return loggingBuilder;
+        }
+
+        public static ILogHelperLoggingBuilder EnrichWithProperty(this ILogHelperLoggingBuilder loggingBuilder, string propertyName, object value, Func<LogHelperLoggingEvent, bool> predict, bool overwrite = false)
+        {
+            loggingBuilder.AddEnricher(new PropertyLoggingEnricher(propertyName, e => value, predict, overwrite));
+            return loggingBuilder;
+        }
+
+        public static ILogHelperLoggingBuilder EnrichWithProperty(this ILogHelperLoggingBuilder loggingBuilder, string propertyName, Func<LogHelperLoggingEvent, object> valueFactory, Func<LogHelperLoggingEvent, bool> predict, bool overwrite = false)
+        {
+            loggingBuilder.AddEnricher(new PropertyLoggingEnricher(propertyName, valueFactory, predict, overwrite));
+            return loggingBuilder;
+        }
+
+        #endregion ILogHelperLoggingBuilder
+
+        #region LoggingEnricher
+
+        public static void AddProperty(this LogHelperLoggingEvent loggingEvent, string propertyName,
+            object propertyValue, bool overwrite = false)
+        {
+            if (null == loggingEvent)
+            {
+                throw new ArgumentNullException(nameof(loggingEvent));
+            }
+
+            if (loggingEvent.Properties == null)
+            {
+                loggingEvent.Properties = new Dictionary<string, object>();
+            }
+            if (loggingEvent.Properties.ContainsKey(propertyName) && overwrite == false)
+            {
+                return;
+            }
+
+            loggingEvent.Properties[propertyName] = propertyValue;
+        }
+
+        public static void AddProperty(this LogHelperLoggingEvent loggingEvent, string propertyName,
+            Func<LogHelperLoggingEvent, object> propertyValueFactory, bool overwrite = false)
+        {
+            if (null == loggingEvent)
+            {
+                throw new ArgumentNullException(nameof(loggingEvent));
+            }
+
+            if (loggingEvent.Properties == null)
+            {
+                loggingEvent.Properties = new Dictionary<string, object>();
+            }
+
+            if (loggingEvent.Properties.ContainsKey(propertyName) && overwrite == false)
+            {
+                return;
+            }
+
+            loggingEvent.Properties[propertyName] = propertyValueFactory?.Invoke(loggingEvent);
+        }
+
+        #endregion LoggingEnricher
     }
 }

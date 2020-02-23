@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using WeihanLi.Common.Logging;
 
 namespace WeihanLi.Common.Helpers
 {
@@ -11,9 +12,7 @@ namespace WeihanLi.Common.Helpers
     {
         static InvokeHelper()
         {
-#if DEBUG
-            OnInvokeException = ex => Console.WriteLine(ex.ToString());
-#endif
+            OnInvokeException = ex => LogHelper.GetLogger(typeof(InvokeHelper)).Error(ex);
         }
 
         #region Profile

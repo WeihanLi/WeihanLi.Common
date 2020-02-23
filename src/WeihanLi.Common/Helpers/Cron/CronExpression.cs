@@ -32,7 +32,7 @@ namespace WeihanLi.Common.Helpers.Cron
     /// <summary>
     /// Provides a parser and scheduler for cron expressions.
     /// </summary>
-    internal sealed class CronExpression : IEquatable<CronExpression>
+    public sealed class CronExpression : IEquatable<CronExpression>
     {
         private const long NotFound = 0;
 

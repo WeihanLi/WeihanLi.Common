@@ -11,7 +11,6 @@ namespace WeihanLi.Common.Helpers
         /// Generates code for the specified <paramref name="securityToken"/>.
         /// </summary>
         /// <param name="securityToken">The security token to generate code.</param>
-        /// <param name="size">return  code size</param>
         /// <returns>The generated code.</returns>
         public static string GenerateCode(byte[] securityToken)
         {
@@ -27,7 +26,6 @@ namespace WeihanLi.Common.Helpers
         /// ttl of the code for the specified <paramref name="securityToken"/>.
         /// </summary>
         /// <param name="securityToken">The security token to generate code.</param>
-        /// <param name="size">return  code size</param>
         /// <returns>the code remaining seconds expires in</returns>
         public static int TTL(byte[] securityToken)
         {
