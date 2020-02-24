@@ -1,9 +1,9 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Web;
-using JetBrains.Annotations;
 using WeihanLi.Common.Helpers;
 
 // ReSharper disable once CheckNamespace
@@ -301,6 +301,25 @@ namespace WeihanLi.Extensions
             return str.Split(separators, StringSplitOptions.RemoveEmptyEntries)
                 .Select(_ => _.To<T>())
                 .ToArray();
+        }
+
+        /// <summary>
+        /// remove start if start with
+        /// </summary>
+        /// <param name="str">str</param>
+        /// <param name="start">start to remove</param>
+        /// <returns>start removed str</returns>
+        public static string TrimStart(this string str, string start)
+        {
+            if (str.IsNullOrEmpty() || start.IsNullOrEmpty())
+            {
+                return str;
+            }
+            if (str.StartsWith(start))
+            {
+                str = str.Substring(start.Length);
+            }
+            return str;
         }
     }
 }

@@ -4,9 +4,15 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
-### [WeihanLi.Common 1.0.27](https://www.nuget.org/packages/WeihanLi.Common/1.0.27)
+### [WeihanLi.Common 1.0.29](https://www.nuget.org/packages/WeihanLi.Common/1.0.29)
+
+- add di extension
+- add `StringExtension.TrimStart(this str, string start)` extension
+
+### [WeihanLi.Common 1.0.28](https://www.nuget.org/packages/WeihanLi.Common/1.0.28)
 
 - refact logging
+- update `JsonResultModel`/`JsonResultStatus` => `ResultModel`/`ResultStatus`
 - add `NetHelper.IsPrivateIP`/`IPNetwork`
 - add httpHeader parameters for `HttpHelper.HttpPostFile`
 
@@ -111,6 +117,10 @@
 - update repository, add support for columns mapping
 
 ## WeihanLi.Common.Logging.Log4Net
+
+### [WeihanLi.Common.Logging.Log4Net 1.0.28](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.28)
+
+- refact logging
 
 ### [WeihanLi.Common.Logging.Log4Net 1.0.23.8](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.23.8)
 
