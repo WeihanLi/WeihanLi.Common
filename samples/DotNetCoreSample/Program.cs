@@ -2,7 +2,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Linq.Expressions;
 using WeihanLi.Common;
+using WeihanLi.Common.Data;
 using WeihanLi.Common.DependencyInjection;
 using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
@@ -54,7 +56,7 @@ namespace DotNetCoreSample
 
             //DependencyInjectionTest.Test();
 
-            EventTest.MainTest();
+            // EventTest.MainTest();
 
             // SerilogTest.MainTest();
 
@@ -78,7 +80,7 @@ namespace DotNetCoreSample
             //Console.WriteLine(pagedListModel.ToJson());
 
             // log test
-            LoggerTest.MainTest();
+            // LoggerTest.MainTest();
             // Log4NetTest.MainTest();
 
             //ILoggerFactory loggerFactory = new LoggerFactory();
@@ -160,7 +162,13 @@ namespace DotNetCoreSample
 
             // CronHelperTest.MainTest();
 
-            DependencyInjectionTest.BuiltInIocTest();
+            // DependencyInjectionTest.BuiltInIocTest();
+
+            Expression<Func<TestEntity, bool>> expression =
+                t => t.Id > 0 && t.CreatedTime < DateTime.Now && t.Token == null;
+            var visitor = new SqlExpressionVisitor(null);
+            visitor.Visit(expression);
+            Console.WriteLine(visitor.GetCondition());
 
             Console.ReadLine();
         }
