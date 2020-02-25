@@ -38,8 +38,7 @@ namespace WeihanLi.Extensions
                 Expression.AndAlso(left, right), parameter);
         }
 
-        private class ReplaceExpressionVisitor
-            : ExpressionVisitor
+        private class ReplaceExpressionVisitor : ExpressionVisitor
         {
             private readonly Expression _oldValue;
             private readonly Expression _newValue;
