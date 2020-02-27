@@ -10,7 +10,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public interface IServiceModule
     {
-        void ConfigureServices(IServiceCollection services);
+        void ConfigureServices([NotNull]IServiceCollection services);
     }
 
     public static class ServiceCollectionExtension
@@ -21,7 +21,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="services">services</param>
         /// <param name="assemblies">assemblies</param>
         /// <returns>services</returns>
-        public static IServiceCollection RegisterAssemblyTypes(this IServiceCollection services, params Assembly[] assemblies)
+        public static IServiceCollection RegisterAssemblyTypes([NotNull] this IServiceCollection services, params Assembly[] assemblies)
             => RegisterAssemblyTypes(services, null, ServiceLifetime.Singleton, assemblies);
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="serviceLifetime">service lifetime</param>
         /// <param name="assemblies">assemblies</param>
         /// <returns>services</returns>
-        public static IServiceCollection RegisterAssemblyTypes(this IServiceCollection services,
+        public static IServiceCollection RegisterAssemblyTypes([NotNull] this IServiceCollection services,
             ServiceLifetime serviceLifetime, params Assembly[] assemblies)
             => RegisterAssemblyTypes(services, null, serviceLifetime, assemblies);
 
@@ -42,7 +42,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="typesFilter">filter types to register</param>
         /// <param name="assemblies">assemblies</param>
         /// <returns>services</returns>
-        public static IServiceCollection RegisterAssemblyTypes(this IServiceCollection services,
+        public static IServiceCollection RegisterAssemblyTypes([NotNull] this IServiceCollection services,
             Func<Type, bool> typesFilter, params Assembly[] assemblies)
             => RegisterAssemblyTypes(services, typesFilter, ServiceLifetime.Singleton, assemblies);
 
@@ -54,7 +54,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="serviceLifetime">service lifetime</param>
         /// <param name="assemblies">assemblies</param>
         /// <returns>services</returns>
-        public static IServiceCollection RegisterAssemblyTypes(this IServiceCollection services, Func<Type, bool> typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
+        public static IServiceCollection RegisterAssemblyTypes([NotNull] this IServiceCollection services, Func<Type, bool> typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
         {
             if (assemblies == null || assemblies.Length == 0)
             {
@@ -83,7 +83,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="services">services</param>
         /// <param name="assemblies">assemblies</param>
         /// <returns>services</returns>
-        public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(this IServiceCollection services,
+        public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceCollection services,
             params Assembly[] assemblies)
             => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: null, ServiceLifetime.Singleton, assemblies);
 
@@ -94,7 +94,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="serviceLifetime">service lifetime</param>
         /// <param name="assemblies">assemblies</param>
         /// <returns>services</returns>
-        public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(this IServiceCollection services,
+        public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceCollection services,
             ServiceLifetime serviceLifetime, params Assembly[] assemblies)
             => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: null, serviceLifetime, assemblies);
 
@@ -105,7 +105,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="typesFilter">filter types to register</param>
         /// <param name="assemblies">assemblies</param>
         /// <returns>services</returns>
-        public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(this IServiceCollection services, Func<Type, bool> typesFilter, params Assembly[] assemblies)
+        public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceCollection services, Func<Type, bool> typesFilter, params Assembly[] assemblies)
             => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: typesFilter, ServiceLifetime.Singleton, assemblies);
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="serviceLifetime">service lifetime</param>
         /// <param name="assemblies">assemblies</param>
         /// <returns>services</returns>
-        public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(this IServiceCollection services, Func<Type, bool> typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
+        public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceCollection services, Func<Type, bool> typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
         {
             if (assemblies == null || assemblies.Length == 0)
             {
@@ -149,7 +149,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="type">type</param>
         /// <param name="serviceLifetime">service lifetime</param>
         /// <returns>services</returns>
-        public static IServiceCollection RegisterTypeAsImplementedInterfaces(this IServiceCollection services, Type type, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
+        public static IServiceCollection RegisterTypeAsImplementedInterfaces([NotNull] this IServiceCollection services, Type type, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
         {
             if (type != null)
             {
@@ -158,6 +158,19 @@ namespace Microsoft.Extensions.DependencyInjection
                     services.Add(new ServiceDescriptor(interfaceType, type, serviceLifetime));
                 }
             }
+            return services;
+        }
+
+        /// <summary>
+        /// Register Module
+        /// </summary>
+        /// <param name="services">services</param>
+        /// <param name="module">service module</param>
+        /// <returns>services</returns>
+        public static IServiceCollection RegisterModule<TServiceModule>([NotNull]this IServiceCollection services, TServiceModule module)
+            where TServiceModule : IServiceModule
+        {
+            module?.ConfigureServices(services);
             return services;
         }
 
