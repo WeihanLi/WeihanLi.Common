@@ -223,5 +223,13 @@ namespace WeihanLi.Common
         }
 
 #endif
+
+        public static TService ResolveService<TService>() => Current.ResolveService<TService>();
+
+        public static IEnumerable<TService> ResolveServices<TService>() => Current.ResolveServices<TService>();
+
+        public static bool TryInvokeService<TService>(Action<TService> action) => Current.TryInvokeService(action);
+
+        public static Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action) => Current.TryInvokeServiceAsync(action);
     }
 }
