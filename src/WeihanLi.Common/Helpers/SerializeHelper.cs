@@ -109,7 +109,7 @@ namespace WeihanLi.Common.Helpers
         /// <returns>The object deserialized.</returns>
         public static T DeserializeJson<T>(string @this)
         {
-            return @this.JsonToType<T>();
+            return @this.JsonToObject<T>();
         }
 
         /// <summary>

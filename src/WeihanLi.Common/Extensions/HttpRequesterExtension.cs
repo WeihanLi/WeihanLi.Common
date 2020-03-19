@@ -1,10 +1,10 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Http;
 
@@ -100,12 +100,12 @@ namespace WeihanLi.Extensions
 
         public static TEntity ExecuteForJson<TEntity>(this IHttpRequester httpRequester)
         {
-            return httpRequester.Execute().JsonToType<TEntity>();
+            return httpRequester.Execute().JsonToObject<TEntity>();
         }
 
         public static Task<TEntity> ExecuteForJsonAsync<TEntity>(this IHttpRequester httpRequester)
         {
-            return httpRequester.ExecuteAsync().ContinueWith(r => r.Result.JsonToType<TEntity>());
+            return httpRequester.ExecuteAsync().ContinueWith(r => r.Result.JsonToObject<TEntity>());
         }
 
         public static TEntity ExecuteForXml<TEntity>(this IHttpRequester httpRequester)
