@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.DependencyInjection
 {
@@ -12,6 +13,165 @@ namespace WeihanLi.Common.DependencyInjection
         {
             serviceContainerBuilder.Add(new ServiceDefinition(service, typeof(TService)));
             return serviceContainerBuilder;
+        }
+
+        /// <summary>
+        /// RegisterAssemblyTypes
+        /// </summary>
+        /// <param name="services">services</param>
+        /// <param name="assemblies">assemblies</param>
+        /// <returns>services</returns>
+        public static IServiceContainerBuilder RegisterAssemblyTypes([NotNull] this IServiceContainerBuilder services, params Assembly[] assemblies)
+            => RegisterAssemblyTypes(services, null, ServiceLifetime.Singleton, assemblies);
+
+        /// <summary>
+        /// RegisterAssemblyTypes
+        /// </summary>
+        /// <param name="services">services</param>
+        /// <param name="serviceLifetime">service lifetime</param>
+        /// <param name="assemblies">assemblies</param>
+        /// <returns>services</returns>
+        public static IServiceContainerBuilder RegisterAssemblyTypes([NotNull] this IServiceContainerBuilder services,
+            ServiceLifetime serviceLifetime, params Assembly[] assemblies)
+            => RegisterAssemblyTypes(services, null, serviceLifetime, assemblies);
+
+        /// <summary>
+        /// RegisterAssemblyTypes
+        /// </summary>
+        /// <param name="services">services</param>
+        /// <param name="typesFilter">filter types to register</param>
+        /// <param name="assemblies">assemblies</param>
+        /// <returns>services</returns>
+        public static IServiceContainerBuilder RegisterAssemblyTypes([NotNull] this IServiceContainerBuilder services,
+            Func<Type, bool> typesFilter, params Assembly[] assemblies)
+            => RegisterAssemblyTypes(services, typesFilter, ServiceLifetime.Singleton, assemblies);
+
+        /// <summary>
+        /// RegisterAssemblyTypes
+        /// </summary>
+        /// <param name="services">services</param>
+        /// <param name="typesFilter">filter types to register</param>
+        /// <param name="serviceLifetime">service lifetime</param>
+        /// <param name="assemblies">assemblies</param>
+        /// <returns>services</returns>
+        public static IServiceContainerBuilder RegisterAssemblyTypes([NotNull] this IServiceContainerBuilder services, Func<Type, bool> typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
+        {
+            if (assemblies == null || assemblies.Length == 0)
+            {
+                assemblies = ReflectHelper.GetAssemblies();
+            }
+
+            var types = assemblies
+                .Select(assembly => assembly.GetExportedTypes())
+                .SelectMany(t => t);
+            if (typesFilter != null)
+            {
+                types = types.Where(typesFilter);
+            }
+
+            foreach (var type in types)
+            {
+                services.Add(new ServiceDefinition(type, type, serviceLifetime));
+            }
+
+            return services;
+        }
+
+        /// <summary>
+        /// RegisterTypeAsImplementedInterfaces
+        /// </summary>
+        /// <param name="services">services</param>
+        /// <param name="assemblies">assemblies</param>
+        /// <returns>services</returns>
+        public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services,
+            params Assembly[] assemblies)
+            => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: null, ServiceLifetime.Singleton, assemblies);
+
+        /// <summary>
+        /// RegisterTypeAsImplementedInterfaces
+        /// </summary>
+        /// <param name="services">services</param>
+        /// <param name="serviceLifetime">service lifetime</param>
+        /// <param name="assemblies">assemblies</param>
+        /// <returns>services</returns>
+        public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services,
+            ServiceLifetime serviceLifetime, params Assembly[] assemblies)
+            => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: null, serviceLifetime, assemblies);
+
+        /// <summary>
+        /// RegisterTypeAsImplementedInterfaces, singleton by default
+        /// </summary>
+        /// <param name="services">services</param>
+        /// <param name="typesFilter">filter types to register</param>
+        /// <param name="assemblies">assemblies</param>
+        /// <returns>services</returns>
+        public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services, Func<Type, bool> typesFilter, params Assembly[] assemblies)
+            => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: typesFilter, ServiceLifetime.Singleton, assemblies);
+
+        /// <summary>
+        /// RegisterTypeAsImplementedInterfaces
+        /// </summary>
+        /// <param name="services">services</param>
+        /// <param name="typesFilter">filter types to register</param>
+        /// <param name="serviceLifetime">service lifetime</param>
+        /// <param name="assemblies">assemblies</param>
+        /// <returns>services</returns>
+        public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services, Func<Type, bool> typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
+        {
+            if (assemblies == null || assemblies.Length == 0)
+            {
+                assemblies = ReflectHelper.GetAssemblies();
+            }
+
+            var types = assemblies
+                .Select(assembly => assembly.GetExportedTypes())
+                .SelectMany(t => t);
+            if (typesFilter != null)
+            {
+                types = types.Where(typesFilter);
+            }
+
+            foreach (var type in types)
+            {
+                foreach (var implementedInterface in type.GetImplementedInterfaces())
+                {
+                    services.Add(new ServiceDefinition(implementedInterface, type, serviceLifetime));
+                }
+            }
+
+            return services;
+        }
+
+        /// <summary>
+        /// RegisterTypeAsImplementedInterfaces
+        /// </summary>
+        /// <param name="services">services</param>
+        /// <param name="type">type</param>
+        /// <param name="serviceLifetime">service lifetime</param>
+        /// <returns>services</returns>
+        public static IServiceContainerBuilder RegisterTypeAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services, Type type, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
+        {
+            if (type != null)
+            {
+                foreach (var interfaceType in type.GetImplementedInterfaces())
+                {
+                    services.Add(new ServiceDefinition(interfaceType, type, serviceLifetime));
+                }
+            }
+            return services;
+        }
+
+        /// <summary>
+        /// Register Module
+        /// </summary>
+        /// <param name="services">services</param>
+        /// <param name="module">service module</param>
+        /// <returns>services</returns>
+        public static IServiceContainerBuilder RegisterModule<TServiceModule>([NotNull]this IServiceContainerBuilder services, TServiceModule module)
+            where TServiceModule : IServiceContainerModule
+        {
+            module?.ConfigureServices(services);
+            return services;
         }
 
         public static IServiceContainerBuilder RegisterAssemblyModules(

@@ -1,6 +1,6 @@
-﻿using System;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using Newtonsoft.Json;
+using System;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -15,7 +15,6 @@ namespace WeihanLi.Extensions
             ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
             MissingMemberHandling = MissingMemberHandling.Ignore,
             NullValueHandling = NullValueHandling.Ignore,
-            DateFormatString = "yyyy-MM-dd HH:mm:ss"
         };
 
         /// <summary>
@@ -69,8 +68,8 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">对象的类型</typeparam>
         /// <param name="jsonString">json对象字符串</param>
         /// <returns>由字符串转换得到的T对象</returns>
-        public static T JsonToType<T>([NotNull]this string jsonString)
-            => jsonString.JsonToType<T>(null);
+        public static T JsonToObject<T>([NotNull]this string jsonString)
+            => jsonString.JsonToObject<T>(null);
 
         /// <summary>
         /// 将Json对象转换为T对象
@@ -79,7 +78,7 @@ namespace WeihanLi.Extensions
         /// <param name="jsonString">json对象字符串</param>
         /// <param name="settings">JsonSerializerSettings</param>
         /// <returns>由字符串转换得到的T对象</returns>
-        public static T JsonToType<T>([NotNull]this string jsonString, JsonSerializerSettings settings)
+        public static T JsonToObject<T>([NotNull]this string jsonString, JsonSerializerSettings settings)
             => jsonString.IsNullOrWhiteSpace() ? default(T) : JsonConvert.DeserializeObject<T>(jsonString, settings ?? DefaultSerializerSettings);
 
         /// <summary>
@@ -92,6 +91,10 @@ namespace WeihanLi.Extensions
             if (null == obj)
             {
                 return string.Empty;
+            }
+            if (obj is string str)
+            {
+                return str;
             }
             if (obj.GetType().IsBasicType())
             {
@@ -112,11 +115,15 @@ namespace WeihanLi.Extensions
             {
                 return default(T);
             }
+            if (typeof(T) == typeof(string))
+            {
+                return (T)(object)jsonString;
+            }
             if (typeof(T).IsBasicType())
             {
                 return jsonString.To<T>();
             }
-            return jsonString.JsonToType<T>();
+            return jsonString.JsonToObject<T>();
         }
 
         /// <summary>
@@ -132,13 +139,17 @@ namespace WeihanLi.Extensions
             {
                 return defaultValue;
             }
+            if (typeof(T) == typeof(string))
+            {
+                return (T)(object)jsonString;
+            }
             if (typeof(T).IsBasicType())
             {
                 return jsonString.ToOrDefault(defaultValue);
             }
             try
             {
-                return jsonString.JsonToType<T>();
+                return jsonString.JsonToObject<T>();
             }
             catch
             {

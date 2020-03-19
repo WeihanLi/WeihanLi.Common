@@ -98,7 +98,7 @@ namespace WeihanLi.Common.Helpers
             {
                 throw new ArgumentException(Resource.TaskCanNotBeSerialized);
             }
-            return bytes.GetString().JsonToType<T>();
+            return bytes.GetString().JsonToObject<T>();
         }
 
         public byte[] Serialize<T>(T obj)

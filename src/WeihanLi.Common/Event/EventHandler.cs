@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using Newtonsoft.Json.Linq;
+using System;
+using System.Threading.Tasks;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Event
 {
@@ -20,6 +23,27 @@ namespace WeihanLi.Common.Event
     {
         public abstract Task Handle(TEvent @event);
 
-        public virtual Task Handle(object eventData) => Handle(eventData as TEvent);
+        public virtual Task Handle(object eventData)
+        {
+            if (null == eventData)
+            {
+                throw new ArgumentNullException(nameof(eventData));
+            }
+
+            if (eventData is TEvent data)
+            {
+                return Handle(data);
+            }
+            if (eventData is JObject jObject)
+            {
+                return Handle(jObject.ToObject<TEvent>());
+            }
+            if (eventData is string eventDataJson)
+            {
+                return Handle(eventDataJson.JsonToObject<TEvent>());
+            }
+
+            throw new ArgumentException($"unsupported eventDataType:{eventData.GetType()}", nameof(eventData));
+        }
     }
 }
