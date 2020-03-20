@@ -22,9 +22,6 @@ namespace DotNetCoreSample
         {
             Console.WriteLine("----------DotNetCoreSample----------");
 
-            // LogHelper.LogFactory.AddLog4Net();
-            // LogHelper.LogFactory.AddSerilog(loggerConfig => loggerConfig.WriteTo.Console());
-
             // var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
             // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
 
@@ -83,14 +80,20 @@ namespace DotNetCoreSample
             // LoggerTest.MainTest();
             // Log4NetTest.MainTest();
 
-            //ILoggerFactory loggerFactory = new LoggerFactory();
+            ILoggerFactory loggerFactory = new LoggerFactory();
             //loggerFactory.AddConsole();
             //loggerFactory.AddDebug();
-            //LogHelper.AddMicrosoftLogging(loggerFactory);
-            //var logger = new Logger<Program>(loggerFactory);
-            //logger.LogInformation("Logging information from Microsoft.Extensions.Logging");
+            loggerFactory.AddDelegateLogger(
+                (category, logLevel, exception, msg) =>
+                {
+                    Console.WriteLine($"{category}:[{logLevel}] {msg}\n{exception}");
+                }
+            );
 
-            // InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
+            var logger = new Logger<Program>(loggerFactory);
+            logger.LogInformation("Logging information from Microsoft.Extensions.Logging");
+
+            InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
 
             //TaskTest.TaskWhenAllTest().GetAwaiter().GetResult();
 
