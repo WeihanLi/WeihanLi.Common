@@ -17,7 +17,7 @@ namespace WeihanLi.Common.Test.ModelsTest
                 Data = new[] { 1, 2, 3 }
             };
             var json = model.ToJson();
-            var dModel = json.JsonToType<PagedListModel<int>>();
+            var dModel = json.JsonToObject<PagedListModel<int>>();
             Assert.Equal(model.PageSize, dModel.PageSize);
         }
 

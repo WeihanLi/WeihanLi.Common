@@ -1,7 +1,62 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging.Abstractions.Internal;
+using System;
+using System.Collections.Concurrent;
 
 namespace Microsoft.Extensions.Logging
 {
+    [ProviderAlias("Delegate")]
+    public class DelegateLoggerProvider : ILoggerProvider
+    {
+        private readonly Action<string, LogLevel, Exception, string> _logAction;
+        private readonly ConcurrentDictionary<string, DelegateLogger> _loggers = new ConcurrentDictionary<string, DelegateLogger>();
+
+        public DelegateLoggerProvider(Action<string, LogLevel, Exception, string> logAction)
+        {
+            _logAction = logAction;
+        }
+
+        public void Dispose()
+        {
+            _loggers.Clear();
+        }
+
+        public ILogger CreateLogger(string categoryName)
+        {
+            return _loggers.GetOrAdd(categoryName, category => new DelegateLogger(category, _logAction));
+        }
+
+        private class DelegateLogger : ILogger
+        {
+            private readonly string _categoryName;
+            private readonly Action<string, LogLevel, Exception, string> _logAction;
+
+            public DelegateLogger(string categoryName, Action<string, LogLevel, Exception, string> logAction)
+            {
+                _categoryName = categoryName;
+                _logAction = logAction;
+            }
+
+            public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
+            {
+                if (null != _logAction)
+                {
+                    var msg = formatter(state, exception);
+                    _logAction.Invoke(_categoryName, logLevel, exception, msg);
+                }
+            }
+
+            public bool IsEnabled(LogLevel logLevel)
+            {
+                return true;
+            }
+
+            public IDisposable BeginScope<TState>(TState state)
+            {
+                return NullScope.Instance;
+            }
+        }
+    }
+
     public static class LoggerExtensions
     {
         #region Info
@@ -61,5 +116,31 @@ namespace Microsoft.Extensions.Logging
         public static void Fatal(this ILogger logger, Exception ex) => logger.LogCritical(ex, ex?.Message);
 
         #endregion Fatal
+
+        #region LoggerFactory
+
+        /// <summary>
+        /// AddDelegateLoggerProvider
+        /// </summary>
+        /// <param name="loggerFactory">loggerFactory</param>
+        /// <param name="logAction">logAction</param>
+        /// <returns>loggerFactory</returns>
+        public static ILoggerFactory AddDelegateLogger(this ILoggerFactory loggerFactory, Action<string, LogLevel, Exception, string> logAction)
+        {
+            loggerFactory.AddProvider(new DelegateLoggerProvider(logAction));
+            return loggerFactory;
+        }
+
+        #endregion LoggerFactory
+
+        #region ILoggingBuilder
+
+        public static ILoggingBuilder AddDelegateLogger(this ILoggingBuilder loggingBuilder,
+            Action<string, LogLevel, Exception, string> logAction)
+        {
+            return loggingBuilder.AddProvider(new DelegateLoggerProvider(logAction));
+        }
+
+        #endregion ILoggingBuilder
     }
 }

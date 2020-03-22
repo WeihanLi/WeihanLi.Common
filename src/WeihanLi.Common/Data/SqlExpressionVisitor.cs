@@ -8,7 +8,7 @@ namespace WeihanLi.Common.Data
 {
     public class SqlExpressionVisitor : ExpressionVisitor
     {
-        private Stack<string> _leaves = new Stack<string>();
+        private readonly Stack<string> _leaves = new Stack<string>();
         private readonly IDictionary<string, string> _columnMappings;
 
         public SqlExpressionVisitor(IDictionary<string, string> columnMappings)
@@ -151,6 +151,7 @@ namespace WeihanLi.Common.Data
                 //
                 throw new NotImplementedException();
             }
+            _leaves.Push(GetResult());
             return base.VisitMethodCall(node);
         }
 

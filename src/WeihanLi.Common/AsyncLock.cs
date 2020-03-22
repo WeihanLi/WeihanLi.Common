@@ -12,6 +12,12 @@ namespace WeihanLi.Common
     {
         private readonly SemaphoreSlim _mutex = new SemaphoreSlim(1, 1);
 
+        public IDisposable Lock()
+        {
+            _mutex.Wait();
+            return new AsyncLockReleaser(_mutex);
+        }
+
         public Task<IDisposable> LockAsync() => LockAsync(CancellationToken.None);
 
         public Task<IDisposable> LockAsync(CancellationToken cancellationToken) => LockAsync(TimeSpan.Zero, cancellationToken);
@@ -29,34 +35,10 @@ namespace WeihanLi.Common
             return new AsyncLockReleaser(_mutex);
         }
 
-        #region IDisposable Support
-
-        private bool _disposed; // 要检测冗余调用
-
-        private void Dispose(bool disposing)
-        {
-            if (!_disposed)
-            {
-                if (disposing)
-                {
-                    // 释放托管状态(托管对象)。
-                }
-
-                _mutex.Dispose();
-                _disposed = true;
-            }
-        }
-
-        // 添加此代码以正确实现可处置模式。
         public void Dispose()
         {
-            // 请勿更改此代码。将清理代码放入以上 Dispose(bool disposing) 中。
-            Dispose(true);
-            // 如果在以上内容中替代了终结器，则取消注释以下行。
-            GC.SuppressFinalize(this);
+           _mutex?.Dispose();
         }
-
-        #endregion IDisposable Support
 
         #region AsyncLockReleaser
 
