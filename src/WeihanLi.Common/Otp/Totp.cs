@@ -97,12 +97,13 @@ namespace WeihanLi.Common.Otp
         {
             if (string.IsNullOrWhiteSpace(code))
                 return false;
+
             if (code.Length != _codeSize)
                 return false;
 
             var futureStep = (int)(timeToleration.TotalSeconds / 30);
             var step = GetCurrentTimeStepNumber();
-            for (int i = -futureStep; i <= futureStep; i++)
+            for (var i = -futureStep; i <= futureStep; i++)
             {
                 if (step + i < 0)
                 {
@@ -119,10 +120,10 @@ namespace WeihanLi.Common.Otp
 
         public int RemainingSeconds()
         {
-            return (int)(TimeStepTicks - ((DateTime.UtcNow - UnixEpoch).Ticks / TimeSpan.TicksPerSecond) % TimeStepTicks);
+            return (int)(TimeStepTicks - ((DateTime.UtcNow.Ticks - UnixEpochTicks) / TimeSpan.TicksPerSecond) % TimeStepTicks);
         }
 
-        private static readonly DateTime UnixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        private static readonly long UnixEpochTicks = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).Ticks;
 
         /// <summary>
         /// time step
@@ -131,6 +132,6 @@ namespace WeihanLi.Common.Otp
         private const long TimeStepTicks = TimeSpan.TicksPerSecond * 30;
 
         // More info: https://tools.ietf.org/html/rfc6238#section-4
-        private static long GetCurrentTimeStepNumber() => (DateTime.UtcNow - UnixEpoch).Ticks / TimeStepTicks;
+        private static long GetCurrentTimeStepNumber() => (DateTime.UtcNow.Ticks - UnixEpochTicks) / TimeStepTicks;
     }
 }
