@@ -63,7 +63,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="code">The code to validate.</param>
         /// <param name="expiresIn">expiresIn, in seconds</param>
         /// <returns><c>True</c> if validate succeed, otherwise, <c>false</c>.</returns>
-        public static bool VerifyCode(byte[] securityToken, string code, int expiresIn = 30)
+        public static bool VerifyCode(byte[] securityToken, string code, int expiresIn = -1)
         {
             if (securityToken == null)
             {
@@ -79,7 +79,7 @@ namespace WeihanLi.Common.Helpers
             Array.Copy(securityToken, bytes, securityToken.Length);
             Array.Copy(saltBytes, 0, bytes, securityToken.Length, saltBytes.Length);
 
-            var validateResult = Totp.Value.Verify(bytes, code, TimeSpan.FromSeconds(expiresIn));
+            var validateResult = Totp.Value.Verify(bytes, code, TimeSpan.FromSeconds(expiresIn >= 0 ? expiresIn : DefaultOptions.ExpiresIn));
             return validateResult;
         }
 
@@ -103,6 +103,6 @@ namespace WeihanLi.Common.Helpers
         /// <param name="code">The code to validate.</param>
         /// <param name="expiresIn">expiresIn, in seconds</param>
         /// <returns><c>True</c> if validate succeed, otherwise, <c>false</c>.</returns>
-        public static bool VerifyCode(string securityToken, string code, int expiresIn = 30) => VerifyCode(System.Text.Encoding.UTF8.GetBytes(securityToken), code, expiresIn);
+        public static bool VerifyCode(string securityToken, string code, int expiresIn = -1) => VerifyCode(System.Text.Encoding.UTF8.GetBytes(securityToken), code, expiresIn);
     }
 }
