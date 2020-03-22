@@ -4,6 +4,21 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.31](https://www.nuget.org/packages/WeihanLi.Common/1.0.31)
+
+- update `AsyncLock`, add `Lock`
+- update `DependencyResolver`
+- add `StringHelper.ToPascalCase`/`StringHelper.ToCamelCase`
+- add `UnitOfWork`/`DelegateLoggerProvider`/`TotpOptions`
+- rename `JsonToType` => `JsonToObject`(breaking change)
+
+### [WeihanLi.Common 1.0.30](https://www.nuget.org/packages/WeihanLi.Common/1.0.30)
+
+- update `ExpressionExtension.And`/`ExpressionExtension.Or`
+- add `SqlExpressionVisitor`
+- add `RegisterModule` extension for `IServiceCollection`
+- add extensions for `IServiceContainerBuilder`
+
 ### [WeihanLi.Common 1.0.29](https://www.nuget.org/packages/WeihanLi.Common/1.0.29)
 
 - add di extension
