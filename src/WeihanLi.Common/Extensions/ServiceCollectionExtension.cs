@@ -116,7 +116,21 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="serviceLifetime">service lifetime</param>
         /// <param name="assemblies">assemblies</param>
         /// <returns>services</returns>
-        public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceCollection services, Func<Type, bool> typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
+        public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(
+            [NotNull] this IServiceCollection services, Func<Type, bool> typesFilter, ServiceLifetime serviceLifetime,
+            params Assembly[] assemblies)
+            => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter, null, serviceLifetime, assemblies);
+
+        /// <summary>
+        /// RegisterTypeAsImplementedInterfaces
+        /// </summary>
+        /// <param name="services">services</param>
+        /// <param name="typesFilter">filter types to register</param>
+        /// <param name="interfaceTypeFilter">filter interface types to register</param>
+        /// <param name="serviceLifetime">service lifetime</param>
+        /// <param name="assemblies">assemblies</param>
+        /// <returns>services</returns>
+        public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceCollection services, Func<Type, bool> typesFilter, Func<Type, bool> interfaceTypeFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
         {
             if (assemblies == null || assemblies.Length == 0)
             {
@@ -135,7 +149,10 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 foreach (var implementedInterface in type.GetImplementedInterfaces())
                 {
-                    services.Add(new ServiceDescriptor(implementedInterface, type, serviceLifetime));
+                    if (interfaceTypeFilter?.Invoke(implementedInterface) != false)
+                    {
+                        services.Add(new ServiceDescriptor(implementedInterface, type, serviceLifetime));
+                    }
                 }
             }
 
@@ -150,12 +167,26 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="serviceLifetime">service lifetime</param>
         /// <returns>services</returns>
         public static IServiceCollection RegisterTypeAsImplementedInterfaces([NotNull] this IServiceCollection services, Type type, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
+            => RegisterTypeAsImplementedInterfaces(services, type, null, serviceLifetime);
+
+        /// <summary>
+        /// RegisterTypeAsImplementedInterfaces
+        /// </summary>
+        /// <param name="services">services</param>
+        /// <param name="type">type</param>
+        /// <param name="interfaceTypeFilter">interfaceTypeFilter</param>
+        /// <param name="serviceLifetime">service lifetime</param>
+        /// <returns>services</returns>
+        public static IServiceCollection RegisterTypeAsImplementedInterfaces([NotNull] this IServiceCollection services, Type type, Func<Type, bool> interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
         {
             if (type != null)
             {
                 foreach (var interfaceType in type.GetImplementedInterfaces())
                 {
-                    services.Add(new ServiceDescriptor(interfaceType, type, serviceLifetime));
+                    if (interfaceTypeFilter?.Invoke(interfaceType) != false)
+                    {
+                        services.Add(new ServiceDescriptor(interfaceType, type, serviceLifetime));
+                    }
                 }
             }
             return services;
