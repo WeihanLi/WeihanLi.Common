@@ -62,8 +62,10 @@ namespace WeihanLi.Common.DependencyInjection
             }
 
             var types = assemblies
-                .Select(assembly => assembly.GetExportedTypes())
-                .SelectMany(t => t);
+                .Select(assembly => assembly.GetTypes())
+                .SelectMany(t => t)
+                .Where(t => !t.IsAbstract)
+                ;
             if (typesFilter != null)
             {
                 types = types.Where(typesFilter);
@@ -138,8 +140,10 @@ namespace WeihanLi.Common.DependencyInjection
             }
 
             var types = assemblies
-                .Select(assembly => assembly.GetExportedTypes())
-                .SelectMany(t => t);
+                .Select(assembly => assembly.GetTypes())
+                .SelectMany(t => t)
+                .Where(t => !t.IsAbstract)
+                ;
             if (typesFilter != null)
             {
                 types = types.Where(typesFilter);
