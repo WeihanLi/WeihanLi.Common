@@ -11,7 +11,7 @@ namespace WeihanLi.Common.Test.ModelsTest
         {
             var model = new PagedListData<int>()
             {
-                PageNumber = 1,
+                PageNum = 1,
                 PageSize = 3,
                 TotalCount = 10,
                 Data = new[] { 1, 2, 3 }
@@ -27,7 +27,7 @@ namespace WeihanLi.Common.Test.ModelsTest
             var empty = PagedListData<int>.Empty;
             Assert.Empty(empty.Data);
             Assert.Equal(0, empty.TotalCount);
-            Assert.Equal(1, empty.PageNumber);
+            Assert.Equal(1, empty.PageNum);
             Assert.Equal(10, empty.PageSize);
             Assert.Equal(0, empty.PageCount);
         }
