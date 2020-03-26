@@ -1,12 +1,15 @@
 ﻿using JetBrains.Annotations;
-using System;
 using System.Collections.Generic;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Models
 {
-    [Obsolete("please use IPagedListData")]
-    public interface IPagedListModel<out T>
+    /// <summary>
+    /// PagedListData,
+    /// data with page info
+    /// </summary>
+    /// <typeparam name="T">Type</typeparam>
+    public interface IPagedListData<out T>
     {
         /// <summary>
         /// Data
@@ -36,15 +39,9 @@ namespace WeihanLi.Common.Models
         int PageCount { get; }
     }
 
-    /// <summary>
-    /// 分页Model
-    /// </summary>
-    /// <typeparam name="T">Type</typeparam>
-    [Serializable]
-    [Obsolete]
-    public class PagedListModel<T> : IPagedListModel<T>
+    public class PagedListData<T> : IPagedListData<T>
     {
-        public static readonly IPagedListModel<T> Empty = new PagedListModel<T>();
+        public static readonly IPagedListData<T> Empty = new PagedListData<T>();
 
         private IReadOnlyList<T> _data = ArrayHelper.Empty<T>();
 
