@@ -17,12 +17,7 @@ namespace WeihanLi.Common.Helpers
             }
 #endif
 
-            if (null == assemblies || assemblies.Length == 0)
-            {
-                assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            }
-
-            return assemblies ?? ArrayHelper.Empty<Assembly>();
+            return assemblies ?? AppDomain.CurrentDomain.GetAssemblies();
         }
     }
 }
