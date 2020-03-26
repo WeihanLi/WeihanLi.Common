@@ -21,7 +21,7 @@ namespace WeihanLi.Common.Models
         /// <summary>
         /// PageNumber
         /// </summary>
-        int PageNumber { get; }
+        int PageNum { get; }
 
         /// <summary>
         /// PageSize
@@ -59,16 +59,16 @@ namespace WeihanLi.Common.Models
             }
         }
 
-        private int _pageNumber = 1;
+        private int _pageNum = 1;
 
-        public int PageNumber
+        public int PageNum
         {
-            get => _pageNumber;
+            get => _pageNum;
             set
             {
                 if (value > 0)
                 {
-                    _pageNumber = value;
+                    _pageNum = value;
                 }
             }
         }
