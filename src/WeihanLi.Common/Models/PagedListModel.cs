@@ -5,7 +5,6 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Models
 {
-    [Obsolete("please use IPagedListData")]
     public interface IPagedListModel<out T>
     {
         /// <summary>
@@ -41,7 +40,6 @@ namespace WeihanLi.Common.Models
     /// </summary>
     /// <typeparam name="T">Type</typeparam>
     [Serializable]
-    [Obsolete]
     public class PagedListModel<T> : IPagedListModel<T>
     {
         public static readonly IPagedListModel<T> Empty = new PagedListModel<T>();
