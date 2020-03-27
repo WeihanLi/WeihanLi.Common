@@ -24,6 +24,7 @@
     <Compile Remove="ObjectPool\*.cs" />
   </ItemGroup>
   <ItemGroup>
+    <InternalsVisibleTo Include="WeihanLi.Common.Test" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
   </ItemGroup>
