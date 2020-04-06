@@ -73,6 +73,17 @@ namespace WeihanLi.Common.Helpers
             GetMethodInfo<Func<IServiceProvider, Type, Type, bool, object>>((sp, t, r, c) => GetService(sp, t, r, c));
 
         /// <summary>
+        /// create instance of Type T with parameters
+        /// </summary>
+        /// <typeparam name="T">type</typeparam>
+        /// <param name="parameters">parameters</param>
+        /// <returns>T instance</returns>
+        public static T CreateInstance<T>(params object[] parameters)
+        {
+            return (T)Activator.CreateInstance(typeof(T), parameters);
+        }
+
+        /// <summary>
         /// Instantiate a type with constructor arguments provided directly and/or from an <see cref="IServiceProvider"/>.
         /// </summary>
         /// <param name="provider">The service provider used to resolve dependencies</param>
