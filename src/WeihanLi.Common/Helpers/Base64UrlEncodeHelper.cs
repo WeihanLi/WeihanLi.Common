@@ -37,7 +37,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="inArray">An array of 8-bit unsigned integers.</param>
         /// <param name="length">An offset in inArray.</param>
         /// <param name="offset">The number of elements of inArray to convert.</param>
-        /// <returns>The string representation in base 64 url encodingof length elements of inArray, starting at position offset.</returns>
+        /// <returns>The string representation in base 64 url encoding of length elements of inArray, starting at position offset.</returns>
         /// <exception cref="T:System.ArgumentNullException">'inArray' is null.</exception>
         /// <exception cref="T:System.ArgumentOutOfRangeException">offset or length is negative OR offset plus length is greater than the length of inArray.</exception>
         public static string Encode(byte[] inArray, int offset, int length)

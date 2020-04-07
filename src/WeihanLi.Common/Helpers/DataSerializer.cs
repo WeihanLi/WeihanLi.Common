@@ -92,7 +92,7 @@ namespace WeihanLi.Common.Helpers
 
     public class JsonDataSerializer : IDataSerializer
     {
-        public T Deserialize<T>(byte[] bytes)
+        public virtual T Deserialize<T>(byte[] bytes)
         {
             if (typeof(Task).IsAssignableFrom(typeof(T)))
             {
@@ -101,7 +101,7 @@ namespace WeihanLi.Common.Helpers
             return bytes.GetString().JsonToObject<T>();
         }
 
-        public byte[] Serialize<T>(T obj)
+        public virtual byte[] Serialize<T>(T obj)
         {
             if (typeof(Task).IsAssignableFrom(typeof(T)))
             {
@@ -118,8 +118,8 @@ namespace WeihanLi.Common.Helpers
 
         public CompressDataSerializer(IDataSerializer serializer, IDataCompressor compressor)
         {
-            _serializer = serializer;
-            _compressor = compressor;
+            _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
+            _compressor = compressor ?? throw new ArgumentNullException(nameof(compressor));
         }
 
         public byte[] Serialize<T>(T obj)

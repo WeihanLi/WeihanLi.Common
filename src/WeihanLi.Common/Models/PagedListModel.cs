@@ -1,13 +1,10 @@
 ﻿using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Models
 {
-    /// <summary>
-    /// IPagedListModel
-    /// </summary>
-    /// <typeparam name="T">Type</typeparam>
     public interface IPagedListModel<out T>
     {
         /// <summary>
@@ -47,13 +44,7 @@ namespace WeihanLi.Common.Models
     {
         public static readonly IPagedListModel<T> Empty = new PagedListModel<T>();
 
-        private IReadOnlyList<T> _data =
-#if NET45
-    Helpers.ArrayHelper.Empty<T>()
-#else
-            Array.Empty<T>()
-#endif
-        ;
+        private IReadOnlyList<T> _data = ArrayHelper.Empty<T>();
 
         [NotNull]
         public IReadOnlyList<T> Data
@@ -111,9 +102,7 @@ namespace WeihanLi.Common.Models
             }
         }
 
-        public int PageCount => ((_totalCount % _pageSize) == 0)
-            ? _totalCount / _pageSize
-            : Convert.ToInt32(Math.Ceiling(_totalCount * 1.0 / _pageSize));
+        public int PageCount => (_totalCount + _pageSize - 1) / _pageSize;
 
         public T this[int index] => Data[index];
 
