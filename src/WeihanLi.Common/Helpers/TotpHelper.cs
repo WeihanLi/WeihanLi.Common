@@ -33,7 +33,7 @@ namespace WeihanLi.Common.Helpers
                 return Totp.Value.Compute(securityToken);
             }
 
-            var saltBytes = DefaultOptions.Salt.GetBytes();
+            var saltBytes = DefaultOptions.Salt?.GetBytes() ?? ArrayHelper.Empty<byte>();
             var bytes = new byte[securityToken.Length + saltBytes.Length];
             Array.Copy(securityToken, bytes, securityToken.Length);
             Array.Copy(saltBytes, 0, bytes, securityToken.Length, saltBytes.Length);
@@ -74,7 +74,7 @@ namespace WeihanLi.Common.Helpers
                 return false;
             }
 
-            var saltBytes = DefaultOptions.Salt.GetBytes();
+            var saltBytes = DefaultOptions.Salt?.GetBytes() ?? ArrayHelper.Empty<byte>();
             var bytes = new byte[securityToken.Length + saltBytes.Length];
             Array.Copy(securityToken, bytes, securityToken.Length);
             Array.Copy(saltBytes, 0, bytes, securityToken.Length, saltBytes.Length);
