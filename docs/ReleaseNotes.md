@@ -4,6 +4,13 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.32](https://www.nuget.org/packages/WeihanLi.Common/1.0.32)
+
+- update di extensions, update `GetExportedTypes` with `GetTypes`
+- add interface type filter for `RegisterAssemblyTypesAsImplementedInterfaces`/`RegisterTypeAsImplementedInterfaces`
+- add `ActivatorHelper.CreateInstance<T>(params object[] parameters)`
+- update `TotpHelper`, add check for null salt, disable backward step moving
+
 ### [WeihanLi.Common 1.0.31](https://www.nuget.org/packages/WeihanLi.Common/1.0.31)
 
 - update `AsyncLock`, add `Lock`
