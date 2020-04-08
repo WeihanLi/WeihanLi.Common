@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Test.ModelsTest
     public class PagedListModelTest
     {
         [Fact]
-        public void JsonTest()
+        public void PagedModelToJsonTest()
         {
             var model = new PagedListModel<int>()
             {

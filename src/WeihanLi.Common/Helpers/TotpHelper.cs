@@ -74,13 +74,17 @@ namespace WeihanLi.Common.Helpers
                 return false;
             }
 
+            if (string.IsNullOrEmpty(DefaultOptions.Salt))
+            {
+                return Totp.Value.Verify(securityToken, code, TimeSpan.FromSeconds(expiresIn > 0 ? expiresIn : DefaultOptions.ExpiresIn));
+            }
+
             var saltBytes = DefaultOptions.Salt.GetBytes();
             var bytes = new byte[securityToken.Length + saltBytes.Length];
             Array.Copy(securityToken, bytes, securityToken.Length);
             Array.Copy(saltBytes, 0, bytes, securityToken.Length, saltBytes.Length);
 
-            var validateResult = Totp.Value.Verify(bytes, code, TimeSpan.FromSeconds(expiresIn >= 0 ? expiresIn : DefaultOptions.ExpiresIn));
-            return validateResult;
+            return Totp.Value.Verify(bytes, code, TimeSpan.FromSeconds(expiresIn > 0 ? expiresIn : DefaultOptions.ExpiresIn));
         }
 
         /// <summary>

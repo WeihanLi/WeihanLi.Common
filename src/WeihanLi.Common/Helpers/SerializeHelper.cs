@@ -59,7 +59,6 @@ namespace WeihanLi.Common.Helpers
         public static string SerializeXml(object @this)
         {
             var xmlSerializer = new XmlSerializer(@this.GetType());
-
             using (var stringWriter = new StringWriter())
             {
                 xmlSerializer.Serialize(stringWriter, @this);
@@ -75,7 +74,7 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
-        /// <returns>The desrialize binary as &lt;T&gt;</returns>
+        /// <returns>The deserialize binary as &lt;T&gt;</returns>
         public static T DeserializeBinary<T>(string @this)
         {
             using (var stream = new MemoryStream(Encoding.Default.GetBytes(@this)))
@@ -91,7 +90,7 @@ namespace WeihanLi.Common.Helpers
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <param name="encoding">The encoding.</param>
-        /// <returns>The desrialize binary as &lt;T&gt;</returns>
+        /// <returns>The deserialize binary as &lt;T&gt;</returns>
         public static T DeserializeBinary<T>(string @this, Encoding encoding)
         {
             using (var stream = new MemoryStream(encoding.GetBytes(@this)))
@@ -117,12 +116,11 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
-        /// <returns>The desieralize Xml as &lt;T&gt;</returns>
+        /// <returns>The deserialize Xml as &lt;T&gt;</returns>
         public static T DeserializeXml<T>(string @this)
         {
             var x = new XmlSerializer(typeof(T));
-            var r = new StringReader(@this);
-
+            using var r = new StringReader(@this);
             return (T)x.Deserialize(r);
         }
     }

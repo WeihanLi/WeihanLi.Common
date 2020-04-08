@@ -12,7 +12,7 @@ namespace WeihanLi.Common.Helpers
         private static readonly Regex _emailregex = new Regex(@"^[a-z0-9]([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$", RegexOptions.IgnoreCase);
 
         //手机号正则表达式
-        private static readonly Regex _mobileregex = new Regex("^1[3-9][0-9]{9}$");
+        private static readonly Regex _mobileregex = new Regex("^1[3-9][0-9]{9}$", RegexOptions.Compiled);
 
         //固话号正则表达式
         private static readonly Regex _phoneregex = new Regex(@"^(\d{3,4}-?)?\d{7,8}$");

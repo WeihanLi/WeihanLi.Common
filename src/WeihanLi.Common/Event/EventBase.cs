@@ -30,17 +30,10 @@ namespace WeihanLi.Common.Event
             EventAt = DateTimeOffset.UtcNow;
         }
 
-        public EventBase(string eventId)
+        protected EventBase(string eventId)
         {
             EventId = eventId;
             EventAt = DateTimeOffset.UtcNow;
-        }
-
-        [JsonConstructor]
-        public EventBase(string eventId, DateTimeOffset eventAt)
-        {
-            EventId = eventId;
-            EventAt = eventAt;
         }
     }
 }
