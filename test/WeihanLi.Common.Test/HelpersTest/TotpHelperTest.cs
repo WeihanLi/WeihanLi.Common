@@ -9,7 +9,11 @@ namespace WeihanLi.Common.Test.HelpersTest
         [Fact]
         public void Test()
         {
-            lock (TotpHelper.ConfigureTotpOptions(options => options.Salt = null))
+            lock (TotpHelper.ConfigureTotpOptions(options =>
+            {
+                options.Salt = null;
+                options.ExpiresIn = 300;
+            }))
             {
                 var bizToken = "test_xxx";
                 var code = TotpHelper.GenerateCode(bizToken);
@@ -31,6 +35,7 @@ namespace WeihanLi.Common.Test.HelpersTest
             lock (TotpHelper.ConfigureTotpOptions(options =>
             {
                 options.Salt = "amazing-dotnet";
+                options.ExpiresIn = 300;
             }))
             {
                 var code1 = TotpHelper.GenerateCode(bizToken);
