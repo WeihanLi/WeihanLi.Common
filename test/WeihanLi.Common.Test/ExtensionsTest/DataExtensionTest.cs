@@ -64,6 +64,26 @@ namespace WeihanLi.Common.Test.ExtensionsTest
             Assert.NotEmpty(result);
         }
 
+        [Fact(
+        Skip = "DbExtensionTest"
+        )]
+        public void SelectColumnTest()
+        {
+            var result = _connection.SelectColumn<int>("SELECT * FROM TestEntities").ToArray();
+            Assert.NotNull(result);
+            Assert.NotEmpty(result);
+        }
+
+        [Fact(
+        Skip = "DbExtensionTest"
+        )]
+        public async Task SelectColumnAsyncTest()
+        {
+            var result = (await _connection.SelectColumnAsync<int>("SELECT * FROM TestEntities")).ToArray();
+            Assert.NotNull(result);
+            Assert.NotEmpty(result);
+        }
+
         public void Dispose() => _connection?.Dispose();
     }
 }

@@ -155,10 +155,16 @@ finally{
         public static <#=            cmd.Item2 #> <#= cmd.Item1 #><#= cmd.Item3 #>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60) 
         {
             conn.EnsureOpen();
+try
+{
             using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
             {
                 return command.<#= cmd.Item1 #><#= cmd.Item3 #>();
             }
+}
+finally{
+   conn.Close();
+}
         }
 
        public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<#= cmd.Item3 #>([NotNull]this DbConnection conn, string cmdText, int commandTimeout=60, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<#= cmd.Item3 #>(cmdText, null, commandTimeout, cancellationToken: cancellationToken);
@@ -174,10 +180,16 @@ finally{
        public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<#= cmd.Item3 #>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters,DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default) 
        {
            await conn.EnsureOpenAsync();
+try
+{
            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
                return await command.<#=            cmd.Item1 #>Async<#= cmd.Item3 #>(cancellationToken);
            }
+}
+finally{
+   conn.Close();
+}
        }
 <#    }#>
 
@@ -298,12 +310,32 @@ finally{
 
         public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int columnIndex = 0, int commandTimeout = 60)
         {
+try
+{
             conn.EnsureOpen();
             using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
             {
-                return command.ExecuteDataTable().ColumnToList<T>(columnIndex);
+                using (var reader = command.ExecuteReader())
+                {
+                    var list = new List<T>();
+                    while (reader.Read())
+                    {
+                        if (reader.FieldCount > columnIndex)
+                        {
+                            list.Add(reader[columnIndex].To<T>());
+                        }
+                        else
+                        {
+                            list.Add(default);
+                        }
+                    }
+                    return list;
+                }
             }
-
+}
+finally{
+   conn.Close();
+}
         }
 
        public static Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.<#=            cmd #>Async<T>(cmdText, null, columnIndex);
@@ -320,11 +352,32 @@ finally{
        public static async Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int columnIndex = 0, int commandTimeout=60, CancellationToken cancellationToken = default)
        {
            await conn.EnsureOpenAsync();
-
+try
+{
            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
            {
-               return (await command.ExecuteDataTableAsync(cancellationToken)).ColumnToList<T>(columnIndex);
+               using (var reader = command.ExecuteReader())
+                {
+                    var list = new List<T>();
+                    while (await reader.ReadAsync().ConfigureAwait(false))
+                    {
+                        if (reader.FieldCount > columnIndex)
+                        {
+                            list.Add(reader[columnIndex].To<T>());
+                        }
+                        else
+                        {
+                            list.Add(default);
+                        }
+                    }
+
+                    return list;
+                }
            }
+}
+finally{
+   conn.Close();
+}
        }
 <#    }#>
     }
