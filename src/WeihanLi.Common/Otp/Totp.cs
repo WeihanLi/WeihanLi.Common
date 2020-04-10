@@ -103,7 +103,7 @@ namespace WeihanLi.Common.Otp
 
             var futureStep = (int)(timeToleration.TotalSeconds / 30);
             var step = GetCurrentTimeStepNumber();
-            for (var i = -futureStep; i <= futureStep; i++)
+            for (var i = -futureStep; i <= 0; i++)
             {
                 if (step + i < 0)
                 {

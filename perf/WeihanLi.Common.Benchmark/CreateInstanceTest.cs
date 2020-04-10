@@ -26,7 +26,7 @@ namespace WeihanLi.Common.Benchmark
         [Benchmark]
         public MapperTest.B NewInstanceByActivatorHelper()
         {
-            return ActivatorHelper.CreateInstance<MapperTest.B>(null);
+            return ActivatorHelper.CreateInstance<MapperTest.B>();
         }
 
         [Benchmark]

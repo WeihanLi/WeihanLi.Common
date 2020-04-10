@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Logging
 {
@@ -143,6 +144,18 @@ namespace WeihanLi.Common.Logging
             return loggingBuilder;
         }
 
+        public static ILogHelperLoggingBuilder WithProvider<TLogProvider>(this ILogHelperLoggingBuilder loggingBuilder) where TLogProvider : ILogHelperProvider, new()
+        {
+            loggingBuilder.AddProvider(new TLogProvider());
+            return loggingBuilder;
+        }
+
+        public static ILogHelperLoggingBuilder WithProvider<TLogProvider>(this ILogHelperLoggingBuilder loggingBuilder, params object[] ctorParams) where TLogProvider : ILogHelperProvider
+        {
+            loggingBuilder.AddProvider(ActivatorHelper.CreateInstance<TLogProvider>(ctorParams));
+            return loggingBuilder;
+        }
+
         public static ILogHelperLoggingBuilder WithEnricher<TEnricher>(this ILogHelperLoggingBuilder loggingBuilder,
             TEnricher enricher) where TEnricher : ILogHelperLoggingEnricher
         {
@@ -153,6 +166,12 @@ namespace WeihanLi.Common.Logging
         public static ILogHelperLoggingBuilder WithEnricher<TEnricher>(this ILogHelperLoggingBuilder loggingBuilder) where TEnricher : ILogHelperLoggingEnricher, new()
         {
             loggingBuilder.AddEnricher(new TEnricher());
+            return loggingBuilder;
+        }
+
+        public static ILogHelperLoggingBuilder WithEnricher<TEnricher>(this ILogHelperLoggingBuilder loggingBuilder, params object[] ctorParams) where TEnricher : ILogHelperLoggingEnricher
+        {
+            loggingBuilder.AddEnricher(ActivatorHelper.CreateInstance<TEnricher>(ctorParams));
             return loggingBuilder;
         }
 
