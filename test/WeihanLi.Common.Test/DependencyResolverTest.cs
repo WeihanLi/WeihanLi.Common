@@ -25,8 +25,6 @@ namespace WeihanLi.Common.Test
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             DependencyResolver.SetDependencyResolver(services);
 
-            var repo = DependencyResolver.ResolveService<IRepository<TestEntity>>();
-
             DependencyResolver.Current.TryInvokeService<IRepository<TestEntity>>(repo =>
                 {
                     serviceHashCodes.Add(repo.GetHashCode());
