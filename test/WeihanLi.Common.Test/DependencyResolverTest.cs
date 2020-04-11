@@ -25,18 +25,18 @@ namespace WeihanLi.Common.Test
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             DependencyResolver.SetDependencyResolver(services);
 
-            DependencyResolver.Current.TryInvokeService<IRepository<TestEntity>>(repo =>
+            DependencyResolver.TryInvokeService<IRepository<TestEntity>>(repo =>
                 {
                     serviceHashCodes.Add(repo.GetHashCode());
                 });
             await Task.WhenAll(
 
-                DependencyResolver.Current.TryInvokeServiceAsync<IRepository<TestEntity>>(repo =>
+                DependencyResolver.TryInvokeServiceAsync<IRepository<TestEntity>>(repo =>
                 {
                     serviceHashCodes.Add(repo.GetHashCode());
                     return Task.CompletedTask;
                 }),
-                DependencyResolver.Current.TryInvokeServiceAsync<IRepository<TestEntity>>(repo =>
+                DependencyResolver.TryInvokeServiceAsync<IRepository<TestEntity>>(repo =>
                 {
                     serviceHashCodes.Add(repo.GetHashCode());
                     return Task.CompletedTask;

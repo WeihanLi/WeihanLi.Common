@@ -36,7 +36,7 @@ namespace DotNetCoreSample
 
         public static void MainTest()
         {
-            var connString = DependencyResolver.Current.ResolveService<IConfiguration>().GetConnectionString("TestDb");
+            var connString = DependencyResolver.ResolveService<IConfiguration>().GetConnectionString("TestDb");
             using (var conn = new SqlConnection(connString))
             {
                 Init(conn);
