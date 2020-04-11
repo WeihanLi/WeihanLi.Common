@@ -21,6 +21,8 @@ namespace WeihanLi.Common
     {
         private static IDependencyResolver _currentResolver;
 
+        public static IDependencyResolver Current => _currentResolver;
+
         /// <summary>
         /// locker
         /// </summary>
