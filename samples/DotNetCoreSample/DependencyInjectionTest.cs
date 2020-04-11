@@ -15,11 +15,11 @@ namespace DotNetCoreSample
 
         public static void Test()
         {
-            var fly = DependencyResolver.Current.ResolveService<IFly>();
+            var fly = DependencyResolver.ResolveService<IFly>();
             Console.WriteLine(fly.Name);
             fly.Fly();
 
-            DependencyResolver.Current.TryInvokeService<IFly>(f =>
+            DependencyResolver.TryInvokeService<IFly>(f =>
             {
                 Console.WriteLine(f.Name);
                 f.Fly();

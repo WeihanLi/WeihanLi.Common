@@ -48,7 +48,7 @@ namespace DotNetCoreSample
 
             DependencyResolver.SetDependencyResolver(services);
 
-            //DependencyResolver.Current.ResolveRequiredService<IFly>()
+            //DependencyResolver.ResolveRequiredService<IFly>()
             //    .Fly();
 
             //DependencyInjectionTest.Test();

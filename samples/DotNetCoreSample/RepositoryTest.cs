@@ -13,7 +13,7 @@ namespace DotNetCoreSample
     {
         public static void MainTest()
         {
-            var connectionPool = new DbConnectionPool(new DbConnectionPoolPolicy(DependencyResolver.Current.ResolveService<IConfiguration>().GetConnectionString("Test")));
+            var connectionPool = new DbConnectionPool(new DbConnectionPoolPolicy(DependencyResolver.ResolveService<IConfiguration>().GetConnectionString("Test")));
 
             var repo = new Repository<TestEntity>(() => connectionPool.Get());
             repo.Execute("TRUNCATE TABLE dbo.tabTestEntity");

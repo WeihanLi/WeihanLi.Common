@@ -11,7 +11,7 @@ namespace DotNetCoreSample
     {
         public static void MainTest()
         {
-            var eventBus = DependencyResolver.Current.ResolveService<IEventBus>();
+            var eventBus = DependencyResolver.ResolveService<IEventBus>();
             eventBus.Subscribe<CounterEvent, CounterEventHandler1>();
             eventBus.Subscribe<CounterEvent, CounterEventHandler1>();
 

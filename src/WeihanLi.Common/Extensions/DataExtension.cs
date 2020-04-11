@@ -63,7 +63,9 @@ namespace WeihanLi.Extensions
             {
                 throw new ArgumentNullException(nameof(entities));
             }
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(typeof(T), t => t.GetProperties()).Where(_ => _.CanRead).ToArray();
+            var properties = CacheUtil.TypePropertyCache.GetOrAdd(typeof(T), t => t.GetProperties())
+                .Where(_ => _.CanRead)
+                .ToArray();
             var dataTable = new DataTable();
             dataTable.Columns.AddRange(properties.Select(p => new DataColumn(p.Name, p.PropertyType)).ToArray());
             foreach (var item in entities)
@@ -78,13 +80,12 @@ namespace WeihanLi.Extensions
             return dataTable;
         }
 
-        private static object GetValueFromDb(this object obj)
+        private static object GetValueFromDbValue(this object obj)
         {
             if (obj == null || obj == DBNull.Value)
             {
                 return null;
             }
-
             return obj;
         }
 
@@ -184,7 +185,7 @@ namespace WeihanLi.Extensions
                 {
                     if (dr.Table.Columns.Contains(property.Name))
                     {
-                        property.GetValueSetter()?.Invoke(obj, dr[property.Name].GetValueFromDb());
+                        property.GetValueSetter()?.Invoke(obj, dr[property.Name].GetValueFromDbValue());
                     }
                 }
                 entity = (T)obj;
@@ -195,7 +196,7 @@ namespace WeihanLi.Extensions
                 {
                     if (dr.Table.Columns.Contains(property.Name))
                     {
-                        property.GetValueSetter()?.Invoke(entity, dr[property.Name].GetValueFromDb());
+                        property.GetValueSetter()?.Invoke(entity, dr[property.Name].GetValueFromDbValue());
                     }
                 }
             }
@@ -230,12 +231,9 @@ namespace WeihanLi.Extensions
         /// <returns>@this as a DataTable.</returns>
         public static DataTable ToDataTable([NotNull]this IDataReader @this)
         {
-            using (@this)
-            {
-                var dt = new DataTable();
-                dt.Load(@this);
-                return dt;
-            }
+            var dt = new DataTable();
+            dt.Load(@this);
+            return dt;
         }
 
         /// <summary>
@@ -246,26 +244,26 @@ namespace WeihanLi.Extensions
         /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
         public static IEnumerable<T> ToEntities<T>([NotNull]this IDataReader @this)
         {
-            if (@this.FieldCount > 0)
+            var type = typeof(T);
+            if (type.IsBasicType())
             {
-                yield return default(T);
-            }
-            else
-            {
-                var type = typeof(T);
-                if (type.IsBasicType())
+                while (@this.Read())
                 {
-                    while (@this.Read())
+                    if (@this.FieldCount > 0)
+                    {
+                        yield return default(T);
+                    }
+                    else
                     {
                         yield return @this[0].ToOrDefault<T>();
                     }
                 }
-                else
+            }
+            else
+            {
+                while (@this.Read())
                 {
-                    while (@this.Read())
-                    {
-                        yield return @this.ToEntity<T>();
-                    }
+                    yield return @this.ToEntity<T>();
                 }
             }
         }
@@ -275,10 +273,16 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
+        /// <param name="hadRead">whether the DataReader had read</param>
         /// <returns>@this as a T.</returns>
-        public static T ToEntity<T>([NotNull]this IDataReader @this)
+        public static T ToEntity<T>([NotNull]this IDataReader @this, bool hadRead = false)
         {
-            if (@this.FieldCount > 0 && @this.Read())
+            if (!hadRead)
+            {
+                hadRead = @this.Read();
+            }
+
+            if (hadRead && @this.FieldCount > 0)
             {
                 var type = typeof(T);
                 if (type.IsBasicType())
@@ -291,7 +295,7 @@ namespace WeihanLi.Extensions
                 var entity = NewFuncHelper<T>.Instance();
 
                 var dic = Enumerable.Range(0, @this.FieldCount)
-                    .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDb());
+                    .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDbValue());
                 try
                 {
                     if (type.IsValueType)
@@ -322,29 +326,38 @@ namespace WeihanLi.Extensions
                 catch (Exception e)
                 {
                     Common.Helpers.LogHelper.GetLogger(typeof(DataExtension)).Error(e);
+                    throw;
                 }
             }
 
-            return default(T);
+            return default;
         }
 
         /// <summary>
         ///     An IDataReader extension method that converts the @this to an expando object.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
+        /// <param name="hadRead">whether the DataReader had read</param>
         /// <returns>@this as a dynamic.</returns>
-        public static dynamic ToExpandoObject([NotNull]this IDataReader @this)
+        public static dynamic ToExpandoObject([NotNull]this IDataReader @this, bool hadRead = false)
         {
-            var columnNames = Enumerable.Range(0, @this.FieldCount)
-                .Select(x => new KeyValuePair<int, string>(x, @this.GetName(x)))
-                .ToDictionary(pair => pair.Key);
-
             dynamic entity = new ExpandoObject();
-            var expandoDict = (IDictionary<string, object>)entity;
+            if (!hadRead)
+            {
+                hadRead = @this.Read();
+            }
 
-            Enumerable.Range(0, @this.FieldCount)
-                .ToList()
-                .ForEach(x => expandoDict.Add(columnNames[x].Value, @this[x]));
+            if (hadRead && @this.FieldCount > 0)
+            {
+                var expandoDict = (IDictionary<string, object>)entity;
+                var columnNames = Enumerable.Range(0, @this.FieldCount)
+                    .Select(x => new KeyValuePair<int, string>(x, @this.GetName(x)))
+                    .ToDictionary(pair => pair.Key);
+
+                Enumerable.Range(0, @this.FieldCount)
+                    .ToList()
+                    .ForEach(x => expandoDict.Add(columnNames[x].Value, @this[x]));
+            }
 
             return entity;
         }
@@ -363,11 +376,14 @@ namespace WeihanLi.Extensions
             while (@this.Read())
             {
                 dynamic entity = new ExpandoObject();
-                var expandoDict = (IDictionary<string, object>)entity;
+                if (@this.FieldCount > 0)
+                {
+                    var expandoDict = (IDictionary<string, object>)entity;
 
-                Enumerable.Range(0, @this.FieldCount)
-                    .ToList()
-                    .ForEach(x => expandoDict.Add(columnNames[x].Value, @this[x]));
+                    Enumerable.Range(0, @this.FieldCount)
+                        .ToList()
+                        .ForEach(x => expandoDict.Add(columnNames[x].Value, @this[x]));
+                }
 
                 yield return entity;
             }
@@ -428,7 +444,7 @@ namespace WeihanLi.Extensions
         public static IEnumerable<string> GetColumnNamesFromDb([NotNull]this SqlConnection connection, string tableName)
         {
             connection.EnsureOpen();
-            return connection.QueryColumn<string>(@"SELECT c.[name]
+            return connection.SelectColumn<string>(@"SELECT c.[name]
 FROM sys.columns c
     JOIN sys.tables t
         ON c.object_id = t.object_id
@@ -445,7 +461,7 @@ ORDER BY c.[column_id];", new { tableName });
         public static Task<IEnumerable<string>> GetColumnNamesFromDbAsync([NotNull]this SqlConnection connection, string tableName)
         {
             connection.EnsureOpen();
-            return connection.QueryColumnAsync<string>(@"SELECT c.[name]
+            return connection.SelectColumnAsync<string>(@"SELECT c.[name]
 FROM sys.columns c
     JOIN sys.tables t
         ON c.object_id = t.object_id
@@ -470,7 +486,9 @@ ORDER BY c.[column_id];", new { tableName });
                 var row = dataTable.NewRow();
                 foreach (DataColumn col in dataTable.Columns)
                 {
-                    row[col] = props.FirstOrDefault(_ => _.Name.EqualsIgnoreCase(col.ColumnName)).GetValue(item);
+                    row[col] = props.FirstOrDefault(_ => _.Name.EqualsIgnoreCase(col.ColumnName))
+                        ?.GetValueGetter()
+                        ?.Invoke(item);
                 }
                 dataTable.Rows.Add(row);
             }
