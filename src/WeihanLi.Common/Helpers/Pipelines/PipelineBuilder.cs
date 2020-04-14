@@ -17,12 +17,12 @@ namespace WeihanLi.Common.Helpers
     {
         public static IPipelineBuilder<TContext> Create<TContext>(Action<TContext> completeAction)
         {
-            return PipelineBuilder<TContext>.New(completeAction);
+            return new PipelineBuilder<TContext>(completeAction);
         }
 
         public static IAsyncPipelineBuilder<TContext> CreateAsync<TContext>(Func<TContext, Task> completeFunc)
         {
-            return AsyncPipelineBuilder<TContext>.New(completeFunc);
+            return new AsyncPipelineBuilder<TContext>(completeFunc);
         }
     }
 
@@ -40,11 +40,6 @@ namespace WeihanLi.Common.Helpers
         {
             _pipelines.Add(middleware);
             return this;
-        }
-
-        public static PipelineBuilder<TContext> New(Action<TContext> completeFunc)
-        {
-            return new PipelineBuilder<TContext>(completeFunc);
         }
 
         public Action<TContext> Build()

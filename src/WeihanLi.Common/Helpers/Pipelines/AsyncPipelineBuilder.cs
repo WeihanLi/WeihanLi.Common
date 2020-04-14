@@ -29,11 +29,6 @@ namespace WeihanLi.Common.Helpers
             return this;
         }
 
-        public static AsyncPipelineBuilder<TContext> New(Func<TContext, Task> completeFunc)
-        {
-            return new AsyncPipelineBuilder<TContext>(completeFunc);
-        }
-
         public Func<TContext, Task> Build()
         {
             var request = _completeFunc;
