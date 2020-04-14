@@ -13,7 +13,7 @@ namespace WeihanLi.Common.Helpers
         Func<TContext, Task> Build();
     }
 
-    public class AsyncPipelineBuilder<TContext> : IAsyncPipelineBuilder<TContext>
+    internal class AsyncPipelineBuilder<TContext> : IAsyncPipelineBuilder<TContext>
     {
         private readonly Func<TContext, Task> _completeFunc;
         private readonly IList<Func<Func<TContext, Task>, Func<TContext, Task>>> _pipelines = new List<Func<Func<TContext, Task>, Func<TContext, Task>>>();
