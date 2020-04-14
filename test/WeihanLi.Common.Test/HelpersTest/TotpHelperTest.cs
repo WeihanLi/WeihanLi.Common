@@ -6,15 +6,18 @@ namespace WeihanLi.Common.Test.HelpersTest
 {
     public class TotpHelperTest
     {
+        private readonly object _lock = new object();
+
         [Fact]
         public void Test()
         {
-            lock (TotpHelper.ConfigureTotpOptions(options =>
+            lock (_lock)
             {
-                options.Salt = null;
-                options.ExpiresIn = 300;
-            }))
-            {
+                TotpHelper.ConfigureTotpOptions(options =>
+                {
+                    options.Salt = null;
+                    options.ExpiresIn = 300;
+                });
                 var bizToken = "test_xxx";
                 var code = TotpHelper.GenerateCode(bizToken);
                 Thread.Sleep(2000);
@@ -26,18 +29,18 @@ namespace WeihanLi.Common.Test.HelpersTest
         [Fact]
         public void SaltTest()
         {
-            var bizToken = "test_xxx";
-            string code;
-            lock (TotpHelper.ConfigureTotpOptions(options => options.Salt = null))
+            lock (_lock)
             {
-                code = TotpHelper.GenerateCode(bizToken);
-            }
-            lock (TotpHelper.ConfigureTotpOptions(options =>
-            {
-                options.Salt = "amazing-dotnet";
-                options.ExpiresIn = 300;
-            }))
-            {
+                var bizToken = "test_xxx";
+                TotpHelper.ConfigureTotpOptions(options => options.Salt = null);
+                var code = TotpHelper.GenerateCode(bizToken);
+
+                TotpHelper.ConfigureTotpOptions(options =>
+                {
+                    options.Salt = "amazing-dotnet";
+                    options.ExpiresIn = 300;
+                });
+
                 var code1 = TotpHelper.GenerateCode(bizToken);
                 Thread.Sleep(2000);
                 Assert.NotEmpty(code);

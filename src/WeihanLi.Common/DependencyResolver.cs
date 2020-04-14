@@ -19,7 +19,9 @@ namespace WeihanLi.Common
     /// </summary>
     public static class DependencyResolver
     {
-        public static IDependencyResolver Current { get; private set; }
+        private static IDependencyResolver _currentResolver;
+
+        public static IDependencyResolver Current => _currentResolver;
 
         /// <summary>
         /// locker
@@ -28,16 +30,20 @@ namespace WeihanLi.Common
 
         static DependencyResolver()
         {
-            Current = new DefaultDependencyResolver();
+            _currentResolver = new DefaultDependencyResolver();
         }
 
         public static void SetDependencyResolver([NotNull]IDependencyResolver dependencyResolver)
         {
             lock (_lock)
             {
-                Current = dependencyResolver;
+                _currentResolver = dependencyResolver;
             }
         }
+
+        public static void SetDependencyResolver([NotNull]IServiceContainerBuilder serviceContainerBuilder) => SetDependencyResolver(new ServiceContainerDependencyResolver(serviceContainerBuilder));
+
+        public static void SetDependencyResolver([NotNull]IServiceContainer serviceContainer) => SetDependencyResolver(new ServiceContainerDependencyResolver(serviceContainer));
 
         public static void SetDependencyResolver([NotNull]IServiceProvider serviceProvider) => SetDependencyResolver(serviceProvider.GetService);
 
@@ -268,12 +274,12 @@ namespace WeihanLi.Common
 
 #endif
 
-        public static TService ResolveService<TService>() => Current.ResolveService<TService>();
+        public static TService ResolveService<TService>() => _currentResolver.ResolveService<TService>();
 
-        public static IEnumerable<TService> ResolveServices<TService>() => Current.ResolveServices<TService>();
+        public static IEnumerable<TService> ResolveServices<TService>() => _currentResolver.ResolveServices<TService>();
 
-        public static bool TryInvokeService<TService>(Action<TService> action) => Current.TryInvokeService(action);
+        public static bool TryInvokeService<TService>(Action<TService> action) => _currentResolver.TryInvokeService(action);
 
-        public static Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action) => Current.TryInvokeServiceAsync(action);
+        public static Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action) => _currentResolver.TryInvokeServiceAsync(action);
     }
 }

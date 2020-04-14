@@ -75,7 +75,11 @@ namespace WeihanLi.Extensions
 
         public static bool IsPrimitiveType<T>() => typeof(T).IsPrimitiveType();
 
-        public static bool IsBasicType([NotNull]this Type type) => BasicTypes.Contains(type) || type.IsEnum;
+        public static bool IsBasicType([NotNull]this Type type)
+        {
+            var unWrappedType = type.Unwrap();
+            return unWrappedType.IsEnum || BasicTypes.Contains(unWrappedType);
+        }
 
         public static bool IsBasicType<T>() => typeof(T).IsBasicType();
 
