@@ -71,6 +71,54 @@ namespace DotNetCoreSample
             }
         }
 
+        public static void TestV2()
+        {
+            var requestContext = new RequestContext()
+            {
+                RequesterName = "Kangkang",
+                Hour = 12,
+            };
+
+            var builder = PipelineBuilder.Create<RequestContext>(context =>
+                    {
+                        Console.WriteLine($"{context.RequesterName} {context.Hour}h apply failed");
+                    })
+                    .When(context => context.Hour <= 2, pipeline =>
+                           {
+                               pipeline.Use((context, next) =>
+                               {
+                                   Console.WriteLine("This should be invoked");
+                                   next();
+                               });
+                               pipeline.Run(context => Console.WriteLine("pass 1"));
+                               pipeline.Use((context, next) =>
+                               {
+                                   Console.WriteLine("This should not be invoked");
+                                   next();
+                                   Console.WriteLine("will this invoke?");
+                               });
+                           })
+                    .When(context => context.Hour <= 4, pipeline =>
+                       {
+                           pipeline.Run(context => Console.WriteLine("pass 2"));
+                       })
+                    .When(context => context.Hour <= 6, pipeline =>
+                       {
+                           pipeline.Run(context => Console.WriteLine("pass 3"));
+                       })
+
+                ;
+            var requestPipeline = builder.Build();
+            Console.WriteLine();
+            foreach (var i in Enumerable.Range(1, 8))
+            {
+                Console.WriteLine($"--------- h:{i} apply Pipeline------------------");
+                requestContext.Hour = i;
+                requestPipeline.Invoke(requestContext);
+                Console.WriteLine("----------------------------");
+            }
+        }
+
         public static async Task AsyncPipelineBuilderTest()
         {
             var requestContext = new RequestContext()
@@ -116,6 +164,55 @@ namespace DotNetCoreSample
                         {
                             await next();
                         }
+                    })
+                ;
+            var requestPipeline = builder.Build();
+            Console.WriteLine();
+            foreach (var i in Enumerable.Range(1, 8))
+            {
+                Console.WriteLine($"--------- h:{i} apply AsyncPipeline------------------");
+                requestContext.Hour = i;
+                await requestPipeline.Invoke(requestContext);
+                Console.WriteLine("----------------------------");
+            }
+        }
+
+        public static async Task AsyncPipelineBuilderTestV2()
+        {
+            var requestContext = new RequestContext()
+            {
+                RequesterName = "Michael",
+                Hour = 12,
+            };
+
+            var builder = PipelineBuilder.CreateAsync<RequestContext>(context =>
+                    {
+                        Console.WriteLine($"{context.RequesterName} {context.Hour}h apply failed");
+                        return Task.CompletedTask;
+                    })
+                    .When(context => context.Hour <= 2, pipeline =>
+                    {
+                        pipeline.Run(context =>
+                        {
+                            Console.WriteLine("pass 1");
+                            return Task.CompletedTask;
+                        });
+                    })
+                    .When(context => context.Hour <= 4, pipeline =>
+                    {
+                        pipeline.Run(context =>
+                        {
+                            Console.WriteLine("pass 2");
+                            return Task.CompletedTask;
+                        });
+                    })
+                    .When(context => context.Hour <= 6, pipeline =>
+                    {
+                        pipeline.Run(context =>
+                        {
+                            Console.WriteLine("pass 3");
+                            return Task.CompletedTask;
+                        });
                     })
                 ;
             var requestPipeline = builder.Build();
