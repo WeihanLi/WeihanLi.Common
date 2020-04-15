@@ -10,6 +10,8 @@ namespace WeihanLi.Common.Helpers
         IAsyncPipelineBuilder<TContext> Use(Func<Func<TContext, Task>, Func<TContext, Task>> middleware);
 
         Func<TContext, Task> Build();
+
+        IAsyncPipelineBuilder<TContext> New();
     }
 
     internal class AsyncPipelineBuilder<TContext> : IAsyncPipelineBuilder<TContext>
@@ -38,5 +40,7 @@ namespace WeihanLi.Common.Helpers
             }
             return request;
         }
+
+        public IAsyncPipelineBuilder<TContext> New() => new AsyncPipelineBuilder<TContext>(_completeFunc);
     }
 }
