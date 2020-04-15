@@ -61,14 +61,13 @@ namespace DotNetCoreSample
                     })
                 ;
             var requestPipeline = builder.Build();
+            Console.WriteLine();
             foreach (var i in Enumerable.Range(1, 8))
             {
-                Console.WriteLine();
                 Console.WriteLine($"--------- h:{i} apply Pipeline------------------");
                 requestContext.Hour = i;
                 requestPipeline.Invoke(requestContext);
                 Console.WriteLine("----------------------------");
-                Console.WriteLine();
             }
         }
 
@@ -120,6 +119,7 @@ namespace DotNetCoreSample
                     })
                 ;
             var requestPipeline = builder.Build();
+            Console.WriteLine();
             foreach (var i in Enumerable.Range(1, 8))
             {
                 Console.WriteLine($"--------- h:{i} apply AsyncPipeline------------------");
