@@ -16,7 +16,7 @@ namespace WeihanLi.Common.Test.HelpersTest
                 TotpHelper.ConfigureTotpOptions(options =>
                 {
                     options.Salt = null;
-                    options.ExpiresIn = 300;
+                    options.ExpiresIn = 600;
                 });
                 var bizToken = "test_xxx";
                 var code = TotpHelper.GenerateCode(bizToken);
@@ -38,7 +38,7 @@ namespace WeihanLi.Common.Test.HelpersTest
                 TotpHelper.ConfigureTotpOptions(options =>
                 {
                     options.Salt = "amazing-dotnet";
-                    options.ExpiresIn = 300;
+                    options.ExpiresIn = 600;
                 });
 
                 var code1 = TotpHelper.GenerateCode(bizToken);

@@ -2,9 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Linq.Expressions;
 using WeihanLi.Common;
-using WeihanLi.Common.Data;
 using WeihanLi.Common.DependencyInjection;
 using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
@@ -33,7 +31,7 @@ namespace DotNetCoreSample
 
             var city = configuration.GetAppSetting("City");
             var number = configuration.GetAppSetting<int>("Number");
-            Console.WriteLine($"City:{city}, Number:{number}");
+            // Console.WriteLine($"City:{city}, Number:{number}");
 
             services.AddSingleton(configuration);
 
@@ -80,20 +78,20 @@ namespace DotNetCoreSample
             // LoggerTest.MainTest();
             // Log4NetTest.MainTest();
 
-            ILoggerFactory loggerFactory = new LoggerFactory();
+            //ILoggerFactory loggerFactory = new LoggerFactory();
             //loggerFactory.AddConsole();
             //loggerFactory.AddDebug();
-            loggerFactory.AddDelegateLogger(
-                (category, logLevel, exception, msg) =>
-                {
-                    Console.WriteLine($"{category}:[{logLevel}] {msg}\n{exception}");
-                }
-            );
+            //loggerFactory.AddDelegateLogger(
+            //    (category, logLevel, exception, msg) =>
+            //    {
+            //        Console.WriteLine($"{category}:[{logLevel}] {msg}\n{exception}");
+            //    }
+            //);
 
-            var logger = new Logger<Program>(loggerFactory);
-            logger.LogInformation("Logging information from Microsoft.Extensions.Logging");
+            //var logger = new Logger<Program>(loggerFactory);
+            //logger.LogInformation("Logging information from Microsoft.Extensions.Logging");
 
-            InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
+            //InvokeHelper.TryInvoke(DataExtensionTest.MainTest);
 
             //TaskTest.TaskWhenAllTest().GetAwaiter().GetResult();
 
@@ -167,11 +165,15 @@ namespace DotNetCoreSample
 
             // DependencyInjectionTest.BuiltInIocTest();
 
-            Expression<Func<TestEntity, bool>> expression =
-                t => t.Id > 0 && t.CreatedTime < DateTime.Now && t.Token == null;
-            var visitor = new SqlExpressionVisitor(null);
-            visitor.Visit(expression);
-            Console.WriteLine(visitor.GetCondition());
+            //Expression<Func<TestEntity, bool>> expression =
+            //    t => t.Id > 0 && t.CreatedTime < DateTime.Now && t.Token == null;
+            //var visitor = new SqlExpressionVisitor(null);
+            //visitor.Visit(expression);
+            //Console.WriteLine(visitor.GetCondition());
+
+            PipelineTest.Test();
+
+            PipelineTest.AsyncPipelineBuilderTest().Wait();
 
             Console.ReadLine();
         }
