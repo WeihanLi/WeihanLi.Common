@@ -10,6 +10,8 @@ namespace WeihanLi.Common.Helpers
         IPipelineBuilder<TContext> Use(Func<Action<TContext>, Action<TContext>> middleware);
 
         Action<TContext> Build();
+
+        IPipelineBuilder<TContext> New();
     }
 
     public class PipelineBuilder
@@ -53,5 +55,7 @@ namespace WeihanLi.Common.Helpers
 
             return request;
         }
+
+        public IPipelineBuilder<TContext> New() => new PipelineBuilder<TContext>(_completeFunc);
     }
 }
