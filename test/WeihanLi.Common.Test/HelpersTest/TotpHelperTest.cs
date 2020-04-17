@@ -33,19 +33,18 @@ namespace WeihanLi.Common.Test.HelpersTest
             {
                 TotpHelper.ConfigureTotpOptions(options => options.Salt = null);
                 var code = TotpHelper.GenerateCode(bizToken);
+                Assert.NotEmpty(code);
 
                 TotpHelper.ConfigureTotpOptions(options =>
                 {
                     options.Salt = "amazing-dotnet";
                     options.ExpiresIn = 600;
                 });
+                Assert.False(TotpHelper.VerifyCode(bizToken, code));
 
                 var code1 = TotpHelper.GenerateCode(bizToken);
-                Assert.NotEmpty(code);
-
-                Thread.Sleep(2000);
-                Assert.False(TotpHelper.VerifyCode(bizToken, code));
                 Assert.NotEmpty(code1);
+                Thread.Sleep(2000);
                 Assert.True(TotpHelper.VerifyCode(bizToken, code1));
             }
         }
