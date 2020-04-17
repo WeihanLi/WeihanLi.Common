@@ -208,7 +208,7 @@ namespace WeihanLi.Common
             public ServiceCollectionDependencyResolver(IServiceCollection services)
             {
                 _services = services ?? throw new ArgumentNullException(nameof(services));
-                _serviceProvider = services.BuildServiceProvider();
+                _serviceProvider = services.BuildServiceProvider(true);
             }
 
             public object GetService(Type serviceType)
