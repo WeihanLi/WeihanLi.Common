@@ -7,6 +7,7 @@ namespace WeihanLi.Common.Test.HelpersTest
     public class TotpHelperTest
     {
         private readonly object _lock = new object();
+        private readonly string bizToken = "test_xxx";
 
         [Fact]
         public void Test()
@@ -18,10 +19,9 @@ namespace WeihanLi.Common.Test.HelpersTest
                     options.Salt = null;
                     options.ExpiresIn = 600;
                 });
-                var bizToken = "test_xxx";
                 var code = TotpHelper.GenerateCode(bizToken);
-                Thread.Sleep(2000);
                 Assert.NotEmpty(code);
+                Thread.Sleep(2000);
                 Assert.True(TotpHelper.VerifyCode(bizToken, code));
             }
         }
@@ -31,7 +31,6 @@ namespace WeihanLi.Common.Test.HelpersTest
         {
             lock (_lock)
             {
-                var bizToken = "test_xxx";
                 TotpHelper.ConfigureTotpOptions(options => options.Salt = null);
                 var code = TotpHelper.GenerateCode(bizToken);
 
@@ -42,8 +41,9 @@ namespace WeihanLi.Common.Test.HelpersTest
                 });
 
                 var code1 = TotpHelper.GenerateCode(bizToken);
-                Thread.Sleep(2000);
                 Assert.NotEmpty(code);
+
+                Thread.Sleep(2000);
                 Assert.False(TotpHelper.VerifyCode(bizToken, code));
                 Assert.NotEmpty(code1);
                 Assert.True(TotpHelper.VerifyCode(bizToken, code1));
