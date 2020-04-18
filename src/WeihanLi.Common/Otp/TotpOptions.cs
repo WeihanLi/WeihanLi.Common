@@ -1,4 +1,6 @@
-﻿namespace WeihanLi.Common.Otp
+﻿using WeihanLi.Extensions;
+
+namespace WeihanLi.Common.Otp
 {
     public class TotpOptions
     {
@@ -17,9 +19,21 @@
         /// </summary>
         public int ExpiresIn { get; set; } = 30;
 
+        private string _salt;
+
         /// <summary>
         /// Salt
         /// </summary>
-        public string Salt { get; set; }
+        public string Salt
+        {
+            get => _salt;
+            set
+            {
+                _salt = value;
+                SaltBytes = string.IsNullOrEmpty(value) ? null : value.GetBytes();
+            }
+        }
+
+        internal byte[] SaltBytes { get; private set; }
     }
 }

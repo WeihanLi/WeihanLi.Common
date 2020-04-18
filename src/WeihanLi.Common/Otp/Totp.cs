@@ -103,13 +103,13 @@ namespace WeihanLi.Common.Otp
 
             var futureStep = (int)(timeToleration.TotalSeconds / 30);
             var step = GetCurrentTimeStepNumber();
-            for (var i = -futureStep; i <= 0; i++)
+            for (var i = 0; i <= futureStep; i++)
             {
-                if (step + i < 0)
+                if (step - i < 0)
                 {
-                    continue;
+                    break;
                 }
-                var totp = Compute(securityToken, step + i);
+                var totp = Compute(securityToken, step - i);
                 if (totp == code)
                 {
                     return true;
