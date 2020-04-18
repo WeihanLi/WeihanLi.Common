@@ -26,7 +26,7 @@ namespace WeihanLi.Common.Test.HelpersTest
             }
         }
 
-        [Fact]
+        [Fact(Skip="TotpHelperSalt")]
         public void SaltTest()
         {
             lock (_lock)
