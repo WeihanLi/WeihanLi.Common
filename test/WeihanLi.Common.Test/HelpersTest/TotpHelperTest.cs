@@ -9,7 +9,7 @@ namespace WeihanLi.Common.Test.HelpersTest
         private readonly object _lock = new object();
         private readonly string bizToken = "test_xxx";
 
-        [Fact]
+        [Fact(Skip="TotpHelperTest")]
         public void Test()
         {
             lock (_lock)
@@ -26,7 +26,7 @@ namespace WeihanLi.Common.Test.HelpersTest
             }
         }
 
-        [Fact(Skip="TotpHelperSalt")]
+        [Fact(Skip="TotpHelperSaltTest")]
         public void SaltTest()
         {
             lock (_lock)
