@@ -17,7 +17,7 @@ branches:
 
 # git config
 git:
-  depth: 1
+  depth: 10
   lfs_skip_smudge: true # disable the download of LFS objects when cloning
   
 script:

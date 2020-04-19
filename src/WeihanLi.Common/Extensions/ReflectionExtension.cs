@@ -3,6 +3,7 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -372,6 +373,7 @@ namespace WeihanLi.Extensions
                 var obj = Expression.Parameter(typeof(object), "o");
                 var value = Expression.Parameter(typeof(object));
 
+                Debug.Assert(propertyInfo.DeclaringType != null);
                 // Note that we are using Expression.Unbox for value types and Expression.Convert for reference types
                 var expr =
                     Expression.Lambda<Action<object, object>>(
@@ -434,7 +436,7 @@ namespace WeihanLi.Extensions
         /// <returns>true if enum, false if not.</returns>
         public static bool IsEnum<T>([NotNull]this T @this)
         {
-            return @this.GetType().IsEnum;
+            return typeof(T).IsEnum;
         }
 
         /// <summary>
@@ -446,7 +448,7 @@ namespace WeihanLi.Extensions
         /// <returns>true if subclass of, false if not.</returns>
         public static bool IsSubclassOf<T>([NotNull]this T @this, Type type)
         {
-            return @this.GetType().IsSubclassOf(type);
+            return typeof(T).IsSubclassOf(type);
         }
 
         /// <summary>

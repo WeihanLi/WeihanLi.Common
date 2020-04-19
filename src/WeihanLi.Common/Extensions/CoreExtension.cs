@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,6 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Text.RegularExpressions;
-using JetBrains.Annotations;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -441,18 +441,6 @@ namespace WeihanLi.Extensions
         }
 
         /// <summary>
-        ///     A bool extension method that show the trueValue when the @this value is true; otherwise show the falseValue.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="trueValue">The true value to be returned if the @this value is true.</param>
-        /// <param name="falseValue">The false value to be returned if the @this value is false.</param>
-        /// <returns>A string that represents of the current boolean value.</returns>
-        public static string ToString(this bool @this, string trueValue, string falseValue)
-        {
-            return @this ? trueValue : falseValue;
-        }
-
-        /// <summary>
         ///     A bool extension method that execute an Action if the value is false.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
@@ -463,6 +451,18 @@ namespace WeihanLi.Extensions
             {
                 action();
             }
+        }
+
+        /// <summary>
+        ///     A bool extension method that show the trueValue when the @this value is true; otherwise show the falseValue.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="trueValue">The true value to be returned if the @this value is true.</param>
+        /// <param name="falseValue">The false value to be returned if the @this value is false.</param>
+        /// <returns>A string that represents of the current boolean value.</returns>
+        public static string ToString(this bool @this, string trueValue, string falseValue)
+        {
+            return @this ? trueValue : falseValue;
         }
 
         #endregion Boolean
@@ -1597,7 +1597,8 @@ namespace WeihanLi.Extensions
         /// <returns>The description attribute.</returns>
         public static string GetDescription([NotNull]this Enum value)
         {
-            var attr = value.GetType().GetField(value.ToString()).GetCustomAttribute<DescriptionAttribute>();
+            var attr = value.GetType().GetField(value.ToString())
+                .GetCustomAttribute<DescriptionAttribute>();
             return attr?.Description;
         }
 
@@ -1621,7 +1622,7 @@ namespace WeihanLi.Extensions
         /// <param name="handler">The handler to act on.</param>
         /// <param name="sender">Source of the event.</param>
         /// <param name="e">Event information.</param>
-        public static void Raise([CanBeNull]this EventHandler handler, object sender, EventArgs e)
+        public static void RaiseEvent([CanBeNull]this EventHandler handler, object sender, EventArgs e)
         {
             handler?.Invoke(sender, e);
         }
@@ -2337,7 +2338,7 @@ namespace WeihanLi.Extensions
         /// <returns>The @this acted on.</returns>
         public static T Chain<T>([NotNull]this T @this, Action<T> action)
         {
-            action.Invoke(@this);
+            action?.Invoke(@this);
 
             return @this;
         }

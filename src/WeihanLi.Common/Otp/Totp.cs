@@ -83,7 +83,8 @@ namespace WeihanLi.Common.Otp
                 //                 | (hashResult[offset + 2] & 0xff) << 8
                 //                 | (hashResult[offset + 3] & 0xff);
 
-                return (num % (int)Math.Pow(10, _codeSize)).ToString();
+                var code = (num % (int)Math.Pow(10, _codeSize)).ToString("");
+                return code.PadLeft(_codeSize, '0');
             }
         }
 
@@ -101,15 +102,12 @@ namespace WeihanLi.Common.Otp
             if (code.Length != _codeSize)
                 return false;
 
-            var futureStep = (int)(timeToleration.TotalSeconds / 30);
             var step = GetCurrentTimeStepNumber();
-            for (var i = -futureStep; i <= 0; i++)
+
+            var futureStep = Math.Min((int)(timeToleration.TotalSeconds * TimeSpan.TicksPerSecond / TimeStepTicks), step);
+            for (var i = 0; i <= futureStep; i++)
             {
-                if (step + i < 0)
-                {
-                    continue;
-                }
-                var totp = Compute(securityToken, step + i);
+                var totp = Compute(securityToken, step - i);
                 if (totp == code)
                 {
                     return true;
@@ -120,10 +118,10 @@ namespace WeihanLi.Common.Otp
 
         public int RemainingSeconds()
         {
-            return (int)(TimeStepTicks - ((DateTime.UtcNow.Ticks - UnixEpochTicks) / TimeSpan.TicksPerSecond) % TimeStepTicks);
+            return (int)(TimeStepTicks - ((DateTime.UtcNow.Ticks - _unixEpochTicks) / TimeSpan.TicksPerSecond) % TimeStepTicks);
         }
 
-        private static readonly long UnixEpochTicks = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).Ticks;
+        private static readonly long _unixEpochTicks = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).Ticks;
 
         /// <summary>
         /// time step
@@ -132,6 +130,6 @@ namespace WeihanLi.Common.Otp
         private const long TimeStepTicks = TimeSpan.TicksPerSecond * 30;
 
         // More info: https://tools.ietf.org/html/rfc6238#section-4
-        private static long GetCurrentTimeStepNumber() => (DateTime.UtcNow.Ticks - UnixEpochTicks) / TimeStepTicks;
+        private static long GetCurrentTimeStepNumber() => (DateTime.UtcNow.Ticks - _unixEpochTicks) / TimeStepTicks;
     }
 }
