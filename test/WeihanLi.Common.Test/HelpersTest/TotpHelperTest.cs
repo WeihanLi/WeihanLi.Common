@@ -9,7 +9,7 @@ namespace WeihanLi.Common.Test.HelpersTest
         private readonly object _lock = new object();
         private readonly string bizToken = "test_xxx";
 
-        [Fact(Skip="TotpHelperTest")]
+        [Fact]
         public void Test()
         {
             lock (_lock)
@@ -17,16 +17,18 @@ namespace WeihanLi.Common.Test.HelpersTest
                 TotpHelper.ConfigureTotpOptions(options =>
                 {
                     options.Salt = null;
-                    options.ExpiresIn = 600;
+                    options.ExpiresIn = 300;
                 });
                 var code = TotpHelper.GenerateCode(bizToken);
                 Assert.NotEmpty(code);
                 Thread.Sleep(2000);
                 Assert.True(TotpHelper.VerifyCode(bizToken, code));
+                Thread.Sleep(60 * 1000);
+                Assert.False(TotpHelper.VerifyCode(bizToken, code));
             }
         }
 
-        [Fact(Skip="TotpHelperSaltTest")]
+        [Fact]
         public void SaltTest()
         {
             lock (_lock)
@@ -38,7 +40,7 @@ namespace WeihanLi.Common.Test.HelpersTest
                 TotpHelper.ConfigureTotpOptions(options =>
                 {
                     options.Salt = "amazing-dotnet";
-                    options.ExpiresIn = 600;
+                    options.ExpiresIn = 300;
                 });
                 Assert.False(TotpHelper.VerifyCode(bizToken, code));
 

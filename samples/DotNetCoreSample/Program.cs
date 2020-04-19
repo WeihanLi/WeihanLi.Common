@@ -171,8 +171,7 @@ namespace DotNetCoreSample
             //visitor.Visit(expression);
             //Console.WriteLine(visitor.GetCondition());
 
-            PipelineTest.TestV2();
-
+            //PipelineTest.TestV2();
             //PipelineTest.AsyncPipelineBuilderTestV2().Wait();
 
             Console.ReadLine();
