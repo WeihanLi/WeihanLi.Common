@@ -4,6 +4,17 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.34](https://www.nuget.org/packages/WeihanLi.Common/1.0.34)
+
+- add `PipelineBuilder` to create pipeline easily
+- update `TotpHelper`, fix bug when the first code was `0`
+
+### [WeihanLi.Common 1.0.33](https://www.nuget.org/packages/WeihanLi.Common/1.0.33)
+
+- update `ServiceCollectionDependencyResolver` to fix generic scoped service resolve
+- add `ServiceContainerDependencyResolver`
+- update `DataExtension`/`DbConnectionExtension`/`DbCommandExtension` fix #9 
+
 ### [WeihanLi.Common 1.0.32](https://www.nuget.org/packages/WeihanLi.Common/1.0.32)
 
 - update di extensions, update `GetExportedTypes` with `GetTypes`
