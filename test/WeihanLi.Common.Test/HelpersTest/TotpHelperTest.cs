@@ -17,7 +17,7 @@ namespace WeihanLi.Common.Test.HelpersTest
                 TotpHelper.ConfigureTotpOptions(options =>
                 {
                     options.Salt = null;
-                    options.ExpiresIn = 300;
+                    options.ExpiresIn = 30;
                 });
                 var code = TotpHelper.GenerateCode(bizToken);
                 Assert.NotEmpty(code);
