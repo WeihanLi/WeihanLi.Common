@@ -14,5 +14,6 @@
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <NoWarn>$(NoWarn);1591;DE0003;</NoWarn>
+    <DefineConstans  Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard2.1'">$(DefineConstans);NETSTANDARD</DefineConstans>
   </PropertyGroup>
 </Project>

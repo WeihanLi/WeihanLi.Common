@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using JetBrains.Annotations;
 using WeihanLi.Common.DependencyInjection;
 
-#if NETSTANDARD2_0
+#if NETSTANDARD
 
 using Microsoft.Extensions.DependencyInjection;
 using ServiceLifetime = Microsoft.Extensions.DependencyInjection.ServiceLifetime;
@@ -196,7 +196,7 @@ namespace WeihanLi.Common
             }
         }
 
-#if NETSTANDARD2_0
+#if NETSTANDARD
 
         public static void SetDependencyResolver(IServiceCollection services) => SetDependencyResolver(new ServiceCollectionDependencyResolver(services));
 
