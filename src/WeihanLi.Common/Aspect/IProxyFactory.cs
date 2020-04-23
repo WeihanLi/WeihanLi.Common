@@ -4,8 +4,8 @@
     {
         TService CreateProxy<TService>();
 
-        TService CreateProxy<TService, TImplement>();
+        TService CreateProxy<TService, TImplement>() where TImplement : TService;
 
-        TService CreateProxy<TService, TImplement>(object[] parameters);
+        TService CreateProxy<TService, TImplement>(object[] parameters) where TImplement : TService;
     }
 }
