@@ -538,14 +538,9 @@ namespace WeihanLi.Extensions
             return t1 == t2 || t1.IsEquivalentTo(t2);
         }
 
-        internal static bool IsNullableType(this Type type)
-        {
-            return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
-        }
-
         internal static Type GetNonNullableType(this Type type)
         {
-            if (IsNullableType(type))
+            if (type.IsNullableType())
             {
                 return type.GetGenericArguments()[0];
             }
