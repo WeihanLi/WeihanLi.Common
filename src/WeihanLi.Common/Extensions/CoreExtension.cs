@@ -3117,6 +3117,11 @@ namespace WeihanLi.Extensions
         public static bool HasEmptyConstructor([NotNull]this Type type)
             => type.GetConstructors(BindingFlags.Instance).Any(c => c.GetParameters().Length == 0);
 
+        public static bool IsNullableType(this Type type)
+        {
+            return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
+        }
+
         /// <summary>
         /// 根据 Type 获取默认值，实现类似 default(T) 的功能
         /// </summary>
