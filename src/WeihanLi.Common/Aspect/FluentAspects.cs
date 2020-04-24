@@ -1,16 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
-using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect
 {
     public class FluentAspects
     {
-        public static IEntityInterceptionConfiguration<TEntity>
-            For<TEntity>()
+        internal static readonly Dictionary<Func<MethodInfo, bool>, IReadOnlyCollection<IInterceptor>>
+            InterceptorConfigurations = new Dictionary<Func<MethodInfo, bool>, IReadOnlyCollection<IInterceptor>>();
+
+        public static void Configure(Action<FluentAspectOptions> optionsAction)
         {
-            //
-            return default;
+            var options = new FluentAspectOptions();
+            optionsAction?.Invoke(options);
+            foreach (var interceptionConfiguration in options._interceptionConfigurations)
+            {
+                InterceptorConfigurations[interceptionConfiguration.Key] = interceptionConfiguration.Value.Interceptors;
+            }
         }
     }
 
@@ -18,7 +24,21 @@ namespace WeihanLi.Common.Aspect
     {
         public IReadOnlyCollection<IInterceptor> ResolveInterceptors(IInvocation invocation)
         {
-            return ArrayHelper.Empty<IInterceptor>();
+            var interceptors = new List<IInterceptor>(32);
+            foreach (var configuration in FluentAspects.InterceptorConfigurations)
+            {
+                if (configuration.Key.Invoke(invocation.Method ?? invocation.ProxyMethod))
+                {
+                    foreach (var interceptor in configuration.Value)
+                    {
+                        if (!interceptors.Exists(x => x.GetType() == interceptor.GetType()))
+                        {
+                            interceptors.Add(interceptor);
+                        }
+                    }
+                }
+            }
+            return interceptors;
         }
     }
 }

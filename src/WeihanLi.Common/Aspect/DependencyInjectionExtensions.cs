@@ -5,6 +5,20 @@ namespace WeihanLi.Common.Aspect
 {
     public static class DependencyInjectionExtensions
     {
+        public static IFluentAspectBuilder AddFluentAspects(this IServiceCollection serviceCollection, Action<FluentAspectOptions> optionsAction)
+        {
+            if (null == serviceCollection)
+            {
+                throw new ArgumentNullException(nameof(serviceCollection));
+            }
+            if (null == optionsAction)
+            {
+                throw new ArgumentNullException(nameof(optionsAction));
+            }
+            FluentAspects.Configure(optionsAction);
+            return AddFluentAspects(serviceCollection);
+        }
+
         public static IFluentAspectBuilder AddFluentAspects(this IServiceCollection serviceCollection)
         {
             if (null == serviceCollection)
@@ -20,11 +34,12 @@ namespace WeihanLi.Common.Aspect
         public static IServiceCollection AddProxyService<TService, TImplement>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
             where TImplement : TService
         {
-            serviceCollection.Add(new ServiceDescriptor(typeof(TService), sp =>
+            var serviceType = typeof(TService);
+            serviceCollection.Add(new ServiceDescriptor(serviceType, sp =>
             {
-                var proxyServiceType = sp.GetRequiredService<IProxyTypeFactory>()
-                    .CreateProxyType(typeof(TImplement));
-                return proxyServiceType;
+                var proxyService = sp.GetRequiredService<IProxyFactory>()
+                    .CreateProxy<TService, TImplement>();
+                return proxyService;
             }, serviceLifetime));
             return serviceCollection;
         }

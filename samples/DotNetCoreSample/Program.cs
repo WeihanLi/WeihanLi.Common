@@ -4,6 +4,7 @@ using System;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
+using WeihanLi.Extensions;
 
 // ReSharper disable LocalizableElement
 
@@ -40,13 +41,20 @@ namespace DotNetCoreSample
             //    )
             //);
 
-            services.AddFluentAspects()
-                .UseInterceptorResolver<AttributeInterceptorResolver>();
+            services.AddSingletonProxy<IFly, MonkeyKing>();
+            services.AddFluentAspects(options =>
+            {
+                options.Intercept(m => true)
+                    .With(new LogInterceptor());
+                options.Intercept(method => method.Name == nameof(IFly.Fly))
+                    .With(new LogInterceptor());
+                options.Intercept(m => m.DeclaringType.IsAssignableTo<IProxyTypeFactory>())
+                    .With(new LogInterceptor());
+            });
 
             DependencyResolver.SetDependencyResolver(services);
 
-            var fly = DependencyResolver.ResolveService<IProxyFactory>()
-                .CreateInterfaceProxy<IFly, MonkeyKing>();
+            var fly = DependencyResolver.ResolveService<IFly>();
             fly.Fly();
 
             //DependencyResolver.ResolveRequiredService<IFly>()
