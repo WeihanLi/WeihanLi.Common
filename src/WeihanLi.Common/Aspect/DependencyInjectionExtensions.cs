@@ -34,8 +34,7 @@ namespace WeihanLi.Common.Aspect
         public static IServiceCollection AddProxyService<TService, TImplement>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
             where TImplement : TService
         {
-            var serviceType = typeof(TService);
-            serviceCollection.Add(new ServiceDescriptor(serviceType, sp =>
+            serviceCollection.Add(new ServiceDescriptor(typeof(TService), sp =>
             {
                 var proxyService = sp.GetRequiredService<IProxyFactory>()
                     .CreateProxy<TService, TImplement>();
@@ -64,12 +63,11 @@ namespace WeihanLi.Common.Aspect
 
         public static IServiceCollection AddProxyService<TService>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
         {
-            var serviceType = typeof(TService);
-            serviceCollection.Add(new ServiceDescriptor(serviceType, sp =>
+            serviceCollection.Add(new ServiceDescriptor(typeof(TService), sp =>
             {
-                var proxyServiceType = sp.GetRequiredService<IProxyTypeFactory>()
-                    .CreateProxyType(serviceType);
-                return proxyServiceType;
+                var proxyService = sp.GetRequiredService<IProxyFactory>()
+                    .CreateProxy<TService>();
+                return proxyService;
             }, serviceLifetime));
             return serviceCollection;
         }
