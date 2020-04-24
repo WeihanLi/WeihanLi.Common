@@ -40,7 +40,7 @@ namespace DotNetCoreSample
             //    )
             //);
 
-            services.AddFluentAspect()
+            services.AddFluentAspects()
                 .UseInterceptorResolver<AttributeInterceptorResolver>();
 
             DependencyResolver.SetDependencyResolver(services);
