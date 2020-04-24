@@ -7,7 +7,7 @@
 ### [WeihanLi.Common 1.0.34](https://www.nuget.org/packages/WeihanLi.Common/1.0.34)
 
 - add `PipelineBuilder` to create pipeline easily
-- update `TotpHelper`, fix bug when the first code was `0`
+- update `TotpHelper`, fix bug when the code starts with `0`
 
 ### [WeihanLi.Common 1.0.33](https://www.nuget.org/packages/WeihanLi.Common/1.0.33)
 
