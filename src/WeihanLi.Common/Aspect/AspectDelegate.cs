@@ -10,11 +10,11 @@ namespace WeihanLi.Common.Aspect
     {
         private static readonly ConcurrentDictionary<string, Func<IInvocation, Task>> _aspectDelegates = new ConcurrentDictionary<string, Func<IInvocation, Task>>();
 
-        public static void InvokeAspectDelegate(IInvocation context, IReadOnlyCollection<IInterceptor> interceptors)
+        public static void InvokeWithInterceptors(IInvocation context, IReadOnlyCollection<IInterceptor> interceptors)
         {
             var action = _aspectDelegates.GetOrAdd($"{context.ProxyMethod.DeclaringType}.{context.ProxyMethod}", m =>
             {
-                var builder = PipelineBuilder.CreateAsync<IInvocation>(x =>
+                Func<IInvocation, Task> completeFunc = x =>
                 {
                     context.ReturnValue = x.Method?.Invoke(x.Target, x.Parameters);
                     if (context.Method.ReturnType == typeof(void))
@@ -34,7 +34,14 @@ namespace WeihanLi.Common.Aspect
 #endif
 
                     return TaskHelper.CompletedTask;
-                });
+                };
+
+                if (interceptors.Count == 0)
+                {
+                    return completeFunc;
+                }
+
+                var builder = PipelineBuilder.CreateAsync(completeFunc);
                 foreach (var interceptor in interceptors)
                 {
                     builder.Use(interceptor.Invoke);
@@ -53,12 +60,12 @@ namespace WeihanLi.Common.Aspect
             }
         }
 
-        public static void InvokeAspectDelegate(IInvocation context)
+        public static void Invoke(IInvocation context)
         {
             var interceptors = DependencyResolver.ResolveService<IInterceptorResolver>()
                 ?.ResolveInterceptors(context) ?? ArrayHelper.Empty<IInterceptor>();
 
-            InvokeAspectDelegate(context, interceptors);
+            InvokeWithInterceptors(context, interceptors);
         }
     }
 }

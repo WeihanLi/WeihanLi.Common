@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Runtime.InteropServices;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -412,6 +413,76 @@ namespace WeihanLi.Extensions
         public static void New(this ILGenerator il, ConstructorInfo constructor)
         {
             il.Emit(OpCodes.Newobj, constructor);
+        }
+
+        // https://stackoverflow.com/a/48149905/5519747
+        public static void LoadObj(this ILGenerator il, object obj)
+        {
+            if (null == obj)
+            {
+                il.EmitNull();
+                return;
+            }
+
+            var type = obj.GetType();
+
+            var gch = GCHandle.Alloc(obj);
+            var ptr = GCHandle.ToIntPtr(gch);
+
+            if (IntPtr.Size == 4)
+                il.Emit(OpCodes.Ldc_I4, ptr.ToInt32());
+            else
+                il.Emit(OpCodes.Ldc_I8, ptr.ToInt64());
+
+            il.Emit(OpCodes.Ldobj, type);
+        }
+
+        public static void EmitThis(this ILGenerator ilGenerator)
+        {
+            if (ilGenerator == null)
+            {
+                throw new ArgumentNullException(nameof(ilGenerator));
+            }
+
+            ilGenerator.Emit(OpCodes.Ldarg_0);
+        }
+
+        public static void EmitLoadArg(this ILGenerator ilGenerator, int index)
+        {
+            if (ilGenerator == null)
+            {
+                throw new ArgumentNullException(nameof(ilGenerator));
+            }
+
+            switch (index)
+            {
+                case 0:
+                    ilGenerator.Emit(OpCodes.Ldarg_0);
+                    break;
+
+                case 1:
+                    ilGenerator.Emit(OpCodes.Ldarg_1);
+                    break;
+
+                case 2:
+                    ilGenerator.Emit(OpCodes.Ldarg_2);
+                    break;
+
+                case 3:
+                    ilGenerator.Emit(OpCodes.Ldarg_3);
+                    break;
+
+                default:
+                    if (index <= byte.MaxValue)
+                    {
+                        ilGenerator.Emit(OpCodes.Ldarg_S, (byte)index);
+                    }
+                    else
+                    {
+                        ilGenerator.Emit(OpCodes.Ldarg, index);
+                    }
+                    break;
+            }
         }
 
         public static void EmitNull(this ILGenerator ilGenerator)

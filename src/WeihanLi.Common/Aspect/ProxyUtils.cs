@@ -10,7 +10,6 @@ namespace WeihanLi.Common.Aspect
 {
     internal static class ProxyUtils
     {
-        private static readonly object _locker = new object();
         private const string ProxyAssemblyName = "WeihanLi.Aop.DynamicGenerated";
         private static readonly ModuleBuilder _moduleBuilder;
         private static readonly ConcurrentDictionary<string, Type> _proxyTypes = new ConcurrentDictionary<string, Type>();
@@ -19,10 +18,10 @@ namespace WeihanLi.Common.Aspect
 
         static ProxyUtils()
         {
-            _ignoredMethodNames.Add(nameof(_locker.ToString));
-            _ignoredMethodNames.Add(nameof(_locker.GetType));
-            _ignoredMethodNames.Add(nameof(_locker.GetHashCode));
-            _ignoredMethodNames.Add(nameof(_locker.Equals));
+            _ignoredMethodNames.Add(nameof(ProxyAssemblyName.ToString));
+            _ignoredMethodNames.Add(nameof(ProxyAssemblyName.GetType));
+            _ignoredMethodNames.Add(nameof(ProxyAssemblyName.GetHashCode));
+            _ignoredMethodNames.Add(nameof(ProxyAssemblyName.Equals));
 
             var asmBuilder = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName(ProxyAssemblyName), AssemblyBuilderAccess.Run);
             _moduleBuilder = asmBuilder.DefineDynamicModule("Default");
@@ -75,17 +74,12 @@ namespace WeihanLi.Common.Aspect
 
                     var localReturnValue = il.DeclareReturnValue(method.ReturnType);
                     var localCurrentMethod = il.DeclareLocal(typeof(MethodInfo));
-                    var localMethodBase = il.DeclareLocal(typeof(MethodInfo));
                     var localParameters = il.DeclareLocal(typeof(object[]));
 
                     // var currentMethod = MethodBase.GetCurrentMethod();
                     il.Call(typeof(MethodBase).GetMethod(nameof(MethodBase.GetCurrentMethod)));
                     il.EmitCastToType(typeof(MethodBase), typeof(MethodInfo));
                     il.Emit(OpCodes.Stloc, localCurrentMethod);
-
-                    il.Emit(OpCodes.Ldloc, localCurrentMethod);
-                    il.Call(typeof(AspectExtensions).GetMethod(nameof(AspectExtensions.GetBaseMethod)));
-                    il.Emit(OpCodes.Stloc, localMethodBase);
 
                     // var parameters = new[] {a, b, c};
                     il.Emit(OpCodes.Ldc_I4, methodParameterTypes.Length);
@@ -110,7 +104,7 @@ namespace WeihanLi.Common.Aspect
                     // var aspectInvocation = new AspectInvocation(method, this, parameters);
                     var localAspectInvocation = il.DeclareLocal(typeof(MethodInvocation));
                     il.Emit(OpCodes.Ldloc, localCurrentMethod);
-                    il.Emit(OpCodes.Ldloc, localMethodBase);
+                    il.EmitNull();
                     il.Emit(OpCodes.Ldarg_0);
                     il.EmitNull();
                     il.Emit(OpCodes.Ldloc, localParameters);
@@ -121,7 +115,7 @@ namespace WeihanLi.Common.Aspect
                     // AspectDelegate.InvokeAspectDelegate(invocation);
                     il.Emit(OpCodes.Ldloc, localAspectInvocation);
                     var invokeAspectDelegateMethod =
-                        typeof(AspectDelegate).GetMethod(nameof(AspectDelegate.InvokeAspectDelegate), new[] { typeof(IInvocation) });
+                        typeof(AspectDelegate).GetMethod(nameof(AspectDelegate.Invoke), new[] { typeof(IInvocation) });
                     il.Call(invokeAspectDelegateMethod);
                     il.Emit(OpCodes.Nop);
 
@@ -176,12 +170,15 @@ namespace WeihanLi.Common.Aspect
                 foreach (var constructor in implementType.GetConstructors())
                 {
                     var constructorTypes = constructor.GetParameters().Select(o => o.ParameterType).ToArray();
-                    var c = typeBuilder.DefineConstructor(
+                    var constructorBuilder = typeBuilder.DefineConstructor(
                         MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.RTSpecialName | MethodAttributes.SpecialName,
                         CallingConventions.Standard,
                         constructorTypes);
-
-                    var il = c.GetILGenerator();
+                    foreach (var customAttribute in constructor.CustomAttributes)
+                    {
+                        constructorBuilder.SetCustomAttribute(DefineCustomAttribute(customAttribute));
+                    }
+                    var il = constructorBuilder.GetILGenerator();
                     il.Emit(OpCodes.Ldarg_0);
 
                     for (var i = 0; i < constructorTypes.Length; i++)
@@ -267,7 +264,7 @@ namespace WeihanLi.Common.Aspect
                     // AspectDelegate.InvokeAspectDelegate(invocation);
                     il.Emit(OpCodes.Ldloc, localAspectInvocation);
                     var invokeAspectDelegateMethod =
-                        typeof(AspectDelegate).GetMethod(nameof(AspectDelegate.InvokeAspectDelegate), new[] { typeof(IInvocation) });
+                        typeof(AspectDelegate).GetMethod(nameof(AspectDelegate.Invoke), new[] { typeof(IInvocation) });
                     il.Call(invokeAspectDelegateMethod);
                     il.Emit(OpCodes.Nop);
 
@@ -310,12 +307,15 @@ namespace WeihanLi.Common.Aspect
                 foreach (var constructor in classType.GetConstructors())
                 {
                     var constructorTypes = constructor.GetParameters().Select(o => o.ParameterType).ToArray();
-                    var c = typeBuilder.DefineConstructor(
+                    var constructorBuilder = typeBuilder.DefineConstructor(
                         MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.RTSpecialName | MethodAttributes.SpecialName,
                         CallingConventions.Standard,
                         constructorTypes);
-
-                    var il = c.GetILGenerator();
+                    foreach (var customAttribute in constructor.CustomAttributes)
+                    {
+                        constructorBuilder.SetCustomAttribute(DefineCustomAttribute(customAttribute));
+                    }
+                    var il = constructorBuilder.GetILGenerator();
                     il.Emit(OpCodes.Ldarg_0);
 
                     for (var i = 0; i < constructorTypes.Length; i++)
@@ -403,7 +403,7 @@ namespace WeihanLi.Common.Aspect
                     // AspectDelegate.InvokeAspectDelegate(invocation);
                     il.Emit(OpCodes.Ldloc, localAspectInvocation);
                     var invokeAspectDelegateMethod =
-                        typeof(AspectDelegate).GetMethod(nameof(AspectDelegate.InvokeAspectDelegate), new[] { typeof(IInvocation) });
+                        typeof(AspectDelegate).GetMethod(nameof(AspectDelegate.Invoke), new[] { typeof(IInvocation) });
                     il.Call(invokeAspectDelegateMethod);
                     il.Emit(OpCodes.Nop);
 
