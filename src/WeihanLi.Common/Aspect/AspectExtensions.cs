@@ -59,18 +59,13 @@ namespace WeihanLi.Common.Aspect
             return proxyGenerator.CreateProxy<TClass, TImplement>();
         }
 
-        public static MethodBase GetBaseMethod(MethodBase currentMethod)
+        public static MethodInfo GetBaseMethod(this MethodInfo currentMethod)
         {
             if (null == currentMethod?.DeclaringType?.BaseType)
                 return null;
-
-            var parameterTypes = currentMethod.GetParameters().Select(o => o.ParameterType).ToArray();
-            var baseTypeMethod = currentMethod.DeclaringType.BaseType
-                .GetMethod(
-                    currentMethod.Name,
-                    parameterTypes
-                );
-            return baseTypeMethod;
+            var parameterTypes = currentMethod.GetParameters().Select(x => x.ParameterType).ToArray();
+            var baseMethod = currentMethod.DeclaringType.BaseType.GetMethod(currentMethod.Name, parameterTypes);
+            return baseMethod;
         }
     }
 }

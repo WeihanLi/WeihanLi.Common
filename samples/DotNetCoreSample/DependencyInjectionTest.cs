@@ -1,8 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using WeihanLi.Common;
+using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
@@ -263,14 +266,33 @@ namespace DotNetCoreSample
         }
     }
 
-    internal interface IFly
+    public interface IFly
     {
         string Name { get; }
 
+        [LogInterceptor]
         void Fly();
     }
 
-    internal class MonkeyKing : IFly, IDisposable
+    public class LogInterceptor : AbstractInterceptor
+    {
+        public override async Task Invoke(IInvocation invocation, Func<Task> next)
+        {
+            var watch = Stopwatch.StartNew();
+            try
+            {
+                Console.WriteLine("invoke begin");
+                await next();
+            }
+            finally
+            {
+                watch.Stop();
+                Console.WriteLine($"invoke complete, elasped:{watch.ElapsedMilliseconds} ms");
+            }
+        }
+    }
+
+    public class MonkeyKing : IFly, IDisposable
     {
         public string Name => "MonkeyKing";
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
 
@@ -9,26 +10,30 @@ namespace WeihanLi.Common.Aspect
     {
         private static readonly ConcurrentDictionary<string, Func<IInvocation, Task>> _aspectDelegates = new ConcurrentDictionary<string, Func<IInvocation, Task>>();
 
-        public static void InvokeAspectDelegate(IInvocation context, IInterceptor[] interceptors)
+        public static void InvokeAspectDelegate(IInvocation context, IReadOnlyCollection<IInterceptor> interceptors)
         {
             var action = _aspectDelegates.GetOrAdd($"{context.ProxyMethod.DeclaringType}.{context.ProxyMethod}", m =>
             {
                 var builder = PipelineBuilder.CreateAsync<IInvocation>(x =>
                 {
-                    var returnVal = x.Method?.Invoke(x.Target, x.Parameters);
+                    context.ReturnValue = x.Method?.Invoke(x.Target, x.Parameters);
+                    if (context.Method.ReturnType == typeof(void))
+                    {
+                        return TaskHelper.CompletedTask;
+                    }
 
-                    if (returnVal is Task task)
+                    if (context.ReturnValue is Task task)
                     {
                         return task;
                     }
 #if NETSTANDARD2_1
-                    if (returnVal is ValueTask valTask)
+                    if (context.ReturnValue is ValueTask valTask)
                     {
                         return valTask.AsTask();
                     }
 #endif
 
-                    return Task.FromResult(returnVal);
+                    return TaskHelper.CompletedTask;
                 });
                 foreach (var interceptor in interceptors)
                 {
@@ -51,7 +56,7 @@ namespace WeihanLi.Common.Aspect
         public static void InvokeAspectDelegate(IInvocation context)
         {
             var interceptors = DependencyResolver.ResolveService<IInterceptorResolver>()
-                ?.ResolveInterceptors(context.ProxyMethod) ?? ArrayHelper.Empty<IInterceptor>();
+                ?.ResolveInterceptors(context) ?? ArrayHelper.Empty<IInterceptor>();
 
             InvokeAspectDelegate(context, interceptors);
         }

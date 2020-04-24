@@ -84,7 +84,7 @@ namespace WeihanLi.Common.Aspect
                     il.Emit(OpCodes.Stloc, localCurrentMethod);
 
                     il.Emit(OpCodes.Ldloc, localCurrentMethod);
-                    il.Call(typeof(AspectExtensions).GetMethod(nameof(AspectExtensions.GetBaseMethod), BindingFlags.Static | BindingFlags.Public));
+                    il.Call(typeof(AspectExtensions).GetMethod(nameof(AspectExtensions.GetBaseMethod)));
                     il.Emit(OpCodes.Stloc, localMethodBase);
 
                     // var parameters = new[] {a, b, c};
@@ -112,6 +112,7 @@ namespace WeihanLi.Common.Aspect
                     il.Emit(OpCodes.Ldloc, localCurrentMethod);
                     il.Emit(OpCodes.Ldloc, localMethodBase);
                     il.Emit(OpCodes.Ldarg_0);
+                    il.EmitNull();
                     il.Emit(OpCodes.Ldloc, localParameters);
 
                     il.New(typeof(MethodInvocation).GetConstructors()[0]);
@@ -120,7 +121,7 @@ namespace WeihanLi.Common.Aspect
                     // AspectDelegate.InvokeAspectDelegate(invocation);
                     il.Emit(OpCodes.Ldloc, localAspectInvocation);
                     var invokeAspectDelegateMethod =
-                        typeof(AspectDelegate).GetMethod(nameof(AspectDelegate.InvokeAspectDelegate));
+                        typeof(AspectDelegate).GetMethod(nameof(AspectDelegate.InvokeAspectDelegate), new[] { typeof(IInvocation) });
                     il.Call(invokeAspectDelegateMethod);
                     il.Emit(OpCodes.Nop);
 
@@ -170,8 +171,7 @@ namespace WeihanLi.Common.Aspect
 
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
-                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public, implementType, new[] { interfaceType });
-                typeBuilder.DefineDefaultConstructor(MethodAttributes.Public);
+                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, implementType.Attributes, implementType, new[] { interfaceType });
 
                 foreach (var constructor in implementType.GetConstructors())
                 {
@@ -227,7 +227,7 @@ namespace WeihanLi.Common.Aspect
                     il.Emit(OpCodes.Stloc, localCurrentMethod);
 
                     il.Emit(OpCodes.Ldloc, localCurrentMethod);
-                    il.Call(typeof(AspectExtensions).GetMethod(nameof(AspectExtensions.GetBaseMethod), BindingFlags.Static | BindingFlags.NonPublic));
+                    il.Call(typeof(AspectExtensions).GetMethod(nameof(AspectExtensions.GetBaseMethod)));
                     il.Emit(OpCodes.Stloc, localMethodBase);
 
                     // var parameters = new[] {a, b, c};
@@ -250,7 +250,7 @@ namespace WeihanLi.Common.Aspect
                     }
                     il.Emit(OpCodes.Stloc, localParameters);
 
-                    il.Emit(OpCodes.Newobj, implementType.GetConstructor(Type.EmptyTypes));
+                    il.Emit(OpCodes.Ldarg_0);
                     il.Emit(OpCodes.Stloc, localTarget);
 
                     // var invocation = new MethodInvocation(method, methodBase, this, parameters);
@@ -267,7 +267,7 @@ namespace WeihanLi.Common.Aspect
                     // AspectDelegate.InvokeAspectDelegate(invocation);
                     il.Emit(OpCodes.Ldloc, localAspectInvocation);
                     var invokeAspectDelegateMethod =
-                        typeof(AspectDelegate).GetMethod(nameof(AspectDelegate.InvokeAspectDelegate));
+                        typeof(AspectDelegate).GetMethod(nameof(AspectDelegate.InvokeAspectDelegate), new[] { typeof(IInvocation) });
                     il.Call(invokeAspectDelegateMethod);
                     il.Emit(OpCodes.Nop);
 
@@ -306,7 +306,6 @@ namespace WeihanLi.Common.Aspect
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
                 var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public, classType, interfaceTypes);
-                typeBuilder.DefineDefaultConstructor(MethodAttributes.Public);
 
                 foreach (var constructor in classType.GetConstructors())
                 {
@@ -348,10 +347,6 @@ namespace WeihanLi.Common.Aspect
                         method.ReturnType,
                         methodParameterTypes
                         );
-                    foreach (var customAttribute in method.CustomAttributes)
-                    {
-                        methodBuilder.SetCustomAttribute(DefineCustomAttribute(customAttribute));
-                    }
                     typeBuilder.DefineMethodOverride(methodBuilder, method);
 
                     var il = methodBuilder.GetILGenerator();
@@ -368,7 +363,7 @@ namespace WeihanLi.Common.Aspect
                     il.Emit(OpCodes.Stloc, localCurrentMethod);
 
                     il.Emit(OpCodes.Ldloc, localCurrentMethod);
-                    il.Call(typeof(AspectExtensions).GetMethod(nameof(AspectExtensions.GetBaseMethod), BindingFlags.Static | BindingFlags.Public));
+                    il.Call(typeof(AspectExtensions).GetMethod(nameof(AspectExtensions.GetBaseMethod)));
                     il.Emit(OpCodes.Stloc, localMethodBase);
 
                     // var parameters = new[] {a, b, c};
@@ -391,7 +386,7 @@ namespace WeihanLi.Common.Aspect
                     }
                     il.Emit(OpCodes.Stloc, localParameters);
 
-                    il.Emit(OpCodes.Newobj, classType.GetConstructor(Type.EmptyTypes));
+                    il.Emit(OpCodes.Ldarg_0);
                     il.Emit(OpCodes.Stloc, localTarget);
 
                     // var invocation = new MethodInvocation(method, methodBase, this, parameters);
@@ -408,7 +403,7 @@ namespace WeihanLi.Common.Aspect
                     // AspectDelegate.InvokeAspectDelegate(invocation);
                     il.Emit(OpCodes.Ldloc, localAspectInvocation);
                     var invokeAspectDelegateMethod =
-                        typeof(AspectDelegate).GetMethod(nameof(AspectDelegate.InvokeAspectDelegate));
+                        typeof(AspectDelegate).GetMethod(nameof(AspectDelegate.InvokeAspectDelegate), new[] { typeof(IInvocation) });
                     il.Call(invokeAspectDelegateMethod);
                     il.Emit(OpCodes.Nop);
 

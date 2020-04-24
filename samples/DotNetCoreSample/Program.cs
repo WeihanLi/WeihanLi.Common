@@ -1,13 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using System;
 using WeihanLi.Common;
+using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
-using WeihanLi.Common.Event;
-using WeihanLi.Common.Helpers;
-using WeihanLi.Common.Logging;
-using WeihanLi.Extensions;
 
 // ReSharper disable LocalizableElement
 
@@ -35,16 +31,23 @@ namespace DotNetCoreSample
 
             services.AddSingleton(configuration);
 
-            services.AddSingleton<IEventStore, EventStoreInMemory>();
-            services.AddSingleton<IEventBus, EventBus>();
+            //services.AddSingleton<IEventStore, EventStoreInMemory>();
+            //services.AddSingleton<IEventBus, EventBus>();
 
-            services.AddSingleton(DelegateEventHandler.FromAction<CounterEvent>(@event =>
-                LogHelper.GetLogger(typeof(DelegateEventHandler<CounterEvent>))
-                    .Info($"Event Info: {@event.ToJson()}")
-                )
-            );
+            //services.AddSingleton(DelegateEventHandler.FromAction<CounterEvent>(@event =>
+            //    LogHelper.GetLogger(typeof(DelegateEventHandler<CounterEvent>))
+            //        .Info($"Event Info: {@event.ToJson()}")
+            //    )
+            //);
+
+            services.AddFluentAspect()
+                .UseInterceptorResolver<AttributeInterceptorResolver>();
 
             DependencyResolver.SetDependencyResolver(services);
+
+            var fly = DependencyResolver.ResolveService<IProxyFactory>()
+                .CreateInterfaceProxy<IFly, MonkeyKing>();
+            fly.Fly();
 
             //DependencyResolver.ResolveRequiredService<IFly>()
             //    .Fly();

@@ -13,6 +13,8 @@
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Web" />
     <Reference Include="System.Net.Http" />
+    <Compile Remove="Aspect\DependencyInjectionExtensions.cs" />
+    <Compile Remove="Aspect\IAspectBuilder.cs" />
     <Compile Remove="Extensions\ConfigurationExtension.cs" />
     <Compile Remove="Extensions\ServiceCollectionExtension.cs" />
     <Compile Remove="Logging\MicrosoftLogging*.cs" />
