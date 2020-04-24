@@ -4,7 +4,6 @@ using System;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
-using WeihanLi.Extensions;
 
 // ReSharper disable LocalizableElement
 
@@ -46,9 +45,16 @@ namespace DotNetCoreSample
             {
                 options.Intercept(m => true)
                     .With(new LogInterceptor());
+
+                options.InterceptAll()
+                    .With(new LogInterceptor());
+
                 options.Intercept(method => method.Name == nameof(IFly.Fly))
                     .With(new LogInterceptor());
-                options.Intercept(m => m.DeclaringType.IsAssignableTo<IProxyTypeFactory>())
+
+                options.Intercept<IFly>()
+                    .With(new LogInterceptor());
+                options.Intercept<IFly>(m => m.Name != nameof(IFly.Name))
                     .With(new LogInterceptor());
             });
 

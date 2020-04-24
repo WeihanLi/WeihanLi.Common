@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Reflection;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect
 {
@@ -23,6 +25,23 @@ namespace WeihanLi.Common.Aspect
             interceptionConfiguration = new InterceptionConfiguration(new List<IInterceptor>(16));
             _interceptionConfigurations[predict] = interceptionConfiguration;
             return interceptionConfiguration;
+        }
+    }
+
+    public static class FluentAspectOptionsExtensions
+    {
+        public static IInterceptionConfiguration InterceptAll(this FluentAspectOptions options)
+            => options.Intercept(m => true);
+
+        public static IInterceptionConfiguration Intercept<T>(this FluentAspectOptions options,
+            Expression<Func<MethodInfo, bool>> andExpression = null)
+        {
+            Expression<Func<MethodInfo, bool>> expression = m => m.DeclaringType.IsAssignableTo<T>();
+            if (null != andExpression)
+            {
+                expression = expression.And(andExpression);
+            }
+            return options.Intercept(expression.Compile());
         }
     }
 }
