@@ -43,19 +43,18 @@ namespace DotNetCoreSample
             services.AddSingletonProxy<IFly, MonkeyKing>();
             services.AddFluentAspects(options =>
             {
-                options.Intercept(m => true)
-                    .With(new LogInterceptor());
-
                 options.InterceptAll()
-                    .With(new LogInterceptor());
+                    .With<TryInvokeInterceptor>()
+                    .With<LogInterceptor>()
+                    ;
 
                 options.Intercept(method => method.Name == nameof(IFly.Fly))
-                    .With(new LogInterceptor());
+                    .With<LogInterceptor>();
 
                 options.Intercept<IFly>()
-                    .With(new LogInterceptor());
+                    .With<LogInterceptor>();
                 options.Intercept<IFly>(m => m.Name != nameof(IFly.Name))
-                    .With(new LogInterceptor());
+                    .With<LogInterceptor>();
             });
 
             DependencyResolver.SetDependencyResolver(services);

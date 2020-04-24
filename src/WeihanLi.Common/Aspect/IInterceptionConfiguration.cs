@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect
 {
@@ -27,6 +28,21 @@ namespace WeihanLi.Common.Aspect
             }
 
             return this;
+        }
+    }
+
+    public static class InterceptionConfigurationExtensions
+    {
+        public static IInterceptionConfiguration With<TInterceptor>(this IInterceptionConfiguration interceptionConfiguration) where TInterceptor : IInterceptor, new()
+        {
+            interceptionConfiguration.With(new TInterceptor());
+            return interceptionConfiguration;
+        }
+
+        public static IInterceptionConfiguration With<TInterceptor>(this IInterceptionConfiguration interceptionConfiguration, params object[] parameters) where TInterceptor : IInterceptor
+        {
+            interceptionConfiguration.With(ActivatorHelper.CreateInstance<TInterceptor>(parameters));
+            return interceptionConfiguration;
         }
     }
 }
