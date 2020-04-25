@@ -24,8 +24,8 @@ namespace WeihanLi.Common.Aspect
             if (null == serviceCollection)
                 throw new ArgumentNullException(nameof(serviceCollection));
 
-            serviceCollection.AddSingleton<IProxyTypeFactory, DefaultProxyTypeFactory>();
-            serviceCollection.AddSingleton<IProxyFactory, DefaultProxyFactory>();
+            serviceCollection.AddTransient<IProxyTypeFactory, DefaultProxyTypeFactory>();
+            serviceCollection.AddTransient<IProxyFactory, DefaultProxyFactory>();
             serviceCollection.AddSingleton<IInterceptorResolver, FluentConfigInterceptorResolver>();
 
             return new FluentAspectBuilder(serviceCollection);
@@ -34,14 +34,11 @@ namespace WeihanLi.Common.Aspect
         public static IServiceCollection AddProxyService<TService, TImplement>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
             where TImplement : TService
             where TService : class
-
         {
-            serviceCollection.Add(new ServiceDescriptor(typeof(TService), sp =>
-            {
-                var proxyService = sp.GetRequiredService<IProxyFactory>()
-                    .CreateProxy<TService, TImplement>();
-                return proxyService;
-            }, serviceLifetime));
+            var serviceType = typeof(TService);
+
+            serviceCollection.Add(new ServiceDescriptor(serviceType, sp => sp.GetRequiredService<IProxyFactory>()
+                .CreateProxy<TService, TImplement>(), serviceLifetime));
             return serviceCollection;
         }
 
@@ -72,30 +69,31 @@ namespace WeihanLi.Common.Aspect
         public static IServiceCollection AddProxyService<TService>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
             where TService : class
         {
-            serviceCollection.Add(new ServiceDescriptor(typeof(TService), sp =>
+            var serviceType = typeof(TService);
+
+            serviceCollection.Add(new ServiceDescriptor(serviceType, sp =>
             {
-                var proxyService = sp.GetRequiredService<IProxyFactory>()
-                    .CreateProxy<TService>();
-                return proxyService;
+                var proxyFactory = sp.GetRequiredService<IProxyFactory>();
+                return proxyFactory.CreateProxy<TService>();
             }, serviceLifetime));
+
             return serviceCollection;
         }
 
-        public static IServiceCollection AddSingletonProxy<TService>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
+        public static IServiceCollection AddSingletonProxy<TService>(this IServiceCollection serviceCollection)
             where TService : class
 
         {
             return serviceCollection.AddProxyService<TService>(ServiceLifetime.Singleton);
         }
 
-        public static IServiceCollection AddScopedProxy<TService>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
+        public static IServiceCollection AddScopedProxy<TService>(this IServiceCollection serviceCollection)
             where TService : class
-
         {
             return serviceCollection.AddProxyService<TService>(ServiceLifetime.Scoped);
         }
 
-        public static IServiceCollection AddTransientProxy<TService>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
+        public static IServiceCollection AddTransientProxy<TService>(this IServiceCollection serviceCollection)
             where TService : class
 
         {

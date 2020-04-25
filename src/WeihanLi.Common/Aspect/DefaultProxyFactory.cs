@@ -17,21 +17,30 @@ namespace WeihanLi.Common.Aspect
         public TService CreateProxy<TService>() where TService : class
         {
             var type = _proxyTypeFactory.CreateProxyType(typeof(TService));
-            return (TService)_serviceProvider.GetServiceOrCreateInstance(type);
+            var proxy = (TService)_serviceProvider.CreateInstance(type);
+            if (type.IsClass)
+            {
+                ProxyUtils.SetProxyTarget(proxy, _serviceProvider.CreateInstance(typeof(TService)));
+            }
+            return proxy;
         }
 
         public TService CreateProxy<TService, TImplement>() where TImplement : TService
             where TService : class
         {
             var type = _proxyTypeFactory.CreateProxyType(typeof(TService), typeof(TImplement));
-            return (TService)_serviceProvider.GetServiceOrCreateInstance(type);
+            var proxy = (TService)_serviceProvider.CreateInstance(type);
+            ProxyUtils.SetProxyTarget(proxy, _serviceProvider.CreateInstance(typeof(TImplement)));
+            return proxy;
         }
 
         public TService CreateProxy<TService, TImplement>(object[] parameters) where TImplement : TService
             where TService : class
         {
             var type = _proxyTypeFactory.CreateProxyType(typeof(TService), typeof(TImplement));
-            return (TService)_serviceProvider.GetServiceOrCreateInstance(type);
+            var proxy = (TService)_serviceProvider.CreateInstance(type, parameters);
+            ProxyUtils.SetProxyTarget(proxy, _serviceProvider.CreateInstance(typeof(TImplement), parameters));
+            return proxy;
         }
     }
 }
