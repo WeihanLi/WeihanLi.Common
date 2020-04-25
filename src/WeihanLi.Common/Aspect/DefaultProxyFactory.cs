@@ -14,19 +14,21 @@ namespace WeihanLi.Common.Aspect
             _serviceProvider = serviceProvider ?? DependencyResolver.Current;
         }
 
-        public TService CreateProxy<TService>()
+        public TService CreateProxy<TService>() where TService : class
         {
             var type = _proxyTypeFactory.CreateProxyType(typeof(TService));
             return (TService)_serviceProvider.GetServiceOrCreateInstance(type);
         }
 
         public TService CreateProxy<TService, TImplement>() where TImplement : TService
+            where TService : class
         {
             var type = _proxyTypeFactory.CreateProxyType(typeof(TService), typeof(TImplement));
             return (TService)_serviceProvider.GetServiceOrCreateInstance(type);
         }
 
         public TService CreateProxy<TService, TImplement>(object[] parameters) where TImplement : TService
+            where TService : class
         {
             var type = _proxyTypeFactory.CreateProxyType(typeof(TService), typeof(TImplement));
             return (TService)_serviceProvider.GetServiceOrCreateInstance(type);

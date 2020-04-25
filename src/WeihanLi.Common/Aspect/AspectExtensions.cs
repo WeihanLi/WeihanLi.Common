@@ -7,6 +7,7 @@ namespace WeihanLi.Common.Aspect
     public static class AspectExtensions
     {
         public static TInterface CreateInterfaceProxy<TInterface>(this IProxyFactory proxyGenerator)
+            where TInterface : class
         {
             var type = typeof(TInterface);
             if (!type.IsInterface)
@@ -17,6 +18,8 @@ namespace WeihanLi.Common.Aspect
         }
 
         public static TInterface CreateInterfaceProxy<TInterface, TImplement>(this IProxyFactory proxyGenerator) where TImplement : TInterface
+            where TInterface : class
+
         {
             var type = typeof(TInterface);
             if (!type.IsInterface)
@@ -27,6 +30,7 @@ namespace WeihanLi.Common.Aspect
         }
 
         public static TClass CreateClassProxy<TClass>(this IProxyFactory proxyGenerator) where TClass : class
+
         {
             var type = typeof(TClass);
             if (!type.IsClass)
@@ -37,6 +41,8 @@ namespace WeihanLi.Common.Aspect
         }
 
         public static TClass CreateClassProxy<TClass, TImplement>(this IProxyFactory proxyGenerator) where TImplement : TClass
+            where TClass : class
+
         {
             var type = typeof(TClass);
             if (!type.IsClass)

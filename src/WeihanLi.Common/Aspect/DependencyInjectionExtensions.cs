@@ -33,6 +33,8 @@ namespace WeihanLi.Common.Aspect
 
         public static IServiceCollection AddProxyService<TService, TImplement>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
             where TImplement : TService
+            where TService : class
+
         {
             serviceCollection.Add(new ServiceDescriptor(typeof(TService), sp =>
             {
@@ -45,23 +47,30 @@ namespace WeihanLi.Common.Aspect
 
         public static IServiceCollection AddSingletonProxy<TService, TImplement>(this IServiceCollection serviceCollection)
             where TImplement : TService
+            where TService : class
+
         {
             return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Singleton);
         }
 
         public static IServiceCollection AddScopedProxy<TService, TImplement>(this IServiceCollection serviceCollection)
             where TImplement : TService
+            where TService : class
+
         {
             return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Scoped);
         }
 
         public static IServiceCollection AddTransientProxy<TService, TImplement>(this IServiceCollection serviceCollection)
             where TImplement : TService
+            where TService : class
+
         {
             return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Transient);
         }
 
         public static IServiceCollection AddProxyService<TService>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
+            where TService : class
         {
             serviceCollection.Add(new ServiceDescriptor(typeof(TService), sp =>
             {
@@ -73,16 +82,22 @@ namespace WeihanLi.Common.Aspect
         }
 
         public static IServiceCollection AddSingletonProxy<TService>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
+            where TService : class
+
         {
             return serviceCollection.AddProxyService<TService>(ServiceLifetime.Singleton);
         }
 
         public static IServiceCollection AddScopedProxy<TService>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
+            where TService : class
+
         {
             return serviceCollection.AddProxyService<TService>(ServiceLifetime.Scoped);
         }
 
         public static IServiceCollection AddTransientProxy<TService>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
+            where TService : class
+
         {
             return serviceCollection.AddProxyService<TService>(ServiceLifetime.Transient);
         }
