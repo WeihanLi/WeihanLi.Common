@@ -4,6 +4,8 @@ namespace WeihanLi.Common.Aspect
 {
     public class DefaultProxyTypeFactory : IProxyTypeFactory
     {
+        public static IProxyTypeFactory Instance { get; } = new DefaultProxyTypeFactory();
+
         public Type CreateProxyType(Type serviceType)
         {
             if (null == serviceType)
@@ -30,7 +32,7 @@ namespace WeihanLi.Common.Aspect
                 return ProxyUtils.CreateInterfaceProxy(serviceType, implementType);
             }
 
-            return ProxyUtils.CreateClassProxy(implementType);
+            return ProxyUtils.CreateClassProxy(serviceType, implementType);
         }
     }
 }

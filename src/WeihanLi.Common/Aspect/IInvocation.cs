@@ -16,7 +16,7 @@ namespace WeihanLi.Common.Aspect
         public object ReturnValue { get; set; }
     }
 
-    public class MethodInvocation : IInvocation
+    public class AspectInvocation : IInvocation
     {
         public MethodInfo ProxyMethod { get; }
 
@@ -30,7 +30,7 @@ namespace WeihanLi.Common.Aspect
 
         public object ReturnValue { get; set; }
 
-        public MethodInvocation(MethodInfo method, MethodInfo methodBase, object proxyTarget, object target, object[] parameters)
+        public AspectInvocation(MethodInfo method, MethodInfo methodBase, object proxyTarget, object target, object[] parameters)
         {
             ProxyMethod = method;
             Method = methodBase;

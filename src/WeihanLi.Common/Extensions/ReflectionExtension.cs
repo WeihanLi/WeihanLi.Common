@@ -14,6 +14,15 @@ namespace WeihanLi.Extensions
 {
     public static class ReflectionExtension
     {
+        public static bool IsVisible(this MethodInfo method)
+        {
+            if (method == null)
+            {
+                throw new ArgumentNullException(nameof(method));
+            }
+            return method.IsPublic || method.IsFamily || method.IsFamilyOrAssembly;
+        }
+
         /// <summary>
         /// An object extension method that gets DisplayName if DisplayAttribute does not exist,return the MemberName
         /// </summary>

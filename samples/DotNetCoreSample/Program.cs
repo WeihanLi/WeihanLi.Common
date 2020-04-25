@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using WeihanLi.Common;
@@ -41,11 +42,21 @@ namespace DotNetCoreSample
             //);
 
             services.AddSingletonProxy<IFly, MonkeyKing>();
+            services.AddDbContext<TestDbContext>(options =>
+            {
+                options.UseInMemoryDatabase("Test");
+            });
+            services.AddScopedProxy<TestDbContext>();
+
             services.AddFluentAspects(options =>
             {
                 options.InterceptAll()
-                    .With<TryInvokeInterceptor>()
                     .With<LogInterceptor>()
+                    ;
+
+                options.Intercept<DbContext>(x => x.Name == nameof(DbContext.SaveChanges)
+                        || x.Name == nameof(DbContext.SaveChangesAsync))
+                    .With<DbContextSaveInterceptor>()
                     ;
 
                 options.Intercept(method => method.Name == nameof(IFly.Fly))
@@ -59,8 +70,13 @@ namespace DotNetCoreSample
 
             DependencyResolver.SetDependencyResolver(services);
 
-            var fly = DependencyResolver.ResolveService<IFly>();
-            fly.Fly();
+            //var fly = DependencyResolver.ResolveService<IFly>();
+            //fly.Fly();
+
+            DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
+            {
+                dbContext.SaveChanges();
+            });
 
             //DependencyResolver.ResolveRequiredService<IFly>()
             //    .Fly();

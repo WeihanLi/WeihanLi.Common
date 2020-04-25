@@ -14,6 +14,7 @@ namespace WeihanLi.Common.Aspect
         {
             var action = _aspectDelegates.GetOrAdd($"{context.ProxyMethod.DeclaringType}.{context.ProxyMethod}", m =>
             {
+                // ReSharper disable once ConvertToLocalFunction
                 Func<IInvocation, Task> completeFunc = x =>
                 {
                     context.ReturnValue = x.Method?.Invoke(x.Target, x.Parameters);
