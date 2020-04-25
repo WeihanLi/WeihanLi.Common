@@ -17,7 +17,7 @@ namespace WeihanLi.Common.Otp
         /// <summary>
         /// 过期时间，单位是秒
         /// </summary>
-        public int ExpiresIn { get; set; } = 30;
+        public int ExpiresIn { get; set; } = 300;
 
         private string _salt;
 

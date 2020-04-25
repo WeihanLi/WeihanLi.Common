@@ -1,13 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using System;
 using WeihanLi.Common;
+using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
-using WeihanLi.Common.Event;
-using WeihanLi.Common.Helpers;
-using WeihanLi.Common.Logging;
-using WeihanLi.Extensions;
 
 // ReSharper disable LocalizableElement
 
@@ -35,16 +31,36 @@ namespace DotNetCoreSample
 
             services.AddSingleton(configuration);
 
-            services.AddSingleton<IEventStore, EventStoreInMemory>();
-            services.AddSingleton<IEventBus, EventBus>();
+            //services.AddSingleton<IEventStore, EventStoreInMemory>();
+            //services.AddSingleton<IEventBus, EventBus>();
 
-            services.AddSingleton(DelegateEventHandler.FromAction<CounterEvent>(@event =>
-                LogHelper.GetLogger(typeof(DelegateEventHandler<CounterEvent>))
-                    .Info($"Event Info: {@event.ToJson()}")
-                )
-            );
+            //services.AddSingleton(DelegateEventHandler.FromAction<CounterEvent>(@event =>
+            //    LogHelper.GetLogger(typeof(DelegateEventHandler<CounterEvent>))
+            //        .Info($"Event Info: {@event.ToJson()}")
+            //    )
+            //);
+
+            services.AddSingletonProxy<IFly, MonkeyKing>();
+            services.AddFluentAspects(options =>
+            {
+                options.InterceptAll()
+                    .With<TryInvokeInterceptor>()
+                    .With<LogInterceptor>()
+                    ;
+
+                options.Intercept(method => method.Name == nameof(IFly.Fly))
+                    .With<LogInterceptor>();
+
+                options.Intercept<IFly>()
+                    .With<LogInterceptor>();
+                options.Intercept<IFly>(m => m.Name != nameof(IFly.Name))
+                    .With<LogInterceptor>();
+            });
 
             DependencyResolver.SetDependencyResolver(services);
+
+            var fly = DependencyResolver.ResolveService<IFly>();
+            fly.Fly();
 
             //DependencyResolver.ResolveRequiredService<IFly>()
             //    .Fly();
@@ -171,8 +187,7 @@ namespace DotNetCoreSample
             //visitor.Visit(expression);
             //Console.WriteLine(visitor.GetCondition());
 
-            PipelineTest.TestV2();
-
+            //PipelineTest.TestV2();
             //PipelineTest.AsyncPipelineBuilderTestV2().Wait();
 
             Console.ReadLine();
