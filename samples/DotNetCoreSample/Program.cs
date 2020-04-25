@@ -51,7 +51,6 @@ namespace DotNetCoreSample
             services.AddFluentAspects(options =>
             {
                 options.InterceptAll()
-                    .With<TryInvokeInterceptor>()
                     .With<LogInterceptor>()
                     ;
 

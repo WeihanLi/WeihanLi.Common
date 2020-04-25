@@ -7,4 +7,38 @@ namespace WeihanLi.Common.Aspect
     {
         Task Invoke(IInvocation invocation, Func<Task> next);
     }
+
+    internal class TryInvokeInterceptor : IInterceptor
+    {
+        public async Task Invoke(IInvocation invocation, Func<Task> next)
+        {
+            try
+            {
+                await next();
+            }
+            catch (Exception e)
+            {
+                throw new AspectInvokeException($"Invoke {invocation.Method.Name} exception", e)
+                {
+                    ProxyTarget = invocation.ProxyTarget,
+                    Target = invocation.Target,
+                    Method = invocation.Method,
+                };
+            }
+        }
+    }
+
+    internal class DisposableInterceptor : IInterceptor
+    {
+        public async Task Invoke(IInvocation invocation, Func<Task> next)
+        {
+            await next();
+            // avoid cycling call
+            if (invocation.Target != invocation.ProxyTarget
+                && invocation.Target is IDisposable disposable)
+            {
+                disposable.Dispose();
+            }
+        }
+    }
 }

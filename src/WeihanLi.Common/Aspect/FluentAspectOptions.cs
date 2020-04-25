@@ -26,6 +26,14 @@ namespace WeihanLi.Common.Aspect
             _interceptionConfigurations[predict] = interceptionConfiguration;
             return interceptionConfiguration;
         }
+
+        public FluentAspectOptions()
+        {
+            // register built-in necessary interceptors
+            this.InterceptAll().With<TryInvokeInterceptor>();
+            this.Intercept<IDisposable>(m => m.Name == nameof(IDisposable.Dispose))
+                .With<DisposableInterceptor>();
+        }
     }
 
     public static class FluentAspectOptionsExtensions
