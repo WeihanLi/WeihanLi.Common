@@ -32,7 +32,7 @@ namespace WeihanLi.Common.Aspect
                 return ProxyUtils.CreateInterfaceProxy(serviceType, implementType);
             }
 
-            return ProxyUtils.CreateClassProxy(implementType);
+            return ProxyUtils.CreateClassProxy(serviceType, implementType);
         }
     }
 }
