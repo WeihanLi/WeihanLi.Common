@@ -22,7 +22,7 @@ namespace WeihanLi.Common.Aspect
                 }
             }
             var interceptorTypes = new HashSet<Type>();
-            var interceptors = new List<IInterceptor>(32);
+            var interceptors = new List<IInterceptor>();
             foreach (var configuration in FluentAspects.AspectOptions.InterceptionConfigurations)
             {
                 if (configuration.Key.Invoke(invocation))

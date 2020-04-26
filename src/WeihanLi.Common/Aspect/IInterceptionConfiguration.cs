@@ -14,7 +14,7 @@ namespace WeihanLi.Common.Aspect
 
         public InterceptionConfiguration()
         {
-            Interceptors = new List<IInterceptor>(16);
+            Interceptors = new List<IInterceptor>();
         }
     }
 

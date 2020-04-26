@@ -22,7 +22,7 @@ namespace WeihanLi.Common.Aspect
                 return ArrayHelper.Empty<IInterceptor>();
             }
 
-            var list = new List<IInterceptor>(16);
+            var list = new List<IInterceptor>();
             var interceptorTypes = new HashSet<Type>();
 
             // load method interceptor
