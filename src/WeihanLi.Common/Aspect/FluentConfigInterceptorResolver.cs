@@ -8,7 +8,7 @@ namespace WeihanLi.Common.Aspect
         public IReadOnlyCollection<IInterceptor> ResolveInterceptors(IInvocation invocation)
         {
             var interceptors = new List<IInterceptor>(32);
-            foreach (var func in FluentAspects.AspectOptions._noInterceptionConfigurations)
+            foreach (var func in FluentAspects.AspectOptions.NoInterceptionConfigurations)
             {
                 if (func(invocation))
                 {
@@ -16,7 +16,7 @@ namespace WeihanLi.Common.Aspect
                 }
             }
 
-            foreach (var configuration in FluentAspects.AspectOptions._interceptionConfigurations)
+            foreach (var configuration in FluentAspects.AspectOptions.InterceptionConfigurations)
             {
                 if (configuration.Key.Invoke(invocation))
                 {

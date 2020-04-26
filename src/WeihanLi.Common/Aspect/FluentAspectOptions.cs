@@ -5,13 +5,13 @@ namespace WeihanLi.Common.Aspect
 {
     public class FluentAspectOptions
     {
-        internal readonly Dictionary<Func<IInvocation, bool>, InterceptionConfiguration> _interceptionConfigurations = new Dictionary<Func<IInvocation, bool>, InterceptionConfiguration>();
+        public Dictionary<Func<IInvocation, bool>, IInterceptionConfiguration> InterceptionConfigurations = new Dictionary<Func<IInvocation, bool>, IInterceptionConfiguration>();
 
-        internal readonly HashSet<Func<IInvocation, bool>> _noInterceptionConfigurations = new HashSet<Func<IInvocation, bool>>();
+        public HashSet<Func<IInvocation, bool>> NoInterceptionConfigurations { get; } = new HashSet<Func<IInvocation, bool>>();
 
         public bool NoIntercept(Func<IInvocation, bool> predict)
         {
-            return _noInterceptionConfigurations.Add(predict);
+            return NoInterceptionConfigurations.Add(predict);
         }
 
         public IInterceptionConfiguration Intercept(Func<IInvocation, bool> predict)
@@ -20,23 +20,14 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new ArgumentNullException(nameof(predict));
             }
-            if (_interceptionConfigurations.TryGetValue
-                (predict, out var interceptionConfiguration)
-            )
+            if (InterceptionConfigurations.TryGetValue
+                (predict, out var interceptionConfiguration))
             {
                 return interceptionConfiguration;
             }
-            interceptionConfiguration = new InterceptionConfiguration(new List<IInterceptor>(16));
-            _interceptionConfigurations[predict] = interceptionConfiguration;
+            interceptionConfiguration = new InterceptionConfiguration();
+            InterceptionConfigurations[predict] = interceptionConfiguration;
             return interceptionConfiguration;
-        }
-
-        public FluentAspectOptions()
-        {
-            // register built-in necessary interceptors
-            this.InterceptAll().With<TryInvokeInterceptor>();
-            this.Intercept<IDisposable>(m => m.Dispose())
-                .With<DisposableInterceptor>();
         }
     }
 }

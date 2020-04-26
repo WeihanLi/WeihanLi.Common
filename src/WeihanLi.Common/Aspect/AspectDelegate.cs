@@ -63,7 +63,8 @@ namespace WeihanLi.Common.Aspect
 
         public static void Invoke(IInvocation context)
         {
-            var interceptors = DependencyResolver.ResolveService<IInterceptorResolver>()
+            var interceptors =
+                DependencyResolver.ResolveService<IInterceptorResolver>()
                 ?.ResolveInterceptors(context) ?? ArrayHelper.Empty<IInterceptor>();
 
             InvokeWithInterceptors(context, interceptors);

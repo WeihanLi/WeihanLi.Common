@@ -56,15 +56,15 @@ namespace DotNetCoreSample
                     .With<LogInterceptor>()
                     ;
 
-                options.Intercept<DbContext>(x => x.Name == nameof(DbContext.SaveChanges)
+                options.InterceptMethod<DbContext>(x => x.Name == nameof(DbContext.SaveChanges)
                         || x.Name == nameof(DbContext.SaveChangesAsync))
                     .With<DbContextSaveInterceptor>()
                     ;
 
-                options.Intercept(method => method.Name == nameof(IFly.Fly))
+                options.InterceptMethod<IFly>(f => f.Fly())
                     .With<LogInterceptor>();
 
-                options.Intercept<IFly>()
+                options.InterceptType<IFly>()
                     .With<LogInterceptor>();
             });
 
