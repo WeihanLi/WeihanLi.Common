@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect
@@ -13,7 +14,6 @@ namespace WeihanLi.Common.Aspect
 
         public IReadOnlyCollection<IInterceptor> ResolveInterceptors(IInvocation invocation)
         {
-            var interceptors = new List<IInterceptor>(32);
             foreach (var func in FluentAspects.AspectOptions.NoInterceptionConfigurations)
             {
                 if (func(invocation))
@@ -21,14 +21,15 @@ namespace WeihanLi.Common.Aspect
                     return ArrayHelper.Empty<IInterceptor>();
                 }
             }
-
+            var interceptorTypes = new HashSet<Type>();
+            var interceptors = new List<IInterceptor>(32);
             foreach (var configuration in FluentAspects.AspectOptions.InterceptionConfigurations)
             {
                 if (configuration.Key.Invoke(invocation))
                 {
                     foreach (var interceptor in configuration.Value.Interceptors)
                     {
-                        if (!interceptors.Exists(x => x.GetType() == interceptor.GetType()))
+                        if (interceptorTypes.Add(interceptor.GetType()))
                         {
                             interceptors.Add(interceptor);
                         }
