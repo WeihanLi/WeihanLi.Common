@@ -281,13 +281,13 @@ namespace DotNetCoreSample
             var watch = Stopwatch.StartNew();
             try
             {
-                Console.WriteLine("invoke begin");
+                Console.WriteLine($"[{invocation.ProxyMethod.Name}] invoke begin");
                 await next();
             }
             finally
             {
                 watch.Stop();
-                Console.WriteLine($"invoke complete, elasped:{watch.ElapsedMilliseconds} ms");
+                Console.WriteLine($"[{invocation.ProxyMethod.Name}] invoke complete, elasped:{watch.ElapsedMilliseconds} ms");
             }
         }
     }

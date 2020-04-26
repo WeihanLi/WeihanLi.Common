@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Reflection;
 
 namespace WeihanLi.Common.Aspect
 {
     public class AspectInvokeException : Exception
     {
-        public object Target { get; set; }
+        public IInvocation Invocation { get; }
 
-        public object ProxyTarget { get; set; }
-
-        public MethodInfo Method { get; set; }
-
-        public AspectInvokeException(string message, Exception innerException) : base(message, innerException)
+        public AspectInvokeException(IInvocation invocation, Exception innerException) : base($"Invoke {invocation.ProxyMethod.Name} exception", innerException)
         {
+            Invocation = invocation;
         }
     }
 }

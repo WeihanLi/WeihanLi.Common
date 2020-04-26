@@ -26,7 +26,7 @@ namespace WeihanLi.Common.Aspect
 
             serviceCollection.AddTransient<IProxyTypeFactory, DefaultProxyTypeFactory>();
             serviceCollection.AddTransient<IProxyFactory, DefaultProxyFactory>();
-            serviceCollection.AddSingleton<IInterceptorResolver, FluentConfigInterceptorResolver>();
+            serviceCollection.AddSingleton<IInterceptorResolver>(FluentConfigInterceptorResolver.Instance);
 
             return new FluentAspectBuilder(serviceCollection);
         }
@@ -37,8 +37,11 @@ namespace WeihanLi.Common.Aspect
         {
             var serviceType = typeof(TService);
 
-            serviceCollection.Add(new ServiceDescriptor(serviceType, sp => sp.GetRequiredService<IProxyFactory>()
-                .CreateProxy<TService, TImplement>(), serviceLifetime));
+            serviceCollection.Add(new ServiceDescriptor(serviceType, sp =>
+            {
+                var proxyFactory = sp.GetRequiredService<IProxyFactory>();
+                return proxyFactory.CreateProxy<TService, TImplement>();
+            }, serviceLifetime));
             return serviceCollection;
         }
 

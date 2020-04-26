@@ -50,32 +50,38 @@ namespace DotNetCoreSample
 
             services.AddFluentAspects(options =>
             {
+                options.NoInterceptPropertyGetter<IFly>(f => f.Name);
+
                 options.InterceptAll()
                     .With<LogInterceptor>()
                     ;
 
-                options.Intercept<DbContext>(x => x.Name == nameof(DbContext.SaveChanges)
+                options.InterceptMethod<DbContext>(x => x.Name == nameof(DbContext.SaveChanges)
                         || x.Name == nameof(DbContext.SaveChangesAsync))
                     .With<DbContextSaveInterceptor>()
                     ;
 
-                options.Intercept(method => method.Name == nameof(IFly.Fly))
+                options.InterceptMethod<IFly>(f => f.Fly())
                     .With<LogInterceptor>();
 
-                options.Intercept<IFly>()
-                    .With<LogInterceptor>();
-                options.Intercept<IFly>(m => m.Name != nameof(IFly.Name))
+                options.InterceptType<IFly>()
                     .With<LogInterceptor>();
             });
 
             DependencyResolver.SetDependencyResolver(services);
 
-            //var fly = DependencyResolver.ResolveService<IFly>();
-            //fly.Fly();
+            var fly = DependencyResolver.ResolveService<IFly>();
+            Console.WriteLine(fly.Name);
+            fly.Fly();
 
             DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
             {
                 dbContext.SaveChanges();
+            });
+
+            DependencyResolver.TryInvokeServiceAsync<TestDbContext>(dbContext =>
+            {
+                return dbContext.SaveChangesAsync();
             });
 
             //DependencyResolver.ResolveRequiredService<IFly>()
