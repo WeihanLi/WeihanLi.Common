@@ -58,6 +58,32 @@ namespace WeihanLi.Extensions
             }
         }
 
+        public static MethodCallExpression GetMethodExpression<T>(this Expression<Action<T>> method)
+        {
+            if (method.Body.NodeType != ExpressionType.Call)
+                throw new ArgumentException("Method call expected", method.Body.ToString());
+            return (MethodCallExpression)method.Body;
+        }
+
+        public static MethodCallExpression GetMethodExpression<T>(this Expression<Func<T, object>> exp)
+        {
+            switch (exp.Body.NodeType)
+            {
+                case ExpressionType.Call:
+                    return (MethodCallExpression)exp.Body;
+
+                case ExpressionType.Convert:
+                    if (exp.Body is UnaryExpression unaryExp && unaryExp.Operand is MethodCallExpression methodCallExpression)
+                    {
+                        return methodCallExpression;
+                    }
+                    throw new InvalidOperationException($"Method expected: {exp.Body}");
+
+                default:
+                    throw new InvalidOperationException("Method expected:" + exp.Body.ToString());
+            }
+        }
+
         /// <summary>
         /// GetMemberName
         /// </summary>
@@ -91,6 +117,26 @@ namespace WeihanLi.Extensions
                 throw new ArgumentException(string.Format(Resource.propertyExpression_must_be_lambda_expression, nameof(memberExpression)), nameof(memberExpression));
             }
             return memberExpression.Member;
+        }
+
+        /// <summary>
+        /// GetPropertyInfo
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <typeparam name="TProperty"></typeparam>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public static PropertyInfo GetProperty<TEntity, TProperty>(
+            [NotNull] this Expression<Func<TEntity, TProperty>> expression)
+        {
+            var member = GetMemberInfo(expression);
+            if (null == member)
+                throw new InvalidOperationException("no property found");
+
+            if (member is PropertyInfo property)
+                return property;
+
+            return typeof(TEntity).GetProperty(member.Name);
         }
 
         private static MemberExpression ExtractMemberExpression(Expression expression)

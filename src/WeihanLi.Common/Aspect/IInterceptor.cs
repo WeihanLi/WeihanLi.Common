@@ -34,8 +34,11 @@ namespace WeihanLi.Common.Aspect
         {
             await next();
             // avoid cycling call
-            if (invocation.Target != invocation.ProxyTarget
-                && invocation.Target is IDisposable disposable)
+            if (invocation.Target != null
+                && invocation.Target != invocation.ProxyTarget
+                && invocation.ProxyMethod.Name == nameof(IDisposable.Dispose)
+                && invocation.Target is IDisposable disposable
+            )
             {
                 disposable.Dispose();
             }

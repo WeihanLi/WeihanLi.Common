@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Reflection;
-using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect
 {
     public class FluentAspectOptions
     {
-        internal readonly Dictionary<Func<MethodInfo, bool>, InterceptionConfiguration> _interceptionConfigurations = new Dictionary<Func<MethodInfo, bool>, InterceptionConfiguration>();
+        internal readonly Dictionary<Func<IInvocation, bool>, InterceptionConfiguration> _interceptionConfigurations = new Dictionary<Func<IInvocation, bool>, InterceptionConfiguration>();
 
-        public IInterceptionConfiguration Intercept(Func<MethodInfo, bool> predict)
+        internal readonly HashSet<Func<IInvocation, bool>> _noInterceptionConfigurations = new HashSet<Func<IInvocation, bool>>();
+
+        public bool NoIntercept(Func<IInvocation, bool> predict)
+        {
+            return _noInterceptionConfigurations.Add(predict);
+        }
+
+        public IInterceptionConfiguration Intercept(Func<IInvocation, bool> predict)
         {
             if (null == predict)
             {
@@ -31,25 +35,8 @@ namespace WeihanLi.Common.Aspect
         {
             // register built-in necessary interceptors
             this.InterceptAll().With<TryInvokeInterceptor>();
-            this.Intercept<IDisposable>(m => m.Name == nameof(IDisposable.Dispose))
+            this.Intercept<IDisposable>(m => m.Dispose())
                 .With<DisposableInterceptor>();
-        }
-    }
-
-    public static class FluentAspectOptionsExtensions
-    {
-        public static IInterceptionConfiguration InterceptAll(this FluentAspectOptions options)
-            => options.Intercept(m => true);
-
-        public static IInterceptionConfiguration Intercept<T>(this FluentAspectOptions options,
-            Expression<Func<MethodInfo, bool>> andExpression = null)
-        {
-            Expression<Func<MethodInfo, bool>> expression = m => m.DeclaringType.IsAssignableTo<T>();
-            if (null != andExpression)
-            {
-                expression = expression.And(andExpression);
-            }
-            return options.Intercept(expression.Compile());
         }
     }
 }
