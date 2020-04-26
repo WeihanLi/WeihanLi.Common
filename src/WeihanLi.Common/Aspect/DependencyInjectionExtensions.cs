@@ -26,7 +26,7 @@ namespace WeihanLi.Common.Aspect
 
             serviceCollection.AddTransient<IProxyTypeFactory, DefaultProxyTypeFactory>();
             serviceCollection.AddTransient<IProxyFactory, DefaultProxyFactory>();
-            serviceCollection.AddSingleton<IInterceptorResolver, FluentConfigInterceptorResolver>();
+            serviceCollection.AddSingleton<IInterceptorResolver>(FluentConfigInterceptorResolver.Instance);
 
             return new FluentAspectBuilder(serviceCollection);
         }

@@ -3,8 +3,14 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect
 {
-    internal class FluentConfigInterceptorResolver : IInterceptorResolver
+    public class FluentConfigInterceptorResolver : IInterceptorResolver
     {
+        public static readonly IInterceptorResolver Instance = new FluentConfigInterceptorResolver();
+
+        private FluentConfigInterceptorResolver()
+        {
+        }
+
         public IReadOnlyCollection<IInterceptor> ResolveInterceptors(IInvocation invocation)
         {
             var interceptors = new List<IInterceptor>(32);

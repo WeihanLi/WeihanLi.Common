@@ -5,6 +5,8 @@ namespace WeihanLi.Common.Aspect
 {
     public class DefaultProxyFactory : IProxyFactory
     {
+        public static readonly IProxyFactory Instance = new DefaultProxyFactory(DefaultProxyTypeFactory.Instance);
+
         private readonly IProxyTypeFactory _proxyTypeFactory;
         private readonly IServiceProvider _serviceProvider;
 
