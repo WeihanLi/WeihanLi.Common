@@ -17,6 +17,58 @@ namespace WeihanLi.Common.Aspect
         }
 
         public static IInterceptionConfiguration Intercept<T>(this FluentAspectOptions options,
+            MethodInfo method)
+        {
+            if (null == method)
+            {
+                throw new ArgumentNullException(nameof(method));
+            }
+            var methodSignature = method.GetSignature();
+            return options.Intercept<T>(m => m.GetSignature().Equals(methodSignature));
+        }
+
+        public static IInterceptionConfiguration Intercept(this FluentAspectOptions options,
+            MethodInfo method)
+        {
+            if (null == method)
+            {
+                throw new ArgumentNullException(nameof(method));
+            }
+            var methodSignature = method.GetSignature();
+            return options.Intercept(m => m.GetSignature().Equals(methodSignature));
+        }
+
+        public static IInterceptionConfiguration InterceptPropertyGetter<T>(this FluentAspectOptions options,
+            Expression<Func<T, object>> expression)
+        {
+            var prop = expression.GetProperty();
+            if (null == prop)
+            {
+                throw new InvalidOperationException("no property found");
+            }
+            if (!prop.CanRead)
+            {
+                throw new InvalidOperationException($"the property {prop.Name} can not read");
+            }
+            return options.Intercept<T>(prop.GetMethod);
+        }
+
+        public static IInterceptionConfiguration InterceptPropertySetter<T>(this FluentAspectOptions options,
+            Expression<Func<T, object>> expression)
+        {
+            var prop = expression.GetProperty();
+            if (null == prop)
+            {
+                throw new InvalidOperationException("no property found");
+            }
+            if (!prop.CanWrite)
+            {
+                throw new InvalidOperationException($"the property {prop.Name} can not write");
+            }
+            return options.Intercept<T>(prop.SetMethod);
+        }
+
+        public static IInterceptionConfiguration Intercept<T>(this FluentAspectOptions options,
             Expression<Action<T>> method)
         {
             return options.Intercept<T>(method.GetMethodExpression());
@@ -75,7 +127,7 @@ namespace WeihanLi.Common.Aspect
             {
                 expression = expression.And(andExpression);
             }
-            options.Intercept(expression.Compile());
+            options.NoIntercept(expression.Compile());
             return options;
         }
 
@@ -98,6 +150,58 @@ namespace WeihanLi.Common.Aspect
         {
             options.NoIntercept(invocation => methodPredict(invocation.Method ?? invocation.ProxyMethod));
             return options;
+        }
+
+        public static FluentAspectOptions NoIntercept<T>(this FluentAspectOptions options,
+            MethodInfo method)
+        {
+            if (null == method)
+            {
+                throw new ArgumentNullException(nameof(method));
+            }
+            var methodSignature = method.GetSignature();
+            return options.NoIntercept<T>(m => m.GetSignature().Equals(methodSignature));
+        }
+
+        public static FluentAspectOptions NoIntercept(this FluentAspectOptions options,
+            MethodInfo method)
+        {
+            if (null == method)
+            {
+                throw new ArgumentNullException(nameof(method));
+            }
+            var methodSignature = method.GetSignature();
+            return options.NoIntercept(m => m.GetSignature().Equals(methodSignature));
+        }
+
+        public static FluentAspectOptions NoInterceptPropertyGetter<T>(this FluentAspectOptions options,
+            Expression<Func<T, object>> expression)
+        {
+            var prop = expression.GetProperty();
+            if (null == prop)
+            {
+                throw new InvalidOperationException("no property found");
+            }
+            if (!prop.CanRead)
+            {
+                throw new InvalidOperationException($"the property {prop.Name} can not read");
+            }
+            return options.NoIntercept<T>(prop.GetMethod);
+        }
+
+        public static FluentAspectOptions NoInterceptPropertySetter<T>(this FluentAspectOptions options,
+            Expression<Func<T, object>> expression)
+        {
+            var prop = expression.GetProperty();
+            if (null == prop)
+            {
+                throw new InvalidOperationException("no property found");
+            }
+            if (!prop.CanWrite)
+            {
+                throw new InvalidOperationException($"the property {prop.Name} can not write");
+            }
+            return options.NoIntercept<T>(prop.SetMethod);
         }
     }
 }

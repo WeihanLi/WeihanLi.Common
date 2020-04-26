@@ -50,6 +50,8 @@ namespace DotNetCoreSample
 
             services.AddFluentAspects(options =>
             {
+                options.NoInterceptPropertyGetter<IFly>(f => f.Name);
+
                 options.InterceptAll()
                     .With<LogInterceptor>()
                     ;
@@ -64,14 +66,13 @@ namespace DotNetCoreSample
 
                 options.Intercept<IFly>()
                     .With<LogInterceptor>();
-                options.Intercept<IFly>(m => m.Name != nameof(IFly.Name))
-                    .With<LogInterceptor>();
             });
 
             DependencyResolver.SetDependencyResolver(services);
 
-            //var fly = DependencyResolver.ResolveService<IFly>();
-            //fly.Fly();
+            var fly = DependencyResolver.ResolveService<IFly>();
+            Console.WriteLine(fly.Name);
+            fly.Fly();
 
             DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
             {
