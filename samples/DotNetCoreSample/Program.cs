@@ -78,6 +78,11 @@ namespace DotNetCoreSample
                 dbContext.SaveChanges();
             });
 
+            DependencyResolver.TryInvokeServiceAsync<TestDbContext>(dbContext =>
+            {
+                return dbContext.SaveChangesAsync();
+            });
+
             //DependencyResolver.ResolveRequiredService<IFly>()
             //    .Fly();
 
