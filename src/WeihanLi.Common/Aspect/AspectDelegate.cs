@@ -43,10 +43,10 @@ namespace WeihanLi.Common.Aspect
                     return task;
                 }
 #if NETSTANDARD2_1
-                    if (context.ReturnValue is ValueTask valTask)
-                    {
-                        return valTask.AsTask();
-                    }
+                if (invocation.ReturnValue is ValueTask valTask)
+                {
+                    return valTask.AsTask();
+                }
 #endif
 
                 return TaskHelper.CompletedTask;
