@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
@@ -42,11 +44,29 @@ namespace DotNetCoreSample
             //);
 
             services.AddSingletonProxy<IFly, MonkeyKing>();
-            services.AddDbContext<TestDbContext>(options =>
+
+            Action<DbContextOptionsBuilder> dbContextOptionsAction = options =>
             {
                 options.UseInMemoryDatabase("Test");
-            });
+            };
+            services.AddDbContext<TestDbContext>(dbContextOptionsAction);
+
+            //services.AddScopedProxy<TestDbContext>();
+
+            var proxyType = DefaultProxyTypeFactory.Instance.CreateProxyType(typeof(TestDbContext));
+            //services.AddScoped(typeof(TestDbContext), proxyType);
             services.AddScopedProxy<TestDbContext>();
+            services.AddScoped(typeof(DbContextOptions<>).MakeGenericType(proxyType), sp =>
+            {
+                var builder = new DbContextOptionsBuilder(
+                    new DbContextOptions<TestDbContext>(new Dictionary<Type, IDbContextOptionsExtension>())
+                    );
+
+                builder.UseApplicationServiceProvider(sp);
+                dbContextOptionsAction?.Invoke(builder);
+                return builder.Options;
+            });
+            services.AddScoped(typeof(DbContextOptions), typeof(DbContextOptions<>).MakeGenericType(proxyType));
 
             services.AddFluentAspects(options =>
             {
@@ -70,21 +90,61 @@ namespace DotNetCoreSample
 
             DependencyResolver.SetDependencyResolver(services);
 
-            var fly = DependencyResolver.ResolveService<IFly>();
-            Console.WriteLine(fly.Name);
-            fly.Fly();
+            //var fly = DependencyResolver.ResolveService<IFly>();
+            //Console.WriteLine(fly.Name);
+            //fly.Fly();
 
             DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
             {
+                dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
+
                 if (dbContext.ChangeTracker is null)
                 {
                     Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
+                }
+                else
+                {
+                    if (dbContext.ChangeTracker is null)
+                    {
+                        Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
+                    }
+                    foreach (var entry in dbContext.ChangeTracker.Entries<TestEntity>())
+                    {
+                        Console.WriteLine(entry.Entity.Token);
+                    }
+                }
+                if (dbContext.Database is null)
+                {
+                    Console.WriteLine($"{nameof(dbContext.Database)} is null ...");
                 }
                 dbContext.SaveChanges();
             });
 
             DependencyResolver.TryInvokeServiceAsync<TestDbContext>(dbContext =>
             {
+                dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
+
+                if (dbContext.ChangeTracker is null)
+                {
+                    Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
+                }
+                else
+                {
+                    foreach (var entry in dbContext.ChangeTracker.Entries<TestEntity>())
+                    {
+                        Console.WriteLine(entry.Entity.Token);
+                    }
+                }
+
+                if (dbContext.Database is null)
+                {
+                    Console.WriteLine($"{nameof(dbContext.Database)} is null ...");
+                }
+                if (dbContext.Database is null)
+                {
+                    Console.WriteLine($"{nameof(dbContext.Database)} is null ...");
+                }
+
                 return dbContext.SaveChangesAsync();
             });
 

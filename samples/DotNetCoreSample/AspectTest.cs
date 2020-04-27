@@ -10,6 +10,8 @@ namespace DotNetCoreSample
         public TestDbContext(DbContextOptions<TestDbContext> dbContextOptions) : base(dbContextOptions)
         {
         }
+
+        public DbSet<TestEntity> TestEntities { get; set; }
     }
 
     internal class DbContextSaveInterceptor : IInterceptor

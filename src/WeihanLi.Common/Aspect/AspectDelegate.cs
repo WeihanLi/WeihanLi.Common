@@ -37,6 +37,9 @@ namespace WeihanLi.Common.Aspect
                     return TaskHelper.CompletedTask;
                 };
 
+                interceptors ??= (DependencyResolver.ResolveService<IInterceptorResolver>() ?? FluentConfigInterceptorResolver.Instance)
+                    .ResolveInterceptors(context) ?? ArrayHelper.Empty<IInterceptor>();
+
                 if (interceptors.Count == 0)
                 {
                     return completeFunc;
@@ -63,11 +66,7 @@ namespace WeihanLi.Common.Aspect
 
         public static void Invoke(IInvocation context)
         {
-            var interceptors =
-                (DependencyResolver.ResolveService<IInterceptorResolver>() ?? FluentConfigInterceptorResolver.Instance)
-                .ResolveInterceptors(context) ?? ArrayHelper.Empty<IInterceptor>();
-
-            InvokeWithInterceptors(context, interceptors);
+            InvokeWithInterceptors(context, null);
         }
     }
 }
