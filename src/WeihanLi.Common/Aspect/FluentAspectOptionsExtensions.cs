@@ -233,5 +233,21 @@ namespace WeihanLi.Common.Aspect
             }
             return options.NoInterceptMethod<T>(prop.SetMethod);
         }
+
+        public static FluentAspectOptions UseInterceptorResolver(this FluentAspectOptions options, IInterceptorResolver resolver)
+        {
+            if (null == resolver)
+            {
+                throw new ArgumentNullException(nameof(resolver));
+            }
+            options.InterceptorResolver = resolver;
+            return options;
+        }
+
+        public static FluentAspectOptions UseInterceptorResolver<TResolver>(this FluentAspectOptions options) where TResolver : IInterceptorResolver, new()
+        {
+            options.InterceptorResolver = new TResolver();
+            return options;
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace WeihanLi.Common.Aspect
             var task = action.Invoke(invocation);
             if (!task.IsCompleted)
             {
-                // await task completed
+                // await task to be completed
                 task.ConfigureAwait(false).GetAwaiter().GetResult();
             }
 

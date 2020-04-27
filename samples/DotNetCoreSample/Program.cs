@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
+using WeihanLi.Extensions;
 
 // ReSharper disable LocalizableElement
 
@@ -54,7 +55,7 @@ namespace DotNetCoreSample
             //services.AddScopedProxy<TestDbContext>();
 
             var proxyType = DefaultProxyTypeFactory.Instance.CreateProxyType(typeof(TestDbContext));
-            //services.AddScoped(typeof(TestDbContext), proxyType);
+
             services.AddScopedProxy<TestDbContext>();
             services.AddScoped(typeof(DbContextOptions<>).MakeGenericType(proxyType), sp =>
             {
@@ -63,6 +64,7 @@ namespace DotNetCoreSample
                     );
 
                 builder.UseApplicationServiceProvider(sp);
+
                 dbContextOptionsAction?.Invoke(builder);
                 return builder.Options;
             });
@@ -108,9 +110,11 @@ namespace DotNetCoreSample
                     {
                         Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
                     }
-                    foreach (var entry in dbContext.ChangeTracker.Entries<TestEntity>())
+                    foreach (var entry in dbContext.ChangeTracker.Entries())
                     {
-                        Console.WriteLine(entry.Entity.Token);
+                        Console.WriteLine("-------------------");
+                        Console.WriteLine(entry.Entity.ToJson());
+                        Console.WriteLine("-------------------");
                     }
                 }
                 if (dbContext.Database is null)
