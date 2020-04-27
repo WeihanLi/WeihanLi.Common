@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
@@ -8,25 +7,41 @@ namespace WeihanLi.Common.Aspect
 {
     public class AspectDelegate
     {
-        private static readonly ConcurrentDictionary<string, Func<IInvocation, Task>> _aspectDelegates = new ConcurrentDictionary<string, Func<IInvocation, Task>>();
-
-        public static void InvokeWithInterceptors(IInvocation context, IReadOnlyCollection<IInterceptor> interceptors)
+        public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors)
         {
-            var action = _aspectDelegates.GetOrAdd($"{context.ProxyMethod.DeclaringType}.{context.ProxyMethod}", m =>
+            var action = GetAspectDelegate(invocation, interceptors);
+            var task = action.Invoke(invocation);
+            if (!task.IsCompleted)
             {
-                // ReSharper disable once ConvertToLocalFunction
-                Func<IInvocation, Task> completeFunc = x =>
-                {
-                    context.ReturnValue = x.Method?.Invoke(x.Target, x.Parameters);
-                    if (context.Method.ReturnType == typeof(void))
-                    {
-                        return TaskHelper.CompletedTask;
-                    }
+                // await task completed
+                task.ConfigureAwait(false).GetAwaiter().GetResult();
+            }
 
-                    if (context.ReturnValue is Task task)
-                    {
-                        return task;
-                    }
+            // check for return value
+            if (invocation.ProxyMethod.ReturnType != typeof(void))
+            {
+                if (invocation.ReturnValue == null && invocation.ProxyMethod.ReturnType.IsValueType)
+                {
+                    invocation.ReturnValue = Activator.CreateInstance(invocation.ProxyMethod.ReturnType);
+                }
+            }
+        }
+
+        private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors)
+        {
+            // ReSharper disable once ConvertToLocalFunction
+            Func<IInvocation, Task> completeFunc = x =>
+            {
+                invocation.ReturnValue = x.Method?.Invoke(x.Target, x.Parameters);
+                if (invocation.Method.ReturnType == typeof(void))
+                {
+                    return TaskHelper.CompletedTask;
+                }
+
+                if (invocation.ReturnValue is Task task)
+                {
+                    return task;
+                }
 #if NETSTANDARD2_1
                     if (context.ReturnValue is ValueTask valTask)
                     {
@@ -34,34 +49,29 @@ namespace WeihanLi.Common.Aspect
                     }
 #endif
 
-                    return TaskHelper.CompletedTask;
-                };
+                return TaskHelper.CompletedTask;
+            };
 
-                interceptors ??= (DependencyResolver.ResolveService<IInterceptorResolver>() ?? FluentConfigInterceptorResolver.Instance)
-                    .ResolveInterceptors(context) ?? ArrayHelper.Empty<IInterceptor>();
-
-                if (interceptors.Count == 0)
-                {
-                    return completeFunc;
-                }
-
-                var builder = PipelineBuilder.CreateAsync(completeFunc);
-                foreach (var interceptor in interceptors)
-                {
-                    builder.Use(interceptor.Invoke);
-                }
-                return builder.Build();
-            });
-            action.Invoke(context);
-
-            // check for return value
-            if (context.ProxyMethod.ReturnType != typeof(void))
+            // ReSharper disable once ConvertIfStatementToNullCoalescingAssignment
+            if (null == interceptors)
             {
-                if (context.ReturnValue == null && context.ProxyMethod.ReturnType.IsValueType)
-                {
-                    context.ReturnValue = Activator.CreateInstance(context.ProxyMethod.ReturnType);
-                }
+                interceptors = (DependencyResolver.ResolveService<IInterceptorResolver>() ??
+                                FluentConfigInterceptorResolver.Instance)
+                    .ResolveInterceptors(invocation) ?? ArrayHelper.Empty<IInterceptor>();
             }
+
+            if (interceptors.Count == 0)
+            {
+                return completeFunc;
+            }
+
+            var builder = PipelineBuilder.CreateAsync(completeFunc);
+            foreach (var interceptor in interceptors)
+            {
+                builder.Use(interceptor.Invoke);
+            }
+
+            return builder.Build();
         }
 
         public static void Invoke(IInvocation context)

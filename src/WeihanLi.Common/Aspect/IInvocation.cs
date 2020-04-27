@@ -7,6 +7,7 @@ namespace WeihanLi.Common.Aspect
         public MethodInfo ProxyMethod { get; }
 
         public object ProxyTarget { get; }
+
         public MethodInfo Method { get; }
 
         public object Target { get; }
