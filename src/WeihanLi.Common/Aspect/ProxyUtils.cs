@@ -320,7 +320,7 @@ namespace WeihanLi.Common.Aspect
             {
                 var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Sealed | TypeAttributes.Class, implementType, Type.EmptyTypes);
 
-                var targetField = typeBuilder.DefineField(TargetFieldName, classType, FieldAttributes.Private);
+                var targetField = typeBuilder.DefineField(TargetFieldName, implementType, FieldAttributes.Private);
 
                 // constructors
                 foreach (var constructor in classType.GetConstructors())
