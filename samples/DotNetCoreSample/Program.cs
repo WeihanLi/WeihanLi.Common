@@ -76,6 +76,10 @@ namespace DotNetCoreSample
 
             DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
             {
+                if (dbContext.ChangeTracker is null)
+                {
+                    Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
+                }
                 dbContext.SaveChanges();
             });
 
