@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
-using WeihanLi.Extensions;
 
 // ReSharper disable LocalizableElement
 
@@ -92,65 +91,65 @@ namespace DotNetCoreSample
 
             DependencyResolver.SetDependencyResolver(services);
 
-            //var fly = DependencyResolver.ResolveService<IFly>();
-            //Console.WriteLine(fly.Name);
-            //fly.Fly();
+            var fly = DependencyResolver.ResolveService<IFly>();
+            Console.WriteLine(fly.Name);
+            fly.Fly();
 
-            DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
-            {
-                dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
+            //DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
+            //{
+            //    if (dbContext.ChangeTracker is null)
+            //    {
+            //        Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
+            //    }
+            //    else
+            //    {
+            //        if (dbContext.ChangeTracker is null)
+            //        {
+            //            Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
+            //        }
+            //        foreach (var entry in dbContext.ChangeTracker.Entries())
+            //        {
+            //            Console.WriteLine("-------------------");
+            //            Console.WriteLine(entry.Entity.ToJson());
+            //            Console.WriteLine("-------------------");
+            //        }
+            //    }
+            //    if (dbContext.Database is null)
+            //    {
+            //        Console.WriteLine($"{nameof(dbContext.Database)} is null ...");
+            //    }
 
-                if (dbContext.ChangeTracker is null)
-                {
-                    Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
-                }
-                else
-                {
-                    if (dbContext.ChangeTracker is null)
-                    {
-                        Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
-                    }
-                    foreach (var entry in dbContext.ChangeTracker.Entries())
-                    {
-                        Console.WriteLine("-------------------");
-                        Console.WriteLine(entry.Entity.ToJson());
-                        Console.WriteLine("-------------------");
-                    }
-                }
-                if (dbContext.Database is null)
-                {
-                    Console.WriteLine($"{nameof(dbContext.Database)} is null ...");
-                }
-                dbContext.SaveChanges();
-            });
+            //    dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
+            //    dbContext.SaveChanges();
+            //});
 
-            DependencyResolver.TryInvokeServiceAsync<TestDbContext>(dbContext =>
-            {
-                dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
+            //DependencyResolver.TryInvokeServiceAsync<TestDbContext>(dbContext =>
+            //{
+            //    dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
 
-                if (dbContext.ChangeTracker is null)
-                {
-                    Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
-                }
-                else
-                {
-                    foreach (var entry in dbContext.ChangeTracker.Entries<TestEntity>())
-                    {
-                        Console.WriteLine(entry.Entity.Token);
-                    }
-                }
+            //    if (dbContext.ChangeTracker is null)
+            //    {
+            //        Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
+            //    }
+            //    else
+            //    {
+            //        foreach (var entry in dbContext.ChangeTracker.Entries<TestEntity>())
+            //        {
+            //            Console.WriteLine(entry.Entity.Token);
+            //        }
+            //    }
 
-                if (dbContext.Database is null)
-                {
-                    Console.WriteLine($"{nameof(dbContext.Database)} is null ...");
-                }
-                if (dbContext.Database is null)
-                {
-                    Console.WriteLine($"{nameof(dbContext.Database)} is null ...");
-                }
+            //    if (dbContext.Database is null)
+            //    {
+            //        Console.WriteLine($"{nameof(dbContext.Database)} is null ...");
+            //    }
+            //    if (dbContext.Database is null)
+            //    {
+            //        Console.WriteLine($"{nameof(dbContext.Database)} is null ...");
+            //    }
 
-                return dbContext.SaveChangesAsync();
-            });
+            //    return dbContext.SaveChangesAsync();
+            //});
 
             //DependencyResolver.ResolveRequiredService<IFly>()
             //    .Fly();

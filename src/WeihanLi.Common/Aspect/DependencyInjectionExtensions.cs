@@ -26,7 +26,7 @@ namespace WeihanLi.Common.Aspect
 
             serviceCollection.AddTransient<IProxyTypeFactory, DefaultProxyTypeFactory>();
             serviceCollection.AddTransient<IProxyFactory, DefaultProxyFactory>();
-            serviceCollection.AddSingleton<IInterceptorResolver>(FluentConfigInterceptorResolver.Instance);
+            serviceCollection.AddSingleton(FluentConfigInterceptorResolver.Instance);
 
             return new FluentAspectBuilder(serviceCollection);
         }
@@ -35,9 +35,7 @@ namespace WeihanLi.Common.Aspect
             where TImplement : TService
             where TService : class
         {
-            var serviceType = typeof(TService);
-
-            serviceCollection.Add(new ServiceDescriptor(serviceType, sp =>
+            serviceCollection.Add(new ServiceDescriptor(typeof(TService), sp =>
             {
                 var proxyFactory = sp.GetRequiredService<IProxyFactory>();
                 return proxyFactory.CreateProxy<TService, TImplement>();
@@ -48,7 +46,6 @@ namespace WeihanLi.Common.Aspect
         public static IServiceCollection AddSingletonProxy<TService, TImplement>(this IServiceCollection serviceCollection)
             where TImplement : TService
             where TService : class
-
         {
             return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Singleton);
         }
@@ -56,7 +53,6 @@ namespace WeihanLi.Common.Aspect
         public static IServiceCollection AddScopedProxy<TService, TImplement>(this IServiceCollection serviceCollection)
             where TImplement : TService
             where TService : class
-
         {
             return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Scoped);
         }
@@ -64,7 +60,6 @@ namespace WeihanLi.Common.Aspect
         public static IServiceCollection AddTransientProxy<TService, TImplement>(this IServiceCollection serviceCollection)
             where TImplement : TService
             where TService : class
-
         {
             return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Transient);
         }
@@ -72,9 +67,7 @@ namespace WeihanLi.Common.Aspect
         public static IServiceCollection AddProxyService<TService>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
             where TService : class
         {
-            var serviceType = typeof(TService);
-
-            serviceCollection.Add(new ServiceDescriptor(serviceType, sp =>
+            serviceCollection.Add(new ServiceDescriptor(typeof(TService), sp =>
             {
                 var proxyFactory = sp.GetRequiredService<IProxyFactory>();
                 return proxyFactory.CreateProxy<TService>();
@@ -84,23 +77,15 @@ namespace WeihanLi.Common.Aspect
         }
 
         public static IServiceCollection AddSingletonProxy<TService>(this IServiceCollection serviceCollection)
-            where TService : class
-
-        {
-            return serviceCollection.AddProxyService<TService>(ServiceLifetime.Singleton);
-        }
+            where TService : class =>
+            serviceCollection.AddProxyService<TService>(ServiceLifetime.Singleton);
 
         public static IServiceCollection AddScopedProxy<TService>(this IServiceCollection serviceCollection)
-            where TService : class
-        {
-            return serviceCollection.AddProxyService<TService>(ServiceLifetime.Scoped);
-        }
+            where TService : class =>
+            serviceCollection.AddProxyService<TService>(ServiceLifetime.Scoped);
 
         public static IServiceCollection AddTransientProxy<TService>(this IServiceCollection serviceCollection)
-            where TService : class
-
-        {
-            return serviceCollection.AddProxyService<TService>(ServiceLifetime.Transient);
-        }
+            where TService : class =>
+            serviceCollection.AddProxyService<TService>(ServiceLifetime.Transient);
     }
 }

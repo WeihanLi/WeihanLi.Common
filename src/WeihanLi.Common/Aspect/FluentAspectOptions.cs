@@ -11,6 +11,8 @@ namespace WeihanLi.Common.Aspect
 
         public IInterceptorResolver InterceptorResolver { get; set; } = FluentConfigInterceptorResolver.Instance;
 
+        public IProxyFactory ProxyFactory { get; set; } = DefaultProxyFactory.Instance;
+
         public bool NoIntercept(Func<IInvocation, bool> predict)
         {
             return NoInterceptionConfigurations.Add(predict);

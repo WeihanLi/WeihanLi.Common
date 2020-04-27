@@ -13,9 +13,11 @@ namespace DotNetFxSample
                 options.InterceptMethod<IFly>(f => f.Fly())
                     .With<LogInterceptor>();
                 options.NoInterceptPropertyGetter<IFly>(f => f.Name);
+
+                // options.UseInterceptorResolver<AttributeInterceptorResolver>();
             });
             //
-            var fly = DefaultProxyFactory.Instance.CreateProxy<IFly, MonkeyKing>();
+            var fly = FluentAspects.CreateProxy<IFly, MonkeyKing>();
             Console.WriteLine(fly.Name);
             fly.Fly();
         }

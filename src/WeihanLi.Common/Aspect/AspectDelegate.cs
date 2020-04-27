@@ -33,7 +33,7 @@ namespace WeihanLi.Common.Aspect
             Func<IInvocation, Task> completeFunc = x =>
             {
                 invocation.ReturnValue = x.Method?.Invoke(x.Target, x.Parameters);
-                if (invocation.Method.ReturnType == typeof(void))
+                if (invocation.ProxyMethod.ReturnType == typeof(void))
                 {
                     return TaskHelper.CompletedTask;
                 }
@@ -55,7 +55,7 @@ namespace WeihanLi.Common.Aspect
             // ReSharper disable once ConvertIfStatementToNullCoalescingAssignment
             if (null == interceptors)
             {
-                interceptors = (DependencyResolver.ResolveService<IInterceptorResolver>() ??
+                interceptors = (FluentAspects.AspectOptions.InterceptorResolver ??
                                 FluentConfigInterceptorResolver.Instance)
                     .ResolveInterceptors(invocation) ?? ArrayHelper.Empty<IInterceptor>();
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Reflection;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect
@@ -247,6 +248,24 @@ namespace WeihanLi.Common.Aspect
         public static FluentAspectOptions UseInterceptorResolver<TResolver>(this FluentAspectOptions options) where TResolver : IInterceptorResolver, new()
         {
             options.InterceptorResolver = new TResolver();
+            return options;
+        }
+
+        public static FluentAspectOptions UseProxyFactory(this FluentAspectOptions options, IProxyFactory proxyFactory)
+        {
+            options.ProxyFactory = proxyFactory;
+            return options;
+        }
+
+        public static FluentAspectOptions UseProxyFactory<TProxyFactory>(this FluentAspectOptions options) where TProxyFactory : class, IProxyFactory, new()
+        {
+            options.ProxyFactory = new TProxyFactory();
+            return options;
+        }
+
+        public static FluentAspectOptions UseProxyFactory<TProxyFactory>(this FluentAspectOptions options, params object[] parameters) where TProxyFactory : class, IProxyFactory, new()
+        {
+            options.ProxyFactory = ActivatorHelper.CreateInstance<TProxyFactory>(parameters);
             return options;
         }
     }
