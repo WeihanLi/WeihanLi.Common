@@ -8,8 +8,18 @@ namespace DotNetCoreSample
 {
     public class TestDbContext : DbContext
     {
+        public TestDbContext()
+        {
+        }
+
         public TestDbContext(DbContextOptions<TestDbContext> dbContextOptions) : base(dbContextOptions)
         {
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            // optionsBuilder.UseSqlServer(DbConnectionString);
+            optionsBuilder.UseInMemoryDatabase("Tests");
         }
 
         public DbSet<TestEntity> TestEntities { get; set; }
@@ -21,6 +31,7 @@ namespace DotNetCoreSample
         {
             if (invocation.Target is DbContext dbContext)
             {
+                dbContext.ChangeTracker.DetectChanges();
                 foreach (var entry in dbContext.ChangeTracker.Entries())
                 {
                     Console.WriteLine("---------------");
@@ -30,6 +41,7 @@ namespace DotNetCoreSample
             }
             if (invocation.ProxyTarget is DbContext dbContext1)
             {
+                dbContext1.ChangeTracker.DetectChanges();
                 foreach (var entry in dbContext1.ChangeTracker.Entries())
                 {
                     Console.WriteLine("---------------");

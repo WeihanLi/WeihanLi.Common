@@ -51,11 +51,8 @@ namespace DotNetCoreSample
             };
             services.AddDbContext<TestDbContext>(dbContextOptionsAction);
 
-            //services.AddScopedProxy<TestDbContext>();
-
-            var proxyType = DefaultProxyTypeFactory.Instance.CreateProxyType(typeof(TestDbContext));
-
             services.AddScopedProxy<TestDbContext>();
+            var proxyType = DefaultProxyTypeFactory.Instance.CreateProxyType(typeof(TestDbContext));
             services.AddScoped(typeof(DbContextOptions<>).MakeGenericType(proxyType), sp =>
             {
                 var builder = new DbContextOptionsBuilder(
@@ -72,6 +69,7 @@ namespace DotNetCoreSample
             services.AddFluentAspects(options =>
             {
                 options.NoInterceptPropertyGetter<IFly>(f => f.Name);
+                options.NoInterceptMethod<object>(o => o.ToString());
 
                 options.InterceptAll()
                     .With<LogInterceptor>()
@@ -91,37 +89,17 @@ namespace DotNetCoreSample
 
             DependencyResolver.SetDependencyResolver(services);
 
-            var fly = DependencyResolver.ResolveService<IFly>();
-            Console.WriteLine(fly.Name);
-            fly.Fly();
+            //var fly = DependencyResolver.ResolveService<IFly>();
+            //Console.WriteLine(fly.Name);
+            //fly.Fly();
 
-            //DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
-            //{
-            //    if (dbContext.ChangeTracker is null)
-            //    {
-            //        Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
-            //    }
-            //    else
-            //    {
-            //        if (dbContext.ChangeTracker is null)
-            //        {
-            //            Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
-            //        }
-            //        foreach (var entry in dbContext.ChangeTracker.Entries())
-            //        {
-            //            Console.WriteLine("-------------------");
-            //            Console.WriteLine(entry.Entity.ToJson());
-            //            Console.WriteLine("-------------------");
-            //        }
-            //    }
-            //    if (dbContext.Database is null)
-            //    {
-            //        Console.WriteLine($"{nameof(dbContext.Database)} is null ...");
-            //    }
-
-            //    dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
-            //    dbContext.SaveChanges();
-            //});
+            DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
+            {
+                dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
+                var hasChanges = dbContext.ChangeTracker.HasChanges();
+                Console.WriteLine(hasChanges);
+                dbContext.SaveChanges();
+            });
 
             //DependencyResolver.TryInvokeServiceAsync<TestDbContext>(dbContext =>
             //{

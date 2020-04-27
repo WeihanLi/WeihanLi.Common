@@ -232,13 +232,12 @@ namespace WeihanLi.Common.Aspect
                 var targetField = typeBuilder.DefineField(TargetFieldName, classType, FieldAttributes.Private);
 
                 // constructors
-                foreach (var constructor in classType.GetConstructors())
+                foreach (var constructor in classType.GetConstructors().Where(c => !c.IsStatic && (c.IsPublic || c.IsFamily || c.IsFamilyAndAssembly || c.IsFamilyOrAssembly)))
                 {
-                    var constructorTypes = constructor.GetParameters().Select(o => o.ParameterType).ToArray();
-                    var constructorBuilder = typeBuilder.DefineConstructor(
-                        MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.RTSpecialName | MethodAttributes.SpecialName,
-                        CallingConventions.Standard,
-                        constructorTypes);
+                    var constructorParameterTypes = constructor.GetParameters().Select(o => o.ParameterType).ToArray();
+                    var constructorBuilder = typeBuilder.DefineConstructor(constructor.Attributes,
+                        constructor.CallingConvention,
+                        constructorParameterTypes);
                     foreach (var customAttribute in constructor.CustomAttributes)
                     {
                         constructorBuilder.SetCustomAttribute(DefineCustomAttribute(customAttribute));
@@ -250,7 +249,7 @@ namespace WeihanLi.Common.Aspect
                     il.Emit(OpCodes.Stfld, targetField);
 
                     il.Emit(OpCodes.Ldarg_0);
-                    for (var i = 0; i < constructorTypes.Length; i++)
+                    for (var i = 0; i < constructorParameterTypes.Length; i++)
                     {
                         il.Emit(OpCodes.Ldarg, i + 1);
                     }
@@ -429,12 +428,17 @@ namespace WeihanLi.Common.Aspect
 
                 var localReturnValue = il.DeclareReturnValue(method.ReturnType);
                 var localCurrentMethod = il.DeclareLocal(typeof(MethodInfo));
+                var localMethodBase = il.DeclareLocal(typeof(MethodInfo));
                 var localParameters = il.DeclareLocal(typeof(object[]));
 
                 // var currentMethod = MethodBase.GetCurrentMethod();
                 il.Call(typeof(MethodBase).GetMethod(nameof(MethodBase.GetCurrentMethod)));
-                il.EmitCastToType(typeof(MethodBase), typeof(MethodInfo));
+                il.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
                 il.Emit(OpCodes.Stloc, localCurrentMethod);
+
+                il.Emit(OpCodes.Ldloc, localCurrentMethod);
+                il.Call(typeof(AspectExtensions).GetMethod(nameof(AspectExtensions.GetBaseMethod)));
+                il.Emit(OpCodes.Stloc, localMethodBase);
 
                 // var parameters = new[] {a, b, c};
                 il.Emit(OpCodes.Ldc_I4, methodParameterTypes.Length);
@@ -459,7 +463,7 @@ namespace WeihanLi.Common.Aspect
                 // var aspectInvocation = new AspectInvocation(method, this, parameters);
                 var localAspectInvocation = il.DeclareLocal(typeof(AspectInvocation));
                 il.Emit(OpCodes.Ldloc, localCurrentMethod);
-                il.EmitNull();
+                il.Emit(OpCodes.Ldloc, localMethodBase);
                 il.EmitThis();
                 il.EmitThis();
                 il.Emit(OpCodes.Ldloc, localParameters);
@@ -533,7 +537,7 @@ namespace WeihanLi.Common.Aspect
 
                 // var currentMethod = MethodBase.GetCurrentMethod();
                 il.Call(typeof(MethodBase).GetMethod(nameof(MethodBase.GetCurrentMethod)));
-                il.EmitCastToType(typeof(MethodBase), typeof(MethodInfo));
+                il.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
                 il.Emit(OpCodes.Stloc, localCurrentMethod);
 
                 il.Emit(OpCodes.Ldloc, localCurrentMethod);
