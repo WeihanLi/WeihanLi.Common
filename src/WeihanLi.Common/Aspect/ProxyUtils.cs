@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -401,7 +400,10 @@ namespace WeihanLi.Common.Aspect
             if (null != proxyService && null != target)
             {
                 var targetField = proxyService.GetField(TargetFieldName, BindingFlags.Instance | BindingFlags.NonPublic);
-                targetField?.SetValue(proxyService, target, BindingFlags.NonPublic | BindingFlags.Instance, null, CultureInfo.CurrentCulture);
+                if (targetField != null && targetField.GetType().IsInstanceOfType(target))
+                {
+                    targetField.SetValue(proxyService, target);
+                }
             }
         }
 

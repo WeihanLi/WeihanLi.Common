@@ -27,7 +27,8 @@ namespace WeihanLi.Common.Aspect
             return proxy;
         }
 
-        public TService CreateProxy<TService, TImplement>() where TImplement : TService
+        public TService CreateProxy<TService, TImplement>()
+            where TImplement : TService
             where TService : class
         {
             var type = _proxyTypeFactory.CreateProxyType(typeof(TService), typeof(TImplement));
@@ -36,7 +37,8 @@ namespace WeihanLi.Common.Aspect
             return proxy;
         }
 
-        public TService CreateProxy<TService, TImplement>(object[] parameters) where TImplement : TService
+        public TService CreateProxy<TService, TImplement>(object[] parameters)
+            where TImplement : TService
             where TService : class
         {
             var type = _proxyTypeFactory.CreateProxyType(typeof(TService), typeof(TImplement));
