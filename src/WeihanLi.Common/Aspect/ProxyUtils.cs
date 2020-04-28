@@ -218,98 +218,6 @@ namespace WeihanLi.Common.Aspect
             return type;
         }
 
-        public static Type CreateClassProxy(Type classType)
-        {
-            if (classType.IsSealed)
-            {
-                throw new InvalidOperationException("the classType is sealed");
-            }
-            var proxyTypeName = _proxyTypeNameResolver(classType, null);
-            var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
-            {
-                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Sealed | TypeAttributes.Class, classType, Type.EmptyTypes);
-
-                GenericParameterUtils.DefineGenericParameter(classType, typeBuilder);
-
-                var targetField = typeBuilder.DefineField(TargetFieldName, classType, FieldAttributes.Private);
-
-                // constructors
-                foreach (var constructor in classType.GetConstructors().Where(c => !c.IsStatic && (c.IsPublic || c.IsFamily || c.IsFamilyAndAssembly || c.IsFamilyOrAssembly)))
-                {
-                    var constructorParameterTypes = constructor.GetParameters().Select(o => o.ParameterType).ToArray();
-                    var constructorBuilder = typeBuilder.DefineConstructor(constructor.Attributes,
-                        constructor.CallingConvention,
-                        constructorParameterTypes);
-                    foreach (var customAttribute in constructor.CustomAttributes)
-                    {
-                        constructorBuilder.SetCustomAttribute(DefineCustomAttribute(customAttribute));
-                    }
-                    var il = constructorBuilder.GetILGenerator();
-
-                    il.EmitThis();
-                    il.EmitThis();
-                    il.Emit(OpCodes.Stfld, targetField);
-
-                    il.Emit(OpCodes.Ldarg_0);
-                    for (var i = 0; i < constructorParameterTypes.Length; i++)
-                    {
-                        il.Emit(OpCodes.Ldarg, i + 1);
-                    }
-                    il.Call(constructor);
-
-                    il.Emit(OpCodes.Nop);
-
-                    il.Emit(OpCodes.Ret);
-                }
-
-                // properties
-                var propertyMethods = new HashSet<string>();
-                foreach (var property in classType.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
-                {
-                    if (property.IsVisibleAndVirtual())
-                    {
-                        var propertyBuilder = typeBuilder.DefineProperty(name, property.Attributes, property.PropertyType, Type.EmptyTypes);
-                        foreach (var customAttributeData in property.CustomAttributes)
-                        {
-                            propertyBuilder.SetCustomAttribute(DefineCustomAttribute(customAttributeData));
-                        }
-
-                        if (property.CanRead)
-                        {
-                            var method = MethodUtils.DefineClassMethod(typeBuilder, property.GetMethod, targetField);
-                            propertyBuilder.SetGetMethod(method);
-
-                            propertyMethods.Add(property.GetMethod.Name);
-                        }
-                        if (property.CanWrite)
-                        {
-                            var method = MethodUtils.DefineClassMethod(typeBuilder, property.SetMethod, targetField);
-                            propertyBuilder.SetSetMethod(method);
-
-                            propertyMethods.Add(property.SetMethod.Name);
-                        }
-                    }
-                }
-
-                // methods
-                var methods = classType.GetMethods()
-                        .Where(m => m.IsVirtual && m.IsVisible())
-                        .ToArray();
-                foreach (var method in methods)
-                {
-                    if (propertyMethods.Contains(method.Name))
-                    {
-                        continue;
-                    }
-
-                    MethodUtils.DefineClassMethod(typeBuilder, method, targetField);
-                }
-
-                return typeBuilder.CreateType();
-            });
-            return type;
-        }
-
         public static Type CreateClassProxy(Type classType, Type implementType)
         {
             if (classType.IsSealed)
@@ -330,8 +238,8 @@ namespace WeihanLi.Common.Aspect
                 {
                     var constructorTypes = constructor.GetParameters().Select(o => o.ParameterType).ToArray();
                     var constructorBuilder = typeBuilder.DefineConstructor(
-                        MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.RTSpecialName | MethodAttributes.SpecialName,
-                        CallingConventions.Standard,
+                        constructor.Attributes,
+                        constructor.CallingConvention,
                         constructorTypes);
                     foreach (var customAttribute in constructor.CustomAttributes)
                     {
@@ -446,6 +354,12 @@ namespace WeihanLi.Common.Aspect
                 il.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
                 il.Emit(OpCodes.Stloc, localCurrentMethod);
 
+                if (method.IsGenericMethodDefinition)
+                {
+                    //il.EmitMethod(method.MakeGenericMethod(methodBuilder.GetGenericArguments()));
+                    //il.EmitMethod(methodBuilder.MakeGenericMethod(methodBuilder.GetGenericArguments()));
+                }
+
                 il.Emit(OpCodes.Ldloc, localCurrentMethod);
                 il.Call(typeof(AspectExtensions).GetMethod(nameof(AspectExtensions.GetBaseMethod)));
                 il.Emit(OpCodes.Stloc, localMethodBase);
@@ -557,6 +471,12 @@ namespace WeihanLi.Common.Aspect
                 il.Call(typeof(MethodBase).GetMethod(nameof(MethodBase.GetCurrentMethod)));
                 il.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
                 il.Emit(OpCodes.Stloc, localCurrentMethod);
+
+                if (method.IsGenericMethodDefinition)
+                {
+                    //il.EmitMethod(method.MakeGenericMethod(methodBuilder.GetGenericArguments()));
+                    //il.EmitMethod(methodBuilder.MakeGenericMethod(methodBuilder.GetGenericArguments()));
+                }
 
                 il.Emit(OpCodes.Ldloc, localCurrentMethod);
                 il.Call(typeof(AspectExtensions).GetMethod(nameof(AspectExtensions.GetBaseMethod)));

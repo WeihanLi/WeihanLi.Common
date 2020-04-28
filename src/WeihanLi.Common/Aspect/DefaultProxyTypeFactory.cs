@@ -17,7 +17,7 @@ namespace WeihanLi.Common.Aspect
             {
                 return ProxyUtils.CreateInterfaceProxy(serviceType);
             }
-            return ProxyUtils.CreateClassProxy(serviceType);
+            return ProxyUtils.CreateClassProxy(serviceType, serviceType);
         }
 
         public Type CreateProxyType(Type serviceType, Type implementType)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect
@@ -16,34 +17,68 @@ namespace WeihanLi.Common.Aspect
             _serviceProvider = serviceProvider ?? DependencyResolver.Current;
         }
 
-        public TService CreateProxy<TService>() where TService : class
+        public object CreateProxy(Type serviceType)
         {
-            var type = _proxyTypeFactory.CreateProxyType(typeof(TService));
-            var proxy = (TService)_serviceProvider.CreateInstance(type);
+            var type = _proxyTypeFactory.CreateProxyType(serviceType);
+            var proxy = _serviceProvider.CreateInstance(type);
             if (type.IsClass)
             {
-                ProxyUtils.SetProxyTarget(proxy, _serviceProvider.CreateInstance(typeof(TService)));
+                ProxyUtils.SetProxyTarget(proxy, _serviceProvider.CreateInstance(serviceType));
             }
             return proxy;
         }
 
-        public TService CreateProxy<TService, TImplement>()
-            where TImplement : TService
-            where TService : class
+        public object CreateProxy([NotNull] Type serviceType, [NotNull] Type implementType)
         {
-            var type = _proxyTypeFactory.CreateProxyType(typeof(TService), typeof(TImplement));
-            var proxy = (TService)_serviceProvider.CreateInstance(type);
-            ProxyUtils.SetProxyTarget(proxy, _serviceProvider.CreateInstance(typeof(TImplement)));
+            if (serviceType == null)
+            {
+                throw new ArgumentNullException(nameof(serviceType));
+            }
+
+            if (implementType == null)
+            {
+                throw new ArgumentNullException(nameof(implementType));
+            }
+
+            var type = _proxyTypeFactory.CreateProxyType(serviceType, implementType);
+            var proxy = _serviceProvider.CreateInstance(type);
+            ProxyUtils.SetProxyTarget(proxy, _serviceProvider.CreateInstance(implementType));
             return proxy;
         }
 
-        public TService CreateProxy<TService, TImplement>(object[] parameters)
-            where TImplement : TService
-            where TService : class
+        public object CreateProxyWithTarget(Type serviceType, [NotNull] object implement)
         {
-            var type = _proxyTypeFactory.CreateProxyType(typeof(TService), typeof(TImplement));
-            var proxy = (TService)_serviceProvider.CreateInstance(type, parameters);
-            ProxyUtils.SetProxyTarget(proxy, _serviceProvider.CreateInstance(typeof(TImplement), parameters));
+            if (null == serviceType)
+            {
+                throw new ArgumentNullException(nameof(serviceType));
+            }
+            if (implement == null)
+            {
+                throw new ArgumentNullException(nameof(implement));
+            }
+
+            var implementType = implement.GetType();
+            var type = _proxyTypeFactory.CreateProxyType(serviceType, implementType);
+            var proxy = _serviceProvider.CreateInstance(type);
+            ProxyUtils.SetProxyTarget(proxy, implement);
+            return proxy;
+        }
+
+        public object CreateProxy([NotNull] Type serviceType, [NotNull] Type implementType, params object[] parameters)
+        {
+            if (serviceType == null)
+            {
+                throw new ArgumentNullException(nameof(serviceType));
+            }
+
+            if (implementType == null)
+            {
+                throw new ArgumentNullException(nameof(implementType));
+            }
+
+            var type = _proxyTypeFactory.CreateProxyType(serviceType, implementType);
+            var proxy = _serviceProvider.CreateInstance(type);
+            ProxyUtils.SetProxyTarget(proxy, _serviceProvider.CreateInstance(implementType, parameters));
             return proxy;
         }
     }

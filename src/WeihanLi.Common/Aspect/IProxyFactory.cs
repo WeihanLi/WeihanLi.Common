@@ -1,11 +1,15 @@
-﻿namespace WeihanLi.Common.Aspect
+﻿using System;
+
+namespace WeihanLi.Common.Aspect
 {
     public interface IProxyFactory
     {
-        TService CreateProxy<TService>() where TService : class;
+        object CreateProxy(Type serviceType);
 
-        TService CreateProxy<TService, TImplement>() where TImplement : TService where TService : class;
+        object CreateProxy(Type serviceType, Type implementType);
 
-        TService CreateProxy<TService, TImplement>(object[] parameters) where TImplement : TService where TService : class;
+        object CreateProxyWithTarget(Type serviceType, object implement);
+
+        object CreateProxy(Type serviceType, Type implementType, params object[] parameters);
     }
 }
