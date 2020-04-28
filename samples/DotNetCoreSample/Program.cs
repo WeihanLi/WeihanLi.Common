@@ -89,9 +89,11 @@ namespace DotNetCoreSample
 
             DependencyResolver.SetDependencyResolver(services);
 
-            //var fly = DependencyResolver.ResolveService<IFly>();
-            //Console.WriteLine(fly.Name);
-            //fly.Fly();
+            var fly = DependencyResolver.ResolveService<IFly>();
+            Console.WriteLine(fly.Name);
+            fly.Fly();
+            fly.OpenFly<int>();
+            fly.OpenFly<string>();
 
             DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
             {
