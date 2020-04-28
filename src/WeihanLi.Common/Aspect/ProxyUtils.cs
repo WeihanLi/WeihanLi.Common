@@ -66,6 +66,8 @@ namespace WeihanLi.Common.Aspect
             {
                 var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Class | TypeAttributes.Sealed, typeof(object), new[] { interfaceType });
 
+                GenericParameterUtils.DefineGenericParameter(interfaceType, typeBuilder);
+
                 // define default constructor
                 typeBuilder.DefineDefaultConstructor(MethodAttributes.Public);
 
@@ -140,6 +142,8 @@ namespace WeihanLi.Common.Aspect
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
                 var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, implementType.Attributes, implementType, new[] { interfaceType });
+                GenericParameterUtils.DefineGenericParameter(interfaceType, typeBuilder);
+
                 var targetField = typeBuilder.DefineField(TargetFieldName, implementType, FieldAttributes.Private);
                 // constructors
                 foreach (var constructor in implementType.GetConstructors())
@@ -217,12 +221,15 @@ namespace WeihanLi.Common.Aspect
         public static Type CreateClassProxy(Type classType)
         {
             if (classType.IsSealed)
+            {
                 throw new InvalidOperationException("the classType is sealed");
-
+            }
             var proxyTypeName = _proxyTypeNameResolver(classType, null);
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
                 var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Sealed | TypeAttributes.Class, classType, Type.EmptyTypes);
+
+                GenericParameterUtils.DefineGenericParameter(classType, typeBuilder);
 
                 var targetField = typeBuilder.DefineField(TargetFieldName, classType, FieldAttributes.Private);
 
@@ -306,13 +313,15 @@ namespace WeihanLi.Common.Aspect
         public static Type CreateClassProxy(Type classType, Type implementType)
         {
             if (classType.IsSealed)
+            {
                 throw new InvalidOperationException("the class type is sealed");
-
+            }
             //
             var proxyTypeName = _proxyTypeNameResolver(classType, implementType);
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
                 var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Sealed | TypeAttributes.Class, implementType, Type.EmptyTypes);
+                GenericParameterUtils.DefineGenericParameter(classType, typeBuilder);
 
                 var targetField = typeBuilder.DefineField(TargetFieldName, implementType, FieldAttributes.Private);
 
@@ -416,6 +425,9 @@ namespace WeihanLi.Common.Aspect
                     method.ReturnType,
                     methodParameterTypes
                     );
+
+                GenericParameterUtils.DefineGenericParameter(method, methodBuilder);
+
                 foreach (var customAttribute in method.CustomAttributes)
                 {
                     methodBuilder.SetCustomAttribute(DefineCustomAttribute(customAttribute));
@@ -527,6 +539,8 @@ namespace WeihanLi.Common.Aspect
                     methodParameterTypes
                 );
 
+                GenericParameterUtils.DefineGenericParameter(method, methodBuilder);
+
                 foreach (var customAttributeData in method.CustomAttributes)
                 {
                     methodBuilder.SetCustomAttribute(DefineCustomAttribute(customAttributeData));
@@ -605,6 +619,90 @@ namespace WeihanLi.Common.Aspect
                 il.Emit(OpCodes.Ret);
 
                 return methodBuilder;
+            }
+        }
+
+        private static class GenericParameterUtils
+        {
+            public static void DefineGenericParameter(Type targetType, TypeBuilder typeBuilder)
+            {
+                if (!targetType.IsGenericTypeDefinition)
+                {
+                    return;
+                }
+                var genericArguments = targetType.GetGenericArguments();
+                var genericArgumentsBuilders = typeBuilder
+                    .DefineGenericParameters(genericArguments.Select(a => a.Name).ToArray());
+                for (var index = 0; index < genericArguments.Length; index++)
+                {
+                    genericArgumentsBuilders[index].SetGenericParameterAttributes(ToClassGenericParameterAttributes(genericArguments[index].GenericParameterAttributes));
+                    foreach (var constraint in genericArguments[index].GetGenericParameterConstraints())
+                    {
+                        if (constraint.IsClass)
+                        {
+                            genericArgumentsBuilders[index].SetBaseTypeConstraint(constraint);
+                        }
+                        if (constraint.IsInterface)
+                        {
+                            genericArgumentsBuilders[index].SetInterfaceConstraints(constraint);
+                        }
+                    }
+                }
+            }
+
+            public static void DefineGenericParameter(MethodInfo targetMethod, MethodBuilder methodBuilder)
+            {
+                if (!targetMethod.IsGenericMethod)
+                {
+                    return;
+                }
+                var genericArguments = targetMethod.GetGenericArguments();
+                var genericArgumentsBuilders = methodBuilder
+                    .DefineGenericParameters(genericArguments.Select(a => a.Name).ToArray());
+                for (var index = 0; index < genericArguments.Length; index++)
+                {
+                    genericArgumentsBuilders[index].SetGenericParameterAttributes(genericArguments[index].GenericParameterAttributes);
+                    foreach (var constraint in genericArguments[index].GetGenericParameterConstraints())
+                    {
+                        if (constraint.IsClass)
+                        {
+                            genericArgumentsBuilders[index].SetBaseTypeConstraint(constraint);
+                        }
+                        if (constraint.IsInterface)
+                        {
+                            genericArgumentsBuilders[index].SetInterfaceConstraints(constraint);
+                        }
+                    }
+                }
+            }
+
+            private static GenericParameterAttributes ToClassGenericParameterAttributes(GenericParameterAttributes attributes)
+            {
+                if (attributes == GenericParameterAttributes.None)
+                {
+                    return GenericParameterAttributes.None;
+                }
+                if (attributes.HasFlag(GenericParameterAttributes.SpecialConstraintMask))
+                {
+                    return GenericParameterAttributes.SpecialConstraintMask;
+                }
+                if (attributes.HasFlag(GenericParameterAttributes.NotNullableValueTypeConstraint))
+                {
+                    return GenericParameterAttributes.NotNullableValueTypeConstraint;
+                }
+                if (attributes.HasFlag(GenericParameterAttributes.ReferenceTypeConstraint) && attributes.HasFlag(GenericParameterAttributes.DefaultConstructorConstraint))
+                {
+                    return GenericParameterAttributes.ReferenceTypeConstraint | GenericParameterAttributes.DefaultConstructorConstraint;
+                }
+                if (attributes.HasFlag(GenericParameterAttributes.ReferenceTypeConstraint))
+                {
+                    return GenericParameterAttributes.ReferenceTypeConstraint;
+                }
+                if (attributes.HasFlag(GenericParameterAttributes.DefaultConstructorConstraint))
+                {
+                    return GenericParameterAttributes.DefaultConstructorConstraint;
+                }
+                return GenericParameterAttributes.None;
             }
         }
 
