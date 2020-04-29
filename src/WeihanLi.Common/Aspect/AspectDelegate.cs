@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect
 {
@@ -15,6 +16,12 @@ namespace WeihanLi.Common.Aspect
             {
                 // await task to be completed
                 task.ConfigureAwait(false).GetAwaiter().GetResult();
+            }
+
+            if (task.Exception != null)
+            {
+                var exception = task.Exception.Unwrap();
+                throw exception;
             }
 
             // check for return value
