@@ -9,7 +9,7 @@ namespace WeihanLi.Extensions
     // ReSharper disable once InconsistentNaming
     public static class ILGeneratorExtensions
     {
-        private static readonly MethodInfo GetMethodFromHandle = ExpressionExtension.GetMethod<Func<RuntimeMethodHandle, RuntimeTypeHandle, MethodBase>>((h1, h2) => MethodBase.GetMethodFromHandle(h1, h2));
+        public static readonly MethodInfo GetMethodFromHandle = ExpressionExtension.GetMethod<Func<RuntimeMethodHandle, RuntimeTypeHandle, MethodBase>>((h1, h2) => MethodBase.GetMethodFromHandle(h1, h2));
 
         public static void EmitMethod(this ILGenerator ilGenerator, MethodInfo method)
         {

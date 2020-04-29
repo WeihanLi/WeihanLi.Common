@@ -17,8 +17,13 @@ namespace WeihanLi.Common.Aspect
             _serviceProvider = serviceProvider ?? DependencyResolver.Current;
         }
 
-        public object CreateProxy(Type serviceType)
+        public object CreateProxy([NotNull] Type serviceType)
         {
+            if (serviceType == null)
+            {
+                throw new ArgumentNullException(nameof(serviceType));
+            }
+
             var type = _proxyTypeFactory.CreateProxyType(serviceType);
             var proxy = _serviceProvider.CreateInstance(type);
             if (type.IsClass)
