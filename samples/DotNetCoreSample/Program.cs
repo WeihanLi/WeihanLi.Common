@@ -42,15 +42,19 @@ namespace DotNetCoreSample
             //);
 
             services.AddSingletonProxy<IFly, MonkeyKing>();
-            services.AddDbContext<TestDbContext>(options =>
+
+            Action<DbContextOptionsBuilder> dbContextOptionsAction = options =>
             {
                 options.UseInMemoryDatabase("Test");
-            });
+            };
+            services.AddDbContext<TestDbContext>(dbContextOptionsAction);
+
             services.AddScopedProxy<TestDbContext>();
 
             services.AddFluentAspects(options =>
             {
                 options.NoInterceptPropertyGetter<IFly>(f => f.Name);
+                options.NoInterceptMethod<object>(o => o.ToString());
 
                 options.InterceptAll()
                     .With<LogInterceptor>()
@@ -73,16 +77,54 @@ namespace DotNetCoreSample
             var fly = DependencyResolver.ResolveService<IFly>();
             Console.WriteLine(fly.Name);
             fly.Fly();
+            fly.OpenFly<int>();
+            fly.OpenFly<string>();
+
+            var animal1 = DefaultProxyFactory.Instance.CreateInterfaceProxy<IAnimal<int>>();
+            animal1.Eat();
+
+            var animal2 = DefaultProxyFactory.Instance.CreateInterfaceProxy<IAnimal<string>>();
+            animal2.Eat();
+
+            using var proxy = DefaultProxyFactory.Instance.CreateClassProxy<TestDbContext>();
+            proxy.TestEntities.Add(new TestEntity() { Token = "12121" });
+            Console.WriteLine(proxy.ChangeTracker.HasChanges());
 
             DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
             {
+                dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
+                var hasChanges = dbContext.ChangeTracker.HasChanges();
+                Console.WriteLine(hasChanges);
                 dbContext.SaveChanges();
             });
 
-            DependencyResolver.TryInvokeServiceAsync<TestDbContext>(dbContext =>
-            {
-                return dbContext.SaveChangesAsync();
-            });
+            //DependencyResolver.TryInvokeServiceAsync<TestDbContext>(dbContext =>
+            //{
+            //    dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
+
+            //    if (dbContext.ChangeTracker is null)
+            //    {
+            //        Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
+            //    }
+            //    else
+            //    {
+            //        foreach (var entry in dbContext.ChangeTracker.Entries<TestEntity>())
+            //        {
+            //            Console.WriteLine(entry.Entity.Token);
+            //        }
+            //    }
+
+            //    if (dbContext.Database is null)
+            //    {
+            //        Console.WriteLine($"{nameof(dbContext.Database)} is null ...");
+            //    }
+            //    if (dbContext.Database is null)
+            //    {
+            //        Console.WriteLine($"{nameof(dbContext.Database)} is null ...");
+            //    }
+
+            //    return dbContext.SaveChangesAsync();
+            //});
 
             //DependencyResolver.ResolveRequiredService<IFly>()
             //    .Fly();

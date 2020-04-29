@@ -270,8 +270,14 @@ namespace DotNetCoreSample
     {
         string Name { get; }
 
-        [LogInterceptor]
         void Fly();
+
+        void OpenFly<T>();
+    }
+
+    public interface IAnimal<T>
+    {
+        void Eat();
     }
 
     public class LogInterceptor : AbstractInterceptor
@@ -301,6 +307,11 @@ namespace DotNetCoreSample
             Console.WriteLine($"{Name} is flying");
         }
 
+        public void OpenFly<T>()
+        {
+            Console.WriteLine($"{Name} is OpenFlying,OpenType: {typeof(T).FullName}");
+        }
+
         public void Dispose()
         {
             Console.WriteLine($"{Name}  disposed...");
@@ -314,6 +325,11 @@ namespace DotNetCoreSample
         public void Fly()
         {
             Console.WriteLine("Superman is flying");
+        }
+
+        public void OpenFly<T>()
+        {
+            Console.WriteLine($"{Name} is OpenFlying,OpenType: {typeof(T).FullName}");
         }
     }
 

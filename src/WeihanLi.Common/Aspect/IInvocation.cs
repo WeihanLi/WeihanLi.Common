@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 
 namespace WeihanLi.Common.Aspect
 {
@@ -7,11 +8,14 @@ namespace WeihanLi.Common.Aspect
         public MethodInfo ProxyMethod { get; }
 
         public object ProxyTarget { get; }
+
         public MethodInfo Method { get; }
 
         public object Target { get; }
 
-        public object[] Parameters { get; }
+        public object[] Arguments { get; }
+
+        Type[] GenericArguments { get; }
 
         public object ReturnValue { get; set; }
     }
@@ -26,17 +30,30 @@ namespace WeihanLi.Common.Aspect
 
         public object Target { get; }
 
-        public object[] Parameters { get; }
+        public object[] Arguments { get; }
+
+        public Type[] GenericArguments { get; }
 
         public object ReturnValue { get; set; }
 
-        public AspectInvocation(MethodInfo method, MethodInfo methodBase, object proxyTarget, object target, object[] parameters)
+        public AspectInvocation(
+            MethodInfo method, MethodInfo methodBase,
+            object proxyTarget, object target,
+            object[] arguments)
         {
-            ProxyMethod = method;
             Method = methodBase;
             ProxyTarget = proxyTarget;
             Target = target;
-            Parameters = parameters;
+            Arguments = arguments;
+            GenericArguments = methodBase?.GetGenericArguments() ?? Type.EmptyTypes;
+            if (GenericArguments.Length > 0)
+            {
+                ProxyMethod = method.MakeGenericMethod(GenericArguments);
+            }
+            else
+            {
+                ProxyMethod = method;
+            }
         }
     }
 }

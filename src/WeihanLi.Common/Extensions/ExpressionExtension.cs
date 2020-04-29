@@ -58,6 +58,20 @@ namespace WeihanLi.Extensions
             }
         }
 
+        public static MethodInfo GetMethod<T>(this Expression<T> expression)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException(nameof(expression));
+            }
+
+            if (!(expression.Body is MethodCallExpression methodCallExpression))
+            {
+                throw new InvalidCastException("Cannot be converted to MethodCallExpression");
+            }
+            return methodCallExpression.Method;
+        }
+
         public static MethodCallExpression GetMethodExpression<T>(this Expression<Action<T>> method)
         {
             if (method.Body.NodeType != ExpressionType.Call)
