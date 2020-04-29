@@ -1,9 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
@@ -52,19 +50,6 @@ namespace DotNetCoreSample
             services.AddDbContext<TestDbContext>(dbContextOptionsAction);
 
             services.AddScopedProxy<TestDbContext>();
-            var proxyType = DefaultProxyTypeFactory.Instance.CreateProxyType(typeof(TestDbContext));
-            services.AddScoped(typeof(DbContextOptions<>).MakeGenericType(proxyType), sp =>
-            {
-                var builder = new DbContextOptionsBuilder(
-                    new DbContextOptions<TestDbContext>(new Dictionary<Type, IDbContextOptionsExtension>())
-                    );
-
-                builder.UseApplicationServiceProvider(sp);
-
-                dbContextOptionsAction?.Invoke(builder);
-                return builder.Options;
-            });
-            services.AddScoped(typeof(DbContextOptions), typeof(DbContextOptions<>).MakeGenericType(proxyType));
 
             services.AddFluentAspects(options =>
             {
@@ -94,6 +79,16 @@ namespace DotNetCoreSample
             fly.Fly();
             fly.OpenFly<int>();
             fly.OpenFly<string>();
+
+            var animal1 = DefaultProxyFactory.Instance.CreateInterfaceProxy<IAnimal<int>>();
+            animal1.Eat();
+
+            var animal2 = DefaultProxyFactory.Instance.CreateInterfaceProxy<IAnimal<string>>();
+            animal2.Eat();
+
+            using var proxy = DefaultProxyFactory.Instance.CreateClassProxy<TestDbContext>();
+            proxy.TestEntities.Add(new TestEntity() { Token = "12121" });
+            Console.WriteLine(proxy.ChangeTracker.HasChanges());
 
             DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
             {

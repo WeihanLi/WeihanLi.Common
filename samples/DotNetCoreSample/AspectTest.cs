@@ -8,10 +8,6 @@ namespace DotNetCoreSample
 {
     public class TestDbContext : DbContext
     {
-        public TestDbContext()
-        {
-        }
-
         public TestDbContext(DbContextOptions<TestDbContext> dbContextOptions) : base(dbContextOptions)
         {
         }

@@ -275,6 +275,11 @@ namespace DotNetCoreSample
         void OpenFly<T>();
     }
 
+    public interface IAnimal<T>
+    {
+        void Eat();
+    }
+
     public class LogInterceptor : AbstractInterceptor
     {
         public override async Task Invoke(IInvocation invocation, Func<Task> next)

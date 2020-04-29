@@ -40,7 +40,7 @@ namespace WeihanLi.Extensions
             }
 
             ilGenerator.Emit(OpCodes.Ldtoken, method);
-            ilGenerator.Emit(OpCodes.Ldtoken, method.DeclaringType);
+            ilGenerator.Emit(OpCodes.Ldtoken, declaringType);
             ilGenerator.Emit(OpCodes.Call, GetMethodFromHandle);
             ilGenerator.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
         }

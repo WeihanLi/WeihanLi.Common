@@ -39,7 +39,7 @@ namespace WeihanLi.Common.Aspect
             // ReSharper disable once ConvertToLocalFunction
             Func<IInvocation, Task> completeFunc = x =>
             {
-                invocation.ReturnValue = x.Method?.Invoke(x.Target, x.Parameters);
+                invocation.ReturnValue = x.Method?.Invoke(x.Target, x.Arguments);
                 if (invocation.ProxyMethod.ReturnType == typeof(void))
                 {
                     return TaskHelper.CompletedTask;

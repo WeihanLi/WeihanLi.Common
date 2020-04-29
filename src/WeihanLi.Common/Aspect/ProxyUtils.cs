@@ -160,17 +160,16 @@ namespace WeihanLi.Common.Aspect
                     var il = constructorBuilder.GetILGenerator();
 
                     il.EmitThis();
-                    il.EmitThis();
-                    il.Emit(OpCodes.Stfld, targetField);
-
-                    il.Emit(OpCodes.Ldarg_0);
-
                     for (var i = 0; i < constructorTypes.Length; i++)
                     {
                         il.Emit(OpCodes.Ldarg, i + 1);
                     }
-
                     il.Call(constructor);
+
+                    il.EmitThis();
+                    il.EmitThis();
+                    il.Emit(OpCodes.Stfld, targetField);
+
                     il.Emit(OpCodes.Nop);
                     il.Emit(OpCodes.Ret);
                 }
@@ -246,18 +245,17 @@ namespace WeihanLi.Common.Aspect
                     }
                     var il = constructorBuilder.GetILGenerator();
 
-                    il.EmitNull();
                     il.EmitThis();
-                    il.Emit(OpCodes.Stfld, targetField);
-
-                    il.Emit(OpCodes.Ldarg_0);
                     for (var i = 0; i < constructorTypes.Length; i++)
                     {
                         il.Emit(OpCodes.Ldarg, i + 1);
                     }
                     il.Call(constructor);
-
                     il.Emit(OpCodes.Nop);
+
+                    il.EmitThis();
+                    il.EmitThis();
+                    il.Emit(OpCodes.Stfld, targetField);
 
                     il.Emit(OpCodes.Ret);
                 }
@@ -295,7 +293,7 @@ namespace WeihanLi.Common.Aspect
 
                 // methods
                 var methods = classType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
-                        .Where(m => m.IsVirtual && m.IsVisible() && !propertyMethods.Contains(m.Name))
+                        .Where(m => m.IsVirtual && !m.IsFinal && !m.IsFinal && m.IsVisible() && !propertyMethods.Contains(m.Name))
                         .ToArray();
                 foreach (var method in methods)
                 {
@@ -353,15 +351,17 @@ namespace WeihanLi.Common.Aspect
                 il.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
                 il.Emit(OpCodes.Stloc, localCurrentMethod);
 
-                il.Emit(OpCodes.Ldloc, localCurrentMethod);
-                il.Call(MethodInvokeHelper.GetBaseMethod);
-                il.Emit(OpCodes.Stloc, localMethodBase);
-
-                if (method.IsGenericMethodDefinition)
+                if (method.IsGenericMethod)
                 {
-                    il.EmitMethod(method.MakeGenericMethod(methodBuilder.GetGenericArguments()));
-                    il.EmitMethod(methodBuilder.MakeGenericMethod(methodBuilder.GetGenericArguments()));
+                    var targetMethod = targetField?.FieldType.GetMethod(method.Name, methodParameterTypes);
+                    il.EmitMethod((targetMethod ?? method).MakeGenericMethod(methodBuilder.GetGenericArguments()));
                 }
+                else
+                {
+                    il.Emit(OpCodes.Ldloc, localCurrentMethod);
+                    il.Call(MethodInvokeHelper.GetBaseMethod);
+                }
+                il.Emit(OpCodes.Stloc, localMethodBase);
 
                 // var parameters = new[] {a, b, c};
                 il.Emit(OpCodes.Ldc_I4, methodParameterTypes.Length);
@@ -464,19 +464,22 @@ namespace WeihanLi.Common.Aspect
                 var localParameters = il.DeclareLocal(typeof(object[]));
 
                 // var currentMethod = MethodBase.GetCurrentMethod();
+
                 il.Call(MethodInvokeHelper.GetCurrentMethod);
                 il.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
+
                 il.Emit(OpCodes.Stloc, localCurrentMethod);
-
-                il.Emit(OpCodes.Ldloc, localCurrentMethod);
-                il.Call(MethodInvokeHelper.GetBaseMethod);
-                il.Emit(OpCodes.Stloc, localMethodBase);
-
-                if (method.IsGenericMethodDefinition)
+                if (method.IsGenericMethod)
                 {
-                    il.EmitMethod(method.MakeGenericMethod(methodBuilder.GetGenericArguments()));
-                    il.EmitMethod(methodBuilder.MakeGenericMethod(methodBuilder.GetGenericArguments()));
+                    var targetMethod = targetField?.FieldType.GetMethod(method.Name, methodParameterTypes);
+                    il.EmitMethod((targetMethod ?? method).MakeGenericMethod(methodBuilder.GetGenericArguments()));
                 }
+                else
+                {
+                    il.Emit(OpCodes.Ldloc, localCurrentMethod);
+                    il.Call(MethodInvokeHelper.GetBaseMethod);
+                }
+                il.Emit(OpCodes.Stloc, localMethodBase);
 
                 // var parameters = new[] {a, b, c};
                 il.Emit(OpCodes.Ldc_I4, methodParameterTypes.Length);
@@ -503,8 +506,13 @@ namespace WeihanLi.Common.Aspect
                 il.Emit(OpCodes.Ldloc, localCurrentMethod);
                 il.Emit(OpCodes.Ldloc, localMethodBase);
                 il.EmitThis();
+
                 il.EmitThis();
-                il.Emit(OpCodes.Ldfld, targetField);
+                if (null != targetField)
+                {
+                    il.Emit(OpCodes.Ldfld, targetField);
+                }
+
                 il.Emit(OpCodes.Ldloc, localParameters);
 
                 il.New(typeof(AspectInvocation).GetConstructors()[0]);
