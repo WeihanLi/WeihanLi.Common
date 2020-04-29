@@ -313,7 +313,7 @@ namespace WeihanLi.Common.Aspect
             if (null != proxyService && null != target)
             {
                 var targetField = proxyService.GetField(TargetFieldName, BindingFlags.Instance | BindingFlags.NonPublic);
-                if (targetField != null && targetField.GetType().IsInstanceOfType(target))
+                if (targetField != null && targetField.FieldType.IsInstanceOfType(target))
                 {
                     targetField.SetValue(proxyService, target);
                 }
