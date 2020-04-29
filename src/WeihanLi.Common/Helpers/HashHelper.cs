@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 using System.Text;
 using WeihanLi.Extensions;
 
@@ -56,8 +57,8 @@ namespace WeihanLi.Common.Helpers
         /// <param name="isLower">是否是小写</param>
         /// <returns>哈希算法处理之后的字符串</returns>
         public static string GetHashedString(HashType type, string str, string key, Encoding encoding, bool isLower = false)
-        {
-            return GetHashedString(type, str.GetBytes(encoding), string.IsNullOrEmpty(key) ? null : encoding.GetBytes(key), isLower);
+        {            
+            return string.IsNullOrEmpty(str) ? string.Empty : GetHashedString(type, str.GetBytes(encoding), string.IsNullOrEmpty(key) ? null : encoding.GetBytes(key), isLower);
         }
 
         /// <summary>
@@ -91,7 +92,7 @@ namespace WeihanLi.Common.Helpers
             {
                 return string.Empty;
             }
-            var hashedBytes = GetHashedBytes(type, source, key.IsNotNullOrEmpty() ? key : null);
+            var hashedBytes = GetHashedBytes(type, source, key.IsNotNullOrEmpty() ? key : null);            
             var sbText = new StringBuilder();
             if (isLower)
             {
@@ -127,6 +128,10 @@ namespace WeihanLi.Common.Helpers
         /// <returns>hash过的字节数组</returns>
         public static byte[] GetHashedBytes(HashType type, string str, Encoding encoding)
         {
+            if(null == str)
+            {
+                return null;
+            }
             var bytes = encoding.GetBytes(str);
             return GetHashedBytes(type, bytes);
         }
@@ -148,6 +153,11 @@ namespace WeihanLi.Common.Helpers
         /// <returns></returns>
         public static byte[] GetHashedBytes(HashType type, byte[] bytes, byte[] key)
         {
+            if(null == bytes)
+            {
+                return bytes;
+            }
+
             HashAlgorithm algorithm = null;
             try
             {
