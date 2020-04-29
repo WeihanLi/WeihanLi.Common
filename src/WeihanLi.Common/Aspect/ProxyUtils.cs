@@ -181,7 +181,6 @@ namespace WeihanLi.Common.Aspect
                 foreach (var property in properties)
                 {
                     var propertyBuilder = typeBuilder.DefineProperty(property.Name, property.Attributes, property.PropertyType, Type.EmptyTypes);
-                    var field = typeBuilder.DefineField($"_{property.Name}", property.PropertyType, FieldAttributes.Private);
                     if (property.CanRead)
                     {
                         var methodBuilder = MethodUtils.DefineInterfaceMethod(typeBuilder, property.GetMethod, targetField);
@@ -350,19 +349,19 @@ namespace WeihanLi.Common.Aspect
                 var localParameters = il.DeclareLocal(typeof(object[]));
 
                 // var currentMethod = MethodBase.GetCurrentMethod();
-                il.Call(typeof(MethodBase).GetMethod(nameof(MethodBase.GetCurrentMethod)));
+                il.Call(MethodInvokeHelper.GetCurrentMethod);
                 il.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
                 il.Emit(OpCodes.Stloc, localCurrentMethod);
 
+                il.Emit(OpCodes.Ldloc, localCurrentMethod);
+                il.Call(MethodInvokeHelper.GetBaseMethod);
+                il.Emit(OpCodes.Stloc, localMethodBase);
+
                 if (method.IsGenericMethodDefinition)
                 {
-                    //il.EmitMethod(method.MakeGenericMethod(methodBuilder.GetGenericArguments()));
-                    //il.EmitMethod(methodBuilder.MakeGenericMethod(methodBuilder.GetGenericArguments()));
+                    il.EmitMethod(method.MakeGenericMethod(methodBuilder.GetGenericArguments()));
+                    il.EmitMethod(methodBuilder.MakeGenericMethod(methodBuilder.GetGenericArguments()));
                 }
-
-                il.Emit(OpCodes.Ldloc, localCurrentMethod);
-                il.Call(typeof(AspectExtensions).GetMethod(nameof(AspectExtensions.GetBaseMethod)));
-                il.Emit(OpCodes.Stloc, localMethodBase);
 
                 // var parameters = new[] {a, b, c};
                 il.Emit(OpCodes.Ldc_I4, methodParameterTypes.Length);
@@ -384,7 +383,6 @@ namespace WeihanLi.Common.Aspect
                 }
                 il.Emit(OpCodes.Stloc, localParameters);
 
-                // var aspectInvocation = new AspectInvocation(method, this, parameters);
                 var localAspectInvocation = il.DeclareLocal(typeof(AspectInvocation));
                 il.Emit(OpCodes.Ldloc, localCurrentMethod);
                 il.Emit(OpCodes.Ldloc, localMethodBase);
@@ -398,21 +396,19 @@ namespace WeihanLi.Common.Aspect
 
                 il.Emit(OpCodes.Ldloc, localParameters);
 
-                il.New(typeof(AspectInvocation).GetConstructors()[0]);
+                il.New(MethodInvokeHelper.AspectInvocationConstructor);
                 il.Emit(OpCodes.Stloc, localAspectInvocation);
 
-                // AspectDelegate.InvokeAspectDelegate(invocation);
+                // AspectDelegate.Invoke(invocation);
                 il.Emit(OpCodes.Ldloc, localAspectInvocation);
-                var invokeAspectDelegateMethod =
-                    typeof(AspectDelegate).GetMethod(nameof(AspectDelegate.Invoke), new[] { typeof(IInvocation) });
-                il.Call(invokeAspectDelegateMethod);
+                il.Call(MethodInvokeHelper.InvokeAspectDelegateMethod);
                 il.Emit(OpCodes.Nop);
 
                 if (method.ReturnType != typeof(void))
                 {
                     // load return value
                     il.Emit(OpCodes.Ldloc, localAspectInvocation);
-                    il.EmitCall(OpCodes.Callvirt, InternalAspectHelper.GetInvocationReturnValueMethod, Type.EmptyTypes);
+                    il.EmitCall(OpCodes.Callvirt, MethodInvokeHelper.GetInvocationReturnValueMethod, Type.EmptyTypes);
 
                     if (method.ReturnType != typeof(object))
                     {
@@ -468,19 +464,19 @@ namespace WeihanLi.Common.Aspect
                 var localParameters = il.DeclareLocal(typeof(object[]));
 
                 // var currentMethod = MethodBase.GetCurrentMethod();
-                il.Call(typeof(MethodBase).GetMethod(nameof(MethodBase.GetCurrentMethod)));
+                il.Call(MethodInvokeHelper.GetCurrentMethod);
                 il.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
                 il.Emit(OpCodes.Stloc, localCurrentMethod);
 
+                il.Emit(OpCodes.Ldloc, localCurrentMethod);
+                il.Call(MethodInvokeHelper.GetBaseMethod);
+                il.Emit(OpCodes.Stloc, localMethodBase);
+
                 if (method.IsGenericMethodDefinition)
                 {
-                    //il.EmitMethod(method.MakeGenericMethod(methodBuilder.GetGenericArguments()));
-                    //il.EmitMethod(methodBuilder.MakeGenericMethod(methodBuilder.GetGenericArguments()));
+                    il.EmitMethod(method.MakeGenericMethod(methodBuilder.GetGenericArguments()));
+                    il.EmitMethod(methodBuilder.MakeGenericMethod(methodBuilder.GetGenericArguments()));
                 }
-
-                il.Emit(OpCodes.Ldloc, localCurrentMethod);
-                il.Call(typeof(AspectExtensions).GetMethod(nameof(AspectExtensions.GetBaseMethod)));
-                il.Emit(OpCodes.Stloc, localMethodBase);
 
                 // var parameters = new[] {a, b, c};
                 il.Emit(OpCodes.Ldc_I4, methodParameterTypes.Length);
@@ -514,18 +510,16 @@ namespace WeihanLi.Common.Aspect
                 il.New(typeof(AspectInvocation).GetConstructors()[0]);
                 il.Emit(OpCodes.Stloc, localAspectInvocation);
 
-                // AspectDelegate.InvokeAspectDelegate(invocation);
+                // AspectDelegate.Invoke(invocation);
                 il.Emit(OpCodes.Ldloc, localAspectInvocation);
-                var invokeAspectDelegateMethod =
-                    typeof(AspectDelegate).GetMethod(nameof(AspectDelegate.Invoke), new[] { typeof(IInvocation) });
-                il.Call(invokeAspectDelegateMethod);
+                il.Call(MethodInvokeHelper.InvokeAspectDelegateMethod);
 
                 if (method.ReturnType != typeof(void))
                 {
                     // load return value
                     il.Emit(OpCodes.Ldloc, localAspectInvocation);
 
-                    il.EmitCall(OpCodes.Callvirt, InternalAspectHelper.GetInvocationReturnValueMethod, Type.EmptyTypes);
+                    il.EmitCall(OpCodes.Callvirt, MethodInvokeHelper.GetInvocationReturnValueMethod, Type.EmptyTypes);
 
                     if (method.ReturnType.IsValueType)
                     {

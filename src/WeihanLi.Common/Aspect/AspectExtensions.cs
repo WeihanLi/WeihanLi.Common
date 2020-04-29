@@ -12,10 +12,6 @@ namespace WeihanLi.Common.Aspect
 
             var parameterTypes = currentMethod.GetParameters().Select(x => x.ParameterType).ToArray();
             var baseMethod = currentMethod.DeclaringType.BaseType.GetMethod(currentMethod.Name, parameterTypes);
-            if (currentMethod.IsGenericMethod && null != baseMethod)
-            {
-                baseMethod = baseMethod.MakeGenericMethod(currentMethod.GetGenericArguments());
-            }
             return baseMethod;
         }
     }
