@@ -40,15 +40,13 @@ namespace WeihanLi.Common.Aspect
         {
             if (null == type)
                 return string.Empty;
+
             if (type.IsGenericType)
             {
-                var genericArgs = type.GetGenericArguments();
-                var genericArgsName = genericArgs.Select(t => t.GetFriendlyTypeName())
-                    .StringJoin("_");
-                return $"{type.FullName}__{genericArgsName}";
+                return type.GetGenericTypeDefinition().FullName;
             }
 
-            return type.FullName;
+            return type.IsBasicType() ? type.Name : type.FullName;
         }
 
         public static Type CreateInterfaceProxy(Type interfaceType)
@@ -61,19 +59,26 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new InvalidOperationException($"{interfaceType.FullName} is not an interface");
             }
+
             var proxyTypeName = _proxyTypeNameResolver(interfaceType, null);
+            var serviceType = interfaceType;
+            if (interfaceType.IsGenericType)
+            {
+                serviceType = interfaceType.GetGenericTypeDefinition();
+            }
+
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
-                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Class | TypeAttributes.Sealed, typeof(object), new[] { interfaceType });
+                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Class | TypeAttributes.Sealed, typeof(object), new[] { serviceType });
 
-                GenericParameterUtils.DefineGenericParameter(interfaceType, typeBuilder);
+                GenericParameterUtils.DefineGenericParameter(serviceType, typeBuilder);
 
                 // define default constructor
                 typeBuilder.DefineDefaultConstructor(MethodAttributes.Public);
 
                 // properties
                 var propertyMethods = new HashSet<string>();
-                var properties = interfaceType.GetProperties(BindingFlags.Instance | BindingFlags.Public);
+                var properties = serviceType.GetProperties(BindingFlags.Instance | BindingFlags.Public);
                 foreach (var property in properties)
                 {
                     var propertyBuilder = typeBuilder.DefineProperty(property.Name, property.Attributes, property.PropertyType, Type.EmptyTypes);
@@ -108,7 +113,7 @@ namespace WeihanLi.Common.Aspect
                 }
 
                 // methods
-                var methods = interfaceType.GetMethods(BindingFlags.Instance | BindingFlags.Public);
+                var methods = serviceType.GetMethods(BindingFlags.Instance | BindingFlags.Public);
                 foreach (var method in methods.Where(x => !propertyMethods.Contains(x.Name)))
                 {
                     MethodUtils.DefineInterfaceMethod(typeBuilder, method, null);
@@ -116,6 +121,11 @@ namespace WeihanLi.Common.Aspect
 
                 return typeBuilder.CreateType();
             });
+
+            if (interfaceType.IsGenericType)
+            {
+                return type.MakeGenericType(interfaceType.GetGenericArguments());
+            }
             return type;
         }
 
@@ -136,13 +146,17 @@ namespace WeihanLi.Common.Aspect
             if (implementType.IsSealed)
                 throw new InvalidOperationException("the implementType is sealed");
 
-            //
             var proxyTypeName = _proxyTypeNameResolver(interfaceType, implementType);
+            var serviceType = interfaceType;
+            if (interfaceType.IsGenericType)
+            {
+                serviceType = interfaceType.GetGenericTypeDefinition();
+            }
 
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
-                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, implementType.Attributes, implementType, new[] { interfaceType });
-                GenericParameterUtils.DefineGenericParameter(interfaceType, typeBuilder);
+                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, implementType.Attributes, implementType, new[] { serviceType });
+                GenericParameterUtils.DefineGenericParameter(serviceType, typeBuilder);
 
                 var targetField = typeBuilder.DefineField(TargetFieldName, implementType, FieldAttributes.Private);
                 // constructors
@@ -176,7 +190,7 @@ namespace WeihanLi.Common.Aspect
 
                 // properties
                 var propertyMethods = new HashSet<string>();
-                var properties = interfaceType.GetProperties(BindingFlags.Instance | BindingFlags.Public);
+                var properties = serviceType.GetProperties(BindingFlags.Instance | BindingFlags.Public);
                 foreach (var property in properties)
                 {
                     var propertyBuilder = typeBuilder.DefineProperty(property.Name, property.Attributes, property.PropertyType, Type.EmptyTypes);
@@ -201,7 +215,7 @@ namespace WeihanLi.Common.Aspect
                 }
 
                 //
-                var methods = interfaceType.GetMethods(BindingFlags.Instance | BindingFlags.Public);
+                var methods = serviceType.GetMethods(BindingFlags.Instance | BindingFlags.Public);
                 foreach (var method in methods)
                 {
                     if (propertyMethods.Contains(method.Name))
@@ -213,6 +227,10 @@ namespace WeihanLi.Common.Aspect
 
                 return typeBuilder.CreateType();
             });
+            if (interfaceType.IsGenericType)
+            {
+                return type.MakeGenericType(interfaceType.GetGenericArguments());
+            }
             return type;
         }
 
