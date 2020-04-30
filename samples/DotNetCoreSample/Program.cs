@@ -86,10 +86,6 @@ namespace DotNetCoreSample
             var animal2 = DefaultProxyFactory.Instance.CreateInterfaceProxy<IAnimal<string>>();
             animal2.Eat();
 
-            using var proxy = DefaultProxyFactory.Instance.CreateClassProxy<TestDbContext>();
-            proxy.TestEntities.Add(new TestEntity() { Token = "12121" });
-            Console.WriteLine(proxy.ChangeTracker.HasChanges());
-
             DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
             {
                 dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
