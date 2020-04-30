@@ -280,6 +280,19 @@ namespace DotNetCoreSample
         void Eat();
     }
 
+    public class Animal<T>
+    {
+        public virtual void Eat()
+        {
+            Console.WriteLine("Eating now");
+        }
+
+        public virtual void Drink(T t)
+        {
+            Console.WriteLine($"ddd {t}");
+        }
+    }
+
     public class LogInterceptor : AbstractInterceptor
     {
         public override async Task Invoke(IInvocation invocation, Func<Task> next)

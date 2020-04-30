@@ -74,17 +74,22 @@ namespace DotNetCoreSample
 
             DependencyResolver.SetDependencyResolver(services);
 
-            var fly = DependencyResolver.ResolveService<IFly>();
-            Console.WriteLine(fly.Name);
-            fly.Fly();
-            fly.OpenFly<int>();
-            fly.OpenFly<string>();
+            //var fly = DependencyResolver.ResolveService<IFly>();
+            //Console.WriteLine(fly.Name);
+            //fly.Fly();
+            //fly.OpenFly<int>();
+            //fly.OpenFly<string>();
 
             var animal1 = DefaultProxyFactory.Instance.CreateInterfaceProxy<IAnimal<int>>();
             animal1.Eat();
 
             var animal2 = DefaultProxyFactory.Instance.CreateInterfaceProxy<IAnimal<string>>();
             animal2.Eat();
+
+            var animalProxyType = DefaultProxyTypeFactory.Instance.CreateProxyType(typeof(Animal<>));
+            var animal = DefaultProxyFactory.Instance.CreateProxy<Animal<string>>();
+            animal.Eat();
+            animal.Drink("xxx");
 
             DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
             {
