@@ -82,18 +82,11 @@ namespace WeihanLi.Common.Aspect
             return (TService)proxyFactory.CreateProxy(typeof(TService), typeof(TImplement));
         }
 
-        public static TService CreateProxy<TService, TImplement>(this IProxyFactory proxyFactory, params object[] parameters)
-            where TImplement : TService
-            where TService : class
-        {
-            return (TService)proxyFactory.CreateProxy(typeof(TService), typeof(TImplement), parameters);
-        }
-
         public static TService CreateProxyWithTarget<TService, TImplement>(this IProxyFactory proxyFactory, TImplement target)
             where TImplement : TService
             where TService : class
         {
-            return (TService)proxyFactory.CreateProxy(typeof(TService), typeof(TImplement), target);
+            return (TService)proxyFactory.CreateProxyWithTarget(typeof(TService), target);
         }
     }
 }
