@@ -54,7 +54,6 @@ namespace DotNetCoreSample
             services.AddFluentAspects(options =>
             {
                 options.NoInterceptPropertyGetter<IFly>(f => f.Name);
-                options.NoInterceptMethod<object>(o => o.ToString());
 
                 options.InterceptAll()
                     .With<LogInterceptor>()
