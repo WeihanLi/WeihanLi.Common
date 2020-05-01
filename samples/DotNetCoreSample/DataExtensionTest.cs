@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Common;
 using System.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
@@ -127,7 +127,7 @@ namespace DotNetCoreSample
     }
 
     [Table("tabTestEntity")]
-    internal class TestEntity
+    public class TestEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("PKID")]

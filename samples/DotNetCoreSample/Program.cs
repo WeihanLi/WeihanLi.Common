@@ -1,13 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using System;
 using WeihanLi.Common;
+using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
-using WeihanLi.Common.Event;
-using WeihanLi.Common.Helpers;
-using WeihanLi.Common.Logging;
-using WeihanLi.Extensions;
 
 // ReSharper disable LocalizableElement
 
@@ -35,16 +32,99 @@ namespace DotNetCoreSample
 
             services.AddSingleton(configuration);
 
-            services.AddSingleton<IEventStore, EventStoreInMemory>();
-            services.AddSingleton<IEventBus, EventBus>();
+            //services.AddSingleton<IEventStore, EventStoreInMemory>();
+            //services.AddSingleton<IEventBus, EventBus>();
 
-            services.AddSingleton(DelegateEventHandler.FromAction<CounterEvent>(@event =>
-                LogHelper.GetLogger(typeof(DelegateEventHandler<CounterEvent>))
-                    .Info($"Event Info: {@event.ToJson()}")
-                )
-            );
+            //services.AddSingleton(DelegateEventHandler.FromAction<CounterEvent>(@event =>
+            //    LogHelper.GetLogger(typeof(DelegateEventHandler<CounterEvent>))
+            //        .Info($"Event Info: {@event.ToJson()}")
+            //    )
+            //);
+
+            services.AddSingletonProxy<IFly, MonkeyKing>();
+
+            Action<DbContextOptionsBuilder> dbContextOptionsAction = options =>
+            {
+                options.UseInMemoryDatabase("Test");
+            };
+            services.AddDbContext<TestDbContext>(dbContextOptionsAction);
+
+            services.AddScopedProxy<TestDbContext>();
+
+            services.AddFluentAspects(options =>
+            {
+                options.NoInterceptPropertyGetter<IFly>(f => f.Name);
+
+                options.InterceptAll()
+                    .With<LogInterceptor>()
+                    ;
+
+                options.InterceptMethod<DbContext>(x => x.Name == nameof(DbContext.SaveChanges)
+                        || x.Name == nameof(DbContext.SaveChangesAsync))
+                    .With<DbContextSaveInterceptor>()
+                    ;
+
+                options.InterceptMethod<IFly>(f => f.Fly())
+                    .With<LogInterceptor>();
+
+                options.InterceptType<IFly>()
+                    .With<LogInterceptor>();
+            });
 
             DependencyResolver.SetDependencyResolver(services);
+
+            //var fly = DependencyResolver.ResolveService<IFly>();
+            //Console.WriteLine(fly.Name);
+            //fly.Fly();
+            //fly.OpenFly<int>();
+            //fly.OpenFly<string>();
+
+            var animal1 = DefaultProxyFactory.Instance.CreateInterfaceProxy<IAnimal<int>>();
+            animal1.Eat();
+
+            var animal2 = DefaultProxyFactory.Instance.CreateInterfaceProxy<IAnimal<string>>();
+            animal2.Eat();
+
+            var animalProxyType = DefaultProxyTypeFactory.Instance.CreateProxyType(typeof(Animal<>));
+            var animal = DefaultProxyFactory.Instance.CreateProxy<Animal<string>>();
+            animal.Eat();
+            animal.Drink("xxx");
+
+            DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
+            {
+                dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
+                var hasChanges = dbContext.ChangeTracker.HasChanges();
+                Console.WriteLine(hasChanges);
+                dbContext.SaveChanges();
+            });
+
+            //DependencyResolver.TryInvokeServiceAsync<TestDbContext>(dbContext =>
+            //{
+            //    dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
+
+            //    if (dbContext.ChangeTracker is null)
+            //    {
+            //        Console.WriteLine($"{nameof(dbContext.ChangeTracker)} is null ...");
+            //    }
+            //    else
+            //    {
+            //        foreach (var entry in dbContext.ChangeTracker.Entries<TestEntity>())
+            //        {
+            //            Console.WriteLine(entry.Entity.Token);
+            //        }
+            //    }
+
+            //    if (dbContext.Database is null)
+            //    {
+            //        Console.WriteLine($"{nameof(dbContext.Database)} is null ...");
+            //    }
+            //    if (dbContext.Database is null)
+            //    {
+            //        Console.WriteLine($"{nameof(dbContext.Database)} is null ...");
+            //    }
+
+            //    return dbContext.SaveChangesAsync();
+            //});
 
             //DependencyResolver.ResolveRequiredService<IFly>()
             //    .Fly();

@@ -1,5 +1,4 @@
 ﻿using System;
-using WeihanLi.Common.Helpers;
 
 // ReSharper disable LocalizableElement
 
@@ -14,8 +13,11 @@ namespace DotNetFxSample
             // 数据库扩展
             // DataExtensionTest.MainTest();
 
-            InvokeHelper.TryInvoke(LoggerTest.Test);
-            var emptyArray = ArrayHelper.Empty<int>();
+            //InvokeHelper.TryInvoke(LoggerTest.Test);
+            //var emptyArray = ArrayHelper.Empty<int>();
+
+            AspectTest.MainTest();
+
             Console.ReadLine();
         }
     }

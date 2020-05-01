@@ -14,19 +14,6 @@ namespace WeihanLi.Common.Helpers
         IPipelineBuilder<TContext> New();
     }
 
-    public class PipelineBuilder
-    {
-        public static IPipelineBuilder<TContext> Create<TContext>(Action<TContext> completeAction)
-        {
-            return new PipelineBuilder<TContext>(completeAction);
-        }
-
-        public static IAsyncPipelineBuilder<TContext> CreateAsync<TContext>(Func<TContext, Task> completeFunc)
-        {
-            return new AsyncPipelineBuilder<TContext>(completeFunc);
-        }
-    }
-
     internal class PipelineBuilder<TContext> : IPipelineBuilder<TContext>
     {
         private readonly Action<TContext> _completeFunc;

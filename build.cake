@@ -12,7 +12,7 @@ var isWindowsAgent = EnvironmentVariable("Agent_OS") == "Windows_NT" || branchNa
 var solutionPath = "./WeihanLi.Common.sln";
 var srcProjects  = GetFiles("./src/**/*.csproj");
 var testProjects = GetFiles("./test/**/*.csproj");
-var packProjects = branchName == "local" ? GetFiles("./src/**/*.csproj") : GetFiles("./src/WeihanLi.Common/*.csproj");
+var packProjects = GetFiles("./src/**/*.csproj");
 
 var artifacts = "./artifacts/packages";
 

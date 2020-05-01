@@ -14,6 +14,39 @@ namespace WeihanLi.Extensions
 {
     public static class ReflectionExtension
     {
+        public static bool IsVisibleAndVirtual(this PropertyInfo property)
+        {
+            if (property == null)
+            {
+                throw new ArgumentNullException(nameof(property));
+            }
+            return (property.CanRead && property.GetMethod.IsVisibleAndVirtual()) ||
+                   (property.CanWrite && property.GetMethod.IsVisibleAndVirtual());
+        }
+
+        public static bool IsVisibleAndVirtual(this MethodInfo method)
+        {
+            if (method == null)
+            {
+                throw new ArgumentNullException(nameof(method));
+            }
+            if (method.IsStatic || method.IsFinal)
+            {
+                return false;
+            }
+            return method.IsVirtual &&
+                   (method.IsPublic || method.IsFamily || method.IsFamilyOrAssembly);
+        }
+
+        public static bool IsVisible(this MethodBase method)
+        {
+            if (method == null)
+            {
+                throw new ArgumentNullException(nameof(method));
+            }
+            return method.IsPublic || method.IsFamily || method.IsFamilyOrAssembly;
+        }
+
         /// <summary>
         /// An object extension method that gets DisplayName if DisplayAttribute does not exist,return the MemberName
         /// </summary>

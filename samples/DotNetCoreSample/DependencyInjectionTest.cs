@@ -1,8 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using WeihanLi.Common;
+using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
@@ -263,20 +266,63 @@ namespace DotNetCoreSample
         }
     }
 
-    internal interface IFly
+    public interface IFly
     {
         string Name { get; }
 
         void Fly();
+
+        void OpenFly<T>();
     }
 
-    internal class MonkeyKing : IFly, IDisposable
+    public interface IAnimal<T>
+    {
+        void Eat();
+    }
+
+    public class Animal<T>
+    {
+        public virtual void Eat()
+        {
+            Console.WriteLine("Eating now");
+        }
+
+        public virtual void Drink(T t)
+        {
+            Console.WriteLine($"ddd {t}");
+        }
+    }
+
+    public class LogInterceptor : AbstractInterceptor
+    {
+        public override async Task Invoke(IInvocation invocation, Func<Task> next)
+        {
+            var watch = Stopwatch.StartNew();
+            try
+            {
+                Console.WriteLine($"[{invocation.ProxyMethod.Name}] invoke begin");
+                await next();
+            }
+            finally
+            {
+                watch.Stop();
+                Console.WriteLine($"[{invocation.ProxyMethod.Name}] invoke complete, elasped:{watch.ElapsedMilliseconds} ms");
+            }
+        }
+    }
+
+    public class MonkeyKing : IFly, IDisposable
     {
         public string Name => "MonkeyKing";
 
         public void Fly()
         {
             Console.WriteLine($"{Name} is flying");
+        }
+
+        public void OpenFly<T>()
+        {
+            Console.WriteLine($"{Name} is OpenFlying,OpenType: {typeof(T).FullName}");
         }
 
         public void Dispose()
@@ -292,6 +338,11 @@ namespace DotNetCoreSample
         public void Fly()
         {
             Console.WriteLine("Superman is flying");
+        }
+
+        public void OpenFly<T>()
+        {
+            Console.WriteLine($"{Name} is OpenFlying,OpenType: {typeof(T).FullName}");
         }
     }
 
