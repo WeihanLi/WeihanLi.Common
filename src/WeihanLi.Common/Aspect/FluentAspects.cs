@@ -4,7 +4,7 @@ namespace WeihanLi.Common.Aspect
 {
     public class FluentAspects
     {
-        internal static readonly FluentAspectOptions AspectOptions;
+        public static readonly FluentAspectOptions AspectOptions;
 
         static FluentAspects()
         {
