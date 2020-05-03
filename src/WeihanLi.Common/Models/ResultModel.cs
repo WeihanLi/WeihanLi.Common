@@ -21,7 +21,6 @@ namespace WeihanLi.Common.Models
         {
             return new ResultModel<T>()
             {
-                ErrorMsg = string.Empty,
                 Status = ResultStatus.Success,
                 Result = result
             };
@@ -82,6 +81,9 @@ namespace WeihanLi.Common.Models
         [Description("Created")]
         Created = 201,
 
+        [Description("Accepted")]
+        Accepted = 202,
+
         [Description("BadRequest, Request Parameter Error")]
         RequestError = 400,
 
@@ -102,6 +104,9 @@ namespace WeihanLi.Common.Models
 
         [Description("ProcessFail,Server Internal Error")]
         ProcessFail = 500,
+
+        [Description("Not Implemented")]
+        NotImplemented = 501,
 
         [Description("ServiceUnavailable")]
         ServiceUnavailable = 503,
