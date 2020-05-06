@@ -273,6 +273,8 @@ namespace DotNetCoreSample
         void Fly();
 
         void OpenFly<T>();
+
+        string FlyAway();
     }
 
     public interface IAnimal<T>
@@ -325,6 +327,8 @@ namespace DotNetCoreSample
             Console.WriteLine($"{Name} is OpenFlying,OpenType: {typeof(T).FullName}");
         }
 
+        public string FlyAway() => "十万八千里";
+
         public void Dispose()
         {
             Console.WriteLine($"{Name}  disposed...");
@@ -344,6 +348,8 @@ namespace DotNetCoreSample
         {
             Console.WriteLine($"{Name} is OpenFlying,OpenType: {typeof(T).FullName}");
         }
+
+        public string FlyAway() => "xxxxx";
     }
 
     internal class TestServiceContainerModule : ServiceContainerModule

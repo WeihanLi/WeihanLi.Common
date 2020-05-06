@@ -1,9 +1,19 @@
 ﻿using System;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect.Castle
 {
     internal class CastleProxyFactory : IProxyFactory
     {
+        private readonly IServiceProvider _serviceProvider;
+
+        public static readonly IProxyFactory Instance = new CastleProxyFactory(DependencyResolver.Current);
+
+        public CastleProxyFactory(IServiceProvider serviceProvider)
+        {
+            _serviceProvider = serviceProvider;
+        }
+
         public object CreateProxy(Type serviceType)
         {
             if (null == serviceType)
@@ -26,13 +36,8 @@ namespace WeihanLi.Common.Aspect.Castle
             if (null == implementType)
                 throw new ArgumentNullException(nameof(implementType));
 
-            if (serviceType.IsInterface)
-            {
-                return CastleHelper.ProxyGenerator.CreateClassProxy(serviceType,
-                    new FluentAspectInterceptor());
-            }
-
-            return CastleHelper.ProxyGenerator.CreateClassProxy(serviceType, new FluentAspectInterceptor());
+            var target = _serviceProvider.CreateInstance(implementType);
+            return CreateProxyWithTarget(serviceType, target);
         }
 
         public object CreateProxyWithTarget(Type serviceType, object implement)

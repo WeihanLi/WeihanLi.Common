@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
+using WeihanLi.Common.Aspect.Castle;
 using WeihanLi.Common.DependencyInjection;
 
 // ReSharper disable LocalizableElement
@@ -52,41 +53,43 @@ namespace DotNetCoreSample
             services.AddScopedProxy<TestDbContext>();
 
             services.AddFluentAspects(options =>
-            {
-                options.NoInterceptPropertyGetter<IFly>(f => f.Name);
+                {
+                    options.NoInterceptPropertyGetter<IFly>(f => f.Name);
 
-                options.InterceptAll()
-                    .With<LogInterceptor>()
-                    ;
+                    options.InterceptAll()
+                        .With<LogInterceptor>()
+                        ;
 
-                options.InterceptMethod<DbContext>(x => x.Name == nameof(DbContext.SaveChanges)
-                        || x.Name == nameof(DbContext.SaveChangesAsync))
-                    .With<DbContextSaveInterceptor>()
-                    ;
+                    options.InterceptMethod<DbContext>(x => x.Name == nameof(DbContext.SaveChanges)
+                                                            || x.Name == nameof(DbContext.SaveChangesAsync))
+                        .With<DbContextSaveInterceptor>()
+                        ;
 
-                options.InterceptMethod<IFly>(f => f.Fly())
-                    .With<LogInterceptor>();
+                    options.InterceptMethod<IFly>(f => f.Fly())
+                        .With<LogInterceptor>();
 
-                options.InterceptType<IFly>()
-                    .With<LogInterceptor>();
-            });
+                    options.InterceptType<IFly>()
+                        .With<LogInterceptor>();
+                })
+                .UseCastleProxy()
+                ;
 
             DependencyResolver.SetDependencyResolver(services);
 
-            //var fly = DependencyResolver.ResolveService<IFly>();
-            //Console.WriteLine(fly.Name);
-            //fly.Fly();
-            //fly.OpenFly<int>();
-            //fly.OpenFly<string>();
+            var fly = DependencyResolver.ResolveService<IFly>();
+            Console.WriteLine(fly.Name);
+            fly.Fly();
+            fly.OpenFly<int>();
+            fly.OpenFly<string>();
+            fly.FlyAway();
 
-            var animal1 = DefaultProxyFactory.Instance.CreateInterfaceProxy<IAnimal<int>>();
+            var animal1 = FluentAspects.AspectOptions.ProxyFactory.CreateInterfaceProxy<IAnimal<int>>();
             animal1.Eat();
 
-            var animal2 = DefaultProxyFactory.Instance.CreateInterfaceProxy<IAnimal<string>>();
+            var animal2 = FluentAspects.AspectOptions.ProxyFactory.CreateInterfaceProxy<IAnimal<string>>();
             animal2.Eat();
 
-            var animalProxyType = DefaultProxyTypeFactory.Instance.CreateProxyType(typeof(Animal<>));
-            var animal = DefaultProxyFactory.Instance.CreateProxy<Animal<string>>();
+            var animal = FluentAspects.AspectOptions.ProxyFactory.CreateProxy<Animal<string>>();
             animal.Eat();
             animal.Drink("xxx");
 

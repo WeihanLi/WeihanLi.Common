@@ -10,7 +10,17 @@ namespace WeihanLi.Common.Aspect
     {
         public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors)
         {
-            var action = GetAspectDelegate(invocation, interceptors);
+            InvokeWithInterceptors(invocation, interceptors, null);
+        }
+
+        public static void InvokeWithCompleteFunc(IInvocation invocation, Func<IInvocation, Task> completeFunc)
+        {
+            InvokeWithInterceptors(invocation, null, completeFunc);
+        }
+
+        public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
+        {
+            var action = GetAspectDelegate(invocation, interceptors, completeFunc);
             var task = action.Invoke(invocation);
             if (!task.IsCompleted)
             {
@@ -34,21 +44,27 @@ namespace WeihanLi.Common.Aspect
             }
         }
 
-        private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors)
+        private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation,
+            IReadOnlyCollection<IInterceptor> interceptors)
+            => GetAspectDelegate(invocation, interceptors, null);
+
+        private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
         {
             // ReSharper disable once ConvertToLocalFunction
-            Func<IInvocation, Task> completeFunc = x =>
+            if (null == completeFunc)
             {
-                invocation.ReturnValue = x.Method?.Invoke(x.Target, x.Arguments);
-                if (invocation.ProxyMethod.ReturnType == typeof(void))
+                completeFunc = x =>
                 {
-                    return TaskHelper.CompletedTask;
-                }
+                    invocation.ReturnValue = x.Method?.Invoke(x.Target, x.Arguments);
+                    if (invocation.ProxyMethod.ReturnType == typeof(void))
+                    {
+                        return TaskHelper.CompletedTask;
+                    }
 
-                if (invocation.ReturnValue is Task task)
-                {
-                    return task;
-                }
+                    if (invocation.ReturnValue is Task task)
+                    {
+                        return task;
+                    }
 #if NETSTANDARD2_1
                 if (invocation.ReturnValue is ValueTask valTask)
                 {
@@ -56,8 +72,9 @@ namespace WeihanLi.Common.Aspect
                 }
 #endif
 
-                return TaskHelper.CompletedTask;
-            };
+                    return TaskHelper.CompletedTask;
+                };
+            }
 
             // ReSharper disable once ConvertIfStatementToNullCoalescingAssignment
             if (null == interceptors)
@@ -83,7 +100,7 @@ namespace WeihanLi.Common.Aspect
 
         public static void Invoke(IInvocation context)
         {
-            InvokeWithInterceptors(context, null);
+            InvokeWithInterceptors(context, null, null);
         }
     }
 }

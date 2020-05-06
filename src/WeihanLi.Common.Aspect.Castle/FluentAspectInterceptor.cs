@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace WeihanLi.Common.Aspect.Castle
 {
@@ -8,18 +10,39 @@ namespace WeihanLi.Common.Aspect.Castle
         {
             var aspectInvocation = new AspectInvocation(
                 invocation.GetConcreteMethod(),
-                invocation.GetConcreteMethodInvocationTarget(),
+                null,
                 invocation.Proxy,
                 invocation.InvocationTarget,
                 invocation.Arguments
-                );
+            );
 
-            if (
-                FluentAspects.AspectOptions.NoInterceptionConfigurations.Any(x => x.Invoke(aspectInvocation)))
+            var hasTarget = null != invocation.InvocationTarget
+                            && null != invocation.MethodInvocationTarget
+                            && null != invocation.TargetType;
+
+            if (FluentAspects.AspectOptions.NoInterceptionConfigurations.
+                Any(x => x.Invoke(aspectInvocation)))
             {
+                if (hasTarget)
+                {
+                    invocation.Proceed();
+                }
                 return;
             }
-            AspectDelegate.Invoke(aspectInvocation);
+
+            Func<IInvocation, Task> completeFunc = null;
+
+            if (hasTarget)
+            {
+                completeFunc = c =>
+                {
+                    invocation.Proceed();
+                    c.ReturnValue = invocation.ReturnValue;
+                    return Task.CompletedTask;
+                };
+            }
+
+            AspectDelegate.InvokeWithCompleteFunc(aspectInvocation, completeFunc);
         }
     }
 }
