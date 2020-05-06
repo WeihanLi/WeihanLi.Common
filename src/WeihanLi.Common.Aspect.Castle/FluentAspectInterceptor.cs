@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace WeihanLi.Common.Aspect.Castle
 {
-    internal class FluentAspectInterceptor : global::Castle.DynamicProxy.IInterceptor
+    internal sealed class FluentAspectInterceptor : global::Castle.DynamicProxy.IInterceptor
     {
         public void Intercept(global::Castle.DynamicProxy.IInvocation invocation)
         {
