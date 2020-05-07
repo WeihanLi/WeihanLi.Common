@@ -69,24 +69,5 @@ namespace WeihanLi.Common.Aspect
             ProxyUtils.SetProxyTarget(proxy, implement);
             return proxy;
         }
-
-        public object CreateProxy([NotNull] Type serviceType, [NotNull] Type implementType, params object[] parameters)
-        {
-            if (serviceType == null)
-            {
-                throw new ArgumentNullException(nameof(serviceType));
-            }
-
-            if (implementType == null)
-            {
-                throw new ArgumentNullException(nameof(implementType));
-            }
-
-            var proxyType = _proxyTypeFactory.CreateProxyType(serviceType, implementType);
-            var proxy = _serviceProvider.CreateInstance(proxyType);
-            var target = _serviceProvider.CreateInstance(implementType, parameters);
-            ProxyUtils.SetProxyTarget(proxy, target);
-            return proxy;
-        }
     }
 }

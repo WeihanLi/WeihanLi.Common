@@ -23,7 +23,7 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new InvalidOperationException($"the Type {type.FullName} is not interface");
             }
-            return proxyGenerator.CreateProxyWithTarget<TInterface, TImplement>(implement);
+            return proxyGenerator.CreateProxyWithTarget<TInterface>(implement);
         }
 
         public static TInterface CreateInterfaceProxy<TInterface, TImplement>(this IProxyFactory proxyGenerator) where TImplement : TInterface
@@ -67,7 +67,7 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new InvalidOperationException($"the Type {type.FullName} is not class");
             }
-            return proxyGenerator.CreateProxyWithTarget<TClass, TImplement>(implement);
+            return proxyGenerator.CreateProxyWithTarget<TClass>(implement);
         }
 
         public static TService CreateProxy<TService>(this IProxyFactory proxyFactory) where TService : class
@@ -82,18 +82,17 @@ namespace WeihanLi.Common.Aspect
             return (TService)proxyFactory.CreateProxy(typeof(TService), typeof(TImplement));
         }
 
-        public static TService CreateProxy<TService, TImplement>(this IProxyFactory proxyFactory, params object[] parameters)
-            where TImplement : TService
-            where TService : class
-        {
-            return (TService)proxyFactory.CreateProxy(typeof(TService), typeof(TImplement), parameters);
-        }
-
         public static TService CreateProxyWithTarget<TService, TImplement>(this IProxyFactory proxyFactory, TImplement target)
             where TImplement : TService
             where TService : class
         {
-            return (TService)proxyFactory.CreateProxy(typeof(TService), typeof(TImplement), target);
+            return (TService)proxyFactory.CreateProxyWithTarget(typeof(TService), target);
+        }
+
+        public static TService CreateProxyWithTarget<TService>(this IProxyFactory proxyFactory, object target)
+            where TService : class
+        {
+            return (TService)proxyFactory.CreateProxyWithTarget(typeof(TService), target);
         }
     }
 }

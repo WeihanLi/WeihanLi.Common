@@ -22,6 +22,15 @@ namespace WeihanLi.Common.Aspect
 
         private static readonly Func<Type, Type, string> _proxyTypeNameResolver;
 
+        private static readonly HashSet<string> _ignoredMethods = new HashSet<string>()
+        {
+            "ToString",
+            "GetHashCode",
+            "Equals",
+            "GetType",
+            "Finalize",
+        };
+
         static ProxyUtils()
         {
             var asmBuilder = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName(ProxyAssemblyName), AssemblyBuilderAccess.Run);
@@ -40,15 +49,22 @@ namespace WeihanLi.Common.Aspect
         {
             if (null == type)
                 return string.Empty;
-            if (type.IsGenericType)
+
+            if (type.IsGenericType && !type.IsGenericTypeDefinition)
             {
-                var genericArgs = type.GetGenericArguments();
-                var genericArgsName = genericArgs.Select(t => t.GetFriendlyTypeName())
-                    .StringJoin("_");
-                return $"{type.FullName}__{genericArgsName}";
+                var typeName = type.FullName ?? type.Name;
+                var genericArgumentTypes = type.GetGenericArguments();
+                foreach (var genericArgumentType in genericArgumentTypes)
+                {
+                    if (genericArgumentType.IsBasicType() && !string.IsNullOrEmpty(genericArgumentType.FullName))
+                    {
+                        typeName = typeName.Replace(genericArgumentType.FullName, genericArgumentType.Name);
+                    }
+                }
+                return typeName;
             }
 
-            return type.FullName;
+            return type.IsBasicType() ? type.Name : type.FullName;
         }
 
         public static Type CreateInterfaceProxy(Type interfaceType)
@@ -61,7 +77,9 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new InvalidOperationException($"{interfaceType.FullName} is not an interface");
             }
+
             var proxyTypeName = _proxyTypeNameResolver(interfaceType, null);
+
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
                 var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Class | TypeAttributes.Sealed, typeof(object), new[] { interfaceType });
@@ -109,13 +127,14 @@ namespace WeihanLi.Common.Aspect
 
                 // methods
                 var methods = interfaceType.GetMethods(BindingFlags.Instance | BindingFlags.Public);
-                foreach (var method in methods.Where(x => !propertyMethods.Contains(x.Name)))
+                foreach (var method in methods.Where(x => !propertyMethods.Contains(x.Name) && !_ignoredMethods.Contains(x.Name)))
                 {
                     MethodUtils.DefineInterfaceMethod(typeBuilder, method, null);
                 }
 
                 return typeBuilder.CreateType();
             });
+
             return type;
         }
 
@@ -136,9 +155,7 @@ namespace WeihanLi.Common.Aspect
             if (implementType.IsSealed)
                 throw new InvalidOperationException("the implementType is sealed");
 
-            //
             var proxyTypeName = _proxyTypeNameResolver(interfaceType, implementType);
-
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
                 var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, implementType.Attributes, implementType, new[] { interfaceType });
@@ -204,7 +221,7 @@ namespace WeihanLi.Common.Aspect
                 var methods = interfaceType.GetMethods(BindingFlags.Instance | BindingFlags.Public);
                 foreach (var method in methods)
                 {
-                    if (propertyMethods.Contains(method.Name))
+                    if (propertyMethods.Contains(method.Name) || _ignoredMethods.Contains(method.Name))
                     {
                         continue;
                     }
@@ -216,23 +233,23 @@ namespace WeihanLi.Common.Aspect
             return type;
         }
 
-        public static Type CreateClassProxy(Type classType, Type implementType)
+        public static Type CreateClassProxy(Type serviceType, Type implementType)
         {
-            if (classType.IsSealed)
+            if (serviceType.IsSealed)
             {
                 throw new InvalidOperationException("the class type is sealed");
             }
             //
-            var proxyTypeName = _proxyTypeNameResolver(classType, implementType);
+            var proxyTypeName = _proxyTypeNameResolver(serviceType, implementType);
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
                 var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Sealed | TypeAttributes.Class, implementType, Type.EmptyTypes);
-                GenericParameterUtils.DefineGenericParameter(classType, typeBuilder);
+                GenericParameterUtils.DefineGenericParameter(serviceType, typeBuilder);
 
-                var targetField = typeBuilder.DefineField(TargetFieldName, implementType, FieldAttributes.Private);
+                var targetField = typeBuilder.DefineField(TargetFieldName, serviceType, FieldAttributes.Private);
 
                 // constructors
-                foreach (var constructor in classType.GetConstructors())
+                foreach (var constructor in serviceType.GetConstructors())
                 {
                     var constructorTypes = constructor.GetParameters().Select(o => o.ParameterType).ToArray();
                     var constructorBuilder = typeBuilder.DefineConstructor(
@@ -262,7 +279,7 @@ namespace WeihanLi.Common.Aspect
 
                 // properties
                 var propertyMethods = new HashSet<string>();
-                foreach (var property in classType.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
+                foreach (var property in serviceType.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
                 {
                     if (property.IsVisibleAndVirtual())
                     {
@@ -292,8 +309,8 @@ namespace WeihanLi.Common.Aspect
                 }
 
                 // methods
-                var methods = classType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
-                        .Where(m => m.IsVirtual && !m.IsFinal && !m.IsFinal && m.IsVisible() && !propertyMethods.Contains(m.Name))
+                var methods = serviceType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+                        .Where(m => m.IsVirtual && !m.IsFinal && m.IsVisible() && !propertyMethods.Contains(m.Name) && !_ignoredMethods.Contains(m.Name))
                         .ToArray();
                 foreach (var method in methods)
                 {
@@ -302,6 +319,7 @@ namespace WeihanLi.Common.Aspect
 
                 return typeBuilder.CreateType();
             });
+
             return type;
         }
 
@@ -351,16 +369,18 @@ namespace WeihanLi.Common.Aspect
                 il.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
                 il.Emit(OpCodes.Stloc, localCurrentMethod);
 
-                if (method.IsGenericMethod)
+                var targetMethod = targetField?.FieldType.GetMethod(method.Name, methodParameterTypes);
+                if (null != targetMethod)
                 {
-                    var targetMethod = targetField?.FieldType.GetMethod(method.Name, methodParameterTypes);
-                    il.EmitMethod((targetMethod ?? method).MakeGenericMethod(methodBuilder.GetGenericArguments()));
+                    il.EmitMethod(method.IsGenericMethod
+                        ? targetMethod.MakeGenericMethod(methodBuilder.GetGenericArguments())
+                        : targetMethod);
                 }
                 else
                 {
-                    il.Emit(OpCodes.Ldloc, localCurrentMethod);
-                    il.Call(MethodInvokeHelper.GetBaseMethod);
+                    il.EmitNull();
                 }
+
                 il.Emit(OpCodes.Stloc, localMethodBase);
 
                 // var parameters = new[] {a, b, c};
@@ -464,21 +484,22 @@ namespace WeihanLi.Common.Aspect
                 var localParameters = il.DeclareLocal(typeof(object[]));
 
                 // var currentMethod = MethodBase.GetCurrentMethod();
-
                 il.Call(MethodInvokeHelper.GetCurrentMethod);
                 il.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
-
                 il.Emit(OpCodes.Stloc, localCurrentMethod);
-                if (method.IsGenericMethod)
+
+                var targetMethod = targetField?.FieldType.GetMethod(method.Name, methodParameterTypes);
+                if (null != targetMethod)
                 {
-                    var targetMethod = targetField?.FieldType.GetMethod(method.Name, methodParameterTypes);
-                    il.EmitMethod((targetMethod ?? method).MakeGenericMethod(methodBuilder.GetGenericArguments()));
+                    il.EmitMethod(method.IsGenericMethod
+                        ? targetMethod.MakeGenericMethod(methodBuilder.GetGenericArguments())
+                        : targetMethod);
                 }
                 else
                 {
-                    il.Emit(OpCodes.Ldloc, localCurrentMethod);
-                    il.Call(MethodInvokeHelper.GetBaseMethod);
+                    il.EmitNull();
                 }
+
                 il.Emit(OpCodes.Stloc, localMethodBase);
 
                 // var parameters = new[] {a, b, c};
@@ -515,7 +536,7 @@ namespace WeihanLi.Common.Aspect
 
                 il.Emit(OpCodes.Ldloc, localParameters);
 
-                il.New(typeof(AspectInvocation).GetConstructors()[0]);
+                il.New(MethodInvokeHelper.AspectInvocationConstructor);
                 il.Emit(OpCodes.Stloc, localAspectInvocation);
 
                 // AspectDelegate.Invoke(invocation);

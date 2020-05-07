@@ -4,6 +4,11 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.35](https://www.nuget.org/packages/WeihanLi.Common/1.0.35)
+
+- add `FluentAspect` implemented AOP
+- add `TimeoutAfter` extensions
+
 ### [WeihanLi.Common 1.0.34](https://www.nuget.org/packages/WeihanLi.Common/1.0.34)
 
 - add `PipelineBuilder` to create pipeline easily

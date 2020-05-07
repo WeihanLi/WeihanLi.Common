@@ -52,43 +52,56 @@ namespace DotNetCoreSample
             services.AddScopedProxy<TestDbContext>();
 
             services.AddFluentAspects(options =>
-            {
-                options.NoInterceptPropertyGetter<IFly>(f => f.Name);
-                options.NoInterceptMethod<object>(o => o.ToString());
+                {
+                    options.NoInterceptPropertyGetter<IFly>(f => f.Name);
 
-                options.InterceptAll()
-                    .With<LogInterceptor>()
-                    ;
+                    options.InterceptAll()
+                        .With<LogInterceptor>()
+                        ;
 
-                options.InterceptMethod<DbContext>(x => x.Name == nameof(DbContext.SaveChanges)
-                        || x.Name == nameof(DbContext.SaveChangesAsync))
-                    .With<DbContextSaveInterceptor>()
-                    ;
+                    options.InterceptMethod<DbContext>(x => x.Name == nameof(DbContext.SaveChanges)
+                                                            || x.Name == nameof(DbContext.SaveChangesAsync))
+                        .With<DbContextSaveInterceptor>()
+                        ;
 
-                options.InterceptMethod<IFly>(f => f.Fly())
-                    .With<LogInterceptor>();
+                    options.InterceptMethod<IFly>(f => f.Fly())
+                        .With<LogInterceptor>();
 
-                options.InterceptType<IFly>()
-                    .With<LogInterceptor>();
-            });
+                    options.InterceptType<IFly>()
+                        .With<LogInterceptor>();
+                })
+                //.UseCastleProxy()
+                //.UseAspectCoreProxy()
+                ;
 
             DependencyResolver.SetDependencyResolver(services);
 
-            var fly = DependencyResolver.ResolveService<IFly>();
-            Console.WriteLine(fly.Name);
-            fly.Fly();
-            fly.OpenFly<int>();
-            fly.OpenFly<string>();
+            //var fly = DependencyResolver.ResolveService<IFly>();
+            //Console.WriteLine(fly.Name);
+            //fly.Fly();
+            //fly.OpenFly<int>();
+            //fly.OpenFly<string>();
+            //fly.FlyAway();
 
-            var animal1 = DefaultProxyFactory.Instance.CreateInterfaceProxy<IAnimal<int>>();
-            animal1.Eat();
+            //var animal1 = FluentAspects.AspectOptions.ProxyFactory.CreateInterfaceProxy<IAnimal<int>>();
+            //animal1.Eat();
 
-            var animal2 = DefaultProxyFactory.Instance.CreateInterfaceProxy<IAnimal<string>>();
-            animal2.Eat();
+            //var animal2 = FluentAspects.AspectOptions.ProxyFactory.CreateInterfaceProxy<IAnimal<string>>();
+            //animal2.Eat();
 
-            using var proxy = DefaultProxyFactory.Instance.CreateClassProxy<TestDbContext>();
-            proxy.TestEntities.Add(new TestEntity() { Token = "12121" });
-            Console.WriteLine(proxy.ChangeTracker.HasChanges());
+            var animal = FluentAspects.AspectOptions.ProxyFactory.CreateProxy<Animal<string>>();
+            animal.Eat();
+            animal.Eat();
+            Console.WriteLine(animal.GetEatCount());
+            animal.Drink("xxx");
+            Console.WriteLine(animal.GetDrinkCount());
+
+            animal = FluentAspects.AspectOptions.ProxyFactory.CreateProxyWithTarget<Animal<string>>(new Animal<string>());
+            animal.Eat();
+            animal.Eat();
+            Console.WriteLine(animal.GetEatCount());
+            animal.Drink("xxx");
+            Console.WriteLine(animal.GetDrinkCount());
 
             DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
             {

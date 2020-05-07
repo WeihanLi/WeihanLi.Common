@@ -9,7 +9,5 @@ namespace WeihanLi.Common.Aspect
         object CreateProxy(Type serviceType, Type implementType);
 
         object CreateProxyWithTarget(Type serviceType, object implement);
-
-        object CreateProxy(Type serviceType, Type implementType, params object[] parameters);
     }
 }
