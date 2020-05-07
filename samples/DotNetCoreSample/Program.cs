@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
-using WeihanLi.Common.Aspect.AspectCore;
 using WeihanLi.Common.DependencyInjection;
 
 // ReSharper disable LocalizableElement
@@ -72,27 +71,37 @@ namespace DotNetCoreSample
                         .With<LogInterceptor>();
                 })
                 //.UseCastleProxy()
-                .UseAspectCoreProxy()
+                //.UseAspectCoreProxy()
                 ;
 
             DependencyResolver.SetDependencyResolver(services);
 
-            var fly = DependencyResolver.ResolveService<IFly>();
-            Console.WriteLine(fly.Name);
-            fly.Fly();
-            fly.OpenFly<int>();
-            fly.OpenFly<string>();
-            fly.FlyAway();
+            //var fly = DependencyResolver.ResolveService<IFly>();
+            //Console.WriteLine(fly.Name);
+            //fly.Fly();
+            //fly.OpenFly<int>();
+            //fly.OpenFly<string>();
+            //fly.FlyAway();
 
-            var animal1 = FluentAspects.AspectOptions.ProxyFactory.CreateInterfaceProxy<IAnimal<int>>();
-            animal1.Eat();
+            //var animal1 = FluentAspects.AspectOptions.ProxyFactory.CreateInterfaceProxy<IAnimal<int>>();
+            //animal1.Eat();
 
-            var animal2 = FluentAspects.AspectOptions.ProxyFactory.CreateInterfaceProxy<IAnimal<string>>();
-            animal2.Eat();
+            //var animal2 = FluentAspects.AspectOptions.ProxyFactory.CreateInterfaceProxy<IAnimal<string>>();
+            //animal2.Eat();
 
             var animal = FluentAspects.AspectOptions.ProxyFactory.CreateProxy<Animal<string>>();
             animal.Eat();
+            animal.Eat();
+            Console.WriteLine(animal.GetEatCount());
             animal.Drink("xxx");
+            Console.WriteLine(animal.GetDrinkCount());
+
+            animal = FluentAspects.AspectOptions.ProxyFactory.CreateProxyWithTarget<Animal<string>>(new Animal<string>());
+            animal.Eat();
+            animal.Eat();
+            Console.WriteLine(animal.GetEatCount());
+            animal.Drink("xxx");
+            Console.WriteLine(animal.GetDrinkCount());
 
             DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
             {
