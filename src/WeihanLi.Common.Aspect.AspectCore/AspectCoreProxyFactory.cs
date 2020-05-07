@@ -3,7 +3,7 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect.AspectCore
 {
-    internal class AspectCoreProxyFactory : IProxyFactory
+    internal sealed class AspectCoreProxyFactory : IProxyFactory
     {
         private readonly IServiceProvider _serviceProvider;
 

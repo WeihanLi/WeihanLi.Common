@@ -8,17 +8,22 @@ namespace WeihanLi.Common.Aspect
 {
     public class AspectDelegate
     {
+        public static void Invoke(IInvocation context)
+        {
+            InvokeInternal(context, null, null);
+        }
+
         public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors)
         {
-            InvokeWithInterceptors(invocation, interceptors, null);
+            InvokeInternal(invocation, interceptors, null);
         }
 
         public static void InvokeWithCompleteFunc(IInvocation invocation, Func<IInvocation, Task> completeFunc)
         {
-            InvokeWithInterceptors(invocation, null, completeFunc);
+            InvokeInternal(invocation, null, completeFunc);
         }
 
-        public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
+        public static void InvokeInternal(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
         {
             var action = GetAspectDelegate(invocation, interceptors, completeFunc);
             var task = action.Invoke(invocation);
@@ -44,13 +49,10 @@ namespace WeihanLi.Common.Aspect
             }
         }
 
-        private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation,
-            IReadOnlyCollection<IInterceptor> interceptors)
-            => GetAspectDelegate(invocation, interceptors, null);
-
         private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
         {
             // ReSharper disable once ConvertToLocalFunction
+            // ReSharper disable once ConvertIfStatementToNullCoalescingAssignment
             if (null == completeFunc)
             {
                 completeFunc = x =>
@@ -96,11 +98,6 @@ namespace WeihanLi.Common.Aspect
             }
 
             return builder.Build();
-        }
-
-        public static void Invoke(IInvocation context)
-        {
-            InvokeWithInterceptors(context, null, null);
         }
     }
 }

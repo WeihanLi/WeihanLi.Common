@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect.Castle
 {
@@ -38,7 +39,7 @@ namespace WeihanLi.Common.Aspect.Castle
                 {
                     invocation.Proceed();
                     c.ReturnValue = invocation.ReturnValue;
-                    return Task.CompletedTask;
+                    return TaskHelper.CompletedTask;
                 };
             }
 

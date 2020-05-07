@@ -3,7 +3,7 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect.Castle
 {
-    internal class CastleProxyFactory : IProxyFactory
+    internal sealed class CastleProxyFactory : IProxyFactory
     {
         private readonly IServiceProvider _serviceProvider;
 

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WeihanLi.Common.Aspect.AspectCore
 {
-    internal class FluentAspectInterceptor : global::AspectCore.DynamicProxy.IInterceptor
+    internal sealed class FluentAspectInterceptor : global::AspectCore.DynamicProxy.IInterceptor
     {
         public async Task Invoke(AspectContext context, global::AspectCore.DynamicProxy.AspectDelegate next)
         {
@@ -21,6 +21,7 @@ namespace WeihanLi.Common.Aspect.AspectCore
             }
             else
             {
+                // ReSharper disable once ConvertToLocalFunction
                 Func<IInvocation, Task> completeFunc = async c =>
                 {
                     await next(context);
