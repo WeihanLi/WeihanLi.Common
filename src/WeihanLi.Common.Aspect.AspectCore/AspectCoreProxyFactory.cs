@@ -5,6 +5,8 @@ namespace WeihanLi.Common.Aspect.AspectCore
 {
     internal sealed class AspectCoreProxyFactory : IProxyFactory
     {
+        public static readonly IProxyFactory Instance = new AspectCoreProxyFactory(DependencyResolver.Current);
+
         private readonly IServiceProvider _serviceProvider;
 
         public AspectCoreProxyFactory(IServiceProvider serviceProvider)

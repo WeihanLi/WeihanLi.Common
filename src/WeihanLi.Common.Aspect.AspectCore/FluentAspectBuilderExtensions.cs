@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Aspect.AspectCore
         public static IFluentAspectBuilder UseAspectCoreProxy(this IFluentAspectBuilder builder)
         {
             builder.Services.AddTransient<IProxyFactory, AspectCoreProxyFactory>();
-            FluentAspects.AspectOptions.ProxyFactory = new AspectCoreProxyFactory(DependencyResolver.Current);
+            FluentAspects.AspectOptions.ProxyFactory = AspectCoreProxyFactory.Instance;
 
             return builder;
         }
