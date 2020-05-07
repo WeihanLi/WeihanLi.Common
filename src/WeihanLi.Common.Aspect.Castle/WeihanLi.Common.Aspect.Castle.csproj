@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <Title>WeihanLi.Common.Aspect.Castle</Title>    
+    <Description>FluentAspect Castle extensions</Description>
+    <PackageSummary>FluentAspect Castle extensions</PackageSummary>
+    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common.Aspect.Castle</PackageProjectUrl>
+    <PackageTags>FluentAspect,Aspect,Castle,AOP,proxy</PackageTags>
+    <PackageReleaseNotes>
+      https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
