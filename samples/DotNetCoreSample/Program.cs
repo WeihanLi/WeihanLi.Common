@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
-using WeihanLi.Common.Aspect.Castle;
+using WeihanLi.Common.Aspect.AspectCore;
 using WeihanLi.Common.DependencyInjection;
 
 // ReSharper disable LocalizableElement
@@ -71,7 +71,8 @@ namespace DotNetCoreSample
                     options.InterceptType<IFly>()
                         .With<LogInterceptor>();
                 })
-                .UseCastleProxy()
+                //.UseCastleProxy()
+                .UseAspectCoreProxy()
                 ;
 
             DependencyResolver.SetDependencyResolver(services);

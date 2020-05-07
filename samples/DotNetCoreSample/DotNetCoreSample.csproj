@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\WeihanLi.Common.Aspect.AspectCore\WeihanLi.Common.Aspect.AspectCore.csproj" />
     <ProjectReference Include="..\..\src\WeihanLi.Common.Aspect.Castle\WeihanLi.Common.Aspect.Castle.csproj" />
     <ProjectReference Include="..\..\src\WeihanLi.Common.Logging.Log4net\WeihanLi.Common.Logging.Log4Net.csproj" />
     <ProjectReference Include="..\..\src\WeihanLi.Common.Logging.Serilog\WeihanLi.Common.Logging.Serilog.csproj" />
