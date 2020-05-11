@@ -58,17 +58,19 @@ namespace DotNetCoreSample
                     options.InterceptAll()
                         .With<LogInterceptor>()
                         ;
-
                     options.InterceptMethod<DbContext>(x => x.Name == nameof(DbContext.SaveChanges)
                                                             || x.Name == nameof(DbContext.SaveChangesAsync))
                         .With<DbContextSaveInterceptor>()
                         ;
-
                     options.InterceptMethod<IFly>(f => f.Fly())
                         .With<LogInterceptor>();
-
                     options.InterceptType<IFly>()
                         .With<LogInterceptor>();
+
+                    options
+                        .WithProperty("TraceId", "121212")
+                        .WithProperty("TargetHashCode", invocation => invocation.Target?.GetHashCode())
+                        ;
                 })
                 //.UseCastleProxy()
                 //.UseAspectCoreProxy()

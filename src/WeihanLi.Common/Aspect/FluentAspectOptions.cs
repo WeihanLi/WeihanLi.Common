@@ -11,6 +11,8 @@ namespace WeihanLi.Common.Aspect
 
         public IInterceptorResolver InterceptorResolver { get; set; } = FluentConfigInterceptorResolver.Instance;
 
+        public HashSet<IInvocationEnricher> Enrichers { get; } = new HashSet<IInvocationEnricher>();
+
         public IProxyFactory ProxyFactory { get; set; } = DefaultProxyFactory.Instance;
     }
 }
