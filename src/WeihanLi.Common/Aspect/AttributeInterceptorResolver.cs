@@ -13,11 +13,26 @@ namespace WeihanLi.Common.Aspect
         public abstract Task Invoke(IInvocation invocation, Func<Task> next);
     }
 
+    public sealed class NoIntercept : Attribute
+    {
+    }
+
     public class AttributeInterceptorResolver : IInterceptorResolver
     {
         public virtual IReadOnlyCollection<IInterceptor> ResolveInterceptors(IInvocation invocation)
         {
             if (null == invocation)
+            {
+                return ArrayHelper.Empty<IInterceptor>();
+            }
+
+            if ((invocation.Method ?? invocation.ProxyMethod).IsDefined(typeof(NoIntercept)))
+            {
+                return ArrayHelper.Empty<IInterceptor>();
+            }
+
+            Type baseType = (invocation.Method ?? invocation.ProxyMethod).DeclaringType;
+            if (baseType?.IsDefined(typeof(NoIntercept)) == true)
             {
                 return ArrayHelper.Empty<IInterceptor>();
             }
@@ -28,6 +43,11 @@ namespace WeihanLi.Common.Aspect
             // load method interceptor
             if (invocation.Method != null)
             {
+                if (invocation.Method.IsDefined(typeof(NoIntercept)))
+                {
+                    return ArrayHelper.Empty<IInterceptor>();
+                }
+
                 foreach (var interceptor in invocation.Method.GetCustomAttributes<AbstractInterceptor>())
                 {
                     if (interceptorTypes.Add(interceptor.GetType()))
@@ -49,7 +69,6 @@ namespace WeihanLi.Common.Aspect
 
             var parameterTypes = invocation.ProxyMethod.GetParameters().Select(x => x.ParameterType).ToArray();
 
-            Type baseType = (invocation.Method ?? invocation.ProxyMethod).DeclaringType;
             while (baseType != null)
             {
                 if (baseType.GetMethod(invocation.ProxyMethod.Name, parameterTypes) != null)
