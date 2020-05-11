@@ -649,40 +649,6 @@ namespace WeihanLi.Common.Aspect
             }
         }
 
-        private static void DefineParameters(this MethodInfo targetMethod, MethodBuilder methodBuilder)
-        {
-            var parameters = targetMethod.GetParameters();
-            if (parameters.Length > 0)
-            {
-                var paramOffset = 1;   // 1
-                for (var i = 0; i < parameters.Length; i++)
-                {
-                    var parameter = parameters[i];
-                    var parameterBuilder = methodBuilder.DefineParameter(i + paramOffset, parameter.Attributes, parameter.Name);
-                    if (parameter.HasDefaultValue)
-                    {
-                        if (!(parameter.ParameterType.GetTypeInfo().IsValueType && parameter.DefaultValue == null))
-                            parameterBuilder.SetConstant(parameter.DefaultValue);
-                    }
-
-                    foreach (var attribute in parameter.CustomAttributes)
-                    {
-                        parameterBuilder.SetCustomAttribute(DefineCustomAttribute(attribute));
-                    }
-                }
-            }
-
-            var returnParameter = targetMethod.ReturnParameter;
-            if (null != returnParameter)
-            {
-                var returnParameterBuilder = methodBuilder.DefineParameter(0, returnParameter.Attributes, returnParameter.Name);
-                foreach (var attribute in returnParameter.CustomAttributes)
-                {
-                    returnParameterBuilder.SetCustomAttribute(DefineCustomAttribute(attribute));
-                }
-            }
-        }
-
         private static CustomAttributeBuilder DefineCustomAttribute(CustomAttributeData customAttributeData)
         {
             if (customAttributeData.NamedArguments != null)
