@@ -68,7 +68,7 @@ namespace WeihanLi.Common.Event
             {
                 foreach (var implementedInterface in handlerType.GetTypeInfo().ImplementedInterfaces)
                 {
-                    if (implementedInterface.IsGenericType && typeof(EventBase).IsAssignableFrom(implementedInterface.GenericTypeArguments[0]))
+                    if (implementedInterface.IsGenericType && typeof(IEventBase).IsAssignableFrom(implementedInterface.GenericTypeArguments[0]))
                     {
                         builder.Services.TryAddEnumerable(new ServiceDescriptor(implementedInterface, handlerType, serviceLifetime));
                     }
