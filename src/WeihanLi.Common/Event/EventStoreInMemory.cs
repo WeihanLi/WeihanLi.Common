@@ -1,77 +1,46 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using WeihanLi.Common.Helpers;
+﻿using System.Collections.Concurrent;
+using System.Threading.Tasks;
 
 namespace WeihanLi.Common.Event
 {
     public class EventStoreInMemory : IEventStore
     {
-        private readonly ConcurrentDictionary<string, ConcurrentSet<Type>> _eventHandlers = new ConcurrentDictionary<string, ConcurrentSet<Type>>();
+        private readonly ConcurrentDictionary<string, IEventBase> _events = new ConcurrentDictionary<string, IEventBase>();
 
-        public bool AddSubscription<TEvent, TEventHandler>()
-            where TEvent : class, IEventBase
-            where TEventHandler : IEventHandler<TEvent>
+        public int SaveEvents(params IEventBase[] events)
         {
-            var eventKey = GetEventKey<TEvent>();
-            if (_eventHandlers.ContainsKey(eventKey))
+            if (null == events || events.Length == 0)
+                return 0;
+
+            var successCount = 0;
+            foreach (var @event in events)
             {
-                return _eventHandlers[eventKey].TryAdd(typeof(TEventHandler));
-            }
-            else
-            {
-                return _eventHandlers.TryAdd(eventKey, new ConcurrentSet<Type>()
+                if (_events.TryAdd(@event.EventId, @event))
                 {
-                    typeof(TEventHandler)
-                });
+                    successCount++;
+                }
             }
+            return successCount;
         }
 
-        public bool Clear()
-        {
-            _eventHandlers.Clear();
-            return true;
-        }
+        public Task<int> SaveEventsAsync(params IEventBase[] events) => Task.FromResult(SaveEvents(events));
 
-        public ICollection<Type> GetEventHandlerTypes<TEvent>() where TEvent : class, IEventBase
+        public int DeleteEvents(params string[] eventIds)
         {
-            if (_eventHandlers.Count == 0)
-                return new Type[0];
-            var eventKey = GetEventKey<TEvent>();
-            if (_eventHandlers.TryGetValue(eventKey, out var handlers))
+            if (null == eventIds || eventIds.Length == 0)
+                return 0;
+
+            var successCount = 0;
+            foreach (var eventId in eventIds)
             {
-                return handlers;
+                if (_events.TryRemove(eventId, out _))
+                {
+                    successCount++;
+                }
             }
-            return new Type[0];
+            return successCount;
         }
 
-        public string GetEventKey<TEvent>()
-        {
-            return typeof(TEvent).FullName;
-        }
-
-        public bool HasSubscriptionsForEvent<TEvent>() where TEvent : class, IEventBase
-        {
-            if (_eventHandlers.Count == 0)
-                return false;
-
-            var eventKey = GetEventKey<TEvent>();
-            return _eventHandlers.ContainsKey(eventKey);
-        }
-
-        public bool RemoveSubscription<TEvent, TEventHandler>()
-            where TEvent : class, IEventBase
-            where TEventHandler : IEventHandler<TEvent>
-        {
-            if (_eventHandlers.Count == 0)
-                return false;
-
-            var eventKey = GetEventKey<TEvent>();
-            if (_eventHandlers.ContainsKey(eventKey))
-            {
-                return _eventHandlers[eventKey].TryRemove(typeof(TEventHandler));
-            }
-            return false;
-        }
+        public Task<int> DeleteEventsAsync(params string[] events) => Task.FromResult(DeleteEvents(events));
     }
 }
