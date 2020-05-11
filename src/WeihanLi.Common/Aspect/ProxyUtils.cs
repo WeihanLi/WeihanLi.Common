@@ -10,7 +10,7 @@ namespace WeihanLi.Common.Aspect
 {
     internal static class ProxyUtils
     {
-        private const string ProxyAssemblyName = "WeihanLi.Aspects.DynamicGenerated";
+        public const string ProxyAssemblyName = "FluentAspects.DynamicGenerated";
 
         private const MethodAttributes OverrideMethodAttributes = MethodAttributes.HideBySig | MethodAttributes.Virtual;
         private const MethodAttributes InterfaceMethodAttributes = MethodAttributes.Public | MethodAttributes.Final | MethodAttributes.HideBySig | MethodAttributes.NewSlot | MethodAttributes.Virtual;
@@ -646,40 +646,6 @@ namespace WeihanLi.Common.Aspect
                     return GenericParameterAttributes.DefaultConstructorConstraint;
                 }
                 return GenericParameterAttributes.None;
-            }
-        }
-
-        private static void DefineParameters(this MethodInfo targetMethod, MethodBuilder methodBuilder)
-        {
-            var parameters = targetMethod.GetParameters();
-            if (parameters.Length > 0)
-            {
-                var paramOffset = 1;   // 1
-                for (var i = 0; i < parameters.Length; i++)
-                {
-                    var parameter = parameters[i];
-                    var parameterBuilder = methodBuilder.DefineParameter(i + paramOffset, parameter.Attributes, parameter.Name);
-                    if (parameter.HasDefaultValue)
-                    {
-                        if (!(parameter.ParameterType.GetTypeInfo().IsValueType && parameter.DefaultValue == null))
-                            parameterBuilder.SetConstant(parameter.DefaultValue);
-                    }
-
-                    foreach (var attribute in parameter.CustomAttributes)
-                    {
-                        parameterBuilder.SetCustomAttribute(DefineCustomAttribute(attribute));
-                    }
-                }
-            }
-
-            var returnParameter = targetMethod.ReturnParameter;
-            if (null != returnParameter)
-            {
-                var returnParameterBuilder = methodBuilder.DefineParameter(0, returnParameter.Attributes, returnParameter.Name);
-                foreach (var attribute in returnParameter.CustomAttributes)
-                {
-                    returnParameterBuilder.SetCustomAttribute(DefineCustomAttribute(attribute));
-                }
             }
         }
 

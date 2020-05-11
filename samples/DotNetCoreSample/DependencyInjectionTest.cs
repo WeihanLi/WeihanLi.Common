@@ -9,6 +9,7 @@ using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
+using WeihanLi.Extensions;
 
 namespace DotNetCoreSample
 {
@@ -312,6 +313,8 @@ namespace DotNetCoreSample
             try
             {
                 Console.WriteLine($"[{invocation.ProxyMethod.Name}] invoke begin");
+                Console.WriteLine($"Properties:{invocation.Properties.ToJson()}");
+
                 await next();
             }
             finally

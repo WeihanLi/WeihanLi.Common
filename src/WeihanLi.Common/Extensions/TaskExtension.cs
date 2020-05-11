@@ -18,6 +18,62 @@ namespace WeihanLi.Extensions
 
         public static Task<TResult[]> WhenAll<TResult>(this IEnumerable<Task<TResult>> tasks) => Task.WhenAll(tasks);
 
+        /// <summary>
+        /// Runs an action on the current scheduler instead of the default scheduler.
+        /// </summary>
+        /// <param name="scheduler">Scheduler for the action to be scheduled on.</param>
+        /// <param name="action">Action to be scheduled.</param>
+        /// <param name="cancelationToken">Cancellation token to link the new task to. If canceled before being scheduled, the action will not be run.</param>
+        /// <returns>New task created for the action.</returns>
+        public static Task Run(this TaskScheduler scheduler, Action action, CancellationToken cancelationToken = default)
+        {
+            var taskFactory = new TaskFactory(CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskContinuationOptions.None, scheduler);
+            return taskFactory.StartNew(action, cancellationToken: cancelationToken);
+        }
+
+        /// <summary>
+        /// Runs a function on the current scheduler instead of the default scheduler.
+        /// </summary>
+        /// <typeparam name="T">Result type.</typeparam>
+        /// <param name="scheduler">Scheduler for the action to be scheduled on.</param>
+        /// <param name="function">Function to be scheduled.</param>
+        /// <param name="cancelationToken">Cancellation token to link the new task to. If canceled before being scheduled, the action will not be run.</param>
+        /// <returns>New task created for the function. This task completes with the result of calling the function.</returns>
+        public static Task<T> Run<T>(this TaskScheduler scheduler, Func<T> function, CancellationToken cancelationToken = default)
+        {
+            var taskFactory = new TaskFactory(CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskContinuationOptions.None, scheduler);
+            return taskFactory.StartNew(function, cancellationToken: cancelationToken);
+        }
+
+        /// <summary>
+        /// Runs a function on the current scheduler instead of the default scheduler.
+        /// </summary>
+        /// <param name="scheduler">Scheduler for the action to be scheduled on.</param>
+        /// <param name="function">Function to be scheduled.</param>
+        /// <param name="cancelationToken">Cancellation token to link the new task to. If canceled before being scheduled, the action will not be run.</param>
+        /// <returns>New task created for the function. This task completes with the result of the task returned by the function.</returns>
+        public static async Task Run(this TaskScheduler scheduler, Func<Task> function, CancellationToken cancelationToken = default)
+        {
+            var taskFactory = new TaskFactory(CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskContinuationOptions.None, scheduler);
+            var innerTask = await taskFactory.StartNew(function, cancellationToken: cancelationToken);
+            await innerTask;
+        }
+
+        /// <summary>
+        /// Runs a function on the current scheduler instead of the default scheduler.
+        /// </summary>
+        /// <typeparam name="T">Result type.</typeparam>
+        /// <param name="scheduler">Scheduler for the action to be scheduled on.</param>
+        /// <param name="function">Function to be scheduled.</param>
+        /// <param name="cancelationToken">Cancellation token to link the new task to. If canceled before being scheduled, the action will not be run.</param>
+        /// <returns>New task created for the function. This task completes with the result of the task returned by the function.</returns>
+        public static async Task<T> Run<T>(this TaskScheduler scheduler, Func<Task<T>> function, CancellationToken cancelationToken = default)
+        {
+            var taskFactory = new TaskFactory(CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskContinuationOptions.None, scheduler);
+            var innerTask = await taskFactory.StartNew(function, cancellationToken: cancelationToken);
+            return await innerTask;
+        }
+
         public static async Task<T> TimeoutAfter<T>(this Task<T> task, TimeSpan timeout,
     [CallerFilePath] string filePath = null,
     [CallerLineNumber] int lineNumber = default)

@@ -1,15 +1,12 @@
 <Project>
   <PropertyGroup>        
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
-    <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common.Logging.Serilog</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>logging serilog</PackageTags>    
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <Title>WeihanLi.Common.Logging.Serilog</Title>
     <Description>serilog logging provider for WeihanLi.Common.Logging, and serilog extensions, see details https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common.Logging.Serilog/README.md</Description>
     <PackageSummary>serilog logging provider for WeihanLi.Common.Logging, and serilog extensions</PackageSummary>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
       https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
     </PackageReleaseNotes>

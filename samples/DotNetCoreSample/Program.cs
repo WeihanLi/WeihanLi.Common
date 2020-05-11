@@ -58,17 +58,19 @@ namespace DotNetCoreSample
                     options.InterceptAll()
                         .With<LogInterceptor>()
                         ;
-
                     options.InterceptMethod<DbContext>(x => x.Name == nameof(DbContext.SaveChanges)
                                                             || x.Name == nameof(DbContext.SaveChangesAsync))
                         .With<DbContextSaveInterceptor>()
                         ;
-
                     options.InterceptMethod<IFly>(f => f.Fly())
                         .With<LogInterceptor>();
-
                     options.InterceptType<IFly>()
                         .With<LogInterceptor>();
+
+                    options
+                        .WithProperty("TraceId", "121212")
+                        .WithProperty("TargetHashCode", invocation => invocation.Target?.GetHashCode())
+                        ;
                 })
                 //.UseCastleProxy()
                 //.UseAspectCoreProxy()
@@ -76,18 +78,18 @@ namespace DotNetCoreSample
 
             DependencyResolver.SetDependencyResolver(services);
 
-            //var fly = DependencyResolver.ResolveService<IFly>();
-            //Console.WriteLine(fly.Name);
-            //fly.Fly();
-            //fly.OpenFly<int>();
-            //fly.OpenFly<string>();
-            //fly.FlyAway();
+            var fly = DependencyResolver.ResolveService<IFly>();
+            Console.WriteLine(fly.Name);
+            fly.Fly();
+            fly.OpenFly<int>();
+            fly.OpenFly<string>();
+            fly.FlyAway();
 
-            //var animal1 = FluentAspects.AspectOptions.ProxyFactory.CreateInterfaceProxy<IAnimal<int>>();
-            //animal1.Eat();
+            var animal1 = FluentAspects.AspectOptions.ProxyFactory.CreateInterfaceProxy<IAnimal<int>>();
+            animal1.Eat();
 
-            //var animal2 = FluentAspects.AspectOptions.ProxyFactory.CreateInterfaceProxy<IAnimal<string>>();
-            //animal2.Eat();
+            var animal2 = FluentAspects.AspectOptions.ProxyFactory.CreateInterfaceProxy<IAnimal<string>>();
+            animal2.Eat();
 
             var animal = FluentAspects.AspectOptions.ProxyFactory.CreateProxy<Animal<string>>();
             animal.Eat();
