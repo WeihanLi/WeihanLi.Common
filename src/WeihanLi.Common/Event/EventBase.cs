@@ -16,6 +16,14 @@ namespace WeihanLi.Common.Event
         string EventId { get; }
     }
 
+    public interface IEventBaseWithType : IEventBase
+    {
+        /// <summary>
+        /// Event Type
+        /// </summary>
+        Type Type { get; }
+    }
+
     public abstract class EventBase : IEventBase
     {
         [JsonProperty]
@@ -34,6 +42,25 @@ namespace WeihanLi.Common.Event
         {
             EventId = eventId;
             EventAt = DateTimeOffset.UtcNow;
+        }
+    }
+
+    public abstract class EventBaseWithType : IEventBaseWithType
+    {
+        [JsonProperty]
+        public DateTimeOffset EventAt { get; private set; }
+
+        [JsonProperty]
+        public string EventId { get; private set; }
+
+        [JsonProperty]
+        public Type Type { get; private set; }
+
+        protected EventBaseWithType()
+        {
+            EventId = GuidIdGenerator.Instance.NewId();
+            EventAt = DateTimeOffset.UtcNow;
+            Type = GetType();
         }
     }
 }
