@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -70,7 +69,9 @@ namespace WeihanLi.Common.Helpers
                 throw new ArgumentNullException(nameof(method));
             }
             var isVoidMethod = method.ReturnType == typeof(void);
-            var parameterTypes = method.GetParameters().Select(p => p.ParameterType).ToArray();
+            var parameterTypes = method.GetParameters()
+                .Select(p => p.ParameterType)
+                .ToArray();
 
             Type delegateType;
             if (isVoidMethod)
@@ -81,12 +82,18 @@ namespace WeihanLi.Common.Helpers
                 }
                 else
                 {
-                    delegateType = _actionMaker[parameterTypes.Length].MakeGenericType(parameterTypes);
+                    delegateType = _actionMaker[parameterTypes.Length]
+                        .MakeGenericType(parameterTypes);
                 }
             }
             else
             {
-                delegateType = _funcMaker[parameterTypes.Length].MakeGenericType(parameterTypes.Concat(new[] { method.ReturnType }).ToArray());
+                var types = new Type[parameterTypes.Length + 1];
+                Array.Copy(parameterTypes, types, parameterTypes.Length);
+                types[parameterTypes.Length] = method.ReturnType;
+
+                delegateType = _funcMaker[parameterTypes.Length]
+                    .MakeGenericType(types);
             }
 
             return delegateType;
@@ -104,16 +111,22 @@ namespace WeihanLi.Common.Helpers
 
         public static Type GetFunc(Type returnType, params Type[] parametersTypes)
         {
+            if (returnType == typeof(void))
+            {
+                return GetAction(parametersTypes);
+            }
+
             if (parametersTypes == null || parametersTypes.Length == 0)
             {
                 return _funcMaker[0].MakeGenericType(returnType);
             }
 
-            var list = new List<Type>(parametersTypes.Length + 1);
-            list.AddRange(parametersTypes);
-            list.Add(returnType);
+            var types = new Type[parametersTypes.Length + 1];
+            Array.Copy(parametersTypes, types, parametersTypes.Length);
+            types[parametersTypes.Length] = returnType;
 
-            return _funcMaker[parametersTypes.Length].MakeGenericType(list.ToArray());
+            return _funcMaker[parametersTypes.Length]
+                .MakeGenericType(types);
         }
 
         public static Type GetAction(params Type[] parametersTypes)
@@ -123,7 +136,8 @@ namespace WeihanLi.Common.Helpers
                 return _actionMaker[0];
             }
 
-            return _actionMaker[parametersTypes.Length].MakeGenericType(parametersTypes);
+            return _actionMaker[parametersTypes.Length]
+                .MakeGenericType(parametersTypes);
         }
     }
 }
