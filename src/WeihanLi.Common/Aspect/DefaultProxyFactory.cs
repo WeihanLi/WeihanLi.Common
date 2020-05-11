@@ -4,7 +4,7 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect
 {
-    public class DefaultProxyFactory : IProxyFactory
+    public sealed class DefaultProxyFactory : IProxyFactory
     {
         public static readonly IProxyFactory Instance = new DefaultProxyFactory(DefaultProxyTypeFactory.Instance);
 
