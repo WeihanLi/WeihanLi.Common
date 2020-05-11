@@ -8,6 +8,27 @@ namespace WeihanLi.Common.Aspect
 {
     public static class FluentAspectOptionsExtensions
     {
+        public static bool NoIntercept(this FluentAspectOptions options, Func<IInvocation, bool> predict)
+        {
+            return options.NoInterceptionConfigurations.Add(predict);
+        }
+
+        public static IInterceptionConfiguration Intercept(this FluentAspectOptions options, Func<IInvocation, bool> predict)
+        {
+            if (null == predict)
+            {
+                throw new ArgumentNullException(nameof(predict));
+            }
+            if (options.InterceptionConfigurations.TryGetValue
+                (predict, out var interceptionConfiguration))
+            {
+                return interceptionConfiguration;
+            }
+            interceptionConfiguration = new InterceptionConfiguration();
+            options.InterceptionConfigurations[predict] = interceptionConfiguration;
+            return interceptionConfiguration;
+        }
+
         public static IInterceptionConfiguration InterceptAll(this FluentAspectOptions options)
             => options.Intercept(m => true);
 

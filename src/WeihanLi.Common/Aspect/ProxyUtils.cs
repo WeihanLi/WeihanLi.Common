@@ -10,7 +10,7 @@ namespace WeihanLi.Common.Aspect
 {
     internal static class ProxyUtils
     {
-        private const string ProxyAssemblyName = "WeihanLi.Aspects.DynamicGenerated";
+        public const string ProxyAssemblyName = "FluentAspects.DynamicGenerated";
 
         private const MethodAttributes OverrideMethodAttributes = MethodAttributes.HideBySig | MethodAttributes.Virtual;
         private const MethodAttributes InterfaceMethodAttributes = MethodAttributes.Public | MethodAttributes.Final | MethodAttributes.HideBySig | MethodAttributes.NewSlot | MethodAttributes.Virtual;

@@ -1,23 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace WeihanLi.Common.Aspect
 {
     public interface IInvocation
     {
-        public MethodInfo ProxyMethod { get; }
+        MethodInfo ProxyMethod { get; }
 
-        public object ProxyTarget { get; }
+        object ProxyTarget { get; }
 
-        public MethodInfo Method { get; }
+        MethodInfo Method { get; }
 
-        public object Target { get; }
+        object Target { get; }
 
-        public object[] Arguments { get; }
+        object[] Arguments { get; }
 
         Type[] GenericArguments { get; }
 
-        public object ReturnValue { get; set; }
+        object ReturnValue { get; set; }
+
+        Dictionary<string, object> Properties { get; }
     }
 
     public class AspectInvocation : IInvocation
@@ -35,6 +38,8 @@ namespace WeihanLi.Common.Aspect
         public Type[] GenericArguments { get; }
 
         public object ReturnValue { get; set; }
+
+        public Dictionary<string, object> Properties { get; }
 
         public AspectInvocation(
             MethodInfo proxyMethod,
@@ -57,6 +62,8 @@ namespace WeihanLi.Common.Aspect
             {
                 ProxyMethod = proxyMethod;
             }
+
+            Properties = new Dictionary<string, object>();
         }
     }
 }

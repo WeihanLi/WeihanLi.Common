@@ -57,21 +57,33 @@ namespace WeihanLi.Common.Aspect
             {
                 completeFunc = x =>
                 {
-                    invocation.ReturnValue = x.Method?.Invoke(x.Target, x.Arguments);
+                    if (x.Target == x.ProxyTarget && x.Method != null)
+                    {
+                        // https://stackoverflow.com/questions/2323401/how-to-call-base-base-method
+                        var ptr = x.Method.MethodHandle.GetFunctionPointer();
+                        var delegateType = DelegateHelper.GetDelegateType(x.Method);
+                        var @delegate = (Delegate)Activator.CreateInstance(delegateType, x.Target, ptr);
+                        invocation.ReturnValue = @delegate.DynamicInvoke(x.Arguments);
+                    }
+                    else
+                    {
+                        invocation.ReturnValue = x.Method?.Invoke(x.Target, x.Arguments);
+                    }
+
                     if (invocation.ProxyMethod.ReturnType == typeof(void))
                     {
                         return TaskHelper.CompletedTask;
                     }
-
                     if (invocation.ReturnValue is Task task)
                     {
                         return task;
                     }
+
 #if NETSTANDARD2_1
-                if (invocation.ReturnValue is ValueTask valTask)
-                {
-                    return valTask.AsTask();
-                }
+                    if (invocation.ReturnValue is ValueTask valTask)
+                    {
+                        return valTask.AsTask();
+                    }
 #endif
 
                     return TaskHelper.CompletedTask;
