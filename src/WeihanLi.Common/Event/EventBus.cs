@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
+﻿using System.Threading.Tasks;
 using WeihanLi.Common.Logging;
 using WeihanLi.Extensions;
 
@@ -14,66 +11,35 @@ namespace WeihanLi.Common.Event
     {
         private static readonly ILogHelperLogger _logger = Helpers.LogHelper.GetLogger<EventBus>();
 
-        private readonly IServiceProvider _serviceProvider;
         private readonly IEventSubscriptionManager _subscriptionManager;
+        private readonly IEventHandlerFactory _eventHandlerFactory;
 
-        public EventBus(IEventSubscriptionManager subscriptionManager, IServiceProvider serviceProvider = null)
+        public EventBus(IEventSubscriptionManager subscriptionManager, IEventHandlerFactory eventHandlerFactory)
         {
             _subscriptionManager = subscriptionManager;
-            _serviceProvider = serviceProvider ?? DependencyResolver.Current;
-        }
-
-        public bool Publish<TEvent>(TEvent @event) where TEvent : class, IEventBase
-        {
-            var handlers = _subscriptionManager.GetEventHandlerTypes<TEvent>();
-            if (handlers.Count > 0)
-            {
-                var handlerTasks = new List<Task>();
-                foreach (var handlerType in handlers)
-                {
-                    try
-                    {
-                        if (_serviceProvider.GetServiceOrCreateInstance(handlerType) is IEventHandler<TEvent> handler)
-                        {
-                            handlerTasks.Add(handler.Handle(@event));
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.Error(ex, $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handlerType.FullName}");
-                    }
-                }
-                handlerTasks.WhenAll().ConfigureAwait(false);
-
-                return true;
-            }
-            return false;
+            _eventHandlerFactory = eventHandlerFactory;
         }
 
         public async Task<bool> PublishAsync<TEvent>(TEvent @event) where TEvent : class, IEventBase
         {
-            var handlers = _subscriptionManager.GetEventHandlerTypes<TEvent>();
+            var handlers = _eventHandlerFactory.GetHandlers<TEvent>();
             if (handlers.Count > 0)
             {
-                await Task.Yield();
-                //
-                var handlerTasks = new List<Task>(handlers.Count);
-                foreach (var handlerType in handlers)
-                {
-                    try
-                    {
-                        if (_serviceProvider.GetServiceOrCreateInstance(handlerType) is IEventHandler<TEvent> handler)
-                        {
-                            handlerTasks.Add(handler.Handle(@event));
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.Error(ex, $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handlerType.FullName}");
-                    }
-                }
+                var handlerTasks = new Task[handlers.Count];
 
-                var task = handlerTasks.WhenAll().ConfigureAwait(false);
+                handlers.ForEach((handler, index) =>
+                {
+                    handlerTasks[index] = handler.Handle(@event).ContinueWith(r =>
+                    {
+                        if (r.IsFaulted)
+                        {
+                            _logger.Error(r.Exception?.Unwrap(),
+                                $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handler.GetType().FullName}");
+                        }
+                    });
+                });
+
+                await handlerTasks.WhenAll().ConfigureAwait(false);
 
                 return true;
             }
