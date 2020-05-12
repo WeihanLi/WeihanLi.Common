@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Aspect
         IServiceCollection Services { get; }
     }
 
-    internal class FluentAspectBuilder : IFluentAspectBuilder
+    internal sealed class FluentAspectBuilder : IFluentAspectBuilder
     {
         public FluentAspectBuilder(IServiceCollection serviceCollection)
         {

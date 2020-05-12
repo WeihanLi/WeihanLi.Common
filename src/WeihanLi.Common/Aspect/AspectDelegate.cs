@@ -28,7 +28,14 @@ namespace WeihanLi.Common.Aspect
             // enrich
             foreach (var enricher in FluentAspects.AspectOptions.Enrichers)
             {
-                enricher.Enrich(invocation);
+                try
+                {
+                    enricher.Enrich(invocation);   
+                }
+                catch (System.Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
             }
 
             // invoke delegate
