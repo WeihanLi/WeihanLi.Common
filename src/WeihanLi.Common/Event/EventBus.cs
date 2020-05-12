@@ -10,7 +10,7 @@ namespace WeihanLi.Common.Event
     /// <summary>
     /// EventBus in process
     /// </summary>
-    public class EventBus : IEventBus
+    public sealed class EventBus : IEventBus
     {
         private static readonly ILogHelperLogger _logger = Helpers.LogHelper.GetLogger<EventBus>();
 
@@ -50,9 +50,34 @@ namespace WeihanLi.Common.Event
             return false;
         }
 
-        public Task<bool> PublishAsync<TEvent>(TEvent @event) where TEvent : class, IEventBase
+        public async Task<bool> PublishAsync<TEvent>(TEvent @event) where TEvent : class, IEventBase
         {
-            return Task.FromResult(Publish(@event));
+            var handlers = _subscriptionManager.GetEventHandlerTypes<TEvent>();
+            if (handlers.Count > 0)
+            {
+                await Task.Yield();
+                //
+                var handlerTasks = new List<Task>(handlers.Count);
+                foreach (var handlerType in handlers)
+                {
+                    try
+                    {
+                        if (_serviceProvider.GetServiceOrCreateInstance(handlerType) is IEventHandler<TEvent> handler)
+                        {
+                            handlerTasks.Add(handler.Handle(@event));
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Error(ex, $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handlerType.FullName}");
+                    }
+                }
+
+                var task = handlerTasks.WhenAll().ConfigureAwait(false);
+
+                return true;
+            }
+            return false;
         }
 
         public bool Subscribe<TEvent, TEventHandler>()
@@ -79,7 +104,5 @@ namespace WeihanLi.Common.Event
         {
             return _subscriptionManager.UnSubscribeAsync<TEvent, TEventHandler>();
         }
-
-        public ICollection<Type> GetEventHandlerTypes<TEvent>() where TEvent : class, IEventBase => _subscriptionManager.GetEventHandlerTypes<TEvent>();
     }
 }

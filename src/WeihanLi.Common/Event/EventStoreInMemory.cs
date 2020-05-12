@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace WeihanLi.Common.Event
 {
-    public class EventStoreInMemory : IEventStore
+    public sealed class EventStoreInMemory : IEventStore
     {
         private readonly ConcurrentDictionary<string, IEventBase> _events = new ConcurrentDictionary<string, IEventBase>();
 

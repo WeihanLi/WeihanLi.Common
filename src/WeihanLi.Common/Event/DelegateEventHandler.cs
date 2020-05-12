@@ -11,7 +11,7 @@ namespace WeihanLi.Common.Event
         public static DelegateEventHandler<TEvent> FromFunc<TEvent>(Func<TEvent, Task> func) where TEvent : class, IEventBase => new DelegateEventHandler<TEvent>(func);
     }
 
-    public class DelegateEventHandler<TEvent> : EventHandlerBase<TEvent>
+    public sealed class DelegateEventHandler<TEvent> : EventHandlerBase<TEvent>
         where TEvent : class, IEventBase
     {
         private readonly Func<TEvent, Task> _func;
