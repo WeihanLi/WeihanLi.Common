@@ -69,7 +69,7 @@ namespace WeihanLi.Common.Helpers
     /// </summary>
     public static class ActivatorHelper
     {
-        private static readonly MethodInfo GetServiceInfo =
+        private static readonly MethodInfo _getServiceInfo =
             GetMethodInfo<Func<IServiceProvider, Type, Type, bool, object>>((sp, t, r, c) => GetService(sp, t, r, c));
 
         /// <summary>
@@ -145,10 +145,10 @@ namespace WeihanLi.Common.Helpers
             var argumentArray = Expression.Parameter(typeof(object[]), "argumentArray");
             var factoryExpressionBody = BuildFactoryExpression(constructor, parameterMap, provider, argumentArray);
 
-            var factoryLamda = Expression.Lambda<Func<IServiceProvider, object[], object>>(
+            var factoryLambda = Expression.Lambda<Func<IServiceProvider, object[], object>>(
                 factoryExpressionBody, provider, argumentArray);
 
-            var result = factoryLamda.Compile();
+            var result = factoryLambda.Compile();
             return result.Invoke;
         }
 
@@ -228,7 +228,7 @@ namespace WeihanLi.Common.Helpers
                         Expression.Constant(parameterType, typeof(Type)),
                         Expression.Constant(constructor.DeclaringType, typeof(Type)),
                         Expression.Constant(hasDefaultValue) };
-                    constructorArguments[i] = Expression.Call(GetServiceInfo, parameterTypeExpression);
+                    constructorArguments[i] = Expression.Call(_getServiceInfo, parameterTypeExpression);
                 }
 
                 // Support optional constructor arguments by passing in the default value
@@ -326,7 +326,7 @@ namespace WeihanLi.Common.Helpers
             return true;
         }
 
-        private struct ConstructorMatcher
+        private readonly struct ConstructorMatcher
         {
             private readonly ConstructorInfo _constructor;
             private readonly ParameterInfo[] _parameters;

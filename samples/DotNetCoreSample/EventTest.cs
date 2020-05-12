@@ -12,6 +12,7 @@ namespace DotNetCoreSample
         public static void MainTest()
         {
             var eventBus = DependencyResolver.ResolveService<IEventBus>();
+
             eventBus.Subscribe<CounterEvent, CounterEventHandler1>();
             eventBus.Subscribe<CounterEvent, CounterEventHandler1>();
 
@@ -20,7 +21,7 @@ namespace DotNetCoreSample
 
             eventBus.Publish(new CounterEvent { Counter = 1 });
 
-            eventBus.Unsubscribe<CounterEvent, CounterEventHandler1>();
+            eventBus.UnSubscribe<CounterEvent, CounterEventHandler1>();
             // eventBus.Unsubscribe<CounterEvent, DelegateEventHandler<CounterEvent>>();
             eventBus.Publish(new CounterEvent { Counter = 2 });
         }

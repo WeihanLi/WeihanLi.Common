@@ -17,7 +17,7 @@ namespace DotNetFxSample
                 // options.UseInterceptorResolver<AttributeInterceptorResolver>();
             });
             //
-            var fly = FluentAspects.CreateProxy<IFly, MonkeyKing>();
+            var fly = FluentAspects.AspectOptions.ProxyFactory.CreateProxy<IFly, MonkeyKing>();
             Console.WriteLine(fly.Name);
             fly.Fly();
         }

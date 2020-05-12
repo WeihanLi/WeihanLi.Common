@@ -13,8 +13,15 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>
+      https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
+    </PackageReleaseNotes>
+    <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    
     <Authors>WeihanLi</Authors>
-    <Copyright>Copyright 2017-2019 (c) WeihanLi</Copyright>
+    <Copyright>Copyright 2017-2020 (c) WeihanLi</Copyright>
     <NoWarn>$(NoWarn);NU5048;</NoWarn>
   </PropertyGroup>
   <ItemGroup>

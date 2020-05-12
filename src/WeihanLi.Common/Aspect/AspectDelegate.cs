@@ -8,23 +8,51 @@ namespace WeihanLi.Common.Aspect
 {
     public class AspectDelegate
     {
+        public static void Invoke(IInvocation context)
+        {
+            InvokeInternal(context, null, null);
+        }
+
         public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors)
         {
-            var action = GetAspectDelegate(invocation, interceptors);
+            InvokeInternal(invocation, interceptors, null);
+        }
+
+        public static void InvokeWithCompleteFunc(IInvocation invocation, Func<IInvocation, Task> completeFunc)
+        {
+            InvokeInternal(invocation, null, completeFunc);
+        }
+
+        public static void InvokeInternal(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
+        {
+            // enrich
+            foreach (var enricher in FluentAspects.AspectOptions.Enrichers)
+            {
+                try
+                {
+                    enricher.Enrich(invocation);   
+                }
+                catch (System.Exception ex)
+                {
+                    InvokeHelper.OnInvokeException?.Invoke(ex);
+                }
+            }
+
+            // invoke delegate
+            var action = GetAspectDelegate(invocation, interceptors, completeFunc);
             var task = action.Invoke(invocation);
             if (!task.IsCompleted)
             {
                 // await task to be completed
                 task.ConfigureAwait(false).GetAwaiter().GetResult();
             }
-
             if (task.Exception != null)
             {
                 var exception = task.Exception.Unwrap();
                 throw exception;
             }
 
-            // check for return value
+            // ensure return value
             if (invocation.ProxyMethod.ReturnType != typeof(void))
             {
                 if (invocation.ReturnValue == null && invocation.ProxyMethod.ReturnType.IsValueType)
@@ -34,30 +62,46 @@ namespace WeihanLi.Common.Aspect
             }
         }
 
-        private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors)
+        private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
         {
             // ReSharper disable once ConvertToLocalFunction
-            Func<IInvocation, Task> completeFunc = x =>
+            // ReSharper disable once ConvertIfStatementToNullCoalescingAssignment
+            if (null == completeFunc)
             {
-                invocation.ReturnValue = x.Method?.Invoke(x.Target, x.Arguments);
-                if (invocation.ProxyMethod.ReturnType == typeof(void))
+                completeFunc = x =>
                 {
-                    return TaskHelper.CompletedTask;
-                }
+                    if (x.Target == x.ProxyTarget && x.Method != null)
+                    {
+                        // https://stackoverflow.com/questions/2323401/how-to-call-base-base-method
+                        var ptr = x.Method.MethodHandle.GetFunctionPointer();
+                        var delegateType = DelegateHelper.GetDelegateType(x.Method);
+                        var @delegate = (Delegate)Activator.CreateInstance(delegateType, x.Target, ptr);
+                        invocation.ReturnValue = @delegate.DynamicInvoke(x.Arguments);
+                    }
+                    else
+                    {
+                        invocation.ReturnValue = x.Method?.Invoke(x.Target, x.Arguments);
+                    }
 
-                if (invocation.ReturnValue is Task task)
-                {
-                    return task;
-                }
+                    if (invocation.ProxyMethod.ReturnType == typeof(void))
+                    {
+                        return TaskHelper.CompletedTask;
+                    }
+                    if (invocation.ReturnValue is Task task)
+                    {
+                        return task;
+                    }
+
 #if NETSTANDARD2_1
-                if (invocation.ReturnValue is ValueTask valTask)
-                {
-                    return valTask.AsTask();
-                }
+                    if (invocation.ReturnValue is ValueTask valTask)
+                    {
+                        return valTask.AsTask();
+                    }
 #endif
 
-                return TaskHelper.CompletedTask;
-            };
+                    return TaskHelper.CompletedTask;
+                };
+            }
 
             // ReSharper disable once ConvertIfStatementToNullCoalescingAssignment
             if (null == interceptors)
@@ -79,11 +123,6 @@ namespace WeihanLi.Common.Aspect
             }
 
             return builder.Build();
-        }
-
-        public static void Invoke(IInvocation context)
-        {
-            InvokeWithInterceptors(context, null);
         }
     }
 }

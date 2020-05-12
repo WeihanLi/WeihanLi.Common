@@ -10,26 +10,22 @@ namespace WeihanLi.Common.Event
     /// <summary>
     /// EventBus in process
     /// </summary>
-    public class EventBus : IEventBus
+    public sealed class EventBus : IEventBus
     {
-        private static readonly ILogHelperLogger Logger = Helpers.LogHelper.GetLogger<EventBus>();
+        private static readonly ILogHelperLogger _logger = Helpers.LogHelper.GetLogger<EventBus>();
 
-        private readonly IEventStore _eventStore;
         private readonly IServiceProvider _serviceProvider;
+        private readonly IEventSubscriptionManager _subscriptionManager;
 
-        public EventBus(IEventStore eventStore, IServiceProvider serviceProvider = null)
+        public EventBus(IEventSubscriptionManager subscriptionManager, IServiceProvider serviceProvider = null)
         {
-            _eventStore = eventStore;
+            _subscriptionManager = subscriptionManager;
             _serviceProvider = serviceProvider ?? DependencyResolver.Current;
         }
 
         public bool Publish<TEvent>(TEvent @event) where TEvent : class, IEventBase
         {
-            if (!_eventStore.HasSubscriptionsForEvent<TEvent>())
-            {
-                return false;
-            }
-            var handlers = _eventStore.GetEventHandlerTypes<TEvent>();
+            var handlers = _subscriptionManager.GetEventHandlerTypes<TEvent>();
             if (handlers.Count > 0)
             {
                 var handlerTasks = new List<Task>();
@@ -44,7 +40,7 @@ namespace WeihanLi.Common.Event
                     }
                     catch (Exception ex)
                     {
-                        Logger.Error(ex, $"handle event [{_eventStore.GetEventKey<TEvent>()}] error, eventHandlerType:{handlerType.FullName}");
+                        _logger.Error(ex, $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handlerType.FullName}");
                     }
                 }
                 handlerTasks.WhenAll().ConfigureAwait(false);
@@ -54,34 +50,59 @@ namespace WeihanLi.Common.Event
             return false;
         }
 
-        public Task<bool> PublishAsync<TEvent>(TEvent @event) where TEvent : class, IEventBase
+        public async Task<bool> PublishAsync<TEvent>(TEvent @event) where TEvent : class, IEventBase
         {
-            return Task.FromResult(Publish(@event));
+            var handlers = _subscriptionManager.GetEventHandlerTypes<TEvent>();
+            if (handlers.Count > 0)
+            {
+                await Task.Yield();
+                //
+                var handlerTasks = new List<Task>(handlers.Count);
+                foreach (var handlerType in handlers)
+                {
+                    try
+                    {
+                        if (_serviceProvider.GetServiceOrCreateInstance(handlerType) is IEventHandler<TEvent> handler)
+                        {
+                            handlerTasks.Add(handler.Handle(@event));
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.Error(ex, $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handlerType.FullName}");
+                    }
+                }
+
+                var task = handlerTasks.WhenAll().ConfigureAwait(false);
+
+                return true;
+            }
+            return false;
         }
 
         public bool Subscribe<TEvent, TEventHandler>()
             where TEvent : class, IEventBase
             where TEventHandler : IEventHandler<TEvent>
         {
-            return _eventStore.AddSubscription<TEvent, TEventHandler>();
+            return _subscriptionManager.Subscribe<TEvent, TEventHandler>();
         }
 
         public Task<bool> SubscribeAsync<TEvent, TEventHandler>() where TEvent : class, IEventBase where TEventHandler : IEventHandler<TEvent>
         {
-            return Task.FromResult(Subscribe<TEvent, TEventHandler>());
+            return _subscriptionManager.SubscribeAsync<TEvent, TEventHandler>();
         }
 
-        public bool Unsubscribe<TEvent, TEventHandler>()
+        public bool UnSubscribe<TEvent, TEventHandler>()
             where TEvent : class, IEventBase
             where TEventHandler : IEventHandler<TEvent>
         {
-            return _eventStore.RemoveSubscription<TEvent, TEventHandler>();
+            return _subscriptionManager.UnSubscribe<TEvent, TEventHandler>();
         }
 
-        public Task<bool> UnsubscribeAsync<TEvent, TEventHandler>() where TEvent : class, IEventBase
+        public Task<bool> UnSubscribeAsync<TEvent, TEventHandler>() where TEvent : class, IEventBase
             where TEventHandler : IEventHandler<TEvent>
         {
-            return Task.FromResult(Unsubscribe<TEvent, TEventHandler>());
+            return _subscriptionManager.UnSubscribeAsync<TEvent, TEventHandler>();
         }
     }
 }

@@ -8,15 +8,38 @@ namespace WeihanLi.Common.Aspect
 {
     public static class FluentAspectOptionsExtensions
     {
+        #region Intercept
+
+        public static IInterceptionConfiguration Intercept(this FluentAspectOptions options,
+            Func<IInvocation, bool> predict)
+        {
+            if (null == predict)
+            {
+                throw new ArgumentNullException(nameof(predict));
+            }
+
+            if (options.InterceptionConfigurations.TryGetValue
+                (predict, out var interceptionConfiguration))
+            {
+                return interceptionConfiguration;
+            }
+
+            interceptionConfiguration = new InterceptionConfiguration();
+            options.InterceptionConfigurations[predict] = interceptionConfiguration;
+            return interceptionConfiguration;
+        }
+
         public static IInterceptionConfiguration InterceptAll(this FluentAspectOptions options)
             => options.Intercept(m => true);
 
-        public static IInterceptionConfiguration InterceptType(this FluentAspectOptions options, Func<Type, bool> typesFilter)
+        public static IInterceptionConfiguration InterceptType(this FluentAspectOptions options,
+            Func<Type, bool> typesFilter)
         {
             if (null == typesFilter)
             {
                 throw new ArgumentNullException(nameof(typesFilter));
             }
+
             return options.InterceptMethod(m => typesFilter(m.DeclaringType));
         }
 
@@ -33,6 +56,7 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new ArgumentNullException(nameof(method));
             }
+
             var methodSignature = method.GetSignature();
             return options.InterceptMethod<T>(m => m.GetSignature().Equals(methodSignature));
         }
@@ -44,6 +68,7 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new ArgumentNullException(nameof(method));
             }
+
             var methodSignature = method.GetSignature();
             return options.InterceptMethod(m => m.GetSignature().Equals(methodSignature));
         }
@@ -56,10 +81,12 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new InvalidOperationException("no property found");
             }
+
             if (!prop.CanRead)
             {
                 throw new InvalidOperationException($"the property {prop.Name} can not read");
             }
+
             return options.InterceptMethod<T>(prop.GetMethod);
         }
 
@@ -71,10 +98,12 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new InvalidOperationException("no property found");
             }
+
             if (!prop.CanWrite)
             {
                 throw new InvalidOperationException($"the property {prop.Name} can not write");
             }
+
             return options.InterceptMethod<T>(prop.SetMethod);
         }
 
@@ -97,6 +126,7 @@ namespace WeihanLi.Common.Aspect
             {
                 expression = expression.And(andExpression);
             }
+
             return options.InterceptMethod(expression.Compile());
         }
 
@@ -114,10 +144,20 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new InvalidOperationException($"no method found");
             }
+
             Expression<Func<MethodInfo, bool>> expression = m => m.DeclaringType.IsAssignableTo<T>();
             var methodSignature = innerMethod.GetSignature();
             expression = expression.And(m => m.GetSignature().Equals(methodSignature));
             return options.InterceptMethod(expression.Compile());
+        }
+
+        #endregion Intercept
+
+        #region NoIntercept
+
+        public static bool NoIntercept(this FluentAspectOptions options, Func<IInvocation, bool> predict)
+        {
+            return options.NoInterceptionConfigurations.Add(predict);
         }
 
         public static FluentAspectOptions NoInterceptMethod<T>(this FluentAspectOptions options,
@@ -134,7 +174,8 @@ namespace WeihanLi.Common.Aspect
             return options;
         }
 
-        public static FluentAspectOptions NoInterceptType(this FluentAspectOptions options, Func<Type, bool> typesFilter)
+        public static FluentAspectOptions NoInterceptType(this FluentAspectOptions options,
+            Func<Type, bool> typesFilter)
         {
             if (null != typesFilter)
             {
@@ -158,6 +199,7 @@ namespace WeihanLi.Common.Aspect
             {
                 expression = expression.And(andExpression);
             }
+
             options.NoInterceptMethod(expression.Compile());
             return options;
         }
@@ -170,6 +212,7 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new InvalidOperationException($"no method found");
             }
+
             Expression<Func<MethodInfo, bool>> expression = m => m.DeclaringType.IsAssignableTo<T>();
             var methodSignature = innerMethod.GetSignature();
             expression = expression.And(m => m.GetSignature().Equals(methodSignature));
@@ -190,6 +233,7 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new ArgumentNullException(nameof(method));
             }
+
             var methodSignature = method.GetSignature();
             return options.NoInterceptMethod<T>(m => m.GetSignature().Equals(methodSignature));
         }
@@ -201,6 +245,7 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new ArgumentNullException(nameof(method));
             }
+
             var methodSignature = method.GetSignature();
             return options.NoInterceptMethod(m => m.GetSignature().Equals(methodSignature));
         }
@@ -213,10 +258,12 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new InvalidOperationException("no property found");
             }
+
             if (!prop.CanRead)
             {
                 throw new InvalidOperationException($"the property {prop.Name} can not read");
             }
+
             return options.NoInterceptMethod<T>(prop.GetMethod);
         }
 
@@ -228,28 +275,41 @@ namespace WeihanLi.Common.Aspect
             {
                 throw new InvalidOperationException("no property found");
             }
+
             if (!prop.CanWrite)
             {
                 throw new InvalidOperationException($"the property {prop.Name} can not write");
             }
+
             return options.NoInterceptMethod<T>(prop.SetMethod);
         }
 
-        public static FluentAspectOptions UseInterceptorResolver(this FluentAspectOptions options, IInterceptorResolver resolver)
+        #endregion NoIntercept
+
+        #region InterceptorResolver
+
+        public static FluentAspectOptions UseInterceptorResolver(this FluentAspectOptions options,
+            IInterceptorResolver resolver)
         {
             if (null == resolver)
             {
                 throw new ArgumentNullException(nameof(resolver));
             }
+
             options.InterceptorResolver = resolver;
             return options;
         }
 
-        public static FluentAspectOptions UseInterceptorResolver<TResolver>(this FluentAspectOptions options) where TResolver : IInterceptorResolver, new()
+        public static FluentAspectOptions UseInterceptorResolver<TResolver>(this FluentAspectOptions options)
+            where TResolver : IInterceptorResolver, new()
         {
             options.InterceptorResolver = new TResolver();
             return options;
         }
+
+        #endregion InterceptorResolver
+
+        #region ProxyFactory
 
         public static FluentAspectOptions UseProxyFactory(this FluentAspectOptions options, IProxyFactory proxyFactory)
         {
@@ -257,16 +317,50 @@ namespace WeihanLi.Common.Aspect
             return options;
         }
 
-        public static FluentAspectOptions UseProxyFactory<TProxyFactory>(this FluentAspectOptions options) where TProxyFactory : class, IProxyFactory, new()
+        public static FluentAspectOptions UseProxyFactory<TProxyFactory>(this FluentAspectOptions options)
+            where TProxyFactory : class, IProxyFactory, new()
         {
             options.ProxyFactory = new TProxyFactory();
             return options;
         }
 
-        public static FluentAspectOptions UseProxyFactory<TProxyFactory>(this FluentAspectOptions options, params object[] parameters) where TProxyFactory : class, IProxyFactory, new()
+        public static FluentAspectOptions UseProxyFactory<TProxyFactory>(this FluentAspectOptions options,
+            params object[] parameters) where TProxyFactory : class, IProxyFactory, new()
         {
             options.ProxyFactory = ActivatorHelper.CreateInstance<TProxyFactory>(parameters);
             return options;
         }
+
+        #endregion ProxyFactory
+
+        #region Enricher
+
+        public static FluentAspectOptions WithProperty(this FluentAspectOptions options, string propertyName,
+            object propertyValue, bool overwrite = false)
+        {
+            options.Enrichers.Add(new PropertyInvocationEnricher(propertyName, propertyValue, overwrite));
+            return options;
+        }
+
+        public static FluentAspectOptions WithProperty(this FluentAspectOptions options, string propertyName,
+            Func<IInvocation, object> propertyValueFactory, bool overwrite = false)
+        {
+            options.Enrichers.Add(new PropertyInvocationEnricher(propertyName, propertyValueFactory, overwrite));
+            return options;
+        }
+
+        public static FluentAspectOptions WithEnricher<TEnricher>(this FluentAspectOptions options) where TEnricher : IInvocationEnricher, new()
+        {
+            options.Enrichers.Add(new TEnricher());
+            return options;
+        }
+
+        public static FluentAspectOptions WithEnricher<TEnricher>(this FluentAspectOptions options, TEnricher enricher) where TEnricher : IInvocationEnricher
+        {
+            options.Enrichers.Add(enricher);
+            return options;
+        }
+
+        #endregion Enricher
     }
 }

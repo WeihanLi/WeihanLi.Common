@@ -4,7 +4,7 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect
 {
-    public class DefaultProxyFactory : IProxyFactory
+    public sealed class DefaultProxyFactory : IProxyFactory
     {
         public static readonly IProxyFactory Instance = new DefaultProxyFactory(DefaultProxyTypeFactory.Instance);
 
@@ -26,10 +26,6 @@ namespace WeihanLi.Common.Aspect
 
             var proxyType = _proxyTypeFactory.CreateProxyType(serviceType);
             var proxy = _serviceProvider.CreateInstance(proxyType);
-            if (serviceType.IsClass)
-            {
-                ProxyUtils.SetProxyTarget(proxy, _serviceProvider.CreateInstance(serviceType));
-            }
             return proxy;
         }
 
@@ -47,8 +43,6 @@ namespace WeihanLi.Common.Aspect
 
             var proxyType = _proxyTypeFactory.CreateProxyType(serviceType, implementType);
             var proxy = _serviceProvider.CreateInstance(proxyType);
-            var target = _serviceProvider.CreateInstance(implementType);
-            ProxyUtils.SetProxyTarget(proxy, target);
             return proxy;
         }
 

@@ -2,9 +2,9 @@
 
 namespace WeihanLi.Common.Aspect
 {
-    public class FluentAspects
+    public sealed class FluentAspects
     {
-        internal static readonly FluentAspectOptions AspectOptions;
+        public static readonly FluentAspectOptions AspectOptions;
 
         static FluentAspects()
         {
@@ -19,16 +19,6 @@ namespace WeihanLi.Common.Aspect
         public static void Configure(Action<FluentAspectOptions> optionsAction)
         {
             optionsAction?.Invoke(AspectOptions);
-        }
-
-        public static TService CreateProxy<TService>() where TService : class
-        {
-            return AspectOptions.ProxyFactory.CreateProxy<TService>();
-        }
-
-        public static TService CreateProxy<TService, TImplement>() where TService : class where TImplement : TService
-        {
-            return AspectOptions.ProxyFactory.CreateProxy<TService, TImplement>();
         }
     }
 }

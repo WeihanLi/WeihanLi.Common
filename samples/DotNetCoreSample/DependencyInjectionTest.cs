@@ -9,6 +9,7 @@ using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
+using WeihanLi.Extensions;
 
 namespace DotNetCoreSample
 {
@@ -273,6 +274,8 @@ namespace DotNetCoreSample
         void Fly();
 
         void OpenFly<T>();
+
+        string FlyAway();
     }
 
     public interface IAnimal<T>
@@ -282,15 +285,24 @@ namespace DotNetCoreSample
 
     public class Animal<T>
     {
+        private int _eatCounter;
+        private int _drinkCounter;
+
         public virtual void Eat()
         {
             Console.WriteLine("Eating now");
+            _eatCounter++;
         }
+
+        public int GetEatCount() => _eatCounter;
 
         public virtual void Drink(T t)
         {
             Console.WriteLine($"ddd {t}");
+            _drinkCounter++;
         }
+
+        public virtual int GetDrinkCount() => _drinkCounter;
     }
 
     public class LogInterceptor : AbstractInterceptor
@@ -301,6 +313,8 @@ namespace DotNetCoreSample
             try
             {
                 Console.WriteLine($"[{invocation.ProxyMethod.Name}] invoke begin");
+                Console.WriteLine($"Properties:{invocation.Properties.ToJson()}");
+
                 await next();
             }
             finally
@@ -325,6 +339,8 @@ namespace DotNetCoreSample
             Console.WriteLine($"{Name} is OpenFlying,OpenType: {typeof(T).FullName}");
         }
 
+        public string FlyAway() => "十万八千里";
+
         public void Dispose()
         {
             Console.WriteLine($"{Name}  disposed...");
@@ -344,6 +360,8 @@ namespace DotNetCoreSample
         {
             Console.WriteLine($"{Name} is OpenFlying,OpenType: {typeof(T).FullName}");
         }
+
+        public string FlyAway() => "xxxxx";
     }
 
     internal class TestServiceContainerModule : ServiceContainerModule

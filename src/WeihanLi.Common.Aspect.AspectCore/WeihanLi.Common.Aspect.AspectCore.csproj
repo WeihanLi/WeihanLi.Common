@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Title>WeihanLi.Common.Aspect.AspectCore</Title>    
+    <Description>FluentAspect AspectCore extensions</Description>
+    <PackageSummary>FluentAspect AspectCore extensions</PackageSummary>
+    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common.Aspect.AspectCore</PackageProjectUrl>
+    <PackageTags>FluentAspect,Aspect,AspectCore,AOP</PackageTags>
+    <PackageReleaseNotes>
+      https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
+    </PackageReleaseNotes>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspectCore.Core" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
+  </ItemGroup>
+
+</Project>

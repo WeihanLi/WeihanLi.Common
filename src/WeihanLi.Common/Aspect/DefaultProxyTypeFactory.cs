@@ -2,7 +2,7 @@
 
 namespace WeihanLi.Common.Aspect
 {
-    public class DefaultProxyTypeFactory : IProxyTypeFactory
+    public sealed class DefaultProxyTypeFactory : IProxyTypeFactory
     {
         public static readonly IProxyTypeFactory Instance = new DefaultProxyTypeFactory();
 

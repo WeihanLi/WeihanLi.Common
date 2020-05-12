@@ -1,24 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Threading.Tasks;
 
 namespace WeihanLi.Common.Event
 {
     public interface IEventStore
     {
-        bool AddSubscription<TEvent, TEventHandler>()
-           where TEvent : class, IEventBase
-           where TEventHandler : IEventHandler<TEvent>;
+        int SaveEvents(params IEventBase[] events);
 
-        bool RemoveSubscription<TEvent, TEventHandler>()
-           where TEvent : class, IEventBase
-           where TEventHandler : IEventHandler<TEvent>;
+        Task<int> SaveEventsAsync(params IEventBase[] events);
 
-        bool HasSubscriptionsForEvent<TEvent>() where TEvent : class, IEventBase;
+        int DeleteEvents(params string[] events);
 
-        ICollection<Type> GetEventHandlerTypes<TEvent>() where TEvent : class, IEventBase;
-
-        bool Clear();
-
-        string GetEventKey<TEvent>();
+        Task<int> DeleteEventsAsync(params string[] events);
     }
 }

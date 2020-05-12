@@ -1,32 +1,35 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace WeihanLi.Common.Aspect
 {
     public interface IInvocation
     {
-        public MethodInfo ProxyMethod { get; }
+        MethodInfo ProxyMethod { get; }
 
-        public object ProxyTarget { get; }
+        object ProxyTarget { get; }
 
-        public MethodInfo Method { get; }
+        MethodInfo Method { get; }
 
-        public object Target { get; }
+        object Target { get; }
 
-        public object[] Arguments { get; }
+        object[] Arguments { get; }
 
         Type[] GenericArguments { get; }
 
-        public object ReturnValue { get; set; }
+        object ReturnValue { get; set; }
+
+        Dictionary<string, object> Properties { get; }
     }
 
     public class AspectInvocation : IInvocation
     {
         public MethodInfo ProxyMethod { get; }
 
-        public MethodInfo Method { get; }
-
         public object ProxyTarget { get; }
+
+        public MethodInfo Method { get; }
 
         public object Target { get; }
 
@@ -36,9 +39,13 @@ namespace WeihanLi.Common.Aspect
 
         public object ReturnValue { get; set; }
 
+        public Dictionary<string, object> Properties { get; }
+
         public AspectInvocation(
-            MethodInfo method, MethodInfo methodBase,
-            object proxyTarget, object target,
+            MethodInfo proxyMethod,
+            MethodInfo methodBase,
+            object proxyTarget,
+            object target,
             object[] arguments)
         {
             Method = methodBase;
@@ -46,14 +53,17 @@ namespace WeihanLi.Common.Aspect
             Target = target;
             Arguments = arguments;
             GenericArguments = methodBase?.GetGenericArguments() ?? Type.EmptyTypes;
-            if (GenericArguments.Length > 0)
+
+            if (proxyMethod.ContainsGenericParameters && GenericArguments.Length > 0)
             {
-                ProxyMethod = method.MakeGenericMethod(GenericArguments);
+                ProxyMethod = proxyMethod.MakeGenericMethod(GenericArguments);
             }
             else
             {
-                ProxyMethod = method;
+                ProxyMethod = proxyMethod;
             }
+
+            Properties = new Dictionary<string, object>();
         }
     }
 }

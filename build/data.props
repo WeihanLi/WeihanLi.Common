@@ -6,9 +6,7 @@
     <PackageSummary>sql database data extensions</PackageSummary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
-    <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Data</PackageProjectUrl>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>db database sql data </PackageTags>
     <PackageReleaseNotes>
       https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md

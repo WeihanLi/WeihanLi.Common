@@ -42,12 +42,12 @@ namespace WeihanLi.Common.Json
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             var endPoint = (IPEndPoint)value;
-            var jo = new JObject
+            var obj = new JObject
             {
                 { "Address", JToken.FromObject(endPoint.Address, serializer) },
                 { "Port", endPoint.Port }
             };
-            jo.WriteTo(writer);
+            obj.WriteTo(writer);
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
