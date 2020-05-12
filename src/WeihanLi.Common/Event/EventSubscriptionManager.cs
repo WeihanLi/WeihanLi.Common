@@ -48,17 +48,16 @@ namespace WeihanLi.Common.Event
             where TEventHandler : IEventHandler<TEvent>
             where TEvent : class, IEventBase;
 
-        ICollection<Type> GetEventHandlerTypes<TEvent>() where TEvent : class, IEventBase;
+        ICollection<Type> GetEventHandlerTypes(Type eventType);
     }
 
     public class EventSubscriptionManagerInMemory : IEventSubscriptionManager
     {
         private readonly ConcurrentDictionary<string, ConcurrentSet<Type>> _eventHandlers = new ConcurrentDictionary<string, ConcurrentSet<Type>>();
 
-        public string GetEventKey<TEvent>()
-        {
-            return typeof(TEvent).FullName;
-        }
+        private static string GetEventKey<TEvent>() => GetEventKey(typeof(TEvent));
+
+        private static string GetEventKey(Type eventType) => eventType.FullName;
 
         public bool Subscribe<TEvent, TEventHandler>() where TEvent : class, IEventBase where TEventHandler : IEventHandler<TEvent>
         {
@@ -95,16 +94,19 @@ namespace WeihanLi.Common.Event
             return Task.FromResult(UnSubscribe<TEvent, TEventHandler>());
         }
 
-        public bool HasSubscriptionForEvent<TEvent>() where TEvent : class, IEventBase
+        public ICollection<Type> GetEventHandlerTypes(Type eventType)
         {
-            var eventKey = GetEventKey<TEvent>();
-            return _eventHandlers.ContainsKey(eventKey);
-        }
-
-        public ICollection<Type> GetEventHandlerTypes<TEvent>() where TEvent : class, IEventBase
-        {
-            var eventKey = GetEventKey<TEvent>();
+            var eventKey = GetEventKey(eventType);
             return _eventHandlers[eventKey];
+        }
+    }
+
+    public static class EventSubscriptionManagerExtensions
+    {
+        public static ICollection<Type> GetEventHandlerTypes<TEvent>(this IEventSubscriptionManager subscriptionManager)
+            where TEvent : class, IEventBase
+        {
+            return subscriptionManager.GetEventHandlerTypes(typeof(TEvent));
         }
     }
 }

@@ -36,6 +36,7 @@ namespace WeihanLi.Common.Event
             services.TryAddSingleton<IEventBus, EventBus>();
             services.TryAddSingleton<IEventQueue, EventQueueInMemory>();
             services.TryAddSingleton<IEventStore, EventStoreInMemory>();
+            services.TryAddSingleton<IEventHandlerFactory, DependencyInjectionEventHandlerFactory>();
 
             return new EventBuilder(services);
         }
