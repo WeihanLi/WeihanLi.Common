@@ -20,6 +20,32 @@ namespace WeihanLi.Common.Event
             _eventHandlerFactory = eventHandlerFactory;
         }
 
+        public bool Publish<TEvent>(TEvent @event) where TEvent : class, IEventBase
+        {
+            var handlers = _eventHandlerFactory.GetHandlers<TEvent>();
+            if (handlers.Count > 0)
+            {
+                var handlerTasks = new Task[handlers.Count];
+
+                handlers.ForEach((handler, index) =>
+                {
+                    handlerTasks[index] = handler.Handle(@event).ContinueWith(r =>
+                    {
+                        if (r.IsFaulted)
+                        {
+                            _logger.Error(r.Exception?.Unwrap(),
+                                $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handler.GetType().FullName}");
+                        }
+                    });
+                });
+
+                _ = handlerTasks.WhenAll().ConfigureAwait(false);
+
+                return true;
+            }
+            return false;
+        }
+
         public async Task<bool> PublishAsync<TEvent>(TEvent @event) where TEvent : class, IEventBase
         {
             var handlers = _eventHandlerFactory.GetHandlers<TEvent>();
