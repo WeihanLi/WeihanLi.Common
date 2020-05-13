@@ -1,4 +1,9 @@
-﻿using Microsoft.Extensions.Options;
+﻿#if NETSTANDARD
+
+using Microsoft.Extensions.Options;
+
+#endif
+
 using System;
 using System.Threading.Tasks;
 
