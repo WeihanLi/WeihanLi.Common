@@ -272,7 +272,7 @@ namespace WeihanLi.Common.Helpers
             return Expression.New(constructor, constructorArguments);
         }
 
-        private static void FindApplicableConstructor(
+        public static void FindApplicableConstructor(
             Type instanceType,
             Type[] argumentTypes,
             out ConstructorInfo matchingConstructor,
@@ -326,7 +326,7 @@ namespace WeihanLi.Common.Helpers
             for (var i = 0; i < argumentTypes.Length; i++)
             {
                 var foundMatch = false;
-                var givenParameter = argumentTypes[i].GetTypeInfo();
+                var givenParameter = argumentTypes[i];
 
                 for (var j = 0; j < constructorParameters.Length; j++)
                 {
@@ -336,7 +336,7 @@ namespace WeihanLi.Common.Helpers
                         continue;
                     }
 
-                    if (constructorParameters[j].ParameterType.GetTypeInfo().IsAssignableFrom(givenParameter))
+                    if (constructorParameters[j].ParameterType.IsAssignableFrom(givenParameter))
                     {
                         foundMatch = true;
                         parameterMap[j] = i;
