@@ -41,6 +41,49 @@ namespace WeihanLi.Common.Event
             return new EventBuilder(services);
         }
 
+        public static bool TryAddEventHandler(this IServiceCollection serviceCollection, Type eventType, Type eventHandlerType, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
+        {
+            if (serviceCollection.Any(s =>
+                    s.ServiceType == typeof(IEventHandler<>).MakeGenericType(eventType)
+                    && s.ImplementationType == eventHandlerType
+                ))
+            {
+                return false;
+            }
+
+            serviceCollection.TryAddEnumerable(new ServiceDescriptor(typeof(IEventHandler<>).MakeGenericType(eventType), eventHandlerType, serviceLifetime));
+            return true;
+        }
+
+        public static bool TryRemoveEventHandler(this IServiceCollection serviceCollection, Type eventType, Type eventHandlerType, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
+        {
+            var service = serviceCollection.FirstOrDefault(s =>
+                s.ServiceType == typeof(IEventHandler<>).MakeGenericType(eventType)
+                && s.ImplementationType == eventHandlerType
+            );
+            if (null == service)
+            {
+                return false;
+            }
+
+            serviceCollection.Remove(service);
+            return true;
+        }
+
+        public static IServiceCollection AddEventHandler(this IServiceCollection serviceCollection, Type eventType, Type eventHandlerType, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
+        {
+            serviceCollection.TryAddEnumerable(new ServiceDescriptor(typeof(IEventHandler<>).MakeGenericType(eventType), eventHandlerType, serviceLifetime));
+            return serviceCollection;
+        }
+
+        public static IServiceCollection AddEventHandler<TEvent, TEventHandler>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
+            where TEvent : class, IEventBase
+            where TEventHandler : class, IEventHandler<TEvent>
+        {
+            serviceCollection.TryAddEnumerable(new ServiceDescriptor(typeof(IEventHandler<TEvent>), typeof(TEventHandler), serviceLifetime));
+            return serviceCollection;
+        }
+
         public static IEventBuilder AddEventHandler<TEvent, TEventHandler>(this IEventBuilder eventBuilder, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
           where TEvent : class, IEventBase
           where TEventHandler : class, IEventHandler<TEvent>

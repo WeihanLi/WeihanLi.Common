@@ -74,25 +74,28 @@ namespace WeihanLi.Common.Event
 
         public bool Subscribe<TEvent, TEventHandler>()
             where TEvent : class, IEventBase
-            where TEventHandler : IEventHandler<TEvent>
+            where TEventHandler : class, IEventHandler<TEvent>
         {
             return _subscriptionManager.Subscribe<TEvent, TEventHandler>();
         }
 
-        public Task<bool> SubscribeAsync<TEvent, TEventHandler>() where TEvent : class, IEventBase where TEventHandler : IEventHandler<TEvent>
+        public Task<bool> SubscribeAsync<TEvent, TEventHandler>()
+            where TEvent : class, IEventBase
+            where TEventHandler : class, IEventHandler<TEvent>
         {
             return _subscriptionManager.SubscribeAsync<TEvent, TEventHandler>();
         }
 
         public bool UnSubscribe<TEvent, TEventHandler>()
             where TEvent : class, IEventBase
-            where TEventHandler : IEventHandler<TEvent>
+            where TEventHandler : class, IEventHandler<TEvent>
         {
             return _subscriptionManager.UnSubscribe<TEvent, TEventHandler>();
         }
 
-        public Task<bool> UnSubscribeAsync<TEvent, TEventHandler>() where TEvent : class, IEventBase
-            where TEventHandler : IEventHandler<TEvent>
+        public Task<bool> UnSubscribeAsync<TEvent, TEventHandler>()
+            where TEvent : class, IEventBase
+            where TEventHandler : class, IEventHandler<TEvent>
         {
             return _subscriptionManager.UnSubscribeAsync<TEvent, TEventHandler>();
         }

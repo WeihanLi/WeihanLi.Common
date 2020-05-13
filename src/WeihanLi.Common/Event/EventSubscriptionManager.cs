@@ -1,6 +1,13 @@
-﻿using System;
+﻿#if NETSTANDARD
+
+using Microsoft.Extensions.DependencyInjection;
+
+#endif
+
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
 
@@ -11,95 +18,103 @@ namespace WeihanLi.Common.Event
         /// <summary>
         /// add event handler for event
         /// </summary>
-        /// <typeparam name="TEvent">TEvent</typeparam>
-        /// <typeparam name="TEventHandler">TEventHandler</typeparam>
         /// <returns>whether the operation success</returns>
-        bool Subscribe<TEvent, TEventHandler>()
-            where TEventHandler : IEventHandler<TEvent>
-            where TEvent : class, IEventBase;
+        bool Subscribe(Type eventType, Type eventHandlerType);
 
         /// <summary>
         /// add event handler for event
         /// </summary>
-        /// <typeparam name="TEvent">TEvent</typeparam>
-        /// <typeparam name="TEventHandler">TEventHandler</typeparam>
         /// <returns>whether the operation success</returns>
-        Task<bool> SubscribeAsync<TEvent, TEventHandler>()
-            where TEventHandler : IEventHandler<TEvent>
-            where TEvent : class, IEventBase;
+        Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType);
 
         /// <summary>
         /// remove event handler for event
         /// </summary>
-        /// <typeparam name="TEvent">TEvent</typeparam>
-        /// <typeparam name="TEventHandler">TEventHandler</typeparam>
         /// <returns>whether the operation success</returns>
-        bool UnSubscribe<TEvent, TEventHandler>()
-            where TEventHandler : IEventHandler<TEvent>
-            where TEvent : class, IEventBase;
+        bool UnSubscribe(Type eventType, Type eventHandlerType);
 
         /// <summary>
         /// remove event handler for event
         /// </summary>
-        /// <typeparam name="TEvent">TEvent</typeparam>
-        /// <typeparam name="TEventHandler">TEventHandler</typeparam>
         /// <returns>whether the operation success</returns>
-        Task<bool> UnSubscribeAsync<TEvent, TEventHandler>()
-            where TEventHandler : IEventHandler<TEvent>
-            where TEvent : class, IEventBase;
+        Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType);
 
+        /// <summary>
+        /// Get EventHandlers for event
+        /// </summary>
+        /// <param name="eventType">event</param>
+        /// <returns>event handlers types</returns>
         ICollection<Type> GetEventHandlerTypes(Type eventType);
     }
 
     public class EventSubscriptionManagerInMemory : IEventSubscriptionManager
     {
-        private readonly ConcurrentDictionary<string, ConcurrentSet<Type>> _eventHandlers = new ConcurrentDictionary<string, ConcurrentSet<Type>>();
+        private readonly ConcurrentDictionary<Type, ConcurrentSet<Type>> _eventHandlers = new ConcurrentDictionary<Type, ConcurrentSet<Type>>();
 
-        private static string GetEventKey<TEvent>() => GetEventKey(typeof(TEvent));
-
-        private static string GetEventKey(Type eventType) => eventType.FullName;
-
-        public bool Subscribe<TEvent, TEventHandler>() where TEvent : class, IEventBase where TEventHandler : IEventHandler<TEvent>
+        public bool Subscribe(Type eventType, Type eventHandlerType)
         {
-            var eventKey = GetEventKey<TEvent>();
-            if (_eventHandlers.ContainsKey(eventKey))
-            {
-                return _eventHandlers[eventKey].TryAdd(typeof(TEventHandler));
-            }
-
-            return _eventHandlers.TryAdd(eventKey, new ConcurrentSet<Type>()
-            {
-                typeof(TEventHandler)
-            });
+            var handlers = _eventHandlers.GetOrAdd(eventType, new ConcurrentSet<Type>());
+            return handlers.TryAdd(eventHandlerType);
         }
 
-        public Task<bool> SubscribeAsync<TEvent, TEventHandler>() where TEvent : class, IEventBase where TEventHandler : IEventHandler<TEvent>
+        public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType)
         {
-            return Task.FromResult(Subscribe<TEvent, TEventHandler>());
+            return Task.FromResult(Subscribe(eventType, eventHandlerType));
         }
 
-        public bool UnSubscribe<TEvent, TEventHandler>() where TEvent : class, IEventBase where TEventHandler : IEventHandler<TEvent>
+        public bool UnSubscribe(Type eventType, Type eventHandlerType)
         {
-            var eventKey = GetEventKey<TEvent>();
-            if (_eventHandlers.ContainsKey(eventKey))
+            if (_eventHandlers.TryGetValue(eventType, out var handlers))
             {
-                return _eventHandlers[eventKey].TryRemove(typeof(TEventHandler));
+                return handlers.TryRemove(eventHandlerType);
             }
 
             return false;
         }
 
-        public Task<bool> UnSubscribeAsync<TEvent, TEventHandler>() where TEvent : class, IEventBase where TEventHandler : IEventHandler<TEvent>
+        public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType)
         {
-            return Task.FromResult(UnSubscribe<TEvent, TEventHandler>());
+            return Task.FromResult(UnSubscribe(eventType, eventHandlerType));
         }
 
         public ICollection<Type> GetEventHandlerTypes(Type eventType)
         {
-            var eventKey = GetEventKey(eventType);
-            return _eventHandlers[eventKey];
+            return _eventHandlers[eventType];
         }
     }
+
+#if NETSTANDARD
+
+    public class ServiceCollectionEventSubscriptionManager : IEventSubscriptionManager
+    {
+        private readonly IServiceCollection _serviceCollection;
+
+        public ServiceCollectionEventSubscriptionManager(IServiceCollection serviceCollection)
+        {
+            _serviceCollection = serviceCollection;
+        }
+
+        public bool Subscribe(Type eventType, Type eventHandlerType)
+        {
+            return _serviceCollection.TryAddEventHandler(eventType, eventHandlerType);
+        }
+
+        public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => Task.FromResult(Subscribe(eventType, eventHandlerType));
+
+        public bool UnSubscribe(Type eventType, Type eventHandlerType) =>
+            _serviceCollection.TryRemoveEventHandler(eventType, eventHandlerType);
+
+        public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => Task.FromResult(UnSubscribe(eventType, eventHandlerType));
+
+        public ICollection<Type> GetEventHandlerTypes(Type eventType)
+            => _serviceCollection
+                .Where(s => s.ServiceType == typeof(IEventHandler<>).MakeGenericType(eventType))
+                .Select(s => s.ImplementationType)
+                .ToArray()
+        ;
+    }
+
+#endif
 
     public static class EventSubscriptionManagerExtensions
     {
@@ -107,6 +122,58 @@ namespace WeihanLi.Common.Event
             where TEvent : class, IEventBase
         {
             return subscriptionManager.GetEventHandlerTypes(typeof(TEvent));
+        }
+
+        /// <summary>
+        /// add event handler for event
+        /// </summary>
+        /// <typeparam name="TEvent">TEvent</typeparam>
+        /// <typeparam name="TEventHandler">TEventHandler</typeparam>
+        /// <returns>whether the operation success</returns>
+        public static bool Subscribe<TEvent, TEventHandler>(this IEventSubscriptionManager subscriptionManager)
+            where TEventHandler : class, IEventHandler<TEvent>
+            where TEvent : class, IEventBase
+        {
+            return subscriptionManager.Subscribe(typeof(TEvent), typeof(TEventHandler));
+        }
+
+        /// <summary>
+        /// add event handler for event
+        /// </summary>
+        /// <typeparam name="TEvent">TEvent</typeparam>
+        /// <typeparam name="TEventHandler">TEventHandler</typeparam>
+        /// <returns>whether the operation success</returns>
+        public static Task<bool> SubscribeAsync<TEvent, TEventHandler>(this IEventSubscriptionManager subscriptionManager)
+            where TEventHandler : class, IEventHandler<TEvent>
+            where TEvent : class, IEventBase
+        {
+            return subscriptionManager.SubscribeAsync(typeof(TEvent), typeof(TEventHandler));
+        }
+
+        /// <summary>
+        /// remove event handler for event
+        /// </summary>
+        /// <typeparam name="TEvent">TEvent</typeparam>
+        /// <typeparam name="TEventHandler">TEventHandler</typeparam>
+        /// <returns>whether the operation success</returns>
+        public static bool UnSubscribe<TEvent, TEventHandler>(this IEventSubscriptionManager subscriptionManager)
+            where TEventHandler : class, IEventHandler<TEvent>
+            where TEvent : class, IEventBase
+        {
+            return subscriptionManager.UnSubscribe(typeof(TEvent), typeof(TEventHandler));
+        }
+
+        /// <summary>
+        /// remove event handler for event
+        /// </summary>
+        /// <typeparam name="TEvent">TEvent</typeparam>
+        /// <typeparam name="TEventHandler">TEventHandler</typeparam>
+        /// <returns>whether the operation success</returns>
+        public static Task<bool> UnSubscribeAsync<TEvent, TEventHandler>(this IEventSubscriptionManager subscriptionManager)
+            where TEventHandler : class, IEventHandler<TEvent>
+            where TEvent : class, IEventBase
+        {
+            return subscriptionManager.UnSubscribeAsync(typeof(TEvent), typeof(TEventHandler));
         }
     }
 }
