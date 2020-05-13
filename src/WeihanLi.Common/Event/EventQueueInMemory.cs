@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace WeihanLi.Common.Event
 {
@@ -16,10 +17,22 @@ namespace WeihanLi.Common.Event
             return true;
         }
 
-        public bool TryDequeue(string queueName, out IEventBase @event)
+        public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event) where TEvent : IEventBase => Task.FromResult(Enqueue(queueName, @event));
+
+        public IEventBase Dequeue(string queueName)
         {
-            var queue = _eventQueues.GetOrAdd(queueName, q => new ConcurrentQueue<IEventBase>());
-            return queue.TryDequeue(out @event);
+            if (_eventQueues.TryGetValue(queueName, out var queue))
+            {
+                queue.TryDequeue(out var @event);
+                return @event;
+            }
+
+            return null;
+        }
+
+        public Task<IEventBase> DequeueAsync(string queueName)
+        {
+            return Task.FromResult(Dequeue(queueName));
         }
 
         public bool TryRemoveQueue(string queueName)
