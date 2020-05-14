@@ -23,6 +23,16 @@ namespace WeihanLi.Common.Test.EventsTest
             Assert.Equal(testEvent.EventId, deserializedEvent.EventId);
             Assert.Equal(testEvent.EventAt, deserializedEvent.EventAt);
             Assert.Equal(testEvent.Name, deserializedEvent.Name);
+
+            var eventMsg = testEvent.ToEventMsg();
+            var eventFromMsg = eventMsg.ToEvent();
+            Assert.Equal(typeof(TestEvent), eventFromMsg.GetType());
+
+            deserializedEvent = eventFromMsg as TestEvent;
+            Assert.NotNull(deserializedEvent);
+            Assert.Equal(testEvent.EventId, deserializedEvent.EventId);
+            Assert.Equal(testEvent.EventAt, deserializedEvent.EventAt);
+            Assert.Equal(testEvent.Name, deserializedEvent.Name);
         }
     }
 }

@@ -4,7 +4,7 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect
 {
-    public class FluentConfigInterceptorResolver : IInterceptorResolver
+    public sealed class FluentConfigInterceptorResolver : IInterceptorResolver
     {
         public static readonly IInterceptorResolver Instance = new FluentConfigInterceptorResolver();
 

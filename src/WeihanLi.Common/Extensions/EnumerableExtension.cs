@@ -24,7 +24,8 @@ namespace WeihanLi.Extensions
             var i = 0;
             foreach (var t in ts)
             {
-                action(t, i++);
+                action(t, i);
+                i++;
             }
         }
 
@@ -41,7 +42,8 @@ namespace WeihanLi.Extensions
             var i = 0;
             foreach (var t in ts)
             {
-                await action(t, i++);
+                await action(t, i);
+                i++;
             }
         }
 

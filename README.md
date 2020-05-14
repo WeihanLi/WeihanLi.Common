@@ -13,24 +13,36 @@
 
 .net 常用帮助类，扩展方法等，构建自己的基础类库
 
-基于 .netstandard2.0 和 net45，可以用于 .net framwork 4.5 与 netstandard2.0 及以上版本
+基于 .netstandard2.0 和 net45，可以用于 .net framework 4.5 与 netstandard2.0 及以上版本
 
 ## Packages
 
 与这个 Repository 相关的 nuget 包：
 
 - [WeihanLi.Common](https://www.nuget.org/packages/WeihanLi.Common) 基本组件
+- [WeihanLi.Common.Aspect.Castle](https://www.nuget.org/packages/WeihanLi.Common.Aspect.Castle/)  基于 Castle 的 AOP 扩展
+- [WeihanLi.Common.Aspect.AspectCore](https://www.nuget.org/packages/WeihanLi.Common.Aspect.Castle/)  基于 AspectCore 的 AOP 扩展（`CreateProxyWithTarget` 不支持 class)
 - [WeihanLi.Data](https://www.nuget.org/packages/WeihanLi.Data) 数据库扩展
-- [WeihanLi.Common.Logging.Log4Net](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net) log4net 扩展
-- [WeihanLi.Common.Logging.Serilog](https://www.nuget.org/packages/WeihanLi.Common.Logging.Serilog) serilog 扩展
+- [WeihanLi.Common.Logging.Log4Net](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net) 日志 log4net 扩展
+- [WeihanLi.Common.Logging.Serilog](https://www.nuget.org/packages/WeihanLi.Common.Logging.Serilog) 日志 serilog 扩展
 
 ## Extensions
 
 - [CoreExtension](./src/WeihanLi.Common/Extensions/CoreExtension.cs) FCL基础类型的一些常用扩展方法
 - [ConfigurationExtension](./src/WeihanLi.Common/Extensions/ConfigurationExtension.cs) 配置相关扩展方法
 - [DataExtension](./src/WeihanLi.Common/Extensions/DataExtension.cs) 数据库操作相关扩展方法
+- and more ...
 
-## ReleaseNotes
+## Features
+
+- Dependence Injection
+- Fluent Aspects -- AOP implemented
+- Event Related
+- Logging Framework
+- TOTP implement
+- and more ...
+
+## Release Notes
 
 you can see a summary of package release notes [here](./docs/ReleaseNotes.md).
 

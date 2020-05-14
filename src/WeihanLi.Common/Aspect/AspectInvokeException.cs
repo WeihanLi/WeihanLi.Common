@@ -2,7 +2,7 @@
 
 namespace WeihanLi.Common.Aspect
 {
-    public class AspectInvokeException : Exception
+    public sealed class AspectInvokeException : Exception
     {
         public IInvocation Invocation { get; }
 

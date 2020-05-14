@@ -4,6 +4,13 @@ namespace WeihanLi.Common.Aspect.Castle
 {
     internal class CastleHelper
     {
-        public static readonly ProxyGenerator ProxyGenerator = new ProxyGenerator();
+        public static readonly IProxyBuilder ProxyBuilder = new DefaultProxyBuilder();
+
+        public static readonly IProxyGenerator ProxyGenerator = new ProxyGenerator(ProxyBuilder);
+
+        public static readonly ProxyGenerationOptions ProxyGenerationOptions = new ProxyGenerationOptions()
+        {
+            Selector = new FluentAspectInterceptorSelector()
+        };
     }
 }
