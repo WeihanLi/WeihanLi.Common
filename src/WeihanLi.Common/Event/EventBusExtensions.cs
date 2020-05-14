@@ -28,7 +28,7 @@ namespace WeihanLi.Common.Event
         }
     }
 
-    public static class EventBusExtensions
+    public static partial class EventBusExtensions
     {
         public static IEventBuilder AddEvents(this IServiceCollection services)
         {

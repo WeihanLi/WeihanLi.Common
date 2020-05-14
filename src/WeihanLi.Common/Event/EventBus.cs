@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using WeihanLi.Common.Logging;
 using WeihanLi.Extensions;
 
@@ -72,32 +73,12 @@ namespace WeihanLi.Common.Event
             return false;
         }
 
-        public bool Subscribe<TEvent, TEventHandler>()
-            where TEvent : class, IEventBase
-            where TEventHandler : class, IEventHandler<TEvent>
-        {
-            return _subscriptionManager.Subscribe<TEvent, TEventHandler>();
-        }
+        public bool Subscribe(Type eventType, Type eventHandlerType) => _subscriptionManager.Subscribe(eventType, eventHandlerType);
 
-        public Task<bool> SubscribeAsync<TEvent, TEventHandler>()
-            where TEvent : class, IEventBase
-            where TEventHandler : class, IEventHandler<TEvent>
-        {
-            return _subscriptionManager.SubscribeAsync<TEvent, TEventHandler>();
-        }
+        public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => _subscriptionManager.SubscribeAsync(eventType, eventHandlerType);
 
-        public bool UnSubscribe<TEvent, TEventHandler>()
-            where TEvent : class, IEventBase
-            where TEventHandler : class, IEventHandler<TEvent>
-        {
-            return _subscriptionManager.UnSubscribe<TEvent, TEventHandler>();
-        }
+        public bool UnSubscribe(Type eventType, Type eventHandlerType) => _subscriptionManager.UnSubscribe(eventType, eventHandlerType);
 
-        public Task<bool> UnSubscribeAsync<TEvent, TEventHandler>()
-            where TEvent : class, IEventBase
-            where TEventHandler : class, IEventHandler<TEvent>
-        {
-            return _subscriptionManager.UnSubscribeAsync<TEvent, TEventHandler>();
-        }
+        public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => _subscriptionManager.UnSubscribeAsync(eventType, eventHandlerType);
     }
 }
