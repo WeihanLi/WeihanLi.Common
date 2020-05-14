@@ -8,7 +8,7 @@ using System.Runtime.ExceptionServices;
 
 namespace WeihanLi.Common.Helpers
 {
-    internal delegate object ObjectFactory(IServiceProvider serviceProvider, object[] arguments);
+    public delegate object ObjectFactory(IServiceProvider serviceProvider, object[] arguments);
 
     internal class ParameterDefaultValue
     {
@@ -164,7 +164,7 @@ namespace WeihanLi.Common.Helpers
         /// A factory that will instantiate instanceType using an <see cref="IServiceProvider"/>
         /// and an argument array containing objects matching the types defined in argumentTypes
         /// </returns>
-        internal static ObjectFactory CreateFactory(Type instanceType, Type[] argumentTypes)
+        public static ObjectFactory CreateFactory(Type instanceType, Type[] argumentTypes)
         {
             FindApplicableConstructor(instanceType, argumentTypes, out ConstructorInfo constructor, out int?[] parameterMap);
 
