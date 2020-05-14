@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Event
 {
@@ -14,14 +16,6 @@ namespace WeihanLi.Common.Event
         /// eventId
         /// </summary>
         string EventId { get; }
-    }
-
-    public interface IEventBaseWithType : IEventBase
-    {
-        /// <summary>
-        /// Event Type
-        /// </summary>
-        Type Type { get; }
     }
 
     public abstract class EventBase : IEventBase
@@ -45,22 +39,31 @@ namespace WeihanLi.Common.Event
         }
     }
 
-    public abstract class EventBaseWithType : IEventBaseWithType
+    public static class EventBaseExtensions
     {
-        [JsonProperty]
-        public DateTimeOffset EventAt { get; private set; }
-
-        [JsonProperty]
-        public string EventId { get; private set; }
-
-        [JsonProperty]
-        public Type Type { get; private set; }
-
-        protected EventBaseWithType()
+        private const string EventTypeName = "Event__Type";
+        
+        public static string ToEventMsg<TEvent>(this TEvent @event) where TEvent:class, IEventBase
         {
-            EventId = GuidIdGenerator.Instance.NewId();
-            EventAt = DateTimeOffset.UtcNow;
-            Type = GetType();
+            if(null == @event)
+            {
+                throw new ArgumentNullException(nameof(@event));
+            }
+
+            var jObj = JObject.FromObject(@event);
+            jObj[EventTypeName] = JToken.FromObject(@event.GetType());
+            return jObj.ToJson();
+        }
+
+        public static IEventBase ToEvent(this string eventMsg)
+        {
+            if(null == eventMsg)
+            {
+                throw new ArgumentNullException(nameof(eventMsg));
+            }
+            var jObj = JObject.Parse(eventMsg);
+            var eventType = jObj[EventTypeName].ToObject<Type>();
+            return (IEventBase)jObj.ToObject(eventType);
         }
     }
 }
