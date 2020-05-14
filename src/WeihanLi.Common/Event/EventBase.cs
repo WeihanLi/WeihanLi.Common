@@ -37,15 +37,24 @@ namespace WeihanLi.Common.Event
             EventId = eventId;
             EventAt = DateTimeOffset.UtcNow;
         }
+
+        // https://www.newtonsoft.com/json/help/html/JsonConstructorAttribute.htm
+        [JsonConstructor]
+        // ReSharper disable once PublicConstructorInAbstractClass
+        public EventBase(string eventId, DateTimeOffset eventAt)
+        {
+            EventId = eventId;
+            EventAt = eventAt;
+        }
     }
 
     public static class EventBaseExtensions
     {
         private const string EventTypeName = "Event__Type";
-        
-        public static string ToEventMsg<TEvent>(this TEvent @event) where TEvent:class, IEventBase
+
+        public static string ToEventMsg<TEvent>(this TEvent @event) where TEvent : class, IEventBase
         {
-            if(null == @event)
+            if (null == @event)
             {
                 throw new ArgumentNullException(nameof(@event));
             }
@@ -57,7 +66,7 @@ namespace WeihanLi.Common.Event
 
         public static IEventBase ToEvent(this string eventMsg)
         {
-            if(null == eventMsg)
+            if (null == eventMsg)
             {
                 throw new ArgumentNullException(nameof(eventMsg));
             }
