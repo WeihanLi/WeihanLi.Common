@@ -1,13 +1,6 @@
-﻿#if NETSTANDARD
-
-using Microsoft.Extensions.DependencyInjection;
-
-#endif
-
-using System;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
 
@@ -58,39 +51,6 @@ namespace WeihanLi.Common.Event
             return _eventHandlers[eventType];
         }
     }
-
-#if NETSTANDARD
-
-    public class ServiceCollectionEventSubscriptionManager : IEventSubscriptionManager
-    {
-        private readonly IServiceCollection _serviceCollection;
-
-        public ServiceCollectionEventSubscriptionManager(IServiceCollection serviceCollection)
-        {
-            _serviceCollection = serviceCollection;
-        }
-
-        public bool Subscribe(Type eventType, Type eventHandlerType)
-        {
-            return _serviceCollection.TryAddEventHandler(eventType, eventHandlerType);
-        }
-
-        public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => Task.FromResult(Subscribe(eventType, eventHandlerType));
-
-        public bool UnSubscribe(Type eventType, Type eventHandlerType) =>
-            _serviceCollection.TryRemoveEventHandler(eventType, eventHandlerType);
-
-        public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => Task.FromResult(UnSubscribe(eventType, eventHandlerType));
-
-        public ICollection<Type> GetEventHandlerTypes(Type eventType)
-            => _serviceCollection
-                .Where(s => s.ServiceType == typeof(IEventHandler<>).MakeGenericType(eventType))
-                .Select(s => s.ImplementationType)
-                .ToArray()
-        ;
-    }
-
-#endif
 
     public static class EventSubscriptionManagerExtensions
     {
