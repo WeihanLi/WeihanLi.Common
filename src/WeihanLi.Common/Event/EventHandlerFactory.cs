@@ -6,11 +6,11 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Event
 {
-    public class DefaultEventHandlerFactory : IEventHandlerFactory
+    public sealed class DefaultEventHandlerFactory : IEventHandlerFactory
     {
         private readonly IEventSubscriptionManager _subscriptionManager;
-        private readonly IServiceProvider _serviceProvider;
         private readonly ConcurrentDictionary<Type, ICollection<IEventHandler>> _eventHandlers = new ConcurrentDictionary<Type, ICollection<IEventHandler>>();
+        private readonly IServiceProvider _serviceProvider;
 
         public DefaultEventHandlerFactory(IEventSubscriptionManager subscriptionManager, IServiceProvider serviceProvider = null)
         {
@@ -32,7 +32,7 @@ namespace WeihanLi.Common.Event
         }
     }
 
-    public class DependencyInjectionEventHandlerFactory : IEventHandlerFactory
+    public sealed class DependencyInjectionEventHandlerFactory : IEventHandlerFactory
     {
         private readonly IServiceProvider _serviceProvider;
 
