@@ -8,7 +8,9 @@ namespace WeihanLi.Common.Event
     {
         private readonly ConcurrentDictionary<string, ConcurrentQueue<IEventBase>> _eventQueues = new ConcurrentDictionary<string, ConcurrentQueue<IEventBase>>();
 
-        public ICollection<string> Queues => _eventQueues.Keys;
+        public ICollection<string> GetQueues() => _eventQueues.Keys;
+
+        public Task<ICollection<string>> GetQueuesAsync() => Task.FromResult(GetQueues());
 
         public bool Enqueue<TEvent>(string queueName, TEvent @event) where TEvent : class, IEventBase
         {

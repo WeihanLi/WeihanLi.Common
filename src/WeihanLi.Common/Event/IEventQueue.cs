@@ -5,7 +5,9 @@ namespace WeihanLi.Common.Event
 {
     public interface IEventQueue
     {
-        ICollection<string> Queues { get; }
+        ICollection<string> GetQueues();
+
+        Task<ICollection<string>> GetQueuesAsync();
 
         bool Enqueue<TEvent>(string queueName, TEvent @event)
             where TEvent : class, IEventBase;
