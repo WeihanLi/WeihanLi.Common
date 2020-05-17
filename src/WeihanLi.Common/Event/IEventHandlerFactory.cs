@@ -11,7 +11,8 @@ namespace WeihanLi.Common.Event
 
     public static class EventHandlerFactoryExtensions
     {
-        public static ICollection<IEventHandler<TEvent>> GetHandlers<TEvent>(this IEventHandlerFactory eventHandlerFactory) where TEvent : class, IEventBase
+        public static ICollection<IEventHandler<TEvent>> GetHandlers<TEvent>(this IEventHandlerFactory eventHandlerFactory)
+            where TEvent : class, IEventBase
         {
             return eventHandlerFactory.GetHandlers(typeof(TEvent))
                 .Cast<IEventHandler<TEvent>>()

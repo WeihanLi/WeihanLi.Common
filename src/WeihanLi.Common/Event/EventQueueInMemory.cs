@@ -10,14 +10,14 @@ namespace WeihanLi.Common.Event
 
         public ICollection<string> Queues => _eventQueues.Keys;
 
-        public bool Enqueue<TEvent>(string queueName, TEvent @event) where TEvent : IEventBase
+        public bool Enqueue<TEvent>(string queueName, TEvent @event) where TEvent : class, IEventBase
         {
             var queue = _eventQueues.GetOrAdd(queueName, q => new ConcurrentQueue<IEventBase>());
             queue.Enqueue(@event);
             return true;
         }
 
-        public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event) where TEvent : IEventBase => Task.FromResult(Enqueue(queueName, @event));
+        public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event) where TEvent : class, IEventBase => Task.FromResult(Enqueue(queueName, @event));
 
         public IEventBase Dequeue(string queueName)
         {
