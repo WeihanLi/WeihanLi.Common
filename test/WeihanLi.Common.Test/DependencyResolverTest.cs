@@ -29,19 +29,17 @@ namespace WeihanLi.Common.Test
                 {
                     serviceHashCodes.Add(repo.GetHashCode());
                 });
-            await Task.WhenAll(
 
-                DependencyResolver.TryInvokeServiceAsync<IRepository<TestEntity>>(repo =>
+            DependencyResolver.TryInvokeService<IRepository<TestEntity>>(repo =>
+                {
+                    serviceHashCodes.Add(repo.GetHashCode());
+                });
+                
+            await DependencyResolver.TryInvokeServiceAsync<IRepository<TestEntity>>(repo =>
                 {
                     serviceHashCodes.Add(repo.GetHashCode());
                     return Task.CompletedTask;
-                }),
-                DependencyResolver.TryInvokeServiceAsync<IRepository<TestEntity>>(repo =>
-                {
-                    serviceHashCodes.Add(repo.GetHashCode());
-                    return Task.CompletedTask;
-                })
-            );
+                });
 
             Assert.Equal(3, serviceHashCodes.Count);
         }

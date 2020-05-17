@@ -24,5 +24,23 @@ namespace WeihanLi.Common.Test.EventsTest
             Assert.Equal(testEvent.EventAt, deserializedEvent.EventAt);
             Assert.Equal(testEvent.Name, deserializedEvent.Name);
         }
+
+        [Fact]
+        public void EventMessageExtensionsTest()
+        {
+            var testEvent = new TestEvent()
+            {
+                Name = "1213"
+            };
+            var eventMsg = testEvent.ToEventMsg();
+            var eventFromMsg = eventMsg.ToEvent();
+            Assert.Equal(typeof(TestEvent), eventFromMsg.GetType());
+
+            var deserializedEvent = eventFromMsg as TestEvent;
+            Assert.NotNull(deserializedEvent);
+            Assert.Equal(testEvent.EventId, deserializedEvent.EventId);
+            Assert.Equal(testEvent.EventAt, deserializedEvent.EventAt);
+            Assert.Equal(testEvent.Name, deserializedEvent.Name);
+        }
     }
 }

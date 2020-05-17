@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace WeihanLi.Common.Event
 {
@@ -7,19 +8,33 @@ namespace WeihanLi.Common.Event
     {
         private readonly ConcurrentDictionary<string, ConcurrentQueue<IEventBase>> _eventQueues = new ConcurrentDictionary<string, ConcurrentQueue<IEventBase>>();
 
-        public ICollection<string> Queues => _eventQueues.Keys;
+        public ICollection<string> GetQueues() => _eventQueues.Keys;
 
-        public bool Enqueue<TEvent>(string queueName, TEvent @event) where TEvent : IEventBase
+        public Task<ICollection<string>> GetQueuesAsync() => Task.FromResult(GetQueues());
+
+        public bool Enqueue<TEvent>(string queueName, TEvent @event) where TEvent : class, IEventBase
         {
             var queue = _eventQueues.GetOrAdd(queueName, q => new ConcurrentQueue<IEventBase>());
             queue.Enqueue(@event);
             return true;
         }
 
-        public bool TryDequeue(string queueName, out IEventBase @event)
+        public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event) where TEvent : class, IEventBase => Task.FromResult(Enqueue(queueName, @event));
+
+        public IEventBase Dequeue(string queueName)
         {
-            var queue = _eventQueues.GetOrAdd(queueName, q => new ConcurrentQueue<IEventBase>());
-            return queue.TryDequeue(out @event);
+            if (_eventQueues.TryGetValue(queueName, out var queue))
+            {
+                queue.TryDequeue(out var @event);
+                return @event;
+            }
+
+            return null;
+        }
+
+        public Task<IEventBase> DequeueAsync(string queueName)
+        {
+            return Task.FromResult(Dequeue(queueName));
         }
 
         public bool TryRemoveQueue(string queueName)

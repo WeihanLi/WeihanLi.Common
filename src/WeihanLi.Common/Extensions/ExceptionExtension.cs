@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
+﻿using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -18,7 +17,7 @@ namespace WeihanLi.Extensions
         /// <param name="exception">origin exception</param>
         /// <param name="depth">depth</param>
         /// <returns>inner exception</returns>
-        public static Exception Unwrap([NotNull]this Exception exception, int depth = 16)
+        public static Exception Unwrap(this Exception exception, int depth = 16)
         {
             while (exception is AggregateException && exception.InnerException != null && depth-- > 0)
             {

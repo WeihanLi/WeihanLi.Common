@@ -7,6 +7,22 @@ namespace WeihanLi.Common
 {
     public static class DependencyInjectionExtensions
     {
+        public static IEnumerable<object> GetServices(
+            this IServiceProvider provider,
+            Type serviceType)
+        {
+            if (provider == null)
+            {
+                throw new ArgumentNullException(nameof(provider));
+            }
+            if (serviceType == null)
+            {
+                throw new ArgumentNullException(nameof(serviceType));
+            }
+
+            return (IEnumerable<object>)provider.GetService(typeof(IEnumerable<>).MakeGenericType(serviceType));
+        }
+
         /// <summary>
         /// ResolveService
         /// </summary>

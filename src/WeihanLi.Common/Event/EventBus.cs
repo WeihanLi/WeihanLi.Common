@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
 using WeihanLi.Extensions;
 
@@ -14,36 +12,35 @@ namespace WeihanLi.Common.Event
     {
         private static readonly ILogHelperLogger _logger = Helpers.LogHelper.GetLogger<EventBus>();
 
-        private readonly IServiceProvider _serviceProvider;
         private readonly IEventSubscriptionManager _subscriptionManager;
+        private readonly IEventHandlerFactory _eventHandlerFactory;
 
-        public EventBus(IEventSubscriptionManager subscriptionManager, IServiceProvider serviceProvider = null)
+        public EventBus(IEventSubscriptionManager subscriptionManager, IEventHandlerFactory eventHandlerFactory)
         {
             _subscriptionManager = subscriptionManager;
-            _serviceProvider = serviceProvider ?? DependencyResolver.Current;
+            _eventHandlerFactory = eventHandlerFactory;
         }
 
         public bool Publish<TEvent>(TEvent @event) where TEvent : class, IEventBase
         {
-            var handlers = _subscriptionManager.GetEventHandlerTypes<TEvent>();
+            var handlers = _eventHandlerFactory.GetHandlers<TEvent>();
             if (handlers.Count > 0)
             {
-                var handlerTasks = new List<Task>();
-                foreach (var handlerType in handlers)
+                var handlerTasks = new Task[handlers.Count];
+
+                handlers.ForEach((handler, index) =>
                 {
-                    try
+                    handlerTasks[index] = handler.Handle(@event).ContinueWith(r =>
                     {
-                        if (_serviceProvider.GetServiceOrCreateInstance(handlerType) is IEventHandler<TEvent> handler)
+                        if (r.IsFaulted)
                         {
-                            handlerTasks.Add(handler.Handle(@event));
+                            _logger.Error(r.Exception?.Unwrap(),
+                                $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handler.GetType().FullName}");
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.Error(ex, $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handlerType.FullName}");
-                    }
-                }
-                handlerTasks.WhenAll().ConfigureAwait(false);
+                    });
+                });
+
+                _ = handlerTasks.WhenAll().ConfigureAwait(false);
 
                 return true;
             }
@@ -52,57 +49,36 @@ namespace WeihanLi.Common.Event
 
         public async Task<bool> PublishAsync<TEvent>(TEvent @event) where TEvent : class, IEventBase
         {
-            var handlers = _subscriptionManager.GetEventHandlerTypes<TEvent>();
+            var handlers = _eventHandlerFactory.GetHandlers<TEvent>();
             if (handlers.Count > 0)
             {
-                await Task.Yield();
-                //
-                var handlerTasks = new List<Task>(handlers.Count);
-                foreach (var handlerType in handlers)
-                {
-                    try
-                    {
-                        if (_serviceProvider.GetServiceOrCreateInstance(handlerType) is IEventHandler<TEvent> handler)
-                        {
-                            handlerTasks.Add(handler.Handle(@event));
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.Error(ex, $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handlerType.FullName}");
-                    }
-                }
+                var handlerTasks = new Task[handlers.Count];
 
-                var task = handlerTasks.WhenAll().ConfigureAwait(false);
+                handlers.ForEach((handler, index) =>
+                {
+                    handlerTasks[index] = handler.Handle(@event).ContinueWith(r =>
+                    {
+                        if (r.IsFaulted)
+                        {
+                            _logger.Error(r.Exception?.Unwrap(),
+                                $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handler.GetType().FullName}");
+                        }
+                    });
+                });
+
+                await handlerTasks.WhenAll().ConfigureAwait(false);
 
                 return true;
             }
             return false;
         }
 
-        public bool Subscribe<TEvent, TEventHandler>()
-            where TEvent : class, IEventBase
-            where TEventHandler : IEventHandler<TEvent>
-        {
-            return _subscriptionManager.Subscribe<TEvent, TEventHandler>();
-        }
+        public bool Subscribe(Type eventType, Type eventHandlerType) => _subscriptionManager.Subscribe(eventType, eventHandlerType);
 
-        public Task<bool> SubscribeAsync<TEvent, TEventHandler>() where TEvent : class, IEventBase where TEventHandler : IEventHandler<TEvent>
-        {
-            return _subscriptionManager.SubscribeAsync<TEvent, TEventHandler>();
-        }
+        public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => _subscriptionManager.SubscribeAsync(eventType, eventHandlerType);
 
-        public bool UnSubscribe<TEvent, TEventHandler>()
-            where TEvent : class, IEventBase
-            where TEventHandler : IEventHandler<TEvent>
-        {
-            return _subscriptionManager.UnSubscribe<TEvent, TEventHandler>();
-        }
+        public bool UnSubscribe(Type eventType, Type eventHandlerType) => _subscriptionManager.UnSubscribe(eventType, eventHandlerType);
 
-        public Task<bool> UnSubscribeAsync<TEvent, TEventHandler>() where TEvent : class, IEventBase
-            where TEventHandler : IEventHandler<TEvent>
-        {
-            return _subscriptionManager.UnSubscribeAsync<TEvent, TEventHandler>();
-        }
+        public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => _subscriptionManager.UnSubscribeAsync(eventType, eventHandlerType);
     }
 }

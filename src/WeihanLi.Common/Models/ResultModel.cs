@@ -58,6 +58,12 @@ namespace WeihanLi.Common.Models
             ErrorMsg = Resource.InvokeFail;
             Status = ResultStatus.ProcessFail;
         }
+
+        public void SetRequestErrorResult(string errorMsg)
+        {
+            ErrorMsg = errorMsg;
+            Status = ResultStatus.RequestError;
+        }
     }
 
     /// <summary>

@@ -34,7 +34,7 @@ namespace WeihanLi.Common.Models
         private static bool TryValidate(object instance, out IReadOnlyCollection<ValidationResult> result)
         {
             var results = new List<ValidationResult>();
-            if (Validator.TryValidateObject(instance, new ValidationContext(instance, DependencyResolver.Current, null), results, true))
+            if (Validator.TryValidateObject(instance, new ValidationContext(instance, null, null), results, true))
             {
                 result = null;
                 return true;

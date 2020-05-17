@@ -7,6 +7,7 @@ namespace WeihanLi.Common.Aspect.Castle
         public static IFluentAspectBuilder UseCastleProxy(this IFluentAspectBuilder builder)
         {
             builder.Services.AddTransient<IProxyFactory, CastleProxyFactory>();
+            builder.Services.AddTransient<IProxyTypeFactory, CastleProxyTypeFactory>();
 
             FluentAspects.AspectOptions.ProxyFactory = CastleProxyFactory.Instance;
 
