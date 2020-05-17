@@ -5,11 +5,15 @@ namespace WeihanLi.Common.Event
 {
     public interface IEventQueue
     {
-        ICollection<string> Queues { get; }
+        ICollection<string> GetQueues();
 
-        bool Enqueue<TEvent>(string queueName, TEvent @event) where TEvent : IEventBase;
+        Task<ICollection<string>> GetQueuesAsync();
 
-        Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event) where TEvent : IEventBase;
+        bool Enqueue<TEvent>(string queueName, TEvent @event)
+            where TEvent : class, IEventBase;
+
+        Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event)
+            where TEvent : class, IEventBase;
 
         IEventBase Dequeue(string queueName);
 
@@ -26,12 +30,14 @@ namespace WeihanLi.Common.Event
 
         private const string DefaultQueueName = "events";
 
-        public static bool Enqueue<TEvent>(this IEventQueue eventQueue, TEvent @event) where TEvent : IEventBase
+        public static bool Enqueue<TEvent>(this IEventQueue eventQueue, TEvent @event)
+            where TEvent : class, IEventBase
         {
             return eventQueue.Enqueue(DefaultQueueName, @event);
         }
 
-        public static Task<bool> EnqueueAsync<TEvent>(this IEventQueue eventQueue, TEvent @event) where TEvent : IEventBase
+        public static Task<bool> EnqueueAsync<TEvent>(this IEventQueue eventQueue, TEvent @event)
+            where TEvent : class, IEventBase
         {
             return eventQueue.EnqueueAsync(DefaultQueueName, @event);
         }

@@ -16,7 +16,7 @@ namespace WeihanLi.Common.Event
         ICollection<Type> GetEventHandlerTypes(Type eventType);
     }
 
-    public class EventSubscriptionManagerInMemory : IEventSubscriptionManager
+    public sealed class EventSubscriptionManagerInMemory : IEventSubscriptionManager
     {
         private readonly ConcurrentDictionary<Type, ConcurrentSet<Type>> _eventHandlers = new ConcurrentDictionary<Type, ConcurrentSet<Type>>();
 

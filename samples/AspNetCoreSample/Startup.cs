@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AspNetCoreSample.Events;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using WeihanLi.Common;
+using WeihanLi.Common.Event;
 
 namespace AspNetCoreSample
 {
@@ -18,8 +21,15 @@ namespace AspNetCoreSample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddControllersWithViews()
+                ;
 
+            services.AddEvents()
+                .AddEventHandler<PageViewEvent, PageViewEventHandler>()
+                ;
+
+            services.AddSingleton<IEventPublisher, EventQueuePublisher>();
+            services.AddHostedService<EventConsumer>();
             DependencyResolver.SetDependencyResolver(services);
 
             // TestReplaceHolder
@@ -27,7 +37,7 @@ namespace AspNetCoreSample
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -39,12 +49,21 @@ namespace AspNetCoreSample
             }
 
             app.UseStaticFiles();
+            app.UseRouting();
 
-            app.UseMvc(routes =>
+            // pageView middleware
+            app.Use((context, next) =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                var eventPublisher = context.RequestServices.GetRequiredService<IEventPublisher>();
+                eventPublisher.Publish(new PageViewEvent());
+
+                return next();
+            });
+
+            app.UseEndpoints(endpoint =>
+            {
+                endpoint.MapControllers();
+                endpoint.MapDefaultControllerRoute();
             });
         }
     }
