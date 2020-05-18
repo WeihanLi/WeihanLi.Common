@@ -4,6 +4,19 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.37](https://www.nuget.org/packages/WeihanLi.Common/1.0.37)
+
+- refact events related `EventBus`/`EventStore`/`EventQueue`/`EventPublisher`/`EventSubscriber`
+- update `ResultModel`
+- add `ReviewState`/`Categories`/`PagedRequest`/`BaseEntityWithDeleted`/`PagedRequest`
+- add `CastleProxyTypeFactory`/`FluentAspectInterceptorSelector`
+- expose `ActivateHelper` `ObjectFactory`/`FindApplicableConstructor`
+
+### [WeihanLi.Common 1.0.36](https://www.nuget.org/packages/WeihanLi.Common/1.0.36)
+
+- refact `FluentAspect`, add `InvocationEnricher`, fix #75
+- add `IEventQueue`/`DelegateHelper`/`BaseEntity`
+
 ### [WeihanLi.Common 1.0.35](https://www.nuget.org/packages/WeihanLi.Common/1.0.35)
 
 - add `FluentAspect` implemented AOP
@@ -18,7 +31,7 @@
 
 - update `ServiceCollectionDependencyResolver` to fix generic scoped service resolve
 - add `ServiceContainerDependencyResolver`
-- update `DataExtension`/`DbConnectionExtension`/`DbCommandExtension` fix #9 
+- update `DataExtension`/`DbConnectionExtension`/`DbCommandExtension` fix #9
 
 ### [WeihanLi.Common 1.0.32](https://www.nuget.org/packages/WeihanLi.Common/1.0.32)
 
