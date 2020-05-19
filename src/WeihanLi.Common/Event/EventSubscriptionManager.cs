@@ -52,6 +52,19 @@ namespace WeihanLi.Common.Event
         }
     }
 
+    public sealed class NullEventSubscriptionManager : IEventSubscriptionManager
+    {
+        public bool Subscribe(Type eventType, Type eventHandlerType) => false;
+
+        public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => Task.FromResult(false);
+
+        public bool UnSubscribe(Type eventType, Type eventHandlerType) => false;
+
+        public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => Task.FromResult(false);
+
+        public ICollection<Type> GetEventHandlerTypes(Type eventType) => ArrayHelper.Empty<Type>();
+    }
+
     public static class EventSubscriptionManagerExtensions
     {
         public static ICollection<Type> GetEventHandlerTypes<TEvent>(this IEventSubscriptionManager subscriptionManager)
