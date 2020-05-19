@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WeihanLi.Common.Aspect.AspectCore
 {
-    internal sealed class FluentAspectInterceptor : global::AspectCore.DynamicProxy.IInterceptor
+    public sealed class AspectCoreFluentAspectInterceptor : global::AspectCore.DynamicProxy.IInterceptor
     {
         public async Task Invoke(AspectContext context, global::AspectCore.DynamicProxy.AspectDelegate next)
         {

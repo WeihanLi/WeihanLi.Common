@@ -12,7 +12,7 @@ namespace WeihanLi.Common.Aspect.AspectCore
             var proxyGeneratorBuilder = new ProxyGeneratorBuilder();
             proxyGeneratorBuilder.Configure(configuration =>
             {
-                configuration.Interceptors.AddTyped<FluentAspectInterceptor>();
+                configuration.Interceptors.AddTyped<AspectCoreFluentAspectInterceptor>();
             });
             ProxyGenerator = proxyGeneratorBuilder.Build();
         }

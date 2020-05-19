@@ -5,7 +5,7 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect.Castle
 {
-    internal sealed class FluentAspectInterceptor : global::Castle.DynamicProxy.IInterceptor
+    public sealed class CastleFluentAspectInterceptor : global::Castle.DynamicProxy.IInterceptor
     {
         public void Intercept(global::Castle.DynamicProxy.IInvocation invocation)
         {
