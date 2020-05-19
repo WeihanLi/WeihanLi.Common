@@ -9,41 +9,49 @@ namespace WeihanLi.Common.Aspect.Castle
     {
         public void Intercept(global::Castle.DynamicProxy.IInvocation invocation)
         {
+            var proxyMethod = invocation.GetConcreteMethod();
+            //var parameterTypes = proxyMethod.GetParameters()
+            //    .Select(p => p.ParameterType)
+            //    .ToArray();
+            //var methodBase = invocation.TargetType?.GetMethod(invocation.Method.Name, parameterTypes);
+            //if (null != methodBase && proxyMethod.IsGenericMethod)
+            //{
+            //    methodBase = methodBase.MakeGenericMethod(proxyMethod.GetGenericArguments());
+            //}
             var aspectInvocation = new AspectInvocation(
-                invocation.GetConcreteMethod(),
-                null,
+                proxyMethod,
+                null, //methodBase,
                 invocation.Proxy,
-                invocation.InvocationTarget,
+                null, //invocation.InvocationTarget,
                 invocation.Arguments
             );
 
             var hasTarget = null != invocation.InvocationTarget
                             && null != invocation.MethodInvocationTarget
                             && null != invocation.TargetType;
-
-            if (FluentAspects.AspectOptions.NoInterceptionConfigurations.
-                Any(x => x.Invoke(aspectInvocation)))
+            if (FluentAspects.AspectOptions.NoInterceptionConfigurations
+                .Any(x => x.Invoke(aspectInvocation)))
             {
+                invocation.Proceed();
+            }
+            else
+            {
+                Func<IInvocation, Task> completeFunc;
                 if (hasTarget)
                 {
-                    invocation.Proceed();
+                    completeFunc = c =>
+                    {
+                        invocation.Proceed();
+                        c.ReturnValue = invocation.ReturnValue;
+                        return TaskHelper.CompletedTask;
+                    };
                 }
-                return;
-            }
-
-            Func<IInvocation, Task> completeFunc = null;
-
-            if (hasTarget)
-            {
-                completeFunc = c =>
+                else
                 {
-                    invocation.Proceed();
-                    c.ReturnValue = invocation.ReturnValue;
-                    return TaskHelper.CompletedTask;
-                };
+                    completeFunc = c => TaskHelper.CompletedTask;
+                }
+                AspectDelegate.InvokeWithCompleteFunc(aspectInvocation, completeFunc);
             }
-
-            AspectDelegate.InvokeWithCompleteFunc(aspectInvocation, completeFunc);
         }
     }
 }

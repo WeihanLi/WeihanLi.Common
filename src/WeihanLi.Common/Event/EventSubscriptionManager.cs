@@ -54,6 +54,8 @@ namespace WeihanLi.Common.Event
 
     public sealed class NullEventSubscriptionManager : IEventSubscriptionManager
     {
+        public static readonly IEventSubscriptionManager Instance = new NullEventSubscriptionManager();
+
         public bool Subscribe(Type eventType, Type eventHandlerType) => false;
 
         public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => Task.FromResult(false);

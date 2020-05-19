@@ -10,8 +10,10 @@ namespace WeihanLi.Common.Aspect.AspectCore
         public async Task Invoke(AspectContext context, global::AspectCore.DynamicProxy.AspectDelegate next)
         {
             var aspectInvocation = new AspectInvocation(
-                context.ProxyMethod, context.ImplementationMethod,
-                context.Proxy, context.Implementation,
+                context.ProxyMethod,
+                context.ImplementationMethod,
+                context.Proxy,
+                context.Implementation,
                 context.Parameters
                 );
 

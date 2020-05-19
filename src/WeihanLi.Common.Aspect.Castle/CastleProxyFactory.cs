@@ -25,7 +25,12 @@ namespace WeihanLi.Common.Aspect.Castle
                         new CastleFluentAspectInterceptor());
             }
 
-            return CastleHelper.ProxyGenerator.CreateClassProxy(serviceType, new CastleFluentAspectInterceptor());
+            var ctorArguments = ActivatorHelper.GetBestConstructorArguments(_serviceProvider, serviceType);
+            return CastleHelper.ProxyGenerator.CreateClassProxy(
+                serviceType
+                , ctorArguments
+                , new CastleFluentAspectInterceptor()
+                );
         }
 
         public object CreateProxy(Type serviceType, Type implementType)
@@ -36,8 +41,13 @@ namespace WeihanLi.Common.Aspect.Castle
             if (null == implementType)
                 throw new ArgumentNullException(nameof(implementType));
 
-            var target = _serviceProvider.CreateInstance(implementType);
-            return CreateProxyWithTarget(serviceType, target);
+            if (serviceType.IsInterface)
+            {
+                var target = _serviceProvider.CreateInstance(implementType);
+                return CreateProxyWithTarget(serviceType, target);
+            }
+
+            return CreateProxy(implementType);
         }
 
         public object CreateProxyWithTarget(Type serviceType, object implement)

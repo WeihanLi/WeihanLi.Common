@@ -22,7 +22,8 @@ namespace WeihanLi.Common.Aspect.AspectCore
             if (serviceType.IsInterface)
                 return AspectCoreHelper.ProxyGenerator.CreateInterfaceProxy(serviceType);
 
-            return AspectCoreHelper.ProxyGenerator.CreateClassProxy(serviceType, serviceType, ArrayHelper.Empty<object>());
+            var ctorArguments = ActivatorHelper.GetBestConstructorArguments(_serviceProvider, serviceType);
+            return AspectCoreHelper.ProxyGenerator.CreateClassProxy(serviceType, serviceType, ctorArguments);
         }
 
         public object CreateProxy(Type serviceType, Type implementType)
@@ -35,7 +36,8 @@ namespace WeihanLi.Common.Aspect.AspectCore
             if (serviceType.IsInterface)
                 return AspectCoreHelper.ProxyGenerator.CreateInterfaceProxy(serviceType, _serviceProvider.CreateInstance(implementType));
 
-            return AspectCoreHelper.ProxyGenerator.CreateClassProxy(serviceType, implementType, ArrayHelper.Empty<object>());
+            var ctorArguments = ActivatorHelper.GetBestConstructorArguments(_serviceProvider, implementType);
+            return AspectCoreHelper.ProxyGenerator.CreateClassProxy(serviceType, implementType, ctorArguments);
         }
 
         public object CreateProxyWithTarget(Type serviceType, object implement)
