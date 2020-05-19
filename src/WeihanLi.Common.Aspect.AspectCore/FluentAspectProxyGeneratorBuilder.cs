@@ -5,25 +5,25 @@ using System;
 
 namespace WeihanLi.Common.Aspect.AspectCore
 {
-    internal sealed class FluentAspectProxyGeneratorBuild
+    internal sealed class FluentAspectProxyGeneratorBuilder
     {
         private readonly IAspectConfiguration _configuration;
         private readonly IServiceContext _serviceContext;
 
-        public FluentAspectProxyGeneratorBuild()
+        public FluentAspectProxyGeneratorBuilder()
         {
             _configuration = new FluentAspectConfiguration()
                 ;
             _serviceContext = new ServiceContext(_configuration);
         }
 
-        public FluentAspectProxyGeneratorBuild Configure(Action<IAspectConfiguration> options = null)
+        public FluentAspectProxyGeneratorBuilder Configure(Action<IAspectConfiguration> options = null)
         {
             options?.Invoke(_configuration);
             return this;
         }
 
-        public FluentAspectProxyGeneratorBuild ConfigureService(
+        public FluentAspectProxyGeneratorBuilder ConfigureService(
             Action<IServiceContext> options = null)
         {
             options?.Invoke(_serviceContext);
@@ -32,7 +32,7 @@ namespace WeihanLi.Common.Aspect.AspectCore
 
         public IProxyGenerator Build()
         {
-            return (IProxyGenerator)new DisposedProxyGenerator(_serviceContext.Build());
+            return new DisposedProxyGenerator(_serviceContext.Build());
         }
     }
 
@@ -60,7 +60,7 @@ namespace WeihanLi.Common.Aspect.AspectCore
         }
     }
 
-    internal sealed class DisposedProxyGenerator : IProxyGenerator, IDisposable
+    internal sealed class DisposedProxyGenerator : IProxyGenerator
     {
         private readonly IServiceResolver _serviceResolver;
         private readonly IProxyGenerator _proxyGenerator;
