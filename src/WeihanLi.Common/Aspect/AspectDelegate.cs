@@ -30,9 +30,9 @@ namespace WeihanLi.Common.Aspect
             {
                 try
                 {
-                    enricher.Enrich(invocation);   
+                    enricher.Enrich(invocation);
                 }
-                catch (System.Exception ex)
+                catch (Exception ex)
                 {
                     InvokeHelper.OnInvokeException?.Invoke(ex);
                 }
@@ -111,7 +111,7 @@ namespace WeihanLi.Common.Aspect
                     .ResolveInterceptors(invocation) ?? ArrayHelper.Empty<IInterceptor>();
             }
 
-            if (interceptors.Count == 0)
+            if (interceptors.Count <= 1)
             {
                 return completeFunc;
             }
@@ -121,7 +121,6 @@ namespace WeihanLi.Common.Aspect
             {
                 builder.Use(interceptor.Invoke);
             }
-
             return builder.Build();
         }
     }

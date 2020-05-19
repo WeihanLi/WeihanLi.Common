@@ -1,56 +1,28 @@
 ﻿using System;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect
 {
-    public interface IInvocationEnricher
+    public interface IInvocationEnricher : IEnricher<IInvocation>
     {
-        void Enrich(IInvocation invocation);
     }
 
-    public sealed class PropertyInvocationEnricher : IInvocationEnricher
+    public sealed class PropertyInvocationEnricher : PropertyEnricher<IInvocation>, IInvocationEnricher
     {
-        private readonly string _propertyName;
-        private readonly Func<IInvocation, object> _propertyValueFactory;
-        private readonly bool _overwrite;
-        private readonly Func<IInvocation, bool> _propertyPredict;
-
-        public PropertyInvocationEnricher(string propertyName, object propertyValue, bool overwrite = false) : this(propertyName, invocation => propertyValue, overwrite)
+        public PropertyInvocationEnricher(string propertyName, object propertyValue, bool overwrite = false) : base(propertyName, propertyValue, overwrite)
         {
         }
 
-        public PropertyInvocationEnricher(
-            string propertyName,
-            Func<IInvocation, object> propertyValueFactory,
-            bool overwrite = false
-            ) : this(
-                propertyName,
-                propertyValueFactory,
-                null,
-                overwrite)
+        public PropertyInvocationEnricher(string propertyName, Func<IInvocation, object> propertyValueFactory, bool overwrite = false) : base(propertyName, propertyValueFactory, overwrite)
         {
         }
 
-        public PropertyInvocationEnricher(
-            string propertyName,
-            Func<IInvocation, object> propertyValueFactory,
-            Func<IInvocation, bool> propertyPredict,
-            bool overwrite = false)
+        public PropertyInvocationEnricher(string propertyName, Func<IInvocation, object> propertyValueFactory, Func<IInvocation, bool> propertyPredict, bool overwrite = false) : base(propertyName, propertyValueFactory, propertyPredict, overwrite)
         {
-            _propertyName = propertyName;
-            _propertyValueFactory = propertyValueFactory;
-            _propertyPredict = propertyPredict;
-            _overwrite = overwrite;
         }
 
-        public void Enrich(IInvocation invocation)
-        {
-            if (_propertyPredict?.Invoke(invocation) != false)
-            {
-                if (_overwrite || !invocation.Properties.ContainsKey(_propertyName))
-                {
-                    invocation.Properties[_propertyName] = _propertyValueFactory.Invoke(invocation);
-                }
-            }
-        }
+        protected override Action<IInvocation, string, Func<IInvocation, object>, bool> EnrichAction =>
+            (invocation, propertyName, propertyValueFactory, overwrite) =>
+                invocation.AddProperty(propertyName, propertyValueFactory, overwrite);
     }
 }

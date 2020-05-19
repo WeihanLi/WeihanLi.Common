@@ -4,11 +4,11 @@ using System.Reflection;
 
 namespace WeihanLi.Common.Aspect.Castle
 {
-    internal sealed class FluentAspectInterceptorSelector : IInterceptorSelector
+    public sealed class FluentAspectInterceptorSelector : IInterceptorSelector
     {
         public global::Castle.DynamicProxy.IInterceptor[] SelectInterceptors(Type type, MethodInfo method, global::Castle.DynamicProxy.IInterceptor[] interceptors)
         {
-            return new global::Castle.DynamicProxy.IInterceptor[] { new FluentAspectInterceptor() };
+            return new global::Castle.DynamicProxy.IInterceptor[] { new CastleFluentAspectInterceptor() };
         }
     }
 }

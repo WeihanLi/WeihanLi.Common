@@ -24,4 +24,11 @@
         /// </summary>
         Rejected = 2,
     }
+
+    public class ReviewRequest
+    {
+        public ReviewState State { get; set; }
+
+        public string Remark { get; set; }
+    }
 }

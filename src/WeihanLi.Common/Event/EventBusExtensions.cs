@@ -32,10 +32,10 @@ namespace WeihanLi.Common.Event
     {
         public static IEventBuilder AddEvents(this IServiceCollection services)
         {
-            services.TryAddSingleton<IEventSubscriptionManager, EventSubscriptionManagerInMemory>();
+            services.TryAddSingleton<IEventSubscriptionManager, NullEventSubscriptionManager>();
             services.TryAddSingleton<IEventHandlerFactory, DependencyInjectionEventHandlerFactory>();
 
-            services.TryAddSingleton<IEventSubscriber, EventSubscriptionManagerInMemory>();
+            services.TryAddSingleton<IEventSubscriber, NullEventSubscriptionManager>();
             services.TryAddSingleton<IEventPublisher, EventBus>();
             services.TryAddSingleton<IEventBus, EventBus>();
 
@@ -50,6 +50,13 @@ namespace WeihanLi.Common.Event
           where TEventHandler : class, IEventHandler<TEvent>
         {
             eventBuilder.Services.TryAddEnumerable(new ServiceDescriptor(typeof(IEventHandler<TEvent>), typeof(TEventHandler), serviceLifetime));
+            return eventBuilder;
+        }
+
+        public static IEventBuilder AddEventHandler<TEvent>(this IEventBuilder eventBuilder, IEventHandler<TEvent> eventHandler)
+            where TEvent : class, IEventBase
+        {
+            eventBuilder.Services.TryAddEnumerable(new ServiceDescriptor(typeof(IEventHandler<TEvent>), eventHandler));
             return eventBuilder;
         }
 
