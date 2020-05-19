@@ -10,14 +10,7 @@ namespace WeihanLi.Common.Aspect.Castle
         public void Intercept(global::Castle.DynamicProxy.IInvocation invocation)
         {
             var proxyMethod = invocation.GetConcreteMethod();
-            var parameterTypes = proxyMethod.GetParameters()
-                .Select(p => p.ParameterType)
-                .ToArray();
-            var methodBase = invocation.TargetType?.GetMethod(invocation.Method.Name, parameterTypes);
-            if (null != methodBase && methodBase.IsGenericMethodDefinition)
-            {
-                methodBase = methodBase.MakeGenericMethod(proxyMethod.GetGenericArguments());
-            }
+            var methodBase = invocation.GetConcreteMethodInvocationTarget();
             var aspectInvocation = new AspectInvocation(
                 proxyMethod,
                 methodBase,
