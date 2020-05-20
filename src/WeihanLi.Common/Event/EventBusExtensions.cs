@@ -32,6 +32,8 @@ namespace WeihanLi.Common.Event
     {
         public static IEventBuilder AddEvents(this IServiceCollection services)
         {
+            services.AddOptions();
+
             services.TryAddSingleton<IEventSubscriptionManager, NullEventSubscriptionManager>();
             services.TryAddSingleton<IEventHandlerFactory, DependencyInjectionEventHandlerFactory>();
 

@@ -14,7 +14,7 @@ namespace WeihanLi.Common.Aspect.AspectCore
             _serviceProvider = serviceProvider;
         }
 
-        public object CreateProxy(Type serviceType)
+        public object CreateProxy(Type serviceType, object[] arguments)
         {
             if (null == serviceType)
                 throw new ArgumentNullException(nameof(serviceType));
@@ -22,11 +22,11 @@ namespace WeihanLi.Common.Aspect.AspectCore
             if (serviceType.IsInterface)
                 return AspectCoreHelper.ProxyGenerator.CreateInterfaceProxy(serviceType);
 
-            var ctorArguments = ActivatorHelper.GetBestConstructorArguments(_serviceProvider, serviceType);
+            var ctorArguments = ActivatorHelper.GetBestConstructorArguments(_serviceProvider, serviceType, arguments);
             return AspectCoreHelper.ProxyGenerator.CreateClassProxy(serviceType, serviceType, ctorArguments);
         }
 
-        public object CreateProxy(Type serviceType, Type implementType)
+        public object CreateProxy(Type serviceType, Type implementType, params object[] arguments)
         {
             if (null == serviceType)
                 throw new ArgumentNullException(nameof(serviceType));
@@ -36,7 +36,7 @@ namespace WeihanLi.Common.Aspect.AspectCore
             if (serviceType.IsInterface)
                 return AspectCoreHelper.ProxyGenerator.CreateInterfaceProxy(serviceType, _serviceProvider.CreateInstance(implementType));
 
-            var ctorArguments = ActivatorHelper.GetBestConstructorArguments(_serviceProvider, implementType);
+            var ctorArguments = ActivatorHelper.GetBestConstructorArguments(_serviceProvider, implementType, arguments);
             return AspectCoreHelper.ProxyGenerator.CreateClassProxy(serviceType, implementType, ctorArguments);
         }
 

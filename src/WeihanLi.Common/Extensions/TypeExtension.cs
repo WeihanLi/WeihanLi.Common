@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using WeihanLi.Common.Helpers;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -53,7 +54,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="type">type</param>
         /// <returns></returns>
-        public static bool IsValueTuple([NotNull]this Type type)
+        public static bool IsValueTuple([NotNull] this Type type)
                 => type.IsValueType && type.FullName?.StartsWith("System.ValueTuple`", StringComparison.Ordinal) == true;
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="type">type</param>
         /// <returns></returns>
-        public static string GetDescription([NotNull]this Type type) =>
+        public static string GetDescription([NotNull] this Type type) =>
             type.GetCustomAttribute<DescriptionAttribute>()?.Description ?? string.Empty;
 
         /// <summary>
@@ -70,12 +71,12 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="type">type</param>
         /// <returns></returns>
-        public static bool IsPrimitiveType([NotNull]this Type type)
+        public static bool IsPrimitiveType([NotNull] this Type type)
             => (Nullable.GetUnderlyingType(type) ?? type).IsPrimitive;
 
         public static bool IsPrimitiveType<T>() => typeof(T).IsPrimitiveType();
 
-        public static bool IsBasicType([NotNull]this Type type)
+        public static bool IsBasicType([NotNull] this Type type)
         {
             var unWrappedType = type.Unwrap();
             return unWrappedType.IsEnum || BasicTypes.Contains(unWrappedType);
@@ -92,28 +93,13 @@ namespace WeihanLi.Extensions
         /// <param name="parameterTypes"></param>
         /// <returns>Matching constructor or default one</returns>
         [CanBeNull]
-        public static ConstructorInfo GetConstructor<T>(this Type type, params Type[] parameterTypes)
+        public static ConstructorInfo GetConstructor(this Type type, params Type[] parameterTypes)
         {
             if (parameterTypes == null || parameterTypes.Length == 0)
                 return GetEmptyConstructor(type);
 
-            var constructors = type.GetConstructors();
-
-            var ctors = constructors
-                .OrderBy(c => c.IsPublic ? 0 : (c.IsPrivate ? 2 : 1))
-                .ThenBy(c => c.GetParameters().Length)
-                .ToArray();
-
-            foreach (var ctor in ctors)
-            {
-                var parameters = ctor.GetParameters();
-                if (parameters.All(p => parameterTypes.Contains(p.ParameterType)))
-                {
-                    return ctor;
-                }
-            }
-
-            return null;
+            ActivatorHelper.FindApplicableConstructor(type, parameterTypes, out var ctor, out _);
+            return ctor;
         }
 
         [CanBeNull]
@@ -156,7 +142,11 @@ namespace WeihanLi.Extensions
             if (constructorParameterTypes == null || constructorParameterTypes.Length == 0)
                 return GetEmptyConstructor(type);
 
-            return type.GetConstructors().FirstOrDefault(c => c.GetParameters().Select(p => p.ParameterType).SequenceEqual(constructorParameterTypes));
+            return type.GetConstructors()
+                .FirstOrDefault(c => c.GetParameters()
+                    .Select(p => p.ParameterType)
+                    .SequenceEqual(constructorParameterTypes)
+                );
         }
 
         /// <summary>
@@ -164,7 +154,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="type">type</param>
         /// <returns></returns>
-        public static IEnumerable<Type> GetImplementedInterfaces([NotNull]this Type type)
+        public static IEnumerable<Type> GetImplementedInterfaces([NotNull] this Type type)
         {
             return type.GetTypeInfo().ImplementedInterfaces;
         }

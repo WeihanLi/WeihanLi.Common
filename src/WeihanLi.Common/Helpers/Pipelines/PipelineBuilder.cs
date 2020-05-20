@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Common.Helpers
@@ -36,8 +35,7 @@ namespace WeihanLi.Common.Helpers
 
             for (var i = _pipelines.Count - 1; i >= 0; i--)
             {
-                var pipeline = _pipelines[i];
-                request = pipeline(request);
+                request = _pipelines[i](request);
             }
 
             return request;

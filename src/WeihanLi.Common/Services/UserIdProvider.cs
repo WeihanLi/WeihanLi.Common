@@ -37,25 +37,25 @@ namespace WeihanLi.Common.Services
         }
     }
 
-    public sealed class EnvironmentUserIdProvider : IUserIdProvider
+    public class EnvironmentUserIdProvider : IUserIdProvider
     {
-        private EnvironmentUserIdProvider()
+        public EnvironmentUserIdProvider()
         {
         }
 
         public static Lazy<EnvironmentUserIdProvider> Instance = new Lazy<EnvironmentUserIdProvider>(() => new EnvironmentUserIdProvider());
 
-        public string GetUserId() => Environment.UserName;
+        public virtual string GetUserId() => Environment.UserName;
     }
 
-    public sealed class ThreadPrincipalUserIdProvider : IUserIdProvider
+    public class ThreadPrincipalUserIdProvider : IUserIdProvider
     {
         public static Lazy<ThreadPrincipalUserIdProvider> Instance = new Lazy<ThreadPrincipalUserIdProvider>(() => new ThreadPrincipalUserIdProvider());
 
-        private ThreadPrincipalUserIdProvider()
+        public ThreadPrincipalUserIdProvider()
         {
         }
 
-        public string GetUserId() => Thread.CurrentPrincipal?.Identity?.Name;
+        public virtual string GetUserId() => Thread.CurrentPrincipal?.Identity?.Name;
     }
 }
