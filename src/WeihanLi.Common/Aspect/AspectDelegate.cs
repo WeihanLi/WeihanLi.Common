@@ -57,7 +57,7 @@ namespace WeihanLi.Common.Aspect
             {
                 if (invocation.ReturnValue == null && invocation.ProxyMethod.ReturnType.IsValueType)
                 {
-                    invocation.ReturnValue = Activator.CreateInstance(invocation.ProxyMethod.ReturnType);
+                    invocation.ReturnValue = invocation.ProxyMethod.ReturnType.GetDefaultValue();
                 }
             }
         }

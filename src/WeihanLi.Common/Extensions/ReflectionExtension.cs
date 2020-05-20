@@ -14,6 +14,16 @@ namespace WeihanLi.Extensions
 {
     public static class ReflectionExtension
     {
+        public static MethodInfo GetBaseMethod(this MethodInfo currentMethod)
+        {
+            if (null == currentMethod?.DeclaringType?.BaseType)
+                return null;
+
+            var parameterTypes = currentMethod.GetParameters().Select(x => x.ParameterType).ToArray();
+            var baseMethod = currentMethod.DeclaringType.BaseType.GetMethod(currentMethod.Name, parameterTypes);
+            return baseMethod;
+        }
+
         public static bool IsVisibleAndVirtual(this PropertyInfo property)
         {
             if (property == null)
@@ -52,7 +62,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The custom attribute.</returns>
-        public static string GetDisplayName([NotNull]this MemberInfo @this)
+        public static string GetDisplayName([NotNull] this MemberInfo @this)
             => @this.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? @this.GetCustomAttribute<DisplayAttribute>()?.Name ?? @this.Name;
 
         /// <summary>
@@ -65,7 +75,7 @@ namespace WeihanLi.Extensions
         /// GetDescription
         /// </summary>
         /// <returns></returns>
-        public static string GetDescription([NotNull] this MemberInfo @this) => @this.GetCustomAttribute<DescriptionAttribute>()?.Description ?? string.Empty;
+        public static string GetDescription([NotNull] this MemberInfo @this) => @this.GetCustomAttribute<DescriptionAttribute>()?.Description ?? String.Empty;
 
         /// <summary>A T extension method that searches for the public field with the specified name.</summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
@@ -75,7 +85,7 @@ namespace WeihanLi.Extensions
         ///     An object representing the field that matches the specified requirements, if found;
         ///     otherwise, null.
         /// </returns>
-        public static FieldInfo GetField<T>([NotNull]this T @this, string name)
+        public static FieldInfo GetField<T>([NotNull] this T @this, string name)
         {
             return CacheUtil.TypeFieldCache.GetOrAdd(@this.GetType(), t => t.GetFields()).FirstOrDefault(_ => _.Name == name);
         }
@@ -95,7 +105,7 @@ namespace WeihanLi.Extensions
         ///     An object representing the field that matches the specified requirements, if found;
         ///     otherwise, null.
         /// </returns>
-        public static FieldInfo GetField<T>([NotNull]this T @this, string name, BindingFlags bindingAttr)
+        public static FieldInfo GetField<T>([NotNull] this T @this, string name, BindingFlags bindingAttr)
         {
             return @this.GetType().GetField(name, bindingAttr);
         }
@@ -103,7 +113,7 @@ namespace WeihanLi.Extensions
         /// <summary>An object extension method that gets the fields.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>An array of field information.</returns>
-        public static FieldInfo[] GetFields([NotNull]this object @this)
+        public static FieldInfo[] GetFields([NotNull] this object @this)
         {
             return CacheUtil.TypeFieldCache.GetOrAdd(@this.GetType(), t => t.GetFields());
         }
@@ -112,7 +122,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="bindingAttr">The binding attribute.</param>
         /// <returns>An array of field information.</returns>
-        public static FieldInfo[] GetFields([NotNull]this object @this, BindingFlags bindingAttr)
+        public static FieldInfo[] GetFields([NotNull] this object @this, BindingFlags bindingAttr)
         {
             return @this.GetType().GetFields(bindingAttr);
         }
@@ -124,7 +134,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="fieldName">Name of the field.</param>
         /// <returns>The field value.</returns>
-        public static object GetFieldValue<T>([NotNull]this T @this, string fieldName)
+        public static object GetFieldValue<T>([NotNull] this T @this, string fieldName)
         {
             var field = @this.GetField(fieldName);
             return field?.GetValue(@this);
@@ -139,7 +149,7 @@ namespace WeihanLi.Extensions
         /// <returns>
         ///     An object that represents the public method with the specified name, if found; otherwise, null.
         /// </returns>
-        public static MethodInfo GetMethod<T>([NotNull]this T @this, string name)
+        public static MethodInfo GetMethod<T>([NotNull] this T @this, string name)
         {
             return CacheUtil.TypeMethodCache.GetOrAdd(@this.GetType(), t => t.GetMethods()).FirstOrDefault(_ => _.Name == name);
         }
@@ -155,7 +165,7 @@ namespace WeihanLi.Extensions
         /// <returns>
         ///     An object that represents the public method with the specified name, if found; otherwise, null.
         /// </returns>
-        public static MethodInfo GetMethod<T>([NotNull]this T @this, string name, BindingFlags bindingAttr)
+        public static MethodInfo GetMethod<T>([NotNull] this T @this, string name, BindingFlags bindingAttr)
         {
             return @this.GetType().GetMethod(name, bindingAttr);
         }
@@ -169,7 +179,7 @@ namespace WeihanLi.Extensions
         ///     An array of MethodInfo objects representing all the public methods defined for the current Type. or An empty
         ///     array of type MethodInfo, if no public methods are defined for the current Type.
         /// </returns>
-        public static MethodInfo[] GetMethods<T>([NotNull]this T @this)
+        public static MethodInfo[] GetMethods<T>([NotNull] this T @this)
         {
             return CacheUtil.TypeMethodCache.GetOrAdd(@this.GetType(), t => t.GetMethods());
         }
@@ -186,7 +196,7 @@ namespace WeihanLi.Extensions
         ///     binding constraints. or An empty array of type MethodInfo, if no methods are defined for the current Type, or
         ///     if none of the defined methods match the binding constraints.
         /// </returns>
-        public static MethodInfo[] GetMethods<T>([NotNull]this T @this, BindingFlags bindingAttr)
+        public static MethodInfo[] GetMethods<T>([NotNull] this T @this, BindingFlags bindingAttr)
         {
             return @this.GetType().GetMethods(bindingAttr);
         }
@@ -194,7 +204,7 @@ namespace WeihanLi.Extensions
         /// <summary>An object extension method that gets the properties.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>An array of property information.</returns>
-        public static PropertyInfo[] GetProperties([NotNull]this object @this)
+        public static PropertyInfo[] GetProperties([NotNull] this object @this)
         {
             return CacheUtil.TypePropertyCache.GetOrAdd(@this.GetType(), type => type.GetProperties());
         }
@@ -203,7 +213,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="bindingAttr">The binding attribute.</param>
         /// <returns>An array of property information.</returns>
-        public static PropertyInfo[] GetProperties([NotNull]this object @this, BindingFlags bindingAttr)
+        public static PropertyInfo[] GetProperties([NotNull] this object @this, BindingFlags bindingAttr)
         {
             return @this.GetType().GetProperties(bindingAttr);
         }
@@ -215,7 +225,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="name">The name.</param>
         /// <returns>The property.</returns>
-        public static PropertyInfo GetProperty<T>([NotNull]this T @this, [NotNull]string name)
+        public static PropertyInfo GetProperty<T>([NotNull] this T @this, [NotNull] string name)
         {
             return CacheUtil.TypePropertyCache.GetOrAdd(@this.GetType(), type => type.GetProperties()).FirstOrDefault(_ => _.Name == name);
         }
@@ -228,7 +238,7 @@ namespace WeihanLi.Extensions
         /// <param name="name">The name.</param>
         /// <param name="bindingAttr">The binding attribute.</param>
         /// <returns>The property.</returns>
-        public static PropertyInfo GetProperty<T>([NotNull]this T @this, string name, BindingFlags bindingAttr)
+        public static PropertyInfo GetProperty<T>([NotNull] this T @this, string name, BindingFlags bindingAttr)
         {
             return @this.GetType().GetProperty(name, bindingAttr);
         }
@@ -238,7 +248,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="name">The name.</param>
         /// <returns>The property or field.</returns>
-        public static MemberInfo GetPropertyOrField<T>([NotNull]this T @this, string name)
+        public static MemberInfo GetPropertyOrField<T>([NotNull] this T @this, string name)
         {
             var property = @this.GetProperty(name);
             if (property != null)
@@ -257,7 +267,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns>The property value.</returns>
-        public static object GetPropertyValue<T>([NotNull]this T @this, string propertyName)
+        public static object GetPropertyValue<T>([NotNull] this T @this, string propertyName)
         {
             var property = @this.GetProperty(propertyName);
 
@@ -272,7 +282,7 @@ namespace WeihanLi.Extensions
         /// <param name="methodName">Name of the method.</param>
         /// <param name="parameters">Options for controlling the operation.</param>
         /// <returns>An object.</returns>
-        public static object InvokeMethod<T>([NotNull]this T obj, string methodName, params object[] parameters)
+        public static object InvokeMethod<T>([NotNull] this T obj, string methodName, params object[] parameters)
         {
             var type = obj.GetType();
             var method = type.GetMethod(methodName, parameters.Select(o => o.GetType()).ToArray());
@@ -288,7 +298,7 @@ namespace WeihanLi.Extensions
         /// <param name="methodName">Name of the method.</param>
         /// <param name="parameters">Options for controlling the operation.</param>
         /// <returns>A T.</returns>
-        public static T InvokeMethod<T>([NotNull]this object obj, string methodName, params object[] parameters)
+        public static T InvokeMethod<T>([NotNull] this object obj, string methodName, params object[] parameters)
         {
             var type = obj.GetType();
             var method = type.GetMethod(methodName, parameters.Select(o => o.GetType()).ToArray());
@@ -304,7 +314,7 @@ namespace WeihanLi.Extensions
         /// <param name="attributeType">Type of the attribute.</param>
         /// <param name="inherit">true to inherit.</param>
         /// <returns>true if attribute defined, false if not.</returns>
-        public static bool IsAttributeDefined([NotNull]this object @this, Type attributeType, bool inherit = true)
+        public static bool IsAttributeDefined([NotNull] this object @this, Type attributeType, bool inherit = true)
         {
             return @this.GetType().IsDefined(attributeType, inherit);
         }
@@ -316,7 +326,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="inherit">true to inherit.</param>
         /// <returns>true if attribute defined, false if not.</returns>
-        public static bool IsAttributeDefined<T>([NotNull]this object @this, bool inherit = true) where T : Attribute
+        public static bool IsAttributeDefined<T>([NotNull] this object @this, bool inherit = true) where T : Attribute
         {
             return @this.GetType().IsDefined(typeof(T), inherit);
         }
@@ -328,7 +338,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="fieldName">Name of the field.</param>
         /// <param name="value">The value.</param>
-        public static void SetFieldValue<T>([NotNull]this T @this, string fieldName, object value)
+        public static void SetFieldValue<T>([NotNull] this T @this, string fieldName, object value)
         {
             var type = @this.GetType();
             var field = type.GetField(fieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
@@ -342,7 +352,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <param name="value">The value.</param>
-        public static void SetPropertyValue<T>([NotNull]this T @this, string propertyName, object value) where T : class
+        public static void SetPropertyValue<T>([NotNull] this T @this, string propertyName, object value) where T : class
         {
             var property = @this.GetProperty(propertyName);
             property?.GetValueSetter()?.Invoke(@this, value);
@@ -379,12 +389,14 @@ namespace WeihanLi.Extensions
         }
 
         [CanBeNull]
-        public static Func<object, object> GetValueGetter([NotNull]this PropertyInfo propertyInfo)
+        public static Func<object, object> GetValueGetter([NotNull] this PropertyInfo propertyInfo)
         {
             return CacheUtil.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
             {
                 if (!prop.CanRead)
                     return null;
+
+                Debug.Assert(propertyInfo.DeclaringType != null);
 
                 var instance = Expression.Parameter(typeof(object), "obj");
                 var getterCall = Expression.Call(propertyInfo.DeclaringType.IsValueType
@@ -396,7 +408,7 @@ namespace WeihanLi.Extensions
         }
 
         [CanBeNull]
-        public static Action<object, object> GetValueSetter([NotNull]this PropertyInfo propertyInfo)
+        public static Action<object, object> GetValueSetter([NotNull] this PropertyInfo propertyInfo)
         {
             return CacheUtil.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
             {
@@ -407,6 +419,7 @@ namespace WeihanLi.Extensions
                 var value = Expression.Parameter(typeof(object));
 
                 Debug.Assert(propertyInfo.DeclaringType != null);
+
                 // Note that we are using Expression.Unbox for value types and Expression.Convert for reference types
                 var expr =
                     Expression.Lambda<Action<object, object>>(
@@ -421,14 +434,14 @@ namespace WeihanLi.Extensions
             });
         }
 
-        public static bool HasEmptyConstructor<T>([NotNull]this T @this)
+        public static bool HasEmptyConstructor<T>([NotNull] this T @this)
             => typeof(T).HasEmptyConstructor();
 
         /// <summary>
         /// 是否是 ValueTuple
         /// </summary>
         /// <returns></returns>
-        public static bool IsValueTuple<T>([NotNull]this T t)
+        public static bool IsValueTuple<T>([NotNull] this T t)
             => typeof(T).IsValueTuple();
 
         /// <summary>
@@ -436,7 +449,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static bool IsValueType<T>([NotNull]this T t)
+        public static bool IsValueType<T>([NotNull] this T t)
             => typeof(T).IsValueType;
 
         /// <summary>
@@ -445,7 +458,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if array, false if not.</returns>
-        public static bool IsArray<T>([NotNull]this T @this)
+        public static bool IsArray<T>([NotNull] this T @this)
         {
             return @this.GetType().IsArray;
         }
@@ -456,7 +469,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if class, false if not.</returns>
-        public static bool IsClass<T>([NotNull]this T @this)
+        public static bool IsClass<T>([NotNull] this T @this)
         {
             return @this.GetType().IsClass;
         }
@@ -467,7 +480,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if enum, false if not.</returns>
-        public static bool IsEnum<T>([NotNull]this T @this)
+        public static bool IsEnum<T>([NotNull] this T @this)
         {
             return typeof(T).IsEnum;
         }
@@ -479,7 +492,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="type">The Type to process.</param>
         /// <returns>true if subclass of, false if not.</returns>
-        public static bool IsSubclassOf<T>([NotNull]this T @this, Type type)
+        public static bool IsSubclassOf<T>([NotNull] this T @this, Type type)
         {
             return typeof(T).IsSubclassOf(type);
         }
@@ -490,7 +503,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The attribute.</returns>
-        public static T GetAttribute<T>([NotNull]this Assembly @this) where T : Attribute
+        public static T GetAttribute<T>([NotNull] this Assembly @this) where T : Attribute
         {
             var configAttributes = Attribute.GetCustomAttributes(@this, typeof(T), false);
 
@@ -512,7 +525,7 @@ namespace WeihanLi.Extensions
         ///     A reference to the single custom attribute of type  that is applied to , or null if there is no such
         ///     attribute.
         /// </returns>
-        public static Attribute GetCustomAttribute([NotNull]this Assembly element, Type attributeType)
+        public static Attribute GetCustomAttribute([NotNull] this Assembly element, Type attributeType)
         {
             return Attribute.GetCustomAttribute(element, attributeType);
         }
@@ -528,7 +541,7 @@ namespace WeihanLi.Extensions
         ///     A reference to the single custom attribute of type  that is applied to , or null if there is no such
         ///     attribute.
         /// </returns>
-        public static Attribute GetCustomAttribute([NotNull]this Assembly element, Type attributeType, bool inherit)
+        public static Attribute GetCustomAttribute([NotNull] this Assembly element, Type attributeType, bool inherit)
         {
             return Attribute.GetCustomAttribute(element, attributeType, inherit);
         }
@@ -543,7 +556,7 @@ namespace WeihanLi.Extensions
         ///     An  array that contains the custom attributes of type  applied to , or an empty array if no such custom
         ///     attributes exist.
         /// </returns>
-        public static Attribute[] GetCustomAttributes([NotNull]this Assembly element, Type attributeType)
+        public static Attribute[] GetCustomAttributes([NotNull] this Assembly element, Type attributeType)
         {
             return Attribute.GetCustomAttributes(element, attributeType);
         }
@@ -559,7 +572,7 @@ namespace WeihanLi.Extensions
         ///     An  array that contains the custom attributes of type  applied to , or an empty array if no such custom
         ///     attributes exist.
         /// </returns>
-        public static Attribute[] GetCustomAttributes([NotNull]this Assembly element, Type attributeType, bool inherit)
+        public static Attribute[] GetCustomAttributes([NotNull] this Assembly element, Type attributeType, bool inherit)
         {
             return Attribute.GetCustomAttributes(element, attributeType, inherit);
         }
@@ -572,7 +585,7 @@ namespace WeihanLi.Extensions
         ///     An  array that contains the custom attributes applied to , or an empty array if no such custom attributes
         ///     exist.
         /// </returns>
-        public static Attribute[] GetCustomAttributes([NotNull]this Assembly element)
+        public static Attribute[] GetCustomAttributes([NotNull] this Assembly element)
         {
             return Attribute.GetCustomAttributes(element);
         }
@@ -587,7 +600,7 @@ namespace WeihanLi.Extensions
         ///     An  array that contains the custom attributes applied to , or an empty array if no such custom attributes
         ///     exist.
         /// </returns>
-        public static Attribute[] GetCustomAttributes([NotNull]this Assembly element, bool inherit)
+        public static Attribute[] GetCustomAttributes([NotNull] this Assembly element, bool inherit)
         {
             return Attribute.GetCustomAttributes(element, inherit);
         }
@@ -599,7 +612,7 @@ namespace WeihanLi.Extensions
         /// <param name="element">An object derived from the  class that describes a reusable collection of modules.</param>
         /// <param name="attributeType">The type, or a base type, of the custom attribute to search for.</param>
         /// <returns>true if a custom attribute of type  is applied to ; otherwise, false.</returns>
-        public static bool IsDefined([NotNull]this Assembly element, Type attributeType)
+        public static bool IsDefined([NotNull] this Assembly element, Type attributeType)
         {
             return Attribute.IsDefined(element, attributeType);
         }
@@ -612,7 +625,7 @@ namespace WeihanLi.Extensions
         /// <param name="attributeType">The type, or a base type, of the custom attribute to search for.</param>
         /// <param name="inherit">This parameter is ignored, and does not affect the operation of this method.</param>
         /// <returns>true if a custom attribute of type  is applied to ; otherwise, false.</returns>
-        public static bool IsDefined([NotNull]this Assembly element, Type attributeType, bool inherit)
+        public static bool IsDefined([NotNull] this Assembly element, Type attributeType, bool inherit)
         {
             return Attribute.IsDefined(element, attributeType, inherit);
         }
