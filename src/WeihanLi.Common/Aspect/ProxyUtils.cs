@@ -91,6 +91,7 @@ namespace WeihanLi.Common.Aspect
 
                 // properties
                 var propertyMethods = new HashSet<string>();
+
                 var properties = interfaceType.GetProperties(BindingFlags.Instance | BindingFlags.Public);
                 foreach (var property in properties)
                 {
@@ -130,6 +131,49 @@ namespace WeihanLi.Common.Aspect
                 foreach (var method in methods.Where(x => !propertyMethods.Contains(x.Name) && !_ignoredMethods.Contains(x.Name)))
                 {
                     MethodUtils.DefineInterfaceMethod(typeBuilder, method, null);
+                }
+
+                foreach (var implementedInterface in interfaceType.GetImplementedInterfaces())
+                {
+                    properties = implementedInterface.GetProperties(BindingFlags.Instance | BindingFlags.Public);
+                    foreach (var property in properties)
+                    {
+                        var propertyBuilder = typeBuilder.DefineProperty(property.Name, property.Attributes, property.PropertyType, Type.EmptyTypes);
+                        var field = typeBuilder.DefineField($"_{property.Name}", property.PropertyType, FieldAttributes.Private);
+                        if (property.CanRead)
+                        {
+                            var methodBuilder = typeBuilder.DefineMethod(property.GetMethod.Name, InterfaceMethodAttributes, property.GetMethod.CallingConvention, property.GetMethod.ReturnType, property.GetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
+                            var ilGen = methodBuilder.GetILGenerator();
+                            ilGen.Emit(OpCodes.Ldarg_0);
+                            ilGen.Emit(OpCodes.Ldfld, field);
+                            ilGen.Emit(OpCodes.Ret);
+                            typeBuilder.DefineMethodOverride(methodBuilder, property.GetMethod);
+                            propertyBuilder.SetGetMethod(methodBuilder);
+                            propertyMethods.Add(property.GetMethod.Name);
+                        }
+                        if (property.CanWrite)
+                        {
+                            var methodBuilder = typeBuilder.DefineMethod(property.SetMethod.Name, InterfaceMethodAttributes, property.SetMethod.CallingConvention, property.SetMethod.ReturnType, property.SetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
+                            var ilGen = methodBuilder.GetILGenerator();
+                            ilGen.Emit(OpCodes.Ldarg_0);
+                            ilGen.Emit(OpCodes.Ldarg_1);
+                            ilGen.Emit(OpCodes.Stfld, field);
+                            ilGen.Emit(OpCodes.Ret);
+                            typeBuilder.DefineMethodOverride(methodBuilder, property.SetMethod);
+                            propertyBuilder.SetSetMethod(methodBuilder);
+                            propertyMethods.Add(property.SetMethod.Name);
+                        }
+                        foreach (var customAttributeData in property.CustomAttributes)
+                        {
+                            propertyBuilder.SetCustomAttribute(DefineCustomAttribute(customAttributeData));
+                        }
+                    }
+
+                    methods = implementedInterface.GetMethods(BindingFlags.Instance | BindingFlags.Public);
+                    foreach (var method in methods.Where(x => !propertyMethods.Contains(x.Name) && !_ignoredMethods.Contains(x.Name)))
+                    {
+                        MethodUtils.DefineInterfaceMethod(typeBuilder, method, null);
+                    }
                 }
 
                 return typeBuilder.CreateType();
@@ -228,6 +272,49 @@ namespace WeihanLi.Common.Aspect
                     MethodUtils.DefineInterfaceMethod(typeBuilder, method, targetField);
                 }
 
+                foreach (var implementedInterface in interfaceType.GetImplementedInterfaces())
+                {
+                    properties = implementedInterface.GetProperties(BindingFlags.Instance | BindingFlags.Public);
+                    foreach (var property in properties)
+                    {
+                        var propertyBuilder = typeBuilder.DefineProperty(property.Name, property.Attributes, property.PropertyType, Type.EmptyTypes);
+                        var field = typeBuilder.DefineField($"_{property.Name}", property.PropertyType, FieldAttributes.Private);
+                        if (property.CanRead)
+                        {
+                            var methodBuilder = typeBuilder.DefineMethod(property.GetMethod.Name, InterfaceMethodAttributes, property.GetMethod.CallingConvention, property.GetMethod.ReturnType, property.GetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
+                            var ilGen = methodBuilder.GetILGenerator();
+                            ilGen.Emit(OpCodes.Ldarg_0);
+                            ilGen.Emit(OpCodes.Ldfld, field);
+                            ilGen.Emit(OpCodes.Ret);
+                            typeBuilder.DefineMethodOverride(methodBuilder, property.GetMethod);
+                            propertyBuilder.SetGetMethod(methodBuilder);
+                            propertyMethods.Add(property.GetMethod.Name);
+                        }
+                        if (property.CanWrite)
+                        {
+                            var methodBuilder = typeBuilder.DefineMethod(property.SetMethod.Name, InterfaceMethodAttributes, property.SetMethod.CallingConvention, property.SetMethod.ReturnType, property.SetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
+                            var ilGen = methodBuilder.GetILGenerator();
+                            ilGen.Emit(OpCodes.Ldarg_0);
+                            ilGen.Emit(OpCodes.Ldarg_1);
+                            ilGen.Emit(OpCodes.Stfld, field);
+                            ilGen.Emit(OpCodes.Ret);
+                            typeBuilder.DefineMethodOverride(methodBuilder, property.SetMethod);
+                            propertyBuilder.SetSetMethod(methodBuilder);
+                            propertyMethods.Add(property.SetMethod.Name);
+                        }
+                        foreach (var customAttributeData in property.CustomAttributes)
+                        {
+                            propertyBuilder.SetCustomAttribute(DefineCustomAttribute(customAttributeData));
+                        }
+                    }
+
+                    methods = implementedInterface.GetMethods(BindingFlags.Instance | BindingFlags.Public);
+                    foreach (var method in methods.Where(x => !propertyMethods.Contains(x.Name) && !_ignoredMethods.Contains(x.Name)))
+                    {
+                        MethodUtils.DefineInterfaceMethod(typeBuilder, method, null);
+                    }
+                }
+
                 return typeBuilder.CreateType();
             });
             return type;
@@ -249,26 +336,43 @@ namespace WeihanLi.Common.Aspect
                 var targetField = typeBuilder.DefineField(TargetFieldName, serviceType, FieldAttributes.Private);
 
                 // constructors
-                foreach (var constructor in serviceType.GetConstructors())
+                var constructors = serviceType.GetConstructors();
+                if (constructors.Length > 0)
                 {
-                    var constructorTypes = constructor.GetParameters().Select(o => o.ParameterType).ToArray();
-                    var constructorBuilder = typeBuilder.DefineConstructor(
-                        constructor.Attributes,
-                        constructor.CallingConvention,
-                        constructorTypes);
-                    foreach (var customAttribute in constructor.CustomAttributes)
+                    foreach (var constructor in constructors)
                     {
-                        constructorBuilder.SetCustomAttribute(DefineCustomAttribute(customAttribute));
-                    }
-                    var il = constructorBuilder.GetILGenerator();
+                        var constructorTypes = constructor.GetParameters().Select(o => o.ParameterType).ToArray();
+                        var constructorBuilder = typeBuilder.DefineConstructor(
+                            constructor.Attributes,
+                            constructor.CallingConvention,
+                            constructorTypes);
+                        foreach (var customAttribute in constructor.CustomAttributes)
+                        {
+                            constructorBuilder.SetCustomAttribute(DefineCustomAttribute(customAttribute));
+                        }
 
-                    il.EmitThis();
-                    for (var i = 0; i < constructorTypes.Length; i++)
-                    {
-                        il.Emit(OpCodes.Ldarg, i + 1);
+                        var il = constructorBuilder.GetILGenerator();
+
+                        il.EmitThis();
+                        for (var i = 0; i < constructorTypes.Length; i++)
+                        {
+                            il.Emit(OpCodes.Ldarg, i + 1);
+                        }
+
+                        il.Call(constructor);
+                        il.Emit(OpCodes.Nop);
+
+                        il.EmitThis();
+                        il.EmitThis();
+                        il.Emit(OpCodes.Stfld, targetField);
+
+                        il.Emit(OpCodes.Ret);
                     }
-                    il.Call(constructor);
-                    il.Emit(OpCodes.Nop);
+                }
+                else
+                {
+                    var constructorBuilder = typeBuilder.DefineConstructor(MethodAttributes.Public, CallingConventions.HasThis, Type.EmptyTypes);
+                    var il = constructorBuilder.GetILGenerator();
 
                     il.EmitThis();
                     il.EmitThis();
@@ -276,7 +380,6 @@ namespace WeihanLi.Common.Aspect
 
                     il.Emit(OpCodes.Ret);
                 }
-
                 // properties
                 var propertyMethods = new HashSet<string>();
                 foreach (var property in serviceType.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))

@@ -95,9 +95,25 @@ namespace WeihanLi.Common.Test.AspectTest
         [Fact]
         public void CreateInstanceOfInterfaceWithInherit()
         {
-            //var eventBusProxy = _proxyFactory.CreateProxy<IEventBus>();
-            //Assert.NotNull(eventBusProxy);
-            //Assert.True(eventBusProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
+            var eventBusProxy = _proxyFactory.CreateProxy<IEventBus>();
+            Assert.NotNull(eventBusProxy);
+            Assert.True(eventBusProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
+
+            eventBusProxy.Publish(new TestEvent());
+        }
+
+        [Fact]
+        public void CreateProxyInstanceOfAbstract()
+        {
+            var userIdProviderProxy = _proxyFactory.CreateProxy<IUserIdProvider>();
+            Assert.NotNull(userIdProviderProxy);
+            Assert.True(userIdProviderProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
+            userIdProviderProxy.GetUserId();
+
+            var eventHandlerProxy = _proxyFactory.CreateProxy<EventHandlerBase<TestEvent>>();
+            Assert.NotNull(eventHandlerProxy);
+            Assert.True(eventHandlerProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
+            eventHandlerProxy.Handle(new TestEvent());
         }
     }
 }

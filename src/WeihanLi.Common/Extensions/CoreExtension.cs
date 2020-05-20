@@ -1,6 +1,7 @@
 ﻿using JetBrains.Annotations;
 using System;
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
@@ -12,7 +13,6 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Text.RegularExpressions;
-using WeihanLi.Common.Helpers;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -3123,12 +3123,16 @@ namespace WeihanLi.Extensions
             return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
         }
 
+        private static readonly ConcurrentDictionary<Type, object> _defaultValues =
+            new ConcurrentDictionary<Type, object>();
+
         /// <summary>
         /// 根据 Type 获取默认值，实现类似 default(T) 的功能
         /// </summary>
         /// <param name="type">type</param>
         /// <returns></returns>
-        public static object GetDefaultValue([NotNull] this Type type) => type.IsValueType ? NewFuncHelper.NewInstance(type) : null;
+        public static object GetDefaultValue([NotNull] this Type type) =>
+            type.IsValueType && type != typeof(void) ? _defaultValues.GetOrAdd(type, Activator.CreateInstance) : null;
 
         /// <summary>
         /// GetUnderlyingType if nullable else return self
