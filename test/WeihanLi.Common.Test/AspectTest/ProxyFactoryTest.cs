@@ -22,10 +22,9 @@ namespace WeihanLi.Common.Test.AspectTest
             var services = new ServiceCollection();
             services.AddFluentAspects();
             services.AddEvents();
-            services.AddSingleton<IUserIdProvider, EnvironmentUserIdProvider>();
 
             services.AddTransientProxy<TestEvent>();
-            services.AddTransientProxy<IUserIdProvider>();
+            services.AddTransientProxy<IUserIdProvider, EnvironmentUserIdProvider>();
 
             services.AddSingleton<IDataSerializer, JsonDataSerializer>();
             services.AddSingleton<IDataCompressor, NullDataCompressor>();
