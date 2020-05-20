@@ -14,7 +14,7 @@ namespace WeihanLi.Common.Aspect.Castle
             _serviceProvider = serviceProvider;
         }
 
-        public object CreateProxy(Type serviceType)
+        public object CreateProxy(Type serviceType, object[] arguments)
         {
             if (null == serviceType)
                 throw new ArgumentNullException(nameof(serviceType));
@@ -25,15 +25,13 @@ namespace WeihanLi.Common.Aspect.Castle
                         new CastleFluentAspectInterceptor());
             }
 
-            var ctorArguments = ActivatorHelper.GetBestConstructorArguments(_serviceProvider, serviceType);
+            var ctorArguments = ActivatorHelper.GetBestConstructorArguments(_serviceProvider, serviceType, arguments);
             return CastleHelper.ProxyGenerator.CreateClassProxy(
-                serviceType
-                , ctorArguments
-                , new CastleFluentAspectInterceptor()
+                serviceType, ctorArguments, new CastleFluentAspectInterceptor()
                 );
         }
 
-        public object CreateProxy(Type serviceType, Type implementType)
+        public object CreateProxy(Type serviceType, Type implementType, params object[] arguments)
         {
             if (null == serviceType)
                 throw new ArgumentNullException(nameof(serviceType));
@@ -43,11 +41,11 @@ namespace WeihanLi.Common.Aspect.Castle
 
             if (serviceType.IsInterface)
             {
-                var target = _serviceProvider.CreateInstance(implementType);
+                var target = _serviceProvider.CreateInstance(implementType, arguments);
                 return CreateProxyWithTarget(serviceType, target);
             }
 
-            return CreateProxy(implementType);
+            return CreateProxy(implementType, arguments);
         }
 
         public object CreateProxyWithTarget(Type serviceType, object implement)

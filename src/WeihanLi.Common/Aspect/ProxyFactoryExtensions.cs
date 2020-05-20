@@ -1,4 +1,5 @@
 ﻿using System;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect
 {
@@ -72,7 +73,12 @@ namespace WeihanLi.Common.Aspect
 
         public static TService CreateProxy<TService>(this IProxyFactory proxyFactory) where TService : class
         {
-            return (TService)proxyFactory.CreateProxy(typeof(TService));
+            return (TService)proxyFactory.CreateProxy(typeof(TService), ArrayHelper.Empty<object>());
+        }
+
+        public static object CreateProxy(this IProxyFactory proxyFactory, Type serviceType)
+        {
+            return proxyFactory.CreateProxy(serviceType, ArrayHelper.Empty<object>());
         }
 
         public static TService CreateProxy<TService, TImplement>(this IProxyFactory proxyFactory)
