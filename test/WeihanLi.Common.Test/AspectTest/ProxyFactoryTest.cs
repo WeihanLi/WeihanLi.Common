@@ -2,9 +2,7 @@
 using Microsoft.Extensions.Options;
 using System;
 using WeihanLi.Common.Aspect;
-using WeihanLi.Common.Compressor;
 using WeihanLi.Common.Event;
-using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Services;
 using WeihanLi.Common.Test.EventsTest;
 using Xunit;
@@ -25,9 +23,6 @@ namespace WeihanLi.Common.Test.AspectTest
 
             services.AddTransientProxy<TestEvent>();
             services.AddTransientProxy<IUserIdProvider, EnvironmentUserIdProvider>();
-
-            services.AddSingleton<IDataSerializer, JsonDataSerializer>();
-            services.AddSingleton<IDataCompressor, NullDataCompressor>();
 
             _serviceProvider = services.BuildServiceProvider();
 
@@ -71,25 +66,21 @@ namespace WeihanLi.Common.Test.AspectTest
         [Fact]
         public void CreateInstanceWithArguments()
         {
-            var compressorProxy = _proxyFactory.CreateProxy<CompressDataSerializer>();
-            Assert.NotNull(compressorProxy);
-            Assert.True(compressorProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
-
-            var result = compressorProxy.Serialize(new TestEvent());
-            Assert.NotNull(result);
-
             var eventPublisherProxy = _proxyFactory.CreateProxy<IEventPublisher, EventQueuePublisher>();
             Assert.NotNull(eventPublisherProxy);
             Assert.True(eventPublisherProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
+            eventPublisherProxy.Publish(new TestEvent());
 
             eventPublisherProxy = _proxyFactory.CreateProxy<EventQueuePublisher>();
             Assert.NotNull(eventPublisherProxy);
             Assert.True(eventPublisherProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
+            eventPublisherProxy.Publish(new TestEvent());
 
             var options = new OptionsWrapper<EventQueuePublisherOptions>(new EventQueuePublisherOptions());
             eventPublisherProxy = _proxyFactory.CreateProxy<EventQueuePublisher>(options);
             Assert.NotNull(eventPublisherProxy);
             Assert.True(eventPublisherProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
+            eventPublisherProxy.Publish(new TestEvent());
         }
 
         [Fact]
