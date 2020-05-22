@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +10,18 @@ using Xunit;
 
 namespace WeihanLi.Common.Test.ExtensionsTest
 {
+    [Table("TestEntities")]
+    internal class TestEntity
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        public string Extra { get; set; }
+
+        public DateTimeOffset CreatedAt { get; set; }
+    }
+
     public class DataExtensionTest : IDisposable
     {
         private const string DbConnectionString =

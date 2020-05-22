@@ -35,8 +35,7 @@ namespace WeihanLi.Common.Helpers
             var request = _completeFunc;
             for (var i = _pipelines.Count - 1; i >= 0; i--)
             {
-                var pipeline = _pipelines[i];
-                request = pipeline(request);
+                request = _pipelines[i](request);
             }
             return request;
         }

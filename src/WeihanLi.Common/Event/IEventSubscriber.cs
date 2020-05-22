@@ -38,7 +38,7 @@ namespace WeihanLi.Common.Event
         Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType);
     }
 
-    public static partial class EventSubscriberExtensions
+    public static class EventSubscriberExtensions
     {
         /// <summary>
         /// add event handler for event

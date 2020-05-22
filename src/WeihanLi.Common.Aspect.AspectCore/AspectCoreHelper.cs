@@ -9,10 +9,10 @@ namespace WeihanLi.Common.Aspect.AspectCore
 
         static AspectCoreHelper()
         {
-            var proxyGeneratorBuilder = new ProxyGeneratorBuilder();
+            var proxyGeneratorBuilder = new FluentAspectProxyGeneratorBuilder();
             proxyGeneratorBuilder.Configure(configuration =>
             {
-                configuration.Interceptors.AddTyped<FluentAspectInterceptor>();
+                configuration.Interceptors.AddTyped<AspectCoreFluentAspectInterceptor>();
             });
             ProxyGenerator = proxyGeneratorBuilder.Build();
         }

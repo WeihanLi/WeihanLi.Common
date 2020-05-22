@@ -10,12 +10,24 @@ namespace WeihanLi.Extensions
         /// <summary>
         /// DefaultSerializerSettings
         /// </summary>
-        public static JsonSerializerSettings DefaultSerializerSettings = new JsonSerializerSettings
+        public static JsonSerializerSettings DefaultSerializerSettings = GetDefaultSerializerSettings();
+
+        private static JsonSerializerSettings GetDefaultSerializerSettings() => new JsonSerializerSettings
         {
             ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
             MissingMemberHandling = MissingMemberHandling.Ignore,
             NullValueHandling = NullValueHandling.Ignore,
         };
+
+        public static JsonSerializerSettings SerializerSettingsWith(Action<JsonSerializerSettings> action)
+        {
+            if (null == action)
+                return DefaultSerializerSettings;
+
+            var serializerSettings = GetDefaultSerializerSettings();
+            action.Invoke(serializerSettings);
+            return serializerSettings;
+        }
 
         /// <summary>
         /// 将object对象转换为Json数据
@@ -68,7 +80,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">对象的类型</typeparam>
         /// <param name="jsonString">json对象字符串</param>
         /// <returns>由字符串转换得到的T对象</returns>
-        public static T JsonToObject<T>([NotNull]this string jsonString)
+        public static T JsonToObject<T>([NotNull] this string jsonString)
             => jsonString.JsonToObject<T>(null);
 
         /// <summary>
@@ -78,7 +90,7 @@ namespace WeihanLi.Extensions
         /// <param name="jsonString">json对象字符串</param>
         /// <param name="settings">JsonSerializerSettings</param>
         /// <returns>由字符串转换得到的T对象</returns>
-        public static T JsonToObject<T>([NotNull]this string jsonString, JsonSerializerSettings settings)
+        public static T JsonToObject<T>([NotNull] this string jsonString, JsonSerializerSettings settings)
             => jsonString.IsNullOrWhiteSpace() ? default(T) : JsonConvert.DeserializeObject<T>(jsonString, settings ?? DefaultSerializerSettings);
 
         /// <summary>

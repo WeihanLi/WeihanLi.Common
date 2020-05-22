@@ -15,7 +15,7 @@ namespace WeihanLi.Common.Compressor
         /// <param name="sourceData">source data</param>
         /// <returns>compressed data</returns>
         [NotNull]
-        byte[] Compress([NotNull]byte[] sourceData);
+        byte[] Compress([NotNull] byte[] sourceData);
 
         /// <summary>
         /// compress data async
@@ -23,7 +23,7 @@ namespace WeihanLi.Common.Compressor
         /// <param name="sourceData">source data</param>
         /// <returns>compressed data</returns>
         [NotNull]
-        Task<byte[]> CompressAsync([NotNull]byte[] sourceData);
+        Task<byte[]> CompressAsync([NotNull] byte[] sourceData);
 
         /// <summary>
         /// decompress compressed data
@@ -31,7 +31,7 @@ namespace WeihanLi.Common.Compressor
         /// <param name="compressedData">compressed data</param>
         /// <returns>source data</returns>
         [NotNull]
-        byte[] Decompress([NotNull]byte[] compressedData);
+        byte[] Decompress([NotNull] byte[] compressedData);
 
         /// <summary>
         /// decompress compressed data async
@@ -39,14 +39,14 @@ namespace WeihanLi.Common.Compressor
         /// <param name="compressedData">compressed data</param>
         /// <returns>source data</returns>
         [NotNull]
-        Task<byte[]> DecompressAsync([NotNull]byte[] compressedData);
+        Task<byte[]> DecompressAsync([NotNull] byte[] compressedData);
     }
 
     /// <summary>
     /// NullDataCompressor
     /// do nothing compress
     /// </summary>
-    public class NullDataCompressor : IDataCompressor
+    public sealed class NullDataCompressor : IDataCompressor
     {
         public byte[] Compress(byte[] sourceData)
         {

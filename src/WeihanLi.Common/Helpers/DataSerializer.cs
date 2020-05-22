@@ -17,7 +17,7 @@ namespace WeihanLi.Common.Helpers
         /// <typeparam name="T">Type</typeparam>
         /// <param name="obj">object</param>
         /// <returns>bytes</returns>
-        byte[] Serialize<T>([NotNull]T obj);
+        byte[] Serialize<T>([NotNull] T obj);
 
         /// <summary>
         /// 反序列化
@@ -25,14 +25,14 @@ namespace WeihanLi.Common.Helpers
         /// <typeparam name="T">Type</typeparam>
         /// <param name="bytes">bytes</param>
         /// <returns>obj</returns>
-        T Deserialize<T>([NotNull]byte[] bytes);
+        T Deserialize<T>([NotNull] byte[] bytes);
     }
 
     public class BinaryDataSerializer : IDataSerializer
     {
         private readonly BinaryFormatter _binaryFormatter = new BinaryFormatter();
 
-        public T Deserialize<T>(byte[] bytes)
+        public virtual T Deserialize<T>(byte[] bytes)
         {
             if (typeof(Task).IsAssignableFrom(typeof(T)))
             {
@@ -44,7 +44,7 @@ namespace WeihanLi.Common.Helpers
             }
         }
 
-        public byte[] Serialize<T>(T obj)
+        public virtual byte[] Serialize<T>(T obj)
         {
             if (typeof(Task).IsAssignableFrom(typeof(T)))
             {
@@ -62,7 +62,7 @@ namespace WeihanLi.Common.Helpers
     {
         public static Lazy<XmlDataSerializer> Instance = new Lazy<XmlDataSerializer>();
 
-        public T Deserialize<T>(byte[] bytes)
+        public virtual T Deserialize<T>(byte[] bytes)
         {
             if (typeof(Task).IsAssignableFrom(typeof(T)))
             {
@@ -75,7 +75,7 @@ namespace WeihanLi.Common.Helpers
             }
         }
 
-        public byte[] Serialize<T>(T obj)
+        public virtual byte[] Serialize<T>(T obj)
         {
             if (typeof(Task).IsAssignableFrom(typeof(T)))
             {
@@ -111,7 +111,7 @@ namespace WeihanLi.Common.Helpers
         }
     }
 
-    public class CompressDataSerializer : IDataSerializer
+    public sealed class CompressDataSerializer : IDataSerializer
     {
         private readonly IDataSerializer _serializer;
         private readonly IDataCompressor _compressor;

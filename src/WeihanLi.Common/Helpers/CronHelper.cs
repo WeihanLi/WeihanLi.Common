@@ -6,7 +6,7 @@ namespace WeihanLi.Common.Helpers
 {
     /// <summary>
     /// CronExpression Helper
-    /// Cron Expression grammer : http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html
+    /// Cron Expression : http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html
     /// </summary>
     public static class CronHelper
     {

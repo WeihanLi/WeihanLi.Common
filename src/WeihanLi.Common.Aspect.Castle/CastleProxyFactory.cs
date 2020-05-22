@@ -14,7 +14,7 @@ namespace WeihanLi.Common.Aspect.Castle
             _serviceProvider = serviceProvider;
         }
 
-        public object CreateProxy(Type serviceType)
+        public object CreateProxy(Type serviceType, object[] arguments)
         {
             if (null == serviceType)
                 throw new ArgumentNullException(nameof(serviceType));
@@ -22,13 +22,16 @@ namespace WeihanLi.Common.Aspect.Castle
             if (serviceType.IsInterface)
             {
                 return CastleHelper.ProxyGenerator.CreateInterfaceProxyWithoutTarget(serviceType,
-                        new FluentAspectInterceptor());
+                        new CastleFluentAspectInterceptor());
             }
 
-            return CastleHelper.ProxyGenerator.CreateClassProxy(serviceType, new FluentAspectInterceptor());
+            var ctorArguments = ActivatorHelper.GetBestConstructorArguments(_serviceProvider, serviceType, arguments);
+            return CastleHelper.ProxyGenerator.CreateClassProxy(
+                serviceType, ctorArguments, new CastleFluentAspectInterceptor()
+                );
         }
 
-        public object CreateProxy(Type serviceType, Type implementType)
+        public object CreateProxy(Type serviceType, Type implementType, params object[] arguments)
         {
             if (null == serviceType)
                 throw new ArgumentNullException(nameof(serviceType));
@@ -36,8 +39,13 @@ namespace WeihanLi.Common.Aspect.Castle
             if (null == implementType)
                 throw new ArgumentNullException(nameof(implementType));
 
-            var target = _serviceProvider.CreateInstance(implementType);
-            return CreateProxyWithTarget(serviceType, target);
+            if (serviceType.IsInterface)
+            {
+                var target = _serviceProvider.CreateInstance(implementType, arguments);
+                return CreateProxyWithTarget(serviceType, target);
+            }
+
+            return CreateProxy(implementType, arguments);
         }
 
         public object CreateProxyWithTarget(Type serviceType, object implement)
@@ -51,10 +59,10 @@ namespace WeihanLi.Common.Aspect.Castle
             if (serviceType.IsInterface)
             {
                 return CastleHelper.ProxyGenerator.CreateInterfaceProxyWithTarget(serviceType, implement,
-                    new FluentAspectInterceptor());
+                    new CastleFluentAspectInterceptor());
             }
             return CastleHelper.ProxyGenerator.CreateClassProxyWithTarget(serviceType, implement,
-                new FluentAspectInterceptor());
+                new CastleFluentAspectInterceptor());
         }
     }
 }

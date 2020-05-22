@@ -17,7 +17,7 @@ namespace WeihanLi.Common.Aspect
             _serviceProvider = serviceProvider ?? DependencyResolver.Current;
         }
 
-        public object CreateProxy([NotNull] Type serviceType)
+        public object CreateProxy([NotNull] Type serviceType, object[] arguments)
         {
             if (serviceType == null)
             {
@@ -25,11 +25,11 @@ namespace WeihanLi.Common.Aspect
             }
 
             var proxyType = _proxyTypeFactory.CreateProxyType(serviceType);
-            var proxy = _serviceProvider.CreateInstance(proxyType);
+            var proxy = _serviceProvider.CreateInstance(proxyType, arguments);
             return proxy;
         }
 
-        public object CreateProxy([NotNull] Type serviceType, [NotNull] Type implementType)
+        public object CreateProxy(Type serviceType, Type implementType, params object[] arguments)
         {
             if (serviceType == null)
             {
@@ -42,7 +42,7 @@ namespace WeihanLi.Common.Aspect
             }
 
             var proxyType = _proxyTypeFactory.CreateProxyType(serviceType, implementType);
-            var proxy = _serviceProvider.CreateInstance(proxyType);
+            var proxy = _serviceProvider.CreateInstance(proxyType, arguments);
             return proxy;
         }
 

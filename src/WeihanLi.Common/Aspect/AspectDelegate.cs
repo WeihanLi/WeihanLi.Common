@@ -6,7 +6,7 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect
 {
-    public class AspectDelegate
+    public static class AspectDelegate
     {
         public static void Invoke(IInvocation context)
         {
@@ -30,9 +30,9 @@ namespace WeihanLi.Common.Aspect
             {
                 try
                 {
-                    enricher.Enrich(invocation);   
+                    enricher.Enrich(invocation);
                 }
-                catch (System.Exception ex)
+                catch (Exception ex)
                 {
                     InvokeHelper.OnInvokeException?.Invoke(ex);
                 }
@@ -57,7 +57,7 @@ namespace WeihanLi.Common.Aspect
             {
                 if (invocation.ReturnValue == null && invocation.ProxyMethod.ReturnType.IsValueType)
                 {
-                    invocation.ReturnValue = Activator.CreateInstance(invocation.ProxyMethod.ReturnType);
+                    invocation.ReturnValue = invocation.ProxyMethod.ReturnType.GetDefaultValue();
                 }
             }
         }
@@ -70,17 +70,20 @@ namespace WeihanLi.Common.Aspect
             {
                 completeFunc = x =>
                 {
-                    if (x.Target == x.ProxyTarget && x.Method != null)
+                    if (x.Method != null && !x.Method.IsAbstract)
                     {
-                        // https://stackoverflow.com/questions/2323401/how-to-call-base-base-method
-                        var ptr = x.Method.MethodHandle.GetFunctionPointer();
-                        var delegateType = DelegateHelper.GetDelegateType(x.Method);
-                        var @delegate = (Delegate)Activator.CreateInstance(delegateType, x.Target, ptr);
-                        invocation.ReturnValue = @delegate.DynamicInvoke(x.Arguments);
-                    }
-                    else
-                    {
-                        invocation.ReturnValue = x.Method?.Invoke(x.Target, x.Arguments);
+                        if (x.Target == x.ProxyTarget)
+                        {
+                            // https://stackoverflow.com/questions/2323401/how-to-call-base-base-method
+                            var ptr = x.Method.MethodHandle.GetFunctionPointer();
+                            var delegateType = DelegateHelper.GetDelegateType(x.Method);
+                            var @delegate = (Delegate)Activator.CreateInstance(delegateType, x.Target, ptr);
+                            invocation.ReturnValue = @delegate.DynamicInvoke(x.Arguments);
+                        }
+                        else
+                        {
+                            invocation.ReturnValue = x.Method.Invoke(x.Target, x.Arguments);
+                        }
                     }
 
                     if (invocation.ProxyMethod.ReturnType == typeof(void))
@@ -111,7 +114,7 @@ namespace WeihanLi.Common.Aspect
                     .ResolveInterceptors(invocation) ?? ArrayHelper.Empty<IInterceptor>();
             }
 
-            if (interceptors.Count == 0)
+            if (interceptors.Count <= 1)
             {
                 return completeFunc;
             }
@@ -121,7 +124,6 @@ namespace WeihanLi.Common.Aspect
             {
                 builder.Use(interceptor.Invoke);
             }
-
             return builder.Build();
         }
     }

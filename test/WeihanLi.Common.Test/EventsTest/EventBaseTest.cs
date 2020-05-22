@@ -4,7 +4,7 @@ using Xunit;
 
 namespace WeihanLi.Common.Test.EventsTest
 {
-    internal class TestEvent : EventBase
+    public class TestEvent : EventBase
     {
         public string Name { get; set; }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using WeihanLi.Common.Test.EventsTest;
 using WeihanLi.Extensions;
 using Xunit;
 
@@ -34,6 +35,15 @@ namespace WeihanLi.Common.Test.ExtensionsTest
                 //typeof(object),// IsPrimitive:False
             };
             Assert.All(types, t => Assert.True(t.IsBasicType()));
+        }
+
+        [Fact]
+        public void GetDefaultValueTest()
+        {
+            Assert.Equal(default(int), typeof(int).GetDefaultValue());
+            Assert.Equal(default(bool), typeof(bool).GetDefaultValue());
+            Assert.Equal(default(TestEvent), typeof(TestEvent).GetDefaultValue());
+            Assert.Null(typeof(void).GetDefaultValue());
         }
     }
 }

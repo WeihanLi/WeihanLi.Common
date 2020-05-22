@@ -5,7 +5,7 @@ namespace WeihanLi.Common.Event
     public interface IEventPublisher
     {
         /// <summary>
-        /// publish an event async
+        /// publish an event
         /// </summary>
         /// <typeparam name="TEvent">event type</typeparam>
         /// <param name="event">event data</param>

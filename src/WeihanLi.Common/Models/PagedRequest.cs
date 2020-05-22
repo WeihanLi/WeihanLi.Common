@@ -8,13 +8,25 @@
         public int PageNum
         {
             get => _pageNum;
-            set => _pageNum = value > 0 ? value : 1;
+            set
+            {
+                if (value > 0)
+                {
+                    _pageNum = value;
+                }
+            }
         }
 
         public int PageSize
         {
             get => _pageSize;
-            set => _pageSize = value > 0 ? value : 10;
+            set
+            {
+                if (value > 0)
+                {
+                    _pageSize = value;
+                }
+            }
         }
     }
 }
