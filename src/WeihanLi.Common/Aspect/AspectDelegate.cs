@@ -6,7 +6,7 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect
 {
-    public class AspectDelegate
+    public static class AspectDelegate
     {
         public static void Invoke(IInvocation context)
         {
