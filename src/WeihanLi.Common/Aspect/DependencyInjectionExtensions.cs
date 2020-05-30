@@ -87,5 +87,58 @@ namespace WeihanLi.Common.Aspect
         public static IServiceCollection AddTransientProxy<TService>(this IServiceCollection serviceCollection)
             where TService : class =>
             serviceCollection.AddProxyService<TService>(ServiceLifetime.Transient);
+
+        public static IServiceProvider BuildFluentAspectsProvider(this IServiceCollection serviceCollection, Action<FluentAspectOptions> optionsAction = null, bool validateScopes = false)
+        {
+            IServiceCollection services = new ServiceCollection();
+
+            if (null != optionsAction)
+            {
+                services.AddFluentAspects(optionsAction);
+            }
+            else
+            {
+                services.AddFluentAspects();
+            }
+
+            foreach (var descriptor in serviceCollection)
+            {
+                if (descriptor.ServiceType.IsSealed || descriptor.ImplementationType?.IsSealed == true)
+                {
+                    services.Add(descriptor);
+                }
+                else
+                {
+                    Func<IServiceProvider, object> serviceFactory = null;
+                    if (descriptor.ImplementationInstance != null)
+                    {
+                        serviceFactory = provider => provider.GetRequiredService<IProxyFactory>()
+                            .CreateProxyWithTarget(descriptor.ServiceType, descriptor.ImplementationInstance);
+                    }
+                    else if (descriptor.ImplementationFactory != null)
+                    {
+                        serviceFactory = provider => provider.GetRequiredService<IProxyFactory>()
+                            .CreateProxyWithTarget(descriptor.ServiceType, descriptor.ImplementationFactory(provider));
+                    }
+                    else if (descriptor.ImplementationType != null)
+                    {
+                        serviceFactory = provider => provider.GetRequiredService<IProxyFactory>()
+                            .CreateProxy(descriptor.ServiceType, descriptor.ImplementationType);
+                    }
+
+                    if (null != serviceFactory)
+                    {
+                        services.Add(new ServiceDescriptor(descriptor.ServiceType, serviceFactory,
+                            descriptor.Lifetime));
+                    }
+                    else
+                    {
+                        services.Add(descriptor);
+                    }
+                }
+            }
+
+            return services.BuildServiceProvider(validateScopes);
+        }
     }
 }
