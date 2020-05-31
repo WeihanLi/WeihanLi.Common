@@ -108,7 +108,7 @@ namespace WeihanLi.Common.Test.AspectTest
         }
 
         [Fact]
-        public void CommonProxyMethodTest()
+        public void CommonProxyMethodInvokeTest()
         {
             var userIdProviderProxy = _proxyFactory.CreateProxy<IUserIdProvider, EnvironmentUserIdProvider>();
             var userId = userIdProviderProxy.GetUserId();
@@ -117,7 +117,7 @@ namespace WeihanLi.Common.Test.AspectTest
         }
 
         [Fact]
-        public void GenericProxyMethodTest()
+        public void GenericProxyMethodInvokeTest()
         {
             var eventQueue = _serviceProvider.GetRequiredService<IEventQueue>();
             var queueCount = eventQueue.GetQueues().Count;
@@ -127,6 +127,22 @@ namespace WeihanLi.Common.Test.AspectTest
             eventPublisherProxy.Publish(new TestEvent());
             queueCount = eventQueue.GetQueues().Count;
             Assert.Equal(1, queueCount);
+        }
+
+        [Fact]
+        public void GenericTypeTest()
+        {
+            var proxyTypeFactory = _serviceProvider.GetRequiredService<IProxyTypeFactory>();
+            var proxyType = proxyTypeFactory.CreateProxyType(typeof(EventHandlerBase<>));
+            Assert.NotNull(proxyType);
+            Assert.True(proxyType.IsGenericTypeDefinition);
+            Assert.True(proxyType.IsGenericType);
+            Assert.NotNull(proxyType.BaseType);
+
+            var eventHandlerProxy = _proxyFactory.CreateProxy<EventHandlerBase<TestEvent>>();
+            Assert.NotNull(eventHandlerProxy);
+            Assert.True(eventHandlerProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
+            eventHandlerProxy.Handle(new TestEvent());
         }
     }
 }
