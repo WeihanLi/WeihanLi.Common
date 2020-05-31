@@ -442,9 +442,11 @@ namespace WeihanLi.Common.Aspect
         {
             public static MethodBuilder DefineInterfaceMethod(TypeBuilder typeBuilder, MethodInfo method, FieldBuilder targetField)
             {
-                var methodParameterTypes = method.GetParameters()
+                var methodParameters = method.GetParameters();
+                var methodParameterTypes = methodParameters
                         .Select(p => p.ParameterType)
                         .ToArray();
+
                 var methodBuilder = typeBuilder.DefineMethod(method.Name
                     , InterfaceMethodAttributes,
                     method.CallingConvention,
@@ -472,7 +474,10 @@ namespace WeihanLi.Common.Aspect
                 il.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
                 il.Emit(OpCodes.Stloc, localCurrentMethod);
 
-                var targetMethod = targetField?.FieldType.GetMethod(method.Name, methodParameterTypes);
+                var targetMethod = targetField?.FieldType
+                    .GetMethodBySignature(method)
+                    ;
+
                 if (null != targetMethod)
                 {
                     il.EmitMethod(method.IsGenericMethod
@@ -591,7 +596,7 @@ namespace WeihanLi.Common.Aspect
                 il.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
                 il.Emit(OpCodes.Stloc, localCurrentMethod);
 
-                var targetMethod = targetField?.FieldType.GetMethod(method.Name, methodParameterTypes);
+                var targetMethod = targetField?.FieldType.GetMethodBySignature(method);
                 if (null != targetMethod)
                 {
                     il.EmitMethod(method.IsGenericMethod
@@ -602,7 +607,6 @@ namespace WeihanLi.Common.Aspect
                 {
                     il.EmitNull();
                 }
-
                 il.Emit(OpCodes.Stloc, localMethodBase);
 
                 // var parameters = new[] {a, b, c};

@@ -55,7 +55,10 @@ namespace AspNetCoreSample
             app.Use((context, next) =>
             {
                 var eventPublisher = context.RequestServices.GetRequiredService<IEventPublisher>();
-                eventPublisher.Publish(new PageViewEvent());
+                eventPublisher.Publish(new PageViewEvent()
+                {
+                    Path = context.Request.Path.Value,
+                });
 
                 return next();
             });

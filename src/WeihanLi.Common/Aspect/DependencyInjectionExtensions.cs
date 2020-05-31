@@ -88,7 +88,7 @@ namespace WeihanLi.Common.Aspect
             where TService : class =>
             serviceCollection.AddProxyService<TService>(ServiceLifetime.Transient);
 
-        public static IServiceProvider BuildFluentAspectsProvider(this IServiceCollection serviceCollection, Action<FluentAspectOptions> optionsAction = null, bool validateScopes = false)
+        public static IServiceProvider BuildFluentAspectsProvider(this IServiceCollection serviceCollection, Action<FluentAspectOptions> optionsAction, Func<Type, bool> ignoreTypesPredict = null, bool validateScopes = false)
         {
             IServiceCollection services = new ServiceCollection();
 
@@ -103,13 +103,22 @@ namespace WeihanLi.Common.Aspect
 
             foreach (var descriptor in serviceCollection)
             {
-                if (descriptor.ServiceType.IsSealed || descriptor.ImplementationType?.IsSealed == true)
+                if (ignoreTypesPredict?.Invoke(descriptor.ServiceType) == true)
+                {
+                    services.Add(descriptor);
+                    continue;
+                }
+
+                if (descriptor.ServiceType.IsSealed
+                    || descriptor.ImplementationType?.IsSealed == true
+                    || descriptor.ServiceType.IsGenericTypeDefinition)
                 {
                     services.Add(descriptor);
                 }
                 else
                 {
                     Func<IServiceProvider, object> serviceFactory = null;
+
                     if (descriptor.ImplementationInstance != null)
                     {
                         serviceFactory = provider => provider.GetRequiredService<IProxyFactory>()

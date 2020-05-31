@@ -106,5 +106,27 @@ namespace WeihanLi.Common.Test.AspectTest
             Assert.True(eventHandlerProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
             eventHandlerProxy.Handle(new TestEvent());
         }
+
+        [Fact]
+        public void CommonProxyMethodTest()
+        {
+            var userIdProviderProxy = _proxyFactory.CreateProxy<IUserIdProvider, EnvironmentUserIdProvider>();
+            var userId = userIdProviderProxy.GetUserId();
+            Assert.NotNull(userId);
+            Assert.NotEmpty(userId);
+        }
+
+        [Fact]
+        public void GenericProxyMethodTest()
+        {
+            var eventQueue = _serviceProvider.GetRequiredService<IEventQueue>();
+            var queueCount = eventQueue.GetQueues().Count;
+            Assert.Equal(0, queueCount);
+
+            var eventPublisherProxy = _proxyFactory.CreateProxy<IEventPublisher, EventQueuePublisher>();
+            eventPublisherProxy.Publish(new TestEvent());
+            queueCount = eventQueue.GetQueues().Count;
+            Assert.Equal(1, queueCount);
+        }
     }
 }

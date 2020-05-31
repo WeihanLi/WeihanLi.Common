@@ -14,6 +14,7 @@ namespace WeihanLi.Common.Event
         private readonly IEventQueue _eventQueue;
 
         private readonly EventQueuePublisherOptions _options;
+
 #if NETSTANDARD
 
         public EventQueuePublisher(IEventQueue eventQueue, IOptions<EventQueuePublisherOptions> options)
