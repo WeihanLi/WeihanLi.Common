@@ -31,8 +31,6 @@ namespace WeihanLi.Extensions
             var parameterTypes = method.GetParameters().Select(x => x.ParameterType).ToArray();
             if (method.ContainsGenericParameters)
             {
-                var genericArguments = method.GetGenericArguments();
-
                 foreach (var info in methods)
                 {
                     var innerParams = info.GetParameters();
@@ -41,16 +39,17 @@ namespace WeihanLi.Extensions
                         continue;
                     }
 
-                    if (info.GetGenericArguments().Length != genericArguments.Length)
-                    {
-                        continue;
-                    }
+                    //if (info.GetGenericArguments().Length != genericArguments.Length)
+                    //{
+                    //    continue;
+                    //}
 
                     var idx = 0;
                     foreach (var param in innerParams)
                     {
                         if (!param.ParameterType.IsGenericParameter
-                        && param.ParameterType != parameterTypes[idx]
+                            && !parameterTypes[idx].IsGenericParameter
+                            && param.ParameterType != parameterTypes[idx]
                         )
                         {
                             break;

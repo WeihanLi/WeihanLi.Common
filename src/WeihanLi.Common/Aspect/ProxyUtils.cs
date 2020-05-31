@@ -480,7 +480,7 @@ namespace WeihanLi.Common.Aspect
 
                 if (null != targetMethod)
                 {
-                    il.EmitMethod(method.IsGenericMethod
+                    il.EmitMethod(methodBuilder.IsGenericMethod
                         ? targetMethod.MakeGenericMethod(methodBuilder.GetGenericArguments())
                         : targetMethod);
                 }
@@ -599,7 +599,7 @@ namespace WeihanLi.Common.Aspect
                 var targetMethod = targetField?.FieldType.GetMethodBySignature(method);
                 if (null != targetMethod)
                 {
-                    il.EmitMethod(method.IsGenericMethod
+                    il.EmitMethod(methodBuilder.IsGenericMethod
                         ? targetMethod.MakeGenericMethod(methodBuilder.GetGenericArguments())
                         : targetMethod);
                 }

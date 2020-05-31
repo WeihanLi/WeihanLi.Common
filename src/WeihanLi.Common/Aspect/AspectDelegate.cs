@@ -100,7 +100,27 @@ namespace WeihanLi.Common.Aspect
                     {
                         return valTask.AsTask();
                     }
+
 #endif
+                    if (null == invocation.ReturnValue)
+                    {
+                        if (invocation.ProxyMethod.ReturnType.IsGenericType
+                        && invocation.ProxyMethod.ReturnType.IsAssignableTo<Task>())
+                        {
+                            var resultType = invocation.ProxyMethod.ReturnType.GetGenericArguments()[0];
+                            return Task.FromResult(resultType.GetDefaultValue());
+                        }
+
+#if NETSTANDARD2_1
+
+                        if (invocation.ProxyMethod.ReturnType.IsGenericType
+                                                && invocation.ProxyMethod.ReturnType.IsAssignableTo<ValueTask>())
+                        {
+                            var resultType = invocation.ProxyMethod.ReturnType.GetGenericArguments()[0];
+                            return Task.FromResult(resultType.GetDefaultValue());
+                        }
+#endif
+                    }
 
                     return TaskHelper.CompletedTask;
                 };

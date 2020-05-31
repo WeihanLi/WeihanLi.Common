@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using WeihanLi.Common.Event;
 using WeihanLi.Extensions;
 using Xunit;
@@ -7,6 +8,17 @@ namespace WeihanLi.Common.Test.EventsTest
     public class TestEvent : EventBase
     {
         public string Name { get; set; }
+    }
+
+    public class TestEventHandler : EventHandlerBase<TestEvent>
+    {
+        public static int Count;
+
+        public override Task Handle(TestEvent @event)
+        {
+            Count++;
+            return Task.CompletedTask;
+        }
     }
 
     public class EventBaseTest
