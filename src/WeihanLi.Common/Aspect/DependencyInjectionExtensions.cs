@@ -110,8 +110,7 @@ namespace WeihanLi.Common.Aspect
                 }
 
                 if (descriptor.ServiceType.IsSealed
-                    || descriptor.ImplementationType?.IsSealed == true
-                    || descriptor.ServiceType.IsGenericTypeDefinition)
+                    || descriptor.ImplementationType?.IsSealed == true)
                 {
                     services.Add(descriptor);
                 }
