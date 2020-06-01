@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 
 namespace WeihanLi.Common.Aspect
@@ -24,9 +25,9 @@ namespace WeihanLi.Common.Aspect
             if (null == serviceCollection)
                 throw new ArgumentNullException(nameof(serviceCollection));
 
-            serviceCollection.AddTransient<IProxyTypeFactory, DefaultProxyTypeFactory>();
-            serviceCollection.AddTransient<IProxyFactory, DefaultProxyFactory>();
-            serviceCollection.AddSingleton(FluentConfigInterceptorResolver.Instance);
+            serviceCollection.TryAddTransient<IProxyTypeFactory, DefaultProxyTypeFactory>();
+            serviceCollection.TryAddTransient<IProxyFactory, DefaultProxyFactory>();
+            serviceCollection.TryAddSingleton(FluentConfigInterceptorResolver.Instance);
 
             return new FluentAspectBuilder(serviceCollection);
         }
@@ -88,18 +89,17 @@ namespace WeihanLi.Common.Aspect
             where TService : class =>
             serviceCollection.AddProxyService<TService>(ServiceLifetime.Transient);
 
-        public static IServiceProvider BuildFluentAspectsProvider(this IServiceCollection serviceCollection, Action<FluentAspectOptions> optionsAction, Func<Type, bool> ignoreTypesPredict = null, bool validateScopes = false)
+        public static IServiceProvider BuildFluentAspectsProvider(this IServiceCollection serviceCollection,
+            Action<FluentAspectOptions> optionsAction,
+            Action<IFluentAspectBuilder> aspectBuildAction,
+            Func<Type, bool> ignoreTypesPredict = null,
+            bool validateScopes = false)
         {
             IServiceCollection services = new ServiceCollection();
-
-            if (null != optionsAction)
-            {
-                services.AddFluentAspects(optionsAction);
-            }
-            else
-            {
-                services.AddFluentAspects();
-            }
+            var aspectBuilder = null != optionsAction
+                ? services.AddFluentAspects(optionsAction)
+                : services.AddFluentAspects();
+            aspectBuildAction?.Invoke(aspectBuilder);
 
             foreach (var descriptor in serviceCollection)
             {

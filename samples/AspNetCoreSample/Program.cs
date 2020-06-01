@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using WeihanLi.Common.Aspect;
+using WeihanLi.Common.Aspect.Castle;
 using WeihanLi.Common.Event;
 
 namespace AspNetCoreSample
@@ -20,7 +21,7 @@ namespace AspNetCoreSample
                     options
                         .InterceptType<IEventPublisher>()
                         .With<EventPublishLogInterceptor>();
-                }, t => t.Namespace?.StartsWith("WeihanLi") == false)
+                }, builder => builder.UseCastleProxy(), t => t.Namespace?.StartsWith("WeihanLi") == false)
                 .Build()
                 .Run();
         }

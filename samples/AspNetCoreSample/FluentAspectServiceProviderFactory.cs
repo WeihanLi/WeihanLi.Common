@@ -8,14 +8,17 @@ namespace AspNetCoreSample
     public class FluentAspectServiceProviderFactory : IServiceProviderFactory<IServiceCollection>
     {
         private readonly Action<FluentAspectOptions> _optionsAction;
+        private readonly Action<IFluentAspectBuilder> _aspectBuildAction;
         private readonly Func<Type, bool> _ignoreTypesPredict;
 
         public FluentAspectServiceProviderFactory(
             Action<FluentAspectOptions> optionsAction,
+            Action<IFluentAspectBuilder> aspectBuildAction,
             Func<Type, bool> ignoreTypesPredict
             )
         {
             _optionsAction = optionsAction;
+            _aspectBuildAction = aspectBuildAction;
             _ignoreTypesPredict = ignoreTypesPredict;
         }
 
@@ -26,14 +29,16 @@ namespace AspNetCoreSample
 
         public IServiceProvider CreateServiceProvider(IServiceCollection containerBuilder)
         {
-            return containerBuilder.BuildFluentAspectsProvider(_optionsAction, _ignoreTypesPredict);
+            return containerBuilder.BuildFluentAspectsProvider(_optionsAction, _aspectBuildAction, _ignoreTypesPredict);
         }
     }
 
     public static class HostBuilderExtensions
     {
         public static IHostBuilder UseFluentAspectServiceProviderFactory(this IHostBuilder hostBuilder,
-            Action<FluentAspectOptions> optionsAction, Func<Type, bool> ignoreTypesPredict = null)
+            Action<FluentAspectOptions> optionsAction,
+            Action<IFluentAspectBuilder> aspectBuildAction = null,
+            Func<Type, bool> ignoreTypesPredict = null)
         {
             if (ignoreTypesPredict == null)
             {
@@ -43,7 +48,7 @@ namespace AspNetCoreSample
                     ;
             }
             hostBuilder.UseServiceProviderFactory(
-                new FluentAspectServiceProviderFactory(optionsAction, ignoreTypesPredict)
+                new FluentAspectServiceProviderFactory(optionsAction, aspectBuildAction, ignoreTypesPredict)
                 );
             return hostBuilder;
         }
