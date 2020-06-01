@@ -3,7 +3,7 @@ using AspectCore.DynamicProxy;
 
 namespace WeihanLi.Common.Aspect.AspectCore
 {
-    internal class AspectCoreHelper
+    internal static class AspectCoreHelper
     {
         public static readonly IProxyGenerator ProxyGenerator;
 

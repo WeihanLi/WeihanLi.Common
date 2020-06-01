@@ -2,7 +2,7 @@
 
 namespace WeihanLi.Common.Http
 {
-    public class NoProxyHttpClientHandler : HttpClientHandler
+    public sealed class NoProxyHttpClientHandler : HttpClientHandler
     {
         public NoProxyHttpClientHandler()
         {
