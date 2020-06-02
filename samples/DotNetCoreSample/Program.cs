@@ -4,8 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
-using WeihanLi.Common.Aspect.Castle;
-using WeihanLi.Common.DependencyInjection;
+using WeihanLi.Common.Aspect.AspectCore;
+using WeihanLi.Common.Event;
 
 // ReSharper disable LocalizableElement
 
@@ -51,7 +51,9 @@ namespace DotNetCoreSample
             services.AddDbContext<TestDbContext>(dbContextOptionsAction);
 
             services.AddScopedProxy<TestDbContext>();
+            services.AddEvents();
 
+            services.AddSingletonProxy<IEventBus, EventBus>();
             services.AddFluentAspects(options =>
                 {
                     options.NoInterceptPropertyGetter<IFly>(f => f.Name);
@@ -72,8 +74,8 @@ namespace DotNetCoreSample
                         .WithProperty("TraceId", "121212")
                         ;
                 })
-                .UseCastleProxy()
-                // .UseAspectCoreProxy()
+                //.UseCastleProxy()
+                .UseAspectCoreProxy()
                 ;
 
             DependencyResolver.SetDependencyResolver(services);
@@ -105,12 +107,17 @@ namespace DotNetCoreSample
             //animal.Drink("xxx");
             //Console.WriteLine(animal.GetDrinkCount());
 
-            DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
+            //DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
+            //{
+            //    dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
+            //    var hasChanges = dbContext.ChangeTracker.HasChanges();
+            //    Console.WriteLine($"hasChanges：{hasChanges}");
+            //    dbContext.SaveChanges();
+            //});
+
+            DependencyResolver.TryInvokeService<IEventBus>(eventBus =>
             {
-                dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
-                var hasChanges = dbContext.ChangeTracker.HasChanges();
-                Console.WriteLine($"hasChanges：{hasChanges}");
-                dbContext.SaveChanges();
+                eventBus.Publish(new CounterEvent());
             });
 
             //DependencyResolver.TryInvokeServiceAsync<TestDbContext>(dbContext =>

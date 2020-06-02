@@ -196,13 +196,10 @@ namespace WeihanLi.Common.Aspect
             if (null == implementType)
                 return CreateInterfaceProxy(interfaceType);
 
-            if (implementType.IsSealed)
-                throw new InvalidOperationException("the implementType is sealed");
-
             var proxyTypeName = _proxyTypeNameResolver(interfaceType, implementType);
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
-                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, implementType.Attributes, implementType, new[] { interfaceType });
+                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, implementType.Attributes, null, new[] { interfaceType });
                 GenericParameterUtils.DefineGenericParameter(interfaceType, typeBuilder);
 
                 var targetField = typeBuilder.DefineField(TargetFieldName, implementType, FieldAttributes.Private);
