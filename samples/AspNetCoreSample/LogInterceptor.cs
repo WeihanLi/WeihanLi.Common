@@ -29,4 +29,28 @@ namespace AspNetCoreSample
             Console.WriteLine("-------------------------------");
         }
     }
+
+    public class EventHandleLogInterceptor : IInterceptor
+    {
+        public async Task Invoke(IInvocation invocation, Func<Task> next)
+        {
+            Console.WriteLine("-------------------------------");
+            Console.WriteLine($"Event handle begin, eventData:{invocation.Arguments.ToJson()}");
+            var watch = Stopwatch.StartNew();
+            try
+            {
+                await next();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Event handle exception({ex})");
+            }
+            finally
+            {
+                watch.Stop();
+                Console.WriteLine($"Event handle complete, elasped:{watch.ElapsedMilliseconds} ms");
+            }
+            Console.WriteLine("-------------------------------");
+        }
+    }
 }

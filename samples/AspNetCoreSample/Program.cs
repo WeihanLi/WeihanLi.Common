@@ -21,7 +21,13 @@ namespace AspNetCoreSample
                     options
                         .InterceptType<IEventPublisher>()
                         .With<EventPublishLogInterceptor>();
-                }, builder => builder.UseCastleProxy(), t => t.Namespace?.StartsWith("WeihanLi") == false)
+
+                    options.InterceptType<IEventHandler>()
+                        .With<EventHandleLogInterceptor>();
+                }, builder =>
+                {
+                    builder.UseCastleProxy();
+                }, t => t.Namespace?.StartsWith("WeihanLi") == false)
                 .Build()
                 .Run();
         }
