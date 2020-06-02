@@ -27,7 +27,7 @@ namespace DotNetCoreSample
         }
     }
 
-    internal class CounterEvent : EventBase
+    public class CounterEvent : EventBase
     {
         public int Counter { get; set; }
     }

@@ -204,33 +204,7 @@ namespace WeihanLi.Common.Aspect
 
                 var targetField = typeBuilder.DefineField(TargetFieldName, implementType, FieldAttributes.Private);
                 // constructors
-                foreach (var constructor in implementType.GetConstructors())
-                {
-                    var constructorTypes = constructor.GetParameters().Select(o => o.ParameterType).ToArray();
-                    var constructorBuilder = typeBuilder.DefineConstructor(
-                        constructor.Attributes,
-                        constructor.CallingConvention,
-                        constructorTypes);
-                    foreach (var customAttribute in constructor.CustomAttributes)
-                    {
-                        constructorBuilder.SetCustomAttribute(DefineCustomAttribute(customAttribute));
-                    }
-                    var il = constructorBuilder.GetILGenerator();
-
-                    il.EmitThis();
-                    for (var i = 0; i < constructorTypes.Length; i++)
-                    {
-                        il.Emit(OpCodes.Ldarg, i + 1);
-                    }
-                    il.Call(constructor);
-
-                    il.EmitThis();
-                    il.EmitThis();
-                    il.Emit(OpCodes.Stfld, targetField);
-
-                    il.Emit(OpCodes.Nop);
-                    il.Emit(OpCodes.Ret);
-                }
+                typeBuilder.DefineDefaultConstructor(MethodAttributes.Public);
 
                 // properties
                 var propertyMethods = new HashSet<string>();

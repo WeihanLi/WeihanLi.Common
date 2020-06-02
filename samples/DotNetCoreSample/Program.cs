@@ -4,8 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
-using WeihanLi.Common.Aspect.AspectCore;
 using WeihanLi.Common.Event;
+using WeihanLi.Extensions;
 
 // ReSharper disable LocalizableElement
 
@@ -74,8 +74,8 @@ namespace DotNetCoreSample
                         .WithProperty("TraceId", "121212")
                         ;
                 })
-                //.UseCastleProxy()
-                .UseAspectCoreProxy()
+                // .UseCastleProxy()
+                // .UseAspectCoreProxy()
                 ;
 
             DependencyResolver.SetDependencyResolver(services);
@@ -115,9 +115,22 @@ namespace DotNetCoreSample
             //    dbContext.SaveChanges();
             //});
 
-            DependencyResolver.TryInvokeService<IEventBus>(eventBus =>
+            //DependencyResolver.TryInvokeService<IEventBus>(eventBus =>
+            //{
+            //    eventBus.Publish(new CounterEvent());
+            //});
+
+            DependencyResolver.TryInvokeService<IProxyFactory>(proxyFactory =>
             {
-                eventBus.Publish(new CounterEvent());
+                var eventBusProxy = proxyFactory.CreateProxy<IEventBus, EventBus>();
+                eventBusProxy.Publish(new CounterEvent() { Counter = 1 });
+
+                var handlerProxy = proxyFactory.CreateProxyWithTarget<IEventHandler<CounterEvent>>(DelegateEventHandler.FromAction<CounterEvent>(e =>
+                {
+                    Console.WriteLine(e.ToJson());
+                }));
+                handlerProxy.Handle(new CounterEvent() { Counter = 1 })
+                    .GetAwaiter().GetResult();
             });
 
             //DependencyResolver.TryInvokeServiceAsync<TestDbContext>(dbContext =>
