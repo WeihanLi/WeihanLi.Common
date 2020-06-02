@@ -122,14 +122,15 @@ namespace DotNetCoreSample
 
             DependencyResolver.TryInvokeService<IProxyFactory>(proxyFactory =>
             {
+                var counterEvent = new CounterEvent() { Counter = 1 };
                 var eventBusProxy = proxyFactory.CreateProxy<IEventBus, EventBus>();
-                eventBusProxy.Publish(new CounterEvent() { Counter = 1 });
+                eventBusProxy.Publish(counterEvent);
 
                 var handlerProxy = proxyFactory.CreateProxyWithTarget<IEventHandler<CounterEvent>>(DelegateEventHandler.FromAction<CounterEvent>(e =>
                 {
                     Console.WriteLine(e.ToJson());
                 }));
-                handlerProxy.Handle(new CounterEvent() { Counter = 1 })
+                handlerProxy.Handle(counterEvent)
                     .GetAwaiter().GetResult();
             });
 
