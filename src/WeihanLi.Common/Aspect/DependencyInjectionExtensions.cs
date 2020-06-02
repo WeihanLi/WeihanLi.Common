@@ -93,7 +93,7 @@ namespace WeihanLi.Common.Aspect
             Action<FluentAspectOptions> optionsAction,
             Action<IFluentAspectBuilder> aspectBuildAction,
             Func<Type, bool> ignoreTypesPredict = null,
-            bool validateScopes = false)
+            bool validateScopes = true)
         {
             IServiceCollection services = new ServiceCollection();
             var aspectBuilder = null != optionsAction
@@ -110,7 +110,7 @@ namespace WeihanLi.Common.Aspect
                 }
 
                 if (descriptor.ServiceType.IsSealed
-                    || descriptor.ImplementationType?.IsSealed == true)
+                    || (descriptor.ServiceType.IsClass && descriptor.ImplementationType?.IsSealed == true))
                 {
                     services.Add(descriptor);
                 }
