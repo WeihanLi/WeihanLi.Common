@@ -129,8 +129,7 @@ namespace WeihanLi.Common.Aspect
             // ReSharper disable once ConvertIfStatementToNullCoalescingAssignment
             if (null == interceptors)
             {
-                interceptors = (FluentAspects.AspectOptions.InterceptorResolver ??
-                                FluentConfigInterceptorResolver.Instance)
+                interceptors = FluentAspects.AspectOptions.InterceptorResolver
                     .ResolveInterceptors(invocation) ?? ArrayHelper.Empty<IInterceptor>();
             }
 
