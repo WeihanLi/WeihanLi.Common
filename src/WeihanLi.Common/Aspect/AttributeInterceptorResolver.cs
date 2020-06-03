@@ -19,7 +19,7 @@ namespace WeihanLi.Common.Aspect
 
     public class AttributeInterceptorResolver : IInterceptorResolver
     {
-        public virtual IReadOnlyCollection<IInterceptor> ResolveInterceptors(IInvocation invocation)
+        public virtual IReadOnlyList<IInterceptor> ResolveInterceptors(IInvocation invocation)
         {
             if (null == invocation)
             {

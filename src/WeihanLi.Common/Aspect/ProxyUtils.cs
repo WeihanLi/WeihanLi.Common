@@ -282,7 +282,7 @@ namespace WeihanLi.Common.Aspect
                     methods = implementedInterface.GetMethods(BindingFlags.Instance | BindingFlags.Public);
                     foreach (var method in methods.Where(x => !propertyMethods.Contains(x.Name) && !_ignoredMethods.Contains(x.Name)))
                     {
-                        MethodUtils.DefineInterfaceMethod(typeBuilder, method, null);
+                        MethodUtils.DefineInterfaceMethod(typeBuilder, method, targetField);
                     }
                 }
 

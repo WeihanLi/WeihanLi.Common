@@ -13,7 +13,7 @@ namespace WeihanLi.Common.Aspect
             InvokeInternal(context, null, null);
         }
 
-        public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors)
+        public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyList<IInterceptor> interceptors)
         {
             InvokeInternal(invocation, interceptors, null);
         }
@@ -23,7 +23,7 @@ namespace WeihanLi.Common.Aspect
             InvokeInternal(invocation, null, completeFunc);
         }
 
-        public static void InvokeInternal(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
+        public static void InvokeInternal(IInvocation invocation, IReadOnlyList<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
         {
             // enrich
             foreach (var enricher in FluentAspects.AspectOptions.Enrichers)
@@ -62,7 +62,7 @@ namespace WeihanLi.Common.Aspect
             }
         }
 
-        private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
+        private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyList<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
         {
             // ReSharper disable once ConvertToLocalFunction
             // ReSharper disable once ConvertIfStatementToNullCoalescingAssignment
@@ -133,7 +133,7 @@ namespace WeihanLi.Common.Aspect
                     .ResolveInterceptors(invocation) ?? ArrayHelper.Empty<IInterceptor>();
             }
 
-            if (interceptors.Count <= 1)
+            if (interceptors.Count <= 1 && interceptors[0] is TryInvokeInterceptor)
             {
                 return completeFunc;
             }
