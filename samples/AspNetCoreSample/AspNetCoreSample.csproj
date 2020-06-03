@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\WeihanLi.Common.Aspect.Castle\WeihanLi.Common.Aspect.Castle.csproj" />
     <ProjectReference Include="..\..\src\WeihanLi.Common\WeihanLi.Common.csproj" />
   </ItemGroup>
 

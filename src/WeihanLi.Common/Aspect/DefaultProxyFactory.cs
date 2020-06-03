@@ -42,8 +42,15 @@ namespace WeihanLi.Common.Aspect
             }
 
             var proxyType = _proxyTypeFactory.CreateProxyType(serviceType, implementType);
-            var proxy = _serviceProvider.CreateInstance(proxyType, arguments);
-            return proxy;
+            if (serviceType.IsInterface)
+            {
+                var implement = _serviceProvider.CreateInstance(implementType);
+                var proxy = _serviceProvider.CreateInstance(proxyType);
+                ProxyUtils.SetProxyTarget(proxy, implement);
+                return proxy;
+            }
+
+            return _serviceProvider.CreateInstance(proxyType, arguments);
         }
 
         public object CreateProxyWithTarget(Type serviceType, object implement)

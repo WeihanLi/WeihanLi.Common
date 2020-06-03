@@ -1,10 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;
+using System.Threading.Tasks;
 using WeihanLi.Common.Aspect;
-using WeihanLi.Common.Compressor;
 using WeihanLi.Common.Event;
-using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Services;
 using WeihanLi.Common.Test.EventsTest;
 using Xunit;
@@ -21,13 +20,12 @@ namespace WeihanLi.Common.Test.AspectTest
         {
             var services = new ServiceCollection();
             services.AddFluentAspects();
-            services.AddEvents();
+            services.AddEvents()
+                ;
 
             services.AddTransientProxy<TestEvent>();
+            services.AddTransientProxy<IEventHandler<TestEvent>, TestEventHandler>();
             services.AddTransientProxy<IUserIdProvider, EnvironmentUserIdProvider>();
-
-            services.AddSingleton<IDataSerializer, JsonDataSerializer>();
-            services.AddSingleton<IDataCompressor, NullDataCompressor>();
 
             _serviceProvider = services.BuildServiceProvider();
 
@@ -71,25 +69,21 @@ namespace WeihanLi.Common.Test.AspectTest
         [Fact]
         public void CreateInstanceWithArguments()
         {
-            var compressorProxy = _proxyFactory.CreateProxy<CompressDataSerializer>();
-            Assert.NotNull(compressorProxy);
-            Assert.True(compressorProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
-
-            var result = compressorProxy.Serialize(new TestEvent());
-            Assert.NotNull(result);
-
             var eventPublisherProxy = _proxyFactory.CreateProxy<IEventPublisher, EventQueuePublisher>();
             Assert.NotNull(eventPublisherProxy);
             Assert.True(eventPublisherProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
+            eventPublisherProxy.Publish(new TestEvent());
 
             eventPublisherProxy = _proxyFactory.CreateProxy<EventQueuePublisher>();
             Assert.NotNull(eventPublisherProxy);
             Assert.True(eventPublisherProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
+            eventPublisherProxy.Publish(new TestEvent());
 
             var options = new OptionsWrapper<EventQueuePublisherOptions>(new EventQueuePublisherOptions());
             eventPublisherProxy = _proxyFactory.CreateProxy<EventQueuePublisher>(options);
             Assert.NotNull(eventPublisherProxy);
             Assert.True(eventPublisherProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
+            eventPublisherProxy.Publish(new TestEvent());
         }
 
         [Fact]
@@ -109,6 +103,53 @@ namespace WeihanLi.Common.Test.AspectTest
             Assert.NotNull(userIdProviderProxy);
             Assert.True(userIdProviderProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
             userIdProviderProxy.GetUserId();
+
+            var eventHandlerProxy = _proxyFactory.CreateProxy<EventHandlerBase<TestEvent>>();
+            Assert.NotNull(eventHandlerProxy);
+            Assert.True(eventHandlerProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
+            eventHandlerProxy.Handle(new TestEvent());
+        }
+
+        [Fact]
+        public void CommonProxyMethodInvokeTest()
+        {
+            var userIdProviderProxy = _proxyFactory.CreateProxy<IUserIdProvider, EnvironmentUserIdProvider>();
+            var userId = userIdProviderProxy.GetUserId();
+            Assert.NotNull(userId);
+            Assert.NotEmpty(userId);
+        }
+
+        [Fact]
+        public async Task GenericProxyMethodInvokeTest()
+        {
+            var eventQueue = _serviceProvider.GetRequiredService<IEventQueue>();
+            var queueCount = (await eventQueue.GetQueuesAsync()).Count;
+            Assert.Equal(0, queueCount);
+
+            var eventPublisherProxy = _proxyFactory.CreateProxy<IEventPublisher, EventQueuePublisher>();
+            eventPublisherProxy.Publish(new TestEvent());
+            queueCount = (await eventQueue.GetQueuesAsync()).Count;
+            Assert.Equal(1, queueCount);
+        }
+
+        [Fact]
+        public async Task EventHandlerTest()
+        {
+            Assert.Equal(0, TestEventHandler.Count);
+            var eventBus = _serviceProvider.GetRequiredService<IEventBus>();
+            await eventBus.PublishAsync(new TestEvent());
+            Assert.Equal(1, TestEventHandler.Count);
+        }
+
+        [Fact]
+        public void GenericTypeTest()
+        {
+            var proxyTypeFactory = _serviceProvider.GetRequiredService<IProxyTypeFactory>();
+            var proxyType = proxyTypeFactory.CreateProxyType(typeof(EventHandlerBase<>));
+            Assert.NotNull(proxyType);
+            Assert.True(proxyType.IsGenericTypeDefinition);
+            Assert.True(proxyType.IsGenericType);
+            Assert.NotNull(proxyType.BaseType);
 
             var eventHandlerProxy = _proxyFactory.CreateProxy<EventHandlerBase<TestEvent>>();
             Assert.NotNull(eventHandlerProxy);

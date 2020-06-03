@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace WeihanLi.Common.Aspect
 {
-    internal class MethodSignature
+    internal sealed class MethodSignature
     {
         public IReadOnlyList<Type> Parameters { get; }
         public string MethodName { get; }

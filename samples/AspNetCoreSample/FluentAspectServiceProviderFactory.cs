@@ -1,0 +1,56 @@
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System;
+using WeihanLi.Common.Aspect;
+
+namespace AspNetCoreSample
+{
+    public class FluentAspectServiceProviderFactory : IServiceProviderFactory<IServiceCollection>
+    {
+        private readonly Action<FluentAspectOptions> _optionsAction;
+        private readonly Action<IFluentAspectBuilder> _aspectBuildAction;
+        private readonly Func<Type, bool> _ignoreTypesPredict;
+
+        public FluentAspectServiceProviderFactory(
+            Action<FluentAspectOptions> optionsAction,
+            Action<IFluentAspectBuilder> aspectBuildAction,
+            Func<Type, bool> ignoreTypesPredict
+            )
+        {
+            _optionsAction = optionsAction;
+            _aspectBuildAction = aspectBuildAction;
+            _ignoreTypesPredict = ignoreTypesPredict;
+        }
+
+        public IServiceCollection CreateBuilder(IServiceCollection services)
+        {
+            return services;
+        }
+
+        public IServiceProvider CreateServiceProvider(IServiceCollection containerBuilder)
+        {
+            return containerBuilder.BuildFluentAspectsProvider(_optionsAction, _aspectBuildAction, _ignoreTypesPredict);
+        }
+    }
+
+    public static class HostBuilderExtensions
+    {
+        public static IHostBuilder UseFluentAspectServiceProviderFactory(this IHostBuilder hostBuilder,
+            Action<FluentAspectOptions> optionsAction,
+            Action<IFluentAspectBuilder> aspectBuildAction = null,
+            Func<Type, bool> ignoreTypesPredict = null)
+        {
+            if (ignoreTypesPredict == null)
+            {
+                ignoreTypesPredict = t =>
+                    t.Namespace?.StartsWith("Microsoft.") == true
+                    || t.Namespace?.StartsWith("System.") == true
+                    ;
+            }
+            hostBuilder.UseServiceProviderFactory(
+                new FluentAspectServiceProviderFactory(optionsAction, aspectBuildAction, ignoreTypesPredict)
+                );
+            return hostBuilder;
+        }
+    }
+}

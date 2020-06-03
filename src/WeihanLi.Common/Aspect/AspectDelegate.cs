@@ -6,14 +6,14 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect
 {
-    public class AspectDelegate
+    public static class AspectDelegate
     {
         public static void Invoke(IInvocation context)
         {
             InvokeInternal(context, null, null);
         }
 
-        public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors)
+        public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyList<IInterceptor> interceptors)
         {
             InvokeInternal(invocation, interceptors, null);
         }
@@ -23,7 +23,7 @@ namespace WeihanLi.Common.Aspect
             InvokeInternal(invocation, null, completeFunc);
         }
 
-        public static void InvokeInternal(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
+        public static void InvokeInternal(IInvocation invocation, IReadOnlyList<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
         {
             // enrich
             foreach (var enricher in FluentAspects.AspectOptions.Enrichers)
@@ -62,7 +62,7 @@ namespace WeihanLi.Common.Aspect
             }
         }
 
-        private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyCollection<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
+        private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyList<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
         {
             // ReSharper disable once ConvertToLocalFunction
             // ReSharper disable once ConvertIfStatementToNullCoalescingAssignment
@@ -100,7 +100,27 @@ namespace WeihanLi.Common.Aspect
                     {
                         return valTask.AsTask();
                     }
+
 #endif
+                    if (null == invocation.ReturnValue)
+                    {
+                        if (invocation.ProxyMethod.ReturnType.IsGenericType
+                        && invocation.ProxyMethod.ReturnType.IsAssignableTo<Task>())
+                        {
+                            var resultType = invocation.ProxyMethod.ReturnType.GetGenericArguments()[0];
+                            return Task.FromResult(resultType.GetDefaultValue());
+                        }
+
+#if NETSTANDARD2_1
+
+                        if (invocation.ProxyMethod.ReturnType.IsGenericType
+                                                && invocation.ProxyMethod.ReturnType.IsAssignableTo<ValueTask>())
+                        {
+                            var resultType = invocation.ProxyMethod.ReturnType.GetGenericArguments()[0];
+                            return Task.FromResult(resultType.GetDefaultValue());
+                        }
+#endif
+                    }
 
                     return TaskHelper.CompletedTask;
                 };
@@ -109,12 +129,11 @@ namespace WeihanLi.Common.Aspect
             // ReSharper disable once ConvertIfStatementToNullCoalescingAssignment
             if (null == interceptors)
             {
-                interceptors = (FluentAspects.AspectOptions.InterceptorResolver ??
-                                FluentConfigInterceptorResolver.Instance)
+                interceptors = FluentAspects.AspectOptions.InterceptorResolver
                     .ResolveInterceptors(invocation) ?? ArrayHelper.Empty<IInterceptor>();
             }
 
-            if (interceptors.Count <= 1)
+            if (interceptors.Count <= 1 && interceptors[0] is TryInvokeInterceptor)
             {
                 return completeFunc;
             }

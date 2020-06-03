@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using WeihanLi.Extensions;
 
@@ -50,7 +49,15 @@ namespace WeihanLi.Common.Event
 
     public static class EventBaseExtensions
     {
-        private const string EventTypeName = "Event__Type";
+        private static readonly JsonSerializerSettings _eventSerializerSettings;
+
+        static EventBaseExtensions()
+        {
+            _eventSerializerSettings = JsonSerializeExtension.SerializerSettingsWith(s =>
+            {
+                s.TypeNameHandling = TypeNameHandling.Objects;
+            });
+        }
 
         public static string ToEventMsg<TEvent>(this TEvent @event) where TEvent : class, IEventBase
         {
@@ -59,9 +66,7 @@ namespace WeihanLi.Common.Event
                 throw new ArgumentNullException(nameof(@event));
             }
 
-            var jObj = JObject.FromObject(@event);
-            jObj[EventTypeName] = JToken.FromObject(@event.GetType());
-            return jObj.ToJson();
+            return @event.ToJson(_eventSerializerSettings);
         }
 
         public static IEventBase ToEvent(this string eventMsg)
@@ -70,9 +75,8 @@ namespace WeihanLi.Common.Event
             {
                 throw new ArgumentNullException(nameof(eventMsg));
             }
-            var jObj = JObject.Parse(eventMsg);
-            var eventType = jObj[EventTypeName].ToObject<Type>();
-            return (IEventBase)jObj.ToObject(eventType);
+
+            return eventMsg.JsonToObject<IEventBase>(_eventSerializerSettings);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace WeihanLi.Common.Aspect
         {
         }
 
-        public IReadOnlyCollection<IInterceptor> ResolveInterceptors(IInvocation invocation)
+        public IReadOnlyList<IInterceptor> ResolveInterceptors(IInvocation invocation)
         {
             foreach (var func in FluentAspects.AspectOptions.NoInterceptionConfigurations)
             {

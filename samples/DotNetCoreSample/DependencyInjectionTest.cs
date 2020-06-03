@@ -313,7 +313,8 @@ namespace DotNetCoreSample
             try
             {
                 Console.WriteLine($"[{invocation.ProxyMethod.Name}] invoke begin");
-                Console.WriteLine($"Properties:{invocation.Properties.ToJson()}");
+                Console.WriteLine($"Arguments:{invocation.Arguments?.ToJson()}");
+                //Console.WriteLine($"Properties:{invocation.Properties.ToJson()}");
 
                 await next();
             }

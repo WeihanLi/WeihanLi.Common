@@ -14,14 +14,70 @@ namespace WeihanLi.Extensions
 {
     public static class ReflectionExtension
     {
+        public static MethodInfo GetMethodBySignature(this Type type, MethodInfo method)
+        {
+            if (type == null)
+            {
+                throw new ArgumentNullException(nameof(type));
+            }
+            if (method == null)
+            {
+                throw new ArgumentNullException(nameof(method));
+            }
+            var methods = type.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+                .Where(x => x.Name.Equals(method.Name))
+                .ToArray();
+
+            var parameterTypes = method.GetParameters().Select(x => x.ParameterType).ToArray();
+            if (method.ContainsGenericParameters)
+            {
+                foreach (var info in methods)
+                {
+                    var innerParams = info.GetParameters();
+                    if (innerParams.Length != parameterTypes.Length)
+                    {
+                        continue;
+                    }
+
+                    //if (info.GetGenericArguments().Length != genericArguments.Length)
+                    //{
+                    //    continue;
+                    //}
+
+                    var idx = 0;
+                    foreach (var param in innerParams)
+                    {
+                        if (!param.ParameterType.IsGenericParameter
+                            && !parameterTypes[idx].IsGenericParameter
+                            && param.ParameterType != parameterTypes[idx]
+                        )
+                        {
+                            break;
+                        }
+
+                        idx++;
+                    }
+                    if (idx < parameterTypes.Length)
+                    {
+                        continue;
+                    }
+
+                    return info;
+                }
+
+                return null;
+            }
+
+            var baseMethod = type.GetMethod(method.Name, parameterTypes);
+            return baseMethod;
+        }
+
         public static MethodInfo GetBaseMethod(this MethodInfo currentMethod)
         {
             if (null == currentMethod?.DeclaringType?.BaseType)
                 return null;
 
-            var parameterTypes = currentMethod.GetParameters().Select(x => x.ParameterType).ToArray();
-            var baseMethod = currentMethod.DeclaringType.BaseType.GetMethod(currentMethod.Name, parameterTypes);
-            return baseMethod;
+            return currentMethod.DeclaringType.BaseType.GetMethodBySignature(currentMethod);
         }
 
         public static bool IsVisibleAndVirtual(this PropertyInfo property)

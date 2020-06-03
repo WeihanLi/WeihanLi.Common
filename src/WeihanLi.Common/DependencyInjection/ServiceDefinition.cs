@@ -20,7 +20,7 @@ namespace WeihanLi.Common.DependencyInjection
                 return ImplementationInstance.GetType();
 
             if (ImplementationFactory != null)
-                return ImplementationFactory.Method.DeclaringType;
+                return ImplementationFactory.Method.ReturnType;
 
             if (ImplementType != null)
                 return ImplementType;

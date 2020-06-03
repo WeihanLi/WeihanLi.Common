@@ -196,44 +196,15 @@ namespace WeihanLi.Common.Aspect
             if (null == implementType)
                 return CreateInterfaceProxy(interfaceType);
 
-            if (implementType.IsSealed)
-                throw new InvalidOperationException("the implementType is sealed");
-
             var proxyTypeName = _proxyTypeNameResolver(interfaceType, implementType);
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
-                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, implementType.Attributes, implementType, new[] { interfaceType });
+                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, implementType.Attributes, null, new[] { interfaceType });
                 GenericParameterUtils.DefineGenericParameter(interfaceType, typeBuilder);
 
                 var targetField = typeBuilder.DefineField(TargetFieldName, implementType, FieldAttributes.Private);
                 // constructors
-                foreach (var constructor in implementType.GetConstructors())
-                {
-                    var constructorTypes = constructor.GetParameters().Select(o => o.ParameterType).ToArray();
-                    var constructorBuilder = typeBuilder.DefineConstructor(
-                        constructor.Attributes,
-                        constructor.CallingConvention,
-                        constructorTypes);
-                    foreach (var customAttribute in constructor.CustomAttributes)
-                    {
-                        constructorBuilder.SetCustomAttribute(DefineCustomAttribute(customAttribute));
-                    }
-                    var il = constructorBuilder.GetILGenerator();
-
-                    il.EmitThis();
-                    for (var i = 0; i < constructorTypes.Length; i++)
-                    {
-                        il.Emit(OpCodes.Ldarg, i + 1);
-                    }
-                    il.Call(constructor);
-
-                    il.EmitThis();
-                    il.EmitThis();
-                    il.Emit(OpCodes.Stfld, targetField);
-
-                    il.Emit(OpCodes.Nop);
-                    il.Emit(OpCodes.Ret);
-                }
+                typeBuilder.DefineDefaultConstructor(MethodAttributes.Public);
 
                 // properties
                 var propertyMethods = new HashSet<string>();
@@ -311,7 +282,7 @@ namespace WeihanLi.Common.Aspect
                     methods = implementedInterface.GetMethods(BindingFlags.Instance | BindingFlags.Public);
                     foreach (var method in methods.Where(x => !propertyMethods.Contains(x.Name) && !_ignoredMethods.Contains(x.Name)))
                     {
-                        MethodUtils.DefineInterfaceMethod(typeBuilder, method, null);
+                        MethodUtils.DefineInterfaceMethod(typeBuilder, method, targetField);
                     }
                 }
 
@@ -322,7 +293,15 @@ namespace WeihanLi.Common.Aspect
 
         public static Type CreateClassProxy(Type serviceType, Type implementType)
         {
-            if (serviceType.IsSealed)
+            if (null == serviceType)
+            {
+                throw new ArgumentNullException(nameof(serviceType));
+            }
+            if (null == implementType)
+            {
+                implementType = serviceType;
+            }
+            if (serviceType.IsSealed || implementType.IsSealed)
             {
                 throw new InvalidOperationException("the class type is sealed");
             }
@@ -331,12 +310,12 @@ namespace WeihanLi.Common.Aspect
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
                 var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Sealed | TypeAttributes.Class, implementType, Type.EmptyTypes);
-                GenericParameterUtils.DefineGenericParameter(serviceType, typeBuilder);
+                GenericParameterUtils.DefineGenericParameter(implementType, typeBuilder);
 
-                var targetField = typeBuilder.DefineField(TargetFieldName, serviceType, FieldAttributes.Private);
+                var targetField = typeBuilder.DefineField(TargetFieldName, implementType, FieldAttributes.Private);
 
                 // constructors
-                var constructors = serviceType.GetConstructors();
+                var constructors = implementType.GetConstructors();
                 if (constructors.Length > 0)
                 {
                     foreach (var constructor in constructors)
@@ -442,9 +421,11 @@ namespace WeihanLi.Common.Aspect
         {
             public static MethodBuilder DefineInterfaceMethod(TypeBuilder typeBuilder, MethodInfo method, FieldBuilder targetField)
             {
-                var methodParameterTypes = method.GetParameters()
+                var methodParameters = method.GetParameters();
+                var methodParameterTypes = methodParameters
                         .Select(p => p.ParameterType)
                         .ToArray();
+
                 var methodBuilder = typeBuilder.DefineMethod(method.Name
                     , InterfaceMethodAttributes,
                     method.CallingConvention,
@@ -472,10 +453,13 @@ namespace WeihanLi.Common.Aspect
                 il.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
                 il.Emit(OpCodes.Stloc, localCurrentMethod);
 
-                var targetMethod = targetField?.FieldType.GetMethod(method.Name, methodParameterTypes);
+                var targetMethod = targetField?.FieldType
+                    .GetMethodBySignature(method)
+                    ;
+
                 if (null != targetMethod)
                 {
-                    il.EmitMethod(method.IsGenericMethod
+                    il.EmitMethod(methodBuilder.IsGenericMethod
                         ? targetMethod.MakeGenericMethod(methodBuilder.GetGenericArguments())
                         : targetMethod);
                 }
@@ -591,10 +575,10 @@ namespace WeihanLi.Common.Aspect
                 il.EmitConvertToType(typeof(MethodBase), typeof(MethodInfo));
                 il.Emit(OpCodes.Stloc, localCurrentMethod);
 
-                var targetMethod = targetField?.FieldType.GetMethod(method.Name, methodParameterTypes);
+                var targetMethod = targetField?.FieldType.GetMethodBySignature(method);
                 if (null != targetMethod)
                 {
-                    il.EmitMethod(method.IsGenericMethod
+                    il.EmitMethod(methodBuilder.IsGenericMethod
                         ? targetMethod.MakeGenericMethod(methodBuilder.GetGenericArguments())
                         : targetMethod);
                 }
@@ -602,7 +586,6 @@ namespace WeihanLi.Common.Aspect
                 {
                     il.EmitNull();
                 }
-
                 il.Emit(OpCodes.Stloc, localMethodBase);
 
                 // var parameters = new[] {a, b, c};
