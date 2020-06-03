@@ -250,6 +250,26 @@ namespace WeihanLi.Common.Aspect
             return options.NoInterceptMethod(m => m.GetSignature().Equals(methodSignature));
         }
 
+        public static FluentAspectOptions NoInterceptProperty<T>(this FluentAspectOptions options,
+            Expression<Func<T, object>> expression)
+        {
+            var prop = expression.GetProperty();
+            if (null == prop)
+            {
+                throw new InvalidOperationException("no property found");
+            }
+
+            if (!prop.CanWrite)
+            {
+                throw new InvalidOperationException($"the property {prop.Name} can not write");
+            }
+
+            return options
+                .NoInterceptMethod<T>(prop.SetMethod)
+                .NoInterceptMethod<T>(prop.GetMethod)
+                ;
+        }
+
         public static FluentAspectOptions NoInterceptPropertyGetter<T>(this FluentAspectOptions options,
             Expression<Func<T, object>> expression)
         {
