@@ -293,7 +293,15 @@ namespace WeihanLi.Common.Aspect
 
         public static Type CreateClassProxy(Type serviceType, Type implementType)
         {
-            if (serviceType.IsSealed)
+            if (null == serviceType)
+            {
+                throw new ArgumentNullException(nameof(serviceType));
+            }
+            if (null == implementType)
+            {
+                implementType = serviceType;
+            }
+            if (serviceType.IsSealed || implementType.IsSealed)
             {
                 throw new InvalidOperationException("the class type is sealed");
             }
@@ -302,12 +310,12 @@ namespace WeihanLi.Common.Aspect
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
                 var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Sealed | TypeAttributes.Class, implementType, Type.EmptyTypes);
-                GenericParameterUtils.DefineGenericParameter(serviceType, typeBuilder);
+                GenericParameterUtils.DefineGenericParameter(implementType, typeBuilder);
 
-                var targetField = typeBuilder.DefineField(TargetFieldName, serviceType, FieldAttributes.Private);
+                var targetField = typeBuilder.DefineField(TargetFieldName, implementType, FieldAttributes.Private);
 
                 // constructors
-                var constructors = serviceType.GetConstructors();
+                var constructors = implementType.GetConstructors();
                 if (constructors.Length > 0)
                 {
                     foreach (var constructor in constructors)
