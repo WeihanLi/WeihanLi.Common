@@ -5,13 +5,13 @@ using WeihanLi.Common.Aspect;
 
 namespace AspNetCoreSample
 {
-    public class FluentAspectServiceProviderFactory : IServiceProviderFactory<IServiceCollection>
+    public class FluentAspectsServiceProviderFactory : IServiceProviderFactory<IServiceCollection>
     {
         private readonly Action<FluentAspectOptions> _optionsAction;
         private readonly Action<IFluentAspectBuilder> _aspectBuildAction;
         private readonly Func<Type, bool> _ignoreTypesPredict;
 
-        public FluentAspectServiceProviderFactory(
+        public FluentAspectsServiceProviderFactory(
             Action<FluentAspectOptions> optionsAction,
             Action<IFluentAspectBuilder> aspectBuildAction,
             Func<Type, bool> ignoreTypesPredict
@@ -35,7 +35,7 @@ namespace AspNetCoreSample
 
     public static class HostBuilderExtensions
     {
-        public static IHostBuilder UseFluentAspectServiceProviderFactory(this IHostBuilder hostBuilder,
+        public static IHostBuilder UseFluentAspectsServiceProviderFactory(this IHostBuilder hostBuilder,
             Action<FluentAspectOptions> optionsAction,
             Action<IFluentAspectBuilder> aspectBuildAction = null,
             Func<Type, bool> ignoreTypesPredict = null)
@@ -48,7 +48,7 @@ namespace AspNetCoreSample
                     ;
             }
             hostBuilder.UseServiceProviderFactory(
-                new FluentAspectServiceProviderFactory(optionsAction, aspectBuildAction, ignoreTypesPredict)
+                new FluentAspectsServiceProviderFactory(optionsAction, aspectBuildAction, ignoreTypesPredict)
                 );
             return hostBuilder;
         }

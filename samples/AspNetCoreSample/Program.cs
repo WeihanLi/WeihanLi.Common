@@ -15,7 +15,7 @@ namespace AspNetCoreSample
                     builder.UseStartup<Startup>();
                 })
                 //.UseServiceProviderFactory()
-                .UseFluentAspectServiceProviderFactory(options =>
+                .UseFluentAspectsServiceProviderFactory(options =>
                 {
                     options
                         .InterceptType<IEventPublisher>()
