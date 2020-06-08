@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading.Tasks;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Test.EventsTest;
 using WeihanLi.Extensions;
 using Xunit;
@@ -44,6 +46,16 @@ namespace WeihanLi.Common.Test.ExtensionsTest
             Assert.Equal(default(bool), typeof(bool).GetDefaultValue());
             Assert.Equal(default(TestEvent), typeof(TestEvent).GetDefaultValue());
             Assert.Null(typeof(void).GetDefaultValue());
+        }
+
+        [Theory]
+        [InlineData(false, typeof(void))]
+        [InlineData(false, typeof(int))]
+        [InlineData(true, typeof(Task<int>))]
+        [InlineData(true, typeof(ValueTask<int>))]
+        public void IsTypeAwaitableTest(bool result, Type type)
+        {
+            Assert.Equal(result, type.IsAwaitable());
         }
     }
 }
