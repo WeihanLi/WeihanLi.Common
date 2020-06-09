@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.DependencyInjection
 {
@@ -131,14 +132,40 @@ namespace WeihanLi.Common.DependencyInjection
             }
         }
 
+        private object EnrichObject(object obj)
+        {
+            if (null != obj)
+            {
+                // PropertyInjection
+                var type = obj.GetType();
+                foreach (var property in CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties())
+                    .Where(x => x.IsDefined(typeof(FromServiceAttribute))))
+                {
+                    if (property.GetValueGetter()?.Invoke(obj) == null)
+                    {
+                        property.GetValueSetter()?.Invoke(
+                            obj,
+                            GetService(property.PropertyType)
+                            );
+                    }
+                }
+            }
+
+            return obj;
+        }
+
         private object GetServiceInstance(Type serviceType, ServiceDefinition serviceDefinition)
+            => EnrichObject(GetServiceInstanceInternal(serviceType, serviceDefinition));
+
+        private object GetServiceInstanceInternal(Type serviceType, ServiceDefinition serviceDefinition)
         {
             if (serviceDefinition.ImplementationInstance != null)
                 return serviceDefinition.ImplementationInstance;
 
             if (serviceDefinition.ImplementationFactory != null)
+            {
                 return serviceDefinition.ImplementationFactory.Invoke(this);
-
+            }
             var implementType = (serviceDefinition.ImplementType ?? serviceType);
 
             if (implementType.IsInterface || implementType.IsAbstract)

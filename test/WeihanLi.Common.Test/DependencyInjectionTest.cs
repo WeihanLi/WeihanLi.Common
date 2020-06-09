@@ -46,6 +46,12 @@ namespace WeihanLi.Common.Test
                 Assert.Equal(rootConfig, config);
 
                 var fly1 = scope.ResolveRequiredService<IFly>();
+                if (fly1 is Superman superman)
+                {
+                    Assert.Null(superman.Configuration);
+                    Assert.NotNull(superman.Configuration1);
+                }
+
                 var fly2 = scope.ResolveRequiredService<IFly>();
                 Assert.Equal(fly1, fly2);
 
@@ -265,6 +271,11 @@ namespace WeihanLi.Common.Test
 
         private class Superman : IFly
         {
+            public IConfiguration Configuration { get; set; }
+
+            [FromService]
+            public IConfiguration Configuration1 { get; set; }
+
             public string Name => "Superman";
 
             public void Fly()
