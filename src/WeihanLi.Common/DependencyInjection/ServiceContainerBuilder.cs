@@ -12,7 +12,7 @@ namespace WeihanLi.Common.DependencyInjection
         IServiceContainer Build();
     }
 
-    public class ServiceContainerBuilder : IServiceContainerBuilder
+    public sealed class ServiceContainerBuilder : IServiceContainerBuilder
     {
         private readonly List<ServiceDefinition> _services = new List<ServiceDefinition>();
 

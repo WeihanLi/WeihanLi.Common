@@ -13,7 +13,7 @@ namespace WeihanLi.Common.DependencyInjection
         IServiceContainer CreateScope();
     }
 
-    internal class ServiceContainer : IServiceContainer
+    internal sealed class ServiceContainer : IServiceContainer
     {
         private readonly IReadOnlyList<ServiceDefinition> _services;
 
@@ -136,8 +136,8 @@ namespace WeihanLi.Common.DependencyInjection
         {
             if (null != obj)
             {
-                // PropertyInjection
                 var type = obj.GetType();
+                // PropertyInjection
                 foreach (var property in CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties())
                     .Where(x => x.IsDefined(typeof(FromServiceAttribute))))
                 {
@@ -180,8 +180,7 @@ namespace WeihanLi.Common.DependencyInjection
 
             var newFunc = CacheUtil.TypeNewFuncCache.GetOrAdd(implementType, (serviceContainer) =>
             {
-                if (
-                    CacheUtil.TypeEmptyConstructorFuncCache.TryGetValue(implementType, out var emptyFunc))
+                if (CacheUtil.TypeEmptyConstructorFuncCache.TryGetValue(implementType, out var emptyFunc))
                 {
                     return emptyFunc.Invoke();
                 }
@@ -202,7 +201,8 @@ namespace WeihanLi.Common.DependencyInjection
                     else
                     {
                         // TODO: try find best ctor
-                        ctorInfo = ctorInfos
+                        ctorInfo = ctorInfos.FirstOrDefault(x => x.IsDefined(typeof(ServiceConstructorAttribute)))
+                            ?? ctorInfos
                             .OrderBy(_ => _.GetParameters().Length)
                             .First();
                     }
@@ -248,17 +248,18 @@ namespace WeihanLi.Common.DependencyInjection
                     {
                         var indexedAccess = Expression.ArrayIndex(parameterExpression, Expression.Constant(i));
 
-                        if (!innerParameters[i].ParameterType.IsClass) // check if parameter is a value type
+                        if (!innerParameters[i].ParameterType.IsClass)
                         {
-                            var localVariable = Expression.Variable(innerParameters[i].ParameterType, "localVariable"); // if so - we should create local variable that will store paraameter value
+                            // we should create local variable that will store parameter value
+                            var localVariable = Expression.Variable(innerParameters[i].ParameterType, "localVariable");
 
                             var block = Expression.Block(new[] { localVariable },
-                            Expression.IfThenElse(Expression.Equal(indexedAccess, Expression.Constant(null)),
-                                Expression.Assign(localVariable, Expression.Default(innerParameters[i].ParameterType)),
-                                Expression.Assign(localVariable, Expression.Convert(indexedAccess, innerParameters[i].ParameterType))
-                            ),
-                            localVariable
-                        );
+                                Expression.IfThenElse(Expression.Equal(indexedAccess, Expression.Constant(null)),
+                                    Expression.Assign(localVariable, Expression.Default(innerParameters[i].ParameterType)),
+                                    Expression.Assign(localVariable, Expression.Convert(indexedAccess, innerParameters[i].ParameterType))
+                                ),
+                                localVariable
+                            );
 
                             argExpressions[i] = block;
                         }
@@ -267,7 +268,8 @@ namespace WeihanLi.Common.DependencyInjection
                             argExpressions[i] = Expression.Convert(indexedAccess, innerParameters[i].ParameterType);
                         }
                     }
-                    var newExpression = Expression.New(ctorInfo, argExpressions); // create expression that represents call to specified ctor with the specified arguments.
+                    // create expression that represents call to specified ctor with the specified arguments.
+                    var newExpression = Expression.New(ctorInfo, argExpressions);
 
                     return Expression.Lambda<Func<object[], object>>(newExpression, parameterExpression)
                     .Compile();
