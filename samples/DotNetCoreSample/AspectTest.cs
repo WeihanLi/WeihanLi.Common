@@ -58,7 +58,7 @@ namespace DotNetCoreSample
         public static void ServiceContainerTest()
         {
             var builder = new ServiceContainerBuilder();
-            builder.AddSingleton<IFly, MonkeyKing>();
+            builder.AddSingletonProxy<IFly, MonkeyKing>();
 
             using var container = builder.BuildFluentAspectsContainer(options =>
             {

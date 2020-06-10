@@ -45,6 +45,11 @@ namespace WeihanLi.Common.Aspect
             };
         }
 
+        public static bool IsProxyType(this Type type)
+        {
+            return type?.FullName?.StartsWith(ProxyAssemblyName) == true && type.Assembly.IsDynamic;
+        }
+
         private static string GetFriendlyTypeName(this Type type)
         {
             if (null == type)

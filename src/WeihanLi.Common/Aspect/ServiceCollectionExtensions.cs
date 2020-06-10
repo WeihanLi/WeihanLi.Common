@@ -111,6 +111,7 @@ namespace WeihanLi.Common.Aspect
                 }
 
                 if (descriptor.ServiceType.IsSealed
+                    || descriptor.ImplementationType.IsProxyType()
                     || (descriptor.ServiceType.IsClass && descriptor.ImplementationType?.IsSealed == true))
                 {
                     services.Add(descriptor);
@@ -126,8 +127,16 @@ namespace WeihanLi.Common.Aspect
                     }
                     else if (descriptor.ImplementationFactory != null)
                     {
-                        serviceFactory = provider => provider.GetRequiredService<IProxyFactory>()
-                            .CreateProxyWithTarget(descriptor.ServiceType, descriptor.ImplementationFactory(provider));
+                        serviceFactory = provider =>
+                        {
+                            var implement = descriptor.ImplementationFactory(provider);
+                            if (implement?.GetType().IsProxyType() == true)
+                            {
+                                return implement;
+                            }
+                            return provider.ResolveRequiredService<IProxyFactory>()
+                                .CreateProxyWithTarget(descriptor.ServiceType, implement);
+                        };
                     }
                     else if (descriptor.ImplementationType != null)
                     {
