@@ -21,6 +21,8 @@ namespace DotNetCoreSample
             // var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
             // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
 
+            AspectTest.ServiceContainerTest();
+
             var services = new ServiceCollection();
             services.AddTransient<IFly, MonkeyKing>();
             IConfiguration configuration = new ConfigurationBuilder()

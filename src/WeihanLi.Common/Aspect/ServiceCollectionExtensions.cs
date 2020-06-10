@@ -4,9 +4,9 @@ using System;
 
 namespace WeihanLi.Common.Aspect
 {
-    public static class DependencyInjectionExtensions
+    public static class ServiceCollectionExtensions
     {
-        public static IFluentAspectBuilder AddFluentAspects(this IServiceCollection serviceCollection, Action<FluentAspectOptions> optionsAction)
+        public static IFluentAspectsBuilder AddFluentAspects(this IServiceCollection serviceCollection, Action<FluentAspectOptions> optionsAction)
         {
             if (null == serviceCollection)
             {
@@ -20,7 +20,7 @@ namespace WeihanLi.Common.Aspect
             return AddFluentAspects(serviceCollection);
         }
 
-        public static IFluentAspectBuilder AddFluentAspects(this IServiceCollection serviceCollection)
+        public static IFluentAspectsBuilder AddFluentAspects(this IServiceCollection serviceCollection)
         {
             if (null == serviceCollection)
                 throw new ArgumentNullException(nameof(serviceCollection));
@@ -29,7 +29,7 @@ namespace WeihanLi.Common.Aspect
             serviceCollection.TryAddTransient<IProxyFactory, DefaultProxyFactory>();
             serviceCollection.TryAddSingleton(FluentConfigInterceptorResolver.Instance);
 
-            return new FluentAspectBuilder(serviceCollection);
+            return new FluentAspectsBuilder(serviceCollection);
         }
 
         public static IServiceCollection AddProxyService<TService, TImplement>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
@@ -91,11 +91,12 @@ namespace WeihanLi.Common.Aspect
 
         public static IServiceProvider BuildFluentAspectsProvider(this IServiceCollection serviceCollection,
             Action<FluentAspectOptions> optionsAction,
-            Action<IFluentAspectBuilder> aspectBuildAction,
+            Action<IFluentAspectsBuilder> aspectBuildAction,
             Func<Type, bool> ignoreTypesPredict = null,
-            bool validateScopes = true)
+            ServiceProviderOptions serviceProviderOptions = null)
         {
             IServiceCollection services = new ServiceCollection();
+
             var aspectBuilder = null != optionsAction
                 ? services.AddFluentAspects(optionsAction)
                 : services.AddFluentAspects();
@@ -110,6 +111,7 @@ namespace WeihanLi.Common.Aspect
                 }
 
                 if (descriptor.ServiceType.IsSealed
+                    || descriptor.ImplementationType.IsProxyType()
                     || (descriptor.ServiceType.IsClass && descriptor.ImplementationType?.IsSealed == true))
                 {
                     services.Add(descriptor);
@@ -125,8 +127,16 @@ namespace WeihanLi.Common.Aspect
                     }
                     else if (descriptor.ImplementationFactory != null)
                     {
-                        serviceFactory = provider => provider.GetRequiredService<IProxyFactory>()
-                            .CreateProxyWithTarget(descriptor.ServiceType, descriptor.ImplementationFactory(provider));
+                        serviceFactory = provider =>
+                        {
+                            var implement = descriptor.ImplementationFactory(provider);
+                            if (implement?.GetType().IsProxyType() == true)
+                            {
+                                return implement;
+                            }
+                            return provider.ResolveRequiredService<IProxyFactory>()
+                                .CreateProxyWithTarget(descriptor.ServiceType, implement);
+                        };
                     }
                     else if (descriptor.ImplementationType != null)
                     {
@@ -146,7 +156,9 @@ namespace WeihanLi.Common.Aspect
                 }
             }
 
-            return services.BuildServiceProvider(validateScopes);
+            DependencyResolver.SetDependencyResolver(services);
+
+            return services.BuildServiceProvider(serviceProviderOptions ?? new ServiceProviderOptions());
         }
     }
 }
