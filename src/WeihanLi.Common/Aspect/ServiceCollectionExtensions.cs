@@ -93,9 +93,10 @@ namespace WeihanLi.Common.Aspect
             Action<FluentAspectOptions> optionsAction,
             Action<IFluentAspectsBuilder> aspectBuildAction,
             Func<Type, bool> ignoreTypesPredict = null,
-            bool validateScopes = true)
+            ServiceProviderOptions serviceProviderOptions = null)
         {
             IServiceCollection services = new ServiceCollection();
+
             var aspectBuilder = null != optionsAction
                 ? services.AddFluentAspects(optionsAction)
                 : services.AddFluentAspects();
@@ -146,7 +147,9 @@ namespace WeihanLi.Common.Aspect
                 }
             }
 
-            return services.BuildServiceProvider(validateScopes);
+            DependencyResolver.SetDependencyResolver(services);
+
+            return services.BuildServiceProvider(serviceProviderOptions ?? new ServiceProviderOptions());
         }
     }
 }

@@ -88,9 +88,9 @@ namespace WeihanLi.Common.Aspect
             where TService : class =>
             serviceCollection.AddProxyService<TService>(ServiceLifetime.Transient);
 
-        public static IServiceProvider BuildFluentAspectsContainer(this IServiceContainerBuilder serviceCollection,
+        public static IServiceContainer BuildFluentAspectsContainer(this IServiceContainerBuilder serviceCollection,
             Action<FluentAspectOptions> optionsAction,
-            Action<IFluentAspectsServiceContainerBuilder> aspectBuildAction,
+            Action<IFluentAspectsServiceContainerBuilder> aspectBuildAction = null,
             Func<Type, bool> ignoreTypesPredict = null)
         {
             var services = new ServiceContainerBuilder();
