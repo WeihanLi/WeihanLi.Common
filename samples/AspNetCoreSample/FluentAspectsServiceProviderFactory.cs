@@ -5,7 +5,7 @@ using WeihanLi.Common.Aspect;
 
 namespace AspNetCoreSample
 {
-    public class FluentAspectsServiceProviderFactory : IServiceProviderFactory<IServiceCollection>
+    internal sealed class FluentAspectsServiceProviderFactory : IServiceProviderFactory<IServiceCollection>
     {
         private readonly Action<FluentAspectOptions> _optionsAction;
         private readonly Action<IFluentAspectsBuilder> _aspectBuildAction;

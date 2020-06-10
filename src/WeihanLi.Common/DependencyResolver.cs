@@ -199,10 +199,21 @@ namespace WeihanLi.Common
             private readonly IServiceProvider _serviceProvider;
             private readonly IServiceCollection _services;
 
-            public ServiceCollectionDependencyResolver(IServiceCollection services)
+            public ServiceCollectionDependencyResolver(IServiceCollection services) : this(services, null)
+            {
+            }
+
+            public ServiceCollectionDependencyResolver(IServiceCollection services, bool validateScopes) : this(services, new ServiceProviderOptions()
+            {
+                ValidateScopes = validateScopes
+            })
+            {
+            }
+
+            public ServiceCollectionDependencyResolver(IServiceCollection services, ServiceProviderOptions serviceProviderOptions)
             {
                 _services = services ?? throw new ArgumentNullException(nameof(services));
-                _serviceProvider = services.BuildServiceProvider(true);
+                _serviceProvider = services.BuildServiceProvider(serviceProviderOptions ?? new ServiceProviderOptions());
             }
 
             public object GetService(Type serviceType)

@@ -98,60 +98,75 @@ namespace WeihanLi.Common.Aspect
             IServiceCollection services = new ServiceCollection();
 
             var aspectBuilder = null != optionsAction
-                ? services.AddFluentAspects(optionsAction)
-                : services.AddFluentAspects();
+                ? serviceCollection.AddFluentAspects(optionsAction)
+                : serviceCollection.AddFluentAspects();
             aspectBuildAction?.Invoke(aspectBuilder);
 
-            foreach (var descriptor in serviceCollection)
+            using (var serviceProvider = serviceCollection.BuildServiceProvider())
             {
-                if (ignoreTypesPredict?.Invoke(descriptor.ServiceType) == true)
-                {
-                    services.Add(descriptor);
-                    continue;
-                }
+                var proxyTypeFactory = serviceProvider.GetRequiredService<IProxyTypeFactory>();
 
-                if (descriptor.ServiceType.IsSealed
-                    || descriptor.ImplementationType.IsProxyType()
-                    || (descriptor.ServiceType.IsClass && descriptor.ImplementationType?.IsSealed == true))
+                foreach (var descriptor in serviceCollection)
                 {
-                    services.Add(descriptor);
-                }
-                else
-                {
-                    Func<IServiceProvider, object> serviceFactory = null;
-
-                    if (descriptor.ImplementationInstance != null)
+                    if ("WeihanLi.Common.Aspect".Equals(descriptor.ServiceType.Namespace)
+                        || ignoreTypesPredict?.Invoke(descriptor.ServiceType) == true)
                     {
-                        serviceFactory = provider => provider.GetRequiredService<IProxyFactory>()
-                            .CreateProxyWithTarget(descriptor.ServiceType, descriptor.ImplementationInstance);
-                    }
-                    else if (descriptor.ImplementationFactory != null)
-                    {
-                        serviceFactory = provider =>
-                        {
-                            var implement = descriptor.ImplementationFactory(provider);
-                            if (implement?.GetType().IsProxyType() == true)
-                            {
-                                return implement;
-                            }
-                            return provider.ResolveRequiredService<IProxyFactory>()
-                                .CreateProxyWithTarget(descriptor.ServiceType, implement);
-                        };
-                    }
-                    else if (descriptor.ImplementationType != null)
-                    {
-                        serviceFactory = provider => provider.GetRequiredService<IProxyFactory>()
-                            .CreateProxy(descriptor.ServiceType, descriptor.ImplementationType);
+                        services.Add(descriptor);
+                        continue;
                     }
 
-                    if (null != serviceFactory)
+                    if (descriptor.ServiceType.IsSealed
+                        || descriptor.ServiceType.IsGenericTypeDefinition
+                        || descriptor.ImplementationType.IsProxyType()
+                        || (descriptor.ServiceType.IsClass && descriptor.ImplementationType?.IsSealed == true))
                     {
-                        services.Add(new ServiceDescriptor(descriptor.ServiceType, serviceFactory,
-                            descriptor.Lifetime));
+                        services.Add(descriptor);
                     }
                     else
                     {
-                        services.Add(descriptor);
+                        Func<IServiceProvider, object> serviceFactory = null;
+
+                        if (descriptor.ImplementationInstance != null)
+                        {
+                            serviceFactory = provider => provider.GetRequiredService<IProxyFactory>()
+                                .CreateProxyWithTarget(descriptor.ServiceType, descriptor.ImplementationInstance);
+                        }
+                        else if (descriptor.ImplementationFactory != null)
+                        {
+                            serviceFactory = provider =>
+                            {
+                                var implement = descriptor.ImplementationFactory(provider);
+                                if (implement?.GetType().IsProxyType() == true)
+                                {
+                                    return implement;
+                                }
+                                return provider.ResolveRequiredService<IProxyFactory>()
+                                    .CreateProxyWithTarget(descriptor.ServiceType, implement);
+                            };
+                        }
+                        else if (descriptor.ImplementationType != null)
+                        {
+                            if (descriptor.ServiceType.IsGenericTypeDefinition)
+                            {
+                                var proxyType = proxyTypeFactory.CreateProxyType(descriptor.ImplementationType, descriptor.ImplementationType);
+                                services.Add(new ServiceDescriptor(descriptor.ServiceType, proxyType,
+                                    descriptor.Lifetime));
+                                continue;
+                            }
+
+                            serviceFactory = provider => provider.GetRequiredService<IProxyFactory>()
+                                .CreateProxy(descriptor.ServiceType, descriptor.ImplementationType);
+                        }
+
+                        if (null != serviceFactory)
+                        {
+                            services.Add(new ServiceDescriptor(descriptor.ServiceType, serviceFactory,
+                                descriptor.Lifetime));
+                        }
+                        else
+                        {
+                            services.Add(descriptor);
+                        }
                     }
                 }
             }
