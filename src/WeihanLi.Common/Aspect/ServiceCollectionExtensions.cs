@@ -4,9 +4,9 @@ using System;
 
 namespace WeihanLi.Common.Aspect
 {
-    public static class DependencyInjectionExtensions
+    public static class ServiceCollectionExtensions
     {
-        public static IFluentAspectBuilder AddFluentAspects(this IServiceCollection serviceCollection, Action<FluentAspectOptions> optionsAction)
+        public static IFluentAspectsBuilder AddFluentAspects(this IServiceCollection serviceCollection, Action<FluentAspectOptions> optionsAction)
         {
             if (null == serviceCollection)
             {
@@ -20,7 +20,7 @@ namespace WeihanLi.Common.Aspect
             return AddFluentAspects(serviceCollection);
         }
 
-        public static IFluentAspectBuilder AddFluentAspects(this IServiceCollection serviceCollection)
+        public static IFluentAspectsBuilder AddFluentAspects(this IServiceCollection serviceCollection)
         {
             if (null == serviceCollection)
                 throw new ArgumentNullException(nameof(serviceCollection));
@@ -29,7 +29,7 @@ namespace WeihanLi.Common.Aspect
             serviceCollection.TryAddTransient<IProxyFactory, DefaultProxyFactory>();
             serviceCollection.TryAddSingleton(FluentConfigInterceptorResolver.Instance);
 
-            return new FluentAspectBuilder(serviceCollection);
+            return new FluentAspectsBuilder(serviceCollection);
         }
 
         public static IServiceCollection AddProxyService<TService, TImplement>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
@@ -91,7 +91,7 @@ namespace WeihanLi.Common.Aspect
 
         public static IServiceProvider BuildFluentAspectsProvider(this IServiceCollection serviceCollection,
             Action<FluentAspectOptions> optionsAction,
-            Action<IFluentAspectBuilder> aspectBuildAction,
+            Action<IFluentAspectsBuilder> aspectBuildAction,
             Func<Type, bool> ignoreTypesPredict = null,
             bool validateScopes = true)
         {

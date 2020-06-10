@@ -8,12 +8,12 @@ namespace AspNetCoreSample
     public class FluentAspectsServiceProviderFactory : IServiceProviderFactory<IServiceCollection>
     {
         private readonly Action<FluentAspectOptions> _optionsAction;
-        private readonly Action<IFluentAspectBuilder> _aspectBuildAction;
+        private readonly Action<IFluentAspectsBuilder> _aspectBuildAction;
         private readonly Func<Type, bool> _ignoreTypesPredict;
 
         public FluentAspectsServiceProviderFactory(
             Action<FluentAspectOptions> optionsAction,
-            Action<IFluentAspectBuilder> aspectBuildAction,
+            Action<IFluentAspectsBuilder> aspectBuildAction,
             Func<Type, bool> ignoreTypesPredict
             )
         {
@@ -37,7 +37,7 @@ namespace AspNetCoreSample
     {
         public static IHostBuilder UseFluentAspectsServiceProviderFactory(this IHostBuilder hostBuilder,
             Action<FluentAspectOptions> optionsAction,
-            Action<IFluentAspectBuilder> aspectBuildAction = null,
+            Action<IFluentAspectsBuilder> aspectBuildAction = null,
             Func<Type, bool> ignoreTypesPredict = null)
         {
             if (ignoreTypesPredict == null)

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace WeihanLi.Common.DependencyInjection
 {
-    public interface IServiceContainerBuilder
+    public interface IServiceContainerBuilder : IEnumerable<ServiceDefinition>
     {
         IServiceContainerBuilder Add(ServiceDefinition item);
 
@@ -38,5 +39,9 @@ namespace WeihanLi.Common.DependencyInjection
         }
 
         public IServiceContainer Build() => new ServiceContainer(_services);
+
+        public IEnumerator<ServiceDefinition> GetEnumerator() => _services.GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }
