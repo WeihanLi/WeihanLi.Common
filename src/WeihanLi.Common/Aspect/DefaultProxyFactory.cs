@@ -64,8 +64,7 @@ namespace WeihanLi.Common.Aspect
                 throw new ArgumentNullException(nameof(implement));
             }
 
-            var implementType = implement.GetType();
-            var proxyType = _proxyTypeFactory.CreateProxyType(serviceType, implementType);
+            var proxyType = _proxyTypeFactory.CreateProxyType(serviceType);
             var proxy = _serviceProvider.CreateInstance(proxyType);
             ProxyUtils.SetProxyTarget(proxy, implement);
             return proxy;
