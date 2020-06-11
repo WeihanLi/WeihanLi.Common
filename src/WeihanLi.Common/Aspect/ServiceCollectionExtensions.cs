@@ -112,7 +112,10 @@ namespace WeihanLi.Common.Aspect
 
                 if (descriptor.ServiceType.IsSealed
                     || descriptor.ImplementationType.IsProxyType()
-                    || (descriptor.ServiceType.IsClass && descriptor.ImplementationType?.IsSealed == true))
+                    || (descriptor.ServiceType.IsClass &&
+                        (descriptor.ImplementationType?.IsSealed == true || descriptor.ImplementationType?.IsPublic == false)
+                        )
+                    )
                 {
                     services.Add(descriptor);
                 }

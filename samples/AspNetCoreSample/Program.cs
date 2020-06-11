@@ -26,7 +26,7 @@ namespace AspNetCoreSample
                 }, builder =>
                 {
                     //builder.UseCastleProxy();
-                }, t => t.Namespace?.StartsWith("WeihanLi") == false)
+                }, t => false)
                 .Build()
                 .Run();
         }
