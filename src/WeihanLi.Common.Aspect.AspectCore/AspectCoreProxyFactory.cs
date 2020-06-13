@@ -42,7 +42,7 @@ namespace WeihanLi.Common.Aspect.AspectCore
             return AspectCoreHelper.ProxyGenerator.CreateClassProxy(serviceType, implementType, ctorArguments);
         }
 
-        public object CreateProxyWithTarget(Type serviceType, object implement)
+        public object CreateProxyWithTarget(Type serviceType, object implement, object[] arguments)
         {
             if (null == serviceType)
                 throw new ArgumentNullException(nameof(serviceType));
@@ -52,7 +52,7 @@ namespace WeihanLi.Common.Aspect.AspectCore
             if (serviceType.IsInterface)
                 return AspectCoreHelper.ProxyGenerator.CreateInterfaceProxy(serviceType, implement);
 
-            return AspectCoreHelper.ProxyGenerator.CreateClassProxy(serviceType, implement.GetType(), ArrayHelper.Empty<object>());
+            return AspectCoreHelper.ProxyGenerator.CreateClassProxy(serviceType, implement.GetType(), arguments);
         }
     }
 }

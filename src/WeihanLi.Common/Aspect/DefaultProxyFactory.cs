@@ -44,7 +44,7 @@ namespace WeihanLi.Common.Aspect
             var proxyType = _proxyTypeFactory.CreateProxyType(serviceType, implementType);
             if (serviceType.IsInterface)
             {
-                var implement = _serviceProvider.CreateInstance(implementType);
+                var implement = _serviceProvider.CreateInstance(implementType, arguments);
                 var proxy = _serviceProvider.CreateInstance(proxyType);
                 ProxyUtils.SetProxyTarget(proxy, implement);
                 return proxy;
@@ -53,20 +53,26 @@ namespace WeihanLi.Common.Aspect
             return _serviceProvider.CreateInstance(proxyType, arguments);
         }
 
-        public object CreateProxyWithTarget(Type serviceType, object implement)
+        public object CreateProxyWithTarget(Type serviceType, object implement, object[] arguments)
         {
             if (null == serviceType)
             {
                 throw new ArgumentNullException(nameof(serviceType));
             }
-            if (implement == null)
+            if (null == implement)
             {
                 throw new ArgumentNullException(nameof(implement));
             }
 
-            var proxyType = _proxyTypeFactory.CreateProxyType(serviceType);
-            var proxy = _serviceProvider.CreateInstance(proxyType);
+            var implementType = implement.GetType();
+
+            var proxyType = implementType.IsSealed && serviceType.IsClass
+                    ? _proxyTypeFactory.CreateProxyType(serviceType)
+                    : _proxyTypeFactory.CreateProxyType(serviceType, implementType)
+                ;
+            var proxy = _serviceProvider.CreateInstance(proxyType, arguments);
             ProxyUtils.SetProxyTarget(proxy, implement);
+
             return proxy;
         }
     }
