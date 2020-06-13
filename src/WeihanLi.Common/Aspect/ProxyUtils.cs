@@ -204,7 +204,7 @@ namespace WeihanLi.Common.Aspect
             var proxyTypeName = _proxyTypeNameResolver(interfaceType, implementType);
             var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
             {
-                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, implementType.Attributes, null, new[] { interfaceType });
+                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Class | TypeAttributes.Public | TypeAttributes.Sealed, null, new[] { interfaceType });
                 GenericParameterUtils.DefineGenericParameter(interfaceType, typeBuilder);
 
                 var targetField = typeBuilder.DefineField(TargetFieldName, implementType, FieldAttributes.Private);

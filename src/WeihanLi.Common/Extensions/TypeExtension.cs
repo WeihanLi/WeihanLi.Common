@@ -86,6 +86,8 @@ namespace WeihanLi.Extensions
 
         public static bool IsBasicType<T>(this T value) => typeof(T).IsBasicType();
 
+        public static bool HasNamespace(this Type type) => type?.Namespace != null;
+
         /// <summary>
         /// Finds best constructor, least parameter
         /// </summary>

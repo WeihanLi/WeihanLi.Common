@@ -19,7 +19,7 @@ namespace WeihanLi.Common
     /// </summary>
     public sealed class GuidIdGenerator : IIdGenerator
     {
-        private GuidIdGenerator()
+        public GuidIdGenerator()
         {
         }
 
@@ -33,7 +33,7 @@ namespace WeihanLi.Common
     /// </summary>
     public sealed class ObjectIdGenerator : IIdGenerator
     {
-        private ObjectIdGenerator()
+        public ObjectIdGenerator()
         {
         }
 

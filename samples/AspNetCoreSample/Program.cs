@@ -9,7 +9,7 @@ namespace AspNetCoreSample
     {
         public static void Main(string[] args)
         {
-            Host.CreateDefaultBuilder(args)
+            var host = Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(builder =>
                 {
                     builder.UseStartup<Startup>();
@@ -26,9 +26,11 @@ namespace AspNetCoreSample
                 }, builder =>
                 {
                     //builder.UseCastleProxy();
-                }, t => false)
-                .Build()
-                .Run();
+                })
+                .Build();
+            //var fields = host.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+            //    ;
+            host.Run();
         }
     }
 }

@@ -55,9 +55,37 @@ namespace WeihanLi.Common.Aspect
             // ensure return value
             if (invocation.ProxyMethod.ReturnType != typeof(void))
             {
-                if (invocation.ReturnValue == null && invocation.ProxyMethod.ReturnType.IsValueType)
+                if (invocation.ReturnValue == null)
                 {
-                    invocation.ReturnValue = invocation.ProxyMethod.ReturnType.GetDefaultValue();
+                    if (invocation.ProxyMethod.ReturnType.IsValueType)
+                    {
+                        invocation.ReturnValue = invocation.ProxyMethod.ReturnType.GetDefaultValue();
+                    }
+
+                    if (invocation.ProxyMethod.ReturnType == typeof(Task))
+                    {
+                        invocation.ReturnValue = TaskHelper.CompletedTask;
+                    }
+
+                    if (invocation.ProxyMethod.ReturnType.IsGenericType
+                        && invocation.ProxyMethod.ReturnType.IsAssignableTo<Task>())
+                    {
+                        var resultType = invocation.ProxyMethod.ReturnType.GetGenericArguments()[0];
+                        invocation.ReturnValue = Task.FromResult(resultType.GetDefaultValue());
+                    }
+
+#if NETSTANDARD2_1
+                    if (invocation.ProxyMethod.ReturnType == typeof(ValueTask))
+                    {
+                        invocation.ReturnValue = default(ValueTask);
+                    }
+                    if (invocation.ProxyMethod.ReturnType.IsGenericType
+                        && invocation.ProxyMethod.ReturnType.IsAssignableTo<ValueTask>())
+                    {
+                        var resultType = invocation.ProxyMethod.ReturnType.GetGenericArguments()[0];
+                        invocation.ReturnValue = new ValueTask(Task.FromResult(resultType.GetDefaultValue()));
+                    }
+#endif
                 }
             }
         }
@@ -102,25 +130,6 @@ namespace WeihanLi.Common.Aspect
                     }
 
 #endif
-                    if (null == invocation.ReturnValue)
-                    {
-                        if (invocation.ProxyMethod.ReturnType.IsGenericType
-                        && invocation.ProxyMethod.ReturnType.IsAssignableTo<Task>())
-                        {
-                            var resultType = invocation.ProxyMethod.ReturnType.GetGenericArguments()[0];
-                            return Task.FromResult(resultType.GetDefaultValue());
-                        }
-
-#if NETSTANDARD2_1
-
-                        if (invocation.ProxyMethod.ReturnType.IsGenericType
-                                                && invocation.ProxyMethod.ReturnType.IsAssignableTo<ValueTask>())
-                        {
-                            var resultType = invocation.ProxyMethod.ReturnType.GetGenericArguments()[0];
-                            return Task.FromResult(resultType.GetDefaultValue());
-                        }
-#endif
-                    }
 
                     return TaskHelper.CompletedTask;
                 };
