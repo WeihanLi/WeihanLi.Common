@@ -66,7 +66,7 @@ namespace WeihanLi.Common.Aspect
 
             var implementType = implement.GetType();
 
-            var proxyType = implementType.IsSealed && serviceType.IsClass
+            var proxyType = serviceType.IsClass
                     ? _proxyTypeFactory.CreateProxyType(serviceType)
                     : _proxyTypeFactory.CreateProxyType(serviceType, implementType)
                 ;
