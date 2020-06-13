@@ -33,7 +33,7 @@ namespace WeihanLi.Common
             _currentResolver = new DefaultDependencyResolver();
         }
 
-        public static void SetDependencyResolver([NotNull]IDependencyResolver dependencyResolver)
+        public static void SetDependencyResolver([NotNull] IDependencyResolver dependencyResolver)
         {
             lock (_lock)
             {
@@ -41,15 +41,13 @@ namespace WeihanLi.Common
             }
         }
 
-        public static void SetDependencyResolver([NotNull]IServiceContainerBuilder serviceContainerBuilder) => SetDependencyResolver(new ServiceContainerDependencyResolver(serviceContainerBuilder));
+        public static void SetDependencyResolver([NotNull] IServiceContainer serviceContainer) => SetDependencyResolver(new ServiceContainerDependencyResolver(serviceContainer));
 
-        public static void SetDependencyResolver([NotNull]IServiceContainer serviceContainer) => SetDependencyResolver(new ServiceContainerDependencyResolver(serviceContainer));
+        public static void SetDependencyResolver([NotNull] IServiceProvider serviceProvider) => SetDependencyResolver(serviceProvider.GetService);
 
-        public static void SetDependencyResolver([NotNull]IServiceProvider serviceProvider) => SetDependencyResolver(serviceProvider.GetService);
+        public static void SetDependencyResolver([NotNull] Func<Type, object> getServiceFunc) => SetDependencyResolver(getServiceFunc, serviceType => (IEnumerable<object>)getServiceFunc(typeof(IEnumerable<>).MakeGenericType(serviceType)));
 
-        public static void SetDependencyResolver([NotNull]Func<Type, object> getServiceFunc) => SetDependencyResolver(getServiceFunc, serviceType => (IEnumerable<object>)getServiceFunc(typeof(IEnumerable<>).MakeGenericType(serviceType)));
-
-        public static void SetDependencyResolver([NotNull]Func<Type, object> getServiceFunc, [NotNull]Func<Type, IEnumerable<object>> getServicesFunc) => SetDependencyResolver(new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc));
+        public static void SetDependencyResolver([NotNull] Func<Type, object> getServiceFunc, [NotNull] Func<Type, IEnumerable<object>> getServicesFunc) => SetDependencyResolver(new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc));
 
         private class DefaultDependencyResolver : IDependencyResolver
         {
@@ -145,10 +143,6 @@ namespace WeihanLi.Common
                 _rootContainer = serviceContainer;
             }
 
-            public ServiceContainerDependencyResolver(IServiceContainerBuilder serviceContainerBuilder) : this(serviceContainerBuilder.Build())
-            {
-            }
-
             public object GetService(Type serviceType)
             {
                 return _rootContainer.GetService(serviceType);
@@ -205,10 +199,21 @@ namespace WeihanLi.Common
             private readonly IServiceProvider _serviceProvider;
             private readonly IServiceCollection _services;
 
-            public ServiceCollectionDependencyResolver(IServiceCollection services)
+            public ServiceCollectionDependencyResolver(IServiceCollection services) : this(services, null)
+            {
+            }
+
+            public ServiceCollectionDependencyResolver(IServiceCollection services, bool validateScopes) : this(services, new ServiceProviderOptions()
+            {
+                ValidateScopes = validateScopes
+            })
+            {
+            }
+
+            public ServiceCollectionDependencyResolver(IServiceCollection services, ServiceProviderOptions serviceProviderOptions)
             {
                 _services = services ?? throw new ArgumentNullException(nameof(services));
-                _serviceProvider = services.BuildServiceProvider(true);
+                _serviceProvider = services.BuildServiceProvider(serviceProviderOptions ?? new ServiceProviderOptions());
             }
 
             public object GetService(Type serviceType)

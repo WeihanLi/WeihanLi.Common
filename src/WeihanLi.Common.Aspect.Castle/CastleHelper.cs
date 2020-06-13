@@ -2,7 +2,7 @@
 
 namespace WeihanLi.Common.Aspect.Castle
 {
-    internal class CastleHelper
+    internal static class CastleHelper
     {
         public static readonly IProxyBuilder ProxyBuilder = new DefaultProxyBuilder();
 

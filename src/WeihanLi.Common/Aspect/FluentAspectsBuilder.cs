@@ -2,22 +2,18 @@
 
 namespace WeihanLi.Common.Aspect
 {
-    public interface IFluentAspectBuilder
+    public interface IFluentAspectsBuilder
     {
         IServiceCollection Services { get; }
     }
 
-    internal sealed class FluentAspectBuilder : IFluentAspectBuilder
+    internal sealed class FluentAspectsBuilder : IFluentAspectsBuilder
     {
-        public FluentAspectBuilder(IServiceCollection serviceCollection)
+        public FluentAspectsBuilder(IServiceCollection serviceCollection)
         {
             Services = serviceCollection;
         }
 
         public IServiceCollection Services { get; }
-    }
-
-    public static class FluentAspectBuilderExtensions
-    {
     }
 }

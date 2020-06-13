@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
+using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
+using WeihanLi.Common.DependencyInjection;
 using WeihanLi.Extensions;
 
 namespace DotNetCoreSample
@@ -53,5 +55,21 @@ namespace DotNetCoreSample
 
     internal class AspectTest
     {
+        public static void ServiceContainerTest()
+        {
+            var builder = new ServiceContainerBuilder();
+            builder.AddSingletonProxy<IFly, MonkeyKing>();
+
+            using var container = builder.BuildFluentAspectsContainer(options =>
+            {
+                options.InterceptAll()
+                    .With<LogInterceptor>();
+            });
+
+            container.ResolveService<IFly>()
+                .Fly();
+
+            Console.WriteLine();
+        }
     }
 }

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+using WeihanLi.Common.Aspect;
+using WeihanLi.Common.Event;
 
 namespace AspNetCoreSample
 {
@@ -14,12 +9,28 @@ namespace AspNetCoreSample
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
-        }
+            var host = Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(builder =>
+                {
+                    builder.UseStartup<Startup>();
+                })
+                //.UseServiceProviderFactory()
+                .UseFluentAspectsServiceProviderFactory(options =>
+                {
+                    options
+                        .InterceptType<IEventPublisher>()
+                        .With<EventPublishLogInterceptor>();
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
+                    options.InterceptType<IEventHandler>()
+                        .With<EventHandleLogInterceptor>();
+                }, builder =>
+                {
+                    //builder.UseCastleProxy();
+                })
                 .Build();
+            //var fields = host.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
+            //    ;
+            host.Run();
+        }
     }
 }

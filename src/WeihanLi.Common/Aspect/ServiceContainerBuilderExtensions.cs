@@ -5,7 +5,7 @@ namespace WeihanLi.Common.Aspect
 {
     public static class ServiceContainerBuilderExtensions
     {
-        public static IServiceContainerBuilder AddFluentAspects(this IServiceContainerBuilder serviceCollection, Action<FluentAspectOptions> optionsAction)
+        public static IFluentAspectsServiceContainerBuilder AddFluentAspects(this IServiceContainerBuilder serviceCollection, Action<FluentAspectOptions> optionsAction)
         {
             if (null == serviceCollection)
             {
@@ -19,7 +19,7 @@ namespace WeihanLi.Common.Aspect
             return AddFluentAspects(serviceCollection);
         }
 
-        public static IServiceContainerBuilder AddFluentAspects(this IServiceContainerBuilder serviceCollection)
+        public static IFluentAspectsServiceContainerBuilder AddFluentAspects(this IServiceContainerBuilder serviceCollection)
         {
             if (null == serviceCollection)
                 throw new ArgumentNullException(nameof(serviceCollection));
@@ -28,7 +28,7 @@ namespace WeihanLi.Common.Aspect
             serviceCollection.AddTransient<IProxyFactory, DefaultProxyFactory>();
             serviceCollection.AddSingleton(FluentConfigInterceptorResolver.Instance);
 
-            return serviceCollection;
+            return new FluentAspectsServiceContainerBuilder(serviceCollection);
         }
 
         public static IServiceContainerBuilder AddProxyService<TService, TImplement>(this IServiceContainerBuilder serviceCollection, ServiceLifetime serviceLifetime)
@@ -87,5 +87,76 @@ namespace WeihanLi.Common.Aspect
         public static IServiceContainerBuilder AddTransientProxy<TService>(this IServiceContainerBuilder serviceCollection)
             where TService : class =>
             serviceCollection.AddProxyService<TService>(ServiceLifetime.Transient);
+
+        public static IServiceContainer BuildFluentAspectsContainer(this IServiceContainerBuilder serviceCollection,
+            Action<FluentAspectOptions> optionsAction,
+            Action<IFluentAspectsServiceContainerBuilder> aspectBuildAction = null,
+            Func<Type, bool> ignoreTypesPredict = null)
+        {
+            var services = new ServiceContainerBuilder();
+
+            var aspectBuilder = null != optionsAction
+                ? services.AddFluentAspects(optionsAction)
+                : services.AddFluentAspects();
+            aspectBuildAction?.Invoke(aspectBuilder);
+
+            foreach (var descriptor in serviceCollection)
+            {
+                if (ignoreTypesPredict?.Invoke(descriptor.ServiceType) == true)
+                {
+                    services.Add(descriptor);
+                    continue;
+                }
+
+                if (descriptor.ServiceType.IsSealed
+                    || descriptor.ImplementType.IsProxyType()
+                    || (descriptor.ServiceType.IsClass && (descriptor.ImplementType?.IsSealed == true || descriptor.ImplementType?.IsPublic == false)))
+                {
+                    services.Add(descriptor);
+                }
+                else
+                {
+                    Func<IServiceProvider, object> serviceFactory = null;
+
+                    if (descriptor.ImplementationInstance != null)
+                    {
+                        serviceFactory = provider => provider.ResolveRequiredService<IProxyFactory>()
+                            .CreateProxyWithTarget(descriptor.ServiceType, descriptor.ImplementationInstance);
+                    }
+                    else if (descriptor.ImplementationFactory != null)
+                    {
+                        serviceFactory = provider =>
+                        {
+                            var implement = descriptor.ImplementationFactory(provider);
+                            if (implement?.GetType().IsProxyType() == true)
+                            {
+                                return implement;
+                            }
+                            return provider.ResolveRequiredService<IProxyFactory>()
+                                .CreateProxyWithTarget(descriptor.ServiceType, implement);
+                        };
+                    }
+                    else if (descriptor.ImplementType != null)
+                    {
+                        serviceFactory = provider => provider.ResolveRequiredService<IProxyFactory>()
+                            .CreateProxy(descriptor.ServiceType, descriptor.ImplementType);
+                    }
+
+                    if (null != serviceFactory)
+                    {
+                        services.Add(new ServiceDefinition(descriptor.ServiceType, serviceFactory,
+                            descriptor.ServiceLifetime));
+                    }
+                    else
+                    {
+                        services.Add(descriptor);
+                    }
+                }
+            }
+
+            var container = services.Build();
+            DependencyResolver.SetDependencyResolver(container);
+            return container;
+        }
     }
 }

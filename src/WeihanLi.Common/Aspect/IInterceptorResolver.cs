@@ -4,6 +4,6 @@ namespace WeihanLi.Common.Aspect
 {
     public interface IInterceptorResolver
     {
-        IReadOnlyCollection<IInterceptor> ResolveInterceptors(IInvocation invocation);
+        IReadOnlyList<IInterceptor> ResolveInterceptors(IInvocation invocation);
     }
 }

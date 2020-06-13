@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect
@@ -20,6 +22,15 @@ namespace WeihanLi.Common.Aspect
 
     public static class InterceptionConfigurationExtensions
     {
+        public static IInterceptionConfiguration With(this IInterceptionConfiguration interceptionConfiguration, Func<IInvocation, Func<Task>, Task> interceptFunc)
+        {
+            if (null != interceptFunc)
+            {
+                interceptionConfiguration.Interceptors.Add(new DelegateInterceptor(interceptFunc));
+            }
+            return interceptionConfiguration;
+        }
+
         public static IInterceptionConfiguration With(this IInterceptionConfiguration interceptionConfiguration, IInterceptor interceptor)
         {
             interceptionConfiguration.Interceptors.Add(interceptor);

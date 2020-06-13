@@ -9,6 +9,10 @@ namespace WeihanLi.Common.Aspect
         static FluentAspects()
         {
             AspectOptions = new FluentAspectOptions();
+            // register built-in ignore interceptors
+            AspectOptions
+                .NoInterceptType(t => t.Namespace?.StartsWith("WeihanLi.Common.Aspect") == true)
+                ;
             // register built-in necessary interceptors
             AspectOptions.InterceptAll()
                 .With<TryInvokeInterceptor>();

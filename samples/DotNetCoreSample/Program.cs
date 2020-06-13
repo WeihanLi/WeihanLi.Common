@@ -4,8 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
-using WeihanLi.Common.Aspect.Castle;
-using WeihanLi.Common.DependencyInjection;
+using WeihanLi.Common.Event;
+using WeihanLi.Extensions;
 
 // ReSharper disable LocalizableElement
 
@@ -20,6 +20,8 @@ namespace DotNetCoreSample
 
             // var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
             // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
+
+            AspectTest.ServiceContainerTest();
 
             var services = new ServiceCollection();
             services.AddTransient<IFly, MonkeyKing>();
@@ -51,7 +53,9 @@ namespace DotNetCoreSample
             services.AddDbContext<TestDbContext>(dbContextOptionsAction);
 
             services.AddScopedProxy<TestDbContext>();
+            services.AddEvents();
 
+            services.AddSingletonProxy<IEventBus, EventBus>();
             services.AddFluentAspects(options =>
                 {
                     options.NoInterceptPropertyGetter<IFly>(f => f.Name);
@@ -72,7 +76,7 @@ namespace DotNetCoreSample
                         .WithProperty("TraceId", "121212")
                         ;
                 })
-                .UseCastleProxy()
+                // .UseCastleProxy()
                 // .UseAspectCoreProxy()
                 ;
 
@@ -105,12 +109,31 @@ namespace DotNetCoreSample
             //animal.Drink("xxx");
             //Console.WriteLine(animal.GetDrinkCount());
 
-            DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
+            //DependencyResolver.TryInvokeService<TestDbContext>(dbContext =>
+            //{
+            //    dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
+            //    var hasChanges = dbContext.ChangeTracker.HasChanges();
+            //    Console.WriteLine($"hasChanges：{hasChanges}");
+            //    dbContext.SaveChanges();
+            //});
+
+            //DependencyResolver.TryInvokeService<IEventBus>(eventBus =>
+            //{
+            //    eventBus.Publish(new CounterEvent());
+            //});
+
+            DependencyResolver.TryInvokeService<IProxyFactory>(proxyFactory =>
             {
-                dbContext.TestEntities.Add(new TestEntity() { Token = "sasa", CreatedTime = DateTime.Now, });
-                var hasChanges = dbContext.ChangeTracker.HasChanges();
-                Console.WriteLine($"hasChanges：{hasChanges}");
-                dbContext.SaveChanges();
+                var counterEvent = new CounterEvent() { Counter = 1 };
+                var eventBusProxy = proxyFactory.CreateProxy<IEventBus, EventBus>();
+                eventBusProxy.Publish(counterEvent);
+
+                var handlerProxy = proxyFactory.CreateProxyWithTarget<IEventHandler<CounterEvent>>(DelegateEventHandler.FromAction<CounterEvent>(e =>
+                {
+                    Console.WriteLine(e.ToJson());
+                }));
+                handlerProxy.Handle(counterEvent)
+                    .GetAwaiter().GetResult();
             });
 
             //DependencyResolver.TryInvokeServiceAsync<TestDbContext>(dbContext =>

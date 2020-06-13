@@ -48,17 +48,20 @@ namespace AspNetCoreSample
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseStaticFiles();
-            app.UseRouting();
-
             // pageView middleware
             app.Use((context, next) =>
             {
-                var eventPublisher = context.RequestServices.GetRequiredService<IEventPublisher>();
-                eventPublisher.Publish(new PageViewEvent());
+                var eventPublisher = context.RequestServices
+                    .GetRequiredService<IEventPublisher>();
+                eventPublisher.Publish(new PageViewEvent()
+                {
+                    Path = context.Request.Path.Value,
+                });
 
                 return next();
             });
+
+            app.UseRouting();
 
             app.UseEndpoints(endpoint =>
             {
