@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using WeihanLi.Common.Aspect;
 using WeihanLi.Extensions;
@@ -17,9 +18,9 @@ namespace WeihanLi.Common.Test.AspectTest
 
         public async Task Invoke(IInvocation invocation, Func<Task> next)
         {
-            _output.WriteLine($"Method[{invocation.ProxyMethod.Name}({invocation.Arguments.StringJoin(",")})] is invoking...");
+            Debug.WriteLine($"Method[{invocation.ProxyMethod.Name}({invocation.Arguments.StringJoin(",")})] is invoking...");
             await next();
-            _output.WriteLine($"Method[{invocation.ProxyMethod.Name}({invocation.Arguments.StringJoin(",")})] invoked...");
+            Debug.WriteLine($"Method[{invocation.ProxyMethod.Name}({invocation.Arguments.StringJoin(",")})] invoked...");
         }
     }
 }
