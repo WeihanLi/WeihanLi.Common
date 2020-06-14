@@ -120,6 +120,7 @@ namespace WeihanLi.Common.Aspect
                 {
                     if (descriptor.ServiceType.IsSealed
                         || descriptor.ServiceType.IsNotPublic
+                        || descriptor.ServiceType.IsGenericTypeDefinition
                     )
                     {
                         services.Add(descriptor);

@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using System.Linq.Expressions;
 using WeihanLi.Common.DependencyInjection;
 using WeihanLi.Extensions;
@@ -114,12 +113,13 @@ namespace WeihanLi.Common.Aspect
 
             using (var serviceProvider = serviceCollection.Build())
             {
-                var proxyTypeFactory = serviceProvider.GetRequiredService<IProxyTypeFactory>();
+                var proxyTypeFactory = serviceProvider.ResolveRequiredService<IProxyTypeFactory>();
 
                 foreach (var descriptor in serviceCollection)
                 {
                     if (descriptor.ServiceType.IsSealed
                         || descriptor.ServiceType.IsNotPublic
+                        || descriptor.ServiceType.IsGenericTypeDefinition
                     )
                     {
                         services.Add(descriptor);
@@ -165,7 +165,7 @@ namespace WeihanLi.Common.Aspect
                     {
                         if (descriptor.ImplementationInstance.GetType().IsPublic)
                         {
-                            serviceFactory = provider => provider.GetRequiredService<IProxyFactory>()
+                            serviceFactory = provider => provider.ResolveRequiredService<IProxyFactory>()
                                 .CreateProxyWithTarget(descriptor.ServiceType, descriptor.ImplementationInstance);
                         }
                     }
@@ -173,7 +173,7 @@ namespace WeihanLi.Common.Aspect
                     {
                         serviceFactory = provider =>
                         {
-                            var proxy = provider.GetRequiredService<IProxyFactory>()
+                            var proxy = provider.ResolveRequiredService<IProxyFactory>()
                                 .CreateProxy(descriptor.ServiceType, descriptor.ImplementType);
                             return proxy;
                         };
