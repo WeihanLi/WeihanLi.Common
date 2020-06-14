@@ -27,6 +27,10 @@ namespace WeihanLi.Common.Aspect.Castle
             {
                 throw new ArgumentNullException(nameof(serviceType));
             }
+            if (null == implementType)
+            {
+                throw new ArgumentNullException(nameof(implementType));
+            }
 
             if (serviceType.IsInterface)
             {
