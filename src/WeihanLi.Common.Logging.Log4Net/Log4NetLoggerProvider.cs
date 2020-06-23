@@ -10,7 +10,7 @@ using ILogger = Microsoft.Extensions.Logging.ILogger;
 namespace WeihanLi.Common.Logging.Log4Net
 {
     [ProviderAlias("log4net")]
-    internal class Log4NetLoggerProvider : ILoggerProvider
+    internal sealed class Log4NetLoggerProvider : ILoggerProvider
     {
         private readonly ConcurrentDictionary<string, Log4NetLogger> _loggers =
             new ConcurrentDictionary<string, Log4NetLogger>(StringComparer.Ordinal);
@@ -22,7 +22,7 @@ namespace WeihanLi.Common.Logging.Log4Net
         public ILogger CreateLogger(string categoryName) => _loggers.GetOrAdd(categoryName, loggerName => new Log4NetLogger(loggerName));
     }
 
-    internal class Log4NetLogger : ILogger
+    internal sealed class Log4NetLogger : ILogger
     {
         private readonly ILog _logger;
 
