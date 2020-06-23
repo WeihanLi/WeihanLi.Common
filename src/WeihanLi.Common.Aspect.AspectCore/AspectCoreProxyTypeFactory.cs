@@ -2,7 +2,7 @@
 
 namespace WeihanLi.Common.Aspect.AspectCore
 {
-    internal class AspectCoreProxyTypeFactory : IProxyTypeFactory
+    internal sealed class AspectCoreProxyTypeFactory : IProxyTypeFactory
     {
         public Type CreateProxyType(Type serviceType)
         {
