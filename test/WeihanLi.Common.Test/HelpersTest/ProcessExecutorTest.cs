@@ -12,7 +12,7 @@ namespace WeihanLi.Common.Test.HelpersTest
         {
             using var executor = new ProcessExecutor("dotnet", "--info");
             var list = new List<string>();
-            executor.OutputDataReceived += (sender, str) =>
+            executor.OnOutputDataReceived += (sender, str) =>
             {
                 list.Add(str);
             };
@@ -32,7 +32,7 @@ namespace WeihanLi.Common.Test.HelpersTest
         {
             using var executor = new ProcessExecutor("dotnet", "--info");
             var list = new List<string>();
-            executor.OutputDataReceived += (sender, str) =>
+            executor.OnOutputDataReceived += (sender, str) =>
             {
                 list.Add(str);
             };

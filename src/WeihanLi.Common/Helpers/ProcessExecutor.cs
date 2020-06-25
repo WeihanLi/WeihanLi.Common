@@ -8,13 +8,13 @@ namespace WeihanLi.Common.Helpers
     {
         public event EventHandler<int> OnExited;
 
-        public event EventHandler<string> OutputDataReceived;
+        public event EventHandler<string> OnOutputDataReceived;
 
-        public event EventHandler<string> ErrorDataReceived;
+        public event EventHandler<string> OnErrorDataReceived;
 
         protected readonly Process _process;
 
-        private bool _started;
+        protect bool _started;
 
         public ProcessExecutor(string exePath, string arguments) : this(new ProcessStartInfo(exePath, arguments))
         {
@@ -33,15 +33,15 @@ namespace WeihanLi.Common.Helpers
             _process.StartInfo.RedirectStandardError = true;
         }
 
-        private void InitializeEvents()
+        protected virtual void InitializeEvents()
         {
             _process.OutputDataReceived += (sender, args) =>
             {
-                OutputDataReceived?.Invoke(sender, args.Data);
+                OnOutputDataReceived?.Invoke(sender, args.Data);
             };
             _process.ErrorDataReceived += (sender, args) =>
             {
-                ErrorDataReceived?.Invoke(sender, args.Data);
+                OnErrorDataReceived?.Invoke(sender, args.Data);
             };
             _process.Exited += (sender, args) =>
             {
@@ -49,22 +49,14 @@ namespace WeihanLi.Common.Helpers
                 {
                     OnExited?.Invoke(sender, process.ExitCode);
                 }
+                else
+                {
+                    OnExited?.Invoke(sender, _process.ExitCode);
+                }
             };
         }
 
-        public async Task SendInput(string input)
-        {
-            try
-            {
-                await _process.StandardInput.WriteAsync(input!);
-            }
-            catch (Exception e)
-            {
-                ErrorDataReceived?.Invoke(_process, e.ToString());
-            }
-        }
-
-        private void Start()
+        protected virtual void Start()
         {
             if (_started)
             {
@@ -76,6 +68,18 @@ namespace WeihanLi.Common.Helpers
             _process.BeginOutputReadLine();
             _process.BeginErrorReadLine();
             _process.WaitForExit();
+        }
+
+        public async Task SendInput(string input)
+        {
+            try
+            {
+                await _process.StandardInput.WriteAsync(input!);
+            }
+            catch (Exception e)
+            {
+                OnErrorDataReceived?.Invoke(_process, e.ToString());
+            }
         }
 
         public virtual int Execute()
@@ -99,8 +103,8 @@ namespace WeihanLi.Common.Helpers
         {
             _process.Dispose();
             OnExited = null;
-            OutputDataReceived = null;
-            ErrorDataReceived = null;
+            OnOutputDataReceived = null;
+            OnErrorDataReceived = null;
         }
     }
 }

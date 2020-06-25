@@ -41,7 +41,7 @@ namespace DotNetCoreSample
         {
             using var executor = new ProcessExecutor("dotnet", "--info");
 
-            executor.OutputDataReceived += (sender, str) =>
+            executor.OnOutputDataReceived += (sender, str) =>
             {
                 Console.WriteLine(str);
             };
