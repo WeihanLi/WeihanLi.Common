@@ -14,7 +14,7 @@ namespace WeihanLi.Common.Helpers
 
         protected readonly Process _process;
 
-        protect bool _started;
+        protected bool _started;
 
         public ProcessExecutor(string exePath, string arguments) : this(new ProcessStartInfo(exePath, arguments))
         {
