@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -16,9 +15,10 @@ namespace WeihanLi.Common.Aspect
         private const MethodAttributes InterfaceMethodAttributes = MethodAttributes.Public | MethodAttributes.Final | MethodAttributes.HideBySig | MethodAttributes.NewSlot | MethodAttributes.Virtual;
 
         private static readonly ModuleBuilder _moduleBuilder;
-        private static readonly ConcurrentDictionary<string, Type> _proxyTypes = new ConcurrentDictionary<string, Type>();
+        private static readonly Dictionary<string, Type> _proxyTypes = new Dictionary<string, Type>();
 
         private const string TargetFieldName = "__target";
+        private static readonly object _typeLock = new object();
 
         private static readonly Func<Type, Type, string> _proxyTypeNameResolver;
 
@@ -85,8 +85,18 @@ namespace WeihanLi.Common.Aspect
 
             var proxyTypeName = _proxyTypeNameResolver(interfaceType, null);
 
-            var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
+            if (_proxyTypes.TryGetValue(proxyTypeName, out var proxyType))
             {
+                return proxyType;
+            }
+
+            lock (_typeLock)
+            {
+                if (_proxyTypes.TryGetValue(proxyTypeName, out proxyType))
+                {
+                    return proxyType;
+                }
+
                 var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Class | TypeAttributes.Sealed, typeof(object), new[] { interfaceType });
 
                 GenericParameterUtils.DefineGenericParameter(interfaceType, typeBuilder);
@@ -181,10 +191,10 @@ namespace WeihanLi.Common.Aspect
                     }
                 }
 
-                return typeBuilder.CreateType();
-            });
-
-            return type;
+                proxyType = typeBuilder.CreateType();
+                _proxyTypes[proxyTypeName] = proxyType;
+                return proxyType;
+            }
         }
 
         public static Type CreateInterfaceProxy(Type interfaceType, Type implementType)
@@ -202,9 +212,17 @@ namespace WeihanLi.Common.Aspect
                 return CreateInterfaceProxy(interfaceType);
 
             var proxyTypeName = _proxyTypeNameResolver(interfaceType, implementType);
-            var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
+            if (_proxyTypes.TryGetValue(proxyTypeName, out var proxyType))
             {
-                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, implementType.Attributes, null, new[] { interfaceType });
+                return proxyType;
+            }
+            lock (_typeLock)
+            {
+                if (_proxyTypes.TryGetValue(proxyTypeName, out proxyType))
+                {
+                    return proxyType;
+                }
+                var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Class | TypeAttributes.Public | TypeAttributes.Sealed, null, new[] { interfaceType });
                 GenericParameterUtils.DefineGenericParameter(interfaceType, typeBuilder);
 
                 var targetField = typeBuilder.DefineField(TargetFieldName, implementType, FieldAttributes.Private);
@@ -291,9 +309,10 @@ namespace WeihanLi.Common.Aspect
                     }
                 }
 
-                return typeBuilder.CreateType();
-            });
-            return type;
+                proxyType = typeBuilder.CreateType();
+                _proxyTypes[proxyTypeName] = proxyType;
+                return proxyType;
+            }
         }
 
         public static Type CreateClassProxy(Type serviceType, Type implementType)
@@ -312,8 +331,18 @@ namespace WeihanLi.Common.Aspect
             }
             //
             var proxyTypeName = _proxyTypeNameResolver(serviceType, implementType);
-            var type = _proxyTypes.GetOrAdd(proxyTypeName, name =>
+            if (_proxyTypes.TryGetValue(proxyTypeName, out var proxyType))
             {
+                return proxyType;
+            }
+
+            lock (_typeLock)
+            {
+                if (_proxyTypes.TryGetValue(proxyTypeName, out proxyType))
+                {
+                    return proxyType;
+                }
+
                 var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Sealed | TypeAttributes.Class, implementType, Type.EmptyTypes);
                 GenericParameterUtils.DefineGenericParameter(implementType, typeBuilder);
 
@@ -370,7 +399,7 @@ namespace WeihanLi.Common.Aspect
                 {
                     if (property.IsVisibleAndVirtual())
                     {
-                        var propertyBuilder = typeBuilder.DefineProperty(name, property.Attributes, property.PropertyType, Type.EmptyTypes);
+                        var propertyBuilder = typeBuilder.DefineProperty(property.Name, property.Attributes, property.PropertyType, Type.EmptyTypes);
 
                         //inherit targetMethod's attribute
                         foreach (var customAttributeData in property.CustomAttributes)
@@ -404,10 +433,10 @@ namespace WeihanLi.Common.Aspect
                     MethodUtils.DefineClassMethod(typeBuilder, method, targetField);
                 }
 
-                return typeBuilder.CreateType();
-            });
-
-            return type;
+                proxyType = typeBuilder.CreateType();
+                _proxyTypes[proxyTypeName] = proxyType;
+                return proxyType;
+            }
         }
 
         public static void SetProxyTarget(object proxyService, object target)

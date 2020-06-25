@@ -2,8 +2,6 @@
 
 ## Build status
 
-[![Travis Build Status](https://travis-ci.org/WeihanLi/WeihanLi.Common.svg?branch=dev)](https://travis-ci.org/WeihanLi/WeihanLi.Common)
-
 [![Pipelines Build Status](https://weihanli.visualstudio.com/Pipelines/_apis/build/status/WeihanLi.WeihanLi.Common?branchName=dev)](https://weihanli.visualstudio.com/Pipelines/_build/latest?definitionId=16&branchName=dev)
 
 [![Github Build Status](https://github.com/WeihanLi/WeihanLi.Common/workflows/dotnetcore/badge.svg?branch=dev)](https://github.com/WeihanLi/WeihanLi.Common/actions?query=workflow%3Adotnetcore+branch%3Adev)

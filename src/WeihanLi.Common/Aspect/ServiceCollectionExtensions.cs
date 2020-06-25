@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
+using System.Linq.Expressions;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect
 {
@@ -91,57 +93,112 @@ namespace WeihanLi.Common.Aspect
 
         public static IServiceProvider BuildFluentAspectsProvider(this IServiceCollection serviceCollection,
             Action<FluentAspectOptions> optionsAction,
-            Action<IFluentAspectsBuilder> aspectBuildAction,
-            Func<Type, bool> ignoreTypesPredict = null,
+            Action<IFluentAspectsBuilder> aspectBuildAction = null,
+            Expression<Func<Type, bool>> ignoreTypesFilter = null,
             ServiceProviderOptions serviceProviderOptions = null)
         {
             IServiceCollection services = new ServiceCollection();
 
             var aspectBuilder = null != optionsAction
-                ? services.AddFluentAspects(optionsAction)
-                : services.AddFluentAspects();
+                ? serviceCollection.AddFluentAspects(optionsAction)
+                : serviceCollection.AddFluentAspects();
             aspectBuildAction?.Invoke(aspectBuilder);
 
-            foreach (var descriptor in serviceCollection)
+            Expression<Func<Type, bool>> ignoreTypesExpression = t => "WeihanLi.Common.Aspect".Equals(t.Namespace);
+            if (null != ignoreTypesFilter)
             {
-                if (ignoreTypesPredict?.Invoke(descriptor.ServiceType) == true)
-                {
-                    services.Add(descriptor);
-                    continue;
-                }
+                ignoreTypesExpression = ignoreTypesExpression.Or(ignoreTypesFilter);
+            }
 
-                if (descriptor.ServiceType.IsSealed
-                    || descriptor.ImplementationType.IsProxyType()
-                    || (descriptor.ServiceType.IsClass && descriptor.ImplementationType?.IsSealed == true))
+            var ignoreTypesPredicate = ignoreTypesExpression.Compile();
+
+            using (var serviceProvider = serviceCollection.BuildServiceProvider())
+            {
+                var proxyTypeFactory = serviceProvider.GetRequiredService<IProxyTypeFactory>();
+
+                foreach (var descriptor in serviceCollection)
                 {
-                    services.Add(descriptor);
-                }
-                else
-                {
+                    if (descriptor.ServiceType.IsSealed
+                        || descriptor.ServiceType.IsNotPublic
+                        || descriptor.ServiceType.IsGenericTypeDefinition
+                    )
+                    {
+                        services.Add(descriptor);
+                        continue;
+                    }
+
+                    if (ignoreTypesPredicate(descriptor.ServiceType))
+                    {
+                        services.Add(descriptor);
+                        continue;
+                    }
+
+                    if (descriptor.ImplementationType != null)
+                    {
+                        if (descriptor.ImplementationType.IsNotPublic
+                            || descriptor.ImplementationType.IsProxyType()
+                        )
+                        {
+                            services.Add(descriptor);
+                            continue;
+                        }
+
+                        if (descriptor.ServiceType.IsClass
+                            && descriptor.ImplementationType.IsSealed)
+                        {
+                            services.Add(descriptor);
+                            continue;
+                        }
+
+                        if (descriptor.ServiceType.IsGenericTypeDefinition
+                            || descriptor.ImplementationType.IsGenericTypeDefinition)
+                        {
+                            var proxyType = proxyTypeFactory.CreateProxyType(descriptor.ServiceType, descriptor.ImplementationType);
+                            services.Add(new ServiceDescriptor(descriptor.ServiceType, proxyType,
+                                descriptor.Lifetime));
+                            continue;
+                        }
+                    }
+
                     Func<IServiceProvider, object> serviceFactory = null;
 
                     if (descriptor.ImplementationInstance != null)
                     {
-                        serviceFactory = provider => provider.GetRequiredService<IProxyFactory>()
-                            .CreateProxyWithTarget(descriptor.ServiceType, descriptor.ImplementationInstance);
+                        if (descriptor.ImplementationInstance.GetType().IsPublic)
+                        {
+                            serviceFactory = provider => provider.GetRequiredService<IProxyFactory>()
+                                .CreateProxyWithTarget(descriptor.ServiceType, descriptor.ImplementationInstance);
+                        }
+                    }
+                    else if (descriptor.ImplementationType != null)
+                    {
+                        serviceFactory = provider =>
+                        {
+                            var proxy = provider.GetRequiredService<IProxyFactory>()
+                                .CreateProxy(descriptor.ServiceType, descriptor.ImplementationType);
+                            return proxy;
+                        };
                     }
                     else if (descriptor.ImplementationFactory != null)
                     {
                         serviceFactory = provider =>
                         {
                             var implement = descriptor.ImplementationFactory(provider);
-                            if (implement?.GetType().IsProxyType() == true)
+                            if (implement == null)
+                            {
+                                return null;
+                            }
+
+                            var implementType = implement.GetType();
+                            if (implementType.IsNotPublic
+                                || implementType.IsProxyType())
                             {
                                 return implement;
                             }
+
                             return provider.ResolveRequiredService<IProxyFactory>()
                                 .CreateProxyWithTarget(descriptor.ServiceType, implement);
                         };
-                    }
-                    else if (descriptor.ImplementationType != null)
-                    {
-                        serviceFactory = provider => provider.GetRequiredService<IProxyFactory>()
-                            .CreateProxy(descriptor.ServiceType, descriptor.ImplementationType);
                     }
 
                     if (null != serviceFactory)

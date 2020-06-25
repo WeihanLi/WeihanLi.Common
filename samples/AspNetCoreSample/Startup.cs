@@ -48,9 +48,6 @@ namespace AspNetCoreSample
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseStaticFiles();
-            app.UseRouting();
-
             // pageView middleware
             app.Use((context, next) =>
             {
@@ -63,6 +60,8 @@ namespace AspNetCoreSample
 
                 return next();
             });
+
+            app.UseRouting();
 
             app.UseEndpoints(endpoint =>
             {

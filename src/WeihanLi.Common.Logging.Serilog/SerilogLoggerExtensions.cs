@@ -53,8 +53,6 @@ namespace WeihanLi.Common.Logging.Serilog
                 builder.AddProvider(new SerilogLoggerProvider(logger));
             }
 
-            builder.AddFilter<SerilogLoggerProvider>(null, LogLevel.Trace);
-
             return builder;
         }
     }

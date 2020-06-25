@@ -17,6 +17,23 @@ namespace WeihanLi.Common.Models
         /// </summary>
         public string ErrorMsg { get; set; }
 
+        public static ResultModel Success()
+        {
+            return new ResultModel
+            {
+                Status = ResultStatus.Success,
+            };
+        }
+
+        public static ResultModel Fail(string errorMsg, ResultStatus status = ResultStatus.RequestError)
+        {
+            return new ResultModel()
+            {
+                ErrorMsg = errorMsg,
+                Status = status,
+            };
+        }
+
         public static ResultModel<T> Success<T>(T result)
         {
             return new ResultModel<T>()
@@ -26,7 +43,7 @@ namespace WeihanLi.Common.Models
             };
         }
 
-        public static ResultModel<T> Fail<T>(string errorMsg, ResultStatus status = ResultStatus.RequestError)
+        public static ResultModel<T> Fail<T>(string errorMsg, ResultStatus status = ResultStatus.RequestError, T result = default)
         {
             return new ResultModel<T>()
             {

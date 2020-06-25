@@ -9,7 +9,7 @@ using SSerilog = Serilog;
 
 namespace WeihanLi.Common.Logging.Serilog
 {
-    internal class SerilogLogHelperProvider : ILogHelperProvider, IDisposable
+    internal sealed class SerilogLogHelperProvider : ILogHelperProvider, IDisposable
     {
         private static readonly MessageTemplateParser MessageTemplateParser = new MessageTemplateParser();
 
@@ -31,7 +31,7 @@ namespace WeihanLi.Common.Logging.Serilog
         public void Log(LogHelperLoggingEvent loggingEvent)
         {
             var logger = SSerilog.Log.ForContext(SourceContextPropName, loggingEvent.CategoryName);
-            //Log(logger, loggingEvent.LogLevel, loggingEvent.Exception, loggingEvent.Message);
+            
             var logLevel = GetSerilogEventLevel(loggingEvent.LogLevel);
             if (logger.IsEnabled(logLevel))
             {
