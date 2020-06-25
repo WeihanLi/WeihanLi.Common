@@ -12,7 +12,9 @@ namespace WeihanLi.Common.Helpers
 
         public event EventHandler<string> ErrorDataReceived;
 
-        private readonly Process _process;
+        protected readonly Process _process;
+
+        private bool _started;
 
         public ProcessExecutor(string exePath, string arguments) : this(new ProcessStartInfo(exePath, arguments))
         {
@@ -29,7 +31,10 @@ namespace WeihanLi.Common.Helpers
             _process.StartInfo.RedirectStandardOutput = true;
             _process.StartInfo.RedirectStandardInput = true;
             _process.StartInfo.RedirectStandardError = true;
+        }
 
+        private void InitializeEvents()
+        {
             _process.OutputDataReceived += (sender, args) =>
             {
                 OutputDataReceived?.Invoke(sender, args.Data);
@@ -37,6 +42,13 @@ namespace WeihanLi.Common.Helpers
             _process.ErrorDataReceived += (sender, args) =>
             {
                 ErrorDataReceived?.Invoke(sender, args.Data);
+            };
+            _process.Exited += (sender, args) =>
+            {
+                if (sender is Process process)
+                {
+                    OnExited?.Invoke(sender, process.ExitCode);
+                }
             };
         }
 
@@ -48,33 +60,47 @@ namespace WeihanLi.Common.Helpers
             }
             catch (Exception e)
             {
-                //
+                ErrorDataReceived?.Invoke(_process, e.ToString());
             }
+        }
+
+        private void Start()
+        {
+            if (_started)
+            {
+                return;
+            }
+            _started = true;
+
+            _process.Start();
+            _process.BeginOutputReadLine();
+            _process.BeginErrorReadLine();
+            _process.WaitForExit();
         }
 
         public virtual int Execute()
         {
-            _process.WaitForExit();
-            OnExited?.Invoke(_process, _process.ExitCode);
+            InitializeEvents();
+            Start();
             return _process.ExitCode;
         }
 
         public virtual async Task<int> ExecuteAsync()
         {
-            var tcs = new TaskCompletionSource<int>();
-            await Task.Run(() =>
+            InitializeEvents();
+            return await Task.Run(() =>
             {
-                _process.WaitForExit();
-                tcs.TrySetResult(_process.ExitCode);
-                OnExited?.Invoke(_process, _process.ExitCode);
+                Start();
                 return _process.ExitCode;
             }).ConfigureAwait(false);
-            return tcs.Task.Result;
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             _process.Dispose();
+            OnExited = null;
+            OutputDataReceived = null;
+            ErrorDataReceived = null;
         }
     }
 }
