@@ -16,6 +16,10 @@ namespace WeihanLi.Common.Helpers
 
         protected bool _started;
 
+        public ProcessExecutor(string exePath) : this(new ProcessStartInfo(exePath))
+        {
+        }
+
         public ProcessExecutor(string exePath, string arguments) : this(new ProcessStartInfo(exePath, arguments))
         {
         }
