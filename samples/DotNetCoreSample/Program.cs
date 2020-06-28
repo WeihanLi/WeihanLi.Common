@@ -23,8 +23,10 @@ namespace DotNetCoreSample
 
             //AspectTest.ServiceContainerTest();
 
-            ProcessExecutorTest.RawProcessTest();
+            //ProcessExecutorTest.RawProcessTest();
             //ProcessExecutorTest.DotNetInfoTest();
+            ProcessExecutorTest.DotNetNugetGlobalPackagesInfoTest();
+            Console.ReadLine();
 
             var services = new ServiceCollection();
             services.AddTransient<IFly, MonkeyKing>();
