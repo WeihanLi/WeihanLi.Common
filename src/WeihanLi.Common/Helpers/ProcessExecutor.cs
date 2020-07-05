@@ -119,7 +119,7 @@ namespace WeihanLi.Common.Helpers
         {
             using var process = new Process()
             {
-                StartInfo = new ProcessStartInfo(commandPath, arguments ?? "")
+                StartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
                 {
                     UseShellExecute = false,
                     CreateNoWindow = true,
@@ -137,7 +137,7 @@ namespace WeihanLi.Common.Helpers
         {
             using var process = new Process()
             {
-                StartInfo = new ProcessStartInfo(commandPath, arguments ?? "")
+                StartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
                 {
                     UseShellExecute = false,
                     CreateNoWindow = true,

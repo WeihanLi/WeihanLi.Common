@@ -53,6 +53,10 @@ namespace WeihanLi.Common.Test.HelpersTest
         [Fact]
         public async Task HostNameTest()
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                return;
+            }
             using var executor = new ProcessExecutor("hostName");
             var list = new List<string>();
             executor.OnOutputDataReceived += (sender, str) =>
