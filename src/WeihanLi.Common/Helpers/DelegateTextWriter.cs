@@ -59,7 +59,7 @@ namespace WeihanLi.Common.Helpers
             {
                 _builder.Append(value);
             }
-            return Task.CompletedTask;
+            return TaskHelper.CompletedTask;
         }
 
         private void FlushInternal()
