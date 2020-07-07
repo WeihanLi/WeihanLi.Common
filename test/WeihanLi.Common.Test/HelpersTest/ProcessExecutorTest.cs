@@ -13,6 +13,11 @@ namespace WeihanLi.Common.Test.HelpersTest
         [Fact]
         public void DotnetInfoTest()
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                return;
+            }
+
             using var executor = new ProcessExecutor("dotnet", "--info");
             var list = new List<string>();
             executor.OnOutputDataReceived += (sender, str) =>
@@ -33,6 +38,11 @@ namespace WeihanLi.Common.Test.HelpersTest
         [Fact]
         public async Task DotnetInfoAsyncTest()
         {
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                return;
+            }
+
             using var executor = new ProcessExecutor("dotnet", "--info");
             var list = new List<string>();
             executor.OnOutputDataReceived += (sender, str) =>
