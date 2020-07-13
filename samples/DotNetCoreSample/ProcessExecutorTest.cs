@@ -47,5 +47,26 @@ namespace DotNetCoreSample
             };
             executor.Execute();
         }
+
+        public static void DotNetNugetGlobalPackagesInfoTest()
+        {
+            using var executor = new ProcessExecutor("dotnet", "nuget locals global-packages -l");
+            var folder = string.Empty;
+            executor.OnOutputDataReceived += (sender, str) =>
+            {
+                if(str is null)
+                  return;
+
+                Console.WriteLine(str);
+
+                if(str.StartsWith("global-packages:"))
+                {
+                    folder = str.Substring("global-packages:".Length).Trim();                    
+                }
+            };
+            executor.Execute();
+
+            System.Console.WriteLine(folder);
+        }
     }
 }

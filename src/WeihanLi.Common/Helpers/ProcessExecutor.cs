@@ -16,6 +16,10 @@ namespace WeihanLi.Common.Helpers
 
         protected bool _started;
 
+        public ProcessExecutor(string exePath) : this(new ProcessStartInfo(exePath))
+        {
+        }
+
         public ProcessExecutor(string exePath, string arguments) : this(new ProcessStartInfo(exePath, arguments))
         {
         }
@@ -28,6 +32,7 @@ namespace WeihanLi.Common.Helpers
                 EnableRaisingEvents = true,
             };
             _process.StartInfo.UseShellExecute = false;
+            _process.StartInfo.CreateNoWindow = true;
             _process.StartInfo.RedirectStandardOutput = true;
             _process.StartInfo.RedirectStandardInput = true;
             _process.StartInfo.RedirectStandardError = true;
@@ -105,6 +110,72 @@ namespace WeihanLi.Common.Helpers
             OnExited = null;
             OnOutputDataReceived = null;
             OnErrorDataReceived = null;
+        }
+    }
+
+    public class CommandRunner
+    {
+        public static int Execute(string commandPath, string arguments = null, string workingDirectory = null)
+        {
+            using var process = new Process()
+            {
+                StartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
+                {
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+
+                    WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
+                }
+            };
+
+            process.Start();
+            process.WaitForExit();
+            return process.ExitCode;
+        }
+
+        public static CommandResult ExecuteAndCapture(string commandPath, string arguments = null, string workingDirectory = null)
+        {
+            using var process = new Process()
+            {
+                StartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
+                {
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+
+                    WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
+                }
+            };
+            process.Start();
+            var standardOut = process.StandardOutput.ReadToEnd();
+            var standardError = process.StandardError.ReadToEnd();
+            process.WaitForExit();
+            return new CommandResult(process.ExitCode, standardOut, standardError);
+        }
+    }
+
+    public sealed class CommandResult
+    {
+        public CommandResult(int exitCode, string standardOut, string standardError)
+        {
+            ExitCode = exitCode;
+            StandardOut = standardOut;
+            StandardError = standardError;
+        }
+
+        public string StandardOut { get; }
+        public string StandardError { get; }
+        public int ExitCode { get; }
+
+        public CommandResult EnsureSuccessfulExitCode(int success = 0)
+        {
+            if (ExitCode != success)
+            {
+                throw new InvalidOperationException(StandardError);
+            }
+            return this;
         }
     }
 }

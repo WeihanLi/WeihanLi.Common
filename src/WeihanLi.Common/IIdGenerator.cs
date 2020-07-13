@@ -1,4 +1,5 @@
 ﻿using System;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common
 {
@@ -26,6 +27,17 @@ namespace WeihanLi.Common
         public static readonly GuidIdGenerator Instance = new GuidIdGenerator();
 
         public string NewId() => Guid.NewGuid().ToString("N");
+    }
+
+    public sealed class SequentialGuidIdGenerator : IIdGenerator
+    {
+        public SequentialGuidIdGenerator()
+        {
+        }
+
+        public static readonly SequentialGuidIdGenerator Instance = new SequentialGuidIdGenerator();
+
+        public string NewId() => SequentialGuidGenerator.Create(SequentialGuidType.SequentialAsString).ToString("N");
     }
 
     /// <summary>
