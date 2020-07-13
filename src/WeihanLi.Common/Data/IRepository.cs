@@ -91,7 +91,7 @@ namespace WeihanLi.Common.Data
         /// <param name="orderByExpression">orderByExpression</param>
         /// <param name="ascending">is ascending</param>
         /// <returns></returns>
-        IPagedListModel<TEntity> Paged<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
+        IPagedListResult<TEntity> Paged<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
 
         /// <summary>
         /// Get Paged List
@@ -104,7 +104,7 @@ namespace WeihanLi.Common.Data
         /// <param name="ascending">is ascending</param>
         /// <param name="cancellationToken">cancellationToken</param>
         /// <returns></returns>
-        Task<IPagedListModel<TEntity>> PagedAsync<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default);
+        Task<IPagedListResult<TEntity>> PagedAsync<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Insert a entity

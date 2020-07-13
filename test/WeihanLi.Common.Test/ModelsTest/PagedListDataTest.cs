@@ -9,7 +9,7 @@ namespace WeihanLi.Common.Test.ModelsTest
         [Fact]
         public void PagedModelToJsonTest()
         {
-            var model = new PagedListModel<int>()
+            var model = new PagedListResult<int>()
             {
                 PageNumber = 1,
                 PageSize = 3,
@@ -17,14 +17,14 @@ namespace WeihanLi.Common.Test.ModelsTest
                 Data = new[] { 1, 2, 3 }
             };
             var json = model.ToJson();
-            var dModel = json.JsonToObject<PagedListModel<int>>();
+            var dModel = json.JsonToObject<PagedListResult<int>>();
             Assert.Equal(model.PageSize, dModel.PageSize);
         }
 
         [Fact]
         public void EmptyTest()
         {
-            var empty = PagedListModel<int>.Empty;
+            var empty = PagedListResult<int>.Empty;
             Assert.Empty(empty.Data);
             Assert.Equal(0, empty.TotalCount);
             Assert.Equal(1, empty.PageNumber);

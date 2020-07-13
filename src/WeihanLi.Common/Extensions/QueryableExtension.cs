@@ -18,7 +18,7 @@ namespace WeihanLi.Extensions
         /// <param name="pageNumber">The number of the page, start from 1.</param>
         /// <param name="pageSize">The size of the page.</param>
         /// <returns>An instance of  implements <see cref="IPagedListModel{T}"/> interface.</returns>
-        public static IPagedListModel<T> ToPagedList<T>([NotNull] this IQueryable<T> source, int pageNumber, int pageSize)
+        public static IPagedListResult<T> ToPagedList<T>([NotNull] this IQueryable<T> source, int pageNumber, int pageSize)
         {
             if (pageNumber <= 0)
             {
@@ -31,7 +31,7 @@ namespace WeihanLi.Extensions
             var count = source.Count();
             if (count == 0)
             {
-                return PagedListModel<T>.Empty;
+                return PagedListResult<T>.Empty;
             }
 
             if (pageNumber > 1)
@@ -40,7 +40,7 @@ namespace WeihanLi.Extensions
             }
             var items = source.Take(pageSize).ToArray();
 
-            return new PagedListModel<T>()
+            return new PagedListResult<T>()
             {
                 PageNumber = pageNumber,
                 PageSize = pageSize,
