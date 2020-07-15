@@ -201,7 +201,7 @@ SELECT COUNT(1) FROM {TableName}
             var total = _dbConnection.Value.ExecuteScalarTo<int>(sql, whereSql.Parameters);
             if (total == 0)
             {
-                return new PagedListResult<TEntity>();
+                return PagedListResult<TEntity>.Empty;
             }
 
             var offset = (pageNumber - 1) * pageSize;
@@ -235,7 +235,7 @@ SELECT COUNT(1) FROM {TableName}
             var total = await _dbConnection.Value.ExecuteScalarToAsync<int>(sql, whereSql.Parameters, cancellationToken: cancellationToken);
             if (total == 0)
             {
-                return new TEntity[0].ToPagedListModel(pageNumber, pageSize, 0);
+                return PagedListResult<TEntity>.Empty;
             }
 
             var offset = (pageNumber - 1) * pageSize;

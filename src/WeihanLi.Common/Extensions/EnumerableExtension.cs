@@ -198,10 +198,10 @@ namespace WeihanLi.Extensions
 
         #endregion Linq
 
-        #region PagedListModel
+        #region ToPagedList
 
         /// <summary>
-        /// ToPagedListModel
+        /// ToPagedList
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="data">data</param>
@@ -219,7 +219,7 @@ namespace WeihanLi.Extensions
             };
 
         /// <summary>
-        /// ToPagedListModel
+        /// ToPagedList
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="data">data</param>
@@ -227,7 +227,7 @@ namespace WeihanLi.Extensions
         /// <param name="pageSize">pageSize</param>
         /// <param name="totalCount">totalCount</param>
         /// <returns></returns>
-        public static PagedListResult<T> ToPagedListModel<T>([NotNull] this IReadOnlyList<T> data, int pageNumber, int pageSize, int totalCount)
+        public static IPagedListResult<T> ToPagedList<T>([NotNull] this IReadOnlyList<T> data, int pageNumber, int pageSize, int totalCount)
             => new PagedListResult<T>
             {
                 PageNumber = pageNumber,
@@ -236,6 +236,6 @@ namespace WeihanLi.Extensions
                 Data = data
             };
 
-        #endregion PagedListModel
+        #endregion ToPagedList
     }
 }
