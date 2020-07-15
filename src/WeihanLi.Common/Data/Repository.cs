@@ -183,7 +183,7 @@ ORDER BY {GetColumnName(orderByExpression.GetMemberName())} {(ascending ? "" : "
             return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters, cancellationToken: cancellationToken).ContinueWith(_ => _.Result.ToList(), cancellationToken);
         }
 
-        public virtual IPagedListModel<TEntity> Paged<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
+        public virtual IPagedListResult<TEntity> Paged<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             if (pageNumber <= 0)
@@ -201,7 +201,7 @@ SELECT COUNT(1) FROM {TableName}
             var total = _dbConnection.Value.ExecuteScalarTo<int>(sql, whereSql.Parameters);
             if (total == 0)
             {
-                return new PagedListModel<TEntity>();
+                return PagedListResult<TEntity>.Empty;
             }
 
             var offset = (pageNumber - 1) * pageSize;
@@ -214,10 +214,10 @@ OFFSET {offset} ROWS
 FETCH NEXT {pageSize} ROWS ONLY
 ";
 
-            return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToPagedListModel(pageNumber, pageSize, total);
+            return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToPagedList(pageNumber, pageSize, total);
         }
 
-        public virtual async Task<IPagedListModel<TEntity>> PagedAsync<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default)
+        public virtual async Task<IPagedListResult<TEntity>> PagedAsync<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             if (pageNumber <= 0)
@@ -235,7 +235,7 @@ SELECT COUNT(1) FROM {TableName}
             var total = await _dbConnection.Value.ExecuteScalarToAsync<int>(sql, whereSql.Parameters, cancellationToken: cancellationToken);
             if (total == 0)
             {
-                return new TEntity[0].ToPagedListModel(pageNumber, pageSize, 0);
+                return PagedListResult<TEntity>.Empty;
             }
 
             var offset = (pageNumber - 1) * pageSize;
@@ -248,7 +248,7 @@ OFFSET {offset} ROWS
 FETCH NEXT {pageSize} ROWS ONLY
 ";
 
-            return (await _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters, cancellationToken: cancellationToken)).ToPagedListModel(pageNumber, pageSize, total);
+            return (await _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters, cancellationToken: cancellationToken)).ToPagedList(pageNumber, pageSize, total);
         }
 
         public virtual int Insert(TEntity entity)

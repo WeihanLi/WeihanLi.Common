@@ -11,7 +11,7 @@ namespace WeihanLi.Extensions
 {
     public static class EnumerableExtension
     {
-        public static void ForEach<T>([NotNull]this IEnumerable<T> ts, Action<T> action)
+        public static void ForEach<T>([NotNull] this IEnumerable<T> ts, Action<T> action)
         {
             foreach (var t in ts)
             {
@@ -19,7 +19,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        public static void ForEach<T>([NotNull]this IEnumerable<T> ts, Action<T, int> action)
+        public static void ForEach<T>([NotNull] this IEnumerable<T> ts, Action<T, int> action)
         {
             var i = 0;
             foreach (var t in ts)
@@ -29,7 +29,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        public static async Task ForEachAsync<T>([NotNull]this IEnumerable<T> ts, Func<T, Task> action)
+        public static async Task ForEachAsync<T>([NotNull] this IEnumerable<T> ts, Func<T, Task> action)
         {
             foreach (var t in ts)
             {
@@ -37,7 +37,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        public static async Task ForEachAsync<T>([NotNull]this IEnumerable<T> ts, Func<T, int, Task> action)
+        public static async Task ForEachAsync<T>([NotNull] this IEnumerable<T> ts, Func<T, int, Task> action)
         {
             var i = 0;
             foreach (var t in ts)
@@ -53,7 +53,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A list of.</returns>
-        public static ReadOnlyCollection<T> AsReadOnly<T>([NotNull]this IEnumerable<T> @this)
+        public static ReadOnlyCollection<T> AsReadOnly<T>([NotNull] this IEnumerable<T> @this)
         {
             return Array.AsReadOnly(@this.ToArray());
         }
@@ -93,12 +93,12 @@ namespace WeihanLi.Extensions
         ///     A string that consists of the elements in value delimited by the separator string. If value is an empty array,
         ///     the method returns String.Empty.
         /// </returns>
-        public static string StringJoin<T>([NotNull]this IEnumerable<T> @this, string separator)
+        public static string StringJoin<T>([NotNull] this IEnumerable<T> @this, string separator)
         {
             return string.Join(separator, @this);
         }
 
-        public static IEnumerable<TSource> Prepend<TSource>([NotNull]this IEnumerable<TSource> source, TSource value)
+        public static IEnumerable<TSource> Prepend<TSource>([NotNull] this IEnumerable<TSource> source, TSource value)
         {
             yield return value;
 
@@ -108,7 +108,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        public static IEnumerable<TSource> Append<TSource>([NotNull]this IEnumerable<TSource> source, TSource value)
+        public static IEnumerable<TSource> Append<TSource>([NotNull] this IEnumerable<TSource> source, TSource value)
         {
             foreach (var element in source)
             {
@@ -198,10 +198,10 @@ namespace WeihanLi.Extensions
 
         #endregion Linq
 
-        #region PagedListModel
+        #region ToPagedList
 
         /// <summary>
-        /// ToPagedListModel
+        /// ToPagedList
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="data">data</param>
@@ -209,17 +209,17 @@ namespace WeihanLi.Extensions
         /// <param name="pageSize">pageSize</param>
         /// <param name="totalCount">totalCount</param>
         /// <returns></returns>
-        public static PagedListModel<T> ToPagedListModel<T>([NotNull]this IEnumerable<T> data, int pageNumber, int pageSize, int totalCount)
-            => new PagedListModel<T>
+        public static IPagedListResult<T> ToPagedList<T>([NotNull] this IEnumerable<T> data, int pageNumber, int pageSize, int totalCount)
+            => new PagedListResult<T>
             {
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalCount = totalCount,
-                Data = data.ToArray()
+                Data = data is IReadOnlyList<T> dataList ? dataList : data.ToArray()
             };
 
         /// <summary>
-        /// ToPagedListModel
+        /// ToPagedList
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="data">data</param>
@@ -227,8 +227,8 @@ namespace WeihanLi.Extensions
         /// <param name="pageSize">pageSize</param>
         /// <param name="totalCount">totalCount</param>
         /// <returns></returns>
-        public static PagedListModel<T> ToPagedListModel<T>([NotNull]this IReadOnlyList<T> data, int pageNumber, int pageSize, int totalCount)
-            => new PagedListModel<T>
+        public static IPagedListResult<T> ToPagedList<T>([NotNull] this IReadOnlyList<T> data, int pageNumber, int pageSize, int totalCount)
+            => new PagedListResult<T>
             {
                 PageNumber = pageNumber,
                 PageSize = pageSize,
@@ -236,6 +236,6 @@ namespace WeihanLi.Extensions
                 Data = data
             };
 
-        #endregion PagedListModel
+        #endregion ToPagedList
     }
 }

@@ -6,7 +6,7 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Logging.Log4Net
 {
-    internal class Log4NetLogHelperProvider : ILogHelperProvider
+    internal sealed class Log4NetLogHelperProvider : ILogHelperProvider
     {
         public Log4NetLogHelperProvider() : this(ApplicationHelper.MapPath("log4net.config"))
         {

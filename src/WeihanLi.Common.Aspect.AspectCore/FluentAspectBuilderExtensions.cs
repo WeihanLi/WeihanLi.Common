@@ -14,6 +14,7 @@ namespace WeihanLi.Common.Aspect.AspectCore
             }
 
             builder.Services.AddTransient<IProxyFactory, AspectCoreProxyFactory>();
+            builder.Services.AddTransient<IProxyTypeFactory, AspectCoreProxyTypeFactory>();
             FluentAspects.AspectOptions.ProxyFactory = AspectCoreProxyFactory.Instance;
 
             return builder;
@@ -27,6 +28,7 @@ namespace WeihanLi.Common.Aspect.AspectCore
             }
 
             builder.Services.AddTransient<IProxyFactory, AspectCoreProxyFactory>();
+            builder.Services.AddTransient<IProxyTypeFactory, AspectCoreProxyTypeFactory>();
             FluentAspects.AspectOptions.ProxyFactory = AspectCoreProxyFactory.Instance;
 
             return builder;

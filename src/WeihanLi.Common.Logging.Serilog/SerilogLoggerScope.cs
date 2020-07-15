@@ -8,7 +8,7 @@ using Serilog.Events;
 
 namespace Serilog.Extensions.Logging
 {
-    internal class SerilogLoggerScope : IDisposable
+    internal sealed class SerilogLoggerScope : IDisposable
     {
         private const string NoName = "None";
 

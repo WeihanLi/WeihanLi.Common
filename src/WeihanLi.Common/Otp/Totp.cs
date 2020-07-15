@@ -26,16 +26,16 @@ namespace WeihanLi.Common.Otp
             _hashAlgorithm = otpHashAlgorithm;
 
             // valid input parameter
-            if (codeSize <= 0 || codeSize > 10)
+            if (codeSize <= 0 || codeSize >= 10)
             {
                 throw new ArgumentOutOfRangeException(nameof(codeSize), codeSize, "length must between 1 and 9");
             }
             _codeSize = codeSize;
         }
 
-        private static readonly Encoding Encoding = new UTF8Encoding(false, true);
+        private static readonly Encoding _encoding = new UTF8Encoding(false, true);
 
-        public virtual string Compute(string securityToken) => Compute(Encoding.GetBytes(securityToken));
+        public virtual string Compute(string securityToken) => Compute(_encoding.GetBytes(securityToken));
 
         public virtual string Compute(byte[] securityToken) => Compute(securityToken, GetCurrentTimeStepNumber());
 
@@ -88,9 +88,9 @@ namespace WeihanLi.Common.Otp
             }
         }
 
-        public virtual bool Verify(string securityToken, string code) => Verify(Encoding.GetBytes(securityToken), code);
+        public virtual bool Verify(string securityToken, string code) => Verify(_encoding.GetBytes(securityToken), code);
 
-        public virtual bool Verify(string securityToken, string code, TimeSpan timeToleration) => Verify(Encoding.GetBytes(securityToken), code, timeToleration);
+        public virtual bool Verify(string securityToken, string code, TimeSpan timeToleration) => Verify(_encoding.GetBytes(securityToken), code, timeToleration);
 
         public virtual bool Verify(byte[] securityToken, string code) => Verify(securityToken, code, TimeSpan.Zero);
 

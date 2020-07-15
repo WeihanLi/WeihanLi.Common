@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using WeihanLi.Common.Event;
@@ -9,6 +10,7 @@ namespace WeihanLi.Common.Test.EventsTest
     public class EventBusTest
     {
         private static int _counter, _counter1;
+        private readonly IServiceProvider _serviceProvider;
 
         public EventBusTest()
         {
@@ -19,13 +21,13 @@ namespace WeihanLi.Common.Test.EventsTest
                 .AddEventHandler<TestEvent, TestEventHandler3<TestEvent>>()
                 .AddEventHandler<TestEvent1, TestEventHandler3<TestEvent1>>()
                 ;
-            DependencyResolver.SetDependencyResolver(serviceCollection);
+            _serviceProvider = serviceCollection.BuildServiceProvider();
         }
 
         [Fact]
         public async Task MainTest()
         {
-            var eventBus = DependencyResolver.ResolveService<IEventBus>();
+            var eventBus = _serviceProvider.GetRequiredService<IEventBus>();
             await eventBus.PublishAsync(new TestEvent());
             Assert.Equal(3, _counter);
             await eventBus.PublishAsync(new TestEvent1());

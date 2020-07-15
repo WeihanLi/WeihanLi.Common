@@ -12,7 +12,7 @@ using FrameworkLogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace Serilog.Extensions.Logging
 {
-    internal class SerilogLogger : FrameworkLogger
+    internal sealed class SerilogLogger : FrameworkLogger
     {
         private readonly SerilogLoggerProvider _provider;
         private readonly ILogger _logger;

@@ -4,6 +4,32 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.40](https://www.nuget.org/packages/WeihanLi.Common/1.0.40)
+
+- add `ProcessExecutor`/`CommandRunner`/`ConsoleOutput`
+- add `Base62Encoder`/`Base36Encoder`
+- add `DelegateTextWriter`
+- add `SequentialGuidIdGenerator`
+- update `ResultModel`/`TOTP`/`ProxyUtils`/`AspectCoreExtensions`/`IdGenerator`/ logging extensions
+
+### [WeihanLi.Common 1.0.39](https://www.nuget.org/packages/WeihanLi.Common/1.0.39)
+
+- add `BuildFluentAspectsProvider` extensions
+- add `DelegateInterceptor`
+- add `NoInterceptProperty` extension
+- update `IInterceptorResolver` return IReadOnlyList instead of IReadCollection
+- add arguments for `IProxyFactory.CreateProxyWithTarget`
+- add support for property injection support
+
+### [WeihanLi.Common 1.0.38](https://www.nuget.org/packages/WeihanLi.Common/1.0.38)
+
+- add `IUserIdProvider`/`ICancellationTokenProvider`
+- add `NullEventSubscriptionManager`
+- add biz models, `ReviewRequest` and more ...
+- update `PipelineBuilder` add empty complete delegate as default
+- add `JsonSerializeExtension.SerializerSettingsWith`, optimize `ToEventMsg`/`ToEvent`
+- update `FluentAspect`, allow add optional constructor parameters, export FluentAspectInterceptor for Castle and AspectCore
+
 ### [WeihanLi.Common 1.0.37](https://www.nuget.org/packages/WeihanLi.Common/1.0.37)
 
 - refact events related `EventBus`/`EventStore`/`EventQueue`/`EventPublisher`/`EventSubscriber`
