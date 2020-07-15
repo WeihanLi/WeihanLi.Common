@@ -25,23 +25,24 @@ namespace WeihanLi.Common.Helpers
 
         public static async Task<ConsoleOutput> Capture()
         {
-            var redirector = new ConsoleOutput();
+            var outputCapture = new ConsoleOutput();
             await _consoleLock.WaitAsync();
 
             try
             {
-                redirector._originalOutputWriter = Console.Out;
-                redirector._originalErrorWriter = Console.Error;
+                outputCapture._originalOutputWriter = Console.Out;
+                outputCapture._originalErrorWriter = Console.Error;
 
-                Console.SetOut(redirector._outputWriter);
-                Console.SetError(redirector._errorWriter);
+                Console.SetOut(outputCapture._outputWriter);
+                Console.SetError(outputCapture._errorWriter);
             }
-            finally
+            catch
             {
                 _consoleLock.Release();
+                throw;
             }
 
-            return redirector;
+            return outputCapture;
         }
 
         public void Dispose()
@@ -52,13 +53,14 @@ namespace WeihanLi.Common.Helpers
                 {
                     Console.SetOut(_originalOutputWriter);
                 }
-
                 if (_originalErrorWriter != null)
                 {
                     Console.SetError(_originalErrorWriter);
                 }
-
-                _consoleLock.Release();
+                if (_consoleLock.CurrentCount < 1)
+                {
+                    _consoleLock.Release();
+                }
             }
         }
 
