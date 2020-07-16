@@ -9,9 +9,19 @@ namespace WeihanLi.Common.Test.HelpersTest
     {
         [Theory]
         [InlineData("Hello World")]
-        public async Task Test(string str)
+        public void CaptureTest(string str)
         {
-            using var output = await ConsoleOutput.Capture();
+            using var output = ConsoleOutput.Capture();
+            // ReSharper disable once Xunit.XunitTestWithConsoleOutput
+            Console.Write(str);
+            Assert.Equal(str, output.StandardOutput);
+        }
+
+        [Theory]
+        [InlineData("Hello World")]
+        public async Task CaptureAsyncTest(string str)
+        {
+            using var output = await ConsoleOutput.CaptureAsync();
             // ReSharper disable once Xunit.XunitTestWithConsoleOutput
             Console.Write(str);
             Assert.Equal(str, output.StandardOutput);

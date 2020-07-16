@@ -23,7 +23,29 @@ namespace WeihanLi.Common.Helpers
         {
         }
 
-        public static async Task<ConsoleOutput> Capture()
+        public static ConsoleOutput Capture()
+        {
+            var outputCapture = new ConsoleOutput();
+            _consoleLock.Wait();
+
+            try
+            {
+                outputCapture._originalOutputWriter = Console.Out;
+                outputCapture._originalErrorWriter = Console.Error;
+
+                Console.SetOut(outputCapture._outputWriter);
+                Console.SetError(outputCapture._errorWriter);
+            }
+            catch
+            {
+                _consoleLock.Release();
+                throw;
+            }
+
+            return outputCapture;
+        }
+
+        public static async Task<ConsoleOutput> CaptureAsync()
         {
             var outputCapture = new ConsoleOutput();
             await _consoleLock.WaitAsync();
