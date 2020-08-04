@@ -42,11 +42,17 @@ namespace WeihanLi.Common.Helpers
         {
             _process.OutputDataReceived += (sender, args) =>
             {
-                OnOutputDataReceived?.Invoke(sender, args.Data);
+                if (args.Data != null)
+                {
+                    OnOutputDataReceived?.Invoke(sender, args.Data);
+                }
             };
             _process.ErrorDataReceived += (sender, args) =>
             {
-                OnErrorDataReceived?.Invoke(sender, args.Data);
+                if (args.Data != null)
+                {
+                    OnErrorDataReceived?.Invoke(sender, args.Data);
+                }
             };
             _process.Exited += (sender, args) =>
             {
@@ -113,7 +119,7 @@ namespace WeihanLi.Common.Helpers
         }
     }
 
-    public class CommandRunner
+    public static class CommandRunner
     {
         public static int Execute(string commandPath, string arguments = null, string workingDirectory = null)
         {
@@ -169,9 +175,9 @@ namespace WeihanLi.Common.Helpers
         public string StandardError { get; }
         public int ExitCode { get; }
 
-        public CommandResult EnsureSuccessfulExitCode(int success = 0)
+        public CommandResult EnsureSuccessfulExitCode(int successCode = 0)
         {
-            if (ExitCode != success)
+            if (ExitCode != successCode)
             {
                 throw new InvalidOperationException(StandardError);
             }

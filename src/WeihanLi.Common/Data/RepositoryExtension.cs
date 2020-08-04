@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading;
@@ -45,5 +46,25 @@ namespace WeihanLi.Common.Data
 
         public static Task<List<TEntity>> TopAsync<TEntity, TProperty>(this IRepository<TEntity> repository, int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default) =>
             repository.SelectAsync(count, whereExpression, orderByExpression, ascending, cancellationToken);
+
+        public static Task<int> UpdateAsync<TEntity>([NotNull] this IRepository<TEntity> repository,
+            TEntity entity, params string[] propertyNames) where TEntity : class
+            => repository.UpdateAsync(entity, propertyNames);
+
+        public static Task<int> UpdateAsync<TDbContext, TEntity>([NotNull] this IRepository<TEntity> repository,
+            TEntity entity,
+            params Expression<Func<TEntity, object>>[] propertyExpressions)
+            where TEntity : class
+            => repository.UpdateAsync(entity, propertyExpressions);
+
+        public static Task<int> UpdateWithoutAsync<TEntity>([NotNull] this IRepository<TEntity> repository,
+            TEntity entity, params string[] propertyNames) where TEntity : class
+            => repository.UpdateWithoutAsync(entity, propertyNames);
+
+        public static Task<int> UpdateWithoutAsync<TEntity>([NotNull] this IRepository<TEntity> repository,
+            TEntity entity,
+            params Expression<Func<TEntity, object>>[] propertyExpressions)
+            where TEntity : class
+            => repository.UpdateWithoutAsync(entity, propertyExpressions);
     }
 }

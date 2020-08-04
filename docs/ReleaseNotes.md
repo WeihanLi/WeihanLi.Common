@@ -4,6 +4,14 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+### [WeihanLi.Common 1.0.40](https://www.nuget.org/packages/WeihanLi.Common/1.0.40)
+
+- add `ProcessExecutor`/`CommandRunner`/`ConsoleOutput`
+- add `Base62Encoder`/`Base36Encoder`
+- add `DelegateTextWriter`
+- add `SequentialGuidIdGenerator`
+- update `ResultModel`/`TOTP`/`ProxyUtils`/`AspectCoreExtensions`/`IdGenerator`/ logging extensions
+
 ### [WeihanLi.Common 1.0.39](https://www.nuget.org/packages/WeihanLi.Common/1.0.39)
 
 - add `BuildFluentAspectsProvider` extensions

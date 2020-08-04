@@ -41,6 +41,6 @@
     }
 
     public class BaseEntityWithReviewStateWithDeleted : BaseEntityWithReviewStateWithDeleted<int>
-    {        
+    {
     }
 }
