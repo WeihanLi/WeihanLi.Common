@@ -19,7 +19,7 @@ namespace WeihanLi.Common.Logging
 
         public Dictionary<string, object> Properties { get; set; }
 
-        public LogHelperLoggingEvent Copy => (LogHelperLoggingEvent)Clone();
+        public LogHelperLoggingEvent Copy() => (LogHelperLoggingEvent)Clone();
 
         public object Clone()
         {

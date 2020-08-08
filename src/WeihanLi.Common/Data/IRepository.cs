@@ -163,6 +163,74 @@ namespace WeihanLi.Common.Data
         int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues);
 
         /// <summary>
+        /// update entities with specific properties
+        /// </summary>
+        /// <param name="entity">entity</param>
+        /// <param name="propertyExpressions">propertyExpressions</param>
+        /// <returns>rows affected</returns>
+        int Update(TEntity entity, params Expression<Func<TEntity, object>>[] propertyExpressions);
+
+        /// <summary>
+        /// Update entity without specific properties
+        /// </summary>
+        /// <param name="entity">entity</param>
+        /// <param name="propertyExpressions">properties not to update</param>
+        /// <returns>affected rows</returns>
+        int UpdateWithout(TEntity entity, params Expression<Func<TEntity, object>>[] propertyExpressions);
+
+        /// <summary>
+        /// update entities with specific properties
+        /// </summary>
+        /// <param name="entity">entity</param>
+        /// <param name="propertyNames">propertyNames</param>
+        /// <returns>rows affected</returns>
+        int Update(TEntity entity, params string[] propertyNames);
+
+        /// <summary>
+        /// Update entity without specific properties
+        /// </summary>
+        /// <param name="entity">entity</param>
+        /// <param name="propertyNames">properties not to update</param>
+        /// <returns>affected rows</returns>
+        int UpdateWithout(TEntity entity, params string[] propertyNames);
+
+        /// <summary>
+        /// Update entity without specific properties
+        /// </summary>
+        /// <param name="entity">entity</param>
+        /// <param name="propertyNames">properties not to update</param>
+        /// <param name="cancellationToken">cancellationToken</param>
+        /// <returns>affected rows</returns>
+        Task<int> UpdateWithoutAsync(TEntity entity, string[] propertyNames, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// update entities with specific properties
+        /// </summary>
+        /// <param name="entity">entity</param>
+        /// <param name="propertyExpressions">propertyExpressions</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>rows affected</returns>
+        Task<int> UpdateAsync(TEntity entity, Expression<Func<TEntity, object>>[] propertyExpressions, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Update entity without specific properties
+        /// </summary>
+        /// <param name="entity">entity</param>
+        /// <param name="propertyExpressions">properties not to update</param>
+        /// <param name="cancellationToken">cancellationToken</param>
+        /// <returns>affected rows</returns>
+        Task<int> UpdateWithoutAsync(TEntity entity, Expression<Func<TEntity, object>>[] propertyExpressions, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// update entities with specific properties
+        /// </summary>
+        /// <param name="entity">entity</param>
+        /// <param name="propertyNames">propertyNames</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>rows affected</returns>
+        Task<int> UpdateAsync(TEntity entity, string[] propertyNames, CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Update entities properties by where
         /// </summary>
         /// <param name="whereExpression">whereExpression</param>
@@ -178,10 +246,25 @@ namespace WeihanLi.Common.Data
         int Delete(Expression<Func<TEntity, bool>> whereExpression);
 
         /// <summary>
+        /// delete entity
+        /// </summary>
+        /// <param name="entity">entity</param>
+        /// <returns>rows affected</returns>
+        int Delete(TEntity entity);
+
+        /// <summary>
         /// Delete entities by  where
         /// </summary>
         /// <param name="whereExpression">whereExpression</param>
         /// <param name="cancellationToken">cancellationToken</param>
         Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// delete entity async
+        /// </summary>
+        /// <param name="entity">entity</param>
+        /// <param name="cancellationToken">cancellationToken</param>
+        /// <returns>rows affected</returns>
+        Task<int> DeleteAsync(TEntity entity, CancellationToken cancellationToken = default);
     }
 }
