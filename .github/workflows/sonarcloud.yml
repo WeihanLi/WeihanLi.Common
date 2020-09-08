@@ -1,4 +1,4 @@
-name: Build
+name: SonarColudBuild
 on:
   push:
     branches:
@@ -40,4 +40,5 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"WeihanLi_WeihanLi.Common" /o:"weihanli" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          build.ps1
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
