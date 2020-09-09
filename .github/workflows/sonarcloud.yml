@@ -24,6 +24,5 @@ jobs:
         args: >
           -Dsonar.organization=weihanli
           -Dsonar.projectKey=WeihanLi_WeihanLi.Common
-          -Dsonar.tests=test
           -Dsonar.verbose=true
           -Dsonar.exclusions:samples/**,perf/**
