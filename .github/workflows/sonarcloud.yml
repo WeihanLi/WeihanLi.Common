@@ -25,4 +25,5 @@ jobs:
           -Dsonar.organization=weihanli
           -Dsonar.projectKey=WeihanLi_WeihanLi.Common
           -Dsonar.verbose=true
-          -Dsonar.exclusions:samples/**,perf/**
+          -Dsonar.sourceEncoding=utf-8
+          -Dsonar.exclusions:samples/**/*, perf/**/*
