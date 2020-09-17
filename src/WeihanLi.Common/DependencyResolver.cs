@@ -194,44 +194,27 @@ namespace WeihanLi.Common
 
         public static void SetDependencyResolver(IServiceCollection services) => SetDependencyResolver(new ServiceCollectionDependencyResolver(services));
 
-        private class ServiceCollectionDependencyResolver : IDependencyResolver
+        public static void SetDependencyResolver(IServiceCollection services, ServiceProviderOptions serviceProviderOptions) => SetDependencyResolver(new ServiceCollectionDependencyResolver(services, serviceProviderOptions));
+
+        private sealed class ServiceCollectionDependencyResolver : IDependencyResolver
         {
             private readonly IServiceProvider _serviceProvider;
-            private readonly IServiceCollection _services;
 
             public ServiceCollectionDependencyResolver(IServiceCollection services) : this(services, null)
             {
             }
 
-            public ServiceCollectionDependencyResolver(IServiceCollection services, bool validateScopes) : this(services, new ServiceProviderOptions()
-            {
-                ValidateScopes = validateScopes
-            })
+            public ServiceCollectionDependencyResolver(IServiceCollection services, ServiceProviderOptions serviceProviderOptions) : this(services.BuildServiceProvider(serviceProviderOptions ?? new ServiceProviderOptions()))
             {
             }
 
-            public ServiceCollectionDependencyResolver(IServiceCollection services, ServiceProviderOptions serviceProviderOptions)
+            private ServiceCollectionDependencyResolver(IServiceProvider serviceProvider)
             {
-                _services = services ?? throw new ArgumentNullException(nameof(services));
-                _serviceProvider = services.BuildServiceProvider(serviceProviderOptions ?? new ServiceProviderOptions());
+                _serviceProvider = serviceProvider;
             }
 
             public object GetService(Type serviceType)
             {
-                var serviceDescriptor = _services.FirstOrDefault(_ => _.ServiceType == serviceType);
-                if (null == serviceDescriptor && serviceType.IsGenericType)
-                {
-                    serviceDescriptor =
-                        _services.FirstOrDefault(x => x.ServiceType == serviceType.GetGenericTypeDefinition());
-                }
-                if (serviceDescriptor?.Lifetime == ServiceLifetime.Scoped) // 这样返回的话，如果是一个 IDisposable 对象的话，返回的是一个已经被 dispose 掉的对象
-                {
-                    using (var scope = _serviceProvider.CreateScope())
-                    {
-                        return scope.ServiceProvider.GetService(serviceType);
-                    }
-                }
-
                 return _serviceProvider.GetService(serviceType);
             }
 
