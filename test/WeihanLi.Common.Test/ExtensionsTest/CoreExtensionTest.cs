@@ -11,16 +11,49 @@ namespace WeihanLi.Common.Test.ExtensionsTest
         #region ObjectExtension
 
         [Fact]
-        public void ToTest()
+        public void ToGenericTest()
         {
             var num1 = 1.2;
             var toNum1 = num1.To<decimal>();
             Assert.Equal(typeof(decimal), toNum1.GetType());
             Assert.Equal(typeof(double), toNum1.To<double>().GetType());
 
+            // nullable test
+            var nullableNum = num1.To<decimal?>();
+            Assert.NotNull(nullableNum);
+            Assert.Equal(1.2m, nullableNum.Value);
+            Assert.Equal(1.2m, nullableNum.To<decimal>());
+            // nullable to nullable
+            var nullableNum2 = nullableNum.To<double?>();
+            Assert.NotNull(nullableNum2);
+            Assert.Equal(1.2d, nullableNum2.Value);
+
             // int to bool test
             Assert.False(0.To<bool>());
-            Assert.True(1.To<bool>());            
+            Assert.True(1.To<bool>());
+        }
+
+        [Fact]
+        public void ToTest()
+        {
+            var num1 = 1.2;
+            var toNum1 = num1.To(typeof(decimal));
+            Assert.Equal(typeof(decimal), toNum1.GetType());
+            Assert.Equal(typeof(double), toNum1.To(typeof(double)).GetType());
+
+            // nullable test
+            var nullableNum = num1.To(typeof(decimal?));
+            Assert.NotNull(nullableNum);
+            Assert.Equal(1.2m, ((decimal?)nullableNum).GetValueOrDefault());
+            Assert.Equal(1.2m, nullableNum.To(typeof(decimal)));
+            // nullable to nullable
+            var nullableNum2 = nullableNum.To(typeof(double?));
+            Assert.NotNull(nullableNum2);
+            Assert.Equal(1.2d, (double)nullableNum2.To(typeof(double)));
+
+            // int to bool test
+            Assert.False((bool)0.To(typeof(bool)));
+            Assert.True((bool)1.To(typeof(bool)));
         }
 
         #endregion ObjectExtension
