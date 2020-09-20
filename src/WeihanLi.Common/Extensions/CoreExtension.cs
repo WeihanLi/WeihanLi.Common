@@ -2151,38 +2151,27 @@ namespace WeihanLi.Extensions
         /// <returns>A T.</returns>
         public static T To<T>(this object @this)
         {
-            if (@this == null)
+            if (@this == null || @this == DBNull.Value)
             {
                 return (T)(object)null;
             }
 
-            var targetType = typeof(T);
-
-            if (@this.GetType() == targetType)
+            var targetType = typeof(T).Unwrap();
+            var sourceType = @this.GetType().Unwrap();
+            if (sourceType == targetType)
             {
                 return (T)@this;
             }
-            var converter = TypeDescriptor.GetConverter(@this);
-            if (converter != null)
+            var converter = TypeDescriptor.GetConverter(sourceType);
+            if (converter.CanConvertTo(targetType))
             {
-                if (converter.CanConvertTo(targetType))
-                {
-                    return (T)converter.ConvertTo(@this, targetType);
-                }
+                return (T)converter.ConvertTo(@this, targetType);
             }
 
             converter = TypeDescriptor.GetConverter(targetType);
-            if (converter != null)
+            if (converter.CanConvertFrom(sourceType))
             {
-                if (converter.CanConvertFrom(@this.GetType()))
-                {
-                    return (T)converter.ConvertFrom(@this);
-                }
-            }
-
-            if (@this == DBNull.Value)
-            {
-                return (T)(object)null;
+                return (T)converter.ConvertFrom(@this);
             }
 
             return (T)Convert.ChangeType(@this, targetType);
@@ -2196,42 +2185,32 @@ namespace WeihanLi.Extensions
         /// <returns>An object.</returns>
         public static object To([CanBeNull] this object @this, Type type)
         {
-            if (@this != null)
+            if (@this == null || @this == DBNull.Value)
             {
-                var targetType = type;
-
-                if (@this.GetType() == targetType)
-                {
-                    return @this;
-                }
-
-                var converter = TypeDescriptor.GetConverter(@this);
-                if (converter != null)
-                {
-                    if (converter.CanConvertTo(targetType))
-                    {
-                        return converter.ConvertTo(@this, targetType);
-                    }
-                }
-
-                converter = TypeDescriptor.GetConverter(targetType);
-                if (converter != null)
-                {
-                    if (converter.CanConvertFrom(@this.GetType()))
-                    {
-                        return converter.ConvertFrom(@this);
-                    }
-                }
-
-                if (@this == DBNull.Value)
-                {
-                    return null;
-                }
-
-                return Convert.ChangeType(@this, targetType);
+                return null;
             }
 
-            return @this;
+            var targetType = type.Unwrap();
+            var sourceType = @this.GetType().Unwrap();
+
+            if (sourceType == targetType)
+            {
+                return @this;
+            }
+
+            var converter = TypeDescriptor.GetConverter(sourceType);
+            if (converter.CanConvertTo(targetType))
+            {
+                return converter.ConvertTo(@this, targetType);
+            }
+
+            converter = TypeDescriptor.GetConverter(targetType);
+            if (converter.CanConvertFrom(sourceType))
+            {
+                return converter.ConvertFrom(@this);
+            }
+
+            return Convert.ChangeType(@this, targetType);
         }
 
         /// <summary>

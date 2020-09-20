@@ -246,10 +246,25 @@ namespace WeihanLi.Common.Data
         int Delete(Expression<Func<TEntity, bool>> whereExpression);
 
         /// <summary>
+        /// delete entity
+        /// </summary>
+        /// <param name="entity">entity</param>
+        /// <returns>rows affected</returns>
+        int Delete(TEntity entity);
+
+        /// <summary>
         /// Delete entities by  where
         /// </summary>
         /// <param name="whereExpression">whereExpression</param>
         /// <param name="cancellationToken">cancellationToken</param>
         Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// delete entity async
+        /// </summary>
+        /// <param name="entity">entity</param>
+        /// <param name="cancellationToken">cancellationToken</param>
+        /// <returns>rows affected</returns>
+        Task<int> DeleteAsync(TEntity entity, CancellationToken cancellationToken = default);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Common;
 using System.Linq;
@@ -18,11 +19,26 @@ namespace WeihanLi.Common.Data
     {
         #region TODO: Cache External
 
-        private readonly Lazy<Dictionary<string, string>> PrimaryKeyColumns = new Lazy<Dictionary<string, string>>(() => CacheUtil.TypePropertyCache
+        private readonly Lazy<Dictionary<string, string>> PrimaryKeyColumns = new Lazy<Dictionary<string, string>>(() =>
+            CacheUtil.TypePropertyCache
             .GetOrAdd(typeof(TEntity), t => t.GetProperties())
-            .Where(x => x.IsDefined(typeof(NotMappedAttribute)))
+            .Any(x => x.IsDefined(typeof(KeyAttribute)))
+            ?
+            CacheUtil.TypePropertyCache
+                .GetOrAdd(typeof(TEntity), t => t.GetProperties())
             .ToDictionary(x => x.Name, x => x.GetColumnName())
-            );
+            :
+                new Dictionary<string, string>(1)
+                {
+                    { "Id",
+                        CacheUtil.TypePropertyCache
+                        .GetOrAdd(typeof(TEntity), t => t.GetProperties())
+                        .FirstOrDefault(x => x.Name.Equals("Id"))?.GetColumnName()
+                        ?? throw new InvalidOperationException("no primary key found")
+                        }
+                }
+                )
+            ;
 
         private readonly Dictionary<string, string> ColumnMappings = CacheUtil.TypePropertyCache.GetOrAdd(typeof(TEntity), t => t.GetProperties())
              .Where(_ => !_.IsDefined(typeof(NotMappedAttribute)))
@@ -413,7 +429,7 @@ SET {propertyValues.Keys.Select(p => $"{GetColumnName(p)}=@set_{p}").StringJoin(
             return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
-        public int Update(TEntity entity, params Expression<Func<TEntity, object>>[] propertyExpressions)
+        public virtual int Update(TEntity entity, params Expression<Func<TEntity, object>>[] propertyExpressions)
         {
             if (propertyExpressions.Length == 0)
             {
@@ -427,6 +443,10 @@ SET {propertyValues.Keys.Select(p => $"{GetColumnName(p)}=@set_{p}").StringJoin(
                     ColumnName = p.Value,
                     Value = typeof(TEntity).GetPropertyValue(p.Key)
                 });
+            if (keyEntries.Count == 0)
+            {
+                return -1;
+            }
             //...
             var updateCols = propertyExpressions.Select(p => p.GetMemberName()).ToArray();
             var sql = $@"
@@ -446,7 +466,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.Execute(sql, parameters);
         }
 
-        public int UpdateWithout(TEntity entity, params Expression<Func<TEntity, object>>[] propertyExpressions)
+        public virtual int UpdateWithout(TEntity entity, params Expression<Func<TEntity, object>>[] propertyExpressions)
         {
             var keyEntries = PrimaryKeyColumns.Value
                 .ToDictionary(p => p.Key, p => new KeyEntry()
@@ -455,6 +475,10 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
                     ColumnName = p.Value,
                     Value = typeof(TEntity).GetPropertyValue(p.Key)
                 });
+            if (keyEntries.Count == 0)
+            {
+                return -1;
+            }
             //...
             var updateWithoutCols = propertyExpressions?.Select(p => p.GetMemberName()).ToArray() ?? ArrayHelper.Empty<string>();
             var updateCols = ColumnMappings.Keys
@@ -480,7 +504,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.Execute(sql, parameters);
         }
 
-        public int Update(TEntity entity, params string[] propertyNames)
+        public virtual int Update(TEntity entity, params string[] propertyNames)
         {
             if (propertyNames == null || propertyNames.Length == 0)
             {
@@ -494,6 +518,10 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
                     ColumnName = p.Value,
                     Value = typeof(TEntity).GetPropertyValue(p.Key)
                 });
+            if (keyEntries.Count == 0)
+            {
+                return -1;
+            }
             //...
             var updateCols = propertyNames;
             var sql = $@"
@@ -513,7 +541,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.Execute(sql, parameters);
         }
 
-        public int UpdateWithout(TEntity entity, params string[] propertyNames)
+        public virtual int UpdateWithout(TEntity entity, params string[] propertyNames)
         {
             var keyEntries = PrimaryKeyColumns.Value
                 .ToDictionary(p => p.Key, p => new KeyEntry()
@@ -522,6 +550,10 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
                     ColumnName = p.Value,
                     Value = typeof(TEntity).GetPropertyValue(p.Key)
                 });
+            if (keyEntries.Count == 0)
+            {
+                return -1;
+            }
             //...
             var updateWithoutCols = propertyNames ?? ArrayHelper.Empty<string>();
             var updateCols = ColumnMappings.Keys
@@ -547,7 +579,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.Execute(sql, parameters);
         }
 
-        public Task<int> UpdateWithoutAsync(TEntity entity, string[] propertyNames, CancellationToken cancellationToken = default)
+        public virtual Task<int> UpdateWithoutAsync(TEntity entity, string[] propertyNames, CancellationToken cancellationToken = default)
         {
             var keyEntries = PrimaryKeyColumns.Value
                 .ToDictionary(p => p.Key, p => new KeyEntry()
@@ -556,6 +588,11 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
                     ColumnName = p.Value,
                     Value = typeof(TEntity).GetPropertyValue(p.Key)
                 });
+            if (keyEntries.Count == 0)
+            {
+                return Task.FromResult(-1);
+            }
+
             //...
             var updateWithoutCols = propertyNames ?? ArrayHelper.Empty<string>();
             var updateCols = ColumnMappings.Keys
@@ -581,7 +618,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.ExecuteAsync(sql, paramInfo: parameters, cancellationToken: cancellationToken);
         }
 
-        public Task<int> UpdateAsync(TEntity entity, Expression<Func<TEntity, object>>[] propertyExpressions, CancellationToken cancellationToken = default)
+        public virtual Task<int> UpdateAsync(TEntity entity, Expression<Func<TEntity, object>>[] propertyExpressions, CancellationToken cancellationToken = default)
         {
             if (propertyExpressions == null || propertyExpressions.Length == 0)
             {
@@ -595,6 +632,10 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
                     ColumnName = p.Value,
                     Value = typeof(TEntity).GetPropertyValue(p.Key)
                 });
+            if (keyEntries.Count == 0)
+            {
+                return Task.FromResult(-1);
+            }
             //...
             var updateCols = propertyExpressions.Select(p => p.GetMemberName()).ToArray();
             var sql = $@"
@@ -614,7 +655,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.ExecuteAsync(sql, parameters, cancellationToken: cancellationToken);
         }
 
-        public Task<int> UpdateWithoutAsync(TEntity entity, Expression<Func<TEntity, object>>[] propertyExpressions,
+        public virtual Task<int> UpdateWithoutAsync(TEntity entity, Expression<Func<TEntity, object>>[] propertyExpressions,
             CancellationToken cancellationToken = default)
         {
             var keyEntries = PrimaryKeyColumns.Value
@@ -624,6 +665,10 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
                   ColumnName = p.Value,
                   Value = typeof(TEntity).GetPropertyValue(p.Key)
               });
+            if (keyEntries.Count == 0)
+            {
+                return Task.FromResult(-1);
+            }
             //...
             var updateWithoutCols = propertyExpressions?.Select(x => x.GetMemberName()).ToArray() ?? ArrayHelper.Empty<string>();
             var updateCols = ColumnMappings.Keys
@@ -649,7 +694,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.ExecuteAsync(sql, paramInfo: parameters, cancellationToken: cancellationToken);
         }
 
-        public Task<int> UpdateAsync(TEntity entity, string[] propertyNames, CancellationToken cancellationToken = default)
+        public virtual Task<int> UpdateAsync(TEntity entity, string[] propertyNames, CancellationToken cancellationToken = default)
         {
             if (propertyNames == null || propertyNames.Length == 0)
             {
@@ -663,6 +708,10 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
                     ColumnName = p.Value,
                     Value = typeof(TEntity).GetPropertyValue(p.Key)
                 });
+            if (keyEntries.Count == 0)
+            {
+                return Task.FromResult(-1);
+            }
             //...
             var updateCols = propertyNames;
             var sql = $@"
@@ -711,6 +760,30 @@ DELETE FROM {_tableName}
             return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
+        public virtual int Delete(TEntity entity)
+        {
+            var keyEntries = PrimaryKeyColumns.Value
+                .ToDictionary(p => p.Key, p => new KeyEntry()
+                {
+                    PropertyName = p.Key,
+                    ColumnName = p.Value,
+                    Value = typeof(TEntity).GetPropertyValue(p.Key)
+                });
+            if (keyEntries.Count == 0)
+            {
+                return -1;
+            }
+
+            var sql = $@"
+DELETE FROM {_tableName}
+WHERE {keyEntries.Select(x => $"{x.Value.ColumnName} = @{x.Key}").StringJoin(" AND ")}
+";
+            return _dbConnection.Value.Execute(sql,
+                keyEntries.ToDictionary(
+                        x => x.Key,
+                        x => x.Value.Value));
+        }
+
         public virtual Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -719,6 +792,30 @@ DELETE FROM {_tableName}
 {whereSql.SqlText}
 ";
             return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters, cancellationToken: cancellationToken);
+        }
+
+        public virtual async Task<int> DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
+        {
+            var keyEntries = PrimaryKeyColumns.Value
+                .ToDictionary(p => p.Key, p => new KeyEntry()
+                {
+                    PropertyName = p.Key,
+                    ColumnName = p.Value,
+                    Value = typeof(TEntity).GetPropertyValue(p.Key)
+                });
+            if (keyEntries.Count == 0)
+            {
+                return -1;
+            }
+
+            var sql = $@"
+DELETE FROM {_tableName}
+WHERE {keyEntries.Select(x => $"{x.Value.ColumnName} = @{x.Key}").StringJoin(" AND ")}
+";
+            return await _dbConnection.Value.ExecuteAsync(sql,
+                keyEntries.ToDictionary(
+                    x => x.Key,
+                    x => x.Value.Value), cancellationToken: cancellationToken);
         }
 
         public virtual int Execute(string sqlStr, object param = null)
