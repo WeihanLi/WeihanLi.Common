@@ -21,7 +21,7 @@ jobs:
     - name: Install SonarCloud scanner
       shell: bash
       run: |
-        dotnet tool install --global dotnet-sonarscanner --version 4.8.0
+        dotnet tool install --global dotnet-sonarscanner
     - name: Build and analyze
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
