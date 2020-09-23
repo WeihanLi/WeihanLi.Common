@@ -1,11 +1,11 @@
-﻿using System;
-using Serilog;
+﻿using Serilog;
+using System;
 
 namespace WeihanLi.Common.Logging.Serilog
 {
     public static class SerilogHelper
     {
-        private static readonly object Locker = new object();
+        private static readonly object _locker = new object();
 
         public static void LogInit(Action<LoggerConfiguration> configAction)
         {
@@ -17,7 +17,7 @@ namespace WeihanLi.Common.Logging.Serilog
 
         public static void LogInit(LoggerConfiguration loggerConfiguration)
         {
-            lock (Locker)
+            lock (_locker)
             {
                 Log.Logger = loggerConfiguration.CreateLogger();
             }
