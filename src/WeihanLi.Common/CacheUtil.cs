@@ -31,8 +31,8 @@ namespace WeihanLi.Common
 
     internal static class StrongTypedCache<T>
     {
-        public static ConcurrentDictionary<PropertyInfo, Func<T, object>> PropertyValueGetters = new ConcurrentDictionary<PropertyInfo, Func<T, object>>();
+        public static readonly ConcurrentDictionary<PropertyInfo, Func<T, object>> PropertyValueGetters = new ConcurrentDictionary<PropertyInfo, Func<T, object>>();
 
-        public static ConcurrentDictionary<PropertyInfo, Action<T, object>> PropertyValueSetters = new ConcurrentDictionary<PropertyInfo, Action<T, object>>();
+        public static readonly ConcurrentDictionary<PropertyInfo, Action<T, object>> PropertyValueSetters = new ConcurrentDictionary<PropertyInfo, Action<T, object>>();
     }
 }
