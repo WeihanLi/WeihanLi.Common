@@ -131,6 +131,10 @@ namespace WeihanLi.Common.Data
 
         private static string ParseConstantExpression(ConstantExpression exp)
         {
+            if (exp.Value == null)
+            {
+                return "IS NULL";
+            }
             if (exp.Value is string strVal)
             {
                 return $"N'{strVal.Replace("'", "''")}'";
