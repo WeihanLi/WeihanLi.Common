@@ -23,7 +23,7 @@ namespace DotNetCoreSample
             Console.WriteLine(fly.Name);
             fly.Fly();
 
-            DependencyResolver.TryInvokeService<IFly>(f =>
+            DependencyResolver.TryInvoke<IFly>(f =>
             {
                 Console.WriteLine(f.Name);
                 f.Fly();
