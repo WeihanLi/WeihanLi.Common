@@ -15,7 +15,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">当前流</param>
         /// <param name="byteArray">要写入的字节数组</param>
         /// <returns></returns>
-        public static void Write([NotNull] this Stream @this, [NotNull]byte[] byteArray)
+        public static void Write([NotNull] this Stream @this, [NotNull] byte[] byteArray)
         {
             @this.Write(byteArray, 0, byteArray.Length);
         }
@@ -26,7 +26,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">当前流</param>
         /// <param name="byteArray">要写入的字节数组</param>
         /// <returns></returns>
-        public static Task WriteAsync([NotNull] this Stream @this, [NotNull]byte[] byteArray)
+        public static Task WriteAsync([NotNull] this Stream @this, [NotNull] byte[] byteArray)
         {
             return @this.WriteAsync(byteArray, 0, byteArray.Length);
         }
@@ -37,7 +37,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">当前Stream</param>
         /// <param name="stream">stream</param>
         /// <returns></returns>
-        public static Stream Append([NotNull]this Stream @this, Stream stream)
+        public static Stream Append([NotNull] this Stream @this, Stream stream)
         {
             @this.Write(stream.ToByteArray());
             return @this;
@@ -49,7 +49,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">当前Stream</param>
         /// <param name="stream">stream</param>
         /// <returns></returns>
-        public static async Task<Stream> AppendAsync([NotNull]this Stream @this, Stream stream)
+        public static async Task<Stream> AppendAsync([NotNull] this Stream @this, Stream stream)
         {
             await @this.WriteAsync(await stream.ToByteArrayAsync());
             return @this;
@@ -60,7 +60,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The Stream to act on.</param>
         /// <returns>The Stream as a byte[].</returns>
-        public static byte[] ToByteArray([NotNull]this Stream @this)
+        public static byte[] ToByteArray([NotNull] this Stream @this)
         {
             if (@this is MemoryStream ms0)
                 return ms0.ToArray();
@@ -77,7 +77,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The Stream to act on.</param>
         /// <returns>The Stream as a byte[].</returns>
-        public static async Task<byte[]> ToByteArrayAsync([NotNull]this Stream @this)
+        public static async Task<byte[]> ToByteArrayAsync([NotNull] this Stream @this)
         {
             if (@this is MemoryStream ms0)
                 return ms0.ToArray();
@@ -97,9 +97,26 @@ namespace WeihanLi.Extensions
         ///     The rest of the stream as a string, from the current position to the end. If the current position is at the
         ///     end of the stream, returns an empty string ("").
         /// </returns>
-        public static string ReadToEnd([NotNull]this Stream @this)
+        public static string ReadToEnd([NotNull] this Stream @this)
         {
             using (var sr = new StreamReader(@this, Encoding.UTF8))
+            {
+                return sr.ReadToEnd();
+            }
+        }
+
+        /// <summary>
+        ///     A Stream extension method that reads a stream to the end.
+        /// </summary>
+        /// <param name="this">The @this to act on.</param>
+        /// <param name="encoding">The encoding.</param>
+        /// <returns>
+        ///     The rest of the stream as a string, from the current position to the end. If the current position is at the
+        ///     end of the stream, returns an empty string ("").
+        /// </returns>
+        public static string ReadToEnd([NotNull] this Stream @this, Encoding encoding)
+        {
+            using (var sr = new StreamReader(@this, encoding))
             {
                 return sr.ReadToEnd();
             }
@@ -113,7 +130,7 @@ namespace WeihanLi.Extensions
         ///     The rest of the stream as a string, from the current position to the end. If the current position is at the
         ///     end of the stream, returns an empty string ("").
         /// </returns>
-        public static async Task<string> ReadToEndAsync([NotNull]this Stream @this)
+        public static async Task<string> ReadToEndAsync([NotNull] this Stream @this)
         {
             using (var sr = new StreamReader(@this, Encoding.UTF8))
             {
@@ -130,24 +147,7 @@ namespace WeihanLi.Extensions
         ///     The rest of the stream as a string, from the current position to the end. If the current position is at the
         ///     end of the stream, returns an empty string ("").
         /// </returns>
-        public static string ReadToEnd([NotNull]this Stream @this, Encoding encoding)
-        {
-            using (var sr = new StreamReader(@this, encoding))
-            {
-                return sr.ReadToEnd();
-            }
-        }
-
-        /// <summary>
-        ///     A Stream extension method that reads a stream to the end.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="encoding">The encoding.</param>
-        /// <returns>
-        ///     The rest of the stream as a string, from the current position to the end. If the current position is at the
-        ///     end of the stream, returns an empty string ("").
-        /// </returns>
-        public static async Task<string> ReadToEndAsync([NotNull]this Stream @this, Encoding encoding)
+        public static async Task<string> ReadToEndAsync([NotNull] this Stream @this, Encoding encoding)
         {
             using (var sr = new StreamReader(@this, encoding))
             {

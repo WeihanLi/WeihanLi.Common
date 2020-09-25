@@ -1,8 +1,8 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 using WeihanLi.Common.DependencyInjection;
 
 #if NETSTANDARD
@@ -18,7 +18,7 @@ namespace WeihanLi.Common
     /// </summary>
     public static class DependencyResolver
     {
-        private static IDependencyResolver _currentResolver;
+        private static IDependencyResolver _currentResolver = new DefaultDependencyResolver();
 
         public static IDependencyResolver Current => _currentResolver;
 
@@ -27,10 +27,13 @@ namespace WeihanLi.Common
         /// </summary>
         private static readonly object _lock = new object();
 
-        static DependencyResolver()
-        {
-            _currentResolver = new DefaultDependencyResolver();
-        }
+        public static TService ResolveService<TService>() => _currentResolver.ResolveService<TService>();
+
+        public static IEnumerable<TService> ResolveServices<TService>() => _currentResolver.ResolveServices<TService>();
+
+        public static bool TryInvoke<TService>(Action<TService> action) => _currentResolver.TryInvokeService(action);
+
+        public static Task<bool> TryInvokeAsync<TService>(Func<TService, Task> action) => _currentResolver.TryInvokeServiceAsync(action);
 
         public static void SetDependencyResolver([NotNull] IDependencyResolver dependencyResolver)
         {
@@ -47,6 +50,78 @@ namespace WeihanLi.Common
         public static void SetDependencyResolver([NotNull] Func<Type, object> getServiceFunc) => SetDependencyResolver(getServiceFunc, serviceType => (IEnumerable<object>)getServiceFunc(typeof(IEnumerable<>).MakeGenericType(serviceType)));
 
         public static void SetDependencyResolver([NotNull] Func<Type, object> getServiceFunc, [NotNull] Func<Type, IEnumerable<object>> getServicesFunc) => SetDependencyResolver(new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc));
+
+#if NETSTANDARD
+
+        public static void SetDependencyResolver(IServiceCollection services) => SetDependencyResolver(new ServiceCollectionDependencyResolver(services));
+
+        public static void SetDependencyResolver(IServiceCollection services, ServiceProviderOptions serviceProviderOptions) => SetDependencyResolver(new ServiceCollectionDependencyResolver(services, serviceProviderOptions));
+
+        private sealed class ServiceCollectionDependencyResolver : IDependencyResolver
+        {
+            private readonly IServiceProvider _serviceProvider;
+
+            public ServiceCollectionDependencyResolver(IServiceCollection services) : this(services, null)
+            {
+            }
+
+            public ServiceCollectionDependencyResolver(IServiceCollection services, ServiceProviderOptions serviceProviderOptions) : this(services.BuildServiceProvider(serviceProviderOptions ?? new ServiceProviderOptions()))
+            {
+            }
+
+            private ServiceCollectionDependencyResolver(IServiceProvider serviceProvider)
+            {
+                _serviceProvider = serviceProvider;
+            }
+
+            public object GetService(Type serviceType)
+            {
+                return _serviceProvider.GetService(serviceType);
+            }
+
+            public IEnumerable<object> GetServices(Type serviceType)
+            {
+                return _serviceProvider.GetServices(serviceType);
+            }
+
+            public bool TryInvokeService<TService>(Action<TService> action)
+            {
+                if (action == null)
+                {
+                    return false;
+                }
+                using (var scope = _serviceProvider.CreateScope())
+                {
+                    var svc = (TService)scope.ServiceProvider.GetService(typeof(TService));
+                    if (svc == null)
+                    {
+                        return false;
+                    }
+                    action.Invoke(svc);
+                    return true;
+                }
+            }
+
+            public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
+            {
+                if (action == null)
+                {
+                    return false;
+                }
+                using (var scope = _serviceProvider.CreateScope())
+                {
+                    var svc = (TService)scope.ServiceProvider.GetService(typeof(TService));
+                    if (svc == null)
+                    {
+                        return false;
+                    }
+                    await action.Invoke(svc);
+                    return true;
+                }
+            }
+        }
+
+#endif
 
         private class DefaultDependencyResolver : IDependencyResolver
         {
@@ -188,85 +263,5 @@ namespace WeihanLi.Common
                 }
             }
         }
-
-#if NETSTANDARD
-
-        public static void SetDependencyResolver(IServiceCollection services) => SetDependencyResolver(new ServiceCollectionDependencyResolver(services));
-
-        public static void SetDependencyResolver(IServiceCollection services, ServiceProviderOptions serviceProviderOptions) => SetDependencyResolver(new ServiceCollectionDependencyResolver(services, serviceProviderOptions));
-
-        private sealed class ServiceCollectionDependencyResolver : IDependencyResolver
-        {
-            private readonly IServiceProvider _serviceProvider;
-
-            public ServiceCollectionDependencyResolver(IServiceCollection services) : this(services, null)
-            {
-            }
-
-            public ServiceCollectionDependencyResolver(IServiceCollection services, ServiceProviderOptions serviceProviderOptions) : this(services.BuildServiceProvider(serviceProviderOptions ?? new ServiceProviderOptions()))
-            {
-            }
-
-            private ServiceCollectionDependencyResolver(IServiceProvider serviceProvider)
-            {
-                _serviceProvider = serviceProvider;
-            }
-
-            public object GetService(Type serviceType)
-            {
-                return _serviceProvider.GetService(serviceType);
-            }
-
-            public IEnumerable<object> GetServices(Type serviceType)
-            {
-                return _serviceProvider.GetServices(serviceType);
-            }
-
-            public bool TryInvokeService<TService>(Action<TService> action)
-            {
-                if (action == null)
-                {
-                    return false;
-                }
-                using (var scope = _serviceProvider.CreateScope())
-                {
-                    var svc = (TService)scope.ServiceProvider.GetService(typeof(TService));
-                    if (svc == null)
-                    {
-                        return false;
-                    }
-                    action.Invoke(svc);
-                    return true;
-                }
-            }
-
-            public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
-            {
-                if (action == null)
-                {
-                    return false;
-                }
-                using (var scope = _serviceProvider.CreateScope())
-                {
-                    var svc = (TService)scope.ServiceProvider.GetService(typeof(TService));
-                    if (svc == null)
-                    {
-                        return false;
-                    }
-                    await action.Invoke(svc);
-                    return true;
-                }
-            }
-        }
-
-#endif
-
-        public static TService ResolveService<TService>() => _currentResolver.ResolveService<TService>();
-
-        public static IEnumerable<TService> ResolveServices<TService>() => _currentResolver.ResolveServices<TService>();
-
-        public static bool TryInvoke<TService>(Action<TService> action) => _currentResolver.TryInvokeService(action);
-
-        public static Task<bool> TryInvokeAsync<TService>(Func<TService, Task> action) => _currentResolver.TryInvokeServiceAsync(action);
     }
 }

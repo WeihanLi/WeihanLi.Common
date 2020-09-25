@@ -41,6 +41,13 @@ namespace WeihanLi.Common.Helpers
         }
 
         /// <summary>
+        /// Generates code for the specified <paramref name="securityToken"/>.
+        /// </summary>
+        /// <param name="securityToken">The security token to generate code.</param>
+        /// <returns>The generated code.</returns>
+        public static string GenerateCode(string securityToken) => GenerateCode(securityToken?.GetBytes());
+
+        /// <summary>
         /// ttl of the code for the specified <paramref name="securityToken"/>.
         /// </summary>
         /// <param name="securityToken">The security token to generate code.</param>
@@ -54,6 +61,12 @@ namespace WeihanLi.Common.Helpers
 
             return Totp.Value.RemainingSeconds();
         }
+
+        /// <summary>
+        /// ttl of the code for the specified <paramref name="securityToken"/>.
+        /// </summary>
+        /// <param name="securityToken">The security token to generate code.</param>
+        public static int TTL(string securityToken) => TTL(System.Text.Encoding.UTF8.GetBytes(securityToken));
 
         /// <summary>
         /// Validates the code for the specified <paramref name="securityToken"/>.
@@ -85,19 +98,6 @@ namespace WeihanLi.Common.Helpers
 
             return Totp.Value.Verify(bytes, code, TimeSpan.FromSeconds(expiresIn >= 0 ? expiresIn : DefaultOptions.ExpiresIn));
         }
-
-        /// <summary>
-        /// Generates code for the specified <paramref name="securityToken"/>.
-        /// </summary>
-        /// <param name="securityToken">The security token to generate code.</param>
-        /// <returns>The generated code.</returns>
-        public static string GenerateCode(string securityToken) => GenerateCode(securityToken?.GetBytes());
-
-        /// <summary>
-        /// ttl of the code for the specified <paramref name="securityToken"/>.
-        /// </summary>
-        /// <param name="securityToken">The security token to generate code.</param>
-        public static int TTL(string securityToken) => TTL(System.Text.Encoding.UTF8.GetBytes(securityToken));
 
         /// <summary>
         /// Validates the code for the specified <paramref name="securityToken"/>.

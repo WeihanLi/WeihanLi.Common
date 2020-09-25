@@ -22,12 +22,6 @@ namespace WeihanLi.Common.Event
 
     public static class EventQueueExtensions
     {
-        public static bool TryDequeue(this IEventQueue eventQueue, string queueName, out IEventBase @event)
-        {
-            @event = eventQueue.Dequeue(queueName);
-            return null != @event;
-        }
-
         private const string DefaultQueueName = "events";
 
         public static bool Enqueue<TEvent>(this IEventQueue eventQueue, TEvent @event)
@@ -40,6 +34,12 @@ namespace WeihanLi.Common.Event
             where TEvent : class, IEventBase
         {
             return eventQueue.EnqueueAsync(DefaultQueueName, @event);
+        }
+
+        public static bool TryDequeue(this IEventQueue eventQueue, string queueName, out IEventBase @event)
+        {
+            @event = eventQueue.Dequeue(queueName);
+            return null != @event;
         }
 
         public static bool TryDequeue(this IEventQueue eventQueue, out IEventBase @event)

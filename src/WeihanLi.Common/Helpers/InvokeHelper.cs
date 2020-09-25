@@ -99,35 +99,11 @@ namespace WeihanLi.Common.Helpers
             }
         }
 
-        public static async Task TryInvokeAsync(Func<Task> func)
-        {
-            try
-            {
-                await func();
-            }
-            catch (Exception ex)
-            {
-                OnInvokeException?.Invoke(ex);
-            }
-        }
-
         public static void TryInvoke<T>(Action<T> action, T t)
         {
             try
             {
                 action(t);
-            }
-            catch (Exception ex)
-            {
-                OnInvokeException?.Invoke(ex);
-            }
-        }
-
-        public static async Task TryInvokeAsync<T>(Func<T, Task> func, T t)
-        {
-            try
-            {
-                await func(t);
             }
             catch (Exception ex)
             {
@@ -164,6 +140,30 @@ namespace WeihanLi.Common.Helpers
             try
             {
                 action(t1, t2, t3);
+            }
+            catch (Exception ex)
+            {
+                OnInvokeException?.Invoke(ex);
+            }
+        }
+
+        public static async Task TryInvokeAsync(Func<Task> func)
+        {
+            try
+            {
+                await func();
+            }
+            catch (Exception ex)
+            {
+                OnInvokeException?.Invoke(ex);
+            }
+        }
+
+        public static async Task TryInvokeAsync<T>(Func<T, Task> func, T t)
+        {
+            try
+            {
+                await func(t);
             }
             catch (Exception ex)
             {

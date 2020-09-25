@@ -25,6 +25,26 @@ namespace WeihanLi.Common.Helpers
                 });
         }
 
+        public static IAsyncPipelineBuilder<TContext> Use<TContext>(this IAsyncPipelineBuilder<TContext> builder,
+            Func<TContext, Func<Task>, Task> func)
+        {
+            return builder.Use(next =>
+                context =>
+                {
+                    return func(context, () => next(context));
+                });
+        }
+
+        public static IAsyncPipelineBuilder<TContext> Use<TContext>(this IAsyncPipelineBuilder<TContext> builder,
+            Func<TContext, Func<TContext, Task>, Task> func)
+        {
+            return builder.Use(next =>
+                context =>
+                {
+                    return func(context, next);
+                });
+        }
+
         public static IPipelineBuilder<TContext> Run<TContext>(this IPipelineBuilder<TContext> builder, Action<TContext> handler)
         {
             return builder.Use(_ => handler);
@@ -66,26 +86,6 @@ namespace WeihanLi.Common.Helpers
             });
 
             return builder;
-        }
-
-        public static IAsyncPipelineBuilder<TContext> Use<TContext>(this IAsyncPipelineBuilder<TContext> builder,
-            Func<TContext, Func<Task>, Task> func)
-        {
-            return builder.Use(next =>
-                context =>
-                {
-                    return func(context, () => next(context));
-                });
-        }
-
-        public static IAsyncPipelineBuilder<TContext> Use<TContext>(this IAsyncPipelineBuilder<TContext> builder,
-            Func<TContext, Func<TContext, Task>, Task> func)
-        {
-            return builder.Use(next =>
-                context =>
-                {
-                    return func(context, next);
-                });
         }
 
         public static IAsyncPipelineBuilder<TContext> Run<TContext>(this IAsyncPipelineBuilder<TContext> builder, Func<TContext, Task> handler)

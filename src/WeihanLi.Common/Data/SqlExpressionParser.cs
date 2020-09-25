@@ -148,7 +148,6 @@ namespace WeihanLi.Common.Data
 
         private static string ParseMethodCallExpression(MethodCallExpression expression, IDictionary<string, string> columnMappings)
         {
-            // TODO:完善 Method Call 解析
             if (expression.Object?.Type == typeof(string))
             {
                 return ParseStringMethodCall(expression, columnMappings);

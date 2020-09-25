@@ -13,7 +13,7 @@ namespace WeihanLi.Common.Aspect
         public IInterceptorResolver InterceptorResolver
         {
             get => _interceptorResolver;
-            set => _interceptorResolver = value ?? throw new ArgumentNullException(nameof(InterceptorResolver));
+            set => _interceptorResolver = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         public HashSet<IInvocationEnricher> Enrichers { get; } = new HashSet<IInvocationEnricher>();

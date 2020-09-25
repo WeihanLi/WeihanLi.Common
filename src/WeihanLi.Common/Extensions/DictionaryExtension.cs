@@ -331,6 +331,27 @@ namespace WeihanLi.Extensions
             return col;
         }
 
+        public static NameValueCollection ToNameValueCollection(this IEnumerable<KeyValuePair<string, string>> source)
+        {
+            if (source == null)
+            {
+                return new NameValueCollection();
+            }
+
+            var collection = new NameValueCollection();
+
+            foreach (var item in source)
+            {
+                if (string.IsNullOrWhiteSpace(item.Key))
+                {
+                    continue;
+                }
+                collection.Add(item.Key, item.Value);
+            }
+
+            return collection;
+        }
+
         /// <summary>
         ///     An IDictionary&lt;string,object&gt; extension method that converts this object to a database parameters.
         /// </summary>
@@ -411,27 +432,6 @@ namespace WeihanLi.Extensions
 
                 yield return new KeyValuePair<string, string>(key, collection[key]);
             }
-        }
-
-        public static NameValueCollection ToNameValueCollection(this IEnumerable<KeyValuePair<string, string>> source)
-        {
-            if (source == null)
-            {
-                return new NameValueCollection();
-            }
-
-            var collection = new NameValueCollection();
-
-            foreach (var item in source)
-            {
-                if (string.IsNullOrWhiteSpace(item.Key))
-                {
-                    continue;
-                }
-                collection.Add(item.Key, item.Value);
-            }
-
-            return collection;
         }
 
         /// <summary>将键值集合转换成字符串，key1=value1&amp;key2=value2，k/v会编码</summary>

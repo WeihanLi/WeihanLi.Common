@@ -425,21 +425,6 @@ namespace WeihanLi.Extensions
         }
 
         [CanBeNull]
-        public static Action<T, object> GetValueSetter<T>(this PropertyInfo propertyInfo) where T : class
-        {
-            return StrongTypedCache<T>.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
-            {
-                if (!prop.CanWrite)
-                    return null;
-
-                var instance = Expression.Parameter(typeof(T), "i");
-                var argument = Expression.Parameter(typeof(object), "a");
-                var setterCall = Expression.Call(instance, prop.GetSetMethod(), Expression.Convert(argument, prop.PropertyType));
-                return (Action<T, object>)Expression.Lambda(setterCall, instance, argument).Compile();
-            });
-        }
-
-        [CanBeNull]
         public static Func<object, object> GetValueGetter([NotNull] this PropertyInfo propertyInfo)
         {
             return CacheUtil.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
@@ -455,6 +440,21 @@ namespace WeihanLi.Extensions
                     : Expression.Convert(instance, propertyInfo.DeclaringType), prop.GetGetMethod());
                 var castToObject = Expression.Convert(getterCall, typeof(object));
                 return (Func<object, object>)Expression.Lambda(castToObject, instance).Compile();
+            });
+        }
+
+        [CanBeNull]
+        public static Action<T, object> GetValueSetter<T>(this PropertyInfo propertyInfo) where T : class
+        {
+            return StrongTypedCache<T>.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
+            {
+                if (!prop.CanWrite)
+                    return null;
+
+                var instance = Expression.Parameter(typeof(T), "i");
+                var argument = Expression.Parameter(typeof(object), "a");
+                var setterCall = Expression.Call(instance, prop.GetSetMethod(), Expression.Convert(argument, prop.PropertyType));
+                return (Action<T, object>)Expression.Lambda(setterCall, instance, argument).Compile();
             });
         }
 

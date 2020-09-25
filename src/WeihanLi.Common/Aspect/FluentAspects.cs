@@ -2,7 +2,7 @@
 
 namespace WeihanLi.Common.Aspect
 {
-    public sealed class FluentAspects
+    public static class FluentAspects
     {
         public static readonly FluentAspectOptions AspectOptions;
 

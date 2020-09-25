@@ -71,11 +71,7 @@ namespace WeihanLi.Common.Otp
                 var hashResult = hmac.ComputeHash(stepBytes);
 
                 var offset = hashResult[hashResult.Length - 1] & 0xf;
-                var p = "";
-                for (var i = 0; i < 4; i++)
-                {
-                    p += hashResult[offset + i].ToString("X2");
-                }
+                var p = $"{hashResult[offset]:X2}{hashResult[offset + 1]:X2}{hashResult[offset + 2]:X2}{hashResult[offset + 3]:X2}";
                 var num = Convert.ToInt64(p, 16) & 0x7FFFFFFF;
                 var code = (num % _base).ToString("");
                 return code.PadLeft(_codeSize, '0');

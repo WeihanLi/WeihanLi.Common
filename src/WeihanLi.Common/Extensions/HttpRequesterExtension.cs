@@ -86,12 +86,12 @@ namespace WeihanLi.Extensions
 
         public static string Execute(this IHttpRequester httpRequester) => httpRequester.ExecuteBytes().GetString();
 
+        public static T Execute<T>(this IHttpRequester httpRequester, T defaultVal = default) => httpRequester.ExecuteBytes().GetString().ToOrDefault(defaultVal);
+
         public static Task<string> ExecuteAsync(this IHttpRequester httpRequester)
         {
             return httpRequester.ExecuteBytesAsync().ContinueWith(r => r.Result.GetString());
         }
-
-        public static T Execute<T>(this IHttpRequester httpRequester, T defaultVal = default) => httpRequester.ExecuteBytes().GetString().ToOrDefault(defaultVal);
 
         public static Task<T> ExecuteAsync<T>(this IHttpRequester httpRequester, T defaultVal = default)
         {
