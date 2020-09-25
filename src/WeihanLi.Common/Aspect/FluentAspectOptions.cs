@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WeihanLi.Common.Aspect
 {
-    public class FluentAspectOptions
+    public sealed class FluentAspectOptions
     {
         public readonly Dictionary<Func<IInvocation, bool>, IInterceptionConfiguration> InterceptionConfigurations = new Dictionary<Func<IInvocation, bool>, IInterceptionConfiguration>();
         private IInterceptorResolver _interceptorResolver = FluentConfigInterceptorResolver.Instance;

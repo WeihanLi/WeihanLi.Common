@@ -8,7 +8,6 @@ using WeihanLi.Common.DependencyInjection;
 #if NETSTANDARD
 
 using Microsoft.Extensions.DependencyInjection;
-using ServiceLifetime = Microsoft.Extensions.DependencyInjection.ServiceLifetime;
 
 #endif
 
@@ -105,8 +104,8 @@ namespace WeihanLi.Common
                 _getServices = getServices;
             }
 
-            public object GetService(Type type)
-            => _getService(type);
+            public object GetService(Type serviceType)
+            => _getService(serviceType);
 
             public IEnumerable<object> GetServices(Type serviceType)
                 => _getServices(serviceType);
@@ -266,8 +265,8 @@ namespace WeihanLi.Common
 
         public static IEnumerable<TService> ResolveServices<TService>() => _currentResolver.ResolveServices<TService>();
 
-        public static bool TryInvokeService<TService>(Action<TService> action) => _currentResolver.TryInvokeService(action);
+        public static bool TryInvoke<TService>(Action<TService> action) => _currentResolver.TryInvokeService(action);
 
-        public static Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action) => _currentResolver.TryInvokeServiceAsync(action);
+        public static Task<bool> TryInvokeAsync<TService>(Func<TService, Task> action) => _currentResolver.TryInvokeServiceAsync(action);
     }
 }

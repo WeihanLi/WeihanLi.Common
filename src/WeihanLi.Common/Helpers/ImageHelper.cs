@@ -1,10 +1,8 @@
-﻿using System;
-
-#if NET45
-using System.Web;
+﻿#if NET45
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Web;
 #endif
 
 namespace WeihanLi.Common.Helpers
@@ -145,18 +143,11 @@ namespace WeihanLi.Common.Helpers
             {
                 bitmap.Save(thumbPath, imageFormat);
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
             finally
             {
-                if (g != null)
-                    g.Dispose();
-                if (bitmap != null)
-                    bitmap.Dispose();
-                if (image != null)
-                    image.Dispose();
+                g.Dispose();
+                bitmap.Dispose();
+                image.Dispose();
             }
         }
 
@@ -283,20 +274,12 @@ namespace WeihanLi.Common.Helpers
                 else
                     originalImage.Save(targetPath);
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
             finally
             {
-                if (g != null)
-                    g.Dispose();
-                if (attributes != null)
-                    attributes.Dispose();
-                if (watermarkImage != null)
-                    watermarkImage.Dispose();
-                if (originalImage != null)
-                    originalImage.Dispose();
+                g?.Dispose();
+                attributes?.Dispose();
+                watermarkImage?.Dispose();
+                originalImage?.Dispose();
             }
         }
 
@@ -388,16 +371,10 @@ namespace WeihanLi.Common.Helpers
                 else
                     originalImage.Save(targetPath);
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
             finally
             {
-                if (g != null)
-                    g.Dispose();
-                if (originalImage != null)
-                    originalImage.Dispose();
+                g?.Dispose();
+                originalImage?.Dispose();
             }
         }
 #endif

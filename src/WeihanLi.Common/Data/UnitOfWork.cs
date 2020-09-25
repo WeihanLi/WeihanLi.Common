@@ -9,7 +9,7 @@ namespace WeihanLi.Common.Data
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
-        private readonly DbTransaction _dbTransaction;
+        protected readonly DbTransaction _dbTransaction;
 
         public UnitOfWork(DbConnection dbConnection)
         {
@@ -42,6 +42,24 @@ namespace WeihanLi.Common.Data
             return TaskHelper.CompletedTask;
         }
 
-        public void Dispose() => _dbTransaction?.Dispose();
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                // Cleanup
+                _dbTransaction?.Dispose();
+            }
+        }
+
+        ~UnitOfWork()
+        {
+            Dispose(false);
+        }
     }
 }

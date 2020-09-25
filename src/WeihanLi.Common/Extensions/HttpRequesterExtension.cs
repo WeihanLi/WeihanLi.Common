@@ -59,7 +59,7 @@ namespace WeihanLi.Extensions
 
         public static IHttpRequester WithXmlParameter<TEntity>(this IHttpRequester httpRequester, [NotNull] TEntity entity)
         {
-            return httpRequester.WithParameters(XmlDataSerializer.Instance.Value.Serialize(entity), "application/xml;charset=UTF-8");
+            return httpRequester.WithParameters(XmlDataSerializer._instance.Value.Serialize(entity), "application/xml;charset=UTF-8");
         }
 
         public static IHttpRequester WithJsonParameter<TEntity>(this IHttpRequester httpRequester, [NotNull] TEntity entity)
@@ -110,12 +110,12 @@ namespace WeihanLi.Extensions
 
         public static TEntity ExecuteForXml<TEntity>(this IHttpRequester httpRequester)
         {
-            return XmlDataSerializer.Instance.Value.Deserialize<TEntity>(httpRequester.ExecuteBytes());
+            return XmlDataSerializer._instance.Value.Deserialize<TEntity>(httpRequester.ExecuteBytes());
         }
 
         public static Task<TEntity> ExecuteForXmlAsync<TEntity>(this IHttpRequester httpRequester)
         {
-            return httpRequester.ExecuteBytesAsync().ContinueWith(r => XmlDataSerializer.Instance.Value.Deserialize<TEntity>(r.Result));
+            return httpRequester.ExecuteBytesAsync().ContinueWith(r => XmlDataSerializer._instance.Value.Deserialize<TEntity>(r.Result));
         }
     }
 }

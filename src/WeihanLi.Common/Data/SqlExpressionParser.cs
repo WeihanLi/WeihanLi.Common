@@ -155,11 +155,6 @@ namespace WeihanLi.Common.Data
             }
             //
             throw new NotImplementedException();
-            //if (expression.Object.Type == typeof(DateTime))
-            //{
-            //    return ParseDateTimeMethodCall(expression);
-            //}
-            // return string.Empty;
         }
     }
 

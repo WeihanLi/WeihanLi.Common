@@ -9,7 +9,7 @@ namespace WeihanLi.Common.Helpers
     /// Create Sequential Guid
     /// better performance for use guid as database primary key
     /// </summary>
-    public sealed class SequentialGuidGenerator
+    public static class SequentialGuidGenerator
     {
         private static readonly RandomNumberGenerator _randomNumberGenerator = RandomNumberGenerator.Create();
 

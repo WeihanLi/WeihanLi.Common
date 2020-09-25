@@ -39,11 +39,6 @@ namespace WeihanLi.Extensions
                         continue;
                     }
 
-                    //if (info.GetGenericArguments().Length != genericArguments.Length)
-                    //{
-                    //    continue;
-                    //}
-
                     var idx = 0;
                     foreach (var param in innerParams)
                     {

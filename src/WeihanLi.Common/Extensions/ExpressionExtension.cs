@@ -11,7 +11,7 @@ namespace WeihanLi.Extensions
     {
         // https://stackoverflow.com/questions/457316/combining-two-expressions-expressionfunct-bool/457328#457328
 
-        public static Expression<Func<T, bool>> Or<T>([NotNull]this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2)
+        public static Expression<Func<T, bool>> Or<T>([NotNull] this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2)
         {
             var parameter = Expression.Parameter(typeof(T));
 
@@ -116,7 +116,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="TMember">TMember</typeparam>
         /// <param name="expression">get member expression</param>
         /// <returns></returns>
-        public static MemberInfo GetMemberInfo<TEntity, TMember>([NotNull]this Expression<Func<TEntity, TMember>> expression)
+        public static MemberInfo GetMemberInfo<TEntity, TMember>([NotNull] this Expression<Func<TEntity, TMember>> expression)
         {
             if (expression.NodeType != ExpressionType.Lambda)
             {
@@ -128,7 +128,7 @@ namespace WeihanLi.Extensions
             var memberExpression = ExtractMemberExpression(lambda.Body);
             if (memberExpression == null)
             {
-                throw new ArgumentException(string.Format(Resource.propertyExpression_must_be_lambda_expression, nameof(memberExpression)), nameof(memberExpression));
+                throw new ArgumentException(string.Format(Resource.propertyExpression_must_be_lambda_expression, nameof(expression)), nameof(expression));
             }
             return memberExpression.Member;
         }

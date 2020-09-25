@@ -2,10 +2,11 @@
 using System;
 using System.Collections.Concurrent;
 
+// ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.Logging
 {
     [ProviderAlias("Delegate")]
-    public class DelegateLoggerProvider : ILoggerProvider
+    public sealed class DelegateLoggerProvider : ILoggerProvider
     {
         private readonly Action<string, LogLevel, Exception, string> _logAction;
         private readonly ConcurrentDictionary<string, DelegateLogger> _loggers = new ConcurrentDictionary<string, DelegateLogger>();

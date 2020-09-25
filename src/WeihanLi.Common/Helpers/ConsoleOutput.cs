@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WeihanLi.Common.Helpers
 {
-    public class ConsoleOutput : IDisposable
+    public sealed class ConsoleOutput : IDisposable
     {
         private TextWriter _originalOutputWriter;
         private TextWriter _originalErrorWriter;

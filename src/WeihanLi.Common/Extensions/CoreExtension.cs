@@ -1614,7 +1614,7 @@ namespace WeihanLi.Extensions
         /// <param name="sender">Source of the event.</param>
         public static void RaiseEvent([CanBeNull] this EventHandler @this, object sender)
         {
-            @this?.Invoke(sender, null);
+            @this?.Invoke(sender, EventArgs.Empty);
         }
 
         /// <summary>
@@ -1636,7 +1636,7 @@ namespace WeihanLi.Extensions
         /// <param name="sender">Source of the event.</param>
         public static void RaiseEvent<TEventArgs>([CanBeNull] this EventHandler<TEventArgs> @this, object sender) where TEventArgs : EventArgs
         {
-            @this?.Invoke(sender, Activator.CreateInstance<TEventArgs>());
+            @this?.Invoke(sender, default);
         }
 
         /// <summary>

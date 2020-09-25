@@ -53,26 +53,24 @@ namespace WeihanLi.Common.Aspect
             }
 
             // ensure return value
-            if (invocation.ProxyMethod.ReturnType != typeof(void))
+            if (invocation.ProxyMethod.ReturnType != typeof(void) && invocation.ReturnValue == null)
             {
-                if (invocation.ReturnValue == null)
+                if (invocation.ProxyMethod.ReturnType.IsValueType)
                 {
-                    if (invocation.ProxyMethod.ReturnType.IsValueType)
-                    {
-                        invocation.ReturnValue = invocation.ProxyMethod.ReturnType.GetDefaultValue();
-                    }
+                    invocation.ReturnValue = invocation.ProxyMethod.ReturnType.GetDefaultValue();
+                }
 
-                    if (invocation.ProxyMethod.ReturnType == typeof(Task))
-                    {
-                        invocation.ReturnValue = TaskHelper.CompletedTask;
-                    }
+                if (invocation.ProxyMethod.ReturnType == typeof(Task))
+                {
+                    invocation.ReturnValue = TaskHelper.CompletedTask;
+                }
 
-                    if (invocation.ProxyMethod.ReturnType.IsGenericType
-                        && invocation.ProxyMethod.ReturnType.IsAssignableTo<Task>())
-                    {
-                        var resultType = invocation.ProxyMethod.ReturnType.GetGenericArguments()[0];
-                        invocation.ReturnValue = Task.FromResult(resultType.GetDefaultValue());
-                    }
+                if (invocation.ProxyMethod.ReturnType.IsGenericType
+                    && invocation.ProxyMethod.ReturnType.IsAssignableTo<Task>())
+                {
+                    var resultType = invocation.ProxyMethod.ReturnType.GetGenericArguments()[0];
+                    invocation.ReturnValue = Task.FromResult(resultType.GetDefaultValue());
+                }
 
 #if NETSTANDARD2_1
                     if (invocation.ProxyMethod.ReturnType == typeof(ValueTask))
@@ -86,7 +84,6 @@ namespace WeihanLi.Common.Aspect
                         invocation.ReturnValue = new ValueTask(Task.FromResult(resultType.GetDefaultValue()));
                     }
 #endif
-                }
             }
         }
 

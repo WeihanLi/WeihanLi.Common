@@ -30,7 +30,7 @@ namespace WeihanLi.Common.Helpers
 
     public class BinaryDataSerializer : IDataSerializer
     {
-        private readonly BinaryFormatter _binaryFormatter = new BinaryFormatter();
+        private static readonly Lazy<BinaryFormatter> _binaryFormatter = new Lazy<BinaryFormatter>();
 
         public virtual T Deserialize<T>(byte[] bytes)
         {
@@ -40,7 +40,7 @@ namespace WeihanLi.Common.Helpers
             }
             using (var memoryStream = new MemoryStream(bytes))
             {
-                return (T)_binaryFormatter.Deserialize(memoryStream);
+                return (T)_binaryFormatter.Value.Deserialize(memoryStream);
             }
         }
 
@@ -52,7 +52,7 @@ namespace WeihanLi.Common.Helpers
             }
             using (var memoryStream = new MemoryStream())
             {
-                _binaryFormatter.Serialize(memoryStream, obj);
+                _binaryFormatter.Value.Serialize(memoryStream, obj);
                 return memoryStream.ToArray();
             }
         }
@@ -60,7 +60,7 @@ namespace WeihanLi.Common.Helpers
 
     public class XmlDataSerializer : IDataSerializer
     {
-        public static Lazy<XmlDataSerializer> Instance = new Lazy<XmlDataSerializer>();
+        internal static readonly Lazy<XmlDataSerializer> _instance = new Lazy<XmlDataSerializer>();
 
         public virtual T Deserialize<T>(byte[] bytes)
         {

@@ -25,13 +25,6 @@ namespace WeihanLi.Common.Logging
         /// <param name="filterFunc">filterFunc, logProviderType/categoryName/Exception, whether to write log</param>
         bool AddFilter(Func<Type, LogHelperLoggingEvent, bool> filterFunc);
 
-        ///// <summary>
-        ///// config period batching
-        ///// </summary>
-        ///// <param name="period">period</param>
-        ///// <param name="batchSize">batchSize</param>
-        //void PeriodBatchingConfig(TimeSpan period, int batchSize);
-
         /// <summary>
         /// Build for LogFactory
         /// </summary>

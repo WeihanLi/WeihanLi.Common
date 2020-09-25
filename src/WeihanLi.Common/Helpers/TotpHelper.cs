@@ -4,7 +4,7 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers
 {
-    public class TotpHelper
+    public static class TotpHelper
     {
         private static readonly Lazy<Totp> Totp = new Lazy<Totp>(() => new Totp(DefaultOptions.Algorithm, DefaultOptions.Size));
 

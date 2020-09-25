@@ -1,8 +1,8 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
-using JetBrains.Annotations;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
@@ -23,11 +23,6 @@ namespace WeihanLi.Common.Extensions
         private static readonly string[] SearchEngines =
             {"baidu", "google", "360", "sogou", "bing", "msn", "sohu", "soso", "sina", "163", "yahoo", "jikeu"};
 
-        //meta正则表达式
-        private static readonly Regex metaRegex = new Regex("<meta([^<]*)charset=([^<]*)[\"']",
-            RegexOptions.IgnoreCase | RegexOptions.Multiline);
-
-        //侦测移动浏览器正则表达式
         private static Regex _detectMobileBrowserRegexB = new Regex(
             @"(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino",
             RegexOptions.IgnoreCase | RegexOptions.Multiline);
@@ -40,7 +35,7 @@ namespace WeihanLi.Common.Extensions
         /// 是否是Ajax请求
         /// </summary>
         /// <returns></returns>
-        public static bool IsAjax([NotNull]this HttpRequestBase request)
+        public static bool IsAjax([NotNull] this HttpRequestBase request)
             => "XMLHttpRequest".Equals(request.Headers["X-Requested-With"], StringComparison.OrdinalIgnoreCase);
 
         /// <summary>
@@ -50,7 +45,7 @@ namespace WeihanLi.Common.Extensions
         /// <param name="key">键</param>
         /// <param name="defaultValue">默认值</param>
         /// <returns></returns>
-        public static string GetQueryString([NotNull]this HttpRequestBase request, string key, string defaultValue) => request.QueryString[key] ?? defaultValue;
+        public static string GetQueryString([NotNull] this HttpRequestBase request, string key, string defaultValue) => request.QueryString[key] ?? defaultValue;
 
         /// <summary>
         /// 获得查询字符串中的值
@@ -58,7 +53,7 @@ namespace WeihanLi.Common.Extensions
         /// <param name="request">request</param>
         /// <param name="key">键</param>
         /// <returns></returns>
-        public static string GetQueryString([NotNull]this HttpRequestBase request, string key) => request.GetQueryString(key, "");
+        public static string GetQueryString([NotNull] this HttpRequestBase request, string key) => request.GetQueryString(key, "");
 
         /// <summary>
         /// 获得表单中的值
@@ -67,15 +62,16 @@ namespace WeihanLi.Common.Extensions
         /// <param name="key">键</param>
         /// <param name="defaultValue">默认值</param>
         /// <returns></returns>
-        public static string GetFormString([NotNull]this HttpRequestBase request, string key, string defaultValue)
+        public static string GetFormString([NotNull] this HttpRequestBase request, string key, string defaultValue)
             => request.Form[key] ?? defaultValue;
 
         /// <summary>
         /// 获得表单中的值
         /// </summary>
+        /// <param name="request">request</param>
         /// <param name="key">键</param>
         /// <returns></returns>
-        public static string GetFormString([NotNull]this HttpRequestBase request, string key) => request.GetFormString(key, "");
+        public static string GetFormString([NotNull] this HttpRequestBase request, string key) => request.GetFormString(key, "");
 
         /// <summary>
         /// 获得请求中的值
@@ -84,7 +80,7 @@ namespace WeihanLi.Common.Extensions
         /// <param name="key">键</param>
         /// <param name="defaultValue">默认值</param>
         /// <returns></returns>
-        public static string GetRequestString([NotNull]this HttpRequestBase request, string key, string defaultValue) => request[key] ?? defaultValue;
+        public static string GetRequestString([NotNull] this HttpRequestBase request, string key, string defaultValue) => request[key] ?? defaultValue;
 
         /// <summary>
         /// 获得请求中的值
@@ -92,31 +88,31 @@ namespace WeihanLi.Common.Extensions
         /// <param name="request">request</param>
         /// <param name="key">键</param>
         /// <returns></returns>
-        public static string GetRequestString([NotNull]this HttpRequestBase request, string key) => request.GetRequestString(key, "");
+        public static string GetRequestString([NotNull] this HttpRequestBase request, string key) => request.GetRequestString(key, "");
 
         /// <summary>
         /// 获得上次请求的url
         /// </summary>
         /// <returns></returns>
-        public static string GetUrlReferrer([NotNull]this HttpRequestBase request) => request.UrlReferrer?.ToString() ?? string.Empty;
+        public static string GetUrlReferrer([NotNull] this HttpRequestBase request) => request.UrlReferrer?.ToString() ?? string.Empty;
 
         /// <summary>
         /// 获得请求的主机部分
         /// </summary>
         /// <returns></returns>
-        public static string GetHost([NotNull]this HttpRequestBase request) => request.Url.Host;
+        public static string GetHost([NotNull] this HttpRequestBase request) => request.Url.Host;
 
         /// <summary>
         /// 获得请求的url
         /// </summary>
         /// <returns></returns>
-        public static string GetUrl([NotNull]this HttpRequestBase request) => request.Url.ToString();
+        public static string GetUrl([NotNull] this HttpRequestBase request) => request.Url.ToString();
 
         /// <summary>
         /// 获得请求的ip
         /// </summary>
         /// <returns></returns>
-        public static string GetIP([NotNull]this HttpRequestBase request)
+        public static string GetIP([NotNull] this HttpRequestBase request)
         {
             string ip = string.Empty;
             if (request.ServerVariables["HTTP_VIA"] != null)
@@ -175,7 +171,7 @@ namespace WeihanLi.Common.Extensions
         /// 获得请求客户端的操作系统类型
         /// </summary>
         /// <returns></returns>
-        public static string GetOsType([NotNull]this HttpRequestBase request)
+        public static string GetOsType([NotNull] this HttpRequestBase request)
         {
             string userAgent = request.UserAgent;
             if (userAgent == null)
@@ -226,7 +222,7 @@ namespace WeihanLi.Common.Extensions
         /// 获得请求客户端的操作系统名称
         /// </summary>
         /// <returns></returns>
-        public static string GetOsName([NotNull]this HttpRequestBase request) => request.Browser.Platform ?? "Unknown";
+        public static string GetOsName([NotNull] this HttpRequestBase request) => request.Browser.Platform ?? "Unknown";
 
         /// <summary>
         /// 判断是否是浏览器请求
@@ -263,7 +259,7 @@ namespace WeihanLi.Common.Extensions
         /// 判断是否是搜索引擎爬虫请求
         /// </summary>
         /// <returns></returns>
-        public static bool IsCrawler([NotNull]this HttpRequestBase request)
+        public static bool IsCrawler([NotNull] this HttpRequestBase request)
         {
             bool result = request.Browser.Crawler;
             if (!result)
