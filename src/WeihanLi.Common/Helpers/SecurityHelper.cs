@@ -8,7 +8,7 @@ namespace WeihanLi.Common.Helpers
     /// </summary>
     public static class SecurityHelper
     {
-        private static readonly char[] Constant = new[]
+        private static readonly char[] _constantCharacters = new[]
         {
             '0',
             '1',
@@ -48,7 +48,7 @@ namespace WeihanLi.Common.Helpers
             'z'
         };
 
-        private static readonly char[] ConstantNumber = new[]
+        private static readonly char[] _constantNumber = new[]
         {
             '0',
             '1',
@@ -75,11 +75,11 @@ namespace WeihanLi.Common.Helpers
             char[] array;
             if (isNumberOnly)
             {
-                array = ConstantNumber;
+                array = _constantNumber;
             }
             else
             {
-                array = Constant;
+                array = _constantCharacters;
             }
             var stringBuilder = new StringBuilder(length);
             for (var i = 0; i < length; i++)
@@ -97,11 +97,7 @@ namespace WeihanLi.Common.Helpers
         /// <returns>加密后字符串</returns>
         public static string MD5(string sourceString, bool isLower = false)
         {
-            if (string.IsNullOrEmpty(sourceString))
-            {
-                return "";
-            }
-            return HashHelper.GetHashedString(HashType.MD5, sourceString, isLower);
+            return string.IsNullOrEmpty(sourceString) ? string.Empty : HashHelper.GetHashedString(HashType.MD5, sourceString, isLower);
         }
 
         /// <summary>
@@ -109,11 +105,7 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         public static string SHA1(string sourceString, bool isLower = false)
         {
-            if (string.IsNullOrEmpty(sourceString))
-            {
-                return "";
-            }
-            return HashHelper.GetHashedString(HashType.SHA1, sourceString, isLower);
+            return string.IsNullOrEmpty(sourceString) ? string.Empty : HashHelper.GetHashedString(HashType.SHA1, sourceString, isLower);
         }
 
         /// <summary>
@@ -121,11 +113,7 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         public static string SHA256(string sourceString, bool isLower = false)
         {
-            if (string.IsNullOrEmpty(sourceString))
-            {
-                return "";
-            }
-            return HashHelper.GetHashedString(HashType.SHA256, sourceString, isLower);
+            return string.IsNullOrEmpty(sourceString) ? string.Empty : HashHelper.GetHashedString(HashType.SHA256, sourceString, isLower);
         }
 
         /// <summary>
@@ -133,11 +121,7 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         public static string SHA512(string sourceString, bool isLower = false)
         {
-            if (string.IsNullOrEmpty(sourceString))
-            {
-                return "";
-            }
-            return HashHelper.GetHashedString(HashType.SHA512, sourceString, isLower);
+            return string.IsNullOrEmpty(sourceString) ? string.Empty : HashHelper.GetHashedString(HashType.SHA512, sourceString, isLower);
         }
     }
 }
