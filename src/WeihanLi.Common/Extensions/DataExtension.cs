@@ -561,8 +561,10 @@ namespace WeihanLi.Extensions
         {
             if (paramInfo != null)
             {
-                if (paramInfo is IDictionary<string, object> parameters) // dictionary
+                IDictionary<string, object> parameters;
+                if (paramInfo is IDictionary<string, object>) // dictionary
                 {
+                    parameters = (IDictionary<string, object>)paramInfo;
                 }
                 else if (paramInfo.IsValueTuple()) // Tuple
                 {

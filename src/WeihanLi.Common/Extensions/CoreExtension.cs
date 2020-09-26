@@ -1846,11 +1846,11 @@ namespace WeihanLi.Extensions
         ///     An Int32 extension method that factor of.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
-        /// <param name="factorNumer">The factor numer.</param>
+        /// <param name="factorNumber">The factor number.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static bool FactorOf(this int @this, int factorNumer)
+        public static bool FactorOf(this int @this, int factorNumber)
         {
-            return factorNumer % @this == 0;
+            return factorNumber % @this == 0;
         }
 
         /// <summary>
