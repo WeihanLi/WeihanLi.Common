@@ -1,4 +1,5 @@
-﻿using WeihanLi.Extensions;
+﻿using WeihanLi.Common.Models;
+using WeihanLi.Extensions;
 using Xunit;
 
 namespace WeihanLi.Common.Test.ExtensionsTest
@@ -56,7 +57,34 @@ namespace WeihanLi.Common.Test.ExtensionsTest
             Assert.True((bool)1.To(typeof(bool)));
         }
 
+        [Fact]
+        public void ToSafeString()
+        {
+            var category = new Category();
+            Assert.Equal(category.ToString(), category.ToSafeString());
+            category = null;
+            Assert.Equal(string.Empty, category.ToSafeString());
+        }
+
         #endregion ObjectExtension
+
+        #region BoolExtensions
+
+        [Fact]
+        public void IfTest()
+        {
+            var num = 1;
+            true.IfTrue(() => num++);
+            Assert.Equal(2, num);
+            false.IfTrue(() => num++);
+            Assert.Equal(2, num);
+            true.IfFalse(() => num++);
+            Assert.Equal(2, num);
+            false.IfFalse(() => num++);
+            Assert.Equal(3, num);
+        }
+
+        #endregion BoolExtensions
 
         #region StringExtensionTest
 

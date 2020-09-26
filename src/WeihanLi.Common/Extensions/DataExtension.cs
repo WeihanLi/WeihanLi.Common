@@ -561,19 +561,18 @@ namespace WeihanLi.Extensions
         {
             if (paramInfo != null)
             {
-                IDictionary<string, object> parameters;
-                if (paramInfo is IDictionary<string, object>) // dictionary
+                var parameters = paramInfo as IDictionary<string, object>;
+                if (parameters == null)
                 {
-                    parameters = (IDictionary<string, object>)paramInfo;
-                }
-                else if (paramInfo.IsValueTuple()) // Tuple
-                {
-                    parameters = paramInfo.GetFields().ToDictionary(f => f.Name, f => f.GetValue(paramInfo));
-                }
-                else // get properties
-                {
-                    parameters = CacheUtil.GetTypeProperties(paramInfo.GetType())
-                        .ToDictionary(x => x.Name, x => x.GetValueGetter()?.Invoke(paramInfo));
+                    if (paramInfo.IsValueTuple()) // Tuple
+                    {
+                        parameters = paramInfo.GetFields().ToDictionary(f => f.Name, f => f.GetValue(paramInfo));
+                    }
+                    else // get properties
+                    {
+                        parameters = CacheUtil.GetTypeProperties(paramInfo.GetType())
+                            .ToDictionary(x => x.Name, x => x.GetValueGetter()?.Invoke(paramInfo));
+                    }
                 }
                 //
                 foreach (var parameter in parameters)

@@ -39,7 +39,7 @@ namespace WeihanLi.Extensions
 
         public static string ToQueryString(this NameValueCollection source)
         {
-            if (source == null || !source.HasKeys())
+            if (source == null || source.Count <= 0)
             {
                 return string.Empty;
             }
