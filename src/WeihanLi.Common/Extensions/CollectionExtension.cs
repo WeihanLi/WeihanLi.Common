@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Net;
 using System.Text;
 
 // ReSharper disable once CheckNamespace
@@ -40,9 +39,9 @@ namespace WeihanLi.Extensions
 
         public static string ToQueryString(this NameValueCollection source)
         {
-            if (source == null)
+            if (source == null || !source.HasKeys())
             {
-                return null;
+                return string.Empty;
             }
 
             var sb = new StringBuilder(1024);
@@ -54,12 +53,12 @@ namespace WeihanLi.Extensions
                     continue;
                 }
                 sb.Append("&");
-                sb.Append(WebUtility.UrlEncode(key));
+                sb.Append(key.UrlEncode());
                 sb.Append("=");
                 var val = source.Get(key);
                 if (val != null)
                 {
-                    sb.Append(WebUtility.UrlEncode(val));
+                    sb.Append(val.UrlEncode());
                 }
             }
 
@@ -311,18 +310,21 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <param name="predicate">The predicate.</param>
-        public static void RemoveWhere<T>([NotNull] this ICollection<T> @this, Func<T, bool> predicate)
+        public static void RemoveWhere<T>([NotNull] this IList<T> @this, Func<T, bool> predicate)
         {
-            if (@this.IsReadOnly) return;
-            var list = @this.Where(predicate).ToList();
-            foreach (var item in list)
+            if (@this.IsReadOnly || @this.Count == 0) return;
+
+            for (var i = @this.Count - 1; i >= 0; i--)
             {
-                @this.Remove(item);
+                if (predicate(@this[i]))
+                {
+                    @this.RemoveAt(i);
+                }
             }
         }
 
         /// <summary>
-        /// 获取随机排序后列表
+        /// GetRandomList
         /// </summary>
         /// <typeparam name="T">T</typeparam>
         /// <param name="list">list</param>

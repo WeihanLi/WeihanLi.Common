@@ -8,11 +8,8 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Extensions
 {
-    // TODO: move to WeihanLi.Web.Extensions
     public static class RequestExtension
     {
-#if NET45
-
         #region 客户端信息
 
         //浏览器列表
@@ -273,7 +270,5 @@ namespace WeihanLi.Common.Extensions
         }
 
         #endregion 客户端信息
-
-#endif
     }
 }

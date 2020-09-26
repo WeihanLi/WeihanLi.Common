@@ -11,7 +11,7 @@ namespace WeihanLi.Data
 {
     public static class SqlExtensions
     {
-        public const string QueryTableColumnsSqlText = @"
+        private const string QueryTableColumnsSqlText = @"
 SELECT c.[name]
 FROM sys.columns c
     JOIN sys.tables t
@@ -48,7 +48,7 @@ ORDER BY c.[column_id];
             {
                 return 0;
             }
-            var props = CacheUtil.TypePropertyCache.GetOrAdd(typeof(T), t => t.GetProperties());
+            var props = CacheUtil.GetTypeFields(typeof(T));
             var cols = conn.GetColumnNamesFromDb(tableName).Where(_ => props.Any(p => p.Name.EqualsIgnoreCase(_))).ToArray();
             var dataTable = new DataTable();
             dataTable.Columns.AddRange(cols.Select(c => new DataColumn(c)).ToArray());
@@ -57,35 +57,12 @@ ORDER BY c.[column_id];
                 var row = dataTable.NewRow();
                 foreach (DataColumn col in dataTable.Columns)
                 {
-                    row[col] = props.FirstOrDefault(_ => _.Name.EqualsIgnoreCase(col.ColumnName))?.GetValue(item);
+                    row[col] = props.FirstOrDefault(_ => _.Name.EqualsIgnoreCase(col.ColumnName))
+                        ?.GetValue(item);
                 }
                 dataTable.Rows.Add(row);
             }
             return conn.BulkCopy(dataTable, tableName, bulkCopyTimeout);
-        }
-
-        public static Task<int> BulkCopyAsync<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName) => BulkCopyAsync(conn, list, tableName, 60);
-
-        public static async Task<int> BulkCopyAsync<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName, int bulkCopyTimeout)
-        {
-            if (list == null || list.Count == 0)
-            {
-                return 0;
-            }
-            var props = CacheUtil.TypePropertyCache.GetOrAdd(typeof(T), t => t.GetProperties());
-            var cols = (await conn.GetColumnNamesFromDbAsync(tableName)).Where(_ => props.Any(p => p.Name.EqualsIgnoreCase(_))).ToArray();
-            var dataTable = new DataTable();
-            dataTable.Columns.AddRange(cols.Select(c => new DataColumn(c)).ToArray());
-            foreach (var item in list)
-            {
-                var row = dataTable.NewRow();
-                foreach (DataColumn col in dataTable.Columns)
-                {
-                    row[col] = props.FirstOrDefault(_ => _.Name.EqualsIgnoreCase(col.ColumnName))?.GetValue(item);
-                }
-                dataTable.Rows.Add(row);
-            }
-            return await conn.BulkCopyAsync(dataTable, tableName, bulkCopyTimeout);
         }
 
         /// <summary>
@@ -145,6 +122,30 @@ ORDER BY c.[column_id];
                 bulkCopy.WriteToServer(dataTable);
                 return 1;
             }
+        }
+
+        public static Task<int> BulkCopyAsync<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName) => BulkCopyAsync(conn, list, tableName, 60);
+
+        public static async Task<int> BulkCopyAsync<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName, int bulkCopyTimeout)
+        {
+            if (list == null || list.Count == 0)
+            {
+                return 0;
+            }
+            var props = CacheUtil.GetTypeProperties(typeof(T));
+            var cols = (await conn.GetColumnNamesFromDbAsync(tableName)).Where(_ => props.Any(p => p.Name.EqualsIgnoreCase(_))).ToArray();
+            var dataTable = new DataTable();
+            dataTable.Columns.AddRange(cols.Select(c => new DataColumn(c)).ToArray());
+            foreach (var item in list)
+            {
+                var row = dataTable.NewRow();
+                foreach (DataColumn col in dataTable.Columns)
+                {
+                    row[col] = props.FirstOrDefault(_ => _.Name.EqualsIgnoreCase(col.ColumnName))?.GetValue(item);
+                }
+                dataTable.Rows.Add(row);
+            }
+            return await conn.BulkCopyAsync(dataTable, tableName, bulkCopyTimeout);
         }
 
         /// <summary>

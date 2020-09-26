@@ -55,7 +55,7 @@ namespace WeihanLi.Extensions
             {
                 throw new ArgumentNullException(nameof(entities));
             }
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(typeof(T), t => t.GetProperties())
+            var properties = CacheUtil.GetTypeProperties(typeof(T))
                 .Where(_ => _.CanRead)
                 .ToArray();
             var dataTable = new DataTable();
@@ -166,7 +166,7 @@ namespace WeihanLi.Extensions
         public static T ToEntity<T>([NotNull] this DataRow dr)
         {
             var type = typeof(T);
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties()).Where(p => p.CanWrite).ToArray();
+            var properties = CacheUtil.GetTypeProperties(type).Where(p => p.CanWrite).ToArray();
 
             var entity = NewFuncHelper<T>.Instance();
 
@@ -282,7 +282,7 @@ namespace WeihanLi.Extensions
                     return @this[0].ToOrDefault<T>();
                 }
 
-                var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties()).Where(p => p.CanWrite).ToArray();
+                var properties = CacheUtil.GetTypeProperties(type).Where(p => p.CanWrite).ToArray();
 
                 var entity = NewFuncHelper<T>.Instance();
 
@@ -570,7 +570,7 @@ namespace WeihanLi.Extensions
                 }
                 else // get properties
                 {
-                    parameters = CacheUtil.TypePropertyCache.GetOrAdd(paramInfo.GetType(), t => t.GetProperties())
+                    parameters = CacheUtil.GetTypeProperties(paramInfo.GetType())
                         .ToDictionary(x => x.Name, x => x.GetValueGetter()?.Invoke(paramInfo));
                 }
                 //

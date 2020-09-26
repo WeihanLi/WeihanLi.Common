@@ -18,28 +18,26 @@ namespace WeihanLi.Common
     /// </summary>
     public static class DependencyResolver
     {
-        private static IDependencyResolver _currentResolver = new DefaultDependencyResolver();
-
-        public static IDependencyResolver Current => _currentResolver;
+        public static IDependencyResolver Current { get; private set; } = new DefaultDependencyResolver();
 
         /// <summary>
         /// locker
         /// </summary>
         private static readonly object _lock = new object();
 
-        public static TService ResolveService<TService>() => _currentResolver.ResolveService<TService>();
+        public static TService ResolveService<TService>() => Current.ResolveService<TService>();
 
-        public static IEnumerable<TService> ResolveServices<TService>() => _currentResolver.ResolveServices<TService>();
+        public static IEnumerable<TService> ResolveServices<TService>() => Current.ResolveServices<TService>();
 
-        public static bool TryInvoke<TService>(Action<TService> action) => _currentResolver.TryInvokeService(action);
+        public static bool TryInvoke<TService>(Action<TService> action) => Current.TryInvokeService(action);
 
-        public static Task<bool> TryInvokeAsync<TService>(Func<TService, Task> action) => _currentResolver.TryInvokeServiceAsync(action);
+        public static Task<bool> TryInvokeAsync<TService>(Func<TService, Task> action) => Current.TryInvokeServiceAsync(action);
 
         public static void SetDependencyResolver([NotNull] IDependencyResolver dependencyResolver)
         {
             lock (_lock)
             {
-                _currentResolver = dependencyResolver;
+                Current = dependencyResolver;
             }
         }
 
