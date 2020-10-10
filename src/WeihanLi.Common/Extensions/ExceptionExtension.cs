@@ -14,11 +14,15 @@ namespace WeihanLi.Extensions
         /// <summary>
         /// get inner exception of AggregateException
         /// </summary>
-        /// <param name="exception">origin exception</param>
+        /// <param name="ex">origin exception</param>
         /// <param name="depth">depth</param>
         /// <returns>inner exception</returns>
-        public static Exception Unwrap(this Exception exception, int depth = 16)
+        public static Exception Unwrap(this Exception ex, int depth = 16)
         {
+            if (ex is null)
+                return null;
+
+            var exception = ex;
             while (exception is AggregateException
                    && exception.InnerException != null
                    && depth-- > 0)
