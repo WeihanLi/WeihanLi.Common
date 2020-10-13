@@ -103,7 +103,7 @@ namespace WeihanLi.Common.Test.ExtensionsTest
         [Fact]
         public void Sub()
         {
-            string str = "abcdef";
+            var str = "abcdef";
             Assert.Equal("ef", str.Sub(-2));
             Assert.Equal("def", str.Sub(3));
         }

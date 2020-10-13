@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Net;
 using WeihanLi.Common.Json;
 using WeihanLi.Extensions;
@@ -25,12 +24,22 @@ namespace WeihanLi.Common.Test.JsonTest
         public void IpAddressJsonSerializeTest()
         {
             var ip = IPAddress.Parse("192.168.0.102");
-            var str = JsonConvert.SerializeObject(new
+            var endPoint = new IPEndPoint(ip, 6379);
+            var str = JsonConvert.SerializeObject(new TestModel
             {
                 Ip = ip,
-                Endpoint = new IPEndPoint(ip, 6379)
+                EndPoint = endPoint
             }, new IPAddressConverter(), new IPEndPointConverter());
-            JsonConvert.DeserializeObject<JObject>(str, new IPAddressConverter(), new IPEndPointConverter());
+            var result = JsonConvert.DeserializeObject<TestModel>(str, new IPAddressConverter(), new IPEndPointConverter());
+            Assert.Equal(ip, result.Ip);
+            Assert.Equal(endPoint, result.EndPoint);
+        }
+
+        private class TestModel
+        {
+            public IPAddress Ip { get; set; }
+
+            public IPEndPoint EndPoint { get; set; }
         }
     }
 }
