@@ -10,7 +10,7 @@ namespace WeihanLi.Common.Helpers
 {
     public delegate object ObjectFactory(IServiceProvider serviceProvider, object[] arguments);
 
-    internal class ParameterDefaultValue
+    internal static class ParameterDefaultValue
     {
         private static readonly Type _nullable = typeof(Nullable<>);
 

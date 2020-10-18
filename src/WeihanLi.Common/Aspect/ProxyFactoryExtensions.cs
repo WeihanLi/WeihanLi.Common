@@ -27,6 +27,17 @@ namespace WeihanLi.Common.Aspect
             return proxyGenerator.CreateProxy<TInterface, TImplement>(arguments);
         }
 
+        public static TInterface CreateInterfaceProxy<TInterface, TImplement>(this IProxyFactory proxyGenerator, TImplement implement) where TImplement : TInterface
+            where TInterface : class
+        {
+            var type = typeof(TInterface);
+            if (!type.IsInterface)
+            {
+                throw new InvalidOperationException($"the Type {type.FullName} is not interface");
+            }
+            return proxyGenerator.CreateProxyWithTarget<TInterface>(implement);
+        }
+
         public static TClass CreateClassProxy<TClass>(this IProxyFactory proxyGenerator, params object[] arguments) where TClass : class
         {
             var type = typeof(TClass);
@@ -46,6 +57,17 @@ namespace WeihanLi.Common.Aspect
                 throw new InvalidOperationException($"the Type {type.FullName} is not class");
             }
             return proxyGenerator.CreateProxy<TClass, TImplement>(arguments);
+        }
+
+        public static TClass CreateClassProxy<TClass, TImplement>(this IProxyFactory proxyGenerator, TImplement implement) where TImplement : TClass
+            where TClass : class
+        {
+            var type = typeof(TClass);
+            if (!type.IsClass)
+            {
+                throw new InvalidOperationException($"the Type {type.FullName} is not class");
+            }
+            return proxyGenerator.CreateProxyWithTarget<TClass>(implement);
         }
 
         #region CreateProxy
@@ -71,28 +93,6 @@ namespace WeihanLi.Common.Aspect
 
         #region CreateProxyWithTarget
 
-        public static TInterface CreateInterfaceProxy<TInterface, TImplement>(this IProxyFactory proxyGenerator, TImplement implement) where TImplement : TInterface
-            where TInterface : class
-        {
-            var type = typeof(TInterface);
-            if (!type.IsInterface)
-            {
-                throw new InvalidOperationException($"the Type {type.FullName} is not interface");
-            }
-            return proxyGenerator.CreateProxyWithTarget<TInterface>(implement);
-        }
-
-        public static TClass CreateClassProxy<TClass, TImplement>(this IProxyFactory proxyGenerator, TImplement implement) where TImplement : TClass
-            where TClass : class
-        {
-            var type = typeof(TClass);
-            if (!type.IsClass)
-            {
-                throw new InvalidOperationException($"the Type {type.FullName} is not class");
-            }
-            return proxyGenerator.CreateProxyWithTarget<TClass>(implement);
-        }
-
         public static TService CreateProxyWithTarget<TService, TImplement>(this IProxyFactory proxyFactory, TImplement target)
             where TImplement : TService
             where TService : class
@@ -106,7 +106,6 @@ namespace WeihanLi.Common.Aspect
             return (TService)proxyFactory.CreateProxyWithTarget(typeof(TService), target);
         }
 
-        
         public static TService CreateProxyWithTarget<TService>(this IProxyFactory proxyFactory, object target, object[] arguments)
             where TService : class
         {

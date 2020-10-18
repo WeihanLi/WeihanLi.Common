@@ -85,6 +85,7 @@ namespace WeihanLi.Common.Aspect
 
             var proxyTypeName = _proxyTypeNameResolver(interfaceType, null);
 
+            // ReSharper disable once InconsistentlySynchronizedField
             if (_proxyTypes.TryGetValue(proxyTypeName, out var proxyType))
             {
                 return proxyType;
@@ -774,7 +775,6 @@ namespace WeihanLi.Common.Aspect
             if (customAttributeData.NamedArguments != null)
             {
                 var attributeTypeInfo = customAttributeData.AttributeType.GetTypeInfo();
-                //var constructorArgs = customAttributeData.ConstructorArguments.Select(c => c.Value).ToArray();
                 var constructorArgs = customAttributeData.ConstructorArguments
                     .Select(ReadAttributeValue)
                     .ToArray();

@@ -25,7 +25,7 @@ namespace WeihanLi.Common.Helpers
             var sourceType = typeof(TSource);
             var destinationType = typeof(TTarget);
 
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(destinationType, type => type.GetProperties());
+            var properties = CacheUtil.GetTypeProperties(destinationType);
 
             var result = new TTarget();
 
@@ -63,7 +63,7 @@ namespace WeihanLi.Common.Helpers
             var destinationType = typeof(TTarget);
             var result = new TTarget();
 
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(destinationType, type => type.GetProperties()).Where(p => propertiesToMap.Any(_ => string.Equals(_, p.Name, StringComparison.Ordinal))).ToArray();
+            var properties = CacheUtil.GetTypeProperties(destinationType).Where(p => propertiesToMap.Any(_ => string.Equals(_, p.Name, StringComparison.Ordinal))).ToArray();
             if (properties.Length > 0)
             {
                 foreach (var property in properties)
@@ -98,7 +98,7 @@ namespace WeihanLi.Common.Helpers
             var sourceType = typeof(TSource);
             var destinationType = typeof(TTarget);
 
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(destinationType, type => type.GetProperties()).Where(p => propertiesNoMap.Any(_ => !string.Equals(_, p.Name, StringComparison.Ordinal))).ToArray();
+            var properties = CacheUtil.GetTypeProperties(destinationType).Where(p => propertiesNoMap.Any(_ => !string.Equals(_, p.Name, StringComparison.Ordinal))).ToArray();
 
             var result = new TTarget();
 

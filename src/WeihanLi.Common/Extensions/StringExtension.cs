@@ -14,21 +14,11 @@ namespace WeihanLi.Extensions
         #region Encode/Decode
 
         /// <summary>
-        ///     Minimally converts a string to an HTML-encoded string.
-        /// </summary>
-        /// <param name="s">The string to encode.</param>
-        /// <returns>An encoded string.</returns>
-        public static string HtmlAttributeEncode([NotNull]this string s)
-        {
-            return HttpUtility.HtmlAttributeEncode(s);
-        }
-
-        /// <summary>
         ///     Converts a string to an HTML-encoded string.
         /// </summary>
         /// <param name="s">The string to encode.</param>
         /// <returns>An encoded string.</returns>
-        public static string HtmlEncode([NotNull]this string s)
+        public static string HtmlEncode([NotNull] this string s)
         {
             return HttpUtility.HtmlEncode(s);
         }
@@ -38,7 +28,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="s">The string to decode.</param>
         /// <returns>A decoded string.</returns>
-        public static string HtmlDecode([NotNull]this string s)
+        public static string HtmlDecode([NotNull] this string s)
         {
             return HttpUtility.HtmlDecode(s);
         }
@@ -48,7 +38,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="value">A string to encode.</param>
         /// <returns>An encoded string.</returns>
-        public static string JavaScriptStringEncode([NotNull]this string value)
+        public static string JavaScriptStringEncode([NotNull] this string value)
         {
             return HttpUtility.JavaScriptStringEncode(value);
         }
@@ -62,7 +52,7 @@ namespace WeihanLi.Extensions
         ///     encoded string.
         /// </param>
         /// <returns>An encoded string.</returns>
-        public static string JavaScriptStringEncode([NotNull]this string value, bool addDoubleQuotes)
+        public static string JavaScriptStringEncode([NotNull] this string value, bool addDoubleQuotes)
         {
             return HttpUtility.JavaScriptStringEncode(value, addDoubleQuotes);
         }
@@ -72,7 +62,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="query">The query string to parse.</param>
         /// <returns>A  of query parameters and values.</returns>
-        public static NameValueCollection ParseQueryString([NotNull]this string query)
+        public static NameValueCollection ParseQueryString([NotNull] this string query)
         {
             return HttpUtility.ParseQueryString(query);
         }
@@ -83,7 +73,7 @@ namespace WeihanLi.Extensions
         /// <param name="query">The query string to parse.</param>
         /// <param name="encoding">The  to use.</param>
         /// <returns>A  of query parameters and values.</returns>
-        public static NameValueCollection ParseQueryString([NotNull]this string query, Encoding encoding)
+        public static NameValueCollection ParseQueryString([NotNull] this string query, Encoding encoding)
         {
             return HttpUtility.ParseQueryString(query, encoding);
         }
@@ -93,7 +83,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="str">The string to decode.</param>
         /// <returns>A decoded string.</returns>
-        public static string UrlDecode([NotNull]this string str)
+        public static string UrlDecode([NotNull] this string str)
         {
             return HttpUtility.UrlDecode(str);
         }
@@ -104,7 +94,7 @@ namespace WeihanLi.Extensions
         /// <param name="str">The string to decode.</param>
         /// <param name="e">The  that specifies the decoding scheme.</param>
         /// <returns>A decoded string.</returns>
-        public static string UrlDecode([NotNull]this string str, Encoding e)
+        public static string UrlDecode([NotNull] this string str, Encoding e)
         {
             return HttpUtility.UrlDecode(str, e);
         }
@@ -114,7 +104,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="str">The text to encode.</param>
         /// <returns>An encoded string.</returns>
-        public static string UrlEncode([NotNull]this string str)
+        public static string UrlEncode([NotNull] this string str)
         {
             return HttpUtility.UrlEncode(str);
         }
@@ -125,7 +115,7 @@ namespace WeihanLi.Extensions
         /// <param name="str">The text to encode.</param>
         /// <param name="e">The  object that specifies the encoding scheme.</param>
         /// <returns>An encoded string.</returns>
-        public static string UrlEncode([NotNull]this string str, Encoding e)
+        public static string UrlEncode([NotNull] this string str, Encoding e)
         {
             return HttpUtility.UrlEncode(str, e);
         }
@@ -182,7 +172,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="typeName">typename</param>
         /// <returns></returns>
-        public static Type GetTypeByTypeName([NotNull]this string typeName)
+        public static Type GetTypeByTypeName([NotNull] this string typeName)
         {
             switch (typeName.ToLower())
             {

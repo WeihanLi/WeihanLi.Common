@@ -10,9 +10,27 @@ namespace WeihanLi.Common
         /// <summary>
         /// TypePropertyCache
         /// </summary>
-        public static readonly ConcurrentDictionary<Type, PropertyInfo[]> TypePropertyCache = new ConcurrentDictionary<Type, PropertyInfo[]>();
+        private static readonly ConcurrentDictionary<Type, PropertyInfo[]> TypePropertyCache = new ConcurrentDictionary<Type, PropertyInfo[]>();
 
-        internal static readonly ConcurrentDictionary<Type, FieldInfo[]> TypeFieldCache = new ConcurrentDictionary<Type, FieldInfo[]>();
+        public static PropertyInfo[] GetTypeProperties(Type type)
+        {
+            if (null == type)
+            {
+                throw new ArgumentNullException(nameof(type));
+            }
+            return TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
+        }
+
+        public static FieldInfo[] GetTypeFields(Type type)
+        {
+            if (null == type)
+            {
+                throw new ArgumentNullException(nameof(type));
+            }
+            return TypeFieldCache.GetOrAdd(type, t => t.GetFields());
+        }
+
+        private static readonly ConcurrentDictionary<Type, FieldInfo[]> TypeFieldCache = new ConcurrentDictionary<Type, FieldInfo[]>();
 
         internal static readonly ConcurrentDictionary<Type, MethodInfo[]> TypeMethodCache = new ConcurrentDictionary<Type, MethodInfo[]>();
 
@@ -31,8 +49,8 @@ namespace WeihanLi.Common
 
     internal static class StrongTypedCache<T>
     {
-        public static ConcurrentDictionary<PropertyInfo, Func<T, object>> PropertyValueGetters = new ConcurrentDictionary<PropertyInfo, Func<T, object>>();
+        public static readonly ConcurrentDictionary<PropertyInfo, Func<T, object>> PropertyValueGetters = new ConcurrentDictionary<PropertyInfo, Func<T, object>>();
 
-        public static ConcurrentDictionary<PropertyInfo, Action<T, object>> PropertyValueSetters = new ConcurrentDictionary<PropertyInfo, Action<T, object>>();
+        public static readonly ConcurrentDictionary<PropertyInfo, Action<T, object>> PropertyValueSetters = new ConcurrentDictionary<PropertyInfo, Action<T, object>>();
     }
 }

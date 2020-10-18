@@ -114,7 +114,9 @@ namespace WeihanLi.Common.Helpers.PeriodBatching
         /// the object is being disposed from the finalizer.</param>
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposing) return;
+            if (!disposing)
+                return;
+
             CloseAndFlush();
         }
 

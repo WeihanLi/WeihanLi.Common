@@ -13,12 +13,13 @@ namespace WeihanLi.Common.Logging
         ILogHelperLogger CreateLogger(string categoryName);
     }
 
-    internal class NullLogHelperFactory : ILogHelperFactory
+    internal sealed class NullLogHelperFactory : ILogHelperFactory
     {
         public static readonly ILogHelperFactory Instance = new NullLogHelperFactory();
 
         public void Dispose()
         {
+            // nothing to dispose
         }
 
         private NullLogHelperFactory()
@@ -28,7 +29,7 @@ namespace WeihanLi.Common.Logging
         public ILogHelperLogger CreateLogger(string categoryName) => NullLogHelperLogger.Instance;
     }
 
-    internal class LogHelperFactory : ILogHelperFactory
+    internal sealed class LogHelperFactory : ILogHelperFactory
     {
         internal readonly IReadOnlyDictionary<Type, ILogHelperProvider> _logHelperProviders;
         internal readonly IReadOnlyCollection<ILogHelperLoggingEnricher> _logHelperEnrichers;

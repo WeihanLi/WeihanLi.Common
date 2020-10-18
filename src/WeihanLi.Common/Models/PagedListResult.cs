@@ -10,13 +10,8 @@ namespace WeihanLi.Common.Models
     {
     }
 
-    public interface IPagedListResult<out T>
+    public interface IPagedListResult<out T> : IListResultWithTotalCount<T>
     {
-        /// <summary>
-        /// Data
-        /// </summary>
-        IReadOnlyList<T> Data { get; }
-
         int Count { get; }
 
         /// <summary>
@@ -30,14 +25,39 @@ namespace WeihanLi.Common.Models
         int PageSize { get; }
 
         /// <summary>
-        /// TotalDataCount
-        /// </summary>
-        int TotalCount { get; set; }
-
-        /// <summary>
         /// PageCount
         /// </summary>
         int PageCount { get; }
+    }
+
+    public interface IListResultWithTotalCount<out T>
+    {
+        IReadOnlyList<T> Data { get; }
+
+        int TotalCount { get; }
+    }
+
+    public class ListResultWithTotal<T> : IListResultWithTotalCount<T>
+    {
+        public static readonly IListResultWithTotalCount<T> Empty = new ListResultWithTotal<T>();
+
+        private IReadOnlyList<T> _data = ArrayHelper.Empty<T>();
+
+        [NotNull]
+        public IReadOnlyList<T> Data
+        {
+            get => _data;
+            set
+            {
+                // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+                if (value != null)
+                {
+                    _data = value;
+                }
+            }
+        }
+
+        public int TotalCount { get; set; }
     }
 
     /// <summary>

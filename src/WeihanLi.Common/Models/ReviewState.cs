@@ -30,5 +30,14 @@
         public ReviewState State { get; set; }
 
         public string Remark { get; set; }
+
+        public virtual bool IsValid()
+        {
+            if (State == ReviewState.Rejected && string.IsNullOrWhiteSpace(Remark))
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

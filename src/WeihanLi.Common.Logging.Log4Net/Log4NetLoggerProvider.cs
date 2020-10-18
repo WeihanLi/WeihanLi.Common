@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Concurrent;
-using log4net;
+﻿using log4net;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions.Internal;
+using System;
+using System.Collections.Concurrent;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging.Log4Net;
 using ILogger = Microsoft.Extensions.Logging.ILogger;
@@ -113,7 +113,7 @@ namespace Microsoft.Extensions.Logging
     public static class Log4NetLoggerFactoryExtensions
     {
         /// <summary>
-        /// Add Serilog to the logging pipeline.
+        /// Add log4net to the logging pipeline.
         /// </summary>
         /// <param name="loggerFactory">The logger factory to configure.</param>
         /// <returns>the logger factory</returns>
@@ -128,7 +128,7 @@ namespace Microsoft.Extensions.Logging
         }
 
         /// <summary>
-        /// Add Serilog to the logging pipeline.
+        /// Add log4net to the logging pipeline.
         /// </summary>
         /// <param name="loggerFactory">The logger factory to configure.</param>
         /// <param name="configFilePath">log4net config file path</param>

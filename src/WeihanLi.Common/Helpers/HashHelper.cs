@@ -1,5 +1,4 @@
-﻿using System;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 using WeihanLi.Extensions;
 
@@ -57,7 +56,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="isLower">是否是小写</param>
         /// <returns>哈希算法处理之后的字符串</returns>
         public static string GetHashedString(HashType type, string str, string key, Encoding encoding, bool isLower = false)
-        {            
+        {
             return string.IsNullOrEmpty(str) ? string.Empty : GetHashedString(type, str.GetBytes(encoding), string.IsNullOrEmpty(key) ? null : encoding.GetBytes(key), isLower);
         }
 
@@ -88,11 +87,11 @@ namespace WeihanLi.Common.Helpers
         /// <returns>哈希算法处理之后的字符串</returns>
         public static string GetHashedString(HashType type, byte[] source, byte[] key, bool isLower = false)
         {
-            if (null == source)
+            if (null == source || source.Length == 0)
             {
                 return string.Empty;
             }
-            var hashedBytes = GetHashedBytes(type, source, key.IsNotNullOrEmpty() ? key : null);            
+            var hashedBytes = GetHashedBytes(type, source, key.IsNotNullOrEmpty() ? key : null);
             var sbText = new StringBuilder();
             if (isLower)
             {
@@ -128,9 +127,13 @@ namespace WeihanLi.Common.Helpers
         /// <returns>hash过的字节数组</returns>
         public static byte[] GetHashedBytes(HashType type, string str, Encoding encoding)
         {
-            if(null == str)
+            if (null == str)
             {
                 return null;
+            }
+            if (str == string.Empty)
+            {
+                return ArrayHelper.Empty<byte>();
             }
             var bytes = encoding.GetBytes(str);
             return GetHashedBytes(type, bytes);
@@ -153,7 +156,7 @@ namespace WeihanLi.Common.Helpers
         /// <returns></returns>
         public static byte[] GetHashedBytes(HashType type, byte[] bytes, byte[] key)
         {
-            if(null == bytes)
+            if (null == bytes || bytes.Length == 0)
             {
                 return bytes;
             }
@@ -170,19 +173,19 @@ namespace WeihanLi.Common.Helpers
                             break;
 
                         case HashType.SHA1:
-                            algorithm = SHA1.Create();
+                            algorithm = new SHA1Managed();
                             break;
 
                         case HashType.SHA256:
-                            algorithm = SHA256.Create();
+                            algorithm = new SHA256Managed();
                             break;
 
                         case HashType.SHA384:
-                            algorithm = SHA384.Create();
+                            algorithm = new SHA384Managed();
                             break;
 
                         case HashType.SHA512:
-                            algorithm = SHA512.Create();
+                            algorithm = new SHA512Managed();
                             break;
 
                         default:

@@ -20,7 +20,7 @@ namespace WeihanLi.Common.Helpers.PeriodBatching
     /// <summary>
     /// Manages reconnection period and transient fault response for <see cref="PeriodicBatchingSink"/>.
     /// During normal operation an object of this type will simply echo the configured batch transmission
-    /// period. When availabilty fluctuates, the class tracks the number of failed attempts, each time
+    /// period. When availability fluctuates, the class tracks the number of failed attempts, each time
     /// increasing the interval before reconnection is attempted (up to a set maximum) and at predefined
     /// points indicating that either the current batch, or entire waiting queue, should be dropped. This
     /// Serves two purposes - first, a loaded receiver may need a temporary reduction in traffic while coming

@@ -25,21 +25,21 @@ namespace WeihanLi.Common.Models
             };
         }
 
-        public static ResultModel Fail(string errorMsg, ResultStatus status = ResultStatus.RequestError)
-        {
-            return new ResultModel()
-            {
-                ErrorMsg = errorMsg,
-                Status = status,
-            };
-        }
-
         public static ResultModel<T> Success<T>(T result)
         {
             return new ResultModel<T>()
             {
                 Status = ResultStatus.Success,
                 Result = result
+            };
+        }
+
+        public static ResultModel Fail(string errorMsg, ResultStatus status = ResultStatus.RequestError)
+        {
+            return new ResultModel()
+            {
+                ErrorMsg = errorMsg,
+                Status = status,
             };
         }
 

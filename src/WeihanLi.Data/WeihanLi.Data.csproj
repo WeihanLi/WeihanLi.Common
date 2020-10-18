@@ -2,7 +2,6 @@
   <Import Project="../../build/data.props" />
   <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
     <Reference Include="System.Data" />
-    <Compile Remove="SqlExtensions.cs" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />

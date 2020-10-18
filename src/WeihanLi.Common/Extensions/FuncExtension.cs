@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+
+#if NET45
+
 using WeihanLi.Common.Helpers;
+
+#endif
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions

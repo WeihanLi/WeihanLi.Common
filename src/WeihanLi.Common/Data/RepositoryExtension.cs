@@ -51,7 +51,7 @@ namespace WeihanLi.Common.Data
             TEntity entity, params string[] propertyNames) where TEntity : class
             => repository.UpdateAsync(entity, propertyNames);
 
-        public static Task<int> UpdateAsync<TDbContext, TEntity>([NotNull] this IRepository<TEntity> repository,
+        public static Task<int> UpdateAsync<TEntity>([NotNull] this IRepository<TEntity> repository,
             TEntity entity,
             params Expression<Func<TEntity, object>>[] propertyExpressions)
             where TEntity : class

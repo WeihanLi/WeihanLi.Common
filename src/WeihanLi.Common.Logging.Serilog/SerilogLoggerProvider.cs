@@ -1,15 +1,16 @@
 ﻿// Copyright(c) .NET Foundation.All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-using System.Collections.Generic;
-using System.Threading;
 using Microsoft.Extensions.Logging;
 using Serilog.Context;
 using Serilog.Core;
 using Serilog.Events;
+using System;
+using System.Collections.Generic;
+using System.Threading;
 using FrameworkLogger = Microsoft.Extensions.Logging.ILogger;
 
+// ReSharper disable once CheckNamespace
 namespace Serilog.Extensions.Logging
 {
     /// <summary>
@@ -45,9 +46,9 @@ namespace Serilog.Extensions.Logging
             }
         }
 
-        public FrameworkLogger CreateLogger(string name)
+        public FrameworkLogger CreateLogger(string categoryName)
         {
-            return new SerilogLogger(this, _logger, name);
+            return new SerilogLogger(this, _logger, categoryName);
         }
 
         public IDisposable BeginScope<T>(T state)
@@ -71,7 +72,7 @@ namespace Serilog.Extensions.Logging
 
                 if (scopeItem != null)
                 {
-                    scopeItems = scopeItems ?? new List<LogEventPropertyValue>();
+                    scopeItems ??= new List<LogEventPropertyValue>();
                     scopeItems.Add(scopeItem);
                 }
             }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WeihanLi.Common.Helpers
+﻿namespace WeihanLi.Common.Helpers
 {
     public static class ArrayHelper
     {
@@ -9,7 +7,7 @@ namespace WeihanLi.Common.Helpers
 
             EmptyArray<T>.Value
 #else
-        Array.Empty<T>()
+        System.Array.Empty<T>()
 #endif
         ;
 
