@@ -3,7 +3,7 @@ using Xunit;
 
 namespace WeihanLi.Common.Test
 {
-    public class ProfileTest
+    public class ProfilerTest
     {
         [Theory]
         [InlineData(100)]
@@ -15,7 +15,7 @@ namespace WeihanLi.Common.Test
             profiler.Start();
             Thread.Sleep(delay);
             profiler.Stop();
-            Assert.True(profiler.ElapsedMilliseconds > delay);
+            Assert.True(profiler.ElapsedMilliseconds >= delay);
             profiler.Restart();
             Thread.Sleep(delay / 2);
             profiler.Stop();
