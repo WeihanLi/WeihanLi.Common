@@ -6,8 +6,8 @@
 
 ### [WeihanLi.Common 1.0.42](https://www.nuget.org/packages/WeihanLi.Common/1.0.42)
 
-- update `HashHelper`/``
-- update `object.To`/`Exception.Unwrap` extension method, fix bug when nullable type value convert
+- update `HashHelper`/`Exception.Unwrap`
+- update `object.To` extension method, fix bug when nullable type value convert
 - remove `ThreadPrincipalUserIdProvider`(may cause security issue)
 
 ### [WeihanLi.Common 1.0.41](https://www.nuget.org/packages/WeihanLi.Common/1.0.41)

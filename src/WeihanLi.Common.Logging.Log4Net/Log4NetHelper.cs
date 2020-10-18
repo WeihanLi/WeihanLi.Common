@@ -24,7 +24,6 @@ namespace WeihanLi.Common.Logging.Log4Net
         /// </summary>
         /// <param name="configFilePath">log4net config file path</param>
         /// <returns>1 config success,0 config has existed</returns>
-        [MethodImpl(MethodImplOptions.Synchronized)]
         public static int LogInit(string configFilePath)
         {
             if (null == LogManager.GetAllRepositories()?.FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))
