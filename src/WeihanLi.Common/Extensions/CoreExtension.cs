@@ -9,8 +9,6 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -437,7 +435,7 @@ namespace WeihanLi.Extensions
         {
             if (@this)
             {
-                action();
+                action?.Invoke();
             }
         }
 
@@ -450,7 +448,7 @@ namespace WeihanLi.Extensions
         {
             if (!@this)
             {
-                action();
+                action?.Invoke();
             }
         }
 
@@ -1707,11 +1705,11 @@ namespace WeihanLi.Extensions
         ///     An Int16 extension method that factor of.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
-        /// <param name="factorNumer">The factor numer.</param>
+        /// <param name="factorNumber">The factor number.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static bool FactorOf(this short @this, short factorNumer)
+        public static bool FactorOf(this short @this, short factorNumber)
         {
-            return factorNumer % @this == 0;
+            return (factorNumber % @this) == 0;
         }
 
         /// <summary>
@@ -1848,11 +1846,11 @@ namespace WeihanLi.Extensions
         ///     An Int32 extension method that factor of.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
-        /// <param name="factorNumer">The factor numer.</param>
+        /// <param name="factorNumber">The factor number.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static bool FactorOf(this int @this, int factorNumer)
+        public static bool FactorOf(this int @this, int factorNumber)
         {
-            return factorNumer % @this == 0;
+            return factorNumber % @this == 0;
         }
 
         /// <summary>
@@ -2324,24 +2322,6 @@ namespace WeihanLi.Extensions
         }
 
         /// <summary>
-        ///     A T extension method that makes a deep copy of '@this' object.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter. It should be <c>Serializable</c></typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>the copied object.</returns>
-        public static T DeepClone<T>([NotNull] this T @this)
-        {
-            using (var stream = new MemoryStream())
-            {
-                IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(stream, @this);
-                formatter.Context = new StreamingContext(StreamingContextStates.Clone);
-                stream.Seek(0, SeekOrigin.Begin);
-                return (T)formatter.Deserialize(stream);
-            }
-        }
-
-        /// <summary>
         ///     A T extension method that null if.
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
@@ -2350,7 +2330,7 @@ namespace WeihanLi.Extensions
         /// <returns>A T.</returns>
         public static T NullIf<T>([NotNull] this T @this, Func<T, bool> predicate) where T : class
         {
-            if (predicate(@this))
+            if (predicate?.Invoke(@this) == true)
             {
                 return null;
             }
@@ -2373,7 +2353,7 @@ namespace WeihanLi.Extensions
             }
             catch (Exception)
             {
-                return default(TResult);
+                return default;
             }
         }
 
@@ -2568,10 +2548,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a string or empty if the value is null.</returns>
-        public static string ToSafeString(this object @this)
-        {
-            return @this == null ? string.Empty : @this.ToString();
-        }
+        public static string ToSafeString(this object @this) => $"{@this}";
 
         #endregion object
 

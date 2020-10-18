@@ -1,22 +1,14 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-
-#if NET45
-
-using System.Data.SqlClient;
-
-#endif
-
 using System.Diagnostics;
 using System.Dynamic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
@@ -26,16 +18,7 @@ namespace WeihanLi.Extensions
 {
     public static partial class DataExtension
     {
-        public const string QueryTableColumnsSqlText = @"
-SELECT c.[name]
-FROM sys.columns c
-    JOIN sys.tables t
-        ON c.object_id = t.object_id
-WHERE t.name = @tableName
-ORDER BY c.[column_id];
-";
-
-        private class DbParameterReadOnlyCollection : IReadOnlyCollection<DbParameter>
+        private sealed class DbParameterReadOnlyCollection : IReadOnlyCollection<DbParameter>
         {
             private readonly DbParameterCollection _paramCollection;
 
@@ -72,7 +55,7 @@ ORDER BY c.[column_id];
             {
                 throw new ArgumentNullException(nameof(entities));
             }
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(typeof(T), t => t.GetProperties())
+            var properties = CacheUtil.GetTypeProperties(typeof(T))
                 .Where(_ => _.CanRead)
                 .ToArray();
             var dataTable = new DataTable();
@@ -183,7 +166,7 @@ ORDER BY c.[column_id];
         public static T ToEntity<T>([NotNull] this DataRow dr)
         {
             var type = typeof(T);
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties()).Where(p => p.CanWrite).ToArray();
+            var properties = CacheUtil.GetTypeProperties(type).Where(p => p.CanWrite).ToArray();
 
             var entity = NewFuncHelper<T>.Instance();
 
@@ -299,7 +282,7 @@ ORDER BY c.[column_id];
                     return @this[0].ToOrDefault<T>();
                 }
 
-                var properties = CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties()).Where(p => p.CanWrite).ToArray();
+                var properties = CacheUtil.GetTypeProperties(type).Where(p => p.CanWrite).ToArray();
 
                 var entity = NewFuncHelper<T>.Instance();
 
@@ -440,200 +423,6 @@ ORDER BY c.[column_id];
 
         #endregion DbConnection
 
-#if NET45
-
-        #region SqlConnection
-
-        /// <summary>
-        /// 从数据库中根据表名获取列名
-        /// </summary>
-        /// <param name="connection">数据库连接</param>
-        /// <param name="tableName">表名称</param>
-        /// <returns></returns>
-        public static IEnumerable<string> GetColumnNamesFromDb([NotNull] this SqlConnection connection, string tableName)
-            => connection.QueryColumn<string>(QueryTableColumnsSqlText, new { tableName });
-
-        /// <summary>
-        /// 从数据库中根据表名获取列名
-        /// </summary>
-        /// <param name="connection">数据库连接</param>
-        /// <param name="tableName">表名称</param>
-        /// <returns></returns>
-        public static Task<IEnumerable<string>> GetColumnNamesFromDbAsync([NotNull] this SqlConnection connection, string tableName)
-            => connection.QueryColumnAsync<string>(QueryTableColumnsSqlText, new { tableName });
-
-        public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName) => BulkCopy<T>(conn, list, tableName, 60);
-
-        public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName, int bulkCopyTimeout)
-        {
-            if (list == null || list.Count == 0)
-            {
-                return 0;
-            }
-            var props = CacheUtil.TypePropertyCache.GetOrAdd(typeof(T), t => t.GetProperties());
-            var cols = conn.GetColumnNamesFromDb(tableName).Where(_ => props.Any(p => p.Name.EqualsIgnoreCase(_))).ToArray();
-            var dataTable = new DataTable();
-            dataTable.Columns.AddRange(cols.Select(c => new DataColumn(c)).ToArray());
-            foreach (var item in list)
-            {
-                var row = dataTable.NewRow();
-                foreach (DataColumn col in dataTable.Columns)
-                {
-                    row[col] = props.FirstOrDefault(_ => _.Name.EqualsIgnoreCase(col.ColumnName))
-                        ?.GetValueGetter()
-                        ?.Invoke(item);
-                }
-                dataTable.Rows.Add(row);
-            }
-            return conn.BulkCopy(dataTable, tableName, bulkCopyTimeout);
-        }
-
-        public static Task<int> BulkCopyAsync<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName) => BulkCopyAsync(conn, list, tableName, 60);
-
-        public static async Task<int> BulkCopyAsync<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName, int bulkCopyTimeout)
-        {
-            if (list == null || list.Count == 0)
-            {
-                return 0;
-            }
-            var props = CacheUtil.TypePropertyCache.GetOrAdd(typeof(T), t => t.GetProperties());
-            var cols = (await conn.GetColumnNamesFromDbAsync(tableName)).Where(_ => props.Any(p => p.Name.EqualsIgnoreCase(_))).ToArray();
-            var dataTable = new DataTable();
-            dataTable.Columns.AddRange(cols.Select(c => new DataColumn(c)).ToArray());
-            foreach (var item in list)
-            {
-                var row = dataTable.NewRow();
-                foreach (DataColumn col in dataTable.Columns)
-                {
-                    row[col] = props.FirstOrDefault(_ => _.Name.EqualsIgnoreCase(col.ColumnName)).GetValue(item);
-                }
-                dataTable.Rows.Add(row);
-            }
-            return await conn.BulkCopyAsync(dataTable, tableName, bulkCopyTimeout);
-        }
-
-        /// <summary>
-        /// BulkCopy
-        /// </summary>
-        /// <param name="conn">数据库连接</param>
-        /// <param name="dataTable">dataTable</param>
-        /// <returns></returns>
-        public static int BulkCopy([NotNull] this SqlConnection conn, DataTable dataTable) => BulkCopy(conn, dataTable, 60);
-
-        public static int BulkCopy([NotNull] this SqlConnection conn, DataTable dataTable, int bulkCopyTimeout) => BulkCopy(conn, dataTable, dataTable.TableName, bulkCopyTimeout);
-
-        /// <summary>
-        /// BulkCopy
-        /// </summary>
-        /// <param name="conn">数据库连接</param>
-        /// <param name="dataTable">dataTable</param>
-        /// <param name="destinationTableName">目标表</param>
-        /// <returns></returns>
-        public static int BulkCopy([NotNull] this SqlConnection conn, DataTable dataTable, string destinationTableName) => BulkCopy(conn, dataTable, destinationTableName, 60);
-
-        public static int BulkCopy([NotNull] this SqlConnection conn, DataTable dataTable, string destinationTableName, int bulkCopyTimeout) => BulkCopy(conn, dataTable, destinationTableName, 1000, null, bulkCopyTimeout: bulkCopyTimeout);
-
-        /// <summary>
-        /// BulkCopy
-        /// </summary>
-        /// <param name="conn">数据库连接</param>
-        /// <param name="dataTable">dataTable</param>
-        /// <param name="destinationTableName">目标表名称</param>
-        /// <param name="batchSize">批量处理数量</param>
-        /// <param name="columnMappings">columnMappings</param>
-        /// <param name="bulkCopyTimeout">bulkCopyTimeout</param>
-        /// <returns></returns>
-        public static int BulkCopy([NotNull] this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string> columnMappings, int bulkCopyTimeout = 60)
-        {
-            conn.EnsureOpen();
-            using (var bulkCopy = new SqlBulkCopy(conn))
-            {
-                if (null == columnMappings)
-                {
-                    for (var i = 0; i < dataTable.Columns.Count; i++)
-                    {
-                        bulkCopy.ColumnMappings.Add(dataTable.Columns[i].ColumnName, dataTable.Columns[i].ColumnName);
-                    }
-                }
-                else
-                {
-                    foreach (var columnMapping in columnMappings)
-                    {
-                        bulkCopy.ColumnMappings.Add(columnMapping.Key, columnMapping.Value);
-                    }
-                }
-
-                bulkCopy.BatchSize = batchSize;
-                bulkCopy.BulkCopyTimeout = bulkCopyTimeout;
-                bulkCopy.DestinationTableName = destinationTableName;
-                bulkCopy.WriteToServer(dataTable);
-                return 1;
-            }
-        }
-
-        /// <summary>
-        /// BulkCopyAsync
-        /// </summary>
-        /// <param name="conn">数据库连接</param>
-        /// <param name="dataTable">dataTable</param>
-        /// <returns></returns>
-        public static Task<int> BulkCopyAsync([NotNull] this SqlConnection conn, DataTable dataTable) => BulkCopyAsync(conn, dataTable, dataTable.TableName, 60);
-
-        public static Task<int> BulkCopyAsync([NotNull] this SqlConnection conn, DataTable dataTable, int bulkCopyTimeout) => BulkCopyAsync(conn, dataTable, dataTable.TableName);
-
-        /// <summary>
-        /// BulkCopyAsync
-        /// </summary>
-        /// <param name="conn">数据库连接</param>
-        /// <param name="dataTable">dataTable</param>
-        /// <param name="destinationTableName">目标表</param>
-        /// <returns></returns>
-        public static Task<int> BulkCopyAsync([NotNull] this SqlConnection conn, DataTable dataTable, string destinationTableName) => BulkCopyAsync(conn, dataTable, destinationTableName, 60);
-
-        public static Task<int> BulkCopyAsync([NotNull] this SqlConnection conn, DataTable dataTable, string destinationTableName, int bulkCopyTimeout) => BulkCopyAsync(conn, dataTable, destinationTableName, 1000, null, bulkCopyTimeout: bulkCopyTimeout);
-
-        /// <summary>
-        /// BulkCopyAsync
-        /// </summary>
-        /// <param name="conn">数据库连接</param>
-        /// <param name="dataTable">dataTable</param>
-        /// <param name="destinationTableName">目标表名称</param>
-        /// <param name="batchSize">批量处理数量</param>
-        /// <param name="columnMappings">columnMappings</param>
-        /// <param name="bulkCopyTimeout">bulkCopyTimeout</param>
-        /// <returns></returns>
-        public static async Task<int> BulkCopyAsync([NotNull] this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string> columnMappings, int bulkCopyTimeout = 60)
-        {
-            await conn.EnsureOpenAsync();
-            using (var bulkCopy = new SqlBulkCopy(conn))
-            {
-                if (null == columnMappings)
-                {
-                    for (var i = 0; i < dataTable.Columns.Count; i++)
-                    {
-                        bulkCopy.ColumnMappings.Add(dataTable.Columns[i].ColumnName, dataTable.Columns[i].ColumnName);
-                    }
-                }
-                else
-                {
-                    foreach (var columnMapping in columnMappings)
-                    {
-                        bulkCopy.ColumnMappings.Add(columnMapping.Key, columnMapping.Value);
-                    }
-                }
-
-                bulkCopy.BatchSize = batchSize;
-                bulkCopy.BulkCopyTimeout = bulkCopyTimeout;
-                bulkCopy.DestinationTableName = destinationTableName;
-                await bulkCopy.WriteToServerAsync(dataTable);
-                return 1;
-            }
-        }
-
-        #endregion SqlConnection
-
-#endif
-
         #region DbCommand
 
         /// <summary>
@@ -772,66 +561,27 @@ ORDER BY c.[column_id];
         {
             if (paramInfo != null)
             {
-                if (paramInfo.IsValueTuple())// Tuple
+                var parameters = paramInfo as IDictionary<string, object>;
+                if (parameters == null)
                 {
-                    var fields = paramInfo.GetFields();
-                    foreach (var field in fields)
+                    if (paramInfo.IsValueTuple()) // Tuple
                     {
-                        if (command.Parameters.ContainsParam(field.Name)
-                            || (command.CommandType == CommandType.Text && !Regex.IsMatch(command.CommandText, @"[?@:]" + field.Name + @"([^\p{L}\p{N}_]+|$)", RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.CultureInvariant)))
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            var param = command.CreateParameter();
-                            param.ParameterName = GetParameterName(field.Name);
-                            param.Value = field.GetValue(paramInfo) ?? DBNull.Value;
-                            param.DbType = field.FieldType.ToDbType();
-                            command.Parameters.Add(param);
-                        }
+                        parameters = paramInfo.GetFields().ToDictionary(f => f.Name, f => f.GetValue(paramInfo));
+                    }
+                    else // get properties
+                    {
+                        parameters = CacheUtil.GetTypeProperties(paramInfo.GetType())
+                            .ToDictionary(x => x.Name, x => x.GetValueGetter()?.Invoke(paramInfo));
                     }
                 }
-                else if (paramInfo is IDictionary<string, object> paramDictionary) // dictionary
+                //
+                foreach (var parameter in parameters)
                 {
-                    foreach (var property in paramDictionary.Keys)
-                    {
-                        if (command.Parameters.ContainsParam(property)
-                            || (command.CommandType == CommandType.Text && !Regex.IsMatch(command.CommandText,
-                                    @"[?@:]?" + property + @"([^\p{L}\p{N}_]+|$)",
-                                    RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.CultureInvariant)))
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            var param = command.CreateParameter();
-                            param.ParameterName = GetParameterName(property);
-                            param.Value = paramDictionary[property] ?? DBNull.Value;
-                            param.DbType = param.Value.GetType().ToDbType();
-                            command.Parameters.Add(param);
-                        }
-                    }
-                }
-                else // get properties
-                {
-                    var properties = paramInfo.GetProperties();
-                    foreach (var property in properties)
-                    {
-                        if (command.Parameters.ContainsParam(property.Name)
-                            || (command.CommandType == CommandType.Text && !Regex.IsMatch(command.CommandText, @"[?@:]" + property.Name + @"([^\p{L}\p{N}_]+|$)", RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.CultureInvariant)))
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            var param = command.CreateParameter();
-                            param.ParameterName = GetParameterName(property.Name);
-                            param.Value = property.GetValueGetter()?.Invoke(paramInfo) ?? DBNull.Value;
-                            param.DbType = property.PropertyType.ToDbType();
-                            command.Parameters.Add(param);
-                        }
-                    }
+                    var param = command.CreateParameter();
+                    param.ParameterName = GetParameterName(parameter.Key);
+                    param.Value = parameter.Value ?? DBNull.Value;
+                    param.DbType = parameter.Value?.GetType().ToDbType() ?? DbType.String;
+                    command.Parameters.Add(param);
                 }
             }
         }

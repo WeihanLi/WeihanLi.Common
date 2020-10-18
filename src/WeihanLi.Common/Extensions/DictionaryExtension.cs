@@ -6,7 +6,6 @@ using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
-using System.Web;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -112,9 +111,8 @@ namespace WeihanLi.Extensions
         {
             if (!@this.ContainsKey(key))
             {
-                @this.Add(new KeyValuePair<TKey, TValue>(key, value));
+                @this.Add(key, value);
             }
-
             return @this[key];
         }
 
@@ -453,10 +451,10 @@ namespace WeihanLi.Extensions
                     continue;
                 }
                 sb.Append("&");
-                sb.Append(HttpUtility.UrlEncode(item.Key));
+                sb.Append(item.Key.UrlEncode());
                 sb.Append("=");
                 if (item.Value != null)
-                    sb.Append(HttpUtility.UrlEncode(item.Value));
+                    sb.Append(item.Value.UrlEncode());
             }
 
             return sb.Length > 1 ? sb.ToString(1, sb.Length - 1) : "";

@@ -138,7 +138,7 @@ namespace WeihanLi.Extensions
         /// </returns>
         public static FieldInfo GetField<T>([NotNull] this T @this, string name)
         {
-            return CacheUtil.TypeFieldCache.GetOrAdd(@this.GetType(), t => t.GetFields()).FirstOrDefault(_ => _.Name == name);
+            return CacheUtil.GetTypeFields(@this.GetType()).FirstOrDefault(_ => _.Name == name);
         }
 
         /// <summary>
@@ -166,7 +166,7 @@ namespace WeihanLi.Extensions
         /// <returns>An array of field information.</returns>
         public static FieldInfo[] GetFields([NotNull] this object @this)
         {
-            return CacheUtil.TypeFieldCache.GetOrAdd(@this.GetType(), t => t.GetFields());
+            return CacheUtil.GetTypeFields(@this.GetType());
         }
 
         /// <summary>An object extension method that gets the fields.</summary>
@@ -257,7 +257,7 @@ namespace WeihanLi.Extensions
         /// <returns>An array of property information.</returns>
         public static PropertyInfo[] GetProperties([NotNull] this object @this)
         {
-            return CacheUtil.TypePropertyCache.GetOrAdd(@this.GetType(), type => type.GetProperties());
+            return CacheUtil.GetTypeProperties(@this.GetType());
         }
 
         /// <summary>An object extension method that gets the properties.</summary>
@@ -278,7 +278,7 @@ namespace WeihanLi.Extensions
         /// <returns>The property.</returns>
         public static PropertyInfo GetProperty<T>([NotNull] this T @this, [NotNull] string name)
         {
-            return CacheUtil.TypePropertyCache.GetOrAdd(@this.GetType(), type => type.GetProperties()).FirstOrDefault(_ => _.Name == name);
+            return CacheUtil.GetTypeProperties(@this.GetType()).FirstOrDefault(_ => _.Name == name);
         }
 
         /// <summary>

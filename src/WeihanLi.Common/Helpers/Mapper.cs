@@ -63,7 +63,7 @@
             var parameter = Parameter(sourceType, "p");
 
             var memberBindings = new List<MemberBinding>();
-            var targetTypes = CacheUtil.TypePropertyCache.GetOrAdd(targetType, t => t.GetProperties()).Where(x => x.PropertyType.IsPublic && x.CanWrite);
+            var targetTypes = CacheUtil.GetTypeProperties(targetType).Where(x => x.PropertyType.IsPublic && x.CanWrite);
             foreach (var targetItem in targetTypes)
             {
                 var sourceItem = sourceType.GetProperty(targetItem.Name);
@@ -206,7 +206,7 @@
             //创建一个表达式集合
             var expressions = new List<Expression>();
 
-            var targetTypes = CacheUtil.TypePropertyCache.GetOrAdd(targetType, t => t.GetProperties()).Where(x => x.PropertyType.IsPublic && x.CanWrite);
+            var targetTypes = CacheUtil.GetTypeProperties(targetType).Where(x => x.PropertyType.IsPublic && x.CanWrite);
             foreach (var targetItem in targetTypes)
             {
                 var sourceItem = sourceType.GetProperty(targetItem.Name);

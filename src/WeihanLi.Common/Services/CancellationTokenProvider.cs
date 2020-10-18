@@ -6,4 +6,9 @@ namespace WeihanLi.Common.Services
     {
         CancellationToken GetCancellationToken();
     }
+
+    public sealed class NullCancellationTokenProvider : ICancellationTokenProvider
+    {
+        public CancellationToken GetCancellationToken() => default;
+    }
 }
