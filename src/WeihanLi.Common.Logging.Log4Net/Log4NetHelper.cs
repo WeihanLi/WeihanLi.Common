@@ -3,7 +3,6 @@ using log4net.Config;
 using System;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Logging.Log4Net
