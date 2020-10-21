@@ -10,6 +10,11 @@ namespace WeihanLi.Extensions
 {
     public static class QueryableExtension
     {
+        public static IQueryable<T> WhereIf<T>(this IQueryable<T> source, bool condition, Expression<Func<T, bool>> predicate)
+        {
+            return condition ? source?.Where(predicate) : source;
+        }
+
         /// <summary>
         /// Converts the specified source to <see cref="IPagedListModel{T}"/> by the specified <paramref name="pageNumber"/> and <paramref name="pageSize"/>.
         /// </summary>
