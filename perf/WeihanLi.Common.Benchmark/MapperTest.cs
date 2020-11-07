@@ -33,7 +33,7 @@ namespace WeihanLi.Common.Benchmark
             };
         }
 
-        [Benchmark]
+        [Benchmark(Baseline = true)]
         public B AutoMapperBenchmark()
         {
             return Mapper.Map<B>(_source);
