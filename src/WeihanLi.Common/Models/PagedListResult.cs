@@ -5,11 +5,6 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Models
 {
-    [Obsolete("Please use IPagedListResult", true)]
-    public interface IPagedListModel<out T> : IPagedListResult<T>
-    {
-    }
-
     public interface IPagedListResult<out T> : IListResultWithTotalCount<T>
     {
         int Count { get; }
