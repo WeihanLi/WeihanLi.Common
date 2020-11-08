@@ -6,7 +6,6 @@ namespace WeihanLi.Common
 {
     /// <summary>
     /// AsyncLock basedOn SemaphoreSlim
-    /// 基于 SemaphoreSlim 的 异步锁
     /// </summary>
     public sealed class AsyncLock : IDisposable
     {
@@ -37,7 +36,7 @@ namespace WeihanLi.Common
 
         public void Dispose()
         {
-           _mutex?.Dispose();
+            _mutex?.Dispose();
         }
 
         #region AsyncLockReleaser

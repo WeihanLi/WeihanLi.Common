@@ -6,6 +6,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 
+// ReSharper disable LocalizableElement
+
 namespace WeihanLi.Common
 {
     /// <summary>
@@ -16,18 +18,16 @@ namespace WeihanLi.Common
     public struct ObjectId : IComparable<ObjectId>, IEquatable<ObjectId>
     {
         // private static fields
-        private static readonly DateTime __unixEpoch;
+        private static readonly DateTime _unixEpoch;
 
-        private static readonly long __dateTimeMaxValueMillisecondsSinceEpoch;
-        private static readonly long __dateTimeMinValueMillisecondsSinceEpoch;
-        private static readonly ObjectId __emptyInstance = default(ObjectId);
-        private static readonly int __staticMachine;
-        private static readonly short __staticPid;
-        private static int __staticIncrement; // high byte will be masked out when generating new ObjectId
+        private static readonly ObjectId _emptyInstance = default(ObjectId);
+        private static readonly int _staticMachine;
+        private static readonly short _staticPid;
+        private static int _staticIncrement; // high byte will be masked out when generating new ObjectId
 
         private static readonly uint[] _lookup32 = Enumerable.Range(0, 256).Select(i =>
         {
-            string s = i.ToString("x2");
+            var s = i.ToString("x2");
             return ((uint)s[0]) + ((uint)s[1] << 16);
         }).ToArray();
 
@@ -43,12 +43,10 @@ namespace WeihanLi.Common
         // static constructor
         static ObjectId()
         {
-            __unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-            __dateTimeMaxValueMillisecondsSinceEpoch = (DateTime.MaxValue - __unixEpoch).Ticks / 10000;
-            __dateTimeMinValueMillisecondsSinceEpoch = (DateTime.MinValue - __unixEpoch).Ticks / 10000;
-            __staticMachine = GetMachineHash();
-            __staticIncrement = (new Random()).Next();
-            __staticPid = (short)GetCurrentProcessId();
+            _unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            _staticMachine = GetMachineHash();
+            _staticIncrement = (new Random()).Next();
+            _staticPid = (short)GetCurrentProcessId();
         }
 
         // constructors
@@ -118,7 +116,7 @@ namespace WeihanLi.Common
         /// <summary>
         /// Gets an instance of ObjectId where the value is empty.
         /// </summary>
-        public static ObjectId Empty => __emptyInstance;
+        public static ObjectId Empty => _emptyInstance;
 
         // public properties
         /// <summary>
@@ -144,7 +142,7 @@ namespace WeihanLi.Common
         /// <summary>
         /// Gets the creation time (derived from the timestamp).
         /// </summary>
-        public DateTime CreationTime => __unixEpoch.AddSeconds(_timestamp);
+        public DateTime CreationTime => _unixEpoch.AddSeconds(_timestamp);
 
         // public operators
         /// <summary>
@@ -196,7 +194,7 @@ namespace WeihanLi.Common
         /// </summary>
         /// <param name="lhs">The first ObjectId.</param>
         /// <param name="rhs">The other ObjectId</param>
-        /// <returns>True if the first ObjectId is greather than or equal to the second ObjectId.</returns>
+        /// <returns>True if the first ObjectId is greater than or equal to the second ObjectId.</returns>
         public static bool operator >=(ObjectId lhs, ObjectId rhs)
         {
             return lhs.CompareTo(rhs) >= 0;
@@ -207,7 +205,7 @@ namespace WeihanLi.Common
         /// </summary>
         /// <param name="lhs">The first ObjectId.</param>
         /// <param name="rhs">The other ObjectId</param>
-        /// <returns>True if the first ObjectId is greather than the second ObjectId.</returns>
+        /// <returns>True if the first ObjectId is greater than the second ObjectId.</returns>
         public static bool operator >(ObjectId lhs, ObjectId rhs)
         {
             return lhs.CompareTo(rhs) > 0;
@@ -234,8 +232,8 @@ namespace WeihanLi.Common
         /// <returns>An ObjectId.</returns>
         private static ObjectId GenerateNewId(int timestamp)
         {
-            var increment = Interlocked.Increment(ref __staticIncrement) & 0x00ffffff; // only use low order 3 bytes
-            return new ObjectId(timestamp, __staticMachine, __staticPid, increment);
+            var increment = Interlocked.Increment(ref _staticIncrement) & 0x00ffffff; // only use low order 3 bytes
+            return new ObjectId(timestamp, _staticMachine, _staticPid, increment);
         }
 
         /// <summary>
@@ -256,11 +254,11 @@ namespace WeihanLi.Common
         {
             if ((machine & 0xff000000) != 0)
             {
-                throw new ArgumentOutOfRangeException("machine", "The machine value must be between 0 and 16777215 (it must fit in 3 bytes).");
+                throw new ArgumentOutOfRangeException(nameof(machine), "The machine value must be between 0 and 16777215 (it must fit in 3 bytes).");
             }
             if ((increment & 0xff000000) != 0)
             {
-                throw new ArgumentOutOfRangeException("increment", "The increment value must be between 0 and 16777215 (it must fit in 3 bytes).");
+                throw new ArgumentOutOfRangeException(nameof(increment), "The increment value must be between 0 and 16777215 (it must fit in 3 bytes).");
             }
 
             byte[] bytes = new byte[12];
@@ -309,11 +307,11 @@ namespace WeihanLi.Common
         {
             if (bytes == null)
             {
-                throw new ArgumentNullException("bytes");
+                throw new ArgumentNullException(nameof(bytes));
             }
             if (bytes.Length != 12)
             {
-                throw new ArgumentOutOfRangeException("bytes", "Byte array must be 12 bytes long.");
+                throw new ArgumentOutOfRangeException(nameof(bytes), "Byte array must be 12 bytes long.");
             }
             timestamp = (bytes[0] << 24) + (bytes[1] << 16) + (bytes[2] << 8) + bytes[3];
             machine = (bytes[4] << 16) + (bytes[5] << 8) + bytes[6];
@@ -343,7 +341,7 @@ namespace WeihanLi.Common
 
         private static int GetTimestampFromDateTime(DateTime timestamp)
         {
-            return (int)Math.Floor((ToUniversalTime(timestamp) - __unixEpoch).TotalSeconds);
+            return (int)Math.Floor((ToUniversalTime(timestamp) - _unixEpoch).TotalSeconds);
         }
 
         // public methods
@@ -354,7 +352,7 @@ namespace WeihanLi.Common
         /// <returns>A 32-bit signed integer that indicates whether this ObjectId is less than, equal to, or greather than the other.</returns>
         public int CompareTo(ObjectId other)
         {
-            int r = _timestamp.CompareTo(other._timestamp);
+            var r = _timestamp.CompareTo(other._timestamp);
             if (r != 0) { return r; }
             r = _machine.CompareTo(other._machine);
             if (r != 0) { return r; }
@@ -366,15 +364,15 @@ namespace WeihanLi.Common
         /// <summary>
         /// Compares this ObjectId to another ObjectId.
         /// </summary>
-        /// <param name="rhs">The other ObjectId.</param>
+        /// <param name="other">The other ObjectId.</param>
         /// <returns>True if the two ObjectIds are equal.</returns>
-        public bool Equals(ObjectId rhs)
+        public bool Equals(ObjectId other)
         {
             return
-                _timestamp == rhs._timestamp &&
-                _machine == rhs._machine &&
-                _pid == rhs._pid &&
-                _increment == rhs._increment;
+                _timestamp == other._timestamp &&
+                _machine == other._machine &&
+                _pid == other._pid &&
+                _increment == other._increment;
         }
 
         /// <summary>
@@ -384,14 +382,11 @@ namespace WeihanLi.Common
         /// <returns>True if the other object is an ObjectId and equal to this one.</returns>
         public override bool Equals(object obj)
         {
-            if (obj is ObjectId)
+            if (obj is ObjectId id)
             {
-                return Equals((ObjectId)obj);
+                return Equals(id);
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         /// <summary>
@@ -400,7 +395,7 @@ namespace WeihanLi.Common
         /// <returns>The hash code.</returns>
         public override int GetHashCode()
         {
-            int hash = 17;
+            var hash = 17;
             hash = 37 * hash + _timestamp.GetHashCode();
             hash = 37 * hash + _machine.GetHashCode();
             hash = 37 * hash + _pid.GetHashCode();
@@ -437,15 +432,13 @@ namespace WeihanLi.Common
             {
                 throw new ArgumentNullException(nameof(s));
             }
-
             if (s.Length % 2 == 1)
             {
-                throw new Exception("The binary key cannot have an odd number of digits");
+                throw new ArgumentException("The binary key cannot have an odd number of digits", nameof(s));
             }
 
-            byte[] arr = new byte[s.Length >> 1];
-
-            for (int i = 0; i < s.Length >> 1; ++i)
+            var arr = new byte[s.Length >> 1];
+            for (var i = 0; i < s.Length >> 1; ++i)
             {
                 arr[i] = (byte)((GetHexVal(s[i << 1]) << 4) + (GetHexVal(s[(i << 1) + 1])));
             }
@@ -462,27 +455,16 @@ namespace WeihanLi.Common
         {
             if (bytes == null)
             {
-                throw new ArgumentNullException("bytes");
+                throw new ArgumentNullException(nameof(bytes));
             }
             var result = new char[bytes.Length * 2];
-            for (int i = 0; i < bytes.Length; i++)
+            for (var i = 0; i < bytes.Length; i++)
             {
                 var val = _lookup32[bytes[i]];
                 result[2 * i] = (char)val;
                 result[2 * i + 1] = (char)(val >> 16);
             }
             return new string(result);
-        }
-
-        /// <summary>
-        /// Converts a DateTime to number of milliseconds since Unix epoch.
-        /// </summary>
-        /// <param name="dateTime">A DateTime.</param>
-        /// <returns>Number of seconds since Unix epoch.</returns>
-        private static long ToMillisecondsSinceEpoch(DateTime dateTime)
-        {
-            var utcDateTime = ToUniversalTime(dateTime);
-            return (utcDateTime - __unixEpoch).Ticks / 10000;
         }
 
         /// <summary>
@@ -496,19 +478,16 @@ namespace WeihanLi.Common
             {
                 return DateTime.SpecifyKind(DateTime.MinValue, DateTimeKind.Utc);
             }
-            else if (dateTime == DateTime.MaxValue)
+            if (dateTime == DateTime.MaxValue)
             {
                 return DateTime.SpecifyKind(DateTime.MaxValue, DateTimeKind.Utc);
             }
-            else
-            {
-                return dateTime.ToUniversalTime();
-            }
+            return dateTime.ToUniversalTime();
         }
 
         private static int GetHexVal(char hex)
         {
-            int val = (int)hex;
+            var val = (int)hex;
             //For uppercase A-F letters:
             //return val - (val < 58 ? 48 : 55);
             //For lowercase a-f letters:

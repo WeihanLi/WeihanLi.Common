@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Models
         /// <summary>
         /// Valid
         /// </summary>
-        public bool Valid { get; set; }
+        public bool IsValid { get; set; }
 
         /// <summary>
         /// ErrorMessages

@@ -81,7 +81,7 @@ namespace WeihanLi.Common.Helpers
             _process.WaitForExit();
         }
 
-        public async virtual Task SendInput(string input)
+        public virtual async Task SendInput(string input)
         {
             try
             {

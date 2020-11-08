@@ -11,7 +11,7 @@ namespace WeihanLi.Common.Logging
         bool IsEnabled(LogHelperLogLevel logLevel);
     }
 
-    internal class NullLogHelperLogger : ILogHelperLogger
+    internal sealed class NullLogHelperLogger : ILogHelperLogger
     {
         public static readonly ILogHelperLogger Instance = new NullLogHelperLogger();
 
@@ -21,6 +21,7 @@ namespace WeihanLi.Common.Logging
 
         public void Log(LogHelperLogLevel logLevel, Exception exception, string messageTemplate, params object[] parameters)
         {
+            // empty
         }
 
         public bool IsEnabled(LogHelperLogLevel logLevel) => false;
@@ -30,7 +31,7 @@ namespace WeihanLi.Common.Logging
     {
     }
 
-    internal class LogHelperGenericLogger<TCategory> : LogHelper, ILogHelperLogger<TCategory>
+    internal sealed class LogHelperGenericLogger<TCategory> : LogHelper, ILogHelperLogger<TCategory>
     {
         public LogHelperGenericLogger(LogHelperFactory logHelperFactory, string categoryName) : base(logHelperFactory, categoryName)
         {

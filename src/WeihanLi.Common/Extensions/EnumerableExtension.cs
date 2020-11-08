@@ -146,6 +146,9 @@ namespace WeihanLi.Extensions
 
         #endregion Split
 
+        public static IEnumerable<T> WhereIf<T>(this IEnumerable<T> source, bool condition, Func<T, bool> predict)
+            => condition ? source?.Where(predict) : source;
+
         public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T> source) where T : class
             => source?.Where(_ => _ != null);
 

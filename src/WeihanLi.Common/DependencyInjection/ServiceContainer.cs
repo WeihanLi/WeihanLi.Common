@@ -138,7 +138,7 @@ namespace WeihanLi.Common.DependencyInjection
             {
                 var type = obj.GetType();
                 // PropertyInjection
-                foreach (var property in CacheUtil.TypePropertyCache.GetOrAdd(type, t => t.GetProperties())
+                foreach (var property in CacheUtil.GetTypeProperties(type)
                     .Where(x => x.IsDefined(typeof(FromServiceAttribute))))
                 {
                     if (property.GetValueGetter()?.Invoke(obj) == null)
@@ -200,7 +200,6 @@ namespace WeihanLi.Common.DependencyInjection
                     }
                     else
                     {
-                        // TODO: try find best ctor
                         ctorInfo = ctorInfos.FirstOrDefault(x => x.IsDefined(typeof(ServiceConstructorAttribute)))
                             ?? ctorInfos
                             .OrderBy(_ => _.GetParameters().Length)

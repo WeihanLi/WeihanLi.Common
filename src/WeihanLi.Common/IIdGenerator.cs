@@ -31,7 +31,14 @@ namespace WeihanLi.Common
 
     public sealed class SequentialGuidIdGenerator : IIdGenerator
     {
-        public string NewId() => SequentialGuidGenerator.Create(SequentialGuidType.SequentialAsString).ToString("N");
+        private readonly SequentialGuidType _sequentialGuidType;
+
+        public SequentialGuidIdGenerator(SequentialGuidType sequentialGuidType)
+        {
+            _sequentialGuidType = sequentialGuidType;
+        }
+
+        public string NewId() => SequentialGuidGenerator.Create(_sequentialGuidType).ToString("N");
     }
 
     /// <summary>
@@ -39,7 +46,6 @@ namespace WeihanLi.Common
     /// </summary>
     public sealed class ObjectIdGenerator : IIdGenerator
     {
-
         public string NewId() => ObjectId.GenerateNewStringId();
     }
 

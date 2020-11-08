@@ -14,7 +14,7 @@ namespace WeihanLi.Common.Helpers
 
         public bool IsReadOnly => false;
 
-        public bool Contains(T t) => _dictionary.ContainsKey(t);
+        public bool Contains(T item) => _dictionary.ContainsKey(item);
 
         public bool TryAdd(T t) => _dictionary.TryAdd(t, false);
 

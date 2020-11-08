@@ -39,11 +39,6 @@ namespace WeihanLi.Extensions
                         continue;
                     }
 
-                    //if (info.GetGenericArguments().Length != genericArguments.Length)
-                    //{
-                    //    continue;
-                    //}
-
                     var idx = 0;
                     foreach (var param in innerParams)
                     {
@@ -143,7 +138,7 @@ namespace WeihanLi.Extensions
         /// </returns>
         public static FieldInfo GetField<T>([NotNull] this T @this, string name)
         {
-            return CacheUtil.TypeFieldCache.GetOrAdd(@this.GetType(), t => t.GetFields()).FirstOrDefault(_ => _.Name == name);
+            return CacheUtil.GetTypeFields(@this.GetType()).FirstOrDefault(_ => _.Name == name);
         }
 
         /// <summary>
@@ -171,7 +166,7 @@ namespace WeihanLi.Extensions
         /// <returns>An array of field information.</returns>
         public static FieldInfo[] GetFields([NotNull] this object @this)
         {
-            return CacheUtil.TypeFieldCache.GetOrAdd(@this.GetType(), t => t.GetFields());
+            return CacheUtil.GetTypeFields(@this.GetType());
         }
 
         /// <summary>An object extension method that gets the fields.</summary>
@@ -262,7 +257,7 @@ namespace WeihanLi.Extensions
         /// <returns>An array of property information.</returns>
         public static PropertyInfo[] GetProperties([NotNull] this object @this)
         {
-            return CacheUtil.TypePropertyCache.GetOrAdd(@this.GetType(), type => type.GetProperties());
+            return CacheUtil.GetTypeProperties(@this.GetType());
         }
 
         /// <summary>An object extension method that gets the properties.</summary>
@@ -283,7 +278,7 @@ namespace WeihanLi.Extensions
         /// <returns>The property.</returns>
         public static PropertyInfo GetProperty<T>([NotNull] this T @this, [NotNull] string name)
         {
-            return CacheUtil.TypePropertyCache.GetOrAdd(@this.GetType(), type => type.GetProperties()).FirstOrDefault(_ => _.Name == name);
+            return CacheUtil.GetTypeProperties(@this.GetType()).FirstOrDefault(_ => _.Name == name);
         }
 
         /// <summary>
@@ -430,21 +425,6 @@ namespace WeihanLi.Extensions
         }
 
         [CanBeNull]
-        public static Action<T, object> GetValueSetter<T>(this PropertyInfo propertyInfo) where T : class
-        {
-            return StrongTypedCache<T>.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
-            {
-                if (!prop.CanWrite)
-                    return null;
-
-                var instance = Expression.Parameter(typeof(T), "i");
-                var argument = Expression.Parameter(typeof(object), "a");
-                var setterCall = Expression.Call(instance, prop.GetSetMethod(), Expression.Convert(argument, prop.PropertyType));
-                return (Action<T, object>)Expression.Lambda(setterCall, instance, argument).Compile();
-            });
-        }
-
-        [CanBeNull]
         public static Func<object, object> GetValueGetter([NotNull] this PropertyInfo propertyInfo)
         {
             return CacheUtil.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
@@ -460,6 +440,21 @@ namespace WeihanLi.Extensions
                     : Expression.Convert(instance, propertyInfo.DeclaringType), prop.GetGetMethod());
                 var castToObject = Expression.Convert(getterCall, typeof(object));
                 return (Func<object, object>)Expression.Lambda(castToObject, instance).Compile();
+            });
+        }
+
+        [CanBeNull]
+        public static Action<T, object> GetValueSetter<T>(this PropertyInfo propertyInfo) where T : class
+        {
+            return StrongTypedCache<T>.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
+            {
+                if (!prop.CanWrite)
+                    return null;
+
+                var instance = Expression.Parameter(typeof(T), "i");
+                var argument = Expression.Parameter(typeof(object), "a");
+                var setterCall = Expression.Call(instance, prop.GetSetMethod(), Expression.Convert(argument, prop.PropertyType));
+                return (Action<T, object>)Expression.Lambda(setterCall, instance, argument).Compile();
             });
         }
 

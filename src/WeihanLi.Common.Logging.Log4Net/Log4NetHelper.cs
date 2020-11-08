@@ -1,22 +1,22 @@
-﻿using System;
+﻿using log4net;
+using log4net.Config;
+using System;
 using System.IO;
 using System.Linq;
-using log4net;
-using log4net.Config;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Logging.Log4Net
 {
     public static class Log4NetHelper
     {
+        private static readonly object _configInitLock = new object();
+
         /// <summary>
         /// log4net init
         /// use the default log4net.config config file
         /// </summary>
         /// <returns>1 config success,0 config has existed</returns>
         public static int LogInit() => LogInit(ApplicationHelper.MapPath("log4net.config"));
-
-        private static readonly object ConfigInitLock = new object();
 
         /// <summary>
         /// log4net init
@@ -27,7 +27,7 @@ namespace WeihanLi.Common.Logging.Log4Net
         {
             if (null == LogManager.GetAllRepositories()?.FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))
             {
-                lock (ConfigInitLock)
+                lock (_configInitLock)
                 {
                     if (null == LogManager.GetAllRepositories()
                             ?.FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))

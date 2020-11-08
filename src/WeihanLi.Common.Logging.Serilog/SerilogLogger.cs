@@ -1,15 +1,16 @@
 ﻿// Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
-using System.Collections.Generic;
-using System.Reflection;
 using Microsoft.Extensions.Logging;
 using Serilog.Core;
 using Serilog.Events;
 using Serilog.Parsing;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 using FrameworkLogger = Microsoft.Extensions.Logging.ILogger;
 
+// ReSharper disable once CheckNamespace
 namespace Serilog.Extensions.Logging
 {
     internal sealed class SerilogLogger : FrameworkLogger

@@ -2,7 +2,7 @@
 
 namespace WeihanLi.Common.Aspect
 {
-    internal class MethodInvokeHelper
+    internal static class MethodInvokeHelper
     {
         public static readonly MethodInfo GetInvocationReturnValueMethod =
             typeof(AspectInvocation).GetProperty("ReturnValue")?.GetMethod;
