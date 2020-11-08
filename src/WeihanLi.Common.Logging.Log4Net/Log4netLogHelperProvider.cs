@@ -22,19 +22,19 @@ namespace WeihanLi.Common.Logging.Log4Net
                 if (loggingEvent.Message.IsNotNullOrEmpty() || loggingEvent.Exception != null)
                 {
                     var logLevel = GetLog4NetLogLevel(loggingEvent.LogLevel);
-                    var log4netEvent = new LoggingEvent(null, LogManager.GetRepository(ApplicationHelper.ApplicationName), loggingEvent.CategoryName, logLevel, loggingEvent.Message, loggingEvent.Exception);
+                    var log4NetEvent = new LoggingEvent(null, LogManager.GetRepository(ApplicationHelper.ApplicationName), loggingEvent.CategoryName, logLevel, loggingEvent.Message, loggingEvent.Exception);
 
                     if (loggingEvent.Properties != null)
                     {
                         foreach (var property in loggingEvent.Properties)
                         {
-                            if (!log4netEvent.Properties.Contains(property.Key))
+                            if (!log4NetEvent.Properties.Contains(property.Key))
                             {
-                                log4netEvent.Properties[property.Key] = property.Value;
+                                log4NetEvent.Properties[property.Key] = property.Value;
                             }
                         }
                     }
-                    logger.Logger.Log(log4netEvent);
+                    logger.Logger.Log(log4NetEvent);
                 }
             }
         }
@@ -94,7 +94,7 @@ namespace WeihanLi.Common.Logging.Log4Net
 
     public static class LogHelperFactoryExtensions
     {
-        public static ILogHelperLoggingBuilder AddLog4Net([NotNull]this ILogHelperLoggingBuilder loggingBuilder)
+        public static ILogHelperLoggingBuilder AddLog4Net([NotNull] this ILogHelperLoggingBuilder loggingBuilder)
         {
             loggingBuilder.AddProvider(new Log4NetLogHelperProvider());
             return loggingBuilder;

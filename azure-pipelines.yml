@@ -5,7 +5,7 @@ trigger:
   paths:
     exclude:
     - '*.md'
-    - /docs/
+    - 'docs'
 
 pool:
   vmImage: 'windows-latest'
@@ -15,7 +15,7 @@ steps:
   displayName: 'Use .NET Core sdk'
   inputs:
     packageType: sdk
-    version: 3.1.100
+    version: 3.1.x
 
 - script: dotnet --info
   displayName: 'dotnet info'

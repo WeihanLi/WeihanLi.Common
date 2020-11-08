@@ -40,7 +40,7 @@ namespace WeihanLi.Common.Event
         // https://www.newtonsoft.com/json/help/html/JsonConstructorAttribute.htm
         [JsonConstructor]
         // ReSharper disable once PublicConstructorInAbstractClass
-        public EventBase(string eventId, DateTimeOffset eventAt)
+        protected EventBase(string eventId, DateTimeOffset eventAt)
         {
             EventId = eventId;
             EventAt = eventAt;
@@ -49,15 +49,10 @@ namespace WeihanLi.Common.Event
 
     public static class EventBaseExtensions
     {
-        private static readonly JsonSerializerSettings _eventSerializerSettings;
-
-        static EventBaseExtensions()
-        {
-            _eventSerializerSettings = JsonSerializeExtension.SerializerSettingsWith(s =>
-            {
-                s.TypeNameHandling = TypeNameHandling.Objects;
-            });
-        }
+        private static readonly JsonSerializerSettings _eventSerializerSettings = JsonSerializeExtension.SerializerSettingsWith(s =>
+           {
+               s.TypeNameHandling = TypeNameHandling.Objects;
+           });
 
         public static string ToEventMsg<TEvent>(this TEvent @event) where TEvent : class, IEventBase
         {

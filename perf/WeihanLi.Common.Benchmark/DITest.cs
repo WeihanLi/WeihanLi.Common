@@ -19,9 +19,9 @@ namespace WeihanLi.Common.Benchmark
         {
             public CoreConfig()
             {
-                Add(JitOptimizationsValidator.FailOnError);
-                Add(MemoryDiagnoser.Default);
-                Add(StatisticColumn.OperationsPerSecond);
+                AddValidator(JitOptimizationsValidator.FailOnError);
+                AddDiagnoser(MemoryDiagnoser.Default);
+                AddColumn(StatisticColumn.OperationsPerSecond);
             }
         }
 

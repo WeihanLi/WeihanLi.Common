@@ -173,19 +173,19 @@ namespace WeihanLi.Common.Helpers
                             break;
 
                         case HashType.SHA1:
-                            algorithm = SHA1.Create();
+                            algorithm = new SHA1Managed();
                             break;
 
                         case HashType.SHA256:
-                            algorithm = SHA256.Create();
+                            algorithm = new SHA256Managed();
                             break;
 
                         case HashType.SHA384:
-                            algorithm = SHA384.Create();
+                            algorithm = new SHA384Managed();
                             break;
 
                         case HashType.SHA512:
-                            algorithm = SHA512.Create();
+                            algorithm = new SHA512Managed();
                             break;
 
                         default:

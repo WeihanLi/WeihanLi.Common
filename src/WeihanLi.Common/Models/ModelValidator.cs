@@ -27,7 +27,9 @@ namespace WeihanLi.Common.Models
                 return true;
             }
 
-            result = results.SelectMany(r => r.MemberNames.Select(m => new KeyValuePair<string, string>(m, r.ErrorMessage))).GroupBy(kv => kv.Key, kv => kv.Value).ToDictionary(kv => kv.Key, kv => kv.First());
+            result = results.SelectMany(r => r.MemberNames.Select(m => new KeyValuePair<string, string>(m, r.ErrorMessage)))
+                .GroupBy(kv => kv.Key, kv => kv.Value)
+                .ToDictionary(kv => kv.Key, kv => kv.First());
             return false;
         }
 

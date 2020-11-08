@@ -215,7 +215,7 @@ namespace WeihanLi.Common.Logging
             {
                 loggingEvent.Properties = new Dictionary<string, object>();
             }
-            if (loggingEvent.Properties.ContainsKey(propertyName) && overwrite == false)
+            if (loggingEvent.Properties.ContainsKey(propertyName) && !overwrite)
             {
                 return;
             }
@@ -236,7 +236,7 @@ namespace WeihanLi.Common.Logging
                 loggingEvent.Properties = new Dictionary<string, object>();
             }
 
-            if (loggingEvent.Properties.ContainsKey(propertyName) && overwrite == false)
+            if (loggingEvent.Properties.ContainsKey(propertyName) && !overwrite)
             {
                 return;
             }

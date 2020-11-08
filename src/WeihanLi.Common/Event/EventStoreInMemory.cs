@@ -41,6 +41,6 @@ namespace WeihanLi.Common.Event
             return successCount;
         }
 
-        public Task<int> DeleteEventsAsync(params string[] events) => Task.FromResult(DeleteEvents(events));
+        public Task<int> DeleteEventsAsync(params string[] eventIds) => Task.FromResult(DeleteEvents(eventIds));
     }
 }

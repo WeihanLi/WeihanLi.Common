@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Services
@@ -39,23 +38,8 @@ namespace WeihanLi.Common.Services
 
     public class EnvironmentUserIdProvider : IUserIdProvider
     {
-        public EnvironmentUserIdProvider()
-        {
-        }
-
-        public static Lazy<EnvironmentUserIdProvider> Instance = new Lazy<EnvironmentUserIdProvider>(() => new EnvironmentUserIdProvider());
+        public static readonly Lazy<EnvironmentUserIdProvider> Instance = new Lazy<EnvironmentUserIdProvider>(() => new EnvironmentUserIdProvider());
 
         public virtual string GetUserId() => Environment.UserName;
-    }
-
-    public class ThreadPrincipalUserIdProvider : IUserIdProvider
-    {
-        public static Lazy<ThreadPrincipalUserIdProvider> Instance = new Lazy<ThreadPrincipalUserIdProvider>(() => new ThreadPrincipalUserIdProvider());
-
-        public ThreadPrincipalUserIdProvider()
-        {
-        }
-
-        public virtual string GetUserId() => Thread.CurrentPrincipal?.Identity?.Name;
     }
 }

@@ -20,19 +20,16 @@ namespace WeihanLi.Common.Data
         #region TODO: Cache External
 
         private readonly Lazy<Dictionary<string, string>> PrimaryKeyColumns = new Lazy<Dictionary<string, string>>(() =>
-            CacheUtil.TypePropertyCache
-            .GetOrAdd(typeof(TEntity), t => t.GetProperties())
+            CacheUtil.GetTypeProperties(typeof(TEntity))
             .Any(x => x.IsDefined(typeof(KeyAttribute)))
             ?
-            CacheUtil.TypePropertyCache
-                .GetOrAdd(typeof(TEntity), t => t.GetProperties())
+            CacheUtil.GetTypeProperties(typeof(TEntity))
             .ToDictionary(x => x.Name, x => x.GetColumnName())
             :
                 new Dictionary<string, string>(1)
                 {
                     { "Id",
-                        CacheUtil.TypePropertyCache
-                        .GetOrAdd(typeof(TEntity), t => t.GetProperties())
+                        CacheUtil.GetTypeProperties(typeof(TEntity))
                         .FirstOrDefault(x => x.Name.Equals("Id"))?.GetColumnName()
                         ?? throw new InvalidOperationException("no primary key found")
                         }
@@ -40,15 +37,15 @@ namespace WeihanLi.Common.Data
                 )
             ;
 
-        private readonly Dictionary<string, string> ColumnMappings = CacheUtil.TypePropertyCache.GetOrAdd(typeof(TEntity), t => t.GetProperties())
+        private readonly Dictionary<string, string> ColumnMappings = CacheUtil.GetTypeProperties(typeof(TEntity))
              .Where(_ => !_.IsDefined(typeof(NotMappedAttribute)))
              .Select(p => new KeyValuePair<string, string>(p.GetColumnName(), p.Name))
              .ToDictionary(p => p.Key, p => p.Value);
 
-        private readonly string SelectColumnsString = CacheUtil.TypePropertyCache.GetOrAdd(typeof(TEntity), t => t.GetProperties())
+        private readonly string SelectColumnsString = CacheUtil.GetTypeProperties(typeof(TEntity))
             .Where(_ => !_.IsDefined(typeof(NotMappedAttribute))).Select(_ => $"{_.GetColumnName()} AS {_.Name}").StringJoin(",");
 
-        private readonly Lazy<Dictionary<string, string>> InsertColumnMappings = new Lazy<Dictionary<string, string>>(() => CacheUtil.TypePropertyCache.GetOrAdd(typeof(TEntity), t => t.GetProperties())
+        private readonly Lazy<Dictionary<string, string>> InsertColumnMappings = new Lazy<Dictionary<string, string>>(() => CacheUtil.GetTypeProperties(typeof(TEntity))
             .Where(_ => !_.IsDefined(typeof(NotMappedAttribute)) && !_.IsDefined(typeof(DatabaseGeneratedAttribute)))
             .Select(p => new KeyValuePair<string, string>(p.GetColumnName(), p.Name))
             .ToDictionary(_ => _.Key, _ => _.Value));

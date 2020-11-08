@@ -127,7 +127,7 @@ namespace DotNetCoreSample
             //    eventBus.Publish(new CounterEvent());
             //});
 
-            DependencyResolver.TryInvokeService<IProxyFactory>(proxyFactory =>
+            DependencyResolver.TryInvoke<IProxyFactory>(proxyFactory =>
             {
                 var counterEvent = new CounterEvent() { Counter = 1 };
                 var eventBusProxy = proxyFactory.CreateProxy<IEventBus, EventBus>();

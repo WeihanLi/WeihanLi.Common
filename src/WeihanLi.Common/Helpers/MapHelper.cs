@@ -1,20 +1,11 @@
 ﻿using System;
 using System.Linq;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers
 {
-    /// <summary>
-    /// Mapper
-    /// </summary>
     public static class MapHelper
     {
-        /// <summary>
-        /// 对象属性拷贝
-        /// </summary>
-        /// <typeparam name="TSource">SourceType</typeparam>
-        /// <typeparam name="TTarget">TargetType</typeparam>
-        /// <param name="source">source</param>
-        /// <returns>destination</returns>
         public static TTarget Map<TSource, TTarget>(TSource source) where TTarget : new()
         {
             if (source == null)
@@ -25,7 +16,10 @@ namespace WeihanLi.Common.Helpers
             var sourceType = typeof(TSource);
             var destinationType = typeof(TTarget);
 
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(destinationType, type => type.GetProperties());
+            var properties = CacheUtil.GetTypeProperties(destinationType);
+            var sourceProps = CacheUtil.GetTypeProperties(sourceType)
+                .Where(x => properties.Any(_ => _.Name.EqualsIgnoreCase(x.Name)))
+                .ToArray();
 
             var result = new TTarget();
 
@@ -33,25 +27,22 @@ namespace WeihanLi.Common.Helpers
             {
                 foreach (var property in properties)
                 {
-                    var sourceProperty = sourceType.GetProperty(property.Name);
-                    if (sourceProperty == null || !sourceProperty.CanRead || !property.CanWrite)
+                    var sourceProperty = sourceProps.FirstOrDefault(p => p.Name.EqualsIgnoreCase(property.Name));
+                    if (sourceProperty == null)
                     {
                         continue;
                     }
-                    property.SetValue(result, sourceProperty.GetValue(source));
+
+                    var propGetter = sourceProperty.GetValueGetter();
+                    if (propGetter != null)
+                    {
+                        property.GetValueSetter()?.Invoke(result, propGetter.Invoke(source));
+                    }
                 }
             }
             return result;
         }
 
-        /// <summary>
-        /// 对象属性拷贝，拷贝指定属性
-        /// </summary>
-        /// <typeparam name="TSource">SourceType</typeparam>
-        /// <typeparam name="TTarget">TargetType</typeparam>
-        /// <param name="source">source</param>
-        /// <param name="propertiesToMap">propertiesToMap</param>
-        /// <returns>destination</returns>
         public static TTarget MapWith<TSource, TTarget>(TSource source, params string[] propertiesToMap) where TTarget : new()
         {
             if (source == null)
@@ -62,32 +53,34 @@ namespace WeihanLi.Common.Helpers
             var sourceType = typeof(TSource);
             var destinationType = typeof(TTarget);
             var result = new TTarget();
+            var properties = CacheUtil.GetTypeProperties(destinationType)
+                .Where(p => propertiesToMap.Any(_ => string.Equals(_, p.Name, StringComparison.OrdinalIgnoreCase)))
+                .ToArray();
+            var sourceProps = CacheUtil.GetTypeProperties(sourceType)
+                .Where(x => propertiesToMap.Any(_ => _.EqualsIgnoreCase(x.Name)))
+                .ToArray();
 
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(destinationType, type => type.GetProperties()).Where(p => propertiesToMap.Any(_ => string.Equals(_, p.Name, StringComparison.Ordinal))).ToArray();
             if (properties.Length > 0)
             {
                 foreach (var property in properties)
                 {
-                    var sourceProperty = sourceType.GetProperty(property.Name);
+                    var sourceProperty = sourceProps.FirstOrDefault(p => p.Name.EqualsIgnoreCase(property.Name));
                     if (sourceProperty == null || !sourceProperty.CanRead || !property.CanWrite)
                     {
                         continue;
                     }
-                    property.SetValue(result, sourceProperty.GetValue(source));
+
+                    var propGetter = sourceProperty.GetValueGetter();
+                    if (propGetter != null)
+                    {
+                        property.GetValueSetter()?.Invoke(result, propGetter.Invoke(source));
+                    }
                 }
             }
 
             return result;
         }
 
-        /// <summary>
-        /// 对象属性拷贝，不拷贝指定属性
-        /// </summary>
-        /// <typeparam name="TSource">SourceType</typeparam>
-        /// <typeparam name="TTarget">TargetType</typeparam>
-        /// <param name="source">source</param>
-        /// <param name="propertiesNoMap">propertiesNoMap</param>
-        /// <returns>destination</returns>
         public static TTarget MapWithout<TSource, TTarget>(TSource source, params string[] propertiesNoMap) where TTarget : new()
         {
             if (source == null)
@@ -98,7 +91,12 @@ namespace WeihanLi.Common.Helpers
             var sourceType = typeof(TSource);
             var destinationType = typeof(TTarget);
 
-            var properties = CacheUtil.TypePropertyCache.GetOrAdd(destinationType, type => type.GetProperties()).Where(p => propertiesNoMap.Any(_ => !string.Equals(_, p.Name, StringComparison.Ordinal))).ToArray();
+            var properties = CacheUtil.GetTypeProperties(destinationType)
+                .Where(p => !propertiesNoMap.Any(_ => string.Equals(_, p.Name, StringComparison.Ordinal)))
+                .ToArray();
+            var sourceProps = CacheUtil.GetTypeProperties(sourceType)
+                .Where(x => !properties.Any(_ => _.Name.EqualsIgnoreCase(x.Name)))
+                .ToArray();
 
             var result = new TTarget();
 
@@ -106,12 +104,16 @@ namespace WeihanLi.Common.Helpers
             {
                 foreach (var property in properties)
                 {
-                    var sourceProperty = sourceType.GetProperty(property.Name);
+                    var sourceProperty = sourceProps.FirstOrDefault(p => p.Name.EqualsIgnoreCase(property.Name));
                     if (sourceProperty == null || !sourceProperty.CanRead || !property.CanWrite)
                     {
                         continue;
                     }
-                    property.SetValue(result, sourceProperty.GetValue(source));
+                    var propGetter = sourceProperty.GetValueGetter();
+                    if (propGetter != null)
+                    {
+                        property.GetValueSetter()?.Invoke(result, propGetter.Invoke(source));
+                    }
                 }
             }
 

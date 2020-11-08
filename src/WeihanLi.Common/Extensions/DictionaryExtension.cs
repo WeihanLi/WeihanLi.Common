@@ -1,12 +1,11 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
-using System.Web;
-using JetBrains.Annotations;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -26,7 +25,7 @@ namespace WeihanLi.Extensions
         /// <param name="value">value</param>
         /// <param name="defaultValue">默认值</param>
         /// <returns></returns>
-        public static bool TryGetValue<TKey, TValue>([NotNull]this IDictionary<TKey, TValue> dictionary, TKey key, out TValue value, TValue defaultValue)
+        public static bool TryGetValue<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> dictionary, TKey key, out TValue value, TValue defaultValue)
         {
             var result = dictionary.TryGetValue(key, out value);
             if (!result)
@@ -45,7 +44,7 @@ namespace WeihanLi.Extensions
         /// <param name="key">The key.</param>
         /// <param name="value">The value.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static bool AddIfNotContainsKey<TKey, TValue>([NotNull]this IDictionary<TKey, TValue> @this, TKey key, TValue value)
+        public static bool AddIfNotContainsKey<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, TValue value)
         {
             if (!@this.ContainsKey(key))
             {
@@ -65,7 +64,7 @@ namespace WeihanLi.Extensions
         /// <param name="key">The key.</param>
         /// <param name="valueFactory">The value factory.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static bool AddIfNotContainsKey<TKey, TValue>([NotNull]this IDictionary<TKey, TValue> @this, TKey key, Func<TValue> valueFactory)
+        public static bool AddIfNotContainsKey<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, Func<TValue> valueFactory)
         {
             if (!@this.ContainsKey(key))
             {
@@ -85,7 +84,7 @@ namespace WeihanLi.Extensions
         /// <param name="key">The key.</param>
         /// <param name="valueFactory">The value factory.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static bool AddIfNotContainsKey<TKey, TValue>([NotNull]this IDictionary<TKey, TValue> @this, TKey key, Func<TKey, TValue> valueFactory)
+        public static bool AddIfNotContainsKey<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, Func<TKey, TValue> valueFactory)
         {
             if (!@this.ContainsKey(key))
             {
@@ -108,13 +107,12 @@ namespace WeihanLi.Extensions
         ///     The value for the key. This will be either the existing value for the key if the key is already in the
         ///     dictionary, or the new value if the key was not in the dictionary.
         /// </returns>
-        public static TValue GetOrAdd<TKey, TValue>([NotNull]this IDictionary<TKey, TValue> @this, TKey key, TValue value)
+        public static TValue GetOrAdd<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, TValue value)
         {
             if (!@this.ContainsKey(key))
             {
-                @this.Add(new KeyValuePair<TKey, TValue>(key, value));
+                @this.Add(key, value);
             }
-
             return @this[key];
         }
 
@@ -131,7 +129,7 @@ namespace WeihanLi.Extensions
         ///     The value for the key. This will be either the existing value for the key if the key is already in the
         ///     dictionary, or the new value for the key as returned by valueFactory if the key was not in the dictionary.
         /// </returns>
-        public static TValue GetOrAdd<TKey, TValue>([NotNull]this IDictionary<TKey, TValue> @this, TKey key, Func<TKey, TValue> valueFactory)
+        public static TValue GetOrAdd<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, Func<TKey, TValue> valueFactory)
         {
             if (!@this.ContainsKey(key))
             {
@@ -152,7 +150,7 @@ namespace WeihanLi.Extensions
         /// <param name="key">The key to be added or whose value should be updated.</param>
         /// <param name="value">The value to be added or updated.</param>
         /// <returns>The new value for the key.</returns>
-        public static TValue AddOrUpdate<TKey, TValue>([NotNull]this IDictionary<TKey, TValue> @this, TKey key, TValue value)
+        public static TValue AddOrUpdate<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, TValue value)
         {
             if (!@this.ContainsKey(key))
             {
@@ -184,7 +182,7 @@ namespace WeihanLi.Extensions
         ///     The new value for the key. This will be either be addValue (if the key was absent) or the result of
         ///     updateValueFactory (if the key was present).
         /// </returns>
-        public static TValue AddOrUpdate<TKey, TValue>([NotNull]this IDictionary<TKey, TValue> @this, TKey key, TValue addValue, Func<TKey, TValue, TValue> updateValueFactory)
+        public static TValue AddOrUpdate<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, TValue addValue, Func<TKey, TValue, TValue> updateValueFactory)
         {
             if (!@this.ContainsKey(key))
             {
@@ -216,7 +214,7 @@ namespace WeihanLi.Extensions
         ///     The new value for the key. This will be either be the result of addValueFactory (if the key was absent) or
         ///     the result of updateValueFactory (if the key was present).
         /// </returns>
-        public static TValue AddOrUpdate<TKey, TValue>([NotNull]this IDictionary<TKey, TValue> @this, TKey key, Func<TKey, TValue> addValueFactory, Func<TKey, TValue, TValue> updateValueFactory)
+        public static TValue AddOrUpdate<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, Func<TKey, TValue> addValueFactory, Func<TKey, TValue, TValue> updateValueFactory)
         {
             if (!@this.ContainsKey(key))
             {
@@ -237,7 +235,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="TValue">Type of the value.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <param name="key">The key.</param>
-        public static void RemoveIfContainsKey<TKey, TValue>([NotNull]this IDictionary<TKey, TValue> @this, TKey key)
+        public static void RemoveIfContainsKey<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key)
         {
             if (@this.ContainsKey(key))
             {
@@ -252,7 +250,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="TValue">Type of the value.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a SortedDictionary&lt;TKey,TValue&gt;</returns>
-        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull]this IDictionary<TKey, TValue> @this)
+        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this)
         {
             return new SortedDictionary<TKey, TValue>(@this);
         }
@@ -265,7 +263,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="comparer">The comparer.</param>
         /// <returns>@this as a SortedDictionary&lt;TKey,TValue&gt;</returns>
-        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull]this IDictionary<TKey, TValue> @this, IComparer<TKey> comparer)
+        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, IComparer<TKey> comparer)
         {
             return new SortedDictionary<TKey, TValue>(@this, comparer);
         }
@@ -278,7 +276,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="keys">A variable-length parameters list containing keys.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static bool ContainsAnyKey<TKey, TValue>([NotNull]this IDictionary<TKey, TValue> @this, params TKey[] keys)
+        public static bool ContainsAnyKey<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, params TKey[] keys)
         {
             foreach (var value in keys)
             {
@@ -299,7 +297,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="keys">A variable-length parameters list containing keys.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static bool ContainsAllKey<TKey, TValue>([NotNull]this IDictionary<TKey, TValue> @this, params TKey[] keys)
+        public static bool ContainsAllKey<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, params TKey[] keys)
         {
             foreach (var value in keys)
             {
@@ -321,7 +319,7 @@ namespace WeihanLi.Extensions
         {
             if (@this == null)
             {
-                return null;
+                return new NameValueCollection();
             }
             var col = new NameValueCollection();
             foreach (var item in @this)
@@ -331,13 +329,34 @@ namespace WeihanLi.Extensions
             return col;
         }
 
+        public static NameValueCollection ToNameValueCollection(this IEnumerable<KeyValuePair<string, string>> source)
+        {
+            if (source == null)
+            {
+                return new NameValueCollection();
+            }
+
+            var collection = new NameValueCollection();
+
+            foreach (var item in source)
+            {
+                if (string.IsNullOrWhiteSpace(item.Key))
+                {
+                    continue;
+                }
+                collection.Add(item.Key, item.Value);
+            }
+
+            return collection;
+        }
+
         /// <summary>
         ///     An IDictionary&lt;string,object&gt; extension method that converts this object to a database parameters.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="command">The command.</param>
         /// <returns>The given data converted to a DbParameter[].</returns>
-        public static DbParameter[] ToDbParameters([NotNull]this IDictionary<string, object> @this, DbCommand command)
+        public static DbParameter[] ToDbParameters([NotNull] this IDictionary<string, object> @this, DbCommand command)
         {
             return @this.Select(x =>
             {
@@ -354,7 +373,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="connection">The connection.</param>
         /// <returns>The given data converted to a DbParameter[].</returns>
-        public static DbParameter[] ToDbParameters([NotNull]this IDictionary<string, object> @this, DbConnection connection)
+        public static DbParameter[] ToDbParameters([NotNull] this IDictionary<string, object> @this, DbConnection connection)
         {
             var command = connection.CreateCommand();
 
@@ -372,7 +391,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="dictionary">IDictionary</param>
         /// <returns></returns>
-        public static DataTable ToDataTable([NotNull]this IDictionary<string, object> dictionary)
+        public static DataTable ToDataTable([NotNull] this IDictionary<string, object> dictionary)
         {
             if (null == dictionary)
             {
@@ -393,7 +412,7 @@ namespace WeihanLi.Extensions
             return dataTable;
         }
 
-        public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>([NotNull]this IEnumerable<KeyValuePair<TKey, TValue>> source) => source.ToDictionary(pair => pair.Key, pair => pair.Value);
+        public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>([NotNull] this IEnumerable<KeyValuePair<TKey, TValue>> source) => source.ToDictionary(pair => pair.Key, pair => pair.Value);
 
         public static IEnumerable<KeyValuePair<string, string>> ToKeyValuePair(this NameValueCollection collection)
         {
@@ -411,27 +430,6 @@ namespace WeihanLi.Extensions
 
                 yield return new KeyValuePair<string, string>(key, collection[key]);
             }
-        }
-
-        public static NameValueCollection ToNameValueCollection(this IEnumerable<KeyValuePair<string, string>> source)
-        {
-            if (source == null)
-            {
-                return null;
-            }
-
-            var collection = new NameValueCollection();
-
-            foreach (var item in source)
-            {
-                if (string.IsNullOrWhiteSpace(item.Key))
-                {
-                    continue;
-                }
-                collection.Add(item.Key, item.Value);
-            }
-
-            return collection;
         }
 
         /// <summary>将键值集合转换成字符串，key1=value1&amp;key2=value2，k/v会编码</summary>
@@ -453,10 +451,10 @@ namespace WeihanLi.Extensions
                     continue;
                 }
                 sb.Append("&");
-                sb.Append(HttpUtility.UrlEncode(item.Key));
+                sb.Append(item.Key.UrlEncode());
                 sb.Append("=");
                 if (item.Value != null)
-                    sb.Append(HttpUtility.UrlEncode(item.Value));
+                    sb.Append(item.Value.UrlEncode());
             }
 
             return sb.Length > 1 ? sb.ToString(1, sb.Length - 1) : "";

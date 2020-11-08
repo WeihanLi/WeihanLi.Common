@@ -10,7 +10,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public interface IServiceModule
     {
-        void ConfigureServices([NotNull]IServiceCollection services);
+        void ConfigureServices([NotNull] IServiceCollection services);
     }
 
     public static class ServiceCollectionExtension
@@ -202,7 +202,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="services">services</param>
         /// <param name="module">service module</param>
         /// <returns>services</returns>
-        public static IServiceCollection RegisterModule<TServiceModule>([NotNull]this IServiceCollection services, TServiceModule module)
+        public static IServiceCollection RegisterModule<TServiceModule>([NotNull] this IServiceCollection services, TServiceModule module)
             where TServiceModule : IServiceModule
         {
             module?.ConfigureServices(services);
@@ -235,7 +235,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
+                    InvokeHelper.OnInvokeException?.Invoke(e);
                 }
             }
 

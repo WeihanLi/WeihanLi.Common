@@ -53,7 +53,7 @@ namespace WeihanLi.Common.Logging
                     break;
 
                 case LogHelperLogLevel.Fatal:
-                    logger.LogError(loggingEvent.Exception, loggingEvent.Message);
+                    logger.LogCritical(loggingEvent.Exception, loggingEvent.Message);
                     logged = true;
                     break;
             }

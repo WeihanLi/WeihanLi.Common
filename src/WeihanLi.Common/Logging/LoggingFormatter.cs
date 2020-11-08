@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Logging
 {
@@ -28,7 +28,7 @@ namespace WeihanLi.Common.Logging
                 return new FormattedLogValue(msgTemplate, null);
 
             var formatter = new LogValuesFormatter(msgTemplate);
-            var msg = formatter.Format(values);
+            var msg = formatter.FormatWithValues(values);
             var dic = formatter.GetValues(values)
                 .ToDictionary(x => x.Key, x => x.Value);
 
@@ -41,8 +41,7 @@ namespace WeihanLi.Common.Logging
         private class LogValuesFormatter
         {
             private const string NullValue = "(null)";
-            private static readonly object[] EmptyArray = new object[0];
-            private static readonly char[] FormatDelimiters = { ':' };
+            private static readonly char[] _formatDelimiters = { ':' };
             private readonly string _format;
             private readonly List<string> _valueNames = new List<string>();
 
@@ -67,7 +66,7 @@ namespace WeihanLi.Common.Logging
                     else
                     {
                         // Format item syntax : { index[,alignment][ :formatString] }.
-                        var formatDelimiterIndex = FindIndexOfAny(format, FormatDelimiters, openBraceIndex, closeBraceIndex);
+                        var formatDelimiterIndex = FindIndexOfAny(format, _formatDelimiters, openBraceIndex, closeBraceIndex);
 
                         sb.Append(format, scanIndex, openBraceIndex - scanIndex + 1);
                         sb.Append(_valueNames.Count.ToString(CultureInfo.InvariantCulture));
@@ -81,8 +80,7 @@ namespace WeihanLi.Common.Logging
                 _format = sb.ToString();
             }
 
-            public string OriginalFormat { get; private set; }
-            public List<string> ValueNames => _valueNames;
+            private string OriginalFormat { get; }
 
             private static int FindBraceIndex(string format, char brace, int startIndex, int endIndex)
             {
@@ -138,32 +136,17 @@ namespace WeihanLi.Common.Logging
                 return findIndex == -1 ? endIndex : findIndex;
             }
 
-            public string Format(object[] values)
+            public string FormatWithValues(object[] values)
             {
                 if (values != null)
                 {
-                    for (int i = 0; i < values.Length; i++)
+                    for (var i = 0; i < values.Length; i++)
                     {
                         values[i] = FormatArgument(values[i]);
                     }
                 }
 
-                return string.Format(CultureInfo.InvariantCulture, _format, values ?? EmptyArray);
-            }
-
-            public KeyValuePair<string, object> GetValue(object[] values, int index)
-            {
-                if (index < 0 || index > _valueNames.Count)
-                {
-                    throw new IndexOutOfRangeException(nameof(index));
-                }
-
-                if (_valueNames.Count > index)
-                {
-                    return new KeyValuePair<string, object>(_valueNames[index], values[index]);
-                }
-
-                return new KeyValuePair<string, object>("{OriginalFormat}", OriginalFormat);
+                return string.Format(CultureInfo.InvariantCulture, _format, values ?? ArrayHelper.Empty<object>());
             }
 
             public IEnumerable<KeyValuePair<string, object>> GetValues(object[] values)

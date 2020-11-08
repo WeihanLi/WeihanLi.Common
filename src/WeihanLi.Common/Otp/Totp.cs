@@ -9,6 +9,8 @@ namespace WeihanLi.Common.Otp
         private readonly OtpHashAlgorithm _hashAlgorithm;
         private readonly int _codeSize;
 
+        private readonly int _base;
+
         public Totp() : this(OtpHashAlgorithm.SHA1, 6)
         {
         }
@@ -31,6 +33,7 @@ namespace WeihanLi.Common.Otp
                 throw new ArgumentOutOfRangeException(nameof(codeSize), codeSize, "length must between 1 and 9");
             }
             _codeSize = codeSize;
+            _base = (int)Math.Pow(10, _codeSize);
         }
 
         private static readonly Encoding _encoding = new UTF8Encoding(false, true);
@@ -44,10 +47,6 @@ namespace WeihanLi.Common.Otp
             HMAC hmac;
             switch (_hashAlgorithm)
             {
-                case OtpHashAlgorithm.SHA1:
-                    hmac = new HMACSHA1(securityToken);
-                    break;
-
                 case OtpHashAlgorithm.SHA256:
                     hmac = new HMACSHA256(securityToken);
                     break;
@@ -57,7 +56,8 @@ namespace WeihanLi.Common.Otp
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(_hashAlgorithm), _hashAlgorithm, null);
+                    hmac = new HMACSHA1(securityToken);
+                    break;
             }
 
             using (hmac)
@@ -71,19 +71,9 @@ namespace WeihanLi.Common.Otp
                 var hashResult = hmac.ComputeHash(stepBytes);
 
                 var offset = hashResult[hashResult.Length - 1] & 0xf;
-                var p = "";
-                for (var i = 0; i < 4; i++)
-                {
-                    p += hashResult[offset + i].ToString("X2");
-                }
+                var p = $"{hashResult[offset]:X2}{hashResult[offset + 1]:X2}{hashResult[offset + 2]:X2}{hashResult[offset + 3]:X2}";
                 var num = Convert.ToInt64(p, 16) & 0x7FFFFFFF;
-
-                //var binaryCode = (hashResult[offset] & 0x7f) << 24
-                //                 | (hashResult[offset + 1] & 0xff) << 16
-                //                 | (hashResult[offset + 2] & 0xff) << 8
-                //                 | (hashResult[offset + 3] & 0xff);
-
-                var code = (num % (int)Math.Pow(10, _codeSize)).ToString("");
+                var code = (num % _base).ToString("");
                 return code.PadLeft(_codeSize, '0');
             }
         }

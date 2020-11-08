@@ -1,6 +1,4 @@
 ﻿using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using System.Xml.Serialization;
 using WeihanLi.Extensions;
 
@@ -8,41 +6,6 @@ namespace WeihanLi.Common.Helpers
 {
     public static class SerializeHelper
     {
-        /// <summary>
-        ///     An object extension method that serialize an object to binary.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>A string.</returns>
-        public static string SerializeBinary<T>(T @this)
-        {
-            var binaryWrite = new BinaryFormatter();
-
-            using (var memoryStream = new MemoryStream())
-            {
-                binaryWrite.Serialize(memoryStream, @this);
-                return Encoding.UTF8.GetString(memoryStream.ToArray());
-            }
-        }
-
-        /// <summary>
-        ///     An object extension method that serialize an object to binary.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="encoding">The encoding.</param>
-        /// <returns>A string.</returns>
-        public static string SerializeBinary<T>(T @this, Encoding encoding)
-        {
-            var binaryWrite = new BinaryFormatter();
-
-            using (var memoryStream = new MemoryStream())
-            {
-                binaryWrite.Serialize(memoryStream, @this);
-                return encoding.GetString(memoryStream.ToArray());
-            }
-        }
-
         /// <summary>
         ///     A T extension method that serialize an object to Json.
         /// </summary>
@@ -66,37 +29,6 @@ namespace WeihanLi.Common.Helpers
                 {
                     return streamReader.ReadToEnd();
                 }
-            }
-        }
-
-        /// <summary>
-        ///     A string extension method that deserialize a string binary as &lt;T&gt;.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>The deserialize binary as &lt;T&gt;</returns>
-        public static T DeserializeBinary<T>(string @this)
-        {
-            using (var stream = new MemoryStream(Encoding.Default.GetBytes(@this)))
-            {
-                var binaryRead = new BinaryFormatter();
-                return (T)binaryRead.Deserialize(stream);
-            }
-        }
-
-        /// <summary>
-        ///     A string extension method that deserialize a string binary as &lt;T&gt;.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="encoding">The encoding.</param>
-        /// <returns>The deserialize binary as &lt;T&gt;</returns>
-        public static T DeserializeBinary<T>(string @this, Encoding encoding)
-        {
-            using (var stream = new MemoryStream(encoding.GetBytes(@this)))
-            {
-                var binaryRead = new BinaryFormatter();
-                return (T)binaryRead.Deserialize(stream);
             }
         }
 

@@ -1,18 +1,13 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-
-#if NETSTANDARD
+﻿#if NETSTANDARD
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-
-#endif
+using System;
+using System.Linq;
+using System.Reflection;
 
 namespace WeihanLi.Common.Event
 {
-#if NETSTANDARD
-
     public interface IEventBuilder
     {
         IServiceCollection Services { get; }
@@ -92,6 +87,6 @@ namespace WeihanLi.Common.Event
             return builder;
         }
     }
+}
 
 #endif
-}

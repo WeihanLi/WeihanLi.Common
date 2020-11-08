@@ -19,12 +19,7 @@ namespace WeihanLi.Common.Helpers
     {
 #if NET45
 
-        private static NameValueCollection _appSettings;
-
-        static ConfigurationHelper()
-        {
-            _appSettings = ConfigurationManager.AppSettings;
-        }
+        private static NameValueCollection _appSettings = ConfigurationManager.AppSettings;
 
         /// <summary>
         /// 获取配置文件中AppSetting节点的相对路径对应的绝对路径
@@ -39,14 +34,6 @@ namespace WeihanLi.Common.Helpers
         /// <param name="key">设置的键值</param>
         /// <returns>键值对应的值</returns>
         public static string AppSetting(string key) => _appSettings[key];
-
-        /// <summary>
-        /// 将虚拟路径转换为物理路径，相对路径转换为绝对路径
-        /// </summary>
-        /// <param name="virtualPath">虚拟路径</param>
-        /// <returns>虚拟路径对应的物理路径</returns>
-        [Obsolete("Please use ApplicationHelper.MapPath", true)]
-        public static string MapPath(string virtualPath) => ApplicationHelper.MapPath(virtualPath);
 
         /// <summary>
         /// 获取配置文件中AppSetting节点的值

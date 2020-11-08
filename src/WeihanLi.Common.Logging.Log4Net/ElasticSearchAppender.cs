@@ -14,12 +14,7 @@ namespace WeihanLi.Common.Logging.Log4Net
     {
         private const int DefaultOnCloseTimeout = 30000;
 
-        private static readonly HttpClient _httpClient;
-
-        static ElasticSearchAppender()
-        {
-            _httpClient = new HttpClient() { Timeout = TimeSpan.FromMilliseconds(DefaultOnCloseTimeout) };
-        }
+        private static readonly HttpClient _httpClient = new HttpClient() { Timeout = TimeSpan.FromMilliseconds(DefaultOnCloseTimeout) };
 
         /// <summary>
         /// ElasticSearchUrl

@@ -8,8 +8,8 @@ namespace WeihanLi.Common.Event
 
         Task<int> SaveEventsAsync(params IEventBase[] events);
 
-        int DeleteEvents(params string[] events);
+        int DeleteEvents(params string[] eventIds);
 
-        Task<int> DeleteEventsAsync(params string[] events);
+        Task<int> DeleteEventsAsync(params string[] eventIds);
     }
 }

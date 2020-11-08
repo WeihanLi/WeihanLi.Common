@@ -1,5 +1,6 @@
 ﻿using JetBrains.Annotations;
 using System;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using WeihanLi.Common;
@@ -11,7 +12,7 @@ namespace WeihanLi.Extensions
     {
         // https://stackoverflow.com/questions/457316/combining-two-expressions-expressionfunct-bool/457328#457328
 
-        public static Expression<Func<T, bool>> Or<T>([NotNull]this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2)
+        public static Expression<Func<T, bool>> Or<T>([NotNull] this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2)
         {
             var parameter = Expression.Parameter(typeof(T));
 
@@ -38,7 +39,24 @@ namespace WeihanLi.Extensions
                 Expression.AndAlso(left, right), parameter);
         }
 
-        private class ReplaceExpressionVisitor : ExpressionVisitor
+        public static Expression<Func<T, bool>> AndIf<T>([NotNull] this Expression<Func<T, bool>> expr1, bool condition, Expression<Func<T, bool>> expr2)
+        {
+            if (!condition)
+            {
+                return expr1;
+            }
+            var parameter = Expression.Parameter(typeof(T));
+
+            var leftVisitor = new ReplaceExpressionVisitor(expr1.Parameters[0], parameter);
+            var left = leftVisitor.Visit(expr1.Body);
+            var rightVisitor = new ReplaceExpressionVisitor(expr2.Parameters[0], parameter);
+            var right = rightVisitor.Visit(expr2.Body);
+
+            return Expression.Lambda<Func<T, bool>>(
+                Expression.AndAlso(left, right), parameter);
+        }
+
+        private sealed class ReplaceExpressionVisitor : ExpressionVisitor
         {
             private readonly Expression _oldValue;
             private readonly Expression _newValue;
@@ -116,7 +134,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="TMember">TMember</typeparam>
         /// <param name="expression">get member expression</param>
         /// <returns></returns>
-        public static MemberInfo GetMemberInfo<TEntity, TMember>([NotNull]this Expression<Func<TEntity, TMember>> expression)
+        public static MemberInfo GetMemberInfo<TEntity, TMember>([NotNull] this Expression<Func<TEntity, TMember>> expression)
         {
             if (expression.NodeType != ExpressionType.Lambda)
             {
@@ -128,7 +146,7 @@ namespace WeihanLi.Extensions
             var memberExpression = ExtractMemberExpression(lambda.Body);
             if (memberExpression == null)
             {
-                throw new ArgumentException(string.Format(Resource.propertyExpression_must_be_lambda_expression, nameof(memberExpression)), nameof(memberExpression));
+                throw new ArgumentException(string.Format(Resource.propertyExpression_must_be_lambda_expression, nameof(expression)), nameof(expression));
             }
             return memberExpression.Member;
         }
@@ -150,7 +168,7 @@ namespace WeihanLi.Extensions
             if (member is PropertyInfo property)
                 return property;
 
-            return typeof(TEntity).GetProperty(member.Name);
+            return CacheUtil.GetTypeProperties(typeof(TEntity)).FirstOrDefault(p => p.Name.Equals(member.Name));
         }
 
         private static MemberExpression ExtractMemberExpression(Expression expression)

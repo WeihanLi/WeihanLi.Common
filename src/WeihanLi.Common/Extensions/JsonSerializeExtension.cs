@@ -10,7 +10,7 @@ namespace WeihanLi.Extensions
         /// <summary>
         /// DefaultSerializerSettings
         /// </summary>
-        public static JsonSerializerSettings DefaultSerializerSettings = GetDefaultSerializerSettings();
+        private static readonly JsonSerializerSettings _defaultSerializerSettings = GetDefaultSerializerSettings();
 
         private static JsonSerializerSettings GetDefaultSerializerSettings() => new JsonSerializerSettings
         {
@@ -22,7 +22,7 @@ namespace WeihanLi.Extensions
         public static JsonSerializerSettings SerializerSettingsWith(Action<JsonSerializerSettings> action)
         {
             if (null == action)
-                return DefaultSerializerSettings;
+                return _defaultSerializerSettings;
 
             var serializerSettings = GetDefaultSerializerSettings();
             action.Invoke(serializerSettings);
@@ -66,7 +66,7 @@ namespace WeihanLi.Extensions
             {
                 return string.Empty;
             }
-            var result = JsonConvert.SerializeObject(obj, settings ?? DefaultSerializerSettings);
+            var result = JsonConvert.SerializeObject(obj, settings ?? _defaultSerializerSettings);
             if (isConvertToSingleQuotes)
             {
                 result = result.Replace("\"", "'");
@@ -91,7 +91,7 @@ namespace WeihanLi.Extensions
         /// <param name="settings">JsonSerializerSettings</param>
         /// <returns>由字符串转换得到的T对象</returns>
         public static T JsonToObject<T>([NotNull] this string jsonString, JsonSerializerSettings settings)
-            => jsonString.IsNullOrWhiteSpace() ? default(T) : JsonConvert.DeserializeObject<T>(jsonString, settings ?? DefaultSerializerSettings);
+            => jsonString.IsNullOrWhiteSpace() ? default : JsonConvert.DeserializeObject<T>(jsonString, settings ?? _defaultSerializerSettings);
 
         /// <summary>
         /// 对象转换为string，如果是基元类型直接ToString(),如果是Entity则Json序列化
@@ -125,7 +125,7 @@ namespace WeihanLi.Extensions
         {
             if (null == jsonString)
             {
-                return default(T);
+                return default;
             }
             if (typeof(T) == typeof(string))
             {
