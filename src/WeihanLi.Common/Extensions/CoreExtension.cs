@@ -3012,6 +3012,55 @@ namespace WeihanLi.Extensions
             return @this;
         }
 
+        /// <summary>
+        /// Append text when condition is true
+        /// </summary>
+        /// <param name="builder">StringBuilder</param>
+        /// <param name="condition">condition to evaluate</param>
+        /// <param name="text">text to append</param>
+        /// <returns>StringBuilder</returns>
+        public static StringBuilder AppendIf(this StringBuilder builder, bool condition, string text)
+        {
+            if (condition)
+            {
+                builder?.Append(text);
+            }
+            return builder;
+        }
+
+        /// <summary>
+        /// Append text when condition is true
+        /// </summary>
+        /// <param name="builder">StringBuilder</param>
+        /// <param name="condition">condition to evaluate</param>
+        /// <param name="text">text to append</param>
+        /// <param name="arguments">arguments to format the text</param>
+        /// <returns>StringBuilder</returns>
+        public static StringBuilder AppendFormatIf(this StringBuilder builder, bool condition, string text, params object[] arguments)
+        {
+            if (condition)
+            {
+                builder?.AppendFormat(text, arguments);
+            }
+            return builder;
+        }
+
+        /// <summary>
+        /// Append text when condition is true
+        /// </summary>
+        /// <param name="builder">StringBuilder</param>
+        /// <param name="condition">condition to evaluate</param>
+        /// <param name="text">text to append</param>
+        /// <returns>StringBuilder</returns>
+        public static StringBuilder AppendLineIf(this StringBuilder builder, bool condition, string text)
+        {
+            if (condition)
+            {
+                builder?.AppendLine(text);
+            }
+            return builder;
+        }
+
         #endregion StringBuilder
 
         #region TimeSpan
