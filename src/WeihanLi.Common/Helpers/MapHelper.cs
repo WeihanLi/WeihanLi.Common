@@ -28,7 +28,7 @@ namespace WeihanLi.Common.Helpers
                 foreach (var property in properties)
                 {
                     var sourceProperty = sourceProps.FirstOrDefault(p => p.Name.EqualsIgnoreCase(property.Name));
-                    if (sourceProperty == null || !sourceProperty.CanRead || !property.CanWrite)
+                    if (sourceProperty == null)
                     {
                         continue;
                     }
