@@ -16,13 +16,13 @@ namespace WeihanLi.Extensions
         }
 
         /// <summary>
-        /// Converts the specified source to <see cref="IPagedListModel{T}"/> by the specified <paramref name="pageNumber"/> and <paramref name="pageSize"/>.
+        /// Converts the specified source to <see cref="IPagedListResult{T}"/> by the specified <paramref name="pageNumber"/> and <paramref name="pageSize"/>.
         /// </summary>
         /// <typeparam name="T">The type of the source.</typeparam>
         /// <param name="source">The source to paging.</param>
         /// <param name="pageNumber">The number of the page, start from 1.</param>
         /// <param name="pageSize">The size of the page.</param>
-        /// <returns>An instance of  implements <see cref="IPagedListModel{T}"/> interface.</returns>
+        /// <returns>An instance of  implements <see cref="IPagedListResult{T}"/> interface.</returns>
         public static IPagedListResult<T> ToPagedList<T>([NotNull] this IQueryable<T> source, int pageNumber, int pageSize)
         {
             if (pageNumber <= 0)

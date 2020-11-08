@@ -69,7 +69,7 @@ namespace WeihanLi.Common.Helpers
             return result;
         }
 
-        public static TResult TryInvoke<TResult>(Func<TResult> func, Func<TResult, bool> validFunc, Func<int, TimeSpan> delayFunc = null, int maxRetryTimes = 3)
+        public static TResult TryInvoke<TResult>(Func<TResult> func, Func<TResult, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan> delayFunc = null)
         {
             var result = default(TResult);
             var time = 0;
@@ -92,7 +92,7 @@ namespace WeihanLi.Common.Helpers
             return result;
         }
 
-        public static TResult TryInvoke<T1, TResult>(Func<T1, TResult> func, T1 t1, Func<TResult, bool> validFunc, Func<int, TimeSpan> delayFunc = null, int maxRetryTimes = 3)
+        public static TResult TryInvoke<T1, TResult>(Func<T1, TResult> func, T1 t1, Func<TResult, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan> delayFunc = null)
         {
             var result = default(TResult);
             var time = 0;
@@ -116,7 +116,7 @@ namespace WeihanLi.Common.Helpers
             return result;
         }
 
-        public static TResult TryInvoke<T1, T2, TResult>(Func<T1, T2, TResult> func, T1 t1, T2 t2, Func<TResult, bool> validFunc, Func<int, TimeSpan> delayFunc = null, int maxRetryTimes = 3)
+        public static TResult TryInvoke<T1, T2, TResult>(Func<T1, T2, TResult> func, T1 t1, T2 t2, Func<TResult, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan> delayFunc = null)
         {
             var result = default(TResult);
             var time = 0;
@@ -140,7 +140,7 @@ namespace WeihanLi.Common.Helpers
             return result;
         }
 
-        public static TResult TryInvoke<T1, T2, T3, TResult>(Func<T1, T2, T3, TResult> func, T1 t1, T2 t2, T3 t3, Func<TResult, bool> validFunc, Func<int, TimeSpan> delayFunc = null, int maxRetryTimes = 3)
+        public static TResult TryInvoke<T1, T2, T3, TResult>(Func<T1, T2, T3, TResult> func, T1 t1, T2 t2, T3 t3, Func<TResult, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan> delayFunc = null)
         {
             var result = default(TResult);
             var time = 0;
@@ -164,7 +164,7 @@ namespace WeihanLi.Common.Helpers
             return result;
         }
 
-        public static TResult TryInvoke<T1, T2, T3, T4, TResult>(Func<T1, T2, T3, T4, TResult> func, T1 t1, T2 t2, T3 t3, T4 t4, Func<TResult, bool> validFunc, Func<int, TimeSpan> delayFunc = null, int maxRetryTimes = 3)
+        public static TResult TryInvoke<T1, T2, T3, T4, TResult>(Func<T1, T2, T3, T4, TResult> func, T1 t1, T2 t2, T3 t3, T4 t4, Func<TResult, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan> delayFunc = null)
         {
             var result = default(TResult);
             var time = 0;
@@ -252,7 +252,7 @@ namespace WeihanLi.Common.Helpers
             return result;
         }
 
-        public static async Task<TResult> TryInvokeAsync<TResult>(Func<Task<TResult>> func, Func<TResult, bool> validFunc, Func<int, TimeSpan> delayFunc = null, int maxRetryTimes = 3)
+        public static async Task<TResult> TryInvokeAsync<TResult>(Func<Task<TResult>> func, Func<TResult, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan> delayFunc = null)
         {
             var result = default(TResult);
             var time = 0;
@@ -277,7 +277,7 @@ namespace WeihanLi.Common.Helpers
             return result;
         }
 
-        public static async Task<TResult> TryInvokeAsync<T1, TResult>(Func<T1, Task<TResult>> func, T1 t1, Func<TResult, bool> validFunc, Func<int, TimeSpan> delayFunc = null, int maxRetryTimes = 3)
+        public static async Task<TResult> TryInvokeAsync<T1, TResult>(Func<T1, Task<TResult>> func, T1 t1, Func<TResult, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan> delayFunc = null)
         {
             var result = default(TResult);
             var time = 0;
@@ -301,7 +301,7 @@ namespace WeihanLi.Common.Helpers
             return result;
         }
 
-        public static async Task<TResult> TryInvokeAsync<T1, T2, TResult>(Func<T1, T2, Task<TResult>> func, T1 t1, T2 t2, Func<TResult, bool> validFunc, Func<int, TimeSpan> delayFunc = null, int maxRetryTimes = 3)
+        public static async Task<TResult> TryInvokeAsync<T1, T2, TResult>(Func<T1, T2, Task<TResult>> func, T1 t1, T2 t2, Func<TResult, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan> delayFunc = null)
         {
             var result = default(TResult);
             var time = 0;
@@ -325,7 +325,7 @@ namespace WeihanLi.Common.Helpers
             return result;
         }
 
-        public static async Task<TResult> TryInvokeAsync<T1, T2, T3, TResult>(Func<T1, T2, T3, Task<TResult>> func, T1 t1, T2 t2, T3 t3, Func<TResult, bool> validFunc, Func<int, TimeSpan> delayFunc = null, int maxRetryTimes = 3)
+        public static async Task<TResult> TryInvokeAsync<T1, T2, T3, TResult>(Func<T1, T2, T3, Task<TResult>> func, T1 t1, T2 t2, T3 t3, Func<TResult, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan> delayFunc = null)
         {
             var result = default(TResult);
             var time = 0;
@@ -349,7 +349,7 @@ namespace WeihanLi.Common.Helpers
             return result;
         }
 
-        public static async Task<TResult> TryInvokeAsync<T1, T2, T3, T4, TResult>(Func<T1, T2, T3, T4, Task<TResult>> func, T1 t1, T2 t2, T3 t3, T4 t4, Func<TResult, bool> validFunc, Func<int, TimeSpan> delayFunc = null, int maxRetryTimes = 3)
+        public static async Task<TResult> TryInvokeAsync<T1, T2, T3, T4, TResult>(Func<T1, T2, T3, T4, Task<TResult>> func, T1 t1, T2 t2, T3 t3, T4 t4, Func<TResult, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan> delayFunc = null)
         {
             var result = default(TResult);
             var time = 0;

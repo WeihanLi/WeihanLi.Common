@@ -1,5 +1,6 @@
 ﻿using JetBrains.Annotations;
 using System;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using WeihanLi.Common;
@@ -40,7 +41,7 @@ namespace WeihanLi.Extensions
 
         public static Expression<Func<T, bool>> AndIf<T>([NotNull] this Expression<Func<T, bool>> expr1, bool condition, Expression<Func<T, bool>> expr2)
         {
-            if(!condition)
+            if (!condition)
             {
                 return expr1;
             }
@@ -167,7 +168,7 @@ namespace WeihanLi.Extensions
             if (member is PropertyInfo property)
                 return property;
 
-            return typeof(TEntity).GetProperty(member.Name);
+            return CacheUtil.GetTypeProperties(typeof(TEntity)).FirstOrDefault(p => p.Name.Equals(member.Name));
         }
 
         private static MemberExpression ExtractMemberExpression(Expression expression)
