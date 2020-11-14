@@ -91,7 +91,7 @@ namespace WeihanLi.Common.Helpers
             {
                 return string.Empty;
             }
-            var hashedBytes = GetHashedBytes(type, source, key.IsNotNullOrEmpty() ? key : null);
+            var hashedBytes = GetHashedBytes(type, source, key.HasValue() ? key : null);
             var sbText = new StringBuilder();
             if (isLower)
             {

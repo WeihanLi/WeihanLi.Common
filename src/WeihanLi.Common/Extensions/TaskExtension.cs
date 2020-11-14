@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -81,7 +82,7 @@ namespace WeihanLi.Extensions
     [CallerFilePath] string filePath = null,
     [CallerLineNumber] int lineNumber = default)
         {
-            if (task.IsCompleted)
+            if (task.IsCompleted || Debugger.IsAttached)
             {
                 return await task;
             }
@@ -100,7 +101,7 @@ namespace WeihanLi.Extensions
             [CallerFilePath] string filePath = null,
             [CallerLineNumber] int lineNumber = default)
         {
-            if (task.IsCompleted)
+            if (task.IsCompleted || Debugger.IsAttached)
             {
                 await task;
                 return;

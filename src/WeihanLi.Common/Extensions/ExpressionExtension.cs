@@ -39,7 +39,7 @@ namespace WeihanLi.Extensions
                 Expression.AndAlso(left, right), parameter);
         }
 
-        public static Expression<Func<T, bool>> AndIf<T>([NotNull] this Expression<Func<T, bool>> expr1, bool condition, Expression<Func<T, bool>> expr2)
+        public static Expression<Func<T, bool>> AndIf<T>([NotNull] this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2, bool condition)
         {
             if (!condition)
             {

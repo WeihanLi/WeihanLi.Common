@@ -5,9 +5,6 @@ using WeihanLi.Common.Logging;
 
 namespace WeihanLi.Common.Helpers
 {
-    /// <summary>
-    /// InvokeHelper
-    /// </summary>
     public static class InvokeHelper
     {
         static InvokeHelper()
