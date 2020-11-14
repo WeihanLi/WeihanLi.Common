@@ -4,7 +4,8 @@
       "src": [
         {
           "files": [
-            "src/WeihanLi.Npoi/**/*.cs"
+            "src/WeihanLi.Common/**/*.cs",
+            "src/**/*.cs"
           ],
           "exclude": [ "**/bin/**", "**/obj/**" ]
         }
