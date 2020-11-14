@@ -1,5 +1,6 @@
 ﻿using JetBrains.Annotations;
 using System;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using WeihanLi.Common;
@@ -27,6 +28,23 @@ namespace WeihanLi.Extensions
         public static Expression<Func<T, bool>> And<T>([NotNull] this Expression<Func<T, bool>> expr1,
             Expression<Func<T, bool>> expr2)
         {
+            var parameter = Expression.Parameter(typeof(T));
+
+            var leftVisitor = new ReplaceExpressionVisitor(expr1.Parameters[0], parameter);
+            var left = leftVisitor.Visit(expr1.Body);
+            var rightVisitor = new ReplaceExpressionVisitor(expr2.Parameters[0], parameter);
+            var right = rightVisitor.Visit(expr2.Body);
+
+            return Expression.Lambda<Func<T, bool>>(
+                Expression.AndAlso(left, right), parameter);
+        }
+
+        public static Expression<Func<T, bool>> AndIf<T>([NotNull] this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2, bool condition)
+        {
+            if (!condition)
+            {
+                return expr1;
+            }
             var parameter = Expression.Parameter(typeof(T));
 
             var leftVisitor = new ReplaceExpressionVisitor(expr1.Parameters[0], parameter);
@@ -150,7 +168,7 @@ namespace WeihanLi.Extensions
             if (member is PropertyInfo property)
                 return property;
 
-            return typeof(TEntity).GetProperty(member.Name);
+            return CacheUtil.GetTypeProperties(typeof(TEntity)).FirstOrDefault(p => p.Name.Equals(member.Name));
         }
 
         private static MemberExpression ExtractMemberExpression(Expression expression)

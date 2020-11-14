@@ -33,7 +33,7 @@ namespace WeihanLi.Common.Benchmark
             };
         }
 
-        [Benchmark]
+        [Benchmark(Baseline = true)]
         public B AutoMapperBenchmark()
         {
             return Mapper.Map<B>(_source);
@@ -43,12 +43,6 @@ namespace WeihanLi.Common.Benchmark
         public B MapHelperBenchmark()
         {
             return MapHelper.Map<A, B>(_source);
-        }
-
-        [Benchmark]
-        public B MyMapperBenchmark()
-        {
-            return Mapper<A, B>.Map(_source);
         }
 
         #region TestType

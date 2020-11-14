@@ -39,7 +39,6 @@ namespace WeihanLi.Common.Event
 
         // https://www.newtonsoft.com/json/help/html/JsonConstructorAttribute.htm
         [JsonConstructor]
-        // ReSharper disable once PublicConstructorInAbstractClass
         protected EventBase(string eventId, DateTimeOffset eventAt)
         {
             EventId = eventId;

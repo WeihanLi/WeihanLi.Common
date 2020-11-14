@@ -6,10 +6,10 @@ namespace WeihanLi.Common.Helpers
     public static class RequestHelper
     {
         /// <summary>
-        ///     获得参数列表
+        /// Get QueryString
         /// </summary>
-        /// <param name="url">数据</param>
-        /// <returns></returns>
+        /// <param name="url">url</param>
+        /// <returns>QueryString</returns>
         public static NameValueCollection GetParamCollection(string url)
         {
             return HttpUtility.ParseQueryString(url);

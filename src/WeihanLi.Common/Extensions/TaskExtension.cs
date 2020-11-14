@@ -18,6 +18,8 @@ namespace WeihanLi.Extensions
 
         public static Task<TResult[]> WhenAll<TResult>(this IEnumerable<Task<TResult>> tasks) => Task.WhenAll(tasks);
 
+        #region TaskScheduler
+
         /// <summary>
         /// Runs an action on the current scheduler instead of the default scheduler.
         /// </summary>
@@ -74,42 +76,38 @@ namespace WeihanLi.Extensions
             return await innerTask;
         }
 
+        #endregion TaskScheduler
+
         public static async Task<T> TimeoutAfter<T>(this Task<T> task, TimeSpan timeout,
     [CallerFilePath] string filePath = null,
     [CallerLineNumber] int lineNumber = default)
         {
-            // Don't create a timer if the task is already completed
-            // or the debugger is attached
             if (task.IsCompleted || Debugger.IsAttached)
             {
                 return await task;
             }
 
-            var cts = new CancellationTokenSource();
+            using var cts = new CancellationTokenSource();
             if (task == await Task.WhenAny(task, Task.Delay(timeout, cts.Token)))
             {
                 cts.Cancel();
                 return await task;
             }
-            else
-            {
-                throw new TimeoutException(CreateMessage(timeout, filePath, lineNumber));
-            }
+
+            throw new TimeoutException(CreateMessage(timeout, filePath, lineNumber));
         }
 
         public static async Task TimeoutAfter(this Task task, TimeSpan timeout,
             [CallerFilePath] string filePath = null,
             [CallerLineNumber] int lineNumber = default)
         {
-            // Don't create a timer if the task is already completed
-            // or the debugger is attached
             if (task.IsCompleted || Debugger.IsAttached)
             {
                 await task;
                 return;
             }
 
-            var cts = new CancellationTokenSource();
+            using var cts = new CancellationTokenSource();
             if (task == await Task.WhenAny(task, Task.Delay(timeout, cts.Token)))
             {
                 cts.Cancel();

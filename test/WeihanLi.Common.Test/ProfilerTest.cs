@@ -13,7 +13,7 @@ namespace WeihanLi.Common.Test
         {
             var profiler = new StopwatchProfiler();
             profiler.Start();
-            Thread.Sleep(delay);
+            Thread.Sleep(delay*2);
             profiler.Stop();
             Assert.True(profiler.ElapsedMilliseconds >= delay);
             profiler.Restart();

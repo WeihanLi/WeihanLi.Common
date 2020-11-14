@@ -266,29 +266,29 @@ namespace WeihanLi.Extensions
         }
 
         /// <summary>
-        /// string 转换为其他格式数据
-        /// 如："1,2,3,,4" => new int[] { 1,2,3,4 }
+        /// split comma separated string to T array
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="str">str</param>
+        /// <param name="splitOptions"></param>
         /// <returns></returns>
-        public static T[] SplitArray<T>(this string str) => SplitArray<T>(str, new[] { ',' });
+        public static T[] SplitArray<T>(this string str, StringSplitOptions splitOptions = StringSplitOptions.None) => SplitArray<T>(str, new[] { ',' }, splitOptions);
 
         /// <summary>
-        /// string 转换为其他格式数据
-        /// 如："1,2,3,,4" => new int[] { 1,2,3,4 }
+        /// split specific separator separated string to T array
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="str">str</param>
-        /// <param name="separators">分隔符</param>
+        /// <param name="separators">separators</param>
+        /// <param name="splitOptions">splitOptions</param>
         /// <returns></returns>
-        public static T[] SplitArray<T>(this string str, char[] separators)
+        public static T[] SplitArray<T>(this string str, char[] separators, StringSplitOptions splitOptions = StringSplitOptions.None)
         {
             if (string.IsNullOrWhiteSpace(str))
             {
-                return new T[0];
+                return ArrayHelper.Empty<T>();
             }
-            return str.Split(separators, StringSplitOptions.RemoveEmptyEntries)
+            return str.Split(separators, splitOptions)
                 .Select(_ => _.To<T>())
                 .ToArray();
         }

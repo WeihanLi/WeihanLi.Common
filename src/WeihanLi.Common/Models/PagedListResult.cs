@@ -5,12 +5,7 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Models
 {
-    [Obsolete("Please use IPagedListResult", true)]
-    public interface IPagedListModel<out T> : IPagedListResult<T>
-    {
-    }
-
-    public interface IPagedListResult<out T> : IListResultWithTotalCount<T>
+    public interface IPagedListResult<out T> : IListResultWithTotal<T>
     {
         int Count { get; }
 
@@ -30,16 +25,16 @@ namespace WeihanLi.Common.Models
         int PageCount { get; }
     }
 
-    public interface IListResultWithTotalCount<out T>
+    public interface IListResultWithTotal<out T>
     {
         IReadOnlyList<T> Data { get; }
 
         int TotalCount { get; }
     }
 
-    public class ListResultWithTotal<T> : IListResultWithTotalCount<T>
+    public class ListResultWithTotal<T> : IListResultWithTotal<T>
     {
-        public static readonly IListResultWithTotalCount<T> Empty = new ListResultWithTotal<T>();
+        public static readonly IListResultWithTotal<T> Empty = new ListResultWithTotal<T>();
 
         private IReadOnlyList<T> _data = ArrayHelper.Empty<T>();
 

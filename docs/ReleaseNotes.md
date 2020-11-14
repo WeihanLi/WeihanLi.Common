@@ -4,6 +4,12 @@
 
 .netstandard2.0 based also support for netfx4.5 common helpers and extensions
 
+
+### [WeihanLi.Common 1.0.43](https://www.nuget.org/packages/WeihanLi.Common/1.0.43)
+
+- refact `RetryHelper`
+- update `MapHelper`/`UnitOfWork`
+
 ### [WeihanLi.Common 1.0.42](https://www.nuget.org/packages/WeihanLi.Common/1.0.42)
 
 - update `HashHelper`/`Exception.Unwrap`

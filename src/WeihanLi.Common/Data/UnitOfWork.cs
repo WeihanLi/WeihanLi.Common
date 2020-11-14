@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Data.Common;
+using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
@@ -9,9 +9,9 @@ namespace WeihanLi.Common.Data
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
-        protected readonly DbTransaction _dbTransaction;
+        protected readonly IDbTransaction _dbTransaction;
 
-        public UnitOfWork(DbConnection dbConnection)
+        public UnitOfWork(IDbConnection dbConnection)
         {
             if (null == dbConnection)
             {
@@ -21,22 +21,22 @@ namespace WeihanLi.Common.Data
             _dbTransaction = dbConnection.BeginTransaction();
         }
 
-        public UnitOfWork(DbTransaction dbTransaction)
+        public UnitOfWork(IDbTransaction dbTransaction)
         {
             _dbTransaction = dbTransaction ?? throw new ArgumentNullException(nameof(dbTransaction));
         }
 
-        public void Commit() => _dbTransaction.Commit();
+        public virtual void Commit() => _dbTransaction.Commit();
 
-        public Task CommitAsync(CancellationToken cancellationToken = default)
+        public virtual Task CommitAsync(CancellationToken cancellationToken = default)
         {
             _dbTransaction.Commit();
             return TaskHelper.CompletedTask;
         }
 
-        public void Rollback() => _dbTransaction.Rollback();
+        public virtual void Rollback() => _dbTransaction.Rollback();
 
-        public Task RollbackAsync(CancellationToken cancellationToken = default)
+        public virtual Task RollbackAsync(CancellationToken cancellationToken = default)
         {
             _dbTransaction.Rollback();
             return TaskHelper.CompletedTask;

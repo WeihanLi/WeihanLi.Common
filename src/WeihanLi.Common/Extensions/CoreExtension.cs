@@ -3012,6 +3012,38 @@ namespace WeihanLi.Extensions
             return @this;
         }
 
+        /// <summary>
+        /// Append text when condition is true
+        /// </summary>
+        /// <param name="builder">StringBuilder</param>
+        /// <param name="text">text to append</param>
+        /// <param name="condition">condition to evaluate</param>
+        /// <returns>StringBuilder</returns>
+        public static StringBuilder AppendIf(this StringBuilder builder, string text, bool condition)
+        {
+            if (condition)
+            {
+                builder?.Append(text);
+            }
+            return builder;
+        }
+
+        /// <summary>
+        /// Append text when condition is true
+        /// </summary>
+        /// <param name="builder">StringBuilder</param>
+        /// <param name="text">text to append</param>
+        /// <param name="condition">condition to evaluate</param>
+        /// <returns>StringBuilder</returns>
+        public static StringBuilder AppendLineIf(this StringBuilder builder, string text, bool condition)
+        {
+            if (condition)
+            {
+                builder?.AppendLine(text);
+            }
+            return builder;
+        }
+
         #endregion StringBuilder
 
         #region TimeSpan
