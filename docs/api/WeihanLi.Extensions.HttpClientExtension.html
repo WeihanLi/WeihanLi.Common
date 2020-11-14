@@ -1,0 +1,941 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class HttpClientExtension
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class HttpClientExtension
+   ">
+    <meta name="generator" content="docfx 2.56.5.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="WeihanLi.Extensions.HttpClientExtension">
+  
+  
+  <h1 id="WeihanLi_Extensions_HttpClientExtension" data-uid="WeihanLi.Extensions.HttpClientExtension" class="text-break">Class HttpClientExtension
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">HttpClientExtension</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Extensions.html">WeihanLi.Extensions</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="WeihanLi_Extensions_HttpClientExtension_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class HttpClientExtension</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_PostAsFormAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostAsFormAsync*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_PostAsFormAsync_HttpClient_System_String_IEnumerable_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Extensions.HttpClientExtension.PostAsFormAsync(HttpClient,System.String,IEnumerable{KeyValuePair{System.String,System.String}})">PostAsFormAsync(HttpClient, String, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>PostAsFormAsync</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; PostAsFormAsync(this HttpClient httpClient, string requestUri, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; paramDic)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpClient</span></td>
+        <td><span class="parametername">httpClient</span></td>
+        <td><p>httpClient</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">requestUri</span></td>
+        <td><p>requestUri</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">paramDic</span></td>
+        <td><p>paramDictionary</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">HttpResponseMessage</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_PostAsJsonAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostAsJsonAsync*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_PostAsJsonAsync__1_HttpClient_System_String___0_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostAsJsonAsync``1(HttpClient,System.String,``0)">PostAsJsonAsync&lt;T&gt;(HttpClient, String, T)</h4>
+  <div class="markdown level1 summary"><p>PostAsJsonAsync</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; PostAsJsonAsync&lt;T&gt;(this HttpClient httpClient, string requestUri, T parameter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpClient</span></td>
+        <td><span class="parametername">httpClient</span></td>
+        <td><p>httpClient</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">requestUri</span></td>
+        <td><p>requestUri</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">parameter</span></td>
+        <td><p>parameter</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">HttpResponseMessage</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_PostFileAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostFileAsync*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_PostFileAsync_HttpClient_System_String_ICollection_System_String__IEnumerable_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Extensions.HttpClientExtension.PostFileAsync(HttpClient,System.String,ICollection{System.String},IEnumerable{KeyValuePair{System.String,System.String}})">PostFileAsync(HttpClient, String, ICollection&lt;String&gt;, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; PostFileAsync(this HttpClient client, string requestUrl, ICollection&lt;string&gt; filePaths, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; formFields = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpClient</span></td>
+        <td><span class="parametername">client</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">requestUrl</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ICollection</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">filePaths</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">formFields</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">HttpResponseMessage</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_PostFileAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostFileAsync*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_PostFileAsync_HttpClient_System_String_IEnumerable_KeyValuePair_System_String_Stream___IEnumerable_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Extensions.HttpClientExtension.PostFileAsync(HttpClient,System.String,IEnumerable{KeyValuePair{System.String,Stream}},IEnumerable{KeyValuePair{System.String,System.String}})">PostFileAsync(HttpClient, String, IEnumerable&lt;KeyValuePair&lt;String, Stream&gt;&gt;, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>HttpClient Post files. <a href="https://stackoverflow.com/questions/18059588/httpclient-multipart-form-post-in-c-sharp">See here</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; PostFileAsync(this HttpClient httpClient, string requestUri, IEnumerable&lt;KeyValuePair&lt;string, Stream&gt;&gt; files, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; formFields = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpClient</span></td>
+        <td><span class="parametername">httpClient</span></td>
+        <td><p>The HTTP client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">requestUri</span></td>
+        <td><p>The request URI.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">Stream</span>&gt;&gt;</td>
+        <td><span class="parametername">files</span></td>
+        <td><p>The files. Key: File name, value: file read stream.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">formFields</span></td>
+        <td><p>The form.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">HttpResponseMessage</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_PostFileAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostFileAsync*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_PostFileAsync_HttpClient_System_String_Stream_System_String_System_String_IEnumerable_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Extensions.HttpClientExtension.PostFileAsync(HttpClient,System.String,Stream,System.String,System.String,IEnumerable{KeyValuePair{System.String,System.String}})">PostFileAsync(HttpClient, String, Stream, String, String, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>HttpClient Post a file</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; PostFileAsync(this HttpClient httpClient, string requestUrl, Stream file, string fileName, string fileKey = &quot;file&quot;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; formFields = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpClient</span></td>
+        <td><span class="parametername">httpClient</span></td>
+        <td><p>httpClient</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">requestUrl</span></td>
+        <td><p>requestUrl</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">file</span></td>
+        <td><p>fileStream</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fileName</span></td>
+        <td><p>fileName</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fileKey</span></td>
+        <td><p>fileKey,default is &quot;file&quot;</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">formFields</span></td>
+        <td><p>formFields,default is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">HttpResponseMessage</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_PostFileAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostFileAsync*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_PostFileAsync_HttpClient_System_String_System_String_System_String_IEnumerable_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Extensions.HttpClientExtension.PostFileAsync(HttpClient,System.String,System.String,System.String,IEnumerable{KeyValuePair{System.String,System.String}})">PostFileAsync(HttpClient, String, String, String, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>HttpClient Post a file</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; PostFileAsync(this HttpClient httpClient, string requestUrl, string filePath, string fileKey = &quot;file&quot;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; formFields = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpClient</span></td>
+        <td><span class="parametername">httpClient</span></td>
+        <td><p>httpClient</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">requestUrl</span></td>
+        <td><p>requestUrl</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">filePath</span></td>
+        <td><p>filePath</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">fileKey</span></td>
+        <td><p>fileKey,default is &quot;file&quot;</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">formFields</span></td>
+        <td><p>formFields,default is null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">HttpResponseMessage</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_PutAsFormAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.PutAsFormAsync*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_PutAsFormAsync_HttpClient_System_String_IEnumerable_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Extensions.HttpClientExtension.PutAsFormAsync(HttpClient,System.String,IEnumerable{KeyValuePair{System.String,System.String}})">PutAsFormAsync(HttpClient, String, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>PutAsFormAsync</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; PutAsFormAsync(this HttpClient httpClient, string requestUri, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; paramDic)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpClient</span></td>
+        <td><span class="parametername">httpClient</span></td>
+        <td><p>httpClient</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">requestUri</span></td>
+        <td><p>requestUri</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">paramDic</span></td>
+        <td><p>paramDictionary</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">HttpResponseMessage</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_PutAsJsonAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.PutAsJsonAsync*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_PutAsJsonAsync__1_HttpClient_System_String___0_" data-uid="WeihanLi.Extensions.HttpClientExtension.PutAsJsonAsync``1(HttpClient,System.String,``0)">PutAsJsonAsync&lt;T&gt;(HttpClient, String, T)</h4>
+  <div class="markdown level1 summary"><p>PutAsJsonAsync</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; PutAsJsonAsync&lt;T&gt;(this HttpClient httpClient, string requestUri, T parameter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpClient</span></td>
+        <td><span class="parametername">httpClient</span></td>
+        <td><p>httpClient</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">requestUri</span></td>
+        <td><p>requestUri</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">parameter</span></td>
+        <td><p>param</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">HttpResponseMessage</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_SetBasicAuthentication_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBasicAuthentication*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_SetBasicAuthentication_HttpClient_System_String_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBasicAuthentication(HttpClient,System.String,System.String)">SetBasicAuthentication(HttpClient, String, String)</h4>
+  <div class="markdown level1 summary"><p>Sets the basic authentication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetBasicAuthentication(this HttpClient client, string userName, string password)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpClient</span></td>
+        <td><span class="parametername">client</span></td>
+        <td><p>The client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userName</span></td>
+        <td><p>Name of the user.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">password</span></td>
+        <td><p>The password.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_SetBasicAuthentication_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBasicAuthentication*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_SetBasicAuthentication_HttpRequestMessage_System_String_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBasicAuthentication(HttpRequestMessage,System.String,System.String)">SetBasicAuthentication(HttpRequestMessage, String, String)</h4>
+  <div class="markdown level1 summary"><p>Sets a basic authentication header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetBasicAuthentication(this HttpRequestMessage request, string userName, string password)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpRequestMessage</span></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The HTTP request message.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userName</span></td>
+        <td><p>Name of the user.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">password</span></td>
+        <td><p>The password.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_SetBasicAuthenticationOAuth_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBasicAuthenticationOAuth*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_SetBasicAuthenticationOAuth_HttpRequestMessage_System_String_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBasicAuthenticationOAuth(HttpRequestMessage,System.String,System.String)">SetBasicAuthenticationOAuth(HttpRequestMessage, String, String)</h4>
+  <div class="markdown level1 summary"><p>Sets a basic authentication header for RFC6749 client authentication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetBasicAuthenticationOAuth(this HttpRequestMessage request, string userName, string password)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpRequestMessage</span></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The HTTP request message.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userName</span></td>
+        <td><p>Name of the user.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">password</span></td>
+        <td><p>The password.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_SetBearerToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBearerToken*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_SetBearerToken_HttpClient_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBearerToken(HttpClient,System.String)">SetBearerToken(HttpClient, String)</h4>
+  <div class="markdown level1 summary"><p>Sets the bearer token.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetBearerToken(this HttpClient client, string token)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpClient</span></td>
+        <td><span class="parametername">client</span></td>
+        <td><p>The client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">token</span></td>
+        <td><p>The token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_SetBearerToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBearerToken*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_SetBearerToken_HttpRequestMessage_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBearerToken(HttpRequestMessage,System.String)">SetBearerToken(HttpRequestMessage, String)</h4>
+  <div class="markdown level1 summary"><p>Sets an authorization header with a bearer token.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetBearerToken(this HttpRequestMessage request, string token)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpRequestMessage</span></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The HTTP request message.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">token</span></td>
+        <td><p>The token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_SetToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetToken*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_SetToken_HttpClient_System_String_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetToken(HttpClient,System.String,System.String)">SetToken(HttpClient, String, String)</h4>
+  <div class="markdown level1 summary"><p>Sets the token.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetToken(this HttpClient client, string scheme, string token)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpClient</span></td>
+        <td><span class="parametername">client</span></td>
+        <td><p>The client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">scheme</span></td>
+        <td><p>The scheme.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">token</span></td>
+        <td><p>The token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_HttpClientExtension_SetToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetToken*"></a>
+  <h4 id="WeihanLi_Extensions_HttpClientExtension_SetToken_HttpRequestMessage_System_String_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetToken(HttpRequestMessage,System.String,System.String)">SetToken(HttpRequestMessage, String, String)</h4>
+  <div class="markdown level1 summary"><p>Sets an authorization header with a given scheme and value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetToken(this HttpRequestMessage request, string scheme, string token)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HttpRequestMessage</span></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The HTTP request message.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">scheme</span></td>
+        <td><p>The scheme.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">token</span></td>
+        <td><p>The token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

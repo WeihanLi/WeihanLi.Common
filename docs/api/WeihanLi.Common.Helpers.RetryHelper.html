@@ -1,0 +1,1289 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RetryHelper
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RetryHelper
+   ">
+    <meta name="generator" content="docfx 2.56.5.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="WeihanLi.Common.Helpers.RetryHelper">
+  
+  
+  <h1 id="WeihanLi_Common_Helpers_RetryHelper" data-uid="WeihanLi.Common.Helpers.RetryHelper" class="text-break">Class RetryHelper
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">RetryHelper</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Common.Helpers.html">WeihanLi.Common.Helpers</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="WeihanLi_Common_Helpers_RetryHelper_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class RetryHelper</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+  <h4 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_System_Action_System_Int32_System_Action_System_Int32_System_TimeSpan_System_Exception__System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke(System.Action,System.Int32,System.Action{System.Int32,System.TimeSpan,System.Exception},System.Func{System.Int32,System.TimeSpan})">TryInvoke(Action, Int32, Action&lt;Int32, TimeSpan, Exception&gt;, Func&lt;Int32, TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryInvoke(Action action, int maxRetryTimes = 3, Action&lt;int, TimeSpan, Exception&gt; onRetry = null, Func&lt;int, TimeSpan&gt; delayFunc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span></td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxRetryTimes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>, <span class="xref">System.Exception</span>&gt;</td>
+        <td><span class="parametername">onRetry</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delayFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+  <h4 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_System_Func_System_Boolean__System_Int32_System_Action_System_Int32_System_TimeSpan_System_Exception__System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke(System.Func{System.Boolean},System.Int32,System.Action{System.Int32,System.TimeSpan,System.Exception},System.Func{System.Int32,System.TimeSpan})">TryInvoke(Func&lt;Boolean&gt;, Int32, Action&lt;Int32, TimeSpan, Exception&gt;, Func&lt;Int32, TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryInvoke(Func&lt;bool&gt; func, int maxRetryTimes = 3, Action&lt;int, TimeSpan, Exception&gt; onRetry = null, Func&lt;int, TimeSpan&gt; delayFunc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxRetryTimes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>, <span class="xref">System.Exception</span>&gt;</td>
+        <td><span class="parametername">onRetry</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delayFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+  <h4 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__1_System_Func___0__System_Func___0_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``1(System.Func{``0},System.Func{``0,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">TryInvoke&lt;TResult&gt;(Func&lt;TResult&gt;, Func&lt;TResult, Boolean&gt;, Int32, Func&lt;Int32, TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult TryInvoke&lt;TResult&gt;(Func&lt;TResult&gt; func, Func&lt;TResult, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt; delayFunc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TResult&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TResult, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">validFunc</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxRetryTimes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delayFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+  <h4 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__2_System_Func___0___1____0_System_Func___1_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``2(System.Func{``0,``1},``0,System.Func{``1,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">TryInvoke&lt;T1, TResult&gt;(Func&lt;T1, TResult&gt;, T1, Func&lt;TResult, Boolean&gt;, Int32, Func&lt;Int32, TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult TryInvoke&lt;T1, TResult&gt;(Func&lt;T1, TResult&gt; func, T1 t1, Func&lt;TResult, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt; delayFunc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;T1, TResult&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T1</span></td>
+        <td><span class="parametername">t1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TResult, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">validFunc</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxRetryTimes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delayFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+  <h4 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__3_System_Func___0___1___2____0___1_System_Func___2_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``3(System.Func{``0,``1,``2},``0,``1,System.Func{``2,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">TryInvoke&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, TResult&gt;, T1, T2, Func&lt;TResult, Boolean&gt;, Int32, Func&lt;Int32, TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult TryInvoke&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, TResult&gt; func, T1 t1, T2 t2, Func&lt;TResult, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt; delayFunc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;T1, T2, TResult&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T1</span></td>
+        <td><span class="parametername">t1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T2</span></td>
+        <td><span class="parametername">t2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TResult, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">validFunc</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxRetryTimes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delayFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+  <h4 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__4_System_Func___0___1___2___3____0___1___2_System_Func___3_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``4(System.Func{``0,``1,``2,``3},``0,``1,``2,System.Func{``3,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">TryInvoke&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, TResult&gt;, T1, T2, T3, Func&lt;TResult, Boolean&gt;, Int32, Func&lt;Int32, TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult TryInvoke&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, TResult&gt; func, T1 t1, T2 t2, T3 t3, Func&lt;TResult, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt; delayFunc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;T1, T2, T3, TResult&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T1</span></td>
+        <td><span class="parametername">t1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T2</span></td>
+        <td><span class="parametername">t2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T3</span></td>
+        <td><span class="parametername">t3</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TResult, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">validFunc</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxRetryTimes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delayFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T3</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+  <h4 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__5_System_Func___0___1___2___3___4____0___1___2___3_System_Func___4_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2,``3,System.Func{``4,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">TryInvoke&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, TResult&gt;, T1, T2, T3, T4, Func&lt;TResult, Boolean&gt;, Int32, Func&lt;Int32, TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult TryInvoke&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, TResult&gt; func, T1 t1, T2 t2, T3 t3, T4 t4, Func&lt;TResult, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt; delayFunc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;T1, T2, T3, T4, TResult&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T1</span></td>
+        <td><span class="parametername">t1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T2</span></td>
+        <td><span class="parametername">t2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T3</span></td>
+        <td><span class="parametername">t3</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T4</span></td>
+        <td><span class="parametername">t4</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TResult, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">validFunc</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxRetryTimes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delayFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T3</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T4</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
+  <h4 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_System_Func_System_Threading_Tasks_Task_System_Boolean___System_Int32_System_Action_System_Int32_System_TimeSpan_System_Exception__System_Func_System_Int32_System_TimeSpan__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync(System.Func{System.Threading.Tasks.Task{System.Boolean}},System.Int32,System.Action{System.Int32,System.TimeSpan,System.Exception},System.Func{System.Int32,System.TimeSpan},System.Threading.CancellationToken)">TryInvokeAsync(Func&lt;Task&lt;Boolean&gt;&gt;, Int32, Action&lt;Int32, TimeSpan, Exception&gt;, Func&lt;Int32, TimeSpan&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; TryInvokeAsync(Func&lt;Task&lt;bool&gt;&gt; func, int maxRetryTimes = 3, Action&lt;int, TimeSpan, Exception&gt; onRetry = null, Func&lt;int, TimeSpan&gt; delayFunc = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxRetryTimes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>, <span class="xref">System.Exception</span>&gt;</td>
+        <td><span class="parametername">onRetry</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delayFunc</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
+  <h4 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_System_Func_System_Threading_Tasks_Task__System_Int32_System_Action_System_Int32_System_TimeSpan_System_Exception__System_Func_System_Int32_System_TimeSpan__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync(System.Func{System.Threading.Tasks.Task},System.Int32,System.Action{System.Int32,System.TimeSpan,System.Exception},System.Func{System.Int32,System.TimeSpan},System.Threading.CancellationToken)">TryInvokeAsync(Func&lt;Task&gt;, Int32, Action&lt;Int32, TimeSpan, Exception&gt;, Func&lt;Int32, TimeSpan&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; TryInvokeAsync(Func&lt;Task&gt; action, int maxRetryTimes = 3, Action&lt;int, TimeSpan, Exception&gt; onRetry = null, Func&lt;int, TimeSpan&gt; delayFunc = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxRetryTimes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>, <span class="xref">System.Exception</span>&gt;</td>
+        <td><span class="parametername">onRetry</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delayFunc</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
+  <h4 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Func___0_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Func{``0,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">TryInvokeAsync&lt;TResult&gt;(Func&lt;Task&lt;TResult&gt;&gt;, Func&lt;TResult, Boolean&gt;, Int32, Func&lt;Int32, TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult&gt; TryInvokeAsync&lt;TResult&gt;(Func&lt;Task&lt;TResult&gt;&gt; func, Func&lt;TResult, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt; delayFunc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Threading.Tasks.Task</span>&lt;TResult&gt;&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TResult, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">validFunc</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxRetryTimes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delayFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;TResult&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
+  <h4 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__2_System_Func___0_System_Threading_Tasks_Task___1_____0_System_Func___1_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``2(System.Func{``0,System.Threading.Tasks.Task{``1}},``0,System.Func{``1,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">TryInvokeAsync&lt;T1, TResult&gt;(Func&lt;T1, Task&lt;TResult&gt;&gt;, T1, Func&lt;TResult, Boolean&gt;, Int32, Func&lt;Int32, TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult&gt; TryInvokeAsync&lt;T1, TResult&gt;(Func&lt;T1, Task&lt;TResult&gt;&gt; func, T1 t1, Func&lt;TResult, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt; delayFunc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;T1, <span class="xref">System.Threading.Tasks.Task</span>&lt;TResult&gt;&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T1</span></td>
+        <td><span class="parametername">t1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TResult, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">validFunc</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxRetryTimes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delayFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;TResult&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
+  <h4 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__3_System_Func___0___1_System_Threading_Tasks_Task___2_____0___1_System_Func___2_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``3(System.Func{``0,``1,System.Threading.Tasks.Task{``2}},``0,``1,System.Func{``2,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">TryInvokeAsync&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, Task&lt;TResult&gt;&gt;, T1, T2, Func&lt;TResult, Boolean&gt;, Int32, Func&lt;Int32, TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult&gt; TryInvokeAsync&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, Task&lt;TResult&gt;&gt; func, T1 t1, T2 t2, Func&lt;TResult, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt; delayFunc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;T1, T2, <span class="xref">System.Threading.Tasks.Task</span>&lt;TResult&gt;&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T1</span></td>
+        <td><span class="parametername">t1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T2</span></td>
+        <td><span class="parametername">t2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TResult, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">validFunc</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxRetryTimes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delayFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;TResult&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
+  <h4 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__4_System_Func___0___1___2_System_Threading_Tasks_Task___3_____0___1___2_System_Func___3_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``4(System.Func{``0,``1,``2,System.Threading.Tasks.Task{``3}},``0,``1,``2,System.Func{``3,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">TryInvokeAsync&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, Task&lt;TResult&gt;&gt;, T1, T2, T3, Func&lt;TResult, Boolean&gt;, Int32, Func&lt;Int32, TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult&gt; TryInvokeAsync&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, Task&lt;TResult&gt;&gt; func, T1 t1, T2 t2, T3 t3, Func&lt;TResult, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt; delayFunc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;T1, T2, T3, <span class="xref">System.Threading.Tasks.Task</span>&lt;TResult&gt;&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T1</span></td>
+        <td><span class="parametername">t1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T2</span></td>
+        <td><span class="parametername">t2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T3</span></td>
+        <td><span class="parametername">t3</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TResult, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">validFunc</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxRetryTimes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delayFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;TResult&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T3</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
+  <h4 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__5_System_Func___0___1___2___3_System_Threading_Tasks_Task___4_____0___1___2___3_System_Func___4_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``5(System.Func{``0,``1,``2,``3,System.Threading.Tasks.Task{``4}},``0,``1,``2,``3,System.Func{``4,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">TryInvokeAsync&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, Task&lt;TResult&gt;&gt;, T1, T2, T3, T4, Func&lt;TResult, Boolean&gt;, Int32, Func&lt;Int32, TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult&gt; TryInvokeAsync&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, Task&lt;TResult&gt;&gt; func, T1 t1, T2 t2, T3 t3, T4 t4, Func&lt;TResult, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt; delayFunc = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;T1, T2, T3, T4, <span class="xref">System.Threading.Tasks.Task</span>&lt;TResult&gt;&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T1</span></td>
+        <td><span class="parametername">t1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T2</span></td>
+        <td><span class="parametername">t2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T3</span></td>
+        <td><span class="parametername">t3</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T4</span></td>
+        <td><span class="parametername">t4</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TResult, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">validFunc</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxRetryTimes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delayFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;TResult&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T3</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T4</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

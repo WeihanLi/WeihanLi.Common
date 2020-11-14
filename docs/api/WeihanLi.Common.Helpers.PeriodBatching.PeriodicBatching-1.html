@@ -1,0 +1,524 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class PeriodicBatching&lt;TEvent&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class PeriodicBatching&lt;TEvent&gt;
+   ">
+    <meta name="generator" content="docfx 2.56.5.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1">
+  
+  
+  <h1 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1" class="text-break">Class PeriodicBatching&lt;TEvent&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Base class for sinks that log events in batches. Batching is
+triggered asynchronously on a timer.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">PeriodicBatching&lt;TEvent&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Common.Helpers.PeriodBatching.html">WeihanLi.Common.Helpers.PeriodBatching</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class PeriodicBatching&lt;TEvent&gt; : IDisposable where TEvent : class</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEvent</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>To avoid unbounded memory growth, events are discarded after attempting
+to send a batch, regardless of whether the batch succeeded or not. Implementers
+that want to change this behavior need to either implement from scratch, or
+embed retry logic in the batch emitting functions.</p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1__ctor_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.#ctor*"></a>
+  <h4 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1__ctor_System_Int32_System_TimeSpan_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.#ctor(System.Int32,System.TimeSpan)">PeriodicBatching(Int32, TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Construct a sink posting to the specified database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected PeriodicBatching(int batchSizeLimit, TimeSpan period)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">batchSizeLimit</span></td>
+        <td><p>The maximum number of events to include in a single batch.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">period</span></td>
+        <td><p>The time to wait between checking for event batches.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1__ctor_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.#ctor*"></a>
+  <h4 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1__ctor_System_Int32_System_TimeSpan_System_Int32_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.#ctor(System.Int32,System.TimeSpan,System.Int32)">PeriodicBatching(Int32, TimeSpan, Int32)</h4>
+  <div class="markdown level1 summary"><p>Construct a sink posting to the specified database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected PeriodicBatching(int batchSizeLimit, TimeSpan period, int queueLimit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">batchSizeLimit</span></td>
+        <td><p>The maximum number of events to include in a single batch.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">period</span></td>
+        <td><p>The time to wait between checking for event batches.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">queueLimit</span></td>
+        <td><p>Maximum number of events in the queue.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_CanInclude_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.CanInclude*"></a>
+  <h4 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_CanInclude__0_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.CanInclude(`0)">CanInclude(TEvent)</h4>
+  <div class="markdown level1 summary"><p>Determine whether a queued log event should be included in the batch. If
+an override returns false, the event will be dropped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool CanInclude(TEvent evt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEvent</span></td>
+        <td><span class="parametername">evt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_Dispose_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.Dispose*"></a>
+  <h4 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_Dispose" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  
+  
+  <a id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_Dispose_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.Dispose*"></a>
+  <h4 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_Dispose_System_Boolean_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Free resources held by the sink.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">disposing</span></td>
+        <td><p>If true, called because the object is being disposed; if false,
+the object is being disposed from the finalizer.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_Emit_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.Emit*"></a>
+  <h4 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_Emit__0_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.Emit(`0)">Emit(TEvent)</h4>
+  <div class="markdown level1 summary"><p>Emit the provided log event to the sink. If the sink is being disposed or
+the app domain unloaded, then the event is ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Emit(TEvent TEvent)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEvent</span></td>
+        <td><span class="parametername">TEvent</span></td>
+        <td><p>Log event to emit.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_Emit__0__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The sink implements the contract that any events whose Emit() method has
+completed at the time of sink disposal will be flushed (or attempted to,
+depending on app domain state).</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>The event is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_EmitBatch_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.EmitBatch*"></a>
+  <h4 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_EmitBatch_IEnumerable__0__" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.EmitBatch(IEnumerable{`0})">EmitBatch(IEnumerable&lt;TEvent&gt;)</h4>
+  <div class="markdown level1 summary"><p>Emit a batch of log events, running to completion synchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void EmitBatch(IEnumerable&lt;TEvent&gt; events)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;TEvent&gt;</td>
+        <td><span class="parametername">events</span></td>
+        <td><p>The events to emit.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_EmitBatch_IEnumerable__0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Override either <a class="xref" href="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching-1.html#WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_EmitBatch_IEnumerable__0__">EmitBatch(IEnumerable&lt;TEvent&gt;)</a> or <a class="xref" href="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching-1.html#WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_EmitBatchAsync_IEnumerable__0__">EmitBatchAsync(IEnumerable&lt;TEvent&gt;)</a>,
+not both.</p>
+</div>
+  
+  
+  <a id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_EmitBatchAsync_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.EmitBatchAsync*"></a>
+  <h4 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_EmitBatchAsync_IEnumerable__0__" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.EmitBatchAsync(IEnumerable{`0})">EmitBatchAsync(IEnumerable&lt;TEvent&gt;)</h4>
+  <div class="markdown level1 summary"><p>Emit a batch of log events, running asynchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task EmitBatchAsync(IEnumerable&lt;TEvent&gt; events)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;TEvent&gt;</td>
+        <td><span class="parametername">events</span></td>
+        <td><p>The events to emit.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_EmitBatchAsync_IEnumerable__0___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Override either <a class="xref" href="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching-1.html#WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_EmitBatchAsync_IEnumerable__0__">EmitBatchAsync(IEnumerable&lt;TEvent&gt;)</a> or <a class="xref" href="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching-1.html#WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_EmitBatch_IEnumerable__0__">EmitBatch(IEnumerable&lt;TEvent&gt;)</a>,
+not both.</p>
+</div>
+  
+  
+  <a id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_OnEmptyBatch_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.OnEmptyBatch*"></a>
+  <h4 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_OnEmptyBatch" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.OnEmptyBatch">OnEmptyBatch()</h4>
+  <div class="markdown level1 summary"><p>Allows derived sinks to perform periodic work without requiring additional threads
+or timers (thus avoiding additional flush/shut-down complexity).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnEmptyBatch()</code></pre>
+  </div>
+  <h5 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_OnEmptyBatch_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Override either <a class="xref" href="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching-1.html#WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_OnEmptyBatch">OnEmptyBatch()</a> or <a class="xref" href="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching-1.html#WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_OnEmptyBatchAsync">OnEmptyBatchAsync()</a>,
+not both.</p>
+</div>
+  
+  
+  <a id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_OnEmptyBatchAsync_" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.OnEmptyBatchAsync*"></a>
+  <h4 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_OnEmptyBatchAsync" data-uid="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching`1.OnEmptyBatchAsync">OnEmptyBatchAsync()</h4>
+  <div class="markdown level1 summary"><p>Allows derived sinks to perform periodic work without requiring additional threads
+or timers (thus avoiding additional flush/shut-down complexity).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task OnEmptyBatchAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_OnEmptyBatchAsync_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Override either <a class="xref" href="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching-1.html#WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_OnEmptyBatchAsync">OnEmptyBatchAsync()</a> or <a class="xref" href="WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching-1.html#WeihanLi_Common_Helpers_PeriodBatching_PeriodicBatching_1_OnEmptyBatch">OnEmptyBatch()</a>,
+not both.</p>
+</div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

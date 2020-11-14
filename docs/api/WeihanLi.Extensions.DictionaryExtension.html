@@ -1,0 +1,1603 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DictionaryExtension
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DictionaryExtension
+   ">
+    <meta name="generator" content="docfx 2.56.5.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="WeihanLi.Extensions.DictionaryExtension">
+  
+  
+  <h1 id="WeihanLi_Extensions_DictionaryExtension" data-uid="WeihanLi.Extensions.DictionaryExtension" class="text-break">Class DictionaryExtension
+  </h1>
+  <div class="markdown level0 summary"><p>DictionaryExtension</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">DictionaryExtension</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Extensions.html">WeihanLi.Extensions</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="WeihanLi_Extensions_DictionaryExtension_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class DictionaryExtension</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_AddIfNotContainsKey_" data-uid="WeihanLi.Extensions.DictionaryExtension.AddIfNotContainsKey*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_AddIfNotContainsKey__2_IDictionary___0___1____0___1_" data-uid="WeihanLi.Extensions.DictionaryExtension.AddIfNotContainsKey``2(IDictionary{``0,``1},``0,``1)">AddIfNotContainsKey&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey, TValue)</h4>
+  <div class="markdown level1 summary"><p>An IDictionary&lt;TKey,TValue&gt; extension method that adds if not contains key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AddIfNotContainsKey&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; this, TKey key, TValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true if it succeeds, false if it fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>Type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_AddIfNotContainsKey_" data-uid="WeihanLi.Extensions.DictionaryExtension.AddIfNotContainsKey*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_AddIfNotContainsKey__2_IDictionary___0___1____0_System_Func___0___1__" data-uid="WeihanLi.Extensions.DictionaryExtension.AddIfNotContainsKey``2(IDictionary{``0,``1},``0,System.Func{``0,``1})">AddIfNotContainsKey&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey, Func&lt;TKey, TValue&gt;)</h4>
+  <div class="markdown level1 summary"><p>An IDictionary&lt;TKey,TValue&gt; extension method that adds if not contains key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AddIfNotContainsKey&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; this, TKey key, Func&lt;TKey, TValue&gt; valueFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">valueFactory</span></td>
+        <td><p>The value factory.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true if it succeeds, false if it fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>Type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_AddIfNotContainsKey_" data-uid="WeihanLi.Extensions.DictionaryExtension.AddIfNotContainsKey*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_AddIfNotContainsKey__2_IDictionary___0___1____0_System_Func___1__" data-uid="WeihanLi.Extensions.DictionaryExtension.AddIfNotContainsKey``2(IDictionary{``0,``1},``0,System.Func{``1})">AddIfNotContainsKey&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey, Func&lt;TValue&gt;)</h4>
+  <div class="markdown level1 summary"><p>An IDictionary&lt;TKey,TValue&gt; extension method that adds if not contains key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AddIfNotContainsKey&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; this, TKey key, Func&lt;TValue&gt; valueFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TValue&gt;</td>
+        <td><span class="parametername">valueFactory</span></td>
+        <td><p>The value factory.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true if it succeeds, false if it fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>Type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_AddOrUpdate_" data-uid="WeihanLi.Extensions.DictionaryExtension.AddOrUpdate*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_AddOrUpdate__2_IDictionary___0___1____0___1_" data-uid="WeihanLi.Extensions.DictionaryExtension.AddOrUpdate``2(IDictionary{``0,``1},``0,``1)">AddOrUpdate&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey, TValue)</h4>
+  <div class="markdown level1 summary"><p>Uses the specified functions to add a key/value pair to the IDictionary&lt;TKey, TValue&gt; if the key does
+not already exist, or to update a key/value pair in the IDictionary&lt;TKey, TValue&gt;&gt; if the key already
+exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TValue AddOrUpdate&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; this, TKey key, TValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key to be added or whose value should be updated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to be added or updated.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><p>The new value for the key.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>Type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_AddOrUpdate_" data-uid="WeihanLi.Extensions.DictionaryExtension.AddOrUpdate*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_AddOrUpdate__2_IDictionary___0___1____0___1_System_Func___0___1___1__" data-uid="WeihanLi.Extensions.DictionaryExtension.AddOrUpdate``2(IDictionary{``0,``1},``0,``1,System.Func{``0,``1,``1})">AddOrUpdate&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey, TValue, Func&lt;TKey, TValue, TValue&gt;)</h4>
+  <div class="markdown level1 summary"><p>Uses the specified functions to add a key/value pair to the IDictionary&lt;TKey, TValue&gt; if the key does
+not already exist, or to update a key/value pair in the IDictionary&lt;TKey, TValue&gt;&gt; if the key already
+exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TValue AddOrUpdate&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; this, TKey key, TValue addValue, Func&lt;TKey, TValue, TValue&gt; updateValueFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key to be added or whose value should be updated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">addValue</span></td>
+        <td><p>The value to be added for an absent key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TKey, TValue, TValue&gt;</td>
+        <td><span class="parametername">updateValueFactory</span></td>
+        <td><p>The function used to generate a new value for an existing key based on the key's
+existing value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><p>The new value for the key. This will be either be addValue (if the key was absent) or the result of
+updateValueFactory (if the key was present).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>Type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_AddOrUpdate_" data-uid="WeihanLi.Extensions.DictionaryExtension.AddOrUpdate*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_AddOrUpdate__2_IDictionary___0___1____0_System_Func___0___1__System_Func___0___1___1__" data-uid="WeihanLi.Extensions.DictionaryExtension.AddOrUpdate``2(IDictionary{``0,``1},``0,System.Func{``0,``1},System.Func{``0,``1,``1})">AddOrUpdate&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey, Func&lt;TKey, TValue&gt;, Func&lt;TKey, TValue, TValue&gt;)</h4>
+  <div class="markdown level1 summary"><p>Uses the specified functions to add a key/value pair to the IDictionary&lt;TKey, TValue&gt; if the key does
+not already exist, or to update a key/value pair in the IDictionary&lt;TKey, TValue&gt;&gt; if the key already
+exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TValue AddOrUpdate&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; this, TKey key, Func&lt;TKey, TValue&gt; addValueFactory, Func&lt;TKey, TValue, TValue&gt; updateValueFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key to be added or whose value should be updated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">addValueFactory</span></td>
+        <td><p>The function used to generate a value for an absent key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TKey, TValue, TValue&gt;</td>
+        <td><span class="parametername">updateValueFactory</span></td>
+        <td><p>The function used to generate a new value for an existing key based on the key's
+existing value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><p>The new value for the key. This will be either be the result of addValueFactory (if the key was absent) or
+the result of updateValueFactory (if the key was present).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>Type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_ContainsAllKey_" data-uid="WeihanLi.Extensions.DictionaryExtension.ContainsAllKey*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ContainsAllKey__2_IDictionary___0___1____0___" data-uid="WeihanLi.Extensions.DictionaryExtension.ContainsAllKey``2(IDictionary{``0,``1},``0[])">ContainsAllKey&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey[])</h4>
+  <div class="markdown level1 summary"><p>An IDictionary&lt;TKey,TValue&gt; extension method that query if '@this&amp;apos; contains all key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ContainsAllKey&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; this, params TKey[] keys)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+      <tr>
+        <td>TKey[]</td>
+        <td><span class="parametername">keys</span></td>
+        <td><p>A variable-length parameters list containing keys.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true if it succeeds, false if it fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>Type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_ContainsAnyKey_" data-uid="WeihanLi.Extensions.DictionaryExtension.ContainsAnyKey*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ContainsAnyKey__2_IDictionary___0___1____0___" data-uid="WeihanLi.Extensions.DictionaryExtension.ContainsAnyKey``2(IDictionary{``0,``1},``0[])">ContainsAnyKey&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey[])</h4>
+  <div class="markdown level1 summary"><p>An IDictionary&lt;TKey,TValue&gt; extension method that query if '@this&amp;apos; contains any key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ContainsAnyKey&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; this, params TKey[] keys)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+      <tr>
+        <td>TKey[]</td>
+        <td><span class="parametername">keys</span></td>
+        <td><p>A variable-length parameters list containing keys.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true if it succeeds, false if it fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>Type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_GetOrAdd_" data-uid="WeihanLi.Extensions.DictionaryExtension.GetOrAdd*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_GetOrAdd__2_IDictionary___0___1____0___1_" data-uid="WeihanLi.Extensions.DictionaryExtension.GetOrAdd``2(IDictionary{``0,``1},``0,``1)">GetOrAdd&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey, TValue)</h4>
+  <div class="markdown level1 summary"><p>Adds a key/value pair to the IDictionary&lt;TKey, TValue&gt; if the key does not already exist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TValue GetOrAdd&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; this, TKey key, TValue value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key of the element to add.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to be added, if the key does not already exist.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><p>The value for the key. This will be either the existing value for the key if the key is already in the
+dictionary, or the new value if the key was not in the dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>Type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_GetOrAdd_" data-uid="WeihanLi.Extensions.DictionaryExtension.GetOrAdd*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_GetOrAdd__2_IDictionary___0___1____0_System_Func___0___1__" data-uid="WeihanLi.Extensions.DictionaryExtension.GetOrAdd``2(IDictionary{``0,``1},``0,System.Func{``0,``1})">GetOrAdd&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey, Func&lt;TKey, TValue&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a key/value pair to the IDictionary&lt;TKey, TValue&gt; by using the specified function, if the key does
+not already exist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TValue GetOrAdd&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; this, TKey key, Func&lt;TKey, TValue&gt; valueFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key of the element to add.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">valueFactory</span></td>
+        <td><p>TThe function used to generate a value for the key.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><p>The value for the key. This will be either the existing value for the key if the key is already in the
+dictionary, or the new value for the key as returned by valueFactory if the key was not in the dictionary.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>Type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_RemoveIfContainsKey_" data-uid="WeihanLi.Extensions.DictionaryExtension.RemoveIfContainsKey*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_RemoveIfContainsKey__2_IDictionary___0___1____0_" data-uid="WeihanLi.Extensions.DictionaryExtension.RemoveIfContainsKey``2(IDictionary{``0,``1},``0)">RemoveIfContainsKey&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey)</h4>
+  <div class="markdown level1 summary"><p>An IDictionary&lt;TKey,TValue&gt; extension method that removes if contains key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RemoveIfContainsKey&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; this, TKey key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>The key.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>Type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_ToDataTable_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToDataTable*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToDataTable_IDictionary_System_String_System_Object__" data-uid="WeihanLi.Extensions.DictionaryExtension.ToDataTable(IDictionary{System.String,System.Object})">ToDataTable(IDictionary&lt;String, Object&gt;)</h4>
+  <div class="markdown level1 summary"><p>IDictionary to dataTable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DataTable ToDataTable(this IDictionary&lt;string, object&gt; dictionary)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">dictionary</span></td>
+        <td><p>IDictionary</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DataTable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_ToDbParameters_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToDbParameters*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToDbParameters_IDictionary_System_String_System_Object__DbCommand_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToDbParameters(IDictionary{System.String,System.Object},DbCommand)">ToDbParameters(IDictionary&lt;String, Object&gt;, DbCommand)</h4>
+  <div class="markdown level1 summary"><p>An IDictionary&lt;string,object&gt; extension method that converts this object to a database parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DbParameter[] ToDbParameters(this IDictionary&lt;string, object&gt; this, DbCommand command)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DbCommand</span></td>
+        <td><span class="parametername">command</span></td>
+        <td><p>The command.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DbParameter</span>[]</td>
+        <td><p>The given data converted to a DbParameter[].</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_ToDbParameters_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToDbParameters*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToDbParameters_IDictionary_System_String_System_Object__DbConnection_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToDbParameters(IDictionary{System.String,System.Object},DbConnection)">ToDbParameters(IDictionary&lt;String, Object&gt;, DbConnection)</h4>
+  <div class="markdown level1 summary"><p>An IDictionary&lt;string,object&gt; extension method that converts this object to a database parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DbParameter[] ToDbParameters(this IDictionary&lt;string, object&gt; this, DbConnection connection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DbConnection</span></td>
+        <td><span class="parametername">connection</span></td>
+        <td><p>The connection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DbParameter</span>[]</td>
+        <td><p>The given data converted to a DbParameter[].</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_ToDictionary_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToDictionary*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToDictionary__2_IEnumerable_KeyValuePair___0___1___" data-uid="WeihanLi.Extensions.DictionaryExtension.ToDictionary``2(IEnumerable{KeyValuePair{``0,``1}})">ToDictionary&lt;TKey, TValue&gt;(IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dictionary&lt;TKey, TValue&gt; ToDictionary&lt;TKey, TValue&gt;(this IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt; source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;TKey, TValue&gt;&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;TKey, TValue&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_ToKeyValuePair_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToKeyValuePair*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToKeyValuePair_NameValueCollection_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToKeyValuePair(NameValueCollection)">ToKeyValuePair(NameValueCollection)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; ToKeyValuePair(this NameValueCollection collection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">NameValueCollection</span></td>
+        <td><span class="parametername">collection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_IDictionary_System_String_System_String__" data-uid="WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(IDictionary{System.String,System.String})">ToNameValueCollection(IDictionary&lt;String, String&gt;)</h4>
+  <div class="markdown level1 summary"><p>An IDictionary&lt;string,string&gt; extension method that converts the @this to a name value collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NameValueCollection ToNameValueCollection(this IDictionary&lt;string, string&gt; this)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">NameValueCollection</span></td>
+        <td><p>@this as a NameValueCollection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_IEnumerable_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(IEnumerable{KeyValuePair{System.String,System.String}})">ToNameValueCollection(IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NameValueCollection ToNameValueCollection(this IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">NameValueCollection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_ToQueryString_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToQueryString*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToQueryString_IEnumerable_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Extensions.DictionaryExtension.ToQueryString(IEnumerable{KeyValuePair{System.String,System.String}})">ToQueryString(IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>将键值集合转换成字符串，key1=value1&amp;key2=value2，k/v会编码</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToQueryString(this IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; source)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>数据源</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>字符串</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_ToSortedDictionary_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToSortedDictionary*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToSortedDictionary__2_IDictionary___0___1__" data-uid="WeihanLi.Extensions.DictionaryExtension.ToSortedDictionary``2(IDictionary{``0,``1})">ToSortedDictionary&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;)</h4>
+  <div class="markdown level1 summary"><p>An IDictionary&lt;TKey,TValue&gt; extension method that converts the @this to a sorted dictionary.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SortedDictionary&lt;TKey, TValue&gt; ToSortedDictionary&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; this)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SortedDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><p>@this as a SortedDictionary&lt;TKey,TValue&gt;</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>Type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_ToSortedDictionary_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToSortedDictionary*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToSortedDictionary__2_IDictionary___0___1__IComparer___0__" data-uid="WeihanLi.Extensions.DictionaryExtension.ToSortedDictionary``2(IDictionary{``0,``1},IComparer{``0})">ToSortedDictionary&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, IComparer&lt;TKey&gt;)</h4>
+  <div class="markdown level1 summary"><p>An IDictionary&lt;TKey,TValue&gt; extension method that converts the @this to a sorted dictionary.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SortedDictionary&lt;TKey, TValue&gt; ToSortedDictionary&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; this, IComparer&lt;TKey&gt; comparer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">this</span></td>
+        <td><p>The @this to act on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IComparer</span>&lt;TKey&gt;</td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>The comparer.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SortedDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><p>@this as a SortedDictionary&lt;TKey,TValue&gt;</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>Type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>Type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_DictionaryExtension_TryGetValue_" data-uid="WeihanLi.Extensions.DictionaryExtension.TryGetValue*"></a>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_TryGetValue__2_IDictionary___0___1____0___1____1_" data-uid="WeihanLi.Extensions.DictionaryExtension.TryGetValue``2(IDictionary{``0,``1},``0,``1@,``1)">TryGetValue&lt;TKey, TValue&gt;(IDictionary&lt;TKey, TValue&gt;, TKey, out TValue, TValue)</h4>
+  <div class="markdown level1 summary"><p>根据key获取Dictionary中元素</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryGetValue&lt;TKey, TValue&gt;(this IDictionary&lt;TKey, TValue&gt; dictionary, TKey key, out TValue value, TValue defaultValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDictionary</span>&lt;TKey, TValue&gt;</td>
+        <td><span class="parametername">dictionary</span></td>
+        <td><p>字典</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>key</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>value</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TValue</span></td>
+        <td><span class="parametername">defaultValue</span></td>
+        <td><p>默认值</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>key类型</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td><p>value类型</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

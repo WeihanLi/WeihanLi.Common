@@ -1,0 +1,1885 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class LogHelperExtensions
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class LogHelperExtensions
+   ">
+    <meta name="generator" content="docfx 2.56.5.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="WeihanLi.Common.Logging.LogHelperExtensions">
+  
+  
+  <h1 id="WeihanLi_Common_Logging_LogHelperExtensions" data-uid="WeihanLi.Common.Logging.LogHelperExtensions" class="text-break">Class LogHelperExtensions
+  </h1>
+  <div class="markdown level0 summary"><p>LogHelperExtensions</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">LogHelperExtensions</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Common.Logging.html">WeihanLi.Common.Logging</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="WeihanLi_Common_Logging_LogHelperExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class LogHelperExtensions</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_AddProperty_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.AddProperty*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_AddProperty_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_String_System_Func_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_Object__System_Boolean_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(WeihanLi.Common.Logging.LogHelperLoggingEvent,System.String,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Object},System.Boolean)">AddProperty(LogHelperLoggingEvent, String, Func&lt;LogHelperLoggingEvent, Object&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddProperty(this LogHelperLoggingEvent loggingEvent, string propertyName, Func&lt;LogHelperLoggingEvent, object&gt; propertyValueFactory, bool overwrite = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.LogHelperLoggingEvent.html">LogHelperLoggingEvent</a></td>
+        <td><span class="parametername">loggingEvent</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">propertyName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="WeihanLi.Common.Logging.LogHelperLoggingEvent.html">LogHelperLoggingEvent</a>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">propertyValueFactory</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">overwrite</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_AddProperty_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.AddProperty*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_AddProperty_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_String_System_Object_System_Boolean_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(WeihanLi.Common.Logging.LogHelperLoggingEvent,System.String,System.Object,System.Boolean)">AddProperty(LogHelperLoggingEvent, String, Object, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddProperty(this LogHelperLoggingEvent loggingEvent, string propertyName, object propertyValue, bool overwrite = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.LogHelperLoggingEvent.html">LogHelperLoggingEvent</a></td>
+        <td><span class="parametername">loggingEvent</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">propertyName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">propertyValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">overwrite</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Debug_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Debug*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Debug_WeihanLi_Common_Logging_ILogHelperLogger_System_Exception_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Debug(WeihanLi.Common.Logging.ILogHelperLogger,System.Exception)">Debug(ILogHelperLogger, Exception)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Debug(this ILogHelperLogger logger, Exception ex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><span class="parametername">ex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Debug_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Debug*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Debug_WeihanLi_Common_Logging_ILogHelperLogger_System_Exception_System_String_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Debug(WeihanLi.Common.Logging.ILogHelperLogger,System.Exception,System.String)">Debug(ILogHelperLogger, Exception, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Debug(this ILogHelperLogger logger, Exception ex, string msg)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><span class="parametername">ex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Debug_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Debug*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Debug_WeihanLi_Common_Logging_ILogHelperLogger_System_String_System_Object___" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Debug(WeihanLi.Common.Logging.ILogHelperLogger,System.String,System.Object[])">Debug(ILogHelperLogger, String, Object[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Debug(this ILogHelperLogger logger, string msg, params object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_EnrichWithProperty_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_EnrichWithProperty_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_String_System_Func_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_Object__System_Func_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_Boolean__System_Boolean_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Object},System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Boolean},System.Boolean)">EnrichWithProperty(ILogHelperLoggingBuilder, String, Func&lt;LogHelperLoggingEvent, Object&gt;, Func&lt;LogHelperLoggingEvent, Boolean&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder EnrichWithProperty(this ILogHelperLoggingBuilder loggingBuilder, string propertyName, Func&lt;LogHelperLoggingEvent, object&gt; valueFactory, Func&lt;LogHelperLoggingEvent, bool&gt; predict, bool overwrite = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">propertyName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="WeihanLi.Common.Logging.LogHelperLoggingEvent.html">LogHelperLoggingEvent</a>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">valueFactory</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="WeihanLi.Common.Logging.LogHelperLoggingEvent.html">LogHelperLoggingEvent</a>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">predict</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">overwrite</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_EnrichWithProperty_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_EnrichWithProperty_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_String_System_Func_WeihanLi_Common_Logging_LogHelperLoggingEvent__System_Boolean_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent},System.Boolean)">EnrichWithProperty(ILogHelperLoggingBuilder, String, Func&lt;LogHelperLoggingEvent&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder EnrichWithProperty(this ILogHelperLoggingBuilder loggingBuilder, string propertyName, Func&lt;LogHelperLoggingEvent&gt; valueFactory, bool overwrite = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">propertyName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="WeihanLi.Common.Logging.LogHelperLoggingEvent.html">LogHelperLoggingEvent</a>&gt;</td>
+        <td><span class="parametername">valueFactory</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">overwrite</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_EnrichWithProperty_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_EnrichWithProperty_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_String_System_Object_System_Boolean_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Object,System.Boolean)">EnrichWithProperty(ILogHelperLoggingBuilder, String, Object, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder EnrichWithProperty(this ILogHelperLoggingBuilder loggingBuilder, string propertyName, object value, bool overwrite = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">propertyName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">overwrite</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_EnrichWithProperty_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_EnrichWithProperty_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_String_System_Object_System_Func_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_Boolean__System_Boolean_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Object,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Boolean},System.Boolean)">EnrichWithProperty(ILogHelperLoggingBuilder, String, Object, Func&lt;LogHelperLoggingEvent, Boolean&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder EnrichWithProperty(this ILogHelperLoggingBuilder loggingBuilder, string propertyName, object value, Func&lt;LogHelperLoggingEvent, bool&gt; predict, bool overwrite = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">propertyName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="WeihanLi.Common.Logging.LogHelperLoggingEvent.html">LogHelperLoggingEvent</a>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">predict</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">overwrite</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Error_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Error*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Error_WeihanLi_Common_Logging_ILogHelperLogger_System_Exception_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Error(WeihanLi.Common.Logging.ILogHelperLogger,System.Exception)">Error(ILogHelperLogger, Exception)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Error(this ILogHelperLogger logger, Exception ex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><span class="parametername">ex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Error_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Error*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Error_WeihanLi_Common_Logging_ILogHelperLogger_System_Exception_System_String_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Error(WeihanLi.Common.Logging.ILogHelperLogger,System.Exception,System.String)">Error(ILogHelperLogger, Exception, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Error(this ILogHelperLogger logger, Exception ex, string msg)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><span class="parametername">ex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Error_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Error*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Error_WeihanLi_Common_Logging_ILogHelperLogger_System_String_System_Object___" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Error(WeihanLi.Common.Logging.ILogHelperLogger,System.String,System.Object[])">Error(ILogHelperLogger, String, Object[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Error(this ILogHelperLogger logger, string msg, params object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Fatal_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Fatal*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Fatal_WeihanLi_Common_Logging_ILogHelperLogger_System_Exception_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Fatal(WeihanLi.Common.Logging.ILogHelperLogger,System.Exception)">Fatal(ILogHelperLogger, Exception)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Fatal(this ILogHelperLogger logger, Exception ex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><span class="parametername">ex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Fatal_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Fatal*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Fatal_WeihanLi_Common_Logging_ILogHelperLogger_System_Exception_System_String_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Fatal(WeihanLi.Common.Logging.ILogHelperLogger,System.Exception,System.String)">Fatal(ILogHelperLogger, Exception, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Fatal(this ILogHelperLogger logger, Exception ex, string msg)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><span class="parametername">ex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Fatal_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Fatal*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Fatal_WeihanLi_Common_Logging_ILogHelperLogger_System_String_System_Object___" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Fatal(WeihanLi.Common.Logging.ILogHelperLogger,System.String,System.Object[])">Fatal(ILogHelperLogger, String, Object[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Fatal(this ILogHelperLogger logger, string msg, params object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_GetLogger_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.GetLogger*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_GetLogger_WeihanLi_Common_Logging_ILogHelperFactory_System_Type_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.GetLogger(WeihanLi.Common.Logging.ILogHelperFactory,System.Type)">GetLogger(ILogHelperFactory, Type)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLogger GetLogger(this ILogHelperFactory logHelperFactory, Type type)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperFactory.html">ILogHelperFactory</a></td>
+        <td><span class="parametername">logHelperFactory</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Type</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_GetLogger_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.GetLogger*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_GetLogger__1_WeihanLi_Common_Logging_ILogHelperFactory_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.GetLogger``1(WeihanLi.Common.Logging.ILogHelperFactory)">GetLogger&lt;T&gt;(ILogHelperFactory)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLogger GetLogger&lt;T&gt;(this ILogHelperFactory logHelperFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperFactory.html">ILogHelperFactory</a></td>
+        <td><span class="parametername">logHelperFactory</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Info_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Info*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Info_WeihanLi_Common_Logging_ILogHelperLogger_System_Exception_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Info(WeihanLi.Common.Logging.ILogHelperLogger,System.Exception)">Info(ILogHelperLogger, Exception)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Info(this ILogHelperLogger logger, Exception ex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><span class="parametername">ex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Info_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Info*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Info_WeihanLi_Common_Logging_ILogHelperLogger_System_Exception_System_String_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Info(WeihanLi.Common.Logging.ILogHelperLogger,System.Exception,System.String)">Info(ILogHelperLogger, Exception, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Info(this ILogHelperLogger logger, Exception ex, string msg)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><span class="parametername">ex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Info_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Info*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Info_WeihanLi_Common_Logging_ILogHelperLogger_System_String_System_Object___" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Info(WeihanLi.Common.Logging.ILogHelperLogger,System.String,System.Object[])">Info(ILogHelperLogger, String, Object[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Info(this ILogHelperLogger logger, string msg, params object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Log_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Log*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Log_WeihanLi_Common_Logging_ILogHelperLogger_WeihanLi_Common_Logging_LogHelperLogLevel_System_String_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Log(WeihanLi.Common.Logging.ILogHelperLogger,WeihanLi.Common.Logging.LogHelperLogLevel,System.String)">Log(ILogHelperLogger, LogHelperLogLevel, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Log(this ILogHelperLogger logger, LogHelperLogLevel loggerLevel, string msg)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.LogHelperLogLevel.html">LogHelperLogLevel</a></td>
+        <td><span class="parametername">loggerLevel</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Trace_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Trace*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Trace_WeihanLi_Common_Logging_ILogHelperLogger_System_Exception_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Trace(WeihanLi.Common.Logging.ILogHelperLogger,System.Exception)">Trace(ILogHelperLogger, Exception)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Trace(this ILogHelperLogger logger, Exception ex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><span class="parametername">ex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Trace_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Trace*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Trace_WeihanLi_Common_Logging_ILogHelperLogger_System_Exception_System_String_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Trace(WeihanLi.Common.Logging.ILogHelperLogger,System.Exception,System.String)">Trace(ILogHelperLogger, Exception, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Trace(this ILogHelperLogger logger, Exception ex, string msg)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><span class="parametername">ex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Trace_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Trace*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Trace_WeihanLi_Common_Logging_ILogHelperLogger_System_String_System_Object___" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Trace(WeihanLi.Common.Logging.ILogHelperLogger,System.String,System.Object[])">Trace(ILogHelperLogger, String, Object[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Trace(this ILogHelperLogger logger, string msg, params object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Warn_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Warn*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Warn_WeihanLi_Common_Logging_ILogHelperLogger_System_Exception_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Warn(WeihanLi.Common.Logging.ILogHelperLogger,System.Exception)">Warn(ILogHelperLogger, Exception)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Warn(this ILogHelperLogger logger, Exception ex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><span class="parametername">ex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Warn_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Warn*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Warn_WeihanLi_Common_Logging_ILogHelperLogger_System_Exception_System_String_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Warn(WeihanLi.Common.Logging.ILogHelperLogger,System.Exception,System.String)">Warn(ILogHelperLogger, Exception, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Warn(this ILogHelperLogger logger, Exception ex, string msg)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><span class="parametername">ex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_Warn_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Warn*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_Warn_WeihanLi_Common_Logging_ILogHelperLogger_System_String_System_Object___" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.Warn(WeihanLi.Common.Logging.ILogHelperLogger,System.String,System.Object[])">Warn(ILogHelperLogger, String, Object[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Warn(this ILogHelperLogger logger, string msg, params object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLogger.html">ILogHelperLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_WithEnricher_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithEnricher*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_WithEnricher__1_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithEnricher``1(WeihanLi.Common.Logging.ILogHelperLoggingBuilder)">WithEnricher&lt;TEnricher&gt;(ILogHelperLoggingBuilder)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder WithEnricher&lt;TEnricher&gt;(this ILogHelperLoggingBuilder loggingBuilder)
+    where TEnricher : ILogHelperLoggingEnricher, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEnricher</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_WithEnricher_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithEnricher*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_WithEnricher__1_WeihanLi_Common_Logging_ILogHelperLoggingBuilder___0_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithEnricher``1(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,``0)">WithEnricher&lt;TEnricher&gt;(ILogHelperLoggingBuilder, TEnricher)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder WithEnricher&lt;TEnricher&gt;(this ILogHelperLoggingBuilder loggingBuilder, TEnricher enricher)
+    where TEnricher : ILogHelperLoggingEnricher</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">TEnricher</span></td>
+        <td><span class="parametername">enricher</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEnricher</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_WithEnricher_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithEnricher*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_WithEnricher__1_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_Object___" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithEnricher``1(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Object[])">WithEnricher&lt;TEnricher&gt;(ILogHelperLoggingBuilder, Object[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder WithEnricher&lt;TEnricher&gt;(this ILogHelperLoggingBuilder loggingBuilder, params object[] ctorParams)
+    where TEnricher : ILogHelperLoggingEnricher</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">ctorParams</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEnricher</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_WithFilter_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithFilter*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_WithFilter_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_Func_System_String_WeihanLi_Common_Logging_LogHelperLogLevel_System_Boolean__" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Func{System.String,WeihanLi.Common.Logging.LogHelperLogLevel,System.Boolean})">WithFilter(ILogHelperLoggingBuilder, Func&lt;String, LogHelperLogLevel, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func&lt;string, LogHelperLogLevel, bool&gt; filterFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="WeihanLi.Common.Logging.LogHelperLogLevel.html">LogHelperLogLevel</a>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">filterFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_WithFilter_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithFilter*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_WithFilter_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_Func_System_Type_System_String_WeihanLi_Common_Logging_LogHelperLogLevel_System_Boolean__" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Func{System.Type,System.String,WeihanLi.Common.Logging.LogHelperLogLevel,System.Boolean})">WithFilter(ILogHelperLoggingBuilder, Func&lt;Type, String, LogHelperLogLevel, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func&lt;Type, string, LogHelperLogLevel, bool&gt; filterFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Type</span>, <span class="xref">System.String</span>, <a class="xref" href="WeihanLi.Common.Logging.LogHelperLogLevel.html">LogHelperLogLevel</a>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">filterFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_WithFilter_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithFilter*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_WithFilter_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_Func_System_Type_System_String_WeihanLi_Common_Logging_LogHelperLogLevel_System_Exception_System_Boolean__" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Func{System.Type,System.String,WeihanLi.Common.Logging.LogHelperLogLevel,System.Exception,System.Boolean})">WithFilter(ILogHelperLoggingBuilder, Func&lt;Type, String, LogHelperLogLevel, Exception, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func&lt;Type, string, LogHelperLogLevel, Exception, bool&gt; filterFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Type</span>, <span class="xref">System.String</span>, <a class="xref" href="WeihanLi.Common.Logging.LogHelperLogLevel.html">LogHelperLogLevel</a>, <span class="xref">System.Exception</span>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">filterFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_WithFilter_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithFilter*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_WithFilter_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_Func_System_Type_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_Boolean__" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Func{System.Type,WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Boolean})">WithFilter(ILogHelperLoggingBuilder, Func&lt;Type, LogHelperLoggingEvent, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func&lt;Type, LogHelperLoggingEvent, bool&gt; filterFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Type</span>, <a class="xref" href="WeihanLi.Common.Logging.LogHelperLoggingEvent.html">LogHelperLoggingEvent</a>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">filterFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_WithFilter_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithFilter*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_WithFilter_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_Func_WeihanLi_Common_Logging_LogHelperLogLevel_System_Boolean__" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Func{WeihanLi.Common.Logging.LogHelperLogLevel,System.Boolean})">WithFilter(ILogHelperLoggingBuilder, Func&lt;LogHelperLogLevel, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder WithFilter(this ILogHelperLoggingBuilder loggingBuilder, Func&lt;LogHelperLogLevel, bool&gt; filterFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="WeihanLi.Common.Logging.LogHelperLogLevel.html">LogHelperLogLevel</a>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">filterFunc</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_WithMinimumLevel_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithMinimumLevel*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_WithMinimumLevel_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_WeihanLi_Common_Logging_LogHelperLogLevel_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithMinimumLevel(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,WeihanLi.Common.Logging.LogHelperLogLevel)">WithMinimumLevel(ILogHelperLoggingBuilder, LogHelperLogLevel)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder WithMinimumLevel(this ILogHelperLoggingBuilder loggingBuilder, LogHelperLogLevel logLevel)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.LogHelperLogLevel.html">LogHelperLogLevel</a></td>
+        <td><span class="parametername">logLevel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_WithProvider_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithProvider*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_WithProvider_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_WeihanLi_Common_Logging_ILogHelperProvider_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithProvider(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,WeihanLi.Common.Logging.ILogHelperProvider)">WithProvider(ILogHelperLoggingBuilder, ILogHelperProvider)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder WithProvider(this ILogHelperLoggingBuilder loggingBuilder, ILogHelperProvider logHelperProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperProvider.html">ILogHelperProvider</a></td>
+        <td><span class="parametername">logHelperProvider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_WithProvider_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithProvider*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_WithProvider__1_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithProvider``1(WeihanLi.Common.Logging.ILogHelperLoggingBuilder)">WithProvider&lt;TLogProvider&gt;(ILogHelperLoggingBuilder)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder WithProvider&lt;TLogProvider&gt;(this ILogHelperLoggingBuilder loggingBuilder)
+    where TLogProvider : ILogHelperProvider, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TLogProvider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Logging_LogHelperExtensions_WithProvider_" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithProvider*"></a>
+  <h4 id="WeihanLi_Common_Logging_LogHelperExtensions_WithProvider__1_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_Object___" data-uid="WeihanLi.Common.Logging.LogHelperExtensions.WithProvider``1(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Object[])">WithProvider&lt;TLogProvider&gt;(ILogHelperLoggingBuilder, Object[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder WithProvider&lt;TLogProvider&gt;(this ILogHelperLoggingBuilder loggingBuilder, params object[] ctorParams)
+    where TLogProvider : ILogHelperProvider</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">ctorParams</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TLogProvider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
