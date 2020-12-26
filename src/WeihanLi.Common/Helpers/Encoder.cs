@@ -250,7 +250,7 @@ namespace WeihanLi.Common.Helpers
         {
             if (string.IsNullOrEmpty(codedStr))
             {
-                return ArrayHelper.Empty<byte>();
+                return Array.Empty<byte>();
             }
 
             var result = new BigInteger(0);

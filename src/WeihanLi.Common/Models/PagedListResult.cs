@@ -36,7 +36,7 @@ namespace WeihanLi.Common.Models
     {
         public static readonly IListResultWithTotal<T> Empty = new ListResultWithTotal<T>();
 
-        private IReadOnlyList<T> _data = ArrayHelper.Empty<T>();
+        private IReadOnlyList<T> _data = Array.Empty<T>();
 
         [NotNull]
         public IReadOnlyList<T> Data
@@ -64,7 +64,7 @@ namespace WeihanLi.Common.Models
     {
         public static readonly IPagedListResult<T> Empty = new PagedListResult<T>();
 
-        private IReadOnlyList<T> _data = ArrayHelper.Empty<T>();
+        private IReadOnlyList<T> _data = Array.Empty<T>();
 
         [NotNull]
         public IReadOnlyList<T> Data

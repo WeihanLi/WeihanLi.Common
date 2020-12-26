@@ -4,29 +4,12 @@
   </PropertyGroup>
   <Import Project="../../build/common.props" />
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Net.Http" />
-    <Compile Remove="Aspect\ServiceCollectionExtensions.cs" />
-    <Compile Remove="Aspect\FluentAspectsBuilder.cs" />
-    <Compile Remove="Extensions\ConfigurationExtension.cs" />
-    <Compile Remove="Extensions\ServiceCollectionExtension.cs" />
-    <Compile Remove="Logging\MicrosoftLogging*.cs" />
-  </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard2.1'">
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.0" />
-    <Compile Remove="ObjectPool\*.cs" />
-    <Compile Remove="Extensions\RequestExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />

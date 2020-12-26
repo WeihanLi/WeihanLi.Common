@@ -430,7 +430,7 @@ SET {propertyValues.Keys.Select(p => $"{GetColumnName(p)}=@set_{p}").StringJoin(
         {
             if (propertyExpressions.Length == 0)
             {
-                return UpdateWithout(entity, ArrayHelper.Empty<string>());
+                return UpdateWithout(entity, Array.Empty<string>());
             }
             //
             var keyEntries = PrimaryKeyColumns.Value
@@ -477,7 +477,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
                 return -1;
             }
             //...
-            var updateWithoutCols = propertyExpressions?.Select(p => p.GetMemberName()).ToArray() ?? ArrayHelper.Empty<string>();
+            var updateWithoutCols = propertyExpressions?.Select(p => p.GetMemberName()).ToArray() ?? Array.Empty<string>();
             var updateCols = ColumnMappings.Keys
                 .Where(c => !updateWithoutCols.Contains(c) && !keyEntries.ContainsKey(c))
                 .ToArray();
@@ -505,7 +505,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
         {
             if (propertyNames == null || propertyNames.Length == 0)
             {
-                return UpdateWithout(entity, ArrayHelper.Empty<string>());
+                return UpdateWithout(entity, Array.Empty<string>());
             }
             //
             var keyEntries = PrimaryKeyColumns.Value
@@ -552,7 +552,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
                 return -1;
             }
             //...
-            var updateWithoutCols = propertyNames ?? ArrayHelper.Empty<string>();
+            var updateWithoutCols = propertyNames ?? Array.Empty<string>();
             var updateCols = ColumnMappings.Keys
                 .Where(c => !updateWithoutCols.Contains(c) && !keyEntries.ContainsKey(c))
                 .ToArray();
@@ -591,7 +591,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             }
 
             //...
-            var updateWithoutCols = propertyNames ?? ArrayHelper.Empty<string>();
+            var updateWithoutCols = propertyNames ?? Array.Empty<string>();
             var updateCols = ColumnMappings.Keys
                 .Where(c => !updateWithoutCols.Contains(c) && !keyEntries.ContainsKey(c))
                 .ToArray();
@@ -619,7 +619,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
         {
             if (propertyExpressions == null || propertyExpressions.Length == 0)
             {
-                return UpdateWithoutAsync(entity, ArrayHelper.Empty<string>(), cancellationToken);
+                return UpdateWithoutAsync(entity, Array.Empty<string>(), cancellationToken);
             }
             //
             var keyEntries = PrimaryKeyColumns.Value
@@ -667,7 +667,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
                 return Task.FromResult(-1);
             }
             //...
-            var updateWithoutCols = propertyExpressions?.Select(x => x.GetMemberName()).ToArray() ?? ArrayHelper.Empty<string>();
+            var updateWithoutCols = propertyExpressions?.Select(x => x.GetMemberName()).ToArray() ?? Array.Empty<string>();
             var updateCols = ColumnMappings.Keys
                 .Where(c => !updateWithoutCols.Contains(c) && !keyEntries.ContainsKey(c))
                 .ToArray();
@@ -695,7 +695,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
         {
             if (propertyNames == null || propertyNames.Length == 0)
             {
-                return UpdateWithoutAsync(entity, ArrayHelper.Empty<string>(), cancellationToken);
+                return UpdateWithoutAsync(entity, Array.Empty<string>(), cancellationToken);
             }
             //
             var keyEntries = PrimaryKeyColumns.Value

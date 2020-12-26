@@ -17,7 +17,7 @@ namespace WeihanLi.Common.Helpers
 
         public static IAsyncPipelineBuilder<TContext> CreateAsync<TContext>()
         {
-            return new AsyncPipelineBuilder<TContext>(c => TaskHelper.CompletedTask);
+            return new AsyncPipelineBuilder<TContext>(c => Task.CompletedTask);
         }
 
         public static IAsyncPipelineBuilder<TContext> CreateAsync<TContext>(Func<TContext, Task> completeFunc)

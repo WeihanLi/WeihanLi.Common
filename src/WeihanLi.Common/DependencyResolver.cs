@@ -4,12 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WeihanLi.Common.DependencyInjection;
-
-#if NETSTANDARD
-
 using Microsoft.Extensions.DependencyInjection;
-
-#endif
 
 namespace WeihanLi.Common
 {
@@ -48,8 +43,6 @@ namespace WeihanLi.Common
         public static void SetDependencyResolver([NotNull] Func<Type, object> getServiceFunc) => SetDependencyResolver(getServiceFunc, serviceType => (IEnumerable<object>)getServiceFunc(typeof(IEnumerable<>).MakeGenericType(serviceType)));
 
         public static void SetDependencyResolver([NotNull] Func<Type, object> getServiceFunc, [NotNull] Func<Type, IEnumerable<object>> getServicesFunc) => SetDependencyResolver(new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc));
-
-#if NETSTANDARD
 
         public static void SetDependencyResolver(IServiceCollection services) => SetDependencyResolver(new ServiceCollectionDependencyResolver(services));
 
@@ -118,8 +111,6 @@ namespace WeihanLi.Common
                 }
             }
         }
-
-#endif
 
         private class DefaultDependencyResolver : IDependencyResolver
         {

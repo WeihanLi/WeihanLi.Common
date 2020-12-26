@@ -62,7 +62,7 @@ namespace WeihanLi.Common.Aspect
 
                 if (invocation.ProxyMethod.ReturnType == typeof(Task))
                 {
-                    invocation.ReturnValue = TaskHelper.CompletedTask;
+                    invocation.ReturnValue = Task.CompletedTask;
                 }
 
                 if (invocation.ProxyMethod.ReturnType.IsGenericType
@@ -113,7 +113,7 @@ namespace WeihanLi.Common.Aspect
 
                     if (invocation.ProxyMethod.ReturnType == typeof(void))
                     {
-                        return TaskHelper.CompletedTask;
+                        return Task.CompletedTask;
                     }
                     if (invocation.ReturnValue is Task task)
                     {
@@ -128,7 +128,7 @@ namespace WeihanLi.Common.Aspect
 
 #endif
 
-                    return TaskHelper.CompletedTask;
+                    return Task.CompletedTask;
                 };
             }
 
@@ -136,7 +136,7 @@ namespace WeihanLi.Common.Aspect
             if (null == interceptors)
             {
                 interceptors = FluentAspects.AspectOptions.InterceptorResolver
-                    .ResolveInterceptors(invocation) ?? ArrayHelper.Empty<IInterceptor>();
+                    .ResolveInterceptors(invocation) ?? Array.Empty<IInterceptor>();
             }
 
             if (interceptors.Count <= 1 && interceptors[0] is TryInvokeInterceptor)

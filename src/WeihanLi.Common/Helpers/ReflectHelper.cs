@@ -9,16 +9,7 @@ namespace WeihanLi.Common.Helpers
     {
         public static Assembly[] GetAssemblies()
         {
-            Assembly[] assemblies = null;
-#if NET45
-            if (System.Web.Hosting.HostingEnvironment.IsHosted)
-            {
-                assemblies = System.Web.Compilation.BuildManager.GetReferencedAssemblies()
-                                            .Cast<Assembly>().ToArray();
-            }
-#endif
-
-            return assemblies ?? AppDomain.CurrentDomain.GetAssemblies();
+            return AppDomain.CurrentDomain.GetAssemblies();
         }
 
         public static bool IsAwaitable(this Type type)

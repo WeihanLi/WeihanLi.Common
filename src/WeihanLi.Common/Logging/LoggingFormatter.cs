@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Logging
 {
@@ -146,7 +146,7 @@ namespace WeihanLi.Common.Logging
                     }
                 }
 
-                return string.Format(CultureInfo.InvariantCulture, _format, values ?? ArrayHelper.Empty<object>());
+                return string.Format(CultureInfo.InvariantCulture, _format, values ?? Array.Empty<object>());
             }
 
             public IEnumerable<KeyValuePair<string, object>> GetValues(object[] values)

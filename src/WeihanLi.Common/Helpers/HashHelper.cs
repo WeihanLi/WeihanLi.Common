@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 using System.Text;
 using WeihanLi.Extensions;
 
@@ -133,7 +134,7 @@ namespace WeihanLi.Common.Helpers
             }
             if (str == string.Empty)
             {
-                return ArrayHelper.Empty<byte>();
+                return Array.Empty<byte>();
             }
             var bytes = encoding.GetBytes(str);
             return GetHashedBytes(type, bytes);

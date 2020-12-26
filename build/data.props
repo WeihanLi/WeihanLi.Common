@@ -5,7 +5,7 @@
     <Description>sql database data extensions</Description>
     <PackageSummary>sql database data extensions</PackageSummary>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Data</PackageProjectUrl>
     <PackageTags>db database sql data </PackageTags>
     <PackageReleaseNotes>

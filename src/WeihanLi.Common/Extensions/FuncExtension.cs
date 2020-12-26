@@ -2,12 +2,6 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-#if NET45
-
-using WeihanLi.Common.Helpers;
-
-#endif
-
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
 {
@@ -18,11 +12,7 @@ namespace WeihanLi.Extensions
             return () =>
             {
                 action.Invoke();
-#if NET45
-                return TaskHelper.CompletedTask;
-#else
                 return Task.CompletedTask;
-#endif
             };
         }
 
@@ -31,11 +21,7 @@ namespace WeihanLi.Extensions
             return (t) =>
             {
                 action.Invoke(t);
-#if NET45
-                return TaskHelper.CompletedTask;
-#else
                 return Task.CompletedTask;
-#endif
             };
         }
 
@@ -44,11 +30,7 @@ namespace WeihanLi.Extensions
             return (t1, t2) =>
             {
                 action.Invoke(t1, t2);
-#if NET45
-                return TaskHelper.CompletedTask;
-#else
                 return Task.CompletedTask;
-#endif
             };
         }
 
@@ -57,11 +39,7 @@ namespace WeihanLi.Extensions
             return (t1, t2, t3) =>
             {
                 action.Invoke(t1, t2, t3);
-#if NET45
-                return TaskHelper.CompletedTask;
-#else
                 return Task.CompletedTask;
-#endif
             };
         }
 
@@ -70,11 +48,7 @@ namespace WeihanLi.Extensions
             return (t1, t2, t3, t4) =>
             {
                 action.Invoke(t1, t2, t3, t4);
-#if NET45
-                return TaskHelper.CompletedTask;
-#else
                 return Task.CompletedTask;
-#endif
             };
         }
 

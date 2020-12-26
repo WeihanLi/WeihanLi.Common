@@ -114,7 +114,7 @@ namespace WeihanLi.Common.Aspect
 
         public static object CreateProxyWithTarget(this IProxyFactory proxyFactory, Type serviceType, object target)
         {
-            return proxyFactory.CreateProxyWithTarget(serviceType, target, ArrayHelper.Empty<object>());
+            return proxyFactory.CreateProxyWithTarget(serviceType, target, Array.Empty<object>());
         }
 
         #endregion CreateProxyWithTarget

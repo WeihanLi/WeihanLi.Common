@@ -33,9 +33,6 @@ namespace WeihanLi.Common.Logging.Log4Net
                             ?.FirstOrDefault(_ => _.Name == ApplicationHelper.ApplicationName))
                     {
                         XmlConfigurator.ConfigureAndWatch(LogManager.CreateRepository(ApplicationHelper.ApplicationName), new FileInfo(configFilePath));
-#if NET45
-                        XmlConfigurator.ConfigureAndWatch(new FileInfo(configFilePath));
-#endif
                         return 1;
                     }
                 }

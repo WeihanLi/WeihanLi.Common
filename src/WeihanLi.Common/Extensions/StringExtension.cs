@@ -286,7 +286,7 @@ namespace WeihanLi.Extensions
         {
             if (string.IsNullOrWhiteSpace(str))
             {
-                return ArrayHelper.Empty<T>();
+                return Array.Empty<T>();
             }
             return str.Split(separators, splitOptions)
                 .Select(_ => _.To<T>())

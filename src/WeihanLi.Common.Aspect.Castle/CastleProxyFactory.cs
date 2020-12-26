@@ -42,7 +42,7 @@ namespace WeihanLi.Common.Aspect.Castle
             if (serviceType.IsInterface)
             {
                 var target = _serviceProvider.CreateInstance(implementType, arguments);
-                return CreateProxyWithTarget(serviceType, target, ArrayHelper.Empty<object>());
+                return CreateProxyWithTarget(serviceType, target, Array.Empty<object>());
             }
 
             return CreateProxy(implementType, arguments);

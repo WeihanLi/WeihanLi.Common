@@ -64,7 +64,7 @@ namespace WeihanLi.Common.Event
 
         public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => Task.FromResult(false);
 
-        public ICollection<Type> GetEventHandlerTypes(Type eventType) => ArrayHelper.Empty<Type>();
+        public ICollection<Type> GetEventHandlerTypes(Type eventType) => Array.Empty<Type>();
     }
 
     public static class EventSubscriptionManagerExtensions

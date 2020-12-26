@@ -23,18 +23,18 @@ namespace WeihanLi.Common.Aspect
         {
             if (null == invocation)
             {
-                return ArrayHelper.Empty<IInterceptor>();
+                return Array.Empty<IInterceptor>();
             }
 
             if ((invocation.Method ?? invocation.ProxyMethod).IsDefined(typeof(NoIntercept)))
             {
-                return ArrayHelper.Empty<IInterceptor>();
+                return Array.Empty<IInterceptor>();
             }
 
             Type baseType = (invocation.Method ?? invocation.ProxyMethod).DeclaringType;
             if (baseType?.IsDefined(typeof(NoIntercept)) == true)
             {
-                return ArrayHelper.Empty<IInterceptor>();
+                return Array.Empty<IInterceptor>();
             }
 
             var list = new List<IInterceptor>();
@@ -45,7 +45,7 @@ namespace WeihanLi.Common.Aspect
             {
                 if (invocation.Method.IsDefined(typeof(NoIntercept)))
                 {
-                    return ArrayHelper.Empty<IInterceptor>();
+                    return Array.Empty<IInterceptor>();
                 }
 
                 foreach (var interceptor in invocation.Method.GetCustomAttributes<AbstractInterceptor>())

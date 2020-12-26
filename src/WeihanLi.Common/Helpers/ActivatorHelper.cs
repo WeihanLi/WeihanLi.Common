@@ -103,7 +103,7 @@ namespace WeihanLi.Common.Helpers
         /// <returns>Best Constructor Matched</returns>
         private static ConstructorMatcher MatchConstructor(Type instanceType, params object[] parameters)
         {
-            parameters ??= ArrayHelper.Empty<object>();
+            parameters ??= Array.Empty<object>();
 
             var bestLength = -1;
 
