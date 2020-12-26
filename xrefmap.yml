@@ -530,499 +530,6 @@ references:
   isSpec: "True"
   fullName: Microsoft.Extensions.Logging.LoggerExtensions.Warn
   nameWithType: LoggerExtensions.Warn
-- uid: Microsoft.Extensions.ObjectPool
-  name: Microsoft.Extensions.ObjectPool
-  href: docs/api/Microsoft.Extensions.ObjectPool.html
-  commentId: N:Microsoft.Extensions.ObjectPool
-  fullName: Microsoft.Extensions.ObjectPool
-  nameWithType: Microsoft.Extensions.ObjectPool
-- uid: Microsoft.Extensions.ObjectPool.DefaultObjectPool`1
-  name: DefaultObjectPool<T>
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultObjectPool-1.html
-  commentId: T:Microsoft.Extensions.ObjectPool.DefaultObjectPool`1
-  name.vb: DefaultObjectPool(Of T)
-  fullName: Microsoft.Extensions.ObjectPool.DefaultObjectPool<T>
-  fullName.vb: Microsoft.Extensions.ObjectPool.DefaultObjectPool(Of T)
-  nameWithType: DefaultObjectPool<T>
-  nameWithType.vb: DefaultObjectPool(Of T)
-- uid: Microsoft.Extensions.ObjectPool.DefaultObjectPool`1.#ctor(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy{`0})
-  name: DefaultObjectPool(IPooledObjectPolicy<T>)
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultObjectPool-1.html#Microsoft_Extensions_ObjectPool_DefaultObjectPool_1__ctor_Microsoft_Extensions_ObjectPool_IPooledObjectPolicy__0__
-  commentId: M:Microsoft.Extensions.ObjectPool.DefaultObjectPool`1.#ctor(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy{`0})
-  name.vb: DefaultObjectPool(IPooledObjectPolicy(Of T))
-  fullName: Microsoft.Extensions.ObjectPool.DefaultObjectPool<T>.DefaultObjectPool(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy<T>)
-  fullName.vb: Microsoft.Extensions.ObjectPool.DefaultObjectPool(Of T).DefaultObjectPool(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy(Of T))
-  nameWithType: DefaultObjectPool<T>.DefaultObjectPool(IPooledObjectPolicy<T>)
-  nameWithType.vb: DefaultObjectPool(Of T).DefaultObjectPool(IPooledObjectPolicy(Of T))
-- uid: Microsoft.Extensions.ObjectPool.DefaultObjectPool`1.#ctor(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy{`0},System.Int32)
-  name: DefaultObjectPool(IPooledObjectPolicy<T>, Int32)
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultObjectPool-1.html#Microsoft_Extensions_ObjectPool_DefaultObjectPool_1__ctor_Microsoft_Extensions_ObjectPool_IPooledObjectPolicy__0__System_Int32_
-  commentId: M:Microsoft.Extensions.ObjectPool.DefaultObjectPool`1.#ctor(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy{`0},System.Int32)
-  name.vb: DefaultObjectPool(IPooledObjectPolicy(Of T), Int32)
-  fullName: Microsoft.Extensions.ObjectPool.DefaultObjectPool<T>.DefaultObjectPool(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy<T>, System.Int32)
-  fullName.vb: Microsoft.Extensions.ObjectPool.DefaultObjectPool(Of T).DefaultObjectPool(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy(Of T), System.Int32)
-  nameWithType: DefaultObjectPool<T>.DefaultObjectPool(IPooledObjectPolicy<T>, Int32)
-  nameWithType.vb: DefaultObjectPool(Of T).DefaultObjectPool(IPooledObjectPolicy(Of T), Int32)
-- uid: Microsoft.Extensions.ObjectPool.DefaultObjectPool`1.#ctor*
-  name: DefaultObjectPool
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultObjectPool-1.html#Microsoft_Extensions_ObjectPool_DefaultObjectPool_1__ctor_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.DefaultObjectPool`1.#ctor
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.DefaultObjectPool<T>.DefaultObjectPool
-  fullName.vb: Microsoft.Extensions.ObjectPool.DefaultObjectPool(Of T).DefaultObjectPool
-  nameWithType: DefaultObjectPool<T>.DefaultObjectPool
-  nameWithType.vb: DefaultObjectPool(Of T).DefaultObjectPool
-- uid: Microsoft.Extensions.ObjectPool.DefaultObjectPool`1.Get
-  name: Get()
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultObjectPool-1.html#Microsoft_Extensions_ObjectPool_DefaultObjectPool_1_Get
-  commentId: M:Microsoft.Extensions.ObjectPool.DefaultObjectPool`1.Get
-  fullName: Microsoft.Extensions.ObjectPool.DefaultObjectPool<T>.Get()
-  fullName.vb: Microsoft.Extensions.ObjectPool.DefaultObjectPool(Of T).Get()
-  nameWithType: DefaultObjectPool<T>.Get()
-  nameWithType.vb: DefaultObjectPool(Of T).Get()
-- uid: Microsoft.Extensions.ObjectPool.DefaultObjectPool`1.Get*
-  name: Get
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultObjectPool-1.html#Microsoft_Extensions_ObjectPool_DefaultObjectPool_1_Get_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.DefaultObjectPool`1.Get
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.DefaultObjectPool<T>.Get
-  fullName.vb: Microsoft.Extensions.ObjectPool.DefaultObjectPool(Of T).Get
-  nameWithType: DefaultObjectPool<T>.Get
-  nameWithType.vb: DefaultObjectPool(Of T).Get
-- uid: Microsoft.Extensions.ObjectPool.DefaultObjectPool`1.Return(`0)
-  name: Return(T)
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultObjectPool-1.html#Microsoft_Extensions_ObjectPool_DefaultObjectPool_1_Return__0_
-  commentId: M:Microsoft.Extensions.ObjectPool.DefaultObjectPool`1.Return(`0)
-  fullName: Microsoft.Extensions.ObjectPool.DefaultObjectPool<T>.Return(T)
-  fullName.vb: Microsoft.Extensions.ObjectPool.DefaultObjectPool(Of T).Return(T)
-  nameWithType: DefaultObjectPool<T>.Return(T)
-  nameWithType.vb: DefaultObjectPool(Of T).Return(T)
-- uid: Microsoft.Extensions.ObjectPool.DefaultObjectPool`1.Return*
-  name: Return
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultObjectPool-1.html#Microsoft_Extensions_ObjectPool_DefaultObjectPool_1_Return_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.DefaultObjectPool`1.Return
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.DefaultObjectPool<T>.Return
-  fullName.vb: Microsoft.Extensions.ObjectPool.DefaultObjectPool(Of T).Return
-  nameWithType: DefaultObjectPool<T>.Return
-  nameWithType.vb: DefaultObjectPool(Of T).Return
-- uid: Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider
-  name: DefaultObjectPoolProvider
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.html
-  commentId: T:Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider
-  fullName: Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider
-  nameWithType: DefaultObjectPoolProvider
-- uid: Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.Create*
-  name: Create
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.html#Microsoft_Extensions_ObjectPool_DefaultObjectPoolProvider_Create_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.Create
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.Create
-  nameWithType: DefaultObjectPoolProvider.Create
-- uid: Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.Create``1(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy{``0})
-  name: Create<T>(IPooledObjectPolicy<T>)
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.html#Microsoft_Extensions_ObjectPool_DefaultObjectPoolProvider_Create__1_Microsoft_Extensions_ObjectPool_IPooledObjectPolicy___0__
-  commentId: M:Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.Create``1(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy{``0})
-  name.vb: Create(Of T)(IPooledObjectPolicy(Of T))
-  fullName: Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.Create<T>(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy<T>)
-  fullName.vb: Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.Create(Of T)(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy(Of T))
-  nameWithType: DefaultObjectPoolProvider.Create<T>(IPooledObjectPolicy<T>)
-  nameWithType.vb: DefaultObjectPoolProvider.Create(Of T)(IPooledObjectPolicy(Of T))
-- uid: Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.MaximumRetained
-  name: MaximumRetained
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.html#Microsoft_Extensions_ObjectPool_DefaultObjectPoolProvider_MaximumRetained
-  commentId: P:Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.MaximumRetained
-  fullName: Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.MaximumRetained
-  nameWithType: DefaultObjectPoolProvider.MaximumRetained
-- uid: Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.MaximumRetained*
-  name: MaximumRetained
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.html#Microsoft_Extensions_ObjectPool_DefaultObjectPoolProvider_MaximumRetained_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.MaximumRetained
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.DefaultObjectPoolProvider.MaximumRetained
-  nameWithType: DefaultObjectPoolProvider.MaximumRetained
-- uid: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy`1
-  name: DefaultPooledObjectPolicy<T>
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy-1.html
-  commentId: T:Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy`1
-  name.vb: DefaultPooledObjectPolicy(Of T)
-  fullName: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy<T>
-  fullName.vb: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy(Of T)
-  nameWithType: DefaultPooledObjectPolicy<T>
-  nameWithType.vb: DefaultPooledObjectPolicy(Of T)
-- uid: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy`1.Create
-  name: Create()
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy-1.html#Microsoft_Extensions_ObjectPool_DefaultPooledObjectPolicy_1_Create
-  commentId: M:Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy`1.Create
-  fullName: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy<T>.Create()
-  fullName.vb: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy(Of T).Create()
-  nameWithType: DefaultPooledObjectPolicy<T>.Create()
-  nameWithType.vb: DefaultPooledObjectPolicy(Of T).Create()
-- uid: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy`1.Create*
-  name: Create
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy-1.html#Microsoft_Extensions_ObjectPool_DefaultPooledObjectPolicy_1_Create_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy`1.Create
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy<T>.Create
-  fullName.vb: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy(Of T).Create
-  nameWithType: DefaultPooledObjectPolicy<T>.Create
-  nameWithType.vb: DefaultPooledObjectPolicy(Of T).Create
-- uid: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy`1.Return(`0)
-  name: Return(T)
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy-1.html#Microsoft_Extensions_ObjectPool_DefaultPooledObjectPolicy_1_Return__0_
-  commentId: M:Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy`1.Return(`0)
-  fullName: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy<T>.Return(T)
-  fullName.vb: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy(Of T).Return(T)
-  nameWithType: DefaultPooledObjectPolicy<T>.Return(T)
-  nameWithType.vb: DefaultPooledObjectPolicy(Of T).Return(T)
-- uid: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy`1.Return*
-  name: Return
-  href: docs/api/Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy-1.html#Microsoft_Extensions_ObjectPool_DefaultPooledObjectPolicy_1_Return_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy`1.Return
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy<T>.Return
-  fullName.vb: Microsoft.Extensions.ObjectPool.DefaultPooledObjectPolicy(Of T).Return
-  nameWithType: DefaultPooledObjectPolicy<T>.Return
-  nameWithType.vb: DefaultPooledObjectPolicy(Of T).Return
-- uid: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy`1
-  name: IPooledObjectPolicy<T>
-  href: docs/api/Microsoft.Extensions.ObjectPool.IPooledObjectPolicy-1.html
-  commentId: T:Microsoft.Extensions.ObjectPool.IPooledObjectPolicy`1
-  name.vb: IPooledObjectPolicy(Of T)
-  fullName: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy<T>
-  fullName.vb: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy(Of T)
-  nameWithType: IPooledObjectPolicy<T>
-  nameWithType.vb: IPooledObjectPolicy(Of T)
-- uid: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy`1.Create
-  name: Create()
-  href: docs/api/Microsoft.Extensions.ObjectPool.IPooledObjectPolicy-1.html#Microsoft_Extensions_ObjectPool_IPooledObjectPolicy_1_Create
-  commentId: M:Microsoft.Extensions.ObjectPool.IPooledObjectPolicy`1.Create
-  fullName: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy<T>.Create()
-  fullName.vb: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy(Of T).Create()
-  nameWithType: IPooledObjectPolicy<T>.Create()
-  nameWithType.vb: IPooledObjectPolicy(Of T).Create()
-- uid: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy`1.Create*
-  name: Create
-  href: docs/api/Microsoft.Extensions.ObjectPool.IPooledObjectPolicy-1.html#Microsoft_Extensions_ObjectPool_IPooledObjectPolicy_1_Create_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.IPooledObjectPolicy`1.Create
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy<T>.Create
-  fullName.vb: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy(Of T).Create
-  nameWithType: IPooledObjectPolicy<T>.Create
-  nameWithType.vb: IPooledObjectPolicy(Of T).Create
-- uid: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy`1.Return(`0)
-  name: Return(T)
-  href: docs/api/Microsoft.Extensions.ObjectPool.IPooledObjectPolicy-1.html#Microsoft_Extensions_ObjectPool_IPooledObjectPolicy_1_Return__0_
-  commentId: M:Microsoft.Extensions.ObjectPool.IPooledObjectPolicy`1.Return(`0)
-  fullName: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy<T>.Return(T)
-  fullName.vb: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy(Of T).Return(T)
-  nameWithType: IPooledObjectPolicy<T>.Return(T)
-  nameWithType.vb: IPooledObjectPolicy(Of T).Return(T)
-- uid: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy`1.Return*
-  name: Return
-  href: docs/api/Microsoft.Extensions.ObjectPool.IPooledObjectPolicy-1.html#Microsoft_Extensions_ObjectPool_IPooledObjectPolicy_1_Return_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.IPooledObjectPolicy`1.Return
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy<T>.Return
-  fullName.vb: Microsoft.Extensions.ObjectPool.IPooledObjectPolicy(Of T).Return
-  nameWithType: IPooledObjectPolicy<T>.Return
-  nameWithType.vb: IPooledObjectPolicy(Of T).Return
-- uid: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool`1
-  name: LeakTrackingObjectPool<T>
-  href: docs/api/Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool-1.html
-  commentId: T:Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool`1
-  name.vb: LeakTrackingObjectPool(Of T)
-  fullName: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool<T>
-  fullName.vb: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool(Of T)
-  nameWithType: LeakTrackingObjectPool<T>
-  nameWithType.vb: LeakTrackingObjectPool(Of T)
-- uid: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool`1.#ctor(Microsoft.Extensions.ObjectPool.ObjectPool{`0})
-  name: LeakTrackingObjectPool(ObjectPool<T>)
-  href: docs/api/Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool-1.html#Microsoft_Extensions_ObjectPool_LeakTrackingObjectPool_1__ctor_Microsoft_Extensions_ObjectPool_ObjectPool__0__
-  commentId: M:Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool`1.#ctor(Microsoft.Extensions.ObjectPool.ObjectPool{`0})
-  name.vb: LeakTrackingObjectPool(ObjectPool(Of T))
-  fullName: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool<T>.LeakTrackingObjectPool(Microsoft.Extensions.ObjectPool.ObjectPool<T>)
-  fullName.vb: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool(Of T).LeakTrackingObjectPool(Microsoft.Extensions.ObjectPool.ObjectPool(Of T))
-  nameWithType: LeakTrackingObjectPool<T>.LeakTrackingObjectPool(ObjectPool<T>)
-  nameWithType.vb: LeakTrackingObjectPool(Of T).LeakTrackingObjectPool(ObjectPool(Of T))
-- uid: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool`1.#ctor*
-  name: LeakTrackingObjectPool
-  href: docs/api/Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool-1.html#Microsoft_Extensions_ObjectPool_LeakTrackingObjectPool_1__ctor_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool`1.#ctor
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool<T>.LeakTrackingObjectPool
-  fullName.vb: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool(Of T).LeakTrackingObjectPool
-  nameWithType: LeakTrackingObjectPool<T>.LeakTrackingObjectPool
-  nameWithType.vb: LeakTrackingObjectPool(Of T).LeakTrackingObjectPool
-- uid: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool`1.Get
-  name: Get()
-  href: docs/api/Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool-1.html#Microsoft_Extensions_ObjectPool_LeakTrackingObjectPool_1_Get
-  commentId: M:Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool`1.Get
-  fullName: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool<T>.Get()
-  fullName.vb: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool(Of T).Get()
-  nameWithType: LeakTrackingObjectPool<T>.Get()
-  nameWithType.vb: LeakTrackingObjectPool(Of T).Get()
-- uid: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool`1.Get*
-  name: Get
-  href: docs/api/Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool-1.html#Microsoft_Extensions_ObjectPool_LeakTrackingObjectPool_1_Get_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool`1.Get
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool<T>.Get
-  fullName.vb: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool(Of T).Get
-  nameWithType: LeakTrackingObjectPool<T>.Get
-  nameWithType.vb: LeakTrackingObjectPool(Of T).Get
-- uid: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool`1.Return(`0)
-  name: Return(T)
-  href: docs/api/Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool-1.html#Microsoft_Extensions_ObjectPool_LeakTrackingObjectPool_1_Return__0_
-  commentId: M:Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool`1.Return(`0)
-  fullName: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool<T>.Return(T)
-  fullName.vb: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool(Of T).Return(T)
-  nameWithType: LeakTrackingObjectPool<T>.Return(T)
-  nameWithType.vb: LeakTrackingObjectPool(Of T).Return(T)
-- uid: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool`1.Return*
-  name: Return
-  href: docs/api/Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool-1.html#Microsoft_Extensions_ObjectPool_LeakTrackingObjectPool_1_Return_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool`1.Return
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool<T>.Return
-  fullName.vb: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPool(Of T).Return
-  nameWithType: LeakTrackingObjectPool<T>.Return
-  nameWithType.vb: LeakTrackingObjectPool(Of T).Return
-- uid: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider
-  name: LeakTrackingObjectPoolProvider
-  href: docs/api/Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.html
-  commentId: T:Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider
-  fullName: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider
-  nameWithType: LeakTrackingObjectPoolProvider
-- uid: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.#ctor(Microsoft.Extensions.ObjectPool.ObjectPoolProvider)
-  name: LeakTrackingObjectPoolProvider(ObjectPoolProvider)
-  href: docs/api/Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.html#Microsoft_Extensions_ObjectPool_LeakTrackingObjectPoolProvider__ctor_Microsoft_Extensions_ObjectPool_ObjectPoolProvider_
-  commentId: M:Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.#ctor(Microsoft.Extensions.ObjectPool.ObjectPoolProvider)
-  fullName: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.LeakTrackingObjectPoolProvider(Microsoft.Extensions.ObjectPool.ObjectPoolProvider)
-  nameWithType: LeakTrackingObjectPoolProvider.LeakTrackingObjectPoolProvider(ObjectPoolProvider)
-- uid: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.#ctor*
-  name: LeakTrackingObjectPoolProvider
-  href: docs/api/Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.html#Microsoft_Extensions_ObjectPool_LeakTrackingObjectPoolProvider__ctor_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.#ctor
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.LeakTrackingObjectPoolProvider
-  nameWithType: LeakTrackingObjectPoolProvider.LeakTrackingObjectPoolProvider
-- uid: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.Create*
-  name: Create
-  href: docs/api/Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.html#Microsoft_Extensions_ObjectPool_LeakTrackingObjectPoolProvider_Create_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.Create
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.Create
-  nameWithType: LeakTrackingObjectPoolProvider.Create
-- uid: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.Create``1(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy{``0})
-  name: Create<T>(IPooledObjectPolicy<T>)
-  href: docs/api/Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.html#Microsoft_Extensions_ObjectPool_LeakTrackingObjectPoolProvider_Create__1_Microsoft_Extensions_ObjectPool_IPooledObjectPolicy___0__
-  commentId: M:Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.Create``1(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy{``0})
-  name.vb: Create(Of T)(IPooledObjectPolicy(Of T))
-  fullName: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.Create<T>(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy<T>)
-  fullName.vb: Microsoft.Extensions.ObjectPool.LeakTrackingObjectPoolProvider.Create(Of T)(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy(Of T))
-  nameWithType: LeakTrackingObjectPoolProvider.Create<T>(IPooledObjectPolicy<T>)
-  nameWithType.vb: LeakTrackingObjectPoolProvider.Create(Of T)(IPooledObjectPolicy(Of T))
-- uid: Microsoft.Extensions.ObjectPool.ObjectPool`1
-  name: ObjectPool<T>
-  href: docs/api/Microsoft.Extensions.ObjectPool.ObjectPool-1.html
-  commentId: T:Microsoft.Extensions.ObjectPool.ObjectPool`1
-  name.vb: ObjectPool(Of T)
-  fullName: Microsoft.Extensions.ObjectPool.ObjectPool<T>
-  fullName.vb: Microsoft.Extensions.ObjectPool.ObjectPool(Of T)
-  nameWithType: ObjectPool<T>
-  nameWithType.vb: ObjectPool(Of T)
-- uid: Microsoft.Extensions.ObjectPool.ObjectPool`1.Get
-  name: Get()
-  href: docs/api/Microsoft.Extensions.ObjectPool.ObjectPool-1.html#Microsoft_Extensions_ObjectPool_ObjectPool_1_Get
-  commentId: M:Microsoft.Extensions.ObjectPool.ObjectPool`1.Get
-  fullName: Microsoft.Extensions.ObjectPool.ObjectPool<T>.Get()
-  fullName.vb: Microsoft.Extensions.ObjectPool.ObjectPool(Of T).Get()
-  nameWithType: ObjectPool<T>.Get()
-  nameWithType.vb: ObjectPool(Of T).Get()
-- uid: Microsoft.Extensions.ObjectPool.ObjectPool`1.Get*
-  name: Get
-  href: docs/api/Microsoft.Extensions.ObjectPool.ObjectPool-1.html#Microsoft_Extensions_ObjectPool_ObjectPool_1_Get_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.ObjectPool`1.Get
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.ObjectPool<T>.Get
-  fullName.vb: Microsoft.Extensions.ObjectPool.ObjectPool(Of T).Get
-  nameWithType: ObjectPool<T>.Get
-  nameWithType.vb: ObjectPool(Of T).Get
-- uid: Microsoft.Extensions.ObjectPool.ObjectPool`1.Return(`0)
-  name: Return(T)
-  href: docs/api/Microsoft.Extensions.ObjectPool.ObjectPool-1.html#Microsoft_Extensions_ObjectPool_ObjectPool_1_Return__0_
-  commentId: M:Microsoft.Extensions.ObjectPool.ObjectPool`1.Return(`0)
-  fullName: Microsoft.Extensions.ObjectPool.ObjectPool<T>.Return(T)
-  fullName.vb: Microsoft.Extensions.ObjectPool.ObjectPool(Of T).Return(T)
-  nameWithType: ObjectPool<T>.Return(T)
-  nameWithType.vb: ObjectPool(Of T).Return(T)
-- uid: Microsoft.Extensions.ObjectPool.ObjectPool`1.Return*
-  name: Return
-  href: docs/api/Microsoft.Extensions.ObjectPool.ObjectPool-1.html#Microsoft_Extensions_ObjectPool_ObjectPool_1_Return_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.ObjectPool`1.Return
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.ObjectPool<T>.Return
-  fullName.vb: Microsoft.Extensions.ObjectPool.ObjectPool(Of T).Return
-  nameWithType: ObjectPool<T>.Return
-  nameWithType.vb: ObjectPool(Of T).Return
-- uid: Microsoft.Extensions.ObjectPool.ObjectPoolProvider
-  name: ObjectPoolProvider
-  href: docs/api/Microsoft.Extensions.ObjectPool.ObjectPoolProvider.html
-  commentId: T:Microsoft.Extensions.ObjectPool.ObjectPoolProvider
-  fullName: Microsoft.Extensions.ObjectPool.ObjectPoolProvider
-  nameWithType: ObjectPoolProvider
-- uid: Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create*
-  name: Create
-  href: docs/api/Microsoft.Extensions.ObjectPool.ObjectPoolProvider.html#Microsoft_Extensions_ObjectPool_ObjectPoolProvider_Create_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create
-  nameWithType: ObjectPoolProvider.Create
-- uid: Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create``1
-  name: Create<T>()
-  href: docs/api/Microsoft.Extensions.ObjectPool.ObjectPoolProvider.html#Microsoft_Extensions_ObjectPool_ObjectPoolProvider_Create__1
-  commentId: M:Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create``1
-  name.vb: Create(Of T)()
-  fullName: Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create<T>()
-  fullName.vb: Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create(Of T)()
-  nameWithType: ObjectPoolProvider.Create<T>()
-  nameWithType.vb: ObjectPoolProvider.Create(Of T)()
-- uid: Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create``1(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy{``0})
-  name: Create<T>(IPooledObjectPolicy<T>)
-  href: docs/api/Microsoft.Extensions.ObjectPool.ObjectPoolProvider.html#Microsoft_Extensions_ObjectPool_ObjectPoolProvider_Create__1_Microsoft_Extensions_ObjectPool_IPooledObjectPolicy___0__
-  commentId: M:Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create``1(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy{``0})
-  name.vb: Create(Of T)(IPooledObjectPolicy(Of T))
-  fullName: Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create<T>(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy<T>)
-  fullName.vb: Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create(Of T)(Microsoft.Extensions.ObjectPool.IPooledObjectPolicy(Of T))
-  nameWithType: ObjectPoolProvider.Create<T>(IPooledObjectPolicy<T>)
-  nameWithType.vb: ObjectPoolProvider.Create(Of T)(IPooledObjectPolicy(Of T))
-- uid: Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions
-  name: ObjectPoolProviderExtensions
-  href: docs/api/Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions.html
-  commentId: T:Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions
-  fullName: Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions
-  nameWithType: ObjectPoolProviderExtensions
-- uid: Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions.CreateStringBuilderPool(Microsoft.Extensions.ObjectPool.ObjectPoolProvider)
-  name: CreateStringBuilderPool(ObjectPoolProvider)
-  href: docs/api/Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions.html#Microsoft_Extensions_ObjectPool_ObjectPoolProviderExtensions_CreateStringBuilderPool_Microsoft_Extensions_ObjectPool_ObjectPoolProvider_
-  commentId: M:Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions.CreateStringBuilderPool(Microsoft.Extensions.ObjectPool.ObjectPoolProvider)
-  fullName: Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions.CreateStringBuilderPool(Microsoft.Extensions.ObjectPool.ObjectPoolProvider)
-  nameWithType: ObjectPoolProviderExtensions.CreateStringBuilderPool(ObjectPoolProvider)
-- uid: Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions.CreateStringBuilderPool(Microsoft.Extensions.ObjectPool.ObjectPoolProvider,System.Int32,System.Int32)
-  name: CreateStringBuilderPool(ObjectPoolProvider, Int32, Int32)
-  href: docs/api/Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions.html#Microsoft_Extensions_ObjectPool_ObjectPoolProviderExtensions_CreateStringBuilderPool_Microsoft_Extensions_ObjectPool_ObjectPoolProvider_System_Int32_System_Int32_
-  commentId: M:Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions.CreateStringBuilderPool(Microsoft.Extensions.ObjectPool.ObjectPoolProvider,System.Int32,System.Int32)
-  fullName: Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions.CreateStringBuilderPool(Microsoft.Extensions.ObjectPool.ObjectPoolProvider, System.Int32, System.Int32)
-  nameWithType: ObjectPoolProviderExtensions.CreateStringBuilderPool(ObjectPoolProvider, Int32, Int32)
-- uid: Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions.CreateStringBuilderPool*
-  name: CreateStringBuilderPool
-  href: docs/api/Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions.html#Microsoft_Extensions_ObjectPool_ObjectPoolProviderExtensions_CreateStringBuilderPool_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions.CreateStringBuilderPool
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.ObjectPoolProviderExtensions.CreateStringBuilderPool
-  nameWithType: ObjectPoolProviderExtensions.CreateStringBuilderPool
-- uid: Microsoft.Extensions.ObjectPool.PooledObjectPolicy`1
-  name: PooledObjectPolicy<T>
-  href: docs/api/Microsoft.Extensions.ObjectPool.PooledObjectPolicy-1.html
-  commentId: T:Microsoft.Extensions.ObjectPool.PooledObjectPolicy`1
-  name.vb: PooledObjectPolicy(Of T)
-  fullName: Microsoft.Extensions.ObjectPool.PooledObjectPolicy<T>
-  fullName.vb: Microsoft.Extensions.ObjectPool.PooledObjectPolicy(Of T)
-  nameWithType: PooledObjectPolicy<T>
-  nameWithType.vb: PooledObjectPolicy(Of T)
-- uid: Microsoft.Extensions.ObjectPool.PooledObjectPolicy`1.Create
-  name: Create()
-  href: docs/api/Microsoft.Extensions.ObjectPool.PooledObjectPolicy-1.html#Microsoft_Extensions_ObjectPool_PooledObjectPolicy_1_Create
-  commentId: M:Microsoft.Extensions.ObjectPool.PooledObjectPolicy`1.Create
-  fullName: Microsoft.Extensions.ObjectPool.PooledObjectPolicy<T>.Create()
-  fullName.vb: Microsoft.Extensions.ObjectPool.PooledObjectPolicy(Of T).Create()
-  nameWithType: PooledObjectPolicy<T>.Create()
-  nameWithType.vb: PooledObjectPolicy(Of T).Create()
-- uid: Microsoft.Extensions.ObjectPool.PooledObjectPolicy`1.Create*
-  name: Create
-  href: docs/api/Microsoft.Extensions.ObjectPool.PooledObjectPolicy-1.html#Microsoft_Extensions_ObjectPool_PooledObjectPolicy_1_Create_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.PooledObjectPolicy`1.Create
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.PooledObjectPolicy<T>.Create
-  fullName.vb: Microsoft.Extensions.ObjectPool.PooledObjectPolicy(Of T).Create
-  nameWithType: PooledObjectPolicy<T>.Create
-  nameWithType.vb: PooledObjectPolicy(Of T).Create
-- uid: Microsoft.Extensions.ObjectPool.PooledObjectPolicy`1.Return(`0)
-  name: Return(T)
-  href: docs/api/Microsoft.Extensions.ObjectPool.PooledObjectPolicy-1.html#Microsoft_Extensions_ObjectPool_PooledObjectPolicy_1_Return__0_
-  commentId: M:Microsoft.Extensions.ObjectPool.PooledObjectPolicy`1.Return(`0)
-  fullName: Microsoft.Extensions.ObjectPool.PooledObjectPolicy<T>.Return(T)
-  fullName.vb: Microsoft.Extensions.ObjectPool.PooledObjectPolicy(Of T).Return(T)
-  nameWithType: PooledObjectPolicy<T>.Return(T)
-  nameWithType.vb: PooledObjectPolicy(Of T).Return(T)
-- uid: Microsoft.Extensions.ObjectPool.PooledObjectPolicy`1.Return*
-  name: Return
-  href: docs/api/Microsoft.Extensions.ObjectPool.PooledObjectPolicy-1.html#Microsoft_Extensions_ObjectPool_PooledObjectPolicy_1_Return_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.PooledObjectPolicy`1.Return
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.PooledObjectPolicy<T>.Return
-  fullName.vb: Microsoft.Extensions.ObjectPool.PooledObjectPolicy(Of T).Return
-  nameWithType: PooledObjectPolicy<T>.Return
-  nameWithType.vb: PooledObjectPolicy(Of T).Return
-- uid: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy
-  name: StringBuilderPooledObjectPolicy
-  href: docs/api/Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.html
-  commentId: T:Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy
-  fullName: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy
-  nameWithType: StringBuilderPooledObjectPolicy
-- uid: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.Create
-  name: Create()
-  href: docs/api/Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.html#Microsoft_Extensions_ObjectPool_StringBuilderPooledObjectPolicy_Create
-  commentId: M:Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.Create
-  fullName: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.Create()
-  nameWithType: StringBuilderPooledObjectPolicy.Create()
-- uid: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.Create*
-  name: Create
-  href: docs/api/Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.html#Microsoft_Extensions_ObjectPool_StringBuilderPooledObjectPolicy_Create_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.Create
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.Create
-  nameWithType: StringBuilderPooledObjectPolicy.Create
-- uid: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.InitialCapacity
-  name: InitialCapacity
-  href: docs/api/Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.html#Microsoft_Extensions_ObjectPool_StringBuilderPooledObjectPolicy_InitialCapacity
-  commentId: P:Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.InitialCapacity
-  fullName: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.InitialCapacity
-  nameWithType: StringBuilderPooledObjectPolicy.InitialCapacity
-- uid: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.InitialCapacity*
-  name: InitialCapacity
-  href: docs/api/Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.html#Microsoft_Extensions_ObjectPool_StringBuilderPooledObjectPolicy_InitialCapacity_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.InitialCapacity
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.InitialCapacity
-  nameWithType: StringBuilderPooledObjectPolicy.InitialCapacity
-- uid: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.MaximumRetainedCapacity
-  name: MaximumRetainedCapacity
-  href: docs/api/Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.html#Microsoft_Extensions_ObjectPool_StringBuilderPooledObjectPolicy_MaximumRetainedCapacity
-  commentId: P:Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.MaximumRetainedCapacity
-  fullName: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.MaximumRetainedCapacity
-  nameWithType: StringBuilderPooledObjectPolicy.MaximumRetainedCapacity
-- uid: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.MaximumRetainedCapacity*
-  name: MaximumRetainedCapacity
-  href: docs/api/Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.html#Microsoft_Extensions_ObjectPool_StringBuilderPooledObjectPolicy_MaximumRetainedCapacity_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.MaximumRetainedCapacity
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.MaximumRetainedCapacity
-  nameWithType: StringBuilderPooledObjectPolicy.MaximumRetainedCapacity
-- uid: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.Return(StringBuilder)
-  name: Return(StringBuilder)
-  href: docs/api/Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.html#Microsoft_Extensions_ObjectPool_StringBuilderPooledObjectPolicy_Return_StringBuilder_
-  commentId: M:Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.Return(StringBuilder)
-  fullName: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.Return(StringBuilder)
-  nameWithType: StringBuilderPooledObjectPolicy.Return(StringBuilder)
-- uid: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.Return*
-  name: Return
-  href: docs/api/Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.html#Microsoft_Extensions_ObjectPool_StringBuilderPooledObjectPolicy_Return_
-  commentId: Overload:Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.Return
-  isSpec: "True"
-  fullName: Microsoft.Extensions.ObjectPool.StringBuilderPooledObjectPolicy.Return
-  nameWithType: StringBuilderPooledObjectPolicy.Return
 - uid: WeihanLi.Common
   name: WeihanLi.Common
   href: docs/api/WeihanLi.Common.html
@@ -6010,6 +5517,18 @@ references:
   fullName.vb: WeihanLi.Common.DependencyResolver.ResolveServices(Of TService)()
   nameWithType: DependencyResolver.ResolveServices<TService>()
   nameWithType.vb: DependencyResolver.ResolveServices(Of TService)()
+- uid: WeihanLi.Common.DependencyResolver.SetDependencyResolver(IServiceCollection)
+  name: SetDependencyResolver(IServiceCollection)
+  href: docs/api/WeihanLi.Common.DependencyResolver.html#WeihanLi_Common_DependencyResolver_SetDependencyResolver_IServiceCollection_
+  commentId: M:WeihanLi.Common.DependencyResolver.SetDependencyResolver(IServiceCollection)
+  fullName: WeihanLi.Common.DependencyResolver.SetDependencyResolver(IServiceCollection)
+  nameWithType: DependencyResolver.SetDependencyResolver(IServiceCollection)
+- uid: WeihanLi.Common.DependencyResolver.SetDependencyResolver(IServiceCollection,ServiceProviderOptions)
+  name: SetDependencyResolver(IServiceCollection, ServiceProviderOptions)
+  href: docs/api/WeihanLi.Common.DependencyResolver.html#WeihanLi_Common_DependencyResolver_SetDependencyResolver_IServiceCollection_ServiceProviderOptions_
+  commentId: M:WeihanLi.Common.DependencyResolver.SetDependencyResolver(IServiceCollection,ServiceProviderOptions)
+  fullName: WeihanLi.Common.DependencyResolver.SetDependencyResolver(IServiceCollection, ServiceProviderOptions)
+  nameWithType: DependencyResolver.SetDependencyResolver(IServiceCollection, ServiceProviderOptions)
 - uid: WeihanLi.Common.DependencyResolver.SetDependencyResolver(IServiceContainer)
   name: SetDependencyResolver(IServiceContainer)
   href: docs/api/WeihanLi.Common.DependencyResolver.html#WeihanLi_Common_DependencyResolver_SetDependencyResolver_IServiceContainer_
@@ -6517,6 +6036,66 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Event.EventBus.UnSubscribeAsync
   nameWithType: EventBus.UnSubscribeAsync
+- uid: WeihanLi.Common.Event.EventBusExtensions
+  name: EventBusExtensions
+  href: docs/api/WeihanLi.Common.Event.EventBusExtensions.html
+  commentId: T:WeihanLi.Common.Event.EventBusExtensions
+  fullName: WeihanLi.Common.Event.EventBusExtensions
+  nameWithType: EventBusExtensions
+- uid: WeihanLi.Common.Event.EventBusExtensions.AddEventHandler*
+  name: AddEventHandler
+  href: docs/api/WeihanLi.Common.Event.EventBusExtensions.html#WeihanLi_Common_Event_EventBusExtensions_AddEventHandler_
+  commentId: Overload:WeihanLi.Common.Event.EventBusExtensions.AddEventHandler
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.EventBusExtensions.AddEventHandler
+  nameWithType: EventBusExtensions.AddEventHandler
+- uid: WeihanLi.Common.Event.EventBusExtensions.AddEventHandler``1(WeihanLi.Common.Event.IEventBuilder,WeihanLi.Common.Event.IEventHandler{``0})
+  name: AddEventHandler<TEvent>(IEventBuilder, IEventHandler<TEvent>)
+  href: docs/api/WeihanLi.Common.Event.EventBusExtensions.html#WeihanLi_Common_Event_EventBusExtensions_AddEventHandler__1_WeihanLi_Common_Event_IEventBuilder_WeihanLi_Common_Event_IEventHandler___0__
+  commentId: M:WeihanLi.Common.Event.EventBusExtensions.AddEventHandler``1(WeihanLi.Common.Event.IEventBuilder,WeihanLi.Common.Event.IEventHandler{``0})
+  name.vb: AddEventHandler(Of TEvent)(IEventBuilder, IEventHandler(Of TEvent))
+  fullName: WeihanLi.Common.Event.EventBusExtensions.AddEventHandler<TEvent>(WeihanLi.Common.Event.IEventBuilder, WeihanLi.Common.Event.IEventHandler<TEvent>)
+  fullName.vb: WeihanLi.Common.Event.EventBusExtensions.AddEventHandler(Of TEvent)(WeihanLi.Common.Event.IEventBuilder, WeihanLi.Common.Event.IEventHandler(Of TEvent))
+  nameWithType: EventBusExtensions.AddEventHandler<TEvent>(IEventBuilder, IEventHandler<TEvent>)
+  nameWithType.vb: EventBusExtensions.AddEventHandler(Of TEvent)(IEventBuilder, IEventHandler(Of TEvent))
+- uid: WeihanLi.Common.Event.EventBusExtensions.AddEventHandler``2(WeihanLi.Common.Event.IEventBuilder,ServiceLifetime)
+  name: AddEventHandler<TEvent, TEventHandler>(IEventBuilder, ServiceLifetime)
+  href: docs/api/WeihanLi.Common.Event.EventBusExtensions.html#WeihanLi_Common_Event_EventBusExtensions_AddEventHandler__2_WeihanLi_Common_Event_IEventBuilder_ServiceLifetime_
+  commentId: M:WeihanLi.Common.Event.EventBusExtensions.AddEventHandler``2(WeihanLi.Common.Event.IEventBuilder,ServiceLifetime)
+  name.vb: AddEventHandler(Of TEvent, TEventHandler)(IEventBuilder, ServiceLifetime)
+  fullName: WeihanLi.Common.Event.EventBusExtensions.AddEventHandler<TEvent, TEventHandler>(WeihanLi.Common.Event.IEventBuilder, ServiceLifetime)
+  fullName.vb: WeihanLi.Common.Event.EventBusExtensions.AddEventHandler(Of TEvent, TEventHandler)(WeihanLi.Common.Event.IEventBuilder, ServiceLifetime)
+  nameWithType: EventBusExtensions.AddEventHandler<TEvent, TEventHandler>(IEventBuilder, ServiceLifetime)
+  nameWithType.vb: EventBusExtensions.AddEventHandler(Of TEvent, TEventHandler)(IEventBuilder, ServiceLifetime)
+- uid: WeihanLi.Common.Event.EventBusExtensions.AddEvents(IServiceCollection)
+  name: AddEvents(IServiceCollection)
+  href: docs/api/WeihanLi.Common.Event.EventBusExtensions.html#WeihanLi_Common_Event_EventBusExtensions_AddEvents_IServiceCollection_
+  commentId: M:WeihanLi.Common.Event.EventBusExtensions.AddEvents(IServiceCollection)
+  fullName: WeihanLi.Common.Event.EventBusExtensions.AddEvents(IServiceCollection)
+  nameWithType: EventBusExtensions.AddEvents(IServiceCollection)
+- uid: WeihanLi.Common.Event.EventBusExtensions.AddEvents*
+  name: AddEvents
+  href: docs/api/WeihanLi.Common.Event.EventBusExtensions.html#WeihanLi_Common_Event_EventBusExtensions_AddEvents_
+  commentId: Overload:WeihanLi.Common.Event.EventBusExtensions.AddEvents
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.EventBusExtensions.AddEvents
+  nameWithType: EventBusExtensions.AddEvents
+- uid: WeihanLi.Common.Event.EventBusExtensions.RegisterEventHandlers(WeihanLi.Common.Event.IEventBuilder,System.Func{System.Type,System.Boolean},ServiceLifetime,Assembly[])
+  name: RegisterEventHandlers(IEventBuilder, Func<Type, Boolean>, ServiceLifetime, Assembly[])
+  href: docs/api/WeihanLi.Common.Event.EventBusExtensions.html#WeihanLi_Common_Event_EventBusExtensions_RegisterEventHandlers_WeihanLi_Common_Event_IEventBuilder_System_Func_System_Type_System_Boolean__ServiceLifetime_Assembly___
+  commentId: M:WeihanLi.Common.Event.EventBusExtensions.RegisterEventHandlers(WeihanLi.Common.Event.IEventBuilder,System.Func{System.Type,System.Boolean},ServiceLifetime,Assembly[])
+  name.vb: RegisterEventHandlers(IEventBuilder, Func(Of Type, Boolean), ServiceLifetime, Assembly())
+  fullName: WeihanLi.Common.Event.EventBusExtensions.RegisterEventHandlers(WeihanLi.Common.Event.IEventBuilder, System.Func<System.Type, System.Boolean>, ServiceLifetime, Assembly[])
+  fullName.vb: WeihanLi.Common.Event.EventBusExtensions.RegisterEventHandlers(WeihanLi.Common.Event.IEventBuilder, System.Func(Of System.Type, System.Boolean), ServiceLifetime, Assembly())
+  nameWithType: EventBusExtensions.RegisterEventHandlers(IEventBuilder, Func<Type, Boolean>, ServiceLifetime, Assembly[])
+  nameWithType.vb: EventBusExtensions.RegisterEventHandlers(IEventBuilder, Func(Of Type, Boolean), ServiceLifetime, Assembly())
+- uid: WeihanLi.Common.Event.EventBusExtensions.RegisterEventHandlers*
+  name: RegisterEventHandlers
+  href: docs/api/WeihanLi.Common.Event.EventBusExtensions.html#WeihanLi_Common_Event_EventBusExtensions_RegisterEventHandlers_
+  commentId: Overload:WeihanLi.Common.Event.EventBusExtensions.RegisterEventHandlers
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.EventBusExtensions.RegisterEventHandlers
+  nameWithType: EventBusExtensions.RegisterEventHandlers
 - uid: WeihanLi.Common.Event.EventHandlerBase`1
   name: EventHandlerBase<TEvent>
   href: docs/api/WeihanLi.Common.Event.EventHandlerBase-1.html
@@ -6771,12 +6350,15 @@ references:
   commentId: T:WeihanLi.Common.Event.EventQueuePublisher
   fullName: WeihanLi.Common.Event.EventQueuePublisher
   nameWithType: EventQueuePublisher
-- uid: WeihanLi.Common.Event.EventQueuePublisher.#ctor(WeihanLi.Common.Event.IEventQueue)
-  name: EventQueuePublisher(IEventQueue)
-  href: docs/api/WeihanLi.Common.Event.EventQueuePublisher.html#WeihanLi_Common_Event_EventQueuePublisher__ctor_WeihanLi_Common_Event_IEventQueue_
-  commentId: M:WeihanLi.Common.Event.EventQueuePublisher.#ctor(WeihanLi.Common.Event.IEventQueue)
-  fullName: WeihanLi.Common.Event.EventQueuePublisher.EventQueuePublisher(WeihanLi.Common.Event.IEventQueue)
-  nameWithType: EventQueuePublisher.EventQueuePublisher(IEventQueue)
+- uid: WeihanLi.Common.Event.EventQueuePublisher.#ctor(WeihanLi.Common.Event.IEventQueue,IOptions{WeihanLi.Common.Event.EventQueuePublisherOptions})
+  name: EventQueuePublisher(IEventQueue, IOptions<EventQueuePublisherOptions>)
+  href: docs/api/WeihanLi.Common.Event.EventQueuePublisher.html#WeihanLi_Common_Event_EventQueuePublisher__ctor_WeihanLi_Common_Event_IEventQueue_IOptions_WeihanLi_Common_Event_EventQueuePublisherOptions__
+  commentId: M:WeihanLi.Common.Event.EventQueuePublisher.#ctor(WeihanLi.Common.Event.IEventQueue,IOptions{WeihanLi.Common.Event.EventQueuePublisherOptions})
+  name.vb: EventQueuePublisher(IEventQueue, IOptions(Of EventQueuePublisherOptions))
+  fullName: WeihanLi.Common.Event.EventQueuePublisher.EventQueuePublisher(WeihanLi.Common.Event.IEventQueue, IOptions<WeihanLi.Common.Event.EventQueuePublisherOptions>)
+  fullName.vb: WeihanLi.Common.Event.EventQueuePublisher.EventQueuePublisher(WeihanLi.Common.Event.IEventQueue, IOptions(Of WeihanLi.Common.Event.EventQueuePublisherOptions))
+  nameWithType: EventQueuePublisher.EventQueuePublisher(IEventQueue, IOptions<EventQueuePublisherOptions>)
+  nameWithType.vb: EventQueuePublisher.EventQueuePublisher(IEventQueue, IOptions(Of EventQueuePublisherOptions))
 - uid: WeihanLi.Common.Event.EventQueuePublisher.#ctor*
   name: EventQueuePublisher
   href: docs/api/WeihanLi.Common.Event.EventQueuePublisher.html#WeihanLi_Common_Event_EventQueuePublisher__ctor_
@@ -6784,22 +6366,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Event.EventQueuePublisher.EventQueuePublisher
   nameWithType: EventQueuePublisher.EventQueuePublisher
-- uid: WeihanLi.Common.Event.EventQueuePublisher.Config(System.Action{WeihanLi.Common.Event.EventQueuePublisherOptions})
-  name: Config(Action<EventQueuePublisherOptions>)
-  href: docs/api/WeihanLi.Common.Event.EventQueuePublisher.html#WeihanLi_Common_Event_EventQueuePublisher_Config_System_Action_WeihanLi_Common_Event_EventQueuePublisherOptions__
-  commentId: M:WeihanLi.Common.Event.EventQueuePublisher.Config(System.Action{WeihanLi.Common.Event.EventQueuePublisherOptions})
-  name.vb: Config(Action(Of EventQueuePublisherOptions))
-  fullName: WeihanLi.Common.Event.EventQueuePublisher.Config(System.Action<WeihanLi.Common.Event.EventQueuePublisherOptions>)
-  fullName.vb: WeihanLi.Common.Event.EventQueuePublisher.Config(System.Action(Of WeihanLi.Common.Event.EventQueuePublisherOptions))
-  nameWithType: EventQueuePublisher.Config(Action<EventQueuePublisherOptions>)
-  nameWithType.vb: EventQueuePublisher.Config(Action(Of EventQueuePublisherOptions))
-- uid: WeihanLi.Common.Event.EventQueuePublisher.Config*
-  name: Config
-  href: docs/api/WeihanLi.Common.Event.EventQueuePublisher.html#WeihanLi_Common_Event_EventQueuePublisher_Config_
-  commentId: Overload:WeihanLi.Common.Event.EventQueuePublisher.Config
-  isSpec: "True"
-  fullName: WeihanLi.Common.Event.EventQueuePublisher.Config
-  nameWithType: EventQueuePublisher.Config
 - uid: WeihanLi.Common.Event.EventQueuePublisher.Publish*
   name: Publish
   href: docs/api/WeihanLi.Common.Event.EventQueuePublisher.html#WeihanLi_Common_Event_EventQueuePublisher_Publish_
@@ -7116,6 +6682,25 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Event.IEventBase.EventId
   nameWithType: IEventBase.EventId
+- uid: WeihanLi.Common.Event.IEventBuilder
+  name: IEventBuilder
+  href: docs/api/WeihanLi.Common.Event.IEventBuilder.html
+  commentId: T:WeihanLi.Common.Event.IEventBuilder
+  fullName: WeihanLi.Common.Event.IEventBuilder
+  nameWithType: IEventBuilder
+- uid: WeihanLi.Common.Event.IEventBuilder.Services
+  name: Services
+  href: docs/api/WeihanLi.Common.Event.IEventBuilder.html#WeihanLi_Common_Event_IEventBuilder_Services
+  commentId: P:WeihanLi.Common.Event.IEventBuilder.Services
+  fullName: WeihanLi.Common.Event.IEventBuilder.Services
+  nameWithType: IEventBuilder.Services
+- uid: WeihanLi.Common.Event.IEventBuilder.Services*
+  name: Services
+  href: docs/api/WeihanLi.Common.Event.IEventBuilder.html#WeihanLi_Common_Event_IEventBuilder_Services_
+  commentId: Overload:WeihanLi.Common.Event.IEventBuilder.Services
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.IEventBuilder.Services
+  nameWithType: IEventBuilder.Services
 - uid: WeihanLi.Common.Event.IEventBus
   name: IEventBus
   href: docs/api/WeihanLi.Common.Event.IEventBus.html
@@ -7538,244 +7123,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Event.NullEventSubscriptionManager.UnSubscribeAsync
   nameWithType: NullEventSubscriptionManager.UnSubscribeAsync
-- uid: WeihanLi.Common.Extensions
-  name: WeihanLi.Common.Extensions
-  href: docs/api/WeihanLi.Common.Extensions.html
-  commentId: N:WeihanLi.Common.Extensions
-  fullName: WeihanLi.Common.Extensions
-  nameWithType: WeihanLi.Common.Extensions
-- uid: WeihanLi.Common.Extensions.RequestExtension
-  name: RequestExtension
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html
-  commentId: T:WeihanLi.Common.Extensions.RequestExtension
-  fullName: WeihanLi.Common.Extensions.RequestExtension
-  nameWithType: RequestExtension
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetBrowserName
-  name: GetBrowserName()
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetBrowserName
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetBrowserName
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetBrowserName()
-  nameWithType: RequestExtension.GetBrowserName()
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetBrowserName*
-  name: GetBrowserName
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetBrowserName_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.GetBrowserName
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetBrowserName
-  nameWithType: RequestExtension.GetBrowserName
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetBrowserType
-  name: GetBrowserType()
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetBrowserType
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetBrowserType
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetBrowserType()
-  nameWithType: RequestExtension.GetBrowserType()
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetBrowserType*
-  name: GetBrowserType
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetBrowserType_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.GetBrowserType
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetBrowserType
-  nameWithType: RequestExtension.GetBrowserType
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetBrowserVersion
-  name: GetBrowserVersion()
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetBrowserVersion
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetBrowserVersion
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetBrowserVersion()
-  nameWithType: RequestExtension.GetBrowserVersion()
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetBrowserVersion*
-  name: GetBrowserVersion
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetBrowserVersion_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.GetBrowserVersion
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetBrowserVersion
-  nameWithType: RequestExtension.GetBrowserVersion
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetFormString(HttpRequestBase,System.String)
-  name: GetFormString(HttpRequestBase, String)
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetFormString_HttpRequestBase_System_String_
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetFormString(HttpRequestBase,System.String)
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetFormString(HttpRequestBase, System.String)
-  nameWithType: RequestExtension.GetFormString(HttpRequestBase, String)
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetFormString(HttpRequestBase,System.String,System.String)
-  name: GetFormString(HttpRequestBase, String, String)
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetFormString_HttpRequestBase_System_String_System_String_
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetFormString(HttpRequestBase,System.String,System.String)
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetFormString(HttpRequestBase, System.String, System.String)
-  nameWithType: RequestExtension.GetFormString(HttpRequestBase, String, String)
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetFormString*
-  name: GetFormString
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetFormString_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.GetFormString
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetFormString
-  nameWithType: RequestExtension.GetFormString
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetHost(HttpRequestBase)
-  name: GetHost(HttpRequestBase)
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetHost_HttpRequestBase_
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetHost(HttpRequestBase)
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetHost(HttpRequestBase)
-  nameWithType: RequestExtension.GetHost(HttpRequestBase)
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetHost*
-  name: GetHost
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetHost_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.GetHost
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetHost
-  nameWithType: RequestExtension.GetHost
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetIP(HttpRequestBase)
-  name: GetIP(HttpRequestBase)
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetIP_HttpRequestBase_
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetIP(HttpRequestBase)
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetIP(HttpRequestBase)
-  nameWithType: RequestExtension.GetIP(HttpRequestBase)
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetIP*
-  name: GetIP
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetIP_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.GetIP
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetIP
-  nameWithType: RequestExtension.GetIP
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetOsName(HttpRequestBase)
-  name: GetOsName(HttpRequestBase)
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetOsName_HttpRequestBase_
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetOsName(HttpRequestBase)
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetOsName(HttpRequestBase)
-  nameWithType: RequestExtension.GetOsName(HttpRequestBase)
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetOsName*
-  name: GetOsName
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetOsName_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.GetOsName
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetOsName
-  nameWithType: RequestExtension.GetOsName
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetOsType(HttpRequestBase)
-  name: GetOsType(HttpRequestBase)
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetOsType_HttpRequestBase_
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetOsType(HttpRequestBase)
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetOsType(HttpRequestBase)
-  nameWithType: RequestExtension.GetOsType(HttpRequestBase)
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetOsType*
-  name: GetOsType
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetOsType_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.GetOsType
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetOsType
-  nameWithType: RequestExtension.GetOsType
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetQueryString(HttpRequestBase,System.String)
-  name: GetQueryString(HttpRequestBase, String)
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetQueryString_HttpRequestBase_System_String_
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetQueryString(HttpRequestBase,System.String)
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetQueryString(HttpRequestBase, System.String)
-  nameWithType: RequestExtension.GetQueryString(HttpRequestBase, String)
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetQueryString(HttpRequestBase,System.String,System.String)
-  name: GetQueryString(HttpRequestBase, String, String)
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetQueryString_HttpRequestBase_System_String_System_String_
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetQueryString(HttpRequestBase,System.String,System.String)
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetQueryString(HttpRequestBase, System.String, System.String)
-  nameWithType: RequestExtension.GetQueryString(HttpRequestBase, String, String)
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetQueryString*
-  name: GetQueryString
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetQueryString_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.GetQueryString
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetQueryString
-  nameWithType: RequestExtension.GetQueryString
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetRequestString(HttpRequestBase,System.String)
-  name: GetRequestString(HttpRequestBase, String)
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetRequestString_HttpRequestBase_System_String_
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetRequestString(HttpRequestBase,System.String)
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetRequestString(HttpRequestBase, System.String)
-  nameWithType: RequestExtension.GetRequestString(HttpRequestBase, String)
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetRequestString(HttpRequestBase,System.String,System.String)
-  name: GetRequestString(HttpRequestBase, String, String)
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetRequestString_HttpRequestBase_System_String_System_String_
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetRequestString(HttpRequestBase,System.String,System.String)
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetRequestString(HttpRequestBase, System.String, System.String)
-  nameWithType: RequestExtension.GetRequestString(HttpRequestBase, String, String)
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetRequestString*
-  name: GetRequestString
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetRequestString_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.GetRequestString
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetRequestString
-  nameWithType: RequestExtension.GetRequestString
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetUrl(HttpRequestBase)
-  name: GetUrl(HttpRequestBase)
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetUrl_HttpRequestBase_
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetUrl(HttpRequestBase)
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetUrl(HttpRequestBase)
-  nameWithType: RequestExtension.GetUrl(HttpRequestBase)
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetUrl*
-  name: GetUrl
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetUrl_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.GetUrl
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetUrl
-  nameWithType: RequestExtension.GetUrl
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetUrlReferrer(HttpRequestBase)
-  name: GetUrlReferrer(HttpRequestBase)
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetUrlReferrer_HttpRequestBase_
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.GetUrlReferrer(HttpRequestBase)
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetUrlReferrer(HttpRequestBase)
-  nameWithType: RequestExtension.GetUrlReferrer(HttpRequestBase)
-- uid: WeihanLi.Common.Extensions.RequestExtension.GetUrlReferrer*
-  name: GetUrlReferrer
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_GetUrlReferrer_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.GetUrlReferrer
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.GetUrlReferrer
-  nameWithType: RequestExtension.GetUrlReferrer
-- uid: WeihanLi.Common.Extensions.RequestExtension.IsAjax(HttpRequestBase)
-  name: IsAjax(HttpRequestBase)
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_IsAjax_HttpRequestBase_
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.IsAjax(HttpRequestBase)
-  fullName: WeihanLi.Common.Extensions.RequestExtension.IsAjax(HttpRequestBase)
-  nameWithType: RequestExtension.IsAjax(HttpRequestBase)
-- uid: WeihanLi.Common.Extensions.RequestExtension.IsAjax*
-  name: IsAjax
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_IsAjax_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.IsAjax
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.IsAjax
-  nameWithType: RequestExtension.IsAjax
-- uid: WeihanLi.Common.Extensions.RequestExtension.IsBrowser
-  name: IsBrowser()
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_IsBrowser
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.IsBrowser
-  fullName: WeihanLi.Common.Extensions.RequestExtension.IsBrowser()
-  nameWithType: RequestExtension.IsBrowser()
-- uid: WeihanLi.Common.Extensions.RequestExtension.IsBrowser*
-  name: IsBrowser
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_IsBrowser_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.IsBrowser
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.IsBrowser
-  nameWithType: RequestExtension.IsBrowser
-- uid: WeihanLi.Common.Extensions.RequestExtension.IsCrawler(HttpRequestBase)
-  name: IsCrawler(HttpRequestBase)
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_IsCrawler_HttpRequestBase_
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.IsCrawler(HttpRequestBase)
-  fullName: WeihanLi.Common.Extensions.RequestExtension.IsCrawler(HttpRequestBase)
-  nameWithType: RequestExtension.IsCrawler(HttpRequestBase)
-- uid: WeihanLi.Common.Extensions.RequestExtension.IsCrawler*
-  name: IsCrawler
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_IsCrawler_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.IsCrawler
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.IsCrawler
-  nameWithType: RequestExtension.IsCrawler
-- uid: WeihanLi.Common.Extensions.RequestExtension.IsMobile
-  name: IsMobile()
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_IsMobile
-  commentId: M:WeihanLi.Common.Extensions.RequestExtension.IsMobile
-  fullName: WeihanLi.Common.Extensions.RequestExtension.IsMobile()
-  nameWithType: RequestExtension.IsMobile()
-- uid: WeihanLi.Common.Extensions.RequestExtension.IsMobile*
-  name: IsMobile
-  href: docs/api/WeihanLi.Common.Extensions.RequestExtension.html#WeihanLi_Common_Extensions_RequestExtension_IsMobile_
-  commentId: Overload:WeihanLi.Common.Extensions.RequestExtension.IsMobile
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.RequestExtension.IsMobile
-  nameWithType: RequestExtension.IsMobile
 - uid: WeihanLi.Common.GuidIdGenerator
   name: GuidIdGenerator
   href: docs/api/WeihanLi.Common.GuidIdGenerator.html
@@ -8885,78 +8232,6 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.ConcurrentSet(Of T).Values
   nameWithType: ConcurrentSet<T>.Values
   nameWithType.vb: ConcurrentSet(Of T).Values
-- uid: WeihanLi.Common.Helpers.ConfigurationHelper
-  name: ConfigurationHelper
-  href: docs/api/WeihanLi.Common.Helpers.ConfigurationHelper.html
-  commentId: T:WeihanLi.Common.Helpers.ConfigurationHelper
-  fullName: WeihanLi.Common.Helpers.ConfigurationHelper
-  nameWithType: ConfigurationHelper
-- uid: WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting(System.String)
-  name: AppSetting(String)
-  href: docs/api/WeihanLi.Common.Helpers.ConfigurationHelper.html#WeihanLi_Common_Helpers_ConfigurationHelper_AppSetting_System_String_
-  commentId: M:WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting(System.String)
-  fullName: WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting(System.String)
-  nameWithType: ConfigurationHelper.AppSetting(String)
-- uid: WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting*
-  name: AppSetting
-  href: docs/api/WeihanLi.Common.Helpers.ConfigurationHelper.html#WeihanLi_Common_Helpers_ConfigurationHelper_AppSetting_
-  commentId: Overload:WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting
-  nameWithType: ConfigurationHelper.AppSetting
-- uid: WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting``1(System.String)
-  name: AppSetting<T>(String)
-  href: docs/api/WeihanLi.Common.Helpers.ConfigurationHelper.html#WeihanLi_Common_Helpers_ConfigurationHelper_AppSetting__1_System_String_
-  commentId: M:WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting``1(System.String)
-  name.vb: AppSetting(Of T)(String)
-  fullName: WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting<T>(System.String)
-  fullName.vb: WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting(Of T)(System.String)
-  nameWithType: ConfigurationHelper.AppSetting<T>(String)
-  nameWithType.vb: ConfigurationHelper.AppSetting(Of T)(String)
-- uid: WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting``1(System.String,``0)
-  name: AppSetting<T>(String, T)
-  href: docs/api/WeihanLi.Common.Helpers.ConfigurationHelper.html#WeihanLi_Common_Helpers_ConfigurationHelper_AppSetting__1_System_String___0_
-  commentId: M:WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting``1(System.String,``0)
-  name.vb: AppSetting(Of T)(String, T)
-  fullName: WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting<T>(System.String, T)
-  fullName.vb: WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting(Of T)(System.String, T)
-  nameWithType: ConfigurationHelper.AppSetting<T>(String, T)
-  nameWithType.vb: ConfigurationHelper.AppSetting(Of T)(String, T)
-- uid: WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting``1(System.String,System.Func{``0})
-  name: AppSetting<T>(String, Func<T>)
-  href: docs/api/WeihanLi.Common.Helpers.ConfigurationHelper.html#WeihanLi_Common_Helpers_ConfigurationHelper_AppSetting__1_System_String_System_Func___0__
-  commentId: M:WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting``1(System.String,System.Func{``0})
-  name.vb: AppSetting(Of T)(String, Func(Of T))
-  fullName: WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting<T>(System.String, System.Func<T>)
-  fullName.vb: WeihanLi.Common.Helpers.ConfigurationHelper.AppSetting(Of T)(System.String, System.Func(Of T))
-  nameWithType: ConfigurationHelper.AppSetting<T>(String, Func<T>)
-  nameWithType.vb: ConfigurationHelper.AppSetting(Of T)(String, Func(Of T))
-- uid: WeihanLi.Common.Helpers.ConfigurationHelper.Configuration
-  name: Configuration
-  href: docs/api/WeihanLi.Common.Helpers.ConfigurationHelper.html#WeihanLi_Common_Helpers_ConfigurationHelper_Configuration
-  commentId: P:WeihanLi.Common.Helpers.ConfigurationHelper.Configuration
-  fullName: WeihanLi.Common.Helpers.ConfigurationHelper.Configuration
-  nameWithType: ConfigurationHelper.Configuration
-- uid: WeihanLi.Common.Helpers.ConfigurationHelper.Configuration*
-  name: Configuration
-  href: docs/api/WeihanLi.Common.Helpers.ConfigurationHelper.html#WeihanLi_Common_Helpers_ConfigurationHelper_Configuration_
-  commentId: Overload:WeihanLi.Common.Helpers.ConfigurationHelper.Configuration
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.ConfigurationHelper.Configuration
-  nameWithType: ConfigurationHelper.Configuration
-- uid: WeihanLi.Common.Helpers.ConfigurationHelper.ConnectionString(System.String)
-  name: ConnectionString(String)
-  href: docs/api/WeihanLi.Common.Helpers.ConfigurationHelper.html#WeihanLi_Common_Helpers_ConfigurationHelper_ConnectionString_System_String_
-  commentId: M:WeihanLi.Common.Helpers.ConfigurationHelper.ConnectionString(System.String)
-  fullName: WeihanLi.Common.Helpers.ConfigurationHelper.ConnectionString(System.String)
-  nameWithType: ConfigurationHelper.ConnectionString(String)
-- uid: WeihanLi.Common.Helpers.ConfigurationHelper.ConnectionString*
-  name: ConnectionString
-  href: docs/api/WeihanLi.Common.Helpers.ConfigurationHelper.html#WeihanLi_Common_Helpers_ConfigurationHelper_ConnectionString_
-  commentId: Overload:WeihanLi.Common.Helpers.ConfigurationHelper.ConnectionString
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.ConfigurationHelper.ConnectionString
-  nameWithType: ConfigurationHelper.ConnectionString
 - uid: WeihanLi.Common.Helpers.ConsoleOutput
   name: ConsoleOutput
   href: docs/api/WeihanLi.Common.Helpers.ConsoleOutput.html
@@ -10415,12 +9690,6 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.IEnricher(Of TContext).Enrich
   nameWithType: IEnricher<TContext>.Enrich
   nameWithType.vb: IEnricher(Of TContext).Enrich
-- uid: WeihanLi.Common.Helpers.ImageHelper
-  name: ImageHelper
-  href: docs/api/WeihanLi.Common.Helpers.ImageHelper.html
-  commentId: T:WeihanLi.Common.Helpers.ImageHelper
-  fullName: WeihanLi.Common.Helpers.ImageHelper
-  nameWithType: ImageHelper
 - uid: WeihanLi.Common.Helpers.InterlockedHelper
   name: InterlockedHelper
   href: docs/api/WeihanLi.Common.Helpers.InterlockedHelper.html
@@ -12182,12 +11451,6 @@ references:
   commentId: T:WeihanLi.Common.Helpers.TaskHelper
   fullName: WeihanLi.Common.Helpers.TaskHelper
   nameWithType: TaskHelper
-- uid: WeihanLi.Common.Helpers.TaskHelper.CompletedTask
-  name: CompletedTask
-  href: docs/api/WeihanLi.Common.Helpers.TaskHelper.html#WeihanLi_Common_Helpers_TaskHelper_CompletedTask
-  commentId: F:WeihanLi.Common.Helpers.TaskHelper.CompletedTask
-  fullName: WeihanLi.Common.Helpers.TaskHelper.CompletedTask
-  nameWithType: TaskHelper.CompletedTask
 - uid: WeihanLi.Common.Helpers.TaskHelper.FromDefault*
   name: FromDefault
   href: docs/api/WeihanLi.Common.Helpers.TaskHelper.html#WeihanLi_Common_Helpers_TaskHelper_FromDefault_

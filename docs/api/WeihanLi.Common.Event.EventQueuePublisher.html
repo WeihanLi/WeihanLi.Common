@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class EventQueuePublisher
    ">
-    <meta name="generator" content="docfx 2.56.5.0">
+    <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -119,12 +119,12 @@
   
   
   <a id="WeihanLi_Common_Event_EventQueuePublisher__ctor_" data-uid="WeihanLi.Common.Event.EventQueuePublisher.#ctor*"></a>
-  <h4 id="WeihanLi_Common_Event_EventQueuePublisher__ctor_WeihanLi_Common_Event_IEventQueue_" data-uid="WeihanLi.Common.Event.EventQueuePublisher.#ctor(WeihanLi.Common.Event.IEventQueue)">EventQueuePublisher(IEventQueue)</h4>
+  <h4 id="WeihanLi_Common_Event_EventQueuePublisher__ctor_WeihanLi_Common_Event_IEventQueue_IOptions_WeihanLi_Common_Event_EventQueuePublisherOptions__" data-uid="WeihanLi.Common.Event.EventQueuePublisher.#ctor(WeihanLi.Common.Event.IEventQueue,IOptions{WeihanLi.Common.Event.EventQueuePublisherOptions})">EventQueuePublisher(IEventQueue, IOptions&lt;EventQueuePublisherOptions&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public EventQueuePublisher(IEventQueue eventQueue)</code></pre>
+    <pre><code class="lang-csharp hljs">public EventQueuePublisher(IEventQueue eventQueue, IOptions&lt;EventQueuePublisherOptions&gt; options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -141,37 +141,15 @@
         <td><span class="parametername">eventQueue</span></td>
         <td></td>
       </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-  </h3>
-  
-  
-  <a id="WeihanLi_Common_Event_EventQueuePublisher_Config_" data-uid="WeihanLi.Common.Event.EventQueuePublisher.Config*"></a>
-  <h4 id="WeihanLi_Common_Event_EventQueuePublisher_Config_System_Action_WeihanLi_Common_Event_EventQueuePublisherOptions__" data-uid="WeihanLi.Common.Event.EventQueuePublisher.Config(System.Action{WeihanLi.Common.Event.EventQueuePublisherOptions})">Config(Action&lt;EventQueuePublisherOptions&gt;)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Config(Action&lt;EventQueuePublisherOptions&gt; configAction)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
       <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="WeihanLi.Common.Event.EventQueuePublisherOptions.html">EventQueuePublisherOptions</a>&gt;</td>
-        <td><span class="parametername">configAction</span></td>
+        <td><span class="xref">IOptions</span>&lt;<a class="xref" href="WeihanLi.Common.Event.EventQueuePublisherOptions.html">EventQueuePublisherOptions</a>&gt;</td>
+        <td><span class="parametername">options</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
   
   
   <a id="WeihanLi_Common_Event_EventQueuePublisher_Publish_" data-uid="WeihanLi.Common.Event.EventQueuePublisher.Publish*"></a>
