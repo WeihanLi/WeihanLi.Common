@@ -565,7 +565,7 @@ namespace WeihanLi.Extensions
         /// <returns>@this as a MemoryStream.</returns>
         public static MemoryStream ToMemoryStream([NotNull] this byte[] byteArray)
         {
-            return new MemoryStream(byteArray);
+            return new(byteArray);
         }
 
         public static string GetString([NotNull] this byte[] byteArray)
@@ -585,7 +585,7 @@ namespace WeihanLi.Extensions
         /// <returns>The repeated char.</returns>
         public static string Repeat(this char @this, int repeatCount)
         {
-            return new string(@this, repeatCount);
+            return new(@this, repeatCount);
         }
 
         /// <summary>
@@ -857,7 +857,7 @@ namespace WeihanLi.Extensions
         /// <returns>A DateTime of the day with the time set to "00:00:00:000".</returns>
         public static DateTime StartOfDay(this DateTime @this)
         {
-            return new DateTime(@this.Year, @this.Month, @this.Day);
+            return new(@this.Year, @this.Month, @this.Day);
         }
 
         /// <summary>
@@ -868,7 +868,7 @@ namespace WeihanLi.Extensions
         /// <returns>A DateTime of the first day of the month with the time set to "00:00:00:000".</returns>
         public static DateTime StartOfMonth(this DateTime @this)
         {
-            return new DateTime(@this.Year, @this.Month, 1);
+            return new(@this.Year, @this.Month, 1);
         }
 
         /// <summary>
@@ -902,7 +902,7 @@ namespace WeihanLi.Extensions
         /// <returns>A DateTime of the first day of the year with the time set to "00:00:00:000".</returns>
         public static DateTime StartOfYear(this DateTime @this)
         {
-            return new DateTime(@this.Year, 1, 1);
+            return new(@this.Year, 1, 1);
         }
 
         /// <summary>
@@ -2742,7 +2742,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns>A string.</returns>
-        public static string Extract([NotNull] this string @this, Func<char, bool> predicate) => new string(@this.ToCharArray().Where(predicate).ToArray());
+        public static string Extract([NotNull] this string @this, Func<char, bool> predicate) => new(@this.ToCharArray().Where(predicate).ToArray());
 
         /// <summary>
         ///     A string extension method that removes the letter.
@@ -2750,7 +2750,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns>A string.</returns>
-        public static string RemoveWhere([NotNull] this string @this, Func<char, bool> predicate) => new string(@this.ToCharArray().Where(x => !predicate(x)).ToArray());
+        public static string RemoveWhere([NotNull] this string @this, Func<char, bool> predicate) => new(@this.ToCharArray().Where(x => !predicate(x)).ToArray());
 
         /// <summary>
         ///     Replaces the format item in a specified String with the text equivalent of the value of a corresponding
@@ -3112,7 +3112,7 @@ namespace WeihanLi.Extensions
         }
 
         private static readonly ConcurrentDictionary<Type, object> _defaultValues =
-            new ConcurrentDictionary<Type, object>();
+            new();
 
         /// <summary>
         /// 根据 Type 获取默认值，实现类似 default(T) 的功能

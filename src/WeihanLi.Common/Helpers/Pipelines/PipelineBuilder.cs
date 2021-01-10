@@ -16,7 +16,7 @@ namespace WeihanLi.Common.Helpers
     internal sealed class PipelineBuilder<TContext> : IPipelineBuilder<TContext>
     {
         private readonly Action<TContext> _completeFunc;
-        private readonly List<Func<Action<TContext>, Action<TContext>>> _pipelines = new List<Func<Action<TContext>, Action<TContext>>>();
+        private readonly List<Func<Action<TContext>, Action<TContext>>> _pipelines = new();
 
         public PipelineBuilder(Action<TContext> completeFunc)
         {

@@ -382,7 +382,7 @@ namespace WeihanLi.Common.Http
     {
         private HttpClient Client;
 
-        private readonly HttpRequestMessage _request = new HttpRequestMessage();
+        private readonly HttpRequestMessage _request = new();
 
         private CookieContainer _cookieContainer = null;
         private IWebProxy _proxy = null;

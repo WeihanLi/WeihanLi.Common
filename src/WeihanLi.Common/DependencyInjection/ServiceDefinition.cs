@@ -55,47 +55,47 @@ namespace WeihanLi.Common.DependencyInjection
 
         public static ServiceDefinition Singleton<TService>(Func<IServiceProvider, object> factory)
         {
-            return new ServiceDefinition(typeof(TService), factory, ServiceLifetime.Singleton);
+            return new(typeof(TService), factory, ServiceLifetime.Singleton);
         }
 
         public static ServiceDefinition Singleton<TService, TServiceImplement>() where TServiceImplement : TService
         {
-            return new ServiceDefinition(typeof(TService), typeof(TServiceImplement), ServiceLifetime.Singleton);
+            return new(typeof(TService), typeof(TServiceImplement), ServiceLifetime.Singleton);
         }
 
         public static ServiceDefinition Singleton<TService>()
         {
-            return new ServiceDefinition(typeof(TService), ServiceLifetime.Singleton);
+            return new(typeof(TService), ServiceLifetime.Singleton);
         }
 
         public static ServiceDefinition Scoped<TService>(Func<IServiceProvider, object> factory)
         {
-            return new ServiceDefinition(typeof(TService), factory, ServiceLifetime.Scoped);
+            return new(typeof(TService), factory, ServiceLifetime.Scoped);
         }
 
         public static ServiceDefinition Scoped<TService, TServiceImplement>() where TServiceImplement : TService
         {
-            return new ServiceDefinition(typeof(TService), typeof(TServiceImplement), ServiceLifetime.Scoped);
+            return new(typeof(TService), typeof(TServiceImplement), ServiceLifetime.Scoped);
         }
 
         public static ServiceDefinition Scoped<TService>()
         {
-            return new ServiceDefinition(typeof(TService), ServiceLifetime.Scoped);
+            return new(typeof(TService), ServiceLifetime.Scoped);
         }
 
         public static ServiceDefinition Transient<TService>(Func<IServiceProvider, object> factory)
         {
-            return new ServiceDefinition(typeof(TService), factory, ServiceLifetime.Transient);
+            return new(typeof(TService), factory, ServiceLifetime.Transient);
         }
 
         public static ServiceDefinition Transient<TService>()
         {
-            return new ServiceDefinition(typeof(TService), ServiceLifetime.Transient);
+            return new(typeof(TService), ServiceLifetime.Transient);
         }
 
         public static ServiceDefinition Transient<TService, TServiceImplement>() where TServiceImplement : TService
         {
-            return new ServiceDefinition(typeof(TService), typeof(TServiceImplement), ServiceLifetime.Transient);
+            return new(typeof(TService), typeof(TServiceImplement), ServiceLifetime.Transient);
         }
     }
 }

@@ -19,12 +19,12 @@ namespace WeihanLi.Common
         /// <summary>
         /// Gets the instance of <see cref="NullDisposable"/>.
         /// </summary>
-        public static NullDisposable Instance { get; } = new NullDisposable();
+        public static NullDisposable Instance { get; } = new();
     }
 
     public sealed class DisposableAction : IDisposable
     {
-        public static readonly DisposableAction Empty = new DisposableAction(null);
+        public static readonly DisposableAction Empty = new(null);
 
         private Action _disposeAction;
 

@@ -30,7 +30,7 @@ namespace WeihanLi.Common.Helpers
 
     public class BinaryDataSerializer : IDataSerializer
     {
-        private static readonly Lazy<BinaryFormatter> _binaryFormatter = new Lazy<BinaryFormatter>();
+        private static readonly Lazy<BinaryFormatter> _binaryFormatter = new();
 
         public virtual T Deserialize<T>(byte[] bytes)
         {
@@ -60,7 +60,7 @@ namespace WeihanLi.Common.Helpers
 
     public class XmlDataSerializer : IDataSerializer
     {
-        internal static readonly Lazy<XmlDataSerializer> _instance = new Lazy<XmlDataSerializer>();
+        internal static readonly Lazy<XmlDataSerializer> _instance = new();
 
         public virtual T Deserialize<T>(byte[] bytes)
         {

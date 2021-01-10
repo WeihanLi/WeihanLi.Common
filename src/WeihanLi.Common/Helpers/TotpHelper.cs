@@ -6,9 +6,9 @@ namespace WeihanLi.Common.Helpers
 {
     public static class TotpHelper
     {
-        private static readonly Lazy<Totp> Totp = new Lazy<Totp>(() => new Totp(DefaultOptions.Algorithm, DefaultOptions.Size));
+        private static readonly Lazy<Totp> Totp = new(() => new Totp(DefaultOptions.Algorithm, DefaultOptions.Size));
 
-        private static readonly TotpOptions DefaultOptions = new TotpOptions();
+        private static readonly TotpOptions DefaultOptions = new();
 
         public static TotpOptions ConfigureTotpOptions(Action<TotpOptions> configAction)
         {

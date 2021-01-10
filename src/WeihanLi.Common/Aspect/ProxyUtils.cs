@@ -15,14 +15,14 @@ namespace WeihanLi.Common.Aspect
         private const MethodAttributes InterfaceMethodAttributes = MethodAttributes.Public | MethodAttributes.Final | MethodAttributes.HideBySig | MethodAttributes.NewSlot | MethodAttributes.Virtual;
 
         private static readonly ModuleBuilder _moduleBuilder;
-        private static readonly Dictionary<string, Type> _proxyTypes = new Dictionary<string, Type>();
+        private static readonly Dictionary<string, Type> _proxyTypes = new();
 
         private const string TargetFieldName = "__target";
-        private static readonly object _typeLock = new object();
+        private static readonly object _typeLock = new();
 
         private static readonly Func<Type, Type, string> _proxyTypeNameResolver;
 
-        private static readonly HashSet<string> _ignoredMethods = new HashSet<string>()
+        private static readonly HashSet<string> _ignoredMethods = new()
         {
             "ToString",
             "GetHashCode",

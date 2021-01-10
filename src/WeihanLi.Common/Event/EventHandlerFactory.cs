@@ -9,7 +9,7 @@ namespace WeihanLi.Common.Event
     public sealed class DefaultEventHandlerFactory : IEventHandlerFactory
     {
         private readonly IEventSubscriptionManager _subscriptionManager;
-        private readonly ConcurrentDictionary<Type, ICollection<IEventHandler>> _eventHandlers = new ConcurrentDictionary<Type, ICollection<IEventHandler>>();
+        private readonly ConcurrentDictionary<Type, ICollection<IEventHandler>> _eventHandlers = new();
         private readonly IServiceProvider _serviceProvider;
 
         public DefaultEventHandlerFactory(IEventSubscriptionManager subscriptionManager, IServiceProvider serviceProvider = null)

@@ -20,7 +20,7 @@ namespace WeihanLi.Common.DependencyInjection
         private readonly ConcurrentDictionary<ServiceKey, object> _singletonInstances;
 
         private readonly ConcurrentDictionary<ServiceKey, object> _scopedInstances;
-        private readonly ConcurrentBag<object> _transientDisposables = new ConcurrentBag<object>();
+        private readonly ConcurrentBag<object> _transientDisposables = new();
 
         private class ServiceKey : IEquatable<ServiceKey>
         {

@@ -44,7 +44,7 @@ namespace WeihanLi.Common.Helpers
         /// Content Header
         /// get latest from https://github.com/dotnet/corefx/blob/master/src/System.Net.Requests/src/System/Net/HttpWebRequest.cs#L1420
         /// </summary>
-        public static readonly HashSet<string> WellKnownContentHeaders = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        public static readonly HashSet<string> WellKnownContentHeaders = new(StringComparer.OrdinalIgnoreCase)
         {
             HttpKnownHeaderNames.ContentDisposition,
             HttpKnownHeaderNames.ContentEncoding,

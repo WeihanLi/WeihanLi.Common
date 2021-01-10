@@ -18,7 +18,7 @@ namespace WeihanLi.Common.Event
 
     public sealed class EventSubscriptionManagerInMemory : IEventSubscriptionManager
     {
-        private readonly ConcurrentDictionary<Type, ConcurrentSet<Type>> _eventHandlers = new ConcurrentDictionary<Type, ConcurrentSet<Type>>();
+        private readonly ConcurrentDictionary<Type, ConcurrentSet<Type>> _eventHandlers = new();
 
         public bool Subscribe(Type eventType, Type eventHandlerType)
         {

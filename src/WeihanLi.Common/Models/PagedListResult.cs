@@ -1,7 +1,6 @@
 ﻿using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
-using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Models
 {
@@ -30,6 +29,12 @@ namespace WeihanLi.Common.Models
         IReadOnlyList<T> Data { get; }
 
         int TotalCount { get; }
+    }
+
+    public static class EnumerableExtensions
+    {
+        public static IEnumerator<T> GetEnumerator<T>(this IListResultWithTotal<T> listResult)
+            => listResult.Data.GetEnumerator();
     }
 
     public class ListResultWithTotal<T> : IListResultWithTotal<T>

@@ -5,7 +5,7 @@ namespace WeihanLi.Common.Event
 {
     public sealed class EventStoreInMemory : IEventStore
     {
-        private readonly ConcurrentDictionary<string, IEventBase> _events = new ConcurrentDictionary<string, IEventBase>();
+        private readonly ConcurrentDictionary<string, IEventBase> _events = new();
 
         public int SaveEvents(params IEventBase[] events)
         {

@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Helpers
     public class BoundedConcurrentQueue<T>
     {
         private const int NON_BOUNDED = -1;
-        private readonly ConcurrentQueue<T> _queue = new ConcurrentQueue<T>();
+        private readonly ConcurrentQueue<T> _queue = new();
         private readonly int _queueLimit;
         private int _counter;
 

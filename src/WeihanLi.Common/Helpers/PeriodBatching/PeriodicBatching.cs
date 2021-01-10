@@ -35,8 +35,8 @@ namespace WeihanLi.Common.Helpers.PeriodBatching
         private readonly int _batchSizeLimit;
         private readonly BoundedConcurrentQueue<TEvent> _queue;
         private readonly BatchedConnectionStatus _status;
-        private readonly Queue<TEvent> _waitingBatch = new Queue<TEvent>();
-        private readonly object _stateLock = new object();
+        private readonly Queue<TEvent> _waitingBatch = new();
+        private readonly object _stateLock = new();
         private readonly PortableTimer _timer;
         private bool _unloading;
         private bool _started;

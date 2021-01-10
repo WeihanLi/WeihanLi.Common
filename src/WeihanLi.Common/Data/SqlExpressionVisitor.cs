@@ -8,7 +8,7 @@ namespace WeihanLi.Common.Data
 {
     public class SqlExpressionVisitor : ExpressionVisitor
     {
-        private readonly Stack<string> _leaves = new Stack<string>();
+        private readonly Stack<string> _leaves = new();
         private readonly IDictionary<string, string> _columnMappings;
 
         public SqlExpressionVisitor(IDictionary<string, string> columnMappings)

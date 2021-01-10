@@ -252,7 +252,7 @@ namespace WeihanLi.Extensions
         /// <returns>@this as a SortedDictionary&lt;TKey,TValue&gt;</returns>
         public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this)
         {
-            return new SortedDictionary<TKey, TValue>(@this);
+            return new(@this);
         }
 
         /// <summary>
@@ -265,7 +265,7 @@ namespace WeihanLi.Extensions
         /// <returns>@this as a SortedDictionary&lt;TKey,TValue&gt;</returns>
         public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, IComparer<TKey> comparer)
         {
-            return new SortedDictionary<TKey, TValue>(@this, comparer);
+            return new(@this, comparer);
         }
 
         /// <summary>

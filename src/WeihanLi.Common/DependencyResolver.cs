@@ -1,10 +1,10 @@
 ﻿using JetBrains.Annotations;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WeihanLi.Common.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace WeihanLi.Common
 {
@@ -18,7 +18,7 @@ namespace WeihanLi.Common
         /// <summary>
         /// locker
         /// </summary>
-        private static readonly object _lock = new object();
+        private static readonly object _lock = new();
 
         public static TService ResolveService<TService>() => Current.ResolveService<TService>();
 
@@ -240,16 +240,15 @@ namespace WeihanLi.Common
                 {
                     return false;
                 }
-                using (var scope = _rootContainer.CreateScope())
+
+                using var scope = _rootContainer.CreateScope();
+                var svc = (TService)scope.GetService(typeof(TService));
+                if (svc == null)
                 {
-                    var svc = (TService)scope.GetService(typeof(TService));
-                    if (svc == null)
-                    {
-                        return false;
-                    }
-                    await action.Invoke(svc);
-                    return true;
+                    return false;
                 }
+                await action.Invoke(svc);
+                return true;
             }
         }
     }

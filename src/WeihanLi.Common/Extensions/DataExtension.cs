@@ -40,7 +40,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        private static DbParameterReadOnlyCollection GetReadOnlyCollection(this DbParameterCollection collection) => new DbParameterReadOnlyCollection(collection);
+        private static DbParameterReadOnlyCollection GetReadOnlyCollection(this DbParameterCollection collection) => new(collection);
 
         public static Func<DbCommand, string> CommandLogFormatterFunc = command =>
          $"DbCommand log: CommandText:{command.CommandText},CommandType:{command.CommandType},Parameters:{command.Parameters.GetReadOnlyCollection().Select(p => $"{p.ParameterName}={p.Value}").StringJoin(",")},CommandTimeout:{command.CommandTimeout}s";
@@ -606,7 +606,7 @@ namespace WeihanLi.Extensions
             return originName;
         }
 
-        private static readonly Dictionary<Type, DbType> TypeMap = new Dictionary<Type, DbType>
+        private static readonly Dictionary<Type, DbType> TypeMap = new()
         {
             [typeof(byte)] = DbType.Byte,
             [typeof(sbyte)] = DbType.SByte,

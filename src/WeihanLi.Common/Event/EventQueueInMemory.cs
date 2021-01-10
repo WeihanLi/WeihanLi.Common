@@ -6,7 +6,7 @@ namespace WeihanLi.Common.Event
 {
     public sealed class EventQueueInMemory : IEventQueue
     {
-        private readonly ConcurrentDictionary<string, ConcurrentQueue<IEventBase>> _eventQueues = new ConcurrentDictionary<string, ConcurrentQueue<IEventBase>>();
+        private readonly ConcurrentDictionary<string, ConcurrentQueue<IEventBase>> _eventQueues = new();
 
         public ICollection<string> GetQueues() => _eventQueues.Keys;
 

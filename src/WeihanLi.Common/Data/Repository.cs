@@ -19,7 +19,7 @@ namespace WeihanLi.Common.Data
     {
         #region TODO: Cache External
 
-        private readonly Lazy<Dictionary<string, string>> PrimaryKeyColumns = new Lazy<Dictionary<string, string>>(() =>
+        private readonly Lazy<Dictionary<string, string>> PrimaryKeyColumns = new(() =>
             CacheUtil.GetTypeProperties(typeof(TEntity))
             .Any(x => x.IsDefined(typeof(KeyAttribute)))
             ?
@@ -45,7 +45,7 @@ namespace WeihanLi.Common.Data
         private readonly string SelectColumnsString = CacheUtil.GetTypeProperties(typeof(TEntity))
             .Where(_ => !_.IsDefined(typeof(NotMappedAttribute))).Select(_ => $"{_.GetColumnName()} AS {_.Name}").StringJoin(",");
 
-        private readonly Lazy<Dictionary<string, string>> InsertColumnMappings = new Lazy<Dictionary<string, string>>(() => CacheUtil.GetTypeProperties(typeof(TEntity))
+        private readonly Lazy<Dictionary<string, string>> InsertColumnMappings = new(() => CacheUtil.GetTypeProperties(typeof(TEntity))
             .Where(_ => !_.IsDefined(typeof(NotMappedAttribute)) && !_.IsDefined(typeof(DatabaseGeneratedAttribute)))
             .Select(p => new KeyValuePair<string, string>(p.GetColumnName(), p.Name))
             .ToDictionary(_ => _.Key, _ => _.Value));

@@ -21,9 +21,9 @@ namespace WeihanLi.Common.Helpers.PeriodBatching
 {
     internal class PortableTimer : IDisposable
     {
-        private readonly object _stateLock = new object();
+        private readonly object _stateLock = new();
         private readonly Func<CancellationToken, Task> _onTick;
-        private readonly CancellationTokenSource _cancel = new CancellationTokenSource();
+        private readonly CancellationTokenSource _cancel = new();
         private readonly Timer _timer;
         private bool _running;
         private bool _disposed;

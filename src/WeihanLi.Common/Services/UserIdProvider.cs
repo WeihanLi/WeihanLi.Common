@@ -38,7 +38,7 @@ namespace WeihanLi.Common.Services
 
     public class EnvironmentUserIdProvider : IUserIdProvider
     {
-        public static readonly Lazy<EnvironmentUserIdProvider> Instance = new Lazy<EnvironmentUserIdProvider>(() => new EnvironmentUserIdProvider());
+        public static readonly Lazy<EnvironmentUserIdProvider> Instance = new(() => new EnvironmentUserIdProvider());
 
         public virtual string GetUserId() => Environment.UserName;
     }

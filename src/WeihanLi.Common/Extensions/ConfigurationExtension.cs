@@ -15,7 +15,7 @@ namespace Microsoft.Extensions.Configuration
         /// A regex which matches tokens in the following format: $(Item:Sub1:Sub2).
         /// inspired by https://github.com/henkmollema/ConfigurationPlaceholders
         /// </summary>
-        private static readonly Regex ConfigPlaceholderRegex = new Regex(@"\$\(([A-Za-z0-9:_]+?)\)");
+        private static readonly Regex ConfigPlaceholderRegex = new(@"\$\(([A-Za-z0-9:_]+?)\)");
 
         /// <summary>
         /// Replaces the placeholders in the specified <see cref="IConfiguration"/> instance.
