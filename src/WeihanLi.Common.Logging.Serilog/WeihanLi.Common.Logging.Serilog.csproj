@@ -4,12 +4,6 @@
   <ItemGroup>
     <PackageReference Include="Serilog" Version="2.9.0" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
-    <Compile Remove="SerilogLogger.cs" />
-    <Compile Remove="SerilogLoggerExtensions.cs" />
-    <Compile Remove="SerilogLoggerProvider.cs" />
-    <Compile Remove="SerilogLoggerScope.cs" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
   </ItemGroup>
