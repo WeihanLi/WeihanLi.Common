@@ -14670,6 +14670,25 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Models.StringValueDictionary.Equality
   nameWithType: StringValueDictionary.Equality
+- uid: WeihanLi.Common.Models.StringValueDictionary.op_Implicit(WeihanLi.Common.Models.StringValueDictionary)~Dictionary{System.String,System.String}
+  name: Implicit(StringValueDictionary to Dictionary<String, String>)
+  href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_op_Implicit_WeihanLi_Common_Models_StringValueDictionary__Dictionary_System_String_System_String_
+  commentId: M:WeihanLi.Common.Models.StringValueDictionary.op_Implicit(WeihanLi.Common.Models.StringValueDictionary)~Dictionary{System.String,System.String}
+  name.vb: Widening(StringValueDictionary to Dictionary(Of String, String))
+  fullName: WeihanLi.Common.Models.StringValueDictionary.Implicit(WeihanLi.Common.Models.StringValueDictionary to Dictionary<System.String, System.String>)
+  fullName.vb: WeihanLi.Common.Models.StringValueDictionary.Widening(WeihanLi.Common.Models.StringValueDictionary to Dictionary(Of System.String, System.String))
+  nameWithType: StringValueDictionary.Implicit(StringValueDictionary to Dictionary<String, String>)
+  nameWithType.vb: StringValueDictionary.Widening(StringValueDictionary to Dictionary(Of String, String))
+- uid: WeihanLi.Common.Models.StringValueDictionary.op_Implicit*
+  name: Implicit
+  href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_op_Implicit_
+  commentId: Overload:WeihanLi.Common.Models.StringValueDictionary.op_Implicit
+  isSpec: "True"
+  name.vb: Widening
+  fullName: WeihanLi.Common.Models.StringValueDictionary.Implicit
+  fullName.vb: WeihanLi.Common.Models.StringValueDictionary.Widening
+  nameWithType: StringValueDictionary.Implicit
+  nameWithType.vb: StringValueDictionary.Widening
 - uid: WeihanLi.Common.Models.StringValueDictionary.op_Inequality(WeihanLi.Common.Models.StringValueDictionary,WeihanLi.Common.Models.StringValueDictionary)
   name: Inequality(StringValueDictionary, StringValueDictionary)
   href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_op_Inequality_WeihanLi_Common_Models_StringValueDictionary_WeihanLi_Common_Models_StringValueDictionary_
