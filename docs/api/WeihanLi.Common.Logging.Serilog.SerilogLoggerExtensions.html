@@ -115,13 +115,13 @@
   
   
   <a id="WeihanLi_Common_Logging_Serilog_SerilogLoggerExtensions_AddSerilog_" data-uid="WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.AddSerilog*"></a>
-  <h4 id="WeihanLi_Common_Logging_Serilog_SerilogLoggerExtensions_AddSerilog_ILoggerFactory_ILogger_System_Boolean_" data-uid="WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.AddSerilog(ILoggerFactory,ILogger,System.Boolean)">AddSerilog(ILoggerFactory, ILogger, Boolean)</h4>
+  <h4 id="WeihanLi_Common_Logging_Serilog_SerilogLoggerExtensions_AddSerilog_ILoggerFactory_System_Nullable_ILogger__System_Boolean_" data-uid="WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.AddSerilog(ILoggerFactory,System.Nullable{ILogger},System.Boolean)">AddSerilog(ILoggerFactory, Nullable&lt;ILogger&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Add Serilog to the logging pipeline.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ILoggerFactory AddSerilog(this ILoggerFactory factory, ILogger logger = null, bool dispose = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ILoggerFactory AddSerilog(this ILoggerFactory factory, ILogger? logger = default(ILogger? ), bool dispose = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -140,7 +140,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">ILogger</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ILogger</span>&gt;</td>
         <td><span class="parametername">logger</span></td>
         <td><p>The Serilog logger; if not supplied, the static <see cref="!:Log"></see> will be used.</p>
 </td>
