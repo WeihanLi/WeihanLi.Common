@@ -6,14 +6,15 @@ namespace WeihanLi.Common.Helpers
 {
     public static class TotpHelper
     {
-        private static readonly Lazy<Totp> Totp = new(() => new Totp(DefaultOptions.Algorithm, DefaultOptions.Size));
+        private static readonly Lazy<Totp> _totp = new(() => new Totp(_defaultOptions!.Algorithm, _defaultOptions.Size));
 
-        private static readonly TotpOptions DefaultOptions = new();
+        private static readonly TotpOptions _defaultOptions = new();
 
         public static TotpOptions ConfigureTotpOptions(Action<TotpOptions> configAction)
         {
-            configAction?.Invoke(DefaultOptions);
-            return DefaultOptions;
+            Guard.NotNull(configAction, nameof(configAction));
+            configAction.Invoke(_defaultOptions);
+            return _defaultOptions;
         }
 
         /// <summary>
@@ -23,21 +24,17 @@ namespace WeihanLi.Common.Helpers
         /// <returns>The generated code.</returns>
         public static string GenerateCode(byte[] securityToken)
         {
-            if (securityToken == null)
-            {
-                throw new ArgumentNullException(nameof(securityToken));
-            }
+            Guard.NotNull(securityToken, nameof(securityToken));
 
-            if (DefaultOptions.Salt == null)
+            if (_defaultOptions.SaltBytes == null)
             {
-                return Totp.Value.Compute(securityToken);
+                return _totp.Value.Compute(securityToken);
             }
-
-            var bytes = new byte[securityToken.Length + DefaultOptions.SaltBytes.Length];
+            var bytes = new byte[securityToken.Length + _defaultOptions.SaltBytes.Length];
             Array.Copy(securityToken, bytes, securityToken.Length);
-            Array.Copy(DefaultOptions.SaltBytes, 0, bytes, securityToken.Length, DefaultOptions.SaltBytes.Length);
+            Array.Copy(_defaultOptions.SaltBytes, 0, bytes, securityToken.Length, _defaultOptions.SaltBytes.Length);
 
-            return Totp.Value.Compute(bytes);
+            return _totp.Value.Compute(bytes);
         }
 
         /// <summary>
@@ -45,7 +42,7 @@ namespace WeihanLi.Common.Helpers
         /// </summary>
         /// <param name="securityToken">The security token to generate code.</param>
         /// <returns>The generated code.</returns>
-        public static string GenerateCode(string securityToken) => GenerateCode(securityToken?.GetBytes());
+        public static string GenerateCode(string securityToken) => GenerateCode(securityToken.GetBytes());
 
         /// <summary>
         /// ttl of the code for the specified <paramref name="securityToken"/>.
@@ -54,12 +51,9 @@ namespace WeihanLi.Common.Helpers
         /// <returns>the code remaining seconds expires in</returns>
         public static int TTL(byte[] securityToken)
         {
-            if (securityToken == null)
-            {
-                throw new ArgumentNullException(nameof(securityToken));
-            }
+            Guard.NotNull(securityToken, nameof(securityToken));
 
-            return Totp.Value.RemainingSeconds();
+            return _totp.Value.RemainingSeconds();
         }
 
         /// <summary>
@@ -77,26 +71,23 @@ namespace WeihanLi.Common.Helpers
         /// <returns><c>True</c> if validate succeed, otherwise, <c>false</c>.</returns>
         public static bool VerifyCode(byte[] securityToken, string code, int expiresIn = -1)
         {
-            if (securityToken == null)
-            {
-                throw new ArgumentNullException(nameof(securityToken));
-            }
+            Guard.NotNull(securityToken, nameof(securityToken));
             if (string.IsNullOrWhiteSpace(code))
             {
                 return false;
             }
 
-            if (null == DefaultOptions.SaltBytes)
+            if (null == _defaultOptions.SaltBytes)
             {
-                return Totp.Value.Verify(securityToken, code, TimeSpan.FromSeconds(expiresIn >= 0 ? expiresIn : DefaultOptions.ExpiresIn));
+                return _totp.Value.Verify(securityToken, code, TimeSpan.FromSeconds(expiresIn >= 0 ? expiresIn : _defaultOptions.ExpiresIn));
             }
 
-            var saltBytes = DefaultOptions.SaltBytes;
+            var saltBytes = _defaultOptions.SaltBytes;
             var bytes = new byte[securityToken.Length + saltBytes.Length];
             Array.Copy(securityToken, bytes, securityToken.Length);
             Array.Copy(saltBytes, 0, bytes, securityToken.Length, saltBytes.Length);
 
-            return Totp.Value.Verify(bytes, code, TimeSpan.FromSeconds(expiresIn >= 0 ? expiresIn : DefaultOptions.ExpiresIn));
+            return _totp.Value.Verify(bytes, code, TimeSpan.FromSeconds(expiresIn >= 0 ? expiresIn : _defaultOptions.ExpiresIn));
         }
 
         /// <summary>
@@ -106,6 +97,6 @@ namespace WeihanLi.Common.Helpers
         /// <param name="code">The code to validate.</param>
         /// <param name="expiresIn">expiresIn, in seconds</param>
         /// <returns><c>True</c> if validate succeed, otherwise, <c>false</c>.</returns>
-        public static bool VerifyCode(string securityToken, string code, int expiresIn = -1) => VerifyCode(securityToken?.GetBytes(), code, expiresIn);
+        public static bool VerifyCode(string securityToken, string code, int expiresIn = -1) => VerifyCode(securityToken.GetBytes(), code, expiresIn);
     }
 }

@@ -9,7 +9,7 @@ namespace WeihanLi.Common.Logging.Log4Net
 {
     public static class Log4NetHelper
     {
-        private static readonly object _configInitLock = new object();
+        private static readonly object _configInitLock = new();
 
         /// <summary>
         /// log4net init

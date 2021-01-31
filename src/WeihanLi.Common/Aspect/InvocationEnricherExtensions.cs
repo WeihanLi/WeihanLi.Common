@@ -19,7 +19,7 @@ namespace WeihanLi.Common.Aspect
         }
 
         public static void AddProperty(this IInvocation invocation, string propertyName,
-            Func<IInvocation, object> propertyValueFactory, bool overwrite = false)
+            Func<IInvocation, object?> propertyValueFactory, bool overwrite = false)
         {
             if (null == invocation)
             {
@@ -29,7 +29,7 @@ namespace WeihanLi.Common.Aspect
             if (!invocation.Properties.ContainsKey(propertyName)
                 || overwrite)
             {
-                invocation.Properties[propertyName] = propertyValueFactory?.Invoke(invocation);
+                invocation.Properties[propertyName] = propertyValueFactory.Invoke(invocation);
             }
         }
     }

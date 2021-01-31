@@ -6,13 +6,13 @@ namespace WeihanLi.Common.DependencyInjection
     {
         public ServiceLifetime ServiceLifetime { get; }
 
-        public Type ImplementType { get; }
+        public Type? ImplementType { get; }
 
         public Type ServiceType { get; }
 
-        public object ImplementationInstance { get; }
+        public object? ImplementationInstance { get; }
 
-        public Func<IServiceProvider, object> ImplementationFactory { get; }
+        public Func<IServiceProvider, object>? ImplementationFactory { get; }
 
         public Type GetImplementType()
         {
@@ -39,7 +39,7 @@ namespace WeihanLi.Common.DependencyInjection
         {
         }
 
-        public ServiceDefinition(Type serviceType, Type implementType, ServiceLifetime serviceLifetime)
+        public ServiceDefinition(Type serviceType, Type? implementType, ServiceLifetime serviceLifetime)
         {
             ServiceType = serviceType;
             ImplementType = implementType ?? serviceType;

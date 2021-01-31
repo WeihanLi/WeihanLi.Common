@@ -2,30 +2,22 @@
 {
     public class BaseEntity<TKey>
     {
-        public TKey Id { get; set; }
+        public TKey Id { get; set; } = default!;
     }
 
-    public class BaseEntityWithDeleted<TKey>
+    public class BaseEntityWithDeleted<TKey> : BaseEntity<TKey>
     {
-        public TKey Id { get; set; }
-
         public bool IsDeleted { get; set; }
     }
 
-    public class BaseEntityWithReviewState<TKey>
+    public class BaseEntityWithReviewState<TKey> : BaseEntity<TKey>
     {
-        public TKey Id { get; set; }
-
         public ReviewState State { get; set; }
     }
 
-    public class BaseEntityWithReviewStateWithDeleted<TKey>
+    public class BaseEntityWithReviewStateWithDeleted<TKey> : BaseEntityWithDeleted<TKey>
     {
-        public TKey Id { get; set; }
-
         public ReviewState State { get; set; }
-
-        public bool IsDeleted { get; set; }
     }
 
     public class BaseEntity : BaseEntity<int>

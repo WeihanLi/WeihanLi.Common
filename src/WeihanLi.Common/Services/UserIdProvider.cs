@@ -5,17 +5,17 @@ namespace WeihanLi.Common.Services
 {
     public interface IUserIdProvider
     {
-        string GetUserId();
+        string? GetUserId();
     }
 
     public static class UserIdProviderExtensions
     {
-        public static T GetUserId<T>(this IUserIdProvider userIdProvider)
+        public static T? GetUserId<T>(this IUserIdProvider userIdProvider)
         {
             return userIdProvider.GetUserId().ToOrDefault<T>();
         }
 
-        public static bool TryGetUserId<T>(this IUserIdProvider userIdProvider, out T value, T defaultValue = default)
+        public static bool TryGetUserId<T>(this IUserIdProvider userIdProvider, out T? value, T? defaultValue = default)
         {
             try
             {

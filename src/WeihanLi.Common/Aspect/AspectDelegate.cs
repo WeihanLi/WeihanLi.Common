@@ -13,17 +13,17 @@ namespace WeihanLi.Common.Aspect
             InvokeInternal(context, null, null);
         }
 
-        public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyList<IInterceptor> interceptors)
+        public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyList<IInterceptor>? interceptors)
         {
             InvokeInternal(invocation, interceptors, null);
         }
 
-        public static void InvokeWithCompleteFunc(IInvocation invocation, Func<IInvocation, Task> completeFunc)
+        public static void InvokeWithCompleteFunc(IInvocation invocation, Func<IInvocation, Task>? completeFunc)
         {
             InvokeInternal(invocation, null, completeFunc);
         }
 
-        public static void InvokeInternal(IInvocation invocation, IReadOnlyList<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
+        public static void InvokeInternal(IInvocation invocation, IReadOnlyList<IInterceptor>? interceptors, Func<IInvocation, Task>? completeFunc)
         {
             // enrich
             foreach (var enricher in FluentAspects.AspectOptions.Enrichers)
@@ -87,7 +87,7 @@ namespace WeihanLi.Common.Aspect
             }
         }
 
-        private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyList<IInterceptor> interceptors, Func<IInvocation, Task> completeFunc)
+        private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyList<IInterceptor>? interceptors, Func<IInvocation, Task>? completeFunc)
         {
             // ReSharper disable once ConvertToLocalFunction
             // ReSharper disable once ConvertIfStatementToNullCoalescingAssignment
@@ -136,7 +136,7 @@ namespace WeihanLi.Common.Aspect
             if (null == interceptors)
             {
                 interceptors = FluentAspects.AspectOptions.InterceptorResolver
-                    .ResolveInterceptors(invocation) ?? Array.Empty<IInterceptor>();
+                    .ResolveInterceptors(invocation);
             }
 
             if (interceptors.Count <= 1 && interceptors[0] is TryInvokeInterceptor)

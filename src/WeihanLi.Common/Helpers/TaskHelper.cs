@@ -4,6 +4,6 @@ namespace WeihanLi.Common.Helpers
 {
     public static class TaskHelper
     {
-        public static Task<T> FromDefault<T>() => Task.FromResult(default(T));
+        public static Task<T?> FromDefault<T>() => Task.FromResult(default(T));
     }
 }

@@ -7,8 +7,8 @@ namespace WeihanLi.Common.Helpers
 {
     public sealed class ConsoleOutput : IDisposable
     {
-        private TextWriter _originalOutputWriter;
-        private TextWriter _originalErrorWriter;
+        private TextWriter? _originalOutputWriter;
+        private TextWriter? _originalErrorWriter;
         private readonly StringWriter _outputWriter = new();
         private readonly StringWriter _errorWriter = new();
 

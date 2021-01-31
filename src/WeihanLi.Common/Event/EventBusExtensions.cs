@@ -21,7 +21,7 @@ namespace WeihanLi.Common.Event
         }
     }
 
-    public static partial class EventBusExtensions
+    public static class EventBusExtensions
     {
         public static IEventBuilder AddEvents(this IServiceCollection services)
         {
@@ -55,9 +55,10 @@ namespace WeihanLi.Common.Event
             return eventBuilder;
         }
 
-        public static IEventBuilder RegisterEventHandlers(this IEventBuilder builder, Func<Type, bool> filter = null, ServiceLifetime serviceLifetime = ServiceLifetime.Transient, params Assembly[] assemblies)
+        public static IEventBuilder RegisterEventHandlers(this IEventBuilder builder, Func<Type, bool>? filter = null, ServiceLifetime serviceLifetime = ServiceLifetime.Transient, params Assembly[] assemblies)
         {
-            if (assemblies == null || assemblies.Length == 0)
+            Guard.NotNull(assemblies, nameof(assemblies));
+            if (assemblies.Length == 0)
             {
                 assemblies = Helpers.ReflectHelper.GetAssemblies();
             }

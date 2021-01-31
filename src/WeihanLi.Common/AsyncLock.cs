@@ -36,7 +36,7 @@ namespace WeihanLi.Common
 
         public void Dispose()
         {
-            _mutex?.Dispose();
+            _mutex.Dispose();
         }
 
         #region AsyncLockReleaser

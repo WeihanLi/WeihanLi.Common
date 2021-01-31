@@ -8,13 +8,13 @@ using System.Runtime.ExceptionServices;
 
 namespace WeihanLi.Common.Helpers
 {
-    public delegate object ObjectFactory(IServiceProvider serviceProvider, object[] arguments);
+    public delegate object ObjectFactory(IServiceProvider serviceProvider, object?[] arguments);
 
     internal static class ParameterDefaultValue
     {
         private static readonly Type _nullable = typeof(Nullable<>);
 
-        public static bool TryGetDefaultValue(ParameterInfo parameter, out object defaultValue)
+        public static bool TryGetDefaultValue(ParameterInfo parameter, out object? defaultValue)
         {
             bool hasDefaultValue;
             var tryToGetDefaultValue = true;
@@ -70,7 +70,7 @@ namespace WeihanLi.Common.Helpers
     public static class ActivatorHelper
     {
         private static readonly MethodInfo _getServiceInfo =
-            GetMethodInfo<Func<IServiceProvider, Type, Type, bool, object>>((sp, t, r, c) => GetService(sp, t, r, c));
+            GetMethodInfo<Func<IServiceProvider, Type, Type, bool, object?>>((sp, t, r, c) => GetService(sp, t, r, c));
 
         /// <summary>
         /// create instance of Type T with parameters
@@ -101,9 +101,9 @@ namespace WeihanLi.Common.Helpers
         /// <param name="instanceType">instance type to new</param>
         /// <param name="parameters">Constructor arguments not provided by di sys</param>
         /// <returns>Best Constructor Matched</returns>
-        private static ConstructorMatcher MatchConstructor(Type instanceType, params object[] parameters)
+        private static ConstructorMatcher MatchConstructor(Type instanceType, params object?[]? parameters)
         {
-            parameters ??= Array.Empty<object>();
+            parameters ??= Array.Empty<object?>();
 
             var bestLength = -1;
 
@@ -149,7 +149,7 @@ namespace WeihanLi.Common.Helpers
             return MatchConstructor(instanceType, parameters).Constructor;
         }
 
-        public static object[] GetBestConstructorArguments(IServiceProvider serviceProvider, Type instanceType, params object[] parameters)
+        public static object?[] GetBestConstructorArguments(IServiceProvider serviceProvider, Type instanceType, params object[] parameters)
         {
             return MatchConstructor(instanceType, parameters).GetConstructorArguments(serviceProvider);
         }
@@ -168,13 +168,13 @@ namespace WeihanLi.Common.Helpers
         /// </returns>
         public static ObjectFactory CreateFactory(Type instanceType, Type[] argumentTypes)
         {
-            FindApplicableConstructor(instanceType, argumentTypes, out ConstructorInfo constructor, out int?[] parameterMap);
+            FindApplicableConstructor(instanceType, argumentTypes, out ConstructorInfo? constructor, out var parameterMap);
 
             var provider = Expression.Parameter(typeof(IServiceProvider), "provider");
             var argumentArray = Expression.Parameter(typeof(object[]), "argumentArray");
-            var factoryExpressionBody = BuildFactoryExpression(constructor, parameterMap, provider, argumentArray);
+            var factoryExpressionBody = BuildFactoryExpression(constructor!, parameterMap!, provider, argumentArray);
 
-            var factoryLambda = Expression.Lambda<Func<IServiceProvider, object[], object>>(
+            var factoryLambda = Expression.Lambda<Func<IServiceProvider, object?[], object>>(
                 factoryExpressionBody, provider, argumentArray);
 
             var result = factoryLambda.Compile();
@@ -221,7 +221,7 @@ namespace WeihanLi.Common.Helpers
             return mc.Method;
         }
 
-        private static object GetService(IServiceProvider sp, Type type, Type requiredBy, bool isDefaultParameterRequired)
+        private static object? GetService(IServiceProvider sp, Type type, Type requiredBy, bool isDefaultParameterRequired)
         {
             var service = sp.GetService(type);
             if (service == null && !isDefaultParameterRequired)
@@ -277,8 +277,8 @@ namespace WeihanLi.Common.Helpers
         public static void FindApplicableConstructor(
             Type instanceType,
             Type[] argumentTypes,
-            out ConstructorInfo matchingConstructor,
-            out int?[] parameterMap)
+            out ConstructorInfo? matchingConstructor,
+            out int?[]? parameterMap)
         {
             matchingConstructor = null;
             parameterMap = null;
@@ -294,8 +294,8 @@ namespace WeihanLi.Common.Helpers
         private static bool TryFindMatchingConstructor(
             Type instanceType,
             Type[] argumentTypes,
-            ref ConstructorInfo matchingConstructor,
-            ref int?[] parameterMap)
+            ref ConstructorInfo? matchingConstructor,
+            ref int?[]? parameterMap)
         {
             foreach (var constructor in instanceType.GetTypeInfo().DeclaredConstructors)
             {
@@ -359,16 +359,17 @@ namespace WeihanLi.Common.Helpers
         {
             private readonly ConstructorInfo _constructor;
             private readonly ParameterInfo[] _parameters;
-            private readonly object[] _parameterValues;
+            private readonly object?[] _parameterValues;
 
             public ConstructorMatcher(ConstructorInfo constructor)
             {
+                Guard.NotNull(constructor, nameof(constructor));
                 _constructor = constructor;
                 _parameters = _constructor.GetParameters();
-                _parameterValues = new object[_parameters.Length];
+                _parameterValues = new object?[_parameters.Length];
             }
 
-            public int Match(object[] givenParameters)
+            public int Match(object?[] givenParameters)
             {
                 var applyIndexStart = 0;
                 var applyExactLength = 0;
@@ -440,7 +441,7 @@ namespace WeihanLi.Common.Helpers
                 }
             }
 
-            public object[] GetConstructorArguments(IServiceProvider provider)
+            public object?[] GetConstructorArguments(IServiceProvider provider)
             {
                 for (var index = 0; index != _parameters.Length; index++)
                 {

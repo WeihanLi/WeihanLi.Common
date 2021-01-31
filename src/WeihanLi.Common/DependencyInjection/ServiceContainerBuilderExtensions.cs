@@ -9,9 +9,10 @@ namespace WeihanLi.Common.DependencyInjection
 {
     public static partial class ServiceContainerBuilderExtensions
     {
-        public static IServiceContainerBuilder AddSingleton<TService>([NotNull]this IServiceContainerBuilder serviceContainerBuilder, [NotNull]TService service)
+        public static IServiceContainerBuilder AddSingleton<TService>([NotNull] this IServiceContainerBuilder serviceContainerBuilder, TService service)
         {
-            serviceContainerBuilder.Add(new ServiceDefinition(service, typeof(TService)));
+            Guard.NotNull(service, nameof(service));
+            serviceContainerBuilder.Add(new ServiceDefinition(service!, typeof(TService)));
             return serviceContainerBuilder;
         }
 
@@ -43,7 +44,7 @@ namespace WeihanLi.Common.DependencyInjection
         /// <param name="assemblies">assemblies</param>
         /// <returns>services</returns>
         public static IServiceContainerBuilder RegisterAssemblyTypes([NotNull] this IServiceContainerBuilder services,
-            Func<Type, bool> typesFilter, params Assembly[] assemblies)
+            Func<Type, bool>? typesFilter, params Assembly[] assemblies)
             => RegisterAssemblyTypes(services, typesFilter, ServiceLifetime.Singleton, assemblies);
 
         /// <summary>
@@ -54,9 +55,11 @@ namespace WeihanLi.Common.DependencyInjection
         /// <param name="serviceLifetime">service lifetime</param>
         /// <param name="assemblies">assemblies</param>
         /// <returns>services</returns>
-        public static IServiceContainerBuilder RegisterAssemblyTypes([NotNull] this IServiceContainerBuilder services, Func<Type, bool> typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
+        public static IServiceContainerBuilder RegisterAssemblyTypes([NotNull] this IServiceContainerBuilder services, Func<Type, bool>? typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
         {
-            if (assemblies == null || assemblies.Length == 0)
+            Guard.NotNull(assemblies, nameof(assemblies));
+
+            if (assemblies.Length == 0)
             {
                 assemblies = ReflectHelper.GetAssemblies();
             }
@@ -107,7 +110,7 @@ namespace WeihanLi.Common.DependencyInjection
         /// <param name="typesFilter">filter types to register</param>
         /// <param name="assemblies">assemblies</param>
         /// <returns>services</returns>
-        public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services, Func<Type, bool> typesFilter, params Assembly[] assemblies)
+        public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services, Func<Type, bool>? typesFilter, params Assembly[] assemblies)
             => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: typesFilter, ServiceLifetime.Singleton, assemblies);
 
         /// <summary>
@@ -119,7 +122,7 @@ namespace WeihanLi.Common.DependencyInjection
         /// <param name="assemblies">assemblies</param>
         /// <returns>services</returns>
         public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces(
-            [NotNull] this IServiceContainerBuilder services, Func<Type, bool> typesFilter,
+            [NotNull] this IServiceContainerBuilder services, Func<Type, bool>? typesFilter,
             ServiceLifetime serviceLifetime, params Assembly[] assemblies)
             => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter, null, serviceLifetime, assemblies);
 
@@ -132,9 +135,10 @@ namespace WeihanLi.Common.DependencyInjection
         /// <param name="serviceLifetime">service lifetime</param>
         /// <param name="assemblies">assemblies</param>
         /// <returns>services</returns>
-        public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services, Func<Type, bool> typesFilter, Func<Type, bool> interfaceTypeFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
+        public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services, Func<Type, bool>? typesFilter, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
         {
-            if (assemblies == null || assemblies.Length == 0)
+            Guard.NotNull(assemblies, nameof(assemblies));
+            if (assemblies.Length == 0)
             {
                 assemblies = ReflectHelper.GetAssemblies();
             }
@@ -183,7 +187,7 @@ namespace WeihanLi.Common.DependencyInjection
         /// <param name="interfaceTypeFilter">interfaceTypeFilter</param>
         /// <param name="serviceLifetime">service lifetime</param>
         /// <returns>services</returns>
-        public static IServiceContainerBuilder RegisterTypeAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services, Type type, Func<Type, bool> interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
+        public static IServiceContainerBuilder RegisterTypeAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services, Type type, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
         {
             if (type != null)
             {
@@ -204,17 +208,20 @@ namespace WeihanLi.Common.DependencyInjection
         /// <param name="services">services</param>
         /// <param name="module">service module</param>
         /// <returns>services</returns>
-        public static IServiceContainerBuilder RegisterModule<TServiceModule>([NotNull]this IServiceContainerBuilder services, TServiceModule module)
+        public static IServiceContainerBuilder RegisterModule<TServiceModule>([NotNull] this IServiceContainerBuilder services, TServiceModule module)
             where TServiceModule : IServiceContainerModule
         {
-            module?.ConfigureServices(services);
+            Guard.NotNull(module, nameof(module));
+            module.ConfigureServices(services);
             return services;
         }
 
         public static IServiceContainerBuilder RegisterAssemblyModules(
             [NotNull] this IServiceContainerBuilder serviceContainerBuilder, params Assembly[] assemblies)
         {
-            if (null == assemblies || assemblies.Length == 0)
+            Guard.NotNull(assemblies, nameof(assemblies));
+
+            if (assemblies.Length == 0)
             {
                 assemblies = ReflectHelper.GetAssemblies();
             }

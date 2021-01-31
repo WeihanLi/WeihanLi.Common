@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using JetBrains.Annotations;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 
 namespace WeihanLi.Common.Http
 {
@@ -22,27 +22,27 @@ namespace WeihanLi.Common.Http
 
         #region AddHeader
 
-        IHttpRequester WithHeaders([NotNull]IEnumerable<KeyValuePair<string, string>> customHeaders);
+        IHttpRequester WithHeaders([NotNull] IEnumerable<KeyValuePair<string, string>> customHeaders);
 
         #endregion AddHeader
 
         #region UserAgent
 
-        IHttpRequester WithUserAgent([NotNull]string userAgent);
+        IHttpRequester WithUserAgent([NotNull] string userAgent);
 
         #endregion UserAgent
 
         #region Referer
 
-        IHttpRequester WithReferer([NotNull]string referer);
+        IHttpRequester WithReferer([NotNull] string referer);
 
         #endregion Referer
 
         #region Cookie
 
-        IHttpRequester WithCookie(string url, Cookie cookie);
+        IHttpRequester WithCookie(string? url, Cookie cookie);
 
-        IHttpRequester WithCookie(string url, CookieCollection cookies);
+        IHttpRequester WithCookie(string? url, CookieCollection cookies);
 
         #endregion Cookie
 
@@ -57,10 +57,10 @@ namespace WeihanLi.Common.Http
         IHttpRequester WithParameters([NotNull] byte[] requestBytes, string contentType);
 
         IHttpRequester WithFile(string fileName, byte[] fileBytes, string fileKey = "file",
-            IEnumerable<KeyValuePair<string, string>> formFields = null);
+            IEnumerable<KeyValuePair<string, string>>? formFields = null);
 
         IHttpRequester WithFiles(IEnumerable<KeyValuePair<string, byte[]>> files,
-            IEnumerable<KeyValuePair<string, string>> formFields = null);
+            IEnumerable<KeyValuePair<string, string>>? formFields = null);
 
         #endregion Parameter
 

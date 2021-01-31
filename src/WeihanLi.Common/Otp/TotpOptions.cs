@@ -19,21 +19,21 @@ namespace WeihanLi.Common.Otp
         /// </summary>
         public int ExpiresIn { get; set; } = 300;
 
-        private string _salt;
+        private string? _salt;
 
         /// <summary>
         /// Salt
         /// </summary>
-        public string Salt
+        public string? Salt
         {
             get => _salt;
             set
             {
                 _salt = value;
-                SaltBytes = string.IsNullOrEmpty(value) ? null : value.GetBytes();
+                SaltBytes = string.IsNullOrEmpty(value) ? null : value!.GetBytes();
             }
         }
 
-        internal byte[] SaltBytes { get; private set; }
+        internal byte[]? SaltBytes { get; private set; }
     }
 }

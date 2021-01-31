@@ -6,11 +6,11 @@ namespace WeihanLi.Common.Helpers
 {
     public class ProcessExecutor : IDisposable
     {
-        public event EventHandler<int> OnExited;
+        public event EventHandler<int>? OnExited;
 
-        public event EventHandler<string> OnOutputDataReceived;
+        public event EventHandler<string>? OnOutputDataReceived;
 
-        public event EventHandler<string> OnErrorDataReceived;
+        public event EventHandler<string>? OnErrorDataReceived;
 
         protected readonly Process _process;
 
@@ -54,7 +54,7 @@ namespace WeihanLi.Common.Helpers
                     OnErrorDataReceived?.Invoke(sender, args.Data);
                 }
             };
-            _process.Exited += (sender, args) =>
+            _process.Exited += (sender, _) =>
             {
                 if (sender is Process process)
                 {
@@ -121,7 +121,7 @@ namespace WeihanLi.Common.Helpers
 
     public static class CommandRunner
     {
-        public static int Execute(string commandPath, string arguments = null, string workingDirectory = null)
+        public static int Execute(string commandPath, string? arguments = null, string? workingDirectory = null)
         {
             using var process = new Process()
             {
@@ -139,7 +139,7 @@ namespace WeihanLi.Common.Helpers
             return process.ExitCode;
         }
 
-        public static CommandResult ExecuteAndCapture(string commandPath, string arguments = null, string workingDirectory = null)
+        public static CommandResult ExecuteAndCapture(string commandPath, string? arguments = null, string? workingDirectory = null)
         {
             using var process = new Process()
             {

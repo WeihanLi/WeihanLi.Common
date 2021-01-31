@@ -13,18 +13,18 @@ namespace WeihanLi.Common.Helpers
         private readonly string _propertyName;
         private readonly Func<TContext, object> _propertyValueFactory;
         private readonly bool _overwrite;
-        private readonly Func<TContext, bool> _propertyPredict;
+        private readonly Func<TContext, bool>? _propertyPredict;
 
         /// <summary>
         /// EnrichAction
         /// (context,propertyName,propertyValueFactory,overwrite)=>{}
         /// </summary>
-        protected abstract Action<TContext, string, Func<TContext, object>, bool> EnrichAction
+        protected abstract Action<TContext, string, Func<TContext, object>, bool>? EnrichAction
         {
             get;
         }
 
-        protected PropertyEnricher(string propertyName, object propertyValue, bool overwrite = false) : this(propertyName, context => propertyValue, overwrite)
+        protected PropertyEnricher(string propertyName, object propertyValue, bool overwrite = false) : this(propertyName, _ => propertyValue, overwrite)
         {
         }
 
@@ -33,7 +33,7 @@ namespace WeihanLi.Common.Helpers
         {
         }
 
-        protected PropertyEnricher(string propertyName, Func<TContext, object> propertyValueFactory, Func<TContext, bool> propertyPredict,
+        protected PropertyEnricher(string propertyName, Func<TContext, object> propertyValueFactory, Func<TContext, bool>? propertyPredict,
             bool overwrite = false)
         {
             _propertyName = propertyName;
@@ -59,25 +59,25 @@ namespace WeihanLi.Common.Helpers
     public abstract class AsyncPropertyEnricher<TContext> : IAsyncEnricher<TContext>
     {
         private readonly string _propertyName;
-        private readonly Func<TContext, object> _propertyValueFactory;
+        private readonly Func<TContext, object>? _propertyValueFactory;
         private readonly bool _overwrite;
-        private readonly Func<TContext, bool> _propertyPredict;
+        private readonly Func<TContext, bool>? _propertyPredict;
 
-        protected abstract Func<TContext, string, Func<TContext, object>, bool, Task> EnrichAction
+        protected abstract Func<TContext, string, Func<TContext, object>?, bool, Task>? EnrichAction
         {
             get;
         }
 
-        protected AsyncPropertyEnricher(string propertyName, object propertyValue, bool overwrite = false) : this(propertyName, context => propertyValue, overwrite)
+        protected AsyncPropertyEnricher(string propertyName, object propertyValue, bool overwrite = false) : this(propertyName, _ => propertyValue, overwrite)
         {
         }
 
-        protected AsyncPropertyEnricher(string propertyName, Func<TContext, object> propertyValueFactory,
+        protected AsyncPropertyEnricher(string propertyName, Func<TContext, object>? propertyValueFactory,
             bool overwrite = false) : this(propertyName, propertyValueFactory, null, overwrite)
         {
         }
 
-        protected AsyncPropertyEnricher(string propertyName, Func<TContext, object> propertyValueFactory, Func<TContext, bool> propertyPredict,
+        protected AsyncPropertyEnricher(string propertyName, Func<TContext, object>? propertyValueFactory, Func<TContext, bool>? propertyPredict,
             bool overwrite = false)
         {
             _propertyName = propertyName;

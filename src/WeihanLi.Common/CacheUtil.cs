@@ -34,17 +34,17 @@ namespace WeihanLi.Common
 
         internal static readonly ConcurrentDictionary<Type, MethodInfo[]> TypeMethodCache = new();
 
-        internal static readonly ConcurrentDictionary<Type, Func<ServiceContainer, object>> TypeNewFuncCache = new();
+        internal static readonly ConcurrentDictionary<Type, Func<ServiceContainer, object?>> TypeNewFuncCache = new();
 
-        internal static readonly ConcurrentDictionary<Type, ConstructorInfo> TypeConstructorCache = new();
+        internal static readonly ConcurrentDictionary<Type, ConstructorInfo?> TypeConstructorCache = new();
 
         internal static readonly ConcurrentDictionary<Type, Func<object>> TypeEmptyConstructorFuncCache = new();
 
-        internal static readonly ConcurrentDictionary<Type, Func<object[], object>> TypeConstructorFuncCache = new();
+        internal static readonly ConcurrentDictionary<Type, Func<object?[], object>> TypeConstructorFuncCache = new();
 
-        internal static readonly ConcurrentDictionary<PropertyInfo, Func<object, object>> PropertyValueGetters = new();
+        internal static readonly ConcurrentDictionary<PropertyInfo, Func<object, object?>?> PropertyValueGetters = new();
 
-        internal static readonly ConcurrentDictionary<PropertyInfo, Action<object, object>> PropertyValueSetters = new();
+        internal static readonly ConcurrentDictionary<PropertyInfo, Action<object, object?>?> PropertyValueSetters = new();
     }
 
     internal static class StrongTypedCache<T>
