@@ -22,6 +22,23 @@ namespace WeihanLi.Common.Test.ModelsTest
             Assert.Equal(dic1, dic2);
         }
 
+        [Fact]
+        public void DistinctTest()
+        {
+            var abc = new { Id = 1, Name = "Tom" };
+            var dic1 = StringValueDictionary.Create(abc);
+            var dic2 = StringValueDictionary.Create(new Dictionary<string, object>()
+            {
+                {"Id", 1},
+                {"Name", "Tom" }
+            });
+            var set = new HashSet<StringValueDictionary>();
+            set.Add(dic1);
+            set.Add(dic2);
+
+            Assert.Equal(1, set.Count);
+        }
+
         record Person(int Id, string Name);
 
         [Fact]
