@@ -1,6 +1,5 @@
 ﻿using log4net;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions.Internal;
 using System;
 using System.Collections.Concurrent;
 using WeihanLi.Common.Helpers;
@@ -13,7 +12,7 @@ namespace WeihanLi.Common.Logging.Log4Net
     internal sealed class Log4NetLoggerProvider : ILoggerProvider
     {
         private readonly ConcurrentDictionary<string, Log4NetLogger> _loggers =
-            new ConcurrentDictionary<string, Log4NetLogger>(StringComparer.Ordinal);
+            new();
 
         public Log4NetLoggerProvider(string configFilePath) => Log4NetHelper.LogInit(configFilePath);
 
@@ -59,7 +58,7 @@ namespace WeihanLi.Common.Logging.Log4Net
         }
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state,
-            Exception exception, Func<TState, Exception, string> formatter)
+            Exception? exception, Func<TState, Exception?, string> formatter)
         {
             if (!IsEnabled(logLevel))
             {

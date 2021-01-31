@@ -14,13 +14,13 @@ namespace Serilog.Extensions.Logging
         private const string NoName = "None";
 
         private readonly SerilogLoggerProvider _provider;
-        private readonly object _state;
-        private readonly IDisposable _chainedDisposable;
+        private readonly object? _state;
+        private readonly IDisposable? _chainedDisposable;
 
         // An optimization only, no problem if there are data races on this.
         private bool _disposed;
 
-        public SerilogLoggerScope(SerilogLoggerProvider provider, object state, IDisposable chainedDisposable = null)
+        public SerilogLoggerScope(SerilogLoggerProvider provider, object? state, IDisposable? chainedDisposable = null)
         {
             _provider = provider;
             _state = state;
@@ -30,7 +30,7 @@ namespace Serilog.Extensions.Logging
             _chainedDisposable = chainedDisposable;
         }
 
-        public SerilogLoggerScope Parent { get; }
+        public SerilogLoggerScope? Parent { get; }
 
         public void Dispose()
         {
@@ -50,7 +50,7 @@ namespace Serilog.Extensions.Logging
             }
         }
 
-        public void EnrichAndCreateScopeItem(LogEvent logEvent, ILogEventPropertyFactory propertyFactory, out LogEventPropertyValue scopeItem)
+        public void EnrichAndCreateScopeItem(LogEvent logEvent, ILogEventPropertyFactory propertyFactory, out LogEventPropertyValue? scopeItem)
         {
             if (_state == null)
             {
@@ -58,8 +58,7 @@ namespace Serilog.Extensions.Logging
                 return;
             }
 
-            var stateProperties = _state as IEnumerable<KeyValuePair<string, object>>;
-            if (stateProperties != null)
+            if (_state is IEnumerable<KeyValuePair<string, object>> stateProperties)
             {
                 scopeItem = null; // Unless it's `FormattedLogValues`, these are treated as property bags rather than scope items.
 

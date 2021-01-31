@@ -3,7 +3,7 @@
   <Import Project="./build/version.props" />
   
   <PropertyGroup>
-    <LangVersion>9</LangVersion>
+    <LangVersion>latest</LangVersion>
 
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/WeihanLi/WeihanLi.Common</RepositoryUrl>
@@ -21,7 +21,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     
     <Authors>WeihanLi</Authors>
-    <Copyright>Copyright 2017-2020 (c) WeihanLi</Copyright>
+    <Copyright>Copyright 2017-2021 (c) WeihanLi</Copyright>
     <NoWarn>$(NoWarn);NU5048;</NoWarn>
   </PropertyGroup>
   <ItemGroup>
