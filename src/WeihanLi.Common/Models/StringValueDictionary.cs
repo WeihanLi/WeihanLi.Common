@@ -26,7 +26,7 @@ namespace WeihanLi.Common.Models
             }
         }
 
-        public static StringValueDictionary Create(object obj)
+        public static StringValueDictionary FromObject(object obj)
         {
             if (obj is null) throw new ArgumentNullException(nameof(obj));
             if (obj is IDictionary<string, string?> dictionary)
@@ -45,13 +45,15 @@ namespace WeihanLi.Common.Models
                 .ToDictionary(p => p.Name, p => p.GetValue(obj)?.ToString()));
         }
 
-        public static StringValueDictionary CreateFromJsonString(string json)
+        public static StringValueDictionary FromJson(string json)
         {
             Guard.NotNull(json, nameof(json));
             var dic = json.JsonToObject<Dictionary<string, object?>>()
                 .ToDictionary(x => x.Key, x => x.Value?.ToString());
             return new StringValueDictionary(dic);
         }
+
+        public StringValueDictionary Clone() => new(this);
 
         public int Count => _dictionary.Count;
 
