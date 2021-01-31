@@ -6513,19 +6513,6 @@ references:
   commentId: T:WeihanLi.Common.GuidIdGenerator
   fullName: WeihanLi.Common.GuidIdGenerator
   nameWithType: GuidIdGenerator
-- uid: WeihanLi.Common.GuidIdGenerator.#ctor
-  name: GuidIdGenerator()
-  href: docs/api/WeihanLi.Common.GuidIdGenerator.html#WeihanLi_Common_GuidIdGenerator__ctor
-  commentId: M:WeihanLi.Common.GuidIdGenerator.#ctor
-  fullName: WeihanLi.Common.GuidIdGenerator.GuidIdGenerator()
-  nameWithType: GuidIdGenerator.GuidIdGenerator()
-- uid: WeihanLi.Common.GuidIdGenerator.#ctor*
-  name: GuidIdGenerator
-  href: docs/api/WeihanLi.Common.GuidIdGenerator.html#WeihanLi_Common_GuidIdGenerator__ctor_
-  commentId: Overload:WeihanLi.Common.GuidIdGenerator.#ctor
-  isSpec: "True"
-  fullName: WeihanLi.Common.GuidIdGenerator.GuidIdGenerator
-  nameWithType: GuidIdGenerator.GuidIdGenerator
 - uid: WeihanLi.Common.GuidIdGenerator.Instance
   name: Instance
   href: docs/api/WeihanLi.Common.GuidIdGenerator.html#WeihanLi_Common_GuidIdGenerator_Instance
@@ -6815,77 +6802,6 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.AsyncPropertyEnricher(Of TContext).EnrichAction
   nameWithType: AsyncPropertyEnricher<TContext>.EnrichAction
   nameWithType.vb: AsyncPropertyEnricher(Of TContext).EnrichAction
-- uid: WeihanLi.Common.Helpers.AtomicCounter
-  name: AtomicCounter
-  href: docs/api/WeihanLi.Common.Helpers.AtomicCounter.html
-  commentId: T:WeihanLi.Common.Helpers.AtomicCounter
-  fullName: WeihanLi.Common.Helpers.AtomicCounter
-  nameWithType: AtomicCounter
-- uid: WeihanLi.Common.Helpers.AtomicCounter.Decrement
-  name: Decrement()
-  href: docs/api/WeihanLi.Common.Helpers.AtomicCounter.html#WeihanLi_Common_Helpers_AtomicCounter_Decrement
-  commentId: M:WeihanLi.Common.Helpers.AtomicCounter.Decrement
-  fullName: WeihanLi.Common.Helpers.AtomicCounter.Decrement()
-  nameWithType: AtomicCounter.Decrement()
-- uid: WeihanLi.Common.Helpers.AtomicCounter.Decrement*
-  name: Decrement
-  href: docs/api/WeihanLi.Common.Helpers.AtomicCounter.html#WeihanLi_Common_Helpers_AtomicCounter_Decrement_
-  commentId: Overload:WeihanLi.Common.Helpers.AtomicCounter.Decrement
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.AtomicCounter.Decrement
-  nameWithType: AtomicCounter.Decrement
-- uid: WeihanLi.Common.Helpers.AtomicCounter.DecrementCapped(System.Int32)
-  name: DecrementCapped(Int32)
-  href: docs/api/WeihanLi.Common.Helpers.AtomicCounter.html#WeihanLi_Common_Helpers_AtomicCounter_DecrementCapped_System_Int32_
-  commentId: M:WeihanLi.Common.Helpers.AtomicCounter.DecrementCapped(System.Int32)
-  fullName: WeihanLi.Common.Helpers.AtomicCounter.DecrementCapped(System.Int32)
-  nameWithType: AtomicCounter.DecrementCapped(Int32)
-- uid: WeihanLi.Common.Helpers.AtomicCounter.DecrementCapped*
-  name: DecrementCapped
-  href: docs/api/WeihanLi.Common.Helpers.AtomicCounter.html#WeihanLi_Common_Helpers_AtomicCounter_DecrementCapped_
-  commentId: Overload:WeihanLi.Common.Helpers.AtomicCounter.DecrementCapped
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.AtomicCounter.DecrementCapped
-  nameWithType: AtomicCounter.DecrementCapped
-- uid: WeihanLi.Common.Helpers.AtomicCounter.Increment
-  name: Increment()
-  href: docs/api/WeihanLi.Common.Helpers.AtomicCounter.html#WeihanLi_Common_Helpers_AtomicCounter_Increment
-  commentId: M:WeihanLi.Common.Helpers.AtomicCounter.Increment
-  fullName: WeihanLi.Common.Helpers.AtomicCounter.Increment()
-  nameWithType: AtomicCounter.Increment()
-- uid: WeihanLi.Common.Helpers.AtomicCounter.Increment*
-  name: Increment
-  href: docs/api/WeihanLi.Common.Helpers.AtomicCounter.html#WeihanLi_Common_Helpers_AtomicCounter_Increment_
-  commentId: Overload:WeihanLi.Common.Helpers.AtomicCounter.Increment
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.AtomicCounter.Increment
-  nameWithType: AtomicCounter.Increment
-- uid: WeihanLi.Common.Helpers.AtomicCounter.IncrementCapped(System.Int32)
-  name: IncrementCapped(Int32)
-  href: docs/api/WeihanLi.Common.Helpers.AtomicCounter.html#WeihanLi_Common_Helpers_AtomicCounter_IncrementCapped_System_Int32_
-  commentId: M:WeihanLi.Common.Helpers.AtomicCounter.IncrementCapped(System.Int32)
-  fullName: WeihanLi.Common.Helpers.AtomicCounter.IncrementCapped(System.Int32)
-  nameWithType: AtomicCounter.IncrementCapped(Int32)
-- uid: WeihanLi.Common.Helpers.AtomicCounter.IncrementCapped*
-  name: IncrementCapped
-  href: docs/api/WeihanLi.Common.Helpers.AtomicCounter.html#WeihanLi_Common_Helpers_AtomicCounter_IncrementCapped_
-  commentId: Overload:WeihanLi.Common.Helpers.AtomicCounter.IncrementCapped
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.AtomicCounter.IncrementCapped
-  nameWithType: AtomicCounter.IncrementCapped
-- uid: WeihanLi.Common.Helpers.AtomicCounter.Value
-  name: Value
-  href: docs/api/WeihanLi.Common.Helpers.AtomicCounter.html#WeihanLi_Common_Helpers_AtomicCounter_Value
-  commentId: P:WeihanLi.Common.Helpers.AtomicCounter.Value
-  fullName: WeihanLi.Common.Helpers.AtomicCounter.Value
-  nameWithType: AtomicCounter.Value
-- uid: WeihanLi.Common.Helpers.AtomicCounter.Value*
-  name: Value
-  href: docs/api/WeihanLi.Common.Helpers.AtomicCounter.html#WeihanLi_Common_Helpers_AtomicCounter_Value_
-  commentId: Overload:WeihanLi.Common.Helpers.AtomicCounter.Value
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.AtomicCounter.Value
-  nameWithType: AtomicCounter.Value
 - uid: WeihanLi.Common.Helpers.Base32EncodeHelper
   name: Base32EncodeHelper
   href: docs/api/WeihanLi.Common.Helpers.Base32EncodeHelper.html
@@ -10622,41 +10538,41 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.SerializeHelper.SerializeXml
   nameWithType: SerializeHelper.SerializeXml
-- uid: WeihanLi.Common.Helpers.StopWatchStopper
-  name: StopWatchStopper
-  href: docs/api/WeihanLi.Common.Helpers.StopWatchStopper.html
-  commentId: T:WeihanLi.Common.Helpers.StopWatchStopper
-  fullName: WeihanLi.Common.Helpers.StopWatchStopper
-  nameWithType: StopWatchStopper
-- uid: WeihanLi.Common.Helpers.StopWatchStopper.#ctor(Stopwatch,System.Action{System.Int64})
-  name: StopWatchStopper(Stopwatch, Action<Int64>)
-  href: docs/api/WeihanLi.Common.Helpers.StopWatchStopper.html#WeihanLi_Common_Helpers_StopWatchStopper__ctor_Stopwatch_System_Action_System_Int64__
-  commentId: M:WeihanLi.Common.Helpers.StopWatchStopper.#ctor(Stopwatch,System.Action{System.Int64})
-  name.vb: StopWatchStopper(Stopwatch, Action(Of Int64))
-  fullName: WeihanLi.Common.Helpers.StopWatchStopper.StopWatchStopper(Stopwatch, System.Action<System.Int64>)
-  fullName.vb: WeihanLi.Common.Helpers.StopWatchStopper.StopWatchStopper(Stopwatch, System.Action(Of System.Int64))
-  nameWithType: StopWatchStopper.StopWatchStopper(Stopwatch, Action<Int64>)
-  nameWithType.vb: StopWatchStopper.StopWatchStopper(Stopwatch, Action(Of Int64))
-- uid: WeihanLi.Common.Helpers.StopWatchStopper.#ctor*
-  name: StopWatchStopper
-  href: docs/api/WeihanLi.Common.Helpers.StopWatchStopper.html#WeihanLi_Common_Helpers_StopWatchStopper__ctor_
-  commentId: Overload:WeihanLi.Common.Helpers.StopWatchStopper.#ctor
+- uid: WeihanLi.Common.Helpers.StopwatchStopper
+  name: StopwatchStopper
+  href: docs/api/WeihanLi.Common.Helpers.StopwatchStopper.html
+  commentId: T:WeihanLi.Common.Helpers.StopwatchStopper
+  fullName: WeihanLi.Common.Helpers.StopwatchStopper
+  nameWithType: StopwatchStopper
+- uid: WeihanLi.Common.Helpers.StopwatchStopper.#ctor(Stopwatch,System.Action{System.Int64})
+  name: StopwatchStopper(Stopwatch, Action<Int64>)
+  href: docs/api/WeihanLi.Common.Helpers.StopwatchStopper.html#WeihanLi_Common_Helpers_StopwatchStopper__ctor_Stopwatch_System_Action_System_Int64__
+  commentId: M:WeihanLi.Common.Helpers.StopwatchStopper.#ctor(Stopwatch,System.Action{System.Int64})
+  name.vb: StopwatchStopper(Stopwatch, Action(Of Int64))
+  fullName: WeihanLi.Common.Helpers.StopwatchStopper.StopwatchStopper(Stopwatch, System.Action<System.Int64>)
+  fullName.vb: WeihanLi.Common.Helpers.StopwatchStopper.StopwatchStopper(Stopwatch, System.Action(Of System.Int64))
+  nameWithType: StopwatchStopper.StopwatchStopper(Stopwatch, Action<Int64>)
+  nameWithType.vb: StopwatchStopper.StopwatchStopper(Stopwatch, Action(Of Int64))
+- uid: WeihanLi.Common.Helpers.StopwatchStopper.#ctor*
+  name: StopwatchStopper
+  href: docs/api/WeihanLi.Common.Helpers.StopwatchStopper.html#WeihanLi_Common_Helpers_StopwatchStopper__ctor_
+  commentId: Overload:WeihanLi.Common.Helpers.StopwatchStopper.#ctor
   isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.StopWatchStopper.StopWatchStopper
-  nameWithType: StopWatchStopper.StopWatchStopper
-- uid: WeihanLi.Common.Helpers.StopWatchStopper.Dispose
+  fullName: WeihanLi.Common.Helpers.StopwatchStopper.StopwatchStopper
+  nameWithType: StopwatchStopper.StopwatchStopper
+- uid: WeihanLi.Common.Helpers.StopwatchStopper.Dispose
   name: Dispose()
-  href: docs/api/WeihanLi.Common.Helpers.StopWatchStopper.html#WeihanLi_Common_Helpers_StopWatchStopper_Dispose
-  commentId: M:WeihanLi.Common.Helpers.StopWatchStopper.Dispose
-  fullName: WeihanLi.Common.Helpers.StopWatchStopper.Dispose()
-  nameWithType: StopWatchStopper.Dispose()
-- uid: WeihanLi.Common.Helpers.StopWatchStopper.Dispose*
+  href: docs/api/WeihanLi.Common.Helpers.StopwatchStopper.html#WeihanLi_Common_Helpers_StopwatchStopper_Dispose
+  commentId: M:WeihanLi.Common.Helpers.StopwatchStopper.Dispose
+  fullName: WeihanLi.Common.Helpers.StopwatchStopper.Dispose()
+  nameWithType: StopwatchStopper.Dispose()
+- uid: WeihanLi.Common.Helpers.StopwatchStopper.Dispose*
   name: Dispose
-  href: docs/api/WeihanLi.Common.Helpers.StopWatchStopper.html#WeihanLi_Common_Helpers_StopWatchStopper_Dispose_
-  commentId: Overload:WeihanLi.Common.Helpers.StopWatchStopper.Dispose
+  href: docs/api/WeihanLi.Common.Helpers.StopwatchStopper.html#WeihanLi_Common_Helpers_StopwatchStopper_Dispose_
+  commentId: Overload:WeihanLi.Common.Helpers.StopwatchStopper.Dispose
   isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.StopWatchStopper.Dispose
-  nameWithType: StopWatchStopper.Dispose
+  fullName: WeihanLi.Common.Helpers.StopwatchStopper.Dispose
+  nameWithType: StopwatchStopper.Dispose
 - uid: WeihanLi.Common.Helpers.StringHelper
   name: StringHelper
   href: docs/api/WeihanLi.Common.Helpers.StringHelper.html
@@ -12728,13 +12644,13 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Logging.ILogHelperLoggingBuilder.AddEnricher
   nameWithType: ILogHelperLoggingBuilder.AddEnricher
-- uid: WeihanLi.Common.Logging.ILogHelperLoggingBuilder.AddFilter(System.Func{System.Type,LogHelperLoggingEvent,System.Boolean})
+- uid: WeihanLi.Common.Logging.ILogHelperLoggingBuilder.AddFilter(System.Func{System.Type,WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Boolean})
   name: AddFilter(Func<Type, LogHelperLoggingEvent, Boolean>)
-  href: docs/api/WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html#WeihanLi_Common_Logging_ILogHelperLoggingBuilder_AddFilter_System_Func_System_Type_LogHelperLoggingEvent_System_Boolean__
-  commentId: M:WeihanLi.Common.Logging.ILogHelperLoggingBuilder.AddFilter(System.Func{System.Type,LogHelperLoggingEvent,System.Boolean})
+  href: docs/api/WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html#WeihanLi_Common_Logging_ILogHelperLoggingBuilder_AddFilter_System_Func_System_Type_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_Boolean__
+  commentId: M:WeihanLi.Common.Logging.ILogHelperLoggingBuilder.AddFilter(System.Func{System.Type,WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Boolean})
   name.vb: AddFilter(Func(Of Type, LogHelperLoggingEvent, Boolean))
-  fullName: WeihanLi.Common.Logging.ILogHelperLoggingBuilder.AddFilter(System.Func<System.Type, LogHelperLoggingEvent, System.Boolean>)
-  fullName.vb: WeihanLi.Common.Logging.ILogHelperLoggingBuilder.AddFilter(System.Func(Of System.Type, LogHelperLoggingEvent, System.Boolean))
+  fullName: WeihanLi.Common.Logging.ILogHelperLoggingBuilder.AddFilter(System.Func<System.Type, WeihanLi.Common.Logging.LogHelperLoggingEvent, System.Boolean>)
+  fullName.vb: WeihanLi.Common.Logging.ILogHelperLoggingBuilder.AddFilter(System.Func(Of System.Type, WeihanLi.Common.Logging.LogHelperLoggingEvent, System.Boolean))
   nameWithType: ILogHelperLoggingBuilder.AddFilter(Func<Type, LogHelperLoggingEvent, Boolean>)
   nameWithType.vb: ILogHelperLoggingBuilder.AddFilter(Func(Of Type, LogHelperLoggingEvent, Boolean))
 - uid: WeihanLi.Common.Logging.ILogHelperLoggingBuilder.AddFilter*
@@ -12782,11 +12698,11 @@ references:
   commentId: T:WeihanLi.Common.Logging.ILogHelperProvider
   fullName: WeihanLi.Common.Logging.ILogHelperProvider
   nameWithType: ILogHelperProvider
-- uid: WeihanLi.Common.Logging.ILogHelperProvider.Log(LogHelperLoggingEvent)
+- uid: WeihanLi.Common.Logging.ILogHelperProvider.Log(WeihanLi.Common.Logging.LogHelperLoggingEvent)
   name: Log(LogHelperLoggingEvent)
-  href: docs/api/WeihanLi.Common.Logging.ILogHelperProvider.html#WeihanLi_Common_Logging_ILogHelperProvider_Log_LogHelperLoggingEvent_
-  commentId: M:WeihanLi.Common.Logging.ILogHelperProvider.Log(LogHelperLoggingEvent)
-  fullName: WeihanLi.Common.Logging.ILogHelperProvider.Log(LogHelperLoggingEvent)
+  href: docs/api/WeihanLi.Common.Logging.ILogHelperProvider.html#WeihanLi_Common_Logging_ILogHelperProvider_Log_WeihanLi_Common_Logging_LogHelperLoggingEvent_
+  commentId: M:WeihanLi.Common.Logging.ILogHelperProvider.Log(WeihanLi.Common.Logging.LogHelperLoggingEvent)
+  fullName: WeihanLi.Common.Logging.ILogHelperProvider.Log(WeihanLi.Common.Logging.LogHelperLoggingEvent)
   nameWithType: ILogHelperProvider.Log(LogHelperLoggingEvent)
 - uid: WeihanLi.Common.Logging.ILogHelperProvider.Log*
   name: Log
@@ -12985,20 +12901,20 @@ references:
   commentId: T:WeihanLi.Common.Logging.LogHelperExtensions
   fullName: WeihanLi.Common.Logging.LogHelperExtensions
   nameWithType: LogHelperExtensions
-- uid: WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(LogHelperLoggingEvent,System.String,System.Func{LogHelperLoggingEvent,System.Object},System.Boolean)
+- uid: WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(WeihanLi.Common.Logging.LogHelperLoggingEvent,System.String,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Object},System.Boolean)
   name: AddProperty(LogHelperLoggingEvent, String, Func<LogHelperLoggingEvent, Object>, Boolean)
-  href: docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html#WeihanLi_Common_Logging_LogHelperExtensions_AddProperty_LogHelperLoggingEvent_System_String_System_Func_LogHelperLoggingEvent_System_Object__System_Boolean_
-  commentId: M:WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(LogHelperLoggingEvent,System.String,System.Func{LogHelperLoggingEvent,System.Object},System.Boolean)
+  href: docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html#WeihanLi_Common_Logging_LogHelperExtensions_AddProperty_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_String_System_Func_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_Object__System_Boolean_
+  commentId: M:WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(WeihanLi.Common.Logging.LogHelperLoggingEvent,System.String,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Object},System.Boolean)
   name.vb: AddProperty(LogHelperLoggingEvent, String, Func(Of LogHelperLoggingEvent, Object), Boolean)
-  fullName: WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(LogHelperLoggingEvent, System.String, System.Func<LogHelperLoggingEvent, System.Object>, System.Boolean)
-  fullName.vb: WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(LogHelperLoggingEvent, System.String, System.Func(Of LogHelperLoggingEvent, System.Object), System.Boolean)
+  fullName: WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(WeihanLi.Common.Logging.LogHelperLoggingEvent, System.String, System.Func<WeihanLi.Common.Logging.LogHelperLoggingEvent, System.Object>, System.Boolean)
+  fullName.vb: WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(WeihanLi.Common.Logging.LogHelperLoggingEvent, System.String, System.Func(Of WeihanLi.Common.Logging.LogHelperLoggingEvent, System.Object), System.Boolean)
   nameWithType: LogHelperExtensions.AddProperty(LogHelperLoggingEvent, String, Func<LogHelperLoggingEvent, Object>, Boolean)
   nameWithType.vb: LogHelperExtensions.AddProperty(LogHelperLoggingEvent, String, Func(Of LogHelperLoggingEvent, Object), Boolean)
-- uid: WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(LogHelperLoggingEvent,System.String,System.Object,System.Boolean)
+- uid: WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(WeihanLi.Common.Logging.LogHelperLoggingEvent,System.String,System.Object,System.Boolean)
   name: AddProperty(LogHelperLoggingEvent, String, Object, Boolean)
-  href: docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html#WeihanLi_Common_Logging_LogHelperExtensions_AddProperty_LogHelperLoggingEvent_System_String_System_Object_System_Boolean_
-  commentId: M:WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(LogHelperLoggingEvent,System.String,System.Object,System.Boolean)
-  fullName: WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(LogHelperLoggingEvent, System.String, System.Object, System.Boolean)
+  href: docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html#WeihanLi_Common_Logging_LogHelperExtensions_AddProperty_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_String_System_Object_System_Boolean_
+  commentId: M:WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(WeihanLi.Common.Logging.LogHelperLoggingEvent,System.String,System.Object,System.Boolean)
+  fullName: WeihanLi.Common.Logging.LogHelperExtensions.AddProperty(WeihanLi.Common.Logging.LogHelperLoggingEvent, System.String, System.Object, System.Boolean)
   nameWithType: LogHelperExtensions.AddProperty(LogHelperLoggingEvent, String, Object, Boolean)
 - uid: WeihanLi.Common.Logging.LogHelperExtensions.AddProperty*
   name: AddProperty
@@ -13035,22 +12951,22 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Logging.LogHelperExtensions.Debug
   nameWithType: LogHelperExtensions.Debug
-- uid: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Func{LogHelperLoggingEvent,System.Object},System.Func{LogHelperLoggingEvent,System.Boolean},System.Boolean)
+- uid: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Object},System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Boolean},System.Boolean)
   name: EnrichWithProperty(ILogHelperLoggingBuilder, String, Func<LogHelperLoggingEvent, Object>, Func<LogHelperLoggingEvent, Boolean>, Boolean)
-  href: docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html#WeihanLi_Common_Logging_LogHelperExtensions_EnrichWithProperty_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_String_System_Func_LogHelperLoggingEvent_System_Object__System_Func_LogHelperLoggingEvent_System_Boolean__System_Boolean_
-  commentId: M:WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Func{LogHelperLoggingEvent,System.Object},System.Func{LogHelperLoggingEvent,System.Boolean},System.Boolean)
+  href: docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html#WeihanLi_Common_Logging_LogHelperExtensions_EnrichWithProperty_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_String_System_Func_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_Object__System_Func_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_Boolean__System_Boolean_
+  commentId: M:WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Object},System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Boolean},System.Boolean)
   name.vb: EnrichWithProperty(ILogHelperLoggingBuilder, String, Func(Of LogHelperLoggingEvent, Object), Func(Of LogHelperLoggingEvent, Boolean), Boolean)
-  fullName: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.String, System.Func<LogHelperLoggingEvent, System.Object>, System.Func<LogHelperLoggingEvent, System.Boolean>, System.Boolean)
-  fullName.vb: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.String, System.Func(Of LogHelperLoggingEvent, System.Object), System.Func(Of LogHelperLoggingEvent, System.Boolean), System.Boolean)
+  fullName: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.String, System.Func<WeihanLi.Common.Logging.LogHelperLoggingEvent, System.Object>, System.Func<WeihanLi.Common.Logging.LogHelperLoggingEvent, System.Boolean>, System.Boolean)
+  fullName.vb: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.String, System.Func(Of WeihanLi.Common.Logging.LogHelperLoggingEvent, System.Object), System.Func(Of WeihanLi.Common.Logging.LogHelperLoggingEvent, System.Boolean), System.Boolean)
   nameWithType: LogHelperExtensions.EnrichWithProperty(ILogHelperLoggingBuilder, String, Func<LogHelperLoggingEvent, Object>, Func<LogHelperLoggingEvent, Boolean>, Boolean)
   nameWithType.vb: LogHelperExtensions.EnrichWithProperty(ILogHelperLoggingBuilder, String, Func(Of LogHelperLoggingEvent, Object), Func(Of LogHelperLoggingEvent, Boolean), Boolean)
-- uid: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Func{LogHelperLoggingEvent},System.Boolean)
+- uid: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent},System.Boolean)
   name: EnrichWithProperty(ILogHelperLoggingBuilder, String, Func<LogHelperLoggingEvent>, Boolean)
-  href: docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html#WeihanLi_Common_Logging_LogHelperExtensions_EnrichWithProperty_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_String_System_Func_LogHelperLoggingEvent__System_Boolean_
-  commentId: M:WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Func{LogHelperLoggingEvent},System.Boolean)
+  href: docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html#WeihanLi_Common_Logging_LogHelperExtensions_EnrichWithProperty_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_String_System_Func_WeihanLi_Common_Logging_LogHelperLoggingEvent__System_Boolean_
+  commentId: M:WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent},System.Boolean)
   name.vb: EnrichWithProperty(ILogHelperLoggingBuilder, String, Func(Of LogHelperLoggingEvent), Boolean)
-  fullName: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.String, System.Func<LogHelperLoggingEvent>, System.Boolean)
-  fullName.vb: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.String, System.Func(Of LogHelperLoggingEvent), System.Boolean)
+  fullName: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.String, System.Func<WeihanLi.Common.Logging.LogHelperLoggingEvent>, System.Boolean)
+  fullName.vb: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.String, System.Func(Of WeihanLi.Common.Logging.LogHelperLoggingEvent), System.Boolean)
   nameWithType: LogHelperExtensions.EnrichWithProperty(ILogHelperLoggingBuilder, String, Func<LogHelperLoggingEvent>, Boolean)
   nameWithType.vb: LogHelperExtensions.EnrichWithProperty(ILogHelperLoggingBuilder, String, Func(Of LogHelperLoggingEvent), Boolean)
 - uid: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Object,System.Boolean)
@@ -13059,13 +12975,13 @@ references:
   commentId: M:WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Object,System.Boolean)
   fullName: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.String, System.Object, System.Boolean)
   nameWithType: LogHelperExtensions.EnrichWithProperty(ILogHelperLoggingBuilder, String, Object, Boolean)
-- uid: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Object,System.Func{LogHelperLoggingEvent,System.Boolean},System.Boolean)
+- uid: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Object,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Boolean},System.Boolean)
   name: EnrichWithProperty(ILogHelperLoggingBuilder, String, Object, Func<LogHelperLoggingEvent, Boolean>, Boolean)
-  href: docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html#WeihanLi_Common_Logging_LogHelperExtensions_EnrichWithProperty_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_String_System_Object_System_Func_LogHelperLoggingEvent_System_Boolean__System_Boolean_
-  commentId: M:WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Object,System.Func{LogHelperLoggingEvent,System.Boolean},System.Boolean)
+  href: docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html#WeihanLi_Common_Logging_LogHelperExtensions_EnrichWithProperty_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_String_System_Object_System_Func_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_Boolean__System_Boolean_
+  commentId: M:WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.String,System.Object,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Boolean},System.Boolean)
   name.vb: EnrichWithProperty(ILogHelperLoggingBuilder, String, Object, Func(Of LogHelperLoggingEvent, Boolean), Boolean)
-  fullName: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.String, System.Object, System.Func<LogHelperLoggingEvent, System.Boolean>, System.Boolean)
-  fullName.vb: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.String, System.Object, System.Func(Of LogHelperLoggingEvent, System.Boolean), System.Boolean)
+  fullName: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.String, System.Object, System.Func<WeihanLi.Common.Logging.LogHelperLoggingEvent, System.Boolean>, System.Boolean)
+  fullName.vb: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.String, System.Object, System.Func(Of WeihanLi.Common.Logging.LogHelperLoggingEvent, System.Boolean), System.Boolean)
   nameWithType: LogHelperExtensions.EnrichWithProperty(ILogHelperLoggingBuilder, String, Object, Func<LogHelperLoggingEvent, Boolean>, Boolean)
   nameWithType.vb: LogHelperExtensions.EnrichWithProperty(ILogHelperLoggingBuilder, String, Object, Func(Of LogHelperLoggingEvent, Boolean), Boolean)
 - uid: WeihanLi.Common.Logging.LogHelperExtensions.EnrichWithProperty*
@@ -13293,15 +13209,6 @@ references:
   fullName.vb: WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.Func(Of System.String, WeihanLi.Common.Logging.LogHelperLogLevel, System.Boolean))
   nameWithType: LogHelperExtensions.WithFilter(ILogHelperLoggingBuilder, Func<String, LogHelperLogLevel, Boolean>)
   nameWithType.vb: LogHelperExtensions.WithFilter(ILogHelperLoggingBuilder, Func(Of String, LogHelperLogLevel, Boolean))
-- uid: WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Func{System.Type,LogHelperLoggingEvent,System.Boolean})
-  name: WithFilter(ILogHelperLoggingBuilder, Func<Type, LogHelperLoggingEvent, Boolean>)
-  href: docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html#WeihanLi_Common_Logging_LogHelperExtensions_WithFilter_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_Func_System_Type_LogHelperLoggingEvent_System_Boolean__
-  commentId: M:WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Func{System.Type,LogHelperLoggingEvent,System.Boolean})
-  name.vb: WithFilter(ILogHelperLoggingBuilder, Func(Of Type, LogHelperLoggingEvent, Boolean))
-  fullName: WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.Func<System.Type, LogHelperLoggingEvent, System.Boolean>)
-  fullName.vb: WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.Func(Of System.Type, LogHelperLoggingEvent, System.Boolean))
-  nameWithType: LogHelperExtensions.WithFilter(ILogHelperLoggingBuilder, Func<Type, LogHelperLoggingEvent, Boolean>)
-  nameWithType.vb: LogHelperExtensions.WithFilter(ILogHelperLoggingBuilder, Func(Of Type, LogHelperLoggingEvent, Boolean))
 - uid: WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Func{System.Type,System.String,WeihanLi.Common.Logging.LogHelperLogLevel,System.Boolean})
   name: WithFilter(ILogHelperLoggingBuilder, Func<Type, String, LogHelperLogLevel, Boolean>)
   href: docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html#WeihanLi_Common_Logging_LogHelperExtensions_WithFilter_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_Func_System_Type_System_String_WeihanLi_Common_Logging_LogHelperLogLevel_System_Boolean__
@@ -13320,6 +13227,15 @@ references:
   fullName.vb: WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.Func(Of System.Type, System.String, WeihanLi.Common.Logging.LogHelperLogLevel, System.Exception, System.Boolean))
   nameWithType: LogHelperExtensions.WithFilter(ILogHelperLoggingBuilder, Func<Type, String, LogHelperLogLevel, Exception, Boolean>)
   nameWithType.vb: LogHelperExtensions.WithFilter(ILogHelperLoggingBuilder, Func(Of Type, String, LogHelperLogLevel, Exception, Boolean))
+- uid: WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Func{System.Type,WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Boolean})
+  name: WithFilter(ILogHelperLoggingBuilder, Func<Type, LogHelperLoggingEvent, Boolean>)
+  href: docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html#WeihanLi_Common_Logging_LogHelperExtensions_WithFilter_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_Func_System_Type_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_Boolean__
+  commentId: M:WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Func{System.Type,WeihanLi.Common.Logging.LogHelperLoggingEvent,System.Boolean})
+  name.vb: WithFilter(ILogHelperLoggingBuilder, Func(Of Type, LogHelperLoggingEvent, Boolean))
+  fullName: WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.Func<System.Type, WeihanLi.Common.Logging.LogHelperLoggingEvent, System.Boolean>)
+  fullName.vb: WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.Func(Of System.Type, WeihanLi.Common.Logging.LogHelperLoggingEvent, System.Boolean))
+  nameWithType: LogHelperExtensions.WithFilter(ILogHelperLoggingBuilder, Func<Type, LogHelperLoggingEvent, Boolean>)
+  nameWithType.vb: LogHelperExtensions.WithFilter(ILogHelperLoggingBuilder, Func(Of Type, LogHelperLoggingEvent, Boolean))
 - uid: WeihanLi.Common.Logging.LogHelperExtensions.WithFilter(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Func{WeihanLi.Common.Logging.LogHelperLogLevel,System.Boolean})
   name: WithFilter(ILogHelperLoggingBuilder, Func<LogHelperLogLevel, Boolean>)
   href: docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html#WeihanLi_Common_Logging_LogHelperExtensions_WithFilter_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_Func_WeihanLi_Common_Logging_LogHelperLogLevel_System_Boolean__
@@ -13380,6 +13296,116 @@ references:
   fullName.vb: WeihanLi.Common.Logging.LogHelperExtensions.WithProvider(Of TLogProvider)(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.Object())
   nameWithType: LogHelperExtensions.WithProvider<TLogProvider>(ILogHelperLoggingBuilder, Object[])
   nameWithType.vb: LogHelperExtensions.WithProvider(Of TLogProvider)(ILogHelperLoggingBuilder, Object())
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent
+  name: LogHelperLoggingEvent
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html
+  commentId: T:WeihanLi.Common.Logging.LogHelperLoggingEvent
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent
+  nameWithType: LogHelperLoggingEvent
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.CategoryName
+  name: CategoryName
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_CategoryName
+  commentId: P:WeihanLi.Common.Logging.LogHelperLoggingEvent.CategoryName
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.CategoryName
+  nameWithType: LogHelperLoggingEvent.CategoryName
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.CategoryName*
+  name: CategoryName
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_CategoryName_
+  commentId: Overload:WeihanLi.Common.Logging.LogHelperLoggingEvent.CategoryName
+  isSpec: "True"
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.CategoryName
+  nameWithType: LogHelperLoggingEvent.CategoryName
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.Copy
+  name: Copy()
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_Copy
+  commentId: M:WeihanLi.Common.Logging.LogHelperLoggingEvent.Copy
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.Copy()
+  nameWithType: LogHelperLoggingEvent.Copy()
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.Copy*
+  name: Copy
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_Copy_
+  commentId: Overload:WeihanLi.Common.Logging.LogHelperLoggingEvent.Copy
+  isSpec: "True"
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.Copy
+  nameWithType: LogHelperLoggingEvent.Copy
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.DateTime
+  name: DateTime
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_DateTime
+  commentId: P:WeihanLi.Common.Logging.LogHelperLoggingEvent.DateTime
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.DateTime
+  nameWithType: LogHelperLoggingEvent.DateTime
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.DateTime*
+  name: DateTime
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_DateTime_
+  commentId: Overload:WeihanLi.Common.Logging.LogHelperLoggingEvent.DateTime
+  isSpec: "True"
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.DateTime
+  nameWithType: LogHelperLoggingEvent.DateTime
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.Exception
+  name: Exception
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_Exception
+  commentId: P:WeihanLi.Common.Logging.LogHelperLoggingEvent.Exception
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.Exception
+  nameWithType: LogHelperLoggingEvent.Exception
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.Exception*
+  name: Exception
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_Exception_
+  commentId: Overload:WeihanLi.Common.Logging.LogHelperLoggingEvent.Exception
+  isSpec: "True"
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.Exception
+  nameWithType: LogHelperLoggingEvent.Exception
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.LogLevel
+  name: LogLevel
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_LogLevel
+  commentId: P:WeihanLi.Common.Logging.LogHelperLoggingEvent.LogLevel
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.LogLevel
+  nameWithType: LogHelperLoggingEvent.LogLevel
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.LogLevel*
+  name: LogLevel
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_LogLevel_
+  commentId: Overload:WeihanLi.Common.Logging.LogHelperLoggingEvent.LogLevel
+  isSpec: "True"
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.LogLevel
+  nameWithType: LogHelperLoggingEvent.LogLevel
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.Message
+  name: Message
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_Message
+  commentId: P:WeihanLi.Common.Logging.LogHelperLoggingEvent.Message
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.Message
+  nameWithType: LogHelperLoggingEvent.Message
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.Message*
+  name: Message
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_Message_
+  commentId: Overload:WeihanLi.Common.Logging.LogHelperLoggingEvent.Message
+  isSpec: "True"
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.Message
+  nameWithType: LogHelperLoggingEvent.Message
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.MessageTemplate
+  name: MessageTemplate
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_MessageTemplate
+  commentId: P:WeihanLi.Common.Logging.LogHelperLoggingEvent.MessageTemplate
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.MessageTemplate
+  nameWithType: LogHelperLoggingEvent.MessageTemplate
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.MessageTemplate*
+  name: MessageTemplate
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_MessageTemplate_
+  commentId: Overload:WeihanLi.Common.Logging.LogHelperLoggingEvent.MessageTemplate
+  isSpec: "True"
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.MessageTemplate
+  nameWithType: LogHelperLoggingEvent.MessageTemplate
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.Properties
+  name: Properties
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_Properties
+  commentId: P:WeihanLi.Common.Logging.LogHelperLoggingEvent.Properties
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.Properties
+  nameWithType: LogHelperLoggingEvent.Properties
+- uid: WeihanLi.Common.Logging.LogHelperLoggingEvent.Properties*
+  name: Properties
+  href: docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html#WeihanLi_Common_Logging_LogHelperLoggingEvent_Properties_
+  commentId: Overload:WeihanLi.Common.Logging.LogHelperLoggingEvent.Properties
+  isSpec: "True"
+  fullName: WeihanLi.Common.Logging.LogHelperLoggingEvent.Properties
+  nameWithType: LogHelperLoggingEvent.Properties
 - uid: WeihanLi.Common.Logging.LogHelperLogLevel
   name: LogHelperLogLevel
   href: docs/api/WeihanLi.Common.Logging.LogHelperLogLevel.html
@@ -15636,15 +15662,15 @@ references:
   commentId: M:WeihanLi.Data.SqlExtensions.BulkCopy(SqlConnection,DataTable,System.String,System.Int32)
   fullName: WeihanLi.Data.SqlExtensions.BulkCopy(SqlConnection, DataTable, System.String, System.Int32)
   nameWithType: SqlExtensions.BulkCopy(SqlConnection, DataTable, String, Int32)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopy(SqlConnection,DataTable,System.String,System.Int32,IDictionary{System.String,System.String},System.Int32)
-  name: BulkCopy(SqlConnection, DataTable, String, Int32, IDictionary<String, String>, Int32)
-  href: docs/api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopy_SqlConnection_DataTable_System_String_System_Int32_IDictionary_System_String_System_String__System_Int32_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopy(SqlConnection,DataTable,System.String,System.Int32,IDictionary{System.String,System.String},System.Int32)
-  name.vb: BulkCopy(SqlConnection, DataTable, String, Int32, IDictionary(Of String, String), Int32)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopy(SqlConnection, DataTable, System.String, System.Int32, IDictionary<System.String, System.String>, System.Int32)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopy(SqlConnection, DataTable, System.String, System.Int32, IDictionary(Of System.String, System.String), System.Int32)
-  nameWithType: SqlExtensions.BulkCopy(SqlConnection, DataTable, String, Int32, IDictionary<String, String>, Int32)
-  nameWithType.vb: SqlExtensions.BulkCopy(SqlConnection, DataTable, String, Int32, IDictionary(Of String, String), Int32)
+- uid: WeihanLi.Data.SqlExtensions.BulkCopy(SqlConnection,DataTable,System.String,System.Int32,System.Nullable{IDictionary{System.String,System.String}},System.Int32)
+  name: BulkCopy(SqlConnection, DataTable, String, Int32, Nullable<IDictionary<String, String>>, Int32)
+  href: docs/api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopy_SqlConnection_DataTable_System_String_System_Int32_System_Nullable_IDictionary_System_String_System_String___System_Int32_
+  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopy(SqlConnection,DataTable,System.String,System.Int32,System.Nullable{IDictionary{System.String,System.String}},System.Int32)
+  name.vb: BulkCopy(SqlConnection, DataTable, String, Int32, Nullable(Of IDictionary(Of String, String)), Int32)
+  fullName: WeihanLi.Data.SqlExtensions.BulkCopy(SqlConnection, DataTable, System.String, System.Int32, System.Nullable<IDictionary<System.String, System.String>>, System.Int32)
+  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopy(SqlConnection, DataTable, System.String, System.Int32, System.Nullable(Of IDictionary(Of System.String, System.String)), System.Int32)
+  nameWithType: SqlExtensions.BulkCopy(SqlConnection, DataTable, String, Int32, Nullable<IDictionary<String, String>>, Int32)
+  nameWithType.vb: SqlExtensions.BulkCopy(SqlConnection, DataTable, String, Int32, Nullable(Of IDictionary(Of String, String)), Int32)
 - uid: WeihanLi.Data.SqlExtensions.BulkCopy*
   name: BulkCopy
   href: docs/api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopy_
@@ -15661,15 +15687,15 @@ references:
   fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopy(Of T)(SqlConnection, IReadOnlyCollection(Of T), System.String)
   nameWithType: SqlExtensions.BulkCopy<T>(SqlConnection, IReadOnlyCollection<T>, String)
   nameWithType.vb: SqlExtensions.BulkCopy(Of T)(SqlConnection, IReadOnlyCollection(Of T), String)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopy``1(SqlConnection,IReadOnlyCollection{``0},System.String,System.Int32)
-  name: BulkCopy<T>(SqlConnection, IReadOnlyCollection<T>, String, Int32)
-  href: docs/api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopy__1_SqlConnection_IReadOnlyCollection___0__System_String_System_Int32_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopy``1(SqlConnection,IReadOnlyCollection{``0},System.String,System.Int32)
-  name.vb: BulkCopy(Of T)(SqlConnection, IReadOnlyCollection(Of T), String, Int32)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopy<T>(SqlConnection, IReadOnlyCollection<T>, System.String, System.Int32)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopy(Of T)(SqlConnection, IReadOnlyCollection(Of T), System.String, System.Int32)
-  nameWithType: SqlExtensions.BulkCopy<T>(SqlConnection, IReadOnlyCollection<T>, String, Int32)
-  nameWithType.vb: SqlExtensions.BulkCopy(Of T)(SqlConnection, IReadOnlyCollection(Of T), String, Int32)
+- uid: WeihanLi.Data.SqlExtensions.BulkCopy``1(SqlConnection,System.Nullable{IReadOnlyCollection{``0}},System.String,System.Int32)
+  name: BulkCopy<T>(SqlConnection, Nullable<IReadOnlyCollection<T>>, String, Int32)
+  href: docs/api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopy__1_SqlConnection_System_Nullable_IReadOnlyCollection___0___System_String_System_Int32_
+  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopy``1(SqlConnection,System.Nullable{IReadOnlyCollection{``0}},System.String,System.Int32)
+  name.vb: BulkCopy(Of T)(SqlConnection, Nullable(Of IReadOnlyCollection(Of T)), String, Int32)
+  fullName: WeihanLi.Data.SqlExtensions.BulkCopy<T>(SqlConnection, System.Nullable<IReadOnlyCollection<T>>, System.String, System.Int32)
+  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopy(Of T)(SqlConnection, System.Nullable(Of IReadOnlyCollection(Of T)), System.String, System.Int32)
+  nameWithType: SqlExtensions.BulkCopy<T>(SqlConnection, Nullable<IReadOnlyCollection<T>>, String, Int32)
+  nameWithType.vb: SqlExtensions.BulkCopy(Of T)(SqlConnection, Nullable(Of IReadOnlyCollection(Of T)), String, Int32)
 - uid: WeihanLi.Data.SqlExtensions.BulkCopyAsync(SqlConnection,DataTable)
   name: BulkCopyAsync(SqlConnection, DataTable)
   href: docs/api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopyAsync_SqlConnection_DataTable_
@@ -15694,15 +15720,15 @@ references:
   commentId: M:WeihanLi.Data.SqlExtensions.BulkCopyAsync(SqlConnection,DataTable,System.String,System.Int32)
   fullName: WeihanLi.Data.SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, System.String, System.Int32)
   nameWithType: SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, String, Int32)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopyAsync(SqlConnection,DataTable,System.String,System.Int32,IDictionary{System.String,System.String},System.Int32)
-  name: BulkCopyAsync(SqlConnection, DataTable, String, Int32, IDictionary<String, String>, Int32)
-  href: docs/api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopyAsync_SqlConnection_DataTable_System_String_System_Int32_IDictionary_System_String_System_String__System_Int32_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopyAsync(SqlConnection,DataTable,System.String,System.Int32,IDictionary{System.String,System.String},System.Int32)
-  name.vb: BulkCopyAsync(SqlConnection, DataTable, String, Int32, IDictionary(Of String, String), Int32)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, System.String, System.Int32, IDictionary<System.String, System.String>, System.Int32)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, System.String, System.Int32, IDictionary(Of System.String, System.String), System.Int32)
-  nameWithType: SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, String, Int32, IDictionary<String, String>, Int32)
-  nameWithType.vb: SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, String, Int32, IDictionary(Of String, String), Int32)
+- uid: WeihanLi.Data.SqlExtensions.BulkCopyAsync(SqlConnection,DataTable,System.String,System.Int32,System.Nullable{IDictionary{System.String,System.String}},System.Int32)
+  name: BulkCopyAsync(SqlConnection, DataTable, String, Int32, Nullable<IDictionary<String, String>>, Int32)
+  href: docs/api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopyAsync_SqlConnection_DataTable_System_String_System_Int32_System_Nullable_IDictionary_System_String_System_String___System_Int32_
+  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopyAsync(SqlConnection,DataTable,System.String,System.Int32,System.Nullable{IDictionary{System.String,System.String}},System.Int32)
+  name.vb: BulkCopyAsync(SqlConnection, DataTable, String, Int32, Nullable(Of IDictionary(Of String, String)), Int32)
+  fullName: WeihanLi.Data.SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, System.String, System.Int32, System.Nullable<IDictionary<System.String, System.String>>, System.Int32)
+  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, System.String, System.Int32, System.Nullable(Of IDictionary(Of System.String, System.String)), System.Int32)
+  nameWithType: SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, String, Int32, Nullable<IDictionary<String, String>>, Int32)
+  nameWithType.vb: SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, String, Int32, Nullable(Of IDictionary(Of String, String)), Int32)
 - uid: WeihanLi.Data.SqlExtensions.BulkCopyAsync*
   name: BulkCopyAsync
   href: docs/api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopyAsync_
@@ -15719,15 +15745,15 @@ references:
   fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Of T)(SqlConnection, IReadOnlyCollection(Of T), System.String)
   nameWithType: SqlExtensions.BulkCopyAsync<T>(SqlConnection, IReadOnlyCollection<T>, String)
   nameWithType.vb: SqlExtensions.BulkCopyAsync(Of T)(SqlConnection, IReadOnlyCollection(Of T), String)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopyAsync``1(SqlConnection,IReadOnlyCollection{``0},System.String,System.Int32)
-  name: BulkCopyAsync<T>(SqlConnection, IReadOnlyCollection<T>, String, Int32)
-  href: docs/api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopyAsync__1_SqlConnection_IReadOnlyCollection___0__System_String_System_Int32_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopyAsync``1(SqlConnection,IReadOnlyCollection{``0},System.String,System.Int32)
-  name.vb: BulkCopyAsync(Of T)(SqlConnection, IReadOnlyCollection(Of T), String, Int32)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopyAsync<T>(SqlConnection, IReadOnlyCollection<T>, System.String, System.Int32)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Of T)(SqlConnection, IReadOnlyCollection(Of T), System.String, System.Int32)
-  nameWithType: SqlExtensions.BulkCopyAsync<T>(SqlConnection, IReadOnlyCollection<T>, String, Int32)
-  nameWithType.vb: SqlExtensions.BulkCopyAsync(Of T)(SqlConnection, IReadOnlyCollection(Of T), String, Int32)
+- uid: WeihanLi.Data.SqlExtensions.BulkCopyAsync``1(SqlConnection,System.Nullable{IReadOnlyCollection{``0}},System.String,System.Int32)
+  name: BulkCopyAsync<T>(SqlConnection, Nullable<IReadOnlyCollection<T>>, String, Int32)
+  href: docs/api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopyAsync__1_SqlConnection_System_Nullable_IReadOnlyCollection___0___System_String_System_Int32_
+  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopyAsync``1(SqlConnection,System.Nullable{IReadOnlyCollection{``0}},System.String,System.Int32)
+  name.vb: BulkCopyAsync(Of T)(SqlConnection, Nullable(Of IReadOnlyCollection(Of T)), String, Int32)
+  fullName: WeihanLi.Data.SqlExtensions.BulkCopyAsync<T>(SqlConnection, System.Nullable<IReadOnlyCollection<T>>, System.String, System.Int32)
+  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Of T)(SqlConnection, System.Nullable(Of IReadOnlyCollection(Of T)), System.String, System.Int32)
+  nameWithType: SqlExtensions.BulkCopyAsync<T>(SqlConnection, Nullable<IReadOnlyCollection<T>>, String, Int32)
+  nameWithType.vb: SqlExtensions.BulkCopyAsync(Of T)(SqlConnection, Nullable(Of IReadOnlyCollection(Of T)), String, Int32)
 - uid: WeihanLi.Data.SqlExtensions.GetColumnNamesFromDb(SqlConnection,System.String)
   name: GetColumnNamesFromDb(SqlConnection, String)
   href: docs/api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_GetColumnNamesFromDb_SqlConnection_System_String_
@@ -15939,31 +15965,31 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CollectionExtension.HasValue
   nameWithType: CollectionExtension.HasValue
-- uid: WeihanLi.Extensions.CollectionExtension.HasValue``1(ICollection{``0})
-  name: HasValue<T>(ICollection<T>)
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_HasValue__1_ICollection___0__
-  commentId: M:WeihanLi.Extensions.CollectionExtension.HasValue``1(ICollection{``0})
-  name.vb: HasValue(Of T)(ICollection(Of T))
-  fullName: WeihanLi.Extensions.CollectionExtension.HasValue<T>(ICollection<T>)
-  fullName.vb: WeihanLi.Extensions.CollectionExtension.HasValue(Of T)(ICollection(Of T))
-  nameWithType: CollectionExtension.HasValue<T>(ICollection<T>)
-  nameWithType.vb: CollectionExtension.HasValue(Of T)(ICollection(Of T))
-- uid: WeihanLi.Extensions.CollectionExtension.IsCollectionNullOrEmpty*
-  name: IsCollectionNullOrEmpty
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_IsCollectionNullOrEmpty_
-  commentId: Overload:WeihanLi.Extensions.CollectionExtension.IsCollectionNullOrEmpty
+- uid: WeihanLi.Extensions.CollectionExtension.HasValue``1(System.Nullable{ICollection{``0}})
+  name: HasValue<T>(Nullable<ICollection<T>>)
+  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_HasValue__1_System_Nullable_ICollection___0___
+  commentId: M:WeihanLi.Extensions.CollectionExtension.HasValue``1(System.Nullable{ICollection{``0}})
+  name.vb: HasValue(Of T)(Nullable(Of ICollection(Of T)))
+  fullName: WeihanLi.Extensions.CollectionExtension.HasValue<T>(System.Nullable<ICollection<T>>)
+  fullName.vb: WeihanLi.Extensions.CollectionExtension.HasValue(Of T)(System.Nullable(Of ICollection(Of T)))
+  nameWithType: CollectionExtension.HasValue<T>(Nullable<ICollection<T>>)
+  nameWithType.vb: CollectionExtension.HasValue(Of T)(Nullable(Of ICollection(Of T)))
+- uid: WeihanLi.Extensions.CollectionExtension.IsNullOrEmpty*
+  name: IsNullOrEmpty
+  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_IsNullOrEmpty_
+  commentId: Overload:WeihanLi.Extensions.CollectionExtension.IsNullOrEmpty
   isSpec: "True"
-  fullName: WeihanLi.Extensions.CollectionExtension.IsCollectionNullOrEmpty
-  nameWithType: CollectionExtension.IsCollectionNullOrEmpty
-- uid: WeihanLi.Extensions.CollectionExtension.IsCollectionNullOrEmpty``1(ICollection{``0})
-  name: IsCollectionNullOrEmpty<T>(ICollection<T>)
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_IsCollectionNullOrEmpty__1_ICollection___0__
-  commentId: M:WeihanLi.Extensions.CollectionExtension.IsCollectionNullOrEmpty``1(ICollection{``0})
-  name.vb: IsCollectionNullOrEmpty(Of T)(ICollection(Of T))
-  fullName: WeihanLi.Extensions.CollectionExtension.IsCollectionNullOrEmpty<T>(ICollection<T>)
-  fullName.vb: WeihanLi.Extensions.CollectionExtension.IsCollectionNullOrEmpty(Of T)(ICollection(Of T))
-  nameWithType: CollectionExtension.IsCollectionNullOrEmpty<T>(ICollection<T>)
-  nameWithType.vb: CollectionExtension.IsCollectionNullOrEmpty(Of T)(ICollection(Of T))
+  fullName: WeihanLi.Extensions.CollectionExtension.IsNullOrEmpty
+  nameWithType: CollectionExtension.IsNullOrEmpty
+- uid: WeihanLi.Extensions.CollectionExtension.IsNullOrEmpty``1(System.Nullable{ICollection{``0}})
+  name: IsNullOrEmpty<T>(Nullable<ICollection<T>>)
+  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_IsNullOrEmpty__1_System_Nullable_ICollection___0___
+  commentId: M:WeihanLi.Extensions.CollectionExtension.IsNullOrEmpty``1(System.Nullable{ICollection{``0}})
+  name.vb: IsNullOrEmpty(Of T)(Nullable(Of ICollection(Of T)))
+  fullName: WeihanLi.Extensions.CollectionExtension.IsNullOrEmpty<T>(System.Nullable<ICollection<T>>)
+  fullName.vb: WeihanLi.Extensions.CollectionExtension.IsNullOrEmpty(Of T)(System.Nullable(Of ICollection(Of T)))
+  nameWithType: CollectionExtension.IsNullOrEmpty<T>(Nullable<ICollection<T>>)
+  nameWithType.vb: CollectionExtension.IsNullOrEmpty(Of T)(Nullable(Of ICollection(Of T)))
 - uid: WeihanLi.Extensions.CollectionExtension.RemoveIf*
   name: RemoveIf
   href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_RemoveIf_
@@ -16060,12 +16086,15 @@ references:
   fullName.vb: WeihanLi.Extensions.CollectionExtension.RemoveWhere(Of T)(IList(Of T), System.Func(Of T, System.Boolean))
   nameWithType: CollectionExtension.RemoveWhere<T>(IList<T>, Func<T, Boolean>)
   nameWithType.vb: CollectionExtension.RemoveWhere(Of T)(IList(Of T), Func(Of T, Boolean))
-- uid: WeihanLi.Extensions.CollectionExtension.ToDictionary(NameValueCollection)
-  name: ToDictionary(NameValueCollection)
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_ToDictionary_NameValueCollection_
-  commentId: M:WeihanLi.Extensions.CollectionExtension.ToDictionary(NameValueCollection)
-  fullName: WeihanLi.Extensions.CollectionExtension.ToDictionary(NameValueCollection)
-  nameWithType: CollectionExtension.ToDictionary(NameValueCollection)
+- uid: WeihanLi.Extensions.CollectionExtension.ToDictionary(System.Nullable{NameValueCollection})
+  name: ToDictionary(Nullable<NameValueCollection>)
+  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_ToDictionary_System_Nullable_NameValueCollection__
+  commentId: M:WeihanLi.Extensions.CollectionExtension.ToDictionary(System.Nullable{NameValueCollection})
+  name.vb: ToDictionary(Nullable(Of NameValueCollection))
+  fullName: WeihanLi.Extensions.CollectionExtension.ToDictionary(System.Nullable<NameValueCollection>)
+  fullName.vb: WeihanLi.Extensions.CollectionExtension.ToDictionary(System.Nullable(Of NameValueCollection))
+  nameWithType: CollectionExtension.ToDictionary(Nullable<NameValueCollection>)
+  nameWithType.vb: CollectionExtension.ToDictionary(Nullable(Of NameValueCollection))
 - uid: WeihanLi.Extensions.CollectionExtension.ToDictionary*
   name: ToDictionary
   href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_ToDictionary_
@@ -16073,12 +16102,15 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CollectionExtension.ToDictionary
   nameWithType: CollectionExtension.ToDictionary
-- uid: WeihanLi.Extensions.CollectionExtension.ToQueryString(NameValueCollection)
-  name: ToQueryString(NameValueCollection)
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_ToQueryString_NameValueCollection_
-  commentId: M:WeihanLi.Extensions.CollectionExtension.ToQueryString(NameValueCollection)
-  fullName: WeihanLi.Extensions.CollectionExtension.ToQueryString(NameValueCollection)
-  nameWithType: CollectionExtension.ToQueryString(NameValueCollection)
+- uid: WeihanLi.Extensions.CollectionExtension.ToQueryString(System.Nullable{NameValueCollection})
+  name: ToQueryString(Nullable<NameValueCollection>)
+  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_ToQueryString_System_Nullable_NameValueCollection__
+  commentId: M:WeihanLi.Extensions.CollectionExtension.ToQueryString(System.Nullable{NameValueCollection})
+  name.vb: ToQueryString(Nullable(Of NameValueCollection))
+  fullName: WeihanLi.Extensions.CollectionExtension.ToQueryString(System.Nullable<NameValueCollection>)
+  fullName.vb: WeihanLi.Extensions.CollectionExtension.ToQueryString(System.Nullable(Of NameValueCollection))
+  nameWithType: CollectionExtension.ToQueryString(Nullable<NameValueCollection>)
+  nameWithType.vb: CollectionExtension.ToQueryString(Nullable(Of NameValueCollection))
 - uid: WeihanLi.Extensions.CollectionExtension.ToQueryString*
   name: ToQueryString
   href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_ToQueryString_
@@ -16621,50 +16653,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.BigMul
   nameWithType: CoreExtension.BigMul
-- uid: WeihanLi.Extensions.CoreExtension.BinarySearch(System.Array,System.Int32,System.Int32,System.Object)
-  name: BinarySearch(Array, Int32, Int32, Object)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_BinarySearch_System_Array_System_Int32_System_Int32_System_Object_
-  commentId: M:WeihanLi.Extensions.CoreExtension.BinarySearch(System.Array,System.Int32,System.Int32,System.Object)
-  fullName: WeihanLi.Extensions.CoreExtension.BinarySearch(System.Array, System.Int32, System.Int32, System.Object)
-  nameWithType: CoreExtension.BinarySearch(Array, Int32, Int32, Object)
-- uid: WeihanLi.Extensions.CoreExtension.BinarySearch(System.Array,System.Int32,System.Int32,System.Object,IComparer)
-  name: BinarySearch(Array, Int32, Int32, Object, IComparer)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_BinarySearch_System_Array_System_Int32_System_Int32_System_Object_IComparer_
-  commentId: M:WeihanLi.Extensions.CoreExtension.BinarySearch(System.Array,System.Int32,System.Int32,System.Object,IComparer)
-  fullName: WeihanLi.Extensions.CoreExtension.BinarySearch(System.Array, System.Int32, System.Int32, System.Object, IComparer)
-  nameWithType: CoreExtension.BinarySearch(Array, Int32, Int32, Object, IComparer)
-- uid: WeihanLi.Extensions.CoreExtension.BinarySearch(System.Array,System.Object)
-  name: BinarySearch(Array, Object)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_BinarySearch_System_Array_System_Object_
-  commentId: M:WeihanLi.Extensions.CoreExtension.BinarySearch(System.Array,System.Object)
-  fullName: WeihanLi.Extensions.CoreExtension.BinarySearch(System.Array, System.Object)
-  nameWithType: CoreExtension.BinarySearch(Array, Object)
-- uid: WeihanLi.Extensions.CoreExtension.BinarySearch(System.Array,System.Object,IComparer)
-  name: BinarySearch(Array, Object, IComparer)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_BinarySearch_System_Array_System_Object_IComparer_
-  commentId: M:WeihanLi.Extensions.CoreExtension.BinarySearch(System.Array,System.Object,IComparer)
-  fullName: WeihanLi.Extensions.CoreExtension.BinarySearch(System.Array, System.Object, IComparer)
-  nameWithType: CoreExtension.BinarySearch(Array, Object, IComparer)
-- uid: WeihanLi.Extensions.CoreExtension.BinarySearch*
-  name: BinarySearch
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_BinarySearch_
-  commentId: Overload:WeihanLi.Extensions.CoreExtension.BinarySearch
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CoreExtension.BinarySearch
-  nameWithType: CoreExtension.BinarySearch
-- uid: WeihanLi.Extensions.CoreExtension.BlockCopy(System.Array,System.Int32,System.Array,System.Int32,System.Int32)
-  name: BlockCopy(Array, Int32, Array, Int32, Int32)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_BlockCopy_System_Array_System_Int32_System_Array_System_Int32_System_Int32_
-  commentId: M:WeihanLi.Extensions.CoreExtension.BlockCopy(System.Array,System.Int32,System.Array,System.Int32,System.Int32)
-  fullName: WeihanLi.Extensions.CoreExtension.BlockCopy(System.Array, System.Int32, System.Array, System.Int32, System.Int32)
-  nameWithType: CoreExtension.BlockCopy(Array, Int32, Array, Int32, Int32)
-- uid: WeihanLi.Extensions.CoreExtension.BlockCopy*
-  name: BlockCopy
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_BlockCopy_
-  commentId: Overload:WeihanLi.Extensions.CoreExtension.BlockCopy
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CoreExtension.BlockCopy
-  nameWithType: CoreExtension.BlockCopy
 - uid: WeihanLi.Extensions.CoreExtension.Ceiling(System.Decimal)
   name: Ceiling(Decimal)
   href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Ceiling_System_Decimal_
@@ -16700,32 +16688,6 @@ references:
   fullName.vb: WeihanLi.Extensions.CoreExtension.Chain(Of T)(T, System.Action(Of T))
   nameWithType: CoreExtension.Chain<T>(T, Action<T>)
   nameWithType.vb: CoreExtension.Chain(Of T)(T, Action(Of T))
-- uid: WeihanLi.Extensions.CoreExtension.Clear(System.Array,System.Int32,System.Int32)
-  name: Clear(Array, Int32, Int32)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Clear_System_Array_System_Int32_System_Int32_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Clear(System.Array,System.Int32,System.Int32)
-  fullName: WeihanLi.Extensions.CoreExtension.Clear(System.Array, System.Int32, System.Int32)
-  nameWithType: CoreExtension.Clear(Array, Int32, Int32)
-- uid: WeihanLi.Extensions.CoreExtension.Clear*
-  name: Clear
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Clear_
-  commentId: Overload:WeihanLi.Extensions.CoreExtension.Clear
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CoreExtension.Clear
-  nameWithType: CoreExtension.Clear
-- uid: WeihanLi.Extensions.CoreExtension.ClearAll(System.Array)
-  name: ClearAll(Array)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ClearAll_System_Array_
-  commentId: M:WeihanLi.Extensions.CoreExtension.ClearAll(System.Array)
-  fullName: WeihanLi.Extensions.CoreExtension.ClearAll(System.Array)
-  nameWithType: CoreExtension.ClearAll(Array)
-- uid: WeihanLi.Extensions.CoreExtension.ClearAll*
-  name: ClearAll
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ClearAll_
-  commentId: Overload:WeihanLi.Extensions.CoreExtension.ClearAll
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CoreExtension.ClearAll
-  nameWithType: CoreExtension.ClearAll
 - uid: WeihanLi.Extensions.CoreExtension.CoinToss(System.Random)
   name: CoinToss(Random)
   href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_CoinToss_System_Random_
@@ -16860,30 +16822,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.ConvertTimeToUtc
   nameWithType: CoreExtension.ConvertTimeToUtc
-- uid: WeihanLi.Extensions.CoreExtension.Copy(System.Array,System.Array,System.Int32)
-  name: Copy(Array, Array, Int32)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Copy_System_Array_System_Array_System_Int32_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Copy(System.Array,System.Array,System.Int32)
-  fullName: WeihanLi.Extensions.CoreExtension.Copy(System.Array, System.Array, System.Int32)
-  nameWithType: CoreExtension.Copy(Array, Array, Int32)
-- uid: WeihanLi.Extensions.CoreExtension.Copy(System.Array,System.Array,System.Int64)
-  name: Copy(Array, Array, Int64)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Copy_System_Array_System_Array_System_Int64_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Copy(System.Array,System.Array,System.Int64)
-  fullName: WeihanLi.Extensions.CoreExtension.Copy(System.Array, System.Array, System.Int64)
-  nameWithType: CoreExtension.Copy(Array, Array, Int64)
-- uid: WeihanLi.Extensions.CoreExtension.Copy(System.Array,System.Int32,System.Array,System.Int32,System.Int32)
-  name: Copy(Array, Int32, Array, Int32, Int32)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Copy_System_Array_System_Int32_System_Array_System_Int32_System_Int32_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Copy(System.Array,System.Int32,System.Array,System.Int32,System.Int32)
-  fullName: WeihanLi.Extensions.CoreExtension.Copy(System.Array, System.Int32, System.Array, System.Int32, System.Int32)
-  nameWithType: CoreExtension.Copy(Array, Int32, Array, Int32, Int32)
-- uid: WeihanLi.Extensions.CoreExtension.Copy(System.Array,System.Int64,System.Array,System.Int64,System.Int64)
-  name: Copy(Array, Int64, Array, Int64, Int64)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Copy_System_Array_System_Int64_System_Array_System_Int64_System_Int64_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Copy(System.Array,System.Int64,System.Array,System.Int64,System.Int64)
-  fullName: WeihanLi.Extensions.CoreExtension.Copy(System.Array, System.Int64, System.Array, System.Int64, System.Int64)
-  nameWithType: CoreExtension.Copy(Array, Int64, Array, Int64, Int64)
 - uid: WeihanLi.Extensions.CoreExtension.Copy(System.String)
   name: Copy(String)
   href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Copy_System_String_
@@ -17348,31 +17286,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.In
   nameWithType: CoreExtension.In
-- uid: WeihanLi.Extensions.CoreExtension.IndexOf(System.Array,System.Object)
-  name: IndexOf(Array, Object)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_IndexOf_System_Array_System_Object_
-  commentId: M:WeihanLi.Extensions.CoreExtension.IndexOf(System.Array,System.Object)
-  fullName: WeihanLi.Extensions.CoreExtension.IndexOf(System.Array, System.Object)
-  nameWithType: CoreExtension.IndexOf(Array, Object)
-- uid: WeihanLi.Extensions.CoreExtension.IndexOf(System.Array,System.Object,System.Int32)
-  name: IndexOf(Array, Object, Int32)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_IndexOf_System_Array_System_Object_System_Int32_
-  commentId: M:WeihanLi.Extensions.CoreExtension.IndexOf(System.Array,System.Object,System.Int32)
-  fullName: WeihanLi.Extensions.CoreExtension.IndexOf(System.Array, System.Object, System.Int32)
-  nameWithType: CoreExtension.IndexOf(Array, Object, Int32)
-- uid: WeihanLi.Extensions.CoreExtension.IndexOf(System.Array,System.Object,System.Int32,System.Int32)
-  name: IndexOf(Array, Object, Int32, Int32)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_IndexOf_System_Array_System_Object_System_Int32_System_Int32_
-  commentId: M:WeihanLi.Extensions.CoreExtension.IndexOf(System.Array,System.Object,System.Int32,System.Int32)
-  fullName: WeihanLi.Extensions.CoreExtension.IndexOf(System.Array, System.Object, System.Int32, System.Int32)
-  nameWithType: CoreExtension.IndexOf(Array, Object, Int32, Int32)
-- uid: WeihanLi.Extensions.CoreExtension.IndexOf*
-  name: IndexOf
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_IndexOf_
-  commentId: Overload:WeihanLi.Extensions.CoreExtension.IndexOf
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CoreExtension.IndexOf
-  nameWithType: CoreExtension.IndexOf
 - uid: WeihanLi.Extensions.CoreExtension.InRange(System.DateTime,System.DateTime,System.DateTime)
   name: InRange(DateTime, DateTime, DateTime)
   href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_InRange_System_DateTime_System_DateTime_System_DateTime_
@@ -17918,31 +17831,6 @@ references:
   fullName.vb: WeihanLi.Extensions.CoreExtension.Join(Of T)(System.String, IEnumerable(Of T))
   nameWithType: CoreExtension.Join<T>(String, IEnumerable<T>)
   nameWithType.vb: CoreExtension.Join(Of T)(String, IEnumerable(Of T))
-- uid: WeihanLi.Extensions.CoreExtension.LastIndexOf(System.Array,System.Object)
-  name: LastIndexOf(Array, Object)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_LastIndexOf_System_Array_System_Object_
-  commentId: M:WeihanLi.Extensions.CoreExtension.LastIndexOf(System.Array,System.Object)
-  fullName: WeihanLi.Extensions.CoreExtension.LastIndexOf(System.Array, System.Object)
-  nameWithType: CoreExtension.LastIndexOf(Array, Object)
-- uid: WeihanLi.Extensions.CoreExtension.LastIndexOf(System.Array,System.Object,System.Int32)
-  name: LastIndexOf(Array, Object, Int32)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_LastIndexOf_System_Array_System_Object_System_Int32_
-  commentId: M:WeihanLi.Extensions.CoreExtension.LastIndexOf(System.Array,System.Object,System.Int32)
-  fullName: WeihanLi.Extensions.CoreExtension.LastIndexOf(System.Array, System.Object, System.Int32)
-  nameWithType: CoreExtension.LastIndexOf(Array, Object, Int32)
-- uid: WeihanLi.Extensions.CoreExtension.LastIndexOf(System.Array,System.Object,System.Int32,System.Int32)
-  name: LastIndexOf(Array, Object, Int32, Int32)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_LastIndexOf_System_Array_System_Object_System_Int32_System_Int32_
-  commentId: M:WeihanLi.Extensions.CoreExtension.LastIndexOf(System.Array,System.Object,System.Int32,System.Int32)
-  fullName: WeihanLi.Extensions.CoreExtension.LastIndexOf(System.Array, System.Object, System.Int32, System.Int32)
-  nameWithType: CoreExtension.LastIndexOf(Array, Object, Int32, Int32)
-- uid: WeihanLi.Extensions.CoreExtension.LastIndexOf*
-  name: LastIndexOf
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_LastIndexOf_
-  commentId: Overload:WeihanLi.Extensions.CoreExtension.LastIndexOf
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CoreExtension.LastIndexOf
-  nameWithType: CoreExtension.LastIndexOf
 - uid: WeihanLi.Extensions.CoreExtension.Log(System.Double)
   name: Log(Double)
   href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Log_System_Double_
@@ -18221,18 +18109,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.Resize
   nameWithType: CoreExtension.Resize
-- uid: WeihanLi.Extensions.CoreExtension.Reverse(System.Array)
-  name: Reverse(Array)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Reverse_System_Array_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Reverse(System.Array)
-  fullName: WeihanLi.Extensions.CoreExtension.Reverse(System.Array)
-  nameWithType: CoreExtension.Reverse(Array)
-- uid: WeihanLi.Extensions.CoreExtension.Reverse(System.Array,System.Int32,System.Int32)
-  name: Reverse(Array, Int32, Int32)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Reverse_System_Array_System_Int32_System_Int32_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Reverse(System.Array,System.Int32,System.Int32)
-  fullName: WeihanLi.Extensions.CoreExtension.Reverse(System.Array, System.Int32, System.Int32)
-  nameWithType: CoreExtension.Reverse(Array, Int32, Int32)
 - uid: WeihanLi.Extensions.CoreExtension.Reverse(System.String)
   name: Reverse(String)
   href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Reverse_System_String_
@@ -18377,61 +18253,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.Sinh
   nameWithType: CoreExtension.Sinh
-- uid: WeihanLi.Extensions.CoreExtension.Sort(System.Array)
-  name: Sort(Array)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Sort_System_Array_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Sort(System.Array)
-  fullName: WeihanLi.Extensions.CoreExtension.Sort(System.Array)
-  nameWithType: CoreExtension.Sort(Array)
-- uid: WeihanLi.Extensions.CoreExtension.Sort(System.Array,IComparer)
-  name: Sort(Array, IComparer)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Sort_System_Array_IComparer_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Sort(System.Array,IComparer)
-  fullName: WeihanLi.Extensions.CoreExtension.Sort(System.Array, IComparer)
-  nameWithType: CoreExtension.Sort(Array, IComparer)
-- uid: WeihanLi.Extensions.CoreExtension.Sort(System.Array,System.Array)
-  name: Sort(Array, Array)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Sort_System_Array_System_Array_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Sort(System.Array,System.Array)
-  fullName: WeihanLi.Extensions.CoreExtension.Sort(System.Array, System.Array)
-  nameWithType: CoreExtension.Sort(Array, Array)
-- uid: WeihanLi.Extensions.CoreExtension.Sort(System.Array,System.Array,IComparer)
-  name: Sort(Array, Array, IComparer)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Sort_System_Array_System_Array_IComparer_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Sort(System.Array,System.Array,IComparer)
-  fullName: WeihanLi.Extensions.CoreExtension.Sort(System.Array, System.Array, IComparer)
-  nameWithType: CoreExtension.Sort(Array, Array, IComparer)
-- uid: WeihanLi.Extensions.CoreExtension.Sort(System.Array,System.Array,System.Int32,System.Int32)
-  name: Sort(Array, Array, Int32, Int32)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Sort_System_Array_System_Array_System_Int32_System_Int32_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Sort(System.Array,System.Array,System.Int32,System.Int32)
-  fullName: WeihanLi.Extensions.CoreExtension.Sort(System.Array, System.Array, System.Int32, System.Int32)
-  nameWithType: CoreExtension.Sort(Array, Array, Int32, Int32)
-- uid: WeihanLi.Extensions.CoreExtension.Sort(System.Array,System.Array,System.Int32,System.Int32,IComparer)
-  name: Sort(Array, Array, Int32, Int32, IComparer)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Sort_System_Array_System_Array_System_Int32_System_Int32_IComparer_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Sort(System.Array,System.Array,System.Int32,System.Int32,IComparer)
-  fullName: WeihanLi.Extensions.CoreExtension.Sort(System.Array, System.Array, System.Int32, System.Int32, IComparer)
-  nameWithType: CoreExtension.Sort(Array, Array, Int32, Int32, IComparer)
-- uid: WeihanLi.Extensions.CoreExtension.Sort(System.Array,System.Int32,System.Int32)
-  name: Sort(Array, Int32, Int32)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Sort_System_Array_System_Int32_System_Int32_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Sort(System.Array,System.Int32,System.Int32)
-  fullName: WeihanLi.Extensions.CoreExtension.Sort(System.Array, System.Int32, System.Int32)
-  nameWithType: CoreExtension.Sort(Array, Int32, Int32)
-- uid: WeihanLi.Extensions.CoreExtension.Sort(System.Array,System.Int32,System.Int32,IComparer)
-  name: Sort(Array, Int32, Int32, IComparer)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Sort_System_Array_System_Int32_System_Int32_IComparer_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Sort(System.Array,System.Int32,System.Int32,IComparer)
-  fullName: WeihanLi.Extensions.CoreExtension.Sort(System.Array, System.Int32, System.Int32, IComparer)
-  nameWithType: CoreExtension.Sort(Array, Int32, Int32, IComparer)
-- uid: WeihanLi.Extensions.CoreExtension.Sort*
-  name: Sort
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Sort_
-  commentId: Overload:WeihanLi.Extensions.CoreExtension.Sort
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CoreExtension.Sort
-  nameWithType: CoreExtension.Sort
 - uid: WeihanLi.Extensions.CoreExtension.Split(System.String,System.String,System.StringSplitOptions)
   name: Split(String, String, StringSplitOptions)
   href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Split_System_String_System_String_System_StringSplitOptions_
@@ -20895,12 +20716,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DictionaryExtension.ToDictionary(Of TKey, TValue)(IEnumerable(Of KeyValuePair(Of TKey, TValue)))
   nameWithType: DictionaryExtension.ToDictionary<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>>)
   nameWithType.vb: DictionaryExtension.ToDictionary(Of TKey, TValue)(IEnumerable(Of KeyValuePair(Of TKey, TValue)))
-- uid: WeihanLi.Extensions.DictionaryExtension.ToKeyValuePair(NameValueCollection)
-  name: ToKeyValuePair(NameValueCollection)
-  href: docs/api/WeihanLi.Extensions.DictionaryExtension.html#WeihanLi_Extensions_DictionaryExtension_ToKeyValuePair_NameValueCollection_
-  commentId: M:WeihanLi.Extensions.DictionaryExtension.ToKeyValuePair(NameValueCollection)
-  fullName: WeihanLi.Extensions.DictionaryExtension.ToKeyValuePair(NameValueCollection)
-  nameWithType: DictionaryExtension.ToKeyValuePair(NameValueCollection)
+- uid: WeihanLi.Extensions.DictionaryExtension.ToKeyValuePair(System.Nullable{NameValueCollection})
+  name: ToKeyValuePair(Nullable<NameValueCollection>)
+  href: docs/api/WeihanLi.Extensions.DictionaryExtension.html#WeihanLi_Extensions_DictionaryExtension_ToKeyValuePair_System_Nullable_NameValueCollection__
+  commentId: M:WeihanLi.Extensions.DictionaryExtension.ToKeyValuePair(System.Nullable{NameValueCollection})
+  name.vb: ToKeyValuePair(Nullable(Of NameValueCollection))
+  fullName: WeihanLi.Extensions.DictionaryExtension.ToKeyValuePair(System.Nullable<NameValueCollection>)
+  fullName.vb: WeihanLi.Extensions.DictionaryExtension.ToKeyValuePair(System.Nullable(Of NameValueCollection))
+  nameWithType: DictionaryExtension.ToKeyValuePair(Nullable<NameValueCollection>)
+  nameWithType.vb: DictionaryExtension.ToKeyValuePair(Nullable(Of NameValueCollection))
 - uid: WeihanLi.Extensions.DictionaryExtension.ToKeyValuePair*
   name: ToKeyValuePair
   href: docs/api/WeihanLi.Extensions.DictionaryExtension.html#WeihanLi_Extensions_DictionaryExtension_ToKeyValuePair_
@@ -20908,24 +20732,24 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.DictionaryExtension.ToKeyValuePair
   nameWithType: DictionaryExtension.ToKeyValuePair
-- uid: WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(IDictionary{System.String,System.String})
-  name: ToNameValueCollection(IDictionary<String, String>)
-  href: docs/api/WeihanLi.Extensions.DictionaryExtension.html#WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_IDictionary_System_String_System_String__
-  commentId: M:WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(IDictionary{System.String,System.String})
-  name.vb: ToNameValueCollection(IDictionary(Of String, String))
-  fullName: WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(IDictionary<System.String, System.String>)
-  fullName.vb: WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(IDictionary(Of System.String, System.String))
-  nameWithType: DictionaryExtension.ToNameValueCollection(IDictionary<String, String>)
-  nameWithType.vb: DictionaryExtension.ToNameValueCollection(IDictionary(Of String, String))
-- uid: WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(IEnumerable{KeyValuePair{System.String,System.String}})
-  name: ToNameValueCollection(IEnumerable<KeyValuePair<String, String>>)
-  href: docs/api/WeihanLi.Extensions.DictionaryExtension.html#WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_IEnumerable_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(IEnumerable{KeyValuePair{System.String,System.String}})
-  name.vb: ToNameValueCollection(IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(IEnumerable<KeyValuePair<System.String, System.String>>)
-  fullName.vb: WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(IEnumerable(Of KeyValuePair(Of System.String, System.String)))
-  nameWithType: DictionaryExtension.ToNameValueCollection(IEnumerable<KeyValuePair<String, String>>)
-  nameWithType.vb: DictionaryExtension.ToNameValueCollection(IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(System.Nullable{IDictionary{System.String,System.String}})
+  name: ToNameValueCollection(Nullable<IDictionary<String, String>>)
+  href: docs/api/WeihanLi.Extensions.DictionaryExtension.html#WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_System_Nullable_IDictionary_System_String_System_String___
+  commentId: M:WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(System.Nullable{IDictionary{System.String,System.String}})
+  name.vb: ToNameValueCollection(Nullable(Of IDictionary(Of String, String)))
+  fullName: WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(System.Nullable<IDictionary<System.String, System.String>>)
+  fullName.vb: WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(System.Nullable(Of IDictionary(Of System.String, System.String)))
+  nameWithType: DictionaryExtension.ToNameValueCollection(Nullable<IDictionary<String, String>>)
+  nameWithType.vb: DictionaryExtension.ToNameValueCollection(Nullable(Of IDictionary(Of String, String)))
+- uid: WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(System.Nullable{IEnumerable{KeyValuePair{System.String,System.String}}})
+  name: ToNameValueCollection(Nullable<IEnumerable<KeyValuePair<String, String>>>)
+  href: docs/api/WeihanLi.Extensions.DictionaryExtension.html#WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_System_Nullable_IEnumerable_KeyValuePair_System_String_System_String____
+  commentId: M:WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(System.Nullable{IEnumerable{KeyValuePair{System.String,System.String}}})
+  name.vb: ToNameValueCollection(Nullable(Of IEnumerable(Of KeyValuePair(Of String, String))))
+  fullName: WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(System.Nullable<IEnumerable<KeyValuePair<System.String, System.String>>>)
+  fullName.vb: WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(System.Nullable(Of IEnumerable(Of KeyValuePair(Of System.String, System.String))))
+  nameWithType: DictionaryExtension.ToNameValueCollection(Nullable<IEnumerable<KeyValuePair<String, String>>>)
+  nameWithType.vb: DictionaryExtension.ToNameValueCollection(Nullable(Of IEnumerable(Of KeyValuePair(Of String, String))))
 - uid: WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection*
   name: ToNameValueCollection
   href: docs/api/WeihanLi.Extensions.DictionaryExtension.html#WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_
@@ -23146,31 +22970,6 @@ references:
   fullName.vb: WeihanLi.Extensions.ReflectionExtension.HasEmptyConstructor(Of T)(T)
   nameWithType: ReflectionExtension.HasEmptyConstructor<T>(T)
   nameWithType.vb: ReflectionExtension.HasEmptyConstructor(Of T)(T)
-- uid: WeihanLi.Extensions.ReflectionExtension.InvokeMethod*
-  name: InvokeMethod
-  href: docs/api/WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_InvokeMethod_
-  commentId: Overload:WeihanLi.Extensions.ReflectionExtension.InvokeMethod
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.ReflectionExtension.InvokeMethod
-  nameWithType: ReflectionExtension.InvokeMethod
-- uid: WeihanLi.Extensions.ReflectionExtension.InvokeMethod``1(``0,System.String,System.Object[])
-  name: InvokeMethod<T>(T, String, Object[])
-  href: docs/api/WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_InvokeMethod__1___0_System_String_System_Object___
-  commentId: M:WeihanLi.Extensions.ReflectionExtension.InvokeMethod``1(``0,System.String,System.Object[])
-  name.vb: InvokeMethod(Of T)(T, String, Object())
-  fullName: WeihanLi.Extensions.ReflectionExtension.InvokeMethod<T>(T, System.String, System.Object[])
-  fullName.vb: WeihanLi.Extensions.ReflectionExtension.InvokeMethod(Of T)(T, System.String, System.Object())
-  nameWithType: ReflectionExtension.InvokeMethod<T>(T, String, Object[])
-  nameWithType.vb: ReflectionExtension.InvokeMethod(Of T)(T, String, Object())
-- uid: WeihanLi.Extensions.ReflectionExtension.InvokeMethod``1(System.Object,System.String,System.Object[])
-  name: InvokeMethod<T>(Object, String, Object[])
-  href: docs/api/WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_InvokeMethod__1_System_Object_System_String_System_Object___
-  commentId: M:WeihanLi.Extensions.ReflectionExtension.InvokeMethod``1(System.Object,System.String,System.Object[])
-  name.vb: InvokeMethod(Of T)(Object, String, Object())
-  fullName: WeihanLi.Extensions.ReflectionExtension.InvokeMethod<T>(System.Object, System.String, System.Object[])
-  fullName.vb: WeihanLi.Extensions.ReflectionExtension.InvokeMethod(Of T)(System.Object, System.String, System.Object())
-  nameWithType: ReflectionExtension.InvokeMethod<T>(Object, String, Object[])
-  nameWithType.vb: ReflectionExtension.InvokeMethod(Of T)(Object, String, Object())
 - uid: WeihanLi.Extensions.ReflectionExtension.IsArray*
   name: IsArray
   href: docs/api/WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsArray_
@@ -23209,22 +23008,6 @@ references:
   fullName.vb: WeihanLi.Extensions.ReflectionExtension.IsAttributeDefined(Of T)(System.Object, System.Boolean)
   nameWithType: ReflectionExtension.IsAttributeDefined<T>(Object, Boolean)
   nameWithType.vb: ReflectionExtension.IsAttributeDefined(Of T)(Object, Boolean)
-- uid: WeihanLi.Extensions.ReflectionExtension.IsClass*
-  name: IsClass
-  href: docs/api/WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsClass_
-  commentId: Overload:WeihanLi.Extensions.ReflectionExtension.IsClass
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.ReflectionExtension.IsClass
-  nameWithType: ReflectionExtension.IsClass
-- uid: WeihanLi.Extensions.ReflectionExtension.IsClass``1(``0)
-  name: IsClass<T>(T)
-  href: docs/api/WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsClass__1___0_
-  commentId: M:WeihanLi.Extensions.ReflectionExtension.IsClass``1(``0)
-  name.vb: IsClass(Of T)(T)
-  fullName: WeihanLi.Extensions.ReflectionExtension.IsClass<T>(T)
-  fullName.vb: WeihanLi.Extensions.ReflectionExtension.IsClass(Of T)(T)
-  nameWithType: ReflectionExtension.IsClass<T>(T)
-  nameWithType.vb: ReflectionExtension.IsClass(Of T)(T)
 - uid: WeihanLi.Extensions.ReflectionExtension.IsDefined(Assembly,System.Type)
   name: IsDefined(Assembly, Type)
   href: docs/api/WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsDefined_Assembly_System_Type_

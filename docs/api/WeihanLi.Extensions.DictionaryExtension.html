@@ -1172,12 +1172,12 @@ dictionary, or the new value for the key as returned by valueFactory if the key 
   
   
   <a id="WeihanLi_Extensions_DictionaryExtension_ToKeyValuePair_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToKeyValuePair*"></a>
-  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToKeyValuePair_NameValueCollection_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToKeyValuePair(NameValueCollection)">ToKeyValuePair(NameValueCollection)</h4>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToKeyValuePair_System_Nullable_NameValueCollection__" data-uid="WeihanLi.Extensions.DictionaryExtension.ToKeyValuePair(System.Nullable{NameValueCollection})">ToKeyValuePair(Nullable&lt;NameValueCollection&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; ToKeyValuePair(this NameValueCollection collection)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; ToKeyValuePair(this NameValueCollection? collection)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1190,7 +1190,7 @@ dictionary, or the new value for the key as returned by valueFactory if the key 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">NameValueCollection</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">NameValueCollection</span>&gt;</td>
         <td><span class="parametername">collection</span></td>
         <td></td>
       </tr>
@@ -1214,13 +1214,13 @@ dictionary, or the new value for the key as returned by valueFactory if the key 
   
   
   <a id="WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection*"></a>
-  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_IDictionary_System_String_System_String__" data-uid="WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(IDictionary{System.String,System.String})">ToNameValueCollection(IDictionary&lt;String, String&gt;)</h4>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_System_Nullable_IDictionary_System_String_System_String___" data-uid="WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(System.Nullable{IDictionary{System.String,System.String}})">ToNameValueCollection(Nullable&lt;IDictionary&lt;String, String&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>An IDictionary&lt;string,string&gt; extension method that converts the @this to a name value collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static NameValueCollection ToNameValueCollection(this IDictionary&lt;string, string&gt; this)</code></pre>
+    <pre><code class="lang-csharp hljs">public static NameValueCollection ToNameValueCollection(this IDictionary&lt;string, string&gt;? this)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1233,7 +1233,7 @@ dictionary, or the new value for the key as returned by valueFactory if the key 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
         <td><span class="parametername">this</span></td>
         <td><p>The @this to act on.</p>
 </td>
@@ -1259,12 +1259,12 @@ dictionary, or the new value for the key as returned by valueFactory if the key 
   
   
   <a id="WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_" data-uid="WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection*"></a>
-  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_IEnumerable_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(IEnumerable{KeyValuePair{System.String,System.String}})">ToNameValueCollection(IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</h4>
+  <h4 id="WeihanLi_Extensions_DictionaryExtension_ToNameValueCollection_System_Nullable_IEnumerable_KeyValuePair_System_String_System_String____" data-uid="WeihanLi.Extensions.DictionaryExtension.ToNameValueCollection(System.Nullable{IEnumerable{KeyValuePair{System.String,System.String}}})">ToNameValueCollection(Nullable&lt;IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static NameValueCollection ToNameValueCollection(this IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; source)</code></pre>
+    <pre><code class="lang-csharp hljs">public static NameValueCollection ToNameValueCollection(this IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? source)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1277,7 +1277,7 @@ dictionary, or the new value for the key as returned by valueFactory if the key 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;&gt;</td>
         <td><span class="parametername">source</span></td>
         <td></td>
       </tr>

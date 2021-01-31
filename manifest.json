@@ -1320,7 +1320,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.GuidIdGenerator.html",
-          "hash": "39xtelIdCRnw7lCkhHFE1w=="
+          "hash": "GzCFvkrZMzFxP+d6sKMPeg=="
         }
       },
       "is_incremental": false,
@@ -1369,18 +1369,6 @@
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Helpers.AsyncPropertyEnricher-1.html",
           "hash": "GUBbSSQ3avm0UvBVMIDnSQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "docs/api/WeihanLi.Common.Helpers.AtomicCounter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "docs/api/WeihanLi.Common.Helpers.AtomicCounter.html",
-          "hash": "EnWb65MegonD040npwGAuw=="
         }
       },
       "is_incremental": false,
@@ -1884,7 +1872,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Helpers.ProfilerHelper.html",
-          "hash": "t2mzGZRgW/dD4prM0jL6mA=="
+          "hash": "yUxKdbqDi2ScxBH1AVZ+LA=="
         }
       },
       "is_incremental": false,
@@ -2000,11 +1988,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "docs/api/WeihanLi.Common.Helpers.StopWatchStopper.yml",
+      "source_relative_path": "docs/api/WeihanLi.Common.Helpers.StopwatchStopper.yml",
       "output": {
         ".html": {
-          "relative_path": "docs/api/WeihanLi.Common.Helpers.StopWatchStopper.html",
-          "hash": "jkPPaMiaXmyZJraual+Ryw=="
+          "relative_path": "docs/api/WeihanLi.Common.Helpers.StopwatchStopper.html",
+          "hash": "+VxBKDvmocwf46stZ+hLBQ=="
         }
       },
       "is_incremental": false,
@@ -2076,7 +2064,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Helpers.html",
-          "hash": "b+wcNsc1f/f0AVCJ+7QAVA=="
+          "hash": "maRMtWb9AXbQuO302exEYw=="
         }
       },
       "is_incremental": false,
@@ -2304,7 +2292,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html",
-          "hash": "vOlfAM6n9hR3iYKSzFYeTA=="
+          "hash": "wB+d/JZCDl/KpykrSHK+kQ=="
         }
       },
       "is_incremental": false,
@@ -2328,7 +2316,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Logging.ILogHelperProvider.html",
-          "hash": "Qqmpo01ECmb1WZwv6m26mQ=="
+          "hash": "Zw8+x7ZRJjEp5+FV8o3JOQ=="
         }
       },
       "is_incremental": false,
@@ -2388,7 +2376,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Logging.LogHelperExtensions.html",
-          "hash": "wG97ZhAL2uNX1qq0Kdg+6g=="
+          "hash": "tiB9oqEDygBzCCG4wuY3iw=="
         }
       },
       "is_incremental": false,
@@ -2401,6 +2389,18 @@
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Logging.LogHelperLogLevel.html",
           "hash": "LPY2E8YXUxu338lT2DPNaQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html",
+          "hash": "jjd9f7WzuMvhC4ao14+pJg=="
         }
       },
       "is_incremental": false,
@@ -2460,7 +2460,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Logging.html",
-          "hash": "WkwKDKYKzaBsx2xn5vIq4A=="
+          "hash": "8QMu6pNEFf0rfFruuSjJ7A=="
         }
       },
       "is_incremental": false,
@@ -3024,7 +3024,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Data.SqlExtensions.html",
-          "hash": "Ht7Pz/ywcchN1NbSjuCxvA=="
+          "hash": "82VoHyBtlPQnszAQilYzhA=="
         }
       },
       "is_incremental": false,
@@ -3072,7 +3072,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Extensions.CollectionExtension.html",
-          "hash": "LRyDQaDxOB6DXEgA/aGPEw=="
+          "hash": "HU8MBkoWNmZ+tAI3ohyPyw=="
         }
       },
       "is_incremental": false,
@@ -3096,7 +3096,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Extensions.CoreExtension.html",
-          "hash": "MvzGAvhmR1bbbO0xMta8UQ=="
+          "hash": "2xJRSG1VcqejReuK2gbovw=="
         }
       },
       "is_incremental": false,
@@ -3132,7 +3132,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Extensions.DictionaryExtension.html",
-          "hash": "Aj+mxNBaMw6eMz5XAqZZ0g=="
+          "hash": "klzPbhHlI+wV/IjxgLuy0g=="
         }
       },
       "is_incremental": false,
@@ -3276,7 +3276,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Extensions.ReflectionExtension.html",
-          "hash": "GeafSBAmi+yFMZ4jQEGkcw=="
+          "hash": "snA6BhqVL0ri57OMGyPC4g=="
         }
       },
       "is_incremental": false,
@@ -3348,7 +3348,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/toc.html",
-          "hash": "BB+EiJnwWGqSV9SJHEzaxA=="
+          "hash": "I/P7/S9Hqid8NtnrzZJGWQ=="
         }
       },
       "is_incremental": false,
