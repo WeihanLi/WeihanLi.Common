@@ -58,10 +58,10 @@ namespace WeihanLi.Common.Test.ExtensionsTest
         [InlineData("", "123")]
         [InlineData(null, "123")]
         [InlineData(null, null)]
-        public void TrimStart(string value, string start)
+        public void TrimStart(string? value, string? start)
         {
-            var expected = start.IsNotNullOrEmpty() && value?.StartsWith(start) == true ? value.Substring(start.Length) : value;
-            Assert.Equal(expected, value.TrimStart(start));
+            var expected = start.IsNotNullOrEmpty() && value?.StartsWith(start!) == true ? value.Substring(start!.Length) : value;
+            Assert.Equal(expected, value!.TrimStart(start!));
         }
 
         [Theory]

@@ -14,8 +14,6 @@ namespace WeihanLi.Extensions
 {
     public static class ReflectionExtension
     {
-#nullable disable warnings
-
         public static MethodInfo? GetMethodBySignature(this Type type, MethodInfo method)
         {
             if (type == null)
@@ -128,7 +126,7 @@ namespace WeihanLi.Extensions
         /// GetDescription
         /// </summary>
         /// <returns></returns>
-        public static string GetDescription([NotNull] this MemberInfo @this) => @this.GetCustomAttribute<DescriptionAttribute>()?.Description ?? String.Empty;
+        public static string GetDescription([NotNull] this MemberInfo @this) => @this.GetCustomAttribute<DescriptionAttribute>()?.Description ?? @this.Name;
 
         /// <summary>A T extension method that searches for the public field with the specified name.</summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
@@ -160,6 +158,11 @@ namespace WeihanLi.Extensions
         /// </returns>
         public static FieldInfo? GetField<T>([NotNull] this T @this, string name, BindingFlags bindingAttr)
         {
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
             return @this.GetType().GetField(name, bindingAttr);
         }
 
@@ -220,6 +223,11 @@ namespace WeihanLi.Extensions
         /// </returns>
         public static MethodInfo? GetMethod<T>([NotNull] this T @this, string name, BindingFlags bindingAttr)
         {
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
             return @this.GetType().GetMethod(name, bindingAttr);
         }
 
@@ -234,6 +242,11 @@ namespace WeihanLi.Extensions
         /// </returns>
         public static MethodInfo[] GetMethods<T>([NotNull] this T @this)
         {
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
             return CacheUtil.TypeMethodCache.GetOrAdd(@this.GetType(), t => t.GetMethods());
         }
 
@@ -251,6 +264,11 @@ namespace WeihanLi.Extensions
         /// </returns>
         public static MethodInfo[] GetMethods<T>([NotNull] this T @this, BindingFlags bindingAttr)
         {
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
             return @this.GetType().GetMethods(bindingAttr);
         }
 
@@ -278,8 +296,13 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="name">The name.</param>
         /// <returns>The property.</returns>
-        public static PropertyInfo? GetProperty<T>([NotNull] this T @this, [NotNull] string name)
+        public static PropertyInfo? GetProperty<T>([NotNull] this T @this, string name)
         {
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
             return CacheUtil.GetTypeProperties(@this.GetType()).FirstOrDefault(_ => _.Name == name);
         }
 
@@ -293,6 +316,11 @@ namespace WeihanLi.Extensions
         /// <returns>The property.</returns>
         public static PropertyInfo? GetProperty<T>([NotNull] this T @this, string name, BindingFlags bindingAttr)
         {
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
             return @this.GetType().GetProperty(name, bindingAttr);
         }
 
@@ -323,41 +351,7 @@ namespace WeihanLi.Extensions
         public static object? GetPropertyValue<T>([NotNull] this T @this, string propertyName)
         {
             var property = @this.GetProperty(propertyName);
-
             return property?.GetValueGetter<T>()?.Invoke(@this);
-        }
-
-        /// <summary>
-        ///     An object extension method that executes the method on a different thread, and waits for the result.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="obj">The obj to act on.</param>
-        /// <param name="methodName">Name of the method.</param>
-        /// <param name="parameters">Options for controlling the operation.</param>
-        /// <returns>An object.</returns>
-        public static object? InvokeMethod<T>([NotNull] this T obj, string methodName, params object[] parameters)
-        {
-            var type = obj.GetType();
-            var method = type.GetMethod(methodName, parameters.Select(o => o.GetType()).ToArray());
-
-            return method?.Invoke(obj, parameters);
-        }
-
-        /// <summary>
-        ///     An object extension method that executes the method on a different thread, and waits for the result.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="obj">The obj to act on.</param>
-        /// <param name="methodName">Name of the method.</param>
-        /// <param name="parameters">Options for controlling the operation.</param>
-        /// <returns>A T.</returns>
-        public static T InvokeMethod<T>([NotNull] this object obj, string methodName, params object[] parameters)
-        {
-            var type = obj.GetType();
-            var method = type.GetMethod(methodName, parameters.Select(o => o.GetType()).ToArray());
-
-            var value = method?.Invoke(obj, parameters);
-            return value.ToOrDefault<T>();
         }
 
         /// <summary>
@@ -391,8 +385,13 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="fieldName">Name of the field.</param>
         /// <param name="value">The value.</param>
-        public static void SetFieldValue<T>([NotNull] this T @this, string fieldName, object value)
+        public static void SetFieldValue<T>([NotNull] this T @this, string fieldName, object? value)
         {
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
             var type = @this.GetType();
             var field = type.GetField(fieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
             field?.SetValue(@this, value);
@@ -405,7 +404,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <param name="value">The value.</param>
-        public static void SetPropertyValue<T>([NotNull] this T @this, string propertyName, object value) where T : class
+        public static void SetPropertyValue<T>([NotNull] this T @this, string propertyName, object? value) where T : class
         {
             var property = @this.GetProperty(propertyName);
             property?.GetValueSetter()?.Invoke(@this, value);
@@ -435,7 +434,7 @@ namespace WeihanLi.Extensions
                 Debug.Assert(propertyInfo.DeclaringType != null);
 
                 var instance = Expression.Parameter(typeof(object), "obj");
-                var getterCall = Expression.Call(propertyInfo.DeclaringType.IsValueType
+                var getterCall = Expression.Call(propertyInfo.DeclaringType!.IsValueType
                     ? Expression.Unbox(instance, propertyInfo.DeclaringType)
                     : Expression.Convert(instance, propertyInfo.DeclaringType), prop.GetGetMethod());
                 var castToObject = Expression.Convert(getterCall, typeof(object));
@@ -453,12 +452,13 @@ namespace WeihanLi.Extensions
                 var instance = Expression.Parameter(typeof(T), "i");
                 var argument = Expression.Parameter(typeof(object), "a");
                 var setterCall = Expression.Call(instance, prop.GetSetMethod(), Expression.Convert(argument, prop.PropertyType));
-                return (Action<T, object>)Expression.Lambda(setterCall, instance, argument).Compile();
+                return (Action<T, object?>)Expression.Lambda(setterCall, instance, argument).Compile();
             });
         }
 
-        public static Action<object, object?>? GetValueSetter([NotNull] this PropertyInfo propertyInfo)
+        public static Action<object, object?>? GetValueSetter(this PropertyInfo propertyInfo)
         {
+            Guard.NotNull(propertyInfo, nameof(propertyInfo));
             return CacheUtil.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
             {
                 if (!prop.CanWrite)
@@ -507,18 +507,12 @@ namespace WeihanLi.Extensions
         /// <returns>true if array, false if not.</returns>
         public static bool IsArray<T>([NotNull] this T @this)
         {
-            return @this.GetType().IsArray;
-        }
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
 
-        /// <summary>
-        ///     A T extension method that query if '@this' is class.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>true if class, false if not.</returns>
-        public static bool IsClass<T>([NotNull] this T @this)
-        {
-            return @this.GetType().IsClass;
+            return @this.GetType().IsArray;
         }
 
         /// <summary>

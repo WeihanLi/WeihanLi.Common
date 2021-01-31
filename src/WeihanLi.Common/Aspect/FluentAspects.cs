@@ -22,7 +22,7 @@ namespace WeihanLi.Common.Aspect
 
         public static void Configure(Action<FluentAspectOptions> optionsAction)
         {
-            optionsAction?.Invoke(AspectOptions);
+            Guard.NotNull(optionsAction, nameof(optionsAction)).Invoke(AspectOptions);
         }
     }
 }

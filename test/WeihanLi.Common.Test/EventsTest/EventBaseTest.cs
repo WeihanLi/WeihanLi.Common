@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Test.EventsTest
 {
     public class TestEvent : EventBase
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
     }
 
     public class TestEventHandler : EventHandlerBase<TestEvent>
@@ -50,7 +50,7 @@ namespace WeihanLi.Common.Test.EventsTest
 
             var deserializedEvent = eventFromMsg as TestEvent;
             Assert.NotNull(deserializedEvent);
-            Assert.Equal(testEvent.EventId, deserializedEvent.EventId);
+            Assert.Equal(testEvent.EventId, deserializedEvent!.EventId);
             Assert.Equal(testEvent.EventAt, deserializedEvent.EventAt);
             Assert.Equal(testEvent.Name, deserializedEvent.Name);
         }

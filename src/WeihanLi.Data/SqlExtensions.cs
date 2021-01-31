@@ -42,7 +42,7 @@ ORDER BY c.[column_id];
 
         public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName) => BulkCopy(conn, list, tableName, 60);
 
-        public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName, int bulkCopyTimeout)
+        public static int BulkCopy<T>(this SqlConnection conn, IReadOnlyCollection<T>? list, string tableName, int bulkCopyTimeout)
         {
             if (list == null || list.Count == 0)
             {
@@ -96,37 +96,35 @@ ORDER BY c.[column_id];
         /// <param name="columnMappings">columnMappings</param>
         /// <param name="bulkCopyTimeout">bulkCopyTimeout</param>
         /// <returns></returns>
-        public static int BulkCopy([NotNull] this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string> columnMappings, int bulkCopyTimeout = 60)
+        public static int BulkCopy([NotNull] this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string>? columnMappings, int bulkCopyTimeout = 60)
         {
             conn.EnsureOpen();
-            using (var bulkCopy = new SqlBulkCopy(conn))
+            using var bulkCopy = new SqlBulkCopy(conn);
+            if (null == columnMappings)
             {
-                if (null == columnMappings)
+                for (var i = 0; i < dataTable.Columns.Count; i++)
                 {
-                    for (var i = 0; i < dataTable.Columns.Count; i++)
-                    {
-                        bulkCopy.ColumnMappings.Add(dataTable.Columns[i].ColumnName, dataTable.Columns[i].ColumnName);
-                    }
+                    bulkCopy.ColumnMappings.Add(dataTable.Columns[i].ColumnName, dataTable.Columns[i].ColumnName);
                 }
-                else
-                {
-                    foreach (var columnMapping in columnMappings)
-                    {
-                        bulkCopy.ColumnMappings.Add(columnMapping.Key, columnMapping.Value);
-                    }
-                }
-
-                bulkCopy.BatchSize = batchSize;
-                bulkCopy.BulkCopyTimeout = bulkCopyTimeout;
-                bulkCopy.DestinationTableName = destinationTableName;
-                bulkCopy.WriteToServer(dataTable);
-                return 1;
             }
+            else
+            {
+                foreach (var columnMapping in columnMappings)
+                {
+                    bulkCopy.ColumnMappings.Add(columnMapping.Key, columnMapping.Value);
+                }
+            }
+
+            bulkCopy.BatchSize = batchSize;
+            bulkCopy.BulkCopyTimeout = bulkCopyTimeout;
+            bulkCopy.DestinationTableName = destinationTableName;
+            bulkCopy.WriteToServer(dataTable);
+            return 1;
         }
 
         public static Task<int> BulkCopyAsync<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName) => BulkCopyAsync(conn, list, tableName, 60);
 
-        public static async Task<int> BulkCopyAsync<T>(this SqlConnection conn, IReadOnlyCollection<T> list, string tableName, int bulkCopyTimeout)
+        public static async Task<int> BulkCopyAsync<T>(this SqlConnection conn, IReadOnlyCollection<T>? list, string tableName, int bulkCopyTimeout)
         {
             if (list == null || list.Count == 0)
             {
@@ -179,32 +177,30 @@ ORDER BY c.[column_id];
         /// <param name="columnMappings">columnMappings</param>
         /// <param name="bulkCopyTimeout">bulkCopyTimeout</param>
         /// <returns></returns>
-        public static async Task<int> BulkCopyAsync([NotNull] this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string> columnMappings, int bulkCopyTimeout = 60)
+        public static async Task<int> BulkCopyAsync([NotNull] this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string>? columnMappings, int bulkCopyTimeout = 60)
         {
             await conn.EnsureOpenAsync();
-            using (var bulkCopy = new SqlBulkCopy(conn))
+            using var bulkCopy = new SqlBulkCopy(conn);
+            if (null == columnMappings)
             {
-                if (null == columnMappings)
+                for (var i = 0; i < dataTable.Columns.Count; i++)
                 {
-                    for (var i = 0; i < dataTable.Columns.Count; i++)
-                    {
-                        bulkCopy.ColumnMappings.Add(dataTable.Columns[i].ColumnName, dataTable.Columns[i].ColumnName);
-                    }
+                    bulkCopy.ColumnMappings.Add(dataTable.Columns[i].ColumnName, dataTable.Columns[i].ColumnName);
                 }
-                else
-                {
-                    foreach (var columnMapping in columnMappings)
-                    {
-                        bulkCopy.ColumnMappings.Add(columnMapping.Key, columnMapping.Value);
-                    }
-                }
-
-                bulkCopy.BatchSize = batchSize;
-                bulkCopy.BulkCopyTimeout = bulkCopyTimeout;
-                bulkCopy.DestinationTableName = destinationTableName;
-                await bulkCopy.WriteToServerAsync(dataTable);
-                return 1;
             }
+            else
+            {
+                foreach (var columnMapping in columnMappings)
+                {
+                    bulkCopy.ColumnMappings.Add(columnMapping.Key, columnMapping.Value);
+                }
+            }
+
+            bulkCopy.BatchSize = batchSize;
+            bulkCopy.BulkCopyTimeout = bulkCopyTimeout;
+            bulkCopy.DestinationTableName = destinationTableName;
+            await bulkCopy.WriteToServerAsync(dataTable);
+            return 1;
         }
 
         #endregion SqlConnection

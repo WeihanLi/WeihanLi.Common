@@ -52,7 +52,7 @@ namespace WeihanLi.Common.Helpers.PeriodBatching
             _queue = new BoundedConcurrentQueue<TEvent>();
             _status = new BatchedConnectionStatus(period);
 
-            _timer = new PortableTimer(cancel => OnTick());
+            _timer = new PortableTimer(_ => OnTick());
         }
 
         /// <summary>

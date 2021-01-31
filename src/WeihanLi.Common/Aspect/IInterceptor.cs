@@ -23,12 +23,13 @@ namespace WeihanLi.Common.Aspect
         }
     }
 
-    internal class DisposableInterceptor : IInterceptor
+    internal sealed class DisposableInterceptor : IInterceptor
     {
         public async Task Invoke(IInvocation invocation, Func<Task> next)
         {
             await next();
             // avoid cycling call
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
             if (invocation.Target != null
                 && invocation.Target != invocation.ProxyTarget
                 && invocation.ProxyMethod.Name == nameof(IDisposable.Dispose)

@@ -14,7 +14,7 @@ namespace WeihanLi.Common.Aspect.AspectCore
             _serviceProvider = serviceProvider;
         }
 
-        public object CreateProxy(Type serviceType, object[] arguments)
+        public object CreateProxy(Type serviceType, object?[] arguments)
         {
             if (null == serviceType)
                 throw new ArgumentNullException(nameof(serviceType));
@@ -26,7 +26,7 @@ namespace WeihanLi.Common.Aspect.AspectCore
             return AspectCoreHelper.ProxyGenerator.CreateClassProxy(serviceType, serviceType, ctorArguments);
         }
 
-        public object CreateProxy(Type serviceType, Type implementType, params object[] arguments)
+        public object CreateProxy(Type serviceType, Type implementType, params object?[] arguments)
         {
             if (null == serviceType)
                 throw new ArgumentNullException(nameof(serviceType));
@@ -42,7 +42,7 @@ namespace WeihanLi.Common.Aspect.AspectCore
             return AspectCoreHelper.ProxyGenerator.CreateClassProxy(serviceType, implementType, ctorArguments);
         }
 
-        public object CreateProxyWithTarget(Type serviceType, object implement, object[] arguments)
+        public object CreateProxyWithTarget(Type serviceType, object implement, object?[] arguments)
         {
             if (null == serviceType)
                 throw new ArgumentNullException(nameof(serviceType));

@@ -43,7 +43,8 @@ namespace WeihanLi.Common.Event
                 return Handle(eventDataJson.JsonToObject<TEvent>());
             }
 
-            throw new ArgumentException($"unsupported eventDataType:{eventData.GetType()}", nameof(eventData));
+            // ReSharper disable once LocalizableElement
+            throw new ArgumentException($"Unsupported event DataType:{eventData.GetType()}", nameof(eventData));
         }
     }
 }

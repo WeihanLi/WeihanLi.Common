@@ -4,7 +4,7 @@ using Xunit;
 
 namespace WeihanLi.Common.Test.ExtensionsTest
 {
-    public class TypeExtensionsTest
+    public class TaskExtensionsTest
     {
         [Fact]
         public void CancellationTokenAsTask()

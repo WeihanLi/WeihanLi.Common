@@ -47,16 +47,13 @@ namespace WeihanLi.Common.Helpers
         {
             var result = string.Empty;
 
-            if (bytes != null)
-            {
-                var bi = new BigInteger(bytes);
+            var bi = new BigInteger(bytes);
 
-                do
-                {
-                    result = Charset[(int)(bi % 62)] + result;
-                    bi = bi / 62;
-                } while (bi > 0);
-            }
+            do
+            {
+                result = Charset[(int)(bi % 62)] + result;
+                bi /= 62;
+            } while (bi > 0);
 
             return result;
         }
@@ -176,15 +173,12 @@ namespace WeihanLi.Common.Helpers
         {
             var result = string.Empty;
 
-            if (bytes != null)
+            var bi = new BigInteger(bytes);
+            do
             {
-                var bi = new BigInteger(bytes);
-                do
-                {
-                    result = Charset[(int)(bi % 36)] + result;
-                    bi = bi / 36;
-                } while (bi > 0);
-            }
+                result = Charset[(int)(bi % 36)] + result;
+                bi = bi / 36;
+            } while (bi > 0);
 
             return result;
         }

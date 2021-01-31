@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DotNetCoreSample.Test
 {
     public class PagedListModel1<T> : IEnumerable<T>
     {
-        public IReadOnlyList<T> Data { get; set; }
+        public IReadOnlyList<T> Data { get; set; } = Array.Empty<T>();
 
         private int _pageNumber = 1;
 

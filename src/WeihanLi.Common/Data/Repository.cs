@@ -427,7 +427,7 @@ SET {propertyValues.Keys.Select(p => $"{GetColumnName(p)}=@set_{p}").StringJoin(
             return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
-        public virtual int Update(TEntity entity, params Expression<Func<TEntity, object>>[] propertyExpressions)
+        public virtual int Update(TEntity entity, params Expression<Func<TEntity, object?>>[] propertyExpressions)
         {
             if (propertyExpressions.Length == 0)
             {
@@ -464,7 +464,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.Execute(sql, parameters);
         }
 
-        public virtual int UpdateWithout(TEntity entity, params Expression<Func<TEntity, object>>[] propertyExpressions)
+        public virtual int UpdateWithout(TEntity entity, params Expression<Func<TEntity, object?>>[] propertyExpressions)
         {
             Guard.NotNull(propertyExpressions, nameof(propertyExpressions));
 
@@ -618,7 +618,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.ExecuteAsync(sql, paramInfo: parameters, cancellationToken: cancellationToken);
         }
 
-        public virtual Task<int> UpdateAsync(TEntity entity, Expression<Func<TEntity, object>>[] propertyExpressions, CancellationToken cancellationToken = default)
+        public virtual Task<int> UpdateAsync(TEntity entity, Expression<Func<TEntity, object?>>[] propertyExpressions, CancellationToken cancellationToken = default)
         {
             Guard.NotNull(propertyExpressions, nameof(propertyExpressions));
 
@@ -657,7 +657,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.ExecuteAsync(sql, parameters, cancellationToken: cancellationToken);
         }
 
-        public virtual Task<int> UpdateWithoutAsync(TEntity entity, Expression<Func<TEntity, object>>[] propertyExpressions,
+        public virtual Task<int> UpdateWithoutAsync(TEntity entity, Expression<Func<TEntity, object?>>[] propertyExpressions,
             CancellationToken cancellationToken = default)
         {
             var keyEntries = PrimaryKeyColumns.Value

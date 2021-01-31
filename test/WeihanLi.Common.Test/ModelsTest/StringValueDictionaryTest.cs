@@ -72,7 +72,7 @@ namespace WeihanLi.Common.Test.ModelsTest
         {
             var abc = new { Id = 1, Name = "Tom" };
             var stringValueDictionary = StringValueDictionary.FromObject(abc);
-            Dictionary<string, string> dictionary = stringValueDictionary;
+            Dictionary<string, string> dictionary = stringValueDictionary!;
             Assert.Equal(stringValueDictionary.Count, dictionary.Count);
 
             var dic2 = StringValueDictionary.FromObject(dictionary);

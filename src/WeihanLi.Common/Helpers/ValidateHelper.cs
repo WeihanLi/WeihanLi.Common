@@ -32,37 +32,37 @@ namespace WeihanLi.Common.Helpers
         /// <summary>
         /// 是否为邮箱名
         /// </summary>
-        public static bool IsEmail(string s)
+        public static bool IsEmail(string? s)
         {
             if (string.IsNullOrEmpty(s))
             {
                 return false;
             }
-            return _emailregex.IsMatch(s);
+            return _emailregex.IsMatch(s!);
         }
 
         /// <summary>
         /// 是否为手机号
         /// </summary>
-        public static bool IsMobile(string s)
+        public static bool IsMobile(string? s)
         {
             if (string.IsNullOrEmpty(s))
             {
                 return false;
             }
-            return _mobileregex.IsMatch(s);
+            return _mobileregex.IsMatch(s!);
         }
 
         /// <summary>
         /// 是否为固话号
         /// </summary>
-        public static bool IsPhone(string str)
+        public static bool IsPhone(string? str)
         {
             if (string.IsNullOrEmpty(str))
             {
                 return false;
             }
-            return _phoneregex.IsMatch(str);
+            return _phoneregex.IsMatch(str!);
         }
 
         /// <summary>
@@ -96,27 +96,27 @@ namespace WeihanLi.Common.Helpers
         /// <summary>
         /// 是否为18位身份证号
         /// </summary>
-        private static bool CheckIDCard18(string Id)
+        private static bool CheckIDCard18(string? id)
         {
-            long n = 0;
-            if (long.TryParse(Id.Remove(17), out n) == false || n < Math.Pow(10, 16) || long.TryParse(Id.Replace('x', '0').Replace('X', '0'), out n) == false)
+            long n;
+            if (long.TryParse(id!.Remove(17), out n) == false || n < Math.Pow(10, 16) || long.TryParse(id.Replace('x', '0').Replace('X', '0'), out n) == false)
             {
                 return false;//数字验证
             }
 
             var address = "11x22x35x44x53x12x23x36x45x54x13x31x37x46x61x14x32x41x50x62x15x33x42x51x63x21x34x43x52x64x65x71x81x82x91";
-            if (address.IndexOf(Id.Remove(2), StringComparison.OrdinalIgnoreCase) == -1)
+            if (address.IndexOf(id.Remove(2), StringComparison.OrdinalIgnoreCase) == -1)
             {
                 return false;//省份验证
             }
 
-            var birth = Id.Substring(6, 8).Insert(6, "-").Insert(4, "-");
-            if (DateTime.TryParse(birth, out var time) == false)
+            var birth = id.Substring(6, 8).Insert(6, "-").Insert(4, "-");
+            if (DateTime.TryParse(birth, out _) == false)
                 return false;//生日验证
 
             var arrVarifyCode = ("1,0,x,9,8,7,6,5,4,3,2").Split(',');
             var Wi = ("7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2").Split(',');
-            var Ai = Id.Remove(17).ToCharArray();
+            var Ai = id.Remove(17).ToCharArray();
             var sum = 0;
             for (var i = 0; i < 17; i++)
             {
@@ -124,7 +124,7 @@ namespace WeihanLi.Common.Helpers
             }
 
             var y = sum % 11;
-            if (arrVarifyCode[y] != Id.Substring(17, 1).ToLower())
+            if (arrVarifyCode[y] != id.Substring(17, 1).ToLower())
             {
                 return false;//校验码验证
             }
@@ -135,21 +135,20 @@ namespace WeihanLi.Common.Helpers
         /// <summary>
         /// 是否为15位身份证号
         /// </summary>
-        private static bool CheckIDCard15(string Id)
+        private static bool CheckIDCard15(string? id)
         {
-            long n = 0;
-            if (long.TryParse(Id, out n) == false || n < Math.Pow(10, 14))
+            if (long.TryParse(id, out var n) == false || n < Math.Pow(10, 14))
             {
                 return false;//数字验证
             }
 
             var address = "11x22x35x44x53x12x23x36x45x54x13x31x37x46x61x14x32x41x50x62x15x33x42x51x63x21x34x43x52x64x65x71x81x82x91";
-            if (address.IndexOf(Id.Remove(2), StringComparison.OrdinalIgnoreCase) == -1)
+            if (address.IndexOf(id!.Remove(2), StringComparison.OrdinalIgnoreCase) == -1)
             {
                 return false;//省份验证
             }
 
-            var birth = Id.Substring(6, 6).Insert(4, "-").Insert(2, "-");
+            var birth = id.Substring(6, 6).Insert(4, "-").Insert(2, "-");
             if (DateTime.TryParse(birth, out _) == false)
             {
                 return false;//生日验证
@@ -161,35 +160,35 @@ namespace WeihanLi.Common.Helpers
         /// <summary>
         /// 是否为日期
         /// </summary>
-        public static bool IsDate(string str)
+        public static bool IsDate(string? str)
         {
             if (string.IsNullOrEmpty(str))
             {
                 return false;
             }
-            return _dateregex.IsMatch(str);
+            return _dateregex.IsMatch(str!);
         }
 
         /// <summary>
         /// 是否是数值(包括整数和小数)
         /// </summary>
-        public static bool IsNumeric(string numericStr)
+        public static bool IsNumeric(string? numericStr)
         {
             if (string.IsNullOrEmpty(numericStr))
             {
                 return false;
             }
-            return _numericregex.IsMatch(numericStr);
+            return _numericregex.IsMatch(numericStr!);
         }
 
         /// <summary>
         /// 是否为邮政编码
         /// </summary>
-        public static bool IsZipCode(string s)
+        public static bool IsZipCode(string? s)
         {
-            if (string.IsNullOrEmpty(s))
+            if (!string.IsNullOrEmpty(s))
             {
-                return _zipcoderegex.IsMatch(s);
+                return _zipcoderegex.IsMatch(s!);
             }
             return false;
         }

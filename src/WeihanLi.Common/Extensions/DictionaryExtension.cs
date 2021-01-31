@@ -315,7 +315,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a NameValueCollection.</returns>
-        public static NameValueCollection ToNameValueCollection(this IDictionary<string, string> @this)
+        public static NameValueCollection ToNameValueCollection(this IDictionary<string, string>? @this)
         {
             if (@this == null)
             {
@@ -329,7 +329,7 @@ namespace WeihanLi.Extensions
             return col;
         }
 
-        public static NameValueCollection ToNameValueCollection(this IEnumerable<KeyValuePair<string, string>> source)
+        public static NameValueCollection ToNameValueCollection(this IEnumerable<KeyValuePair<string, string>>? source)
         {
             if (source == null)
             {
@@ -414,7 +414,7 @@ namespace WeihanLi.Extensions
 
         public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>([NotNull] this IEnumerable<KeyValuePair<TKey, TValue>> source) => source.ToDictionary(pair => pair.Key, pair => pair.Value);
 
-        public static IEnumerable<KeyValuePair<string, string>> ToKeyValuePair(this NameValueCollection collection)
+        public static IEnumerable<KeyValuePair<string, string>> ToKeyValuePair(this NameValueCollection? collection)
         {
             if (collection == null || collection.Count == 0)
             {

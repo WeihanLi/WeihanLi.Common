@@ -14,7 +14,7 @@ namespace WeihanLi.Common.Aspect.Castle
             _serviceProvider = serviceProvider;
         }
 
-        public object CreateProxy(Type serviceType, object[] arguments)
+        public object CreateProxy(Type serviceType, object?[] arguments)
         {
             if (null == serviceType)
                 throw new ArgumentNullException(nameof(serviceType));
@@ -31,7 +31,7 @@ namespace WeihanLi.Common.Aspect.Castle
                 );
         }
 
-        public object CreateProxy(Type serviceType, Type implementType, params object[] arguments)
+        public object CreateProxy(Type serviceType, Type implementType, params object?[] arguments)
         {
             if (null == serviceType)
                 throw new ArgumentNullException(nameof(serviceType));
@@ -48,7 +48,7 @@ namespace WeihanLi.Common.Aspect.Castle
             return CreateProxy(implementType, arguments);
         }
 
-        public object CreateProxyWithTarget(Type serviceType, object implement, object[] arguments)
+        public object CreateProxyWithTarget(Type serviceType, object implement, object?[] arguments)
         {
             if (null == serviceType)
                 throw new ArgumentNullException(nameof(serviceType));

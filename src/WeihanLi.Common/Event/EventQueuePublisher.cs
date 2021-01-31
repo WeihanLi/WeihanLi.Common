@@ -10,7 +10,6 @@ namespace WeihanLi.Common.Event
 
         private readonly EventQueuePublisherOptions _options;
 
-
         public EventQueuePublisher(IEventQueue eventQueue, IOptions<EventQueuePublisherOptions> options)
         {
             _eventQueue = eventQueue;
@@ -35,18 +34,12 @@ namespace WeihanLi.Common.Event
 
     public class EventQueuePublisherOptions
     {
-        private Func<Type, string> _eventQueueNameResolver = t => "events";
+        private Func<Type, string> _eventQueueNameResolver = _ => "events";
 
         public Func<Type, string> EventQueueNameResolver
         {
             get => _eventQueueNameResolver;
-            set
-            {
-                if (null != _eventQueueNameResolver)
-                {
-                    _eventQueueNameResolver = value;
-                }
-            }
+            set => _eventQueueNameResolver = Guard.NotNull(value, nameof(value));
         }
     }
 }

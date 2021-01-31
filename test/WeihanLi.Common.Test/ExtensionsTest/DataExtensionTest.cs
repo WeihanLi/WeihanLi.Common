@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using WeihanLi.Common.Data;
 using WeihanLi.Extensions;
 using Xunit;
 
@@ -17,7 +16,7 @@ namespace WeihanLi.Common.Test.ExtensionsTest
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public string Extra { get; set; }
+        public string? Extra { get; set; }
 
         public DateTimeOffset CreatedAt { get; set; }
     }
@@ -27,7 +26,7 @@ namespace WeihanLi.Common.Test.ExtensionsTest
         private const string DbConnectionString =
             @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TestDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        private readonly SqlConnection _connection = null;
+        private readonly SqlConnection _connection;
 
         public DataExtensionTest()
         {

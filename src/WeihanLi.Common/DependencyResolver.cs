@@ -124,7 +124,7 @@ namespace WeihanLi.Common
 
             public IEnumerable<object> GetServices(Type serviceType) => Enumerable.Empty<object>();
 
-            public bool TryInvokeService<TService>(Action<TService> action)
+            public bool TryInvokeService<TService>(Action<TService>? action)
             {
                 var service = (TService)GetService(typeof(TService));
                 if (null == service || action == null)
@@ -135,7 +135,7 @@ namespace WeihanLi.Common
                 return true;
             }
 
-            public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
+            public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task>? action)
             {
                 var service = (TService)GetService(typeof(TService));
                 if (null == service || action == null)
@@ -164,7 +164,7 @@ namespace WeihanLi.Common
             public IEnumerable<object> GetServices(Type serviceType)
                 => _getServices(serviceType);
 
-            public bool TryInvokeService<TService>(Action<TService> action)
+            public bool TryInvokeService<TService>(Action<TService>? action)
             {
                 var service = (TService)GetService(typeof(TService));
                 if (null == service || action == null)
@@ -175,7 +175,7 @@ namespace WeihanLi.Common
                 return true;
             }
 
-            public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
+            public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task>? action)
             {
                 var service = (TService)GetService(typeof(TService));
                 if (null == service || action == null)
@@ -206,7 +206,7 @@ namespace WeihanLi.Common
                 return (IEnumerable<object>)_rootContainer.GetService(typeof(IEnumerable<>).MakeGenericType(serviceType));
             }
 
-            public bool TryInvokeService<TService>(Action<TService> action)
+            public bool TryInvokeService<TService>(Action<TService>? action)
             {
                 if (action == null)
                 {
@@ -223,7 +223,7 @@ namespace WeihanLi.Common
                 return true;
             }
 
-            public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
+            public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task>? action)
             {
                 if (action == null)
                 {

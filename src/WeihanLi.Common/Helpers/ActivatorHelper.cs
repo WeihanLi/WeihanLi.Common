@@ -78,7 +78,7 @@ namespace WeihanLi.Common.Helpers
         /// <typeparam name="T">type</typeparam>
         /// <param name="parameters">parameters</param>
         /// <returns>T instance</returns>
-        public static T CreateInstance<T>(params object[] parameters)
+        public static T CreateInstance<T>(params object?[] parameters)
         {
             return (T)Activator.CreateInstance(typeof(T), parameters);
         }
@@ -90,7 +90,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="instanceType">The type to activate</param>
         /// <param name="parameters">Constructor arguments not provided by the <paramref name="provider"/>.</param>
         /// <returns>An activated object of type instanceType</returns>
-        public static object CreateInstance(this IServiceProvider provider, Type instanceType, params object[] parameters)
+        public static object CreateInstance(this IServiceProvider provider, Type instanceType, params object?[] parameters)
         {
             return MatchConstructor(instanceType, parameters).CreateInstance(provider);
         }
@@ -149,7 +149,7 @@ namespace WeihanLi.Common.Helpers
             return MatchConstructor(instanceType, parameters).Constructor;
         }
 
-        public static object?[] GetBestConstructorArguments(IServiceProvider serviceProvider, Type instanceType, params object[] parameters)
+        public static object?[] GetBestConstructorArguments(IServiceProvider serviceProvider, Type instanceType, params object?[] parameters)
         {
             return MatchConstructor(instanceType, parameters).GetConstructorArguments(serviceProvider);
         }

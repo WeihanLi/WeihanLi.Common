@@ -31,7 +31,7 @@ namespace WeihanLi.Common.Test.AspectTest
             services.AddSingleton<IEventQueue, EventQueueInMemory>();
             services.AddOptions();
 
-            services.AddSingleton<EventHandlerBase<TestEvent>>(DelegateEventHandler.FromAction<TestEvent>(e => { }));
+            services.AddSingleton<EventHandlerBase<TestEvent>>(DelegateEventHandler.FromAction<TestEvent>(_ => { }));
 
             services.AddSingleton(typeof(IEventHandler<>), typeof(TestGenericEventHandler<>));
 
