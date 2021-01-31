@@ -24,10 +24,9 @@ namespace WeihanLi.Common.Aspect
     {
         public static IInterceptionConfiguration With(this IInterceptionConfiguration interceptionConfiguration, Func<IInvocation, Func<Task>, Task> interceptFunc)
         {
-            if (null != interceptFunc)
-            {
-                interceptionConfiguration.Interceptors.Add(new DelegateInterceptor(interceptFunc));
-            }
+            Guard.NotNull(interceptionConfiguration, nameof(interceptionConfiguration))
+                .Interceptors.Add(new DelegateInterceptor(interceptFunc));
+
             return interceptionConfiguration;
         }
 
@@ -43,9 +42,9 @@ namespace WeihanLi.Common.Aspect
             return interceptionConfiguration;
         }
 
-        public static IInterceptionConfiguration With<TInterceptor>(this IInterceptionConfiguration interceptionConfiguration, params object[] parameters) where TInterceptor : IInterceptor
+        public static IInterceptionConfiguration With<TInterceptor>(this IInterceptionConfiguration interceptionConfiguration, params object?[] parameters) where TInterceptor : IInterceptor
         {
-            if (null == parameters || parameters.Length == 0)
+            if (parameters.Length == 0)
             {
                 interceptionConfiguration.With(NewFuncHelper<TInterceptor>.Instance());
             }

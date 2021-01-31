@@ -37,9 +37,9 @@ namespace WeihanLi.Common.Test.JsonTest
 
         private class TestModel
         {
-            public IPAddress Ip { get; set; }
+            public IPAddress? Ip { get; set; }
 
-            public IPEndPoint EndPoint { get; set; }
+            public IPEndPoint? EndPoint { get; set; }
         }
     }
 }

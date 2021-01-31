@@ -1,8 +1,8 @@
-﻿using System;
-using System.Diagnostics;
-using AspNetCoreSample.Models;
+﻿using AspNetCoreSample.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Diagnostics;
 
 namespace AspNetCoreSample.Controllers
 {
@@ -40,7 +40,7 @@ namespace AspNetCoreSample.Controllers
         /// <param name="formFile">fileInfo</param>
         /// <returns></returns>
         [HttpPost]
-        public string Upload(IFormFile formFile)
+        public string Upload(IFormFile? formFile)
         {
             if (formFile == null)
             {

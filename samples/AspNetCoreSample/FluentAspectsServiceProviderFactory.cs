@@ -9,14 +9,14 @@ namespace AspNetCoreSample
 {
     internal sealed class FluentAspectsServiceProviderFactory : IServiceProviderFactory<IServiceCollection>
     {
-        private readonly Action<FluentAspectOptions> _optionsAction;
-        private readonly Action<IFluentAspectsBuilder> _aspectBuildAction;
-        private readonly Expression<Func<Type, bool>> _ignoreTypesPredict;
+        private readonly Action<FluentAspectOptions>? _optionsAction;
+        private readonly Action<IFluentAspectsBuilder>? _aspectBuildAction;
+        private readonly Expression<Func<Type, bool>>? _ignoreTypesPredict;
 
         public FluentAspectsServiceProviderFactory(
-            Action<FluentAspectOptions> optionsAction,
-            Action<IFluentAspectsBuilder> aspectBuildAction,
-            Expression<Func<Type, bool>> ignoreTypesPredict
+            Action<FluentAspectOptions>? optionsAction,
+            Action<IFluentAspectsBuilder>? aspectBuildAction,
+            Expression<Func<Type, bool>>? ignoreTypesPredict
             )
         {
             _optionsAction = optionsAction;
@@ -38,15 +38,15 @@ namespace AspNetCoreSample
     public static class HostBuilderExtensions
     {
         public static IHostBuilder UseFluentAspectsServiceProviderFactory(this IHostBuilder hostBuilder,
-            Action<FluentAspectOptions> optionsAction,
-            Action<IFluentAspectsBuilder> aspectBuildAction = null,
-            Expression<Func<Type, bool>> ignoreTypesPredict = null)
+            Action<FluentAspectOptions>? optionsAction,
+            Action<IFluentAspectsBuilder>? aspectBuildAction = null,
+            Expression<Func<Type, bool>>? ignoreTypesPredict = null)
         {
             if (ignoreTypesPredict == null)
             {
                 ignoreTypesPredict = t =>
                     t.HasNamespace() &&
-                    (t.Namespace.StartsWith("Microsoft.")
+                    (t.Namespace!.StartsWith("Microsoft.")
                     || t.Namespace.StartsWith("System.")
                     )
                     ;

@@ -174,62 +174,27 @@ namespace WeihanLi.Extensions
         /// <returns></returns>
         public static Type GetTypeByTypeName([NotNull] this string typeName)
         {
-            switch (typeName.ToLower())
+            return typeName.ToLower() switch
             {
-                case "bool":
-                    return Type.GetType("System.Boolean", true, true);
-
-                case "byte":
-                    return Type.GetType("System.Byte", true, true);
-
-                case "sbyte":
-                    return Type.GetType("System.SByte", true, true);
-
-                case "char":
-                    return Type.GetType("System.Char", true, true);
-
-                case "decimal":
-                    return Type.GetType("System.Decimal", true, true);
-
-                case "double":
-                    return Type.GetType("System.Double", true, true);
-
-                case "float":
-                    return Type.GetType("System.Single", true, true);
-
-                case "int":
-                    return Type.GetType("System.Int32", true, true);
-
-                case "uint":
-                    return Type.GetType("System.UInt32", true, true);
-
-                case "long":
-                    return Type.GetType("System.Int64", true, true);
-
-                case "ulong":
-                    return Type.GetType("System.UInt64", true, true);
-
-                case "object":
-                    return Type.GetType("System.Object", true, true);
-
-                case "short":
-                    return Type.GetType("System.Int16", true, true);
-
-                case "ushort":
-                    return Type.GetType("System.UInt16", true, true);
-
-                case "string":
-                    return Type.GetType("System.String", true, true);
-
-                case "datetime":
-                    return Type.GetType("System.DateTime", true, true);
-
-                case "guid":
-                    return Type.GetType("System.Guid", true, true);
-
-                default:
-                    return Type.GetType(typeName, true, true);
-            }
+                "bool" => Type.GetType("System.Boolean", true, true),
+                "byte" => Type.GetType("System.Byte", true, true),
+                "sbyte" => Type.GetType("System.SByte", true, true),
+                "char" => Type.GetType("System.Char", true, true),
+                "decimal" => Type.GetType("System.Decimal", true, true),
+                "double" => Type.GetType("System.Double", true, true),
+                "float" => Type.GetType("System.Single", true, true),
+                "int" => Type.GetType("System.Int32", true, true),
+                "uint" => Type.GetType("System.UInt32", true, true),
+                "long" => Type.GetType("System.Int64", true, true),
+                "ulong" => Type.GetType("System.UInt64", true, true),
+                "object" => Type.GetType("System.Object", true, true),
+                "short" => Type.GetType("System.Int16", true, true),
+                "ushort" => Type.GetType("System.UInt16", true, true),
+                "string" => Type.GetType("System.String", true, true),
+                "datetime" => Type.GetType("System.DateTime", true, true),
+                "guid" => Type.GetType("System.Guid", true, true),
+                _ => Type.GetType(typeName, true, true),
+            };
         }
 
         /// <summary>

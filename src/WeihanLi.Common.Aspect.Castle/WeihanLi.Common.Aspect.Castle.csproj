@@ -10,7 +10,6 @@
     <PackageReleaseNotes>
       https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
     </PackageReleaseNotes>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>

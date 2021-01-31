@@ -1,7 +1,7 @@
-﻿using System.Net;
+﻿using JetBrains.Annotations;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -15,7 +15,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The WebRequest response or WebException response.</returns>
-        public static WebResponse GetResponseSafe([NotNull]this WebRequest @this)
+        public static WebResponse GetResponseSafe([NotNull] this WebRequest @this)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The WebRequest response or WebException response.</returns>
-        public static async Task<WebResponse> GetResponseSafeAsync([NotNull]this WebRequest @this)
+        public static async Task<WebResponse> GetResponseSafeAsync([NotNull] this WebRequest @this)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        public static byte[] GetReponseBytes([NotNull]this WebRequest @this)
+        public static byte[] GetReponseBytes([NotNull] this WebRequest @this)
         {
             using (var response = @this.GetResponse())
             {
@@ -52,7 +52,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        public static async Task<byte[]> GetReponseBytesAsync([NotNull]this WebRequest @this)
+        public static async Task<byte[]> GetReponseBytesAsync([NotNull] this WebRequest @this)
         {
             using (var response = await @this.GetResponseAsync())
             {
@@ -60,7 +60,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        public static string GetReponseString([NotNull]this WebRequest @this)
+        public static string GetReponseString([NotNull] this WebRequest @this)
         {
             using (var response = @this.GetResponse())
             {
@@ -68,7 +68,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        public static async Task<string> GetReponseStringAsync([NotNull]this WebRequest @this)
+        public static async Task<string> GetReponseStringAsync([NotNull] this WebRequest @this)
         {
             using (var response = await @this.GetResponseAsync())
             {
@@ -76,7 +76,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        public static byte[] GetReponseBytesSafe([NotNull]this WebRequest @this)
+        public static byte[] GetReponseBytesSafe([NotNull] this WebRequest @this)
         {
             using (var response = @this.GetResponseSafe())
             {
@@ -84,7 +84,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        public static async Task<byte[]> GetReponseBytesSafeAsync([NotNull]this WebRequest @this)
+        public static async Task<byte[]> GetReponseBytesSafeAsync([NotNull] this WebRequest @this)
         {
             using (var response = await @this.GetResponseSafeAsync())
             {
@@ -92,7 +92,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        public static string GetReponseStringSafe([NotNull]this WebRequest @this)
+        public static string GetReponseStringSafe([NotNull] this WebRequest @this)
         {
             using (var response = @this.GetResponseSafe())
             {
@@ -100,7 +100,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        public static async Task<string> GetReponseStringSafeAsync([NotNull]this WebRequest @this)
+        public static async Task<string> GetReponseStringSafeAsync([NotNull] this WebRequest @this)
         {
             using (var response = await @this.GetResponseSafeAsync())
             {
@@ -117,11 +117,11 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The response stream as byte array</returns>
-        public static byte[] ReadAllBytes([NotNull]this WebResponse @this)
+        public static byte[] ReadAllBytes([NotNull] this WebResponse @this)
         {
             using (var stream = @this.GetResponseStream())
             {
-                var byteArray = new byte[stream.Length];
+                var byteArray = new byte[stream!.Length];
                 stream.Write(byteArray, 0, byteArray.Length);
                 return byteArray;
             }
@@ -132,7 +132,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The response stream as byte array</returns>
-        public static async Task<byte[]> ReadAllBytesAsync([NotNull]this WebResponse @this)
+        public static async Task<byte[]> ReadAllBytesAsync([NotNull] this WebResponse @this)
         {
             using (var stream = @this.GetResponseStream())
             {
@@ -147,7 +147,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="response">The response to act on.</param>
         /// <returns>The response stream as a string, from the current position to the end.</returns>
-        public static string ReadToEnd([NotNull]this WebResponse response)
+        public static string ReadToEnd([NotNull] this WebResponse response)
         {
             using (var stream = response.GetResponseStream())
             {
@@ -160,7 +160,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The response stream as a string, from the current position to the end.</returns>
-        public static async Task<string> ReadToEndAsync([NotNull]this WebResponse @this)
+        public static async Task<string> ReadToEndAsync([NotNull] this WebResponse @this)
         {
             using (var stream = @this.GetResponseStream())
             {

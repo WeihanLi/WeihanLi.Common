@@ -53,7 +53,7 @@ namespace WeihanLi.Common.Data
 
         public static Task<int> UpdateAsync<TEntity>([NotNull] this IRepository<TEntity> repository,
             TEntity entity,
-            params Expression<Func<TEntity, object>>[] propertyExpressions)
+            params Expression<Func<TEntity, object?>>[] propertyExpressions)
             where TEntity : class
             => repository.UpdateAsync(entity, propertyExpressions);
 
@@ -63,7 +63,7 @@ namespace WeihanLi.Common.Data
 
         public static Task<int> UpdateWithoutAsync<TEntity>([NotNull] this IRepository<TEntity> repository,
             TEntity entity,
-            params Expression<Func<TEntity, object>>[] propertyExpressions)
+            params Expression<Func<TEntity, object?>>[] propertyExpressions)
             where TEntity : class
             => repository.UpdateWithoutAsync(entity, propertyExpressions);
     }

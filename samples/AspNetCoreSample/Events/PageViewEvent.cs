@@ -6,7 +6,7 @@ namespace AspNetCoreSample.Events
 {
     public class PageViewEvent : EventBase
     {
-        public string Path { get; set; }
+        public string? Path { get; set; }
     }
 
     public class PageViewEventHandler : EventHandlerBase<PageViewEvent>

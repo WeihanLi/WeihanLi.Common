@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace WeihanLi.Common.Models
@@ -43,18 +42,10 @@ namespace WeihanLi.Common.Models
 
         private IReadOnlyList<T> _data = Array.Empty<T>();
 
-        [NotNull]
         public IReadOnlyList<T> Data
         {
             get => _data;
-            set
-            {
-                // ReSharper disable once ConditionIsAlwaysTrueOrFalse
-                if (value != null)
-                {
-                    _data = value;
-                }
-            }
+            set => _data = Guard.NotNull(value, nameof(value));
         }
 
         public int TotalCount { get; set; }
@@ -71,18 +62,10 @@ namespace WeihanLi.Common.Models
 
         private IReadOnlyList<T> _data = Array.Empty<T>();
 
-        [NotNull]
         public IReadOnlyList<T> Data
         {
             get => _data;
-            set
-            {
-                // ReSharper disable once ConditionIsAlwaysTrueOrFalse
-                if (value != null)
-                {
-                    _data = value;
-                }
-            }
+            set => _data = Guard.NotNull(value, nameof(value));
         }
 
         private int _pageNumber = 1;

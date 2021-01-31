@@ -21,12 +21,12 @@ namespace WeihanLi.Common.Helpers
         }
     }
 
-    public sealed class StopWatchStopper : IDisposable
+    public sealed class StopwatchStopper : IDisposable
     {
         private readonly Stopwatch _stopwatch;
         private readonly Action<long> _profileAction;
 
-        public StopWatchStopper(Stopwatch stopwatch, Action<long> profileAction)
+        public StopwatchStopper(Stopwatch stopwatch, Action<long> profileAction)
         {
             _stopwatch = stopwatch ?? throw new ArgumentNullException(nameof(stopwatch));
             _profileAction = profileAction ?? throw new ArgumentNullException(nameof(profileAction));
@@ -41,14 +41,14 @@ namespace WeihanLi.Common.Helpers
 
     public static class ProfilerHelper
     {
-        public static StopWatchStopper StartProfile(this Stopwatch watch, Action<long> profilerAction)
+        public static StopwatchStopper StartProfile(this Stopwatch watch, Action<long> profilerAction)
         {
             if (watch is null)
             {
                 throw new ArgumentNullException(nameof(watch));
             }
             watch.Restart();
-            return new StopWatchStopper(watch, profilerAction);
+            return new StopwatchStopper(watch, profilerAction);
         }
 
         public static ProfilerStopper StartNew(this IProfiler profiler, Action<long> profilerAction)

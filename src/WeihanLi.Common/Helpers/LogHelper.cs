@@ -14,7 +14,7 @@ namespace WeihanLi.Common.Helpers
         public static void ConfigureLogging(Action<ILogHelperLoggingBuilder> configureAction)
         {
             var loggingBuilder = new LogHelperLoggingBuilder();
-            configureAction?.Invoke(loggingBuilder);
+            Guard.NotNull(configureAction, nameof(configureAction)).Invoke(loggingBuilder);
             LogFactory = loggingBuilder.Build();
         }
 

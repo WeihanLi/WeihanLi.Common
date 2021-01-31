@@ -11,11 +11,11 @@ namespace WeihanLi.Common.Test.ModelsTest
         public void EqualsTest()
         {
             var abc = new { Id = 1, Name = "Tom" };
-            var dic1 = StringValueDictionary.Create(abc);
-            var dic2 = StringValueDictionary.Create(new Dictionary<string, object>()
+            var dic1 = StringValueDictionary.FromObject(abc);
+            var dic2 = StringValueDictionary.FromObject(new Dictionary<string, object>()
             {
+                {"Name", "Tom" },
                 {"Id", 1},
-                {"Name", "Tom" }
             });
 
             Assert.True(dic1 == dic2);
@@ -26,17 +26,30 @@ namespace WeihanLi.Common.Test.ModelsTest
         public void DistinctTest()
         {
             var abc = new { Id = 1, Name = "Tom" };
-            var dic1 = StringValueDictionary.Create(abc);
-            var dic2 = StringValueDictionary.Create(new Dictionary<string, object>()
+            var dic1 = StringValueDictionary.FromObject(abc);
+            var dic2 = StringValueDictionary.FromObject(new Dictionary<string, object>()
             {
-                {"Id", 1},
-                {"Name", "Tom" }
+                { "Id", 1 },
+                { "Name", "Tom" },
             });
             var set = new HashSet<StringValueDictionary>();
             set.Add(dic1);
             set.Add(dic2);
 
-            Assert.Equal(1, set.Count);
+            Assert.Single(set);
+        }
+
+        [Fact]
+        public void CloneTest()
+        {
+            var dic1 = StringValueDictionary.FromObject(new Dictionary<string, object>()
+            {
+                {"Id", 1},
+                {"Name", "Tom" }
+            });
+            var dic2 = dic1.Clone();
+            Assert.False(ReferenceEquals(dic1, dic2));
+            Assert.True(dic1 == dic2);
         }
 
         record Person(int Id, string Name);
@@ -58,11 +71,11 @@ namespace WeihanLi.Common.Test.ModelsTest
         public void ImplicitConvertTest()
         {
             var abc = new { Id = 1, Name = "Tom" };
-            var stringValueDictionary = StringValueDictionary.Create(abc);
-            Dictionary<string, string> dictionary = stringValueDictionary;
+            var stringValueDictionary = StringValueDictionary.FromObject(abc);
+            Dictionary<string, string> dictionary = stringValueDictionary!;
             Assert.Equal(stringValueDictionary.Count, dictionary.Count);
 
-            var dic2 = StringValueDictionary.Create(dictionary);
+            var dic2 = StringValueDictionary.FromObject(dictionary);
 
             Assert.Equal(dic2, stringValueDictionary);
             Assert.True(dic2 == stringValueDictionary);

@@ -14,7 +14,7 @@ namespace WeihanLi.Common.Logging
         public void Log(LogHelperLoggingEvent loggingEvent)
         {
             var logger = _loggerFactory.CreateLogger(loggingEvent.CategoryName);
-            LogInternal(logger, loggingEvent);
+            _ = LogInternal(logger, loggingEvent);
         }
 
         private static bool LogInternal(ILogger logger, LogHelperLoggingEvent loggingEvent)

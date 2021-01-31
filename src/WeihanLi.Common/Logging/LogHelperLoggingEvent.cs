@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WeihanLi.Common.Logging
 {
-    public record LogHelperLoggingEvent
+    public class LogHelperLoggingEvent
     {
         public string CategoryName { get; set; } = null!;
 
@@ -21,7 +21,7 @@ namespace WeihanLi.Common.Logging
 
         public LogHelperLoggingEvent Copy()
         {
-            var newEvent = this with { };
+            var newEvent = (LogHelperLoggingEvent)MemberwiseClone();
             if (Properties != null)
             {
                 newEvent.Properties = new Dictionary<string, object?>();

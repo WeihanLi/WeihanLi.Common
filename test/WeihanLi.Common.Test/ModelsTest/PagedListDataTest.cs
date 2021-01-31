@@ -51,7 +51,7 @@ namespace WeihanLi.Common.Test.ModelsTest
         public void ListDataWithTotalEmptyTest()
         {
             var empty = ListResultWithTotal<int>.Empty;
-            Assert.NotNull(empty?.Data);
+            Assert.NotNull(empty.Data);
             Assert.Empty(empty.Data);
             Assert.Equal(0, empty.TotalCount);
         }

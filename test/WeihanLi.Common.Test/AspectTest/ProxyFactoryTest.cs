@@ -116,7 +116,7 @@ namespace WeihanLi.Common.Test.AspectTest
             var userIdProviderProxy = _proxyFactory.CreateProxy<IUserIdProvider, EnvironmentUserIdProvider>();
             var userId = userIdProviderProxy.GetUserId();
             Assert.NotNull(userId);
-            Assert.NotEmpty(userId);
+            Assert.NotEmpty(userId!);
         }
 
         [Fact]
@@ -127,7 +127,7 @@ namespace WeihanLi.Common.Test.AspectTest
             Assert.Equal(0, queueCount);
 
             var eventPublisherProxy = _proxyFactory.CreateProxy<IEventPublisher, EventQueuePublisher>();
-            eventPublisherProxy.Publish(new TestEvent());
+            await eventPublisherProxy.PublishAsync(new TestEvent());
             queueCount = (await eventQueue.GetQueuesAsync()).Count;
             Assert.Equal(1, queueCount);
         }

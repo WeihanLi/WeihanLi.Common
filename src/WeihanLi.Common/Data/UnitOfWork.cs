@@ -2,7 +2,6 @@
 using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Data
@@ -53,7 +52,7 @@ namespace WeihanLi.Common.Data
             if (disposing)
             {
                 // Cleanup
-                _dbTransaction?.Dispose();
+                _dbTransaction.Dispose();
             }
         }
 

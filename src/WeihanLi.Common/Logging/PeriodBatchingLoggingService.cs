@@ -9,7 +9,7 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Logging
 {
-    internal class PeriodBatchingLoggingService : PeriodicBatching<LogHelperLoggingEvent>
+    internal sealed class PeriodBatchingLoggingService : PeriodicBatching<LogHelperLoggingEvent>
     {
         private readonly LogHelperFactory _logHelperFactory;
         private readonly SemaphoreSlim _semaphore;

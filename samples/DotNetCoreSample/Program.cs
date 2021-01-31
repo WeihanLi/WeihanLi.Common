@@ -36,7 +36,7 @@ namespace DotNetCoreSample
 
             var city = configuration.GetAppSetting("City");
             var number = configuration.GetAppSetting<int>("Number");
-            // Console.WriteLine($"City:{city}, Number:{number}");
+            Console.WriteLine($"City:{city}, Number:{number}");
 
             services.AddSingleton(configuration);
 
@@ -302,12 +302,12 @@ namespace DotNetCoreSample
 
         private struct TestStruct
         {
-            public string Name { get; set; }
+            public string? Name { get; set; }
         }
 
         private class TestClass
         {
-            public string Name { get; set; }
+            public string? Name { get; set; }
         }
     }
 }
