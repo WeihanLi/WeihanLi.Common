@@ -14544,6 +14544,19 @@ references:
   commentId: T:WeihanLi.Common.Models.StringValueDictionary
   fullName: WeihanLi.Common.Models.StringValueDictionary
   nameWithType: StringValueDictionary
+- uid: WeihanLi.Common.Models.StringValueDictionary.Clone
+  name: Clone()
+  href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_Clone
+  commentId: M:WeihanLi.Common.Models.StringValueDictionary.Clone
+  fullName: WeihanLi.Common.Models.StringValueDictionary.Clone()
+  nameWithType: StringValueDictionary.Clone()
+- uid: WeihanLi.Common.Models.StringValueDictionary.Clone*
+  name: Clone
+  href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_Clone_
+  commentId: Overload:WeihanLi.Common.Models.StringValueDictionary.Clone
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.StringValueDictionary.Clone
+  nameWithType: StringValueDictionary.Clone
 - uid: WeihanLi.Common.Models.StringValueDictionary.ContainsKey(System.String)
   name: ContainsKey(String)
   href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_ContainsKey_System_String_
@@ -14570,32 +14583,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Models.StringValueDictionary.Count
   nameWithType: StringValueDictionary.Count
-- uid: WeihanLi.Common.Models.StringValueDictionary.Create(System.Object)
-  name: Create(Object)
-  href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_Create_System_Object_
-  commentId: M:WeihanLi.Common.Models.StringValueDictionary.Create(System.Object)
-  fullName: WeihanLi.Common.Models.StringValueDictionary.Create(System.Object)
-  nameWithType: StringValueDictionary.Create(Object)
-- uid: WeihanLi.Common.Models.StringValueDictionary.Create*
-  name: Create
-  href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_Create_
-  commentId: Overload:WeihanLi.Common.Models.StringValueDictionary.Create
-  isSpec: "True"
-  fullName: WeihanLi.Common.Models.StringValueDictionary.Create
-  nameWithType: StringValueDictionary.Create
-- uid: WeihanLi.Common.Models.StringValueDictionary.CreateFromJsonString(System.String)
-  name: CreateFromJsonString(String)
-  href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_CreateFromJsonString_System_String_
-  commentId: M:WeihanLi.Common.Models.StringValueDictionary.CreateFromJsonString(System.String)
-  fullName: WeihanLi.Common.Models.StringValueDictionary.CreateFromJsonString(System.String)
-  nameWithType: StringValueDictionary.CreateFromJsonString(String)
-- uid: WeihanLi.Common.Models.StringValueDictionary.CreateFromJsonString*
-  name: CreateFromJsonString
-  href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_CreateFromJsonString_
-  commentId: Overload:WeihanLi.Common.Models.StringValueDictionary.CreateFromJsonString
-  isSpec: "True"
-  fullName: WeihanLi.Common.Models.StringValueDictionary.CreateFromJsonString
-  nameWithType: StringValueDictionary.CreateFromJsonString
 - uid: WeihanLi.Common.Models.StringValueDictionary.Equals(System.Object)
   name: Equals(Object)
   href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_Equals_System_Object_
@@ -14615,6 +14602,32 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Models.StringValueDictionary.Equals
   nameWithType: StringValueDictionary.Equals
+- uid: WeihanLi.Common.Models.StringValueDictionary.FromJson(System.String)
+  name: FromJson(String)
+  href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_FromJson_System_String_
+  commentId: M:WeihanLi.Common.Models.StringValueDictionary.FromJson(System.String)
+  fullName: WeihanLi.Common.Models.StringValueDictionary.FromJson(System.String)
+  nameWithType: StringValueDictionary.FromJson(String)
+- uid: WeihanLi.Common.Models.StringValueDictionary.FromJson*
+  name: FromJson
+  href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_FromJson_
+  commentId: Overload:WeihanLi.Common.Models.StringValueDictionary.FromJson
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.StringValueDictionary.FromJson
+  nameWithType: StringValueDictionary.FromJson
+- uid: WeihanLi.Common.Models.StringValueDictionary.FromObject(System.Object)
+  name: FromObject(Object)
+  href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_FromObject_System_Object_
+  commentId: M:WeihanLi.Common.Models.StringValueDictionary.FromObject(System.Object)
+  fullName: WeihanLi.Common.Models.StringValueDictionary.FromObject(System.Object)
+  nameWithType: StringValueDictionary.FromObject(Object)
+- uid: WeihanLi.Common.Models.StringValueDictionary.FromObject*
+  name: FromObject
+  href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_FromObject_
+  commentId: Overload:WeihanLi.Common.Models.StringValueDictionary.FromObject
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.StringValueDictionary.FromObject
+  nameWithType: StringValueDictionary.FromObject
 - uid: WeihanLi.Common.Models.StringValueDictionary.GetHashCode
   name: GetHashCode()
   href: docs/api/WeihanLi.Common.Models.StringValueDictionary.html#WeihanLi_Common_Models_StringValueDictionary_GetHashCode
