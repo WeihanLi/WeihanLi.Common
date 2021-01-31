@@ -38,7 +38,7 @@ namespace WeihanLi.Common.Test.AspectTest
             _serviceProvider = services.BuildFluentAspectsProvider(options =>
             {
                 options.InterceptAll()
-                    .With<TestOutputInterceptor>(output);
+                    .With<TestOutputInterceptor>();
             });
         }
 
