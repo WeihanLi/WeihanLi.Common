@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
+using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -21,7 +22,7 @@ namespace WeihanLi.Extensions
             {
                 throw new ArgumentNullException(nameof(method));
             }
-            EmitMethod(ilGenerator, method, method.DeclaringType);
+            EmitMethod(ilGenerator, method, method.DeclaringType!);
         }
 
         public static void EmitMethod(this ILGenerator ilGenerator, MethodInfo method, Type declaringType)
@@ -62,7 +63,7 @@ namespace WeihanLi.Extensions
             }
             else
             {
-                ilGenerator.EmitConvertToType(typeFrom, typeof(object), true);
+                ilGenerator.EmitConvertToType(typeFrom, typeof(object));
             }
         }
 
@@ -83,7 +84,7 @@ namespace WeihanLi.Extensions
             }
             else
             {
-                ilGenerator.EmitConvertToType(typeof(object), typeTo, true);
+                ilGenerator.EmitConvertToType(typeof(object), typeTo);
             }
         }
 
@@ -144,8 +145,8 @@ namespace WeihanLi.Extensions
 
         private static void EmitNullableConversion(this ILGenerator ilGenerator, Type typeFrom, Type typeTo, bool isChecked)
         {
-            bool isTypeFromNullable = typeFrom.IsNullableType();
-            bool isTypeToNullable = typeTo.IsNullableType();
+            var isTypeFromNullable = typeFrom.IsNullableType();
+            var isTypeToNullable = typeTo.IsNullableType();
             if (isTypeFromNullable && isTypeToNullable)
                 ilGenerator.EmitNullableToNullableConversion(typeFrom, typeTo, isChecked);
             else if (isTypeFromNullable)
@@ -156,28 +157,24 @@ namespace WeihanLi.Extensions
 
         private static void EmitNullableToNullableConversion(this ILGenerator ilGenerator, Type typeFrom, Type typeTo, bool isChecked)
         {
-            Label labIfNull = default(Label);
-            Label labEnd = default(Label);
-            LocalBuilder locFrom = null;
-            LocalBuilder locTo = null;
-            locFrom = ilGenerator.DeclareLocal(typeFrom);
+            LocalBuilder locFrom = ilGenerator.DeclareLocal(typeFrom);
             ilGenerator.Emit(OpCodes.Stloc, locFrom);
-            locTo = ilGenerator.DeclareLocal(typeTo);
+            LocalBuilder locTo = ilGenerator.DeclareLocal(typeTo);
             // test for null
             ilGenerator.Emit(OpCodes.Ldloca, locFrom);
             ilGenerator.EmitHasValue(typeFrom);
-            labIfNull = ilGenerator.DefineLabel();
+            Label labIfNull = ilGenerator.DefineLabel();
             ilGenerator.Emit(OpCodes.Brfalse_S, labIfNull);
             ilGenerator.Emit(OpCodes.Ldloca, locFrom);
             ilGenerator.EmitGetValueOrDefault(typeFrom);
-            Type nnTypeFrom = TypeInfoUtils.GetNonNullableType(typeFrom);
-            Type nnTypeTo = TypeInfoUtils.GetNonNullableType(typeTo);
+            Type nnTypeFrom = typeFrom.GetNonNullableType();
+            Type nnTypeTo = typeTo.GetNonNullableType();
             ilGenerator.EmitConvertToType(nnTypeFrom, nnTypeTo, isChecked);
             // construct result type
-            ConstructorInfo ci = typeTo.GetConstructor(new Type[] { nnTypeTo });
-            ilGenerator.Emit(OpCodes.Newobj, ci);
+            var ci = typeTo.GetConstructor(new[] { nnTypeTo });
+            ilGenerator.Emit(OpCodes.Newobj, ci!);
             ilGenerator.Emit(OpCodes.Stloc, locTo);
-            labEnd = ilGenerator.DefineLabel();
+            Label labEnd = ilGenerator.DefineLabel();
             ilGenerator.Emit(OpCodes.Br_S, labEnd);
             // if null then create a default one
             ilGenerator.MarkLabel(labIfNull);
@@ -197,12 +194,11 @@ namespace WeihanLi.Extensions
 
         private static void EmitNullableToNonNullableStructConversion(this ILGenerator ilGenerator, Type typeFrom, Type typeTo, bool isChecked)
         {
-            LocalBuilder locFrom = null;
-            locFrom = ilGenerator.DeclareLocal(typeFrom);
+            LocalBuilder locFrom = ilGenerator.DeclareLocal(typeFrom);
             ilGenerator.Emit(OpCodes.Stloc, locFrom);
             ilGenerator.Emit(OpCodes.Ldloca, locFrom);
             ilGenerator.EmitGetValue(typeFrom);
-            Type nnTypeFrom = TypeInfoUtils.GetNonNullableType(typeFrom);
+            Type nnTypeFrom = typeFrom.GetNonNullableType();
             ilGenerator.EmitConvertToType(nnTypeFrom, typeTo, isChecked);
         }
 
@@ -218,7 +214,7 @@ namespace WeihanLi.Extensions
             LocalBuilder locTo = ilGenerator.DeclareLocal(typeTo);
             Type nnTypeTo = typeTo.Unwrap();
             ilGenerator.EmitConvertToType(typeFrom, nnTypeTo, isChecked);
-            ConstructorInfo ci = typeTo.GetConstructor(new[] { nnTypeTo });
+            ConstructorInfo ci = Guard.NotNull(typeTo.GetConstructor(new[] { nnTypeTo })!, "constructor");
             ilGenerator.Emit(OpCodes.Newobj, ci);
             ilGenerator.Emit(OpCodes.Stloc, locTo);
             ilGenerator.Emit(OpCodes.Ldloc, locTo);
@@ -226,8 +222,8 @@ namespace WeihanLi.Extensions
 
         private static void EmitNumericConversion(this ILGenerator ilGenerator, Type typeFrom, Type typeTo, bool isChecked)
         {
-            bool isFromUnsigned = TypeInfoUtils.IsUnsigned(typeFrom);
-            bool isFromFloatingPoint = TypeInfoUtils.IsFloatingPoint(typeFrom);
+            var isFromUnsigned = TypeInfoUtils.IsUnsigned(typeFrom);
+            var isFromFloatingPoint = TypeInfoUtils.IsFloatingPoint(typeFrom);
             if (typeTo == typeof(float))
             {
                 if (isFromUnsigned)
@@ -415,7 +411,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        public static LocalBuilder DeclareReturnValue(this ILGenerator il, Type returnType)
+        public static LocalBuilder? DeclareReturnValue(this ILGenerator il, Type returnType)
         {
             if (returnType != typeof(void))
             {
@@ -452,9 +448,9 @@ namespace WeihanLi.Extensions
         }
 
         // https://stackoverflow.com/a/48149905/5519747
-        public static void LoadObj(this ILGenerator il, object obj)
+        public static void LoadObj(this ILGenerator il, object? obj)
         {
-            if (null == obj)
+            if (obj is null)
             {
                 il.EmitNull();
                 return;
@@ -549,19 +545,19 @@ namespace WeihanLi.Extensions
             {
                 throw new ArgumentNullException(nameof(ilGenerator));
             }
-            MethodInfo mi = nullableType.GetTypeInfo().GetMethod("get_HasValue", BindingFlags.Instance | BindingFlags.Public);
+            MethodInfo mi = nullableType.GetTypeInfo().GetMethod("get_HasValue", BindingFlags.Instance | BindingFlags.Public)!;
             ilGenerator.Emit(OpCodes.Call, mi);
         }
 
         public static void EmitGetValueOrDefault(this ILGenerator ilGenerator, Type nullableType)
         {
-            MethodInfo mi = nullableType.GetTypeInfo().GetMethod("GetValueOrDefault", Type.EmptyTypes);
+            MethodInfo mi = nullableType.GetTypeInfo().GetMethod("GetValueOrDefault", Type.EmptyTypes)!;
             ilGenerator.Emit(OpCodes.Call, mi);
         }
 
         public static void EmitGetValue(this ILGenerator ilGenerator, Type nullableType)
         {
-            MethodInfo mi = nullableType.GetTypeInfo().GetMethod("get_Value", BindingFlags.Instance | BindingFlags.Public);
+            MethodInfo mi = nullableType.GetTypeInfo().GetMethod("get_Value", BindingFlags.Instance | BindingFlags.Public)!;
             ilGenerator.Emit(OpCodes.Call, mi);
         }
 
@@ -629,7 +625,7 @@ namespace WeihanLi.Extensions
 
                 case TypeCode.Decimal:
                     ilGenerator.Emit(OpCodes.Ldc_I4_0);
-                    ilGenerator.Emit(OpCodes.Newobj, typeof(decimal).GetTypeInfo().GetConstructor(new Type[] { typeof(int) }));
+                    ilGenerator.Emit(OpCodes.Newobj, typeof(decimal).GetTypeInfo().GetConstructor(new[] { typeof(int) })!);
                     break;
 
                 default:
@@ -705,7 +701,7 @@ namespace WeihanLi.Extensions
 
         private static bool IsDelegate(Type t)
         {
-            return t.IsSubclassOf(typeof(System.MulticastDelegate));
+            return t.IsSubclassOf(typeof(MulticastDelegate));
         }
 
         private static bool IsInvariant(Type t)
@@ -728,8 +724,8 @@ namespace WeihanLi.Extensions
                 return false;
             }
 
-            var nnSourceType = TypeInfoUtils.GetNonNullableType(source).GetTypeInfo();
-            var nnDestType = TypeInfoUtils.GetNonNullableType(dest).GetTypeInfo();
+            var nnSourceType = source.GetNonNullableType().GetTypeInfo();
+            var nnDestType = dest.GetNonNullableType().GetTypeInfo();
 
             // Down conversion
             if (nnSourceType.IsAssignableFrom(nnDestType))

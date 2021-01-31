@@ -238,9 +238,9 @@ namespace WeihanLi.Extensions
         /// <param name="str">string value</param>
         /// <param name="defaultValue">defaultValue</param>
         /// <returns></returns>
-        public static string GetNotEmptyValueOrDefault(this string str, string defaultValue)
+        public static string GetNotEmptyValueOrDefault(this string? str, string defaultValue)
         {
-            return str.IsNullOrEmpty() ? defaultValue : str;
+            return str.IsNullOrEmpty() ? defaultValue : str!;
         }
 
         /// <summary>
@@ -249,9 +249,9 @@ namespace WeihanLi.Extensions
         /// <param name="str">string value</param>
         /// <param name="defaultValue">defaultValue</param>
         /// <returns></returns>
-        public static string GetValueOrDefault(this string str, string defaultValue)
+        public static string GetValueOrDefault(this string? str, string defaultValue)
         {
-            return str.IsNullOrWhiteSpace() ? defaultValue : str;
+            return str.IsNullOrWhiteSpace() ? defaultValue : str!;
         }
 
         /// <summary>
@@ -286,7 +286,7 @@ namespace WeihanLi.Extensions
         {
             if (string.IsNullOrWhiteSpace(str))
             {
-                return ArrayHelper.Empty<T>();
+                return Array.Empty<T>();
             }
             return str.Split(separators, splitOptions)
                 .Select(_ => _.To<T>())

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,6 +10,16 @@ namespace WeihanLi.Extensions
 {
     public static class TaskExtension
     {
+        public static Task AsTask(this CancellationToken cancellationToken)
+        {
+            var tcs = new TaskCompletionSource<object?>();
+            cancellationToken.Register(() =>
+            {
+                tcs.TrySetResult(null);
+            });
+            return tcs.Task;
+        }
+
         public static Task WhenAny(this IEnumerable<Task> tasks) => Task.WhenAny(tasks);
 
         public static Task<Task<TResult>> WhenAny<TResult>(this IEnumerable<Task<TResult>> tasks) => Task.WhenAny(tasks);
@@ -78,10 +89,10 @@ namespace WeihanLi.Extensions
         #endregion TaskScheduler
 
         public static async Task<T> TimeoutAfter<T>(this Task<T> task, TimeSpan timeout,
-    [CallerFilePath] string filePath = null,
+    [CallerFilePath] string? filePath = null,
     [CallerLineNumber] int lineNumber = default)
         {
-            if (task.IsCompleted)
+            if (task.IsCompleted || Debugger.IsAttached)
             {
                 return await task;
             }
@@ -97,10 +108,10 @@ namespace WeihanLi.Extensions
         }
 
         public static async Task TimeoutAfter(this Task task, TimeSpan timeout,
-            [CallerFilePath] string filePath = null,
+            [CallerFilePath] string? filePath = null,
             [CallerLineNumber] int lineNumber = default)
         {
-            if (task.IsCompleted)
+            if (task.IsCompleted || Debugger.IsAttached)
             {
                 await task;
                 return;
@@ -118,7 +129,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-        private static string CreateMessage(TimeSpan timeout, string filePath, int lineNumber)
+        private static string CreateMessage(TimeSpan timeout, string? filePath, int lineNumber)
             => string.IsNullOrEmpty(filePath)
             ? $"The operation timed out after reaching the limit of {timeout.TotalMilliseconds}ms."
             : $"The operation at {filePath}:{lineNumber} timed out after reaching the limit of {timeout.TotalMilliseconds}ms.";

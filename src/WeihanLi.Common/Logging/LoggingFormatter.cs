@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Logging
 {
@@ -11,9 +11,9 @@ namespace WeihanLi.Common.Logging
     {
         public string Msg { get; set; }
 
-        public Dictionary<string, object> Values { get; set; }
+        public Dictionary<string, object?>? Values { get; set; }
 
-        public FormattedLogValue(string msg, Dictionary<string, object> values)
+        public FormattedLogValue(string msg, Dictionary<string, object?>? values)
         {
             Msg = msg;
             Values = values;
@@ -22,7 +22,7 @@ namespace WeihanLi.Common.Logging
 
     internal static class LoggingFormatter
     {
-        public static FormattedLogValue Format(string msgTemplate, object[] values)
+        public static FormattedLogValue Format(string msgTemplate, object?[]? values)
         {
             if (values == null || values.Length == 0)
                 return new FormattedLogValue(msgTemplate, null);
@@ -32,18 +32,18 @@ namespace WeihanLi.Common.Logging
             var dic = formatter.GetValues(values)
                 .ToDictionary(x => x.Key, x => x.Value);
 
-            return new FormattedLogValue(msg, dic);
+            return new FormattedLogValue(msg, dic!);
         }
 
         /// <summary>
-        /// Formatter to convert the named format items like {NamedformatItem} to <see cref="M:string.Format"/> format.
+        /// Formatter to convert the named format items like {NamedFormatItem} to <see cref="M:string.Format"/> format.
         /// </summary>
         private class LogValuesFormatter
         {
             private const string NullValue = "(null)";
             private static readonly char[] _formatDelimiters = { ':' };
             private readonly string _format;
-            private readonly List<string> _valueNames = new List<string>();
+            private readonly List<string> _valueNames = new();
 
             public LogValuesFormatter(string format)
             {
@@ -87,16 +87,16 @@ namespace WeihanLi.Common.Logging
                 // Example: {{prefix{{{Argument}}}suffix}}.
                 var braceIndex = endIndex;
                 var scanIndex = startIndex;
-                var braceOccurenceCount = 0;
+                var braceOccurrenceCount = 0;
 
                 while (scanIndex < endIndex)
                 {
-                    if (braceOccurenceCount > 0 && format[scanIndex] != brace)
+                    if (braceOccurrenceCount > 0 && format[scanIndex] != brace)
                     {
-                        if (braceOccurenceCount % 2 == 0)
+                        if (braceOccurrenceCount % 2 == 0)
                         {
-                            // Even number of '{' or '}' found. Proceed search with next occurence of '{' or '}'.
-                            braceOccurenceCount = 0;
+                            // Even number of '{' or '}' found. Proceed search with next occurrence of '{' or '}'.
+                            braceOccurrenceCount = 0;
                             braceIndex = endIndex;
                         }
                         else
@@ -109,19 +109,19 @@ namespace WeihanLi.Common.Logging
                     {
                         if (brace == '}')
                         {
-                            if (braceOccurenceCount == 0)
+                            if (braceOccurrenceCount == 0)
                             {
-                                // For '}' pick the first occurence.
+                                // For '}' pick the first occurrence.
                                 braceIndex = scanIndex;
                             }
                         }
                         else
                         {
-                            // For '{' pick the last occurence.
+                            // For '{' pick the last occurrence.
                             braceIndex = scanIndex;
                         }
 
-                        braceOccurenceCount++;
+                        braceOccurrenceCount++;
                     }
 
                     scanIndex++;
@@ -136,7 +136,7 @@ namespace WeihanLi.Common.Logging
                 return findIndex == -1 ? endIndex : findIndex;
             }
 
-            public string FormatWithValues(object[] values)
+            public string FormatWithValues(object?[]? values)
             {
                 if (values != null)
                 {
@@ -146,22 +146,22 @@ namespace WeihanLi.Common.Logging
                     }
                 }
 
-                return string.Format(CultureInfo.InvariantCulture, _format, values ?? ArrayHelper.Empty<object>());
+                return string.Format(CultureInfo.InvariantCulture, _format, values ?? Array.Empty<object>());
             }
 
-            public IEnumerable<KeyValuePair<string, object>> GetValues(object[] values)
+            public IEnumerable<KeyValuePair<string, object?>> GetValues(object?[] values)
             {
-                var valueArray = new KeyValuePair<string, object>[values.Length + 1];
+                var valueArray = new KeyValuePair<string, object?>[values.Length + 1];
                 for (var index = 0; index != _valueNames.Count; ++index)
                 {
-                    valueArray[index] = new KeyValuePair<string, object>(_valueNames[index], values[index]);
+                    valueArray[index] = new KeyValuePair<string, object?>(_valueNames[index], values[index]);
                 }
 
-                valueArray[valueArray.Length - 1] = new KeyValuePair<string, object>("{OriginalFormat}", OriginalFormat);
+                valueArray[valueArray.Length - 1] = new KeyValuePair<string, object?>("{OriginalFormat}", OriginalFormat);
                 return valueArray;
             }
 
-            private static object FormatArgument(object value)
+            private static object FormatArgument(object? value)
             {
                 if (value == null)
                 {

@@ -9,16 +9,7 @@ namespace WeihanLi.Common.Helpers
     {
         public static Assembly[] GetAssemblies()
         {
-            Assembly[] assemblies = null;
-#if NET45
-            if (System.Web.Hosting.HostingEnvironment.IsHosted)
-            {
-                assemblies = System.Web.Compilation.BuildManager.GetReferencedAssemblies()
-                                            .Cast<Assembly>().ToArray();
-            }
-#endif
-
-            return assemblies ?? AppDomain.CurrentDomain.GetAssemblies();
+            return AppDomain.CurrentDomain.GetAssemblies();
         }
 
         public static bool IsAwaitable(this Type type)
@@ -36,7 +27,7 @@ namespace WeihanLi.Common.Helpers
         public PropertyInfo AwaiterIsCompletedProperty { get; }
         public MethodInfo AwaiterGetResultMethod { get; }
         public MethodInfo AwaiterOnCompletedMethod { get; }
-        public MethodInfo AwaiterUnsafeOnCompletedMethod { get; }
+        public MethodInfo? AwaiterUnsafeOnCompletedMethod { get; }
         public Type ResultType { get; }
         public MethodInfo GetAwaiterMethod { get; }
 
@@ -45,7 +36,7 @@ namespace WeihanLi.Common.Helpers
             PropertyInfo awaiterIsCompletedProperty,
             MethodInfo awaiterGetResultMethod,
             MethodInfo awaiterOnCompletedMethod,
-            MethodInfo awaiterUnsafeOnCompletedMethod,
+            MethodInfo? awaiterUnsafeOnCompletedMethod,
             Type resultType,
             MethodInfo getAwaiterMethod)
         {
@@ -58,7 +49,7 @@ namespace WeihanLi.Common.Helpers
             GetAwaiterMethod = getAwaiterMethod;
         }
 
-        public static bool IsTypeAwaitable(Type type, out AwaitableInfo awaitableInfo)
+        public static bool IsTypeAwaitable(Type type, out AwaitableInfo? awaitableInfo)
         {
             // Based on Roslyn code: http://source.roslyn.io/#Microsoft.CodeAnalysis.Workspaces/Shared/Extensions/ISymbolExtensions.cs,db4d48ba694b9347
 
@@ -69,7 +60,7 @@ namespace WeihanLi.Common.Helpers
                 && m.ReturnType != null);
             if (getAwaiterMethod == null)
             {
-                awaitableInfo = default(AwaitableInfo);
+                awaitableInfo = default;
                 return false;
             }
 
@@ -104,7 +95,7 @@ namespace WeihanLi.Common.Helpers
 
             // Awaiter optionally implements ICriticalNotifyCompletion
             var implementsICriticalNotifyCompletion = awaiterInterfaces.Any(t => t == typeof(ICriticalNotifyCompletion));
-            MethodInfo unsafeOnCompletedMethod;
+            MethodInfo? unsafeOnCompletedMethod;
             if (implementsICriticalNotifyCompletion)
             {
                 // ICriticalNotifyCompletion supplies a method matching "void UnsafeOnCompleted(Action action)"
@@ -125,7 +116,7 @@ namespace WeihanLi.Common.Helpers
                 && m.GetParameters().Length == 0);
             if (getResultMethod == null)
             {
-                awaitableInfo = default(AwaitableInfo);
+                awaitableInfo = default;
                 return false;
             }
 

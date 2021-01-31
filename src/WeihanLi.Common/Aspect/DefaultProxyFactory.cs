@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
+﻿using System;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect
@@ -11,13 +10,13 @@ namespace WeihanLi.Common.Aspect
         private readonly IProxyTypeFactory _proxyTypeFactory;
         private readonly IServiceProvider _serviceProvider;
 
-        public DefaultProxyFactory(IProxyTypeFactory proxyTypeFactory, IServiceProvider serviceProvider = null)
+        public DefaultProxyFactory(IProxyTypeFactory proxyTypeFactory, IServiceProvider? serviceProvider = null)
         {
             _proxyTypeFactory = proxyTypeFactory;
             _serviceProvider = serviceProvider ?? DependencyResolver.Current;
         }
 
-        public object CreateProxy([NotNull] Type serviceType, object[] arguments)
+        public object CreateProxy(Type serviceType, object[] arguments)
         {
             if (serviceType == null)
             {

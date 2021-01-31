@@ -8,17 +8,15 @@ namespace WeihanLi.Common.Data
 {
     public class SqlExpressionVisitor : ExpressionVisitor
     {
-        private readonly Stack<string> _leaves = new Stack<string>();
-        private readonly IDictionary<string, string> _columnMappings;
+        private readonly Stack<string> _leaves = new();
+        private readonly IDictionary<string, string>? _columnMappings;
 
-        public SqlExpressionVisitor(IDictionary<string, string> columnMappings)
+        public SqlExpressionVisitor(IDictionary<string, string>? columnMappings)
         {
             _columnMappings = columnMappings;
         }
 
         public string GetCondition() => _leaves.StringJoin(" ");
-
-        public override Expression Visit(Expression node) => base.Visit(node);
 
         protected override Expression VisitBinary(BinaryExpression node)
         {
@@ -98,13 +96,11 @@ namespace WeihanLi.Common.Data
                     return bValue ? "1" : "0";
                 }
                 return $"{node.Value.ToString().Replace("'", "''")}";
-            };
+            }
             _leaves.Push(GetResult());
 
             return base.VisitConstant(node);
         }
-
-        protected override Expression VisitLambda<T>(Expression<T> node) => base.VisitLambda(node);
 
         protected override Expression VisitMember(MemberExpression node)
         {
@@ -133,8 +129,6 @@ namespace WeihanLi.Common.Data
             return base.VisitMember(node);
         }
 
-        protected override Expression VisitConditional(ConditionalExpression node) => base.VisitConditional(node);
-
         protected override Expression VisitMethodCall(MethodCallExpression node)
         {
             string GetResult()
@@ -154,7 +148,5 @@ namespace WeihanLi.Common.Data
             _leaves.Push(GetResult());
             return base.VisitMethodCall(node);
         }
-
-        protected override Expression VisitUnary(UnaryExpression node) => base.VisitUnary(node);
     }
 }

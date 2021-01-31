@@ -22,8 +22,8 @@ namespace Serilog.Extensions.Logging
 
         public SerilogLogger(
             SerilogLoggerProvider provider,
-            ILogger logger = null,
-            string name = null)
+            ILogger? logger = null,
+            string? name = null)
         {
             _provider = provider ?? throw new ArgumentNullException(nameof(provider));
 
@@ -46,7 +46,7 @@ namespace Serilog.Extensions.Logging
             return _provider.BeginScope(state);
         }
 
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
+        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string>? formatter)
         {
             var level = ConvertLevel(logLevel);
             if (!_logger.IsEnabled(level))
@@ -55,7 +55,7 @@ namespace Serilog.Extensions.Logging
             }
 
             var logger = _logger;
-            string messageTemplate = null;
+            string? messageTemplate = null;
 
             var properties = new List<LogEventProperty>();
 
@@ -92,7 +92,7 @@ namespace Serilog.Extensions.Logging
 
             if (messageTemplate == null)
             {
-                string propertyName = null;
+                string? propertyName = null;
                 if (state != null)
                 {
                     propertyName = "State";
@@ -119,9 +119,9 @@ namespace Serilog.Extensions.Logging
             logger.Write(evt);
         }
 
-        private static object AsLoggableValue<TState>(TState state, Func<TState, Exception, string> formatter)
+        private static object? AsLoggableValue<TState>(TState state, Func<TState, Exception?, string>? formatter)
         {
-            object sobj = state;
+            object? sobj = state;
             if (formatter != null)
                 sobj = formatter(state, null);
             return sobj;

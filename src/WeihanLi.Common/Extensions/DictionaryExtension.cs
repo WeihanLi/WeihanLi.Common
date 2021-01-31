@@ -252,7 +252,7 @@ namespace WeihanLi.Extensions
         /// <returns>@this as a SortedDictionary&lt;TKey,TValue&gt;</returns>
         public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this)
         {
-            return new SortedDictionary<TKey, TValue>(@this);
+            return new(@this);
         }
 
         /// <summary>
@@ -265,7 +265,7 @@ namespace WeihanLi.Extensions
         /// <returns>@this as a SortedDictionary&lt;TKey,TValue&gt;</returns>
         public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, IComparer<TKey> comparer)
         {
-            return new SortedDictionary<TKey, TValue>(@this, comparer);
+            return new(@this, comparer);
         }
 
         /// <summary>
@@ -435,7 +435,7 @@ namespace WeihanLi.Extensions
         /// <summary>将键值集合转换成字符串，key1=value1&amp;key2=value2，k/v会编码</summary>
         /// <param name="source">数据源</param>
         /// <returns>字符串</returns>
-        public static string ToQueryString(this IEnumerable<KeyValuePair<string, string>> source)
+        public static string ToQueryString(this IEnumerable<KeyValuePair<string, string>>? source)
         {
             if (source == null)
             {

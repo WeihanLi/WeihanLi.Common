@@ -6,7 +6,7 @@ namespace WeihanLi.Common.Event
 {
     public sealed class EventQueueInMemory : IEventQueue
     {
-        private readonly ConcurrentDictionary<string, ConcurrentQueue<IEventBase>> _eventQueues = new ConcurrentDictionary<string, ConcurrentQueue<IEventBase>>();
+        private readonly ConcurrentDictionary<string, ConcurrentQueue<IEventBase>> _eventQueues = new();
 
         public ICollection<string> GetQueues() => _eventQueues.Keys;
 
@@ -14,14 +14,14 @@ namespace WeihanLi.Common.Event
 
         public bool Enqueue<TEvent>(string queueName, TEvent @event) where TEvent : class, IEventBase
         {
-            var queue = _eventQueues.GetOrAdd(queueName, q => new ConcurrentQueue<IEventBase>());
+            var queue = _eventQueues.GetOrAdd(queueName, _ => new ConcurrentQueue<IEventBase>());
             queue.Enqueue(@event);
             return true;
         }
 
         public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event) where TEvent : class, IEventBase => Task.FromResult(Enqueue(queueName, @event));
 
-        public IEventBase Dequeue(string queueName)
+        public IEventBase? Dequeue(string queueName)
         {
             if (_eventQueues.TryGetValue(queueName, out var queue))
             {
@@ -32,7 +32,7 @@ namespace WeihanLi.Common.Event
             return null;
         }
 
-        public Task<IEventBase> DequeueAsync(string queueName)
+        public Task<IEventBase?> DequeueAsync(string queueName)
         {
             return Task.FromResult(Dequeue(queueName));
         }

@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using WeihanLi.Common;
 using WeihanLi.Common.Models;
 
 // ReSharper disable once CheckNamespace
@@ -10,9 +11,51 @@ namespace WeihanLi.Extensions
 {
     public static class QueryableExtension
     {
-        public static IQueryable<T> WhereIf<T>(this IQueryable<T> source, bool condition, Expression<Func<T, bool>> predicate)
+        public static IQueryable<T> WhereIf<T>(this IQueryable<T> source, Expression<Func<T, bool>> predicate, bool condition)
         {
-            return condition ? source?.Where(predicate) : source;
+            return condition ? Guard.NotNull(source, nameof(source)).Where(predicate) : source;
+        }
+
+        public static IQueryable<T> WhereIf<T>(this IQueryable<T> source, Expression<Func<T, bool>> predicate, Func<bool> conditionFunc)
+        {
+            return conditionFunc() ? Guard.NotNull(source, nameof(source)).Where(predicate) : source;
+        }
+
+        /// <summary>
+        /// Converts the specified source to <see cref="IPagedListResult{T}"/> by the specified <paramref name="pageNumber"/> and <paramref name="pageSize"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of the source.</typeparam>
+        /// <param name="source">The source to paging.</param>
+        /// <param name="pageNumber">The number of the page, start from 1.</param>
+        /// <param name="pageSize">The size of the page.</param>
+        /// <returns>An instance of  implements <see cref="IPagedListResult{T}"/> interface.</returns>
+        public static IListResultWithTotal<T> ToListResultWithTotal<T>([NotNull] this IQueryable<T> source, int pageNumber, int pageSize)
+        {
+            if (pageNumber <= 0)
+            {
+                pageNumber = 1;
+            }
+            if (pageSize <= 0)
+            {
+                pageSize = 10;
+            }
+            var count = source.Count();
+            if (count == 0)
+            {
+                return ListResultWithTotal<T>.Empty;
+            }
+
+            if (pageNumber > 1)
+            {
+                source = source.Skip((pageNumber - 1) * pageSize);
+            }
+            var items = source.Take(pageSize).ToArray();
+
+            return new ListResultWithTotal<T>()
+            {
+                TotalCount = count,
+                Data = items
+            };
         }
 
         /// <summary>
@@ -76,7 +119,7 @@ namespace WeihanLi.Extensions
 
             Type type = typeof(T);
             ParameterExpression arg = Expression.Parameter(type, "x");
-            PropertyInfo propertyInfo = type.GetProperty(propertyName);
+            PropertyInfo? propertyInfo = type.GetProperty(propertyName);
             if (null == propertyInfo)
             {
                 throw new InvalidOperationException($"{propertyName} does not exists");

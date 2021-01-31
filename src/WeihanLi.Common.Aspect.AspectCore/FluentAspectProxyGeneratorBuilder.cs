@@ -17,16 +17,9 @@ namespace WeihanLi.Common.Aspect.AspectCore
             _serviceContext = new ServiceContext(_configuration);
         }
 
-        public FluentAspectProxyGeneratorBuilder Configure(Action<IAspectConfiguration> options = null)
+        public FluentAspectProxyGeneratorBuilder Configure(Action<IAspectConfiguration> options)
         {
-            options?.Invoke(_configuration);
-            return this;
-        }
-
-        public FluentAspectProxyGeneratorBuilder ConfigureService(
-            Action<IServiceContext> options = null)
-        {
-            options?.Invoke(_serviceContext);
+            options.Invoke(_configuration);
             return this;
         }
 

@@ -17,6 +17,6 @@ namespace WeihanLi.Common.Aspect
             return _interceptFunc.Invoke(invocation, next);
         }
 
-        public static DelegateInterceptor FromDelegate(Func<IInvocation, Func<Task>, Task> interceptFunc) => new DelegateInterceptor(interceptFunc);
+        public static DelegateInterceptor FromDelegate(Func<IInvocation, Func<Task>, Task> interceptFunc) => new(interceptFunc);
     }
 }

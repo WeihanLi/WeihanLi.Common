@@ -160,7 +160,7 @@ namespace WeihanLi.Common.Data
         /// <param name="whereExpression">whereExpression</param>
         /// <param name="propertyValues">propertyValues to update</param>
         /// <returns>updated rows count</returns>
-        int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues);
+        int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object?>? propertyValues);
 
         /// <summary>
         /// update entities with specific properties
@@ -237,7 +237,7 @@ namespace WeihanLi.Common.Data
         /// <param name="propertyValues">propertyValues to update</param>
         /// <param name="cancellationToken">cancellationToken</param>
         /// <returns>updated rows count</returns>
-        Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues, CancellationToken cancellationToken = default);
+        Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object?>? propertyValues, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete entities by where

@@ -15,11 +15,11 @@ namespace WeihanLi.Common.Models
         /// <summary>
         /// Message
         /// </summary>
-        public string ErrorMsg { get; set; }
+        public string? ErrorMsg { get; set; }
 
         public static ResultModel Success()
         {
-            return new ResultModel
+            return new()
             {
                 Status = ResultStatus.Success,
             };
@@ -27,25 +27,25 @@ namespace WeihanLi.Common.Models
 
         public static ResultModel<T> Success<T>(T result)
         {
-            return new ResultModel<T>()
+            return new()
             {
                 Status = ResultStatus.Success,
                 Result = result
             };
         }
 
-        public static ResultModel Fail(string errorMsg, ResultStatus status = ResultStatus.RequestError)
+        public static ResultModel Fail(string? errorMsg, ResultStatus status = ResultStatus.RequestError)
         {
-            return new ResultModel()
+            return new()
             {
                 ErrorMsg = errorMsg,
                 Status = status,
             };
         }
 
-        public static ResultModel<T> Fail<T>(string errorMsg, ResultStatus status = ResultStatus.RequestError, T result = default)
+        public static ResultModel<T> Fail<T>(string? errorMsg, ResultStatus status = ResultStatus.RequestError, T result = default)
         {
-            return new ResultModel<T>()
+            return new()
             {
                 ErrorMsg = errorMsg,
                 Status = status,
@@ -62,9 +62,9 @@ namespace WeihanLi.Common.Models
         /// <summary>
         /// ResponseData
         /// </summary>
-        public T Result { get; set; }
+        public T? Result { get; set; }
 
-        public void SetSuccessResult(T result)
+        public void SetSuccessResult(T? result)
         {
             Status = ResultStatus.Success;
             Result = result;
@@ -76,7 +76,7 @@ namespace WeihanLi.Common.Models
             Status = ResultStatus.ProcessFail;
         }
 
-        public void SetRequestErrorResult(string errorMsg)
+        public void SetRequestErrorResult(string? errorMsg)
         {
             ErrorMsg = errorMsg;
             Status = ResultStatus.RequestError;

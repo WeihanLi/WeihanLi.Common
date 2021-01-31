@@ -14,20 +14,23 @@ namespace WeihanLi.Common.Logging.Log4Net
     {
         private const int DefaultOnCloseTimeout = 30000;
 
-        private static readonly HttpClient _httpClient = new HttpClient() { Timeout = TimeSpan.FromMilliseconds(DefaultOnCloseTimeout) };
+        private static readonly HttpClient _httpClient = new()
+        {
+            Timeout = TimeSpan.FromMilliseconds(DefaultOnCloseTimeout)
+        };
 
         /// <summary>
         /// ElasticSearchUrl
         /// </summary>
-        public string ElasticSearchUrl { get; set; }
+        public string? ElasticSearchUrl { get; set; }
 
-        public string ApplicationName { get; set; }
+        public string? ApplicationName { get; set; }
 
         public string IndexFormat { get; set; } = "logstash-{applicationName}-{rollingDate}";
 
         public string Type { get; set; } = "logEvent";
 
-        protected override void SendBuffer(LoggingEvent[] events)
+        protected override void SendBuffer(LoggingEvent[]? events)
         {
             if (events == null || events.Length == 0)
                 return;
@@ -75,7 +78,7 @@ namespace WeihanLi.Common.Logging.Log4Net
             }
         }
 
-        private static bool IsValidLog4NetPropertyValue(string value)
+        protected virtual bool IsValidLog4NetPropertyValue(string value)
         {
             if (value.IsNullOrWhiteSpace())
             {
@@ -94,7 +97,7 @@ namespace WeihanLi.Common.Logging.Log4Net
             return true;
         }
 
-        private static IEnumerable<KeyValuePair<string, object>> GetLoggingEventProperties(LoggingEvent loggingEvent)
+        protected virtual IEnumerable<KeyValuePair<string, object>> GetLoggingEventProperties(LoggingEvent loggingEvent)
         {
             yield return new KeyValuePair<string, object>("Host", Environment.MachineName);
             if (IsValidLog4NetPropertyValue(loggingEvent.ThreadName))

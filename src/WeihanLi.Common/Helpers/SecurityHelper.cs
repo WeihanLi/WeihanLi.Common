@@ -62,7 +62,7 @@ namespace WeihanLi.Common.Helpers
             '9'
         };
 
-        public static readonly Random Random = new Random();
+        public static readonly Random Random = new();
 
         /// <summary>
         /// 生成随机验证码
@@ -92,9 +92,6 @@ namespace WeihanLi.Common.Helpers
         /// <summary>
         /// get MD5 hashed string
         /// </summary>
-        /// <param name="sourceString">原字符串</param>
-        /// <param name="isLower">加密后的字符串是否为小写</param>
-        /// <returns>加密后字符串</returns>
         public static string MD5(string sourceString, bool isLower = false)
         {
             return string.IsNullOrEmpty(sourceString) ? string.Empty : HashHelper.GetHashedString(HashType.MD5, sourceString, isLower);

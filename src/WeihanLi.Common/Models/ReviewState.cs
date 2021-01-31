@@ -29,7 +29,7 @@
     {
         public ReviewState State { get; set; }
 
-        public string Remark { get; set; }
+        public string? Remark { get; set; }
 
         public virtual bool IsValid()
         {

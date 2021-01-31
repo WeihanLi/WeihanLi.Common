@@ -131,9 +131,9 @@ namespace WeihanLi.Common.Helpers
             return randomPort;
         }
 
-        private static readonly Lazy<IPNetwork> PrivateAddressBlockANetwork = new Lazy<IPNetwork>(() => new IPNetwork("10.0.0.0/8"));
-        private static readonly Lazy<IPNetwork> PrivateAddressBlockBNetwork = new Lazy<IPNetwork>(() => new IPNetwork("172.16.0.0/12"));
-        private static readonly Lazy<IPNetwork> PrivateAddressBlockCNetwork = new Lazy<IPNetwork>(() => new IPNetwork("192.168.0.0/16"));
+        private static readonly Lazy<IPNetwork> PrivateAddressBlockANetwork = new(() => new IPNetwork("10.0.0.0/8"));
+        private static readonly Lazy<IPNetwork> PrivateAddressBlockBNetwork = new(() => new IPNetwork("172.16.0.0/12"));
+        private static readonly Lazy<IPNetwork> PrivateAddressBlockCNetwork = new(() => new IPNetwork("192.168.0.0/16"));
 
         /// <summary>
         /// whether the ip is a private ip

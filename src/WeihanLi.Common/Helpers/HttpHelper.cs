@@ -44,7 +44,7 @@ namespace WeihanLi.Common.Helpers
         /// Content Header
         /// get latest from https://github.com/dotnet/corefx/blob/master/src/System.Net.Requests/src/System/Net/HttpWebRequest.cs#L1420
         /// </summary>
-        public static readonly HashSet<string> WellKnownContentHeaders = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        public static readonly HashSet<string> WellKnownContentHeaders = new(StringComparer.OrdinalIgnoreCase)
         {
             HttpKnownHeaderNames.ContentDisposition,
             HttpKnownHeaderNames.ContentEncoding,
@@ -81,7 +81,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="url"> url </param>
         /// <param name="customHeaders"></param>
         /// <returns></returns>"
-        public static string HttpGetString(string url, IEnumerable<KeyValuePair<string, string>> customHeaders)
+        public static string HttpGetString(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders)
             => HttpGetString(url, customHeaders, null);
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="proxy">proxy</param>
         /// <param name="customHeaders">customHeaders</param>
         /// <returns></returns>"
-        public static string HttpGetString(string url, IEnumerable<KeyValuePair<string, string>> customHeaders, WebProxy proxy)
+        public static string HttpGetString(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders, WebProxy? proxy)
         {
             var request = WebRequest.CreateHttp(url);
             request.UserAgent = GetUserAgent();
@@ -136,7 +136,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="url"> url </param>
         /// <param name="customHeaders"></param>
         /// <returns></returns>"
-        public static Task<string> HttpGetStringAsync(string url, IEnumerable<KeyValuePair<string, string>> customHeaders)
+        public static Task<string> HttpGetStringAsync(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders)
             => HttpGetStringAsync(url, customHeaders, null);
 
         /// <summary>
@@ -146,8 +146,8 @@ namespace WeihanLi.Common.Helpers
         /// <param name="customHeaders"></param>
         /// <param name="proxy"></param>
         /// <returns></returns>
-        public static async Task<string> HttpGetStringAsync(string url, IEnumerable<KeyValuePair<string, string>> customHeaders,
-            WebProxy proxy)
+        public static async Task<string> HttpGetStringAsync(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders,
+            WebProxy? proxy)
         {
             var request = WebRequest.CreateHttp(url);
             request.UserAgent = GetUserAgent();
@@ -190,7 +190,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="url"> url </param>
         /// <param name="customHeaders">customHeaders</param>
         /// <returns></returns>"
-        public static byte[] HttpGetForBytes(string url, IEnumerable<KeyValuePair<string, string>> customHeaders)
+        public static byte[] HttpGetForBytes(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders)
             => HttpGetForBytes(url, customHeaders, null);
 
         /// <summary>
@@ -200,8 +200,8 @@ namespace WeihanLi.Common.Helpers
         /// <param name="customHeaders"></param>
         /// <param name="proxy"></param>
         /// <returns></returns>
-        public static byte[] HttpGetForBytes(string url, IEnumerable<KeyValuePair<string, string>> customHeaders,
-            WebProxy proxy)
+        public static byte[] HttpGetForBytes(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders,
+            WebProxy? proxy)
         {
             var request = WebRequest.CreateHttp(url);
             request.UserAgent = GetUserAgent();
@@ -235,7 +235,7 @@ namespace WeihanLi.Common.Helpers
 
         public static Task<byte[]> HttpGetForBytesAsync(string url) => HttpGetForBytesAsync(url, null, null);
 
-        public static Task<byte[]> HttpGetForBytesAsync(string url, IEnumerable<KeyValuePair<string, string>> customHeaders) => HttpGetForBytesAsync(url, customHeaders, null);
+        public static Task<byte[]> HttpGetForBytesAsync(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders) => HttpGetForBytesAsync(url, customHeaders, null);
 
         /// <summary>
         /// HTTP GET请求，返回字节数组
@@ -244,8 +244,8 @@ namespace WeihanLi.Common.Helpers
         /// <param name="customHeaders"></param>
         /// <param name="proxy"></param>
         /// <returns></returns>
-        public static async Task<byte[]> HttpGetForBytesAsync(string url, IEnumerable<KeyValuePair<string, string>> customHeaders,
-            WebProxy proxy)
+        public static async Task<byte[]> HttpGetForBytesAsync(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders,
+            WebProxy? proxy)
         {
             var request = WebRequest.CreateHttp(url);
             request.UserAgent = GetUserAgent();
@@ -280,21 +280,21 @@ namespace WeihanLi.Common.Helpers
         public static T HttpGetFor<T>(string url)
             => HttpGetString(url).StringToType<T>();
 
-        public static T HttpGetFor<T>(string url, IEnumerable<KeyValuePair<string, string>> customHeaders)
+        public static T HttpGetFor<T>(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders)
             => HttpGetString(url, customHeaders).StringToType<T>();
 
-        public static T HttpGetFor<T>(string url, IEnumerable<KeyValuePair<string, string>> customHeaders,
-            WebProxy proxy)
+        public static T HttpGetFor<T>(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders,
+            WebProxy? proxy)
             => HttpGetString(url, customHeaders, proxy).StringToType<T>();
 
         public static Task<T> HttpGetForAsync<T>(string url)
             => HttpGetStringAsync(url).ContinueWith(result => result.Result.StringToType<T>());
 
-        public static Task<T> HttpGetForAsync<T>(string url, IEnumerable<KeyValuePair<string, string>> customHeaders)
+        public static Task<T> HttpGetForAsync<T>(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders)
             => HttpGetStringAsync(url, customHeaders).ContinueWith(result => result.Result.StringToType<T>());
 
-        public static Task<T> HttpGetForAsync<T>(string url, IEnumerable<KeyValuePair<string, string>> customHeaders,
-            WebProxy proxy)
+        public static Task<T> HttpGetForAsync<T>(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders,
+            WebProxy? proxy)
             => HttpGetStringAsync(url, customHeaders, proxy).ContinueWith(result => result.Result.StringToType<T>());
 
         /// <summary>
@@ -303,7 +303,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="url"> url </param>
         /// <param name="parameters"> post数据字典 </param>
         /// <returns></returns>
-        public static string HttpGetString(string url, IDictionary<string, string> parameters)
+        public static string HttpGetString(string url, IDictionary<string, string>? parameters)
         {
             if (parameters != null && parameters.Count > 0)
             {
@@ -318,7 +318,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="url"> url </param>
         /// <param name="parameters"> post数据字典 </param>
         /// <returns></returns>
-        public static async Task<string> HttpGetStringAsync(string url, IDictionary<string, string> parameters)
+        public static async Task<string> HttpGetStringAsync(string url, IDictionary<string, string>? parameters)
         {
             if (parameters != null && parameters.Count > 0)
             {
@@ -327,7 +327,7 @@ namespace WeihanLi.Common.Helpers
             return await HttpGetStringAsync(url);
         }
 
-        public static byte[] HttpGetForBytes(string url, IDictionary<string, string> parameters)
+        public static byte[] HttpGetForBytes(string url, IDictionary<string, string>? parameters)
         {
             if (parameters != null && parameters.Count > 0)
             {
@@ -336,7 +336,7 @@ namespace WeihanLi.Common.Helpers
             return HttpGetForBytes(url);
         }
 
-        public static async Task<byte[]> HttpGetForBytesAsync(string url, IDictionary<string, string> parameters)
+        public static async Task<byte[]> HttpGetForBytesAsync(string url, IDictionary<string, string>? parameters)
         {
             if (parameters != null && parameters.Count > 0)
             {
@@ -345,7 +345,7 @@ namespace WeihanLi.Common.Helpers
             return await HttpGetForBytesAsync(url);
         }
 
-        public static T HttpGetFor<T>(string url, IDictionary<string, string> parameters)
+        public static T HttpGetFor<T>(string url, IDictionary<string, string>? parameters)
         {
             if (parameters != null && parameters.Count > 0)
             {
@@ -354,7 +354,7 @@ namespace WeihanLi.Common.Helpers
             return HttpGetFor<T>(url);
         }
 
-        public static async Task<T> HttpGetForAsync<T>(string url, IDictionary<string, string> parameters)
+        public static async Task<T> HttpGetForAsync<T>(string url, IDictionary<string, string>? parameters)
         {
             if (parameters != null && parameters.Count > 0)
             {
@@ -380,10 +380,10 @@ namespace WeihanLi.Common.Helpers
         /// <param name="url"> url </param>
         /// <param name="parameters"> post数据字典 </param>
         /// <returns></returns>
-        public static string HttpPost(string url, IDictionary<string, string> parameters)
+        public static string HttpPost(string url, IDictionary<string, string>? parameters)
             => HttpPost(url,
                 Encoding.UTF8.GetBytes(string.Join("&",
-                    parameters.Select(p => $"{WebUtility.UrlEncode(p.Key)}={WebUtility.UrlEncode(p.Value)}"))), false);
+                    parameters?.Select(p => $"{WebUtility.UrlEncode(p.Key)}={WebUtility.UrlEncode(p.Value)}") ?? Array.Empty<string>())), false);
 
         /// <summary>
         /// HTTP POST 请求，返回字符串
@@ -391,10 +391,10 @@ namespace WeihanLi.Common.Helpers
         /// <param name="url"> url </param>
         /// <param name="parameters"> post数据字典 </param>
         /// <returns></returns>
-        public static Task<string> HttpPostAsync(string url, IDictionary<string, string> parameters)
+        public static Task<string> HttpPostAsync(string url, IDictionary<string, string>? parameters)
             => HttpPostAsync(url,
             Encoding.UTF8.GetBytes(string.Join("&",
-        parameters.Select(p => $"{WebUtility.UrlEncode(p.Key)}={WebUtility.UrlEncode(p.Value)}"))), false);
+        parameters?.Select(p => $"{WebUtility.UrlEncode(p.Key)}={WebUtility.UrlEncode(p.Value)}") ?? Array.Empty<string>())), false);
 
         /// <summary>
         /// Http
@@ -443,7 +443,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="customHeaders"></param>
         /// <param name="proxy"></param>
         /// <returns></returns>
-        public static string HttpPost(string url, byte[] postData, bool isJsonFormat = true, IEnumerable<KeyValuePair<string, string>> customHeaders = null, WebProxy proxy = null)
+        public static string HttpPost(string url, byte[] postData, bool isJsonFormat = true, IEnumerable<KeyValuePair<string, string>>? customHeaders = null, WebProxy? proxy = null)
         {
             var request = WebRequest.CreateHttp(url);
             request.UserAgent = GetUserAgent();
@@ -486,7 +486,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="customHeaders"></param>
         /// <param name="proxy"></param>
         /// <returns></returns>
-        public static async Task<string> HttpPostAsync(string url, byte[] postData, bool isJsonFormat = true, IEnumerable<KeyValuePair<string, string>> customHeaders = null, WebProxy proxy = null)
+        public static async Task<string> HttpPostAsync(string url, byte[] postData, bool isJsonFormat = true, IEnumerable<KeyValuePair<string, string>>? customHeaders = null, WebProxy? proxy = null)
         {
             var request = WebRequest.CreateHttp(url);
             request.UserAgent = GetUserAgent();
@@ -520,7 +520,7 @@ namespace WeihanLi.Common.Helpers
             return await request.GetReponseStringSafeAsync();
         }
 
-        public static async Task<string> HttpPostAsync(string url, byte[] postData, string contentType, IEnumerable<KeyValuePair<string, string>> customHeaders = null, WebProxy proxy = null)
+        public static async Task<string> HttpPostAsync(string url, byte[] postData, string contentType, IEnumerable<KeyValuePair<string, string>>? customHeaders = null, WebProxy? proxy = null)
         {
             var request = WebRequest.CreateHttp(url);
             request.UserAgent = GetUserAgent();
@@ -562,7 +562,7 @@ namespace WeihanLi.Common.Helpers
         public static async Task<T> HttpPostForAsync<T>(string url, byte[] postData, bool isJsonFormat)
             => (await HttpPostAsync(url, postData, isJsonFormat)).StringToType<T>();
 
-        public static byte[] HttpPostForBytes(string url, byte[] postData, bool isJsonFormat, IEnumerable<KeyValuePair<string, string>> customHeaders = null, WebProxy proxy = null)
+        public static byte[] HttpPostForBytes(string url, byte[] postData, bool isJsonFormat, IEnumerable<KeyValuePair<string, string>>? customHeaders = null, WebProxy? proxy = null)
         {
             var request = WebRequest.CreateHttp(url);
             request.UserAgent = GetUserAgent();
@@ -599,7 +599,7 @@ namespace WeihanLi.Common.Helpers
             return request.GetReponseBytesSafe();
         }
 
-        public static byte[] HttpPostForBytes(string url, byte[] postData, string contentType, IEnumerable<KeyValuePair<string, string>> customHeaders = null, WebProxy proxy = null)
+        public static byte[] HttpPostForBytes(string url, byte[] postData, string contentType, IEnumerable<KeyValuePair<string, string>>? customHeaders = null, WebProxy? proxy = null)
         {
             var request = WebRequest.CreateHttp(url);
             request.UserAgent = GetUserAgent();
@@ -634,7 +634,7 @@ namespace WeihanLi.Common.Helpers
             return request.GetReponseBytesSafe();
         }
 
-        public static async Task<byte[]> HttpPostForBytesAsync(string url, byte[] postData, bool isJsonFormat, IEnumerable<KeyValuePair<string, string>> customHeaders = null, WebProxy proxy = null)
+        public static async Task<byte[]> HttpPostForBytesAsync(string url, byte[] postData, bool isJsonFormat, IEnumerable<KeyValuePair<string, string>>? customHeaders = null, WebProxy? proxy = null)
         {
             var request = WebRequest.CreateHttp(url);
             request.UserAgent = GetUserAgent();
@@ -668,7 +668,7 @@ namespace WeihanLi.Common.Helpers
             return await request.GetReponseBytesSafeAsync();
         }
 
-        public static async Task<byte[]> HttpPostForBytesAsync(string url, byte[] postData, string contentType, IEnumerable<KeyValuePair<string, string>> customHeaders = null, WebProxy proxy = null)
+        public static async Task<byte[]> HttpPostForBytesAsync(string url, byte[] postData, string contentType, IEnumerable<KeyValuePair<string, string>>? customHeaders = null, WebProxy? proxy = null)
         {
             var request = WebRequest.CreateHttp(url);
             request.UserAgent = GetUserAgent();
@@ -714,7 +714,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="headers">headers</param>
         /// <returns></returns>
         public static string HttpPostFile(string url, string filePath, string fileKey = "file",
-            IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
+            IEnumerable<KeyValuePair<string, string>>? formFields = null, IEnumerable<KeyValuePair<string, string>>? headers = null)
             => HttpPostFile(url, Path.GetFileName(filePath), File.ReadAllBytes(filePath), fileKey, formFields, headers);
 
         /// <summary>
@@ -727,7 +727,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="formFields">other form fields</param>
         /// <param name="headers">request headers</param>
         /// <returns></returns>
-        public static string HttpPostFile(string url, string fileName, byte[] fileBytes, string fileKey = "file", IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
+        public static string HttpPostFile(string url, string fileName, byte[] fileBytes, string fileKey = "file", IEnumerable<KeyValuePair<string, string>>? formFields = null, IEnumerable<KeyValuePair<string, string>>? headers = null)
         {
             var request = WebRequest.CreateHttp(url);
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
@@ -786,7 +786,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="headers">request headers</param>
         /// <returns></returns>
         public static string HttpPostFile(string url, IEnumerable<string> filePaths,
-            IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
+            IEnumerable<KeyValuePair<string, string>>? formFields = null, IEnumerable<KeyValuePair<string, string>>? headers = null)
             => HttpPostFile(url,
                 filePaths.Select(_ => new KeyValuePair<string, byte[]>(Path.GetFileName(_), File.ReadAllBytes(_))),
                 formFields, headers);
@@ -799,7 +799,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="formFields">other form fields</param>
         /// <param name="headers">request headers</param>
         /// <returns></returns>
-        public static string HttpPostFile(string url, IEnumerable<KeyValuePair<string, byte[]>> files, IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
+        public static string HttpPostFile(string url, IEnumerable<KeyValuePair<string, byte[]>> files, IEnumerable<KeyValuePair<string, string>>? formFields = null, IEnumerable<KeyValuePair<string, string>>? headers = null)
         {
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
 
@@ -862,7 +862,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="headers">request headers</param>
         /// <returns>response text</returns>
         public static Task<string> HttpPostFileAsync(string url, string filePath, string fileKey = "file",
-            IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
+            IEnumerable<KeyValuePair<string, string>>? formFields = null, IEnumerable<KeyValuePair<string, string>>? headers = null)
             => HttpPostFileAsync(url, Path.GetFileName(filePath), File.ReadAllBytes(filePath), fileKey, formFields, headers);
 
         /// <summary>
@@ -875,7 +875,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="formFields">other form fields</param>
         /// <param name="headers">request headers</param>
         /// <returns></returns>
-        public static async Task<string> HttpPostFileAsync(string url, string fileName, byte[] fileBytes, string fileKey = "file", IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
+        public static async Task<string> HttpPostFileAsync(string url, string fileName, byte[] fileBytes, string fileKey = "file", IEnumerable<KeyValuePair<string, string>>? formFields = null, IEnumerable<KeyValuePair<string, string>>? headers = null)
         {
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
 
@@ -932,7 +932,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="headers">request headers</param>
         /// <returns></returns>
         public static Task<string> HttpPostFileAsync(string url, IEnumerable<string> filePaths,
-            IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
+            IEnumerable<KeyValuePair<string, string>>? formFields = null, IEnumerable<KeyValuePair<string, string>>? headers = null)
             => HttpPostFileAsync(url,
                 filePaths.Select(_ => new KeyValuePair<string, byte[]>(Path.GetFileName(_), File.ReadAllBytes(_))),
                 formFields, headers);
@@ -945,7 +945,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="formFields">other form fields</param>
         /// <param name="headers">request headers</param>
         /// <returns></returns>
-        public static async Task<string> HttpPostFileAsync(string url, IEnumerable<KeyValuePair<string, byte[]>> files, IEnumerable<KeyValuePair<string, string>> formFields = null, IEnumerable<KeyValuePair<string, string>> headers = null)
+        public static async Task<string> HttpPostFileAsync(string url, IEnumerable<KeyValuePair<string, byte[]>> files, IEnumerable<KeyValuePair<string, string>>? formFields = null, IEnumerable<KeyValuePair<string, string>>? headers = null)
         {
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
 

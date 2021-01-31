@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using WeihanLi.Common;
 using WeihanLi.Common.Models;
 
 // ReSharper disable once CheckNamespace
@@ -59,25 +60,14 @@ namespace WeihanLi.Extensions
         }
 
         /// <summary>
-        ///     An IEnumerable&lt;T&gt; extension method that queries if a null or is empty.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The collection to act on.</param>
-        /// <returns>true if a null or is t>, false if not.</returns>
-        public static bool IsNullOrEmpty<T>(this IEnumerable<T> @this)
-        {
-            return @this == null || !@this.Any();
-        }
-
-        /// <summary>
         ///     An IEnumerable&lt;T&gt; extension method that queries if a not null or is empty.
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The collection to act on.</param>
+        /// <param name="source">The collection to act on.</param>
         /// <returns>true if a not null or is t>, false if not.</returns>
-        public static bool IsNotNullOrEmpty<T>(this IEnumerable<T> @this)
+        public static bool HasValue<T>(this IEnumerable<T?> source)
         {
-            return @this != null && @this.Any();
+            return Guard.NotNull(source, nameof(source)).Any();
         }
 
         /// <summary>
@@ -146,11 +136,14 @@ namespace WeihanLi.Extensions
 
         #endregion Split
 
-        public static IEnumerable<T> WhereIf<T>(this IEnumerable<T> source, bool condition, Func<T, bool> predict)
-            => condition ? source?.Where(predict) : source;
+        public static IEnumerable<T> WhereIf<T>(this IEnumerable<T> source, Func<T, bool> predict, bool condition)
+            => condition ? Guard.NotNull(source, nameof(source)).Where(predict) : source;
 
-        public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T> source) where T : class
-            => source?.Where(_ => _ != null);
+        public static IEnumerable<T> WhereIf<T>(this IEnumerable<T> source, Func<T, bool> predict, Func<bool> condition)
+            => condition() ? Guard.NotNull(source, nameof(source)).Where(predict) : source;
+
+        public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T?> source) where T : class
+            => Guard.NotNull(source, nameof(source)).Where(_ => _ != null)!;
 
         public static IEnumerable<T> Distinct<T>(this IEnumerable<T> source, Func<T, T, bool> comparer) where T : class
             => source.Distinct(new DynamicEqualityComparer<T>(comparer));
@@ -202,6 +195,20 @@ namespace WeihanLi.Extensions
         #endregion Linq
 
         #region ToPagedList
+
+        /// <summary>
+        /// ToPagedList
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="data">data</param>
+        /// <param name="totalCount">totalCount</param>
+        /// <returns></returns>
+        public static IListResultWithTotal<T> ToListResultWithTotal<T>([NotNull] this IEnumerable<T> data, int totalCount)
+            => new ListResultWithTotal<T>
+            {
+                TotalCount = totalCount,
+                Data = data is IReadOnlyList<T> dataList ? dataList : data.ToArray()
+            };
 
         /// <summary>
         /// ToPagedList

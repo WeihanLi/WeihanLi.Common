@@ -51,7 +51,7 @@ namespace WeihanLi.Common.Helpers
             _actionMaker[16] = typeof(Action<,,,,,,,,,,,,,,,>);
         }
 
-        public static Delegate FromMethod(MethodInfo method, object target = null)
+        public static Delegate FromMethod(MethodInfo method, object? target = null)
         {
             if (null == method)
             {
@@ -99,7 +99,7 @@ namespace WeihanLi.Common.Helpers
             return delegateType;
         }
 
-        public static Type GetDelegate(Type[] parametersTypes = null, Type returnType = null)
+        public static Type GetDelegate(Type[]? parametersTypes = null, Type? returnType = null)
         {
             if (returnType == null || returnType == typeof(void))
             {
@@ -109,7 +109,7 @@ namespace WeihanLi.Common.Helpers
             return GetFunc(returnType, parametersTypes);
         }
 
-        public static Type GetFunc(Type returnType, params Type[] parametersTypes)
+        public static Type GetFunc(Type returnType, params Type[]? parametersTypes)
         {
             if (returnType == typeof(void))
             {
@@ -129,7 +129,7 @@ namespace WeihanLi.Common.Helpers
                 .MakeGenericType(types);
         }
 
-        public static Type GetAction(params Type[] parametersTypes)
+        public static Type GetAction(params Type[]? parametersTypes)
         {
             if (parametersTypes == null || parametersTypes.Length == 0)
             {

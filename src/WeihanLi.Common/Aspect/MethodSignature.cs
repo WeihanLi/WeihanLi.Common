@@ -59,7 +59,7 @@ namespace WeihanLi.Common.Aspect
     {
         public static MethodSignature GetSignature(this MethodBase method)
         {
-            return new MethodSignature(method);
+            return new(method);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
+using WeihanLi.Common.Helpers;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -76,6 +77,7 @@ namespace WeihanLi.Extensions
         public static bool AddIf<T>([NotNull] this ICollection<T> @this, Func<T, bool> predicate, T value)
         {
             if (@this.IsReadOnly) return false;
+
             if (predicate(value))
             {
                 @this.Add(value);
@@ -95,6 +97,7 @@ namespace WeihanLi.Extensions
         public static bool AddIfNotContains<T>([NotNull] this ICollection<T> @this, T value)
         {
             if (@this.IsReadOnly) return false;
+
             if (!@this.Contains(value))
             {
                 @this.Add(value);
@@ -206,7 +209,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if null or empty&lt; t&gt;, false if not.</returns>
-        public static bool IsNullOrEmpty<T>(this ICollection<T> @this)
+        public static bool IsCollectionNullOrEmpty<T>(this ICollection<T> @this)
         {
             return @this == null || @this.Count == 0;
         }
@@ -217,7 +220,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if the collection is not (null or empty), false if not.</returns>
-        public static bool IsNotNullOrEmpty<T>(this ICollection<T> @this)
+        public static bool HasValue<T>(this ICollection<T> @this)
         {
             return @this != null && @this.Count != 0;
         }
@@ -323,15 +326,12 @@ namespace WeihanLi.Extensions
             }
         }
 
-        /// <summary>
-        /// GetRandomList
-        /// </summary>
-        /// <typeparam name="T">T</typeparam>
-        /// <param name="list">list</param>
-        /// <returns></returns>
-        public static List<T> GetRandomList<T>([NotNull] this IList<T> list)
+        public static IEnumerable<T> GetRandomList<T>([NotNull] this IList<T> list)
         {
-            return Enumerable.Range(0, list.Count).OrderBy(_ => Common.Helpers.SecurityHelper.Random.Next(list.Count)).Select(i => list[i]).ToList();
+            return Enumerable.Range(0, list.Count)
+                .OrderBy(_ => SecurityHelper.Random.Next(list.Count))
+                .Select(i => list[i])
+                ;
         }
     }
 }

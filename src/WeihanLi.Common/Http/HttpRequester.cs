@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
@@ -16,11 +15,11 @@ namespace WeihanLi.Common.Http
 {
     public class HttpResponse
     {
-        public HttpStatusCode StatusCode { get; set; }
+        public HttpStatusCode StatusCode { get; init; }
 
-        public byte[] ResponseBytes { get; set; }
+        public byte[]? ResponseBytes { get; init; }
 
-        public IDictionary<string, string> Headers { get; set; }
+        public IDictionary<string, string> Headers { get; init; } = null!;
     }
 
     public class WebRequestHttpRequester : IHttpRequester
@@ -29,9 +28,9 @@ namespace WeihanLi.Common.Http
 
         #region private fields
 
-        private HttpWebRequest _request;
-        private byte[] _requestDataBytes;
-        private string _requestUrl;
+        private HttpWebRequest _request = null!;
+        private byte[]? _requestDataBytes;
+        private string _requestUrl = null!;
 
         #endregion private fields
 
@@ -55,7 +54,7 @@ namespace WeihanLi.Common.Http
         /// <param name="requestUrl">requestUrl</param>
         /// <param name="queryDictionary">queryDictionary</param>
         /// <param name="method">method</param>
-        public WebRequestHttpRequester(string requestUrl, IDictionary<string, string> queryDictionary, HttpMethod method)
+        public WebRequestHttpRequester(string requestUrl, IDictionary<string, string>? queryDictionary, HttpMethod method)
         {
             _requestUrl = $"{requestUrl}{(requestUrl.Contains("?") ? "&" : "?")}{queryDictionary.ToQueryString()}";
             _request = WebRequest.CreateHttp(requestUrl);
@@ -95,10 +94,12 @@ namespace WeihanLi.Common.Http
 
         #region AddHeader
 
-        public IHttpRequester WithHeaders([NotNull]NameValueCollection customHeaders) => WithHeaders(customHeaders.ToDictionary());
+        public IHttpRequester WithHeaders(NameValueCollection customHeaders) => WithHeaders(customHeaders.ToDictionary());
 
-        public IHttpRequester WithHeaders([NotNull]IEnumerable<KeyValuePair<string, string>> customHeaders)
+        public IHttpRequester WithHeaders(IEnumerable<KeyValuePair<string, string>> customHeaders)
         {
+            // ReSharper disable PossibleMultipleEnumeration
+            Guard.NotNull(customHeaders, nameof(customHeaders));
             foreach (var header in customHeaders)
             {
                 if (header.Key.EqualsIgnoreCase("REFERER"))
@@ -160,8 +161,9 @@ namespace WeihanLi.Common.Http
 
         #region Proxy
 
-        public IHttpRequester WithProxy([NotNull]IWebProxy proxy)
+        public IHttpRequester WithProxy(IWebProxy proxy)
         {
+            Guard.NotNull(proxy, nameof(proxy));
             _request.Proxy = proxy;
             return this;
         }
@@ -170,7 +172,7 @@ namespace WeihanLi.Common.Http
 
         #region Cookie
 
-        public IHttpRequester WithCookie(string url, Cookie cookie)
+        public IHttpRequester WithCookie(string? url, Cookie cookie)
         {
             if (null == _request.CookieContainer)
             {
@@ -183,12 +185,12 @@ namespace WeihanLi.Common.Http
             }
             else
             {
-                _request.CookieContainer.Add(new Uri(url), cookie);
+                _request.CookieContainer.Add(new Uri(url!), cookie);
             }
             return this;
         }
 
-        public IHttpRequester WithCookie(string url, CookieCollection cookies)
+        public IHttpRequester WithCookie(string? url, CookieCollection cookies)
         {
             if (null == _request.CookieContainer)
             {
@@ -201,7 +203,7 @@ namespace WeihanLi.Common.Http
             }
             else
             {
-                _request.CookieContainer.Add(new Uri(url), cookies);
+                _request.CookieContainer.Add(new Uri(url!), cookies);
             }
             return this;
         }
@@ -210,11 +212,12 @@ namespace WeihanLi.Common.Http
 
         #region Parameter
 
-        public IHttpRequester WithParameters([NotNull] byte[] requestBytes)
+        public IHttpRequester WithParameters(byte[] requestBytes)
             => WithParameters(requestBytes, null);
 
-        public IHttpRequester WithParameters([NotNull] byte[] requestBytes, string contentType)
+        public IHttpRequester WithParameters(byte[] requestBytes, string? contentType)
         {
+            Guard.NotNull(requestBytes, nameof(requestBytes));
             _requestDataBytes = requestBytes;
             if (string.IsNullOrWhiteSpace(contentType))
             {
@@ -229,11 +232,11 @@ namespace WeihanLi.Common.Http
         #region AddFile
 
         public IHttpRequester WithFile(string filePath, string fileKey = "file",
-            IEnumerable<KeyValuePair<string, string>> formFields = null)
+            IEnumerable<KeyValuePair<string, string>>? formFields = null)
             => WithFile(Path.GetFileName(filePath), File.ReadAllBytes(filePath), fileKey, formFields);
 
         public IHttpRequester WithFile(string fileName, byte[] fileBytes, string fileKey = "file",
-            IEnumerable<KeyValuePair<string, string>> formFields = null)
+            IEnumerable<KeyValuePair<string, string>>? formFields = null)
         {
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
 
@@ -261,7 +264,7 @@ namespace WeihanLi.Common.Http
             return this;
         }
 
-        public IHttpRequester WithFiles(IEnumerable<string> filePaths, IEnumerable<KeyValuePair<string, string>> formFields = null)
+        public IHttpRequester WithFiles(IEnumerable<string> filePaths, IEnumerable<KeyValuePair<string, string>>? formFields = null)
             => WithFiles(
                 filePaths.Select(_ => new KeyValuePair<string, byte[]>(
                     Path.GetFileName(_),
@@ -269,7 +272,7 @@ namespace WeihanLi.Common.Http
                 formFields);
 
         public IHttpRequester WithFiles(IEnumerable<KeyValuePair<string, byte[]>> files,
-            IEnumerable<KeyValuePair<string, string>> formFields = null)
+            IEnumerable<KeyValuePair<string, string>>? formFields = null)
         {
             var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
 
@@ -380,18 +383,16 @@ namespace WeihanLi.Common.Http
 
     public class HttpClientHttpRequester : IHttpRequester
     {
-        private HttpClient Client;
+        private HttpClient _client = null!;
 
-        private readonly HttpRequestMessage _request = new HttpRequestMessage();
+        private readonly HttpRequestMessage _request = new();
 
-        private CookieContainer _cookieContainer = null;
-        private IWebProxy _proxy = null;
-
-        public static IHttpRequester New() => new HttpClientHttpRequester();
+        private CookieContainer? _cookieContainer;
+        private IWebProxy? _proxy;
 
         private void BuildHttpClient()
         {
-            var handler = new HttpClientHandler() { };
+            var handler = new HttpClientHandler();
             if (_proxy == null)
             {
                 handler.UseProxy = false;
@@ -411,13 +412,13 @@ namespace WeihanLi.Common.Http
                 handler.UseCookies = true;
                 handler.CookieContainer = _cookieContainer;
             }
-            Client = new HttpClient(handler);
+            _client = new HttpClient(handler);
         }
 
         public byte[] ExecuteBytes()
         {
             BuildHttpClient();
-            return Client.SendAsync(_request)
+            return _client.SendAsync(_request)
                 .ContinueWith(res => res.Result.Content.ReadAsByteArrayAsync().ContinueWith(r => r.Result))
                 .Result.GetAwaiter().GetResult();
         }
@@ -425,7 +426,7 @@ namespace WeihanLi.Common.Http
         public async Task<byte[]> ExecuteBytesAsync()
         {
             BuildHttpClient();
-            var response = await Client.SendAsync(_request);
+            var response = await _client.SendAsync(_request);
             var result = await response.Content.ReadAsByteArrayAsync();
             return result;
         }
@@ -433,7 +434,7 @@ namespace WeihanLi.Common.Http
         public HttpResponse ExecuteForResponse()
         {
             BuildHttpClient();
-            var response = Client.SendAsync(_request).Result;
+            var response = _client.SendAsync(_request).Result;
             var responseBytes = response.Content.ReadAsByteArrayAsync().Result;
             return new HttpResponse
             {
@@ -446,7 +447,7 @@ namespace WeihanLi.Common.Http
         public async Task<HttpResponse> ExecuteForResponseAsync()
         {
             BuildHttpClient();
-            var response = await Client.SendAsync(_request);
+            var response = await _client.SendAsync(_request);
             var responseBytes = await response.Content.ReadAsByteArrayAsync();
             return new HttpResponse
             {
@@ -456,12 +457,9 @@ namespace WeihanLi.Common.Http
             };
         }
 
-        public IHttpRequester WithCookie(string url, Cookie cookie)
+        public IHttpRequester WithCookie(string? url, Cookie cookie)
         {
-            if (null == _cookieContainer)
-            {
-                _cookieContainer = new CookieContainer();
-            }
+            _cookieContainer ??= new CookieContainer();
 
             if (string.IsNullOrEmpty(url))
             {
@@ -469,24 +467,21 @@ namespace WeihanLi.Common.Http
             }
             else
             {
-                _cookieContainer.Add(new Uri(url), cookie);
+                _cookieContainer.Add(new Uri(url!), cookie);
             }
             return this;
         }
 
-        public IHttpRequester WithCookie(string url, CookieCollection cookies)
+        public IHttpRequester WithCookie(string? url, CookieCollection cookies)
         {
-            if (null == _cookieContainer)
-            {
-                _cookieContainer = new CookieContainer();
-            }
+            _cookieContainer ??= new CookieContainer();
             if (string.IsNullOrWhiteSpace(url))
             {
                 _cookieContainer.Add(cookies);
             }
             else
             {
-                _cookieContainer.Add(new Uri(url), cookies);
+                _cookieContainer.Add(new Uri(url!), cookies);
             }
             return this;
         }
@@ -497,7 +492,7 @@ namespace WeihanLi.Common.Http
             return this;
         }
 
-        public IHttpRequester WithFile(string fileName, byte[] fileBytes, string fileKey = "file", IEnumerable<KeyValuePair<string, string>> formFields = null)
+        public IHttpRequester WithFile(string fileName, byte[] fileBytes, string fileKey = "file", IEnumerable<KeyValuePair<string, string>>? formFields = null)
         {
             var content = new MultipartFormDataContent($"form--{DateTime.Now.Ticks:X}");
             if (formFields != null)
@@ -513,7 +508,7 @@ namespace WeihanLi.Common.Http
             return this;
         }
 
-        public IHttpRequester WithFiles(IEnumerable<KeyValuePair<string, byte[]>> files, IEnumerable<KeyValuePair<string, string>> formFields = null)
+        public IHttpRequester WithFiles(IEnumerable<KeyValuePair<string, byte[]>> files, IEnumerable<KeyValuePair<string, string>>? formFields = null)
         {
             var content = new MultipartFormDataContent($"form--{DateTime.Now.Ticks:X}");
             if (formFields != null)
@@ -542,7 +537,7 @@ namespace WeihanLi.Common.Http
             return this;
         }
 
-        public IHttpRequester WithHeaders([CanBeNull] IEnumerable<KeyValuePair<string, string>> customHeaders)
+        public IHttpRequester WithHeaders(IEnumerable<KeyValuePair<string, string>>? customHeaders)
         {
             if (customHeaders != null)
             {
@@ -553,11 +548,7 @@ namespace WeihanLi.Common.Http
                     // are only allowed in the request headers collection and not in the request content headers collection.
                     if (HttpHelper.IsWellKnownContentHeader(header.Key))
                     {
-                        if (_request.Content == null)
-                        {
-                            // Create empty content so that we can send the entity-body header.
-                            _request.Content = new ByteArrayContent(new byte[0]);
-                        }
+                        _request.Content ??= new ByteArrayContent(Array.Empty<byte>());
 
                         _request.Content.Headers.TryAddWithoutValidation(header.Key, header.Value);
                     }

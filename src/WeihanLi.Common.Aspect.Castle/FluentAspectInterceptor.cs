@@ -36,12 +36,12 @@ namespace WeihanLi.Common.Aspect.Castle
                     {
                         invocation.Proceed();
                         c.ReturnValue = invocation.ReturnValue;
-                        return TaskHelper.CompletedTask;
+                        return Task.CompletedTask;
                     };
                 }
                 else
                 {
-                    completeFunc = c => TaskHelper.CompletedTask;
+                    completeFunc = c => Task.CompletedTask;
                 }
                 AspectDelegate.InvokeWithCompleteFunc(aspectInvocation, completeFunc);
             }

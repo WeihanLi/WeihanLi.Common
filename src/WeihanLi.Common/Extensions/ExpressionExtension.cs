@@ -39,7 +39,7 @@ namespace WeihanLi.Extensions
                 Expression.AndAlso(left, right), parameter);
         }
 
-        public static Expression<Func<T, bool>> AndIf<T>([NotNull] this Expression<Func<T, bool>> expr1, bool condition, Expression<Func<T, bool>> expr2)
+        public static Expression<Func<T, bool>> AndIf<T>([NotNull] this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2, bool condition)
         {
             if (!condition)
             {
@@ -72,7 +72,7 @@ namespace WeihanLi.Extensions
                 if (node == _oldValue)
                     return _newValue;
 
-                return base.Visit(node);
+                return base.Visit(node)!;
             }
         }
 
@@ -105,15 +105,13 @@ namespace WeihanLi.Extensions
                     return (MethodCallExpression)exp.Body;
 
                 case ExpressionType.Convert:
-                    if (exp.Body is UnaryExpression unaryExp && unaryExp.Operand is MethodCallExpression methodCallExpression)
+                    if (exp.Body is UnaryExpression { Operand: MethodCallExpression methodCallExpression })
                     {
                         return methodCallExpression;
                     }
-                    throw new InvalidOperationException($"Method expected: {exp.Body}");
-
-                default:
-                    throw new InvalidOperationException("Method expected:" + exp.Body.ToString());
+                    break;
             }
+            throw new InvalidOperationException($"Method expected: {exp.Body}");
         }
 
         /// <summary>
@@ -125,7 +123,7 @@ namespace WeihanLi.Extensions
         /// <returns></returns>
         public static string
             GetMemberName<TEntity, TMember>([NotNull] this Expression<Func<TEntity, TMember>> memberExpression) =>
-            GetMemberInfo(memberExpression)?.Name;
+            GetMemberInfo(memberExpression).Name;
 
         /// <summary>
         /// GetMemberInfo
@@ -168,7 +166,7 @@ namespace WeihanLi.Extensions
             if (member is PropertyInfo property)
                 return property;
 
-            return CacheUtil.GetTypeProperties(typeof(TEntity)).FirstOrDefault(p => p.Name.Equals(member.Name));
+            return CacheUtil.GetTypeProperties(typeof(TEntity)).First(p => p.Name.Equals(member.Name));
         }
 
         private static MemberExpression ExtractMemberExpression(Expression expression)
@@ -184,7 +182,7 @@ namespace WeihanLi.Extensions
                 return ExtractMemberExpression(operand);
             }
 
-            return null;
+            throw new InvalidOperationException(nameof(ExtractMemberExpression));
         }
     }
 }

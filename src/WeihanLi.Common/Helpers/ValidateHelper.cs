@@ -9,25 +9,25 @@ namespace WeihanLi.Common.Helpers
     public static class ValidateHelper
     {
         //邮件正则表达式
-        private static readonly Regex _emailregex = new Regex(@"^[a-z0-9]([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$", RegexOptions.IgnoreCase);
+        private static readonly Regex _emailregex = new(@"^[a-z0-9]([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$", RegexOptions.IgnoreCase);
 
         //手机号正则表达式
-        private static readonly Regex _mobileregex = new Regex("^1[3-9][0-9]{9}$", RegexOptions.Compiled);
+        private static readonly Regex _mobileregex = new("^1[3-9][0-9]{9}$", RegexOptions.Compiled);
 
         //固话号正则表达式
-        private static readonly Regex _phoneregex = new Regex(@"^(\d{3,4}-?)?\d{7,8}$");
+        private static readonly Regex _phoneregex = new(@"^(\d{3,4}-?)?\d{7,8}$");
 
         //IP正则表达式
-        private static readonly Regex _ipregex = new Regex(@"^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$");
+        private static readonly Regex _ipregex = new(@"^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$");
 
         //日期正则表达式
-        private static readonly Regex _dateregex = new Regex(@"(\d{4})[-,/](\d{1,2})[-,/](\d{1,2})");
+        private static readonly Regex _dateregex = new(@"(\d{4})[-,/](\d{1,2})[-,/](\d{1,2})");
 
         //数值(包括整数和小数)正则表达式
-        private static readonly Regex _numericregex = new Regex(@"^[-]?[0-9]+(\.[0-9]+)?$");
+        private static readonly Regex _numericregex = new(@"^[-]?[0-9]+(\.[0-9]+)?$");
 
         //邮政编码正则表达式
-        private static readonly Regex _zipcoderegex = new Regex(@"^\d{6}$");
+        private static readonly Regex _zipcoderegex = new(@"^\d{6}$");
 
         /// <summary>
         /// 是否为邮箱名

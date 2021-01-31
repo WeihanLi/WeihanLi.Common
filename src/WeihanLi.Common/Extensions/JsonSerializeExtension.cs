@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 
 // ReSharper disable once CheckNamespace
@@ -12,14 +11,14 @@ namespace WeihanLi.Extensions
         /// </summary>
         private static readonly JsonSerializerSettings _defaultSerializerSettings = GetDefaultSerializerSettings();
 
-        private static JsonSerializerSettings GetDefaultSerializerSettings() => new JsonSerializerSettings
+        private static JsonSerializerSettings GetDefaultSerializerSettings() => new()
         {
             ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
             MissingMemberHandling = MissingMemberHandling.Ignore,
             NullValueHandling = NullValueHandling.Ignore,
         };
 
-        public static JsonSerializerSettings SerializerSettingsWith(Action<JsonSerializerSettings> action)
+        public static JsonSerializerSettings SerializerSettingsWith(Action<JsonSerializerSettings>? action)
         {
             if (null == action)
                 return _defaultSerializerSettings;
@@ -34,7 +33,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="obj">object对象</param>
         /// <returns>转换后的json字符串</returns>
-        public static string ToJson(this object obj)
+        public static string ToJson(this object? obj)
             => obj.ToJson(false, null);
 
         /// <summary>
@@ -43,7 +42,7 @@ namespace WeihanLi.Extensions
         /// <param name="obj">object对象</param>
         /// <param name="serializerSettings">序列化设置</param>
         /// <returns>转换后的json字符串</returns>
-        public static string ToJson(this object obj, JsonSerializerSettings serializerSettings)
+        public static string ToJson(this object obj, JsonSerializerSettings? serializerSettings)
             => obj.ToJson(false, serializerSettings);
 
         /// <summary>
@@ -51,7 +50,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="obj">目标对象</param>
         /// <param name="isConvertToSingleQuotes">是否将双引号转成单引号</param>
-        public static string ToJson(this object obj, bool isConvertToSingleQuotes)
+        public static string ToJson(this object? obj, bool isConvertToSingleQuotes)
             => obj.ToJson(isConvertToSingleQuotes, null);
 
         /// <summary>
@@ -60,7 +59,7 @@ namespace WeihanLi.Extensions
         /// <param name="obj">目标对象</param>
         /// <param name="isConvertToSingleQuotes">是否将双引号转成单引号</param>
         /// <param name="settings">serializerSettings</param>
-        public static string ToJson(this object obj, bool isConvertToSingleQuotes, JsonSerializerSettings settings)
+        public static string ToJson(this object? obj, bool isConvertToSingleQuotes, JsonSerializerSettings? settings)
         {
             if (obj == null)
             {
@@ -80,7 +79,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">对象的类型</typeparam>
         /// <param name="jsonString">json对象字符串</param>
         /// <returns>由字符串转换得到的T对象</returns>
-        public static T JsonToObject<T>([NotNull] this string jsonString)
+        public static T JsonToObject<T>(this string jsonString)
             => jsonString.JsonToObject<T>(null);
 
         /// <summary>
@@ -90,17 +89,17 @@ namespace WeihanLi.Extensions
         /// <param name="jsonString">json对象字符串</param>
         /// <param name="settings">JsonSerializerSettings</param>
         /// <returns>由字符串转换得到的T对象</returns>
-        public static T JsonToObject<T>([NotNull] this string jsonString, JsonSerializerSettings settings)
-            => jsonString.IsNullOrWhiteSpace() ? default : JsonConvert.DeserializeObject<T>(jsonString, settings ?? _defaultSerializerSettings);
+        public static T JsonToObject<T>(this string jsonString, JsonSerializerSettings? settings)
+            => JsonConvert.DeserializeObject<T>(jsonString, settings ?? _defaultSerializerSettings);
 
         /// <summary>
         /// 对象转换为string，如果是基元类型直接ToString(),如果是Entity则Json序列化
         /// </summary>
         /// <param name="obj">要操作的对象</param>
         /// <returns></returns>
-        public static string ToJsonOrString(this object obj)
+        public static string ToJsonOrString(this object? obj)
         {
-            if (null == obj)
+            if (obj is null)
             {
                 return string.Empty;
             }
@@ -123,10 +122,6 @@ namespace WeihanLi.Extensions
         /// <returns></returns>
         public static T StringToType<T>(this string jsonString)
         {
-            if (null == jsonString)
-            {
-                return default;
-            }
             if (typeof(T) == typeof(string))
             {
                 return (T)(object)jsonString;
@@ -142,15 +137,11 @@ namespace WeihanLi.Extensions
         /// 字符串数据转换为相应类型的对象，如果是基元类型则转换类型，是Entity则Json反序列化
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
-        /// <param name="jsonString">字符串</param>
+        /// <param name="jsonString">json string</param>
         /// <param name="defaultValue">defaultValue</param>
         /// <returns></returns>
-        public static T StringToType<T>(this string jsonString, T defaultValue)
+        public static T? StringToType<T>(this string jsonString, T defaultValue)
         {
-            if (null == jsonString)
-            {
-                return defaultValue;
-            }
             if (typeof(T) == typeof(string))
             {
                 return (T)(object)jsonString;
@@ -158,6 +149,11 @@ namespace WeihanLi.Extensions
             if (typeof(T).IsBasicType())
             {
                 return jsonString.ToOrDefault(defaultValue);
+            }
+
+            if (string.IsNullOrWhiteSpace(jsonString))
+            {
+                return defaultValue;
             }
             try
             {

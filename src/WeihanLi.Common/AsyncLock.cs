@@ -9,7 +9,7 @@ namespace WeihanLi.Common
     /// </summary>
     public sealed class AsyncLock : IDisposable
     {
-        private readonly SemaphoreSlim _mutex = new SemaphoreSlim(1, 1);
+        private readonly SemaphoreSlim _mutex = new(1, 1);
 
         public IDisposable Lock()
         {
@@ -36,7 +36,7 @@ namespace WeihanLi.Common
 
         public void Dispose()
         {
-            _mutex?.Dispose();
+            _mutex.Dispose();
         }
 
         #region AsyncLockReleaser

@@ -11,6 +11,7 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -431,7 +432,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="action">The action to execute.</param>
-        public static void IfTrue(this bool @this, Action action)
+        public static void IfTrue(this bool @this, Action? action)
         {
             if (@this)
             {
@@ -444,7 +445,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="action">The action to execute.</param>
-        public static void IfFalse(this bool @this, Action action)
+        public static void IfFalse(this bool @this, Action? action)
         {
             if (!@this)
             {
@@ -561,14 +562,14 @@ namespace WeihanLi.Extensions
         /// <summary>
         ///     A byte[] extension method that converts the @this byteArray to a memory stream.
         /// </summary>
-        /// <param name="byteArray">The byetArray to act on</param>
+        /// <param name="byteArray">The byteArray to act on</param>
         /// <returns>@this as a MemoryStream.</returns>
         public static MemoryStream ToMemoryStream([NotNull] this byte[] byteArray)
         {
-            return new MemoryStream(byteArray);
+            return new(byteArray);
         }
 
-        public static string GetString([NotNull] this byte[] byteArray)
+        public static string GetString(this byte[] byteArray)
             => byteArray.GetString(Encoding.UTF8);
 
         public static string GetString([NotNull] this byte[] byteArray, Encoding encoding) => encoding.GetString(byteArray);
@@ -585,7 +586,7 @@ namespace WeihanLi.Extensions
         /// <returns>The repeated char.</returns>
         public static string Repeat(this char @this, int repeatCount)
         {
-            return new string(@this, repeatCount);
+            return new(@this, repeatCount);
         }
 
         /// <summary>
@@ -857,7 +858,7 @@ namespace WeihanLi.Extensions
         /// <returns>A DateTime of the day with the time set to "00:00:00:000".</returns>
         public static DateTime StartOfDay(this DateTime @this)
         {
-            return new DateTime(@this.Year, @this.Month, @this.Day);
+            return new(@this.Year, @this.Month, @this.Day);
         }
 
         /// <summary>
@@ -868,7 +869,7 @@ namespace WeihanLi.Extensions
         /// <returns>A DateTime of the first day of the month with the time set to "00:00:00:000".</returns>
         public static DateTime StartOfMonth(this DateTime @this)
         {
-            return new DateTime(@this.Year, @this.Month, 1);
+            return new(@this.Year, @this.Month, 1);
         }
 
         /// <summary>
@@ -902,7 +903,7 @@ namespace WeihanLi.Extensions
         /// <returns>A DateTime of the first day of the year with the time set to "00:00:00:000".</returns>
         public static DateTime StartOfYear(this DateTime @this)
         {
-            return new DateTime(@this.Year, 1, 1);
+            return new(@this.Year, 1, 1);
         }
 
         /// <summary>
@@ -1204,7 +1205,7 @@ namespace WeihanLi.Extensions
         /// </returns>
         public static Delegate Remove([NotNull] this Delegate source, Delegate value)
         {
-            return Delegate.Remove(source, value);
+            return Delegate.Remove(source, value)!;
         }
 
         /// <summary>
@@ -1219,7 +1220,7 @@ namespace WeihanLi.Extensions
         ///     if the invocation list of  is equal to the invocation list of , if  contains only a series of invocation
         ///     lists that are equal to the invocation list of , or if  is a null reference.
         /// </returns>
-        public static Delegate RemoveAll([NotNull] this Delegate source, Delegate value)
+        public static Delegate? RemoveAll([NotNull] this Delegate source, Delegate value)
         {
             return Delegate.RemoveAll(source, value);
         }
@@ -1594,7 +1595,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="value">The value to act on.</param>
         /// <returns>The description attribute.</returns>
-        public static string GetDescription([NotNull] this Enum value)
+        public static string? GetDescription([NotNull] this Enum value)
         {
             var attr = value.GetType().GetField(value.ToString())
                 .GetCustomAttribute<DescriptionAttribute>();
@@ -1610,7 +1611,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="sender">Source of the event.</param>
-        public static void RaiseEvent([CanBeNull] this EventHandler @this, object sender)
+        public static void RaiseEvent(this EventHandler? @this, object sender)
         {
             @this?.Invoke(sender, EventArgs.Empty);
         }
@@ -1621,7 +1622,7 @@ namespace WeihanLi.Extensions
         /// <param name="handler">The handler to act on.</param>
         /// <param name="sender">Source of the event.</param>
         /// <param name="e">Event information.</param>
-        public static void RaiseEvent([CanBeNull] this EventHandler handler, object sender, EventArgs e)
+        public static void RaiseEvent(this EventHandler? handler, object sender, EventArgs e)
         {
             handler?.Invoke(sender, e);
         }
@@ -1632,9 +1633,9 @@ namespace WeihanLi.Extensions
         /// <typeparam name="TEventArgs">Type of the event arguments.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <param name="sender">Source of the event.</param>
-        public static void RaiseEvent<TEventArgs>([CanBeNull] this EventHandler<TEventArgs> @this, object sender) where TEventArgs : EventArgs
+        public static void RaiseEvent<TEventArgs>(this EventHandler<TEventArgs>? @this, object sender) where TEventArgs : EventArgs
         {
-            @this?.Invoke(sender, default);
+            @this?.Invoke(sender, default!);
         }
 
         /// <summary>
@@ -1644,7 +1645,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="sender">Source of the event.</param>
         /// <param name="e">Event information to send to registered event handlers.</param>
-        public static void RaiseEvent<TEventArgs>([CanBeNull] this EventHandler<TEventArgs> @this, object sender, TEventArgs e) where TEventArgs : EventArgs
+        public static void RaiseEvent<TEventArgs>(this EventHandler<TEventArgs>? @this, object sender, TEventArgs e) where TEventArgs : EventArgs
         {
             @this?.Invoke(sender, e);
         }
@@ -2072,7 +2073,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A T.</returns>
-        public static T AsOrDefault<T>([NotNull] this object @this)
+        public static T? AsOrDefault<T>([NotNull] this object @this)
         {
             try
             {
@@ -2080,7 +2081,7 @@ namespace WeihanLi.Extensions
             }
             catch (Exception)
             {
-                return default(T);
+                return default;
             }
         }
 
@@ -2147,12 +2148,15 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">this.</param>
         /// <returns>A T.</returns>
-        public static T To<T>(this object @this)
+        public static T To<T>(this object? @this)
         {
+#nullable disable
+
             if (@this == null || @this == DBNull.Value)
             {
                 return (T)(object)null;
             }
+#nullable restore
 
             var targetType = typeof(T).Unwrap();
             var sourceType = @this.GetType().Unwrap();
@@ -2163,13 +2167,13 @@ namespace WeihanLi.Extensions
             var converter = TypeDescriptor.GetConverter(sourceType);
             if (converter.CanConvertTo(targetType))
             {
-                return (T)converter.ConvertTo(@this, targetType);
+                return (T)converter.ConvertTo(@this, targetType)!;
             }
 
             converter = TypeDescriptor.GetConverter(targetType);
             if (converter.CanConvertFrom(sourceType))
             {
-                return (T)converter.ConvertFrom(@this);
+                return (T)converter.ConvertFrom(@this)!;
             }
 
             return (T)Convert.ChangeType(@this, targetType);
@@ -2181,7 +2185,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">this.</param>
         /// <param name="type">The type.</param>
         /// <returns>An object.</returns>
-        public static object To([CanBeNull] this object @this, Type type)
+        public static object? To(this object? @this, Type type)
         {
             if (@this == null || @this == DBNull.Value)
             {
@@ -2218,11 +2222,11 @@ namespace WeihanLi.Extensions
         /// <param name="this">this.</param>
         /// <param name="defaultValueFactory">The default value factory.</param>
         /// <returns>The given data converted to a T.</returns>
-        public static T ToOrDefault<T>([CanBeNull] this object @this, Func<object, T> defaultValueFactory)
+        public static T? ToOrDefault<T>(this object? @this, Func<object?, T?> defaultValueFactory)
         {
             try
             {
-                return (T)@this.To(typeof(T));
+                return (T)@this.To(typeof(T))!;
             }
             catch (Exception)
             {
@@ -2237,9 +2241,9 @@ namespace WeihanLi.Extensions
         /// <param name="this">this.</param>
         /// <param name="defaultValueFactory">The default value factory.</param>
         /// <returns>The given data converted to a T.</returns>
-        public static T ToOrDefault<T>([NotNull] this object @this, Func<T> defaultValueFactory)
+        public static T? ToOrDefault<T>(this object? @this, Func<T> defaultValueFactory)
         {
-            return @this.ToOrDefault(x => defaultValueFactory());
+            return @this.ToOrDefault(_ => defaultValueFactory());
         }
 
         /// <summary>
@@ -2248,8 +2252,9 @@ namespace WeihanLi.Extensions
         /// <param name="this">this.</param>
         /// <param name="type">type</param>
         /// <returns>The given data converted to</returns>
-        public static object ToOrDefault([NotNull] this object @this, [NotNull] Type type)
+        public static object? ToOrDefault([NotNull] this object @this, Type type)
         {
+            Guard.NotNull(type, nameof(type));
             try
             {
                 return @this.To(type);
@@ -2266,9 +2271,9 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">this.</param>
         /// <returns>The given data converted to a T.</returns>
-        public static T ToOrDefault<T>([CanBeNull] this object @this)
+        public static T? ToOrDefault<T>(this object? @this)
         {
-            return @this.ToOrDefault(x => default(T));
+            return @this.ToOrDefault(_ => default(T));
         }
 
         /// <summary>
@@ -2278,9 +2283,9 @@ namespace WeihanLi.Extensions
         /// <param name="this">this.</param>
         /// <param name="defaultValue">The default value.</param>
         /// <returns>The given data converted to a T.</returns>
-        public static T ToOrDefault<T>([CanBeNull] this object @this, T defaultValue)
+        public static T? ToOrDefault<T>(this object? @this, T defaultValue)
         {
-            return @this.ToOrDefault(x => defaultValue);
+            return @this.ToOrDefault(_ => defaultValue);
         }
 
         /// <summary>
@@ -2314,7 +2319,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="action">The action.</param>
         /// <returns>The @this acted on.</returns>
-        public static T Chain<T>([NotNull] this T @this, Action<T> action)
+        public static T Chain<T>([NotNull] this T @this, Action<T>? action)
         {
             action?.Invoke(@this);
 
@@ -2328,11 +2333,11 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns>A T.</returns>
-        public static T NullIf<T>([NotNull] this T @this, Func<T, bool> predicate) where T : class
+        public static T? NullIf<T>([NotNull] this T @this, Func<T, bool>? predicate) where T : class
         {
             if (predicate?.Invoke(@this) == true)
             {
-                return null;
+                return default;
             }
             return @this;
         }
@@ -2345,7 +2350,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="func">The function.</param>
         /// <returns>The value or default.</returns>
-        public static TResult GetValueOrDefault<T, TResult>([NotNull] this T @this, Func<T, TResult> func)
+        public static TResult? GetValueOrDefault<T, TResult>([NotNull] this T @this, Func<T, TResult> func)
         {
             try
             {
@@ -2423,7 +2428,7 @@ namespace WeihanLi.Extensions
         /// <param name="tryFunction">The try function.</param>
         /// <param name="result">[out] The result.</param>
         /// <returns>A TResult.</returns>
-        public static bool Try<TType, TResult>([NotNull] this TType @this, Func<TType, TResult> tryFunction, out TResult result)
+        public static bool Try<TType, TResult>([NotNull] this TType @this, Func<TType, TResult> tryFunction, out TResult? result)
         {
             try
             {
@@ -2432,7 +2437,7 @@ namespace WeihanLi.Extensions
             }
             catch
             {
-                result = default(TResult);
+                result = default;
                 return false;
             }
         }
@@ -2540,7 +2545,7 @@ namespace WeihanLi.Extensions
         /// <returns>true if default, false if not.</returns>
         public static bool IsDefault<T>(this T source)
         {
-            return typeof(T).IsValueType ? source.Equals(default(T)) : source == null;
+            return typeof(T).IsValueType ? source!.Equals(default(T)) : source is null;
         }
 
         /// <summary>
@@ -2595,50 +2600,39 @@ namespace WeihanLi.Extensions
         #region string
 
         /// <summary>
-        ///     A T extension method that query if '@this' is null.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>true if null, false if not.</returns>
-        public static bool IsNull(this string @this)
-        {
-            return @this == null;
-        }
-
-        /// <summary>
         ///     A string extension method that query if '@this' is null or empty.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if null or empty, false if not.</returns>
-        public static bool IsNullOrEmpty(this string @this) => string.IsNullOrEmpty(@this);
+        public static bool IsNullOrEmpty(this string? @this) => string.IsNullOrEmpty(@this);
 
         /// <summary>
         ///     A string extension method that query if '@this' is not null and not empty.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>false if null or empty, true if not.</returns>
-        public static bool IsNotNullOrEmpty(this string @this)
-            => !string.IsNullOrEmpty(@this);
+        public static bool IsNotNullOrEmpty(this string? @this) => !string.IsNullOrEmpty(@this);
 
         /// <summary>
         ///     A string extension method that query if '@this' is null or whiteSpace.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if null or whiteSpace, false if not.</returns>
-        public static bool IsNullOrWhiteSpace(this string @this) => string.IsNullOrWhiteSpace(@this);
+        public static bool IsNullOrWhiteSpace(this string? @this) => string.IsNullOrWhiteSpace(@this);
 
         /// <summary>
         ///     A string extension method that query if '@this' is not null and not whiteSpace.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>false if null or whiteSpace, true if not.</returns>
-        public static bool IsNotNullOrWhiteSpace(this string @this) => !string.IsNullOrWhiteSpace(@this);
+        public static bool IsNotNullOrWhiteSpace(this string? @this) => !string.IsNullOrWhiteSpace(@this);
 
         /// <summary>
         ///     Creates a new instance of  with the same value as a specified .
         /// </summary>
         /// <param name="str">The string to copy.</param>
         /// <returns>A new string with the same value as .</returns>
-        public static string Copy([NotNull] this string str) => string.Copy(str);
+        public static string Copy(this string str) => string.Copy(str);
 
         /// <summary>
         ///     Retrieves the system&#39;s reference to the specified .
@@ -2742,7 +2736,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns>A string.</returns>
-        public static string Extract([NotNull] this string @this, Func<char, bool> predicate) => new string(@this.ToCharArray().Where(predicate).ToArray());
+        public static string Extract([NotNull] this string @this, Func<char, bool> predicate) => new(@this.ToCharArray().Where(predicate).ToArray());
 
         /// <summary>
         ///     A string extension method that removes the letter.
@@ -2750,7 +2744,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns>A string.</returns>
-        public static string RemoveWhere([NotNull] this string @this, Func<char, bool> predicate) => new string(@this.ToCharArray().Where(x => !predicate(x)).ToArray());
+        public static string RemoveWhere([NotNull] this string @this, Func<char, bool> predicate) => new(@this.ToCharArray().Where(x => !predicate(x)).ToArray());
 
         /// <summary>
         ///     Replaces the format item in a specified String with the text equivalent of the value of a corresponding
@@ -2949,7 +2943,7 @@ namespace WeihanLi.Extensions
         /// <returns>A string.</returns>
         public static string Truncate(this string @this, int maxLength, string suffix)
         {
-            if (@this == null || @this.Length <= maxLength)
+            if (Guard.NotNull(@this, nameof(@this)).Length <= maxLength)
             {
                 return @this;
             }
@@ -3016,14 +3010,15 @@ namespace WeihanLi.Extensions
         /// Append text when condition is true
         /// </summary>
         /// <param name="builder">StringBuilder</param>
-        /// <param name="condition">condition to evaluate</param>
         /// <param name="text">text to append</param>
+        /// <param name="condition">condition to evaluate</param>
         /// <returns>StringBuilder</returns>
-        public static StringBuilder AppendIf(this StringBuilder builder, bool condition, string text)
+        public static StringBuilder AppendIf(this StringBuilder builder, string text, bool condition)
         {
+            Guard.NotNull(builder, nameof(builder));
             if (condition)
             {
-                builder?.Append(text);
+                builder.Append(text);
             }
             return builder;
         }
@@ -3032,31 +3027,16 @@ namespace WeihanLi.Extensions
         /// Append text when condition is true
         /// </summary>
         /// <param name="builder">StringBuilder</param>
-        /// <param name="condition">condition to evaluate</param>
         /// <param name="text">text to append</param>
-        /// <param name="arguments">arguments to format the text</param>
+        /// <param name="condition">condition to evaluate</param>
         /// <returns>StringBuilder</returns>
-        public static StringBuilder AppendFormatIf(this StringBuilder builder, bool condition, string text, params object[] arguments)
+        public static StringBuilder AppendLineIf(this StringBuilder builder, string text, bool condition)
         {
-            if (condition)
-            {
-                builder?.AppendFormat(text, arguments);
-            }
-            return builder;
-        }
+            Guard.NotNull(builder, nameof(builder));
 
-        /// <summary>
-        /// Append text when condition is true
-        /// </summary>
-        /// <param name="builder">StringBuilder</param>
-        /// <param name="condition">condition to evaluate</param>
-        /// <param name="text">text to append</param>
-        /// <returns>StringBuilder</returns>
-        public static StringBuilder AppendLineIf(this StringBuilder builder, bool condition, string text)
-        {
             if (condition)
             {
-                builder?.AppendLine(text);
+                builder.AppendLine(text);
             }
             return builder;
         }
@@ -3129,14 +3109,14 @@ namespace WeihanLi.Extensions
         }
 
         private static readonly ConcurrentDictionary<Type, object> _defaultValues =
-            new ConcurrentDictionary<Type, object>();
+            new();
 
         /// <summary>
         /// 根据 Type 获取默认值，实现类似 default(T) 的功能
         /// </summary>
         /// <param name="type">type</param>
         /// <returns></returns>
-        public static object GetDefaultValue([NotNull] this Type type) =>
+        public static object? GetDefaultValue([NotNull] this Type type) =>
             type.IsValueType && type != typeof(void) ? _defaultValues.GetOrAdd(type, Activator.CreateInstance) : null;
 
         /// <summary>
@@ -3152,7 +3132,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="type">type</param>
         /// <returns></returns>
-        public static Type GetUnderlyingType([NotNull] this Type type)
+        public static Type? GetUnderlyingType([NotNull] this Type type)
             => Nullable.GetUnderlyingType(type);
 
         #endregion Type

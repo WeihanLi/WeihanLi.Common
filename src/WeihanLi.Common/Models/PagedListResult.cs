@@ -1,11 +1,10 @@
 ﻿using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
-using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Models
 {
-    public interface IPagedListResult<out T> : IListResultWithTotalCount<T>
+    public interface IPagedListResult<out T> : IListResultWithTotal<T>
     {
         int Count { get; }
 
@@ -25,18 +24,24 @@ namespace WeihanLi.Common.Models
         int PageCount { get; }
     }
 
-    public interface IListResultWithTotalCount<out T>
+    public interface IListResultWithTotal<out T>
     {
         IReadOnlyList<T> Data { get; }
 
         int TotalCount { get; }
     }
 
-    public class ListResultWithTotal<T> : IListResultWithTotalCount<T>
+    public static class EnumerableExtensions
     {
-        public static readonly IListResultWithTotalCount<T> Empty = new ListResultWithTotal<T>();
+        public static IEnumerator<T> GetEnumerator<T>(this IListResultWithTotal<T> listResult)
+            => listResult.Data.GetEnumerator();
+    }
 
-        private IReadOnlyList<T> _data = ArrayHelper.Empty<T>();
+    public class ListResultWithTotal<T> : IListResultWithTotal<T>
+    {
+        public static readonly IListResultWithTotal<T> Empty = new ListResultWithTotal<T>();
+
+        private IReadOnlyList<T> _data = Array.Empty<T>();
 
         [NotNull]
         public IReadOnlyList<T> Data
@@ -64,7 +69,7 @@ namespace WeihanLi.Common.Models
     {
         public static readonly IPagedListResult<T> Empty = new PagedListResult<T>();
 
-        private IReadOnlyList<T> _data = ArrayHelper.Empty<T>();
+        private IReadOnlyList<T> _data = Array.Empty<T>();
 
         [NotNull]
         public IReadOnlyList<T> Data

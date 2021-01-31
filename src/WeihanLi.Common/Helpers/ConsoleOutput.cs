@@ -7,17 +7,17 @@ namespace WeihanLi.Common.Helpers
 {
     public sealed class ConsoleOutput : IDisposable
     {
-        private TextWriter _originalOutputWriter;
-        private TextWriter _originalErrorWriter;
-        private readonly StringWriter _outputWriter = new StringWriter();
-        private readonly StringWriter _errorWriter = new StringWriter();
+        private TextWriter? _originalOutputWriter;
+        private TextWriter? _originalErrorWriter;
+        private readonly StringWriter _outputWriter = new();
+        private readonly StringWriter _errorWriter = new();
 
         private const int NOT_DISPOSED = 0;
         private const int DISPOSED = 1;
 
         private int _alreadyDisposed = NOT_DISPOSED;
 
-        private static readonly SemaphoreSlim _consoleLock = new SemaphoreSlim(1, 1);
+        private static readonly SemaphoreSlim _consoleLock = new(1, 1);
 
         private ConsoleOutput()
         {

@@ -12,8 +12,8 @@ namespace WeihanLi.Common.Models
         /// <summary>
         /// ErrorMessages
         /// Key: memberName
-        /// Value: errorMessage
+        /// Value: errorMessages
         /// </summary>
-        public Dictionary<string, List<string>> ErrorMessages { get; set; }
+        public Dictionary<string, List<string>>? Errors { get; set; }
     }
 }
