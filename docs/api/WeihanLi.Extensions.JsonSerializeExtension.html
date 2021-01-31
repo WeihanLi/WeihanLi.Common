@@ -176,13 +176,13 @@
   
   
   <a id="WeihanLi_Extensions_JsonSerializeExtension_JsonToObject_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.JsonToObject*"></a>
-  <h4 id="WeihanLi_Extensions_JsonSerializeExtension_JsonToObject__1_System_String_JsonSerializerSettings_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.JsonToObject``1(System.String,JsonSerializerSettings)">JsonToObject&lt;T&gt;(String, JsonSerializerSettings)</h4>
+  <h4 id="WeihanLi_Extensions_JsonSerializeExtension_JsonToObject__1_System_String_System_Nullable_JsonSerializerSettings__" data-uid="WeihanLi.Extensions.JsonSerializeExtension.JsonToObject``1(System.String,System.Nullable{JsonSerializerSettings})">JsonToObject&lt;T&gt;(String, Nullable&lt;JsonSerializerSettings&gt;)</h4>
   <div class="markdown level1 summary"><p>将Json对象转换为T对象</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T JsonToObject&lt;T&gt;(this string jsonString, JsonSerializerSettings settings)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T JsonToObject&lt;T&gt;(this string jsonString, JsonSerializerSettings? settings)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -201,7 +201,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">JsonSerializerSettings</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">JsonSerializerSettings</span>&gt;</td>
         <td><span class="parametername">settings</span></td>
         <td><p>JsonSerializerSettings</p>
 </td>
@@ -366,7 +366,7 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">jsonString</span></td>
-        <td><p>字符串</p>
+        <td><p>json string</p>
 </td>
       </tr>
       <tr>
@@ -456,57 +456,6 @@
   
   
   <a id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson*"></a>
-  <h4 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_JsonSerializerSettings_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object,JsonSerializerSettings)">ToJson(Object, JsonSerializerSettings)</h4>
-  <div class="markdown level1 summary"><p>将object对象转换为Json数据</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string ToJson(this object obj, JsonSerializerSettings serializerSettings)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">obj</span></td>
-        <td><p>object对象</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">JsonSerializerSettings</span></td>
-        <td><span class="parametername">serializerSettings</span></td>
-        <td><p>序列化设置</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>转换后的json字符串</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson*"></a>
   <h4 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object,System.Boolean)">ToJson(Object, Boolean)</h4>
   <div class="markdown level1 summary"><p>将object对象转换为Json数据</p>
 </div>
@@ -557,13 +506,13 @@
   
   
   <a id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson*"></a>
-  <h4 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_JsonSerializerSettings_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object,System.Boolean,JsonSerializerSettings)">ToJson(Object, Boolean, JsonSerializerSettings)</h4>
+  <h4 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_System_Nullable_JsonSerializerSettings__" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object,System.Boolean,System.Nullable{JsonSerializerSettings})">ToJson(Object, Boolean, Nullable&lt;JsonSerializerSettings&gt;)</h4>
   <div class="markdown level1 summary"><p>将object对象转换为Json数据</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string ToJson(this object obj, bool isConvertToSingleQuotes, JsonSerializerSettings settings)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string ToJson(this object obj, bool isConvertToSingleQuotes, JsonSerializerSettings? settings)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -588,7 +537,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">JsonSerializerSettings</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">JsonSerializerSettings</span>&gt;</td>
         <td><span class="parametername">settings</span></td>
         <td><p>serializerSettings</p>
 </td>
@@ -607,6 +556,57 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson*"></a>
+  <h4 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Nullable_JsonSerializerSettings__" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object,System.Nullable{JsonSerializerSettings})">ToJson(Object, Nullable&lt;JsonSerializerSettings&gt;)</h4>
+  <div class="markdown level1 summary"><p>将object对象转换为Json数据</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToJson(this object obj, JsonSerializerSettings? serializerSettings)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>object对象</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">JsonSerializerSettings</span>&gt;</td>
+        <td><span class="parametername">serializerSettings</span></td>
+        <td><p>序列化设置</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>转换后的json字符串</p>
+</td>
       </tr>
     </tbody>
   </table>

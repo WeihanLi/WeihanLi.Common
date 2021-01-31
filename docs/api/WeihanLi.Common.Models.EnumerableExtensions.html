@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class HttpResponse
+    <title>Class EnumerableExtensions
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class HttpResponse
+    <meta name="title" content="Class EnumerableExtensions
    ">
     <meta name="generator" content="docfx 2.56.6.0">
     
@@ -68,17 +68,17 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="WeihanLi.Common.Http.HttpResponse">
+            <article class="content wrap" id="_content" data-uid="WeihanLi.Common.Models.EnumerableExtensions">
   
   
-  <h1 id="WeihanLi_Common_Http_HttpResponse" data-uid="WeihanLi.Common.Http.HttpResponse" class="text-break">Class HttpResponse
+  <h1 id="WeihanLi_Common_Models_EnumerableExtensions" data-uid="WeihanLi.Common.Models.EnumerableExtensions" class="text-break">Class EnumerableExtensions
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">HttpResponse</span></div>
+    <div class="level1"><span class="xref">EnumerableExtensions</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -104,50 +104,42 @@
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Common.Http.html">WeihanLi.Common.Http</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Common.Models.html">WeihanLi.Common.Models</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="WeihanLi_Common_Http_HttpResponse_syntax">Syntax</h5>
+  <h5 id="WeihanLi_Common_Models_EnumerableExtensions_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class HttpResponse</code></pre>
+    <pre><code class="lang-csharp hljs">public static class EnumerableExtensions</code></pre>
   </div>
-  <h3 id="properties">Properties
+  <h3 id="methods">Methods
   </h3>
   
   
-  <a id="WeihanLi_Common_Http_HttpResponse_Headers_" data-uid="WeihanLi.Common.Http.HttpResponse.Headers*"></a>
-  <h4 id="WeihanLi_Common_Http_HttpResponse_Headers" data-uid="WeihanLi.Common.Http.HttpResponse.Headers">Headers</h4>
+  <a id="WeihanLi_Common_Models_EnumerableExtensions_GetEnumerator_" data-uid="WeihanLi.Common.Models.EnumerableExtensions.GetEnumerator*"></a>
+  <h4 id="WeihanLi_Common_Models_EnumerableExtensions_GetEnumerator__1_WeihanLi_Common_Models_IListResultWithTotal___0__" data-uid="WeihanLi.Common.Models.EnumerableExtensions.GetEnumerator``1(WeihanLi.Common.Models.IListResultWithTotal{``0})">GetEnumerator&lt;T&gt;(IListResultWithTotal&lt;T&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IDictionary&lt;string, string&gt; Headers { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerator&lt;T&gt; GetEnumerator&lt;T&gt;(this IListResultWithTotal&lt;T&gt; listResult)</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
+        <td><a class="xref" href="WeihanLi.Common.Models.IListResultWithTotal-1.html">IListResultWithTotal</a>&lt;T&gt;</td>
+        <td><span class="parametername">listResult</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="WeihanLi_Common_Http_HttpResponse_ResponseBytes_" data-uid="WeihanLi.Common.Http.HttpResponse.ResponseBytes*"></a>
-  <h4 id="WeihanLi_Common_Http_HttpResponse_ResponseBytes" data-uid="WeihanLi.Common.Http.HttpResponse.ResponseBytes">ResponseBytes</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte[] ResponseBytes { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -157,32 +149,22 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="xref">IEnumerator</span>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="WeihanLi_Common_Http_HttpResponse_StatusCode_" data-uid="WeihanLi.Common.Http.HttpResponse.StatusCode*"></a>
-  <h4 id="WeihanLi_Common_Http_HttpResponse_StatusCode" data-uid="WeihanLi.Common.Http.HttpResponse.StatusCode">StatusCode</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HttpStatusCode StatusCode { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
-        <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">HttpStatusCode</span></td>
+        <td><span class="parametername">T</span></td>
         <td></td>
       </tr>
     </tbody>

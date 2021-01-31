@@ -193,13 +193,13 @@
   
   
   <a id="WeihanLi_Common_Http_WebRequestHttpRequester__ctor_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.#ctor*"></a>
-  <h4 id="WeihanLi_Common_Http_WebRequestHttpRequester__ctor_System_String_IDictionary_System_String_System_String__HttpMethod_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.#ctor(System.String,IDictionary{System.String,System.String},HttpMethod)">WebRequestHttpRequester(String, IDictionary&lt;String, String&gt;, HttpMethod)</h4>
+  <h4 id="WeihanLi_Common_Http_WebRequestHttpRequester__ctor_System_String_System_Nullable_IDictionary_System_String_System_String___HttpMethod_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.#ctor(System.String,System.Nullable{IDictionary{System.String,System.String}},HttpMethod)">WebRequestHttpRequester(String, Nullable&lt;IDictionary&lt;String, String&gt;&gt;, HttpMethod)</h4>
   <div class="markdown level1 summary"><p>Create HttpRequest with specific Request Method</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public WebRequestHttpRequester(string requestUrl, IDictionary&lt;string, string&gt; queryDictionary, HttpMethod method)</code></pre>
+    <pre><code class="lang-csharp hljs">public WebRequestHttpRequester(string requestUrl, IDictionary&lt;string, string&gt;? queryDictionary, HttpMethod method)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -218,7 +218,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
         <td><span class="parametername">queryDictionary</span></td>
         <td><p>queryDictionary</p>
 </td>
@@ -480,12 +480,12 @@
   
   
   <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFile_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFile*"></a>
-  <h4 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFile_System_String_System_Byte___System_String_IEnumerable_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFile(System.String,System.Byte[],System.String,IEnumerable{KeyValuePair{System.String,System.String}})">WithFile(String, Byte[], String, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</h4>
+  <h4 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFile_System_String_System_Byte___System_String_System_Nullable_IEnumerable_KeyValuePair_System_String_System_String____" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFile(System.String,System.Byte[],System.String,System.Nullable{IEnumerable{KeyValuePair{System.String,System.String}}})">WithFile(String, Byte[], String, Nullable&lt;IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IHttpRequester WithFile(string fileName, byte[] fileBytes, string fileKey = &quot;file&quot;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; formFields = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithFile(string fileName, byte[] fileBytes, string fileKey = &quot;file&quot;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = default(IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -513,7 +513,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;&gt;</td>
         <td><span class="parametername">formFields</span></td>
         <td></td>
       </tr>
@@ -537,12 +537,12 @@
   
   
   <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFile_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFile*"></a>
-  <h4 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFile_System_String_System_String_IEnumerable_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFile(System.String,System.String,IEnumerable{KeyValuePair{System.String,System.String}})">WithFile(String, String, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</h4>
+  <h4 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFile_System_String_System_String_System_Nullable_IEnumerable_KeyValuePair_System_String_System_String____" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFile(System.String,System.String,System.Nullable{IEnumerable{KeyValuePair{System.String,System.String}}})">WithFile(String, String, Nullable&lt;IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IHttpRequester WithFile(string filePath, string fileKey = &quot;file&quot;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; formFields = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithFile(string filePath, string fileKey = &quot;file&quot;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = default(IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -565,7 +565,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;&gt;</td>
         <td><span class="parametername">formFields</span></td>
         <td></td>
       </tr>
@@ -589,12 +589,12 @@
   
   
   <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFiles_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFiles*"></a>
-  <h4 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFiles_IEnumerable_KeyValuePair_System_String_System_Byte_____IEnumerable_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFiles(IEnumerable{KeyValuePair{System.String,System.Byte[]}},IEnumerable{KeyValuePair{System.String,System.String}})">WithFiles(IEnumerable&lt;KeyValuePair&lt;String, Byte[]&gt;&gt;, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</h4>
+  <h4 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFiles_IEnumerable_KeyValuePair_System_String_System_Byte_____System_Nullable_IEnumerable_KeyValuePair_System_String_System_String____" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFiles(IEnumerable{KeyValuePair{System.String,System.Byte[]}},System.Nullable{IEnumerable{KeyValuePair{System.String,System.String}}})">WithFiles(IEnumerable&lt;KeyValuePair&lt;String, Byte[]&gt;&gt;, Nullable&lt;IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IHttpRequester WithFiles(IEnumerable&lt;KeyValuePair&lt;string, byte[]&gt;&gt; files, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; formFields = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithFiles(IEnumerable&lt;KeyValuePair&lt;string, byte[]&gt;&gt; files, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = default(IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -612,7 +612,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;&gt;</td>
         <td><span class="parametername">formFields</span></td>
         <td></td>
       </tr>
@@ -636,12 +636,12 @@
   
   
   <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFiles_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFiles*"></a>
-  <h4 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFiles_IEnumerable_System_String__IEnumerable_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFiles(IEnumerable{System.String},IEnumerable{KeyValuePair{System.String,System.String}})">WithFiles(IEnumerable&lt;String&gt;, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</h4>
+  <h4 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFiles_IEnumerable_System_String__System_Nullable_IEnumerable_KeyValuePair_System_String_System_String____" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFiles(IEnumerable{System.String},System.Nullable{IEnumerable{KeyValuePair{System.String,System.String}}})">WithFiles(IEnumerable&lt;String&gt;, Nullable&lt;IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IHttpRequester WithFiles(IEnumerable&lt;string&gt; filePaths, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; formFields = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithFiles(IEnumerable&lt;string&gt; filePaths, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = default(IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -659,7 +659,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;&gt;</td>
         <td><span class="parametername">formFields</span></td>
         <td></td>
       </tr>

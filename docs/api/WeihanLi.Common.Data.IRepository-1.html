@@ -1511,13 +1511,13 @@
   
   
   <a id="WeihanLi_Common_Data_IRepository_1_Update_" data-uid="WeihanLi.Common.Data.IRepository`1.Update*"></a>
-  <h4 id="WeihanLi_Common_Data_IRepository_1_Update_Expression_System_Func__0_System_Boolean___IDictionary_System_String_System_Object__" data-uid="WeihanLi.Common.Data.IRepository`1.Update(Expression{System.Func{`0,System.Boolean}},IDictionary{System.String,System.Object})">Update(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, IDictionary&lt;String, Object&gt;)</h4>
+  <h4 id="WeihanLi_Common_Data_IRepository_1_Update_Expression_System_Func__0_System_Boolean___System_Nullable_IDictionary_System_String_System_Object___" data-uid="WeihanLi.Common.Data.IRepository`1.Update(Expression{System.Func{`0,System.Boolean}},System.Nullable{IDictionary{System.String,System.Object}})">Update(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, Nullable&lt;IDictionary&lt;String, Object&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Update entities properties by where</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int Update(Expression&lt;Func&lt;TEntity, bool&gt;&gt; whereExpression, IDictionary&lt;string, object&gt; propertyValues)</code></pre>
+    <pre><code class="lang-csharp hljs">int Update(Expression&lt;Func&lt;TEntity, bool&gt;&gt; whereExpression, IDictionary&lt;string, object&gt;? propertyValues)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1536,7 +1536,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;&gt;</td>
         <td><span class="parametername">propertyValues</span></td>
         <td><p>propertyValues to update</p>
 </td>
@@ -1746,13 +1746,13 @@
   
   
   <a id="WeihanLi_Common_Data_IRepository_1_UpdateAsync_" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateAsync*"></a>
-  <h4 id="WeihanLi_Common_Data_IRepository_1_UpdateAsync_Expression_System_Func__0_System_Boolean___IDictionary_System_String_System_Object__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateAsync(Expression{System.Func{`0,System.Boolean}},IDictionary{System.String,System.Object},System.Threading.CancellationToken)">UpdateAsync(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, IDictionary&lt;String, Object&gt;, CancellationToken)</h4>
+  <h4 id="WeihanLi_Common_Data_IRepository_1_UpdateAsync_Expression_System_Func__0_System_Boolean___System_Nullable_IDictionary_System_String_System_Object___System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateAsync(Expression{System.Func{`0,System.Boolean}},System.Nullable{IDictionary{System.String,System.Object}},System.Threading.CancellationToken)">UpdateAsync(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, Nullable&lt;IDictionary&lt;String, Object&gt;&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Update entities properties by where</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;int&gt; UpdateAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt; whereExpression, IDictionary&lt;string, object&gt; propertyValues, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; UpdateAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt; whereExpression, IDictionary&lt;string, object&gt;? propertyValues, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1771,7 +1771,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;&gt;</td>
         <td><span class="parametername">propertyValues</span></td>
         <td><p>propertyValues to update</p>
 </td>

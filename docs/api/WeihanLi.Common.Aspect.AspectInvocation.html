@@ -119,12 +119,12 @@
   
   
   <a id="WeihanLi_Common_Aspect_AspectInvocation__ctor_" data-uid="WeihanLi.Common.Aspect.AspectInvocation.#ctor*"></a>
-  <h4 id="WeihanLi_Common_Aspect_AspectInvocation__ctor_MethodInfo_MethodInfo_System_Object_System_Object_System_Object___" data-uid="WeihanLi.Common.Aspect.AspectInvocation.#ctor(MethodInfo,MethodInfo,System.Object,System.Object,System.Object[])">AspectInvocation(MethodInfo, MethodInfo, Object, Object, Object[])</h4>
+  <h4 id="WeihanLi_Common_Aspect_AspectInvocation__ctor_MethodInfo_System_Nullable_MethodInfo__System_Object_System_Object_System_Object___" data-uid="WeihanLi.Common.Aspect.AspectInvocation.#ctor(MethodInfo,System.Nullable{MethodInfo},System.Object,System.Object,System.Object[])">AspectInvocation(MethodInfo, Nullable&lt;MethodInfo&gt;, Object, Object, Object[])</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AspectInvocation(MethodInfo proxyMethod, MethodInfo methodBase, object proxyTarget, object target, object[] arguments)</code></pre>
+    <pre><code class="lang-csharp hljs">public AspectInvocation(MethodInfo proxyMethod, MethodInfo? methodBase, object proxyTarget, object target, object[] arguments)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -142,7 +142,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">MethodInfo</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">MethodInfo</span>&gt;</td>
         <td><span class="parametername">methodBase</span></td>
         <td></td>
       </tr>
@@ -223,7 +223,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MethodInfo Method { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public MethodInfo? Method { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -235,7 +235,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MethodInfo</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">MethodInfo</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>

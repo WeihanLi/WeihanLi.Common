@@ -694,12 +694,12 @@
   
   
   <a id="WeihanLi_Common_Aspect_ServiceCollectionExtensions_BuildFluentAspectsProvider_" data-uid="WeihanLi.Common.Aspect.ServiceCollectionExtensions.BuildFluentAspectsProvider*"></a>
-  <h4 id="WeihanLi_Common_Aspect_ServiceCollectionExtensions_BuildFluentAspectsProvider_IServiceCollection_System_Action_WeihanLi_Common_Aspect_FluentAspectOptions__System_Action_WeihanLi_Common_Aspect_IFluentAspectsBuilder__Expression_System_Func_System_Type_System_Boolean___ServiceProviderOptions_" data-uid="WeihanLi.Common.Aspect.ServiceCollectionExtensions.BuildFluentAspectsProvider(IServiceCollection,System.Action{WeihanLi.Common.Aspect.FluentAspectOptions},System.Action{WeihanLi.Common.Aspect.IFluentAspectsBuilder},Expression{System.Func{System.Type,System.Boolean}},ServiceProviderOptions)">BuildFluentAspectsProvider(IServiceCollection, Action&lt;FluentAspectOptions&gt;, Action&lt;IFluentAspectsBuilder&gt;, Expression&lt;Func&lt;Type, Boolean&gt;&gt;, ServiceProviderOptions)</h4>
+  <h4 id="WeihanLi_Common_Aspect_ServiceCollectionExtensions_BuildFluentAspectsProvider_IServiceCollection_System_Action_WeihanLi_Common_Aspect_FluentAspectOptions__System_Action_WeihanLi_Common_Aspect_IFluentAspectsBuilder__System_Nullable_Expression_System_Func_System_Type_System_Boolean____System_Nullable_ServiceProviderOptions__" data-uid="WeihanLi.Common.Aspect.ServiceCollectionExtensions.BuildFluentAspectsProvider(IServiceCollection,System.Action{WeihanLi.Common.Aspect.FluentAspectOptions},System.Action{WeihanLi.Common.Aspect.IFluentAspectsBuilder},System.Nullable{Expression{System.Func{System.Type,System.Boolean}}},System.Nullable{ServiceProviderOptions})">BuildFluentAspectsProvider(IServiceCollection, Action&lt;FluentAspectOptions&gt;, Action&lt;IFluentAspectsBuilder&gt;, Nullable&lt;Expression&lt;Func&lt;Type, Boolean&gt;&gt;&gt;, Nullable&lt;ServiceProviderOptions&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IServiceProvider BuildFluentAspectsProvider(this IServiceCollection serviceCollection, Action&lt;FluentAspectOptions&gt; optionsAction, Action&lt;IFluentAspectsBuilder&gt; aspectBuildAction = null, Expression&lt;Func&lt;Type, bool&gt;&gt; ignoreTypesFilter = null, ServiceProviderOptions serviceProviderOptions = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IServiceProvider BuildFluentAspectsProvider(this IServiceCollection serviceCollection, Action&lt;FluentAspectOptions&gt; optionsAction, Action&lt;IFluentAspectsBuilder&gt; aspectBuildAction = null, Expression&lt;Func&lt;Type, bool&gt;&gt;? ignoreTypesFilter = default(Expression&lt;Func&lt;Type, bool&gt;&gt;? ), ServiceProviderOptions? serviceProviderOptions = default(ServiceProviderOptions? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -727,12 +727,12 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Expression</span>&lt;<span class="xref">System.Func</span>&lt;<span class="xref">System.Type</span>, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Expression</span>&lt;<span class="xref">System.Func</span>&lt;<span class="xref">System.Type</span>, <span class="xref">System.Boolean</span>&gt;&gt;&gt;</td>
         <td><span class="parametername">ignoreTypesFilter</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">ServiceProviderOptions</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">ServiceProviderOptions</span>&gt;</td>
         <td><span class="parametername">serviceProviderOptions</span></td>
         <td></td>
       </tr>
