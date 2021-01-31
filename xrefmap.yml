@@ -13511,12 +13511,15 @@ references:
   fullName.vb: WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.AddSerilog(ILoggerFactory, System.Nullable(Of ILogger), System.Boolean)
   nameWithType: SerilogLoggerExtensions.AddSerilog(ILoggerFactory, Nullable<ILogger>, Boolean)
   nameWithType.vb: SerilogLoggerExtensions.AddSerilog(ILoggerFactory, Nullable(Of ILogger), Boolean)
-- uid: WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.AddSerilog(ILoggingBuilder,ILogger,System.Boolean)
-  name: AddSerilog(ILoggingBuilder, ILogger, Boolean)
-  href: docs/api/WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.html#WeihanLi_Common_Logging_Serilog_SerilogLoggerExtensions_AddSerilog_ILoggingBuilder_ILogger_System_Boolean_
-  commentId: M:WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.AddSerilog(ILoggingBuilder,ILogger,System.Boolean)
-  fullName: WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.AddSerilog(ILoggingBuilder, ILogger, System.Boolean)
-  nameWithType: SerilogLoggerExtensions.AddSerilog(ILoggingBuilder, ILogger, Boolean)
+- uid: WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.AddSerilog(ILoggingBuilder,System.Nullable{ILogger},System.Boolean)
+  name: AddSerilog(ILoggingBuilder, Nullable<ILogger>, Boolean)
+  href: docs/api/WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.html#WeihanLi_Common_Logging_Serilog_SerilogLoggerExtensions_AddSerilog_ILoggingBuilder_System_Nullable_ILogger__System_Boolean_
+  commentId: M:WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.AddSerilog(ILoggingBuilder,System.Nullable{ILogger},System.Boolean)
+  name.vb: AddSerilog(ILoggingBuilder, Nullable(Of ILogger), Boolean)
+  fullName: WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.AddSerilog(ILoggingBuilder, System.Nullable<ILogger>, System.Boolean)
+  fullName.vb: WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.AddSerilog(ILoggingBuilder, System.Nullable(Of ILogger), System.Boolean)
+  nameWithType: SerilogLoggerExtensions.AddSerilog(ILoggingBuilder, Nullable<ILogger>, Boolean)
+  nameWithType.vb: SerilogLoggerExtensions.AddSerilog(ILoggingBuilder, Nullable(Of ILogger), Boolean)
 - uid: WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.AddSerilog*
   name: AddSerilog
   href: docs/api/WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.html#WeihanLi_Common_Logging_Serilog_SerilogLoggerExtensions_AddSerilog_
