@@ -25,13 +25,12 @@ namespace WeihanLi.Common.Test.ModelsTest
         [Fact]
         public void DistinctTest()
         {
-            var abc = new { Id = 1, Name = "Tom", Desc = "" };
+            var abc = new { Id = 1, Name = "Tom" };
             var dic1 = StringValueDictionary.FromObject(abc);
             var dic2 = StringValueDictionary.FromObject(new Dictionary<string, object>()
             {
-                {"Id", 1},
-                {"Name", "Tom" },
-                {"Desc", null },
+                { "Id", 1 },
+                { "Name", "Tom" },
             });
             var set = new HashSet<StringValueDictionary>();
             set.Add(dic1);
