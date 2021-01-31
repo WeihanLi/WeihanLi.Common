@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using WeihanLi.Common.Logging;
 using WeihanLi.Common.Models;
 using Xunit;
 
@@ -38,36 +36,19 @@ namespace WeihanLi.Common.Test.ModelsTest
             Assert.True(p1 == p2);
             Assert.Equal(p1, p2);
         }
-    }
 
-    public record LogHelperLoggingEvent
-    {
-        public string CategoryName { get; set; }
-
-        public DateTimeOffset DateTime { get; set; }
-
-        public string MessageTemplate { get; set; }
-
-        public string Message { get; set; }
-
-        public Exception Exception { get; set; }
-
-        public LogHelperLogLevel LogLevel { get; set; }
-
-        public Dictionary<string, object> Properties { get; set; }
-
-        public LogHelperLoggingEvent Copy()
+        [Fact]
+        public void ImplicitConvertTest()
         {
-            var newEvent = this with { };
-            if (Properties != null)
-            {
-                newEvent.Properties = new Dictionary<string, object>();
-                foreach (var property in Properties)
-                {
-                    newEvent.Properties[property.Key] = property.Value;
-                }
-            }
-            return newEvent;
+            var abc = new { Id = 1, Name = "Tom" };
+            var stringValueDictionary = StringValueDictionary.Create(abc);
+            Dictionary<string, string> dictionary = stringValueDictionary;
+            Assert.Equal(stringValueDictionary.Count, dictionary.Count);
+
+            var dic2 = StringValueDictionary.Create(dictionary);
+
+            Assert.Equal(dic2, stringValueDictionary);
+            Assert.True(dic2 == stringValueDictionary);
         }
     }
 }

@@ -103,5 +103,10 @@ namespace WeihanLi.Common.Models
         {
             return current?.Equals(other) != true;
         }
+
+        public static implicit operator Dictionary<string, string?>(StringValueDictionary dictionary)
+        {
+            return dictionary._dictionary;
+        }
     }
 }
