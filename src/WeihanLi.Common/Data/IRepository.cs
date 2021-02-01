@@ -141,7 +141,7 @@ namespace WeihanLi.Common.Data
         /// <param name="propertyExpression">property</param>
         /// <param name="value">new property value</param>
         /// <returns></returns>
-        int Update<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value);
+        int Update<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object? value);
 
         /// <summary>
         /// update entity specific property by where
@@ -152,7 +152,7 @@ namespace WeihanLi.Common.Data
         /// <param name="value">new property value</param>
         /// <param name="cancellationToken">cancellationToken</param>
         /// <returns></returns>
-        Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value, CancellationToken cancellationToken = default);
+        Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object? value, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update entities properties by where
@@ -160,7 +160,7 @@ namespace WeihanLi.Common.Data
         /// <param name="whereExpression">whereExpression</param>
         /// <param name="propertyValues">propertyValues to update</param>
         /// <returns>updated rows count</returns>
-        int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object?>? propertyValues);
+        int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object?> propertyValues);
 
         /// <summary>
         /// update entities with specific properties
@@ -237,7 +237,7 @@ namespace WeihanLi.Common.Data
         /// <param name="propertyValues">propertyValues to update</param>
         /// <param name="cancellationToken">cancellationToken</param>
         /// <returns>updated rows count</returns>
-        Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object?>? propertyValues, CancellationToken cancellationToken = default);
+        Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object?> propertyValues, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete entities by where

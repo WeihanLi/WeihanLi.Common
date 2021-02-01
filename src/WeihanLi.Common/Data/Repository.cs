@@ -382,7 +382,7 @@ FETCH NEXT {pageSize} ROWS ONLY
             return _dbConnection.Value.ExecuteAsync(sqlBuilder.ToString(), paramDictionary, cancellationToken: cancellationToken);
         }
 
-        public virtual int Update<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value)
+        public virtual int Update<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object? value)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var propertyName = propertyExpression.GetMemberName();
@@ -395,7 +395,7 @@ SET {GetColumnName(propertyName)} = @set_{propertyName}
             return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
-        public virtual Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value, CancellationToken cancellationToken = default)
+        public virtual Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object? value, CancellationToken cancellationToken = default)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var propertyName = propertyExpression.GetMemberName();
@@ -408,9 +408,9 @@ SET {GetColumnName(propertyName)} = @set_{propertyName}
             return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters, cancellationToken: cancellationToken);
         }
 
-        public virtual int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object?>? propertyValues)
+        public virtual int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object?> propertyValues)
         {
-            if (propertyValues == null || propertyValues.Count == 0)
+            if (propertyValues.IsNullOrEmpty())
             {
                 return 0;
             }
@@ -429,7 +429,7 @@ SET {propertyValues.Keys.Select(p => $"{GetColumnName(p)}=@set_{p}").StringJoin(
 
         public virtual int Update(TEntity entity, params Expression<Func<TEntity, object?>>[] propertyExpressions)
         {
-            if (propertyExpressions.Length == 0)
+            if (propertyExpressions.IsNullOrEmpty())
             {
                 return UpdateWithout(entity, Array.Empty<string>());
             }
@@ -504,9 +504,9 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.Execute(sql, parameters);
         }
 
-        public virtual int Update(TEntity entity, params string[]? propertyNames)
+        public virtual int Update(TEntity entity, params string[] propertyNames)
         {
-            if (propertyNames == null || propertyNames.Length == 0)
+            if (propertyNames.IsNullOrEmpty())
             {
                 return UpdateWithout(entity, Array.Empty<string>());
             }
