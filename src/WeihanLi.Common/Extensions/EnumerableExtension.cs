@@ -117,12 +117,10 @@ namespace WeihanLi.Extensions
         /// <param name="batchSize">每个一维集合的数量</param>
         public static IEnumerable<T[]> Split<T>(this IEnumerable<T> source, int batchSize)
         {
-            using (var enumerator = source.GetEnumerator())
+            using var enumerator = source.GetEnumerator();
+            while (enumerator.MoveNext())
             {
-                while (enumerator.MoveNext())
-                {
-                    yield return Split(enumerator, batchSize).ToArray();
-                }
+                yield return Split(enumerator, batchSize).ToArray();
             }
         }
 

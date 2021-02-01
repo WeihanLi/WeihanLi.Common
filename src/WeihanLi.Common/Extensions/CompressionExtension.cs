@@ -1,8 +1,8 @@
-﻿using System.IO;
+﻿using JetBrains.Annotations;
+using System.IO;
 using System.IO.Compression;
 using System.Text;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -35,50 +35,42 @@ namespace WeihanLi.Extensions
         /// <returns>The string compressed into a GZip byte array.</returns>
         public static byte[] CompressGZip([NotNull] this byte[] bytes)
         {
-            using (var memoryStream = new MemoryStream())
+            using var memoryStream = new MemoryStream();
+            using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
             {
-                using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
-                {
-                    zipStream.Write(bytes);
-                }
-                return memoryStream.ToArray();
+                zipStream.Write(bytes);
             }
+            return memoryStream.ToArray();
         }
 
         public static async Task<byte[]> CompressGZipAsync([NotNull] this byte[] bytes)
         {
-            using (var memoryStream = new MemoryStream())
+            using var memoryStream = new MemoryStream();
+            using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
             {
-                using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
-                {
-                    await zipStream.WriteAsync(bytes);
-                }
-                return memoryStream.ToArray();
+                await zipStream.WriteAsync(bytes);
             }
+            return memoryStream.ToArray();
         }
 
         public static byte[] CompressGZip([NotNull] this Stream stream)
         {
-            using (var memoryStream = new MemoryStream())
+            using var memoryStream = new MemoryStream();
+            using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
             {
-                using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
-                {
-                    stream.CopyTo(zipStream);
-                }
-                return memoryStream.ToArray();
+                stream.CopyTo(zipStream);
             }
+            return memoryStream.ToArray();
         }
 
         public static async Task<byte[]> CompressGZipAsync([NotNull] this Stream stream)
         {
-            using (var memoryStream = new MemoryStream())
+            using var memoryStream = new MemoryStream();
+            using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
             {
-                using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
-                {
-                    await stream.CopyToAsync(zipStream);
-                }
-                return memoryStream.ToArray();
+                await stream.CopyToAsync(zipStream);
             }
+            return memoryStream.ToArray();
         }
 
         /// <summary>
@@ -86,58 +78,48 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The byte array gzip to string.</returns>
-        public static byte[] DecompressGZip([NotNull]this byte[] @this)
+        public static byte[] DecompressGZip([NotNull] this byte[] @this)
         {
-            using (var memoryStream = new MemoryStream(@this))
-            {
-                return memoryStream.DecompressGZip();
-            }
+            using var memoryStream = new MemoryStream(@this);
+            return memoryStream.DecompressGZip();
         }
 
-        public static async Task<byte[]> DecompressGZipAsync([NotNull]this byte[] @this)
+        public static async Task<byte[]> DecompressGZipAsync([NotNull] this byte[] @this)
         {
-            using (var memoryStream = new MemoryStream(@this))
-            {
-                return await memoryStream.DecompressGZipAsync();
-            }
+            using var memoryStream = new MemoryStream(@this);
+            return await memoryStream.DecompressGZipAsync();
         }
 
-        public static byte[] DecompressGZip([NotNull]this Stream stream)
+        public static byte[] DecompressGZip([NotNull] this Stream stream)
         {
-            using (var outStream = new MemoryStream())
+            using var outStream = new MemoryStream();
+            using (var zipStream = new GZipStream(stream, CompressionMode.Decompress))
             {
-                using (var zipStream = new GZipStream(stream, CompressionMode.Decompress))
-                {
-                    zipStream.CopyTo(outStream);
-                }
-                return outStream.GetBuffer();
+                zipStream.CopyTo(outStream);
             }
+            return outStream.GetBuffer();
         }
 
-        public static async Task<byte[]> DecompressGZipAsync([NotNull]this Stream stream)
+        public static async Task<byte[]> DecompressGZipAsync([NotNull] this Stream stream)
         {
-            using (var outStream = new MemoryStream())
+            using var outStream = new MemoryStream();
+            using (var zipStream = new GZipStream(stream, CompressionMode.Decompress))
             {
-                using (var zipStream = new GZipStream(stream, CompressionMode.Decompress))
-                {
-                    await zipStream.CopyToAsync(outStream);
-                }
-                return outStream.GetBuffer();
+                await zipStream.CopyToAsync(outStream);
             }
+            return outStream.GetBuffer();
         }
 
         public static string CompressGZipString([NotNull] this byte[] bytes) => bytes.CompressGZipString(Encoding.UTF8);
 
         public static string CompressGZipString([NotNull] this byte[] bytes, Encoding encoding)
         {
-            using (var memoryStream = new MemoryStream())
+            using var memoryStream = new MemoryStream();
+            using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
             {
-                using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
-                {
-                    zipStream.Write(bytes);
-                }
-                return encoding.GetString(memoryStream.ToArray());
+                zipStream.Write(bytes);
             }
+            return encoding.GetString(memoryStream.ToArray());
         }
 
         public static string DecompressGZipString([NotNull] this byte[] bytes) =>
@@ -149,18 +131,12 @@ namespace WeihanLi.Extensions
         ///     A FileInfo extension method that creates a zip file.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
-        public static void CreateGZip([NotNull]this FileInfo @this)
+        public static void CreateGZip([NotNull] this FileInfo @this)
         {
-            using (var originalFileStream = @this.OpenRead())
-            {
-                using (var compressedFileStream = File.Create(@this.FullName + ".gz"))
-                {
-                    using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
-                    {
-                        originalFileStream.CopyTo(compressionStream);
-                    }
-                }
-            }
+            using var originalFileStream = @this.OpenRead();
+            using var compressedFileStream = File.Create(@this.FullName + ".gz");
+            using var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress);
+            originalFileStream.CopyTo(compressionStream);
         }
 
         /// <summary>
@@ -168,18 +144,12 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="destination">Destination for the zip.</param>
-        public static void CreateGZip([NotNull]this FileInfo @this, string destination)
+        public static void CreateGZip([NotNull] this FileInfo @this, string destination)
         {
-            using (var originalFileStream = @this.OpenRead())
-            {
-                using (var compressedFileStream = File.Create(destination))
-                {
-                    using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
-                    {
-                        originalFileStream.CopyTo(compressionStream);
-                    }
-                }
-            }
+            using var originalFileStream = @this.OpenRead();
+            using var compressedFileStream = File.Create(destination);
+            using var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress);
+            originalFileStream.CopyTo(compressionStream);
         }
 
         /// <summary>
@@ -187,18 +157,12 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="destination">Destination for the zip.</param>
-        public static void CreateGZip([NotNull]this FileInfo @this, FileInfo destination)
+        public static void CreateGZip([NotNull] this FileInfo @this, FileInfo destination)
         {
-            using (var originalFileStream = @this.OpenRead())
-            {
-                using (var compressedFileStream = File.Create(destination.FullName))
-                {
-                    using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
-                    {
-                        originalFileStream.CopyTo(compressionStream);
-                    }
-                }
-            }
+            using var originalFileStream = @this.OpenRead();
+            using var compressedFileStream = File.Create(destination.FullName);
+            using var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress);
+            originalFileStream.CopyTo(compressionStream);
         }
 
         /// <summary>
@@ -206,20 +170,14 @@ namespace WeihanLi.Extensions
         ///     @this.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
-        public static void ExtractGZipToDirectory([NotNull]this FileInfo @this)
+        public static void ExtractGZipToDirectory([NotNull] this FileInfo @this)
         {
-            using (var originalFileStream = @this.OpenRead())
-            {
-                var newFileName = Path.GetFileNameWithoutExtension(@this.FullName);
+            using var originalFileStream = @this.OpenRead();
+            var newFileName = Path.GetFileNameWithoutExtension(@this.FullName);
 
-                using (var decompressedFileStream = File.Create(newFileName))
-                {
-                    using (var decompressionStream = new GZipStream(originalFileStream, CompressionMode.Decompress))
-                    {
-                        decompressionStream.CopyTo(decompressedFileStream);
-                    }
-                }
-            }
+            using var decompressedFileStream = File.Create(newFileName);
+            using var decompressionStream = new GZipStream(originalFileStream, CompressionMode.Decompress);
+            decompressionStream.CopyTo(decompressedFileStream);
         }
 
         /// <summary>
@@ -228,18 +186,12 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="destination">Destination for the.</param>
-        public static void ExtractGZipToDirectory([NotNull]this FileInfo @this, string destination)
+        public static void ExtractGZipToDirectory([NotNull] this FileInfo @this, string destination)
         {
-            using (var originalFileStream = @this.OpenRead())
-            {
-                using (var compressedFileStream = File.Create(destination))
-                {
-                    using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
-                    {
-                        originalFileStream.CopyTo(compressionStream);
-                    }
-                }
-            }
+            using var originalFileStream = @this.OpenRead();
+            using var compressedFileStream = File.Create(destination);
+            using var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress);
+            originalFileStream.CopyTo(compressionStream);
         }
 
         /// <summary>
@@ -248,18 +200,12 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="destination">Destination for the.</param>
-        public static void ExtractGZipToDirectory([NotNull]this FileInfo @this, FileInfo destination)
+        public static void ExtractGZipToDirectory([NotNull] this FileInfo @this, FileInfo destination)
         {
-            using (var originalFileStream = @this.OpenRead())
-            {
-                using (var compressedFileStream = File.Create(destination.FullName))
-                {
-                    using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
-                    {
-                        originalFileStream.CopyTo(compressionStream);
-                    }
-                }
-            }
+            using var originalFileStream = @this.OpenRead();
+            using var compressedFileStream = File.Create(destination.FullName);
+            using var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress);
+            originalFileStream.CopyTo(compressionStream);
         }
 
         /// <summary>Opens a zip archive at the specified path and in the specified mode.</summary>
@@ -269,7 +215,7 @@ namespace WeihanLi.Extensions
         ///     on the entries in the opened archive.
         /// </param>
         /// <returns>A ZipArchive.</returns>
-        public static ZipArchive OpenZipFile([NotNull]this FileInfo @this, ZipArchiveMode mode)
+        public static ZipArchive OpenZipFile([NotNull] this FileInfo @this, ZipArchiveMode mode)
         {
             return ZipFile.Open(@this.FullName, mode);
         }
@@ -290,7 +236,7 @@ namespace WeihanLi.Extensions
         ///     entry names.
         /// </param>
         /// <returns>A ZipArchive.</returns>
-        public static ZipArchive OpenZipFile([NotNull]this FileInfo @this, ZipArchiveMode mode, Encoding entryNameEncoding)
+        public static ZipArchive OpenZipFile([NotNull] this FileInfo @this, ZipArchiveMode mode, Encoding entryNameEncoding)
         {
             return ZipFile.Open(@this.FullName, mode, entryNameEncoding);
         }
@@ -304,7 +250,7 @@ namespace WeihanLi.Extensions
         ///     interpreted as relative to the current working directory.
         /// </param>
         /// <returns>The opened zip archive.</returns>
-        public static ZipArchive OpenReadZipFile([NotNull]this FileInfo @this)
+        public static ZipArchive OpenReadZipFile([NotNull] this FileInfo @this)
         {
             return ZipFile.OpenRead(@this.FullName);
         }
@@ -318,7 +264,7 @@ namespace WeihanLi.Extensions
         ///     extracted files, specified as a relative or absolute path. A relative path is interpreted as
         ///     relative to the current working directory.
         /// </param>
-        public static void ExtractZipFileToDirectory([NotNull]this FileInfo @this, string destinationDirectoryName)
+        public static void ExtractZipFileToDirectory([NotNull] this FileInfo @this, string destinationDirectoryName)
         {
             ZipFile.ExtractToDirectory(@this.FullName, destinationDirectoryName);
         }
@@ -337,7 +283,7 @@ namespace WeihanLi.Extensions
         ///     value for this parameter only when an encoding is required for interoperability with zip archive tools and
         ///     libraries that do not support UTF-8 encoding for entry names.
         /// </param>
-        public static void ExtractZipFileToDirectory([NotNull]this FileInfo @this, string destinationDirectoryName, Encoding entryNameEncoding)
+        public static void ExtractZipFileToDirectory([NotNull] this FileInfo @this, string destinationDirectoryName, Encoding entryNameEncoding)
         {
             ZipFile.ExtractToDirectory(@this.FullName, destinationDirectoryName, entryNameEncoding);
         }
@@ -345,7 +291,7 @@ namespace WeihanLi.Extensions
         /// <summary>Extracts all the files in the specified zip archive to a directory on the file system.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="destinationDirectory">Pathname of the destination directory.</param>
-        public static void ExtractZipFileToDirectory([NotNull]this FileInfo @this, DirectoryInfo destinationDirectory)
+        public static void ExtractZipFileToDirectory([NotNull] this FileInfo @this, DirectoryInfo destinationDirectory)
         {
             ZipFile.ExtractToDirectory(@this.FullName, destinationDirectory.FullName);
         }
@@ -362,7 +308,7 @@ namespace WeihanLi.Extensions
         ///     interoperability with zip archive tools and libraries that do not support UTF-8 encoding for
         ///     entry names.
         /// </param>
-        public static void ExtractZipFileToDirectory([NotNull]this FileInfo @this, DirectoryInfo destinationDirectory, Encoding entryNameEncoding)
+        public static void ExtractZipFileToDirectory([NotNull] this FileInfo @this, DirectoryInfo destinationDirectory, Encoding entryNameEncoding)
         {
             ZipFile.ExtractToDirectory(@this.FullName, destinationDirectory.FullName, entryNameEncoding);
         }
@@ -377,7 +323,7 @@ namespace WeihanLi.Extensions
         ///     relative or absolute path. A relative path is interpreted as relative to the current working
         ///     directory.
         /// </param>
-        public static void CreateZipFile([NotNull]this DirectoryInfo @this, string destinationArchiveFileName)
+        public static void CreateZipFile([NotNull] this DirectoryInfo @this, string destinationArchiveFileName)
         {
             ZipFile.CreateFromDirectory(@this.FullName, destinationArchiveFileName);
         }
@@ -401,7 +347,7 @@ namespace WeihanLi.Extensions
         ///     sourceDirectoryName at the root of the archive; false to include only the contents of the
         ///     directory.
         /// </param>
-        public static void CreateZipFile([NotNull]this DirectoryInfo @this, string destinationArchiveFileName, CompressionLevel compressionLevel, bool includeBaseDirectory)
+        public static void CreateZipFile([NotNull] this DirectoryInfo @this, string destinationArchiveFileName, CompressionLevel compressionLevel, bool includeBaseDirectory)
         {
             ZipFile.CreateFromDirectory(@this.FullName, destinationArchiveFileName, compressionLevel, includeBaseDirectory);
         }
@@ -431,7 +377,7 @@ namespace WeihanLi.Extensions
         ///     value for this parameter only when an encoding is required for interoperability with zip archive tools and
         ///     libraries that do not support UTF-8 encoding for entry names.
         /// </param>
-        public static void CreateZipFile([NotNull]this DirectoryInfo @this, string destinationArchiveFileName, CompressionLevel compressionLevel, bool includeBaseDirectory, Encoding entryNameEncoding)
+        public static void CreateZipFile([NotNull] this DirectoryInfo @this, string destinationArchiveFileName, CompressionLevel compressionLevel, bool includeBaseDirectory, Encoding entryNameEncoding)
         {
             ZipFile.CreateFromDirectory(@this.FullName, destinationArchiveFileName, compressionLevel, includeBaseDirectory, entryNameEncoding);
         }
@@ -446,7 +392,7 @@ namespace WeihanLi.Extensions
         ///     relative or absolute path. A relative path is interpreted as relative to the current working
         ///     directory.
         /// </param>
-        public static void CreateZipFile([NotNull]this DirectoryInfo @this, FileInfo destinationArchiveFile)
+        public static void CreateZipFile([NotNull] this DirectoryInfo @this, FileInfo destinationArchiveFile)
         {
             ZipFile.CreateFromDirectory(@this.FullName, destinationArchiveFile.FullName);
         }
@@ -470,7 +416,7 @@ namespace WeihanLi.Extensions
         ///     sourceDirectoryName at the root of the archive; false to include only the contents of the
         ///     directory.
         /// </param>
-        public static void CreateZipFile([NotNull]this DirectoryInfo @this, FileInfo destinationArchiveFile, CompressionLevel compressionLevel, bool includeBaseDirectory)
+        public static void CreateZipFile([NotNull] this DirectoryInfo @this, FileInfo destinationArchiveFile, CompressionLevel compressionLevel, bool includeBaseDirectory)
         {
             ZipFile.CreateFromDirectory(@this.FullName, destinationArchiveFile.FullName, compressionLevel, includeBaseDirectory);
         }
@@ -504,7 +450,7 @@ namespace WeihanLi.Extensions
         ///     interoperability with zip archive tools and libraries that do not support UTF-8 encoding for
         ///     entry names.
         /// </param>
-        public static void CreateZipFile([NotNull]this DirectoryInfo @this, FileInfo destinationArchiveFile, CompressionLevel compressionLevel, bool includeBaseDirectory, Encoding entryNameEncoding)
+        public static void CreateZipFile([NotNull] this DirectoryInfo @this, FileInfo destinationArchiveFile, CompressionLevel compressionLevel, bool includeBaseDirectory, Encoding entryNameEncoding)
         {
             ZipFile.CreateFromDirectory(@this.FullName, destinationArchiveFile.FullName, compressionLevel, includeBaseDirectory, entryNameEncoding);
         }
