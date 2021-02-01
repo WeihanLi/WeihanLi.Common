@@ -36,7 +36,7 @@ namespace WeihanLi.Extensions
         {
             try
             {
-                return await @this.GetResponseAsync();
+                return await @this.GetResponseAsync().ConfigureAwait(false);
             }
             catch (WebException e)
             {
@@ -44,68 +44,52 @@ namespace WeihanLi.Extensions
             }
         }
 
-        public static byte[] GetReponseBytes([NotNull] this WebRequest @this)
+        public static byte[] GetResponseBytes([NotNull] this WebRequest @this)
         {
-            using (var response = @this.GetResponse())
-            {
-                return response.ReadAllBytes();
-            }
+            using var response = @this.GetResponse();
+            return response.ReadAllBytes();
         }
 
-        public static async Task<byte[]> GetReponseBytesAsync([NotNull] this WebRequest @this)
+        public static async Task<byte[]> GetResponseBytesAsync([NotNull] this WebRequest @this)
         {
-            using (var response = await @this.GetResponseAsync())
-            {
-                return await response.ReadAllBytesAsync();
-            }
+            using var response = await @this.GetResponseAsync().ConfigureAwait(false);
+            return await response.ReadAllBytesAsync().ConfigureAwait(false);
         }
 
-        public static string GetReponseString([NotNull] this WebRequest @this)
+        public static string GetResponseString([NotNull] this WebRequest @this)
         {
-            using (var response = @this.GetResponse())
-            {
-                return response.ReadToEnd();
-            }
+            using var response = @this.GetResponse();
+            return response.ReadToEnd();
         }
 
-        public static async Task<string> GetReponseStringAsync([NotNull] this WebRequest @this)
+        public static async Task<string> GetResponseStringAsync([NotNull] this WebRequest @this)
         {
-            using (var response = await @this.GetResponseAsync())
-            {
-                return await response.ReadToEndAsync();
-            }
+            using var response = await @this.GetResponseAsync().ConfigureAwait(false);
+            return await response.ReadToEndAsync().ConfigureAwait(false);
         }
 
-        public static byte[] GetReponseBytesSafe([NotNull] this WebRequest @this)
+        public static byte[] GetResponseBytesSafe([NotNull] this WebRequest @this)
         {
-            using (var response = @this.GetResponseSafe())
-            {
-                return response.ReadAllBytes();
-            }
+            using var response = @this.GetResponseSafe();
+            return response.ReadAllBytes();
         }
 
-        public static async Task<byte[]> GetReponseBytesSafeAsync([NotNull] this WebRequest @this)
+        public static async Task<byte[]> GetResponseBytesSafeAsync([NotNull] this WebRequest @this)
         {
-            using (var response = await @this.GetResponseSafeAsync())
-            {
-                return await response.ReadAllBytesAsync();
-            }
+            using var response = await @this.GetResponseSafeAsync().ConfigureAwait(false);
+            return await response.ReadAllBytesAsync().ConfigureAwait(false);
         }
 
-        public static string GetReponseStringSafe([NotNull] this WebRequest @this)
+        public static string GetResponseStringSafe([NotNull] this WebRequest @this)
         {
-            using (var response = @this.GetResponseSafe())
-            {
-                return response.ReadToEnd();
-            }
+            using var response = @this.GetResponseSafe();
+            return response.ReadToEnd();
         }
 
-        public static async Task<string> GetReponseStringSafeAsync([NotNull] this WebRequest @this)
+        public static async Task<string> GetResponseStringSafeAsync([NotNull] this WebRequest @this)
         {
-            using (var response = await @this.GetResponseSafeAsync())
-            {
-                return await response.ReadToEndAsync();
-            }
+            using var response = await @this.GetResponseSafeAsync().ConfigureAwait(false);
+            return await response.ReadToEndAsync().ConfigureAwait(false);
         }
 
         #endregion WebRequest
@@ -119,12 +103,10 @@ namespace WeihanLi.Extensions
         /// <returns>The response stream as byte array</returns>
         public static byte[] ReadAllBytes([NotNull] this WebResponse @this)
         {
-            using (var stream = @this.GetResponseStream())
-            {
-                var byteArray = new byte[stream!.Length];
-                stream.Write(byteArray, 0, byteArray.Length);
-                return byteArray;
-            }
+            using var stream = @this.GetResponseStream()!;
+            var byteArray = new byte[stream.Length];
+            stream.Write(byteArray, 0, byteArray.Length);
+            return byteArray;
         }
 
         /// <summary>
@@ -134,12 +116,10 @@ namespace WeihanLi.Extensions
         /// <returns>The response stream as byte array</returns>
         public static async Task<byte[]> ReadAllBytesAsync([NotNull] this WebResponse @this)
         {
-            using (var stream = @this.GetResponseStream())
-            {
-                var byteArray = new byte[stream.Length];
-                await stream.WriteAsync(byteArray, 0, byteArray.Length);
-                return byteArray;
-            }
+            using var stream = @this.GetResponseStream()!;
+            var byteArray = new byte[stream.Length];
+            await stream.WriteAsync(byteArray, 0, byteArray.Length).ConfigureAwait(false);
+            return byteArray;
         }
 
         /// <summary>
@@ -149,10 +129,8 @@ namespace WeihanLi.Extensions
         /// <returns>The response stream as a string, from the current position to the end.</returns>
         public static string ReadToEnd([NotNull] this WebResponse response)
         {
-            using (var stream = response.GetResponseStream())
-            {
-                return stream.ReadToEnd(Encoding.UTF8);
-            }
+            using var stream = response.GetResponseStream()!;
+            return stream.ReadToEnd(Encoding.UTF8);
         }
 
         /// <summary>
@@ -162,10 +140,8 @@ namespace WeihanLi.Extensions
         /// <returns>The response stream as a string, from the current position to the end.</returns>
         public static async Task<string> ReadToEndAsync([NotNull] this WebResponse @this)
         {
-            using (var stream = @this.GetResponseStream())
-            {
-                return await stream.ReadToEndAsync();
-            }
+            using var stream = @this.GetResponseStream()!;
+            return await stream.ReadToEndAsync().ConfigureAwait(false);
         }
 
         #endregion WebResponse

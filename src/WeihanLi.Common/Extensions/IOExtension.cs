@@ -65,11 +65,9 @@ namespace WeihanLi.Extensions
             if (@this is MemoryStream ms0)
                 return ms0.ToArray();
 
-            using (var ms = new MemoryStream())
-            {
-                @this.CopyTo(ms);
-                return ms.ToArray();
-            }
+            using var ms = new MemoryStream();
+            @this.CopyTo(ms);
+            return ms.ToArray();
         }
 
         /// <summary>
@@ -82,11 +80,9 @@ namespace WeihanLi.Extensions
             if (@this is MemoryStream ms0)
                 return ms0.ToArray();
 
-            using (var ms = new MemoryStream())
-            {
-                await @this.CopyToAsync(ms);
-                return ms.ToArray();
-            }
+            using var ms = new MemoryStream();
+            await @this.CopyToAsync(ms);
+            return ms.ToArray();
         }
 
         /// <summary>
@@ -99,10 +95,8 @@ namespace WeihanLi.Extensions
         /// </returns>
         public static string ReadToEnd([NotNull] this Stream @this)
         {
-            using (var sr = new StreamReader(@this, Encoding.UTF8))
-            {
-                return sr.ReadToEnd();
-            }
+            using var sr = new StreamReader(@this, Encoding.UTF8);
+            return sr.ReadToEnd();
         }
 
         /// <summary>
@@ -116,10 +110,8 @@ namespace WeihanLi.Extensions
         /// </returns>
         public static string ReadToEnd([NotNull] this Stream @this, Encoding encoding)
         {
-            using (var sr = new StreamReader(@this, encoding))
-            {
-                return sr.ReadToEnd();
-            }
+            using var sr = new StreamReader(@this, encoding);
+            return sr.ReadToEnd();
         }
 
         /// <summary>
@@ -132,10 +124,8 @@ namespace WeihanLi.Extensions
         /// </returns>
         public static async Task<string> ReadToEndAsync([NotNull] this Stream @this)
         {
-            using (var sr = new StreamReader(@this, Encoding.UTF8))
-            {
-                return await sr.ReadToEndAsync();
-            }
+            using var sr = new StreamReader(@this, Encoding.UTF8);
+            return await sr.ReadToEndAsync();
         }
 
         /// <summary>
@@ -149,10 +139,8 @@ namespace WeihanLi.Extensions
         /// </returns>
         public static async Task<string> ReadToEndAsync([NotNull] this Stream @this, Encoding encoding)
         {
-            using (var sr = new StreamReader(@this, encoding))
-            {
-                return await sr.ReadToEndAsync();
-            }
+            using var sr = new StreamReader(@this, encoding);
+            return await sr.ReadToEndAsync();
         }
     }
 }

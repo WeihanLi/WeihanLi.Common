@@ -119,7 +119,7 @@ namespace WeihanLi.Common.Helpers
             {
                 request.Proxy = proxy;
             }
-            return request.GetReponseString();
+            return request.GetResponseString();
         }
 
         /// <summary>
@@ -173,7 +173,7 @@ namespace WeihanLi.Common.Helpers
             {
                 request.Proxy = proxy;
             }
-            return await request.GetReponseStringSafeAsync();
+            return await request.GetResponseStringSafeAsync();
         }
 
         /// <summary>
@@ -230,7 +230,7 @@ namespace WeihanLi.Common.Helpers
                 request.Proxy = proxy;
             }
 
-            return request.GetReponseBytesSafe();
+            return request.GetResponseBytesSafe();
         }
 
         public static Task<byte[]> HttpGetForBytesAsync(string url) => HttpGetForBytesAsync(url, null, null);
@@ -274,7 +274,7 @@ namespace WeihanLi.Common.Helpers
                 request.Proxy = proxy;
             }
 
-            return await request.GetReponseBytesSafeAsync();
+            return await request.GetResponseBytesSafeAsync();
         }
 
         public static T HttpGetFor<T>(string url)
@@ -474,7 +474,7 @@ namespace WeihanLi.Common.Helpers
             }
             var postStream = request.GetRequestStream();
             postStream.Write(postData);
-            return request.GetReponseStringSafe();
+            return request.GetResponseStringSafe();
         }
 
         /// <summary>
@@ -517,7 +517,7 @@ namespace WeihanLi.Common.Helpers
             }
             var postStream = await request.GetRequestStreamAsync();
             await postStream.WriteAsync(postData);
-            return await request.GetReponseStringSafeAsync();
+            return await request.GetResponseStringSafeAsync();
         }
 
         public static async Task<string> HttpPostAsync(string url, byte[] postData, string contentType, IEnumerable<KeyValuePair<string, string>>? customHeaders = null, WebProxy? proxy = null)
@@ -553,7 +553,7 @@ namespace WeihanLi.Common.Helpers
 
             var postStream = await request.GetRequestStreamAsync();
             await postStream.WriteAsync(postData);
-            return await request.GetReponseStringSafeAsync();
+            return await request.GetResponseStringSafeAsync();
         }
 
         public static T HttpPostFor<T>(string url, byte[] postData, bool isJsonFormat)
@@ -596,7 +596,7 @@ namespace WeihanLi.Common.Helpers
             var postStream = request.GetRequestStream();
             postStream.Write(postData);
 
-            return request.GetReponseBytesSafe();
+            return request.GetResponseBytesSafe();
         }
 
         public static byte[] HttpPostForBytes(string url, byte[] postData, string contentType, IEnumerable<KeyValuePair<string, string>>? customHeaders = null, WebProxy? proxy = null)
@@ -631,7 +631,7 @@ namespace WeihanLi.Common.Helpers
             }
             var postStream = request.GetRequestStream();
             postStream.Write(postData);
-            return request.GetReponseBytesSafe();
+            return request.GetResponseBytesSafe();
         }
 
         public static async Task<byte[]> HttpPostForBytesAsync(string url, byte[] postData, bool isJsonFormat, IEnumerable<KeyValuePair<string, string>>? customHeaders = null, WebProxy? proxy = null)
@@ -665,7 +665,7 @@ namespace WeihanLi.Common.Helpers
             }
             var postStream = await request.GetRequestStreamAsync();
             await postStream.WriteAsync(postData);
-            return await request.GetReponseBytesSafeAsync();
+            return await request.GetResponseBytesSafeAsync();
         }
 
         public static async Task<byte[]> HttpPostForBytesAsync(string url, byte[] postData, string contentType, IEnumerable<KeyValuePair<string, string>>? customHeaders = null, WebProxy? proxy = null)
@@ -699,7 +699,7 @@ namespace WeihanLi.Common.Helpers
             }
             var postStream = await request.GetRequestStreamAsync();
             await postStream.WriteAsync(postData);
-            return await request.GetReponseBytesSafeAsync();
+            return await request.GetResponseBytesSafeAsync();
         }
 
         /// <summary>
@@ -747,34 +747,32 @@ namespace WeihanLi.Common.Helpers
             var boundarybytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
             var endBoundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}--");
 
-            using (var memStream = new MemoryStream())
+            using var memStream = new MemoryStream();
+            if (formFields != null)
             {
-                if (formFields != null)
+                foreach (var pair in formFields)
                 {
-                    foreach (var pair in formFields)
-                    {
-                        memStream.Write(Encoding.UTF8.GetBytes(string.Format(FormDataFormat, pair.Key, pair.Value, boundary)));
-                    }
+                    memStream.Write(Encoding.UTF8.GetBytes(string.Format(FormDataFormat, pair.Key, pair.Value, boundary)));
                 }
-
-                memStream.Write(boundarybytes);
-
-                memStream.Write(Encoding.UTF8.GetBytes(string.Format(FileHeaderFormat, fileKey, fileName)));
-
-                memStream.Write(fileBytes);
-
-                memStream.Write(endBoundaryBytes);
-
-                request.ContentLength = memStream.Length;
-
-                using (var requestStream = request.GetRequestStream())
-                {
-                    memStream.Seek(0, SeekOrigin.Begin);
-                    requestStream.Write(memStream.ToArray());
-                }
-
-                return request.GetReponseStringSafe();
             }
+
+            memStream.Write(boundarybytes);
+
+            memStream.Write(Encoding.UTF8.GetBytes(string.Format(FileHeaderFormat, fileKey, fileName)));
+
+            memStream.Write(fileBytes);
+
+            memStream.Write(endBoundaryBytes);
+
+            request.ContentLength = memStream.Length;
+
+            using (var requestStream = request.GetRequestStream())
+            {
+                memStream.Seek(0, SeekOrigin.Begin);
+                requestStream.Write(memStream.ToArray());
+            }
+
+            return request.GetResponseStringSafe();
         }
 
         /// <summary>
@@ -819,35 +817,33 @@ namespace WeihanLi.Common.Helpers
             var boundarybytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
             var endBoundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}--");
 
-            using (var memStream = new MemoryStream())
+            using var memStream = new MemoryStream();
+            if (formFields != null)
             {
-                if (formFields != null)
+                foreach (var pair in formFields)
                 {
-                    foreach (var pair in formFields)
-                    {
-                        memStream.Write(Encoding.UTF8.GetBytes(string.Format(FormDataFormat, pair.Key, pair.Value, boundary)));
-                    }
+                    memStream.Write(Encoding.UTF8.GetBytes(string.Format(FormDataFormat, pair.Key, pair.Value, boundary)));
                 }
-
-                foreach (var file in files)
-                {
-                    memStream.Write(boundarybytes);
-
-                    memStream.Write(Encoding.UTF8.GetBytes(string.Format(FileHeaderFormat, Path.GetFileNameWithoutExtension(file.Key), file.Key)));
-                    memStream.Write(file.Value);
-                }
-
-                memStream.Write(endBoundaryBytes);
-                request.ContentLength = memStream.Length;
-
-                using (var requestStream = request.GetRequestStream())
-                {
-                    memStream.Seek(0, SeekOrigin.Begin);
-                    requestStream.Write(memStream.ToArray());
-                }
-
-                return request.GetReponseStringSafe();
             }
+
+            foreach (var file in files)
+            {
+                memStream.Write(boundarybytes);
+
+                memStream.Write(Encoding.UTF8.GetBytes(string.Format(FileHeaderFormat, Path.GetFileNameWithoutExtension(file.Key), file.Key)));
+                memStream.Write(file.Value);
+            }
+
+            memStream.Write(endBoundaryBytes);
+            request.ContentLength = memStream.Length;
+
+            using (var requestStream = request.GetRequestStream())
+            {
+                memStream.Seek(0, SeekOrigin.Begin);
+                requestStream.Write(memStream.ToArray());
+            }
+
+            return request.GetResponseStringSafe();
         }
 
         /// <summary>
@@ -893,34 +889,32 @@ namespace WeihanLi.Common.Helpers
             var boundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
             var endBoundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}--");
 
-            using (var memStream = new MemoryStream())
+            using var memStream = new MemoryStream();
+            if (formFields != null)
             {
-                if (formFields != null)
+                foreach (var pair in formFields)
                 {
-                    foreach (var pair in formFields)
-                    {
-                        memStream.Write(Encoding.UTF8.GetBytes(string.Format(FormDataFormat, pair.Key, pair.Value, boundary)));
-                    }
+                    memStream.Write(Encoding.UTF8.GetBytes(string.Format(FormDataFormat, pair.Key, pair.Value, boundary)));
                 }
-
-                await memStream.WriteAsync(boundaryBytes);
-
-                await memStream.WriteAsync(Encoding.UTF8.GetBytes(string.Format(FileHeaderFormat, fileKey, fileName)));
-
-                await memStream.WriteAsync(fileBytes);
-
-                await memStream.WriteAsync(endBoundaryBytes);
-
-                request.ContentLength = memStream.Length;
-
-                using (var requestStream = await request.GetRequestStreamAsync())
-                {
-                    memStream.Seek(0, SeekOrigin.Begin);
-                    await requestStream.WriteAsync(memStream.ToArray());
-                }
-
-                return await request.GetReponseStringSafeAsync();
             }
+
+            await memStream.WriteAsync(boundaryBytes);
+
+            await memStream.WriteAsync(Encoding.UTF8.GetBytes(string.Format(FileHeaderFormat, fileKey, fileName)));
+
+            await memStream.WriteAsync(fileBytes);
+
+            await memStream.WriteAsync(endBoundaryBytes);
+
+            request.ContentLength = memStream.Length;
+
+            using (var requestStream = await request.GetRequestStreamAsync())
+            {
+                memStream.Seek(0, SeekOrigin.Begin);
+                await requestStream.WriteAsync(memStream.ToArray());
+            }
+
+            return await request.GetResponseStringSafeAsync();
         }
 
         /// <summary>
@@ -963,38 +957,36 @@ namespace WeihanLi.Common.Helpers
             var boundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
             var endBoundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}--");
 
-            using (var memStream = new MemoryStream())
+            using var memStream = new MemoryStream();
+            if (formFields != null)
             {
-                if (formFields != null)
+                foreach (var pair in formFields)
                 {
-                    foreach (var pair in formFields)
-                    {
-                        memStream.Write(
-                            Encoding.UTF8.GetBytes(string.Format(FormDataFormat, pair.Key, pair.Value, boundary)));
-                    }
+                    memStream.Write(
+                        Encoding.UTF8.GetBytes(string.Format(FormDataFormat, pair.Key, pair.Value, boundary)));
                 }
-
-                foreach (var file in files)
-                {
-                    await memStream.WriteAsync(boundaryBytes);
-
-                    await memStream.WriteAsync(Encoding.UTF8.GetBytes(
-                        string.Format(FileHeaderFormat, Path.GetFileNameWithoutExtension(file.Key), file.Key)));
-                    await memStream.WriteAsync(file.Value);
-                }
-
-                await memStream.WriteAsync(endBoundaryBytes);
-
-                request.ContentLength = memStream.Length;
-
-                using (var requestStream = await request.GetRequestStreamAsync())
-                {
-                    memStream.Seek(0, SeekOrigin.Begin);
-                    await requestStream.WriteAsync(memStream.ToArray());
-                }
-
-                return await request.GetReponseStringSafeAsync();
             }
+
+            foreach (var file in files)
+            {
+                await memStream.WriteAsync(boundaryBytes);
+
+                await memStream.WriteAsync(Encoding.UTF8.GetBytes(
+                    string.Format(FileHeaderFormat, Path.GetFileNameWithoutExtension(file.Key), file.Key)));
+                await memStream.WriteAsync(file.Value);
+            }
+
+            await memStream.WriteAsync(endBoundaryBytes);
+
+            request.ContentLength = memStream.Length;
+
+            using (var requestStream = await request.GetRequestStreamAsync())
+            {
+                memStream.Seek(0, SeekOrigin.Begin);
+                await requestStream.WriteAsync(memStream.ToArray());
+            }
+
+            return await request.GetResponseStringSafeAsync();
         }
 
         #endregion HttpPost

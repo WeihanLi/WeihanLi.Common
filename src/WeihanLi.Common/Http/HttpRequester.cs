@@ -363,19 +363,19 @@ namespace WeihanLi.Common.Http
         public byte[] ExecuteBytes()
         {
             BuildRequest();
-            return _request.GetReponseBytesSafe();
+            return _request.GetResponseBytesSafe();
         }
 
         public async Task<byte[]> ExecuteBytesAsync()
         {
             await BuildRequestAsync();
-            return await _request.GetReponseBytesSafeAsync();
+            return await _request.GetResponseBytesSafeAsync();
         }
 
         public async Task<string> ExecuteAsync()
         {
             await BuildRequestAsync();
-            return await _request.GetReponseStringSafeAsync();
+            return await _request.GetResponseStringSafeAsync();
         }
 
         #endregion Execute

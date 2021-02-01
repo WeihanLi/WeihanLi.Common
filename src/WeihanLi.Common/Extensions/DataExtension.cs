@@ -243,7 +243,7 @@ namespace WeihanLi.Extensions
             {
                 while (@this.Read())
                 {
-                    yield return @this.ToEntity<T>()!;
+                    yield return @this.ToEntity<T>(true)!;
                 }
             }
         }
@@ -420,11 +420,9 @@ namespace WeihanLi.Extensions
         /// <returns>A dynamic.</returns>
         public static dynamic ExecuteExpandoObject([NotNull] this DbCommand @this)
         {
-            using (IDataReader reader = @this.ExecuteReader())
-            {
-                reader.Read();
-                return reader.ToExpandoObject();
-            }
+            using IDataReader reader = @this.ExecuteReader();
+            reader.Read();
+            return reader.ToExpandoObject();
         }
 
         /// <summary>
@@ -436,10 +434,8 @@ namespace WeihanLi.Extensions
         /// </returns>
         public static IEnumerable<dynamic> ExecuteExpandoObjects([NotNull] this DbCommand @this)
         {
-            using (IDataReader reader = @this.ExecuteReader())
-            {
-                return reader.ToExpandoObjects();
-            }
+            using IDataReader reader = @this.ExecuteReader();
+            return reader.ToExpandoObjects();
         }
 
         /// <summary>
