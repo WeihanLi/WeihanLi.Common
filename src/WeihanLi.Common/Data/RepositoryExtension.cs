@@ -19,14 +19,14 @@ namespace WeihanLi.Common.Data
         public static Task<long> LongCountAsync<TEntity>(this IRepository<TEntity> repository, CancellationToken cancellationToken = default) =>
             repository.LongCountAsync(x => true, cancellationToken);
 
-        public static TEntity Fetch<TEntity>(this IRepository<TEntity> repository) => repository.Fetch(x => true);
+        public static TEntity? Fetch<TEntity>(this IRepository<TEntity> repository) => repository.Fetch(x => true);
 
-        public static Task<TEntity> FetchAsync<TEntity>(this IRepository<TEntity> repository, CancellationToken cancellationToken = default) =>
+        public static Task<TEntity?> FetchAsync<TEntity>(this IRepository<TEntity> repository, CancellationToken cancellationToken = default) =>
             repository.FetchAsync(x => true, cancellationToken);
 
-        public static TEntity Fetch<TEntity, TProperty>(this IRepository<TEntity> repository, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false) => repository.Fetch(x => true, orderByExpression, ascending);
+        public static TEntity? Fetch<TEntity, TProperty>(this IRepository<TEntity> repository, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false) => repository.Fetch(x => true, orderByExpression, ascending);
 
-        public static Task<TEntity> FetchAsync<TEntity, TProperty>(this IRepository<TEntity> repository, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default) =>
+        public static Task<TEntity?> FetchAsync<TEntity, TProperty>(this IRepository<TEntity> repository, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default) =>
             repository.FetchAsync(x => true, orderByExpression, ascending, cancellationToken);
 
         public static List<TEntity> GetAll<TEntity>(this IRepository<TEntity> repository) =>

@@ -87,21 +87,15 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
-        public static IEnumerable<T?> ToEntities<T>([NotNull] this DataTable @this)
+        public static IEnumerable<T> ToEntities<T>([NotNull] this DataTable @this)
         {
-            var type = typeof(T);
-
-            if (@this.Columns.Count == 0)
+            if (@this.Columns.Count > 0)
             {
-                yield return default(T);
-            }
-            else
-            {
-                if (type.IsBasicType())
+                if (typeof(T).IsBasicType())
                 {
                     foreach (DataRow row in @this.Rows)
                     {
-                        yield return row[0].ToOrDefault<T>();
+                        yield return row[0].To<T>();
                     }
                 }
                 else
@@ -235,28 +229,21 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
-        public static IEnumerable<T?> ToEntities<T>([NotNull] this IDataReader @this)
+        public static IEnumerable<T> ToEntities<T>([NotNull] this IDataReader @this)
         {
             var type = typeof(T);
             if (type.IsBasicType())
             {
                 while (@this.Read())
                 {
-                    if (@this.FieldCount > 0)
-                    {
-                        yield return default;
-                    }
-                    else
-                    {
-                        yield return @this[0].ToOrDefault<T>();
-                    }
+                    yield return @this[0].To<T>();
                 }
             }
             else
             {
                 while (@this.Read())
                 {
-                    yield return @this.ToEntity<T>();
+                    yield return @this.ToEntity<T>()!;
                 }
             }
         }

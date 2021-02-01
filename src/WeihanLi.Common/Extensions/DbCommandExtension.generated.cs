@@ -9,6 +9,7 @@ using JetBrains.Annotations;
 
 namespace WeihanLi.Extensions
 {
+#nullable enable
     public static partial class DataExtension
     {
               
@@ -40,7 +41,7 @@ namespace WeihanLi.Extensions
                 var list = new List<T>();
                 while (reader.Read())
                 {
-                    list.Add(reader.ToEntity<T>(true));
+                    list.Add(reader.ToEntity<T>(true)!);
                 }
                 return list;
             }
@@ -53,7 +54,7 @@ namespace WeihanLi.Extensions
                 var list = new List<T>();
                 while (await reader.ReadAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    list.Add(reader.ToEntity<T>(true));
+                    list.Add(reader.ToEntity<T>(true)!);
                 }
                 return list;
            }
@@ -77,7 +78,7 @@ namespace WeihanLi.Extensions
            }
        }
 
-        public static T Fetch<T>([NotNull]this DbCommand command)
+        public static T? Fetch<T>([NotNull]this DbCommand command)
         {
             using (var reader = command.ExecuteReader())
             {
@@ -85,7 +86,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-       public static async Task<T> FetchAsync<T>([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
+       public static async Task<T?> FetchAsync<T>([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
        {
            using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
            {

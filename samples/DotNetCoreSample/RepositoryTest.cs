@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.ObjectPool;
+using System;
 using System.Data.Common;
 using System.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.ObjectPool;
 using WeihanLi.Common;
 using WeihanLi.Common.Data;
 using WeihanLi.Extensions;
@@ -25,12 +25,12 @@ namespace DotNetCoreSample
             });
 
             var entity = repo.Fetch(t => t.Id == 1);
-            System.Console.WriteLine(entity.Token);
+            System.Console.WriteLine(entity?.Token);
 
             repo.Update(t => t.Id == 1, t => t.Token, 1);
 
             entity = repo.Fetch(t => t.Id == 1);
-            System.Console.WriteLine(entity.Token);
+            System.Console.WriteLine(entity?.Token);
 
             var exists = repo.Exist(e => e.Id == 1);
             Console.WriteLine($"exists pkid == 1: {exists}");

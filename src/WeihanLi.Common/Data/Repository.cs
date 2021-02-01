@@ -120,7 +120,7 @@ SELECT COUNT(1) FROM {_tableName}
             return _dbConnection.Value.ExecuteScalarToAsync<bool>(sql, whereSql.Parameters, cancellationToken: cancellationToken);
         }
 
-        public virtual TEntity Fetch(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual TEntity? Fetch(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
@@ -130,7 +130,7 @@ SELECT TOP(1) {SelectColumnsString} FROM {_tableName}
             return _dbConnection.Value.Fetch<TEntity>(sql, whereSql.Parameters);
         }
 
-        public virtual Task<TEntity> FetchAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default)
+        public virtual Task<TEntity?> FetchAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
@@ -140,7 +140,7 @@ SELECT TOP 1 {SelectColumnsString} FROM {_tableName}
             return _dbConnection.Value.FetchAsync<TEntity>(sql, whereSql.Parameters, cancellationToken: cancellationToken);
         }
 
-        public virtual TEntity Fetch<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
+        public virtual TEntity? Fetch<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
@@ -151,7 +151,7 @@ ORDER BY {GetColumnName(orderByExpression.GetMemberName())}  {(ascending ? "" : 
             return _dbConnection.Value.Fetch<TEntity>(sql, whereSql.Parameters);
         }
 
-        public virtual Task<TEntity> FetchAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default)
+        public virtual Task<TEntity?> FetchAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
