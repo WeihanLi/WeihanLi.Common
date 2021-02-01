@@ -18997,15 +18997,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.DataExtension.EnsureOpenAsync
   nameWithType: DataExtension.EnsureOpenAsync
-- uid: WeihanLi.Extensions.DataExtension.Execute(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name: Execute(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Execute_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_
-  commentId: M:WeihanLi.Extensions.DataExtension.Execute(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name.vb: Execute(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
-  fullName: WeihanLi.Extensions.DataExtension.Execute(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32)
-  fullName.vb: WeihanLi.Extensions.DataExtension.Execute(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32)
-  nameWithType: DataExtension.Execute(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  nameWithType.vb: DataExtension.Execute(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
 - uid: WeihanLi.Extensions.DataExtension.Execute(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)
   name: Execute(DbConnection, String, CommandType, Object, DbParameter[], Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Execute_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_
@@ -19015,6 +19006,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.Execute(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Int32)
   nameWithType: DataExtension.Execute(DbConnection, String, CommandType, Object, DbParameter[], Int32)
   nameWithType.vb: DataExtension.Execute(DbConnection, String, CommandType, Object, DbParameter(), Int32)
+- uid: WeihanLi.Extensions.DataExtension.Execute(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name: Execute(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Execute_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_
+  commentId: M:WeihanLi.Extensions.DataExtension.Execute(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name.vb: Execute(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
+  fullName: WeihanLi.Extensions.DataExtension.Execute(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32)
+  fullName.vb: WeihanLi.Extensions.DataExtension.Execute(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32)
+  nameWithType: DataExtension.Execute(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  nameWithType.vb: DataExtension.Execute(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
 - uid: WeihanLi.Extensions.DataExtension.Execute(DbConnection,System.String,System.Int32)
   name: Execute(DbConnection, String, Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Execute_DbConnection_System_String_System_Int32_
@@ -19043,15 +19043,15 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.DataExtension.Execute
   nameWithType: DataExtension.Execute
-- uid: WeihanLi.Extensions.DataExtension.ExecuteAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name: ExecuteAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name.vb: ExecuteAsync(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
-  fullName: WeihanLi.Extensions.DataExtension.ExecuteAsync(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteAsync(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32, System.Threading.CancellationToken)
-  nameWithType: DataExtension.ExecuteAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  nameWithType.vb: DataExtension.ExecuteAsync(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
+- uid: WeihanLi.Extensions.DataExtension.ExecuteAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name: ExecuteAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name.vb: ExecuteAsync(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
+  fullName: WeihanLi.Extensions.DataExtension.ExecuteAsync(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteAsync(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32, System.Threading.CancellationToken)
+  nameWithType: DataExtension.ExecuteAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  nameWithType.vb: DataExtension.ExecuteAsync(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.ExecuteAsync(DbConnection,System.String,CommandType,System.Object,System.Int32,System.Threading.CancellationToken)
   name: ExecuteAsync(DbConnection, String, CommandType, Object, Int32, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteAsync_DbConnection_System_String_CommandType_System_Object_System_Int32_System_Threading_CancellationToken_
@@ -19092,15 +19092,6 @@ references:
   commentId: M:WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbCommand)
   fullName: WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbCommand)
   nameWithType: DataExtension.ExecuteDataTable(DbCommand)
-- uid: WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name: ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteDataTable_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_
-  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name.vb: ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
-  fullName: WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32)
-  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32)
-  nameWithType: DataExtension.ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  nameWithType.vb: DataExtension.ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
 - uid: WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)
   name: ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter[], Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteDataTable_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_
@@ -19110,6 +19101,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Int32)
   nameWithType: DataExtension.ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter[], Int32)
   nameWithType.vb: DataExtension.ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter(), Int32)
+- uid: WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name: ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteDataTable_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_
+  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name.vb: ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
+  fullName: WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32)
+  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32)
+  nameWithType: DataExtension.ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  nameWithType.vb: DataExtension.ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
 - uid: WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection,System.String,System.Int32)
   name: ExecuteDataTable(DbConnection, String, Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteDataTable_DbConnection_System_String_System_Int32_
@@ -19147,15 +19147,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteDataTable(Of T)(DbCommand, System.Func(Of DataTable, T))
   nameWithType: DataExtension.ExecuteDataTable<T>(DbCommand, Func<DataTable, T>)
   nameWithType.vb: DataExtension.ExecuteDataTable(Of T)(DbCommand, Func(Of DataTable, T))
-- uid: WeihanLi.Extensions.DataExtension.ExecuteDataTable``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Func{DataTable,``0},System.Int32)
-  name: ExecuteDataTable<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Func<DataTable, T>, Int32)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteDataTable__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Func_DataTable___0__System_Int32_
-  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteDataTable``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Func{DataTable,``0},System.Int32)
-  name.vb: ExecuteDataTable(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Func(Of DataTable, T), Int32)
-  fullName: WeihanLi.Extensions.DataExtension.ExecuteDataTable<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Func<DataTable, T>, System.Int32)
-  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteDataTable(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Func(Of DataTable, T), System.Int32)
-  nameWithType: DataExtension.ExecuteDataTable<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Func<DataTable, T>, Int32)
-  nameWithType.vb: DataExtension.ExecuteDataTable(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Func(Of DataTable, T), Int32)
+- uid: WeihanLi.Extensions.DataExtension.ExecuteDataTable``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Func{DataTable,``0},System.Int32)
+  name: ExecuteDataTable<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Func<DataTable, T>, Int32)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteDataTable__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Func_DataTable___0__System_Int32_
+  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteDataTable``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Func{DataTable,``0},System.Int32)
+  name.vb: ExecuteDataTable(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Func(Of DataTable, T), Int32)
+  fullName: WeihanLi.Extensions.DataExtension.ExecuteDataTable<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Func<DataTable, T>, System.Int32)
+  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteDataTable(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Func(Of DataTable, T), System.Int32)
+  nameWithType: DataExtension.ExecuteDataTable<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Func<DataTable, T>, Int32)
+  nameWithType.vb: DataExtension.ExecuteDataTable(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Func(Of DataTable, T), Int32)
 - uid: WeihanLi.Extensions.DataExtension.ExecuteDataTable``1(DbConnection,System.String,CommandType,System.Object,System.Func{DataTable,``0})
   name: ExecuteDataTable<T>(DbConnection, String, CommandType, Object, Func<DataTable, T>)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteDataTable__1_DbConnection_System_String_CommandType_System_Object_System_Func_DataTable___0__
@@ -19198,15 +19198,15 @@ references:
   commentId: M:WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(DbCommand,System.Threading.CancellationToken)
   fullName: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(DbCommand, System.Threading.CancellationToken)
   nameWithType: DataExtension.ExecuteDataTableAsync(DbCommand, CancellationToken)
-- uid: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name: ExecuteDataTableAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name.vb: ExecuteDataTableAsync(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
-  fullName: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32, System.Threading.CancellationToken)
-  nameWithType: DataExtension.ExecuteDataTableAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  nameWithType.vb: DataExtension.ExecuteDataTableAsync(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
+- uid: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name: ExecuteDataTableAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name.vb: ExecuteDataTableAsync(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
+  fullName: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32, System.Threading.CancellationToken)
+  nameWithType: DataExtension.ExecuteDataTableAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  nameWithType.vb: DataExtension.ExecuteDataTableAsync(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(DbConnection,System.String,CommandType,System.Object,System.Int32,System.Threading.CancellationToken)
   name: ExecuteDataTableAsync(DbConnection, String, CommandType, Object, Int32, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync_DbConnection_System_String_CommandType_System_Object_System_Int32_System_Threading_CancellationToken_
@@ -19250,15 +19250,6 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(Of T)(DbCommand, System.Func(Of DataTable, System.Threading.Tasks.Task(Of T)), System.Threading.CancellationToken)
   nameWithType: DataExtension.ExecuteDataTableAsync<T>(DbCommand, Func<DataTable, Task<T>>, CancellationToken)
   nameWithType.vb: DataExtension.ExecuteDataTableAsync(Of T)(DbCommand, Func(Of DataTable, Task(Of T)), CancellationToken)
-- uid: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Func{DataTable,``0},System.Int32,System.Threading.CancellationToken)
-  name: ExecuteDataTableAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Func<DataTable, T>, Int32, CancellationToken)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Func_DataTable___0__System_Int32_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Func{DataTable,``0},System.Int32,System.Threading.CancellationToken)
-  name.vb: ExecuteDataTableAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Func(Of DataTable, T), Int32, CancellationToken)
-  fullName: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Func<DataTable, T>, System.Int32, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Func(Of DataTable, T), System.Int32, System.Threading.CancellationToken)
-  nameWithType: DataExtension.ExecuteDataTableAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Func<DataTable, T>, Int32, CancellationToken)
-  nameWithType.vb: DataExtension.ExecuteDataTableAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Func(Of DataTable, T), Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Func{DataTable,``0},System.Threading.CancellationToken)
   name: ExecuteDataTableAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Func<DataTable, T>, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Func_DataTable___0__System_Threading_CancellationToken_
@@ -19268,6 +19259,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Func(Of DataTable, T), System.Threading.CancellationToken)
   nameWithType: DataExtension.ExecuteDataTableAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Func<DataTable, T>, CancellationToken)
   nameWithType.vb: DataExtension.ExecuteDataTableAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Func(Of DataTable, T), CancellationToken)
+- uid: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Func{DataTable,``0},System.Int32,System.Threading.CancellationToken)
+  name: ExecuteDataTableAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Func<DataTable, T>, Int32, CancellationToken)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Func_DataTable___0__System_Int32_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Func{DataTable,``0},System.Int32,System.Threading.CancellationToken)
+  name.vb: ExecuteDataTableAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Func(Of DataTable, T), Int32, CancellationToken)
+  fullName: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Func<DataTable, T>, System.Int32, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Func(Of DataTable, T), System.Int32, System.Threading.CancellationToken)
+  nameWithType: DataExtension.ExecuteDataTableAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Func<DataTable, T>, Int32, CancellationToken)
+  nameWithType.vb: DataExtension.ExecuteDataTableAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Func(Of DataTable, T), Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync``1(DbConnection,System.String,CommandType,System.Object,System.Func{DataTable,``0},System.Threading.CancellationToken)
   name: ExecuteDataTableAsync<T>(DbConnection, String, CommandType, Object, Func<DataTable, T>, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync__1_DbConnection_System_String_CommandType_System_Object_System_Func_DataTable___0__System_Threading_CancellationToken_
@@ -19330,15 +19330,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.DataExtension.ExecuteExpandoObjects
   nameWithType: DataExtension.ExecuteExpandoObjects
-- uid: WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name: ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalar_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_
-  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name.vb: ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
-  fullName: WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32)
-  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32)
-  nameWithType: DataExtension.ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  nameWithType.vb: DataExtension.ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
 - uid: WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)
   name: ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter[], Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalar_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_
@@ -19348,6 +19339,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Int32)
   nameWithType: DataExtension.ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter[], Int32)
   nameWithType.vb: DataExtension.ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter(), Int32)
+- uid: WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name: ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalar_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_
+  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name.vb: ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
+  fullName: WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32)
+  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32)
+  nameWithType: DataExtension.ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  nameWithType.vb: DataExtension.ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
 - uid: WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection,System.String,System.Int32)
   name: ExecuteScalar(DbConnection, String, Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalar_DbConnection_System_String_System_Int32_
@@ -19376,15 +19376,15 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.DataExtension.ExecuteScalar
   nameWithType: DataExtension.ExecuteScalar
-- uid: WeihanLi.Extensions.DataExtension.ExecuteScalarAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name: ExecuteScalarAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteScalarAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name.vb: ExecuteScalarAsync(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
-  fullName: WeihanLi.Extensions.DataExtension.ExecuteScalarAsync(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalarAsync(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32, System.Threading.CancellationToken)
-  nameWithType: DataExtension.ExecuteScalarAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  nameWithType.vb: DataExtension.ExecuteScalarAsync(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
+- uid: WeihanLi.Extensions.DataExtension.ExecuteScalarAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name: ExecuteScalarAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteScalarAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name.vb: ExecuteScalarAsync(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
+  fullName: WeihanLi.Extensions.DataExtension.ExecuteScalarAsync(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalarAsync(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32, System.Threading.CancellationToken)
+  nameWithType: DataExtension.ExecuteScalarAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  nameWithType.vb: DataExtension.ExecuteScalarAsync(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.ExecuteScalarAsync(DbConnection,System.String,CommandType,System.Object,System.Int32,System.Threading.CancellationToken)
   name: ExecuteScalarAsync(DbConnection, String, CommandType, Object, Int32, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarAsync_DbConnection_System_String_CommandType_System_Object_System_Int32_System_Threading_CancellationToken_
@@ -19462,15 +19462,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalarTo(Of T)(DbConnection, System.String, CommandType, System.Object)
   nameWithType: DataExtension.ExecuteScalarTo<T>(DbConnection, String, CommandType, Object)
   nameWithType.vb: DataExtension.ExecuteScalarTo(Of T)(DbConnection, String, CommandType, Object)
-- uid: WeihanLi.Extensions.DataExtension.ExecuteScalarTo``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name: ExecuteScalarTo<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarTo__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_
-  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteScalarTo``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name.vb: ExecuteScalarTo(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
-  fullName: WeihanLi.Extensions.DataExtension.ExecuteScalarTo<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32)
-  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalarTo(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32)
-  nameWithType: DataExtension.ExecuteScalarTo<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  nameWithType.vb: DataExtension.ExecuteScalarTo(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
+- uid: WeihanLi.Extensions.DataExtension.ExecuteScalarTo``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name: ExecuteScalarTo<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarTo__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_
+  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteScalarTo``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name.vb: ExecuteScalarTo(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
+  fullName: WeihanLi.Extensions.DataExtension.ExecuteScalarTo<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32)
+  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalarTo(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32)
+  nameWithType: DataExtension.ExecuteScalarTo<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  nameWithType.vb: DataExtension.ExecuteScalarTo(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
 - uid: WeihanLi.Extensions.DataExtension.ExecuteScalarTo``1(DbConnection,System.String,System.Object)
   name: ExecuteScalarTo<T>(DbConnection, String, Object)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarTo__1_DbConnection_System_String_System_Object_
@@ -19505,15 +19505,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalarToAsync(Of T)(DbCommand, System.Threading.CancellationToken)
   nameWithType: DataExtension.ExecuteScalarToAsync<T>(DbCommand, CancellationToken)
   nameWithType.vb: DataExtension.ExecuteScalarToAsync(Of T)(DbCommand, CancellationToken)
-- uid: WeihanLi.Extensions.DataExtension.ExecuteScalarToAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name: ExecuteScalarToAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarToAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteScalarToAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name.vb: ExecuteScalarToAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
-  fullName: WeihanLi.Extensions.DataExtension.ExecuteScalarToAsync<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalarToAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32, System.Threading.CancellationToken)
-  nameWithType: DataExtension.ExecuteScalarToAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  nameWithType.vb: DataExtension.ExecuteScalarToAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
+- uid: WeihanLi.Extensions.DataExtension.ExecuteScalarToAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name: ExecuteScalarToAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarToAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteScalarToAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name.vb: ExecuteScalarToAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
+  fullName: WeihanLi.Extensions.DataExtension.ExecuteScalarToAsync<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalarToAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32, System.Threading.CancellationToken)
+  nameWithType: DataExtension.ExecuteScalarToAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  nameWithType.vb: DataExtension.ExecuteScalarToAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.ExecuteScalarToAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Threading.CancellationToken)
   name: ExecuteScalarToAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarToAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Threading_CancellationToken_
@@ -19593,15 +19593,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefault(Of T)(DbConnection, System.String, CommandType, System.Object)
   nameWithType: DataExtension.ExecuteScalarToOrDefault<T>(DbConnection, String, CommandType, Object)
   nameWithType.vb: DataExtension.ExecuteScalarToOrDefault(Of T)(DbConnection, String, CommandType, Object)
-- uid: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefault``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name: ExecuteScalarToOrDefault<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarToOrDefault__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_
-  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefault``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name.vb: ExecuteScalarToOrDefault(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
-  fullName: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefault<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32)
-  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefault(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32)
-  nameWithType: DataExtension.ExecuteScalarToOrDefault<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  nameWithType.vb: DataExtension.ExecuteScalarToOrDefault(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
+- uid: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefault``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name: ExecuteScalarToOrDefault<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarToOrDefault__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_
+  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefault``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name.vb: ExecuteScalarToOrDefault(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
+  fullName: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefault<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32)
+  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefault(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32)
+  nameWithType: DataExtension.ExecuteScalarToOrDefault<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  nameWithType.vb: DataExtension.ExecuteScalarToOrDefault(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
 - uid: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefault``1(DbConnection,System.String,System.Object)
   name: ExecuteScalarToOrDefault<T>(DbConnection, String, Object)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarToOrDefault__1_DbConnection_System_String_System_Object_
@@ -19636,15 +19636,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefaultAsync(Of T)(DbCommand, System.Threading.CancellationToken)
   nameWithType: DataExtension.ExecuteScalarToOrDefaultAsync<T>(DbCommand, CancellationToken)
   nameWithType.vb: DataExtension.ExecuteScalarToOrDefaultAsync(Of T)(DbCommand, CancellationToken)
-- uid: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefaultAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name: ExecuteScalarToOrDefaultAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarToOrDefaultAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefaultAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name.vb: ExecuteScalarToOrDefaultAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
-  fullName: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefaultAsync<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefaultAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32, System.Threading.CancellationToken)
-  nameWithType: DataExtension.ExecuteScalarToOrDefaultAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  nameWithType.vb: DataExtension.ExecuteScalarToOrDefaultAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
+- uid: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefaultAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name: ExecuteScalarToOrDefaultAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarToOrDefaultAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefaultAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name.vb: ExecuteScalarToOrDefaultAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
+  fullName: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefaultAsync<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefaultAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32, System.Threading.CancellationToken)
+  nameWithType: DataExtension.ExecuteScalarToOrDefaultAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  nameWithType.vb: DataExtension.ExecuteScalarToOrDefaultAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefaultAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Threading.CancellationToken)
   name: ExecuteScalarToOrDefaultAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_ExecuteScalarToOrDefaultAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Threading_CancellationToken_
@@ -19696,15 +19696,6 @@ references:
   commentId: M:WeihanLi.Extensions.DataExtension.Fetch(DbCommand)
   fullName: WeihanLi.Extensions.DataExtension.Fetch(DbCommand)
   nameWithType: DataExtension.Fetch(DbCommand)
-- uid: WeihanLi.Extensions.DataExtension.Fetch(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name: Fetch(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Fetch_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_
-  commentId: M:WeihanLi.Extensions.DataExtension.Fetch(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name.vb: Fetch(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
-  fullName: WeihanLi.Extensions.DataExtension.Fetch(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32)
-  fullName.vb: WeihanLi.Extensions.DataExtension.Fetch(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32)
-  nameWithType: DataExtension.Fetch(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  nameWithType.vb: DataExtension.Fetch(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
 - uid: WeihanLi.Extensions.DataExtension.Fetch(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)
   name: Fetch(DbConnection, String, CommandType, Object, DbParameter[], Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Fetch_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_
@@ -19714,6 +19705,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.Fetch(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Int32)
   nameWithType: DataExtension.Fetch(DbConnection, String, CommandType, Object, DbParameter[], Int32)
   nameWithType.vb: DataExtension.Fetch(DbConnection, String, CommandType, Object, DbParameter(), Int32)
+- uid: WeihanLi.Extensions.DataExtension.Fetch(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name: Fetch(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Fetch_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_
+  commentId: M:WeihanLi.Extensions.DataExtension.Fetch(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name.vb: Fetch(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
+  fullName: WeihanLi.Extensions.DataExtension.Fetch(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32)
+  fullName.vb: WeihanLi.Extensions.DataExtension.Fetch(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32)
+  nameWithType: DataExtension.Fetch(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  nameWithType.vb: DataExtension.Fetch(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
 - uid: WeihanLi.Extensions.DataExtension.Fetch(DbConnection,System.String,System.Int32)
   name: Fetch(DbConnection, String, Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Fetch_DbConnection_System_String_System_Int32_
@@ -19751,15 +19751,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.Fetch(Of T)(DbCommand)
   nameWithType: DataExtension.Fetch<T>(DbCommand)
   nameWithType.vb: DataExtension.Fetch(Of T)(DbCommand)
-- uid: WeihanLi.Extensions.DataExtension.Fetch``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name: Fetch<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Fetch__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_
-  commentId: M:WeihanLi.Extensions.DataExtension.Fetch``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name.vb: Fetch(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
-  fullName: WeihanLi.Extensions.DataExtension.Fetch<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32)
-  fullName.vb: WeihanLi.Extensions.DataExtension.Fetch(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32)
-  nameWithType: DataExtension.Fetch<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  nameWithType.vb: DataExtension.Fetch(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
+- uid: WeihanLi.Extensions.DataExtension.Fetch``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name: Fetch<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Fetch__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_
+  commentId: M:WeihanLi.Extensions.DataExtension.Fetch``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name.vb: Fetch(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
+  fullName: WeihanLi.Extensions.DataExtension.Fetch<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32)
+  fullName.vb: WeihanLi.Extensions.DataExtension.Fetch(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32)
+  nameWithType: DataExtension.Fetch<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  nameWithType.vb: DataExtension.Fetch(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
 - uid: WeihanLi.Extensions.DataExtension.Fetch``1(DbConnection,System.String,CommandType,System.Object,System.Int32)
   name: Fetch<T>(DbConnection, String, CommandType, Object, Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Fetch__1_DbConnection_System_String_CommandType_System_Object_System_Int32_
@@ -19802,15 +19802,15 @@ references:
   commentId: M:WeihanLi.Extensions.DataExtension.FetchAsync(DbCommand,System.Threading.CancellationToken)
   fullName: WeihanLi.Extensions.DataExtension.FetchAsync(DbCommand, System.Threading.CancellationToken)
   nameWithType: DataExtension.FetchAsync(DbCommand, CancellationToken)
-- uid: WeihanLi.Extensions.DataExtension.FetchAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name: FetchAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_FetchAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.DataExtension.FetchAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name.vb: FetchAsync(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
-  fullName: WeihanLi.Extensions.DataExtension.FetchAsync(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.DataExtension.FetchAsync(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32, System.Threading.CancellationToken)
-  nameWithType: DataExtension.FetchAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  nameWithType.vb: DataExtension.FetchAsync(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
+- uid: WeihanLi.Extensions.DataExtension.FetchAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name: FetchAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_FetchAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.DataExtension.FetchAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name.vb: FetchAsync(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
+  fullName: WeihanLi.Extensions.DataExtension.FetchAsync(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.DataExtension.FetchAsync(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32, System.Threading.CancellationToken)
+  nameWithType: DataExtension.FetchAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  nameWithType.vb: DataExtension.FetchAsync(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.FetchAsync(DbConnection,System.String,CommandType,System.Object,System.Int32,System.Threading.CancellationToken)
   name: FetchAsync(DbConnection, String, CommandType, Object, Int32, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_FetchAsync_DbConnection_System_String_CommandType_System_Object_System_Int32_System_Threading_CancellationToken_
@@ -19854,15 +19854,6 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.FetchAsync(Of T)(DbCommand, System.Threading.CancellationToken)
   nameWithType: DataExtension.FetchAsync<T>(DbCommand, CancellationToken)
   nameWithType.vb: DataExtension.FetchAsync(Of T)(DbCommand, CancellationToken)
-- uid: WeihanLi.Extensions.DataExtension.FetchAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name: FetchAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_FetchAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.DataExtension.FetchAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name.vb: FetchAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
-  fullName: WeihanLi.Extensions.DataExtension.FetchAsync<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.DataExtension.FetchAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32, System.Threading.CancellationToken)
-  nameWithType: DataExtension.FetchAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  nameWithType.vb: DataExtension.FetchAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.FetchAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)
   name: FetchAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_FetchAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_
@@ -19872,6 +19863,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.FetchAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Int32, System.Threading.CancellationToken)
   nameWithType: DataExtension.FetchAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)
   nameWithType.vb: DataExtension.FetchAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Int32, CancellationToken)
+- uid: WeihanLi.Extensions.DataExtension.FetchAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name: FetchAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_FetchAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.DataExtension.FetchAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name.vb: FetchAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
+  fullName: WeihanLi.Extensions.DataExtension.FetchAsync<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.DataExtension.FetchAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32, System.Threading.CancellationToken)
+  nameWithType: DataExtension.FetchAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  nameWithType.vb: DataExtension.FetchAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.FetchAsync``1(DbConnection,System.String,CommandType,System.Object,System.Int32,System.Threading.CancellationToken)
   name: FetchAsync<T>(DbConnection, String, CommandType, Object, Int32, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_FetchAsync__1_DbConnection_System_String_CommandType_System_Object_System_Int32_System_Threading_CancellationToken_
@@ -19928,15 +19928,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.DataExtension.QueryColumn
   nameWithType: DataExtension.QueryColumn
-- uid: WeihanLi.Extensions.DataExtension.QueryColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Int32)
-  name: QueryColumn<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, Int32)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_QueryColumn__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Int32_
-  commentId: M:WeihanLi.Extensions.DataExtension.QueryColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Int32)
-  name.vb: QueryColumn(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, Int32)
-  fullName: WeihanLi.Extensions.DataExtension.QueryColumn<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32, System.Int32)
-  fullName.vb: WeihanLi.Extensions.DataExtension.QueryColumn(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32, System.Int32)
-  nameWithType: DataExtension.QueryColumn<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, Int32)
-  nameWithType.vb: DataExtension.QueryColumn(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, Int32)
 - uid: WeihanLi.Extensions.DataExtension.QueryColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)
   name: QueryColumn<T>(DbConnection, String, CommandType, Object, DbParameter[], Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_QueryColumn__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_
@@ -19946,6 +19937,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.QueryColumn(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Int32)
   nameWithType: DataExtension.QueryColumn<T>(DbConnection, String, CommandType, Object, DbParameter[], Int32)
   nameWithType.vb: DataExtension.QueryColumn(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Int32)
+- uid: WeihanLi.Extensions.DataExtension.QueryColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Int32)
+  name: QueryColumn<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, Int32)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_QueryColumn__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Int32_
+  commentId: M:WeihanLi.Extensions.DataExtension.QueryColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Int32)
+  name.vb: QueryColumn(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, Int32)
+  fullName: WeihanLi.Extensions.DataExtension.QueryColumn<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32, System.Int32)
+  fullName.vb: WeihanLi.Extensions.DataExtension.QueryColumn(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32, System.Int32)
+  nameWithType: DataExtension.QueryColumn<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, Int32)
+  nameWithType.vb: DataExtension.QueryColumn(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, Int32)
 - uid: WeihanLi.Extensions.DataExtension.QueryColumn``1(DbConnection,System.String,CommandType,System.Object,System.Int32)
   name: QueryColumn<T>(DbConnection, String, CommandType, Object, Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_QueryColumn__1_DbConnection_System_String_CommandType_System_Object_System_Int32_
@@ -19989,15 +19989,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.DataExtension.QueryColumnAsync
   nameWithType: DataExtension.QueryColumnAsync
-- uid: WeihanLi.Extensions.DataExtension.QueryColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Int32,System.Threading.CancellationToken)
-  name: QueryColumnAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, Int32, CancellationToken)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_QueryColumnAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Int32_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.DataExtension.QueryColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Int32,System.Threading.CancellationToken)
-  name.vb: QueryColumnAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, Int32, CancellationToken)
-  fullName: WeihanLi.Extensions.DataExtension.QueryColumnAsync<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32, System.Int32, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.DataExtension.QueryColumnAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32, System.Int32, System.Threading.CancellationToken)
-  nameWithType: DataExtension.QueryColumnAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, Int32, CancellationToken)
-  nameWithType.vb: DataExtension.QueryColumnAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.QueryColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)
   name: QueryColumnAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_QueryColumnAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_
@@ -20007,6 +19998,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.QueryColumnAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Int32, System.Threading.CancellationToken)
   nameWithType: DataExtension.QueryColumnAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)
   nameWithType.vb: DataExtension.QueryColumnAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Int32, CancellationToken)
+- uid: WeihanLi.Extensions.DataExtension.QueryColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Int32,System.Threading.CancellationToken)
+  name: QueryColumnAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, Int32, CancellationToken)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_QueryColumnAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Int32_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.DataExtension.QueryColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Int32,System.Threading.CancellationToken)
+  name.vb: QueryColumnAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, Int32, CancellationToken)
+  fullName: WeihanLi.Extensions.DataExtension.QueryColumnAsync<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32, System.Int32, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.DataExtension.QueryColumnAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32, System.Int32, System.Threading.CancellationToken)
+  nameWithType: DataExtension.QueryColumnAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, Int32, CancellationToken)
+  nameWithType.vb: DataExtension.QueryColumnAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.QueryColumnAsync``1(DbConnection,System.String,CommandType,System.Object,System.Int32,System.Threading.CancellationToken)
   name: QueryColumnAsync<T>(DbConnection, String, CommandType, Object, Int32, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_QueryColumnAsync__1_DbConnection_System_String_CommandType_System_Object_System_Int32_System_Threading_CancellationToken_
@@ -20049,15 +20049,15 @@ references:
   commentId: M:WeihanLi.Extensions.DataExtension.Select(DbCommand)
   fullName: WeihanLi.Extensions.DataExtension.Select(DbCommand)
   nameWithType: DataExtension.Select(DbCommand)
-- uid: WeihanLi.Extensions.DataExtension.Select(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name: Select(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Select_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_
-  commentId: M:WeihanLi.Extensions.DataExtension.Select(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name.vb: Select(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
-  fullName: WeihanLi.Extensions.DataExtension.Select(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32)
-  fullName.vb: WeihanLi.Extensions.DataExtension.Select(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32)
-  nameWithType: DataExtension.Select(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  nameWithType.vb: DataExtension.Select(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
+- uid: WeihanLi.Extensions.DataExtension.Select(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name: Select(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Select_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_
+  commentId: M:WeihanLi.Extensions.DataExtension.Select(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name.vb: Select(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
+  fullName: WeihanLi.Extensions.DataExtension.Select(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32)
+  fullName.vb: WeihanLi.Extensions.DataExtension.Select(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32)
+  nameWithType: DataExtension.Select(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  nameWithType.vb: DataExtension.Select(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
 - uid: WeihanLi.Extensions.DataExtension.Select(DbConnection,System.String,CommandType,System.Object,System.Int32)
   name: Select(DbConnection, String, CommandType, Object, Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Select_DbConnection_System_String_CommandType_System_Object_System_Int32_
@@ -20101,15 +20101,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.Select(Of T)(DbCommand)
   nameWithType: DataExtension.Select<T>(DbCommand)
   nameWithType.vb: DataExtension.Select(Of T)(DbCommand)
-- uid: WeihanLi.Extensions.DataExtension.Select``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name: Select<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Select__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_
-  commentId: M:WeihanLi.Extensions.DataExtension.Select``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)
-  name.vb: Select(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
-  fullName: WeihanLi.Extensions.DataExtension.Select<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32)
-  fullName.vb: WeihanLi.Extensions.DataExtension.Select(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32)
-  nameWithType: DataExtension.Select<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)
-  nameWithType.vb: DataExtension.Select(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32)
+- uid: WeihanLi.Extensions.DataExtension.Select``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name: Select<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Select__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_
+  commentId: M:WeihanLi.Extensions.DataExtension.Select``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)
+  name.vb: Select(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
+  fullName: WeihanLi.Extensions.DataExtension.Select<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32)
+  fullName.vb: WeihanLi.Extensions.DataExtension.Select(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32)
+  nameWithType: DataExtension.Select<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32)
+  nameWithType.vb: DataExtension.Select(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32)
 - uid: WeihanLi.Extensions.DataExtension.Select``1(DbConnection,System.String,CommandType,System.Object,System.Int32)
   name: Select<T>(DbConnection, String, CommandType, Object, Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_Select__1_DbConnection_System_String_CommandType_System_Object_System_Int32_
@@ -20152,15 +20152,6 @@ references:
   commentId: M:WeihanLi.Extensions.DataExtension.SelectAsync(DbCommand,System.Threading.CancellationToken)
   fullName: WeihanLi.Extensions.DataExtension.SelectAsync(DbCommand, System.Threading.CancellationToken)
   nameWithType: DataExtension.SelectAsync(DbCommand, CancellationToken)
-- uid: WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name: SelectAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name.vb: SelectAsync(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
-  fullName: WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32, System.Threading.CancellationToken)
-  nameWithType: DataExtension.SelectAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  nameWithType.vb: DataExtension.SelectAsync(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)
   name: SelectAsync(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_
@@ -20170,6 +20161,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Int32, System.Threading.CancellationToken)
   nameWithType: DataExtension.SelectAsync(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)
   nameWithType.vb: DataExtension.SelectAsync(DbConnection, String, CommandType, Object, DbParameter(), Int32, CancellationToken)
+- uid: WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name: SelectAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name.vb: SelectAsync(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
+  fullName: WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32, System.Threading.CancellationToken)
+  nameWithType: DataExtension.SelectAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  nameWithType.vb: DataExtension.SelectAsync(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection,System.String,CommandType,System.Object,System.Int32,System.Threading.CancellationToken)
   name: SelectAsync(DbConnection, String, CommandType, Object, Int32, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectAsync_DbConnection_System_String_CommandType_System_Object_System_Int32_System_Threading_CancellationToken_
@@ -20213,15 +20213,6 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.SelectAsync(Of T)(DbCommand, System.Threading.CancellationToken)
   nameWithType: DataExtension.SelectAsync<T>(DbCommand, CancellationToken)
   nameWithType.vb: DataExtension.SelectAsync(Of T)(DbCommand, CancellationToken)
-- uid: WeihanLi.Extensions.DataExtension.SelectAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name: SelectAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.DataExtension.SelectAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)
-  name.vb: SelectAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
-  fullName: WeihanLi.Extensions.DataExtension.SelectAsync<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.DataExtension.SelectAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32, System.Threading.CancellationToken)
-  nameWithType: DataExtension.SelectAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)
-  nameWithType.vb: DataExtension.SelectAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.SelectAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)
   name: SelectAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_
@@ -20231,6 +20222,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.SelectAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Int32, System.Threading.CancellationToken)
   nameWithType: DataExtension.SelectAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)
   nameWithType.vb: DataExtension.SelectAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Int32, CancellationToken)
+- uid: WeihanLi.Extensions.DataExtension.SelectAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name: SelectAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.DataExtension.SelectAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)
+  name.vb: SelectAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
+  fullName: WeihanLi.Extensions.DataExtension.SelectAsync<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.DataExtension.SelectAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32, System.Threading.CancellationToken)
+  nameWithType: DataExtension.SelectAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, CancellationToken)
+  nameWithType.vb: DataExtension.SelectAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.SelectAsync``1(DbConnection,System.String,CommandType,System.Object,System.Int32,System.Threading.CancellationToken)
   name: SelectAsync<T>(DbConnection, String, CommandType, Object, Int32, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectAsync__1_DbConnection_System_String_CommandType_System_Object_System_Int32_System_Threading_CancellationToken_
@@ -20274,15 +20274,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.DataExtension.SelectColumn
   nameWithType: DataExtension.SelectColumn
-- uid: WeihanLi.Extensions.DataExtension.SelectColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Int32)
-  name: SelectColumn<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, Int32)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectColumn__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Int32_
-  commentId: M:WeihanLi.Extensions.DataExtension.SelectColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Int32)
-  name.vb: SelectColumn(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, Int32)
-  fullName: WeihanLi.Extensions.DataExtension.SelectColumn<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32, System.Int32)
-  fullName.vb: WeihanLi.Extensions.DataExtension.SelectColumn(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32, System.Int32)
-  nameWithType: DataExtension.SelectColumn<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, Int32)
-  nameWithType.vb: DataExtension.SelectColumn(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, Int32)
 - uid: WeihanLi.Extensions.DataExtension.SelectColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)
   name: SelectColumn<T>(DbConnection, String, CommandType, Object, DbParameter[], Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectColumn__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_
@@ -20292,6 +20283,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.SelectColumn(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Int32)
   nameWithType: DataExtension.SelectColumn<T>(DbConnection, String, CommandType, Object, DbParameter[], Int32)
   nameWithType.vb: DataExtension.SelectColumn(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Int32)
+- uid: WeihanLi.Extensions.DataExtension.SelectColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Int32)
+  name: SelectColumn<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, Int32)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectColumn__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Int32_
+  commentId: M:WeihanLi.Extensions.DataExtension.SelectColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Int32)
+  name.vb: SelectColumn(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, Int32)
+  fullName: WeihanLi.Extensions.DataExtension.SelectColumn<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32, System.Int32)
+  fullName.vb: WeihanLi.Extensions.DataExtension.SelectColumn(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32, System.Int32)
+  nameWithType: DataExtension.SelectColumn<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, Int32)
+  nameWithType.vb: DataExtension.SelectColumn(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, Int32)
 - uid: WeihanLi.Extensions.DataExtension.SelectColumn``1(DbConnection,System.String,CommandType,System.Object,System.Int32)
   name: SelectColumn<T>(DbConnection, String, CommandType, Object, Int32)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectColumn__1_DbConnection_System_String_CommandType_System_Object_System_Int32_
@@ -20335,15 +20335,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.DataExtension.SelectColumnAsync
   nameWithType: DataExtension.SelectColumnAsync
-- uid: WeihanLi.Extensions.DataExtension.SelectColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Int32,System.Threading.CancellationToken)
-  name: SelectColumnAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, Int32, CancellationToken)
-  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectColumnAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Int32_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.DataExtension.SelectColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Int32,System.Threading.CancellationToken)
-  name.vb: SelectColumnAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, Int32, CancellationToken)
-  fullName: WeihanLi.Extensions.DataExtension.SelectColumnAsync<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], DbTransaction, System.Int32, System.Int32, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.DataExtension.SelectColumnAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), DbTransaction, System.Int32, System.Int32, System.Threading.CancellationToken)
-  nameWithType: DataExtension.SelectColumnAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, Int32, CancellationToken)
-  nameWithType.vb: DataExtension.SelectColumnAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), DbTransaction, Int32, Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.SelectColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)
   name: SelectColumnAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectColumnAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_
@@ -20353,6 +20344,15 @@ references:
   fullName.vb: WeihanLi.Extensions.DataExtension.SelectColumnAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Int32, System.Threading.CancellationToken)
   nameWithType: DataExtension.SelectColumnAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)
   nameWithType.vb: DataExtension.SelectColumnAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Int32, CancellationToken)
+- uid: WeihanLi.Extensions.DataExtension.SelectColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Int32,System.Threading.CancellationToken)
+  name: SelectColumnAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, Int32, CancellationToken)
+  href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectColumnAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Int32_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.DataExtension.SelectColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Int32,System.Threading.CancellationToken)
+  name.vb: SelectColumnAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, Int32, CancellationToken)
+  fullName: WeihanLi.Extensions.DataExtension.SelectColumnAsync<T>(DbConnection, System.String, CommandType, System.Object, DbParameter[], System.Nullable<DbTransaction>, System.Int32, System.Int32, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.DataExtension.SelectColumnAsync(Of T)(DbConnection, System.String, CommandType, System.Object, DbParameter(), System.Nullable(Of DbTransaction), System.Int32, System.Int32, System.Threading.CancellationToken)
+  nameWithType: DataExtension.SelectColumnAsync<T>(DbConnection, String, CommandType, Object, DbParameter[], Nullable<DbTransaction>, Int32, Int32, CancellationToken)
+  nameWithType.vb: DataExtension.SelectColumnAsync(Of T)(DbConnection, String, CommandType, Object, DbParameter(), Nullable(Of DbTransaction), Int32, Int32, CancellationToken)
 - uid: WeihanLi.Extensions.DataExtension.SelectColumnAsync``1(DbConnection,System.String,CommandType,System.Object,System.Int32,System.Threading.CancellationToken)
   name: SelectColumnAsync<T>(DbConnection, String, CommandType, Object, Int32, CancellationToken)
   href: docs/api/WeihanLi.Extensions.DataExtension.html#WeihanLi_Extensions_DataExtension_SelectColumnAsync__1_DbConnection_System_String_CommandType_System_Object_System_Int32_System_Threading_CancellationToken_

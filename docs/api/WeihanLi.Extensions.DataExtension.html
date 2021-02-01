@@ -384,12 +384,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_Execute_" data-uid="WeihanLi.Extensions.DataExtension.Execute*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_Execute_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.Execute(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)">Execute(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_Execute_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.Execute(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)">Execute(DbConnection, String, CommandType, Object, DbParameter[], Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Execute(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static int Execute(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -427,11 +427,6 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
-        <td><span class="parametername">transaction</span></td>
-        <td></td>
-      </tr>
-      <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">commandTimeout</span></td>
         <td></td>
@@ -456,12 +451,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_Execute_" data-uid="WeihanLi.Extensions.DataExtension.Execute*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_Execute_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.Execute(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)">Execute(DbConnection, String, CommandType, Object, DbParameter[], Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_Execute_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.Execute(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)">Execute(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Execute(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static int Execute(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -495,7 +490,12 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
+        <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
       <tr>
@@ -580,7 +580,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Execute(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static int Execute(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -609,7 +609,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -689,12 +689,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_ExecuteAsync_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)">ExecuteAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)">ExecuteAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;int&gt; ExecuteAsync(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;int&gt; ExecuteAsync(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -732,7 +732,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -895,7 +895,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;int&gt; ExecuteAsync(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;int&gt; ExecuteAsync(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -924,7 +924,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -1051,12 +1051,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_ExecuteDataTable_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTable*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteDataTable_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)">ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteDataTable_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)">ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter[], Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static DataTable ExecuteDataTable(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static DataTable ExecuteDataTable(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1094,11 +1094,6 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
-        <td><span class="parametername">transaction</span></td>
-        <td></td>
-      </tr>
-      <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">commandTimeout</span></td>
         <td></td>
@@ -1123,12 +1118,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_ExecuteDataTable_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTable*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteDataTable_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)">ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter[], Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteDataTable_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTable(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)">ExecuteDataTable(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static DataTable ExecuteDataTable(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static DataTable ExecuteDataTable(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1162,7 +1157,12 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
+        <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
       <tr>
@@ -1247,7 +1247,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static DataTable ExecuteDataTable(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static DataTable ExecuteDataTable(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1276,7 +1276,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -1422,12 +1422,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_ExecuteDataTable_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTable*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteDataTable__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Func_DataTable___0__System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTable``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Func{DataTable,``0},System.Int32)">ExecuteDataTable&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Func&lt;DataTable, T&gt;, Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteDataTable__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Func_DataTable___0__System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTable``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Func{DataTable,``0},System.Int32)">ExecuteDataTable&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Func&lt;DataTable, T&gt;, Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T ExecuteDataTable&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, Func&lt;DataTable, T&gt; func, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T ExecuteDataTable&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, Func&lt;DataTable, T&gt; func, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1465,7 +1465,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -1663,7 +1663,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T ExecuteDataTable&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, DbParameter[] paramters, Func&lt;DataTable, T&gt; func)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T ExecuteDataTable&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, DbParameter[] parameters, Func&lt;DataTable, T&gt; func)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1692,7 +1692,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
       <tr>
@@ -1854,12 +1854,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)">ExecuteDataTableAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)">ExecuteDataTableAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;DataTable&gt; ExecuteDataTableAsync(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;DataTable&gt; ExecuteDataTableAsync(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1897,7 +1897,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -2060,7 +2060,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;DataTable&gt; ExecuteDataTableAsync(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;DataTable&gt; ExecuteDataTableAsync(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2089,7 +2089,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -2246,12 +2246,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Func_DataTable___0__System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Func{DataTable,``0},System.Int32,System.Threading.CancellationToken)">ExecuteDataTableAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Func&lt;DataTable, T&gt;, Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Func_DataTable___0__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Func{DataTable,``0},System.Threading.CancellationToken)">ExecuteDataTableAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Func&lt;DataTable, T&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteDataTableAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, Func&lt;DataTable, T&gt; func, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteDataTableAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, Func&lt;DataTable, T&gt; func, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2289,18 +2289,8 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
-        <td><span class="parametername">transaction</span></td>
-        <td></td>
-      </tr>
-      <tr>
         <td><span class="xref">System.Func</span>&lt;<span class="xref">DataTable</span>, T&gt;</td>
         <td><span class="parametername">func</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">commandTimeout</span></td>
         <td></td>
       </tr>
       <tr>
@@ -2343,12 +2333,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Func_DataTable___0__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Func{DataTable,``0},System.Threading.CancellationToken)">ExecuteDataTableAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Func&lt;DataTable, T&gt;, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteDataTableAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Func_DataTable___0__System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteDataTableAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Func{DataTable,``0},System.Int32,System.Threading.CancellationToken)">ExecuteDataTableAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Func&lt;DataTable, T&gt;, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteDataTableAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, Func&lt;DataTable, T&gt; func, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteDataTableAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, Func&lt;DataTable, T&gt; func, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2382,12 +2372,22 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
+        <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.Func</span>&lt;<span class="xref">DataTable</span>, T&gt;</td>
         <td><span class="parametername">func</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">commandTimeout</span></td>
         <td></td>
       </tr>
       <tr>
@@ -2589,7 +2589,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteDataTableAsync&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, DbParameter[] paramters, Func&lt;DataTable, T&gt; func, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteDataTableAsync&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, DbParameter[] parameters, Func&lt;DataTable, T&gt; func, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2618,7 +2618,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
       <tr>
@@ -2833,12 +2833,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_ExecuteScalar_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalar*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteScalar_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)">ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteScalar_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)">ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter[], Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static object ExecuteScalar(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static object ExecuteScalar(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2876,11 +2876,6 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
-        <td><span class="parametername">transaction</span></td>
-        <td></td>
-      </tr>
-      <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">commandTimeout</span></td>
         <td></td>
@@ -2905,12 +2900,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_ExecuteScalar_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalar*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteScalar_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)">ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter[], Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteScalar_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalar(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)">ExecuteScalar(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static object ExecuteScalar(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static object ExecuteScalar(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2944,7 +2939,12 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
+        <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
       <tr>
@@ -3029,7 +3029,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static object ExecuteScalar(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static object ExecuteScalar(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3058,7 +3058,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -3138,12 +3138,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_ExecuteScalarAsync_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteScalarAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)">ExecuteScalarAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteScalarAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)">ExecuteScalarAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;object&gt; ExecuteScalarAsync(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;object&gt; ExecuteScalarAsync(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3181,7 +3181,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -3344,7 +3344,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;object&gt; ExecuteScalarAsync(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;object&gt; ExecuteScalarAsync(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3373,7 +3373,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -3720,12 +3720,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_ExecuteScalarTo_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarTo*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteScalarTo__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarTo``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)">ExecuteScalarTo&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteScalarTo__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarTo``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)">ExecuteScalarTo&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T ExecuteScalarTo&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T ExecuteScalarTo&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3763,7 +3763,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -3879,7 +3879,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T ExecuteScalarTo&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T ExecuteScalarTo&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3908,7 +3908,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -4012,12 +4012,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_ExecuteScalarToAsync_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarToAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteScalarToAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarToAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)">ExecuteScalarToAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteScalarToAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarToAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)">ExecuteScalarToAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteScalarToAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteScalarToAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -4055,7 +4055,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -4109,7 +4109,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteScalarToAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteScalarToAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -4143,7 +4143,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
       <tr>
@@ -4268,7 +4268,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteScalarToAsync&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteScalarToAsync&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -4297,7 +4297,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -4669,12 +4669,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_ExecuteScalarToOrDefault_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefault*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteScalarToOrDefault__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefault``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)">ExecuteScalarToOrDefault&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteScalarToOrDefault__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefault``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)">ExecuteScalarToOrDefault&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T ExecuteScalarToOrDefault&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T ExecuteScalarToOrDefault&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -4712,7 +4712,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -4828,7 +4828,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T ExecuteScalarToOrDefault&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T ExecuteScalarToOrDefault&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -4857,7 +4857,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -4961,12 +4961,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_ExecuteScalarToOrDefaultAsync_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefaultAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteScalarToOrDefaultAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefaultAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)">ExecuteScalarToOrDefaultAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_ExecuteScalarToOrDefaultAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.ExecuteScalarToOrDefaultAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)">ExecuteScalarToOrDefaultAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteScalarToOrDefaultAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteScalarToOrDefaultAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -5004,7 +5004,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -5058,7 +5058,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteScalarToOrDefaultAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteScalarToOrDefaultAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -5092,7 +5092,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
       <tr>
@@ -5217,7 +5217,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteScalarToOrDefaultAsync&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; ExecuteScalarToOrDefaultAsync&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -5246,7 +5246,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -5465,12 +5465,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_Fetch_" data-uid="WeihanLi.Extensions.DataExtension.Fetch*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_Fetch_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.Fetch(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)">Fetch(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_Fetch_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.Fetch(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)">Fetch(DbConnection, String, CommandType, Object, DbParameter[], Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static dynamic Fetch(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static dynamic Fetch(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -5508,11 +5508,6 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
-        <td><span class="parametername">transaction</span></td>
-        <td></td>
-      </tr>
-      <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">commandTimeout</span></td>
         <td></td>
@@ -5537,12 +5532,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_Fetch_" data-uid="WeihanLi.Extensions.DataExtension.Fetch*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_Fetch_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.Fetch(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)">Fetch(DbConnection, String, CommandType, Object, DbParameter[], Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_Fetch_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.Fetch(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)">Fetch(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static dynamic Fetch(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static dynamic Fetch(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -5576,7 +5571,12 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
+        <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
       <tr>
@@ -5661,7 +5661,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static dynamic Fetch(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static dynamic Fetch(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -5690,7 +5690,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -5827,12 +5827,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_Fetch_" data-uid="WeihanLi.Extensions.DataExtension.Fetch*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_Fetch__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.Fetch``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)">Fetch&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_Fetch__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.Fetch``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)">Fetch&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T Fetch&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T Fetch&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -5870,7 +5870,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -6063,7 +6063,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T Fetch&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T Fetch&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -6092,7 +6092,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -6249,12 +6249,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_FetchAsync_" data-uid="WeihanLi.Extensions.DataExtension.FetchAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_FetchAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.FetchAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)">FetchAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_FetchAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.FetchAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)">FetchAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;dynamic&gt; FetchAsync(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;dynamic&gt; FetchAsync(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -6292,7 +6292,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -6455,7 +6455,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;dynamic&gt; FetchAsync(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;dynamic&gt; FetchAsync(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -6484,7 +6484,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -6631,12 +6631,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_FetchAsync_" data-uid="WeihanLi.Extensions.DataExtension.FetchAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_FetchAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.FetchAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)">FetchAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_FetchAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.FetchAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)">FetchAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; FetchAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; FetchAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -6671,11 +6671,6 @@
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
         <td><span class="parametername">parameters</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">DbTransaction</span></td>
-        <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
       <tr>
@@ -6723,12 +6718,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_FetchAsync_" data-uid="WeihanLi.Extensions.DataExtension.FetchAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_FetchAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.FetchAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)">FetchAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_FetchAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.FetchAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)">FetchAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; FetchAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; FetchAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -6762,7 +6757,12 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
+        <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
       <tr>
@@ -6969,7 +6969,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; FetchAsync&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; FetchAsync&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -6998,7 +6998,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -7158,12 +7158,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_QueryColumn_" data-uid="WeihanLi.Extensions.DataExtension.QueryColumn*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_QueryColumn__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.QueryColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Int32)">QueryColumn&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_QueryColumn__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.QueryColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)">QueryColumn&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; QueryColumn&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int columnIndex = 0, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; QueryColumn&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, int columnIndex = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -7201,18 +7201,8 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
-        <td><span class="parametername">transaction</span></td>
-        <td></td>
-      </tr>
-      <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">columnIndex</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">commandTimeout</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -7250,12 +7240,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_QueryColumn_" data-uid="WeihanLi.Extensions.DataExtension.QueryColumn*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_QueryColumn__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.QueryColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)">QueryColumn&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_QueryColumn__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.QueryColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Int32)">QueryColumn&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32, Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; QueryColumn&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int columnIndex = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; QueryColumn&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int columnIndex = 0, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -7289,12 +7279,22 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
+        <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">columnIndex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">commandTimeout</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -7553,7 +7553,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; QueryColumn&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; QueryColumn&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -7587,7 +7587,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -7625,12 +7625,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_QueryColumnAsync_" data-uid="WeihanLi.Extensions.DataExtension.QueryColumnAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_QueryColumnAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.QueryColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Int32,System.Threading.CancellationToken)">QueryColumnAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_QueryColumnAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.QueryColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)">QueryColumnAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; QueryColumnAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int columnIndex = 0, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; QueryColumnAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, int columnIndex = 0, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -7668,18 +7668,8 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
-        <td><span class="parametername">transaction</span></td>
-        <td></td>
-      </tr>
-      <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">columnIndex</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">commandTimeout</span></td>
         <td></td>
       </tr>
       <tr>
@@ -7722,12 +7712,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_QueryColumnAsync_" data-uid="WeihanLi.Extensions.DataExtension.QueryColumnAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_QueryColumnAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.QueryColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)">QueryColumnAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_QueryColumnAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.QueryColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Int32,System.Threading.CancellationToken)">QueryColumnAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; QueryColumnAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int columnIndex = 0, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; QueryColumnAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int columnIndex = 0, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -7761,12 +7751,22 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
+        <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">columnIndex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">commandTimeout</span></td>
         <td></td>
       </tr>
       <tr>
@@ -7968,7 +7968,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; QueryColumnAsync&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; QueryColumnAsync&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -8002,7 +8002,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -8159,12 +8159,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_Select_" data-uid="WeihanLi.Extensions.DataExtension.Select*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_Select_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.Select(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)">Select(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_Select_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.Select(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)">Select(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;dynamic&gt; Select(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;dynamic&gt; Select(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -8202,7 +8202,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -8350,7 +8350,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;dynamic&gt; Select(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;dynamic&gt; Select(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -8379,7 +8379,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -8516,12 +8516,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_Select_" data-uid="WeihanLi.Extensions.DataExtension.Select*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_Select__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.Select``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32)">Select&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_Select__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.Select``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32)">Select&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; Select&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; Select&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -8559,7 +8559,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -8752,7 +8752,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; Select&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; Select&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -8781,7 +8781,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -8938,12 +8938,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_SelectAsync_" data-uid="WeihanLi.Extensions.DataExtension.SelectAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_SelectAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)">SelectAsync(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_SelectAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)">SelectAsync(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;dynamic&gt;&gt; SelectAsync(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;dynamic&gt;&gt; SelectAsync(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -8981,11 +8981,6 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
-        <td><span class="parametername">transaction</span></td>
-        <td></td>
-      </tr>
-      <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">commandTimeout</span></td>
         <td></td>
@@ -9015,12 +9010,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_SelectAsync_" data-uid="WeihanLi.Extensions.DataExtension.SelectAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_SelectAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)">SelectAsync(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_SelectAsync_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.SelectAsync(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)">SelectAsync(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;dynamic&gt;&gt; SelectAsync(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;dynamic&gt;&gt; SelectAsync(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -9054,7 +9049,12 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
+        <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
       <tr>
@@ -9216,7 +9216,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;dynamic&gt;&gt; SelectAsync(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;dynamic&gt;&gt; SelectAsync(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -9245,7 +9245,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -9392,12 +9392,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_SelectAsync_" data-uid="WeihanLi.Extensions.DataExtension.SelectAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_SelectAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.SelectAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Threading.CancellationToken)">SelectAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_SelectAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.SelectAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)">SelectAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; SelectAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; SelectAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -9432,11 +9432,6 @@
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
         <td><span class="parametername">parameters</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">DbTransaction</span></td>
-        <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
       <tr>
@@ -9484,12 +9479,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_SelectAsync_" data-uid="WeihanLi.Extensions.DataExtension.SelectAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_SelectAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.SelectAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)">SelectAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_SelectAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.SelectAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Threading.CancellationToken)">SelectAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; SelectAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; SelectAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -9523,7 +9518,12 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
+        <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
       <tr>
@@ -9730,7 +9730,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; SelectAsync&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; SelectAsync&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -9759,7 +9759,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -9874,12 +9874,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_SelectColumn_" data-uid="WeihanLi.Extensions.DataExtension.SelectColumn*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_SelectColumn__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.SelectColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Int32)">SelectColumn&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_SelectColumn__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.SelectColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)">SelectColumn&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; SelectColumn&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int columnIndex = 0, int commandTimeout = 60)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; SelectColumn&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, int columnIndex = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -9917,18 +9917,8 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
-        <td><span class="parametername">transaction</span></td>
-        <td></td>
-      </tr>
-      <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">columnIndex</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">commandTimeout</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -9966,12 +9956,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_SelectColumn_" data-uid="WeihanLi.Extensions.DataExtension.SelectColumn*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_SelectColumn__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.SelectColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32)">SelectColumn&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Int32)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_SelectColumn__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.DataExtension.SelectColumn``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Int32)">SelectColumn&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32, Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; SelectColumn&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int columnIndex = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; SelectColumn&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int columnIndex = 0, int commandTimeout = 60)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -10005,12 +9995,22 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
+        <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">columnIndex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">commandTimeout</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -10269,7 +10269,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; SelectColumn&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; SelectColumn&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -10303,7 +10303,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -10341,12 +10341,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_SelectColumnAsync_" data-uid="WeihanLi.Extensions.DataExtension.SelectColumnAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_SelectColumnAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___DbTransaction_System_Int32_System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.SelectColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],DbTransaction,System.Int32,System.Int32,System.Threading.CancellationToken)">SelectColumnAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], DbTransaction, Int32, Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_SelectColumnAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.SelectColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)">SelectColumnAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; SelectColumnAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction transaction, int columnIndex = 0, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; SelectColumnAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, int columnIndex = 0, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -10384,18 +10384,8 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">DbTransaction</span></td>
-        <td><span class="parametername">transaction</span></td>
-        <td></td>
-      </tr>
-      <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">columnIndex</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">commandTimeout</span></td>
         <td></td>
       </tr>
       <tr>
@@ -10438,12 +10428,12 @@
   
   
   <a id="WeihanLi_Extensions_DataExtension_SelectColumnAsync_" data-uid="WeihanLi.Extensions.DataExtension.SelectColumnAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DataExtension_SelectColumnAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.SelectColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Int32,System.Threading.CancellationToken)">SelectColumnAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Int32, CancellationToken)</h4>
+  <h4 id="WeihanLi_Extensions_DataExtension_SelectColumnAsync__1_DbConnection_System_String_CommandType_System_Object_DbParameter___System_Nullable_DbTransaction__System_Int32_System_Int32_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.DataExtension.SelectColumnAsync``1(DbConnection,System.String,CommandType,System.Object,DbParameter[],System.Nullable{DbTransaction},System.Int32,System.Int32,System.Threading.CancellationToken)">SelectColumnAsync&lt;T&gt;(DbConnection, String, CommandType, Object, DbParameter[], Nullable&lt;DbTransaction&gt;, Int32, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; SelectColumnAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] paramters, int columnIndex = 0, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; SelectColumnAsync&lt;T&gt;(this DbConnection conn, string cmdText, CommandType commandType, object paramInfo, DbParameter[] parameters, DbTransaction? transaction, int columnIndex = 0, int commandTimeout = 60, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -10477,12 +10467,22 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">DbTransaction</span>&gt;</td>
+        <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">columnIndex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">commandTimeout</span></td>
         <td></td>
       </tr>
       <tr>
@@ -10684,7 +10684,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; SelectColumnAsync&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0, params DbParameter[] paramters)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;IEnumerable&lt;T&gt;&gt; SelectColumnAsync&lt;T&gt;(this DbConnection conn, string cmdText, object paramInfo, int columnIndex = 0, params DbParameter[] parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -10718,7 +10718,7 @@
       </tr>
       <tr>
         <td><span class="xref">DbParameter</span>[]</td>
-        <td><span class="parametername">paramters</span></td>
+        <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
     </tbody>
