@@ -15990,86 +15990,6 @@ references:
   fullName.vb: WeihanLi.Extensions.CollectionExtension.IsNullOrEmpty(Of T)(System.Nullable(Of ICollection(Of T)))
   nameWithType: CollectionExtension.IsNullOrEmpty<T>(Nullable<ICollection<T>>)
   nameWithType.vb: CollectionExtension.IsNullOrEmpty(Of T)(Nullable(Of ICollection(Of T)))
-- uid: WeihanLi.Extensions.CollectionExtension.RemoveIf*
-  name: RemoveIf
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_RemoveIf_
-  commentId: Overload:WeihanLi.Extensions.CollectionExtension.RemoveIf
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CollectionExtension.RemoveIf
-  nameWithType: CollectionExtension.RemoveIf
-- uid: WeihanLi.Extensions.CollectionExtension.RemoveIf``1(ICollection{``0},``0,System.Func{``0,System.Boolean})
-  name: RemoveIf<T>(ICollection<T>, T, Func<T, Boolean>)
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_RemoveIf__1_ICollection___0____0_System_Func___0_System_Boolean__
-  commentId: M:WeihanLi.Extensions.CollectionExtension.RemoveIf``1(ICollection{``0},``0,System.Func{``0,System.Boolean})
-  name.vb: RemoveIf(Of T)(ICollection(Of T), T, Func(Of T, Boolean))
-  fullName: WeihanLi.Extensions.CollectionExtension.RemoveIf<T>(ICollection<T>, T, System.Func<T, System.Boolean>)
-  fullName.vb: WeihanLi.Extensions.CollectionExtension.RemoveIf(Of T)(ICollection(Of T), T, System.Func(Of T, System.Boolean))
-  nameWithType: CollectionExtension.RemoveIf<T>(ICollection<T>, T, Func<T, Boolean>)
-  nameWithType.vb: CollectionExtension.RemoveIf(Of T)(ICollection(Of T), T, Func(Of T, Boolean))
-- uid: WeihanLi.Extensions.CollectionExtension.RemoveIfContains*
-  name: RemoveIfContains
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_RemoveIfContains_
-  commentId: Overload:WeihanLi.Extensions.CollectionExtension.RemoveIfContains
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CollectionExtension.RemoveIfContains
-  nameWithType: CollectionExtension.RemoveIfContains
-- uid: WeihanLi.Extensions.CollectionExtension.RemoveIfContains``1(ICollection{``0},``0)
-  name: RemoveIfContains<T>(ICollection<T>, T)
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_RemoveIfContains__1_ICollection___0____0_
-  commentId: M:WeihanLi.Extensions.CollectionExtension.RemoveIfContains``1(ICollection{``0},``0)
-  name.vb: RemoveIfContains(Of T)(ICollection(Of T), T)
-  fullName: WeihanLi.Extensions.CollectionExtension.RemoveIfContains<T>(ICollection<T>, T)
-  fullName.vb: WeihanLi.Extensions.CollectionExtension.RemoveIfContains(Of T)(ICollection(Of T), T)
-  nameWithType: CollectionExtension.RemoveIfContains<T>(ICollection<T>, T)
-  nameWithType.vb: CollectionExtension.RemoveIfContains(Of T)(ICollection(Of T), T)
-- uid: WeihanLi.Extensions.CollectionExtension.RemoveRange*
-  name: RemoveRange
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_RemoveRange_
-  commentId: Overload:WeihanLi.Extensions.CollectionExtension.RemoveRange
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CollectionExtension.RemoveRange
-  nameWithType: CollectionExtension.RemoveRange
-- uid: WeihanLi.Extensions.CollectionExtension.RemoveRange``1(ICollection{``0},``0[])
-  name: RemoveRange<T>(ICollection<T>, T[])
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_RemoveRange__1_ICollection___0____0___
-  commentId: M:WeihanLi.Extensions.CollectionExtension.RemoveRange``1(ICollection{``0},``0[])
-  name.vb: RemoveRange(Of T)(ICollection(Of T), T())
-  fullName: WeihanLi.Extensions.CollectionExtension.RemoveRange<T>(ICollection<T>, T[])
-  fullName.vb: WeihanLi.Extensions.CollectionExtension.RemoveRange(Of T)(ICollection(Of T), T())
-  nameWithType: CollectionExtension.RemoveRange<T>(ICollection<T>, T[])
-  nameWithType.vb: CollectionExtension.RemoveRange(Of T)(ICollection(Of T), T())
-- uid: WeihanLi.Extensions.CollectionExtension.RemoveRangeIf*
-  name: RemoveRangeIf
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_RemoveRangeIf_
-  commentId: Overload:WeihanLi.Extensions.CollectionExtension.RemoveRangeIf
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CollectionExtension.RemoveRangeIf
-  nameWithType: CollectionExtension.RemoveRangeIf
-- uid: WeihanLi.Extensions.CollectionExtension.RemoveRangeIf``1(ICollection{``0},System.Func{``0,System.Boolean},``0[])
-  name: RemoveRangeIf<T>(ICollection<T>, Func<T, Boolean>, T[])
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_RemoveRangeIf__1_ICollection___0__System_Func___0_System_Boolean____0___
-  commentId: M:WeihanLi.Extensions.CollectionExtension.RemoveRangeIf``1(ICollection{``0},System.Func{``0,System.Boolean},``0[])
-  name.vb: RemoveRangeIf(Of T)(ICollection(Of T), Func(Of T, Boolean), T())
-  fullName: WeihanLi.Extensions.CollectionExtension.RemoveRangeIf<T>(ICollection<T>, System.Func<T, System.Boolean>, T[])
-  fullName.vb: WeihanLi.Extensions.CollectionExtension.RemoveRangeIf(Of T)(ICollection(Of T), System.Func(Of T, System.Boolean), T())
-  nameWithType: CollectionExtension.RemoveRangeIf<T>(ICollection<T>, Func<T, Boolean>, T[])
-  nameWithType.vb: CollectionExtension.RemoveRangeIf(Of T)(ICollection(Of T), Func(Of T, Boolean), T())
-- uid: WeihanLi.Extensions.CollectionExtension.RemoveRangeIfContains*
-  name: RemoveRangeIfContains
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_RemoveRangeIfContains_
-  commentId: Overload:WeihanLi.Extensions.CollectionExtension.RemoveRangeIfContains
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CollectionExtension.RemoveRangeIfContains
-  nameWithType: CollectionExtension.RemoveRangeIfContains
-- uid: WeihanLi.Extensions.CollectionExtension.RemoveRangeIfContains``1(ICollection{``0},``0[])
-  name: RemoveRangeIfContains<T>(ICollection<T>, T[])
-  href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_RemoveRangeIfContains__1_ICollection___0____0___
-  commentId: M:WeihanLi.Extensions.CollectionExtension.RemoveRangeIfContains``1(ICollection{``0},``0[])
-  name.vb: RemoveRangeIfContains(Of T)(ICollection(Of T), T())
-  fullName: WeihanLi.Extensions.CollectionExtension.RemoveRangeIfContains<T>(ICollection<T>, T[])
-  fullName.vb: WeihanLi.Extensions.CollectionExtension.RemoveRangeIfContains(Of T)(ICollection(Of T), T())
-  nameWithType: CollectionExtension.RemoveRangeIfContains<T>(ICollection<T>, T[])
-  nameWithType.vb: CollectionExtension.RemoveRangeIfContains(Of T)(ICollection(Of T), T())
 - uid: WeihanLi.Extensions.CollectionExtension.RemoveWhere*
   name: RemoveWhere
   href: docs/api/WeihanLi.Extensions.CollectionExtension.html#WeihanLi_Extensions_CollectionExtension_RemoveWhere_
@@ -22339,110 +22259,58 @@ references:
   commentId: T:WeihanLi.Extensions.NetExtension
   fullName: WeihanLi.Extensions.NetExtension
   nameWithType: NetExtension
-- uid: WeihanLi.Extensions.NetExtension.GetReponseBytes(WebRequest)
-  name: GetReponseBytes(WebRequest)
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseBytes_WebRequest_
-  commentId: M:WeihanLi.Extensions.NetExtension.GetReponseBytes(WebRequest)
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseBytes(WebRequest)
-  nameWithType: NetExtension.GetReponseBytes(WebRequest)
-- uid: WeihanLi.Extensions.NetExtension.GetReponseBytes*
-  name: GetReponseBytes
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseBytes_
-  commentId: Overload:WeihanLi.Extensions.NetExtension.GetReponseBytes
+- uid: WeihanLi.Extensions.NetExtension.GetResponseBytes(WebRequest)
+  name: GetResponseBytes(WebRequest)
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseBytes_WebRequest_
+  commentId: M:WeihanLi.Extensions.NetExtension.GetResponseBytes(WebRequest)
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseBytes(WebRequest)
+  nameWithType: NetExtension.GetResponseBytes(WebRequest)
+- uid: WeihanLi.Extensions.NetExtension.GetResponseBytes*
+  name: GetResponseBytes
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseBytes_
+  commentId: Overload:WeihanLi.Extensions.NetExtension.GetResponseBytes
   isSpec: "True"
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseBytes
-  nameWithType: NetExtension.GetReponseBytes
-- uid: WeihanLi.Extensions.NetExtension.GetReponseBytesAsync(WebRequest)
-  name: GetReponseBytesAsync(WebRequest)
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseBytesAsync_WebRequest_
-  commentId: M:WeihanLi.Extensions.NetExtension.GetReponseBytesAsync(WebRequest)
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseBytesAsync(WebRequest)
-  nameWithType: NetExtension.GetReponseBytesAsync(WebRequest)
-- uid: WeihanLi.Extensions.NetExtension.GetReponseBytesAsync*
-  name: GetReponseBytesAsync
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseBytesAsync_
-  commentId: Overload:WeihanLi.Extensions.NetExtension.GetReponseBytesAsync
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseBytes
+  nameWithType: NetExtension.GetResponseBytes
+- uid: WeihanLi.Extensions.NetExtension.GetResponseBytesAsync(WebRequest)
+  name: GetResponseBytesAsync(WebRequest)
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseBytesAsync_WebRequest_
+  commentId: M:WeihanLi.Extensions.NetExtension.GetResponseBytesAsync(WebRequest)
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseBytesAsync(WebRequest)
+  nameWithType: NetExtension.GetResponseBytesAsync(WebRequest)
+- uid: WeihanLi.Extensions.NetExtension.GetResponseBytesAsync*
+  name: GetResponseBytesAsync
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseBytesAsync_
+  commentId: Overload:WeihanLi.Extensions.NetExtension.GetResponseBytesAsync
   isSpec: "True"
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseBytesAsync
-  nameWithType: NetExtension.GetReponseBytesAsync
-- uid: WeihanLi.Extensions.NetExtension.GetReponseBytesSafe(WebRequest)
-  name: GetReponseBytesSafe(WebRequest)
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseBytesSafe_WebRequest_
-  commentId: M:WeihanLi.Extensions.NetExtension.GetReponseBytesSafe(WebRequest)
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseBytesSafe(WebRequest)
-  nameWithType: NetExtension.GetReponseBytesSafe(WebRequest)
-- uid: WeihanLi.Extensions.NetExtension.GetReponseBytesSafe*
-  name: GetReponseBytesSafe
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseBytesSafe_
-  commentId: Overload:WeihanLi.Extensions.NetExtension.GetReponseBytesSafe
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseBytesAsync
+  nameWithType: NetExtension.GetResponseBytesAsync
+- uid: WeihanLi.Extensions.NetExtension.GetResponseBytesSafe(WebRequest)
+  name: GetResponseBytesSafe(WebRequest)
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseBytesSafe_WebRequest_
+  commentId: M:WeihanLi.Extensions.NetExtension.GetResponseBytesSafe(WebRequest)
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseBytesSafe(WebRequest)
+  nameWithType: NetExtension.GetResponseBytesSafe(WebRequest)
+- uid: WeihanLi.Extensions.NetExtension.GetResponseBytesSafe*
+  name: GetResponseBytesSafe
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseBytesSafe_
+  commentId: Overload:WeihanLi.Extensions.NetExtension.GetResponseBytesSafe
   isSpec: "True"
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseBytesSafe
-  nameWithType: NetExtension.GetReponseBytesSafe
-- uid: WeihanLi.Extensions.NetExtension.GetReponseBytesSafeAsync(WebRequest)
-  name: GetReponseBytesSafeAsync(WebRequest)
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseBytesSafeAsync_WebRequest_
-  commentId: M:WeihanLi.Extensions.NetExtension.GetReponseBytesSafeAsync(WebRequest)
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseBytesSafeAsync(WebRequest)
-  nameWithType: NetExtension.GetReponseBytesSafeAsync(WebRequest)
-- uid: WeihanLi.Extensions.NetExtension.GetReponseBytesSafeAsync*
-  name: GetReponseBytesSafeAsync
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseBytesSafeAsync_
-  commentId: Overload:WeihanLi.Extensions.NetExtension.GetReponseBytesSafeAsync
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseBytesSafe
+  nameWithType: NetExtension.GetResponseBytesSafe
+- uid: WeihanLi.Extensions.NetExtension.GetResponseBytesSafeAsync(WebRequest)
+  name: GetResponseBytesSafeAsync(WebRequest)
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseBytesSafeAsync_WebRequest_
+  commentId: M:WeihanLi.Extensions.NetExtension.GetResponseBytesSafeAsync(WebRequest)
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseBytesSafeAsync(WebRequest)
+  nameWithType: NetExtension.GetResponseBytesSafeAsync(WebRequest)
+- uid: WeihanLi.Extensions.NetExtension.GetResponseBytesSafeAsync*
+  name: GetResponseBytesSafeAsync
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseBytesSafeAsync_
+  commentId: Overload:WeihanLi.Extensions.NetExtension.GetResponseBytesSafeAsync
   isSpec: "True"
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseBytesSafeAsync
-  nameWithType: NetExtension.GetReponseBytesSafeAsync
-- uid: WeihanLi.Extensions.NetExtension.GetReponseString(WebRequest)
-  name: GetReponseString(WebRequest)
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseString_WebRequest_
-  commentId: M:WeihanLi.Extensions.NetExtension.GetReponseString(WebRequest)
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseString(WebRequest)
-  nameWithType: NetExtension.GetReponseString(WebRequest)
-- uid: WeihanLi.Extensions.NetExtension.GetReponseString*
-  name: GetReponseString
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseString_
-  commentId: Overload:WeihanLi.Extensions.NetExtension.GetReponseString
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseString
-  nameWithType: NetExtension.GetReponseString
-- uid: WeihanLi.Extensions.NetExtension.GetReponseStringAsync(WebRequest)
-  name: GetReponseStringAsync(WebRequest)
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseStringAsync_WebRequest_
-  commentId: M:WeihanLi.Extensions.NetExtension.GetReponseStringAsync(WebRequest)
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseStringAsync(WebRequest)
-  nameWithType: NetExtension.GetReponseStringAsync(WebRequest)
-- uid: WeihanLi.Extensions.NetExtension.GetReponseStringAsync*
-  name: GetReponseStringAsync
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseStringAsync_
-  commentId: Overload:WeihanLi.Extensions.NetExtension.GetReponseStringAsync
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseStringAsync
-  nameWithType: NetExtension.GetReponseStringAsync
-- uid: WeihanLi.Extensions.NetExtension.GetReponseStringSafe(WebRequest)
-  name: GetReponseStringSafe(WebRequest)
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseStringSafe_WebRequest_
-  commentId: M:WeihanLi.Extensions.NetExtension.GetReponseStringSafe(WebRequest)
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseStringSafe(WebRequest)
-  nameWithType: NetExtension.GetReponseStringSafe(WebRequest)
-- uid: WeihanLi.Extensions.NetExtension.GetReponseStringSafe*
-  name: GetReponseStringSafe
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseStringSafe_
-  commentId: Overload:WeihanLi.Extensions.NetExtension.GetReponseStringSafe
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseStringSafe
-  nameWithType: NetExtension.GetReponseStringSafe
-- uid: WeihanLi.Extensions.NetExtension.GetReponseStringSafeAsync(WebRequest)
-  name: GetReponseStringSafeAsync(WebRequest)
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseStringSafeAsync_WebRequest_
-  commentId: M:WeihanLi.Extensions.NetExtension.GetReponseStringSafeAsync(WebRequest)
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseStringSafeAsync(WebRequest)
-  nameWithType: NetExtension.GetReponseStringSafeAsync(WebRequest)
-- uid: WeihanLi.Extensions.NetExtension.GetReponseStringSafeAsync*
-  name: GetReponseStringSafeAsync
-  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetReponseStringSafeAsync_
-  commentId: Overload:WeihanLi.Extensions.NetExtension.GetReponseStringSafeAsync
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.NetExtension.GetReponseStringSafeAsync
-  nameWithType: NetExtension.GetReponseStringSafeAsync
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseBytesSafeAsync
+  nameWithType: NetExtension.GetResponseBytesSafeAsync
 - uid: WeihanLi.Extensions.NetExtension.GetResponseSafe(WebRequest)
   name: GetResponseSafe(WebRequest)
   href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseSafe_WebRequest_
@@ -22469,6 +22337,58 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.NetExtension.GetResponseSafeAsync
   nameWithType: NetExtension.GetResponseSafeAsync
+- uid: WeihanLi.Extensions.NetExtension.GetResponseString(WebRequest)
+  name: GetResponseString(WebRequest)
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseString_WebRequest_
+  commentId: M:WeihanLi.Extensions.NetExtension.GetResponseString(WebRequest)
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseString(WebRequest)
+  nameWithType: NetExtension.GetResponseString(WebRequest)
+- uid: WeihanLi.Extensions.NetExtension.GetResponseString*
+  name: GetResponseString
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseString_
+  commentId: Overload:WeihanLi.Extensions.NetExtension.GetResponseString
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseString
+  nameWithType: NetExtension.GetResponseString
+- uid: WeihanLi.Extensions.NetExtension.GetResponseStringAsync(WebRequest)
+  name: GetResponseStringAsync(WebRequest)
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseStringAsync_WebRequest_
+  commentId: M:WeihanLi.Extensions.NetExtension.GetResponseStringAsync(WebRequest)
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseStringAsync(WebRequest)
+  nameWithType: NetExtension.GetResponseStringAsync(WebRequest)
+- uid: WeihanLi.Extensions.NetExtension.GetResponseStringAsync*
+  name: GetResponseStringAsync
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseStringAsync_
+  commentId: Overload:WeihanLi.Extensions.NetExtension.GetResponseStringAsync
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseStringAsync
+  nameWithType: NetExtension.GetResponseStringAsync
+- uid: WeihanLi.Extensions.NetExtension.GetResponseStringSafe(WebRequest)
+  name: GetResponseStringSafe(WebRequest)
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseStringSafe_WebRequest_
+  commentId: M:WeihanLi.Extensions.NetExtension.GetResponseStringSafe(WebRequest)
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseStringSafe(WebRequest)
+  nameWithType: NetExtension.GetResponseStringSafe(WebRequest)
+- uid: WeihanLi.Extensions.NetExtension.GetResponseStringSafe*
+  name: GetResponseStringSafe
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseStringSafe_
+  commentId: Overload:WeihanLi.Extensions.NetExtension.GetResponseStringSafe
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseStringSafe
+  nameWithType: NetExtension.GetResponseStringSafe
+- uid: WeihanLi.Extensions.NetExtension.GetResponseStringSafeAsync(WebRequest)
+  name: GetResponseStringSafeAsync(WebRequest)
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseStringSafeAsync_WebRequest_
+  commentId: M:WeihanLi.Extensions.NetExtension.GetResponseStringSafeAsync(WebRequest)
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseStringSafeAsync(WebRequest)
+  nameWithType: NetExtension.GetResponseStringSafeAsync(WebRequest)
+- uid: WeihanLi.Extensions.NetExtension.GetResponseStringSafeAsync*
+  name: GetResponseStringSafeAsync
+  href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_GetResponseStringSafeAsync_
+  commentId: Overload:WeihanLi.Extensions.NetExtension.GetResponseStringSafeAsync
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.NetExtension.GetResponseStringSafeAsync
+  nameWithType: NetExtension.GetResponseStringSafeAsync
 - uid: WeihanLi.Extensions.NetExtension.ReadAllBytes(WebResponse)
   name: ReadAllBytes(WebResponse)
   href: docs/api/WeihanLi.Extensions.NetExtension.html#WeihanLi_Extensions_NetExtension_ReadAllBytes_WebResponse_
