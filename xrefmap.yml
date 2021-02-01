@@ -3239,15 +3239,15 @@ references:
   fullName.vb: WeihanLi.Common.Data.IRepository(Of TEntity).Update(TEntity, System.String())
   nameWithType: IRepository<TEntity>.Update(TEntity, String[])
   nameWithType.vb: IRepository(Of TEntity).Update(TEntity, String())
-- uid: WeihanLi.Common.Data.IRepository`1.Update(Expression{System.Func{`0,System.Boolean}},System.Nullable{IDictionary{System.String,System.Object}})
-  name: Update(Expression<Func<TEntity, Boolean>>, Nullable<IDictionary<String, Object>>)
-  href: docs/api/WeihanLi.Common.Data.IRepository-1.html#WeihanLi_Common_Data_IRepository_1_Update_Expression_System_Func__0_System_Boolean___System_Nullable_IDictionary_System_String_System_Object___
-  commentId: M:WeihanLi.Common.Data.IRepository`1.Update(Expression{System.Func{`0,System.Boolean}},System.Nullable{IDictionary{System.String,System.Object}})
-  name.vb: Update(Expression(Of Func(Of TEntity, Boolean)), Nullable(Of IDictionary(Of String, Object)))
-  fullName: WeihanLi.Common.Data.IRepository<TEntity>.Update(Expression<System.Func<TEntity, System.Boolean>>, System.Nullable<IDictionary<System.String, System.Object>>)
-  fullName.vb: WeihanLi.Common.Data.IRepository(Of TEntity).Update(Expression(Of System.Func(Of TEntity, System.Boolean)), System.Nullable(Of IDictionary(Of System.String, System.Object)))
-  nameWithType: IRepository<TEntity>.Update(Expression<Func<TEntity, Boolean>>, Nullable<IDictionary<String, Object>>)
-  nameWithType.vb: IRepository(Of TEntity).Update(Expression(Of Func(Of TEntity, Boolean)), Nullable(Of IDictionary(Of String, Object)))
+- uid: WeihanLi.Common.Data.IRepository`1.Update(Expression{System.Func{`0,System.Boolean}},IDictionary{System.String,System.Object})
+  name: Update(Expression<Func<TEntity, Boolean>>, IDictionary<String, Object>)
+  href: docs/api/WeihanLi.Common.Data.IRepository-1.html#WeihanLi_Common_Data_IRepository_1_Update_Expression_System_Func__0_System_Boolean___IDictionary_System_String_System_Object__
+  commentId: M:WeihanLi.Common.Data.IRepository`1.Update(Expression{System.Func{`0,System.Boolean}},IDictionary{System.String,System.Object})
+  name.vb: Update(Expression(Of Func(Of TEntity, Boolean)), IDictionary(Of String, Object))
+  fullName: WeihanLi.Common.Data.IRepository<TEntity>.Update(Expression<System.Func<TEntity, System.Boolean>>, IDictionary<System.String, System.Object>)
+  fullName.vb: WeihanLi.Common.Data.IRepository(Of TEntity).Update(Expression(Of System.Func(Of TEntity, System.Boolean)), IDictionary(Of System.String, System.Object))
+  nameWithType: IRepository<TEntity>.Update(Expression<Func<TEntity, Boolean>>, IDictionary<String, Object>)
+  nameWithType.vb: IRepository(Of TEntity).Update(Expression(Of Func(Of TEntity, Boolean)), IDictionary(Of String, Object))
 - uid: WeihanLi.Common.Data.IRepository`1.Update*
   name: Update
   href: docs/api/WeihanLi.Common.Data.IRepository-1.html#WeihanLi_Common_Data_IRepository_1_Update_
@@ -3284,15 +3284,15 @@ references:
   fullName.vb: WeihanLi.Common.Data.IRepository(Of TEntity).UpdateAsync(TEntity, System.String(), System.Threading.CancellationToken)
   nameWithType: IRepository<TEntity>.UpdateAsync(TEntity, String[], CancellationToken)
   nameWithType.vb: IRepository(Of TEntity).UpdateAsync(TEntity, String(), CancellationToken)
-- uid: WeihanLi.Common.Data.IRepository`1.UpdateAsync(Expression{System.Func{`0,System.Boolean}},System.Nullable{IDictionary{System.String,System.Object}},System.Threading.CancellationToken)
-  name: UpdateAsync(Expression<Func<TEntity, Boolean>>, Nullable<IDictionary<String, Object>>, CancellationToken)
-  href: docs/api/WeihanLi.Common.Data.IRepository-1.html#WeihanLi_Common_Data_IRepository_1_UpdateAsync_Expression_System_Func__0_System_Boolean___System_Nullable_IDictionary_System_String_System_Object___System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Common.Data.IRepository`1.UpdateAsync(Expression{System.Func{`0,System.Boolean}},System.Nullable{IDictionary{System.String,System.Object}},System.Threading.CancellationToken)
-  name.vb: UpdateAsync(Expression(Of Func(Of TEntity, Boolean)), Nullable(Of IDictionary(Of String, Object)), CancellationToken)
-  fullName: WeihanLi.Common.Data.IRepository<TEntity>.UpdateAsync(Expression<System.Func<TEntity, System.Boolean>>, System.Nullable<IDictionary<System.String, System.Object>>, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Common.Data.IRepository(Of TEntity).UpdateAsync(Expression(Of System.Func(Of TEntity, System.Boolean)), System.Nullable(Of IDictionary(Of System.String, System.Object)), System.Threading.CancellationToken)
-  nameWithType: IRepository<TEntity>.UpdateAsync(Expression<Func<TEntity, Boolean>>, Nullable<IDictionary<String, Object>>, CancellationToken)
-  nameWithType.vb: IRepository(Of TEntity).UpdateAsync(Expression(Of Func(Of TEntity, Boolean)), Nullable(Of IDictionary(Of String, Object)), CancellationToken)
+- uid: WeihanLi.Common.Data.IRepository`1.UpdateAsync(Expression{System.Func{`0,System.Boolean}},IDictionary{System.String,System.Object},System.Threading.CancellationToken)
+  name: UpdateAsync(Expression<Func<TEntity, Boolean>>, IDictionary<String, Object>, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.IRepository-1.html#WeihanLi_Common_Data_IRepository_1_UpdateAsync_Expression_System_Func__0_System_Boolean___IDictionary_System_String_System_Object__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.IRepository`1.UpdateAsync(Expression{System.Func{`0,System.Boolean}},IDictionary{System.String,System.Object},System.Threading.CancellationToken)
+  name.vb: UpdateAsync(Expression(Of Func(Of TEntity, Boolean)), IDictionary(Of String, Object), CancellationToken)
+  fullName: WeihanLi.Common.Data.IRepository<TEntity>.UpdateAsync(Expression<System.Func<TEntity, System.Boolean>>, IDictionary<System.String, System.Object>, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.IRepository(Of TEntity).UpdateAsync(Expression(Of System.Func(Of TEntity, System.Boolean)), IDictionary(Of System.String, System.Object), System.Threading.CancellationToken)
+  nameWithType: IRepository<TEntity>.UpdateAsync(Expression<Func<TEntity, Boolean>>, IDictionary<String, Object>, CancellationToken)
+  nameWithType.vb: IRepository(Of TEntity).UpdateAsync(Expression(Of Func(Of TEntity, Boolean)), IDictionary(Of String, Object), CancellationToken)
 - uid: WeihanLi.Common.Data.IRepository`1.UpdateAsync*
   name: UpdateAsync
   href: docs/api/WeihanLi.Common.Data.IRepository-1.html#WeihanLi_Common_Data_IRepository_1_UpdateAsync_
