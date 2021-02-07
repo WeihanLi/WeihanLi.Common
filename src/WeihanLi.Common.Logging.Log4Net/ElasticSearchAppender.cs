@@ -22,18 +22,21 @@ namespace WeihanLi.Common.Logging.Log4Net
         /// <summary>
         /// ElasticSearchUrl
         /// </summary>
-        public string? ElasticSearchUrl { get; set; }
+        public string ElasticSearchUrl { get; set; } = "http://localhost:9200";
 
-        public string? ApplicationName { get; set; }
+        public string ApplicationName { get; set; } = ApplicationHelper.ApplicationName;
 
         public string IndexFormat { get; set; } = "logstash-{applicationName}-{rollingDate}";
 
         public string Type { get; set; } = "logEvent";
 
-        protected override void SendBuffer(LoggingEvent[]? events)
+#nullable disable
+
+        protected override void SendBuffer(LoggingEvent[] events)
         {
             if (events == null || events.Length == 0)
                 return;
+#nullable restore
 
             var sb = new StringBuilder(4096);
             foreach (var le in events)

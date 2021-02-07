@@ -12,14 +12,13 @@ namespace WeihanLi.Common.Aspect.AspectCore
 
         public FluentAspectProxyGeneratorBuilder()
         {
-            _configuration = new FluentAspectConfiguration()
-                ;
+            _configuration = new FluentAspectConfiguration();
             _serviceContext = new ServiceContext(_configuration);
         }
 
         public FluentAspectProxyGeneratorBuilder Configure(Action<IAspectConfiguration> options)
         {
-            options.Invoke(_configuration);
+            Guard.NotNull(options, nameof(options)).Invoke(_configuration);
             return this;
         }
 
