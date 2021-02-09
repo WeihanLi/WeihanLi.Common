@@ -10965,6 +10965,51 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.ValidateHelper.IsZipCode
   nameWithType: ValidateHelper.IsZipCode
+- uid: WeihanLi.Common.Helpers.ValueStopwatch
+  name: ValueStopwatch
+  href: docs/api/WeihanLi.Common.Helpers.ValueStopwatch.html
+  commentId: T:WeihanLi.Common.Helpers.ValueStopwatch
+  fullName: WeihanLi.Common.Helpers.ValueStopwatch
+  nameWithType: ValueStopwatch
+- uid: WeihanLi.Common.Helpers.ValueStopwatch.Elapsed
+  name: Elapsed
+  href: docs/api/WeihanLi.Common.Helpers.ValueStopwatch.html#WeihanLi_Common_Helpers_ValueStopwatch_Elapsed
+  commentId: P:WeihanLi.Common.Helpers.ValueStopwatch.Elapsed
+  fullName: WeihanLi.Common.Helpers.ValueStopwatch.Elapsed
+  nameWithType: ValueStopwatch.Elapsed
+- uid: WeihanLi.Common.Helpers.ValueStopwatch.Elapsed*
+  name: Elapsed
+  href: docs/api/WeihanLi.Common.Helpers.ValueStopwatch.html#WeihanLi_Common_Helpers_ValueStopwatch_Elapsed_
+  commentId: Overload:WeihanLi.Common.Helpers.ValueStopwatch.Elapsed
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ValueStopwatch.Elapsed
+  nameWithType: ValueStopwatch.Elapsed
+- uid: WeihanLi.Common.Helpers.ValueStopwatch.Restart
+  name: Restart()
+  href: docs/api/WeihanLi.Common.Helpers.ValueStopwatch.html#WeihanLi_Common_Helpers_ValueStopwatch_Restart
+  commentId: M:WeihanLi.Common.Helpers.ValueStopwatch.Restart
+  fullName: WeihanLi.Common.Helpers.ValueStopwatch.Restart()
+  nameWithType: ValueStopwatch.Restart()
+- uid: WeihanLi.Common.Helpers.ValueStopwatch.Restart*
+  name: Restart
+  href: docs/api/WeihanLi.Common.Helpers.ValueStopwatch.html#WeihanLi_Common_Helpers_ValueStopwatch_Restart_
+  commentId: Overload:WeihanLi.Common.Helpers.ValueStopwatch.Restart
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ValueStopwatch.Restart
+  nameWithType: ValueStopwatch.Restart
+- uid: WeihanLi.Common.Helpers.ValueStopwatch.StartNew
+  name: StartNew()
+  href: docs/api/WeihanLi.Common.Helpers.ValueStopwatch.html#WeihanLi_Common_Helpers_ValueStopwatch_StartNew
+  commentId: M:WeihanLi.Common.Helpers.ValueStopwatch.StartNew
+  fullName: WeihanLi.Common.Helpers.ValueStopwatch.StartNew()
+  nameWithType: ValueStopwatch.StartNew()
+- uid: WeihanLi.Common.Helpers.ValueStopwatch.StartNew*
+  name: StartNew
+  href: docs/api/WeihanLi.Common.Helpers.ValueStopwatch.html#WeihanLi_Common_Helpers_ValueStopwatch_StartNew_
+  commentId: Overload:WeihanLi.Common.Helpers.ValueStopwatch.StartNew
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ValueStopwatch.StartNew
+  nameWithType: ValueStopwatch.StartNew
 - uid: WeihanLi.Common.Helpers.XmlDataSerializer
   name: XmlDataSerializer
   href: docs/api/WeihanLi.Common.Helpers.XmlDataSerializer.html
