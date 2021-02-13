@@ -2,8 +2,13 @@
 
 ## WeihanLi.Common
 
-.netstandard2.0 based also support for netfx4.5 common helpers and extensions
+.netstandard2.0 based common helpers and extensions
 
+### [WeihanLi.Common 1.0.44](https://www.nuget.org/packages/WeihanLi.Common/1.0.44)
+
+- enable nullable reference types
+- add `ValueStopwatch`
+- some enhancements
 
 ### [WeihanLi.Common 1.0.43](https://www.nuget.org/packages/WeihanLi.Common/1.0.43)
 
