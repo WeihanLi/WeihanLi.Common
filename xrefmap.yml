@@ -1278,6 +1278,15 @@ references:
   fullName.vb: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod(Of T)(WeihanLi.Common.Aspect.FluentAspectOptions, Expression(Of System.Func(Of T, System.Object)))
   nameWithType: FluentAspectOptionsExtensions.InterceptMethod<T>(FluentAspectOptions, Expression<Func<T, Object>>)
   nameWithType.vb: FluentAspectOptionsExtensions.InterceptMethod(Of T)(FluentAspectOptions, Expression(Of Func(Of T, Object)))
+- uid: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,Expression{System.Func{MethodInfo,System.Boolean}})
+  name: InterceptMethod<T>(FluentAspectOptions, Expression<Func<MethodInfo, Boolean>>)
+  href: docs/api/WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.html#WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_Expression_System_Func_MethodInfo_System_Boolean___
+  commentId: M:WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,Expression{System.Func{MethodInfo,System.Boolean}})
+  name.vb: InterceptMethod(Of T)(FluentAspectOptions, Expression(Of Func(Of MethodInfo, Boolean)))
+  fullName: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod<T>(WeihanLi.Common.Aspect.FluentAspectOptions, Expression<System.Func<MethodInfo, System.Boolean>>)
+  fullName.vb: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod(Of T)(WeihanLi.Common.Aspect.FluentAspectOptions, Expression(Of System.Func(Of MethodInfo, System.Boolean)))
+  nameWithType: FluentAspectOptionsExtensions.InterceptMethod<T>(FluentAspectOptions, Expression<Func<MethodInfo, Boolean>>)
+  nameWithType.vb: FluentAspectOptionsExtensions.InterceptMethod(Of T)(FluentAspectOptions, Expression(Of Func(Of MethodInfo, Boolean)))
 - uid: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,MethodCallExpression)
   name: InterceptMethod<T>(FluentAspectOptions, MethodCallExpression)
   href: docs/api/WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.html#WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_MethodCallExpression_
@@ -1296,15 +1305,6 @@ references:
   fullName.vb: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod(Of T)(WeihanLi.Common.Aspect.FluentAspectOptions, MethodInfo)
   nameWithType: FluentAspectOptionsExtensions.InterceptMethod<T>(FluentAspectOptions, MethodInfo)
   nameWithType.vb: FluentAspectOptionsExtensions.InterceptMethod(Of T)(FluentAspectOptions, MethodInfo)
-- uid: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Nullable{Expression{System.Func{MethodInfo,System.Boolean}}})
-  name: InterceptMethod<T>(FluentAspectOptions, Nullable<Expression<Func<MethodInfo, Boolean>>>)
-  href: docs/api/WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.html#WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Nullable_Expression_System_Func_MethodInfo_System_Boolean____
-  commentId: M:WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Nullable{Expression{System.Func{MethodInfo,System.Boolean}}})
-  name.vb: InterceptMethod(Of T)(FluentAspectOptions, Nullable(Of Expression(Of Func(Of MethodInfo, Boolean))))
-  fullName: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod<T>(WeihanLi.Common.Aspect.FluentAspectOptions, System.Nullable<Expression<System.Func<MethodInfo, System.Boolean>>>)
-  fullName.vb: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod(Of T)(WeihanLi.Common.Aspect.FluentAspectOptions, System.Nullable(Of Expression(Of System.Func(Of MethodInfo, System.Boolean))))
-  nameWithType: FluentAspectOptionsExtensions.InterceptMethod<T>(FluentAspectOptions, Nullable<Expression<Func<MethodInfo, Boolean>>>)
-  nameWithType.vb: FluentAspectOptionsExtensions.InterceptMethod(Of T)(FluentAspectOptions, Nullable(Of Expression(Of Func(Of MethodInfo, Boolean))))
 - uid: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptPropertyGetter*
   name: InterceptPropertyGetter
   href: docs/api/WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.html#WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptPropertyGetter_
@@ -1418,6 +1418,15 @@ references:
   fullName.vb: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod(Of T)(WeihanLi.Common.Aspect.FluentAspectOptions, Expression(Of System.Func(Of T, System.Object)))
   nameWithType: FluentAspectOptionsExtensions.NoInterceptMethod<T>(FluentAspectOptions, Expression<Func<T, Object>>)
   nameWithType.vb: FluentAspectOptionsExtensions.NoInterceptMethod(Of T)(FluentAspectOptions, Expression(Of Func(Of T, Object)))
+- uid: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,Expression{System.Func{MethodInfo,System.Boolean}})
+  name: NoInterceptMethod<T>(FluentAspectOptions, Expression<Func<MethodInfo, Boolean>>)
+  href: docs/api/WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.html#WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_Expression_System_Func_MethodInfo_System_Boolean___
+  commentId: M:WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,Expression{System.Func{MethodInfo,System.Boolean}})
+  name.vb: NoInterceptMethod(Of T)(FluentAspectOptions, Expression(Of Func(Of MethodInfo, Boolean)))
+  fullName: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod<T>(WeihanLi.Common.Aspect.FluentAspectOptions, Expression<System.Func<MethodInfo, System.Boolean>>)
+  fullName.vb: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod(Of T)(WeihanLi.Common.Aspect.FluentAspectOptions, Expression(Of System.Func(Of MethodInfo, System.Boolean)))
+  nameWithType: FluentAspectOptionsExtensions.NoInterceptMethod<T>(FluentAspectOptions, Expression<Func<MethodInfo, Boolean>>)
+  nameWithType.vb: FluentAspectOptionsExtensions.NoInterceptMethod(Of T)(FluentAspectOptions, Expression(Of Func(Of MethodInfo, Boolean)))
 - uid: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,MethodCallExpression)
   name: NoInterceptMethod<T>(FluentAspectOptions, MethodCallExpression)
   href: docs/api/WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.html#WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_MethodCallExpression_
@@ -1436,15 +1445,6 @@ references:
   fullName.vb: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod(Of T)(WeihanLi.Common.Aspect.FluentAspectOptions, MethodInfo)
   nameWithType: FluentAspectOptionsExtensions.NoInterceptMethod<T>(FluentAspectOptions, MethodInfo)
   nameWithType.vb: FluentAspectOptionsExtensions.NoInterceptMethod(Of T)(FluentAspectOptions, MethodInfo)
-- uid: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Nullable{Expression{System.Func{MethodInfo,System.Boolean}}})
-  name: NoInterceptMethod<T>(FluentAspectOptions, Nullable<Expression<Func<MethodInfo, Boolean>>>)
-  href: docs/api/WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.html#WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Nullable_Expression_System_Func_MethodInfo_System_Boolean____
-  commentId: M:WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Nullable{Expression{System.Func{MethodInfo,System.Boolean}}})
-  name.vb: NoInterceptMethod(Of T)(FluentAspectOptions, Nullable(Of Expression(Of Func(Of MethodInfo, Boolean))))
-  fullName: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod<T>(WeihanLi.Common.Aspect.FluentAspectOptions, System.Nullable<Expression<System.Func<MethodInfo, System.Boolean>>>)
-  fullName.vb: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod(Of T)(WeihanLi.Common.Aspect.FluentAspectOptions, System.Nullable(Of Expression(Of System.Func(Of MethodInfo, System.Boolean))))
-  nameWithType: FluentAspectOptionsExtensions.NoInterceptMethod<T>(FluentAspectOptions, Nullable<Expression<Func<MethodInfo, Boolean>>>)
-  nameWithType.vb: FluentAspectOptionsExtensions.NoInterceptMethod(Of T)(FluentAspectOptions, Nullable(Of Expression(Of Func(Of MethodInfo, Boolean))))
 - uid: WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptProperty*
   name: NoInterceptProperty
   href: docs/api/WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.html#WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptProperty_
@@ -4872,12 +4872,6 @@ references:
   commentId: M:WeihanLi.Common.DependencyResolver.SetDependencyResolver(IServiceCollection)
   fullName: WeihanLi.Common.DependencyResolver.SetDependencyResolver(IServiceCollection)
   nameWithType: DependencyResolver.SetDependencyResolver(IServiceCollection)
-- uid: WeihanLi.Common.DependencyResolver.SetDependencyResolver(IServiceCollection,ServiceProviderOptions)
-  name: SetDependencyResolver(IServiceCollection, ServiceProviderOptions)
-  href: docs/api/WeihanLi.Common.DependencyResolver.html#WeihanLi_Common_DependencyResolver_SetDependencyResolver_IServiceCollection_ServiceProviderOptions_
-  commentId: M:WeihanLi.Common.DependencyResolver.SetDependencyResolver(IServiceCollection,ServiceProviderOptions)
-  fullName: WeihanLi.Common.DependencyResolver.SetDependencyResolver(IServiceCollection, ServiceProviderOptions)
-  nameWithType: DependencyResolver.SetDependencyResolver(IServiceCollection, ServiceProviderOptions)
 - uid: WeihanLi.Common.DependencyResolver.SetDependencyResolver(IServiceContainer)
   name: SetDependencyResolver(IServiceContainer)
   href: docs/api/WeihanLi.Common.DependencyResolver.html#WeihanLi_Common_DependencyResolver_SetDependencyResolver_IServiceContainer_
@@ -10009,15 +10003,31 @@ references:
   commentId: T:WeihanLi.Common.Helpers.ProfilerHelper
   fullName: WeihanLi.Common.Helpers.ProfilerHelper
   nameWithType: ProfilerHelper
-- uid: WeihanLi.Common.Helpers.ProfilerHelper.StartNew(WeihanLi.Common.IProfiler,System.Action{System.Int64})
-  name: StartNew(IProfiler, Action<Int64>)
-  href: docs/api/WeihanLi.Common.Helpers.ProfilerHelper.html#WeihanLi_Common_Helpers_ProfilerHelper_StartNew_WeihanLi_Common_IProfiler_System_Action_System_Int64__
-  commentId: M:WeihanLi.Common.Helpers.ProfilerHelper.StartNew(WeihanLi.Common.IProfiler,System.Action{System.Int64})
-  name.vb: StartNew(IProfiler, Action(Of Int64))
-  fullName: WeihanLi.Common.Helpers.ProfilerHelper.StartNew(WeihanLi.Common.IProfiler, System.Action<System.Int64>)
-  fullName.vb: WeihanLi.Common.Helpers.ProfilerHelper.StartNew(WeihanLi.Common.IProfiler, System.Action(Of System.Int64))
-  nameWithType: ProfilerHelper.StartNew(IProfiler, Action<Int64>)
-  nameWithType.vb: ProfilerHelper.StartNew(IProfiler, Action(Of Int64))
+- uid: WeihanLi.Common.Helpers.ProfilerHelper.Profile(Stopwatch,System.Action{System.TimeSpan})
+  name: Profile(Stopwatch, Action<TimeSpan>)
+  href: docs/api/WeihanLi.Common.Helpers.ProfilerHelper.html#WeihanLi_Common_Helpers_ProfilerHelper_Profile_Stopwatch_System_Action_System_TimeSpan__
+  commentId: M:WeihanLi.Common.Helpers.ProfilerHelper.Profile(Stopwatch,System.Action{System.TimeSpan})
+  name.vb: Profile(Stopwatch, Action(Of TimeSpan))
+  fullName: WeihanLi.Common.Helpers.ProfilerHelper.Profile(Stopwatch, System.Action<System.TimeSpan>)
+  fullName.vb: WeihanLi.Common.Helpers.ProfilerHelper.Profile(Stopwatch, System.Action(Of System.TimeSpan))
+  nameWithType: ProfilerHelper.Profile(Stopwatch, Action<TimeSpan>)
+  nameWithType.vb: ProfilerHelper.Profile(Stopwatch, Action(Of TimeSpan))
+- uid: WeihanLi.Common.Helpers.ProfilerHelper.Profile*
+  name: Profile
+  href: docs/api/WeihanLi.Common.Helpers.ProfilerHelper.html#WeihanLi_Common_Helpers_ProfilerHelper_Profile_
+  commentId: Overload:WeihanLi.Common.Helpers.ProfilerHelper.Profile
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ProfilerHelper.Profile
+  nameWithType: ProfilerHelper.Profile
+- uid: WeihanLi.Common.Helpers.ProfilerHelper.StartNew(WeihanLi.Common.IProfiler,System.Action{System.TimeSpan})
+  name: StartNew(IProfiler, Action<TimeSpan>)
+  href: docs/api/WeihanLi.Common.Helpers.ProfilerHelper.html#WeihanLi_Common_Helpers_ProfilerHelper_StartNew_WeihanLi_Common_IProfiler_System_Action_System_TimeSpan__
+  commentId: M:WeihanLi.Common.Helpers.ProfilerHelper.StartNew(WeihanLi.Common.IProfiler,System.Action{System.TimeSpan})
+  name.vb: StartNew(IProfiler, Action(Of TimeSpan))
+  fullName: WeihanLi.Common.Helpers.ProfilerHelper.StartNew(WeihanLi.Common.IProfiler, System.Action<System.TimeSpan>)
+  fullName.vb: WeihanLi.Common.Helpers.ProfilerHelper.StartNew(WeihanLi.Common.IProfiler, System.Action(Of System.TimeSpan))
+  nameWithType: ProfilerHelper.StartNew(IProfiler, Action<TimeSpan>)
+  nameWithType.vb: ProfilerHelper.StartNew(IProfiler, Action(Of TimeSpan))
 - uid: WeihanLi.Common.Helpers.ProfilerHelper.StartNew*
   name: StartNew
   href: docs/api/WeihanLi.Common.Helpers.ProfilerHelper.html#WeihanLi_Common_Helpers_ProfilerHelper_StartNew_
@@ -10025,37 +10035,21 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.ProfilerHelper.StartNew
   nameWithType: ProfilerHelper.StartNew
-- uid: WeihanLi.Common.Helpers.ProfilerHelper.StartProfile(Stopwatch,System.Action{System.Int64})
-  name: StartProfile(Stopwatch, Action<Int64>)
-  href: docs/api/WeihanLi.Common.Helpers.ProfilerHelper.html#WeihanLi_Common_Helpers_ProfilerHelper_StartProfile_Stopwatch_System_Action_System_Int64__
-  commentId: M:WeihanLi.Common.Helpers.ProfilerHelper.StartProfile(Stopwatch,System.Action{System.Int64})
-  name.vb: StartProfile(Stopwatch, Action(Of Int64))
-  fullName: WeihanLi.Common.Helpers.ProfilerHelper.StartProfile(Stopwatch, System.Action<System.Int64>)
-  fullName.vb: WeihanLi.Common.Helpers.ProfilerHelper.StartProfile(Stopwatch, System.Action(Of System.Int64))
-  nameWithType: ProfilerHelper.StartProfile(Stopwatch, Action<Int64>)
-  nameWithType.vb: ProfilerHelper.StartProfile(Stopwatch, Action(Of Int64))
-- uid: WeihanLi.Common.Helpers.ProfilerHelper.StartProfile*
-  name: StartProfile
-  href: docs/api/WeihanLi.Common.Helpers.ProfilerHelper.html#WeihanLi_Common_Helpers_ProfilerHelper_StartProfile_
-  commentId: Overload:WeihanLi.Common.Helpers.ProfilerHelper.StartProfile
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.ProfilerHelper.StartProfile
-  nameWithType: ProfilerHelper.StartProfile
 - uid: WeihanLi.Common.Helpers.ProfilerStopper
   name: ProfilerStopper
   href: docs/api/WeihanLi.Common.Helpers.ProfilerStopper.html
   commentId: T:WeihanLi.Common.Helpers.ProfilerStopper
   fullName: WeihanLi.Common.Helpers.ProfilerStopper
   nameWithType: ProfilerStopper
-- uid: WeihanLi.Common.Helpers.ProfilerStopper.#ctor(WeihanLi.Common.IProfiler,System.Action{System.Int64})
-  name: ProfilerStopper(IProfiler, Action<Int64>)
-  href: docs/api/WeihanLi.Common.Helpers.ProfilerStopper.html#WeihanLi_Common_Helpers_ProfilerStopper__ctor_WeihanLi_Common_IProfiler_System_Action_System_Int64__
-  commentId: M:WeihanLi.Common.Helpers.ProfilerStopper.#ctor(WeihanLi.Common.IProfiler,System.Action{System.Int64})
-  name.vb: ProfilerStopper(IProfiler, Action(Of Int64))
-  fullName: WeihanLi.Common.Helpers.ProfilerStopper.ProfilerStopper(WeihanLi.Common.IProfiler, System.Action<System.Int64>)
-  fullName.vb: WeihanLi.Common.Helpers.ProfilerStopper.ProfilerStopper(WeihanLi.Common.IProfiler, System.Action(Of System.Int64))
-  nameWithType: ProfilerStopper.ProfilerStopper(IProfiler, Action<Int64>)
-  nameWithType.vb: ProfilerStopper.ProfilerStopper(IProfiler, Action(Of Int64))
+- uid: WeihanLi.Common.Helpers.ProfilerStopper.#ctor(WeihanLi.Common.IProfiler,System.Action{System.TimeSpan})
+  name: ProfilerStopper(IProfiler, Action<TimeSpan>)
+  href: docs/api/WeihanLi.Common.Helpers.ProfilerStopper.html#WeihanLi_Common_Helpers_ProfilerStopper__ctor_WeihanLi_Common_IProfiler_System_Action_System_TimeSpan__
+  commentId: M:WeihanLi.Common.Helpers.ProfilerStopper.#ctor(WeihanLi.Common.IProfiler,System.Action{System.TimeSpan})
+  name.vb: ProfilerStopper(IProfiler, Action(Of TimeSpan))
+  fullName: WeihanLi.Common.Helpers.ProfilerStopper.ProfilerStopper(WeihanLi.Common.IProfiler, System.Action<System.TimeSpan>)
+  fullName.vb: WeihanLi.Common.Helpers.ProfilerStopper.ProfilerStopper(WeihanLi.Common.IProfiler, System.Action(Of System.TimeSpan))
+  nameWithType: ProfilerStopper.ProfilerStopper(IProfiler, Action<TimeSpan>)
+  nameWithType.vb: ProfilerStopper.ProfilerStopper(IProfiler, Action(Of TimeSpan))
 - uid: WeihanLi.Common.Helpers.ProfilerStopper.#ctor*
   name: ProfilerStopper
   href: docs/api/WeihanLi.Common.Helpers.ProfilerStopper.html#WeihanLi_Common_Helpers_ProfilerStopper__ctor_
@@ -10544,15 +10538,15 @@ references:
   commentId: T:WeihanLi.Common.Helpers.StopwatchStopper
   fullName: WeihanLi.Common.Helpers.StopwatchStopper
   nameWithType: StopwatchStopper
-- uid: WeihanLi.Common.Helpers.StopwatchStopper.#ctor(Stopwatch,System.Action{System.Int64})
-  name: StopwatchStopper(Stopwatch, Action<Int64>)
-  href: docs/api/WeihanLi.Common.Helpers.StopwatchStopper.html#WeihanLi_Common_Helpers_StopwatchStopper__ctor_Stopwatch_System_Action_System_Int64__
-  commentId: M:WeihanLi.Common.Helpers.StopwatchStopper.#ctor(Stopwatch,System.Action{System.Int64})
-  name.vb: StopwatchStopper(Stopwatch, Action(Of Int64))
-  fullName: WeihanLi.Common.Helpers.StopwatchStopper.StopwatchStopper(Stopwatch, System.Action<System.Int64>)
-  fullName.vb: WeihanLi.Common.Helpers.StopwatchStopper.StopwatchStopper(Stopwatch, System.Action(Of System.Int64))
-  nameWithType: StopwatchStopper.StopwatchStopper(Stopwatch, Action<Int64>)
-  nameWithType.vb: StopwatchStopper.StopwatchStopper(Stopwatch, Action(Of Int64))
+- uid: WeihanLi.Common.Helpers.StopwatchStopper.#ctor(Stopwatch,System.Action{System.TimeSpan})
+  name: StopwatchStopper(Stopwatch, Action<TimeSpan>)
+  href: docs/api/WeihanLi.Common.Helpers.StopwatchStopper.html#WeihanLi_Common_Helpers_StopwatchStopper__ctor_Stopwatch_System_Action_System_TimeSpan__
+  commentId: M:WeihanLi.Common.Helpers.StopwatchStopper.#ctor(Stopwatch,System.Action{System.TimeSpan})
+  name.vb: StopwatchStopper(Stopwatch, Action(Of TimeSpan))
+  fullName: WeihanLi.Common.Helpers.StopwatchStopper.StopwatchStopper(Stopwatch, System.Action<System.TimeSpan>)
+  fullName.vb: WeihanLi.Common.Helpers.StopwatchStopper.StopwatchStopper(Stopwatch, System.Action(Of System.TimeSpan))
+  nameWithType: StopwatchStopper.StopwatchStopper(Stopwatch, Action<TimeSpan>)
+  nameWithType.vb: StopwatchStopper.StopwatchStopper(Stopwatch, Action(Of TimeSpan))
 - uid: WeihanLi.Common.Helpers.StopwatchStopper.#ctor*
   name: StopwatchStopper
   href: docs/api/WeihanLi.Common.Helpers.StopwatchStopper.html#WeihanLi_Common_Helpers_StopwatchStopper__ctor_
@@ -11010,6 +11004,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.ValueStopwatch.StartNew
   nameWithType: ValueStopwatch.StartNew
+- uid: WeihanLi.Common.Helpers.ValueStopwatch.Stop
+  name: Stop()
+  href: docs/api/WeihanLi.Common.Helpers.ValueStopwatch.html#WeihanLi_Common_Helpers_ValueStopwatch_Stop
+  commentId: M:WeihanLi.Common.Helpers.ValueStopwatch.Stop
+  fullName: WeihanLi.Common.Helpers.ValueStopwatch.Stop()
+  nameWithType: ValueStopwatch.Stop()
+- uid: WeihanLi.Common.Helpers.ValueStopwatch.Stop*
+  name: Stop
+  href: docs/api/WeihanLi.Common.Helpers.ValueStopwatch.html#WeihanLi_Common_Helpers_ValueStopwatch_Stop_
+  commentId: Overload:WeihanLi.Common.Helpers.ValueStopwatch.Stop
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ValueStopwatch.Stop
+  nameWithType: ValueStopwatch.Stop
 - uid: WeihanLi.Common.Helpers.XmlDataSerializer
   name: XmlDataSerializer
   href: docs/api/WeihanLi.Common.Helpers.XmlDataSerializer.html
@@ -12415,19 +12422,19 @@ references:
   commentId: T:WeihanLi.Common.IProfiler
   fullName: WeihanLi.Common.IProfiler
   nameWithType: IProfiler
-- uid: WeihanLi.Common.IProfiler.ElapsedMilliseconds
-  name: ElapsedMilliseconds
-  href: docs/api/WeihanLi.Common.IProfiler.html#WeihanLi_Common_IProfiler_ElapsedMilliseconds
-  commentId: P:WeihanLi.Common.IProfiler.ElapsedMilliseconds
-  fullName: WeihanLi.Common.IProfiler.ElapsedMilliseconds
-  nameWithType: IProfiler.ElapsedMilliseconds
-- uid: WeihanLi.Common.IProfiler.ElapsedMilliseconds*
-  name: ElapsedMilliseconds
-  href: docs/api/WeihanLi.Common.IProfiler.html#WeihanLi_Common_IProfiler_ElapsedMilliseconds_
-  commentId: Overload:WeihanLi.Common.IProfiler.ElapsedMilliseconds
+- uid: WeihanLi.Common.IProfiler.Elapsed
+  name: Elapsed
+  href: docs/api/WeihanLi.Common.IProfiler.html#WeihanLi_Common_IProfiler_Elapsed
+  commentId: P:WeihanLi.Common.IProfiler.Elapsed
+  fullName: WeihanLi.Common.IProfiler.Elapsed
+  nameWithType: IProfiler.Elapsed
+- uid: WeihanLi.Common.IProfiler.Elapsed*
+  name: Elapsed
+  href: docs/api/WeihanLi.Common.IProfiler.html#WeihanLi_Common_IProfiler_Elapsed_
+  commentId: Overload:WeihanLi.Common.IProfiler.Elapsed
   isSpec: "True"
-  fullName: WeihanLi.Common.IProfiler.ElapsedMilliseconds
-  nameWithType: IProfiler.ElapsedMilliseconds
+  fullName: WeihanLi.Common.IProfiler.Elapsed
+  nameWithType: IProfiler.Elapsed
 - uid: WeihanLi.Common.IProfiler.Reset
   name: Reset()
   href: docs/api/WeihanLi.Common.IProfiler.html#WeihanLi_Common_IProfiler_Reset
@@ -15606,19 +15613,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.StopwatchProfiler.StopwatchProfiler
   nameWithType: StopwatchProfiler.StopwatchProfiler
-- uid: WeihanLi.Common.StopwatchProfiler.ElapsedMilliseconds
-  name: ElapsedMilliseconds
-  href: docs/api/WeihanLi.Common.StopwatchProfiler.html#WeihanLi_Common_StopwatchProfiler_ElapsedMilliseconds
-  commentId: P:WeihanLi.Common.StopwatchProfiler.ElapsedMilliseconds
-  fullName: WeihanLi.Common.StopwatchProfiler.ElapsedMilliseconds
-  nameWithType: StopwatchProfiler.ElapsedMilliseconds
-- uid: WeihanLi.Common.StopwatchProfiler.ElapsedMilliseconds*
-  name: ElapsedMilliseconds
-  href: docs/api/WeihanLi.Common.StopwatchProfiler.html#WeihanLi_Common_StopwatchProfiler_ElapsedMilliseconds_
-  commentId: Overload:WeihanLi.Common.StopwatchProfiler.ElapsedMilliseconds
+- uid: WeihanLi.Common.StopwatchProfiler.Elapsed
+  name: Elapsed
+  href: docs/api/WeihanLi.Common.StopwatchProfiler.html#WeihanLi_Common_StopwatchProfiler_Elapsed
+  commentId: P:WeihanLi.Common.StopwatchProfiler.Elapsed
+  fullName: WeihanLi.Common.StopwatchProfiler.Elapsed
+  nameWithType: StopwatchProfiler.Elapsed
+- uid: WeihanLi.Common.StopwatchProfiler.Elapsed*
+  name: Elapsed
+  href: docs/api/WeihanLi.Common.StopwatchProfiler.html#WeihanLi_Common_StopwatchProfiler_Elapsed_
+  commentId: Overload:WeihanLi.Common.StopwatchProfiler.Elapsed
   isSpec: "True"
-  fullName: WeihanLi.Common.StopwatchProfiler.ElapsedMilliseconds
-  nameWithType: StopwatchProfiler.ElapsedMilliseconds
+  fullName: WeihanLi.Common.StopwatchProfiler.Elapsed
+  nameWithType: StopwatchProfiler.Elapsed
 - uid: WeihanLi.Common.StopwatchProfiler.Reset
   name: Reset()
   href: docs/api/WeihanLi.Common.StopwatchProfiler.html#WeihanLi_Common_StopwatchProfiler_Reset
@@ -17960,43 +17967,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.Pow
   nameWithType: CoreExtension.Pow
-- uid: WeihanLi.Extensions.CoreExtension.RaiseEvent(System.EventHandler,System.Object)
-  name: RaiseEvent(EventHandler, Object)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_RaiseEvent_System_EventHandler_System_Object_
-  commentId: M:WeihanLi.Extensions.CoreExtension.RaiseEvent(System.EventHandler,System.Object)
-  fullName: WeihanLi.Extensions.CoreExtension.RaiseEvent(System.EventHandler, System.Object)
-  nameWithType: CoreExtension.RaiseEvent(EventHandler, Object)
-- uid: WeihanLi.Extensions.CoreExtension.RaiseEvent(System.EventHandler,System.Object,System.EventArgs)
-  name: RaiseEvent(EventHandler, Object, EventArgs)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_RaiseEvent_System_EventHandler_System_Object_System_EventArgs_
-  commentId: M:WeihanLi.Extensions.CoreExtension.RaiseEvent(System.EventHandler,System.Object,System.EventArgs)
-  fullName: WeihanLi.Extensions.CoreExtension.RaiseEvent(System.EventHandler, System.Object, System.EventArgs)
-  nameWithType: CoreExtension.RaiseEvent(EventHandler, Object, EventArgs)
-- uid: WeihanLi.Extensions.CoreExtension.RaiseEvent*
-  name: RaiseEvent
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_RaiseEvent_
-  commentId: Overload:WeihanLi.Extensions.CoreExtension.RaiseEvent
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CoreExtension.RaiseEvent
-  nameWithType: CoreExtension.RaiseEvent
-- uid: WeihanLi.Extensions.CoreExtension.RaiseEvent``1(System.EventHandler{``0},System.Object)
-  name: RaiseEvent<TEventArgs>(EventHandler<TEventArgs>, Object)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_RaiseEvent__1_System_EventHandler___0__System_Object_
-  commentId: M:WeihanLi.Extensions.CoreExtension.RaiseEvent``1(System.EventHandler{``0},System.Object)
-  name.vb: RaiseEvent(Of TEventArgs)(EventHandler(Of TEventArgs), Object)
-  fullName: WeihanLi.Extensions.CoreExtension.RaiseEvent<TEventArgs>(System.EventHandler<TEventArgs>, System.Object)
-  fullName.vb: WeihanLi.Extensions.CoreExtension.RaiseEvent(Of TEventArgs)(System.EventHandler(Of TEventArgs), System.Object)
-  nameWithType: CoreExtension.RaiseEvent<TEventArgs>(EventHandler<TEventArgs>, Object)
-  nameWithType.vb: CoreExtension.RaiseEvent(Of TEventArgs)(EventHandler(Of TEventArgs), Object)
-- uid: WeihanLi.Extensions.CoreExtension.RaiseEvent``1(System.EventHandler{``0},System.Object,``0)
-  name: RaiseEvent<TEventArgs>(EventHandler<TEventArgs>, Object, TEventArgs)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_RaiseEvent__1_System_EventHandler___0__System_Object___0_
-  commentId: M:WeihanLi.Extensions.CoreExtension.RaiseEvent``1(System.EventHandler{``0},System.Object,``0)
-  name.vb: RaiseEvent(Of TEventArgs)(EventHandler(Of TEventArgs), Object, TEventArgs)
-  fullName: WeihanLi.Extensions.CoreExtension.RaiseEvent<TEventArgs>(System.EventHandler<TEventArgs>, System.Object, TEventArgs)
-  fullName.vb: WeihanLi.Extensions.CoreExtension.RaiseEvent(Of TEventArgs)(System.EventHandler(Of TEventArgs), System.Object, TEventArgs)
-  nameWithType: CoreExtension.RaiseEvent<TEventArgs>(EventHandler<TEventArgs>, Object, TEventArgs)
-  nameWithType.vb: CoreExtension.RaiseEvent(Of TEventArgs)(EventHandler(Of TEventArgs), Object, TEventArgs)
 - uid: WeihanLi.Extensions.CoreExtension.Remove(System.Delegate,System.Delegate)
   name: Remove(Delegate, Delegate)
   href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Remove_System_Delegate_System_Delegate_
