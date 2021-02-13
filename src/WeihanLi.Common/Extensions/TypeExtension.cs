@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 
 // ReSharper disable once CheckNamespace
@@ -86,7 +87,7 @@ namespace WeihanLi.Extensions
 
         public static bool IsBasicType<T>(this T value) => typeof(T).IsBasicType();
 
-        public static bool HasNamespace([NotNull] this Type type) => type.Namespace != null;
+        public static bool HasNamespace(this Type type) => Guard.NotNull(type, nameof(type)).Namespace != null;
 
         /// <summary>
         /// Finds best constructor, least parameter
@@ -94,8 +95,7 @@ namespace WeihanLi.Extensions
         /// <param name="type">type</param>
         /// <param name="parameterTypes"></param>
         /// <returns>Matching constructor or default one</returns>
-        [CanBeNull]
-        public static ConstructorInfo GetConstructor(this Type type, params Type[] parameterTypes)
+        public static ConstructorInfo? GetConstructor(this Type type, params Type[]? parameterTypes)
         {
             if (parameterTypes == null || parameterTypes.Length == 0)
                 return GetEmptyConstructor(type);
@@ -104,8 +104,7 @@ namespace WeihanLi.Extensions
             return ctor;
         }
 
-        [CanBeNull]
-        public static ConstructorInfo GetEmptyConstructor(this Type type)
+        public static ConstructorInfo? GetEmptyConstructor(this Type type)
         {
             var constructors = type.GetConstructors();
 
@@ -138,8 +137,7 @@ namespace WeihanLi.Extensions
         /// <param name="type">The type being tested.</param>
         /// <param name="constructorParameterTypes">The types of the contractor to find.</param>
         /// <returns>The <see cref="ConstructorInfo"/> is a match is found; otherwise, <c>null</c>.</returns>
-        [CanBeNull]
-        public static ConstructorInfo GetMatchingConstructor(this Type type, Type[] constructorParameterTypes)
+        public static ConstructorInfo? GetMatchingConstructor(this Type type, Type[]? constructorParameterTypes)
         {
             if (constructorParameterTypes == null || constructorParameterTypes.Length == 0)
                 return GetEmptyConstructor(type);

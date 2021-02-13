@@ -21,8 +21,8 @@ namespace WeihanLi.Common.Test.ExtensionsTest
             Assert.Equal(collection.Count, dic.Count);
             foreach (var key in collection.AllKeys)
             {
-                Assert.True(dic.ContainsKey(key));
-                Assert.Equal(collection.Get(key), dic[key]);
+                Assert.True(dic.ContainsKey(key!));
+                Assert.Equal(collection.Get(key), dic[key!]);
             }
         }
 
@@ -31,7 +31,7 @@ namespace WeihanLi.Common.Test.ExtensionsTest
         {
             var collection = new NameValueCollection();
             Assert.Equal(string.Empty, collection.ToQueryString());
-            Assert.Equal(string.Empty, ((NameValueCollection)null).ToQueryString());
+            Assert.Equal(string.Empty, ((NameValueCollection)null!).ToQueryString());
 
             collection = new NameValueCollection()
             {

@@ -34,34 +34,27 @@ namespace WeihanLi.Common.Logging
 
     internal class LogHelperLoggingBuilder : ILogHelperLoggingBuilder
     {
-        internal readonly Dictionary<Type, ILogHelperProvider> _logHelperProviders = new Dictionary<Type, ILogHelperProvider>();
-        internal readonly List<ILogHelperLoggingEnricher> _logHelperEnrichers = new List<ILogHelperLoggingEnricher>();
-        internal readonly List<Func<Type, LogHelperLoggingEvent, bool>> _logFilters = new List<Func<Type, LogHelperLoggingEvent, bool>>();
+        internal readonly Dictionary<Type, ILogHelperProvider> _logHelperProviders = new();
+        internal readonly List<ILogHelperLoggingEnricher> _logHelperEnrichers = new();
+        internal readonly List<Func<Type, LogHelperLoggingEvent, bool>> _logFilters = new();
 
         public bool AddProvider(ILogHelperProvider provider)
         {
-            if (null == provider)
-                return false;
+            Guard.NotNull(provider, nameof(provider));
 
             return _logHelperProviders.AddIfNotContainsKey(provider.GetType(), provider);
         }
 
         public bool AddEnricher(ILogHelperLoggingEnricher enricher)
         {
-            if (null != enricher)
-            {
-                _logHelperEnrichers.Add(enricher);
-                return true;
-            }
-            return false;
+            Guard.NotNull(enricher, nameof(enricher));
+            _logHelperEnrichers.Add(enricher);
+            return true;
         }
 
         public bool AddFilter(Func<Type, LogHelperLoggingEvent, bool> filterFunc)
         {
-            if (null == filterFunc)
-            {
-                return false;
-            }
+            Guard.NotNull(filterFunc, nameof(filterFunc));
 
             _logFilters.Add(filterFunc);
             return true;

@@ -1,18 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="../../build/logging.log4net.props" />
   <ItemGroup>
-    <PackageReference Include="log4net" Version="2.0.8" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
-    <Reference Include="System.Net.Http" />
-    <Compile Remove="Log4NetLoggerProvider.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.12" />
     <None Include="log4net.config" Pack="true" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
   </ItemGroup>
 </Project>

@@ -38,12 +38,12 @@ namespace WeihanLi.Common.Test.EventsTest
 
         public class TestEvent : EventBase
         {
-            public string Name { get; set; }
+            public string? Name { get; set; }
         }
 
         public class TestEvent1 : EventBase
         {
-            public string Name { get; set; }
+            public string? Name { get; set; }
         }
 
         public class TestEventHandler1 : EventHandlerBase<TestEvent>

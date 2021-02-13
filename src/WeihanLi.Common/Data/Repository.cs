@@ -9,7 +9,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Models;
 using WeihanLi.Extensions;
 
@@ -19,7 +18,7 @@ namespace WeihanLi.Common.Data
     {
         #region TODO: Cache External
 
-        private readonly Lazy<Dictionary<string, string>> PrimaryKeyColumns = new Lazy<Dictionary<string, string>>(() =>
+        private readonly Lazy<Dictionary<string, string>> PrimaryKeyColumns = new(() =>
             CacheUtil.GetTypeProperties(typeof(TEntity))
             .Any(x => x.IsDefined(typeof(KeyAttribute)))
             ?
@@ -45,7 +44,7 @@ namespace WeihanLi.Common.Data
         private readonly string SelectColumnsString = CacheUtil.GetTypeProperties(typeof(TEntity))
             .Where(_ => !_.IsDefined(typeof(NotMappedAttribute))).Select(_ => $"{_.GetColumnName()} AS {_.Name}").StringJoin(",");
 
-        private readonly Lazy<Dictionary<string, string>> InsertColumnMappings = new Lazy<Dictionary<string, string>>(() => CacheUtil.GetTypeProperties(typeof(TEntity))
+        private readonly Lazy<Dictionary<string, string>> InsertColumnMappings = new(() => CacheUtil.GetTypeProperties(typeof(TEntity))
             .Where(_ => !_.IsDefined(typeof(NotMappedAttribute)) && !_.IsDefined(typeof(DatabaseGeneratedAttribute)))
             .Select(p => new KeyValuePair<string, string>(p.GetColumnName(), p.Name))
             .ToDictionary(_ => _.Key, _ => _.Value));
@@ -121,7 +120,7 @@ SELECT COUNT(1) FROM {_tableName}
             return _dbConnection.Value.ExecuteScalarToAsync<bool>(sql, whereSql.Parameters, cancellationToken: cancellationToken);
         }
 
-        public virtual TEntity Fetch(Expression<Func<TEntity, bool>> whereExpression)
+        public virtual TEntity? Fetch(Expression<Func<TEntity, bool>> whereExpression)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
@@ -131,7 +130,7 @@ SELECT TOP(1) {SelectColumnsString} FROM {_tableName}
             return _dbConnection.Value.Fetch<TEntity>(sql, whereSql.Parameters);
         }
 
-        public virtual Task<TEntity> FetchAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default)
+        public virtual Task<TEntity?> FetchAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
@@ -141,7 +140,7 @@ SELECT TOP 1 {SelectColumnsString} FROM {_tableName}
             return _dbConnection.Value.FetchAsync<TEntity>(sql, whereSql.Parameters, cancellationToken: cancellationToken);
         }
 
-        public virtual TEntity Fetch<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
+        public virtual TEntity? Fetch<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
@@ -152,7 +151,7 @@ ORDER BY {GetColumnName(orderByExpression.GetMemberName())}  {(ascending ? "" : 
             return _dbConnection.Value.Fetch<TEntity>(sql, whereSql.Parameters);
         }
 
-        public virtual Task<TEntity> FetchAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default)
+        public virtual Task<TEntity?> FetchAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var sql = $@"
@@ -275,7 +274,7 @@ FETCH NEXT {pageSize} ROWS ONLY
 
         public virtual int Insert(TEntity entity)
         {
-            var paramDictionary = new Dictionary<string, object>();
+            var paramDictionary = new Dictionary<string, object?>();
             var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName}");
             sqlBuilder.AppendLine();
             sqlBuilder.AppendLine("(");
@@ -296,7 +295,7 @@ FETCH NEXT {pageSize} ROWS ONLY
 
         public virtual Task<int> InsertAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
-            var paramDictionary = new Dictionary<string, object>();
+            var paramDictionary = new Dictionary<string, object?>();
 
             var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName}");
             sqlBuilder.AppendLine("(");
@@ -315,7 +314,7 @@ FETCH NEXT {pageSize} ROWS ONLY
 
         public virtual int Insert(IEnumerable<TEntity> entities)
         {
-            var count = entities?.Count() ?? 0;
+            var count = entities.Count();
             if (count == 0)
             {
                 return 0;
@@ -324,7 +323,7 @@ FETCH NEXT {pageSize} ROWS ONLY
             {
                 return -1; // too large, not supported
             }
-            var paramDictionary = new Dictionary<string, object>();
+            var paramDictionary = new Dictionary<string, object?>();
             var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName}");
             sqlBuilder.AppendLine("(");
             sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => _).StringJoin($",{Environment.NewLine}")}");
@@ -335,7 +334,8 @@ FETCH NEXT {pageSize} ROWS ONLY
             {
                 sqlBuilder.AppendLine();
                 sqlBuilder.AppendLine("(");
-                sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => $"@{_}_{i}").StringJoin($",{Environment.NewLine}")}");
+                var k = i;
+                sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => $"@{_}_{k}").StringJoin($",{Environment.NewLine}")}");
                 foreach (var field in InsertColumnMappings.Value.Keys)
                 {
                     paramDictionary.Add($"{field}_{i}", typeof(TEntity).GetPropertyValue(InsertColumnMappings.Value[field]));
@@ -349,7 +349,7 @@ FETCH NEXT {pageSize} ROWS ONLY
 
         public virtual Task<int> InsertAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
         {
-            var count = entities?.Count() ?? 0;
+            var count = entities.Count();
             if (count == 0)
             {
                 return Task.FromResult(0);
@@ -358,7 +358,7 @@ FETCH NEXT {pageSize} ROWS ONLY
             {
                 return Task.FromResult(-1); // too large, not supported
             }
-            var paramDictionary = new Dictionary<string, object>();
+            var paramDictionary = new Dictionary<string, object?>();
             var sqlBuilder = new StringBuilder($@"INSERT INTO {_tableName}");
             sqlBuilder.AppendLine("(");
             sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => _).StringJoin($",{Environment.NewLine}")}");
@@ -369,7 +369,8 @@ FETCH NEXT {pageSize} ROWS ONLY
             {
                 sqlBuilder.AppendLine();
                 sqlBuilder.AppendLine("(");
-                sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => $"@{_}_{i}").StringJoin($",{Environment.NewLine}")}");
+                var k = i;
+                sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => $"@{_}_{k}").StringJoin($",{Environment.NewLine}")}");
                 foreach (var field in InsertColumnMappings.Value.Keys)
                 {
                     paramDictionary.Add($"{field}_{i}", typeof(TEntity).GetPropertyValue(InsertColumnMappings.Value[field]));
@@ -381,7 +382,7 @@ FETCH NEXT {pageSize} ROWS ONLY
             return _dbConnection.Value.ExecuteAsync(sqlBuilder.ToString(), paramDictionary, cancellationToken: cancellationToken);
         }
 
-        public virtual int Update<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value)
+        public virtual int Update<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object? value)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var propertyName = propertyExpression.GetMemberName();
@@ -394,7 +395,7 @@ SET {GetColumnName(propertyName)} = @set_{propertyName}
             return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
-        public virtual Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object value, CancellationToken cancellationToken = default)
+        public virtual Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object? value, CancellationToken cancellationToken = default)
         {
             var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
             var propertyName = propertyExpression.GetMemberName();
@@ -407,9 +408,9 @@ SET {GetColumnName(propertyName)} = @set_{propertyName}
             return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters, cancellationToken: cancellationToken);
         }
 
-        public virtual int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues)
+        public virtual int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object?> propertyValues)
         {
-            if (propertyValues == null || propertyValues.Count == 0)
+            if (propertyValues.IsNullOrEmpty())
             {
                 return 0;
             }
@@ -426,11 +427,11 @@ SET {propertyValues.Keys.Select(p => $"{GetColumnName(p)}=@set_{p}").StringJoin(
             return _dbConnection.Value.Execute(sql, whereSql.Parameters);
         }
 
-        public virtual int Update(TEntity entity, params Expression<Func<TEntity, object>>[] propertyExpressions)
+        public virtual int Update(TEntity entity, params Expression<Func<TEntity, object?>>[] propertyExpressions)
         {
-            if (propertyExpressions.Length == 0)
+            if (propertyExpressions.IsNullOrEmpty())
             {
-                return UpdateWithout(entity, ArrayHelper.Empty<string>());
+                return UpdateWithout(entity, Array.Empty<string>());
             }
             //
             var keyEntries = PrimaryKeyColumns.Value
@@ -451,7 +452,7 @@ UPDATE {_tableName}
 SET {updateCols.Select(p => $"{GetColumnName(p)} = @set_{p}").StringJoin(", ")}
 WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
 ";
-            var parameters = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object?>();
             foreach (var col in updateCols)
             {
                 parameters[$"set_{col}"] = GetColumnName(col);
@@ -463,8 +464,10 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.Execute(sql, parameters);
         }
 
-        public virtual int UpdateWithout(TEntity entity, params Expression<Func<TEntity, object>>[] propertyExpressions)
+        public virtual int UpdateWithout(TEntity entity, params Expression<Func<TEntity, object?>>[] propertyExpressions)
         {
+            Guard.NotNull(propertyExpressions, nameof(propertyExpressions));
+
             var keyEntries = PrimaryKeyColumns.Value
                 .ToDictionary(p => p.Key, p => new KeyEntry()
                 {
@@ -477,7 +480,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
                 return -1;
             }
             //...
-            var updateWithoutCols = propertyExpressions?.Select(p => p.GetMemberName()).ToArray() ?? ArrayHelper.Empty<string>();
+            var updateWithoutCols = propertyExpressions.Select(p => p.GetMemberName()).ToArray();
             var updateCols = ColumnMappings.Keys
                 .Where(c => !updateWithoutCols.Contains(c) && !keyEntries.ContainsKey(c))
                 .ToArray();
@@ -489,7 +492,7 @@ UPDATE {_tableName}
 SET {updateCols.Select(p => $"{GetColumnName(p)} = @set_{p}").StringJoin(", ")}
 WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
 ";
-            var parameters = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object?>();
             foreach (var col in updateCols)
             {
                 parameters[$"set_{col}"] = GetColumnName(col);
@@ -503,9 +506,9 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
 
         public virtual int Update(TEntity entity, params string[] propertyNames)
         {
-            if (propertyNames == null || propertyNames.Length == 0)
+            if (propertyNames.IsNullOrEmpty())
             {
-                return UpdateWithout(entity, ArrayHelper.Empty<string>());
+                return UpdateWithout(entity, Array.Empty<string>());
             }
             //
             var keyEntries = PrimaryKeyColumns.Value
@@ -526,7 +529,7 @@ UPDATE {_tableName}
 SET {updateCols.Select(p => $"{GetColumnName(p)} = @set_{p}").StringJoin(", ")}
 WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
 ";
-            var parameters = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object?>();
             foreach (var col in updateCols)
             {
                 parameters[$"set_{col}"] = GetColumnName(col);
@@ -538,7 +541,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.Execute(sql, parameters);
         }
 
-        public virtual int UpdateWithout(TEntity entity, params string[] propertyNames)
+        public virtual int UpdateWithout(TEntity entity, params string[]? propertyNames)
         {
             var keyEntries = PrimaryKeyColumns.Value
                 .ToDictionary(p => p.Key, p => new KeyEntry()
@@ -552,7 +555,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
                 return -1;
             }
             //...
-            var updateWithoutCols = propertyNames ?? ArrayHelper.Empty<string>();
+            var updateWithoutCols = propertyNames ?? Array.Empty<string>();
             var updateCols = ColumnMappings.Keys
                 .Where(c => !updateWithoutCols.Contains(c) && !keyEntries.ContainsKey(c))
                 .ToArray();
@@ -564,7 +567,7 @@ UPDATE {_tableName}
 SET {updateCols.Select(p => $"{GetColumnName(p)} = @set_{p}").StringJoin(", ")}
 WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
 ";
-            var parameters = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object?>();
             foreach (var col in updateCols)
             {
                 parameters[$"set_{col}"] = GetColumnName(col);
@@ -591,7 +594,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             }
 
             //...
-            var updateWithoutCols = propertyNames ?? ArrayHelper.Empty<string>();
+            var updateWithoutCols = propertyNames.Distinct().ToArray();
             var updateCols = ColumnMappings.Keys
                 .Where(c => !updateWithoutCols.Contains(c) && !keyEntries.ContainsKey(c))
                 .ToArray();
@@ -603,7 +606,7 @@ UPDATE {_tableName}
 SET {updateCols.Select(p => $"{GetColumnName(p)} = @set_{p}").StringJoin(", ")}
 WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
 ";
-            var parameters = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object?>();
             foreach (var col in updateCols)
             {
                 parameters[$"set_{col}"] = GetColumnName(col);
@@ -615,11 +618,13 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.ExecuteAsync(sql, paramInfo: parameters, cancellationToken: cancellationToken);
         }
 
-        public virtual Task<int> UpdateAsync(TEntity entity, Expression<Func<TEntity, object>>[] propertyExpressions, CancellationToken cancellationToken = default)
+        public virtual Task<int> UpdateAsync(TEntity entity, Expression<Func<TEntity, object?>>[] propertyExpressions, CancellationToken cancellationToken = default)
         {
-            if (propertyExpressions == null || propertyExpressions.Length == 0)
+            Guard.NotNull(propertyExpressions, nameof(propertyExpressions));
+
+            if (propertyExpressions.Length == 0)
             {
-                return UpdateWithoutAsync(entity, ArrayHelper.Empty<string>(), cancellationToken);
+                return UpdateWithoutAsync(entity, Array.Empty<string>(), cancellationToken);
             }
             //
             var keyEntries = PrimaryKeyColumns.Value
@@ -640,7 +645,7 @@ UPDATE {_tableName}
 SET {updateCols.Select(p => $"{GetColumnName(p)} = @set_{p}").StringJoin(", ")}
 WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
 ";
-            var parameters = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object?>();
             foreach (var col in updateCols)
             {
                 parameters[$"set_{col}"] = GetColumnName(col);
@@ -652,7 +657,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.ExecuteAsync(sql, parameters, cancellationToken: cancellationToken);
         }
 
-        public virtual Task<int> UpdateWithoutAsync(TEntity entity, Expression<Func<TEntity, object>>[] propertyExpressions,
+        public virtual Task<int> UpdateWithoutAsync(TEntity entity, Expression<Func<TEntity, object?>>[] propertyExpressions,
             CancellationToken cancellationToken = default)
         {
             var keyEntries = PrimaryKeyColumns.Value
@@ -667,7 +672,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
                 return Task.FromResult(-1);
             }
             //...
-            var updateWithoutCols = propertyExpressions?.Select(x => x.GetMemberName()).ToArray() ?? ArrayHelper.Empty<string>();
+            var updateWithoutCols = propertyExpressions.Select(x => x.GetMemberName()).Distinct().ToArray();
             var updateCols = ColumnMappings.Keys
                 .Where(c => !updateWithoutCols.Contains(c) && !keyEntries.ContainsKey(c))
                 .ToArray();
@@ -679,7 +684,7 @@ UPDATE {_tableName}
 SET {updateCols.Select(p => $"{GetColumnName(p)} = @set_{p}").StringJoin(", ")}
 WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
 ";
-            var parameters = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object?>();
             foreach (var col in updateCols)
             {
                 parameters[$"set_{col}"] = GetColumnName(col);
@@ -693,9 +698,11 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
 
         public virtual Task<int> UpdateAsync(TEntity entity, string[] propertyNames, CancellationToken cancellationToken = default)
         {
-            if (propertyNames == null || propertyNames.Length == 0)
+            Guard.NotNull(propertyNames, nameof(propertyNames));
+
+            if (propertyNames.Length == 0)
             {
-                return UpdateWithoutAsync(entity, ArrayHelper.Empty<string>(), cancellationToken);
+                return UpdateWithoutAsync(entity, Array.Empty<string>(), cancellationToken);
             }
             //
             var keyEntries = PrimaryKeyColumns.Value
@@ -716,7 +723,7 @@ UPDATE {_tableName}
 SET {updateCols.Select(p => $"{GetColumnName(p)} = @set_{p}").StringJoin(", ")}
 WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
 ";
-            var parameters = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object?>();
             foreach (var col in updateCols)
             {
                 parameters[$"set_{col}"] = GetColumnName(col);
@@ -728,9 +735,10 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return _dbConnection.Value.ExecuteAsync(sql, parameters, cancellationToken: cancellationToken);
         }
 
-        public virtual Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object> propertyValues, CancellationToken cancellationToken = default)
+        public virtual Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression,
+            IDictionary<string, object?>? propertyValues, CancellationToken cancellationToken = default)
         {
-            if (propertyValues == null || propertyValues.Count == 0)
+            if (propertyValues is null || propertyValues.Count == 0)
             {
                 return Task.FromResult(0);
             }
@@ -815,17 +823,17 @@ WHERE {keyEntries.Select(x => $"{x.Value.ColumnName} = @{x.Key}").StringJoin(" A
                     x => x.Value.Value), cancellationToken: cancellationToken);
         }
 
-        public virtual int Execute(string sqlStr, object param = null)
+        public virtual int Execute(string sqlStr, object? param = null)
         => _dbConnection.Value.Execute(sqlStr, paramInfo: param);
 
-        public virtual Task<int> ExecuteAsync(string sqlStr, object param = null, CancellationToken cancellationToken = default)
+        public virtual Task<int> ExecuteAsync(string sqlStr, object? param = null, CancellationToken cancellationToken = default)
         => _dbConnection.Value.ExecuteAsync(sqlStr, paramInfo: param, cancellationToken: cancellationToken);
 
-        public virtual TResult ExecuteScalar<TResult>(string sqlStr, object param = null)
+        public virtual TResult ExecuteScalar<TResult>(string sqlStr, object? param = null)
 
         => _dbConnection.Value.ExecuteScalarTo<TResult>(sqlStr, paramInfo: param);
 
-        public virtual Task<TResult> ExecuteScalarAsync<TResult>(string sqlStr, object param = null, CancellationToken cancellationToken = default)
+        public virtual Task<TResult> ExecuteScalarAsync<TResult>(string sqlStr, object? param = null, CancellationToken cancellationToken = default)
 
         => _dbConnection.Value.ExecuteScalarToAsync<TResult>(sqlStr, paramInfo: param, cancellationToken: cancellationToken);
 

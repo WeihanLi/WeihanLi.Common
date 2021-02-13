@@ -17,10 +17,10 @@ namespace WeihanLi.Common.DependencyInjection
     {
         private readonly IReadOnlyList<ServiceDefinition> _services;
 
-        private readonly ConcurrentDictionary<ServiceKey, object> _singletonInstances;
+        private readonly ConcurrentDictionary<ServiceKey, object?> _singletonInstances;
 
-        private readonly ConcurrentDictionary<ServiceKey, object> _scopedInstances;
-        private readonly ConcurrentBag<object> _transientDisposables = new ConcurrentBag<object>();
+        private readonly ConcurrentDictionary<ServiceKey, object?> _scopedInstances = new();
+        private readonly ConcurrentBag<object> _transientDisposables = new();
 
         private class ServiceKey : IEquatable<ServiceKey>
         {
@@ -34,9 +34,9 @@ namespace WeihanLi.Common.DependencyInjection
                 ImplementType = definition.GetImplementType();
             }
 
-            public bool Equals(ServiceKey other)
+            public bool Equals(ServiceKey? other)
             {
-                return ServiceType == other?.ServiceType && ImplementType == other?.ImplementType;
+                return ServiceType == other?.ServiceType && ImplementType == other.ImplementType;
             }
 
             public override bool Equals(object obj)
@@ -58,7 +58,7 @@ namespace WeihanLi.Common.DependencyInjection
             _services = serviceDefinitions;
 
             _isRootScope = true;
-            _singletonInstances = new ConcurrentDictionary<ServiceKey, object>();
+            _singletonInstances = new ConcurrentDictionary<ServiceKey, object?>();
         }
 
         private ServiceContainer(ServiceContainer serviceContainer)
@@ -67,7 +67,7 @@ namespace WeihanLi.Common.DependencyInjection
             _singletonInstances = serviceContainer._singletonInstances;
 
             _services = serviceContainer._services;
-            _scopedInstances = new ConcurrentDictionary<ServiceKey, object>();
+            _scopedInstances = new ConcurrentDictionary<ServiceKey, object?>();
         }
 
         public IServiceContainer CreateScope()
@@ -132,9 +132,9 @@ namespace WeihanLi.Common.DependencyInjection
             }
         }
 
-        private object EnrichObject(object obj)
+        private object? EnrichObject(object? obj)
         {
-            if (null != obj)
+            if (obj is not null)
             {
                 var type = obj.GetType();
                 // PropertyInjection
@@ -146,18 +146,17 @@ namespace WeihanLi.Common.DependencyInjection
                         property.GetValueSetter()?.Invoke(
                             obj,
                             GetService(property.PropertyType)
-                            );
+                        );
                     }
                 }
             }
-
             return obj;
         }
 
-        private object GetServiceInstance(Type serviceType, ServiceDefinition serviceDefinition)
+        private object? GetServiceInstance(Type serviceType, ServiceDefinition serviceDefinition)
             => EnrichObject(GetServiceInstanceInternal(serviceType, serviceDefinition));
 
-        private object GetServiceInstanceInternal(Type serviceType, ServiceDefinition serviceDefinition)
+        private object? GetServiceInstanceInternal(Type serviceType, ServiceDefinition serviceDefinition)
         {
             if (serviceDefinition.ImplementationInstance != null)
                 return serviceDefinition.ImplementationInstance;
@@ -222,7 +221,7 @@ namespace WeihanLi.Common.DependencyInjection
                     return func00.Invoke();
                 }
 
-                var ctorParams = new object[parameters.Length];
+                var ctorParams = new object?[parameters.Length];
                 for (var index = 0; index < parameters.Length; index++)
                 {
                     var param = serviceContainer.GetService(parameters[index].ParameterType);
@@ -235,9 +234,9 @@ namespace WeihanLi.Common.DependencyInjection
 
                 var func = CacheUtil.TypeConstructorFuncCache.GetOrAdd(implementType, t =>
                 {
-                    if (!CacheUtil.TypeConstructorCache.TryGetValue(t, out var ctorInfo))
+                    if (!CacheUtil.TypeConstructorCache.TryGetValue(t, out var ctorInfo) || ctorInfo is null)
                     {
-                        return null;
+                        return null!;
                     }
 
                     var innerParameters = ctorInfo.GetParameters();
@@ -270,7 +269,7 @@ namespace WeihanLi.Common.DependencyInjection
                     // create expression that represents call to specified ctor with the specified arguments.
                     var newExpression = Expression.New(ctorInfo, argExpressions);
 
-                    return Expression.Lambda<Func<object[], object>>(newExpression, parameterExpression)
+                    return Expression.Lambda<Func<object?[], object>>(newExpression, parameterExpression)
                     .Compile();
                 });
                 return func.Invoke(ctorParams);
@@ -279,7 +278,7 @@ namespace WeihanLi.Common.DependencyInjection
             return newFunc?.Invoke(this);
         }
 
-        public object GetService(Type serviceType)
+        public object? GetService(Type serviceType)
         {
             if (_disposed)
             {
@@ -308,14 +307,14 @@ namespace WeihanLi.Common.DependencyInjection
                             var list = new List<object>(4);
                             foreach (var def in _services.Where(_ => _.ServiceType == innerRegType))
                             {
-                                object svc;
+                                object? svc;
                                 if (def.ServiceLifetime == ServiceLifetime.Singleton)
                                 {
-                                    svc = _singletonInstances.GetOrAdd(new ServiceKey(innerServiceType, def), (t) => GetServiceInstance(innerServiceType, def));
+                                    svc = _singletonInstances.GetOrAdd(new ServiceKey(innerServiceType, def), _ => GetServiceInstance(innerServiceType, def));
                                 }
                                 else if (def.ServiceLifetime == ServiceLifetime.Scoped)
                                 {
-                                    svc = _scopedInstances.GetOrAdd(new ServiceKey(innerServiceType, def), (t) => GetServiceInstance(innerServiceType, def));
+                                    svc = _scopedInstances.GetOrAdd(new ServiceKey(innerServiceType, def), _ => GetServiceInstance(innerServiceType, def));
                                 }
                                 else
                                 {
@@ -325,7 +324,7 @@ namespace WeihanLi.Common.DependencyInjection
                                         _transientDisposables.Add(svc);
                                     }
                                 }
-                                if (null != svc)
+                                if (svc != null)
                                 {
                                     list.Add(svc);
                                 }
@@ -336,15 +335,15 @@ namespace WeihanLi.Common.DependencyInjection
                             if (methodInfo != null)
                             {
                                 var genericMethod = methodInfo.MakeGenericMethod(innerServiceType);
-                                var castedValue = genericMethod.Invoke(null, new object[] { list });
+                                var castValue = genericMethod.Invoke(null, new object[] { list });
                                 if (typeof(IEnumerable<>).MakeGenericType(innerServiceType) == serviceType)
                                 {
-                                    return castedValue;
+                                    return castValue;
                                 }
                                 var toArrayMethod = typeof(Enumerable).GetMethod("ToArray", BindingFlags.Static | BindingFlags.Public)
                                     ?.MakeGenericMethod(innerServiceType);
 
-                                return toArrayMethod?.Invoke(null, new object[] { castedValue });
+                                return toArrayMethod?.Invoke(null, new[] { castValue });
                             }
                             return list;
                         }
@@ -367,19 +366,18 @@ namespace WeihanLi.Common.DependencyInjection
             {
                 return _singletonInstances.GetOrAdd(new ServiceKey(serviceType, serviceDefinition), (t) => GetServiceInstance(t.ServiceType, serviceDefinition));
             }
-            else if (serviceDefinition.ServiceLifetime == ServiceLifetime.Scoped)
+
+            if (serviceDefinition.ServiceLifetime == ServiceLifetime.Scoped)
             {
                 return _scopedInstances.GetOrAdd(new ServiceKey(serviceType, serviceDefinition), (t) => GetServiceInstance(t.ServiceType, serviceDefinition));
             }
-            else
+
+            var svc1 = GetServiceInstance(serviceType, serviceDefinition);
+            if (svc1 is IDisposable)
             {
-                var svc = GetServiceInstance(serviceType, serviceDefinition);
-                if (svc is IDisposable)
-                {
-                    _transientDisposables.Add(svc);
-                }
-                return svc;
+                _transientDisposables.Add(svc1);
             }
+            return svc1;
         }
     }
 }

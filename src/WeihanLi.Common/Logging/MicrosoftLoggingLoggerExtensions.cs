@@ -9,7 +9,7 @@ namespace Microsoft.Extensions.Logging
     public sealed class DelegateLoggerProvider : ILoggerProvider
     {
         private readonly Action<string, LogLevel, Exception, string> _logAction;
-        private readonly ConcurrentDictionary<string, DelegateLogger> _loggers = new ConcurrentDictionary<string, DelegateLogger>();
+        private readonly ConcurrentDictionary<string, DelegateLogger> _loggers = new();
 
         public DelegateLoggerProvider(Action<string, LogLevel, Exception, string> logAction)
         {

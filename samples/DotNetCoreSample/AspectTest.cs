@@ -20,7 +20,7 @@ namespace DotNetCoreSample
             optionsBuilder.UseInMemoryDatabase("Tests");
         }
 
-        public DbSet<TestEntity> TestEntities { get; set; }
+        public DbSet<TestEntity> TestEntities { get; set; } = null!;
     }
 
     internal class DbContextSaveInterceptor : IInterceptor

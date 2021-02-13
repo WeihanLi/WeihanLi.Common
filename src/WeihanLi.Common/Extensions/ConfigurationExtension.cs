@@ -1,6 +1,6 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Text.RegularExpressions;
-using JetBrains.Annotations;
 using WeihanLi.Extensions;
 
 // ReSharper disable once CheckNamespace
@@ -15,14 +15,14 @@ namespace Microsoft.Extensions.Configuration
         /// A regex which matches tokens in the following format: $(Item:Sub1:Sub2).
         /// inspired by https://github.com/henkmollema/ConfigurationPlaceholders
         /// </summary>
-        private static readonly Regex ConfigPlaceholderRegex = new Regex(@"\$\(([A-Za-z0-9:_]+?)\)");
+        private static readonly Regex _configPlaceholderRegex = new(@"\$\(([A-Za-z0-9:_]+?)\)");
 
         /// <summary>
         /// Replaces the placeholders in the specified <see cref="IConfiguration"/> instance.
         /// </summary>
         /// <param name="configuration">The <see cref="IConfiguration"/> instance to replace placeholders in.</param>
         /// <returns>The given <see cref="IConfiguration"/> instance.</returns>
-        public static IConfiguration ReplacePlaceholders([NotNull]this IConfiguration configuration)
+        public static IConfiguration ReplacePlaceholders([NotNull] this IConfiguration configuration)
         {
             foreach (var kvp in configuration.AsEnumerable())
             {
@@ -33,7 +33,7 @@ namespace Microsoft.Extensions.Configuration
                 }
 
                 // Replace placeholders in the configuration value.
-                var result = ConfigPlaceholderRegex.Replace(kvp.Value, match =>
+                var result = _configPlaceholderRegex.Replace(kvp.Value, match =>
                 {
                     if (!match.Success)
                     {
@@ -72,7 +72,7 @@ namespace Microsoft.Extensions.Configuration
         /// <param name="configuration">IConfiguration instance</param>
         /// <param name="key">appSettings key</param>
         /// <returns>app setting value</returns>
-        public static string GetAppSetting([NotNull]this IConfiguration configuration, string key)
+        public static string? GetAppSetting([NotNull] this IConfiguration configuration, string key)
         {
             return configuration.GetSection("AppSettings")?[key];
         }
@@ -84,7 +84,7 @@ namespace Microsoft.Extensions.Configuration
         /// <param name="configuration">IConfiguration instance</param>
         /// <param name="key">appSettings key</param>
         /// <returns>app setting value</returns>
-        public static T GetAppSetting<T>([NotNull]this IConfiguration configuration, string key)
+        public static T GetAppSetting<T>([NotNull] this IConfiguration configuration, string key)
         {
             return configuration.GetAppSetting(key).To<T>();
         }
@@ -97,7 +97,7 @@ namespace Microsoft.Extensions.Configuration
         /// <param name="key">appSettings key</param>
         /// <param name="defaultValue">default value if not exist</param>
         /// <returns>app setting value</returns>
-        public static T GetAppSetting<T>([NotNull] this IConfiguration configuration, string key, T defaultValue)
+        public static T? GetAppSetting<T>([NotNull] this IConfiguration configuration, string key, T defaultValue)
         {
             return configuration.GetAppSetting(key).ToOrDefault(defaultValue);
         }
@@ -110,12 +110,12 @@ namespace Microsoft.Extensions.Configuration
         /// <param name="key">appSettings key</param>
         /// <param name="defaultValueFunc">default value func if not exist to get a default value</param>
         /// <returns>app setting value</returns>
-        public static T GetAppSetting<T>([NotNull] this IConfiguration configuration, string key, Func<T> defaultValueFunc)
+        public static T? GetAppSetting<T>([NotNull] this IConfiguration configuration, string key, Func<T> defaultValueFunc)
         {
             return configuration.GetAppSetting(key).ToOrDefault(defaultValueFunc);
         }
 
-        private class InvalidConfigurationPlaceholderException : InvalidOperationException
+        private sealed class InvalidConfigurationPlaceholderException : InvalidOperationException
         {
             public InvalidConfigurationPlaceholderException(string placeholder) : base($"Invalid configuration placeholder: '{placeholder}'.")
             {

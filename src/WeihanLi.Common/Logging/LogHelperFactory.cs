@@ -35,7 +35,7 @@ namespace WeihanLi.Common.Logging
         internal readonly IReadOnlyCollection<ILogHelperLoggingEnricher> _logHelperEnrichers;
         internal readonly IReadOnlyCollection<Func<Type, LogHelperLoggingEvent, bool>> _logFilters;
 
-        private readonly ConcurrentDictionary<string, ILogHelperLogger> _loggers = new ConcurrentDictionary<string, ILogHelperLogger>();
+        private readonly ConcurrentDictionary<string, ILogHelperLogger> _loggers = new();
 
         public LogHelperFactory(IReadOnlyDictionary<Type, ILogHelperProvider> logHelperProviders,
             IReadOnlyCollection<ILogHelperLoggingEnricher> logHelperEnrichers,

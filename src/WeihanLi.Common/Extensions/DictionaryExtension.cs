@@ -252,7 +252,7 @@ namespace WeihanLi.Extensions
         /// <returns>@this as a SortedDictionary&lt;TKey,TValue&gt;</returns>
         public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this)
         {
-            return new SortedDictionary<TKey, TValue>(@this);
+            return new(@this);
         }
 
         /// <summary>
@@ -265,7 +265,7 @@ namespace WeihanLi.Extensions
         /// <returns>@this as a SortedDictionary&lt;TKey,TValue&gt;</returns>
         public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, IComparer<TKey> comparer)
         {
-            return new SortedDictionary<TKey, TValue>(@this, comparer);
+            return new(@this, comparer);
         }
 
         /// <summary>
@@ -315,7 +315,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a NameValueCollection.</returns>
-        public static NameValueCollection ToNameValueCollection(this IDictionary<string, string> @this)
+        public static NameValueCollection ToNameValueCollection(this IDictionary<string, string>? @this)
         {
             if (@this == null)
             {
@@ -329,7 +329,7 @@ namespace WeihanLi.Extensions
             return col;
         }
 
-        public static NameValueCollection ToNameValueCollection(this IEnumerable<KeyValuePair<string, string>> source)
+        public static NameValueCollection ToNameValueCollection(this IEnumerable<KeyValuePair<string, string>>? source)
         {
             if (source == null)
             {
@@ -414,7 +414,7 @@ namespace WeihanLi.Extensions
 
         public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>([NotNull] this IEnumerable<KeyValuePair<TKey, TValue>> source) => source.ToDictionary(pair => pair.Key, pair => pair.Value);
 
-        public static IEnumerable<KeyValuePair<string, string>> ToKeyValuePair(this NameValueCollection collection)
+        public static IEnumerable<KeyValuePair<string, string>> ToKeyValuePair(this NameValueCollection? collection)
         {
             if (collection == null || collection.Count == 0)
             {
@@ -435,7 +435,7 @@ namespace WeihanLi.Extensions
         /// <summary>将键值集合转换成字符串，key1=value1&amp;key2=value2，k/v会编码</summary>
         /// <param name="source">数据源</param>
         /// <returns>字符串</returns>
-        public static string ToQueryString(this IEnumerable<KeyValuePair<string, string>> source)
+        public static string ToQueryString(this IEnumerable<KeyValuePair<string, string>>? source)
         {
             if (source == null)
             {

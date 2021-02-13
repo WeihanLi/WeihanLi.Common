@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>        
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common.Logging.Log4Net</PackageProjectUrl>
     <PackageTags>logging log4net</PackageTags>
     <PackageId>WeihanLi.Common.Logging.Log4Net</PackageId>

@@ -92,10 +92,10 @@ namespace WeihanLi.Common.Aspect
             serviceCollection.AddProxyService<TService>(ServiceLifetime.Transient);
 
         public static IServiceProvider BuildFluentAspectsProvider(this IServiceCollection serviceCollection,
-            Action<FluentAspectOptions> optionsAction,
-            Action<IFluentAspectsBuilder> aspectBuildAction = null,
-            Expression<Func<Type, bool>> ignoreTypesFilter = null,
-            ServiceProviderOptions serviceProviderOptions = null)
+            Action<FluentAspectOptions>? optionsAction,
+            Action<IFluentAspectsBuilder>? aspectBuildAction = null,
+            Expression<Func<Type, bool>>? ignoreTypesFilter = null,
+            ServiceProviderOptions? serviceProviderOptions = null)
         {
             IServiceCollection services = new ServiceCollection();
 
@@ -160,7 +160,7 @@ namespace WeihanLi.Common.Aspect
                         }
                     }
 
-                    Func<IServiceProvider, object> serviceFactory = null;
+                    Func<IServiceProvider, object?>? serviceFactory = null;
 
                     if (descriptor.ImplementationInstance != null)
                     {

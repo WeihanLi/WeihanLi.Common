@@ -15,10 +15,10 @@ namespace WeihanLi.Common.Data
 #endif
         static partial class SqlExpressionParser
     {
-        public static SqlParseResult ParseWhereExpression(Expression exp, IDictionary<string, string> columnMappings)
+        public static SqlParseResult ParseWhereExpression(Expression? exp, IDictionary<string, string>? columnMappings)
         {
             var sqlText = string.Empty;
-            var dic = new Dictionary<string, object>();
+            var dic = new Dictionary<string, object?>();
             if (exp != null && exp.NodeType == ExpressionType.Lambda && exp is LambdaExpression)
             {
                 var condition = ParseExpression(exp, columnMappings);
@@ -37,7 +37,7 @@ namespace WeihanLi.Common.Data
 
         private
 #endif
-            static string ParseExpression(Expression exp, IDictionary<string, string> columnMappings = null)
+            static string ParseExpression(Expression exp, IDictionary<string, string>? columnMappings = null)
         {
             if (exp is LambdaExpression lambdaExpression)
             {
@@ -80,7 +80,7 @@ namespace WeihanLi.Common.Data
             return string.Empty;
         }
 
-        private static string ParseMemberExpression(MemberExpression exp, IDictionary<string, string> columnMappings)
+        private static string ParseMemberExpression(MemberExpression? exp, IDictionary<string, string>? columnMappings)
         {
             if (exp == null)
             {
@@ -146,7 +146,7 @@ namespace WeihanLi.Common.Data
             return $"{exp.Value.ToString().Replace("'", "''")}";
         }
 
-        private static string ParseMethodCallExpression(MethodCallExpression expression, IDictionary<string, string> columnMappings)
+        private static string ParseMethodCallExpression(MethodCallExpression expression, IDictionary<string, string>? columnMappings)
         {
             if (expression.Object?.Type == typeof(string))
             {
@@ -168,9 +168,9 @@ namespace WeihanLi.Common.Data
     {
         public string SqlText { get; }
 
-        public IDictionary<string, object> Parameters { get; }
+        public IDictionary<string, object?> Parameters { get; }
 
-        public SqlParseResult(string sqlText, IDictionary<string, object> parameters)
+        public SqlParseResult(string sqlText, IDictionary<string, object?> parameters)
         {
             SqlText = sqlText;
             Parameters = parameters;

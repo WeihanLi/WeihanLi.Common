@@ -55,8 +55,6 @@ namespace WeihanLi.Common.Test.HelpersTest
         [Fact]
         public void HashNullOrEmptyTest()
         {
-            Assert.Equal("", SecurityHelper.MD5(null));
-            Assert.Equal(SecurityHelper.MD5(null), HashHelper.GetHashedString(HashType.MD5, (string)null));
             Assert.Equal("", SecurityHelper.MD5(""));
             Assert.Equal(SecurityHelper.MD5(""), HashHelper.GetHashedString(HashType.MD5, ""));
         }

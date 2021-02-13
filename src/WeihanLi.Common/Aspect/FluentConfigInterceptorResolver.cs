@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect
 {
@@ -18,7 +17,7 @@ namespace WeihanLi.Common.Aspect
             {
                 if (func(invocation))
                 {
-                    return ArrayHelper.Empty<IInterceptor>();
+                    return Array.Empty<IInterceptor>();
                 }
             }
             var interceptorTypes = new HashSet<Type>();

@@ -2,12 +2,11 @@
   <PropertyGroup>            
     <PackageId>WeihanLi.Common</PackageId>
     <Title>WeihanLi.Common</Title>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net45</TargetFrameworks>    
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>    
     <Description>common netfx and netstandard libarary,extensions helpers and useful utilities</Description>
     <PackageTags>common utility lib libarary extensions helper</PackageTags>
     <PackageSummary>common netfx and netstandard libarary,extensions helpers and useful utilities</PackageSummary>
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
     <NoWarn>$(NoWarn);1591;DE0003;</NoWarn>
-    <DefineConstans  Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard2.1'">$(DefineConstans);NETSTANDARD</DefineConstans>
   </PropertyGroup>
 </Project>

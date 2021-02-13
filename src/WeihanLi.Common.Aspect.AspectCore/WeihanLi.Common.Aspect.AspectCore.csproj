@@ -14,9 +14,6 @@
 
   <ItemGroup>
     <PackageReference Include="AspectCore.Core" Version="2.1.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
   </ItemGroup>
 

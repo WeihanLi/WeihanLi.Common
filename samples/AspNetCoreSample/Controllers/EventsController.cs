@@ -9,7 +9,7 @@ namespace AspNetCoreSample.Controllers
         [HttpGet("pageViewCount")]
         public IActionResult Count()
         {
-            return Ok(new { Count = PageViewEventHandler.Count });
+            return Ok(new { PageViewEventHandler.Count });
         }
     }
 }

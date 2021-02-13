@@ -1,44 +1,29 @@
 ﻿using System.Collections.Concurrent;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace WeihanLi.Common.Event
 {
     public sealed class EventStoreInMemory : IEventStore
     {
-        private readonly ConcurrentDictionary<string, IEventBase> _events = new ConcurrentDictionary<string, IEventBase>();
+        private readonly ConcurrentDictionary<string, IEventBase> _events = new();
 
         public int SaveEvents(params IEventBase[] events)
         {
-            if (null == events || events.Length == 0)
+            if (Guard.NotNull(events, nameof(events)).Length == 0)
                 return 0;
 
-            var successCount = 0;
-            foreach (var @event in events)
-            {
-                if (_events.TryAdd(@event.EventId, @event))
-                {
-                    successCount++;
-                }
-            }
-            return successCount;
+            return events.Count(@event => _events.TryAdd(@event.EventId, @event));
         }
 
         public Task<int> SaveEventsAsync(params IEventBase[] events) => Task.FromResult(SaveEvents(events));
 
         public int DeleteEvents(params string[] eventIds)
         {
-            if (null == eventIds || eventIds.Length == 0)
+            if (Guard.NotNull(eventIds, nameof(eventIds)).Length == 0)
                 return 0;
 
-            var successCount = 0;
-            foreach (var eventId in eventIds)
-            {
-                if (_events.TryRemove(eventId, out _))
-                {
-                    successCount++;
-                }
-            }
-            return successCount;
+            return eventIds.Count(eventId => _events.TryRemove(eventId, out _));
         }
 
         public Task<int> DeleteEventsAsync(params string[] eventIds) => Task.FromResult(DeleteEvents(eventIds));

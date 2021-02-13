@@ -2,7 +2,6 @@
 using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Data
@@ -31,7 +30,7 @@ namespace WeihanLi.Common.Data
         public virtual Task CommitAsync(CancellationToken cancellationToken = default)
         {
             _dbTransaction.Commit();
-            return TaskHelper.CompletedTask;
+            return Task.CompletedTask;
         }
 
         public virtual void Rollback() => _dbTransaction.Rollback();
@@ -39,7 +38,7 @@ namespace WeihanLi.Common.Data
         public virtual Task RollbackAsync(CancellationToken cancellationToken = default)
         {
             _dbTransaction.Rollback();
-            return TaskHelper.CompletedTask;
+            return Task.CompletedTask;
         }
 
         public void Dispose()
@@ -53,7 +52,7 @@ namespace WeihanLi.Common.Data
             if (disposing)
             {
                 // Cleanup
-                _dbTransaction?.Dispose();
+                _dbTransaction.Dispose();
             }
         }
 

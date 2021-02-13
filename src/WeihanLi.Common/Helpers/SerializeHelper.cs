@@ -22,14 +22,10 @@ namespace WeihanLi.Common.Helpers
         public static string SerializeXml(object @this)
         {
             var xmlSerializer = new XmlSerializer(@this.GetType());
-            using (var stringWriter = new StringWriter())
-            {
-                xmlSerializer.Serialize(stringWriter, @this);
-                using (var streamReader = new StringReader(stringWriter.GetStringBuilder().ToString()))
-                {
-                    return streamReader.ReadToEnd();
-                }
-            }
+            using var stringWriter = new StringWriter();
+            xmlSerializer.Serialize(stringWriter, @this);
+            using var streamReader = new StringReader(stringWriter.GetStringBuilder().ToString());
+            return streamReader.ReadToEnd()!;
         }
 
         /// <summary>

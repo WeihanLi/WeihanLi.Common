@@ -39,10 +39,7 @@ namespace WeihanLi.Common.Helpers
             Func<TContext, Func<TContext, Task>, Task> func)
         {
             return builder.Use(next =>
-                context =>
-                {
-                    return func(context, next);
-                });
+                context => func(context, next));
         }
 
         public static IPipelineBuilder<TContext> Run<TContext>(this IPipelineBuilder<TContext> builder, Action<TContext> handler)

@@ -30,7 +30,7 @@ namespace WeihanLi.Common.Aspect
         }
 
         public static IInterceptionConfiguration InterceptAll(this FluentAspectOptions options)
-            => options.Intercept(m => true);
+            => options.Intercept(_ => true);
 
         public static IInterceptionConfiguration InterceptType(this FluentAspectOptions options,
             Func<Type, bool> typesFilter)
@@ -115,18 +115,14 @@ namespace WeihanLi.Common.Aspect
 
         public static IInterceptionConfiguration InterceptType<T>(this FluentAspectOptions options)
         {
-            return options.InterceptMethod(m => m.DeclaringType.IsAssignableTo<T>());
+            return options.InterceptMethod(m => m.DeclaringType!.IsAssignableTo<T>());
         }
 
         public static IInterceptionConfiguration InterceptMethod<T>(this FluentAspectOptions options,
             Expression<Func<MethodInfo, bool>> andExpression)
         {
-            Expression<Func<MethodInfo, bool>> expression = m => m.DeclaringType.IsAssignableTo<T>();
-            if (null != andExpression)
-            {
-                expression = expression.And(andExpression);
-            }
-
+            Expression<Func<MethodInfo, bool>> expression = m => m.DeclaringType!.IsAssignableTo<T>();
+            expression = expression.And(Guard.NotNull(andExpression, nameof(andExpression)));
             return options.InterceptMethod(expression.Compile());
         }
 
@@ -139,13 +135,13 @@ namespace WeihanLi.Common.Aspect
         public static IInterceptionConfiguration InterceptMethod<T>(this FluentAspectOptions options,
             MethodCallExpression methodCallExpression)
         {
-            var innerMethod = methodCallExpression?.Method;
+            var innerMethod = methodCallExpression.Method;
             if (null == innerMethod)
             {
-                throw new InvalidOperationException($"no method found");
+                throw new InvalidOperationException("no method found");
             }
 
-            Expression<Func<MethodInfo, bool>> expression = m => m.DeclaringType.IsAssignableTo<T>();
+            Expression<Func<MethodInfo, bool>> expression = m => m.DeclaringType!.IsAssignableTo<T>();
             var methodSignature = innerMethod.GetSignature();
             expression = expression.And(m => m.GetSignature().Equals(methodSignature));
             return options.InterceptMethod(expression.Compile());
@@ -177,29 +173,23 @@ namespace WeihanLi.Common.Aspect
         public static FluentAspectOptions NoInterceptType(this FluentAspectOptions options,
             Func<Type, bool> typesFilter)
         {
-            if (null != typesFilter)
-            {
-                options.NoInterceptMethod(m => typesFilter(m.DeclaringType));
-            }
-
+            Guard.NotNull(options, nameof(options));
+            Guard.NotNull(typesFilter, nameof(typesFilter));
+            options.NoInterceptMethod(m => typesFilter(m.DeclaringType));
             return options;
         }
 
         public static FluentAspectOptions NoInterceptType<T>(this FluentAspectOptions options)
         {
-            options.NoInterceptMethod(m => m.DeclaringType.IsAssignableTo<T>());
+            options.NoInterceptMethod(m => m.DeclaringType!.IsAssignableTo<T>());
             return options;
         }
 
         public static FluentAspectOptions NoInterceptMethod<T>(this FluentAspectOptions options,
-            Expression<Func<MethodInfo, bool>> andExpression = null)
+            Expression<Func<MethodInfo, bool>> andExpression)
         {
-            Expression<Func<MethodInfo, bool>> expression = m => m.DeclaringType.IsAssignableTo<T>();
-            if (null != andExpression)
-            {
-                expression = expression.And(andExpression);
-            }
-
+            Expression<Func<MethodInfo, bool>> expression = m => m.DeclaringType!.IsAssignableTo<T>();
+            expression = expression.And(Guard.NotNull(andExpression, nameof(andExpression)));
             options.NoInterceptMethod(expression.Compile());
             return options;
         }
@@ -207,13 +197,13 @@ namespace WeihanLi.Common.Aspect
         public static FluentAspectOptions NoInterceptMethod<T>(this FluentAspectOptions options,
             MethodCallExpression methodCallExpression)
         {
-            var innerMethod = methodCallExpression?.Method;
+            var innerMethod = methodCallExpression.Method;
             if (null == innerMethod)
             {
                 throw new InvalidOperationException($"no method found");
             }
 
-            Expression<Func<MethodInfo, bool>> expression = m => m.DeclaringType.IsAssignableTo<T>();
+            Expression<Func<MethodInfo, bool>> expression = m => m.DeclaringType!.IsAssignableTo<T>();
             var methodSignature = innerMethod.GetSignature();
             expression = expression.And(m => m.GetSignature().Equals(methodSignature));
             return options.NoInterceptMethod(expression.Compile());

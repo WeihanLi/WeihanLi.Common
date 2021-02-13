@@ -19,7 +19,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as an IDictionary&lt;string,object&gt;</returns>
-        public static IDictionary<string, string> ToDictionary(this NameValueCollection @this)
+        public static IDictionary<string, string> ToDictionary(this NameValueCollection? @this)
         {
             var dict = new Dictionary<string, string>();
 
@@ -38,7 +38,7 @@ namespace WeihanLi.Extensions
         /// <param name="source">数据源</param>
         /// <returns>字符串</returns>
 
-        public static string ToQueryString(this NameValueCollection source)
+        public static string ToQueryString(this NameValueCollection? source)
         {
             if (source == null || source.Count <= 0)
             {
@@ -172,15 +172,7 @@ namespace WeihanLi.Extensions
         /// <returns>true if it succeeds, false if it fails.</returns>
         public static bool ContainsAll<T>([NotNull] this ICollection<T> @this, params T[] values)
         {
-            foreach (var value in values)
-            {
-                if (!@this.Contains(value))
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return values.All(@this.Contains);
         }
 
         /// <summary>
@@ -192,15 +184,7 @@ namespace WeihanLi.Extensions
         /// <returns>true if it succeeds, false if it fails.</returns>
         public static bool ContainsAny<T>([NotNull] this ICollection<T> @this, params T[] values)
         {
-            foreach (var value in values)
-            {
-                if (@this.Contains(value))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return values.Any(@this.Contains);
         }
 
         /// <summary>
@@ -209,7 +193,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if null or empty&lt; t&gt;, false if not.</returns>
-        public static bool IsCollectionNullOrEmpty<T>(this ICollection<T> @this)
+        public static bool IsNullOrEmpty<T>(this ICollection<T>? @this)
         {
             return @this == null || @this.Count == 0;
         }
@@ -220,91 +204,9 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if the collection is not (null or empty), false if not.</returns>
-        public static bool HasValue<T>(this ICollection<T> @this)
+        public static bool HasValue<T>(this ICollection<T>? @this)
         {
-            return @this != null && @this.Count != 0;
-        }
-
-        /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that removes if.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="value">The value.</param>
-        /// <param name="predicate">The predicate.</param>
-        public static void RemoveIf<T>([NotNull] this ICollection<T> @this, T value, Func<T, bool> predicate)
-        {
-            if (@this.IsReadOnly) return;
-            if (predicate(value))
-            {
-                @this.Remove(value);
-            }
-        }
-
-        /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that removes if contains.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="value">The value.</param>
-        public static void RemoveIfContains<T>([NotNull] this ICollection<T> @this, T value)
-        {
-            if (@this.IsReadOnly) return;
-            if (@this.Contains(value))
-            {
-                @this.Remove(value);
-            }
-        }
-
-        /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that removes the range.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
-        public static void RemoveRange<T>([NotNull] this ICollection<T> @this, params T[] values)
-        {
-            foreach (var value in values)
-            {
-                @this.Remove(value);
-            }
-        }
-
-        /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that removes range item that satisfy the predicate.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="predicate">The predicate.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
-        public static void RemoveRangeIf<T>([NotNull] this ICollection<T> @this, Func<T, bool> predicate, params T[] values)
-        {
-            if (@this.IsReadOnly) return;
-            foreach (var value in values)
-            {
-                if (predicate(value))
-                {
-                    @this.Remove(value);
-                }
-            }
-        }
-
-        /// <summary>
-        ///     An ICollection&lt;T&gt; extension method that removes the range if contains.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="values">A variable-length parameters list containing values.</param>
-        public static void RemoveRangeIfContains<T>([NotNull] this ICollection<T> @this, params T[] values)
-        {
-            if (@this.IsReadOnly) return;
-            foreach (var value in values)
-            {
-                if (@this.Contains(value))
-                {
-                    @this.Remove(value);
-                }
-            }
+            return @this != null && @this.Count > 0;
         }
 
         /// <summary>

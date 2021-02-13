@@ -1,7 +1,5 @@
-﻿using JetBrains.Annotations;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Models
 {
@@ -32,24 +30,22 @@ namespace WeihanLi.Common.Models
         int TotalCount { get; }
     }
 
+    public static class EnumerableExtensions
+    {
+        public static IEnumerator<T> GetEnumerator<T>(this IListResultWithTotal<T> listResult)
+            => listResult.Data.GetEnumerator();
+    }
+
     public class ListResultWithTotal<T> : IListResultWithTotal<T>
     {
         public static readonly IListResultWithTotal<T> Empty = new ListResultWithTotal<T>();
 
-        private IReadOnlyList<T> _data = ArrayHelper.Empty<T>();
+        private IReadOnlyList<T> _data = Array.Empty<T>();
 
-        [NotNull]
         public IReadOnlyList<T> Data
         {
             get => _data;
-            set
-            {
-                // ReSharper disable once ConditionIsAlwaysTrueOrFalse
-                if (value != null)
-                {
-                    _data = value;
-                }
-            }
+            set => _data = Guard.NotNull(value, nameof(value));
         }
 
         public int TotalCount { get; set; }
@@ -64,20 +60,12 @@ namespace WeihanLi.Common.Models
     {
         public static readonly IPagedListResult<T> Empty = new PagedListResult<T>();
 
-        private IReadOnlyList<T> _data = ArrayHelper.Empty<T>();
+        private IReadOnlyList<T> _data = Array.Empty<T>();
 
-        [NotNull]
         public IReadOnlyList<T> Data
         {
             get => _data;
-            set
-            {
-                // ReSharper disable once ConditionIsAlwaysTrueOrFalse
-                if (value != null)
-                {
-                    _data = value;
-                }
-            }
+            set => _data = Guard.NotNull(value, nameof(value));
         }
 
         private int _pageNumber = 1;

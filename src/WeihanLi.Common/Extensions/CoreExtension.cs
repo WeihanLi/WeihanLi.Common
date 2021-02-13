@@ -1,9 +1,8 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
+
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -11,419 +10,13 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
 {
     public static class CoreExtension
     {
-        #region Array
-
-        /// <summary>
-        ///     An Array extension method that clears the array.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        public static void ClearAll([NotNull] this Array @this)
-        {
-            Array.Clear(@this, 0, @this.Length);
-        }
-
-        /// <summary>
-        ///     Searches an entire one-dimensional sorted  for a specific element, using the  interface implemented by each
-        ///     element of the  and by the specified object.
-        /// </summary>
-        /// <param name="array">The sorted one-dimensional  to search.</param>
-        /// <param name="value">The object to search for.</param>
-        /// <returns>
-        ///     The index of the specified  in the specified , if  is found. If  is not found and  is less than one or more
-        ///     elements in , a negative number which is the bitwise complement of the index of the first element that is
-        ///     larger than . If  is not found and  is greater than any of the elements in , a negative number which is the
-        ///     bitwise complement of (the index of the last element plus 1).
-        /// </returns>
-        public static int BinarySearch([NotNull] this Array array, object value)
-        {
-            return Array.BinarySearch(array, value);
-        }
-
-        /// <summary>
-        ///     Searches a range of elements in a one-dimensional sorted  for a value, using the  interface implemented by
-        ///     each element of the  and by the specified value.
-        /// </summary>
-        /// <param name="array">The sorted one-dimensional  to search.</param>
-        /// <param name="index">The starting index of the range to search.</param>
-        /// <param name="length">The length of the range to search.</param>
-        /// <param name="value">The object to search for.</param>
-        /// <returns>
-        ///     The index of the specified  in the specified , if  is found. If  is not found and  is less than one or more
-        ///     elements in , a negative number which is the bitwise complement of the index of the first element that is
-        ///     larger than . If  is not found and  is greater than any of the elements in , a negative number which is the
-        ///     bitwise complement of (the index of the last element plus 1).
-        /// </returns>
-        public static int BinarySearch([NotNull] this Array array, int index, int length, object value)
-        {
-            return Array.BinarySearch(array, index, length, value);
-        }
-
-        /// <summary>
-        ///     Searches an entire one-dimensional sorted  for a value using the specified  interface.
-        /// </summary>
-        /// <param name="array">The sorted one-dimensional  to search.</param>
-        /// <param name="value">The object to search for.</param>
-        /// <param name="comparer">
-        ///     The  implementation to use when comparing elements.-or- null to use the  implementation
-        ///     of each element.
-        /// </param>
-        /// <returns>
-        ///     The index of the specified  in the specified , if  is found. If  is not found and  is less than one or more
-        ///     elements in , a negative number which is the bitwise complement of the index of the first element that is
-        ///     larger than . If  is not found and  is greater than any of the elements in , a negative number which is the
-        ///     bitwise complement of (the index of the last element plus 1).
-        /// </returns>
-        public static int BinarySearch([NotNull] this Array array, object value, IComparer comparer)
-        {
-            return Array.BinarySearch(array, value, comparer);
-        }
-
-        /// <summary>
-        ///     Searches a range of elements in a one-dimensional sorted  for a value, using the specified  interface.
-        /// </summary>
-        /// <param name="array">The sorted one-dimensional  to search.</param>
-        /// <param name="index">The starting index of the range to search.</param>
-        /// <param name="length">The length of the range to search.</param>
-        /// <param name="value">The object to search for.</param>
-        /// <param name="comparer">
-        ///     The  implementation to use when comparing elements.-or- null to use the  implementation
-        ///     of each element.
-        /// </param>
-        /// <returns>
-        ///     The index of the specified  in the specified , if  is found. If  is not found and  is less than one or more
-        ///     elements in , a negative number which is the bitwise complement of the index of the first element that is
-        ///     larger than . If  is not found and  is greater than any of the elements in , a negative number which is the
-        ///     bitwise complement of (the index of the last element plus 1).
-        /// </returns>
-        public static int BinarySearch([NotNull] this Array array, int index, int length, object value, IComparer comparer)
-        {
-            return Array.BinarySearch(array, index, length, value, comparer);
-        }
-
-        /// <summary>
-        ///     Sets a range of elements in the  to zero, to false, or to null, depending on the element type.
-        /// </summary>
-        /// <param name="array">The  whose elements need to be cleared.</param>
-        /// <param name="index">The starting index of the range of elements to clear.</param>
-        /// <param name="length">The number of elements to clear.</param>
-        public static void Clear([NotNull] this Array array, int index, int length)
-        {
-            Array.Clear(array, index, length);
-        }
-
-        /// <summary>
-        ///     Copies a range of elements from an  starting at the first element and pastes them into another  starting at
-        ///     the first element. The length is specified as a 32-bit integer.
-        /// </summary>
-        /// <param name="sourceArray">The  that contains the data to copy.</param>
-        /// <param name="destinationArray">The  that receives the data.</param>
-        /// <param name="length">A 32-bit integer that represents the number of elements to copy.</param>
-        public static void Copy([NotNull] this Array sourceArray, Array destinationArray, int length)
-        {
-            Array.Copy(sourceArray, destinationArray, length);
-        }
-
-        /// <summary>
-        ///     Copies a range of elements from an  starting at the specified source index and pastes them to another
-        ///     starting at the specified destination index. The length and the indexes are specified as 32-bit integers.
-        /// </summary>
-        /// <param name="sourceArray">The  that contains the data to copy.</param>
-        /// <param name="sourceIndex">A 32-bit integer that represents the index in the  at which copying begins.</param>
-        /// <param name="destinationArray">The  that receives the data.</param>
-        /// <param name="destinationIndex">A 32-bit integer that represents the index in the  at which storing begins.</param>
-        /// <param name="length">A 32-bit integer that represents the number of elements to copy.</param>
-        public static void Copy([NotNull] this Array sourceArray, int sourceIndex, Array destinationArray, int destinationIndex, int length)
-        {
-            Array.Copy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
-        }
-
-        /// <summary>
-        ///     Copies a range of elements from an  starting at the first element and pastes them into another  starting at
-        ///     the first element. The length is specified as a 64-bit integer.
-        /// </summary>
-        /// <param name="sourceArray">The  that contains the data to copy.</param>
-        /// <param name="destinationArray">The  that receives the data.</param>
-        /// <param name="length">
-        ///     A 64-bit integer that represents the number of elements to copy. The integer must be between
-        ///     zero and , inclusive.
-        /// </param>
-        public static void Copy([NotNull] this Array sourceArray, Array destinationArray, long length)
-        {
-            Array.Copy(sourceArray, destinationArray, length);
-        }
-
-        /// <summary>
-        ///     Copies a range of elements from an  starting at the specified source index and pastes them to another
-        ///     starting at the specified destination index. The length and the indexes are specified as 64-bit integers.
-        /// </summary>
-        /// <param name="sourceArray">The  that contains the data to copy.</param>
-        /// <param name="sourceIndex">A 64-bit integer that represents the index in the  at which copying begins.</param>
-        /// <param name="destinationArray">The  that receives the data.</param>
-        /// <param name="destinationIndex">A 64-bit integer that represents the index in the  at which storing begins.</param>
-        /// <param name="length">
-        ///     A 64-bit integer that represents the number of elements to copy. The integer must be between
-        ///     zero and , inclusive.
-        /// </param>
-        public static void Copy([NotNull] this Array sourceArray, long sourceIndex, Array destinationArray, long destinationIndex, long length)
-        {
-            Array.Copy(sourceArray, sourceIndex, destinationArray, destinationIndex, length);
-        }
-
-        /// <summary>
-        ///     Searches for the specified object and returns the index of the first occurrence within the entire one-
-        ///     dimensional .
-        /// </summary>
-        /// <param name="array">The one-dimensional  to search.</param>
-        /// <param name="value">The object to locate in .</param>
-        /// <returns>
-        ///     The index of the first occurrence of  within the entire , if found; otherwise, the lower bound of the array
-        ///     minus 1.
-        /// </returns>
-        public static int IndexOf([NotNull] this Array array, object value)
-        {
-            return Array.IndexOf(array, value);
-        }
-
-        /// <summary>
-        ///     Searches for the specified object and returns the index of the first occurrence within the range of elements
-        ///     in the one-dimensional  that extends from the specified index to the last element.
-        /// </summary>
-        /// <param name="array">The one-dimensional  to search.</param>
-        /// <param name="value">The object to locate in .</param>
-        /// <param name="startIndex">The starting index of the search. 0 (zero) is valid in an empty array.</param>
-        /// <returns>
-        ///     The index of the first occurrence of  within the range of elements in  that extends from  to the last element,
-        ///     if found; otherwise, the lower bound of the array minus 1.
-        /// </returns>
-        public static int IndexOf([NotNull] this Array array, object value, int startIndex)
-        {
-            return Array.IndexOf(array, value, startIndex);
-        }
-
-        /// <summary>
-        ///     Searches for the specified object and returns the index of the first occurrence within the range of elements
-        ///     in the one-dimensional  that starts at the specified index and contains the specified number of elements.
-        /// </summary>
-        /// <param name="array">The one-dimensional  to search.</param>
-        /// <param name="value">The object to locate in .</param>
-        /// <param name="startIndex">The starting index of the search. 0 (zero) is valid in an empty array.</param>
-        /// <param name="count">The number of elements in the section to search.</param>
-        /// <returns>
-        ///     The index of the first occurrence of  within the range of elements in  that starts at  and contains the
-        ///     number of elements specified in , if found; otherwise, the lower bound of the array minus 1.
-        /// </returns>
-        public static int IndexOf([NotNull] this Array array, object value, int startIndex, int count)
-        {
-            return Array.IndexOf(array, value, startIndex, count);
-        }
-
-        /// <summary>
-        ///     Searches for the specified object and returns the index of the last occurrence within the entire one-
-        ///     dimensional .
-        /// </summary>
-        /// <param name="array">The one-dimensional  to search.</param>
-        /// <param name="value">The object to locate in .</param>
-        /// <returns>
-        ///     The index of the last occurrence of  within the entire , if found; otherwise, the lower bound of the array
-        ///     minus 1.
-        /// </returns>
-        public static int LastIndexOf([NotNull] this Array array, object value)
-        {
-            return Array.LastIndexOf(array, value);
-        }
-
-        /// <summary>
-        ///     Searches for the specified object and returns the index of the last occurrence within the range of elements
-        ///     in the one-dimensional  that extends from the first element to the specified index.
-        /// </summary>
-        /// <param name="array">The one-dimensional  to search.</param>
-        /// <param name="value">The object to locate in .</param>
-        /// <param name="startIndex">The starting index of the backward search.</param>
-        /// <returns>
-        ///     The index of the last occurrence of  within the range of elements in  that extends from the first element to ,
-        ///     if found; otherwise, the lower bound of the array minus 1.
-        /// </returns>
-        public static int LastIndexOf([NotNull] this Array array, object value, int startIndex)
-        {
-            return Array.LastIndexOf(array, value, startIndex);
-        }
-
-        /// <summary>
-        ///     Searches for the specified object and returns the index of the last occurrence within the range of elements
-        ///     in the one-dimensional  that contains the specified number of elements and ends at the specified index.
-        /// </summary>
-        /// <param name="array">The one-dimensional  to search.</param>
-        /// <param name="value">The object to locate in .</param>
-        /// <param name="startIndex">The starting index of the backward search.</param>
-        /// <param name="count">The number of elements in the section to search.</param>
-        /// <returns>
-        ///     The index of the last occurrence of  within the range of elements in  that contains the number of elements
-        ///     specified in  and ends at , if found; otherwise, the lower bound of the array minus 1.
-        /// </returns>
-        public static int LastIndexOf([NotNull] this Array array, object value, int startIndex, int count)
-        {
-            return Array.LastIndexOf(array, value, startIndex, count);
-        }
-
-        /// <summary>
-        ///     Reverses the sequence of the elements in the entire one-dimensional .
-        /// </summary>
-        /// <param name="array">The one-dimensional  to reverse.</param>
-        public static void Reverse([NotNull] this Array array)
-        {
-            Array.Reverse(array);
-        }
-
-        /// <summary>
-        ///     Reverses the sequence of the elements in a range of elements in the one-dimensional .
-        /// </summary>
-        /// <param name="array">The one-dimensional  to reverse.</param>
-        /// <param name="index">The starting index of the section to reverse.</param>
-        /// <param name="length">The number of elements in the section to reverse.</param>
-        public static void Reverse([NotNull] this Array array, int index, int length)
-        {
-            Array.Reverse(array, index, length);
-        }
-
-        /// <summary>
-        ///     Sorts the elements in an entire one-dimensional  using the  implementation of each element of the .
-        /// </summary>
-        /// <param name="array">The one-dimensional  to sort.</param>
-        public static void Sort([NotNull] this Array array)
-        {
-            Array.Sort(array);
-        }
-
-        /// <summary>
-        ///     Sorts a pair of one-dimensional  objects (one contains the keys and the other contains the corresponding
-        ///     items) based on the keys in the first  using the  implementation of each key.
-        /// </summary>
-        /// <param name="array">The one-dimensional  to sort.</param>
-        /// <param name="items">
-        ///     The one-dimensional  that contains the items that correspond to each of the keys in the .-or-
-        ///     null to sort only the .
-        /// </param>
-        public static void Sort([NotNull] this Array array, Array items)
-        {
-            Array.Sort(array, items);
-        }
-
-        /// <summary>
-        ///     Sorts the elements in a range of elements in a one-dimensional  using the  implementation of each element of
-        ///     the .
-        /// </summary>
-        /// <param name="array">The one-dimensional  to sort.</param>
-        /// <param name="index">The starting index of the range to sort.</param>
-        /// <param name="length">The number of elements in the range to sort.</param>
-        public static void Sort([NotNull] this Array array, int index, int length)
-        {
-            Array.Sort(array, index, length);
-        }
-
-        /// <summary>
-        ///     Sorts a range of elements in a pair of one-dimensional  objects (one contains the keys and the other contains
-        ///     the corresponding items) based on the keys in the first  using the  implementation of each key.
-        /// </summary>
-        /// <param name="array">The one-dimensional  to sort.</param>
-        /// <param name="items">
-        ///     The one-dimensional  that contains the items that correspond to each of the keys in the .-or-
-        ///     null to sort only the .
-        /// </param>
-        /// <param name="index">The starting index of the range to sort.</param>
-        /// <param name="length">The number of elements in the range to sort.</param>
-        public static void Sort([NotNull] this Array array, Array items, int index, int length)
-        {
-            Array.Sort(array, items, index, length);
-        }
-
-        /// <summary>
-        ///     Sorts the elements in a one-dimensional  using the specified .
-        /// </summary>
-        /// <param name="array">The one-dimensional  to sort.</param>
-        /// <param name="comparer">
-        ///     The  implementation to use when comparing elements.-or-null to use the  implementation of
-        ///     each element.
-        /// </param>
-        public static void Sort([NotNull] this Array array, IComparer comparer)
-        {
-            Array.Sort(array, comparer);
-        }
-
-        /// <summary>
-        ///     Sorts a pair of one-dimensional  objects (one contains the keys and the other contains the corresponding
-        ///     items) based on the keys in the first  using the specified .
-        /// </summary>
-        /// <param name="array">The one-dimensional  to sort.</param>
-        /// <param name="items">
-        ///     The one-dimensional  that contains the items that correspond to each of the keys in the .-or-
-        ///     null to sort only the .
-        /// </param>
-        /// <param name="comparer">
-        ///     The  implementation to use when comparing elements.-or-null to use the  implementation of
-        ///     each element.
-        /// </param>
-        public static void Sort([NotNull] this Array array, Array items, IComparer comparer)
-        {
-            Array.Sort(array, items, comparer);
-        }
-
-        /// <summary>
-        ///     Sorts the elements in a range of elements in a one-dimensional  using the specified .
-        /// </summary>
-        /// <param name="array">The one-dimensional  to sort.</param>
-        /// <param name="index">The starting index of the range to sort.</param>
-        /// <param name="length">The number of elements in the range to sort.</param>
-        /// <param name="comparer">
-        ///     The  implementation to use when comparing elements.-or-null to use the  implementation of
-        ///     each element.
-        /// </param>
-        public static void Sort([NotNull] this Array array, int index, int length, IComparer comparer)
-        {
-            Array.Sort(array, index, length, comparer);
-        }
-
-        /// <summary>
-        ///     Sorts a range of elements in a pair of one-dimensional  objects (one contains the keys and the other contains
-        ///     the corresponding items) based on the keys in the first  using the specified .
-        /// </summary>
-        /// <param name="array">The one-dimensional  to sort.</param>
-        /// <param name="items">
-        ///     The one-dimensional  that contains the items that correspond to each of the keys in the .-or-
-        ///     null to sort only the .
-        /// </param>
-        /// <param name="index">The starting index of the range to sort.</param>
-        /// <param name="length">The number of elements in the range to sort.</param>
-        /// <param name="comparer">
-        ///     The  implementation to use when comparing elements.-or-null to use the  implementation of
-        ///     each element.
-        /// </param>
-        public static void Sort([NotNull] this Array array, Array items, int index, int length, IComparer comparer)
-        {
-            Array.Sort(array, items, index, length, comparer);
-        }
-
-        /// <summary>
-        ///     Copies a specified number of bytes from a source array starting at a particular offset to a destination array
-        ///     starting at a particular offset.
-        /// </summary>
-        /// <param name="src">The source buffer.</param>
-        /// <param name="srcOffset">The zero-based byte offset into .</param>
-        /// <param name="dst">The destination buffer.</param>
-        /// <param name="dstOffset">The zero-based byte offset into .</param>
-        /// <param name="count">The number of bytes to copy.</param>
-        public static void BlockCopy([NotNull] this Array src, int srcOffset, Array dst, int dstOffset, int count)
-        {
-            Buffer.BlockCopy(src, srcOffset, dst, dstOffset, count);
-        }
-
-        #endregion Array
-
         #region Boolean
 
         /// <summary>
@@ -431,7 +24,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="action">The action to execute.</param>
-        public static void IfTrue(this bool @this, Action action)
+        public static void IfTrue(this bool @this, Action? action)
         {
             if (@this)
             {
@@ -444,7 +37,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <param name="action">The action to execute.</param>
-        public static void IfFalse(this bool @this, Action action)
+        public static void IfFalse(this bool @this, Action? action)
         {
             if (!@this)
             {
@@ -500,7 +93,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="inArray">An array of 8-bit unsigned integers.</param>
         /// <returns>The string representation, in base 64, of the contents of .</returns>
-        public static string ToBase64String([NotNull] this byte[] inArray)
+        public static string ToBase64String(this byte[] inArray)
         {
             return Convert.ToBase64String(inArray);
         }
@@ -512,7 +105,7 @@ namespace WeihanLi.Extensions
         /// <param name="inArray">An array of 8-bit unsigned integers.</param>
         /// <param name="options">to insert a line break every 76 characters, or  to not insert line breaks.</param>
         /// <returns>The string representation in base 64 of the elements in .</returns>
-        public static string ToBase64String([NotNull] this byte[] inArray, Base64FormattingOptions options)
+        public static string ToBase64String(this byte[] inArray, Base64FormattingOptions options)
         {
             return Convert.ToBase64String(inArray, options);
         }
@@ -526,7 +119,7 @@ namespace WeihanLi.Extensions
         /// <param name="offset">An offset in .</param>
         /// <param name="length">The number of elements of  to convert.</param>
         /// <returns>The string representation in base 64 of  elements of , starting at position .</returns>
-        public static string ToBase64String([NotNull] this byte[] inArray, int offset, int length)
+        public static string ToBase64String(this byte[] inArray, int offset, int length)
         {
             return Convert.ToBase64String(inArray, offset, length);
         }
@@ -541,7 +134,7 @@ namespace WeihanLi.Extensions
         /// <param name="length">The number of elements of  to convert.</param>
         /// <param name="options">to insert a line break every 76 characters, or  to not insert line breaks.</param>
         /// <returns>The string representation in base 64 of  elements of , starting at position .</returns>
-        public static string ToBase64String([NotNull] this byte[] inArray, int offset, int length, Base64FormattingOptions options)
+        public static string ToBase64String(this byte[] inArray, int offset, int length, Base64FormattingOptions options)
         {
             return Convert.ToBase64String(inArray, offset, length, options);
         }
@@ -552,7 +145,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="newSize">Size of the new.</param>
         /// <returns>A byte[].</returns>
-        public static byte[] Resize([NotNull] this byte[] @this, int newSize)
+        public static byte[] Resize(this byte[] @this, int newSize)
         {
             Array.Resize(ref @this, newSize);
             return @this;
@@ -561,17 +154,17 @@ namespace WeihanLi.Extensions
         /// <summary>
         ///     A byte[] extension method that converts the @this byteArray to a memory stream.
         /// </summary>
-        /// <param name="byteArray">The byetArray to act on</param>
+        /// <param name="byteArray">The byteArray to act on</param>
         /// <returns>@this as a MemoryStream.</returns>
-        public static MemoryStream ToMemoryStream([NotNull] this byte[] byteArray)
+        public static MemoryStream ToMemoryStream(this byte[] byteArray)
         {
-            return new MemoryStream(byteArray);
+            return new(byteArray);
         }
 
-        public static string GetString([NotNull] this byte[] byteArray)
-            => byteArray.GetString(Encoding.UTF8);
+        public static string GetString(this byte[]? byteArray)
+            => byteArray.HasValue() ? byteArray!.GetString(Encoding.UTF8) : string.Empty;
 
-        public static string GetString([NotNull] this byte[] byteArray, Encoding encoding) => encoding.GetString(byteArray);
+        public static string GetString(this byte[] byteArray, Encoding encoding) => encoding.GetString(byteArray);
 
         #endregion ByteArray
 
@@ -585,7 +178,7 @@ namespace WeihanLi.Extensions
         /// <returns>The repeated char.</returns>
         public static string Repeat(this char @this, int repeatCount)
         {
-            return new string(@this, repeatCount);
+            return new(@this, repeatCount);
         }
 
         /// <summary>
@@ -857,7 +450,7 @@ namespace WeihanLi.Extensions
         /// <returns>A DateTime of the day with the time set to "00:00:00:000".</returns>
         public static DateTime StartOfDay(this DateTime @this)
         {
-            return new DateTime(@this.Year, @this.Month, @this.Day);
+            return new(@this.Year, @this.Month, @this.Day);
         }
 
         /// <summary>
@@ -868,7 +461,7 @@ namespace WeihanLi.Extensions
         /// <returns>A DateTime of the first day of the month with the time set to "00:00:00:000".</returns>
         public static DateTime StartOfMonth(this DateTime @this)
         {
-            return new DateTime(@this.Year, @this.Month, 1);
+            return new(@this.Year, @this.Month, 1);
         }
 
         /// <summary>
@@ -902,7 +495,7 @@ namespace WeihanLi.Extensions
         /// <returns>A DateTime of the first day of the year with the time set to "00:00:00:000".</returns>
         public static DateTime StartOfYear(this DateTime @this)
         {
-            return new DateTime(@this.Year, 1, 1);
+            return new(@this.Year, 1, 1);
         }
 
         /// <summary>
@@ -1186,7 +779,7 @@ namespace WeihanLi.Extensions
         ///     A new delegate with an invocation list that concatenates the invocation lists of  and  in that order. Returns
         ///     if  is null, returns  if  is a null reference, and returns a null reference if both  and  are null references.
         /// </returns>
-        public static Delegate Combine([NotNull] this Delegate a, Delegate b)
+        public static Delegate Combine(this Delegate a, Delegate b)
         {
             return Delegate.Combine(a, b);
         }
@@ -1202,7 +795,7 @@ namespace WeihanLi.Extensions
         ///     Returns  if  is null or if the invocation list of  is not found within the invocation list of . Returns a
         ///     null reference if the invocation list of  is equal to the invocation list of  or if  is a null reference.
         /// </returns>
-        public static Delegate Remove([NotNull] this Delegate source, Delegate value)
+        public static Delegate? Remove(this Delegate source, Delegate value)
         {
             return Delegate.Remove(source, value);
         }
@@ -1219,7 +812,7 @@ namespace WeihanLi.Extensions
         ///     if the invocation list of  is equal to the invocation list of , if  contains only a series of invocation
         ///     lists that are equal to the invocation list of , or if  is a null reference.
         /// </returns>
-        public static Delegate RemoveAll([NotNull] this Delegate source, Delegate value)
+        public static Delegate? RemoveAll(this Delegate source, Delegate value)
         {
             return Delegate.RemoveAll(source, value);
         }
@@ -1584,7 +1177,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The object to be compared.</param>
         /// <param name="values">The value list to compare with the object.</param>
         /// <returns>true if the values list contains the object, else false.</returns>
-        public static bool In([NotNull] this Enum @this, params Enum[] values)
+        public static bool In(this Enum @this, params Enum[] values)
         {
             return Array.IndexOf(values, @this) >= 0;
         }
@@ -1594,69 +1187,22 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="value">The value to act on.</param>
         /// <returns>The description attribute.</returns>
-        public static string GetDescription([NotNull] this Enum value)
+        public static string GetDescription(this Enum value)
         {
-            var attr = value.GetType().GetField(value.ToString())
+            var stringValue = value.ToString();
+            var attr = value.GetType().GetField(stringValue)
                 .GetCustomAttribute<DescriptionAttribute>();
-            return attr?.Description;
+            return attr?.Description ?? stringValue;
         }
 
         #endregion Enum
-
-        #region EventHandler
-
-        /// <summary>
-        ///     An EventHandler extension method that raises the event event.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="sender">Source of the event.</param>
-        public static void RaiseEvent([CanBeNull] this EventHandler @this, object sender)
-        {
-            @this?.Invoke(sender, EventArgs.Empty);
-        }
-
-        /// <summary>
-        ///     An EventHandler extension method that raises.
-        /// </summary>
-        /// <param name="handler">The handler to act on.</param>
-        /// <param name="sender">Source of the event.</param>
-        /// <param name="e">Event information.</param>
-        public static void RaiseEvent([CanBeNull] this EventHandler handler, object sender, EventArgs e)
-        {
-            handler?.Invoke(sender, e);
-        }
-
-        /// <summary>
-        ///     An EventHandler&lt;TEventArgs&gt; extension method that raises the event event.
-        /// </summary>
-        /// <typeparam name="TEventArgs">Type of the event arguments.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="sender">Source of the event.</param>
-        public static void RaiseEvent<TEventArgs>([CanBeNull] this EventHandler<TEventArgs> @this, object sender) where TEventArgs : EventArgs
-        {
-            @this?.Invoke(sender, default);
-        }
-
-        /// <summary>
-        ///     An EventHandler&lt;TEventArgs&gt; extension method that raises the event event.
-        /// </summary>
-        /// <typeparam name="TEventArgs">Type of the event arguments.</typeparam>
-        /// <param name="this">The @this to act on.</param>
-        /// <param name="sender">Source of the event.</param>
-        /// <param name="e">Event information to send to registered event handlers.</param>
-        public static void RaiseEvent<TEventArgs>([CanBeNull] this EventHandler<TEventArgs> @this, object sender, TEventArgs e) where TEventArgs : EventArgs
-        {
-            @this?.Invoke(sender, e);
-        }
-
-        #endregion EventHandler
 
         #region Guid
 
         /// <summary>A GUID extension method that query if '@this' is empty.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if empty, false if not.</returns>
-        public static bool IsNullOrEmpty([NotNull] this Guid? @this)
+        public static bool IsNullOrEmpty(this Guid? @this)
         {
             return !@this.HasValue || @this == Guid.Empty;
         }
@@ -1664,7 +1210,7 @@ namespace WeihanLi.Extensions
         /// <summary>A GUID extension method that query if '@this' is not null or empty.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if empty, false if not.</returns>
-        public static bool IsNotNullOrEmpty([NotNull] this Guid? @this)
+        public static bool IsNotNullOrEmpty(this Guid? @this)
         {
             return @this.HasValue && @this.Value != Guid.Empty;
         }
@@ -2072,7 +1618,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A T.</returns>
-        public static T AsOrDefault<T>([NotNull] this object @this)
+        public static T? AsOrDefault<T>(this object @this)
         {
             try
             {
@@ -2080,7 +1626,7 @@ namespace WeihanLi.Extensions
             }
             catch (Exception)
             {
-                return default(T);
+                return default;
             }
         }
 
@@ -2091,7 +1637,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="defaultValue">The default value.</param>
         /// <returns>A T.</returns>
-        public static T AsOrDefault<T>([NotNull] this object @this, T defaultValue)
+        public static T AsOrDefault<T>(this object @this, T defaultValue)
         {
             try
             {
@@ -2110,7 +1656,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="defaultValueFactory">The default value factory.</param>
         /// <returns>A T.</returns>
-        public static T AsOrDefault<T>([NotNull] this object @this, Func<T> defaultValueFactory)
+        public static T AsOrDefault<T>(this object @this, Func<T> defaultValueFactory)
         {
             try
             {
@@ -2129,7 +1675,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="defaultValueFactory">The default value factory.</param>
         /// <returns>A T.</returns>
-        public static T AsOrDefault<T>([NotNull] this object @this, Func<object, T> defaultValueFactory)
+        public static T AsOrDefault<T>(this object @this, Func<object, T> defaultValueFactory)
         {
             try
             {
@@ -2147,12 +1693,15 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">this.</param>
         /// <returns>A T.</returns>
-        public static T To<T>(this object @this)
+        public static T To<T>(this object? @this)
         {
+#nullable disable
+
             if (@this == null || @this == DBNull.Value)
             {
                 return (T)(object)null;
             }
+#nullable restore
 
             var targetType = typeof(T).Unwrap();
             var sourceType = @this.GetType().Unwrap();
@@ -2163,13 +1712,13 @@ namespace WeihanLi.Extensions
             var converter = TypeDescriptor.GetConverter(sourceType);
             if (converter.CanConvertTo(targetType))
             {
-                return (T)converter.ConvertTo(@this, targetType);
+                return (T)converter.ConvertTo(@this, targetType)!;
             }
 
             converter = TypeDescriptor.GetConverter(targetType);
             if (converter.CanConvertFrom(sourceType))
             {
-                return (T)converter.ConvertFrom(@this);
+                return (T)converter.ConvertFrom(@this)!;
             }
 
             return (T)Convert.ChangeType(@this, targetType);
@@ -2181,7 +1730,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">this.</param>
         /// <param name="type">The type.</param>
         /// <returns>An object.</returns>
-        public static object To([CanBeNull] this object @this, Type type)
+        public static object? To(this object? @this, Type type)
         {
             if (@this == null || @this == DBNull.Value)
             {
@@ -2218,11 +1767,11 @@ namespace WeihanLi.Extensions
         /// <param name="this">this.</param>
         /// <param name="defaultValueFactory">The default value factory.</param>
         /// <returns>The given data converted to a T.</returns>
-        public static T ToOrDefault<T>([CanBeNull] this object @this, Func<object, T> defaultValueFactory)
+        public static T? ToOrDefault<T>(this object? @this, Func<object?, T?> defaultValueFactory)
         {
             try
             {
-                return (T)@this.To(typeof(T));
+                return (T)@this.To(typeof(T))!;
             }
             catch (Exception)
             {
@@ -2237,9 +1786,9 @@ namespace WeihanLi.Extensions
         /// <param name="this">this.</param>
         /// <param name="defaultValueFactory">The default value factory.</param>
         /// <returns>The given data converted to a T.</returns>
-        public static T ToOrDefault<T>([NotNull] this object @this, Func<T> defaultValueFactory)
+        public static T? ToOrDefault<T>(this object? @this, Func<T> defaultValueFactory)
         {
-            return @this.ToOrDefault(x => defaultValueFactory());
+            return @this.ToOrDefault(_ => defaultValueFactory());
         }
 
         /// <summary>
@@ -2248,8 +1797,9 @@ namespace WeihanLi.Extensions
         /// <param name="this">this.</param>
         /// <param name="type">type</param>
         /// <returns>The given data converted to</returns>
-        public static object ToOrDefault([NotNull] this object @this, [NotNull] Type type)
+        public static object? ToOrDefault(this object @this, Type type)
         {
+            Guard.NotNull(type, nameof(type));
             try
             {
                 return @this.To(type);
@@ -2266,9 +1816,9 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">this.</param>
         /// <returns>The given data converted to a T.</returns>
-        public static T ToOrDefault<T>([CanBeNull] this object @this)
+        public static T? ToOrDefault<T>(this object? @this)
         {
-            return @this.ToOrDefault(x => default(T));
+            return @this.ToOrDefault(_ => default(T));
         }
 
         /// <summary>
@@ -2278,9 +1828,9 @@ namespace WeihanLi.Extensions
         /// <param name="this">this.</param>
         /// <param name="defaultValue">The default value.</param>
         /// <returns>The given data converted to a T.</returns>
-        public static T ToOrDefault<T>([CanBeNull] this object @this, T defaultValue)
+        public static T? ToOrDefault<T>(this object? @this, T defaultValue)
         {
-            return @this.ToOrDefault(x => defaultValue);
+            return @this.ToOrDefault(_ => defaultValue);
         }
 
         /// <summary>
@@ -2289,7 +1839,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if assignable from, false if not.</returns>
-        public static bool IsAssignableFrom<T>([NotNull] this object @this)
+        public static bool IsAssignableFrom<T>(this object @this)
         {
             var type = @this.GetType();
             return type.IsAssignableFrom(typeof(T));
@@ -2301,7 +1851,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="targetType">Type of the target.</param>
         /// <returns>true if assignable from, false if not.</returns>
-        public static bool IsAssignableFrom([NotNull] this object @this, Type targetType)
+        public static bool IsAssignableFrom(this object @this, Type targetType)
         {
             var type = @this.GetType();
             return type.IsAssignableFrom(targetType);
@@ -2314,7 +1864,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="action">The action.</param>
         /// <returns>The @this acted on.</returns>
-        public static T Chain<T>([NotNull] this T @this, Action<T> action)
+        public static T Chain<T>(this T @this, Action<T>? action)
         {
             action?.Invoke(@this);
 
@@ -2328,11 +1878,11 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns>A T.</returns>
-        public static T NullIf<T>([NotNull] this T @this, Func<T, bool> predicate) where T : class
+        public static T? NullIf<T>(this T @this, Func<T, bool>? predicate) where T : class
         {
             if (predicate?.Invoke(@this) == true)
             {
-                return null;
+                return default;
             }
             return @this;
         }
@@ -2345,7 +1895,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="func">The function.</param>
         /// <returns>The value or default.</returns>
-        public static TResult GetValueOrDefault<T, TResult>([NotNull] this T @this, Func<T, TResult> func)
+        public static TResult? GetValueOrDefault<T, TResult>(this T @this, Func<T, TResult> func)
         {
             try
             {
@@ -2366,7 +1916,7 @@ namespace WeihanLi.Extensions
         /// <param name="func">The function.</param>
         /// <param name="defaultValue">The default value.</param>
         /// <returns>The value or default.</returns>
-        public static TResult GetValueOrDefault<T, TResult>([NotNull] this T @this, Func<T, TResult> func, TResult defaultValue)
+        public static TResult GetValueOrDefault<T, TResult>(this T @this, Func<T, TResult> func, TResult defaultValue)
         {
             try
             {
@@ -2385,7 +1935,7 @@ namespace WeihanLi.Extensions
         /// <param name="tryFunction">The try function.</param>
         /// <param name="catchValue">The catch value.</param>
         /// <returns>A TResult.</returns>
-        public static TResult Try<TType, TResult>([NotNull] this TType @this, Func<TType, TResult> tryFunction, TResult catchValue)
+        public static TResult Try<TType, TResult>(this TType @this, Func<TType, TResult> tryFunction, TResult catchValue)
         {
             try
             {
@@ -2404,7 +1954,7 @@ namespace WeihanLi.Extensions
         /// <param name="tryFunction">The try function.</param>
         /// <param name="catchValueFactory">The catch value factory.</param>
         /// <returns>A TResult.</returns>
-        public static TResult Try<TType, TResult>([NotNull] this TType @this, Func<TType, TResult> tryFunction, Func<TType, TResult> catchValueFactory)
+        public static TResult Try<TType, TResult>(this TType @this, Func<TType, TResult> tryFunction, Func<TType, TResult> catchValueFactory)
         {
             try
             {
@@ -2423,7 +1973,7 @@ namespace WeihanLi.Extensions
         /// <param name="tryFunction">The try function.</param>
         /// <param name="result">[out] The result.</param>
         /// <returns>A TResult.</returns>
-        public static bool Try<TType, TResult>([NotNull] this TType @this, Func<TType, TResult> tryFunction, out TResult result)
+        public static bool Try<TType, TResult>(this TType @this, Func<TType, TResult> tryFunction, out TResult? result)
         {
             try
             {
@@ -2432,7 +1982,7 @@ namespace WeihanLi.Extensions
             }
             catch
             {
-                result = default(TResult);
+                result = default;
                 return false;
             }
         }
@@ -2445,7 +1995,7 @@ namespace WeihanLi.Extensions
         /// <param name="catchValue">The catch value.</param>
         /// <param name="result">[out] The result.</param>
         /// <returns>A TResult.</returns>
-        public static bool Try<TType, TResult>([NotNull] this TType @this, Func<TType, TResult> tryFunction, TResult catchValue, out TResult result)
+        public static bool Try<TType, TResult>(this TType @this, Func<TType, TResult> tryFunction, TResult catchValue, out TResult result)
         {
             try
             {
@@ -2467,7 +2017,7 @@ namespace WeihanLi.Extensions
         /// <param name="catchValueFactory">The catch value factory.</param>
         /// <param name="result">[out] The result.</param>
         /// <returns>A TResult.</returns>
-        public static bool Try<TType, TResult>([NotNull] this TType @this, Func<TType, TResult> tryFunction, Func<TType, TResult> catchValueFactory, out TResult result)
+        public static bool Try<TType, TResult>(this TType @this, Func<TType, TResult> tryFunction, Func<TType, TResult> catchValueFactory, out TResult result)
         {
             try
             {
@@ -2486,7 +2036,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="tryAction">The try action.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static bool Try<TType>([NotNull] this TType @this, Action<TType> tryAction)
+        public static bool Try<TType>(this TType @this, Action<TType> tryAction)
         {
             try
             {
@@ -2505,7 +2055,7 @@ namespace WeihanLi.Extensions
         /// <param name="tryAction">The try action.</param>
         /// <param name="catchAction">The catch action.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static bool Try<TType>([NotNull] this TType @this, Action<TType> tryAction, Action<TType> catchAction)
+        public static bool Try<TType>(this TType @this, Action<TType> tryAction, Action<TType> catchAction)
         {
             try
             {
@@ -2527,7 +2077,7 @@ namespace WeihanLi.Extensions
         /// <param name="minValue">The minimum value.</param>
         /// <param name="maxValue">The maximum value.</param>
         /// <returns>true if the value is between inclusively the minValue and maxValue, otherwise false.</returns>
-        public static bool InRange<T>([NotNull] this T @this, T minValue, T maxValue) where T : IComparable<T>
+        public static bool InRange<T>(this T @this, T minValue, T maxValue) where T : IComparable<T>
         {
             return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
         }
@@ -2540,7 +2090,7 @@ namespace WeihanLi.Extensions
         /// <returns>true if default, false if not.</returns>
         public static bool IsDefault<T>(this T source)
         {
-            return typeof(T).IsValueType ? source.Equals(default(T)) : source == null;
+            return source is null || source.Equals(default(T));
         }
 
         /// <summary>
@@ -2548,7 +2098,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a string or empty if the value is null.</returns>
-        public static string ToSafeString(this object @this) => $"{@this}";
+        public static string ToSafeString(this object? @this) => $"{@this}";
 
         #endregion object
 
@@ -2559,7 +2109,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="args">An array of objects whose types to determine.</param>
         /// <returns>An array of  objects representing the types of the corresponding elements in .</returns>
-        public static Type[] GetTypeArray([NotNull] this object[] args)
+        public static Type[] GetTypeArray(this object[] args)
         {
             return Type.GetTypeArray(args);
         }
@@ -2575,7 +2125,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="values">A variable-length parameters list containing arguments.</param>
         /// <returns>One of the specified value.</returns>
-        public static T OneOf<T>([NotNull] this Random @this, params T[] values)
+        public static T OneOf<T>(this Random @this, params T[] values)
         {
             return values[@this.Next(values.Length)];
         }
@@ -2585,7 +2135,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true 50% of time, otherwise false.</returns>
-        public static bool CoinToss([NotNull] this Random @this)
+        public static bool CoinToss(this Random @this)
         {
             return @this.Next(2) == 0;
         }
@@ -2595,50 +2145,39 @@ namespace WeihanLi.Extensions
         #region string
 
         /// <summary>
-        ///     A T extension method that query if '@this' is null.
-        /// </summary>
-        /// <param name="this">The @this to act on.</param>
-        /// <returns>true if null, false if not.</returns>
-        public static bool IsNull(this string @this)
-        {
-            return @this == null;
-        }
-
-        /// <summary>
         ///     A string extension method that query if '@this' is null or empty.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if null or empty, false if not.</returns>
-        public static bool IsNullOrEmpty(this string @this) => string.IsNullOrEmpty(@this);
+        public static bool IsNullOrEmpty(this string? @this) => string.IsNullOrEmpty(@this);
 
         /// <summary>
         ///     A string extension method that query if '@this' is not null and not empty.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>false if null or empty, true if not.</returns>
-        public static bool IsNotNullOrEmpty(this string @this)
-            => !string.IsNullOrEmpty(@this);
+        public static bool IsNotNullOrEmpty(this string? @this) => !string.IsNullOrEmpty(@this);
 
         /// <summary>
         ///     A string extension method that query if '@this' is null or whiteSpace.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>true if null or whiteSpace, false if not.</returns>
-        public static bool IsNullOrWhiteSpace(this string @this) => string.IsNullOrWhiteSpace(@this);
+        public static bool IsNullOrWhiteSpace(this string? @this) => string.IsNullOrWhiteSpace(@this);
 
         /// <summary>
         ///     A string extension method that query if '@this' is not null and not whiteSpace.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>false if null or whiteSpace, true if not.</returns>
-        public static bool IsNotNullOrWhiteSpace(this string @this) => !string.IsNullOrWhiteSpace(@this);
+        public static bool IsNotNullOrWhiteSpace(this string? @this) => !string.IsNullOrWhiteSpace(@this);
 
         /// <summary>
         ///     Creates a new instance of  with the same value as a specified .
         /// </summary>
         /// <param name="str">The string to copy.</param>
         /// <returns>A new string with the same value as .</returns>
-        public static string Copy([NotNull] this string str) => string.Copy(str);
+        public static string Copy(this string str) => string.Copy(str);
 
         /// <summary>
         ///     Retrieves the system&#39;s reference to the specified .
@@ -2647,14 +2186,14 @@ namespace WeihanLi.Extensions
         /// <returns>
         ///     The system&#39;s reference to , if it is interned; otherwise, a new reference to a string with the value of .
         /// </returns>
-        public static string Intern([NotNull] this string str) => string.Intern(str);
+        public static string Intern(this string str) => string.Intern(str);
 
         /// <summary>
         ///     Retrieves a reference to a specified .
         /// </summary>
         /// <param name="str">The string to search for in the intern pool.</param>
         /// <returns>A reference to  if it is in the common language runtime intern pool; otherwise, null.</returns>
-        public static string IsInterned([NotNull] this string str) => string.IsInterned(str);
+        public static string IsInterned(this string str) => string.IsInterned(str);
 
         /// <summary>
         ///     Concatenates the elements of an object array, using the specified separator between each element.
@@ -2668,7 +2207,7 @@ namespace WeihanLi.Extensions
         ///     A string that consists of the elements of  delimited by the  string. If  is an empty array, the method
         ///     returns .
         /// </returns>
-        public static string Join<T>([NotNull] this string separator, IEnumerable<T> values) => string.Join(separator, values);
+        public static string Join<T>(this string separator, IEnumerable<T> values) => string.Join(separator, values);
 
         /// <summary>
         ///     Indicates whether the specified regular expression finds a match in the specified input string.
@@ -2676,7 +2215,7 @@ namespace WeihanLi.Extensions
         /// <param name="input">The string to search for a match.</param>
         /// <param name="pattern">The regular expression pattern to match.</param>
         /// <returns>true if the regular expression finds a match; otherwise, false.</returns>
-        public static bool IsMatch([NotNull] this string input, string pattern) => Regex.IsMatch(input, pattern);
+        public static bool IsMatch(this string input, string pattern) => Regex.IsMatch(input, pattern);
 
         /// <summary>
         ///     Indicates whether the specified regular expression finds a match in the specified input string, using the
@@ -2686,12 +2225,12 @@ namespace WeihanLi.Extensions
         /// <param name="pattern">The regular expression pattern to match.</param>
         /// <param name="options">A bitwise combination of the enumeration values that provide options for matching.</param>
         /// <returns>true if the regular expression finds a match; otherwise, false.</returns>
-        public static bool IsMatch([NotNull] this string input, string pattern, RegexOptions options) => Regex.IsMatch(input, pattern, options);
+        public static bool IsMatch(this string input, string pattern, RegexOptions options) => Regex.IsMatch(input, pattern, options);
 
         /// <summary>An IEnumerable&lt;string&gt; extension method that concatenates the given this.</summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A string.</returns>
-        public static string Concatenate([NotNull] this IEnumerable<string> @this)
+        public static string Concatenate(this IEnumerable<string> @this)
         {
             var sb = new StringBuilder();
 
@@ -2708,7 +2247,7 @@ namespace WeihanLi.Extensions
         /// <param name="source">The source to act on.</param>
         /// <param name="func">The function.</param>
         /// <returns>A string.</returns>
-        public static string Concatenate<T>([NotNull] this IEnumerable<T> source, Func<T, string> func)
+        public static string Concatenate<T>(this IEnumerable<T> source, Func<T, string> func)
         {
             var sb = new StringBuilder();
             foreach (var item in source)
@@ -2725,7 +2264,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="value">The value.</param>
         /// <returns>true if the value is in the string, false if not.</returns>
-        public static bool Contains([NotNull] this string @this, string value) => @this.IndexOf(value, StringComparison.Ordinal) != -1;
+        public static bool Contains(this string @this, string value) => @this.IndexOf(value, StringComparison.Ordinal) != -1;
 
         /// <summary>
         ///     A string extension method that query if this object contains the given value.
@@ -2734,7 +2273,7 @@ namespace WeihanLi.Extensions
         /// <param name="value">The value.</param>
         /// <param name="comparisonType">Type of the comparison.</param>
         /// <returns>true if the value is in the string, false if not.</returns>
-        public static bool Contains([NotNull] this string @this, string value, StringComparison comparisonType) => @this.IndexOf(value, comparisonType) != -1;
+        public static bool Contains(this string @this, string value, StringComparison comparisonType) => @this.IndexOf(value, comparisonType) != -1;
 
         /// <summary>
         ///     A string extension method that extracts this object.
@@ -2742,7 +2281,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns>A string.</returns>
-        public static string Extract([NotNull] this string @this, Func<char, bool> predicate) => new string(@this.ToCharArray().Where(predicate).ToArray());
+        public static string Extract(this string @this, Func<char, bool> predicate) => new(@this.ToCharArray().Where(predicate).ToArray());
 
         /// <summary>
         ///     A string extension method that removes the letter.
@@ -2750,7 +2289,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns>A string.</returns>
-        public static string RemoveWhere([NotNull] this string @this, Func<char, bool> predicate) => new string(@this.ToCharArray().Where(x => !predicate(x)).ToArray());
+        public static string RemoveWhere(this string @this, Func<char, bool> predicate) => new(@this.ToCharArray().Where(x => !predicate(x)).ToArray());
 
         /// <summary>
         ///     Replaces the format item in a specified String with the text equivalent of the value of a corresponding
@@ -2762,7 +2301,7 @@ namespace WeihanLi.Extensions
         ///     A copy of format in which the format items have been replaced by the String equivalent of the corresponding
         ///     instances of Object in args.
         /// </returns>
-        public static string FormatWith([NotNull] this string @this, params object[] values) => string.Format(@this, values);
+        public static string FormatWith(this string @this, params object[] values) => string.Format(@this, values);
 
         /// <summary>
         ///     A string extension method that query if '@this' satisfy the specified pattern.
@@ -2770,7 +2309,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="pattern">The pattern to use. Use '*' as wildcard string.</param>
         /// <returns>true if '@this' satisfy the specified pattern, false if not.</returns>
-        public static bool IsLike([NotNull] this string @this, string pattern)
+        public static bool IsLike(this string @this, string pattern)
         {
             // Turn the pattern into regex pattern, and match the whole string with ^$
             var regexPattern = "^" + Regex.Escape(pattern) + "$";
@@ -2792,7 +2331,7 @@ namespace WeihanLi.Extensions
         /// <param name="this"></param>
         /// <param name="startIndex"></param>
         /// <returns></returns>
-        public static string SafeSubstring([NotNull] this string @this, int startIndex)
+        public static string SafeSubstring(this string @this, int startIndex)
         {
             if (startIndex < 0 || startIndex > @this.Length)
             {
@@ -2808,7 +2347,7 @@ namespace WeihanLi.Extensions
         /// <param name="startIndex"></param>
         /// <param name="length"></param>
         /// <returns></returns>
-        public static string SafeSubstring([NotNull] this string str, int startIndex, int length)
+        public static string SafeSubstring(this string str, int startIndex, int length)
         {
             if (startIndex < 0 || startIndex >= str.Length || length < 0)
             {
@@ -2823,7 +2362,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">string to be handled</param>
         /// <param name="startIndex">startIndex to substract</param>
         /// <returns>substring</returns>
-        public static string Sub([NotNull] this string @this, int startIndex)
+        public static string Sub(this string @this, int startIndex)
         {
             if (startIndex >= 0)
             {
@@ -2842,7 +2381,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="repeatCount">Number of repeats.</param>
         /// <returns>The repeated string.</returns>
-        public static string Repeat([NotNull] this string @this, int repeatCount)
+        public static string Repeat(this string @this, int repeatCount)
         {
             if (@this.Length == 1)
             {
@@ -2863,7 +2402,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The string reversed.</returns>
-        public static string Reverse([NotNull] this string @this)
+        public static string Reverse(this string @this)
         {
             if (@this.Length <= 1)
             {
@@ -2888,14 +2427,14 @@ namespace WeihanLi.Extensions
         /// <returns>
         ///     An array whose elements contain the substrings in this string that are delimited by the separator.
         /// </returns>
-        public static string[] Split([NotNull] this string @this, string separator, StringSplitOptions option = StringSplitOptions.None) => @this.Split(new[] { separator }, option);
+        public static string[] Split(this string @this, string separator, StringSplitOptions option = StringSplitOptions.None) => @this.Split(new[] { separator }, option);
 
         /// <summary>
         ///     A string extension method that converts the @this to a byte array.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a byte[].</returns>
-        public static byte[] ToByteArray([NotNull] this string @this) => Encoding.UTF8.GetBytes(@this);
+        public static byte[] ToByteArray(this string @this) => Encoding.UTF8.GetBytes(@this);
 
         /// <summary>
         ///     A string extension method that converts the @this to a byte array.
@@ -2903,11 +2442,11 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="encoding">encoding</param>
         /// <returns>@this as a byte[].</returns>
-        public static byte[] ToByteArray([NotNull] this string @this, Encoding encoding) => encoding.GetBytes(@this);
+        public static byte[] ToByteArray(this string @this, Encoding encoding) => encoding.GetBytes(@this);
 
-        public static byte[] GetBytes([NotNull] this string str) => str.GetBytes(Encoding.UTF8);
+        public static byte[] GetBytes(this string str) => str.GetBytes(Encoding.UTF8);
 
-        public static byte[] GetBytes([NotNull] this string str, Encoding encoding) => encoding.GetBytes(str);
+        public static byte[] GetBytes(this string str, Encoding encoding) => encoding.GetBytes(str);
 
         /// <summary>
         ///     A string extension method that converts the @this to an enum.
@@ -2915,14 +2454,14 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a T.</returns>
-        public static T ToEnum<T>([NotNull] this string @this) => (T)Enum.Parse(typeof(T), @this);
+        public static T ToEnum<T>(this string @this) => (T)Enum.Parse(typeof(T), @this);
 
         /// <summary>
         ///     A string extension method that converts the @this to a title case.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a string.</returns>
-        public static string ToTitleCase([NotNull] this string @this) => new CultureInfo("en-US").TextInfo.ToTitleCase(@this);
+        public static string ToTitleCase(this string @this) => new CultureInfo("en-US").TextInfo.ToTitleCase(@this);
 
         /// <summary>
         ///     A string extension method that converts the @this to a title case.
@@ -2930,7 +2469,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="cultureInfo">Information describing the culture.</param>
         /// <returns>@this as a string.</returns>
-        public static string ToTitleCase([NotNull] this string @this, CultureInfo cultureInfo) => cultureInfo.TextInfo.ToTitleCase(@this);
+        public static string ToTitleCase(this string @this, CultureInfo cultureInfo) => cultureInfo.TextInfo.ToTitleCase(@this);
 
         /// <summary>
         ///     A string extension method that truncates.
@@ -2949,7 +2488,7 @@ namespace WeihanLi.Extensions
         /// <returns>A string.</returns>
         public static string Truncate(this string @this, int maxLength, string suffix)
         {
-            if (@this == null || @this.Length <= maxLength)
+            if (Guard.NotNull(@this, nameof(@this)).Length <= maxLength)
             {
                 return @this;
             }
@@ -2962,7 +2501,7 @@ namespace WeihanLi.Extensions
         /// <param name="s1">string1</param>
         /// <param name="s2">string2</param>
         /// <returns></returns>
-        public static bool EqualsIgnoreCase(this string s1, string s2)
+        public static bool EqualsIgnoreCase(this string? s1, string? s2)
             => string.Equals(s1, s2, StringComparison.OrdinalIgnoreCase);
 
         #endregion string
@@ -2973,7 +2512,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="startIndex">The start index.</param>
         /// <returns>A string.</returns>
-        public static string Substring([NotNull] this StringBuilder @this, int startIndex)
+        public static string Substring(this StringBuilder @this, int startIndex)
         {
             return @this.ToString(startIndex, @this.Length - startIndex);
         }
@@ -2983,7 +2522,7 @@ namespace WeihanLi.Extensions
         /// <param name="startIndex">The start index.</param>
         /// <param name="length">The length.</param>
         /// <returns>A string.</returns>
-        public static string Substring([NotNull] this StringBuilder @this, int startIndex, int length)
+        public static string Substring(this StringBuilder @this, int startIndex, int length)
         {
             return @this.ToString(startIndex, length);
         }
@@ -2993,7 +2532,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="separator">The separator.</param>
         /// <param name="values">The values.</param>
-        public static StringBuilder AppendJoin<T>([NotNull] this StringBuilder @this, string separator, IEnumerable<T> values)
+        public static StringBuilder AppendJoin<T>(this StringBuilder @this, string separator, IEnumerable<T> values)
         {
             @this.Append(string.Join(separator, values));
 
@@ -3005,7 +2544,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="separator">The separator.</param>
         /// <param name="values">The values.</param>
-        public static StringBuilder AppendLineJoin<T>([NotNull] this StringBuilder @this, string separator, IEnumerable<T> values)
+        public static StringBuilder AppendLineJoin<T>(this StringBuilder @this, string separator, IEnumerable<T> values)
         {
             @this.AppendLine(string.Join(separator, values));
 
@@ -3021,9 +2560,10 @@ namespace WeihanLi.Extensions
         /// <returns>StringBuilder</returns>
         public static StringBuilder AppendIf(this StringBuilder builder, string text, bool condition)
         {
+            Guard.NotNull(builder, nameof(builder));
             if (condition)
             {
-                builder?.Append(text);
+                builder.Append(text);
             }
             return builder;
         }
@@ -3037,9 +2577,11 @@ namespace WeihanLi.Extensions
         /// <returns>StringBuilder</returns>
         public static StringBuilder AppendLineIf(this StringBuilder builder, string text, bool condition)
         {
+            Guard.NotNull(builder, nameof(builder));
+
             if (condition)
             {
-                builder?.AppendLine(text);
+                builder.AppendLine(text);
             }
             return builder;
         }
@@ -3087,7 +2629,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The new instance.</returns>
-        public static T CreateInstance<T>([NotNull] this Type @this) => (T)Activator.CreateInstance(@this);
+        public static T CreateInstance<T>(this Type @this) => (T)Activator.CreateInstance(@this);
 
         /// <summary>
         ///     A Type extension method that creates an instance.
@@ -3096,14 +2638,14 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="args">The arguments.</param>
         /// <returns>The new instance.</returns>
-        public static T CreateInstance<T>([NotNull] this Type @this, params object[] args) => (T)Activator.CreateInstance(@this, args);
+        public static T CreateInstance<T>(this Type @this, params object[] args) => (T)Activator.CreateInstance(@this, args);
 
         /// <summary>
         /// if a type has empty constructor
         /// </summary>
         /// <param name="type">type</param>
         /// <returns></returns>
-        public static bool HasEmptyConstructor([NotNull] this Type type)
+        public static bool HasEmptyConstructor(this Type type)
             => type.GetConstructors(BindingFlags.Instance).Any(c => c.GetParameters().Length == 0);
 
         public static bool IsNullableType(this Type type)
@@ -3112,14 +2654,14 @@ namespace WeihanLi.Extensions
         }
 
         private static readonly ConcurrentDictionary<Type, object> _defaultValues =
-            new ConcurrentDictionary<Type, object>();
+            new();
 
         /// <summary>
         /// 根据 Type 获取默认值，实现类似 default(T) 的功能
         /// </summary>
         /// <param name="type">type</param>
         /// <returns></returns>
-        public static object GetDefaultValue([NotNull] this Type type) =>
+        public static object? GetDefaultValue(this Type type) =>
             type.IsValueType && type != typeof(void) ? _defaultValues.GetOrAdd(type, Activator.CreateInstance) : null;
 
         /// <summary>
@@ -3127,7 +2669,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="type">type</param>
         /// <returns></returns>
-        public static Type Unwrap([NotNull] this Type type)
+        public static Type Unwrap(this Type type)
             => Nullable.GetUnderlyingType(type) ?? type;
 
         /// <summary>
@@ -3135,7 +2677,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="type">type</param>
         /// <returns></returns>
-        public static Type GetUnderlyingType([NotNull] this Type type)
+        public static Type? GetUnderlyingType(this Type type)
             => Nullable.GetUnderlyingType(type);
 
         #endregion Type

@@ -133,7 +133,7 @@ namespace DotNetCoreSample
         [Column("PKID")]
         public int Id { get; set; }
 
-        public string Token { get; set; }
+        public string? Token { get; set; }
 
         public DateTime CreatedTime { get; set; }
     }

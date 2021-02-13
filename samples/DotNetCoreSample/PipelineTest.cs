@@ -3,13 +3,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
 
+// ReSharper disable LocalizableElement
+
 namespace DotNetCoreSample
 {
     public class PipelineTest
     {
         private class RequestContext
         {
-            public string RequesterName { get; set; }
+            public string? RequesterName { get; set; }
 
             public int Hour { get; set; }
         }
@@ -85,13 +87,13 @@ namespace DotNetCoreSample
                     })
                     .When(context => context.Hour <= 2, pipeline =>
                            {
-                               pipeline.Use((context, next) =>
+                               pipeline.Use((_, next) =>
                                {
                                    Console.WriteLine("This should be invoked");
                                    next();
                                });
-                               pipeline.Run(context => Console.WriteLine("pass 1"));
-                               pipeline.Use((context, next) =>
+                               pipeline.Run(_ => Console.WriteLine("pass 1"));
+                               pipeline.Use((_, next) =>
                                {
                                    Console.WriteLine("This should not be invoked");
                                    next();
@@ -100,11 +102,11 @@ namespace DotNetCoreSample
                            })
                     .When(context => context.Hour <= 4, pipeline =>
                        {
-                           pipeline.Run(context => Console.WriteLine("pass 2"));
+                           pipeline.Run(_ => Console.WriteLine("pass 2"));
                        })
                     .When(context => context.Hour <= 6, pipeline =>
                        {
-                           pipeline.Run(context => Console.WriteLine("pass 3"));
+                           pipeline.Run(_ => Console.WriteLine("pass 3"));
                        })
 
                 ;
@@ -192,7 +194,7 @@ namespace DotNetCoreSample
                     })
                     .When(context => context.Hour <= 2, pipeline =>
                     {
-                        pipeline.Run(context =>
+                        pipeline.Run(_ =>
                         {
                             Console.WriteLine("pass 1");
                             return Task.CompletedTask;
@@ -200,7 +202,7 @@ namespace DotNetCoreSample
                     })
                     .When(context => context.Hour <= 4, pipeline =>
                     {
-                        pipeline.Run(context =>
+                        pipeline.Run(_ =>
                         {
                             Console.WriteLine("pass 2");
                             return Task.CompletedTask;
@@ -208,7 +210,7 @@ namespace DotNetCoreSample
                     })
                     .When(context => context.Hour <= 6, pipeline =>
                     {
-                        pipeline.Run(context =>
+                        pipeline.Run(_ =>
                         {
                             Console.WriteLine("pass 3");
                             return Task.CompletedTask;

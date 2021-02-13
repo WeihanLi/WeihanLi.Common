@@ -13,7 +13,7 @@ namespace WeihanLi.Common.Test
             using var locker = new AsyncLock();
             int num = 0, count = 100;
             //
-            Parallel.For(0, count, i =>
+            Parallel.For(0, count, _ =>
             {
                 // ReSharper disable once AccessToDisposedClosure
                 using (locker.Lock())
@@ -31,7 +31,7 @@ namespace WeihanLi.Common.Test
             int num = 0, count = 100;
             //
             await Enumerable.Range(1, count)
-                .Select(async x =>
+                .Select(async _ =>
                 {
                     // ReSharper disable once AccessToDisposedClosure
                     using (await locker.LockAsync())

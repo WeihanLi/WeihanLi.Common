@@ -34,7 +34,7 @@ namespace WeihanLi.Common.Helpers
                 FlushInternal();
             }
 
-            return TaskHelper.CompletedTask;
+            return Task.CompletedTask;
         }
 
         public override void Write(char value)
@@ -59,7 +59,7 @@ namespace WeihanLi.Common.Helpers
             {
                 _builder.Append(value);
             }
-            return TaskHelper.CompletedTask;
+            return Task.CompletedTask;
         }
 
         private void FlushInternal()

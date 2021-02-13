@@ -15,9 +15,9 @@ namespace WeihanLi.Common.Event
         Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event)
             where TEvent : class, IEventBase;
 
-        IEventBase Dequeue(string queueName);
+        IEventBase? Dequeue(string queueName);
 
-        Task<IEventBase> DequeueAsync(string queueName);
+        Task<IEventBase?> DequeueAsync(string queueName);
     }
 
     public static class EventQueueExtensions
@@ -36,24 +36,21 @@ namespace WeihanLi.Common.Event
             return eventQueue.EnqueueAsync(DefaultQueueName, @event);
         }
 
-        public static bool TryDequeue(this IEventQueue eventQueue, string queueName, out IEventBase @event)
+        public static bool TryDequeue(this IEventQueue eventQueue, string queueName, out IEventBase? @event)
         {
             @event = eventQueue.Dequeue(queueName);
-            return null != @event;
+            return @event is not null;
         }
 
-        public static bool TryDequeue(this IEventQueue eventQueue, out IEventBase @event)
-        {
-            @event = eventQueue.Dequeue(DefaultQueueName);
-            return null != @event;
-        }
+        public static bool TryDequeue(this IEventQueue eventQueue, out IEventBase? @event)
+            => TryDequeue(eventQueue, DefaultQueueName, out @event);
 
-        public static IEventBase Dequeue(this IEventQueue eventQueue)
+        public static IEventBase? Dequeue(this IEventQueue eventQueue)
         {
             return eventQueue.Dequeue(DefaultQueueName);
         }
 
-        public static Task<IEventBase> DequeueAsync(this IEventQueue eventQueue)
+        public static Task<IEventBase?> DequeueAsync(this IEventQueue eventQueue)
         {
             return eventQueue.DequeueAsync(DefaultQueueName);
         }

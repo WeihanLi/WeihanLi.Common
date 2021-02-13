@@ -1,9 +1,4 @@
-﻿#if NETSTANDARD
-
-using Microsoft.Extensions.Options;
-
-#endif
-
+﻿using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks;
 
@@ -15,26 +10,11 @@ namespace WeihanLi.Common.Event
 
         private readonly EventQueuePublisherOptions _options;
 
-#if NETSTANDARD
-
         public EventQueuePublisher(IEventQueue eventQueue, IOptions<EventQueuePublisherOptions> options)
         {
             _eventQueue = eventQueue;
             _options = options.Value;
         }
-
-#else
-        public EventQueuePublisher(IEventQueue eventQueue)
-        {
-            _eventQueue = eventQueue;
-            _options = new EventQueuePublisherOptions();
-        }
-
-        public void Config(Action<EventQueuePublisherOptions> configAction)
-        {
-            configAction?.Invoke(_options);
-        }
-#endif
 
         public virtual bool Publish<TEvent>(TEvent @event)
             where TEvent : class, IEventBase
@@ -54,18 +34,12 @@ namespace WeihanLi.Common.Event
 
     public class EventQueuePublisherOptions
     {
-        private Func<Type, string> _eventQueueNameResolver = t => "events";
+        private Func<Type, string> _eventQueueNameResolver = _ => "events";
 
         public Func<Type, string> EventQueueNameResolver
         {
             get => _eventQueueNameResolver;
-            set
-            {
-                if (null != _eventQueueNameResolver)
-                {
-                    _eventQueueNameResolver = value;
-                }
-            }
+            set => _eventQueueNameResolver = Guard.NotNull(value, nameof(value));
         }
     }
 }

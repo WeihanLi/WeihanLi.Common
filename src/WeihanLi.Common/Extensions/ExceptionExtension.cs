@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
+using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -19,8 +20,7 @@ namespace WeihanLi.Extensions
         /// <returns>inner exception</returns>
         public static Exception Unwrap(this Exception ex, int depth = 16)
         {
-            if (ex is null)
-                return null;
+            Guard.NotNull(ex, nameof(ex));
 
             var exception = ex;
             while (exception is AggregateException
@@ -61,7 +61,7 @@ namespace WeihanLi.Extensions
 
                 // These exceptions aren't fatal in themselves, but the CLR uses them
                 // to wrap other exceptions, so we want to look deeper
-                if (exception is TargetInvocationException)
+                if (exception is TargetInvocationException && exception.InnerException != null)
                 {
                     exception = exception.InnerException;
                 }

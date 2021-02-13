@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace WeihanLi.Common.Helpers
 {
-    public class ConcurrentSet<T> : IReadOnlyCollection<T>, ICollection<T>
+    public sealed class ConcurrentSet<T> : IReadOnlyCollection<T>, ICollection<T>
     {
-        private readonly ConcurrentDictionary<T, bool> _dictionary = new ConcurrentDictionary<T, bool>();
+        private readonly ConcurrentDictionary<T, bool> _dictionary = new();
 
         public bool IsEmpty => _dictionary.IsEmpty;
 

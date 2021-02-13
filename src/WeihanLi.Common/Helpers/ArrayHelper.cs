@@ -2,20 +2,6 @@
 {
     public static class ArrayHelper
     {
-        public static T[] Empty<T>() =>
-#if NET45
-
-            EmptyArray<T>.Value
-#else
-        System.Array.Empty<T>()
-#endif
-        ;
-
-#if NET45
-        private static class EmptyArray<T>
-        {
-            public static readonly T[] Value = new T[0];
-        }
-#endif
+        public static T[] Empty<T>() => System.Array.Empty<T>();
     }
 }

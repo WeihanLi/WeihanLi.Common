@@ -23,16 +23,16 @@ namespace Serilog.Extensions.Logging
         internal const string ScopePropertyName = "Scope";
 
         // May be null; if it is, Log.Logger will be lazily used
-        private readonly ILogger _logger;
+        private readonly ILogger? _logger;
 
-        private readonly Action _dispose;
+        private readonly Action? _dispose;
 
         /// <summary>
         /// Construct a <see cref="SerilogLoggerProvider"/>.
         /// </summary>
         /// <param name="logger">A Serilog logger to pipe events through; if null, the static <see cref="Log"/> class will be used.</param>
         /// <param name="dispose">If true, the provided logger or static log class will be disposed/closed when the provider is disposed.</param>
-        public SerilogLoggerProvider(ILogger logger = null, bool dispose = false)
+        public SerilogLoggerProvider(ILogger? logger = null, bool dispose = false)
         {
             if (logger != null)
                 _logger = logger.ForContext(new[] { this });
@@ -53,6 +53,11 @@ namespace Serilog.Extensions.Logging
 
         public IDisposable BeginScope<T>(T state)
         {
+            if (state == null)
+            {
+                throw new ArgumentNullException(nameof(state));
+            }
+
             if (CurrentScope != null)
                 return new SerilogLoggerScope(this, state);
 
@@ -65,7 +70,7 @@ namespace Serilog.Extensions.Logging
 
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
-            List<LogEventPropertyValue> scopeItems = null;
+            List<LogEventPropertyValue>? scopeItems = null;
             for (var scope = CurrentScope; scope != null; scope = scope.Parent)
             {
                 scope.EnrichAndCreateScopeItem(logEvent, propertyFactory, out var scopeItem);
@@ -84,9 +89,9 @@ namespace Serilog.Extensions.Logging
             }
         }
 
-        private readonly AsyncLocal<SerilogLoggerScope> _value = new AsyncLocal<SerilogLoggerScope>();
+        private readonly AsyncLocal<SerilogLoggerScope?> _value = new AsyncLocal<SerilogLoggerScope?>();
 
-        internal SerilogLoggerScope CurrentScope
+        internal SerilogLoggerScope? CurrentScope
         {
             get => _value.Value;
             set => _value.Value = value;

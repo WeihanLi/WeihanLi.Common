@@ -20,12 +20,12 @@ namespace WeihanLi.Common.Test.HelpersTest
 
             using var executor = new ProcessExecutor("dotnet", "--info");
             var list = new List<string>();
-            executor.OnOutputDataReceived += (sender, str) =>
+            executor.OnOutputDataReceived += (_, str) =>
             {
                 list.Add(str);
             };
             var exitCode = -1;
-            executor.OnExited += (sender, code) =>
+            executor.OnExited += (_, code) =>
             {
                 exitCode = code;
             };
@@ -45,12 +45,12 @@ namespace WeihanLi.Common.Test.HelpersTest
 
             using var executor = new ProcessExecutor("dotnet", "--info");
             var list = new List<string>();
-            executor.OnOutputDataReceived += (sender, str) =>
+            executor.OnOutputDataReceived += (_, str) =>
             {
                 list.Add(str);
             };
             var exitCode = -1;
-            executor.OnExited += (sender, code) =>
+            executor.OnExited += (_, code) =>
             {
                 exitCode = code;
             };
@@ -69,12 +69,12 @@ namespace WeihanLi.Common.Test.HelpersTest
             }
             using var executor = new ProcessExecutor("hostName");
             var list = new List<string>();
-            executor.OnOutputDataReceived += (sender, str) =>
+            executor.OnOutputDataReceived += (_, str) =>
             {
                 list.Add(str);
             };
             var exitCode = -1;
-            executor.OnExited += (sender, code) =>
+            executor.OnExited += (_, code) =>
             {
                 exitCode = code;
             };
@@ -101,15 +101,12 @@ namespace WeihanLi.Common.Test.HelpersTest
                 }
             });
             var list = new List<string>();
-            executor.OnOutputDataReceived += (sender, str) =>
+            executor.OnOutputDataReceived += (_, str) =>
             {
-                if (str != null)
-                {
-                    list.Add(str);
-                }
+                list.Add(str);
             };
             var exitCode = -1;
-            executor.OnExited += (sender, code) =>
+            executor.OnExited += (_, code) =>
             {
                 exitCode = code;
             };

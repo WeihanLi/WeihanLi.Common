@@ -8,7 +8,7 @@ namespace WeihanLi.Common.Test
         [Fact]
         public void DisposableActionTest()
         {
-            int a = 0;
+            var a = 0;
             var disposal = new DisposableAction(() => a++);
             disposal.Dispose();
             Assert.Equal(1, a);
@@ -17,9 +17,9 @@ namespace WeihanLi.Common.Test
         [Fact]
         public void DisposableActionParallelTest()
         {
-            int a = 0;
+            var a = 0;
             var disposal = new DisposableAction(() => a++);
-            Parallel.For(1, 10, i =>
+            Parallel.For(1, 10, _ =>
             {
                 disposal.Dispose();
             });

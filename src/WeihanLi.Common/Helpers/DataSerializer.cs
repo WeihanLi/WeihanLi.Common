@@ -30,7 +30,7 @@ namespace WeihanLi.Common.Helpers
 
     public class BinaryDataSerializer : IDataSerializer
     {
-        private static readonly Lazy<BinaryFormatter> _binaryFormatter = new Lazy<BinaryFormatter>();
+        private static readonly Lazy<BinaryFormatter> _binaryFormatter = new();
 
         public virtual T Deserialize<T>(byte[] bytes)
         {
@@ -38,10 +38,9 @@ namespace WeihanLi.Common.Helpers
             {
                 throw new ArgumentException(Resource.TaskCanNotBeSerialized);
             }
-            using (var memoryStream = new MemoryStream(bytes))
-            {
-                return (T)_binaryFormatter.Value.Deserialize(memoryStream);
-            }
+
+            using var memoryStream = new MemoryStream(bytes);
+            return (T)_binaryFormatter.Value.Deserialize(memoryStream);
         }
 
         public virtual byte[] Serialize<T>(T obj)
@@ -50,17 +49,20 @@ namespace WeihanLi.Common.Helpers
             {
                 throw new ArgumentException(Resource.TaskCanNotBeSerialized);
             }
-            using (var memoryStream = new MemoryStream())
+            if (obj is null)
             {
-                _binaryFormatter.Value.Serialize(memoryStream, obj);
-                return memoryStream.ToArray();
+                throw new ArgumentNullException(nameof(obj));
             }
+
+            using var memoryStream = new MemoryStream();
+            _binaryFormatter.Value.Serialize(memoryStream, obj);
+            return memoryStream.ToArray();
         }
     }
 
     public class XmlDataSerializer : IDataSerializer
     {
-        internal static readonly Lazy<XmlDataSerializer> _instance = new Lazy<XmlDataSerializer>();
+        internal static readonly Lazy<XmlDataSerializer> _instance = new();
 
         public virtual T Deserialize<T>(byte[] bytes)
         {
@@ -68,11 +70,10 @@ namespace WeihanLi.Common.Helpers
             {
                 throw new ArgumentException(Resource.TaskCanNotBeSerialized);
             }
-            using (var ms = new MemoryStream(bytes))
-            {
-                var serializer = new XmlSerializer(typeof(T));
-                return (T)serializer.Deserialize(ms);
-            }
+
+            using var ms = new MemoryStream(bytes);
+            var serializer = new XmlSerializer(typeof(T));
+            return (T)serializer.Deserialize(ms);
         }
 
         public virtual byte[] Serialize<T>(T obj)
@@ -81,12 +82,14 @@ namespace WeihanLi.Common.Helpers
             {
                 throw new ArgumentException(Resource.TaskCanNotBeSerialized);
             }
-            using (var ms = new MemoryStream())
+            if (obj is null)
             {
-                var serializer = new XmlSerializer(typeof(T));
-                serializer.Serialize(ms, obj);
-                return ms.ToArray();
+                throw new ArgumentNullException(nameof(obj));
             }
+            using var ms = new MemoryStream();
+            var serializer = new XmlSerializer(typeof(T));
+            serializer.Serialize(ms, obj);
+            return ms.ToArray();
         }
     }
 
@@ -98,7 +101,8 @@ namespace WeihanLi.Common.Helpers
             {
                 throw new ArgumentException(Resource.TaskCanNotBeSerialized);
             }
-            return bytes.GetString().JsonToObject<T>();
+
+            return bytes.GetString().JsonToObject<T>() ?? throw new ArgumentNullException(nameof(bytes));
         }
 
         public virtual byte[] Serialize<T>(T obj)

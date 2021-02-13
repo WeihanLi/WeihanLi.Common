@@ -12,6 +12,6 @@ namespace WeihanLi.Common
         {
         }
 
-        public static NullScope Instance { get; } = new NullScope();
+        public static NullScope Instance { get; } = new();
     }
 }

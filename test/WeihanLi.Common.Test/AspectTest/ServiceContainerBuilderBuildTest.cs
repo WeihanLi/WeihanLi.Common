@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using System;
 using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
@@ -28,14 +27,14 @@ namespace WeihanLi.Common.Test.AspectTest
                 new OptionsWrapper<EventQueuePublisherOptions>(new EventQueuePublisherOptions()));
             services.AddSingleton<IEventQueue, EventQueueInMemory>();
 
-            services.AddSingleton<EventHandlerBase<TestEvent>>(DelegateEventHandler.FromAction<TestEvent>(e => { }));
+            services.AddSingleton<EventHandlerBase<TestEvent>>(DelegateEventHandler.FromAction<TestEvent>(_ => { }));
 
             services.AddSingleton(typeof(IEventHandler<>), typeof(ServiceCollectionBuildTest.TestGenericEventHandler<>));
 
             _serviceProvider = services.BuildFluentAspectsContainer(options =>
             {
                 options.InterceptAll()
-                    .With<TestOutputInterceptor>(output);
+                    .With<TestOutputInterceptor>();
             });
         }
 

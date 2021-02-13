@@ -40,12 +40,12 @@ namespace WeihanLi.Extensions
             }
         }
 
-        private static DbParameterReadOnlyCollection GetReadOnlyCollection(this DbParameterCollection collection) => new DbParameterReadOnlyCollection(collection);
+        private static DbParameterReadOnlyCollection GetReadOnlyCollection(this DbParameterCollection collection) => new(collection);
 
         public static Func<DbCommand, string> CommandLogFormatterFunc = command =>
          $"DbCommand log: CommandText:{command.CommandText},CommandType:{command.CommandType},Parameters:{command.Parameters.GetReadOnlyCollection().Select(p => $"{p.ParameterName}={p.Value}").StringJoin(",")},CommandTimeout:{command.CommandTimeout}s";
 
-        public static Action<string> CommandLogAction = log => Debug.WriteLine(log);
+        public static Action<string>? CommandLogAction = log => Debug.WriteLine(log);
 
         #region DataTable
 
@@ -72,7 +72,7 @@ namespace WeihanLi.Extensions
             return dataTable;
         }
 
-        private static object GetValueFromDbValue(this object obj)
+        private static object? GetValueFromDbValue(this object? obj)
         {
             if (obj == null || obj == DBNull.Value)
             {
@@ -89,19 +89,13 @@ namespace WeihanLi.Extensions
         /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
         public static IEnumerable<T> ToEntities<T>([NotNull] this DataTable @this)
         {
-            var type = typeof(T);
-
-            if (@this.Columns.Count == 0)
+            if (@this.Columns.Count > 0)
             {
-                yield return default(T);
-            }
-            else
-            {
-                if (type.IsBasicType())
+                if (typeof(T).IsBasicType())
                 {
                     foreach (DataRow row in @this.Rows)
                     {
-                        yield return row[0].ToOrDefault<T>();
+                        yield return row[0].To<T>();
                     }
                 }
                 else
@@ -142,9 +136,10 @@ namespace WeihanLi.Extensions
         /// <param name="dataTable">The dataTable to act on.</param>
         /// <param name="index">column index</param>
         /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
-        public static IEnumerable<T> ColumnToList<T>(this DataTable dataTable, int index)
+        public static IEnumerable<T?> ColumnToList<T>(this DataTable dataTable, int index)
         {
-            if (dataTable != null && dataTable.Rows.Count > index)
+            Guard.NotNull(dataTable, nameof(dataTable));
+            if (dataTable.Rows.Count > index)
             {
                 foreach (DataRow row in dataTable.Rows)
                 {
@@ -168,11 +163,11 @@ namespace WeihanLi.Extensions
             var type = typeof(T);
             var properties = CacheUtil.GetTypeProperties(type).Where(p => p.CanWrite).ToArray();
 
-            var entity = NewFuncHelper<T>.Instance();
+            var entity = NewFuncHelper<T>.Instance()!;
 
             if (type.IsValueType)
             {
-                var obj = (object)entity;
+                object obj = entity;
                 foreach (var property in properties)
                 {
                     if (dr.Table.Columns.Contains(property.Name))
@@ -241,21 +236,14 @@ namespace WeihanLi.Extensions
             {
                 while (@this.Read())
                 {
-                    if (@this.FieldCount > 0)
-                    {
-                        yield return default(T);
-                    }
-                    else
-                    {
-                        yield return @this[0].ToOrDefault<T>();
-                    }
+                    yield return @this[0].To<T>();
                 }
             }
             else
             {
                 while (@this.Read())
                 {
-                    yield return @this.ToEntity<T>();
+                    yield return @this.ToEntity<T>(true)!;
                 }
             }
         }
@@ -267,7 +255,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="hadRead">whether the DataReader had read</param>
         /// <returns>@this as a T.</returns>
-        public static T ToEntity<T>([NotNull] this IDataReader @this, bool hadRead = false)
+        public static T? ToEntity<T>([NotNull] this IDataReader @this, bool hadRead = false)
         {
             if (!hadRead)
             {
@@ -284,7 +272,7 @@ namespace WeihanLi.Extensions
 
                 var properties = CacheUtil.GetTypeProperties(type).Where(p => p.CanWrite).ToArray();
 
-                var entity = NewFuncHelper<T>.Instance();
+                var entity = NewFuncHelper<T>.Instance()!;
 
                 var dic = Enumerable.Range(0, @this.FieldCount)
                     .ToDictionary(_ => @this.GetName(_).ToUpper(), _ => @this[_].GetValueFromDbValue());
@@ -432,11 +420,9 @@ namespace WeihanLi.Extensions
         /// <returns>A dynamic.</returns>
         public static dynamic ExecuteExpandoObject([NotNull] this DbCommand @this)
         {
-            using (IDataReader reader = @this.ExecuteReader())
-            {
-                reader.Read();
-                return reader.ToExpandoObject();
-            }
+            using IDataReader reader = @this.ExecuteReader();
+            reader.Read();
+            return reader.ToExpandoObject();
         }
 
         /// <summary>
@@ -448,10 +434,8 @@ namespace WeihanLi.Extensions
         /// </returns>
         public static IEnumerable<dynamic> ExecuteExpandoObjects([NotNull] this DbCommand @this)
         {
-            using (IDataReader reader = @this.ExecuteReader())
-            {
-                return reader.ToExpandoObjects();
-            }
+            using IDataReader reader = @this.ExecuteReader();
+            return reader.ToExpandoObjects();
         }
 
         /// <summary>
@@ -501,7 +485,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>A T.</returns>
-        public static T ExecuteScalarToOrDefault<T>([NotNull] this DbCommand @this) => @this.ExecuteScalar().ToOrDefault<T>();
+        public static T? ExecuteScalarToOrDefault<T>([NotNull] this DbCommand @this) => @this.ExecuteScalar().ToOrDefault<T>();
 
         /// <summary>
         ///     A DbCommand extension method that executes the scalar to operation.
@@ -510,7 +494,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="cancellationToken"></param>
         /// <returns>A T.</returns>
-        public static async Task<T> ExecuteScalarToOrDefaultAsync<T>([NotNull] this DbCommand @this, CancellationToken cancellationToken = default) => (await @this.ExecuteScalarAsync(cancellationToken)).ToOrDefault<T>();
+        public static async Task<T?> ExecuteScalarToOrDefaultAsync<T>([NotNull] this DbCommand @this, CancellationToken cancellationToken = default) => (await @this.ExecuteScalarAsync(cancellationToken)).ToOrDefault<T>();
 
         /// <summary>
         ///     A DbCommand extension method that executes the scalar to or default operation.
@@ -524,7 +508,7 @@ namespace WeihanLi.Extensions
             return func(@this.ExecuteScalar());
         }
 
-        private static DbCommand GetDbCommand([NotNull] this DbConnection conn, string cmdText, CommandType commandType = CommandType.Text, object paramInfo = null, DbParameter[] parameters = null, DbTransaction transaction = null, int commandTimeout = 60)
+        private static DbCommand GetDbCommand([NotNull] this DbConnection conn, string cmdText, CommandType commandType = CommandType.Text, object? paramInfo = null, DbParameter[]? parameters = null, DbTransaction? transaction = null, int commandTimeout = 60)
         {
             conn.EnsureOpen();
             var command = conn.CreateCommand();
@@ -557,16 +541,15 @@ namespace WeihanLi.Extensions
                    || @this.Contains("?" + originName);
         }
 
-        public static void AttachDbParameters([NotNull] this DbCommand command, object paramInfo)
+        public static void AttachDbParameters([NotNull] this DbCommand command, object? paramInfo)
         {
             if (paramInfo != null)
             {
-                var parameters = paramInfo as IDictionary<string, object>;
-                if (parameters == null)
+                if (!(paramInfo is IDictionary<string, object?> parameters))
                 {
                     if (paramInfo.IsValueTuple()) // Tuple
                     {
-                        parameters = paramInfo.GetFields().ToDictionary(f => f.Name, f => f.GetValue(paramInfo));
+                        parameters = paramInfo.GetFields().ToDictionary(f => f.Name, f => f?.GetValue(paramInfo));
                     }
                     else // get properties
                     {
@@ -606,7 +589,7 @@ namespace WeihanLi.Extensions
             return originName;
         }
 
-        private static readonly Dictionary<Type, DbType> TypeMap = new Dictionary<Type, DbType>
+        private static readonly Dictionary<Type, DbType> TypeMap = new()
         {
             [typeof(byte)] = DbType.Byte,
             [typeof(sbyte)] = DbType.SByte,

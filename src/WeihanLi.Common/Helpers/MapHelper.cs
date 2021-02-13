@@ -8,11 +8,10 @@ namespace WeihanLi.Common.Helpers
     {
         public static TTarget Map<TSource, TTarget>(TSource source) where TTarget : new()
         {
-            if (source == null)
+            if (source is null)
             {
-                return (TTarget)(object)null;
+                throw new ArgumentNullException(nameof(source));
             }
-
             var sourceType = typeof(TSource);
             var destinationType = typeof(TTarget);
 
@@ -45,11 +44,10 @@ namespace WeihanLi.Common.Helpers
 
         public static TTarget MapWith<TSource, TTarget>(TSource source, params string[] propertiesToMap) where TTarget : new()
         {
-            if (source == null)
+            if (source is null)
             {
-                return (TTarget)(object)null;
+                throw new ArgumentNullException(nameof(source));
             }
-
             var sourceType = typeof(TSource);
             var destinationType = typeof(TTarget);
             var result = new TTarget();
@@ -83,11 +81,10 @@ namespace WeihanLi.Common.Helpers
 
         public static TTarget MapWithout<TSource, TTarget>(TSource source, params string[] propertiesNoMap) where TTarget : new()
         {
-            if (source == null)
+            if (source is null)
             {
-                return (TTarget)(object)null;
+                throw new ArgumentNullException(nameof(source));
             }
-
             var sourceType = typeof(TSource);
             var destinationType = typeof(TTarget);
 

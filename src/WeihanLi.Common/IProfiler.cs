@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace WeihanLi.Common
 {
@@ -22,7 +23,7 @@ namespace WeihanLi.Common
         /// <summary>
         /// Gets the total elapsed time measured by the current instance, in milliseconds.
         /// </summary>
-        long ElapsedMilliseconds { get; }
+        TimeSpan Elapsed { get; }
     }
 
     public class StopwatchProfiler : IProfiler
@@ -54,6 +55,6 @@ namespace WeihanLi.Common
             _stopwatch.Restart();
         }
 
-        public long ElapsedMilliseconds => _stopwatch.ElapsedMilliseconds;
+        public TimeSpan Elapsed => _stopwatch.Elapsed;
     }
 }

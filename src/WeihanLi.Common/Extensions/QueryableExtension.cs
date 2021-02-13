@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using WeihanLi.Common;
 using WeihanLi.Common.Models;
 
 // ReSharper disable once CheckNamespace
@@ -12,12 +13,12 @@ namespace WeihanLi.Extensions
     {
         public static IQueryable<T> WhereIf<T>(this IQueryable<T> source, Expression<Func<T, bool>> predicate, bool condition)
         {
-            return condition ? source?.Where(predicate) : source;
+            return condition ? Guard.NotNull(source, nameof(source)).Where(predicate) : source;
         }
 
         public static IQueryable<T> WhereIf<T>(this IQueryable<T> source, Expression<Func<T, bool>> predicate, Func<bool> conditionFunc)
         {
-            return conditionFunc() ? source?.Where(predicate) : source;
+            return conditionFunc() ? Guard.NotNull(source, nameof(source)).Where(predicate) : source;
         }
 
         /// <summary>
@@ -118,7 +119,7 @@ namespace WeihanLi.Extensions
 
             Type type = typeof(T);
             ParameterExpression arg = Expression.Parameter(type, "x");
-            PropertyInfo propertyInfo = type.GetProperty(propertyName);
+            PropertyInfo? propertyInfo = type.GetProperty(propertyName);
             if (null == propertyInfo)
             {
                 throw new InvalidOperationException($"{propertyName} does not exists");

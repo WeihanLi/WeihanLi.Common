@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 using System.Text;
 using WeihanLi.Extensions;
 
@@ -34,7 +35,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="key">key</param>
         /// <param name="isLower">是否是小写</param>
         /// <returns>哈希算法处理之后的字符串</returns>
-        public static string GetHashedString(HashType type, string str, string key, bool isLower = false) => GetHashedString(type, str, key, Encoding.UTF8, isLower);
+        public static string GetHashedString(HashType type, string str, string? key, bool isLower = false) => GetHashedString(type, str, key, Encoding.UTF8, isLower);
 
         /// <summary>
         /// 获取哈希之后的字符串
@@ -55,9 +56,9 @@ namespace WeihanLi.Common.Helpers
         /// <param name="encoding">编码类型</param>
         /// <param name="isLower">是否是小写</param>
         /// <returns>哈希算法处理之后的字符串</returns>
-        public static string GetHashedString(HashType type, string str, string key, Encoding encoding, bool isLower = false)
+        public static string GetHashedString(HashType type, string str, string? key, Encoding encoding, bool isLower = false)
         {
-            return string.IsNullOrEmpty(str) ? string.Empty : GetHashedString(type, str.GetBytes(encoding), string.IsNullOrEmpty(key) ? null : encoding.GetBytes(key), isLower);
+            return string.IsNullOrEmpty(str) ? string.Empty : GetHashedString(type, str.GetBytes(encoding), string.IsNullOrEmpty(key) ? null : encoding.GetBytes(key!), isLower);
         }
 
         /// <summary>
@@ -85,13 +86,14 @@ namespace WeihanLi.Common.Helpers
         /// <param name="key">key</param>
         /// <param name="isLower">是否是小写</param>
         /// <returns>哈希算法处理之后的字符串</returns>
-        public static string GetHashedString(HashType type, byte[] source, byte[] key, bool isLower = false)
+        public static string GetHashedString(HashType type, byte[] source, byte[]? key, bool isLower = false)
         {
-            if (null == source || source.Length == 0)
+            Guard.NotNull(source, nameof(source));
+            if (source.Length == 0)
             {
                 return string.Empty;
             }
-            var hashedBytes = GetHashedBytes(type, source, key.HasValue() ? key : null);
+            var hashedBytes = GetHashedBytes(type, source, key);
             var sbText = new StringBuilder();
             if (isLower)
             {
@@ -127,13 +129,10 @@ namespace WeihanLi.Common.Helpers
         /// <returns>hash过的字节数组</returns>
         public static byte[] GetHashedBytes(HashType type, string str, Encoding encoding)
         {
-            if (null == str)
-            {
-                return null;
-            }
+            Guard.NotNull(str, nameof(str));
             if (str == string.Empty)
             {
-                return ArrayHelper.Empty<byte>();
+                return Array.Empty<byte>();
             }
             var bytes = encoding.GetBytes(str);
             return GetHashedBytes(type, bytes);
@@ -154,79 +153,44 @@ namespace WeihanLi.Common.Helpers
         /// <param name="key">key</param>
         /// <param name="bytes">原字节数组</param>
         /// <returns></returns>
-        public static byte[] GetHashedBytes(HashType type, byte[] bytes, byte[] key)
+        public static byte[] GetHashedBytes(HashType type, byte[] bytes, byte[]? key)
         {
-            if (null == bytes || bytes.Length == 0)
+            Guard.NotNull(bytes, nameof(bytes));
+            if (bytes.Length == 0)
             {
                 return bytes;
             }
 
-            HashAlgorithm algorithm = null;
+            HashAlgorithm algorithm = null!;
             try
             {
                 if (key == null)
                 {
-                    switch (type)
+                    algorithm = type switch
                     {
-                        case HashType.MD5:
-                            algorithm = MD5.Create();
-                            break;
-
-                        case HashType.SHA1:
-                            algorithm = new SHA1Managed();
-                            break;
-
-                        case HashType.SHA256:
-                            algorithm = new SHA256Managed();
-                            break;
-
-                        case HashType.SHA384:
-                            algorithm = new SHA384Managed();
-                            break;
-
-                        case HashType.SHA512:
-                            algorithm = new SHA512Managed();
-                            break;
-
-                        default:
-                            algorithm = MD5.Create();
-                            break;
-                    }
+                        HashType.SHA1 => new SHA1Managed(),
+                        HashType.SHA256 => new SHA256Managed(),
+                        HashType.SHA384 => new SHA384Managed(),
+                        HashType.SHA512 => new SHA512Managed(),
+                        _ => MD5.Create()
+                    };
                 }
                 else
                 {
-                    switch (type)
+                    algorithm = type switch
                     {
-                        case HashType.MD5:
-                            algorithm = new HMACMD5(key);
-                            break;
-
-                        case HashType.SHA1:
-                            algorithm = new HMACSHA1(key);
-                            break;
-
-                        case HashType.SHA256:
-                            algorithm = new HMACSHA256(key);
-                            break;
-
-                        case HashType.SHA384:
-                            algorithm = new HMACSHA384(key);
-                            break;
-
-                        case HashType.SHA512:
-                            algorithm = new HMACSHA512(key);
-                            break;
-
-                        default:
-                            algorithm = new HMACMD5(key);
-                            break;
-                    }
+                        HashType.SHA1 => new HMACSHA1(key),
+                        HashType.SHA256 => new HMACSHA256(key),
+                        HashType.SHA384 => new HMACSHA384(key),
+                        HashType.SHA512 => new HMACSHA512(key),
+                        _ => new HMACMD5(key)
+                    };
                 }
                 return algorithm.ComputeHash(bytes);
             }
             finally
             {
-                algorithm?.Dispose();
+                algorithm.Dispose();
             }
         }
     }

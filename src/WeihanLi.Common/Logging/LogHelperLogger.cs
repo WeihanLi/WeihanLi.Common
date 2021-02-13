@@ -6,7 +6,7 @@ namespace WeihanLi.Common.Logging
 {
     public interface ILogHelperLogger
     {
-        void Log(LogHelperLogLevel logLevel, Exception exception, string messageTemplate, params object[] parameters);
+        void Log(LogHelperLogLevel logLevel, Exception? exception, string? messageTemplate, params object?[] parameters);
 
         bool IsEnabled(LogHelperLogLevel logLevel);
     }
@@ -19,7 +19,7 @@ namespace WeihanLi.Common.Logging
         {
         }
 
-        public void Log(LogHelperLogLevel logLevel, Exception exception, string messageTemplate, params object[] parameters)
+        public void Log(LogHelperLogLevel logLevel, Exception? exception, string? messageTemplate, params object?[] parameters)
         {
             // empty
         }
@@ -27,13 +27,14 @@ namespace WeihanLi.Common.Logging
         public bool IsEnabled(LogHelperLogLevel logLevel) => false;
     }
 
+    // ReSharper disable once UnusedTypeParameter
     public interface ILogHelperLogger<TCategory> : ILogHelperLogger
     {
     }
 
     internal sealed class LogHelperGenericLogger<TCategory> : LogHelper, ILogHelperLogger<TCategory>
     {
-        public LogHelperGenericLogger(LogHelperFactory logHelperFactory, string categoryName) : base(logHelperFactory, categoryName)
+        public LogHelperGenericLogger(LogHelperFactory logHelperFactory) : base(logHelperFactory, typeof(TCategory).FullName)
         {
         }
     }
@@ -50,7 +51,7 @@ namespace WeihanLi.Common.Logging
             CategoryName = categoryName;
         }
 
-        public void Log(LogHelperLogLevel logLevel, Exception exception, string messageTemplate, params object[] parameters)
+        public void Log(LogHelperLogLevel logLevel, Exception? exception, string? messageTemplate, params object?[] parameters)
         {
             if (!IsEnabled(logLevel))
                 return;
@@ -61,7 +62,7 @@ namespace WeihanLi.Common.Logging
                 DateTime = DateTimeOffset.UtcNow,
                 Exception = exception,
                 LogLevel = logLevel,
-                MessageTemplate = messageTemplate,
+                MessageTemplate = messageTemplate ?? string.Empty,
             };
 
             if (!_logHelperFactory._logFilters.Any(x => x.Invoke(typeof(int), loggingEvent)))
@@ -69,7 +70,7 @@ namespace WeihanLi.Common.Logging
                 return;
             }
 
-            var formattedLog = LoggingFormatter.Format(messageTemplate, parameters);
+            var formattedLog = LoggingFormatter.Format(loggingEvent.MessageTemplate, parameters);
             loggingEvent.Message = formattedLog.Msg;
             loggingEvent.Properties = formattedLog.Values;
 

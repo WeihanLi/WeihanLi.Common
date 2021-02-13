@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Extensions.Logging;
+using System;
 using ILogger = Serilog.ILogger;
 
 namespace WeihanLi.Common.Logging.Serilog
@@ -20,7 +20,7 @@ namespace WeihanLi.Common.Logging.Serilog
         /// <returns>The logger factory.</returns>
         public static ILoggerFactory AddSerilog(
             this ILoggerFactory factory,
-            ILogger logger = null,
+            ILogger? logger = null,
             bool dispose = false)
         {
             if (factory == null) throw new ArgumentNullException(nameof(factory));
@@ -39,7 +39,7 @@ namespace WeihanLi.Common.Logging.Serilog
         /// logger is not specified but <paramref name="dispose"/> is true, the <see cref="Log.CloseAndFlush()"/> method will be
         /// called on the static <see cref="Log"/> class instead.</param>
         /// <returns>The logging builder.</returns>
-        public static ILoggingBuilder AddSerilog(this ILoggingBuilder builder, ILogger logger = null, bool dispose = false)
+        public static ILoggingBuilder AddSerilog(this ILoggingBuilder builder, ILogger? logger = null, bool dispose = false)
         {
             if (builder == null)
                 throw new ArgumentNullException(nameof(builder));

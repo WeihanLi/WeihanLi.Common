@@ -10,17 +10,17 @@ namespace WeihanLi.Common.Aspect
 
         object ProxyTarget { get; }
 
-        MethodInfo Method { get; }
+        MethodInfo? Method { get; }
 
-        object Target { get; }
+        object? Target { get; }
 
         object[] Arguments { get; }
 
         Type[] GenericArguments { get; }
 
-        object ReturnValue { get; set; }
+        object? ReturnValue { get; set; }
 
-        Dictionary<string, object> Properties { get; }
+        Dictionary<string, object?> Properties { get; }
     }
 
     public class AspectInvocation : IInvocation
@@ -29,30 +29,30 @@ namespace WeihanLi.Common.Aspect
 
         public object ProxyTarget { get; }
 
-        public MethodInfo Method { get; }
+        public MethodInfo? Method { get; }
 
-        public object Target { get; }
+        public object? Target { get; }
 
         public object[] Arguments { get; }
 
         public Type[] GenericArguments { get; }
 
-        public object ReturnValue { get; set; }
+        public object? ReturnValue { get; set; }
 
-        public Dictionary<string, object> Properties { get; }
+        public Dictionary<string, object?> Properties { get; }
 
         public AspectInvocation(
             MethodInfo proxyMethod,
-            MethodInfo methodBase,
+            MethodInfo? methodBase,
             object proxyTarget,
-            object target,
+            object? target,
             object[] arguments)
         {
             Method = methodBase;
             ProxyTarget = proxyTarget;
             Target = target;
             Arguments = arguments;
-            GenericArguments = methodBase?.GetGenericArguments() ?? Type.EmptyTypes;
+            GenericArguments = methodBase?.GetGenericArguments() ?? Array.Empty<Type>();
 
             if (proxyMethod.ContainsGenericParameters && GenericArguments.Length > 0)
             {
@@ -63,7 +63,7 @@ namespace WeihanLi.Common.Aspect
                 ProxyMethod = proxyMethod;
             }
 
-            Properties = new Dictionary<string, object>();
+            Properties = new Dictionary<string, object?>();
         }
     }
 }

@@ -42,10 +42,6 @@ namespace WeihanLi.Extensions
             {
                 throw new ArgumentNullException(nameof(userName));
             }
-            if (password == null)
-            {
-                password = "";
-            }
             return Convert.ToBase64String($"{UrlEncode(userName)}:{UrlEncode(password)}".ToByteArray());
         }
 
@@ -116,9 +112,9 @@ namespace WeihanLi.Extensions
             string requestUrl,
             string filePath,
             string fileKey = "file",
-            IEnumerable<KeyValuePair<string, string>> formFields = null)
+            IEnumerable<KeyValuePair<string, string>>? formFields = null)
         {
-            var content = new MultipartFormDataContent($"form--{DateTime.Now.Ticks:X}");
+            var content = new MultipartFormDataContent($"form--{DateTime.UtcNow.Ticks:X}");
 
             if (formFields != null)
             {
@@ -145,17 +141,17 @@ namespace WeihanLi.Extensions
         /// <returns></returns>
         public static async Task<HttpResponseMessage> PostFileAsync([NotNull] this HttpClient httpClient,
             string requestUrl,
-            Stream file,
+            Stream? file,
             string fileName,
             string fileKey = "file",
-            IEnumerable<KeyValuePair<string, string>> formFields = null)
+            IEnumerable<KeyValuePair<string, string>>? formFields = null)
         {
             if (file == null)
             {
-                return await httpClient.PostAsFormAsync(requestUrl, formFields);
+                return await httpClient.PostAsFormAsync(requestUrl, formFields ?? Array.Empty<KeyValuePair<string, string>>());
             }
 
-            var content = new MultipartFormDataContent($"form--{DateTime.Now.Ticks:X}");
+            var content = new MultipartFormDataContent($"form--{DateTime.UtcNow.Ticks:X}");
 
             if (formFields != null)
             {
@@ -172,7 +168,7 @@ namespace WeihanLi.Extensions
 
         public static Task<HttpResponseMessage> PostFileAsync([NotNull] this HttpClient
                 client, string requestUrl, ICollection<string> filePaths,
-            IEnumerable<KeyValuePair<string, string>> formFields = null) => client.PostFileAsync(requestUrl, filePaths.Select(p =>
+            IEnumerable<KeyValuePair<string, string>>? formFields = null) => client.PostFileAsync(requestUrl, filePaths.Select(p =>
                     new KeyValuePair<string, Stream>(Path.GetFileName(p), File.OpenRead(p))), formFields);
 
         /// <summary>
@@ -185,15 +181,15 @@ namespace WeihanLi.Extensions
         /// <returns></returns>
         public static async Task<HttpResponseMessage> PostFileAsync([NotNull] this HttpClient httpClient,
             string requestUri,
-            IEnumerable<KeyValuePair<string, Stream>> files,
-            IEnumerable<KeyValuePair<string, string>> formFields = null)
+            IEnumerable<KeyValuePair<string, Stream>>? files,
+            IEnumerable<KeyValuePair<string, string>>? formFields = null)
         {
             if (files == null)
             {
-                return await httpClient.PostAsFormAsync(requestUri, formFields);
+                return await httpClient.PostAsFormAsync(requestUri, formFields ?? Array.Empty<KeyValuePair<string, string>>());
             }
 
-            var content = new MultipartFormDataContent($"form--{DateTime.Now.Ticks:X}");
+            var content = new MultipartFormDataContent($"form--{DateTime.UtcNow.Ticks:X}");
 
             if (formFields != null)
             {

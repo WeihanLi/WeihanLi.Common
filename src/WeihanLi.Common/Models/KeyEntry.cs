@@ -2,10 +2,10 @@
 {
     public class KeyEntry
     {
-        public string PropertyName { get; set; }
+        public string PropertyName { get; set; } = null!;
 
-        public string ColumnName { get; set; }
+        public string ColumnName { get; set; } = null!;
 
-        public object Value { get; set; }
+        public object? Value { get; set; }
     }
 }

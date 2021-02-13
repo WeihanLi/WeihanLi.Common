@@ -62,7 +62,7 @@ namespace WeihanLi.Common.Helpers
             '9'
         };
 
-        public static readonly Random Random = new Random();
+        public static readonly Random Random = new();
 
         /// <summary>
         /// 生成随机验证码

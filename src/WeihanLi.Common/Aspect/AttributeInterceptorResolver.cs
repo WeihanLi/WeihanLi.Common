@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect
@@ -21,20 +20,21 @@ namespace WeihanLi.Common.Aspect
     {
         public virtual IReadOnlyList<IInterceptor> ResolveInterceptors(IInvocation invocation)
         {
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
             if (null == invocation)
             {
-                return ArrayHelper.Empty<IInterceptor>();
+                return Array.Empty<IInterceptor>();
             }
 
             if ((invocation.Method ?? invocation.ProxyMethod).IsDefined(typeof(NoIntercept)))
             {
-                return ArrayHelper.Empty<IInterceptor>();
+                return Array.Empty<IInterceptor>();
             }
 
-            Type baseType = (invocation.Method ?? invocation.ProxyMethod).DeclaringType;
+            Type? baseType = (invocation.Method ?? invocation.ProxyMethod).DeclaringType;
             if (baseType?.IsDefined(typeof(NoIntercept)) == true)
             {
-                return ArrayHelper.Empty<IInterceptor>();
+                return Array.Empty<IInterceptor>();
             }
 
             var list = new List<IInterceptor>();
@@ -45,7 +45,7 @@ namespace WeihanLi.Common.Aspect
             {
                 if (invocation.Method.IsDefined(typeof(NoIntercept)))
                 {
-                    return ArrayHelper.Empty<IInterceptor>();
+                    return Array.Empty<IInterceptor>();
                 }
 
                 foreach (var interceptor in invocation.Method.GetCustomAttributes<AbstractInterceptor>())

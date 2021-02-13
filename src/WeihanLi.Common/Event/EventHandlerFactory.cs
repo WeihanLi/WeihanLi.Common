@@ -9,13 +9,13 @@ namespace WeihanLi.Common.Event
     public sealed class DefaultEventHandlerFactory : IEventHandlerFactory
     {
         private readonly IEventSubscriptionManager _subscriptionManager;
-        private readonly ConcurrentDictionary<Type, ICollection<IEventHandler>> _eventHandlers = new ConcurrentDictionary<Type, ICollection<IEventHandler>>();
+        private readonly ConcurrentDictionary<Type, ICollection<IEventHandler>> _eventHandlers = new();
         private readonly IServiceProvider _serviceProvider;
 
-        public DefaultEventHandlerFactory(IEventSubscriptionManager subscriptionManager, IServiceProvider serviceProvider = null)
+        public DefaultEventHandlerFactory(IEventSubscriptionManager subscriptionManager, IServiceProvider serviceProvider)
         {
             _subscriptionManager = subscriptionManager;
-            _serviceProvider = serviceProvider ?? DependencyResolver.Current;
+            _serviceProvider = serviceProvider;
         }
 
         public ICollection<IEventHandler> GetHandlers(Type eventType)
@@ -36,7 +36,7 @@ namespace WeihanLi.Common.Event
     {
         private readonly IServiceProvider _serviceProvider;
 
-        public DependencyInjectionEventHandlerFactory(IServiceProvider serviceProvider = null)
+        public DependencyInjectionEventHandlerFactory(IServiceProvider? serviceProvider = null)
         {
             _serviceProvider = serviceProvider ?? DependencyResolver.Current;
         }

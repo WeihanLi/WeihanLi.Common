@@ -25,7 +25,7 @@ namespace WeihanLi.Common.Helpers
             {
                 var cValue = CharToValue(c);
 
-                var mask = 0;
+                int mask;
                 if (bitsRemaining > 5)
                 {
                     mask = cValue << (bitsRemaining - 5);

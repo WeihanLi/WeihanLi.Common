@@ -25,7 +25,7 @@ namespace WeihanLi.Common.Test
             containerBuilder.AddScoped(typeof(HasDependencyTest4<>));
 
             containerBuilder.AddTransient<WuKong>();
-            containerBuilder.AddScoped<WuJing>(serviceProvider => new WuJing());
+            containerBuilder.AddScoped<WuJing>(_ => new WuJing());
             containerBuilder.AddSingleton(typeof(GenericServiceTest<>));
 
             _container = containerBuilder.Build();
@@ -271,10 +271,10 @@ namespace WeihanLi.Common.Test
 
         private class Superman : IFly
         {
-            public IConfiguration Configuration { get; set; }
+            public IConfiguration? Configuration { get; set; }
 
             [FromService]
-            public IConfiguration Configuration1 { get; set; }
+            public IConfiguration? Configuration1 { get; set; }
 
             public string Name => "Superman";
 

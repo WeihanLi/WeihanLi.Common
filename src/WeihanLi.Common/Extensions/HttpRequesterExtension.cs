@@ -74,10 +74,10 @@ namespace WeihanLi.Extensions
         }
 
         public static IHttpRequester WithFile(this IHttpRequester httpRequester, string filePath, string fileKey = "file",
-            IEnumerable<KeyValuePair<string, string>> formFields = null)
+            IEnumerable<KeyValuePair<string, string>>? formFields = null)
             => httpRequester.WithFile(Path.GetFileName(filePath), File.ReadAllBytes(filePath), fileKey, formFields);
 
-        public static IHttpRequester WithFiles(this IHttpRequester httpRequester, IEnumerable<string> filePaths, IEnumerable<KeyValuePair<string, string>> formFields = null)
+        public static IHttpRequester WithFiles(this IHttpRequester httpRequester, IEnumerable<string> filePaths, IEnumerable<KeyValuePair<string, string>>? formFields = null)
             => httpRequester.WithFiles(
                 filePaths.Select(_ => new KeyValuePair<string, byte[]>(
                     Path.GetFileName(_),
@@ -86,14 +86,14 @@ namespace WeihanLi.Extensions
 
         public static string Execute(this IHttpRequester httpRequester) => httpRequester.ExecuteBytes().GetString();
 
-        public static T Execute<T>(this IHttpRequester httpRequester, T defaultVal = default) => httpRequester.ExecuteBytes().GetString().ToOrDefault(defaultVal);
+        public static T? Execute<T>(this IHttpRequester httpRequester, T? defaultVal = default) => httpRequester.ExecuteBytes().GetString().ToOrDefault(defaultVal);
 
         public static Task<string> ExecuteAsync(this IHttpRequester httpRequester)
         {
             return httpRequester.ExecuteBytesAsync().ContinueWith(r => r.Result.GetString());
         }
 
-        public static Task<T> ExecuteAsync<T>(this IHttpRequester httpRequester, T defaultVal = default)
+        public static Task<T?> ExecuteAsync<T>(this IHttpRequester httpRequester, T? defaultVal = default)
         {
             return httpRequester.ExecuteBytesAsync().ContinueWith(r => r.Result.GetString().ToOrDefault(defaultVal));
         }
