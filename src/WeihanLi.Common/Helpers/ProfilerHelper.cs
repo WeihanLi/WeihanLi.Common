@@ -6,9 +6,9 @@ namespace WeihanLi.Common.Helpers
     public sealed class ProfilerStopper : IDisposable
     {
         private readonly IProfiler _profiler;
-        private readonly Action<long> _profileAction;
+        private readonly Action<TimeSpan> _profileAction;
 
-        public ProfilerStopper(IProfiler profiler, Action<long> profileAction)
+        public ProfilerStopper(IProfiler profiler, Action<TimeSpan> profileAction)
         {
             _profiler = profiler ?? throw new ArgumentNullException(nameof(profiler));
             _profileAction = profileAction ?? throw new ArgumentNullException(nameof(profileAction));
@@ -17,16 +17,16 @@ namespace WeihanLi.Common.Helpers
         public void Dispose()
         {
             _profiler.Stop();
-            _profileAction(_profiler.ElapsedMilliseconds);
+            _profileAction(_profiler.Elapsed);
         }
     }
 
     public sealed class StopwatchStopper : IDisposable
     {
         private readonly Stopwatch _stopwatch;
-        private readonly Action<long> _profileAction;
+        private readonly Action<TimeSpan> _profileAction;
 
-        public StopwatchStopper(Stopwatch stopwatch, Action<long> profileAction)
+        public StopwatchStopper(Stopwatch stopwatch, Action<TimeSpan> profileAction)
         {
             _stopwatch = stopwatch ?? throw new ArgumentNullException(nameof(stopwatch));
             _profileAction = profileAction ?? throw new ArgumentNullException(nameof(profileAction));
@@ -35,29 +35,21 @@ namespace WeihanLi.Common.Helpers
         public void Dispose()
         {
             _stopwatch.Stop();
-            _profileAction(_stopwatch.ElapsedMilliseconds);
+            _profileAction(_stopwatch.Elapsed);
         }
     }
 
     public static class ProfilerHelper
     {
-        public static StopwatchStopper StartProfile(this Stopwatch watch, Action<long> profilerAction)
+        public static StopwatchStopper Profile(this Stopwatch watch, Action<TimeSpan> profilerAction)
         {
-            if (watch is null)
-            {
-                throw new ArgumentNullException(nameof(watch));
-            }
-            watch.Restart();
+            Guard.NotNull(watch, nameof(watch)).Restart();
             return new StopwatchStopper(watch, profilerAction);
         }
 
-        public static ProfilerStopper StartNew(this IProfiler profiler, Action<long> profilerAction)
+        public static ProfilerStopper StartNew(this IProfiler profiler, Action<TimeSpan> profilerAction)
         {
-            if (profiler is null)
-            {
-                throw new ArgumentNullException(nameof(profiler));
-            }
-            profiler.Restart();
+            Guard.NotNull(profiler, nameof(profiler)).Restart();
             return new ProfilerStopper(profiler, profilerAction);
         }
     }

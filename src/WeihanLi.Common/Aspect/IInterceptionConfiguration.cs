@@ -44,7 +44,7 @@ namespace WeihanLi.Common.Aspect
 
         public static IInterceptionConfiguration With<TInterceptor>(this IInterceptionConfiguration interceptionConfiguration, params object?[] parameters) where TInterceptor : IInterceptor
         {
-            if (parameters.Length == 0)
+            if (Guard.NotNull(parameters, nameof(parameters)).Length == 0)
             {
                 interceptionConfiguration.With(NewFuncHelper<TInterceptor>.Instance());
             }

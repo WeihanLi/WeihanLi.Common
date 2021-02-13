@@ -730,7 +730,7 @@ namespace WeihanLi.Common.Helpers
         public static string HttpPostFile(string url, string fileName, byte[] fileBytes, string fileKey = "file", IEnumerable<KeyValuePair<string, string>>? formFields = null, IEnumerable<KeyValuePair<string, string>>? headers = null)
         {
             var request = WebRequest.CreateHttp(url);
-            var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
+            var boundary = $"----------------------------{DateTime.UtcNow.Ticks:X}";
 
             request.ContentType = $"multipart/form-data; boundary={boundary}";
             request.Method = "POST";
@@ -799,7 +799,7 @@ namespace WeihanLi.Common.Helpers
         /// <returns></returns>
         public static string HttpPostFile(string url, IEnumerable<KeyValuePair<string, byte[]>> files, IEnumerable<KeyValuePair<string, string>>? formFields = null, IEnumerable<KeyValuePair<string, string>>? headers = null)
         {
-            var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
+            var boundary = $"----------------------------{DateTime.UtcNow.Ticks:X}";
 
             var request = WebRequest.CreateHttp(url);
             request.ContentType = $"multipart/form-data; boundary={boundary}";
@@ -873,7 +873,7 @@ namespace WeihanLi.Common.Helpers
         /// <returns></returns>
         public static async Task<string> HttpPostFileAsync(string url, string fileName, byte[] fileBytes, string fileKey = "file", IEnumerable<KeyValuePair<string, string>>? formFields = null, IEnumerable<KeyValuePair<string, string>>? headers = null)
         {
-            var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
+            var boundary = $"----------------------------{DateTime.UtcNow.Ticks:X}";
 
             var request = WebRequest.CreateHttp(url);
             request.ContentType = $"multipart/form-data; boundary={boundary}";
@@ -941,7 +941,7 @@ namespace WeihanLi.Common.Helpers
         /// <returns></returns>
         public static async Task<string> HttpPostFileAsync(string url, IEnumerable<KeyValuePair<string, byte[]>> files, IEnumerable<KeyValuePair<string, string>>? formFields = null, IEnumerable<KeyValuePair<string, string>>? headers = null)
         {
-            var boundary = $"----------------------------{DateTime.Now.Ticks:X}";
+            var boundary = $"----------------------------{DateTime.UtcNow.Ticks:X}";
 
             var request = WebRequest.CreateHttp(url);
             request.ContentType = $"multipart/form-data; boundary={boundary}";

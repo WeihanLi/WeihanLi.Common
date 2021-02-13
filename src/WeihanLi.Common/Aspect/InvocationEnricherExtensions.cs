@@ -29,7 +29,8 @@ namespace WeihanLi.Common.Aspect
             if (!invocation.Properties.ContainsKey(propertyName)
                 || overwrite)
             {
-                invocation.Properties[propertyName] = propertyValueFactory.Invoke(invocation);
+                invocation.Properties[propertyName]
+                    = Guard.NotNull(propertyValueFactory, nameof(propertyValueFactory)).Invoke(invocation);
             }
         }
     }

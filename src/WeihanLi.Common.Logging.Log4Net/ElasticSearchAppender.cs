@@ -12,12 +12,7 @@ namespace WeihanLi.Common.Logging.Log4Net
 {
     public class ElasticSearchAppender : BufferingAppenderSkeleton
     {
-        private const int DefaultOnCloseTimeout = 30000;
-
-        private static readonly HttpClient _httpClient = new()
-        {
-            Timeout = TimeSpan.FromMilliseconds(DefaultOnCloseTimeout)
-        };
+        private static readonly HttpClient _httpClient = new();
 
         /// <summary>
         /// ElasticSearchUrl
