@@ -10978,6 +10978,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.ValueStopwatch.Elapsed
   nameWithType: ValueStopwatch.Elapsed
+- uid: WeihanLi.Common.Helpers.ValueStopwatch.IsRunning
+  name: IsRunning
+  href: docs/api/WeihanLi.Common.Helpers.ValueStopwatch.html#WeihanLi_Common_Helpers_ValueStopwatch_IsRunning
+  commentId: P:WeihanLi.Common.Helpers.ValueStopwatch.IsRunning
+  fullName: WeihanLi.Common.Helpers.ValueStopwatch.IsRunning
+  nameWithType: ValueStopwatch.IsRunning
+- uid: WeihanLi.Common.Helpers.ValueStopwatch.IsRunning*
+  name: IsRunning
+  href: docs/api/WeihanLi.Common.Helpers.ValueStopwatch.html#WeihanLi_Common_Helpers_ValueStopwatch_IsRunning_
+  commentId: Overload:WeihanLi.Common.Helpers.ValueStopwatch.IsRunning
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ValueStopwatch.IsRunning
+  nameWithType: ValueStopwatch.IsRunning
 - uid: WeihanLi.Common.Helpers.ValueStopwatch.Restart
   name: Restart()
   href: docs/api/WeihanLi.Common.Helpers.ValueStopwatch.html#WeihanLi_Common_Helpers_ValueStopwatch_Restart
