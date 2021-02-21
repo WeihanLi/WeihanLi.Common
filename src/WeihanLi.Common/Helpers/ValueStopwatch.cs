@@ -21,9 +21,8 @@ namespace WeihanLi.Common.Helpers
             _stopTimestamp = 0;
         }
 
-        /// <summary>
-        /// Gets the time elapsed since the stopwatch was created with <see cref="StartNew"/>.
-        /// </summary>
+        /// <summary>Gets the total elapsed time measured by the current instance.</summary>
+        /// <returns>A read-only <see cref="T:System.TimeSpan"></see> representing the total elapsed time measured by the current instance.</returns>
         public TimeSpan Elapsed
         {
             get
@@ -35,12 +34,18 @@ namespace WeihanLi.Common.Helpers
             }
         }
 
+        /// <summary>Gets a value indicating whether the <see cref="ValueStopwatch"></see> timer is running.</summary>
+        /// <returns>true if the <see cref="ValueStopwatch"></see> instance is currently running and measuring elapsed time for an interval; otherwise, false.</returns>
+        public bool IsRunning => _stopTimestamp == 0;
+
+        /// <summary>Stops time interval measurement, resets the elapsed time to zero, and starts measuring elapsed time.</summary>
         public void Restart()
         {
             _startTimestamp = Stopwatch.GetTimestamp();
             _stopTimestamp = 0;
         }
 
+        /// <summary>Stops measuring elapsed time for an interval.</summary>
         public void Stop() => _stopTimestamp = Stopwatch.GetTimestamp();
 
         /// <summary>
