@@ -25,7 +25,7 @@ namespace WeihanLi.Common.Models
             };
         }
 
-        public static ResultModel<T> Success<T>(T result)
+        public static ResultModel<T> Success<T>(T? result)
         {
             return new()
             {
@@ -43,12 +43,13 @@ namespace WeihanLi.Common.Models
             };
         }
 
-        public static ResultModel<T> Fail<T>(string? errorMsg, ResultStatus status = ResultStatus.RequestError, T result = default)
+        public static ResultModel<T> Fail<T>(string? errorMsg, ResultStatus status = ResultStatus.RequestError, T? result = default)
         {
             return new()
             {
                 ErrorMsg = errorMsg,
                 Status = status,
+                Result = result
             };
         }
     }
