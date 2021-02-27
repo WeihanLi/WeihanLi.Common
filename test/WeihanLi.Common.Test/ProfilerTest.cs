@@ -20,8 +20,6 @@ namespace WeihanLi.Common.Test
             Thread.Sleep(delay / 2);
             profiler.Stop();
             Assert.True(profiler.Elapsed.TotalMilliseconds < delay);
-            profiler.Reset();
-            Assert.Equal(0, profiler.Elapsed.TotalMilliseconds);
         }
     }
 }
