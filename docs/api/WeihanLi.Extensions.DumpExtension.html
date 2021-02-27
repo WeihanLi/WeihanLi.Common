@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class SerializeHelper
+    <title>Class DumpExtension
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class SerializeHelper
+    <meta name="title" content="Class DumpExtension
    ">
     <meta name="generator" content="docfx 2.56.6.0">
     
@@ -68,17 +68,17 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="WeihanLi.Common.Helpers.SerializeHelper">
+            <article class="content wrap" id="_content" data-uid="WeihanLi.Extensions.DumpExtension">
   
   
-  <h1 id="WeihanLi_Common_Helpers_SerializeHelper" data-uid="WeihanLi.Common.Helpers.SerializeHelper" class="text-break">Class SerializeHelper
+  <h1 id="WeihanLi_Extensions_DumpExtension" data-uid="WeihanLi.Extensions.DumpExtension" class="text-break">Class DumpExtension
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">SerializeHelper</span></div>
+    <div class="level1"><span class="xref">DumpExtension</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -104,24 +104,23 @@
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Common.Helpers.html">WeihanLi.Common.Helpers</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Extensions.html">WeihanLi.Extensions</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="WeihanLi_Common_Helpers_SerializeHelper_syntax">Syntax</h5>
+  <h5 id="WeihanLi_Extensions_DumpExtension_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class SerializeHelper</code></pre>
+    <pre><code class="lang-csharp hljs">public static class DumpExtension</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="WeihanLi_Common_Helpers_SerializeHelper_DeserializeJson_" data-uid="WeihanLi.Common.Helpers.SerializeHelper.DeserializeJson*"></a>
-  <h4 id="WeihanLi_Common_Helpers_SerializeHelper_DeserializeJson__1_System_String_" data-uid="WeihanLi.Common.Helpers.SerializeHelper.DeserializeJson``1(System.String)">DeserializeJson&lt;T&gt;(String)</h4>
-  <div class="markdown level1 summary"><p>A string extension method that deserialize a Json string to object.</p>
-</div>
+  <a id="WeihanLi_Extensions_DumpExtension_Dump_" data-uid="WeihanLi.Extensions.DumpExtension.Dump*"></a>
+  <h4 id="WeihanLi_Extensions_DumpExtension_Dump__1___0_" data-uid="WeihanLi.Extensions.DumpExtension.Dump``1(``0)">Dump&lt;T&gt;(T)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T DeserializeJson&lt;T&gt;(string this)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Dump&lt;T&gt;(this T t)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -134,26 +133,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">this</span></td>
-        <td><p>The @this to act on.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
         <td><span class="xref">T</span></td>
-        <td><p>The object deserialized.</p>
-</td>
+        <td><span class="parametername">t</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -168,21 +150,19 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td><p>Generic type parameter.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="WeihanLi_Common_Helpers_SerializeHelper_DeserializeXml_" data-uid="WeihanLi.Common.Helpers.SerializeHelper.DeserializeXml*"></a>
-  <h4 id="WeihanLi_Common_Helpers_SerializeHelper_DeserializeXml__1_System_String_" data-uid="WeihanLi.Common.Helpers.SerializeHelper.DeserializeXml``1(System.String)">DeserializeXml&lt;T&gt;(String)</h4>
-  <div class="markdown level1 summary"><p>A string extension method that deserialize an Xml as &lt;T&gt;.</p>
-</div>
+  <a id="WeihanLi_Extensions_DumpExtension_Dump_" data-uid="WeihanLi.Extensions.DumpExtension.Dump*"></a>
+  <h4 id="WeihanLi_Extensions_DumpExtension_Dump__1___0_System_Action_System_String__" data-uid="WeihanLi.Extensions.DumpExtension.Dump``1(``0,System.Action{System.String})">Dump&lt;T&gt;(T, Action&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T DeserializeXml&lt;T&gt;(string this)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Dump&lt;T&gt;(this T t, Action&lt;string&gt; dumpAction)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -195,26 +175,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">this</span></td>
-        <td><p>The @this to act on.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
         <td><span class="xref">T</span></td>
-        <td><p>The deserialize Xml as &lt;T&gt;</p>
-</td>
+        <td><span class="parametername">t</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">dumpAction</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -229,21 +197,19 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td><p>Generic type parameter.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="WeihanLi_Common_Helpers_SerializeHelper_SerializeJson_" data-uid="WeihanLi.Common.Helpers.SerializeHelper.SerializeJson*"></a>
-  <h4 id="WeihanLi_Common_Helpers_SerializeHelper_SerializeJson__1___0_" data-uid="WeihanLi.Common.Helpers.SerializeHelper.SerializeJson``1(``0)">SerializeJson&lt;T&gt;(T)</h4>
-  <div class="markdown level1 summary"><p>A T extension method that serialize an object to Json.</p>
-</div>
+  <a id="WeihanLi_Extensions_DumpExtension_Dump_" data-uid="WeihanLi.Extensions.DumpExtension.Dump*"></a>
+  <h4 id="WeihanLi_Extensions_DumpExtension_Dump__1___0_System_Action_System_String__System_Func___0_System_String__" data-uid="WeihanLi.Extensions.DumpExtension.Dump``1(``0,System.Action{System.String},System.Func{``0,System.String})">Dump&lt;T&gt;(T, Action&lt;String&gt;, Func&lt;T, String&gt;)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string SerializeJson&lt;T&gt;(T this)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Dump&lt;T&gt;(this T t, Action&lt;string&gt; dumpAction, Func&lt;T, string&gt; dumpValueFactory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -257,25 +223,18 @@
     <tbody>
       <tr>
         <td><span class="xref">T</span></td>
-        <td><span class="parametername">this</span></td>
-        <td><p>The @this to act on.</p>
-</td>
+        <td><span class="parametername">t</span></td>
+        <td></td>
       </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
       <tr>
-        <th>Type</th>
-        <th>Description</th>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">dumpAction</span></td>
+        <td></td>
       </tr>
-    </thead>
-    <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>The Json string.</p>
-</td>
+        <td><span class="xref">System.Func</span>&lt;T, <span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">dumpValueFactory</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -290,53 +249,7 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td><p>Generic type parameter.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="WeihanLi_Common_Helpers_SerializeHelper_SerializeXml_" data-uid="WeihanLi.Common.Helpers.SerializeHelper.SerializeXml*"></a>
-  <h4 id="WeihanLi_Common_Helpers_SerializeHelper_SerializeXml_System_Object_" data-uid="WeihanLi.Common.Helpers.SerializeHelper.SerializeXml(System.Object)">SerializeXml(Object)</h4>
-  <div class="markdown level1 summary"><p>An object extension method that serialize a string to XML.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string SerializeXml(object this)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">this</span></td>
-        <td><p>The @this to act on.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>The string representation of the Xml Serialization.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>

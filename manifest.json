@@ -1424,18 +1424,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "docs/api/WeihanLi.Common.Helpers.BinaryDataSerializer.yml",
-      "output": {
-        ".html": {
-          "relative_path": "docs/api/WeihanLi.Common.Helpers.BinaryDataSerializer.html",
-          "hash": "pQNA8FjJjoCVlhDuiOC7Ug=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "docs/api/WeihanLi.Common.Helpers.BoundedConcurrentQueue-1.yml",
       "output": {
         ".html": {
@@ -1976,18 +1964,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "docs/api/WeihanLi.Common.Helpers.SerializeHelper.yml",
-      "output": {
-        ".html": {
-          "relative_path": "docs/api/WeihanLi.Common.Helpers.SerializeHelper.html",
-          "hash": "DbpXZi4jBWxU3qgx3uKBMQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "docs/api/WeihanLi.Common.Helpers.StopwatchStopper.yml",
       "output": {
         ".html": {
@@ -2076,7 +2052,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Helpers.html",
-          "hash": "uHN7iiYEOf7CXmCaNlO2OA=="
+          "hash": "rpwwZ1UaA3FZSEE7YOYI8Q=="
         }
       },
       "is_incremental": false,
@@ -3176,6 +3152,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "docs/api/WeihanLi.Extensions.DumpExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/api/WeihanLi.Extensions.DumpExtension.html",
+          "hash": "tCdZq2lm3Cvz64zygGJZ4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "docs/api/WeihanLi.Extensions.EnumerableExtension.yml",
       "output": {
         ".html": {
@@ -3360,7 +3348,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Extensions.html",
-          "hash": "1EkB9kpLGvtk0P0ah8D3Ug=="
+          "hash": "Gz80IRg1HXAimyLVPMduVQ=="
         }
       },
       "is_incremental": false,
@@ -3384,7 +3372,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/toc.html",
-          "hash": "7fbehLtrMIsdCv3qpuLGEQ=="
+          "hash": "g5ajUksQeiaKSFfJpfp1wA=="
         }
       },
       "is_incremental": false,
@@ -3450,7 +3438,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 278,
+          "total_file_count": 277,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

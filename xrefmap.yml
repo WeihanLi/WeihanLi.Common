@@ -7034,44 +7034,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.Base64UrlEncodeHelper.Encode
   nameWithType: Base64UrlEncodeHelper.Encode
-- uid: WeihanLi.Common.Helpers.BinaryDataSerializer
-  name: BinaryDataSerializer
-  href: docs/api/WeihanLi.Common.Helpers.BinaryDataSerializer.html
-  commentId: T:WeihanLi.Common.Helpers.BinaryDataSerializer
-  fullName: WeihanLi.Common.Helpers.BinaryDataSerializer
-  nameWithType: BinaryDataSerializer
-- uid: WeihanLi.Common.Helpers.BinaryDataSerializer.Deserialize*
-  name: Deserialize
-  href: docs/api/WeihanLi.Common.Helpers.BinaryDataSerializer.html#WeihanLi_Common_Helpers_BinaryDataSerializer_Deserialize_
-  commentId: Overload:WeihanLi.Common.Helpers.BinaryDataSerializer.Deserialize
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.BinaryDataSerializer.Deserialize
-  nameWithType: BinaryDataSerializer.Deserialize
-- uid: WeihanLi.Common.Helpers.BinaryDataSerializer.Deserialize``1(System.Byte[])
-  name: Deserialize<T>(Byte[])
-  href: docs/api/WeihanLi.Common.Helpers.BinaryDataSerializer.html#WeihanLi_Common_Helpers_BinaryDataSerializer_Deserialize__1_System_Byte___
-  commentId: M:WeihanLi.Common.Helpers.BinaryDataSerializer.Deserialize``1(System.Byte[])
-  name.vb: Deserialize(Of T)(Byte())
-  fullName: WeihanLi.Common.Helpers.BinaryDataSerializer.Deserialize<T>(System.Byte[])
-  fullName.vb: WeihanLi.Common.Helpers.BinaryDataSerializer.Deserialize(Of T)(System.Byte())
-  nameWithType: BinaryDataSerializer.Deserialize<T>(Byte[])
-  nameWithType.vb: BinaryDataSerializer.Deserialize(Of T)(Byte())
-- uid: WeihanLi.Common.Helpers.BinaryDataSerializer.Serialize*
-  name: Serialize
-  href: docs/api/WeihanLi.Common.Helpers.BinaryDataSerializer.html#WeihanLi_Common_Helpers_BinaryDataSerializer_Serialize_
-  commentId: Overload:WeihanLi.Common.Helpers.BinaryDataSerializer.Serialize
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.BinaryDataSerializer.Serialize
-  nameWithType: BinaryDataSerializer.Serialize
-- uid: WeihanLi.Common.Helpers.BinaryDataSerializer.Serialize``1(``0)
-  name: Serialize<T>(T)
-  href: docs/api/WeihanLi.Common.Helpers.BinaryDataSerializer.html#WeihanLi_Common_Helpers_BinaryDataSerializer_Serialize__1___0_
-  commentId: M:WeihanLi.Common.Helpers.BinaryDataSerializer.Serialize``1(``0)
-  name.vb: Serialize(Of T)(T)
-  fullName: WeihanLi.Common.Helpers.BinaryDataSerializer.Serialize<T>(T)
-  fullName.vb: WeihanLi.Common.Helpers.BinaryDataSerializer.Serialize(Of T)(T)
-  nameWithType: BinaryDataSerializer.Serialize<T>(T)
-  nameWithType.vb: BinaryDataSerializer.Serialize(Of T)(T)
 - uid: WeihanLi.Common.Helpers.BoundedConcurrentQueue`1
   name: BoundedConcurrentQueue<T>
   href: docs/api/WeihanLi.Common.Helpers.BoundedConcurrentQueue-1.html
@@ -10490,73 +10452,6 @@ references:
   commentId: F:WeihanLi.Common.Helpers.SequentialGuidType.SequentialAtEnd
   fullName: WeihanLi.Common.Helpers.SequentialGuidType.SequentialAtEnd
   nameWithType: SequentialGuidType.SequentialAtEnd
-- uid: WeihanLi.Common.Helpers.SerializeHelper
-  name: SerializeHelper
-  href: docs/api/WeihanLi.Common.Helpers.SerializeHelper.html
-  commentId: T:WeihanLi.Common.Helpers.SerializeHelper
-  fullName: WeihanLi.Common.Helpers.SerializeHelper
-  nameWithType: SerializeHelper
-- uid: WeihanLi.Common.Helpers.SerializeHelper.DeserializeJson*
-  name: DeserializeJson
-  href: docs/api/WeihanLi.Common.Helpers.SerializeHelper.html#WeihanLi_Common_Helpers_SerializeHelper_DeserializeJson_
-  commentId: Overload:WeihanLi.Common.Helpers.SerializeHelper.DeserializeJson
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.SerializeHelper.DeserializeJson
-  nameWithType: SerializeHelper.DeserializeJson
-- uid: WeihanLi.Common.Helpers.SerializeHelper.DeserializeJson``1(System.String)
-  name: DeserializeJson<T>(String)
-  href: docs/api/WeihanLi.Common.Helpers.SerializeHelper.html#WeihanLi_Common_Helpers_SerializeHelper_DeserializeJson__1_System_String_
-  commentId: M:WeihanLi.Common.Helpers.SerializeHelper.DeserializeJson``1(System.String)
-  name.vb: DeserializeJson(Of T)(String)
-  fullName: WeihanLi.Common.Helpers.SerializeHelper.DeserializeJson<T>(System.String)
-  fullName.vb: WeihanLi.Common.Helpers.SerializeHelper.DeserializeJson(Of T)(System.String)
-  nameWithType: SerializeHelper.DeserializeJson<T>(String)
-  nameWithType.vb: SerializeHelper.DeserializeJson(Of T)(String)
-- uid: WeihanLi.Common.Helpers.SerializeHelper.DeserializeXml*
-  name: DeserializeXml
-  href: docs/api/WeihanLi.Common.Helpers.SerializeHelper.html#WeihanLi_Common_Helpers_SerializeHelper_DeserializeXml_
-  commentId: Overload:WeihanLi.Common.Helpers.SerializeHelper.DeserializeXml
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.SerializeHelper.DeserializeXml
-  nameWithType: SerializeHelper.DeserializeXml
-- uid: WeihanLi.Common.Helpers.SerializeHelper.DeserializeXml``1(System.String)
-  name: DeserializeXml<T>(String)
-  href: docs/api/WeihanLi.Common.Helpers.SerializeHelper.html#WeihanLi_Common_Helpers_SerializeHelper_DeserializeXml__1_System_String_
-  commentId: M:WeihanLi.Common.Helpers.SerializeHelper.DeserializeXml``1(System.String)
-  name.vb: DeserializeXml(Of T)(String)
-  fullName: WeihanLi.Common.Helpers.SerializeHelper.DeserializeXml<T>(System.String)
-  fullName.vb: WeihanLi.Common.Helpers.SerializeHelper.DeserializeXml(Of T)(System.String)
-  nameWithType: SerializeHelper.DeserializeXml<T>(String)
-  nameWithType.vb: SerializeHelper.DeserializeXml(Of T)(String)
-- uid: WeihanLi.Common.Helpers.SerializeHelper.SerializeJson*
-  name: SerializeJson
-  href: docs/api/WeihanLi.Common.Helpers.SerializeHelper.html#WeihanLi_Common_Helpers_SerializeHelper_SerializeJson_
-  commentId: Overload:WeihanLi.Common.Helpers.SerializeHelper.SerializeJson
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.SerializeHelper.SerializeJson
-  nameWithType: SerializeHelper.SerializeJson
-- uid: WeihanLi.Common.Helpers.SerializeHelper.SerializeJson``1(``0)
-  name: SerializeJson<T>(T)
-  href: docs/api/WeihanLi.Common.Helpers.SerializeHelper.html#WeihanLi_Common_Helpers_SerializeHelper_SerializeJson__1___0_
-  commentId: M:WeihanLi.Common.Helpers.SerializeHelper.SerializeJson``1(``0)
-  name.vb: SerializeJson(Of T)(T)
-  fullName: WeihanLi.Common.Helpers.SerializeHelper.SerializeJson<T>(T)
-  fullName.vb: WeihanLi.Common.Helpers.SerializeHelper.SerializeJson(Of T)(T)
-  nameWithType: SerializeHelper.SerializeJson<T>(T)
-  nameWithType.vb: SerializeHelper.SerializeJson(Of T)(T)
-- uid: WeihanLi.Common.Helpers.SerializeHelper.SerializeXml(System.Object)
-  name: SerializeXml(Object)
-  href: docs/api/WeihanLi.Common.Helpers.SerializeHelper.html#WeihanLi_Common_Helpers_SerializeHelper_SerializeXml_System_Object_
-  commentId: M:WeihanLi.Common.Helpers.SerializeHelper.SerializeXml(System.Object)
-  fullName: WeihanLi.Common.Helpers.SerializeHelper.SerializeXml(System.Object)
-  nameWithType: SerializeHelper.SerializeXml(Object)
-- uid: WeihanLi.Common.Helpers.SerializeHelper.SerializeXml*
-  name: SerializeXml
-  href: docs/api/WeihanLi.Common.Helpers.SerializeHelper.html#WeihanLi_Common_Helpers_SerializeHelper_SerializeXml_
-  commentId: Overload:WeihanLi.Common.Helpers.SerializeHelper.SerializeXml
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.SerializeHelper.SerializeXml
-  nameWithType: SerializeHelper.SerializeXml
 - uid: WeihanLi.Common.Helpers.StopwatchStopper
   name: StopwatchStopper
   href: docs/api/WeihanLi.Common.Helpers.StopwatchStopper.html
@@ -20799,6 +20694,46 @@ references:
   fullName.vb: WeihanLi.Extensions.DictionaryExtension.TryGetValue(Of TKey, TValue)(IDictionary(Of TKey, TValue), TKey, ByRef TValue, TValue)
   nameWithType: DictionaryExtension.TryGetValue<TKey, TValue>(IDictionary<TKey, TValue>, TKey, out TValue, TValue)
   nameWithType.vb: DictionaryExtension.TryGetValue(Of TKey, TValue)(IDictionary(Of TKey, TValue), TKey, ByRef TValue, TValue)
+- uid: WeihanLi.Extensions.DumpExtension
+  name: DumpExtension
+  href: docs/api/WeihanLi.Extensions.DumpExtension.html
+  commentId: T:WeihanLi.Extensions.DumpExtension
+  fullName: WeihanLi.Extensions.DumpExtension
+  nameWithType: DumpExtension
+- uid: WeihanLi.Extensions.DumpExtension.Dump*
+  name: Dump
+  href: docs/api/WeihanLi.Extensions.DumpExtension.html#WeihanLi_Extensions_DumpExtension_Dump_
+  commentId: Overload:WeihanLi.Extensions.DumpExtension.Dump
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.DumpExtension.Dump
+  nameWithType: DumpExtension.Dump
+- uid: WeihanLi.Extensions.DumpExtension.Dump``1(``0)
+  name: Dump<T>(T)
+  href: docs/api/WeihanLi.Extensions.DumpExtension.html#WeihanLi_Extensions_DumpExtension_Dump__1___0_
+  commentId: M:WeihanLi.Extensions.DumpExtension.Dump``1(``0)
+  name.vb: Dump(Of T)(T)
+  fullName: WeihanLi.Extensions.DumpExtension.Dump<T>(T)
+  fullName.vb: WeihanLi.Extensions.DumpExtension.Dump(Of T)(T)
+  nameWithType: DumpExtension.Dump<T>(T)
+  nameWithType.vb: DumpExtension.Dump(Of T)(T)
+- uid: WeihanLi.Extensions.DumpExtension.Dump``1(``0,System.Action{System.String})
+  name: Dump<T>(T, Action<String>)
+  href: docs/api/WeihanLi.Extensions.DumpExtension.html#WeihanLi_Extensions_DumpExtension_Dump__1___0_System_Action_System_String__
+  commentId: M:WeihanLi.Extensions.DumpExtension.Dump``1(``0,System.Action{System.String})
+  name.vb: Dump(Of T)(T, Action(Of String))
+  fullName: WeihanLi.Extensions.DumpExtension.Dump<T>(T, System.Action<System.String>)
+  fullName.vb: WeihanLi.Extensions.DumpExtension.Dump(Of T)(T, System.Action(Of System.String))
+  nameWithType: DumpExtension.Dump<T>(T, Action<String>)
+  nameWithType.vb: DumpExtension.Dump(Of T)(T, Action(Of String))
+- uid: WeihanLi.Extensions.DumpExtension.Dump``1(``0,System.Action{System.String},System.Func{``0,System.String})
+  name: Dump<T>(T, Action<String>, Func<T, String>)
+  href: docs/api/WeihanLi.Extensions.DumpExtension.html#WeihanLi_Extensions_DumpExtension_Dump__1___0_System_Action_System_String__System_Func___0_System_String__
+  commentId: M:WeihanLi.Extensions.DumpExtension.Dump``1(``0,System.Action{System.String},System.Func{``0,System.String})
+  name.vb: Dump(Of T)(T, Action(Of String), Func(Of T, String))
+  fullName: WeihanLi.Extensions.DumpExtension.Dump<T>(T, System.Action<System.String>, System.Func<T, System.String>)
+  fullName.vb: WeihanLi.Extensions.DumpExtension.Dump(Of T)(T, System.Action(Of System.String), System.Func(Of T, System.String))
+  nameWithType: DumpExtension.Dump<T>(T, Action<String>, Func<T, String>)
+  nameWithType.vb: DumpExtension.Dump(Of T)(T, Action(Of String), Func(Of T, String))
 - uid: WeihanLi.Extensions.EnumerableExtension
   name: EnumerableExtension
   href: docs/api/WeihanLi.Extensions.EnumerableExtension.html
