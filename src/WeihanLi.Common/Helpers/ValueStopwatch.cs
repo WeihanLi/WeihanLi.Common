@@ -11,8 +11,6 @@ namespace WeihanLi.Common.Helpers
     /// </remarks>
     public struct ValueStopwatch
     {
-        private static readonly double _timestampToTicks = TimeSpan.TicksPerSecond / (double)Stopwatch.Frequency;
-
         private long _startTimestamp, _stopTimestamp;
 
         private ValueStopwatch(long startTimestamp)
@@ -27,10 +25,11 @@ namespace WeihanLi.Common.Helpers
         {
             get
             {
-                var end = _stopTimestamp > 0 ? _stopTimestamp : Stopwatch.GetTimestamp();
-                var timestampDelta = end - _startTimestamp;
-                var ticks = (long)(_timestampToTicks * timestampDelta);
-                return new TimeSpan(ticks);
+                if (_stopTimestamp == 0)
+                {
+                    _stopTimestamp = Stopwatch.GetTimestamp();
+                }
+                return ProfilerHelper.GetElapsedTime(_startTimestamp, _stopTimestamp);
             }
         }
 
@@ -41,8 +40,8 @@ namespace WeihanLi.Common.Helpers
         /// <summary>Stops time interval measurement, resets the elapsed time to zero, and starts measuring elapsed time.</summary>
         public void Restart()
         {
-            _startTimestamp = Stopwatch.GetTimestamp();
             _stopTimestamp = 0;
+            _startTimestamp = Stopwatch.GetTimestamp();
         }
 
         /// <summary>Stops measuring elapsed time for an interval.</summary>

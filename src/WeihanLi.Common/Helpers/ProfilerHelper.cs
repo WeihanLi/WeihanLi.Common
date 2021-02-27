@@ -52,5 +52,27 @@ namespace WeihanLi.Common.Helpers
             Guard.NotNull(profiler, nameof(profiler)).Restart();
             return new ProfilerStopper(profiler, profilerAction);
         }
+
+        public static readonly double TicksPerTimestamp = TimeSpan.TicksPerSecond / (double)Stopwatch.Frequency;
+
+        /// <summary>
+        /// GetElapsedTime
+        /// </summary>
+        /// <param name="startTimestamp">startTimestamp, get by Stopwatch.GetTimestamp()</param>
+        /// <returns>elapsed timespan</returns>
+        public static TimeSpan GetElapsedTime(long startTimestamp) =>
+            GetElapsedTime(startTimestamp, Stopwatch.GetTimestamp());
+
+        /// <summary>
+        /// GetElapsedTime
+        /// </summary>
+        /// <param name="startTimestamp">startTimestamp, get by Stopwatch.GetTimestamp()</param>
+        /// <param name="endTimestamp">endTimestamp, get by Stopwatch.GetTimestamp</param>
+        /// <returns>elapsed timespan</returns>
+        public static TimeSpan GetElapsedTime(long startTimestamp, long endTimestamp)
+        {
+            var ticks = (long)((endTimestamp - startTimestamp) * TicksPerTimestamp);
+            return new TimeSpan(ticks);
+        }
     }
 }
