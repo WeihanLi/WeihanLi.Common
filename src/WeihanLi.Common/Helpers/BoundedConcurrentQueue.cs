@@ -19,14 +19,14 @@ namespace WeihanLi.Common.Helpers
         public BoundedConcurrentQueue(int queueLimit)
         {
             if (queueLimit <= 0)
-                throw new ArgumentOutOfRangeException(nameof(queueLimit), "queue limit must be positive");
+                throw new ArgumentOutOfRangeException(nameof(queueLimit), Resource.ValueMustBePositive);
 
             _queueLimit = queueLimit;
         }
 
         public int Count => _queue.Count;
 
-        public bool TryDequeue(out T item)
+        public bool TryDequeue(out T? item)
         {
             if (_queueLimit == NON_BOUNDED)
                 return _queue.TryDequeue(out item);

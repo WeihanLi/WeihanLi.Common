@@ -34,7 +34,7 @@ namespace WeihanLi.Common.Logging
 
     internal sealed class LogHelperGenericLogger<TCategory> : LogHelper, ILogHelperLogger<TCategory>
     {
-        public LogHelperGenericLogger(LogHelperFactory logHelperFactory) : base(logHelperFactory, typeof(TCategory).FullName)
+        public LogHelperGenericLogger(LogHelperFactory logHelperFactory) : base(logHelperFactory, typeof(TCategory).FullName ?? typeof(TCategory).Name)
         {
         }
     }

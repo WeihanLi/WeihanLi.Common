@@ -155,7 +155,7 @@ namespace WeihanLi.Common.Helpers.PeriodBatching
                         _queue.TryDequeue(out var next))
                     {
                         if (CanInclude(next))
-                            _waitingBatch.Enqueue(next);
+                            _waitingBatch.Enqueue(next!);
                     }
 
                     if (_waitingBatch.Count == 0)
@@ -244,7 +244,7 @@ namespace WeihanLi.Common.Helpers.PeriodBatching
         /// </summary>
         /// <param name="evt"></param>
         /// <returns></returns>
-        protected virtual bool CanInclude(TEvent evt)
+        protected virtual bool CanInclude(TEvent? evt)
         {
             return true;
         }
