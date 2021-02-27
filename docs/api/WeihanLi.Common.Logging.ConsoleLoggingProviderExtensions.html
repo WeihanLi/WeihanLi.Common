@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IProfiler
+    <title>Class ConsoleLoggingProviderExtensions
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IProfiler
+    <meta name="title" content="Class ConsoleLoggingProviderExtensions
    ">
     <meta name="generator" content="docfx 2.56.6.0">
     
@@ -68,33 +68,83 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="WeihanLi.Common.IProfiler">
+            <article class="content wrap" id="_content" data-uid="WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions">
   
   
-  <h1 id="WeihanLi_Common_IProfiler" data-uid="WeihanLi.Common.IProfiler" class="text-break">Interface IProfiler
+  <h1 id="WeihanLi_Common_Logging_ConsoleLoggingProviderExtensions" data-uid="WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions" class="text-break">Class ConsoleLoggingProviderExtensions
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Common.html">WeihanLi.Common</a></h6>
-  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="WeihanLi_Common_IProfiler_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IProfiler</code></pre>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ConsoleLoggingProviderExtensions</span></div>
   </div>
-  <h3 id="properties">Properties
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Common.Logging.html">WeihanLi.Common.Logging</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="WeihanLi_Common_Logging_ConsoleLoggingProviderExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ConsoleLoggingProviderExtensions</code></pre>
+  </div>
+  <h3 id="methods">Methods
   </h3>
   
   
-  <a id="WeihanLi_Common_IProfiler_Elapsed_" data-uid="WeihanLi.Common.IProfiler.Elapsed*"></a>
-  <h4 id="WeihanLi_Common_IProfiler_Elapsed" data-uid="WeihanLi.Common.IProfiler.Elapsed">Elapsed</h4>
-  <div class="markdown level1 summary"><p>Gets the total elapsed time measured by the current instance, in milliseconds.</p>
-</div>
+  <a id="WeihanLi_Common_Logging_ConsoleLoggingProviderExtensions_AddConsole_" data-uid="WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole*"></a>
+  <h4 id="WeihanLi_Common_Logging_ConsoleLoggingProviderExtensions_AddConsole_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_WeihanLi_Common_Logging_IConsoleLogFormatter_" data-uid="WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,WeihanLi.Common.Logging.IConsoleLogFormatter)">AddConsole(ILogHelperLoggingBuilder, IConsoleLogFormatter)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TimeSpan Elapsed { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder AddConsole(this ILogHelperLoggingBuilder loggingBuilder, IConsoleLogFormatter consoleLogFormatter = null)</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="parametername">loggingBuilder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Logging.IConsoleLogFormatter.html">IConsoleLogFormatter</a></td>
+        <td><span class="parametername">consoleLogFormatter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -104,46 +154,11 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.TimeSpan</span></td>
+        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="methods">Methods
-  </h3>
-  
-  
-  <a id="WeihanLi_Common_IProfiler_Restart_" data-uid="WeihanLi.Common.IProfiler.Restart*"></a>
-  <h4 id="WeihanLi_Common_IProfiler_Restart" data-uid="WeihanLi.Common.IProfiler.Restart">Restart()</h4>
-  <div class="markdown level1 summary"><p>Stops time interval measurement, resets the elapsed time to zero, and starts measuring elapsed time.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Restart()</code></pre>
-  </div>
-  
-  
-  <a id="WeihanLi_Common_IProfiler_Start_" data-uid="WeihanLi.Common.IProfiler.Start*"></a>
-  <h4 id="WeihanLi_Common_IProfiler_Start" data-uid="WeihanLi.Common.IProfiler.Start">Start()</h4>
-  <div class="markdown level1 summary"><p>Starts, or resumes, measuring elapsed time for an interval.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Start()</code></pre>
-  </div>
-  
-  
-  <a id="WeihanLi_Common_IProfiler_Stop_" data-uid="WeihanLi.Common.IProfiler.Stop*"></a>
-  <h4 id="WeihanLi_Common_IProfiler_Stop" data-uid="WeihanLi.Common.IProfiler.Stop">Stop()</h4>
-  <div class="markdown level1 summary"><p>Stops measuring elapsed time for an interval.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Stop()</code></pre>
-  </div>
 </article>
           </div>
           

@@ -110,8 +110,130 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static class ProfilerHelper</code></pre>
   </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="WeihanLi_Common_Helpers_ProfilerHelper_TicksPerTimestamp" data-uid="WeihanLi.Common.Helpers.ProfilerHelper.TicksPerTimestamp">TicksPerTimestamp</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly double TicksPerTimestamp</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
+  
+  
+  <a id="WeihanLi_Common_Helpers_ProfilerHelper_GetElapsedTime_" data-uid="WeihanLi.Common.Helpers.ProfilerHelper.GetElapsedTime*"></a>
+  <h4 id="WeihanLi_Common_Helpers_ProfilerHelper_GetElapsedTime_System_Int64_" data-uid="WeihanLi.Common.Helpers.ProfilerHelper.GetElapsedTime(System.Int64)">GetElapsedTime(Int64)</h4>
+  <div class="markdown level1 summary"><p>GetElapsedTime</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TimeSpan GetElapsedTime(long startTimestamp)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">startTimestamp</span></td>
+        <td><p>startTimestamp, get by Stopwatch.GetTimestamp()</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><p>elapsed timespan</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_ProfilerHelper_GetElapsedTime_" data-uid="WeihanLi.Common.Helpers.ProfilerHelper.GetElapsedTime*"></a>
+  <h4 id="WeihanLi_Common_Helpers_ProfilerHelper_GetElapsedTime_System_Int64_System_Int64_" data-uid="WeihanLi.Common.Helpers.ProfilerHelper.GetElapsedTime(System.Int64,System.Int64)">GetElapsedTime(Int64, Int64)</h4>
+  <div class="markdown level1 summary"><p>GetElapsedTime</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TimeSpan GetElapsedTime(long startTimestamp, long endTimestamp)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">startTimestamp</span></td>
+        <td><p>startTimestamp, get by Stopwatch.GetTimestamp()</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">endTimestamp</span></td>
+        <td><p>endTimestamp, get by Stopwatch.GetTimestamp</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><p>elapsed timespan</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="WeihanLi_Common_Helpers_ProfilerHelper_Profile_" data-uid="WeihanLi.Common.Helpers.ProfilerHelper.Profile*"></a>

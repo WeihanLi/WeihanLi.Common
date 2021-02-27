@@ -1872,7 +1872,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Helpers.ProfilerHelper.html",
-          "hash": "kzmWgBxsydoJFwPfcCc8Eg=="
+          "hash": "iP+kCF7HY70QRSzmbo+Xew=="
         }
       },
       "is_incremental": false,
@@ -2196,7 +2196,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.IProfiler.html",
-          "hash": "zrHKCEUHyWo7s9euD5CitA=="
+          "hash": "2XRbYRGcFIGdXZeH4GsPHw=="
         }
       },
       "is_incremental": false,
@@ -2257,6 +2257,30 @@
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Json.html",
           "hash": "iv/pF8Yqm6voEQeCYR3Vtw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "docs/api/WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/api/WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.html",
+          "hash": "W0LPD71MWamw+rWfRSCLKg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "docs/api/WeihanLi.Common.Logging.IConsoleLogFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/api/WeihanLi.Common.Logging.IConsoleLogFormatter.html",
+          "hash": "Q+kN6HCqT4X3BF30EqktIA=="
         }
       },
       "is_incremental": false,
@@ -2472,7 +2496,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Logging.html",
-          "hash": "8QMu6pNEFf0rfFruuSjJ7A=="
+          "hash": "Z4lEWr1Y0z3Fb8hPWXYweQ=="
         }
       },
       "is_incremental": false,
@@ -3012,7 +3036,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.StopwatchProfiler.html",
-          "hash": "REn2wr3I62SWwm95YWdD0Q=="
+          "hash": "iVDEVAa+TA4dWyffz0XD+A=="
         }
       },
       "is_incremental": false,
@@ -3360,7 +3384,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/toc.html",
-          "hash": "1BP/WgU19o6M9thrGelflw=="
+          "hash": "7fbehLtrMIsdCv3qpuLGEQ=="
         }
       },
       "is_incremental": false,
@@ -3426,7 +3450,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 276,
+          "total_file_count": 278,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

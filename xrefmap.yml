@@ -10003,6 +10003,25 @@ references:
   commentId: T:WeihanLi.Common.Helpers.ProfilerHelper
   fullName: WeihanLi.Common.Helpers.ProfilerHelper
   nameWithType: ProfilerHelper
+- uid: WeihanLi.Common.Helpers.ProfilerHelper.GetElapsedTime(System.Int64)
+  name: GetElapsedTime(Int64)
+  href: docs/api/WeihanLi.Common.Helpers.ProfilerHelper.html#WeihanLi_Common_Helpers_ProfilerHelper_GetElapsedTime_System_Int64_
+  commentId: M:WeihanLi.Common.Helpers.ProfilerHelper.GetElapsedTime(System.Int64)
+  fullName: WeihanLi.Common.Helpers.ProfilerHelper.GetElapsedTime(System.Int64)
+  nameWithType: ProfilerHelper.GetElapsedTime(Int64)
+- uid: WeihanLi.Common.Helpers.ProfilerHelper.GetElapsedTime(System.Int64,System.Int64)
+  name: GetElapsedTime(Int64, Int64)
+  href: docs/api/WeihanLi.Common.Helpers.ProfilerHelper.html#WeihanLi_Common_Helpers_ProfilerHelper_GetElapsedTime_System_Int64_System_Int64_
+  commentId: M:WeihanLi.Common.Helpers.ProfilerHelper.GetElapsedTime(System.Int64,System.Int64)
+  fullName: WeihanLi.Common.Helpers.ProfilerHelper.GetElapsedTime(System.Int64, System.Int64)
+  nameWithType: ProfilerHelper.GetElapsedTime(Int64, Int64)
+- uid: WeihanLi.Common.Helpers.ProfilerHelper.GetElapsedTime*
+  name: GetElapsedTime
+  href: docs/api/WeihanLi.Common.Helpers.ProfilerHelper.html#WeihanLi_Common_Helpers_ProfilerHelper_GetElapsedTime_
+  commentId: Overload:WeihanLi.Common.Helpers.ProfilerHelper.GetElapsedTime
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ProfilerHelper.GetElapsedTime
+  nameWithType: ProfilerHelper.GetElapsedTime
 - uid: WeihanLi.Common.Helpers.ProfilerHelper.Profile(Stopwatch,System.Action{System.TimeSpan})
   name: Profile(Stopwatch, Action<TimeSpan>)
   href: docs/api/WeihanLi.Common.Helpers.ProfilerHelper.html#WeihanLi_Common_Helpers_ProfilerHelper_Profile_Stopwatch_System_Action_System_TimeSpan__
@@ -10035,6 +10054,12 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.ProfilerHelper.StartNew
   nameWithType: ProfilerHelper.StartNew
+- uid: WeihanLi.Common.Helpers.ProfilerHelper.TicksPerTimestamp
+  name: TicksPerTimestamp
+  href: docs/api/WeihanLi.Common.Helpers.ProfilerHelper.html#WeihanLi_Common_Helpers_ProfilerHelper_TicksPerTimestamp
+  commentId: F:WeihanLi.Common.Helpers.ProfilerHelper.TicksPerTimestamp
+  fullName: WeihanLi.Common.Helpers.ProfilerHelper.TicksPerTimestamp
+  nameWithType: ProfilerHelper.TicksPerTimestamp
 - uid: WeihanLi.Common.Helpers.ProfilerStopper
   name: ProfilerStopper
   href: docs/api/WeihanLi.Common.Helpers.ProfilerStopper.html
@@ -12448,19 +12473,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.IProfiler.Elapsed
   nameWithType: IProfiler.Elapsed
-- uid: WeihanLi.Common.IProfiler.Reset
-  name: Reset()
-  href: docs/api/WeihanLi.Common.IProfiler.html#WeihanLi_Common_IProfiler_Reset
-  commentId: M:WeihanLi.Common.IProfiler.Reset
-  fullName: WeihanLi.Common.IProfiler.Reset()
-  nameWithType: IProfiler.Reset()
-- uid: WeihanLi.Common.IProfiler.Reset*
-  name: Reset
-  href: docs/api/WeihanLi.Common.IProfiler.html#WeihanLi_Common_IProfiler_Reset_
-  commentId: Overload:WeihanLi.Common.IProfiler.Reset
-  isSpec: "True"
-  fullName: WeihanLi.Common.IProfiler.Reset
-  nameWithType: IProfiler.Reset
 - uid: WeihanLi.Common.IProfiler.Restart
   name: Restart()
   href: docs/api/WeihanLi.Common.IProfiler.html#WeihanLi_Common_IProfiler_Restart
@@ -12627,6 +12639,44 @@ references:
   commentId: N:WeihanLi.Common.Logging
   fullName: WeihanLi.Common.Logging
   nameWithType: WeihanLi.Common.Logging
+- uid: WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions
+  name: ConsoleLoggingProviderExtensions
+  href: docs/api/WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.html
+  commentId: T:WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions
+  fullName: WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions
+  nameWithType: ConsoleLoggingProviderExtensions
+- uid: WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,WeihanLi.Common.Logging.IConsoleLogFormatter)
+  name: AddConsole(ILogHelperLoggingBuilder, IConsoleLogFormatter)
+  href: docs/api/WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.html#WeihanLi_Common_Logging_ConsoleLoggingProviderExtensions_AddConsole_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_WeihanLi_Common_Logging_IConsoleLogFormatter_
+  commentId: M:WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,WeihanLi.Common.Logging.IConsoleLogFormatter)
+  fullName: WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, WeihanLi.Common.Logging.IConsoleLogFormatter)
+  nameWithType: ConsoleLoggingProviderExtensions.AddConsole(ILogHelperLoggingBuilder, IConsoleLogFormatter)
+- uid: WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole*
+  name: AddConsole
+  href: docs/api/WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.html#WeihanLi_Common_Logging_ConsoleLoggingProviderExtensions_AddConsole_
+  commentId: Overload:WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole
+  isSpec: "True"
+  fullName: WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole
+  nameWithType: ConsoleLoggingProviderExtensions.AddConsole
+- uid: WeihanLi.Common.Logging.IConsoleLogFormatter
+  name: IConsoleLogFormatter
+  href: docs/api/WeihanLi.Common.Logging.IConsoleLogFormatter.html
+  commentId: T:WeihanLi.Common.Logging.IConsoleLogFormatter
+  fullName: WeihanLi.Common.Logging.IConsoleLogFormatter
+  nameWithType: IConsoleLogFormatter
+- uid: WeihanLi.Common.Logging.IConsoleLogFormatter.FormatAsString(WeihanLi.Common.Logging.LogHelperLoggingEvent)
+  name: FormatAsString(LogHelperLoggingEvent)
+  href: docs/api/WeihanLi.Common.Logging.IConsoleLogFormatter.html#WeihanLi_Common_Logging_IConsoleLogFormatter_FormatAsString_WeihanLi_Common_Logging_LogHelperLoggingEvent_
+  commentId: M:WeihanLi.Common.Logging.IConsoleLogFormatter.FormatAsString(WeihanLi.Common.Logging.LogHelperLoggingEvent)
+  fullName: WeihanLi.Common.Logging.IConsoleLogFormatter.FormatAsString(WeihanLi.Common.Logging.LogHelperLoggingEvent)
+  nameWithType: IConsoleLogFormatter.FormatAsString(LogHelperLoggingEvent)
+- uid: WeihanLi.Common.Logging.IConsoleLogFormatter.FormatAsString*
+  name: FormatAsString
+  href: docs/api/WeihanLi.Common.Logging.IConsoleLogFormatter.html#WeihanLi_Common_Logging_IConsoleLogFormatter_FormatAsString_
+  commentId: Overload:WeihanLi.Common.Logging.IConsoleLogFormatter.FormatAsString
+  isSpec: "True"
+  fullName: WeihanLi.Common.Logging.IConsoleLogFormatter.FormatAsString
+  nameWithType: IConsoleLogFormatter.FormatAsString
 - uid: WeihanLi.Common.Logging.ILogHelperFactory
   name: ILogHelperFactory
   href: docs/api/WeihanLi.Common.Logging.ILogHelperFactory.html
@@ -15639,19 +15689,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.StopwatchProfiler.Elapsed
   nameWithType: StopwatchProfiler.Elapsed
-- uid: WeihanLi.Common.StopwatchProfiler.Reset
-  name: Reset()
-  href: docs/api/WeihanLi.Common.StopwatchProfiler.html#WeihanLi_Common_StopwatchProfiler_Reset
-  commentId: M:WeihanLi.Common.StopwatchProfiler.Reset
-  fullName: WeihanLi.Common.StopwatchProfiler.Reset()
-  nameWithType: StopwatchProfiler.Reset()
-- uid: WeihanLi.Common.StopwatchProfiler.Reset*
-  name: Reset
-  href: docs/api/WeihanLi.Common.StopwatchProfiler.html#WeihanLi_Common_StopwatchProfiler_Reset_
-  commentId: Overload:WeihanLi.Common.StopwatchProfiler.Reset
-  isSpec: "True"
-  fullName: WeihanLi.Common.StopwatchProfiler.Reset
-  nameWithType: StopwatchProfiler.Reset
 - uid: WeihanLi.Common.StopwatchProfiler.Restart
   name: Restart()
   href: docs/api/WeihanLi.Common.StopwatchProfiler.html#WeihanLi_Common_StopwatchProfiler_Restart
