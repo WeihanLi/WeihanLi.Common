@@ -2924,6 +2924,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "docs/api/WeihanLi.Common.Services.DataAnnotationValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/api/WeihanLi.Common.Services.DataAnnotationValidator.html",
+          "hash": "fMuBQXAl0jeSuqIIWDRqEQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "docs/api/WeihanLi.Common.Services.EnvironmentUserIdProvider.yml",
       "output": {
         ".html": {
@@ -2960,6 +2972,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "docs/api/WeihanLi.Common.Services.IValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/api/WeihanLi.Common.Services.IValidator.html",
+          "hash": "l/j1YBDXo2E1wZktdj0IUw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "docs/api/WeihanLi.Common.Services.NullCancellationTokenProvider.yml",
       "output": {
         ".html": {
@@ -2988,7 +3012,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Services.html",
-          "hash": "8LAUu+pbvsnuN1ON6ISg2w=="
+          "hash": "9QGN5lTfegSy/fZxCtpK/g=="
         }
       },
       "is_incremental": false,
@@ -3372,7 +3396,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/toc.html",
-          "hash": "g5ajUksQeiaKSFfJpfp1wA=="
+          "hash": "2GWj09kXqdt6Ljm2KU3sgg=="
         }
       },
       "is_incremental": false,
@@ -3438,7 +3462,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 277,
+          "total_file_count": 279,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

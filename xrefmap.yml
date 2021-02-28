@@ -15413,6 +15413,28 @@ references:
   commentId: N:WeihanLi.Common.Services
   fullName: WeihanLi.Common.Services
   nameWithType: WeihanLi.Common.Services
+- uid: WeihanLi.Common.Services.DataAnnotationValidator
+  name: DataAnnotationValidator
+  href: docs/api/WeihanLi.Common.Services.DataAnnotationValidator.html
+  commentId: T:WeihanLi.Common.Services.DataAnnotationValidator
+  fullName: WeihanLi.Common.Services.DataAnnotationValidator
+  nameWithType: DataAnnotationValidator
+- uid: WeihanLi.Common.Services.DataAnnotationValidator.TryValidate(System.Object,ICollection{ValidationResult}@)
+  name: TryValidate(Object, out ICollection<ValidationResult>)
+  href: docs/api/WeihanLi.Common.Services.DataAnnotationValidator.html#WeihanLi_Common_Services_DataAnnotationValidator_TryValidate_System_Object_ICollection_ValidationResult___
+  commentId: M:WeihanLi.Common.Services.DataAnnotationValidator.TryValidate(System.Object,ICollection{ValidationResult}@)
+  name.vb: TryValidate(Object, ByRef ICollection(Of ValidationResult))
+  fullName: WeihanLi.Common.Services.DataAnnotationValidator.TryValidate(System.Object, out ICollection<ValidationResult>)
+  fullName.vb: WeihanLi.Common.Services.DataAnnotationValidator.TryValidate(System.Object, ByRef ICollection(Of ValidationResult))
+  nameWithType: DataAnnotationValidator.TryValidate(Object, out ICollection<ValidationResult>)
+  nameWithType.vb: DataAnnotationValidator.TryValidate(Object, ByRef ICollection(Of ValidationResult))
+- uid: WeihanLi.Common.Services.DataAnnotationValidator.TryValidate*
+  name: TryValidate
+  href: docs/api/WeihanLi.Common.Services.DataAnnotationValidator.html#WeihanLi_Common_Services_DataAnnotationValidator_TryValidate_
+  commentId: Overload:WeihanLi.Common.Services.DataAnnotationValidator.TryValidate
+  isSpec: "True"
+  fullName: WeihanLi.Common.Services.DataAnnotationValidator.TryValidate
+  nameWithType: DataAnnotationValidator.TryValidate
 - uid: WeihanLi.Common.Services.EnvironmentUserIdProvider
   name: EnvironmentUserIdProvider
   href: docs/api/WeihanLi.Common.Services.EnvironmentUserIdProvider.html
@@ -15476,6 +15498,28 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Services.IUserIdProvider.GetUserId
   nameWithType: IUserIdProvider.GetUserId
+- uid: WeihanLi.Common.Services.IValidator
+  name: IValidator
+  href: docs/api/WeihanLi.Common.Services.IValidator.html
+  commentId: T:WeihanLi.Common.Services.IValidator
+  fullName: WeihanLi.Common.Services.IValidator
+  nameWithType: IValidator
+- uid: WeihanLi.Common.Services.IValidator.TryValidate(System.Object,ICollection{ValidationResult}@)
+  name: TryValidate(Object, out ICollection<ValidationResult>)
+  href: docs/api/WeihanLi.Common.Services.IValidator.html#WeihanLi_Common_Services_IValidator_TryValidate_System_Object_ICollection_ValidationResult___
+  commentId: M:WeihanLi.Common.Services.IValidator.TryValidate(System.Object,ICollection{ValidationResult}@)
+  name.vb: TryValidate(Object, ByRef ICollection(Of ValidationResult))
+  fullName: WeihanLi.Common.Services.IValidator.TryValidate(System.Object, out ICollection<ValidationResult>)
+  fullName.vb: WeihanLi.Common.Services.IValidator.TryValidate(System.Object, ByRef ICollection(Of ValidationResult))
+  nameWithType: IValidator.TryValidate(Object, out ICollection<ValidationResult>)
+  nameWithType.vb: IValidator.TryValidate(Object, ByRef ICollection(Of ValidationResult))
+- uid: WeihanLi.Common.Services.IValidator.TryValidate*
+  name: TryValidate
+  href: docs/api/WeihanLi.Common.Services.IValidator.html#WeihanLi_Common_Services_IValidator_TryValidate_
+  commentId: Overload:WeihanLi.Common.Services.IValidator.TryValidate
+  isSpec: "True"
+  fullName: WeihanLi.Common.Services.IValidator.TryValidate
+  nameWithType: IValidator.TryValidate
 - uid: WeihanLi.Common.Services.NullCancellationTokenProvider
   name: NullCancellationTokenProvider
   href: docs/api/WeihanLi.Common.Services.NullCancellationTokenProvider.html
