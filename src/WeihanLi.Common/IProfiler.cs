@@ -11,12 +11,8 @@ namespace WeihanLi.Common
         /// <summary>Stops measuring elapsed time for an interval.</summary>
         void Stop();
 
-        /// <summary>Stops time interval measurement and resets the elapsed time to zero.</summary>
-        void Reset();
-
         /// <summary>
         /// Stops time interval measurement, resets the elapsed time to zero, and starts measuring elapsed time.
-        /// Restart = Reset + Start
         /// </summary>
         void Restart();
 
@@ -43,11 +39,6 @@ namespace WeihanLi.Common
         public void Stop()
         {
             _stopwatch.Stop();
-        }
-
-        public void Reset()
-        {
-            _stopwatch.Reset();
         }
 
         public void Restart()

@@ -129,6 +129,7 @@ bool PublishArtifacts(ICakeContext context)
    {
       var pushSetting =new DotNetCoreNuGetPushSettings
       {
+         SkipDuplicate = true,
          Source = EnvironmentVariable("Nuget__SourceUrl") ?? "https://api.nuget.org/v3/index.json",
          ApiKey = EnvironmentVariable("Nuget__ApiKey")
       };

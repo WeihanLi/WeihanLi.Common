@@ -8,8 +8,7 @@ namespace WeihanLi.Common.Helpers
     /// </summary>
     public static class SecurityHelper
     {
-        private static readonly char[] _constantCharacters = new[]
-        {
+        private static readonly char[] _constantCharacters = {
             '0',
             '1',
             '2',
@@ -48,8 +47,7 @@ namespace WeihanLi.Common.Helpers
             'z'
         };
 
-        private static readonly char[] _constantNumber = new[]
-        {
+        private static readonly char[] _constantNumber = {
             '0',
             '1',
             '2',

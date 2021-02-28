@@ -34,7 +34,7 @@ namespace WeihanLi.Common.Logging
 
     internal sealed class LogHelperGenericLogger<TCategory> : LogHelper, ILogHelperLogger<TCategory>
     {
-        public LogHelperGenericLogger(LogHelperFactory logHelperFactory) : base(logHelperFactory, typeof(TCategory).FullName)
+        public LogHelperGenericLogger(LogHelperFactory logHelperFactory) : base(logHelperFactory, typeof(TCategory).FullName ?? typeof(TCategory).Name)
         {
         }
     }
@@ -81,7 +81,8 @@ namespace WeihanLi.Common.Logging
 
             Parallel.ForEach(_logHelperFactory._logHelperProviders, logHelperProvider =>
             {
-                if (_logHelperFactory._logFilters.All(x => x.Invoke(logHelperProvider.Key, loggingEvent)))
+                if (_logHelperFactory._logFilters.Count == 0
+                    || _logHelperFactory._logFilters.All(x => x.Invoke(logHelperProvider.Key, loggingEvent)))
                 {
                     logHelperProvider.Value.Log(loggingEvent);
                 }

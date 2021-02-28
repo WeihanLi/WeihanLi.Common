@@ -1,7 +1,6 @@
 ﻿using JetBrains.Annotations;
 using System;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using WeihanLi.Common.Compressor;
@@ -28,38 +27,6 @@ namespace WeihanLi.Common.Helpers
         T Deserialize<T>([NotNull] byte[] bytes);
     }
 
-    public class BinaryDataSerializer : IDataSerializer
-    {
-        private static readonly Lazy<BinaryFormatter> _binaryFormatter = new();
-
-        public virtual T Deserialize<T>(byte[] bytes)
-        {
-            if (typeof(Task).IsAssignableFrom(typeof(T)))
-            {
-                throw new ArgumentException(Resource.TaskCanNotBeSerialized);
-            }
-
-            using var memoryStream = new MemoryStream(bytes);
-            return (T)_binaryFormatter.Value.Deserialize(memoryStream);
-        }
-
-        public virtual byte[] Serialize<T>(T obj)
-        {
-            if (typeof(Task).IsAssignableFrom(typeof(T)))
-            {
-                throw new ArgumentException(Resource.TaskCanNotBeSerialized);
-            }
-            if (obj is null)
-            {
-                throw new ArgumentNullException(nameof(obj));
-            }
-
-            using var memoryStream = new MemoryStream();
-            _binaryFormatter.Value.Serialize(memoryStream, obj);
-            return memoryStream.ToArray();
-        }
-    }
-
     public class XmlDataSerializer : IDataSerializer
     {
         internal static readonly Lazy<XmlDataSerializer> _instance = new();
@@ -73,7 +40,7 @@ namespace WeihanLi.Common.Helpers
 
             using var ms = new MemoryStream(bytes);
             var serializer = new XmlSerializer(typeof(T));
-            return (T)serializer.Deserialize(ms);
+            return (T)serializer.Deserialize(ms)!;
         }
 
         public virtual byte[] Serialize<T>(T obj)

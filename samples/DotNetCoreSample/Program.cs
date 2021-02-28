@@ -25,7 +25,10 @@ namespace DotNetCoreSample
 
             //ProcessExecutorTest.RawProcessTest();
             //ProcessExecutorTest.DotNetInfoTest();
-            ProcessExecutorTest.DotNetNugetGlobalPackagesInfoTest();
+            // ProcessExecutorTest.DotNetNugetGlobalPackagesInfoTest();
+
+            LoggerTest.MainTest();
+
             Console.ReadLine();
 
             var services = new ServiceCollection();

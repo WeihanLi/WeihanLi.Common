@@ -142,4 +142,7 @@
   <data name="propertyExpression_must_be_lambda_expression" xml:space="preserve">
     <value>{0} must be lambda expression</value>
   </data>
+  <data name="ValueMustBePositive" xml:space="preserve">
+    <value>value must be positive</value>
+  </data>
 </root>

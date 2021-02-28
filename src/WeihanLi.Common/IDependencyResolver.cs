@@ -60,7 +60,7 @@ namespace WeihanLi.Common
             var result = dependencyResolver.TryGetService(typeof(TService), out var serviceObj);
             if (result)
             {
-                service = (TService)serviceObj;
+                service = (TService)serviceObj!;
             }
             else
             {
