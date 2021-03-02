@@ -66,7 +66,10 @@ namespace WeihanLi.Common.Logging
             {
                 WriteLoggingEvent(message);
             }
-            catch (Exception) { }
+            catch (Exception)
+            {
+                // ignored
+            }
         }
 
         public void Log(LogHelperLoggingEvent loggingEvent)
@@ -89,7 +92,10 @@ namespace WeihanLi.Common.Logging
                 {
                     _messageQueue.CompleteAdding();
                 }
-                catch { }
+                catch
+                {
+                    // ignored
+                }
             }
         }
 

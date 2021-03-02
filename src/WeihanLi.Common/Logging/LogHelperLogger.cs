@@ -65,7 +65,9 @@ namespace WeihanLi.Common.Logging
                 MessageTemplate = messageTemplate ?? string.Empty,
             };
 
-            if (!_logHelperFactory._logFilters.Any(x => x.Invoke(typeof(int), loggingEvent)))
+            if (_logHelperFactory._logFilters.Count > 0 &&
+                !_logHelperFactory._logFilters.Any(x => x.Invoke(typeof(int), loggingEvent))
+                )
             {
                 return;
             }

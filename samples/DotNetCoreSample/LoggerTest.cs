@@ -13,10 +13,10 @@ namespace DotNetCoreSample
                     .AddConsole()
                     //.AddLog4Net()
                     //.AddSerilog(loggerConfig => loggerConfig.WriteTo.Console())
-                    .WithMinimumLevel(LogHelperLogLevel.Info)
+                    //.WithMinimumLevel(LogHelperLogLevel.Info)
                     //.WithFilter((category, level) => level > LogHelperLogLevel.Error && category.StartsWith("System"))
-                    .EnrichWithProperty("Entry0", ApplicationHelper.ApplicationName)
-                    .EnrichWithProperty("Entry1", ApplicationHelper.ApplicationName, e => e.LogLevel >= LogHelperLogLevel.Error)
+                    //.EnrichWithProperty("Entry0", ApplicationHelper.ApplicationName)
+                    //.EnrichWithProperty("Entry1", ApplicationHelper.ApplicationName, e => e.LogLevel >= LogHelperLogLevel.Error)
                     ;
             });
 
