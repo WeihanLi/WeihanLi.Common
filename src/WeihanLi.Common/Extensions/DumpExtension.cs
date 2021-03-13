@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
@@ -21,5 +22,32 @@ namespace WeihanLi.Extensions
             Guard.NotNull(dumpAction, nameof(dumpAction))
                 .Invoke(Guard.NotNull(dumpValueFactory, nameof(dumpValueFactory)).Invoke(t));
         }
+
+        public static Task DumpAsync<T>(this T t, Func<string, Task> dumpAction)
+        {
+            return Guard.NotNull(dumpAction, nameof(dumpAction))
+                .Invoke(t is null ? NullValue : t.ToJsonOrString());
+        }
+
+        public static Task DumpAsync<T>(this T t, Func<string, Task> dumpAction, Func<T, string> dumpValueFactory)
+        {
+            return Guard.NotNull(dumpAction, nameof(dumpAction))
+                .Invoke(Guard.NotNull(dumpValueFactory, nameof(dumpValueFactory)).Invoke(t));
+        }
+
+#if NETSTANDARD2_1
+
+        public static ValueTask DumpAsync<T>(this T t, Func<string, ValueTask> dumpAction)
+        {
+            return Guard.NotNull(dumpAction, nameof(dumpAction))
+                .Invoke(t is null ? NullValue : t.ToJsonOrString());
+        }
+
+        public static ValueTask DumpAsync<T>(this T t, Func<string, ValueTask> dumpAction, Func<T, string> dumpValueFactory)
+        {
+            return Guard.NotNull(dumpAction, nameof(dumpAction))
+                .Invoke(Guard.NotNull(dumpValueFactory, nameof(dumpValueFactory)).Invoke(t));
+        }
+#endif
     }
 }
