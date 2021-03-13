@@ -80,7 +80,7 @@ namespace WeihanLi.Common.Helpers
         /// <returns>T instance</returns>
         public static T CreateInstance<T>(params object?[] parameters)
         {
-            return (T)Activator.CreateInstance(typeof(T), parameters);
+            return (T)Activator.CreateInstance(typeof(T), parameters) ?? throw new InvalidOperationException();
         }
 
         /// <summary>

@@ -12,7 +12,7 @@ namespace WeihanLi.Common.Aspect
 
         MethodInfo? Method { get; }
 
-        object Target { get; }
+        object? Target { get; }
 
         object[] Arguments { get; }
 
@@ -31,7 +31,7 @@ namespace WeihanLi.Common.Aspect
 
         public MethodInfo? Method { get; }
 
-        public object Target { get; }
+        public object? Target { get; }
 
         public object[] Arguments { get; }
 
@@ -45,7 +45,7 @@ namespace WeihanLi.Common.Aspect
             MethodInfo proxyMethod,
             MethodInfo? methodBase,
             object proxyTarget,
-            object target,
+            object? target,
             object[] arguments)
         {
             Method = methodBase;

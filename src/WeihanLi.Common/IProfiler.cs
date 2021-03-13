@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace WeihanLi.Common
 {
@@ -10,19 +11,15 @@ namespace WeihanLi.Common
         /// <summary>Stops measuring elapsed time for an interval.</summary>
         void Stop();
 
-        /// <summary>Stops time interval measurement and resets the elapsed time to zero.</summary>
-        void Reset();
-
         /// <summary>
         /// Stops time interval measurement, resets the elapsed time to zero, and starts measuring elapsed time.
-        /// Restart = Reset + Start
         /// </summary>
         void Restart();
 
         /// <summary>
         /// Gets the total elapsed time measured by the current instance, in milliseconds.
         /// </summary>
-        long ElapsedMilliseconds { get; }
+        TimeSpan Elapsed { get; }
     }
 
     public class StopwatchProfiler : IProfiler
@@ -44,16 +41,11 @@ namespace WeihanLi.Common
             _stopwatch.Stop();
         }
 
-        public void Reset()
-        {
-            _stopwatch.Reset();
-        }
-
         public void Restart()
         {
             _stopwatch.Restart();
         }
 
-        public long ElapsedMilliseconds => _stopwatch.ElapsedMilliseconds;
+        public TimeSpan Elapsed => _stopwatch.Elapsed;
     }
 }

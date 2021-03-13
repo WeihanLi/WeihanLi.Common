@@ -114,7 +114,7 @@ namespace WeihanLi.Extensions
             string fileKey = "file",
             IEnumerable<KeyValuePair<string, string>>? formFields = null)
         {
-            var content = new MultipartFormDataContent($"form--{DateTime.Now.Ticks:X}");
+            var content = new MultipartFormDataContent($"form--{DateTime.UtcNow.Ticks:X}");
 
             if (formFields != null)
             {
@@ -151,7 +151,7 @@ namespace WeihanLi.Extensions
                 return await httpClient.PostAsFormAsync(requestUrl, formFields ?? Array.Empty<KeyValuePair<string, string>>());
             }
 
-            var content = new MultipartFormDataContent($"form--{DateTime.Now.Ticks:X}");
+            var content = new MultipartFormDataContent($"form--{DateTime.UtcNow.Ticks:X}");
 
             if (formFields != null)
             {
@@ -189,7 +189,7 @@ namespace WeihanLi.Extensions
                 return await httpClient.PostAsFormAsync(requestUri, formFields ?? Array.Empty<KeyValuePair<string, string>>());
             }
 
-            var content = new MultipartFormDataContent($"form--{DateTime.Now.Ticks:X}");
+            var content = new MultipartFormDataContent($"form--{DateTime.UtcNow.Ticks:X}");
 
             if (formFields != null)
             {

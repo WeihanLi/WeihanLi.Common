@@ -119,14 +119,10 @@ namespace WeihanLi.Common.Aspect
         }
 
         public static IInterceptionConfiguration InterceptMethod<T>(this FluentAspectOptions options,
-            Expression<Func<MethodInfo, bool>>? andExpression)
+            Expression<Func<MethodInfo, bool>> andExpression)
         {
             Expression<Func<MethodInfo, bool>> expression = m => m.DeclaringType!.IsAssignableTo<T>();
-            if (andExpression is not null)
-            {
-                expression = expression.And(andExpression);
-            }
-
+            expression = expression.And(Guard.NotNull(andExpression, nameof(andExpression)));
             return options.InterceptMethod(expression.Compile());
         }
 
@@ -175,13 +171,11 @@ namespace WeihanLi.Common.Aspect
         }
 
         public static FluentAspectOptions NoInterceptType(this FluentAspectOptions options,
-            Func<Type, bool>? typesFilter)
+            Func<Type, bool> typesFilter)
         {
-            if (null != typesFilter)
-            {
-                options.NoInterceptMethod(m => typesFilter(m.DeclaringType));
-            }
-
+            Guard.NotNull(options, nameof(options));
+            Guard.NotNull(typesFilter, nameof(typesFilter));
+            options.NoInterceptMethod(m => typesFilter(m.DeclaringType));
             return options;
         }
 
@@ -192,14 +186,10 @@ namespace WeihanLi.Common.Aspect
         }
 
         public static FluentAspectOptions NoInterceptMethod<T>(this FluentAspectOptions options,
-            Expression<Func<MethodInfo, bool>>? andExpression = null)
+            Expression<Func<MethodInfo, bool>> andExpression)
         {
             Expression<Func<MethodInfo, bool>> expression = m => m.DeclaringType!.IsAssignableTo<T>();
-            if (null != andExpression)
-            {
-                expression = expression.And(andExpression);
-            }
-
+            expression = expression.And(Guard.NotNull(andExpression, nameof(andExpression)));
             options.NoInterceptMethod(expression.Compile());
             return options;
         }

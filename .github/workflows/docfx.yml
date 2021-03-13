@@ -2,7 +2,7 @@ name: docfx build
 on:
   push:
     branches:
-      - dev
+      - master
 jobs:
   build:
     name: Build
@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
-          ref: dev
+          ref: master
           path: source
       - name: install DocFX
         run: "& choco install docfx -y"
