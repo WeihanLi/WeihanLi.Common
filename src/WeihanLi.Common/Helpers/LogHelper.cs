@@ -24,6 +24,7 @@ namespace WeihanLi.Common.Helpers
 
         public static ILogHelperLogger GetLogger(string categoryName)
         {
+            Guard.NotNullOrEmpty(categoryName, nameof(categoryName));
             return LogFactory.CreateLogger(categoryName);
         }
     }

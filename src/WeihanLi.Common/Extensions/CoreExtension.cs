@@ -1,8 +1,8 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
-
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -2228,18 +2228,15 @@ namespace WeihanLi.Extensions
         public static bool IsMatch(this string input, string pattern, RegexOptions options) => Regex.IsMatch(input, pattern, options);
 
         /// <summary>An IEnumerable&lt;string&gt; extension method that concatenates the given this.</summary>
-        /// <param name="this">The @this to act on.</param>
+        /// <param name="stringCollection">The string collection to act on.</param>
         /// <returns>A string.</returns>
-        public static string Concatenate(this IEnumerable<string> @this)
+        public static string Concatenate([NotNull] this IEnumerable<string> stringCollection)
         {
-            var sb = new StringBuilder();
-
-            foreach (var s in @this)
+            if (stringCollection is null)
             {
-                sb.Append(s);
+                throw new ArgumentNullException(nameof(stringCollection));
             }
-
-            return sb.ToString();
+            return string.Join(string.Empty, stringCollection);
         }
 
         /// <summary>An IEnumerable&lt;T&gt; extension method that concatenates.</summary>
@@ -2249,13 +2246,11 @@ namespace WeihanLi.Extensions
         /// <returns>A string.</returns>
         public static string Concatenate<T>(this IEnumerable<T> source, Func<T, string> func)
         {
-            var sb = new StringBuilder();
-            foreach (var item in source)
+            if (source is null)
             {
-                sb.Append(func(item));
+                throw new ArgumentNullException(nameof(source));
             }
-
-            return sb.ToString();
+            return string.Join(string.Empty, source.Select(func));
         }
 
         /// <summary>
@@ -2264,7 +2259,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="value">The value.</param>
         /// <returns>true if the value is in the string, false if not.</returns>
-        public static bool Contains(this string @this, string value) => @this.IndexOf(value, StringComparison.Ordinal) != -1;
+        public static bool Contains(this string @this, string value) => Guard.NotNull(@this, nameof(@this)).IndexOf(value, StringComparison.Ordinal) != -1;
 
         /// <summary>
         ///     A string extension method that query if this object contains the given value.
@@ -2273,7 +2268,7 @@ namespace WeihanLi.Extensions
         /// <param name="value">The value.</param>
         /// <param name="comparisonType">Type of the comparison.</param>
         /// <returns>true if the value is in the string, false if not.</returns>
-        public static bool Contains(this string @this, string value, StringComparison comparisonType) => @this.IndexOf(value, comparisonType) != -1;
+        public static bool Contains(this string @this, string value, StringComparison comparisonType) => Guard.NotNull(@this, nameof(@this)).IndexOf(value, comparisonType) != -1;
 
         /// <summary>
         ///     A string extension method that extracts this object.
@@ -2281,7 +2276,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns>A string.</returns>
-        public static string Extract(this string @this, Func<char, bool> predicate) => new(@this.ToCharArray().Where(predicate).ToArray());
+        public static string Extract(this string @this, Func<char, bool> predicate) => new(Guard.NotNull(@this, nameof(@this)).ToCharArray().Where(predicate).ToArray());
 
         /// <summary>
         ///     A string extension method that removes the letter.
@@ -2289,7 +2284,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="predicate">The predicate.</param>
         /// <returns>A string.</returns>
-        public static string RemoveWhere(this string @this, Func<char, bool> predicate) => new(@this.ToCharArray().Where(x => !predicate(x)).ToArray());
+        public static string RemoveWhere(this string @this, Func<char, bool> predicate) => new(Guard.NotNull(@this, nameof(@this)).ToCharArray().Where(x => !predicate(x)).ToArray());
 
         /// <summary>
         ///     Replaces the format item in a specified String with the text equivalent of the value of a corresponding
@@ -2301,7 +2296,7 @@ namespace WeihanLi.Extensions
         ///     A copy of format in which the format items have been replaced by the String equivalent of the corresponding
         ///     instances of Object in args.
         /// </returns>
-        public static string FormatWith(this string @this, params object[] values) => string.Format(@this, values);
+        public static string FormatWith(this string @this, params object[] values) => string.Format(Guard.NotNull(@this, nameof(@this)), values);
 
         /// <summary>
         ///     A string extension method that query if '@this' satisfy the specified pattern.
@@ -2322,7 +2317,7 @@ namespace WeihanLi.Extensions
                 .Replace(@"\*", ".*")
                 .Replace(@"\#", @"\d");
 
-            return Regex.IsMatch(@this, regexPattern);
+            return Regex.IsMatch(Guard.NotNull(@this, nameof(@this)), regexPattern);
         }
 
         /// <summary>
@@ -2349,6 +2344,7 @@ namespace WeihanLi.Extensions
         /// <returns></returns>
         public static string SafeSubstring(this string str, int startIndex, int length)
         {
+            Guard.NotNull(str, nameof(str));
             if (startIndex < 0 || startIndex >= str.Length || length < 0)
             {
                 return string.Empty;
@@ -2364,6 +2360,7 @@ namespace WeihanLi.Extensions
         /// <returns>substring</returns>
         public static string Sub(this string @this, int startIndex)
         {
+            Guard.NotNull(@this, nameof(@this));
             if (startIndex >= 0)
             {
                 return @this.SafeSubstring(startIndex);
@@ -2383,6 +2380,7 @@ namespace WeihanLi.Extensions
         /// <returns>The repeated string.</returns>
         public static string Repeat(this string @this, int repeatCount)
         {
+            Guard.NotNull(@this, nameof(@this));
             if (@this.Length == 1)
             {
                 return new string(@this[0], repeatCount);
@@ -2402,14 +2400,14 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>The string reversed.</returns>
-        public static string Reverse(this string @this)
+        public static string Reverse(this string? @this)
         {
-            if (@this.Length <= 1)
+            if (string.IsNullOrWhiteSpace(@this))
             {
-                return @this;
+                return @this ?? string.Empty;
             }
 
-            var chars = @this.ToCharArray();
+            var chars = @this!.ToCharArray();
             Array.Reverse(chars);
             return new string(chars);
         }
@@ -2427,14 +2425,14 @@ namespace WeihanLi.Extensions
         /// <returns>
         ///     An array whose elements contain the substrings in this string that are delimited by the separator.
         /// </returns>
-        public static string[] Split(this string @this, string separator, StringSplitOptions option = StringSplitOptions.None) => @this.Split(new[] { separator }, option);
+        public static string[] Split(this string @this, string separator, StringSplitOptions option = StringSplitOptions.None) => Guard.NotNull(@this, nameof(@this)).Split(new[] { separator }, option);
 
         /// <summary>
         ///     A string extension method that converts the @this to a byte array.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a byte[].</returns>
-        public static byte[] ToByteArray(this string @this) => Encoding.UTF8.GetBytes(@this);
+        public static byte[] ToByteArray(this string @this) => Encoding.UTF8.GetBytes(Guard.NotNull(@this, nameof(@this)));
 
         /// <summary>
         ///     A string extension method that converts the @this to a byte array.
@@ -2442,11 +2440,11 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="encoding">encoding</param>
         /// <returns>@this as a byte[].</returns>
-        public static byte[] ToByteArray(this string @this, Encoding encoding) => encoding.GetBytes(@this);
+        public static byte[] ToByteArray(this string @this, Encoding encoding) => encoding.GetBytes(Guard.NotNull(@this, nameof(@this)));
 
-        public static byte[] GetBytes(this string str) => str.GetBytes(Encoding.UTF8);
+        public static byte[] GetBytes(this string str) => Guard.NotNull(str, nameof(str)).GetBytes(Encoding.UTF8);
 
-        public static byte[] GetBytes(this string str, Encoding encoding) => encoding.GetBytes(str);
+        public static byte[] GetBytes(this string str, Encoding encoding) => encoding.GetBytes(Guard.NotNull(str, nameof(str)));
 
         /// <summary>
         ///     A string extension method that converts the @this to an enum.
@@ -2454,14 +2452,14 @@ namespace WeihanLi.Extensions
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a T.</returns>
-        public static T ToEnum<T>(this string @this) => (T)Enum.Parse(typeof(T), @this);
+        public static T ToEnum<T>(this string @this) => (T)Enum.Parse(typeof(T), Guard.NotNull(@this, nameof(@this)));
 
         /// <summary>
         ///     A string extension method that converts the @this to a title case.
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a string.</returns>
-        public static string ToTitleCase(this string @this) => new CultureInfo("en-US").TextInfo.ToTitleCase(@this);
+        public static string ToTitleCase(this string @this) => new CultureInfo("en-US").TextInfo.ToTitleCase(Guard.NotNull(@this, nameof(@this)));
 
         /// <summary>
         ///     A string extension method that converts the @this to a title case.
@@ -2469,7 +2467,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="cultureInfo">Information describing the culture.</param>
         /// <returns>@this as a string.</returns>
-        public static string ToTitleCase(this string @this, CultureInfo cultureInfo) => cultureInfo.TextInfo.ToTitleCase(@this);
+        public static string ToTitleCase(this string @this, CultureInfo cultureInfo) => cultureInfo.TextInfo.ToTitleCase(Guard.NotNull(@this, nameof(@this)));
 
         /// <summary>
         ///     A string extension method that truncates.
@@ -2477,7 +2475,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="maxLength">The maximum length.</param>
         /// <returns>A string.</returns>
-        public static string Truncate(this string @this, int maxLength) => @this.Truncate(maxLength, "...");
+        public static string Truncate(this string @this, int maxLength) => Guard.NotNull(@this, nameof(@this)).Truncate(maxLength, "...");
 
         /// <summary>
         ///     A string extension method that truncates.
@@ -2646,10 +2644,11 @@ namespace WeihanLi.Extensions
         /// <param name="type">type</param>
         /// <returns></returns>
         public static bool HasEmptyConstructor(this Type type)
-            => type.GetConstructors(BindingFlags.Instance).Any(c => c.GetParameters().Length == 0);
+            => Guard.NotNull(type, nameof(type)).GetConstructors(BindingFlags.Instance).Any(c => c.GetParameters().Length == 0);
 
         public static bool IsNullableType(this Type type)
         {
+            Guard.NotNull(type, nameof(type));
             return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
         }
 
@@ -2657,12 +2656,17 @@ namespace WeihanLi.Extensions
             new();
 
         /// <summary>
-        /// 根据 Type 获取默认值，实现类似 default(T) 的功能
+        /// get default value by type, default(T)
         /// </summary>
         /// <param name="type">type</param>
-        /// <returns></returns>
-        public static object? GetDefaultValue(this Type type) =>
-            type.IsValueType && type != typeof(void) ? _defaultValues.GetOrAdd(type, Activator.CreateInstance) : null;
+        /// <returns>default value</returns>
+        public static object? GetDefaultValue(this Type type)
+        {
+            Guard.NotNull(type, nameof(type));
+            return type.IsValueType && type != typeof(void)
+                ? _defaultValues.GetOrAdd(type, Activator.CreateInstance)
+                : null;
+        }
 
         /// <summary>
         /// GetUnderlyingType if nullable else return self
@@ -2670,7 +2674,7 @@ namespace WeihanLi.Extensions
         /// <param name="type">type</param>
         /// <returns></returns>
         public static Type Unwrap(this Type type)
-            => Nullable.GetUnderlyingType(type) ?? type;
+            => Nullable.GetUnderlyingType(Guard.NotNull(type, nameof(type))) ?? type;
 
         /// <summary>
         /// GetUnderlyingType
@@ -2678,7 +2682,7 @@ namespace WeihanLi.Extensions
         /// <param name="type">type</param>
         /// <returns></returns>
         public static Type? GetUnderlyingType(this Type type)
-            => Nullable.GetUnderlyingType(type);
+            => Nullable.GetUnderlyingType(Guard.NotNull(type, nameof(type)));
 
         #endregion Type
     }

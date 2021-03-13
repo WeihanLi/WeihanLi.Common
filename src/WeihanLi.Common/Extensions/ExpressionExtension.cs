@@ -166,7 +166,8 @@ namespace WeihanLi.Extensions
             if (member is PropertyInfo property)
                 return property;
 
-            return CacheUtil.GetTypeProperties(typeof(TEntity)).First(p => p.Name.Equals(member.Name));
+            return CacheUtil.GetTypeProperties(typeof(TEntity)).
+                First(p => p.Name.Equals(member.Name));
         }
 
         private static MemberExpression ExtractMemberExpression(Expression expression)
