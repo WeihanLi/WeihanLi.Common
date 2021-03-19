@@ -29,6 +29,18 @@ namespace WeihanLi.Common.Logging
         }
     }
 
+    internal sealed class DelegateConsoleLogFormatter : IConsoleLogFormatter
+    {
+        private readonly Func<LogHelperLoggingEvent, string> _formatter;
+
+        public DelegateConsoleLogFormatter(Func<LogHelperLoggingEvent, string> formatter)
+        {
+            _formatter = formatter ?? throw new ArgumentNullException(nameof(formatter));
+        }
+
+        public string FormatAsString(LogHelperLoggingEvent loggingEvent) => _formatter(loggingEvent);
+    }
+
     internal sealed class ConsoleLoggingProvider : ILogHelperProvider
     {
         private readonly IConsoleLogFormatter _formatter;
@@ -156,6 +168,12 @@ namespace WeihanLi.Common.Logging
         {
             loggingBuilder.AddProvider(new ConsoleLoggingProvider(
                 consoleLogFormatter ?? new DefaultConsoleLogFormatter()));
+            return loggingBuilder;
+        }
+
+        public static ILogHelperLoggingBuilder AddConsole(this ILogHelperLoggingBuilder loggingBuilder, Func<LogHelperLoggingEvent, string> formatter)
+        {
+            loggingBuilder.AddProvider(new ConsoleLoggingProvider(new DelegateConsoleLogFormatter(formatter)));
             return loggingBuilder;
         }
     }
