@@ -143,8 +143,8 @@ namespace WeihanLi.Common.Logging
                 LogHelperLogLevel.Debug => ConsoleColor.Gray,
                 LogHelperLogLevel.Info => ConsoleColor.DarkGreen,
                 LogHelperLogLevel.Warn => ConsoleColor.Yellow,
-                LogHelperLogLevel.Error => ConsoleColor.DarkRed,
-                LogHelperLogLevel.Fatal => ConsoleColor.Red,
+                LogHelperLogLevel.Error => ConsoleColor.Red,
+                LogHelperLogLevel.Fatal => ConsoleColor.DarkRed,
                 _ => null
             };
         }
