@@ -129,7 +129,7 @@ namespace WeihanLi.Common.Logging
                     }
                     else
                     {
-                        Console.WriteLine(log);
+                        Console.Out.WriteLine(log);
                     }
                 }
                 catch (Exception ex)
