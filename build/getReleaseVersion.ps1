@@ -1,5 +1,5 @@
-$versionXml=([xml](Get-Content .\version.props))
+$versionPath=$PSScriptRoot+"/version.props"
+$versionXml=([xml](Get-Content $versionPath))
 $versionProperty=$versionXml.Project.PropertyGroup
-$version=$versionProperty.VersionMajor+"."+$versionProperty.VersionMinor+"."+$versionProperty.VersionPatch
-$env:ReleaseVersion=$version
+$env:ReleaseVersion=$versionProperty.VersionMajor+"."+$versionProperty.VersionMinor+"."+$versionProperty.VersionPatch
 $env:ReleaseVersion
