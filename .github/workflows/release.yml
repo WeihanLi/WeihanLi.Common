@@ -1,0 +1,24 @@
+name: PreviewRelease
+on:
+  push:
+    branches: [ master, preview ]
+jobs:
+  build:
+    name: Release
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Build
+      shell: pwsh
+      run: .\build.ps1
+    - name: Create GitHub release
+      uses: marvinpinto/action-automatic-releases@latest
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: ${{ env.GitAssemblyInformationalVersion }}
+        title: Version ${{ env.GitAssemblyInformationalVersion }}
+        prerelease: true
