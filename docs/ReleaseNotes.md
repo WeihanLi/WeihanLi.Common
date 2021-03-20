@@ -4,6 +4,13 @@
 
 .netstandard2.0 based common helpers and extensions
 
+### [WeihanLi.Common 1.0.46](https://www.nuget.org/packages/WeihanLi.Common/1.0.46)
+
+- `ConsoleLoggingProvider` implement
+- `Dump` extensions
+- update `ValueStopwatch`/`ProfilerHelper`
+- nullable reference types enhancement
+
 ### [WeihanLi.Common 1.0.44](https://www.nuget.org/packages/WeihanLi.Common/1.0.44)
 
 - enable nullable reference types
