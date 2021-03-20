@@ -8,13 +8,13 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 5.0.x
-    - name: Build
-      shell: pwsh
-      run: .\build.ps1
+    # - name: Setup .NET Core
+    #   uses: actions/setup-dotnet@v1
+    #   with:
+    #     dotnet-version: 5.0.x
+    # - name: Build
+    #   shell: pwsh
+    #   run: .\build.ps1
     - name: Get Release Version
       shell: pwsh
       run: .\build\getReleaseVersion.ps1
@@ -25,5 +25,5 @@ jobs:
         automatic_release_tag: ${{ env.ReleaseVersion }}
         title: Version ${{ env.ReleaseVersion }}
         prerelease: true
-        files: |
-          artifacts/packages/*
+        # files: |
+        #   artifacts/packages/*

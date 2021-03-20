@@ -3,4 +3,4 @@ $versionXml=([xml](Get-Content $versionPath))
 $versionProperty=$versionXml.Project.PropertyGroup
 $ReleaseVersion=$versionProperty.VersionMajor+"."+$versionProperty.VersionMinor+"."+$versionProperty.VersionPatch
 $ReleaseVersion
-Write-Output "ReleaseVersion=$ReleaseVersion" >> $GITHUB_ENV
+echo "ReleaseVersion=${ReleaseVersion}" >> $GITHUB_ENV
