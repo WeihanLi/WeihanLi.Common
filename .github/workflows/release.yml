@@ -1,10 +1,10 @@
 name: Release
 on:
   push:
-    branches: [ master, preview ]
+    branches: [ master, dev ]
 jobs:
   build:
-    name: Install dotnet
+    name: Release
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
