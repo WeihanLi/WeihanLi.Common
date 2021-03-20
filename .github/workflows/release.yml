@@ -14,7 +14,7 @@ jobs:
         dotnet-version: 5.0.x
     - name: Build
       shell: pwsh
-      run: .\build.ps1
+      run: .\build.ps1 --stable=true
     - name: Get Release Version
       shell: pwsh
       run: .\build\getReleaseVersion.ps1
