@@ -1,7 +1,7 @@
 name: Release
 on:
   push:
-    branches: [ master, dev ]
+    branches: [ master ]
 jobs:
   build:
     name: Release
@@ -23,7 +23,7 @@ jobs:
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         automatic_release_tag: ${{ env.ReleaseVersion }}
-        title: Version ${{ env.ReleaseVersion }}
-        prerelease: true
+        title: ${{ env.ReleaseVersion }}
+        prerelease: false
         files: |
           artifacts/packages/*
