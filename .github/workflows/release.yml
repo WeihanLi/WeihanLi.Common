@@ -15,10 +15,15 @@ jobs:
     - name: Build
       shell: pwsh
       run: .\build.ps1
+    - name: Get Release Version
+      shell: pwsh
+      run: .\build\getReleaseVersion.ps1
     - name: Create GitHub release
       uses: marvinpinto/action-automatic-releases@latest
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: ${{ env.GitAssemblyInformationalVersion }}
-        title: Version ${{ env.GitAssemblyInformationalVersion }}
+        automatic_release_tag: ${{ env.ReleaseVersion }}
+        title: Version ${{ env.ReleaseVersion }}
         prerelease: true
+        files: |
+          artifacts/packages/*
