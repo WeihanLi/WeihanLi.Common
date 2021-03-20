@@ -29,6 +29,18 @@ namespace WeihanLi.Common.Logging
         }
     }
 
+    internal sealed class DelegateConsoleLogFormatter : IConsoleLogFormatter
+    {
+        private readonly Func<LogHelperLoggingEvent, string> _formatter;
+
+        public DelegateConsoleLogFormatter(Func<LogHelperLoggingEvent, string> formatter)
+        {
+            _formatter = formatter ?? throw new ArgumentNullException(nameof(formatter));
+        }
+
+        public string FormatAsString(LogHelperLoggingEvent loggingEvent) => _formatter(loggingEvent);
+    }
+
     internal sealed class ConsoleLoggingProvider : ILogHelperProvider
     {
         private readonly IConsoleLogFormatter _formatter;
@@ -66,7 +78,10 @@ namespace WeihanLi.Common.Logging
             {
                 WriteLoggingEvent(message);
             }
-            catch (Exception) { }
+            catch (Exception)
+            {
+                // ignored
+            }
         }
 
         public void Log(LogHelperLoggingEvent loggingEvent)
@@ -89,7 +104,10 @@ namespace WeihanLi.Common.Logging
                 {
                     _messageQueue.CompleteAdding();
                 }
-                catch { }
+                catch
+                {
+                    // ignored
+                }
             }
         }
 
@@ -111,7 +129,7 @@ namespace WeihanLi.Common.Logging
                     }
                     else
                     {
-                        Console.WriteLine(log);
+                        Console.Out.WriteLine(log);
                     }
                 }
                 catch (Exception ex)
@@ -137,8 +155,8 @@ namespace WeihanLi.Common.Logging
                 LogHelperLogLevel.Debug => ConsoleColor.Gray,
                 LogHelperLogLevel.Info => ConsoleColor.DarkGreen,
                 LogHelperLogLevel.Warn => ConsoleColor.Yellow,
-                LogHelperLogLevel.Error => ConsoleColor.DarkRed,
-                LogHelperLogLevel.Fatal => ConsoleColor.Red,
+                LogHelperLogLevel.Error => ConsoleColor.Red,
+                LogHelperLogLevel.Fatal => ConsoleColor.DarkRed,
                 _ => null
             };
         }
@@ -150,6 +168,12 @@ namespace WeihanLi.Common.Logging
         {
             loggingBuilder.AddProvider(new ConsoleLoggingProvider(
                 consoleLogFormatter ?? new DefaultConsoleLogFormatter()));
+            return loggingBuilder;
+        }
+
+        public static ILogHelperLoggingBuilder AddConsole(this ILogHelperLoggingBuilder loggingBuilder, Func<LogHelperLoggingEvent, string> formatter)
+        {
+            loggingBuilder.AddProvider(new ConsoleLoggingProvider(new DelegateConsoleLogFormatter(formatter)));
             return loggingBuilder;
         }
     }

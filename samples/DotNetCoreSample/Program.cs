@@ -28,7 +28,7 @@ namespace DotNetCoreSample
             // ProcessExecutorTest.DotNetNugetGlobalPackagesInfoTest();
 
             LoggerTest.MainTest();
-
+            Console.WriteLine("P1");
             Console.ReadLine();
 
             var services = new ServiceCollection();

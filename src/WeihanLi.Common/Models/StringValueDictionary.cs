@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Models
@@ -88,12 +87,7 @@ namespace WeihanLi.Common.Models
 
         public override int GetHashCode()
         {
-            var stringBuilder = new StringBuilder();
-            foreach (var pair in _dictionary)
-            {
-                stringBuilder.Append($"{pair.Key}={pair.Value}_");
-            }
-            return stringBuilder.ToString().GetHashCode();
+            return string.Join("_", _dictionary.Select(pair => $"{pair.Key}={pair.Value}")).GetHashCode();
         }
 
         public static bool operator ==(StringValueDictionary? current, StringValueDictionary? other)

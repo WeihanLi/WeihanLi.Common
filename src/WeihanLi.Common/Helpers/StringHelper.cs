@@ -23,17 +23,17 @@ namespace WeihanLi.Common.Helpers
         /// <param name="sensitiveCharCount">敏感字符数量</param>
         /// <param name="basedOnLeft">当长度异常时，是否显示左边 ，true显示左边，false显示右边 </param>
         /// <returns></returns>
-        public static string HideSensitiveInfo(string info, int left, int right, int sensitiveCharCount = 4, bool basedOnLeft = true)
+        public static string HideSensitiveInfo(string? info, int left, int right, int sensitiveCharCount = 4, bool basedOnLeft = true)
         {
             if (string.IsNullOrEmpty(info))
             {
-                return "";
+                return string.Empty;
             }
 
             if (right < 0) right = 0;
             if (left < 0) left = 0;
 
-            if (info.Length - left - right > 0)
+            if (info!.Length - left - right > 0)
             {
                 return info.Substring(0, left)
                     .PadRight(left + sensitiveCharCount, SensitiveChar)
@@ -59,7 +59,7 @@ namespace WeihanLi.Common.Helpers
         /// <param name="left">左边保留字符数</param>
         /// <param name="right">右边保留字符数</param>
         /// <returns></returns>
-        public static string HideTelDetails(string phone, int left = 3, int right = 4) => HideSensitiveInfo(phone, left, right);
+        public static string HideTelDetails(string? phone, int left = 3, int right = 4) => HideSensitiveInfo(phone, left, right);
 
         /// <summary>
         /// 隐藏邮箱地址详情
@@ -67,16 +67,16 @@ namespace WeihanLi.Common.Helpers
         /// <param name="email">邮箱地址</param>
         /// <param name="left">邮箱地址头保留字符个数，默认值设置为3</param>
         /// <returns></returns>
-        public static string HideEmailDetails(string email, int left = 3)
+        public static string HideEmailDetails(string? email, int left = 3)
         {
             if (string.IsNullOrEmpty(email))
             {
-                return "";
+                return string.Empty;
             }
 
-            if (email.IsMatch(@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"))//如果是邮件地址
+            if (email!.IsMatch(@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"))//如果是邮件地址
             {
-                var suffixLen = email.Length - email.LastIndexOf('@');
+                var suffixLen = email!.Length - email.LastIndexOf('@');
                 return HideSensitiveInfo(email, left, suffixLen, basedOnLeft: false);
             }
 
@@ -278,14 +278,14 @@ namespace WeihanLi.Common.Helpers
             return sb.ToString();
         }
 
-        public static bool StartsWith(this string source, char value)
+        public static bool StartsWith(this string? source, char value)
         {
-            return (source.Length > 0 && source[0] == value);
+            return !string.IsNullOrEmpty(source) && source![0] == value;
         }
 
         public static bool EndsWith(this string source, char value)
         {
-            return (source.Length > 0 && source[source.Length - 1] == value);
+            return !string.IsNullOrEmpty(source) && source![source!.Length - 1] == value;
         }
     }
 }

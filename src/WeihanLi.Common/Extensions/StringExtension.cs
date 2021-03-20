@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Web;
+using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 
 // ReSharper disable once CheckNamespace
@@ -174,7 +175,8 @@ namespace WeihanLi.Extensions
         /// <returns></returns>
         public static Type GetTypeByTypeName([NotNull] this string typeName)
         {
-            return typeName.ToLower() switch
+            return Guard.NotNullOrEmpty(typeName, nameof(typeName))
+                    .ToLower() switch
             {
                 "bool" => Type.GetType("System.Boolean", true, true),
                 "byte" => Type.GetType("System.Byte", true, true),
@@ -225,9 +227,9 @@ namespace WeihanLi.Extensions
         /// <param name="str">string value</param>
         /// <param name="getDefault">get defaultValue func</param>
         /// <returns></returns>
-        public static string GetValueOrDefault(this string str, Func<string> getDefault)
+        public static string GetValueOrDefault(this string? str, Func<string> getDefault)
         {
-            return str.IsNullOrWhiteSpace() ? getDefault() : str;
+            return str.IsNullOrWhiteSpace() ? getDefault() : str!;
         }
 
         /// <summary>
@@ -237,7 +239,7 @@ namespace WeihanLi.Extensions
         /// <param name="str">str</param>
         /// <param name="splitOptions"></param>
         /// <returns></returns>
-        public static T[] SplitArray<T>(this string str, StringSplitOptions splitOptions = StringSplitOptions.None) => SplitArray<T>(str, new[] { ',' }, splitOptions);
+        public static T[] SplitArray<T>(this string? str, StringSplitOptions splitOptions = StringSplitOptions.None) => SplitArray<T>(str, new[] { ',' }, splitOptions);
 
         /// <summary>
         /// split specific separator separated string to T array
@@ -247,13 +249,13 @@ namespace WeihanLi.Extensions
         /// <param name="separators">separators</param>
         /// <param name="splitOptions">splitOptions</param>
         /// <returns></returns>
-        public static T[] SplitArray<T>(this string str, char[] separators, StringSplitOptions splitOptions = StringSplitOptions.None)
+        public static T[] SplitArray<T>(this string? str, char[] separators, StringSplitOptions splitOptions = StringSplitOptions.None)
         {
             if (string.IsNullOrWhiteSpace(str))
             {
                 return Array.Empty<T>();
             }
-            return str.Split(separators, splitOptions)
+            return str!.Split(separators, splitOptions)
                 .Select(_ => _.To<T>())
                 .ToArray();
         }
@@ -264,13 +266,13 @@ namespace WeihanLi.Extensions
         /// <param name="str">str</param>
         /// <param name="start">start to remove</param>
         /// <returns>start removed str</returns>
-        public static string TrimStart(this string str, string start)
+        public static string? TrimStart(this string? str, string start)
         {
-            if (str.IsNullOrEmpty() || start.IsNullOrEmpty())
+            if (str.IsNullOrEmpty() || Guard.NotNull(start, nameof(start)).Length == 0)
             {
                 return str;
             }
-            if (str.StartsWith(start))
+            if (str!.StartsWith(start))
             {
                 str = str.Substring(start.Length);
             }
