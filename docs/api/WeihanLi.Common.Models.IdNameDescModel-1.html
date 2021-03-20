@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class ConsoleLoggingProviderExtensions
+    <title>Class IdNameDescModel&lt;TKey&gt;
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class ConsoleLoggingProviderExtensions
+    <meta name="title" content="Class IdNameDescModel&lt;TKey&gt;
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,20 +68,31 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions">
+            <article class="content wrap" id="_content" data-uid="WeihanLi.Common.Models.IdNameDescModel`1">
   
   
-  <h1 id="WeihanLi_Common_Logging_ConsoleLoggingProviderExtensions" data-uid="WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions" class="text-break">Class ConsoleLoggingProviderExtensions
+  <h1 id="WeihanLi_Common_Models_IdNameDescModel_1" data-uid="WeihanLi.Common.Models.IdNameDescModel`1" class="text-break">Class IdNameDescModel&lt;TKey&gt;
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">ConsoleLoggingProviderExtensions</span></div>
+    <div class="level1"><a class="xref" href="WeihanLi.Common.Models.IdNameModel-1.html">IdNameModel</a>&lt;TKey&gt;</div>
+    <div class="level2"><span class="xref">IdNameDescModel&lt;TKey&gt;</span></div>
+      <div class="level3"><a class="xref" href="WeihanLi.Common.Models.IdNameDescModel.html">IdNameDescModel</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Models.IdNameModel-1.html#WeihanLi_Common_Models_IdNameModel_1_Id">IdNameModel&lt;TKey&gt;.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Models.IdNameModel-1.html#WeihanLi_Common_Models_IdNameModel_1_Name">IdNameModel&lt;TKey&gt;.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Models.IdNameModel-1.html#WeihanLi_Common_Models_IdNameModel_1_Deconstruct__0__System_String__">IdNameModel&lt;TKey&gt;.Deconstruct(TKey, String)</a>
+    </div>
     <div>
       <span class="xref">System.Object.ToString()</span>
     </div>
@@ -104,23 +115,65 @@
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Common.Logging.html">WeihanLi.Common.Logging</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Common.Models.html">WeihanLi.Common.Models</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="WeihanLi_Common_Logging_ConsoleLoggingProviderExtensions_syntax">Syntax</h5>
+  <h5 id="WeihanLi_Common_Models_IdNameDescModel_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class ConsoleLoggingProviderExtensions</code></pre>
+    <pre><code class="lang-csharp hljs">public class IdNameDescModel&lt;TKey&gt; : IdNameModel&lt;TKey&gt;</code></pre>
   </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="WeihanLi_Common_Models_IdNameDescModel_1_Description_" data-uid="WeihanLi.Common.Models.IdNameDescModel`1.Description*"></a>
+  <h4 id="WeihanLi_Common_Models_IdNameDescModel_1_Description" data-uid="WeihanLi.Common.Models.IdNameDescModel`1.Description">Description</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Description { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="WeihanLi_Common_Logging_ConsoleLoggingProviderExtensions_AddConsole_" data-uid="WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole*"></a>
-  <h4 id="WeihanLi_Common_Logging_ConsoleLoggingProviderExtensions_AddConsole_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_Func_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_String__" data-uid="WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.String})">AddConsole(ILogHelperLoggingBuilder, Func&lt;LogHelperLoggingEvent, String&gt;)</h4>
+  <a id="WeihanLi_Common_Models_IdNameDescModel_1_Deconstruct_" data-uid="WeihanLi.Common.Models.IdNameDescModel`1.Deconstruct*"></a>
+  <h4 id="WeihanLi_Common_Models_IdNameDescModel_1_Deconstruct__0__System_String__System_String__" data-uid="WeihanLi.Common.Models.IdNameDescModel`1.Deconstruct(`0@,System.String@,System.String@)">Deconstruct(out TKey, out String, out String)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder AddConsole(this ILogHelperLoggingBuilder loggingBuilder, Func&lt;LogHelperLoggingEvent, string&gt; formatter)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Deconstruct(out TKey id, out string name, out string description)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -133,75 +186,18 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
-        <td><span class="parametername">loggingBuilder</span></td>
+        <td><span class="xref">TKey</span></td>
+        <td><span class="parametername">id</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="WeihanLi.Common.Logging.LogHelperLoggingEvent.html">LogHelperLoggingEvent</a>, <span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">formatter</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="WeihanLi_Common_Logging_ConsoleLoggingProviderExtensions_AddConsole_" data-uid="WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole*"></a>
-  <h4 id="WeihanLi_Common_Logging_ConsoleLoggingProviderExtensions_AddConsole_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_WeihanLi_Common_Logging_IConsoleLogFormatter_" data-uid="WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,WeihanLi.Common.Logging.IConsoleLogFormatter)">AddConsole(ILogHelperLoggingBuilder, IConsoleLogFormatter)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ILogHelperLoggingBuilder AddConsole(this ILogHelperLoggingBuilder loggingBuilder, IConsoleLogFormatter consoleLogFormatter = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
-        <td><span class="parametername">loggingBuilder</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="WeihanLi.Common.Logging.IConsoleLogFormatter.html">IConsoleLogFormatter</a></td>
-        <td><span class="parametername">consoleLogFormatter</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html">ILogHelperLoggingBuilder</a></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">description</span></td>
         <td></td>
       </tr>
     </tbody>

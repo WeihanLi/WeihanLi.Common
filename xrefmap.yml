@@ -7990,6 +7990,62 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.DelegateTextWriter.WriteAsync
   nameWithType: DelegateTextWriter.WriteAsync
+- uid: WeihanLi.Common.Helpers.EnumHelper
+  name: EnumHelper
+  href: docs/api/WeihanLi.Common.Helpers.EnumHelper.html
+  commentId: T:WeihanLi.Common.Helpers.EnumHelper
+  fullName: WeihanLi.Common.Helpers.EnumHelper
+  nameWithType: EnumHelper
+- uid: WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList*
+  name: ToIdNameDescList
+  href: docs/api/WeihanLi.Common.Helpers.EnumHelper.html#WeihanLi_Common_Helpers_EnumHelper_ToIdNameDescList_
+  commentId: Overload:WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList
+  nameWithType: EnumHelper.ToIdNameDescList
+- uid: WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList``1
+  name: ToIdNameDescList<TEnum>()
+  href: docs/api/WeihanLi.Common.Helpers.EnumHelper.html#WeihanLi_Common_Helpers_EnumHelper_ToIdNameDescList__1
+  commentId: M:WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList``1
+  name.vb: ToIdNameDescList(Of TEnum)()
+  fullName: WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList<TEnum>()
+  fullName.vb: WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList(Of TEnum)()
+  nameWithType: EnumHelper.ToIdNameDescList<TEnum>()
+  nameWithType.vb: EnumHelper.ToIdNameDescList(Of TEnum)()
+- uid: WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList``2
+  name: ToIdNameDescList<TEnum, TValue>()
+  href: docs/api/WeihanLi.Common.Helpers.EnumHelper.html#WeihanLi_Common_Helpers_EnumHelper_ToIdNameDescList__2
+  commentId: M:WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList``2
+  name.vb: ToIdNameDescList(Of TEnum, TValue)()
+  fullName: WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList<TEnum, TValue>()
+  fullName.vb: WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList(Of TEnum, TValue)()
+  nameWithType: EnumHelper.ToIdNameDescList<TEnum, TValue>()
+  nameWithType.vb: EnumHelper.ToIdNameDescList(Of TEnum, TValue)()
+- uid: WeihanLi.Common.Helpers.EnumHelper.ToIdNameList*
+  name: ToIdNameList
+  href: docs/api/WeihanLi.Common.Helpers.EnumHelper.html#WeihanLi_Common_Helpers_EnumHelper_ToIdNameList_
+  commentId: Overload:WeihanLi.Common.Helpers.EnumHelper.ToIdNameList
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.EnumHelper.ToIdNameList
+  nameWithType: EnumHelper.ToIdNameList
+- uid: WeihanLi.Common.Helpers.EnumHelper.ToIdNameList``1
+  name: ToIdNameList<TEnum>()
+  href: docs/api/WeihanLi.Common.Helpers.EnumHelper.html#WeihanLi_Common_Helpers_EnumHelper_ToIdNameList__1
+  commentId: M:WeihanLi.Common.Helpers.EnumHelper.ToIdNameList``1
+  name.vb: ToIdNameList(Of TEnum)()
+  fullName: WeihanLi.Common.Helpers.EnumHelper.ToIdNameList<TEnum>()
+  fullName.vb: WeihanLi.Common.Helpers.EnumHelper.ToIdNameList(Of TEnum)()
+  nameWithType: EnumHelper.ToIdNameList<TEnum>()
+  nameWithType.vb: EnumHelper.ToIdNameList(Of TEnum)()
+- uid: WeihanLi.Common.Helpers.EnumHelper.ToIdNameList``2
+  name: ToIdNameList<TEnum, TValue>()
+  href: docs/api/WeihanLi.Common.Helpers.EnumHelper.html#WeihanLi_Common_Helpers_EnumHelper_ToIdNameList__2
+  commentId: M:WeihanLi.Common.Helpers.EnumHelper.ToIdNameList``2
+  name.vb: ToIdNameList(Of TEnum, TValue)()
+  fullName: WeihanLi.Common.Helpers.EnumHelper.ToIdNameList<TEnum, TValue>()
+  fullName.vb: WeihanLi.Common.Helpers.EnumHelper.ToIdNameList(Of TEnum, TValue)()
+  nameWithType: EnumHelper.ToIdNameList<TEnum, TValue>()
+  nameWithType.vb: EnumHelper.ToIdNameList(Of TEnum, TValue)()
 - uid: WeihanLi.Common.Helpers.ExpressionHelper
   name: ExpressionHelper
   href: docs/api/WeihanLi.Common.Helpers.ExpressionHelper.html
@@ -12540,6 +12596,15 @@ references:
   commentId: T:WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions
   fullName: WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions
   nameWithType: ConsoleLoggingProviderExtensions
+- uid: WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.String})
+  name: AddConsole(ILogHelperLoggingBuilder, Func<LogHelperLoggingEvent, String>)
+  href: docs/api/WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.html#WeihanLi_Common_Logging_ConsoleLoggingProviderExtensions_AddConsole_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_System_Func_WeihanLi_Common_Logging_LogHelperLoggingEvent_System_String__
+  commentId: M:WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,System.Func{WeihanLi.Common.Logging.LogHelperLoggingEvent,System.String})
+  name.vb: AddConsole(ILogHelperLoggingBuilder, Func(Of LogHelperLoggingEvent, String))
+  fullName: WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.Func<WeihanLi.Common.Logging.LogHelperLoggingEvent, System.String>)
+  fullName.vb: WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole(WeihanLi.Common.Logging.ILogHelperLoggingBuilder, System.Func(Of WeihanLi.Common.Logging.LogHelperLoggingEvent, System.String))
+  nameWithType: ConsoleLoggingProviderExtensions.AddConsole(ILogHelperLoggingBuilder, Func<LogHelperLoggingEvent, String>)
+  nameWithType.vb: ConsoleLoggingProviderExtensions.AddConsole(ILogHelperLoggingBuilder, Func(Of LogHelperLoggingEvent, String))
 - uid: WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole(WeihanLi.Common.Logging.ILogHelperLoggingBuilder,WeihanLi.Common.Logging.IConsoleLogFormatter)
   name: AddConsole(ILogHelperLoggingBuilder, IConsoleLogFormatter)
   href: docs/api/WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.html#WeihanLi_Common_Logging_ConsoleLoggingProviderExtensions_AddConsole_WeihanLi_Common_Logging_ILogHelperLoggingBuilder_WeihanLi_Common_Logging_IConsoleLogFormatter_
@@ -13834,6 +13899,123 @@ references:
   fullName.vb: WeihanLi.Common.Models.EnumerableExtensions.GetEnumerator(Of T)(WeihanLi.Common.Models.IListResultWithTotal(Of T))
   nameWithType: EnumerableExtensions.GetEnumerator<T>(IListResultWithTotal<T>)
   nameWithType.vb: EnumerableExtensions.GetEnumerator(Of T)(IListResultWithTotal(Of T))
+- uid: WeihanLi.Common.Models.IdNameDescModel
+  name: IdNameDescModel
+  href: docs/api/WeihanLi.Common.Models.IdNameDescModel.html
+  commentId: T:WeihanLi.Common.Models.IdNameDescModel
+  fullName: WeihanLi.Common.Models.IdNameDescModel
+  nameWithType: IdNameDescModel
+- uid: WeihanLi.Common.Models.IdNameDescModel`1
+  name: IdNameDescModel<TKey>
+  href: docs/api/WeihanLi.Common.Models.IdNameDescModel-1.html
+  commentId: T:WeihanLi.Common.Models.IdNameDescModel`1
+  name.vb: IdNameDescModel(Of TKey)
+  fullName: WeihanLi.Common.Models.IdNameDescModel<TKey>
+  fullName.vb: WeihanLi.Common.Models.IdNameDescModel(Of TKey)
+  nameWithType: IdNameDescModel<TKey>
+  nameWithType.vb: IdNameDescModel(Of TKey)
+- uid: WeihanLi.Common.Models.IdNameDescModel`1.Deconstruct(`0@,System.String@,System.String@)
+  name: Deconstruct(out TKey, out String, out String)
+  href: docs/api/WeihanLi.Common.Models.IdNameDescModel-1.html#WeihanLi_Common_Models_IdNameDescModel_1_Deconstruct__0__System_String__System_String__
+  commentId: M:WeihanLi.Common.Models.IdNameDescModel`1.Deconstruct(`0@,System.String@,System.String@)
+  name.vb: Deconstruct(ByRef TKey, ByRef String, ByRef String)
+  fullName: WeihanLi.Common.Models.IdNameDescModel<TKey>.Deconstruct(out TKey, out System.String, out System.String)
+  fullName.vb: WeihanLi.Common.Models.IdNameDescModel(Of TKey).Deconstruct(ByRef TKey, ByRef System.String, ByRef System.String)
+  nameWithType: IdNameDescModel<TKey>.Deconstruct(out TKey, out String, out String)
+  nameWithType.vb: IdNameDescModel(Of TKey).Deconstruct(ByRef TKey, ByRef String, ByRef String)
+- uid: WeihanLi.Common.Models.IdNameDescModel`1.Deconstruct*
+  name: Deconstruct
+  href: docs/api/WeihanLi.Common.Models.IdNameDescModel-1.html#WeihanLi_Common_Models_IdNameDescModel_1_Deconstruct_
+  commentId: Overload:WeihanLi.Common.Models.IdNameDescModel`1.Deconstruct
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.IdNameDescModel<TKey>.Deconstruct
+  fullName.vb: WeihanLi.Common.Models.IdNameDescModel(Of TKey).Deconstruct
+  nameWithType: IdNameDescModel<TKey>.Deconstruct
+  nameWithType.vb: IdNameDescModel(Of TKey).Deconstruct
+- uid: WeihanLi.Common.Models.IdNameDescModel`1.Description
+  name: Description
+  href: docs/api/WeihanLi.Common.Models.IdNameDescModel-1.html#WeihanLi_Common_Models_IdNameDescModel_1_Description
+  commentId: P:WeihanLi.Common.Models.IdNameDescModel`1.Description
+  fullName: WeihanLi.Common.Models.IdNameDescModel<TKey>.Description
+  fullName.vb: WeihanLi.Common.Models.IdNameDescModel(Of TKey).Description
+  nameWithType: IdNameDescModel<TKey>.Description
+  nameWithType.vb: IdNameDescModel(Of TKey).Description
+- uid: WeihanLi.Common.Models.IdNameDescModel`1.Description*
+  name: Description
+  href: docs/api/WeihanLi.Common.Models.IdNameDescModel-1.html#WeihanLi_Common_Models_IdNameDescModel_1_Description_
+  commentId: Overload:WeihanLi.Common.Models.IdNameDescModel`1.Description
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.IdNameDescModel<TKey>.Description
+  fullName.vb: WeihanLi.Common.Models.IdNameDescModel(Of TKey).Description
+  nameWithType: IdNameDescModel<TKey>.Description
+  nameWithType.vb: IdNameDescModel(Of TKey).Description
+- uid: WeihanLi.Common.Models.IdNameModel
+  name: IdNameModel
+  href: docs/api/WeihanLi.Common.Models.IdNameModel.html
+  commentId: T:WeihanLi.Common.Models.IdNameModel
+  fullName: WeihanLi.Common.Models.IdNameModel
+  nameWithType: IdNameModel
+- uid: WeihanLi.Common.Models.IdNameModel`1
+  name: IdNameModel<TKey>
+  href: docs/api/WeihanLi.Common.Models.IdNameModel-1.html
+  commentId: T:WeihanLi.Common.Models.IdNameModel`1
+  name.vb: IdNameModel(Of TKey)
+  fullName: WeihanLi.Common.Models.IdNameModel<TKey>
+  fullName.vb: WeihanLi.Common.Models.IdNameModel(Of TKey)
+  nameWithType: IdNameModel<TKey>
+  nameWithType.vb: IdNameModel(Of TKey)
+- uid: WeihanLi.Common.Models.IdNameModel`1.Deconstruct(`0@,System.String@)
+  name: Deconstruct(out TKey, out String)
+  href: docs/api/WeihanLi.Common.Models.IdNameModel-1.html#WeihanLi_Common_Models_IdNameModel_1_Deconstruct__0__System_String__
+  commentId: M:WeihanLi.Common.Models.IdNameModel`1.Deconstruct(`0@,System.String@)
+  name.vb: Deconstruct(ByRef TKey, ByRef String)
+  fullName: WeihanLi.Common.Models.IdNameModel<TKey>.Deconstruct(out TKey, out System.String)
+  fullName.vb: WeihanLi.Common.Models.IdNameModel(Of TKey).Deconstruct(ByRef TKey, ByRef System.String)
+  nameWithType: IdNameModel<TKey>.Deconstruct(out TKey, out String)
+  nameWithType.vb: IdNameModel(Of TKey).Deconstruct(ByRef TKey, ByRef String)
+- uid: WeihanLi.Common.Models.IdNameModel`1.Deconstruct*
+  name: Deconstruct
+  href: docs/api/WeihanLi.Common.Models.IdNameModel-1.html#WeihanLi_Common_Models_IdNameModel_1_Deconstruct_
+  commentId: Overload:WeihanLi.Common.Models.IdNameModel`1.Deconstruct
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.IdNameModel<TKey>.Deconstruct
+  fullName.vb: WeihanLi.Common.Models.IdNameModel(Of TKey).Deconstruct
+  nameWithType: IdNameModel<TKey>.Deconstruct
+  nameWithType.vb: IdNameModel(Of TKey).Deconstruct
+- uid: WeihanLi.Common.Models.IdNameModel`1.Id
+  name: Id
+  href: docs/api/WeihanLi.Common.Models.IdNameModel-1.html#WeihanLi_Common_Models_IdNameModel_1_Id
+  commentId: P:WeihanLi.Common.Models.IdNameModel`1.Id
+  fullName: WeihanLi.Common.Models.IdNameModel<TKey>.Id
+  fullName.vb: WeihanLi.Common.Models.IdNameModel(Of TKey).Id
+  nameWithType: IdNameModel<TKey>.Id
+  nameWithType.vb: IdNameModel(Of TKey).Id
+- uid: WeihanLi.Common.Models.IdNameModel`1.Id*
+  name: Id
+  href: docs/api/WeihanLi.Common.Models.IdNameModel-1.html#WeihanLi_Common_Models_IdNameModel_1_Id_
+  commentId: Overload:WeihanLi.Common.Models.IdNameModel`1.Id
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.IdNameModel<TKey>.Id
+  fullName.vb: WeihanLi.Common.Models.IdNameModel(Of TKey).Id
+  nameWithType: IdNameModel<TKey>.Id
+  nameWithType.vb: IdNameModel(Of TKey).Id
+- uid: WeihanLi.Common.Models.IdNameModel`1.Name
+  name: Name
+  href: docs/api/WeihanLi.Common.Models.IdNameModel-1.html#WeihanLi_Common_Models_IdNameModel_1_Name
+  commentId: P:WeihanLi.Common.Models.IdNameModel`1.Name
+  fullName: WeihanLi.Common.Models.IdNameModel<TKey>.Name
+  fullName.vb: WeihanLi.Common.Models.IdNameModel(Of TKey).Name
+  nameWithType: IdNameModel<TKey>.Name
+  nameWithType.vb: IdNameModel(Of TKey).Name
+- uid: WeihanLi.Common.Models.IdNameModel`1.Name*
+  name: Name
+  href: docs/api/WeihanLi.Common.Models.IdNameModel-1.html#WeihanLi_Common_Models_IdNameModel_1_Name_
+  commentId: Overload:WeihanLi.Common.Models.IdNameModel`1.Name
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.IdNameModel<TKey>.Name
+  fullName.vb: WeihanLi.Common.Models.IdNameModel(Of TKey).Name
+  nameWithType: IdNameModel<TKey>.Name
+  nameWithType.vb: IdNameModel(Of TKey).Name
 - uid: WeihanLi.Common.Models.IListResultWithTotal`1
   name: IListResultWithTotal<T>
   href: docs/api/WeihanLi.Common.Models.IListResultWithTotal-1.html
@@ -20778,6 +20960,31 @@ references:
   fullName.vb: WeihanLi.Extensions.DumpExtension.Dump(Of T)(T, System.Action(Of System.String), System.Func(Of T, System.String))
   nameWithType: DumpExtension.Dump<T>(T, Action<String>, Func<T, String>)
   nameWithType.vb: DumpExtension.Dump(Of T)(T, Action(Of String), Func(Of T, String))
+- uid: WeihanLi.Extensions.DumpExtension.DumpAsync*
+  name: DumpAsync
+  href: docs/api/WeihanLi.Extensions.DumpExtension.html#WeihanLi_Extensions_DumpExtension_DumpAsync_
+  commentId: Overload:WeihanLi.Extensions.DumpExtension.DumpAsync
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.DumpExtension.DumpAsync
+  nameWithType: DumpExtension.DumpAsync
+- uid: WeihanLi.Extensions.DumpExtension.DumpAsync``1(``0,System.Func{System.String,System.Threading.Tasks.Task})
+  name: DumpAsync<T>(T, Func<String, Task>)
+  href: docs/api/WeihanLi.Extensions.DumpExtension.html#WeihanLi_Extensions_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_Task__
+  commentId: M:WeihanLi.Extensions.DumpExtension.DumpAsync``1(``0,System.Func{System.String,System.Threading.Tasks.Task})
+  name.vb: DumpAsync(Of T)(T, Func(Of String, Task))
+  fullName: WeihanLi.Extensions.DumpExtension.DumpAsync<T>(T, System.Func<System.String, System.Threading.Tasks.Task>)
+  fullName.vb: WeihanLi.Extensions.DumpExtension.DumpAsync(Of T)(T, System.Func(Of System.String, System.Threading.Tasks.Task))
+  nameWithType: DumpExtension.DumpAsync<T>(T, Func<String, Task>)
+  nameWithType.vb: DumpExtension.DumpAsync(Of T)(T, Func(Of String, Task))
+- uid: WeihanLi.Extensions.DumpExtension.DumpAsync``1(``0,System.Func{System.String,System.Threading.Tasks.Task},System.Func{``0,System.String})
+  name: DumpAsync<T>(T, Func<String, Task>, Func<T, String>)
+  href: docs/api/WeihanLi.Extensions.DumpExtension.html#WeihanLi_Extensions_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_Task__System_Func___0_System_String__
+  commentId: M:WeihanLi.Extensions.DumpExtension.DumpAsync``1(``0,System.Func{System.String,System.Threading.Tasks.Task},System.Func{``0,System.String})
+  name.vb: DumpAsync(Of T)(T, Func(Of String, Task), Func(Of T, String))
+  fullName: WeihanLi.Extensions.DumpExtension.DumpAsync<T>(T, System.Func<System.String, System.Threading.Tasks.Task>, System.Func<T, System.String>)
+  fullName.vb: WeihanLi.Extensions.DumpExtension.DumpAsync(Of T)(T, System.Func(Of System.String, System.Threading.Tasks.Task), System.Func(Of T, System.String))
+  nameWithType: DumpExtension.DumpAsync<T>(T, Func<String, Task>, Func<T, String>)
+  nameWithType.vb: DumpExtension.DumpAsync(Of T)(T, Func(Of String, Task), Func(Of T, String))
 - uid: WeihanLi.Extensions.EnumerableExtension
   name: EnumerableExtension
   href: docs/api/WeihanLi.Extensions.EnumerableExtension.html

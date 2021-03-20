@@ -12,7 +12,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "33HdtWP4kyRUqB/lUdofaQ=="
+          "hash": "yo1Cb4ituqQU+vR1QJ457g=="
         }
       },
       "is_incremental": false,
@@ -24,7 +24,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/ReleaseNotes.html",
-          "hash": "Ll/YsowR6Zj0GIk85GL5WQ=="
+          "hash": "RIImkBdF2agnvEUsCLv81g=="
         }
       },
       "is_incremental": false,
@@ -1580,6 +1580,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "docs/api/WeihanLi.Common.Helpers.EnumHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/api/WeihanLi.Common.Helpers.EnumHelper.html",
+          "hash": "bHvVTzunQqhma/d8MP2zWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "docs/api/WeihanLi.Common.Helpers.ExpressionHelper.yml",
       "output": {
         ".html": {
@@ -2052,7 +2064,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Helpers.html",
-          "hash": "BZHl6fA2c7H5AH/Dmhp1rQ=="
+          "hash": "2gNkN+2EXkKpdlQmKQGwHA=="
         }
       },
       "is_incremental": false,
@@ -2244,7 +2256,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.html",
-          "hash": "MsNP9T6OLG/K8wb2nobkCw=="
+          "hash": "dHkpZFW5eFRodMSJOAqk0w=="
         }
       },
       "is_incremental": false,
@@ -2660,6 +2672,54 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "docs/api/WeihanLi.Common.Models.IdNameDescModel-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/api/WeihanLi.Common.Models.IdNameDescModel-1.html",
+          "hash": "Q4VCNmoX85uLgu/7WPp9RQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "docs/api/WeihanLi.Common.Models.IdNameDescModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/api/WeihanLi.Common.Models.IdNameDescModel.html",
+          "hash": "P9hmoe++dvZMRoJYECahUQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "docs/api/WeihanLi.Common.Models.IdNameModel-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/api/WeihanLi.Common.Models.IdNameModel-1.html",
+          "hash": "HY//HP8NFAr1CGjFJKJwFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "docs/api/WeihanLi.Common.Models.IdNameModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/api/WeihanLi.Common.Models.IdNameModel.html",
+          "hash": "lO0wMSZFaab//chq8Tde2w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "docs/api/WeihanLi.Common.Models.KeyEntry.yml",
       "output": {
         ".html": {
@@ -2808,7 +2868,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Common.Models.html",
-          "hash": "jtn7Xm4V4CO6PmP7HlxxHA=="
+          "hash": "MTBIWxiLOYJN0WMt7E0HyQ=="
         }
       },
       "is_incremental": false,
@@ -3132,7 +3192,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Extensions.CoreExtension.html",
-          "hash": "k+o7NjijxfJH4w3d9jOTfw=="
+          "hash": "/N+bdJM/kqXYo3SRFhp98Q=="
         }
       },
       "is_incremental": false,
@@ -3180,7 +3240,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/WeihanLi.Extensions.DumpExtension.html",
-          "hash": "/U1/pFwLGeVLoor3s8j+3g=="
+          "hash": "rVVcXtWxyfkCtNtpY3ihVQ=="
         }
       },
       "is_incremental": false,
@@ -3384,7 +3444,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/index.html",
-          "hash": "6JtblPUzqK0pPN+yTyUD/A=="
+          "hash": "cadZ4r0UcfILOZgmlRHOeA=="
         }
       },
       "is_incremental": false,
@@ -3396,7 +3456,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/api/toc.html",
-          "hash": "2GWj09kXqdt6Ljm2KU3sgg=="
+          "hash": "8fufTrlS9fvNtqu4LvMyxQ=="
         }
       },
       "is_incremental": false,
@@ -3408,7 +3468,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/articles/intro.html",
-          "hash": "z/K/zH5s3MPapj2pMrU5XQ=="
+          "hash": "QhOUC/IwvdKHjqRvbfeabA=="
         }
       },
       "is_incremental": false,
@@ -3423,7 +3483,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "4yPKZQcm/4miRby7+lUmkg=="
+          "hash": "bGnAPbJ+gT9B17L421l90w=="
         }
       },
       "is_incremental": false,
@@ -3462,7 +3522,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 279,
+          "total_file_count": 284,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

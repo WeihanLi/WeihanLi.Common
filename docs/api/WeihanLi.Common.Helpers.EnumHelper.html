@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class DumpExtension
+    <title>Class EnumHelper
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class DumpExtension
+    <meta name="title" content="Class EnumHelper
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,17 +68,17 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="WeihanLi.Extensions.DumpExtension">
+            <article class="content wrap" id="_content" data-uid="WeihanLi.Common.Helpers.EnumHelper">
   
   
-  <h1 id="WeihanLi_Extensions_DumpExtension" data-uid="WeihanLi.Extensions.DumpExtension" class="text-break">Class DumpExtension
+  <h1 id="WeihanLi_Common_Helpers_EnumHelper" data-uid="WeihanLi.Common.Helpers.EnumHelper" class="text-break">Class EnumHelper
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">DumpExtension</span></div>
+    <div class="level1"><span class="xref">EnumHelper</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -104,187 +104,25 @@
       <span class="xref">System.Object.MemberwiseClone()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Extensions.html">WeihanLi.Extensions</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="WeihanLi.Common.Helpers.html">WeihanLi.Common.Helpers</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="WeihanLi_Extensions_DumpExtension_syntax">Syntax</h5>
+  <h5 id="WeihanLi_Common_Helpers_EnumHelper_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class DumpExtension</code></pre>
+    <pre><code class="lang-csharp hljs">public static class EnumHelper</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="WeihanLi_Extensions_DumpExtension_Dump_" data-uid="WeihanLi.Extensions.DumpExtension.Dump*"></a>
-  <h4 id="WeihanLi_Extensions_DumpExtension_Dump__1___0_" data-uid="WeihanLi.Extensions.DumpExtension.Dump``1(``0)">Dump&lt;T&gt;(T)</h4>
+  <a id="WeihanLi_Common_Helpers_EnumHelper_ToIdNameDescList_" data-uid="WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList*"></a>
+  <h4 id="WeihanLi_Common_Helpers_EnumHelper_ToIdNameDescList__1" data-uid="WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList``1">ToIdNameDescList&lt;TEnum&gt;()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Dump&lt;T&gt;(this T t)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;IdNameDescModel&gt; ToIdNameDescList&lt;TEnum&gt;()
+    where TEnum : Enum</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">t</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="WeihanLi_Extensions_DumpExtension_Dump_" data-uid="WeihanLi.Extensions.DumpExtension.Dump*"></a>
-  <h4 id="WeihanLi_Extensions_DumpExtension_Dump__1___0_System_Action_System_String__" data-uid="WeihanLi.Extensions.DumpExtension.Dump``1(``0,System.Action{System.String})">Dump&lt;T&gt;(T, Action&lt;String&gt;)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Dump&lt;T&gt;(this T t, Action&lt;string&gt; dumpAction)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">t</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">dumpAction</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="WeihanLi_Extensions_DumpExtension_Dump_" data-uid="WeihanLi.Extensions.DumpExtension.Dump*"></a>
-  <h4 id="WeihanLi_Extensions_DumpExtension_Dump__1___0_System_Action_System_String__System_Func___0_System_String__" data-uid="WeihanLi.Extensions.DumpExtension.Dump``1(``0,System.Action{System.String},System.Func{``0,System.String})">Dump&lt;T&gt;(T, Action&lt;String&gt;, Func&lt;T, String&gt;)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Dump&lt;T&gt;(this T t, Action&lt;string&gt; dumpAction, Func&lt;T, string&gt; dumpValueFactory)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">t</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">dumpAction</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Func</span>&lt;T, <span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">dumpValueFactory</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="WeihanLi_Extensions_DumpExtension_DumpAsync_" data-uid="WeihanLi.Extensions.DumpExtension.DumpAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_Task__" data-uid="WeihanLi.Extensions.DumpExtension.DumpAsync``1(``0,System.Func{System.String,System.Threading.Tasks.Task})">DumpAsync&lt;T&gt;(T, Func&lt;String, Task&gt;)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task DumpAsync&lt;T&gt;(this T t, Func&lt;string, Task&gt; dumpAction)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">t</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
-        <td><span class="parametername">dumpAction</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -295,7 +133,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><span class="xref">IReadOnlyList</span>&lt;<span class="xref">IdNameDescModel</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -310,48 +148,22 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">T</span></td>
+        <td><span class="parametername">TEnum</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="WeihanLi_Extensions_DumpExtension_DumpAsync_" data-uid="WeihanLi.Extensions.DumpExtension.DumpAsync*"></a>
-  <h4 id="WeihanLi_Extensions_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_Task__System_Func___0_System_String__" data-uid="WeihanLi.Extensions.DumpExtension.DumpAsync``1(``0,System.Func{System.String,System.Threading.Tasks.Task},System.Func{``0,System.String})">DumpAsync&lt;T&gt;(T, Func&lt;String, Task&gt;, Func&lt;T, String&gt;)</h4>
+  <a id="WeihanLi_Common_Helpers_EnumHelper_ToIdNameDescList_" data-uid="WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList*"></a>
+  <h4 id="WeihanLi_Common_Helpers_EnumHelper_ToIdNameDescList__2" data-uid="WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList``2">ToIdNameDescList&lt;TEnum, TValue&gt;()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task DumpAsync&lt;T&gt;(this T t, Func&lt;string, Task&gt; dumpAction, Func&lt;T, string&gt; dumpValueFactory)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;IdNameDescModel&lt;TValue&gt;&gt; ToIdNameDescList&lt;TEnum, TValue&gt;()
+    where TEnum : Enum</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">t</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Threading.Tasks.Task</span>&gt;</td>
-        <td><span class="parametername">dumpAction</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Func</span>&lt;T, <span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">dumpValueFactory</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -362,7 +174,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><span class="xref">IReadOnlyList</span>&lt;<span class="xref">IdNameDescModel</span>&lt;TValue&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -377,7 +189,97 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">T</span></td>
+        <td><span class="parametername">TEnum</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_EnumHelper_ToIdNameList_" data-uid="WeihanLi.Common.Helpers.EnumHelper.ToIdNameList*"></a>
+  <h4 id="WeihanLi_Common_Helpers_EnumHelper_ToIdNameList__1" data-uid="WeihanLi.Common.Helpers.EnumHelper.ToIdNameList``1">ToIdNameList&lt;TEnum&gt;()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;IdNameModel&gt; ToIdNameList&lt;TEnum&gt;()
+    where TEnum : Enum</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IReadOnlyList</span>&lt;<span class="xref">IdNameModel</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEnum</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Common_Helpers_EnumHelper_ToIdNameList_" data-uid="WeihanLi.Common.Helpers.EnumHelper.ToIdNameList*"></a>
+  <h4 id="WeihanLi_Common_Helpers_EnumHelper_ToIdNameList__2" data-uid="WeihanLi.Common.Helpers.EnumHelper.ToIdNameList``2">ToIdNameList&lt;TEnum, TValue&gt;()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;IdNameModel&lt;TValue&gt;&gt; ToIdNameList&lt;TEnum, TValue&gt;()
+    where TEnum : Enum</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IReadOnlyList</span>&lt;<span class="xref">IdNameModel</span>&lt;TValue&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEnum</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
         <td></td>
       </tr>
     </tbody>

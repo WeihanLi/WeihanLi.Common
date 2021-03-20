@@ -1368,7 +1368,7 @@ if  is null, returns  if  is a null reference, and returns a null reference if b
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string Concatenate(this IEnumerable&lt;string&gt; this)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string Concatenate(this IEnumerable&lt;string&gt; stringCollection)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1382,8 +1382,8 @@ if  is null, returns  if  is a null reference, and returns a null reference if b
     <tbody>
       <tr>
         <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">this</span></td>
-        <td><p>The @this to act on.</p>
+        <td><span class="parametername">stringCollection</span></td>
+        <td><p>The string collection to act on.</p>
 </td>
       </tr>
     </tbody>
@@ -2963,7 +2963,7 @@ instances of Object in args.</p>
   
   <a id="WeihanLi_Extensions_CoreExtension_GetDefaultValue_" data-uid="WeihanLi.Extensions.CoreExtension.GetDefaultValue*"></a>
   <h4 id="WeihanLi_Extensions_CoreExtension_GetDefaultValue_System_Type_" data-uid="WeihanLi.Extensions.CoreExtension.GetDefaultValue(System.Type)">GetDefaultValue(Type)</h4>
-  <div class="markdown level1 summary"><p>根据 Type 获取默认值，实现类似 default(T) 的功能</p>
+  <div class="markdown level1 summary"><p>get default value by type, default(T)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2999,7 +2999,8 @@ instances of Object in args.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Object</span></td>
-        <td></td>
+        <td><p>default value</p>
+</td>
       </tr>
     </tbody>
   </table>
