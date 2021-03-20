@@ -25,3 +25,5 @@ jobs:
         automatic_release_tag: ${{ env.ReleaseVersion }}
         title: Version ${{ env.ReleaseVersion }}
         prerelease: true
+        files: |
+          artifacts/packages/*
