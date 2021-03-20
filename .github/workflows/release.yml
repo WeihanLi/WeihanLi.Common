@@ -8,28 +8,22 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
-    # - name: Setup .NET Core
-    #   uses: actions/setup-dotnet@v1
-    #   with:
-    #     dotnet-version: 5.0.x
-    # - name: Build
-    #   shell: pwsh
-    #   run: .\build.ps1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Build
+      shell: pwsh
+      run: .\build.ps1
     - name: Get Release Version
       shell: pwsh
       run: .\build\getReleaseVersion.ps1
-    - name: Echo
-      run: |
-        echo '${{env.ReleaseVersion}}'
-        echo '$env.ReleaseVersion'
-        echo '${{env.ReleaseVersion1}}'
-        echo '${{env.ReleaseVersion2}}'
-    # - name: Create GitHub release
-    #   uses: marvinpinto/action-automatic-releases@latest
-    #   with:
-    #     repo_token: "${{ secrets.GITHUB_TOKEN }}"
-    #     automatic_release_tag: ${{ env.ReleaseVersion }}
-    #     title: Version ${{ env.ReleaseVersion }}
-    #     prerelease: true
-        # files: |
-        #   artifacts/packages/*
+    - name: Create GitHub release
+      uses: marvinpinto/action-automatic-releases@latest
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: ${{ env.ReleaseVersion }}
+        title: Version ${{ env.ReleaseVersion }}
+        prerelease: true
+        files: |
+          artifacts/packages/*
