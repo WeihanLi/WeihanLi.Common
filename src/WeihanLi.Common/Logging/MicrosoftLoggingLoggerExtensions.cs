@@ -1,6 +1,9 @@
-﻿using Microsoft.Extensions.Logging.Abstractions.Internal;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Concurrent;
+using WeihanLi.Common;
+using WeihanLi.Common.Logging;
+using NullScope = Microsoft.Extensions.Logging.Abstractions.Internal.NullScope;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.Logging
@@ -140,6 +143,15 @@ namespace Microsoft.Extensions.Logging
             Action<string, LogLevel, Exception, string> logAction)
         {
             return loggingBuilder.AddProvider(new DelegateLoggerProvider(logAction));
+        }
+
+        public static ILoggingBuilder UseCustomGenericLogger(this ILoggingBuilder loggingBuilder, Action<GenericLoggerOptions> genericLoggerConfig)
+        {
+            Guard.NotNull(loggingBuilder, nameof(loggingBuilder));
+            Guard.NotNull(genericLoggerConfig, nameof(genericLoggerConfig));
+            loggingBuilder.Services.Configure(genericLoggerConfig);
+            loggingBuilder.Services.AddSingleton(typeof(ILogger<>), typeof(GenericLogger<>));
+            return loggingBuilder;
         }
 
         #endregion ILoggingBuilder
