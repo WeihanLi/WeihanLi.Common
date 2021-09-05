@@ -24,7 +24,7 @@
     
     <Authors>WeihanLi</Authors>
     <Copyright>Copyright 2017-2021 (c) WeihanLi</Copyright>
-    <NoWarn>$(NoWarn);NU5048;</NoWarn>
+    <NoWarn>$(NoWarn);NU5048;CS1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Condition="'$(OS)' == 'Windows_NT'" Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
