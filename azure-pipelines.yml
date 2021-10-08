@@ -12,10 +12,11 @@ pool:
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .NET 5 sdk'
+  displayName: 'Use .NET Core sdk'
   inputs:
     packageType: sdk
-    version: 5.0.x
+    version: 6.0.x
+    includePreviewVersions: true # Required for preview versions
 
 - script: dotnet --info
   displayName: 'dotnet info'
