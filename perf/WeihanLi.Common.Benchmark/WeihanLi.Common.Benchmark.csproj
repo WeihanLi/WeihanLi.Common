@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <Optimize>true</Optimize>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Benchmark>True</Benchmark>
     <Nullable>disable</Nullable>
   </PropertyGroup>

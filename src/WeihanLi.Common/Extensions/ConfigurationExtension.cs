@@ -9,8 +9,9 @@ namespace Microsoft.Extensions.Configuration
     /// <summary>
     /// Provides extensions for <see cref="IConfiguration"/> instances.
     /// </summary>
-    public static class ConfigurationExtensions
+    public static class ConfigurationExtension
     {
+        #region Placeholder
         /// <summary>
         /// A regex which matches tokens in the following format: $(Item:Sub1:Sub2).
         /// inspired by https://github.com/henkmollema/ConfigurationPlaceholders
@@ -65,6 +66,17 @@ namespace Microsoft.Extensions.Configuration
             return configuration;
         }
 
+        private sealed class InvalidConfigurationPlaceholderException : InvalidOperationException
+        {
+            public InvalidConfigurationPlaceholderException(string placeholder) : base($"Invalid configuration placeholder: '{placeholder}'.")
+            {
+            }
+        }
+
+        #endregion
+
+        #region GetAppSetting
+
         /// <summary>
         /// GetAppSetting
         /// Shorthand for GetSection("AppSettings")[key]
@@ -114,12 +126,32 @@ namespace Microsoft.Extensions.Configuration
         {
             return configuration.GetAppSetting(key).ToOrDefault(defaultValueFunc);
         }
+        #endregion
 
-        private sealed class InvalidConfigurationPlaceholderException : InvalidOperationException
+        #region FeatureFlag
+        /// <summary>
+        /// Feature flags configuration section name, FeatureFlags by default
+        /// </summary>
+        public static string FeatureFlagsSectionName = "FeatureFlags";
+
+        /// <summary>
+        /// FeatureFlag extension, (FeatureFlags:Feature) is feature enabled
+        /// </summary>
+        /// <param name="configuration">configuration</param>
+        /// <param name="featureName">feature name</param>
+        /// <param name="defaultValue">default value if config not exists</param>
+        /// <returns><c>true</c> enabled, otherwise disabled</returns>
+        public static bool IsFeatureEnabled([NotNull] this IConfiguration configuration, string featureName, bool defaultValue = false)
         {
-            public InvalidConfigurationPlaceholderException(string placeholder) : base($"Invalid configuration placeholder: '{placeholder}'.")
+            try
             {
+                return configuration.GetSection(FeatureFlagsSectionName)?.GetValue<bool?>(featureName) ?? defaultValue;
             }
-        }
+            catch (Exception)
+            {
+                return defaultValue;
+            }
+        } 
+        #endregion
     }
 }
