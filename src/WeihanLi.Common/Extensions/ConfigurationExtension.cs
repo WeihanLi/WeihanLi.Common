@@ -139,18 +139,34 @@ namespace Microsoft.Extensions.Configuration
         /// </summary>
         /// <param name="configuration">configuration</param>
         /// <param name="featureName">feature name</param>
+        /// <param name="featureFlagValue">featureFlagValue value if config not exists</param>
+        /// <returns><c>true</c> enabled, otherwise disabled</returns>
+        public static bool TryGetFeatureFlagValue([NotNull] this IConfiguration configuration, string featureName, out bool featureFlagValue)
+        {
+            featureFlagValue = false;
+            var section = configuration.GetSection(FeatureFlagsSectionName);
+            if(section.Exists())
+            {
+                return bool.TryParse(section[featureName], out featureFlagValue);
+            }
+            return false;
+        }
+
+
+        /// <summary>
+        /// FeatureFlag extension, (FeatureFlags:Feature) is feature enabled
+        /// </summary>
+        /// <param name="configuration">configuration</param>
+        /// <param name="featureName">feature name</param>
         /// <param name="defaultValue">default value if config not exists</param>
         /// <returns><c>true</c> enabled, otherwise disabled</returns>
         public static bool IsFeatureEnabled([NotNull] this IConfiguration configuration, string featureName, bool defaultValue = false)
         {
-            try
+            if (TryGetFeatureFlagValue(configuration, featureName, out var value))
             {
-                return configuration.GetSection(FeatureFlagsSectionName)?.GetValue<bool?>(featureName) ?? defaultValue;
+                return value;
             }
-            catch (Exception)
-            {
-                return defaultValue;
-            }
+            return defaultValue;
         } 
         #endregion
     }
