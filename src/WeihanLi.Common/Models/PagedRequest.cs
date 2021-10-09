@@ -6,7 +6,7 @@
         private int _pageSize = 10;
 
         /// <summary>
-        /// PageNum
+        /// PageNumber
         /// 1 by default, 1 based
         /// </summary>
         public int PageNum
