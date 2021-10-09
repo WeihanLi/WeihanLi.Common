@@ -21,7 +21,7 @@
     <PackageReleaseNotes>
       https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
     </PackageReleaseNotes>
-    <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
+    <PackageIcon>icon.jpg</PackageIcon>    
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     
     <Authors>WeihanLi</Authors>
@@ -33,5 +33,8 @@
     <PackageReference Condition="'$(OS)' != 'Windows_NT'" Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All"/>
     <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)icon.jpg" Pack="true" Visible="false" PackagePath=""/>
   </ItemGroup>
 </Project>
