@@ -30,7 +30,8 @@ namespace WeihanLi.Common.Test.JsonTest
                 Ip = ip,
                 EndPoint = endPoint
             }, new IPAddressConverter(), new IPEndPointConverter());
-            var result = JsonConvert.DeserializeObject<TestModel>(str, new IPAddressConverter(), new IPEndPointConverter());
+            var result = JsonConvert.DeserializeObject<TestModel>(str, new IPAddressConverter(), new IPEndPointConverter())!;
+            Assert.NotNull(result);
             Assert.Equal(ip, result.Ip);
             Assert.Equal(endPoint, result.EndPoint);
         }

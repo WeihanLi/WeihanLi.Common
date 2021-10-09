@@ -90,7 +90,7 @@ namespace WeihanLi.Extensions
         /// <param name="settings">JsonSerializerSettings</param>
         /// <returns>由字符串转换得到的T对象</returns>
         public static T JsonToObject<T>(this string jsonString, JsonSerializerSettings? settings)
-            => JsonConvert.DeserializeObject<T>(jsonString, settings ?? _defaultSerializerSettings);
+            => JsonConvert.DeserializeObject<T>(jsonString, settings ?? _defaultSerializerSettings)!;
 
         /// <summary>
         /// 对象转换为string，如果是基元类型直接ToString(),如果是Entity则Json序列化
