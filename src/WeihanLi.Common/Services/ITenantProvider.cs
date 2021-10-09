@@ -8,7 +8,7 @@ namespace WeihanLi.Common.Services
     {
         string GetTenantId();
 
-        TenantInfo<TKey> GetTenantInfo<TKey>();
+        TenantInfo GetTenantInfo();
     }
 
     public static class TenantIdProviderExtensions
