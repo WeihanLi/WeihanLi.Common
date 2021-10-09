@@ -60,7 +60,23 @@ namespace WeihanLi.Common.Helpers
             '9'
         };
 
-        public static readonly Random Random = new();
+        [ThreadStatic]
+        private static Random? _random;
+
+        /// <summary>
+        /// Thread-safe Random instance
+        /// </summary>
+        public static Random Random
+        {
+            get
+            {
+                if(_random == null )
+                {
+                    _random = new();
+                }
+                return _random;
+            }
+        }
 
         /// <summary>
         /// 生成随机验证码

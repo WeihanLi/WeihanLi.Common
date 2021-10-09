@@ -36,7 +36,11 @@ namespace WeihanLi.Common.Event
             }
             if (eventData is JObject jObject)
             {
-                return Handle(jObject.ToObject<TEvent>());
+                var @event = jObject.ToObject<TEvent>();
+                if (@event != null)
+                {
+                    return Handle(@event);
+                }
             }
             if (eventData is string eventDataJson)
             {

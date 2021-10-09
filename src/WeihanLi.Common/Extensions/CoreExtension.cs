@@ -2570,6 +2570,23 @@ namespace WeihanLi.Extensions
         /// Append text when condition is true
         /// </summary>
         /// <param name="builder">StringBuilder</param>
+        /// <param name="textFactory">factory for getting text to append</param>
+        /// <param name="condition">condition to evaluate</param>
+        /// <returns>StringBuilder</returns>
+        public static StringBuilder AppendIf(this StringBuilder builder, Func<string> textFactory, bool condition)
+        {
+            Guard.NotNull(builder, nameof(builder));
+            if (condition)
+            {
+                builder.Append(textFactory());
+            }
+            return builder;
+        }
+
+        /// <summary>
+        /// Append text when condition is true
+        /// </summary>
+        /// <param name="builder">StringBuilder</param>
         /// <param name="text">text to append</param>
         /// <param name="condition">condition to evaluate</param>
         /// <returns>StringBuilder</returns>
@@ -2580,6 +2597,25 @@ namespace WeihanLi.Extensions
             if (condition)
             {
                 builder.AppendLine(text);
+            }
+            return builder;
+        }
+
+        
+        /// <summary>
+        /// Append text when condition is true
+        /// </summary>
+        /// <param name="builder">StringBuilder</param>
+        /// <param name="textFactory">text factory to produce text for appendding</param>
+        /// <param name="condition">condition to evaluate</param>
+        /// <returns>StringBuilder</returns>
+        public static StringBuilder AppendLineIf(this StringBuilder builder, Func<string> textFactory, bool condition)
+        {
+            Guard.NotNull(builder, nameof(builder));
+
+            if (condition)
+            {
+                builder.AppendLine(textFactory());
             }
             return builder;
         }

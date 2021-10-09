@@ -7,9 +7,12 @@
     <Nullable>enable</Nullable>
 
     <RepositoryType>git</RepositoryType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RepositoryUrl>https://github.com/WeihanLi/WeihanLi.Common</RepositoryUrl>
     <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <!-- Optional: Embed source files that are not tracked by the source control manager in the PDB -->
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <!-- Optional: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -18,17 +21,23 @@
     <PackageReleaseNotes>
       https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
     </PackageReleaseNotes>
-    <PackageIconUrl>https://avatars3.githubusercontent.com/u/7604648</PackageIconUrl>    
+    <PackageIcon>icon.jpg</PackageIcon>    
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     
     <Authors>WeihanLi</Authors>
     <Copyright>Copyright 2017-2021 (c) WeihanLi</Copyright>
-    <NoWarn>$(NoWarn);NU5048;</NoWarn>
+    <NoWarn>$(NoWarn);NU5048;CS1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TF_BUILD)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Condition="'$(OS)' == 'Windows_NT'" Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
     <PackageReference Condition="'$(OS)' != 'Windows_NT'" Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All"/>
-    <PackageReference Include="JetBrains.Annotations" Version="2020.3.0" PrivateAssets="All" />
+    <PackageReference Include="JetBrains.Annotations" Version="2021.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)icon.jpg" Pack="true" Visible="false" PackagePath=""/>
   </ItemGroup>
 </Project>

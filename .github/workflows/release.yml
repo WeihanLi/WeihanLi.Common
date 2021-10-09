@@ -1,10 +1,10 @@
 name: Release
 on:
   push:
-    branches: [ master, preview ]
+    branches: [ master ]
 jobs:
   build:
-    name: Install dotnet
+    name: Release
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
@@ -14,7 +14,7 @@ jobs:
         dotnet-version: 5.0.x
     - name: Build
       shell: pwsh
-      run: .\build.ps1
+      run: .\build.ps1 --stable=true
     - name: Get Release Version
       shell: pwsh
       run: .\build\getReleaseVersion.ps1
@@ -23,7 +23,7 @@ jobs:
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         automatic_release_tag: ${{ env.ReleaseVersion }}
-        title: Version ${{ env.ReleaseVersion }}
-        prerelease: true
+        title: ${{ env.ReleaseVersion }}
+        prerelease: false
         files: |
           artifacts/packages/*

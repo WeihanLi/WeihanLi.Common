@@ -10,9 +10,9 @@ namespace WeihanLi.Common.Services
 
     public static class UserIdProviderExtensions
     {
-        public static T? GetUserId<T>(this IUserIdProvider userIdProvider)
+        public static T? GetUserId<T>(this IUserIdProvider userIdProvider, T? defaultValue = default)
         {
-            return userIdProvider.GetUserId().ToOrDefault<T>();
+            return userIdProvider.GetUserId().ToOrDefault(defaultValue);
         }
 
         public static bool TryGetUserId<T>(this IUserIdProvider userIdProvider, out T? value, T? defaultValue = default)
