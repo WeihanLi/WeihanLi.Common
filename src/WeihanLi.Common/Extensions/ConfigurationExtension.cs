@@ -138,36 +138,35 @@ namespace Microsoft.Extensions.Configuration
         /// FeatureFlag extension, (FeatureFlags:Feature) is feature enabled
         /// </summary>
         /// <param name="configuration">configuration</param>
-        /// <param name="featureName">feature name</param>
+        /// <param name="featureFlagName">feature flag name</param>
         /// <param name="featureFlagValue">featureFlagValue value if config not exists</param>
         /// <returns><c>true</c> enabled, otherwise disabled</returns>
-        public static bool TryGetFeatureFlagValue([NotNull] this IConfiguration configuration, string featureName, out bool featureFlagValue)
+        public static bool TryGetFeatureFlagValue(this IConfiguration configuration, string featureFlagName, out bool featureFlagValue)
         {
             featureFlagValue = false;
             var section = configuration.GetSection(FeatureFlagsSectionName);
-            if(section.Exists())
+            if (section.Exists())
             {
-                return bool.TryParse(section[featureName], out featureFlagValue);
+                return bool.TryParse(section[featureFlagName], out featureFlagValue);
             }
             return false;
         }
-
 
         /// <summary>
         /// FeatureFlag extension, (FeatureFlags:Feature) is feature enabled
         /// </summary>
         /// <param name="configuration">configuration</param>
-        /// <param name="featureName">feature name</param>
+        /// <param name="featureFlagName">feature flag name</param>
         /// <param name="defaultValue">default value if config not exists</param>
         /// <returns><c>true</c> enabled, otherwise disabled</returns>
-        public static bool IsFeatureEnabled([NotNull] this IConfiguration configuration, string featureName, bool defaultValue = false)
+        public static bool IsFeatureEnabled(this IConfiguration configuration, string featureFlagName, bool defaultValue = false)
         {
-            if (TryGetFeatureFlagValue(configuration, featureName, out var value))
+            if (TryGetFeatureFlagValue(configuration, featureFlagName, out var value))
             {
                 return value;
             }
             return defaultValue;
-        } 
+        }
         #endregion
     }
 }
