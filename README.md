@@ -12,7 +12,7 @@
 
 ## Intro
 
-基于 .netstandard2.0 的 .NET 常用帮助类，扩展方法等，构建自己的基础类库
+基于 .netstandard2.0 的 .NET 常用帮助类，扩展方法等，基础类库
 
 ## Packages
 

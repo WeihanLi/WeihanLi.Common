@@ -18,7 +18,7 @@ namespace WeihanLi.Common
             NotNull(str, paramName);
             if (string.IsNullOrEmpty(paramName))
             {
-                throw new ArgumentNullException(paramName);
+                throw new ArgumentException("The argument is empty", paramName);
             }
             return str;
         }

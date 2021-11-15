@@ -10,6 +10,7 @@ namespace WeihanLi.Common
 {
     /// <summary>
     /// DependencyResolver
+    /// Service locator pattern
     /// </summary>
     public static class DependencyResolver
     {
@@ -92,7 +93,7 @@ namespace WeihanLi.Common
             }
         }
 
-        private class DefaultDependencyResolver : IDependencyResolver
+        private sealed class DefaultDependencyResolver : IDependencyResolver
         {
             public object? GetService(Type serviceType)
             {
@@ -137,7 +138,7 @@ namespace WeihanLi.Common
             }
         }
 
-        private class DelegateBasedDependencyResolver : IDependencyResolver
+        private sealed class DelegateBasedDependencyResolver : IDependencyResolver
         {
             private readonly Func<Type, object> _getService;
             private readonly Func<Type, IEnumerable<object>> _getServices;
@@ -177,7 +178,7 @@ namespace WeihanLi.Common
             }
         }
 
-        private class ServiceContainerDependencyResolver : IDependencyResolver
+        private sealed class ServiceContainerDependencyResolver : IDependencyResolver
         {
             private readonly IServiceContainer _rootContainer;
 
