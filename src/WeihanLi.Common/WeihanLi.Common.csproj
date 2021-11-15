@@ -44,7 +44,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DbConnectionExtension.generated.cs</LastGenOutput>
     </None>
-    <None Update="README.md">
+    <None Include="README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
