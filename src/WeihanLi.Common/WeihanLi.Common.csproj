@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <Import Project="../../build/common.props" />
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
@@ -42,6 +43,10 @@
     <None Update="Extensions\DbConnectionExtension.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DbConnectionExtension.generated.cs</LastGenOutput>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
     </None>
     <Compile Update="Resource.Designer.cs">
       <DesignTime>True</DesignTime>
