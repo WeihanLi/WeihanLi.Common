@@ -304,7 +304,7 @@ namespace WeihanLi.Common.Helpers
                     continue;
                 }
 
-                if (TryCreateParameterMap(constructor.GetParameters(), argumentTypes, out int?[] tempParameterMap))
+                if (TryCreateParameterMap(constructor.GetParameters(), argumentTypes, out var tempParameterMap))
                 {
                     if (matchingConstructor != null)
                     {

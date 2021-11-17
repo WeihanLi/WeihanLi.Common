@@ -19,7 +19,7 @@ namespace WeihanLi.Common.Json
 
         public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
         {
-            if(value == null)
+            if (value == null)
             {
                 writer.WriteNull();
             }
@@ -31,7 +31,7 @@ namespace WeihanLi.Common.Json
 
         public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
         {
-            if(reader.Value == null)
+            if (reader.Value == null)
             {
                 return null;
             }
@@ -53,7 +53,7 @@ namespace WeihanLi.Common.Json
         public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
         {
             var endPoint = (IPEndPoint?)value;
-            if(endPoint == null)
+            if (endPoint == null)
             {
                 writer.WriteNull();
             }
@@ -66,7 +66,6 @@ namespace WeihanLi.Common.Json
                 };
                 obj.WriteTo(writer);
             }
-            
         }
 
         public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
@@ -76,7 +75,7 @@ namespace WeihanLi.Common.Json
 
             var address = jObject["Address"]?.ToObject<IPAddress>(serializer);
             var port = jObject["Port"]?.Value<int>() ?? 0;
-            return new IPEndPoint(address, port);
+            return new IPEndPoint(Guard.NotNull(address, nameof(address)), port);
         }
     }
 }

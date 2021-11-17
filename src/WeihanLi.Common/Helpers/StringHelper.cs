@@ -155,16 +155,16 @@ namespace WeihanLi.Common.Helpers
                 return s;
             }
 
-            char[] chars = s.ToCharArray();
+            var chars = s.ToCharArray();
 
-            for (int i = 0; i < chars.Length; i++)
+            for (var i = 0; i < chars.Length; i++)
             {
                 if (i == 1 && !char.IsUpper(chars[i]))
                 {
                     break;
                 }
 
-                bool hasNext = (i + 1 < chars.Length);
+                var hasNext = (i + 1 < chars.Length);
                 if (i > 0 && hasNext && !char.IsUpper(chars[i + 1]))
                 {
                     // if the next character is a space, which is not considered uppercase

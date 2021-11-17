@@ -354,12 +354,12 @@ namespace WeihanLi.Common.Helpers.Cron
 
             CalendarHelper.FillDateTimeParts(
                 ticks,
-                out int startSecond,
-                out int startMinute,
-                out int startHour,
-                out int startDay,
-                out int startMonth,
-                out int startYear);
+                out var startSecond,
+                out var startMinute,
+                out var startHour,
+                out var startDay,
+                out var startMonth,
+                out var startYear);
 
             var minMatchedDay = GetFirstSet(_dayOfMonth);
 
@@ -453,7 +453,7 @@ namespace WeihanLi.Common.Helpers.Cron
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static int GetFirstSet(long value)
         {
-            ulong res = unchecked((ulong)(value & -value) * 0x022fdd63cc95386d) >> 58;
+            var res = unchecked((ulong)(value & -value) * 0x022fdd63cc95386d) >> 58;
             return DeBruijnPositions[res];
         }
 

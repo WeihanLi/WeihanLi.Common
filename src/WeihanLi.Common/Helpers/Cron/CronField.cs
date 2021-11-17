@@ -91,7 +91,7 @@ namespace WeihanLi.Common.Helpers.Cron
             Last = last;
             Names = names;
             CanDefineInterval = canDefineInterval;
-            for (int i = First; i <= Last; i++)
+            for (var i = First; i <= Last; i++)
             {
                 AllBits = AllBits | (1L << i);
             }
