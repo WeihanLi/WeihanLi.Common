@@ -25,7 +25,7 @@ namespace WeihanLi.Extensions
         {
             return httpRequester.WithHeaders(new[]
             {
-                new KeyValuePair<string, string>("X-Requested-With", "XMLHttpRequest")
+                new KeyValuePair<string, string?>("X-Requested-With", "XMLHttpRequest")
             });
         }
 

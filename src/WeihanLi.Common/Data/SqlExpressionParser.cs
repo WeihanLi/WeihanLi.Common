@@ -6,16 +6,9 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Data
 {
-#if DEBUG
-
-    public
-#else
-
-    internal
-#endif
-        static partial class SqlExpressionParser
+    internal static partial class SqlExpressionParser
     {
-        public static SqlParseResult ParseWhereExpression(Expression? exp, IDictionary<string, string>? columnMappings)
+        internal static SqlParseResult ParseWhereExpression(Expression? exp, IDictionary<string, string>? columnMappings)
         {
             var sqlText = string.Empty;
             var dic = new Dictionary<string, object?>();
@@ -30,14 +23,7 @@ namespace WeihanLi.Common.Data
             return new SqlParseResult(sqlText, dic);
         }
 
-#if DEBUG
-
-        public
-#else
-
-        private
-#endif
-            static string ParseExpression(Expression exp, IDictionary<string, string>? columnMappings = null)
+        public static string ParseExpression(Expression? exp, IDictionary<string, string>? columnMappings = null)
         {
             if (exp is LambdaExpression lambdaExpression)
             {
@@ -143,7 +129,7 @@ namespace WeihanLi.Common.Data
             {
                 return bValue ? "1" : "0";
             }
-            return $"{exp.Value.ToString().Replace("'", "''")}";
+            return $"{exp.Value.ToString()?.Replace("'", "''")}";
         }
 
         private static string ParseMethodCallExpression(MethodCallExpression expression, IDictionary<string, string>? columnMappings)
@@ -157,14 +143,7 @@ namespace WeihanLi.Common.Data
         }
     }
 
-#if DEBUG
-
-    public
-#else
-
-    internal
-#endif
-            class SqlParseResult
+    internal class SqlParseResult
     {
         public string SqlText { get; }
 

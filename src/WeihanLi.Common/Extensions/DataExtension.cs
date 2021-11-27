@@ -43,7 +43,7 @@ namespace WeihanLi.Extensions
         private static DbParameterReadOnlyCollection GetReadOnlyCollection(this DbParameterCollection collection) => new(collection);
 
         public static Func<DbCommand, string> CommandLogFormatterFunc = command =>
-         $"DbCommand log: CommandText:{command.CommandText},CommandType:{command.CommandType},Parameters:{command.Parameters.GetReadOnlyCollection().Select(p => $"{p.ParameterName}={p.Value}").StringJoin(",")},CommandTimeout:{command.CommandTimeout}s";
+               $"DbCommand log: CommandText:{command.CommandText},CommandType:{command.CommandType},Parameters:{command.Parameters.GetReadOnlyCollection().Select(p => $"{p.ParameterName}={p.Value}").StringJoin(",")},CommandTimeout:{command.CommandTimeout}s";
 
         public static Action<string>? CommandLogAction = log => Debug.WriteLine(log);
 
@@ -503,7 +503,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="func">The default value factory.</param>
         /// <returns>A T.</returns>
-        public static T ExecuteScalarTo<T>([NotNull] this DbCommand @this, Func<object, T> func)
+        public static T? ExecuteScalarTo<T>([NotNull] this DbCommand @this, Func<object?, T> func)
         {
             return func(@this.ExecuteScalar());
         }

@@ -19,7 +19,7 @@ namespace WeihanLi.Common.Http
 
         public byte[]? ResponseBytes { get; init; }
 
-        public IDictionary<string, string> Headers { get; init; } = null!;
+        public IDictionary<string, string?> Headers { get; init; } = null!;
     }
 
     public class WebRequestHttpRequester : IHttpRequester
@@ -96,12 +96,17 @@ namespace WeihanLi.Common.Http
 
         public IHttpRequester WithHeaders(NameValueCollection customHeaders) => WithHeaders(customHeaders.ToDictionary());
 
-        public IHttpRequester WithHeaders(IEnumerable<KeyValuePair<string, string>> customHeaders)
+        public IHttpRequester WithHeaders(IEnumerable<KeyValuePair<string, string?>> customHeaders)
         {
             // ReSharper disable PossibleMultipleEnumeration
             Guard.NotNull(customHeaders, nameof(customHeaders));
             foreach (var header in customHeaders)
             {
+                if (header.Value is null)
+                {
+                    _request.Headers.Remove(header.Key);
+                    continue;
+                }
                 if (header.Key.EqualsIgnoreCase("REFERER"))
                 {
                     _request.Referer = header.Value;
@@ -438,7 +443,7 @@ namespace WeihanLi.Common.Http
             var responseBytes = response.Content.ReadAsByteArrayAsync().Result;
             return new HttpResponse
             {
-                Headers = response.Headers.ToDictionary(x => x.Key, x => x.Value.StringJoin(",")),
+                Headers = response.Headers.ToDictionary(x => x.Key, x => x.Value?.StringJoin(",")),
                 ResponseBytes = responseBytes,
                 StatusCode = response.StatusCode
             };
@@ -451,7 +456,7 @@ namespace WeihanLi.Common.Http
             var responseBytes = await response.Content.ReadAsByteArrayAsync();
             return new HttpResponse
             {
-                Headers = response.Headers.ToDictionary(x => x.Key, x => x.Value.StringJoin(",")),
+                Headers = response.Headers.ToDictionary(x => x.Key, x => x.Value?.StringJoin(",")),
                 ResponseBytes = responseBytes,
                 StatusCode = response.StatusCode
             };
@@ -537,7 +542,7 @@ namespace WeihanLi.Common.Http
             return this;
         }
 
-        public IHttpRequester WithHeaders(IEnumerable<KeyValuePair<string, string>>? customHeaders)
+        public IHttpRequester WithHeaders(IEnumerable<KeyValuePair<string, string?>>? customHeaders)
         {
             if (customHeaders != null)
             {
@@ -549,12 +554,25 @@ namespace WeihanLi.Common.Http
                     if (HttpHelper.IsWellKnownContentHeader(header.Key))
                     {
                         _request.Content ??= new ByteArrayContent(Array.Empty<byte>());
-
-                        _request.Content.Headers.TryAddWithoutValidation(header.Key, header.Value);
+                        if (header.Value is null)
+                        {
+                            _request.Content.Headers.Remove(header.Key);
+                        }
+                        else
+                        {
+                            _request.Content.Headers.TryAddWithoutValidation(header.Key, header.Value);
+                        }
                     }
                     else
                     {
-                        _request.Headers.TryAddWithoutValidation(header.Key, header.Value);
+                        if (header.Value is null)
+                        {
+                            _request.Headers.Remove(header.Key);
+                        }
+                        else
+                        {
+                            _request.Headers.TryAddWithoutValidation(header.Key, header.Value);
+                        }
                     }
                 }
             }
@@ -566,7 +584,7 @@ namespace WeihanLi.Common.Http
         {
             _request.Content = new ByteArrayContent(requestBytes);
             _request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse(contentType);
-            return WithHeaders(new Dictionary<string, string>
+            return WithHeaders(new Dictionary<string, string?>
             {
                 {HttpKnownHeaderNames.ContentType, contentType}
             });

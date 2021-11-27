@@ -1190,7 +1190,7 @@ namespace WeihanLi.Extensions
         public static string GetDescription(this Enum value)
         {
             var stringValue = value.ToString();
-            var attr = value.GetType().GetField(stringValue)
+            var attr = value.GetType().GetField(stringValue)?
                 .GetCustomAttribute<DescriptionAttribute>();
             return attr?.Description ?? stringValue;
         }
@@ -2173,13 +2173,6 @@ namespace WeihanLi.Extensions
         public static bool IsNotNullOrWhiteSpace(this string? @this) => !string.IsNullOrWhiteSpace(@this);
 
         /// <summary>
-        ///     Creates a new instance of  with the same value as a specified .
-        /// </summary>
-        /// <param name="str">The string to copy.</param>
-        /// <returns>A new string with the same value as .</returns>
-        public static string Copy(this string str) => string.Copy(str);
-
-        /// <summary>
         ///     Retrieves the system&#39;s reference to the specified .
         /// </summary>
         /// <param name="str">A string to search for in the intern pool.</param>
@@ -2193,7 +2186,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="str">The string to search for in the intern pool.</param>
         /// <returns>A reference to  if it is in the common language runtime intern pool; otherwise, null.</returns>
-        public static string IsInterned(this string str) => string.IsInterned(str);
+        public static string? IsInterned(this string str) => string.IsInterned(str);
 
         /// <summary>
         ///     Concatenates the elements of an object array, using the specified separator between each element.
@@ -2601,7 +2594,6 @@ namespace WeihanLi.Extensions
             return builder;
         }
 
-        
         /// <summary>
         /// Append text when condition is true
         /// </summary>
@@ -2662,17 +2654,9 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
-        /// <returns>The new instance.</returns>
-        public static T CreateInstance<T>(this Type @this) => (T)Activator.CreateInstance(@this);
-
-        /// <summary>
-        ///     A Type extension method that creates an instance.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
         /// <param name="args">The arguments.</param>
         /// <returns>The new instance.</returns>
-        public static T CreateInstance<T>(this Type @this, params object[] args) => (T)Activator.CreateInstance(@this, args);
+        public static T? CreateInstance<T>(this Type @this, params object?[]? args) => (T?)Activator.CreateInstance(@this, args);
 
         /// <summary>
         /// if a type has empty constructor
@@ -2688,7 +2672,7 @@ namespace WeihanLi.Extensions
             return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
         }
 
-        private static readonly ConcurrentDictionary<Type, object> _defaultValues =
+        private static readonly ConcurrentDictionary<Type, object?> _defaultValues =
             new();
 
         /// <summary>

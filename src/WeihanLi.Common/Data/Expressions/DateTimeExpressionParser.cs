@@ -7,13 +7,7 @@ namespace WeihanLi.Common.Data
     /// <summary>
     /// DateTime Expression Parser
     /// </summary>
-#if DEBUG
-
-    public
-#else
-        internal
-#endif
-        static partial class SqlExpressionParser
+    internal static partial class SqlExpressionParser
     {
         public static string ParseDateTimeMemberAccess(MemberExpression exp, IDictionary<string, string>? columnMappings)
         {
