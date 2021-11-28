@@ -1,6 +1,6 @@
 ﻿namespace WeihanLi.Common.Models
 {
-    public class Category<TKey>
+    public record Category<TKey>
     {
         public TKey Id { get; set; } = default!;
 
@@ -9,11 +9,11 @@
         public TKey ParentId { get; set; } = default!;
     }
 
-    public class Category : Category<int>
+    public record Category : Category<int>
     {
     }
 
-    public class CategoryWithDesc : Category<int>
+    public record CategoryWithDesc : Category<int>
     {
         public string? Description { get; set; }
     }

@@ -15,11 +15,11 @@ namespace WeihanLi.Common.Http
 {
     public class HttpResponse
     {
-        public HttpStatusCode StatusCode { get; init; }
+        public HttpStatusCode StatusCode { get; set; }
 
-        public byte[]? ResponseBytes { get; init; }
+        public byte[]? ResponseBytes { get; set; }
 
-        public IDictionary<string, string?> Headers { get; init; } = null!;
+        public IDictionary<string, string?> Headers { get; set; } = new Dictionary<string, string?>();
     }
 
     public class WebRequestHttpRequester : IHttpRequester
