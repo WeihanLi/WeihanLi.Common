@@ -20,7 +20,7 @@ namespace WeihanLi.Common.Aspect
             MethodName = methodName;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             // if object is null or type does not match return false...
             var signature = obj as MethodSignature;

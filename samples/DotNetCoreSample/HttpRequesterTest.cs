@@ -11,7 +11,7 @@ namespace DotNetCoreSample
         {
             var result = new WebRequestHttpRequester("https://weihanli.xyz")
                 .WithReferer("https://weihanli.xyz")
-                .WithHeaders(new Dictionary<string, string>
+                .WithHeaders(new Dictionary<string, string?>
                 {
                     {"Header1", "Header1" }
                 })
@@ -22,7 +22,7 @@ namespace DotNetCoreSample
                 .WithUrl("https://weihanli.xyz")
                 .WithMethod(HttpMethod.Get)
                 .WithReferer("https://weihanli.xyz")
-                .WithHeaders(new Dictionary<string, string>
+                .WithHeaders(new Dictionary<string, string?>
                 {
                     {"Header1", "Header1" }
                 })
@@ -30,7 +30,7 @@ namespace DotNetCoreSample
             System.Console.WriteLine(result);
 
             var loginResult = new WebRequestHttpRequester("https://accounting.weihanli.xyz/Account/LogOn", HttpMethod.Post)
-               .WithHeaders(new Dictionary<string, string>()
+               .WithHeaders(new Dictionary<string, string?>()
                {
                    // { "X-Requested-With", "XMLHttpRequest" },
                    {"Header1", "Header1" }

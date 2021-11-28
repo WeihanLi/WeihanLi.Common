@@ -29,7 +29,7 @@ namespace WeihanLi.Extensions
         /// <param name="pageNumber">The number of the page, start from 1.</param>
         /// <param name="pageSize">The size of the page.</param>
         /// <returns>An instance of  implements <see cref="IPagedListResult{T}"/> interface.</returns>
-        public static IListResultWithTotal<T> ToListResultWithTotal<T>([NotNull] this IQueryable<T> source, int pageNumber, int pageSize)
+        public static ListResultWithTotal<T> ToListResultWithTotal<T>([NotNull] this IQueryable<T> source, int pageNumber, int pageSize)
         {
             if (pageNumber <= 0)
             {
@@ -66,7 +66,7 @@ namespace WeihanLi.Extensions
         /// <param name="pageNumber">The number of the page, start from 1.</param>
         /// <param name="pageSize">The size of the page.</param>
         /// <returns>An instance of  implements <see cref="IPagedListResult{T}"/> interface.</returns>
-        public static IPagedListResult<T> ToPagedList<T>([NotNull] this IQueryable<T> source, int pageNumber, int pageSize)
+        public static PagedListResult<T> ToPagedList<T>([NotNull] this IQueryable<T> source, int pageNumber, int pageSize)
         {
             if (pageNumber <= 0)
             {
@@ -107,11 +107,7 @@ namespace WeihanLi.Extensions
         /// <returns></returns>
         public static IQueryable<T> OrderBy<T>(this IQueryable<T> source, string propertyName, bool isAsc = false)
         {
-            if (source == null)
-            {
-                throw new ArgumentException(nameof(source));
-            }
-
+            Guard.NotNull(source);
             if (string.IsNullOrWhiteSpace(propertyName))
             {
                 throw new ArgumentException(nameof(propertyName));
@@ -139,7 +135,7 @@ namespace WeihanLi.Extensions
                               && method.GetParameters().Length == 2)
                 .MakeGenericMethod(type, type)
                 .Invoke(null, new object[] { source, lambda });
-            return (IQueryable<T>)result;
+            return (IQueryable<T>)Guard.NotNull(result);
         }
     }
 }

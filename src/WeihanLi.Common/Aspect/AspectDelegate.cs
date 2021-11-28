@@ -102,7 +102,7 @@ namespace WeihanLi.Common.Aspect
                             // https://stackoverflow.com/questions/2323401/how-to-call-base-base-method
                             var ptr = x.Method.MethodHandle.GetFunctionPointer();
                             var delegateType = DelegateHelper.GetDelegateType(x.Method);
-                            var @delegate = (Delegate)Activator.CreateInstance(delegateType, x.Target, ptr);
+                            var @delegate = (Delegate)Guard.NotNull(Activator.CreateInstance(delegateType, x.Target, ptr));
                             invocation.ReturnValue = @delegate.DynamicInvoke(x.Arguments);
                         }
                         else

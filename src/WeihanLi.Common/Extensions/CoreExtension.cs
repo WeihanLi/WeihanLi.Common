@@ -1828,7 +1828,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">this.</param>
         /// <param name="defaultValue">The default value.</param>
         /// <returns>The given data converted to a T.</returns>
-        public static T? ToOrDefault<T>(this object? @this, T defaultValue)
+        public static T? ToOrDefault<T>(this object? @this, T? defaultValue)
         {
             return @this.ToOrDefault(_ => defaultValue);
         }

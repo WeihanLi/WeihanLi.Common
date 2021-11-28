@@ -115,7 +115,7 @@ namespace WeihanLi.Common.Aspect
                     var field = typeBuilder.DefineField($"_{property.Name}", property.PropertyType, FieldAttributes.Private);
                     if (property.CanRead)
                     {
-                        var methodBuilder = typeBuilder.DefineMethod(property.GetMethod.Name, InterfaceMethodAttributes, property.GetMethod.CallingConvention, property.GetMethod.ReturnType, property.GetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
+                        var methodBuilder = typeBuilder.DefineMethod(property.GetMethod!.Name, InterfaceMethodAttributes, property.GetMethod.CallingConvention, property.GetMethod.ReturnType, property.GetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
                         var ilGen = methodBuilder.GetILGenerator();
                         ilGen.Emit(OpCodes.Ldarg_0);
                         ilGen.Emit(OpCodes.Ldfld, field);
@@ -126,7 +126,7 @@ namespace WeihanLi.Common.Aspect
                     }
                     if (property.CanWrite)
                     {
-                        var methodBuilder = typeBuilder.DefineMethod(property.SetMethod.Name, InterfaceMethodAttributes, property.SetMethod.CallingConvention, property.SetMethod.ReturnType, property.SetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
+                        var methodBuilder = typeBuilder.DefineMethod(property.SetMethod!.Name, InterfaceMethodAttributes, property.SetMethod.CallingConvention, property.SetMethod.ReturnType, property.SetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
                         var ilGen = methodBuilder.GetILGenerator();
                         ilGen.Emit(OpCodes.Ldarg_0);
                         ilGen.Emit(OpCodes.Ldarg_1);
@@ -158,7 +158,7 @@ namespace WeihanLi.Common.Aspect
                         var field = typeBuilder.DefineField($"_{property.Name}", property.PropertyType, FieldAttributes.Private);
                         if (property.CanRead)
                         {
-                            var methodBuilder = typeBuilder.DefineMethod(property.GetMethod.Name, InterfaceMethodAttributes, property.GetMethod.CallingConvention, property.GetMethod.ReturnType, property.GetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
+                            var methodBuilder = typeBuilder.DefineMethod(property.GetMethod!.Name, InterfaceMethodAttributes, property.GetMethod.CallingConvention, property.GetMethod.ReturnType, property.GetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
                             var ilGen = methodBuilder.GetILGenerator();
                             ilGen.Emit(OpCodes.Ldarg_0);
                             ilGen.Emit(OpCodes.Ldfld, field);
@@ -169,7 +169,7 @@ namespace WeihanLi.Common.Aspect
                         }
                         if (property.CanWrite)
                         {
-                            var methodBuilder = typeBuilder.DefineMethod(property.SetMethod.Name, InterfaceMethodAttributes, property.SetMethod.CallingConvention, property.SetMethod.ReturnType, property.SetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
+                            var methodBuilder = typeBuilder.DefineMethod(property.SetMethod!.Name, InterfaceMethodAttributes, property.SetMethod.CallingConvention, property.SetMethod.ReturnType, property.SetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
                             var ilGen = methodBuilder.GetILGenerator();
                             ilGen.Emit(OpCodes.Ldarg_0);
                             ilGen.Emit(OpCodes.Ldarg_1);
@@ -192,7 +192,7 @@ namespace WeihanLi.Common.Aspect
                     }
                 }
 
-                proxyType = typeBuilder.CreateType();
+                proxyType = Guard.NotNull(typeBuilder.CreateType());
                 _proxyTypes[proxyTypeName] = proxyType;
                 return proxyType;
             }
@@ -235,17 +235,17 @@ namespace WeihanLi.Common.Aspect
                     var propertyBuilder = typeBuilder.DefineProperty(property.Name, property.Attributes, property.PropertyType, Type.EmptyTypes);
                     if (property.CanRead)
                     {
-                        var methodBuilder = MethodUtils.DefineInterfaceMethod(typeBuilder, property.GetMethod, targetField);
-                        typeBuilder.DefineMethodOverride(methodBuilder, property.GetMethod);
+                        var methodBuilder = MethodUtils.DefineInterfaceMethod(typeBuilder, property.GetMethod!, targetField);
+                        typeBuilder.DefineMethodOverride(methodBuilder, property.GetMethod!);
                         propertyBuilder.SetGetMethod(methodBuilder);
-                        propertyMethods.Add(property.GetMethod.Name);
+                        propertyMethods.Add(property.GetMethod!.Name);
                     }
                     if (property.CanWrite)
                     {
-                        var methodBuilder = MethodUtils.DefineInterfaceMethod(typeBuilder, property.SetMethod, targetField);
-                        typeBuilder.DefineMethodOverride(methodBuilder, property.SetMethod);
+                        var methodBuilder = MethodUtils.DefineInterfaceMethod(typeBuilder, property.SetMethod!, targetField);
+                        typeBuilder.DefineMethodOverride(methodBuilder, property.SetMethod!);
                         propertyBuilder.SetSetMethod(methodBuilder);
-                        propertyMethods.Add(property.SetMethod.Name);
+                        propertyMethods.Add(property.SetMethod!.Name);
                     }
                     foreach (var customAttributeData in property.CustomAttributes)
                     {
@@ -273,7 +273,7 @@ namespace WeihanLi.Common.Aspect
                         var field = typeBuilder.DefineField($"_{property.Name}", property.PropertyType, FieldAttributes.Private);
                         if (property.CanRead)
                         {
-                            var methodBuilder = typeBuilder.DefineMethod(property.GetMethod.Name, InterfaceMethodAttributes, property.GetMethod.CallingConvention, property.GetMethod.ReturnType, property.GetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
+                            var methodBuilder = typeBuilder.DefineMethod(property.GetMethod!.Name, InterfaceMethodAttributes, property.GetMethod.CallingConvention, property.GetMethod.ReturnType, property.GetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
                             var ilGen = methodBuilder.GetILGenerator();
                             ilGen.Emit(OpCodes.Ldarg_0);
                             ilGen.Emit(OpCodes.Ldfld, field);
@@ -284,7 +284,7 @@ namespace WeihanLi.Common.Aspect
                         }
                         if (property.CanWrite)
                         {
-                            var methodBuilder = typeBuilder.DefineMethod(property.SetMethod.Name, InterfaceMethodAttributes, property.SetMethod.CallingConvention, property.SetMethod.ReturnType, property.SetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
+                            var methodBuilder = typeBuilder.DefineMethod(property.SetMethod!.Name, InterfaceMethodAttributes, property.SetMethod.CallingConvention, property.SetMethod.ReturnType, property.SetMethod.GetParameters().Select(p => p.ParameterType).ToArray());
                             var ilGen = methodBuilder.GetILGenerator();
                             ilGen.Emit(OpCodes.Ldarg_0);
                             ilGen.Emit(OpCodes.Ldarg_1);
@@ -307,7 +307,7 @@ namespace WeihanLi.Common.Aspect
                     }
                 }
 
-                proxyType = typeBuilder.CreateType();
+                proxyType = Guard.NotNull(typeBuilder.CreateType());
                 _proxyTypes[proxyTypeName] = proxyType;
                 return proxyType;
             }
@@ -402,14 +402,14 @@ namespace WeihanLi.Common.Aspect
 
                         if (property.CanRead)
                         {
-                            propertyMethods.Add(property.GetMethod.Name);
+                            propertyMethods.Add(property.GetMethod!.Name);
 
                             var method = MethodUtils.DefineClassMethod(typeBuilder, property.GetMethod, targetField);
                             propertyBuilder.SetGetMethod(method);
                         }
                         if (property.CanWrite)
                         {
-                            propertyMethods.Add(property.SetMethod.Name);
+                            propertyMethods.Add(property.SetMethod!.Name);
 
                             var method = MethodUtils.DefineClassMethod(typeBuilder, property.SetMethod, targetField);
                             propertyBuilder.SetSetMethod(method);
@@ -426,7 +426,7 @@ namespace WeihanLi.Common.Aspect
                     MethodUtils.DefineClassMethod(typeBuilder, method, targetField);
                 }
 
-                proxyType = typeBuilder.CreateType();
+                proxyType = Guard.NotNull(typeBuilder.CreateType());
                 _proxyTypes[proxyTypeName] = proxyType;
                 return proxyType;
             }
@@ -772,17 +772,17 @@ namespace WeihanLi.Common.Aspect
                     .ToArray();
                 var namedProperties = customAttributeData.NamedArguments
                         .Where(n => !n.IsField)
-                        .Select(n => attributeTypeInfo.GetProperty(n.MemberName))
+                        .Select(n => Guard.NotNull(attributeTypeInfo.GetProperty(n.MemberName)))
                         .ToArray();
                 var propertyValues = customAttributeData.NamedArguments
                          .Where(n => !n.IsField)
-                         .Select(n => ReadAttributeValue(n.TypedValue))
+                         .Select(n => ReadAttributeValue(n.TypedValue)!)
                          .ToArray();
                 var namedFields = customAttributeData.NamedArguments.Where(n => n.IsField)
-                         .Select(n => attributeTypeInfo.GetField(n.MemberName))
+                         .Select(n => Guard.NotNull(attributeTypeInfo.GetField(n.MemberName)))
                          .ToArray();
                 var fieldValues = customAttributeData.NamedArguments.Where(n => n.IsField)
-                         .Select(n => ReadAttributeValue(n.TypedValue))
+                         .Select(n => ReadAttributeValue(n.TypedValue)!)
                          .ToArray();
                 return new CustomAttributeBuilder(customAttributeData.Constructor, constructorArgs
                    , namedProperties
@@ -793,7 +793,7 @@ namespace WeihanLi.Common.Aspect
                 customAttributeData.ConstructorArguments.Select(c => c.Value).ToArray());
         }
 
-        private static object ReadAttributeValue(CustomAttributeTypedArgument argument)
+        private static object? ReadAttributeValue(CustomAttributeTypedArgument argument)
         {
             var value = argument.Value;
             if (argument.ArgumentType.GetTypeInfo().IsArray == false)
@@ -802,7 +802,7 @@ namespace WeihanLi.Common.Aspect
             }
             //special case for handling arrays in attributes
             //the actual type of "value" is ReadOnlyCollection<CustomAttributeTypedArgument>.
-            var arguments = ((IEnumerable<CustomAttributeTypedArgument>)value)
+            var arguments = ((IEnumerable<CustomAttributeTypedArgument>)Guard.NotNull(value))
                 .Select(m => m.Value)
                 .ToArray();
             return arguments;

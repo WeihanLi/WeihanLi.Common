@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -65,7 +66,7 @@ namespace WeihanLi.Extensions
             {
                 return string.Empty;
             }
-            var result = JsonConvert.SerializeObject(obj, settings ?? _defaultSerializerSettings);
+            var result = JsonConvert.SerializeObject(obj, settings ?? _defaultSerializerSettings) ?? string.Empty;
             if (isConvertToSingleQuotes)
             {
                 result = result.Replace("\"", "'");
@@ -90,7 +91,7 @@ namespace WeihanLi.Extensions
         /// <param name="settings">JsonSerializerSettings</param>
         /// <returns>由字符串转换得到的T对象</returns>
         public static T JsonToObject<T>(this string jsonString, JsonSerializerSettings? settings)
-            => JsonConvert.DeserializeObject<T>(jsonString, settings ?? _defaultSerializerSettings)!;
+            => Guard.NotNull(JsonConvert.DeserializeObject<T>(jsonString, settings ?? _defaultSerializerSettings));
 
         /// <summary>
         /// 对象转换为string，如果是基元类型直接ToString(),如果是Entity则Json序列化
@@ -109,7 +110,7 @@ namespace WeihanLi.Extensions
             }
             if (obj.GetType().IsBasicType())
             {
-                return Convert.ToString(obj);
+                return Convert.ToString(obj) ?? string.Empty;
             }
             return obj.ToJson();
         }
@@ -140,7 +141,7 @@ namespace WeihanLi.Extensions
         /// <param name="jsonString">json string</param>
         /// <param name="defaultValue">defaultValue</param>
         /// <returns></returns>
-        public static T? StringToType<T>(this string jsonString, T defaultValue)
+        public static T StringToType<T>(this string jsonString, T defaultValue)
         {
             if (typeof(T) == typeof(string))
             {
@@ -148,7 +149,7 @@ namespace WeihanLi.Extensions
             }
             if (typeof(T).IsBasicType())
             {
-                return jsonString.ToOrDefault(defaultValue);
+                return Guard.NotNull(jsonString.ToOrDefault(defaultValue));
             }
 
             if (string.IsNullOrWhiteSpace(jsonString))

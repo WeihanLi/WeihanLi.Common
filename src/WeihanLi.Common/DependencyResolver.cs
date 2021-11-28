@@ -21,7 +21,7 @@ namespace WeihanLi.Common
         /// </summary>
         private static readonly object _lock = new();
 
-        public static TService ResolveService<TService>() => Current.ResolveService<TService>();
+        public static TService? ResolveService<TService>() => Current.ResolveService<TService>();
 
         public static IEnumerable<TService> ResolveServices<TService>() => Current.ResolveServices<TService>();
 
@@ -41,9 +41,9 @@ namespace WeihanLi.Common
 
         public static void SetDependencyResolver([NotNull] IServiceProvider serviceProvider) => SetDependencyResolver(serviceProvider.GetService);
 
-        public static void SetDependencyResolver([NotNull] Func<Type, object> getServiceFunc) => SetDependencyResolver(getServiceFunc, serviceType => (IEnumerable<object>)getServiceFunc(typeof(IEnumerable<>).MakeGenericType(serviceType)));
+        public static void SetDependencyResolver([NotNull] Func<Type, object?> getServiceFunc) => SetDependencyResolver(getServiceFunc, serviceType => (IEnumerable<object>)Guard.NotNull(getServiceFunc(typeof(IEnumerable<>).MakeGenericType(serviceType))));
 
-        public static void SetDependencyResolver([NotNull] Func<Type, object> getServiceFunc, [NotNull] Func<Type, IEnumerable<object>> getServicesFunc) => SetDependencyResolver(new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc));
+        public static void SetDependencyResolver([NotNull] Func<Type, object?> getServiceFunc, [NotNull] Func<Type, IEnumerable<object>> getServicesFunc) => SetDependencyResolver(new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc));
 
         public static void SetDependencyResolver(IServiceCollection services) => SetDependencyResolver(new ServiceCollectionDependencyResolver(services));
 
@@ -56,7 +56,7 @@ namespace WeihanLi.Common
                 _serviceProvider = services.BuildServiceProvider();
             }
 
-            public object GetService(Type serviceType)
+            public object? GetService(Type serviceType)
             {
                 return _serviceProvider.GetService(serviceType);
             }
@@ -70,26 +70,26 @@ namespace WeihanLi.Common
             {
                 Guard.NotNull(action, nameof(action));
                 using var scope = _serviceProvider.CreateScope();
-                var svc = (TService)scope.ServiceProvider.GetService(typeof(TService));
-                if (svc == null)
+                var svc = scope.ServiceProvider.GetService(typeof(TService));
+                if (svc is TService service)
                 {
-                    return false;
+                    action.Invoke(service);
+                    return true;
                 }
-                action.Invoke(svc);
-                return true;
+                return false;
             }
 
             public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
             {
                 Guard.NotNull(action, nameof(action));
                 using var scope = _serviceProvider.CreateScope();
-                var svc = (TService)scope.ServiceProvider.GetService(typeof(TService));
-                if (svc == null)
+                var svc = scope.ServiceProvider.GetService(typeof(TService));
+                if (svc is TService service)
                 {
-                    return false;
+                    await action.Invoke(service);
+                    return true;
                 }
-                await action.Invoke(svc);
-                return true;
+                return false;
             }
         }
 
@@ -140,16 +140,16 @@ namespace WeihanLi.Common
 
         private sealed class DelegateBasedDependencyResolver : IDependencyResolver
         {
-            private readonly Func<Type, object> _getService;
+            private readonly Func<Type, object?> _getService;
             private readonly Func<Type, IEnumerable<object>> _getServices;
 
-            public DelegateBasedDependencyResolver(Func<Type, object> getService, Func<Type, IEnumerable<object>> getServices)
+            public DelegateBasedDependencyResolver(Func<Type, object?> getService, Func<Type, IEnumerable<object>> getServices)
             {
                 _getService = getService;
                 _getServices = getServices;
             }
 
-            public object GetService(Type serviceType)
+            public object? GetService(Type serviceType)
             => _getService(serviceType);
 
             public IEnumerable<object> GetServices(Type serviceType)
@@ -157,24 +157,24 @@ namespace WeihanLi.Common
 
             public bool TryInvokeService<TService>(Action<TService>? action)
             {
-                var service = (TService)GetService(typeof(TService));
-                if (null == service || action == null)
+                var svc = GetService(typeof(TService));
+                if (action != null && svc is TService service)
                 {
-                    return false;
+                    action.Invoke(service);
+                    return true;
                 }
-                action.Invoke(service);
-                return true;
+                return false;
             }
 
             public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task>? action)
             {
-                var service = (TService)GetService(typeof(TService));
-                if (null == service || action == null)
+                var svc = GetService(typeof(TService));
+                if (action != null && svc is TService service)
                 {
-                    return false;
+                    await action.Invoke(service);
+                    return true;
                 }
-                await action.Invoke(service);
-                return true;
+                return false;
             }
         }
 
@@ -187,45 +187,41 @@ namespace WeihanLi.Common
                 _rootContainer = serviceContainer;
             }
 
-            public object GetService(Type serviceType)
+            public object? GetService(Type serviceType)
             {
                 return _rootContainer.GetService(serviceType);
             }
 
             public IEnumerable<object> GetServices(Type serviceType)
             {
-                return (IEnumerable<object>)_rootContainer.GetService(typeof(IEnumerable<>).MakeGenericType(serviceType));
+                return (IEnumerable<object>)Guard.NotNull(_rootContainer.GetService(typeof(IEnumerable<>).MakeGenericType(serviceType)));
             }
 
-            public bool TryInvokeService<TService>(Action<TService>? action)
+            public bool TryInvokeService<TService>(Action<TService> action)
             {
-                if (action == null)
-                {
-                    return false;
-                }
+                Guard.NotNull(action, nameof(action));
 
                 using var scope = _rootContainer.CreateScope();
-                var svc = (TService)scope.GetService(typeof(TService));
-                if (svc == null)
+                var svc = scope.GetService(typeof(TService));
+                if (svc is TService service)
                 {
-                    return false;
+                    action.Invoke(service);
+                    return true;
                 }
-                action.Invoke(svc);
-                return true;
+                return false;
             }
 
             public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
             {
                 Guard.NotNull(action, nameof(action));
-
                 using var scope = _rootContainer.CreateScope();
-                var svc = (TService)scope.GetService(typeof(TService));
-                if (svc == null)
+                var svc = scope.GetService(typeof(TService));
+                if (svc is TService service)
                 {
-                    return false;
+                    await action.Invoke(service);
+                    return true;
                 }
-                await action.Invoke(svc);
-                return true;
+                return false;
             }
         }
     }
