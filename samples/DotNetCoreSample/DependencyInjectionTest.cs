@@ -19,7 +19,7 @@ namespace DotNetCoreSample
 
         public static void Test()
         {
-            var fly = DependencyResolver.ResolveService<IFly>();
+            var fly = DependencyResolver.ResolveRequiredService<IFly>();
             Console.WriteLine(fly.Name);
             fly.Fly();
 
@@ -56,10 +56,10 @@ namespace DotNetCoreSample
             {
                 var idGenerator = container.ResolveRequiredService<IIdGenerator>();
                 Console.WriteLine(idGenerator.NewId());
-                var rootConfig = container.ResolveService<IConfiguration>();
+                var rootConfig = container.ResolveRequiredService<IConfiguration>();
                 //try
                 //{
-                //    container.ResolveService<IFly>();
+                //    container.ResolveRequiredService<IFly>();
                 //}
                 //catch (Exception e)
                 //{
@@ -68,15 +68,15 @@ namespace DotNetCoreSample
 
                 using (var scope = container.CreateScope())
                 {
-                    var config = scope.ResolveService<IConfiguration>();
-                    var fly1 = scope.ResolveService<IFly>();
-                    var fly2 = scope.ResolveService<IFly>();
+                    var config = scope.ResolveRequiredService<IConfiguration>();
+                    var fly1 = scope.ResolveRequiredService<IFly>();
+                    var fly2 = scope.ResolveRequiredService<IFly>();
 
-                    var wukong1 = scope.ResolveService<WuKong>();
-                    var wukong2 = scope.ResolveService<WuKong>();
+                    var wukong1 = scope.ResolveRequiredService<WuKong>();
+                    var wukong2 = scope.ResolveRequiredService<WuKong>();
 
-                    var wuJing1 = scope.ResolveService<WuJing>();
-                    var wuJing2 = scope.ResolveService<WuJing>();
+                    var wuJing1 = scope.ResolveRequiredService<WuJing>();
+                    var wuJing2 = scope.ResolveRequiredService<WuJing>();
 
                     Console.WriteLine("fly1 == fly2,  {0}", fly1 == fly2);
                     Console.WriteLine("rootConfig == config, {0}", rootConfig == config);
@@ -94,16 +94,16 @@ namespace DotNetCoreSample
                     s0.Test();
                     Console.WriteLine($"s0._fly == fly1 : {s0._fly == fly1}");
 
-                    var s1 = scope.ResolveService<HasDependencyTest1>();
+                    var s1 = scope.ResolveRequiredService<HasDependencyTest1>();
                     s1.Test();
 
-                    var s2 = scope.ResolveService<HasDependencyTest2>();
+                    var s2 = scope.ResolveRequiredService<HasDependencyTest2>();
                     s2.Test();
 
-                    var s3 = scope.ResolveService<HasDependencyTest3>();
+                    var s3 = scope.ResolveRequiredService<HasDependencyTest3>();
                     s3.Test();
 
-                    var s4 = scope.ResolveService<HasDependencyTest4<string>>();
+                    var s4 = scope.ResolveRequiredService<HasDependencyTest4<string>>();
                     s4.Test();
 
                     using (var innerScope = scope.CreateScope())

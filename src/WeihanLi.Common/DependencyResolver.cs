@@ -23,6 +23,8 @@ namespace WeihanLi.Common
 
         public static TService? ResolveService<TService>() => Current.ResolveService<TService>();
 
+        public static TService ResolveRequiredService<TService>() => Current.ResolveRequiredService<TService>();
+
         public static IEnumerable<TService> ResolveServices<TService>() => Current.ResolveServices<TService>();
 
         public static bool TryInvoke<TService>(Action<TService> action) => Current.TryInvokeService(action);
