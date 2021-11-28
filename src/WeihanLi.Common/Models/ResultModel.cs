@@ -1,11 +1,12 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace WeihanLi.Common.Models
 {
     /// <summary>
     /// ResultModel
     /// </summary>
-    public class ResultModel
+    public record ResultModel
     {
         /// <summary>
         /// ResultStatus
@@ -25,7 +26,7 @@ namespace WeihanLi.Common.Models
             };
         }
 
-        public static ResultModel<T> Success<T>(T? result)
+        public static ResultModel<T> Success<T>(T result)
         {
             return new()
             {
@@ -52,35 +53,37 @@ namespace WeihanLi.Common.Models
                 Result = result
             };
         }
+
+        public ResultModel<T> ToResult<T>(T data)
+        {
+            return new ResultModel<T>()
+            {
+                Result = data,
+                Status = Status,
+                ErrorMsg = ErrorMsg,
+            };
+        }
     }
 
     /// <summary>
     /// ResultModel
     /// </summary>
     /// <typeparam name="T">Type</typeparam>
-    public class ResultModel<T> : ResultModel
+    public record ResultModel<T> : ResultModel
     {
         /// <summary>
         /// ResponseData
         /// </summary>
         public T? Result { get; set; }
 
-        public void SetSuccessResult(T? result)
+        public ResultModel<T1> ToResult<T1>(Func<T?, T1> converter)
         {
-            Status = ResultStatus.Success;
-            Result = result;
-        }
-
-        public void SetProcessFailResult()
-        {
-            ErrorMsg = Resource.InvokeFail;
-            Status = ResultStatus.ProcessFail;
-        }
-
-        public void SetRequestErrorResult(string? errorMsg)
-        {
-            ErrorMsg = errorMsg;
-            Status = ResultStatus.RequestError;
+            return new ResultModel<T1>()
+            {
+                Result = converter(Result),
+                Status = Status,
+                ErrorMsg = ErrorMsg,
+            };
         }
     }
 

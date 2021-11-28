@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
+using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 
 // ReSharper disable once CheckNamespace
@@ -19,15 +20,15 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as an IDictionary&lt;string,object&gt;</returns>
-        public static IDictionary<string, string> ToDictionary(this NameValueCollection? @this)
+        public static IDictionary<string, string?> ToDictionary(this NameValueCollection? @this)
         {
-            var dict = new Dictionary<string, string>();
+            var dict = new Dictionary<string, string?>();
 
             if (@this != null)
             {
                 foreach (var key in @this.AllKeys)
                 {
-                    dict.Add(key, @this[key]);
+                    dict.Add(Guard.NotNull(key), @this[key]);
                 }
             }
 

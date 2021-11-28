@@ -8,13 +8,7 @@ namespace WeihanLi.Common.Data
     /// <summary>
     /// String Expression Parser
     /// </summary>
-#if DEBUG
-
-    public
-#else
-        internal
-#endif
-    static partial class SqlExpressionParser
+    internal static partial class SqlExpressionParser
     {
         public static string ParseStringMemberAccess(MemberExpression exp, IDictionary<string, string>? columnMappings)
         {

@@ -66,7 +66,7 @@ namespace DotNetCoreSample
                     .With<LogInterceptor>();
             });
 
-            container.ResolveService<IFly>()
+            container.ResolveRequiredService<IFly>()
                 .Fly();
 
             Console.WriteLine();

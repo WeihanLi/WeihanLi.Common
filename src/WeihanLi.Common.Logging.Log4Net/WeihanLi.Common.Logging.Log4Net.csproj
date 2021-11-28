@@ -1,8 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
   <Import Project="../../build/logging.log4net.props" />
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.12" />
     <None Include="log4net.config" Pack="true" />
     <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 </Project>

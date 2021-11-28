@@ -81,8 +81,8 @@ namespace WeihanLi.Extensions
             {
                 throw new ArgumentNullException(nameof(property));
             }
-            return (property.CanRead && property.GetMethod.IsVisibleAndVirtual()) ||
-                   (property.CanWrite && property.GetMethod.IsVisibleAndVirtual());
+            return (property.CanRead && property.GetMethod!.IsVisibleAndVirtual()) ||
+                   (property.CanWrite && property.SetMethod!.IsVisibleAndVirtual());
         }
 
         public static bool IsVisibleAndVirtual(this MethodInfo method)
@@ -436,7 +436,7 @@ namespace WeihanLi.Extensions
                 var instance = Expression.Parameter(typeof(object), "obj");
                 var getterCall = Expression.Call(propertyInfo.DeclaringType!.IsValueType
                     ? Expression.Unbox(instance, propertyInfo.DeclaringType)
-                    : Expression.Convert(instance, propertyInfo.DeclaringType), prop.GetGetMethod());
+                    : Expression.Convert(instance, propertyInfo.DeclaringType), prop.GetGetMethod()!);
                 var castToObject = Expression.Convert(getterCall, typeof(object));
                 return (Func<object, object>)Expression.Lambda(castToObject, instance).Compile();
             });
@@ -451,7 +451,7 @@ namespace WeihanLi.Extensions
 
                 var instance = Expression.Parameter(typeof(T), "i");
                 var argument = Expression.Parameter(typeof(object), "a");
-                var setterCall = Expression.Call(instance, prop.GetSetMethod(), Expression.Convert(argument, prop.PropertyType));
+                var setterCall = Expression.Call(instance, prop.GetSetMethod()!, Expression.Convert(argument, prop.PropertyType));
                 return (Action<T, object?>)Expression.Lambda(setterCall, instance, argument).Compile();
             });
         }
@@ -474,7 +474,7 @@ namespace WeihanLi.Extensions
                             propertyInfo.DeclaringType!.IsValueType
                                 ? Expression.Unbox(obj, propertyInfo.DeclaringType)
                                 : Expression.Convert(obj, propertyInfo.DeclaringType),
-                            propertyInfo.GetSetMethod(),
+                            propertyInfo.GetSetMethod()!,
                             Expression.Convert(value, propertyInfo.PropertyType)),
                         obj, value);
                 return expr.Compile();
@@ -548,7 +548,7 @@ namespace WeihanLi.Extensions
         ///     A reference to the single custom attribute of type  that is applied to , or null if there is no such
         ///     attribute.
         /// </returns>
-        public static Attribute GetCustomAttribute([NotNull] this Assembly element, Type attributeType)
+        public static Attribute? GetCustomAttribute([NotNull] this Assembly element, Type attributeType)
         {
             return Attribute.GetCustomAttribute(element, attributeType);
         }
@@ -564,7 +564,7 @@ namespace WeihanLi.Extensions
         ///     A reference to the single custom attribute of type  that is applied to , or null if there is no such
         ///     attribute.
         /// </returns>
-        public static Attribute GetCustomAttribute([NotNull] this Assembly element, Type attributeType, bool inherit)
+        public static Attribute? GetCustomAttribute([NotNull] this Assembly element, Type attributeType, bool inherit)
         {
             return Attribute.GetCustomAttribute(element, attributeType, inherit);
         }

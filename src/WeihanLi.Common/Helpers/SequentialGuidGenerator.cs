@@ -50,7 +50,7 @@ namespace WeihanLi.Common.Helpers
                 Array.Reverse(timestampBytes);
             }
 
-            byte[] guidBytes = new byte[16];
+            var guidBytes = new byte[16];
 
             switch (guidType)
             {

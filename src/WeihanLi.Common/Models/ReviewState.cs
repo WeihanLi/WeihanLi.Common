@@ -4,7 +4,7 @@
     /// ReviewState
     /// 审核状态
     /// </summary>
-    public enum ReviewState : sbyte
+    public enum ReviewState
     {
         /// <summary>
         /// UnReviewed

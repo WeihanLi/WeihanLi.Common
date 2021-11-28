@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
@@ -20,7 +19,7 @@ namespace WeihanLi.Common
                 throw new ArgumentNullException(nameof(serviceType));
             }
 
-            return (IEnumerable<object>)provider.GetService(typeof(IEnumerable<>).MakeGenericType(serviceType));
+            return (IEnumerable<object>)Guard.NotNull(provider.GetService(typeof(IEnumerable<>).MakeGenericType(serviceType)));
         }
 
         /// <summary>
@@ -29,8 +28,8 @@ namespace WeihanLi.Common
         /// <typeparam name="TService">TService</typeparam>
         /// <param name="serviceProvider">serviceProvider</param>
         /// <returns></returns>
-        public static TService ResolveService<TService>([NotNull]this IServiceProvider serviceProvider)
-       => (TService)serviceProvider.GetService(typeof(TService));
+        public static TService? ResolveService<TService>(this IServiceProvider serviceProvider)
+       => (TService?)serviceProvider.GetService(typeof(TService));
 
         /// <summary>
         /// ResolveRequiredService
@@ -39,7 +38,7 @@ namespace WeihanLi.Common
         /// <typeparam name="TService">TService</typeparam>
         /// <param name="serviceProvider">serviceProvider</param>
         /// <returns></returns>
-        public static TService ResolveRequiredService<TService>([NotNull] this IServiceProvider serviceProvider)
+        public static TService ResolveRequiredService<TService>(this IServiceProvider serviceProvider)
         {
             var serviceType = typeof(TService);
             var svc = serviceProvider.GetService(serviceType);
@@ -56,7 +55,7 @@ namespace WeihanLi.Common
         /// <typeparam name="TService">TService</typeparam>
         /// <param name="serviceProvider">serviceProvider</param>
         /// <returns></returns>
-        public static IEnumerable<TService> ResolveServices<TService>([NotNull]this IServiceProvider serviceProvider)
-            => serviceProvider.ResolveService<IEnumerable<TService>>();
+        public static IEnumerable<TService> ResolveServices<TService>(this IServiceProvider serviceProvider)
+            => Guard.NotNull(serviceProvider.ResolveService<IEnumerable<TService>>());
     }
 }

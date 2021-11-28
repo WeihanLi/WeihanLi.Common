@@ -39,9 +39,9 @@ namespace WeihanLi.Common.DependencyInjection
                 return ServiceType == other?.ServiceType && ImplementType == other.ImplementType;
             }
 
-            public override bool Equals(object obj)
+            public override bool Equals(object? obj)
             {
-                return Equals((ServiceKey)obj);
+                return Equals(obj as ServiceKey);
             }
 
             public override int GetHashCode()

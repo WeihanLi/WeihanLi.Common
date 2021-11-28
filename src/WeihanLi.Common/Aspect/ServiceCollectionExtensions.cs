@@ -160,8 +160,7 @@ namespace WeihanLi.Common.Aspect
                         }
                     }
 
-                    Func<IServiceProvider, object?>? serviceFactory = null;
-
+                    Func<IServiceProvider, object>? serviceFactory = null;
                     if (descriptor.ImplementationInstance != null)
                     {
                         if (descriptor.ImplementationInstance.GetType().IsPublic)
@@ -184,11 +183,6 @@ namespace WeihanLi.Common.Aspect
                         serviceFactory = provider =>
                         {
                             var implement = descriptor.ImplementationFactory(provider);
-                            if (implement == null)
-                            {
-                                return null;
-                            }
-
                             var implementType = implement.GetType();
                             if (implementType.IsNotPublic
                                 || implementType.IsProxyType())

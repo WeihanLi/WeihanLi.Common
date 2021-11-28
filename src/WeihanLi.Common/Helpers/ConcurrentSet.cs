@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace WeihanLi.Common.Helpers
 {
-    public sealed class ConcurrentSet<T> : IReadOnlyCollection<T>, ICollection<T>
+    public sealed class ConcurrentSet<T> : IReadOnlyCollection<T>, ICollection<T> where T : notnull
     {
         private readonly ConcurrentDictionary<T, bool> _dictionary = new();
 

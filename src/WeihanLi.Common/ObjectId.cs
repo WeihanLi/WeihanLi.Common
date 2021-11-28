@@ -20,16 +20,16 @@ namespace WeihanLi.Common
         // private static fields
         private static readonly DateTime _unixEpoch;
 
-        private static readonly ObjectId _emptyInstance = default(ObjectId);
+        private static readonly ObjectId _emptyInstance = default;
         private static readonly int _staticMachine;
         private static readonly short _staticPid;
         private static int _staticIncrement; // high byte will be masked out when generating new ObjectId
 
         private static readonly uint[] _lookup32 = Enumerable.Range(0, 256).Select(i =>
-        {
-            var s = i.ToString("x2");
-            return ((uint)s[0]) + ((uint)s[1] << 16);
-        }).ToArray();
+                 {
+                     var s = i.ToString("x2");
+                     return ((uint)s[0]) + ((uint)s[1] << 16);
+                 }).ToArray();
 
         // we're using 14 bytes instead of 12 to hold the ObjectId in memory but unlike a byte[] there is no additional object on the heap
         // the extra two bytes are not visible to anyone outside of this class and they buy us considerable simplification
@@ -261,7 +261,7 @@ namespace WeihanLi.Common
                 throw new ArgumentOutOfRangeException(nameof(increment), "The increment value must be between 0 and 16777215 (it must fit in 3 bytes).");
             }
 
-            byte[] bytes = new byte[12];
+            var bytes = new byte[12];
             bytes[0] = (byte)(timestamp >> 24);
             bytes[1] = (byte)(timestamp >> 16);
             bytes[2] = (byte)(timestamp >> 8);
@@ -328,7 +328,11 @@ namespace WeihanLi.Common
         [MethodImpl(MethodImplOptions.NoInlining)]
         private static int GetCurrentProcessId()
         {
+#if NET6_0_OR_GREATER
+            return Environment.ProcessId;
+#else
             return Process.GetCurrentProcess().Id;
+#endif
         }
 
         private static int GetMachineHash()
@@ -380,7 +384,7 @@ namespace WeihanLi.Common
         /// </summary>
         /// <param name="obj">The other object.</param>
         /// <returns>True if the other object is an ObjectId and equal to this one.</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is ObjectId id)
             {

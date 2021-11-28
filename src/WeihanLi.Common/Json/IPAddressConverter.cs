@@ -17,13 +17,24 @@ namespace WeihanLi.Common.Json
             return objectType == typeof(IPAddress);
         }
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
         {
-            writer.WriteValue(value.ToString());
+            if (value == null)
+            {
+                writer.WriteNull();
+            }
+            else
+            {
+                writer.WriteValue(value.ToString());
+            }
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
         {
+            if (reader.Value == null)
+            {
+                return null;
+            }
             return IPAddress.Parse((string)reader.Value);
         }
     }
@@ -39,23 +50,32 @@ namespace WeihanLi.Common.Json
             return (objectType == typeof(IPEndPoint));
         }
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
         {
-            var endPoint = (IPEndPoint)value;
-            var obj = new JObject
+            var endPoint = (IPEndPoint?)value;
+            if (endPoint == null)
             {
-                { "Address", JToken.FromObject(endPoint.Address, serializer) },
-                { "Port", endPoint.Port }
-            };
-            obj.WriteTo(writer);
+                writer.WriteNull();
+            }
+            else
+            {
+                var obj = new JObject
+                {
+                    { "Address", JToken.FromObject(endPoint.Address, serializer) },
+                    { "Port", endPoint.Port }
+                };
+                obj.WriteTo(writer);
+            }
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
         {
             var jObject = JObject.Load(reader);
-            var address = jObject["Address"].ToObject<IPAddress>(serializer);
-            var port = jObject["Port"].Value<int>();
-            return new IPEndPoint(address, port);
+            if (jObject == null) return null;
+
+            var address = jObject["Address"]?.ToObject<IPAddress>(serializer);
+            var port = jObject["Port"]?.Value<int>() ?? 0;
+            return new IPEndPoint(Guard.NotNull(address, nameof(address)), port);
         }
     }
 }

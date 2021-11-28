@@ -19,20 +19,20 @@ namespace WeihanLi.Common.Data
         #region TODO: Cache External
 
         private readonly Lazy<Dictionary<string, string>> PrimaryKeyColumns = new(() =>
-            CacheUtil.GetTypeProperties(typeof(TEntity))
-            .Any(x => x.IsDefined(typeof(KeyAttribute)))
-            ?
-            CacheUtil.GetTypeProperties(typeof(TEntity))
-            .ToDictionary(x => x.Name, x => x.GetColumnName())
-            :
-                new Dictionary<string, string>(1)
-                {
+                CacheUtil.GetTypeProperties(typeof(TEntity))
+                .Any(x => x.IsDefined(typeof(KeyAttribute)))
+                ?
+                CacheUtil.GetTypeProperties(typeof(TEntity))
+                .ToDictionary(x => x.Name, x => x.GetColumnName())
+                :
+                    new Dictionary<string, string>(1)
+                    {
                     { "Id",
                         CacheUtil.GetTypeProperties(typeof(TEntity))
                         .FirstOrDefault(x => x.Name.Equals("Id"))?.GetColumnName()
                         ?? throw new InvalidOperationException("no primary key found")
                         }
-                }
+                    }
                 )
             ;
 
@@ -45,13 +45,11 @@ namespace WeihanLi.Common.Data
             .Where(_ => !_.IsDefined(typeof(NotMappedAttribute))).Select(_ => $"{_.GetColumnName()} AS {_.Name}").StringJoin(",");
 
         private readonly Lazy<Dictionary<string, string>> InsertColumnMappings = new(() => CacheUtil.GetTypeProperties(typeof(TEntity))
-            .Where(_ => !_.IsDefined(typeof(NotMappedAttribute)) && !_.IsDefined(typeof(DatabaseGeneratedAttribute)))
-            .Select(p => new KeyValuePair<string, string>(p.GetColumnName(), p.Name))
-            .ToDictionary(_ => _.Key, _ => _.Value));
+                .Where(_ => !_.IsDefined(typeof(NotMappedAttribute)) && !_.IsDefined(typeof(DatabaseGeneratedAttribute)))
+                .Select(p => new KeyValuePair<string, string>(p.GetColumnName(), p.Name))
+                .ToDictionary(_ => _.Key, _ => _.Value));
 
-        private readonly string _tableName = typeof(TEntity).IsDefined(typeof(TableAttribute))
-            ? typeof(TEntity).GetCustomAttribute<TableAttribute>().Name
-            : typeof(TEntity).Name;
+        private readonly string _tableName = typeof(TEntity).GetCustomAttribute<TableAttribute>()?.Name ?? typeof(TEntity).Name;
 
         #endregion TODO: Cache External
 

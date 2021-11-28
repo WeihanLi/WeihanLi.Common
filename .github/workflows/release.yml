@@ -8,13 +8,14 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Setup .NET Core
+    - name: Setup .NET SDK
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: '6.0.x'
+        include-prerelease: true
     - name: Build
       shell: pwsh
-      run: .\build.ps1
+      run: .\build.ps1 --stable=true
     - name: Get Release Version
       shell: pwsh
       run: .\build\getReleaseVersion.ps1

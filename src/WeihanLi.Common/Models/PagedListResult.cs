@@ -38,7 +38,7 @@ namespace WeihanLi.Common.Models
 
     public class ListResultWithTotal<T> : IListResultWithTotal<T>
     {
-        public static readonly IListResultWithTotal<T> Empty = new ListResultWithTotal<T>();
+        public static readonly ListResultWithTotal<T> Empty = new ListResultWithTotal<T>();
 
         private IReadOnlyList<T> _data = Array.Empty<T>();
 
@@ -58,7 +58,7 @@ namespace WeihanLi.Common.Models
     [Serializable]
     public class PagedListResult<T> : IPagedListResult<T>
     {
-        public static readonly IPagedListResult<T> Empty = new PagedListResult<T>();
+        public static readonly PagedListResult<T> Empty = new PagedListResult<T>();
 
         private IReadOnlyList<T> _data = Array.Empty<T>();
 

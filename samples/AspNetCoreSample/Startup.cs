@@ -62,7 +62,7 @@ namespace AspNetCoreSample
 
                 return next();
             });
-
+            app.UseHttpLogging();
             app.UseRouting();
 
             app.UseEndpoints(endpoint =>

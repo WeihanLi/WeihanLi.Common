@@ -1,4 +1,7 @@
-﻿using WeihanLi.Common.Helpers;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using System;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
 
 namespace DotNetCoreSample
@@ -29,6 +32,41 @@ namespace DotNetCoreSample
             logger.Warn("12333, err:{err}", "hahaha");
             logger.Error("122334334");
             logger.Fatal("12333");
+        }
+
+        public static void MicrosoftLoggingTest()
+        {
+            var services = new ServiceCollection()
+                .AddLogging(builder => builder.AddConsole())
+                .AddSingleton(typeof(GenericTest<>))
+                .BuildServiceProvider();
+            services.GetRequiredService<GenericTest<int>>()
+                .Test();
+            services.GetRequiredService<GenericTest<string>>()
+                .Test();
+
+            Console.WriteLine();
+
+            services = new ServiceCollection()
+                .AddLogging(builder => builder.AddConsole().UseCustomGenericLogger(options => options.FullNamePredict = _ => true))
+                .AddSingleton(typeof(GenericTest<>))
+                .BuildServiceProvider();
+            services.GetRequiredService<GenericTest<int>>()
+                .Test();
+            services.GetRequiredService<GenericTest<string>>()
+                .Test();
+        }
+
+        private class GenericTest<T>
+        {
+            private readonly ILogger<GenericTest<T>> _logger;
+
+            public GenericTest(ILogger<GenericTest<T>> logger)
+            {
+                _logger = logger;
+            }
+
+            public void Test() => _logger.LogInformation("test");
         }
     }
 }

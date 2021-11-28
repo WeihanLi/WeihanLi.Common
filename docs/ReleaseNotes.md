@@ -4,6 +4,25 @@
 
 .netstandard2.0 based common helpers and extensions
 
+### [WeihanLi.Common 1.0.47](https://www.nuget.org/packages/WeihanLi.Common/1.0.47)
+
+- Fix NuGet package warnings
+- Add `GenericLogger`
+- Add `Append[Line]If` with text factory
+- Add `TenantIdProvider`
+- Update `Random` for thread-safe instance
+- Add `ValueAsyncPipelineBuilder`
+- Add feature flags ConfigurationExtension
+- Add .NET 6 target
+- Fix nullable warnings
+
+### [WeihanLi.Common 1.0.46](https://www.nuget.org/packages/WeihanLi.Common/1.0.46)
+
+- `ConsoleLoggingProvider` implement
+- `Dump` extensions
+- update `ValueStopwatch`/`ProfilerHelper`
+- nullable reference types enhancement
+
 ### [WeihanLi.Common 1.0.44](https://www.nuget.org/packages/WeihanLi.Common/1.0.44)
 
 - enable nullable reference types

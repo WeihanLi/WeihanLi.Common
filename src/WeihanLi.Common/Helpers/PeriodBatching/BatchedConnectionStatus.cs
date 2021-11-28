@@ -18,7 +18,7 @@ using System;
 namespace WeihanLi.Common.Helpers.PeriodBatching
 {
     /// <summary>
-    /// Manages reconnection period and transient fault response for <see cref="PeriodicBatching"/>.
+    /// Manages reconnection period and transient fault response for PeriodicBatching.
     /// During normal operation an object of this type will simply echo the configured batch transmission
     /// period. When availability fluctuates, the class tracks the number of failed attempts, each time
     /// increasing the interval before reconnection is attempted (up to a set maximum) and at predefined
@@ -29,7 +29,7 @@ namespace WeihanLi.Common.Helpers.PeriodBatching
     /// reasonable delivery effort but ultimately protect the sender from memory exhaustion.
     /// </summary>
     /// <remarks>
-    /// Currently used only by <see cref="PeriodicBatching"/>, but may
+    /// Currently used only by PeriodicBatching, but may
     /// provide the basis for a "smart" exponential backoff timer. There are other factors to consider
     /// including the desire to send batches "when full" rather than continuing to buffer, and so-on.
     /// </remarks>

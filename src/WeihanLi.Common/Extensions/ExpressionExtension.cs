@@ -22,7 +22,7 @@ namespace WeihanLi.Extensions
             var right = rightVisitor.Visit(expr2.Body);
 
             return Expression.Lambda<Func<T, bool>>(
-                Expression.OrElse(left, right), parameter);
+                Expression.OrElse(Guard.NotNull(left), Guard.NotNull(right)), parameter);
         }
 
         public static Expression<Func<T, bool>> And<T>([NotNull] this Expression<Func<T, bool>> expr1,
@@ -36,7 +36,7 @@ namespace WeihanLi.Extensions
             var right = rightVisitor.Visit(expr2.Body);
 
             return Expression.Lambda<Func<T, bool>>(
-                Expression.AndAlso(left, right), parameter);
+                Expression.AndAlso(Guard.NotNull(left), Guard.NotNull(right)), parameter);
         }
 
         public static Expression<Func<T, bool>> AndIf<T>([NotNull] this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2, bool condition)
@@ -53,7 +53,7 @@ namespace WeihanLi.Extensions
             var right = rightVisitor.Visit(expr2.Body);
 
             return Expression.Lambda<Func<T, bool>>(
-                Expression.AndAlso(left, right), parameter);
+                Expression.AndAlso(Guard.NotNull(left), Guard.NotNull(right)), parameter);
         }
 
         private sealed class ReplaceExpressionVisitor : ExpressionVisitor
@@ -67,7 +67,7 @@ namespace WeihanLi.Extensions
                 _newValue = newValue;
             }
 
-            public override Expression Visit(Expression node)
+            public override Expression? Visit(Expression? node)
             {
                 if (node == _oldValue)
                     return _newValue;

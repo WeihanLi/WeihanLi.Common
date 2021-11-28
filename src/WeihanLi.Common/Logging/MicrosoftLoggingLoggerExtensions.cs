@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.Logging.Abstractions.Internal;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Concurrent;
+using WeihanLi.Common;
+using WeihanLi.Common.Logging;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.Logging
@@ -8,10 +10,10 @@ namespace Microsoft.Extensions.Logging
     [ProviderAlias("Delegate")]
     public sealed class DelegateLoggerProvider : ILoggerProvider
     {
-        private readonly Action<string, LogLevel, Exception, string> _logAction;
+        private readonly Action<string, LogLevel, Exception?, string> _logAction;
         private readonly ConcurrentDictionary<string, DelegateLogger> _loggers = new();
 
-        public DelegateLoggerProvider(Action<string, LogLevel, Exception, string> logAction)
+        public DelegateLoggerProvider(Action<string, LogLevel, Exception?, string> logAction)
         {
             _logAction = logAction;
         }
@@ -29,15 +31,15 @@ namespace Microsoft.Extensions.Logging
         private class DelegateLogger : ILogger
         {
             private readonly string _categoryName;
-            private readonly Action<string, LogLevel, Exception, string> _logAction;
+            private readonly Action<string, LogLevel, Exception?, string> _logAction;
 
-            public DelegateLogger(string categoryName, Action<string, LogLevel, Exception, string> logAction)
+            public DelegateLogger(string categoryName, Action<string, LogLevel, Exception?, string> logAction)
             {
                 _categoryName = categoryName;
                 _logAction = logAction;
             }
 
-            public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
+            public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
             {
                 if (null != _logAction)
                 {
@@ -126,7 +128,7 @@ namespace Microsoft.Extensions.Logging
         /// <param name="loggerFactory">loggerFactory</param>
         /// <param name="logAction">logAction</param>
         /// <returns>loggerFactory</returns>
-        public static ILoggerFactory AddDelegateLogger(this ILoggerFactory loggerFactory, Action<string, LogLevel, Exception, string> logAction)
+        public static ILoggerFactory AddDelegateLogger(this ILoggerFactory loggerFactory, Action<string, LogLevel, Exception?, string> logAction)
         {
             loggerFactory.AddProvider(new DelegateLoggerProvider(logAction));
             return loggerFactory;
@@ -137,9 +139,18 @@ namespace Microsoft.Extensions.Logging
         #region ILoggingBuilder
 
         public static ILoggingBuilder AddDelegateLogger(this ILoggingBuilder loggingBuilder,
-            Action<string, LogLevel, Exception, string> logAction)
+            Action<string, LogLevel, Exception?, string> logAction)
         {
             return loggingBuilder.AddProvider(new DelegateLoggerProvider(logAction));
+        }
+
+        public static ILoggingBuilder UseCustomGenericLogger(this ILoggingBuilder loggingBuilder, Action<GenericLoggerOptions> genericLoggerConfig)
+        {
+            Guard.NotNull(loggingBuilder, nameof(loggingBuilder));
+            Guard.NotNull(genericLoggerConfig, nameof(genericLoggerConfig));
+            loggingBuilder.Services.Configure(genericLoggerConfig);
+            loggingBuilder.Services.AddSingleton(typeof(ILogger<>), typeof(GenericLogger<>));
+            return loggingBuilder;
         }
 
         #endregion ILoggingBuilder

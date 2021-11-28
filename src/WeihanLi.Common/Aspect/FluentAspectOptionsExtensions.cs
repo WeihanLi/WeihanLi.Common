@@ -40,7 +40,7 @@ namespace WeihanLi.Common.Aspect
                 throw new ArgumentNullException(nameof(typesFilter));
             }
 
-            return options.InterceptMethod(m => typesFilter(m.DeclaringType));
+            return options.InterceptMethod(m => typesFilter(m.DeclaringType!));
         }
 
         public static IInterceptionConfiguration InterceptMethod<T>(this FluentAspectOptions options,
@@ -82,7 +82,7 @@ namespace WeihanLi.Common.Aspect
                 throw new InvalidOperationException("no property found");
             }
 
-            if (!prop.CanRead)
+            if (!prop.CanRead || prop.GetMethod == null)
             {
                 throw new InvalidOperationException($"the property {prop.Name} can not read");
             }
@@ -99,7 +99,7 @@ namespace WeihanLi.Common.Aspect
                 throw new InvalidOperationException("no property found");
             }
 
-            if (!prop.CanWrite)
+            if (!prop.CanWrite || prop.SetMethod == null)
             {
                 throw new InvalidOperationException($"the property {prop.Name} can not write");
             }
@@ -175,7 +175,7 @@ namespace WeihanLi.Common.Aspect
         {
             Guard.NotNull(options, nameof(options));
             Guard.NotNull(typesFilter, nameof(typesFilter));
-            options.NoInterceptMethod(m => typesFilter(m.DeclaringType));
+            options.NoInterceptMethod(m => typesFilter(m.DeclaringType!));
             return options;
         }
 
@@ -249,15 +249,15 @@ namespace WeihanLi.Common.Aspect
                 throw new InvalidOperationException("no property found");
             }
 
-            if (!prop.CanWrite)
+            if (prop.GetMethod != null)
             {
-                throw new InvalidOperationException($"the property {prop.Name} can not write");
+                options = options.NoInterceptMethod<T>(prop.GetMethod);
             }
-
-            return options
-                .NoInterceptMethod<T>(prop.SetMethod)
-                .NoInterceptMethod<T>(prop.GetMethod)
-                ;
+            if (prop.SetMethod != null)
+            {
+                options = options.NoInterceptMethod<T>(prop.SetMethod);
+            }
+            return options;
         }
 
         public static FluentAspectOptions NoInterceptPropertyGetter<T>(this FluentAspectOptions options,
@@ -269,7 +269,7 @@ namespace WeihanLi.Common.Aspect
                 throw new InvalidOperationException("no property found");
             }
 
-            if (!prop.CanRead)
+            if (!prop.CanRead || prop.GetMethod == null)
             {
                 throw new InvalidOperationException($"the property {prop.Name} can not read");
             }
@@ -286,7 +286,7 @@ namespace WeihanLi.Common.Aspect
                 throw new InvalidOperationException("no property found");
             }
 
-            if (!prop.CanWrite)
+            if (!prop.CanWrite || prop.SetMethod == null)
             {
                 throw new InvalidOperationException($"the property {prop.Name} can not write");
             }

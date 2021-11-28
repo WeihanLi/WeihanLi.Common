@@ -1190,7 +1190,7 @@ namespace WeihanLi.Extensions
         public static string GetDescription(this Enum value)
         {
             var stringValue = value.ToString();
-            var attr = value.GetType().GetField(stringValue)
+            var attr = value.GetType().GetField(stringValue)?
                 .GetCustomAttribute<DescriptionAttribute>();
             return attr?.Description ?? stringValue;
         }
@@ -1828,7 +1828,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">this.</param>
         /// <param name="defaultValue">The default value.</param>
         /// <returns>The given data converted to a T.</returns>
-        public static T? ToOrDefault<T>(this object? @this, T defaultValue)
+        public static T? ToOrDefault<T>(this object? @this, T? defaultValue)
         {
             return @this.ToOrDefault(_ => defaultValue);
         }
@@ -2173,13 +2173,6 @@ namespace WeihanLi.Extensions
         public static bool IsNotNullOrWhiteSpace(this string? @this) => !string.IsNullOrWhiteSpace(@this);
 
         /// <summary>
-        ///     Creates a new instance of  with the same value as a specified .
-        /// </summary>
-        /// <param name="str">The string to copy.</param>
-        /// <returns>A new string with the same value as .</returns>
-        public static string Copy(this string str) => string.Copy(str);
-
-        /// <summary>
         ///     Retrieves the system&#39;s reference to the specified .
         /// </summary>
         /// <param name="str">A string to search for in the intern pool.</param>
@@ -2193,7 +2186,7 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <param name="str">The string to search for in the intern pool.</param>
         /// <returns>A reference to  if it is in the common language runtime intern pool; otherwise, null.</returns>
-        public static string IsInterned(this string str) => string.IsInterned(str);
+        public static string? IsInterned(this string str) => string.IsInterned(str);
 
         /// <summary>
         ///     Concatenates the elements of an object array, using the specified separator between each element.
@@ -2570,6 +2563,23 @@ namespace WeihanLi.Extensions
         /// Append text when condition is true
         /// </summary>
         /// <param name="builder">StringBuilder</param>
+        /// <param name="textFactory">factory for getting text to append</param>
+        /// <param name="condition">condition to evaluate</param>
+        /// <returns>StringBuilder</returns>
+        public static StringBuilder AppendIf(this StringBuilder builder, Func<string> textFactory, bool condition)
+        {
+            Guard.NotNull(builder, nameof(builder));
+            if (condition)
+            {
+                builder.Append(textFactory());
+            }
+            return builder;
+        }
+
+        /// <summary>
+        /// Append text when condition is true
+        /// </summary>
+        /// <param name="builder">StringBuilder</param>
         /// <param name="text">text to append</param>
         /// <param name="condition">condition to evaluate</param>
         /// <returns>StringBuilder</returns>
@@ -2580,6 +2590,24 @@ namespace WeihanLi.Extensions
             if (condition)
             {
                 builder.AppendLine(text);
+            }
+            return builder;
+        }
+
+        /// <summary>
+        /// Append text when condition is true
+        /// </summary>
+        /// <param name="builder">StringBuilder</param>
+        /// <param name="textFactory">text factory to produce text for appendding</param>
+        /// <param name="condition">condition to evaluate</param>
+        /// <returns>StringBuilder</returns>
+        public static StringBuilder AppendLineIf(this StringBuilder builder, Func<string> textFactory, bool condition)
+        {
+            Guard.NotNull(builder, nameof(builder));
+
+            if (condition)
+            {
+                builder.AppendLine(textFactory());
             }
             return builder;
         }
@@ -2626,17 +2654,9 @@ namespace WeihanLi.Extensions
         /// </summary>
         /// <typeparam name="T">Generic type parameter.</typeparam>
         /// <param name="this">The @this to act on.</param>
-        /// <returns>The new instance.</returns>
-        public static T CreateInstance<T>(this Type @this) => (T)Activator.CreateInstance(@this);
-
-        /// <summary>
-        ///     A Type extension method that creates an instance.
-        /// </summary>
-        /// <typeparam name="T">Generic type parameter.</typeparam>
-        /// <param name="this">The @this to act on.</param>
         /// <param name="args">The arguments.</param>
         /// <returns>The new instance.</returns>
-        public static T CreateInstance<T>(this Type @this, params object[] args) => (T)Activator.CreateInstance(@this, args);
+        public static T? CreateInstance<T>(this Type @this, params object?[]? args) => (T?)Activator.CreateInstance(@this, args);
 
         /// <summary>
         /// if a type has empty constructor
@@ -2652,7 +2672,7 @@ namespace WeihanLi.Extensions
             return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
         }
 
-        private static readonly ConcurrentDictionary<Type, object> _defaultValues =
+        private static readonly ConcurrentDictionary<Type, object?> _defaultValues =
             new();
 
         /// <summary>

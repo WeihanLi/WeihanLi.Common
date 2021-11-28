@@ -27,12 +27,16 @@ namespace WeihanLi.Extensions
         /// <returns></returns>
         public static bool TryGetValue<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> dictionary, TKey key, out TValue value, TValue defaultValue)
         {
-            var result = dictionary.TryGetValue(key, out value);
-            if (!result)
+            if (dictionary.TryGetValue(key, out var result))
+            {
+                value = result;
+                return true;
+            }
+            else
             {
                 value = defaultValue;
+                return false;
             }
-            return result;
         }
 
         /// <summary>
@@ -250,7 +254,7 @@ namespace WeihanLi.Extensions
         /// <typeparam name="TValue">Type of the value.</typeparam>
         /// <param name="this">The @this to act on.</param>
         /// <returns>@this as a SortedDictionary&lt;TKey,TValue&gt;</returns>
-        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this)
+        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this) where TKey : notnull
         {
             return new(@this);
         }
@@ -263,7 +267,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="comparer">The comparer.</param>
         /// <returns>@this as a SortedDictionary&lt;TKey,TValue&gt;</returns>
-        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, IComparer<TKey> comparer)
+        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, IComparer<TKey> comparer) where TKey : notnull
         {
             return new(@this, comparer);
         }
@@ -276,7 +280,7 @@ namespace WeihanLi.Extensions
         /// <param name="this">The @this to act on.</param>
         /// <param name="keys">A variable-length parameters list containing keys.</param>
         /// <returns>true if it succeeds, false if it fails.</returns>
-        public static bool ContainsAnyKey<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, params TKey[] keys)
+        public static bool ContainsAnyKey<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, params TKey[] keys) where TKey : notnull
         {
             foreach (var value in keys)
             {
@@ -412,9 +416,9 @@ namespace WeihanLi.Extensions
             return dataTable;
         }
 
-        public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>([NotNull] this IEnumerable<KeyValuePair<TKey, TValue>> source) => source.ToDictionary(pair => pair.Key, pair => pair.Value);
+        public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>([NotNull] this IEnumerable<KeyValuePair<TKey, TValue>> source) where TKey : notnull => source.ToDictionary(pair => pair.Key, pair => pair.Value);
 
-        public static IEnumerable<KeyValuePair<string, string>> ToKeyValuePair(this NameValueCollection? collection)
+        public static IEnumerable<KeyValuePair<string, string?>> ToKeyValuePair(this NameValueCollection? collection)
         {
             if (collection == null || collection.Count == 0)
             {
@@ -428,7 +432,7 @@ namespace WeihanLi.Extensions
                     continue;
                 }
 
-                yield return new KeyValuePair<string, string>(key, collection[key]);
+                yield return new KeyValuePair<string, string?>(key, collection[key]);
             }
         }
 

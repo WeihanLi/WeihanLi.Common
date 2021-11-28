@@ -2,6 +2,7 @@
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions
@@ -23,7 +24,7 @@ namespace WeihanLi.Extensions
             }
             catch (WebException e)
             {
-                return e.Response;
+                return Guard.NotNull(e.Response);
             }
         }
 
@@ -40,7 +41,7 @@ namespace WeihanLi.Extensions
             }
             catch (WebException e)
             {
-                return e.Response;
+                return Guard.NotNull(e.Response);
             }
         }
 

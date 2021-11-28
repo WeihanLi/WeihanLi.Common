@@ -175,7 +175,7 @@ namespace WeihanLi.Extensions
         /// <returns></returns>
         public static Type GetTypeByTypeName([NotNull] this string typeName)
         {
-            return Guard.NotNullOrEmpty(typeName, nameof(typeName))
+            var type = Guard.NotNullOrEmpty(typeName, nameof(typeName))
                     .ToLower() switch
             {
                 "bool" => Type.GetType("System.Boolean", true, true),
@@ -197,6 +197,7 @@ namespace WeihanLi.Extensions
                 "guid" => Type.GetType("System.Guid", true, true),
                 _ => Type.GetType(typeName, true, true),
             };
+            return Guard.NotNull(type);
         }
 
         /// <summary>

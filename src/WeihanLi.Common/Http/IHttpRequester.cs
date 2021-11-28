@@ -22,7 +22,7 @@ namespace WeihanLi.Common.Http
 
         #region AddHeader
 
-        IHttpRequester WithHeaders([NotNull] IEnumerable<KeyValuePair<string, string>> customHeaders);
+        IHttpRequester WithHeaders([NotNull] IEnumerable<KeyValuePair<string, string?>> customHeaders);
 
         #endregion AddHeader
 

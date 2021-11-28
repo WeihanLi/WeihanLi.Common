@@ -34,7 +34,7 @@ namespace WeihanLi.Common.Helpers
             {
                 Name = name,
                 Id = Convert.ToInt32(Enum.Parse(enumType, name)),
-                Description = enumType.GetField(name).GetDescription()
+                Description = enumType.GetField(name)?.GetDescription()
             });
         }
 
@@ -45,7 +45,7 @@ namespace WeihanLi.Common.Helpers
             {
                 Id = Enum.Parse(enumType, name).To<TValue>(),
                 Name = name,
-                Description = enumType.GetField(name).GetDescription()
+                Description = enumType.GetField(name)?.GetDescription()
             });
         }
     }

@@ -1,26 +1,35 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace WeihanLi.Common
 {
     public static class Guard
     {
-        public static T NotNull<T>(T t, string paramName)
+        public static T NotNull<T>(T? t,
+               [CallerArgumentExpression("t")]
+            string? paramName = default)
         {
+#if NET6_0_OR_GREATER
+            ArgumentNullException.ThrowIfNull(t, paramName);
+#else
             if (t is null)
             {
                 throw new ArgumentNullException(paramName);
             }
+#endif
             return t;
         }
 
-        public static string NotNullOrEmpty(string str, string paramName)
+        public static string NotNullOrEmpty(string? str,
+            [CallerArgumentExpression("str")]
+            string? paramName = default)
         {
             NotNull(str, paramName);
-            if (string.IsNullOrEmpty(paramName))
+            if (string.IsNullOrEmpty(str))
             {
-                throw new ArgumentNullException(paramName);
+                throw new ArgumentException("The argument is IsNullOrEmpty", paramName);
             }
-            return str;
+            return str!;
         }
     }
 }

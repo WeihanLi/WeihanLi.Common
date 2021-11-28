@@ -46,7 +46,7 @@ namespace WeihanLi.Common.Test.AspectTest
         public void InterfaceTest()
         {
             // unsealed implement
-            var userIdProvider = _serviceProvider.GetService<IUserIdProvider>();
+            var userIdProvider = _serviceProvider.GetRequiredService<IUserIdProvider>();
             Assert.NotNull(userIdProvider);
 
             var userIdProviderType = userIdProvider.GetType();
@@ -57,7 +57,7 @@ namespace WeihanLi.Common.Test.AspectTest
             Assert.NotNull(userId);
 
             // sealed implement
-            var idGenerator = _serviceProvider.GetService<IIdGenerator>();
+            var idGenerator = _serviceProvider.GetRequiredService<IIdGenerator>();
             Assert.NotNull(idGenerator);
             var idGeneratorType = idGenerator.GetType();
             Assert.True(idGeneratorType.IsSealed);
@@ -71,7 +71,7 @@ namespace WeihanLi.Common.Test.AspectTest
         public void ClassTest()
         {
             // unsealed class, will intercept virtual method
-            var userIdProvider = _serviceProvider.GetService<EnvironmentUserIdProvider>();
+            var userIdProvider = _serviceProvider.GetRequiredService<EnvironmentUserIdProvider>();
             Assert.NotNull(userIdProvider);
 
             var userIdProviderType = userIdProvider.GetType();
@@ -82,7 +82,7 @@ namespace WeihanLi.Common.Test.AspectTest
             Assert.NotNull(userId);
 
             // sealed class, will not be intercepted
-            var idGenerator = _serviceProvider.GetService<GuidIdGenerator>();
+            var idGenerator = _serviceProvider.GetRequiredService<GuidIdGenerator>();
             Assert.NotNull(idGenerator);
             var idGeneratorType = idGenerator.GetType();
             Assert.True(idGeneratorType.IsSealed);
@@ -92,7 +92,7 @@ namespace WeihanLi.Common.Test.AspectTest
             Assert.NotNull(newId);
 
             // unsealed service, sealed implement
-            var eventHandler = _serviceProvider.GetService<EventHandlerBase<TestEvent>>();
+            var eventHandler = _serviceProvider.GetRequiredService<EventHandlerBase<TestEvent>>();
             Assert.NotNull(eventHandler);
             var eventHandlerType = eventHandler.GetType();
 
@@ -107,7 +107,7 @@ namespace WeihanLi.Common.Test.AspectTest
         [Fact]
         public void GenericMethodTest()
         {
-            var publisher = _serviceProvider.GetService<IEventPublisher>();
+            var publisher = _serviceProvider.GetRequiredService<IEventPublisher>();
             Assert.NotNull(publisher);
             var publisherType = publisher.GetType();
             Assert.True(publisherType.IsSealed);
@@ -121,7 +121,7 @@ namespace WeihanLi.Common.Test.AspectTest
         [Fact]
         public void OpenGenericTypeTest()
         {
-            var eventHandler = _serviceProvider.GetService<IEventHandler<TestEvent>>();
+            var eventHandler = _serviceProvider.GetRequiredService<IEventHandler<TestEvent>>();
             Assert.NotNull(eventHandler);
             var eventHandlerType = eventHandler.GetType();
 

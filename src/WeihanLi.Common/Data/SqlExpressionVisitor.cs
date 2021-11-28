@@ -95,7 +95,7 @@ namespace WeihanLi.Common.Data
                 {
                     return bValue ? "1" : "0";
                 }
-                return $"{node.Value.ToString().Replace("'", "''")}";
+                return $"{node.Value.ToString()?.Replace("'", "''")}";
             }
             _leaves.Push(GetResult());
 

@@ -49,9 +49,9 @@ namespace WeihanLi.Common.Event
     public static class EventBaseExtensions
     {
         private static readonly JsonSerializerSettings _eventSerializerSettings = JsonSerializeExtension.SerializerSettingsWith(s =>
-           {
-               s.TypeNameHandling = TypeNameHandling.Objects;
-           });
+                 {
+                     s.TypeNameHandling = TypeNameHandling.Objects;
+                 });
 
         public static string ToEventMsg<TEvent>(this TEvent @event) where TEvent : class, IEventBase
         {

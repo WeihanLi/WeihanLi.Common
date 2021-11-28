@@ -168,10 +168,10 @@ namespace WeihanLi.Common.Helpers
                 {
                     algorithm = type switch
                     {
-                        HashType.SHA1 => new SHA1Managed(),
-                        HashType.SHA256 => new SHA256Managed(),
-                        HashType.SHA384 => new SHA384Managed(),
-                        HashType.SHA512 => new SHA512Managed(),
+                        HashType.SHA1 => SHA1.Create(),
+                        HashType.SHA256 => SHA256.Create(),
+                        HashType.SHA384 => SHA384.Create(),
+                        HashType.SHA512 => SHA512.Create(),
                         _ => MD5.Create()
                     };
                 }
