@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ResultModel&lt;T&gt;
    ">
-    <meta name="generator" content="docfx 2.56.7.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -82,6 +82,11 @@
     <div class="level1"><a class="xref" href="WeihanLi.Common.Models.ResultModel.html">ResultModel</a></div>
     <div class="level2"><span class="xref">ResultModel&lt;T&gt;</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="WeihanLi.Common.Models.ResultModel.html">ResultModel</a>&gt;</div>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="WeihanLi.Common.Models.ResultModel-1.html">ResultModel</a>&lt;T&gt;&gt;</div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -101,6 +106,9 @@
     </div>
     <div>
       <a class="xref" href="WeihanLi.Common.Models.ResultModel.html#WeihanLi_Common_Models_ResultModel_Fail__1_System_String_WeihanLi_Common_Models_ResultStatus___0_">ResultModel.Fail&lt;T&gt;(String, ResultStatus, T)</a>
+    </div>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Models.ResultModel.html#WeihanLi_Common_Models_ResultModel_ToResult__1___0_">ResultModel.ToResult&lt;T&gt;(T)</a>
     </div>
     <div>
       <span class="xref">System.Object.ToString()</span>
@@ -128,7 +136,7 @@
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
   <h5 id="WeihanLi_Common_Models_ResultModel_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ResultModel&lt;T&gt; : ResultModel</code></pre>
+    <pre><code class="lang-csharp hljs">public class ResultModel&lt;T&gt; : ResultModel, IEquatable&lt;ResultModel&gt;, IEquatable&lt;ResultModel&lt;T&gt;&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -178,23 +186,13 @@
   </h3>
   
   
-  <a id="WeihanLi_Common_Models_ResultModel_1_SetProcessFailResult_" data-uid="WeihanLi.Common.Models.ResultModel`1.SetProcessFailResult*"></a>
-  <h4 id="WeihanLi_Common_Models_ResultModel_1_SetProcessFailResult" data-uid="WeihanLi.Common.Models.ResultModel`1.SetProcessFailResult">SetProcessFailResult()</h4>
+  <a id="WeihanLi_Common_Models_ResultModel_1_ToResult_" data-uid="WeihanLi.Common.Models.ResultModel`1.ToResult*"></a>
+  <h4 id="WeihanLi_Common_Models_ResultModel_1_ToResult__1_System_Func__0___0__" data-uid="WeihanLi.Common.Models.ResultModel`1.ToResult``1(System.Func{`0,``0})">ToResult&lt;T1&gt;(Func&lt;T, T1&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetProcessFailResult()</code></pre>
-  </div>
-  
-  
-  <a id="WeihanLi_Common_Models_ResultModel_1_SetRequestErrorResult_" data-uid="WeihanLi.Common.Models.ResultModel`1.SetRequestErrorResult*"></a>
-  <h4 id="WeihanLi_Common_Models_ResultModel_1_SetRequestErrorResult_System_String_" data-uid="WeihanLi.Common.Models.ResultModel`1.SetRequestErrorResult(System.String)">SetRequestErrorResult(String)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetRequestErrorResult(string errorMsg)</code></pre>
+    <pre><code class="lang-csharp hljs">public ResultModel&lt;T1&gt; ToResult&lt;T1&gt;(Func&lt;T, T1&gt; converter)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -207,39 +205,49 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">errorMsg</span></td>
+        <td><span class="xref">System.Func</span>&lt;T, T1&gt;</td>
+        <td><span class="parametername">converter</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="WeihanLi_Common_Models_ResultModel_1_SetSuccessResult_" data-uid="WeihanLi.Common.Models.ResultModel`1.SetSuccessResult*"></a>
-  <h4 id="WeihanLi_Common_Models_ResultModel_1_SetSuccessResult__0_" data-uid="WeihanLi.Common.Models.ResultModel`1.SetSuccessResult(`0)">SetSuccessResult(T)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetSuccessResult(T result)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="WeihanLi.Common.Models.ResultModel-1.html">ResultModel</a>&lt;T1&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
         <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">result</span></td>
+        <td><span class="parametername">T1</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
 </article>
           </div>
           

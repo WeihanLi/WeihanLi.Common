@@ -7,65 +7,100 @@ references:
   commentId: N:Microsoft.Extensions.Configuration
   fullName: Microsoft.Extensions.Configuration
   nameWithType: Microsoft.Extensions.Configuration
-- uid: Microsoft.Extensions.Configuration.ConfigurationExtensions
-  name: ConfigurationExtensions
-  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html
-  commentId: T:Microsoft.Extensions.Configuration.ConfigurationExtensions
-  fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions
-  nameWithType: ConfigurationExtensions
-- uid: Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting(IConfiguration,System.String)
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtension
+  name: ConfigurationExtension
+  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtension.html
+  commentId: T:Microsoft.Extensions.Configuration.ConfigurationExtension
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtension
+  nameWithType: ConfigurationExtension
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtension.FeatureFlagsSectionName
+  name: FeatureFlagsSectionName
+  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtension.html#Microsoft_Extensions_Configuration_ConfigurationExtension_FeatureFlagsSectionName
+  commentId: F:Microsoft.Extensions.Configuration.ConfigurationExtension.FeatureFlagsSectionName
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtension.FeatureFlagsSectionName
+  nameWithType: ConfigurationExtension.FeatureFlagsSectionName
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting(IConfiguration,System.String)
   name: GetAppSetting(IConfiguration, String)
-  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_GetAppSetting_IConfiguration_System_String_
-  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting(IConfiguration,System.String)
-  fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting(IConfiguration, System.String)
-  nameWithType: ConfigurationExtensions.GetAppSetting(IConfiguration, String)
-- uid: Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting*
+  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtension.html#Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting_IConfiguration_System_String_
+  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting(IConfiguration,System.String)
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting(IConfiguration, System.String)
+  nameWithType: ConfigurationExtension.GetAppSetting(IConfiguration, String)
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting*
   name: GetAppSetting
-  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_GetAppSetting_
-  commentId: Overload:Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting
+  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtension.html#Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting_
+  commentId: Overload:Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting
   isSpec: "True"
-  fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting
-  nameWithType: ConfigurationExtensions.GetAppSetting
-- uid: Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting``1(IConfiguration,System.String)
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting
+  nameWithType: ConfigurationExtension.GetAppSetting
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting``1(IConfiguration,System.String)
   name: GetAppSetting<T>(IConfiguration, String)
-  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_GetAppSetting__1_IConfiguration_System_String_
-  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting``1(IConfiguration,System.String)
+  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtension.html#Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting__1_IConfiguration_System_String_
+  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting``1(IConfiguration,System.String)
   name.vb: GetAppSetting(Of T)(IConfiguration, String)
-  fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting<T>(IConfiguration, System.String)
-  fullName.vb: Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting(Of T)(IConfiguration, System.String)
-  nameWithType: ConfigurationExtensions.GetAppSetting<T>(IConfiguration, String)
-  nameWithType.vb: ConfigurationExtensions.GetAppSetting(Of T)(IConfiguration, String)
-- uid: Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting``1(IConfiguration,System.String,``0)
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting<T>(IConfiguration, System.String)
+  fullName.vb: Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting(Of T)(IConfiguration, System.String)
+  nameWithType: ConfigurationExtension.GetAppSetting<T>(IConfiguration, String)
+  nameWithType.vb: ConfigurationExtension.GetAppSetting(Of T)(IConfiguration, String)
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting``1(IConfiguration,System.String,``0)
   name: GetAppSetting<T>(IConfiguration, String, T)
-  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_GetAppSetting__1_IConfiguration_System_String___0_
-  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting``1(IConfiguration,System.String,``0)
+  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtension.html#Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting__1_IConfiguration_System_String___0_
+  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting``1(IConfiguration,System.String,``0)
   name.vb: GetAppSetting(Of T)(IConfiguration, String, T)
-  fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting<T>(IConfiguration, System.String, T)
-  fullName.vb: Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting(Of T)(IConfiguration, System.String, T)
-  nameWithType: ConfigurationExtensions.GetAppSetting<T>(IConfiguration, String, T)
-  nameWithType.vb: ConfigurationExtensions.GetAppSetting(Of T)(IConfiguration, String, T)
-- uid: Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting``1(IConfiguration,System.String,System.Func{``0})
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting<T>(IConfiguration, System.String, T)
+  fullName.vb: Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting(Of T)(IConfiguration, System.String, T)
+  nameWithType: ConfigurationExtension.GetAppSetting<T>(IConfiguration, String, T)
+  nameWithType.vb: ConfigurationExtension.GetAppSetting(Of T)(IConfiguration, String, T)
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting``1(IConfiguration,System.String,System.Func{``0})
   name: GetAppSetting<T>(IConfiguration, String, Func<T>)
-  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_GetAppSetting__1_IConfiguration_System_String_System_Func___0__
-  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting``1(IConfiguration,System.String,System.Func{``0})
+  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtension.html#Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting__1_IConfiguration_System_String_System_Func___0__
+  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting``1(IConfiguration,System.String,System.Func{``0})
   name.vb: GetAppSetting(Of T)(IConfiguration, String, Func(Of T))
-  fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting<T>(IConfiguration, System.String, System.Func<T>)
-  fullName.vb: Microsoft.Extensions.Configuration.ConfigurationExtensions.GetAppSetting(Of T)(IConfiguration, System.String, System.Func(Of T))
-  nameWithType: ConfigurationExtensions.GetAppSetting<T>(IConfiguration, String, Func<T>)
-  nameWithType.vb: ConfigurationExtensions.GetAppSetting(Of T)(IConfiguration, String, Func(Of T))
-- uid: Microsoft.Extensions.Configuration.ConfigurationExtensions.ReplacePlaceholders(IConfiguration)
-  name: ReplacePlaceholders(IConfiguration)
-  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_ReplacePlaceholders_IConfiguration_
-  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtensions.ReplacePlaceholders(IConfiguration)
-  fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions.ReplacePlaceholders(IConfiguration)
-  nameWithType: ConfigurationExtensions.ReplacePlaceholders(IConfiguration)
-- uid: Microsoft.Extensions.Configuration.ConfigurationExtensions.ReplacePlaceholders*
-  name: ReplacePlaceholders
-  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtensions.html#Microsoft_Extensions_Configuration_ConfigurationExtensions_ReplacePlaceholders_
-  commentId: Overload:Microsoft.Extensions.Configuration.ConfigurationExtensions.ReplacePlaceholders
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting<T>(IConfiguration, System.String, System.Func<T>)
+  fullName.vb: Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting(Of T)(IConfiguration, System.String, System.Func(Of T))
+  nameWithType: ConfigurationExtension.GetAppSetting<T>(IConfiguration, String, Func<T>)
+  nameWithType.vb: ConfigurationExtension.GetAppSetting(Of T)(IConfiguration, String, Func(Of T))
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtension.IsFeatureEnabled(IConfiguration,System.String,System.Boolean)
+  name: IsFeatureEnabled(IConfiguration, String, Boolean)
+  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtension.html#Microsoft_Extensions_Configuration_ConfigurationExtension_IsFeatureEnabled_IConfiguration_System_String_System_Boolean_
+  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtension.IsFeatureEnabled(IConfiguration,System.String,System.Boolean)
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtension.IsFeatureEnabled(IConfiguration, System.String, System.Boolean)
+  nameWithType: ConfigurationExtension.IsFeatureEnabled(IConfiguration, String, Boolean)
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtension.IsFeatureEnabled*
+  name: IsFeatureEnabled
+  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtension.html#Microsoft_Extensions_Configuration_ConfigurationExtension_IsFeatureEnabled_
+  commentId: Overload:Microsoft.Extensions.Configuration.ConfigurationExtension.IsFeatureEnabled
   isSpec: "True"
-  fullName: Microsoft.Extensions.Configuration.ConfigurationExtensions.ReplacePlaceholders
-  nameWithType: ConfigurationExtensions.ReplacePlaceholders
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtension.IsFeatureEnabled
+  nameWithType: ConfigurationExtension.IsFeatureEnabled
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtension.ReplacePlaceholders(IConfiguration)
+  name: ReplacePlaceholders(IConfiguration)
+  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtension.html#Microsoft_Extensions_Configuration_ConfigurationExtension_ReplacePlaceholders_IConfiguration_
+  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtension.ReplacePlaceholders(IConfiguration)
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtension.ReplacePlaceholders(IConfiguration)
+  nameWithType: ConfigurationExtension.ReplacePlaceholders(IConfiguration)
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtension.ReplacePlaceholders*
+  name: ReplacePlaceholders
+  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtension.html#Microsoft_Extensions_Configuration_ConfigurationExtension_ReplacePlaceholders_
+  commentId: Overload:Microsoft.Extensions.Configuration.ConfigurationExtension.ReplacePlaceholders
+  isSpec: "True"
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtension.ReplacePlaceholders
+  nameWithType: ConfigurationExtension.ReplacePlaceholders
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtension.TryGetFeatureFlagValue(IConfiguration,System.String,System.Boolean@)
+  name: TryGetFeatureFlagValue(IConfiguration, String, out Boolean)
+  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtension.html#Microsoft_Extensions_Configuration_ConfigurationExtension_TryGetFeatureFlagValue_IConfiguration_System_String_System_Boolean__
+  commentId: M:Microsoft.Extensions.Configuration.ConfigurationExtension.TryGetFeatureFlagValue(IConfiguration,System.String,System.Boolean@)
+  name.vb: TryGetFeatureFlagValue(IConfiguration, String, ByRef Boolean)
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtension.TryGetFeatureFlagValue(IConfiguration, System.String, out System.Boolean)
+  fullName.vb: Microsoft.Extensions.Configuration.ConfigurationExtension.TryGetFeatureFlagValue(IConfiguration, System.String, ByRef System.Boolean)
+  nameWithType: ConfigurationExtension.TryGetFeatureFlagValue(IConfiguration, String, out Boolean)
+  nameWithType.vb: ConfigurationExtension.TryGetFeatureFlagValue(IConfiguration, String, ByRef Boolean)
+- uid: Microsoft.Extensions.Configuration.ConfigurationExtension.TryGetFeatureFlagValue*
+  name: TryGetFeatureFlagValue
+  href: docs/api/Microsoft.Extensions.Configuration.ConfigurationExtension.html#Microsoft_Extensions_Configuration_ConfigurationExtension_TryGetFeatureFlagValue_
+  commentId: Overload:Microsoft.Extensions.Configuration.ConfigurationExtension.TryGetFeatureFlagValue
+  isSpec: "True"
+  fullName: Microsoft.Extensions.Configuration.ConfigurationExtension.TryGetFeatureFlagValue
+  nameWithType: ConfigurationExtension.TryGetFeatureFlagValue
 - uid: Microsoft.Extensions.DependencyInjection
   name: Microsoft.Extensions.DependencyInjection
   href: docs/api/Microsoft.Extensions.DependencyInjection.html
@@ -502,6 +537,22 @@ references:
   isSpec: "True"
   fullName: Microsoft.Extensions.Logging.LoggerExtensions.Trace
   nameWithType: LoggerExtensions.Trace
+- uid: Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger(ILoggingBuilder,System.Action{GenericLoggerOptions})
+  name: UseCustomGenericLogger(ILoggingBuilder, Action<GenericLoggerOptions>)
+  href: docs/api/Microsoft.Extensions.Logging.LoggerExtensions.html#Microsoft_Extensions_Logging_LoggerExtensions_UseCustomGenericLogger_ILoggingBuilder_System_Action_GenericLoggerOptions__
+  commentId: M:Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger(ILoggingBuilder,System.Action{GenericLoggerOptions})
+  name.vb: UseCustomGenericLogger(ILoggingBuilder, Action(Of GenericLoggerOptions))
+  fullName: Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger(ILoggingBuilder, System.Action<GenericLoggerOptions>)
+  fullName.vb: Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger(ILoggingBuilder, System.Action(Of GenericLoggerOptions))
+  nameWithType: LoggerExtensions.UseCustomGenericLogger(ILoggingBuilder, Action<GenericLoggerOptions>)
+  nameWithType.vb: LoggerExtensions.UseCustomGenericLogger(ILoggingBuilder, Action(Of GenericLoggerOptions))
+- uid: Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger*
+  name: UseCustomGenericLogger
+  href: docs/api/Microsoft.Extensions.Logging.LoggerExtensions.html#Microsoft_Extensions_Logging_LoggerExtensions_UseCustomGenericLogger_
+  commentId: Overload:Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger
+  isSpec: "True"
+  fullName: Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger
+  nameWithType: LoggerExtensions.UseCustomGenericLogger
 - uid: Microsoft.Extensions.Logging.LoggerExtensions.Warn(ILogger,System.Exception)
   name: Warn(ILogger, Exception)
   href: docs/api/Microsoft.Extensions.Logging.LoggerExtensions.html#Microsoft_Extensions_Logging_LoggerExtensions_Warn_ILogger_System_Exception_
@@ -3432,6 +3483,602 @@ references:
   fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity)
   nameWithType: Repository<TEntity>
   nameWithType.vb: Repository(Of TEntity)
+- uid: WeihanLi.Common.Data.Repository`1.#ctor(System.Func{DbConnection})
+  name: Repository(Func<DbConnection>)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1__ctor_System_Func_DbConnection__
+  commentId: M:WeihanLi.Common.Data.Repository`1.#ctor(System.Func{DbConnection})
+  name.vb: Repository(Func(Of DbConnection))
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Repository(System.Func<DbConnection>)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Repository(System.Func(Of DbConnection))
+  nameWithType: Repository<TEntity>.Repository(Func<DbConnection>)
+  nameWithType.vb: Repository(Of TEntity).Repository(Func(Of DbConnection))
+- uid: WeihanLi.Common.Data.Repository`1.#ctor*
+  name: Repository
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1__ctor_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.#ctor
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Repository
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Repository
+  nameWithType: Repository<TEntity>.Repository
+  nameWithType.vb: Repository(Of TEntity).Repository
+- uid: WeihanLi.Common.Data.Repository`1._dbConnection
+  name: _dbConnection
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1__dbConnection
+  commentId: F:WeihanLi.Common.Data.Repository`1._dbConnection
+  fullName: WeihanLi.Common.Data.Repository<TEntity>._dbConnection
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity)._dbConnection
+  nameWithType: Repository<TEntity>._dbConnection
+  nameWithType.vb: Repository(Of TEntity)._dbConnection
+- uid: WeihanLi.Common.Data.Repository`1.Count(Expression{System.Func{`0,System.Boolean}})
+  name: Count(Expression<Func<TEntity, Boolean>>)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Count_Expression_System_Func__0_System_Boolean___
+  commentId: M:WeihanLi.Common.Data.Repository`1.Count(Expression{System.Func{`0,System.Boolean}})
+  name.vb: Count(Expression(Of Func(Of TEntity, Boolean)))
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Count(Expression<System.Func<TEntity, System.Boolean>>)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Count(Expression(Of System.Func(Of TEntity, System.Boolean)))
+  nameWithType: Repository<TEntity>.Count(Expression<Func<TEntity, Boolean>>)
+  nameWithType.vb: Repository(Of TEntity).Count(Expression(Of Func(Of TEntity, Boolean)))
+- uid: WeihanLi.Common.Data.Repository`1.Count*
+  name: Count
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Count_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.Count
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Count
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Count
+  nameWithType: Repository<TEntity>.Count
+  nameWithType.vb: Repository(Of TEntity).Count
+- uid: WeihanLi.Common.Data.Repository`1.CountAsync(Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  name: CountAsync(Expression<Func<TEntity, Boolean>>, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_CountAsync_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.CountAsync(Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  name.vb: CountAsync(Expression(Of Func(Of TEntity, Boolean)), CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.CountAsync(Expression<System.Func<TEntity, System.Boolean>>, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).CountAsync(Expression(Of System.Func(Of TEntity, System.Boolean)), System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.CountAsync(Expression<Func<TEntity, Boolean>>, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).CountAsync(Expression(Of Func(Of TEntity, Boolean)), CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.CountAsync*
+  name: CountAsync
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_CountAsync_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.CountAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.CountAsync
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).CountAsync
+  nameWithType: Repository<TEntity>.CountAsync
+  nameWithType.vb: Repository(Of TEntity).CountAsync
+- uid: WeihanLi.Common.Data.Repository`1.Delete(`0)
+  name: Delete(TEntity)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Delete__0_
+  commentId: M:WeihanLi.Common.Data.Repository`1.Delete(`0)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Delete(TEntity)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Delete(TEntity)
+  nameWithType: Repository<TEntity>.Delete(TEntity)
+  nameWithType.vb: Repository(Of TEntity).Delete(TEntity)
+- uid: WeihanLi.Common.Data.Repository`1.Delete(Expression{System.Func{`0,System.Boolean}})
+  name: Delete(Expression<Func<TEntity, Boolean>>)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Delete_Expression_System_Func__0_System_Boolean___
+  commentId: M:WeihanLi.Common.Data.Repository`1.Delete(Expression{System.Func{`0,System.Boolean}})
+  name.vb: Delete(Expression(Of Func(Of TEntity, Boolean)))
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Delete(Expression<System.Func<TEntity, System.Boolean>>)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Delete(Expression(Of System.Func(Of TEntity, System.Boolean)))
+  nameWithType: Repository<TEntity>.Delete(Expression<Func<TEntity, Boolean>>)
+  nameWithType.vb: Repository(Of TEntity).Delete(Expression(Of Func(Of TEntity, Boolean)))
+- uid: WeihanLi.Common.Data.Repository`1.Delete*
+  name: Delete
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Delete_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.Delete
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Delete
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Delete
+  nameWithType: Repository<TEntity>.Delete
+  nameWithType.vb: Repository(Of TEntity).Delete
+- uid: WeihanLi.Common.Data.Repository`1.DeleteAsync(`0,System.Threading.CancellationToken)
+  name: DeleteAsync(TEntity, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_DeleteAsync__0_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.DeleteAsync(`0,System.Threading.CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.DeleteAsync(TEntity, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).DeleteAsync(TEntity, System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.DeleteAsync(TEntity, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).DeleteAsync(TEntity, CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.DeleteAsync(Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  name: DeleteAsync(Expression<Func<TEntity, Boolean>>, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_DeleteAsync_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.DeleteAsync(Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  name.vb: DeleteAsync(Expression(Of Func(Of TEntity, Boolean)), CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.DeleteAsync(Expression<System.Func<TEntity, System.Boolean>>, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).DeleteAsync(Expression(Of System.Func(Of TEntity, System.Boolean)), System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.DeleteAsync(Expression<Func<TEntity, Boolean>>, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).DeleteAsync(Expression(Of Func(Of TEntity, Boolean)), CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.DeleteAsync*
+  name: DeleteAsync
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_DeleteAsync_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.DeleteAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.DeleteAsync
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).DeleteAsync
+  nameWithType: Repository<TEntity>.DeleteAsync
+  nameWithType.vb: Repository(Of TEntity).DeleteAsync
+- uid: WeihanLi.Common.Data.Repository`1.Execute(System.String,System.Object)
+  name: Execute(String, Object)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Execute_System_String_System_Object_
+  commentId: M:WeihanLi.Common.Data.Repository`1.Execute(System.String,System.Object)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Execute(System.String, System.Object)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Execute(System.String, System.Object)
+  nameWithType: Repository<TEntity>.Execute(String, Object)
+  nameWithType.vb: Repository(Of TEntity).Execute(String, Object)
+- uid: WeihanLi.Common.Data.Repository`1.Execute*
+  name: Execute
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Execute_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.Execute
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Execute
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Execute
+  nameWithType: Repository<TEntity>.Execute
+  nameWithType.vb: Repository(Of TEntity).Execute
+- uid: WeihanLi.Common.Data.Repository`1.ExecuteAsync(System.String,System.Object,System.Threading.CancellationToken)
+  name: ExecuteAsync(String, Object, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_ExecuteAsync_System_String_System_Object_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.ExecuteAsync(System.String,System.Object,System.Threading.CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.ExecuteAsync(System.String, System.Object, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).ExecuteAsync(System.String, System.Object, System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.ExecuteAsync(String, Object, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).ExecuteAsync(String, Object, CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.ExecuteAsync*
+  name: ExecuteAsync
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_ExecuteAsync_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.ExecuteAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.ExecuteAsync
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).ExecuteAsync
+  nameWithType: Repository<TEntity>.ExecuteAsync
+  nameWithType.vb: Repository(Of TEntity).ExecuteAsync
+- uid: WeihanLi.Common.Data.Repository`1.ExecuteScalar*
+  name: ExecuteScalar
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_ExecuteScalar_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.ExecuteScalar
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.ExecuteScalar
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).ExecuteScalar
+  nameWithType: Repository<TEntity>.ExecuteScalar
+  nameWithType.vb: Repository(Of TEntity).ExecuteScalar
+- uid: WeihanLi.Common.Data.Repository`1.ExecuteScalar``1(System.String,System.Object)
+  name: ExecuteScalar<TResult>(String, Object)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_ExecuteScalar__1_System_String_System_Object_
+  commentId: M:WeihanLi.Common.Data.Repository`1.ExecuteScalar``1(System.String,System.Object)
+  name.vb: ExecuteScalar(Of TResult)(String, Object)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.ExecuteScalar<TResult>(System.String, System.Object)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).ExecuteScalar(Of TResult)(System.String, System.Object)
+  nameWithType: Repository<TEntity>.ExecuteScalar<TResult>(String, Object)
+  nameWithType.vb: Repository(Of TEntity).ExecuteScalar(Of TResult)(String, Object)
+- uid: WeihanLi.Common.Data.Repository`1.ExecuteScalarAsync*
+  name: ExecuteScalarAsync
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_ExecuteScalarAsync_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.ExecuteScalarAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.ExecuteScalarAsync
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).ExecuteScalarAsync
+  nameWithType: Repository<TEntity>.ExecuteScalarAsync
+  nameWithType.vb: Repository(Of TEntity).ExecuteScalarAsync
+- uid: WeihanLi.Common.Data.Repository`1.ExecuteScalarAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  name: ExecuteScalarAsync<TResult>(String, Object, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_ExecuteScalarAsync__1_System_String_System_Object_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.ExecuteScalarAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  name.vb: ExecuteScalarAsync(Of TResult)(String, Object, CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.ExecuteScalarAsync<TResult>(System.String, System.Object, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).ExecuteScalarAsync(Of TResult)(System.String, System.Object, System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.ExecuteScalarAsync<TResult>(String, Object, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).ExecuteScalarAsync(Of TResult)(String, Object, CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.Exist(Expression{System.Func{`0,System.Boolean}})
+  name: Exist(Expression<Func<TEntity, Boolean>>)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Exist_Expression_System_Func__0_System_Boolean___
+  commentId: M:WeihanLi.Common.Data.Repository`1.Exist(Expression{System.Func{`0,System.Boolean}})
+  name.vb: Exist(Expression(Of Func(Of TEntity, Boolean)))
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Exist(Expression<System.Func<TEntity, System.Boolean>>)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Exist(Expression(Of System.Func(Of TEntity, System.Boolean)))
+  nameWithType: Repository<TEntity>.Exist(Expression<Func<TEntity, Boolean>>)
+  nameWithType.vb: Repository(Of TEntity).Exist(Expression(Of Func(Of TEntity, Boolean)))
+- uid: WeihanLi.Common.Data.Repository`1.Exist*
+  name: Exist
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Exist_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.Exist
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Exist
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Exist
+  nameWithType: Repository<TEntity>.Exist
+  nameWithType.vb: Repository(Of TEntity).Exist
+- uid: WeihanLi.Common.Data.Repository`1.ExistAsync(Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  name: ExistAsync(Expression<Func<TEntity, Boolean>>, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_ExistAsync_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.ExistAsync(Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  name.vb: ExistAsync(Expression(Of Func(Of TEntity, Boolean)), CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.ExistAsync(Expression<System.Func<TEntity, System.Boolean>>, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).ExistAsync(Expression(Of System.Func(Of TEntity, System.Boolean)), System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.ExistAsync(Expression<Func<TEntity, Boolean>>, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).ExistAsync(Expression(Of Func(Of TEntity, Boolean)), CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.ExistAsync*
+  name: ExistAsync
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_ExistAsync_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.ExistAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.ExistAsync
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).ExistAsync
+  nameWithType: Repository<TEntity>.ExistAsync
+  nameWithType.vb: Repository(Of TEntity).ExistAsync
+- uid: WeihanLi.Common.Data.Repository`1.Fetch(Expression{System.Func{`0,System.Boolean}})
+  name: Fetch(Expression<Func<TEntity, Boolean>>)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Fetch_Expression_System_Func__0_System_Boolean___
+  commentId: M:WeihanLi.Common.Data.Repository`1.Fetch(Expression{System.Func{`0,System.Boolean}})
+  name.vb: Fetch(Expression(Of Func(Of TEntity, Boolean)))
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Fetch(Expression<System.Func<TEntity, System.Boolean>>)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Fetch(Expression(Of System.Func(Of TEntity, System.Boolean)))
+  nameWithType: Repository<TEntity>.Fetch(Expression<Func<TEntity, Boolean>>)
+  nameWithType.vb: Repository(Of TEntity).Fetch(Expression(Of Func(Of TEntity, Boolean)))
+- uid: WeihanLi.Common.Data.Repository`1.Fetch*
+  name: Fetch
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Fetch_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.Fetch
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Fetch
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Fetch
+  nameWithType: Repository<TEntity>.Fetch
+  nameWithType.vb: Repository(Of TEntity).Fetch
+- uid: WeihanLi.Common.Data.Repository`1.Fetch``1(Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Boolean)
+  name: Fetch<TProperty>(Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Boolean)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Fetch__1_Expression_System_Func__0_System_Boolean___Expression_System_Func__0___0___System_Boolean_
+  commentId: M:WeihanLi.Common.Data.Repository`1.Fetch``1(Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Boolean)
+  name.vb: Fetch(Of TProperty)(Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Boolean)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Fetch<TProperty>(Expression<System.Func<TEntity, System.Boolean>>, Expression<System.Func<TEntity, TProperty>>, System.Boolean)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Fetch(Of TProperty)(Expression(Of System.Func(Of TEntity, System.Boolean)), Expression(Of System.Func(Of TEntity, TProperty)), System.Boolean)
+  nameWithType: Repository<TEntity>.Fetch<TProperty>(Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Boolean)
+  nameWithType.vb: Repository(Of TEntity).Fetch(Of TProperty)(Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Boolean)
+- uid: WeihanLi.Common.Data.Repository`1.FetchAsync(Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  name: FetchAsync(Expression<Func<TEntity, Boolean>>, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_FetchAsync_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.FetchAsync(Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  name.vb: FetchAsync(Expression(Of Func(Of TEntity, Boolean)), CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.FetchAsync(Expression<System.Func<TEntity, System.Boolean>>, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).FetchAsync(Expression(Of System.Func(Of TEntity, System.Boolean)), System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.FetchAsync(Expression<Func<TEntity, Boolean>>, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).FetchAsync(Expression(Of Func(Of TEntity, Boolean)), CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.FetchAsync*
+  name: FetchAsync
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_FetchAsync_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.FetchAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.FetchAsync
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).FetchAsync
+  nameWithType: Repository<TEntity>.FetchAsync
+  nameWithType.vb: Repository(Of TEntity).FetchAsync
+- uid: WeihanLi.Common.Data.Repository`1.FetchAsync``1(Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Boolean,System.Threading.CancellationToken)
+  name: FetchAsync<TProperty>(Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Boolean, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_FetchAsync__1_Expression_System_Func__0_System_Boolean___Expression_System_Func__0___0___System_Boolean_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.FetchAsync``1(Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Boolean,System.Threading.CancellationToken)
+  name.vb: FetchAsync(Of TProperty)(Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Boolean, CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.FetchAsync<TProperty>(Expression<System.Func<TEntity, System.Boolean>>, Expression<System.Func<TEntity, TProperty>>, System.Boolean, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).FetchAsync(Of TProperty)(Expression(Of System.Func(Of TEntity, System.Boolean)), Expression(Of System.Func(Of TEntity, TProperty)), System.Boolean, System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.FetchAsync<TProperty>(Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Boolean, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).FetchAsync(Of TProperty)(Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Boolean, CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.Insert(`0)
+  name: Insert(TEntity)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Insert__0_
+  commentId: M:WeihanLi.Common.Data.Repository`1.Insert(`0)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Insert(TEntity)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Insert(TEntity)
+  nameWithType: Repository<TEntity>.Insert(TEntity)
+  nameWithType.vb: Repository(Of TEntity).Insert(TEntity)
+- uid: WeihanLi.Common.Data.Repository`1.Insert(IEnumerable{`0})
+  name: Insert(IEnumerable<TEntity>)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Insert_IEnumerable__0__
+  commentId: M:WeihanLi.Common.Data.Repository`1.Insert(IEnumerable{`0})
+  name.vb: Insert(IEnumerable(Of TEntity))
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Insert(IEnumerable<TEntity>)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Insert(IEnumerable(Of TEntity))
+  nameWithType: Repository<TEntity>.Insert(IEnumerable<TEntity>)
+  nameWithType.vb: Repository(Of TEntity).Insert(IEnumerable(Of TEntity))
+- uid: WeihanLi.Common.Data.Repository`1.Insert*
+  name: Insert
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Insert_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.Insert
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Insert
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Insert
+  nameWithType: Repository<TEntity>.Insert
+  nameWithType.vb: Repository(Of TEntity).Insert
+- uid: WeihanLi.Common.Data.Repository`1.InsertAsync(`0,System.Threading.CancellationToken)
+  name: InsertAsync(TEntity, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_InsertAsync__0_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.InsertAsync(`0,System.Threading.CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.InsertAsync(TEntity, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).InsertAsync(TEntity, System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.InsertAsync(TEntity, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).InsertAsync(TEntity, CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.InsertAsync(IEnumerable{`0},System.Threading.CancellationToken)
+  name: InsertAsync(IEnumerable<TEntity>, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_InsertAsync_IEnumerable__0__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.InsertAsync(IEnumerable{`0},System.Threading.CancellationToken)
+  name.vb: InsertAsync(IEnumerable(Of TEntity), CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.InsertAsync(IEnumerable<TEntity>, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).InsertAsync(IEnumerable(Of TEntity), System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.InsertAsync(IEnumerable<TEntity>, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).InsertAsync(IEnumerable(Of TEntity), CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.InsertAsync*
+  name: InsertAsync
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_InsertAsync_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.InsertAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.InsertAsync
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).InsertAsync
+  nameWithType: Repository<TEntity>.InsertAsync
+  nameWithType.vb: Repository(Of TEntity).InsertAsync
+- uid: WeihanLi.Common.Data.Repository`1.LongCount(Expression{System.Func{`0,System.Boolean}})
+  name: LongCount(Expression<Func<TEntity, Boolean>>)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_LongCount_Expression_System_Func__0_System_Boolean___
+  commentId: M:WeihanLi.Common.Data.Repository`1.LongCount(Expression{System.Func{`0,System.Boolean}})
+  name.vb: LongCount(Expression(Of Func(Of TEntity, Boolean)))
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.LongCount(Expression<System.Func<TEntity, System.Boolean>>)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).LongCount(Expression(Of System.Func(Of TEntity, System.Boolean)))
+  nameWithType: Repository<TEntity>.LongCount(Expression<Func<TEntity, Boolean>>)
+  nameWithType.vb: Repository(Of TEntity).LongCount(Expression(Of Func(Of TEntity, Boolean)))
+- uid: WeihanLi.Common.Data.Repository`1.LongCount*
+  name: LongCount
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_LongCount_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.LongCount
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.LongCount
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).LongCount
+  nameWithType: Repository<TEntity>.LongCount
+  nameWithType.vb: Repository(Of TEntity).LongCount
+- uid: WeihanLi.Common.Data.Repository`1.LongCountAsync(Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  name: LongCountAsync(Expression<Func<TEntity, Boolean>>, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_LongCountAsync_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.LongCountAsync(Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  name.vb: LongCountAsync(Expression(Of Func(Of TEntity, Boolean)), CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.LongCountAsync(Expression<System.Func<TEntity, System.Boolean>>, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).LongCountAsync(Expression(Of System.Func(Of TEntity, System.Boolean)), System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.LongCountAsync(Expression<Func<TEntity, Boolean>>, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).LongCountAsync(Expression(Of Func(Of TEntity, Boolean)), CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.LongCountAsync*
+  name: LongCountAsync
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_LongCountAsync_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.LongCountAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.LongCountAsync
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).LongCountAsync
+  nameWithType: Repository<TEntity>.LongCountAsync
+  nameWithType.vb: Repository(Of TEntity).LongCountAsync
+- uid: WeihanLi.Common.Data.Repository`1.Paged*
+  name: Paged
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Paged_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.Paged
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Paged
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Paged
+  nameWithType: Repository<TEntity>.Paged
+  nameWithType.vb: Repository(Of TEntity).Paged
+- uid: WeihanLi.Common.Data.Repository`1.Paged``1(System.Int32,System.Int32,Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Boolean)
+  name: Paged<TProperty>(Int32, Int32, Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Boolean)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Paged__1_System_Int32_System_Int32_Expression_System_Func__0_System_Boolean___Expression_System_Func__0___0___System_Boolean_
+  commentId: M:WeihanLi.Common.Data.Repository`1.Paged``1(System.Int32,System.Int32,Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Boolean)
+  name.vb: Paged(Of TProperty)(Int32, Int32, Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Boolean)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Paged<TProperty>(System.Int32, System.Int32, Expression<System.Func<TEntity, System.Boolean>>, Expression<System.Func<TEntity, TProperty>>, System.Boolean)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Paged(Of TProperty)(System.Int32, System.Int32, Expression(Of System.Func(Of TEntity, System.Boolean)), Expression(Of System.Func(Of TEntity, TProperty)), System.Boolean)
+  nameWithType: Repository<TEntity>.Paged<TProperty>(Int32, Int32, Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Boolean)
+  nameWithType.vb: Repository(Of TEntity).Paged(Of TProperty)(Int32, Int32, Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Boolean)
+- uid: WeihanLi.Common.Data.Repository`1.PagedAsync*
+  name: PagedAsync
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_PagedAsync_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.PagedAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.PagedAsync
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).PagedAsync
+  nameWithType: Repository<TEntity>.PagedAsync
+  nameWithType.vb: Repository(Of TEntity).PagedAsync
+- uid: WeihanLi.Common.Data.Repository`1.PagedAsync``1(System.Int32,System.Int32,Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Boolean,System.Threading.CancellationToken)
+  name: PagedAsync<TProperty>(Int32, Int32, Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Boolean, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_PagedAsync__1_System_Int32_System_Int32_Expression_System_Func__0_System_Boolean___Expression_System_Func__0___0___System_Boolean_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.PagedAsync``1(System.Int32,System.Int32,Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Boolean,System.Threading.CancellationToken)
+  name.vb: PagedAsync(Of TProperty)(Int32, Int32, Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Boolean, CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.PagedAsync<TProperty>(System.Int32, System.Int32, Expression<System.Func<TEntity, System.Boolean>>, Expression<System.Func<TEntity, TProperty>>, System.Boolean, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).PagedAsync(Of TProperty)(System.Int32, System.Int32, Expression(Of System.Func(Of TEntity, System.Boolean)), Expression(Of System.Func(Of TEntity, TProperty)), System.Boolean, System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.PagedAsync<TProperty>(Int32, Int32, Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Boolean, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).PagedAsync(Of TProperty)(Int32, Int32, Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Boolean, CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.Select(Expression{System.Func{`0,System.Boolean}})
+  name: Select(Expression<Func<TEntity, Boolean>>)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Select_Expression_System_Func__0_System_Boolean___
+  commentId: M:WeihanLi.Common.Data.Repository`1.Select(Expression{System.Func{`0,System.Boolean}})
+  name.vb: Select(Expression(Of Func(Of TEntity, Boolean)))
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Select(Expression<System.Func<TEntity, System.Boolean>>)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Select(Expression(Of System.Func(Of TEntity, System.Boolean)))
+  nameWithType: Repository<TEntity>.Select(Expression<Func<TEntity, Boolean>>)
+  nameWithType.vb: Repository(Of TEntity).Select(Expression(Of Func(Of TEntity, Boolean)))
+- uid: WeihanLi.Common.Data.Repository`1.Select*
+  name: Select
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Select_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.Select
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Select
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Select
+  nameWithType: Repository<TEntity>.Select
+  nameWithType.vb: Repository(Of TEntity).Select
+- uid: WeihanLi.Common.Data.Repository`1.Select``1(System.Int32,Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Boolean)
+  name: Select<TProperty>(Int32, Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Boolean)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Select__1_System_Int32_Expression_System_Func__0_System_Boolean___Expression_System_Func__0___0___System_Boolean_
+  commentId: M:WeihanLi.Common.Data.Repository`1.Select``1(System.Int32,Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Boolean)
+  name.vb: Select(Of TProperty)(Int32, Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Boolean)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Select<TProperty>(System.Int32, Expression<System.Func<TEntity, System.Boolean>>, Expression<System.Func<TEntity, TProperty>>, System.Boolean)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Select(Of TProperty)(System.Int32, Expression(Of System.Func(Of TEntity, System.Boolean)), Expression(Of System.Func(Of TEntity, TProperty)), System.Boolean)
+  nameWithType: Repository<TEntity>.Select<TProperty>(Int32, Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Boolean)
+  nameWithType.vb: Repository(Of TEntity).Select(Of TProperty)(Int32, Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Boolean)
+- uid: WeihanLi.Common.Data.Repository`1.SelectAsync(Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  name: SelectAsync(Expression<Func<TEntity, Boolean>>, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_SelectAsync_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.SelectAsync(Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  name.vb: SelectAsync(Expression(Of Func(Of TEntity, Boolean)), CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.SelectAsync(Expression<System.Func<TEntity, System.Boolean>>, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).SelectAsync(Expression(Of System.Func(Of TEntity, System.Boolean)), System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.SelectAsync(Expression<Func<TEntity, Boolean>>, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).SelectAsync(Expression(Of Func(Of TEntity, Boolean)), CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.SelectAsync*
+  name: SelectAsync
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_SelectAsync_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.SelectAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.SelectAsync
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).SelectAsync
+  nameWithType: Repository<TEntity>.SelectAsync
+  nameWithType.vb: Repository(Of TEntity).SelectAsync
+- uid: WeihanLi.Common.Data.Repository`1.SelectAsync``1(System.Int32,Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Boolean,System.Threading.CancellationToken)
+  name: SelectAsync<TProperty>(Int32, Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Boolean, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_SelectAsync__1_System_Int32_Expression_System_Func__0_System_Boolean___Expression_System_Func__0___0___System_Boolean_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.SelectAsync``1(System.Int32,Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Boolean,System.Threading.CancellationToken)
+  name.vb: SelectAsync(Of TProperty)(Int32, Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Boolean, CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.SelectAsync<TProperty>(System.Int32, Expression<System.Func<TEntity, System.Boolean>>, Expression<System.Func<TEntity, TProperty>>, System.Boolean, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).SelectAsync(Of TProperty)(System.Int32, Expression(Of System.Func(Of TEntity, System.Boolean)), Expression(Of System.Func(Of TEntity, TProperty)), System.Boolean, System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.SelectAsync<TProperty>(Int32, Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Boolean, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).SelectAsync(Of TProperty)(Int32, Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Boolean, CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.Update(`0,Expression{System.Func{`0,System.Object}}[])
+  name: Update(TEntity, Expression<Func<TEntity, Object>>[])
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Update__0_Expression_System_Func__0_System_Object_____
+  commentId: M:WeihanLi.Common.Data.Repository`1.Update(`0,Expression{System.Func{`0,System.Object}}[])
+  name.vb: Update(TEntity, Expression(Of Func(Of TEntity, Object))())
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Update(TEntity, Expression<System.Func<TEntity, System.Object>>[])
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Update(TEntity, Expression(Of System.Func(Of TEntity, System.Object))())
+  nameWithType: Repository<TEntity>.Update(TEntity, Expression<Func<TEntity, Object>>[])
+  nameWithType.vb: Repository(Of TEntity).Update(TEntity, Expression(Of Func(Of TEntity, Object))())
+- uid: WeihanLi.Common.Data.Repository`1.Update(`0,System.String[])
+  name: Update(TEntity, String[])
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Update__0_System_String___
+  commentId: M:WeihanLi.Common.Data.Repository`1.Update(`0,System.String[])
+  name.vb: Update(TEntity, String())
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Update(TEntity, System.String[])
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Update(TEntity, System.String())
+  nameWithType: Repository<TEntity>.Update(TEntity, String[])
+  nameWithType.vb: Repository(Of TEntity).Update(TEntity, String())
+- uid: WeihanLi.Common.Data.Repository`1.Update(Expression{System.Func{`0,System.Boolean}},IDictionary{System.String,System.Object})
+  name: Update(Expression<Func<TEntity, Boolean>>, IDictionary<String, Object>)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Update_Expression_System_Func__0_System_Boolean___IDictionary_System_String_System_Object__
+  commentId: M:WeihanLi.Common.Data.Repository`1.Update(Expression{System.Func{`0,System.Boolean}},IDictionary{System.String,System.Object})
+  name.vb: Update(Expression(Of Func(Of TEntity, Boolean)), IDictionary(Of String, Object))
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Update(Expression<System.Func<TEntity, System.Boolean>>, IDictionary<System.String, System.Object>)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Update(Expression(Of System.Func(Of TEntity, System.Boolean)), IDictionary(Of System.String, System.Object))
+  nameWithType: Repository<TEntity>.Update(Expression<Func<TEntity, Boolean>>, IDictionary<String, Object>)
+  nameWithType.vb: Repository(Of TEntity).Update(Expression(Of Func(Of TEntity, Boolean)), IDictionary(Of String, Object))
+- uid: WeihanLi.Common.Data.Repository`1.Update*
+  name: Update
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Update_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.Update
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Update
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Update
+  nameWithType: Repository<TEntity>.Update
+  nameWithType.vb: Repository(Of TEntity).Update
+- uid: WeihanLi.Common.Data.Repository`1.Update``1(Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Object)
+  name: Update<TProperty>(Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Object)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_Update__1_Expression_System_Func__0_System_Boolean___Expression_System_Func__0___0___System_Object_
+  commentId: M:WeihanLi.Common.Data.Repository`1.Update``1(Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Object)
+  name.vb: Update(Of TProperty)(Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Object)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.Update<TProperty>(Expression<System.Func<TEntity, System.Boolean>>, Expression<System.Func<TEntity, TProperty>>, System.Object)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).Update(Of TProperty)(Expression(Of System.Func(Of TEntity, System.Boolean)), Expression(Of System.Func(Of TEntity, TProperty)), System.Object)
+  nameWithType: Repository<TEntity>.Update<TProperty>(Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Object)
+  nameWithType.vb: Repository(Of TEntity).Update(Of TProperty)(Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Object)
+- uid: WeihanLi.Common.Data.Repository`1.UpdateAsync(`0,Expression{System.Func{`0,System.Object}}[],System.Threading.CancellationToken)
+  name: UpdateAsync(TEntity, Expression<Func<TEntity, Object>>[], CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_UpdateAsync__0_Expression_System_Func__0_System_Object_____System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.UpdateAsync(`0,Expression{System.Func{`0,System.Object}}[],System.Threading.CancellationToken)
+  name.vb: UpdateAsync(TEntity, Expression(Of Func(Of TEntity, Object))(), CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.UpdateAsync(TEntity, Expression<System.Func<TEntity, System.Object>>[], System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).UpdateAsync(TEntity, Expression(Of System.Func(Of TEntity, System.Object))(), System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.UpdateAsync(TEntity, Expression<Func<TEntity, Object>>[], CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).UpdateAsync(TEntity, Expression(Of Func(Of TEntity, Object))(), CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.UpdateAsync(`0,System.String[],System.Threading.CancellationToken)
+  name: UpdateAsync(TEntity, String[], CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_UpdateAsync__0_System_String___System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.UpdateAsync(`0,System.String[],System.Threading.CancellationToken)
+  name.vb: UpdateAsync(TEntity, String(), CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.UpdateAsync(TEntity, System.String[], System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).UpdateAsync(TEntity, System.String(), System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.UpdateAsync(TEntity, String[], CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).UpdateAsync(TEntity, String(), CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.UpdateAsync(Expression{System.Func{`0,System.Boolean}},System.Nullable{IDictionary{System.String,System.Object}},System.Threading.CancellationToken)
+  name: UpdateAsync(Expression<Func<TEntity, Boolean>>, Nullable<IDictionary<String, Object>>, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_UpdateAsync_Expression_System_Func__0_System_Boolean___System_Nullable_IDictionary_System_String_System_Object___System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.UpdateAsync(Expression{System.Func{`0,System.Boolean}},System.Nullable{IDictionary{System.String,System.Object}},System.Threading.CancellationToken)
+  name.vb: UpdateAsync(Expression(Of Func(Of TEntity, Boolean)), Nullable(Of IDictionary(Of String, Object)), CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.UpdateAsync(Expression<System.Func<TEntity, System.Boolean>>, System.Nullable<IDictionary<System.String, System.Object>>, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).UpdateAsync(Expression(Of System.Func(Of TEntity, System.Boolean)), System.Nullable(Of IDictionary(Of System.String, System.Object)), System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.UpdateAsync(Expression<Func<TEntity, Boolean>>, Nullable<IDictionary<String, Object>>, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).UpdateAsync(Expression(Of Func(Of TEntity, Boolean)), Nullable(Of IDictionary(Of String, Object)), CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.UpdateAsync*
+  name: UpdateAsync
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_UpdateAsync_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.UpdateAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.UpdateAsync
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).UpdateAsync
+  nameWithType: Repository<TEntity>.UpdateAsync
+  nameWithType.vb: Repository(Of TEntity).UpdateAsync
+- uid: WeihanLi.Common.Data.Repository`1.UpdateAsync``1(Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Object,System.Threading.CancellationToken)
+  name: UpdateAsync<TProperty>(Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Object, CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_UpdateAsync__1_Expression_System_Func__0_System_Boolean___Expression_System_Func__0___0___System_Object_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.UpdateAsync``1(Expression{System.Func{`0,System.Boolean}},Expression{System.Func{`0,``0}},System.Object,System.Threading.CancellationToken)
+  name.vb: UpdateAsync(Of TProperty)(Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Object, CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.UpdateAsync<TProperty>(Expression<System.Func<TEntity, System.Boolean>>, Expression<System.Func<TEntity, TProperty>>, System.Object, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).UpdateAsync(Of TProperty)(Expression(Of System.Func(Of TEntity, System.Boolean)), Expression(Of System.Func(Of TEntity, TProperty)), System.Object, System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.UpdateAsync<TProperty>(Expression<Func<TEntity, Boolean>>, Expression<Func<TEntity, TProperty>>, Object, CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).UpdateAsync(Of TProperty)(Expression(Of Func(Of TEntity, Boolean)), Expression(Of Func(Of TEntity, TProperty)), Object, CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.UpdateWithout(`0,Expression{System.Func{`0,System.Object}}[])
+  name: UpdateWithout(TEntity, Expression<Func<TEntity, Object>>[])
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_UpdateWithout__0_Expression_System_Func__0_System_Object_____
+  commentId: M:WeihanLi.Common.Data.Repository`1.UpdateWithout(`0,Expression{System.Func{`0,System.Object}}[])
+  name.vb: UpdateWithout(TEntity, Expression(Of Func(Of TEntity, Object))())
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.UpdateWithout(TEntity, Expression<System.Func<TEntity, System.Object>>[])
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).UpdateWithout(TEntity, Expression(Of System.Func(Of TEntity, System.Object))())
+  nameWithType: Repository<TEntity>.UpdateWithout(TEntity, Expression<Func<TEntity, Object>>[])
+  nameWithType.vb: Repository(Of TEntity).UpdateWithout(TEntity, Expression(Of Func(Of TEntity, Object))())
+- uid: WeihanLi.Common.Data.Repository`1.UpdateWithout(`0,System.String[])
+  name: UpdateWithout(TEntity, String[])
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_UpdateWithout__0_System_String___
+  commentId: M:WeihanLi.Common.Data.Repository`1.UpdateWithout(`0,System.String[])
+  name.vb: UpdateWithout(TEntity, String())
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.UpdateWithout(TEntity, System.String[])
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).UpdateWithout(TEntity, System.String())
+  nameWithType: Repository<TEntity>.UpdateWithout(TEntity, String[])
+  nameWithType.vb: Repository(Of TEntity).UpdateWithout(TEntity, String())
+- uid: WeihanLi.Common.Data.Repository`1.UpdateWithout*
+  name: UpdateWithout
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_UpdateWithout_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.UpdateWithout
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.UpdateWithout
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).UpdateWithout
+  nameWithType: Repository<TEntity>.UpdateWithout
+  nameWithType.vb: Repository(Of TEntity).UpdateWithout
+- uid: WeihanLi.Common.Data.Repository`1.UpdateWithoutAsync(`0,Expression{System.Func{`0,System.Object}}[],System.Threading.CancellationToken)
+  name: UpdateWithoutAsync(TEntity, Expression<Func<TEntity, Object>>[], CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_UpdateWithoutAsync__0_Expression_System_Func__0_System_Object_____System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.UpdateWithoutAsync(`0,Expression{System.Func{`0,System.Object}}[],System.Threading.CancellationToken)
+  name.vb: UpdateWithoutAsync(TEntity, Expression(Of Func(Of TEntity, Object))(), CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.UpdateWithoutAsync(TEntity, Expression<System.Func<TEntity, System.Object>>[], System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).UpdateWithoutAsync(TEntity, Expression(Of System.Func(Of TEntity, System.Object))(), System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.UpdateWithoutAsync(TEntity, Expression<Func<TEntity, Object>>[], CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).UpdateWithoutAsync(TEntity, Expression(Of Func(Of TEntity, Object))(), CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.UpdateWithoutAsync(`0,System.String[],System.Threading.CancellationToken)
+  name: UpdateWithoutAsync(TEntity, String[], CancellationToken)
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_UpdateWithoutAsync__0_System_String___System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Data.Repository`1.UpdateWithoutAsync(`0,System.String[],System.Threading.CancellationToken)
+  name.vb: UpdateWithoutAsync(TEntity, String(), CancellationToken)
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.UpdateWithoutAsync(TEntity, System.String[], System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).UpdateWithoutAsync(TEntity, System.String(), System.Threading.CancellationToken)
+  nameWithType: Repository<TEntity>.UpdateWithoutAsync(TEntity, String[], CancellationToken)
+  nameWithType.vb: Repository(Of TEntity).UpdateWithoutAsync(TEntity, String(), CancellationToken)
+- uid: WeihanLi.Common.Data.Repository`1.UpdateWithoutAsync*
+  name: UpdateWithoutAsync
+  href: docs/api/WeihanLi.Common.Data.Repository-1.html#WeihanLi_Common_Data_Repository_1_UpdateWithoutAsync_
+  commentId: Overload:WeihanLi.Common.Data.Repository`1.UpdateWithoutAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Data.Repository<TEntity>.UpdateWithoutAsync
+  fullName.vb: WeihanLi.Common.Data.Repository(Of TEntity).UpdateWithoutAsync
+  nameWithType: Repository<TEntity>.UpdateWithoutAsync
+  nameWithType.vb: Repository(Of TEntity).UpdateWithoutAsync
 - uid: WeihanLi.Common.Data.RepositoryExtension
   name: RepositoryExtension
   href: docs/api/WeihanLi.Common.Data.RepositoryExtension.html
@@ -4834,6 +5481,22 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.DependencyResolver.Current
   nameWithType: DependencyResolver.Current
+- uid: WeihanLi.Common.DependencyResolver.ResolveRequiredService*
+  name: ResolveRequiredService
+  href: docs/api/WeihanLi.Common.DependencyResolver.html#WeihanLi_Common_DependencyResolver_ResolveRequiredService_
+  commentId: Overload:WeihanLi.Common.DependencyResolver.ResolveRequiredService
+  isSpec: "True"
+  fullName: WeihanLi.Common.DependencyResolver.ResolveRequiredService
+  nameWithType: DependencyResolver.ResolveRequiredService
+- uid: WeihanLi.Common.DependencyResolver.ResolveRequiredService``1
+  name: ResolveRequiredService<TService>()
+  href: docs/api/WeihanLi.Common.DependencyResolver.html#WeihanLi_Common_DependencyResolver_ResolveRequiredService__1
+  commentId: M:WeihanLi.Common.DependencyResolver.ResolveRequiredService``1
+  name.vb: ResolveRequiredService(Of TService)()
+  fullName: WeihanLi.Common.DependencyResolver.ResolveRequiredService<TService>()
+  fullName.vb: WeihanLi.Common.DependencyResolver.ResolveRequiredService(Of TService)()
+  nameWithType: DependencyResolver.ResolveRequiredService<TService>()
+  nameWithType.vb: DependencyResolver.ResolveRequiredService(Of TService)()
 - uid: WeihanLi.Common.DependencyResolver.ResolveService*
   name: ResolveService
   href: docs/api/WeihanLi.Common.DependencyResolver.html#WeihanLi_Common_DependencyResolver_ResolveService_
@@ -10423,7 +11086,14 @@ references:
 - uid: WeihanLi.Common.Helpers.SecurityHelper.Random
   name: Random
   href: docs/api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_Random
-  commentId: F:WeihanLi.Common.Helpers.SecurityHelper.Random
+  commentId: P:WeihanLi.Common.Helpers.SecurityHelper.Random
+  fullName: WeihanLi.Common.Helpers.SecurityHelper.Random
+  nameWithType: SecurityHelper.Random
+- uid: WeihanLi.Common.Helpers.SecurityHelper.Random*
+  name: Random
+  href: docs/api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_Random_
+  commentId: Overload:WeihanLi.Common.Helpers.SecurityHelper.Random
+  isSpec: "True"
   fullName: WeihanLi.Common.Helpers.SecurityHelper.Random
   nameWithType: SecurityHelper.Random
 - uid: WeihanLi.Common.Helpers.SecurityHelper.SHA1(System.String,System.Boolean)
@@ -10715,28 +11385,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.StringHelper.ToSnakeCase
   nameWithType: StringHelper.ToSnakeCase
-- uid: WeihanLi.Common.Helpers.TaskHelper
-  name: TaskHelper
-  href: docs/api/WeihanLi.Common.Helpers.TaskHelper.html
-  commentId: T:WeihanLi.Common.Helpers.TaskHelper
-  fullName: WeihanLi.Common.Helpers.TaskHelper
-  nameWithType: TaskHelper
-- uid: WeihanLi.Common.Helpers.TaskHelper.FromDefault*
-  name: FromDefault
-  href: docs/api/WeihanLi.Common.Helpers.TaskHelper.html#WeihanLi_Common_Helpers_TaskHelper_FromDefault_
-  commentId: Overload:WeihanLi.Common.Helpers.TaskHelper.FromDefault
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.TaskHelper.FromDefault
-  nameWithType: TaskHelper.FromDefault
-- uid: WeihanLi.Common.Helpers.TaskHelper.FromDefault``1
-  name: FromDefault<T>()
-  href: docs/api/WeihanLi.Common.Helpers.TaskHelper.html#WeihanLi_Common_Helpers_TaskHelper_FromDefault__1
-  commentId: M:WeihanLi.Common.Helpers.TaskHelper.FromDefault``1
-  name.vb: FromDefault(Of T)()
-  fullName: WeihanLi.Common.Helpers.TaskHelper.FromDefault<T>()
-  fullName.vb: WeihanLi.Common.Helpers.TaskHelper.FromDefault(Of T)()
-  nameWithType: TaskHelper.FromDefault<T>()
-  nameWithType.vb: TaskHelper.FromDefault(Of T)()
 - uid: WeihanLi.Common.Helpers.TotpHelper
   name: TotpHelper
   href: docs/api/WeihanLi.Common.Helpers.TotpHelper.html
@@ -10825,6 +11473,31 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.TotpHelper.VerifyCode
   nameWithType: TotpHelper.VerifyCode
+- uid: WeihanLi.Common.Helpers.TypeHelper
+  name: TypeHelper
+  href: docs/api/WeihanLi.Common.Helpers.TypeHelper.html
+  commentId: T:WeihanLi.Common.Helpers.TypeHelper
+  fullName: WeihanLi.Common.Helpers.TypeHelper
+  nameWithType: TypeHelper
+- uid: WeihanLi.Common.Helpers.TypeHelper.GetTypeDisplayName(System.Object,System.Boolean)
+  name: GetTypeDisplayName(Object, Boolean)
+  href: docs/api/WeihanLi.Common.Helpers.TypeHelper.html#WeihanLi_Common_Helpers_TypeHelper_GetTypeDisplayName_System_Object_System_Boolean_
+  commentId: M:WeihanLi.Common.Helpers.TypeHelper.GetTypeDisplayName(System.Object,System.Boolean)
+  fullName: WeihanLi.Common.Helpers.TypeHelper.GetTypeDisplayName(System.Object, System.Boolean)
+  nameWithType: TypeHelper.GetTypeDisplayName(Object, Boolean)
+- uid: WeihanLi.Common.Helpers.TypeHelper.GetTypeDisplayName(System.Type,System.Boolean,System.Boolean,System.Boolean,System.Char)
+  name: GetTypeDisplayName(Type, Boolean, Boolean, Boolean, Char)
+  href: docs/api/WeihanLi.Common.Helpers.TypeHelper.html#WeihanLi_Common_Helpers_TypeHelper_GetTypeDisplayName_System_Type_System_Boolean_System_Boolean_System_Boolean_System_Char_
+  commentId: M:WeihanLi.Common.Helpers.TypeHelper.GetTypeDisplayName(System.Type,System.Boolean,System.Boolean,System.Boolean,System.Char)
+  fullName: WeihanLi.Common.Helpers.TypeHelper.GetTypeDisplayName(System.Type, System.Boolean, System.Boolean, System.Boolean, System.Char)
+  nameWithType: TypeHelper.GetTypeDisplayName(Type, Boolean, Boolean, Boolean, Char)
+- uid: WeihanLi.Common.Helpers.TypeHelper.GetTypeDisplayName*
+  name: GetTypeDisplayName
+  href: docs/api/WeihanLi.Common.Helpers.TypeHelper.html#WeihanLi_Common_Helpers_TypeHelper_GetTypeDisplayName_
+  commentId: Overload:WeihanLi.Common.Helpers.TypeHelper.GetTypeDisplayName
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.TypeHelper.GetTypeDisplayName
+  nameWithType: TypeHelper.GetTypeDisplayName
 - uid: WeihanLi.Common.Helpers.ValidateHelper
   name: ValidateHelper
   href: docs/api/WeihanLi.Common.Helpers.ValidateHelper.html
@@ -12618,6 +13291,25 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.AddConsole
   nameWithType: ConsoleLoggingProviderExtensions.AddConsole
+- uid: WeihanLi.Common.Logging.GenericLoggerOptions
+  name: GenericLoggerOptions
+  href: docs/api/WeihanLi.Common.Logging.GenericLoggerOptions.html
+  commentId: T:WeihanLi.Common.Logging.GenericLoggerOptions
+  fullName: WeihanLi.Common.Logging.GenericLoggerOptions
+  nameWithType: GenericLoggerOptions
+- uid: WeihanLi.Common.Logging.GenericLoggerOptions.FullNamePredict
+  name: FullNamePredict
+  href: docs/api/WeihanLi.Common.Logging.GenericLoggerOptions.html#WeihanLi_Common_Logging_GenericLoggerOptions_FullNamePredict
+  commentId: P:WeihanLi.Common.Logging.GenericLoggerOptions.FullNamePredict
+  fullName: WeihanLi.Common.Logging.GenericLoggerOptions.FullNamePredict
+  nameWithType: GenericLoggerOptions.FullNamePredict
+- uid: WeihanLi.Common.Logging.GenericLoggerOptions.FullNamePredict*
+  name: FullNamePredict
+  href: docs/api/WeihanLi.Common.Logging.GenericLoggerOptions.html#WeihanLi_Common_Logging_GenericLoggerOptions_FullNamePredict_
+  commentId: Overload:WeihanLi.Common.Logging.GenericLoggerOptions.FullNamePredict
+  isSpec: "True"
+  fullName: WeihanLi.Common.Logging.GenericLoggerOptions.FullNamePredict
+  nameWithType: GenericLoggerOptions.FullNamePredict
 - uid: WeihanLi.Common.Logging.IConsoleLogFormatter
   name: IConsoleLogFormatter
   href: docs/api/WeihanLi.Common.Logging.IConsoleLogFormatter.html
@@ -14508,6 +15200,22 @@ references:
   fullName.vb: WeihanLi.Common.Models.ResultModel.Success(Of T)(T)
   nameWithType: ResultModel.Success<T>(T)
   nameWithType.vb: ResultModel.Success(Of T)(T)
+- uid: WeihanLi.Common.Models.ResultModel.ToResult*
+  name: ToResult
+  href: docs/api/WeihanLi.Common.Models.ResultModel.html#WeihanLi_Common_Models_ResultModel_ToResult_
+  commentId: Overload:WeihanLi.Common.Models.ResultModel.ToResult
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.ResultModel.ToResult
+  nameWithType: ResultModel.ToResult
+- uid: WeihanLi.Common.Models.ResultModel.ToResult``1(``0)
+  name: ToResult<T>(T)
+  href: docs/api/WeihanLi.Common.Models.ResultModel.html#WeihanLi_Common_Models_ResultModel_ToResult__1___0_
+  commentId: M:WeihanLi.Common.Models.ResultModel.ToResult``1(``0)
+  name.vb: ToResult(Of T)(T)
+  fullName: WeihanLi.Common.Models.ResultModel.ToResult<T>(T)
+  fullName.vb: WeihanLi.Common.Models.ResultModel.ToResult(Of T)(T)
+  nameWithType: ResultModel.ToResult<T>(T)
+  nameWithType.vb: ResultModel.ToResult(Of T)(T)
 - uid: WeihanLi.Common.Models.ResultModel`1
   name: ResultModel<T>
   href: docs/api/WeihanLi.Common.Models.ResultModel-1.html
@@ -14534,57 +15242,24 @@ references:
   fullName.vb: WeihanLi.Common.Models.ResultModel(Of T).Result
   nameWithType: ResultModel<T>.Result
   nameWithType.vb: ResultModel(Of T).Result
-- uid: WeihanLi.Common.Models.ResultModel`1.SetProcessFailResult
-  name: SetProcessFailResult()
-  href: docs/api/WeihanLi.Common.Models.ResultModel-1.html#WeihanLi_Common_Models_ResultModel_1_SetProcessFailResult
-  commentId: M:WeihanLi.Common.Models.ResultModel`1.SetProcessFailResult
-  fullName: WeihanLi.Common.Models.ResultModel<T>.SetProcessFailResult()
-  fullName.vb: WeihanLi.Common.Models.ResultModel(Of T).SetProcessFailResult()
-  nameWithType: ResultModel<T>.SetProcessFailResult()
-  nameWithType.vb: ResultModel(Of T).SetProcessFailResult()
-- uid: WeihanLi.Common.Models.ResultModel`1.SetProcessFailResult*
-  name: SetProcessFailResult
-  href: docs/api/WeihanLi.Common.Models.ResultModel-1.html#WeihanLi_Common_Models_ResultModel_1_SetProcessFailResult_
-  commentId: Overload:WeihanLi.Common.Models.ResultModel`1.SetProcessFailResult
+- uid: WeihanLi.Common.Models.ResultModel`1.ToResult*
+  name: ToResult
+  href: docs/api/WeihanLi.Common.Models.ResultModel-1.html#WeihanLi_Common_Models_ResultModel_1_ToResult_
+  commentId: Overload:WeihanLi.Common.Models.ResultModel`1.ToResult
   isSpec: "True"
-  fullName: WeihanLi.Common.Models.ResultModel<T>.SetProcessFailResult
-  fullName.vb: WeihanLi.Common.Models.ResultModel(Of T).SetProcessFailResult
-  nameWithType: ResultModel<T>.SetProcessFailResult
-  nameWithType.vb: ResultModel(Of T).SetProcessFailResult
-- uid: WeihanLi.Common.Models.ResultModel`1.SetRequestErrorResult(System.String)
-  name: SetRequestErrorResult(String)
-  href: docs/api/WeihanLi.Common.Models.ResultModel-1.html#WeihanLi_Common_Models_ResultModel_1_SetRequestErrorResult_System_String_
-  commentId: M:WeihanLi.Common.Models.ResultModel`1.SetRequestErrorResult(System.String)
-  fullName: WeihanLi.Common.Models.ResultModel<T>.SetRequestErrorResult(System.String)
-  fullName.vb: WeihanLi.Common.Models.ResultModel(Of T).SetRequestErrorResult(System.String)
-  nameWithType: ResultModel<T>.SetRequestErrorResult(String)
-  nameWithType.vb: ResultModel(Of T).SetRequestErrorResult(String)
-- uid: WeihanLi.Common.Models.ResultModel`1.SetRequestErrorResult*
-  name: SetRequestErrorResult
-  href: docs/api/WeihanLi.Common.Models.ResultModel-1.html#WeihanLi_Common_Models_ResultModel_1_SetRequestErrorResult_
-  commentId: Overload:WeihanLi.Common.Models.ResultModel`1.SetRequestErrorResult
-  isSpec: "True"
-  fullName: WeihanLi.Common.Models.ResultModel<T>.SetRequestErrorResult
-  fullName.vb: WeihanLi.Common.Models.ResultModel(Of T).SetRequestErrorResult
-  nameWithType: ResultModel<T>.SetRequestErrorResult
-  nameWithType.vb: ResultModel(Of T).SetRequestErrorResult
-- uid: WeihanLi.Common.Models.ResultModel`1.SetSuccessResult(`0)
-  name: SetSuccessResult(T)
-  href: docs/api/WeihanLi.Common.Models.ResultModel-1.html#WeihanLi_Common_Models_ResultModel_1_SetSuccessResult__0_
-  commentId: M:WeihanLi.Common.Models.ResultModel`1.SetSuccessResult(`0)
-  fullName: WeihanLi.Common.Models.ResultModel<T>.SetSuccessResult(T)
-  fullName.vb: WeihanLi.Common.Models.ResultModel(Of T).SetSuccessResult(T)
-  nameWithType: ResultModel<T>.SetSuccessResult(T)
-  nameWithType.vb: ResultModel(Of T).SetSuccessResult(T)
-- uid: WeihanLi.Common.Models.ResultModel`1.SetSuccessResult*
-  name: SetSuccessResult
-  href: docs/api/WeihanLi.Common.Models.ResultModel-1.html#WeihanLi_Common_Models_ResultModel_1_SetSuccessResult_
-  commentId: Overload:WeihanLi.Common.Models.ResultModel`1.SetSuccessResult
-  isSpec: "True"
-  fullName: WeihanLi.Common.Models.ResultModel<T>.SetSuccessResult
-  fullName.vb: WeihanLi.Common.Models.ResultModel(Of T).SetSuccessResult
-  nameWithType: ResultModel<T>.SetSuccessResult
-  nameWithType.vb: ResultModel(Of T).SetSuccessResult
+  fullName: WeihanLi.Common.Models.ResultModel<T>.ToResult
+  fullName.vb: WeihanLi.Common.Models.ResultModel(Of T).ToResult
+  nameWithType: ResultModel<T>.ToResult
+  nameWithType.vb: ResultModel(Of T).ToResult
+- uid: WeihanLi.Common.Models.ResultModel`1.ToResult``1(System.Func{`0,``0})
+  name: ToResult<T1>(Func<T, T1>)
+  href: docs/api/WeihanLi.Common.Models.ResultModel-1.html#WeihanLi_Common_Models_ResultModel_1_ToResult__1_System_Func__0___0__
+  commentId: M:WeihanLi.Common.Models.ResultModel`1.ToResult``1(System.Func{`0,``0})
+  name.vb: ToResult(Of T1)(Func(Of T, T1))
+  fullName: WeihanLi.Common.Models.ResultModel<T>.ToResult<T1>(System.Func<T, T1>)
+  fullName.vb: WeihanLi.Common.Models.ResultModel(Of T).ToResult(Of T1)(System.Func(Of T, T1))
+  nameWithType: ResultModel<T>.ToResult<T1>(Func<T, T1>)
+  nameWithType.vb: ResultModel(Of T).ToResult(Of T1)(Func(Of T, T1))
 - uid: WeihanLi.Common.Models.ResultStatus
   name: ResultStatus
   href: docs/api/WeihanLi.Common.Models.ResultStatus.html
@@ -14933,6 +15608,55 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Models.StringValueDictionary.Inequality
   nameWithType: StringValueDictionary.Inequality
+- uid: WeihanLi.Common.Models.TenantInfo
+  name: TenantInfo
+  href: docs/api/WeihanLi.Common.Models.TenantInfo.html
+  commentId: T:WeihanLi.Common.Models.TenantInfo
+  fullName: WeihanLi.Common.Models.TenantInfo
+  nameWithType: TenantInfo
+- uid: WeihanLi.Common.Models.TenantInfo`1
+  name: TenantInfo<TKey>
+  href: docs/api/WeihanLi.Common.Models.TenantInfo-1.html
+  commentId: T:WeihanLi.Common.Models.TenantInfo`1
+  name.vb: TenantInfo(Of TKey)
+  fullName: WeihanLi.Common.Models.TenantInfo<TKey>
+  fullName.vb: WeihanLi.Common.Models.TenantInfo(Of TKey)
+  nameWithType: TenantInfo<TKey>
+  nameWithType.vb: TenantInfo(Of TKey)
+- uid: WeihanLi.Common.Models.TenantInfo`1.TenantId
+  name: TenantId
+  href: docs/api/WeihanLi.Common.Models.TenantInfo-1.html#WeihanLi_Common_Models_TenantInfo_1_TenantId
+  commentId: P:WeihanLi.Common.Models.TenantInfo`1.TenantId
+  fullName: WeihanLi.Common.Models.TenantInfo<TKey>.TenantId
+  fullName.vb: WeihanLi.Common.Models.TenantInfo(Of TKey).TenantId
+  nameWithType: TenantInfo<TKey>.TenantId
+  nameWithType.vb: TenantInfo(Of TKey).TenantId
+- uid: WeihanLi.Common.Models.TenantInfo`1.TenantId*
+  name: TenantId
+  href: docs/api/WeihanLi.Common.Models.TenantInfo-1.html#WeihanLi_Common_Models_TenantInfo_1_TenantId_
+  commentId: Overload:WeihanLi.Common.Models.TenantInfo`1.TenantId
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.TenantInfo<TKey>.TenantId
+  fullName.vb: WeihanLi.Common.Models.TenantInfo(Of TKey).TenantId
+  nameWithType: TenantInfo<TKey>.TenantId
+  nameWithType.vb: TenantInfo(Of TKey).TenantId
+- uid: WeihanLi.Common.Models.TenantInfo`1.TenantName
+  name: TenantName
+  href: docs/api/WeihanLi.Common.Models.TenantInfo-1.html#WeihanLi_Common_Models_TenantInfo_1_TenantName
+  commentId: P:WeihanLi.Common.Models.TenantInfo`1.TenantName
+  fullName: WeihanLi.Common.Models.TenantInfo<TKey>.TenantName
+  fullName.vb: WeihanLi.Common.Models.TenantInfo(Of TKey).TenantName
+  nameWithType: TenantInfo<TKey>.TenantName
+  nameWithType.vb: TenantInfo(Of TKey).TenantName
+- uid: WeihanLi.Common.Models.TenantInfo`1.TenantName*
+  name: TenantName
+  href: docs/api/WeihanLi.Common.Models.TenantInfo-1.html#WeihanLi_Common_Models_TenantInfo_1_TenantName_
+  commentId: Overload:WeihanLi.Common.Models.TenantInfo`1.TenantName
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.TenantInfo<TKey>.TenantName
+  fullName.vb: WeihanLi.Common.Models.TenantInfo(Of TKey).TenantName
+  nameWithType: TenantInfo<TKey>.TenantName
+  nameWithType.vb: TenantInfo(Of TKey).TenantName
 - uid: WeihanLi.Common.Models.ValidateResultModel
   name: ValidateResultModel
   href: docs/api/WeihanLi.Common.Models.ValidateResultModel.html
@@ -15661,6 +16385,38 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Services.ICancellationTokenProvider.GetCancellationToken
   nameWithType: ICancellationTokenProvider.GetCancellationToken
+- uid: WeihanLi.Common.Services.ITenantProvider
+  name: ITenantProvider
+  href: docs/api/WeihanLi.Common.Services.ITenantProvider.html
+  commentId: T:WeihanLi.Common.Services.ITenantProvider
+  fullName: WeihanLi.Common.Services.ITenantProvider
+  nameWithType: ITenantProvider
+- uid: WeihanLi.Common.Services.ITenantProvider.GetTenantId
+  name: GetTenantId()
+  href: docs/api/WeihanLi.Common.Services.ITenantProvider.html#WeihanLi_Common_Services_ITenantProvider_GetTenantId
+  commentId: M:WeihanLi.Common.Services.ITenantProvider.GetTenantId
+  fullName: WeihanLi.Common.Services.ITenantProvider.GetTenantId()
+  nameWithType: ITenantProvider.GetTenantId()
+- uid: WeihanLi.Common.Services.ITenantProvider.GetTenantId*
+  name: GetTenantId
+  href: docs/api/WeihanLi.Common.Services.ITenantProvider.html#WeihanLi_Common_Services_ITenantProvider_GetTenantId_
+  commentId: Overload:WeihanLi.Common.Services.ITenantProvider.GetTenantId
+  isSpec: "True"
+  fullName: WeihanLi.Common.Services.ITenantProvider.GetTenantId
+  nameWithType: ITenantProvider.GetTenantId
+- uid: WeihanLi.Common.Services.ITenantProvider.GetTenantInfo
+  name: GetTenantInfo()
+  href: docs/api/WeihanLi.Common.Services.ITenantProvider.html#WeihanLi_Common_Services_ITenantProvider_GetTenantInfo
+  commentId: M:WeihanLi.Common.Services.ITenantProvider.GetTenantInfo
+  fullName: WeihanLi.Common.Services.ITenantProvider.GetTenantInfo()
+  nameWithType: ITenantProvider.GetTenantInfo()
+- uid: WeihanLi.Common.Services.ITenantProvider.GetTenantInfo*
+  name: GetTenantInfo
+  href: docs/api/WeihanLi.Common.Services.ITenantProvider.html#WeihanLi_Common_Services_ITenantProvider_GetTenantInfo_
+  commentId: Overload:WeihanLi.Common.Services.ITenantProvider.GetTenantInfo
+  isSpec: "True"
+  fullName: WeihanLi.Common.Services.ITenantProvider.GetTenantInfo
+  nameWithType: ITenantProvider.GetTenantInfo
 - uid: WeihanLi.Common.Services.IUserIdProvider
   name: IUserIdProvider
   href: docs/api/WeihanLi.Common.Services.IUserIdProvider.html
@@ -15721,6 +16477,44 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Services.NullCancellationTokenProvider.GetCancellationToken
   nameWithType: NullCancellationTokenProvider.GetCancellationToken
+- uid: WeihanLi.Common.Services.TenantIdProviderExtensions
+  name: TenantIdProviderExtensions
+  href: docs/api/WeihanLi.Common.Services.TenantIdProviderExtensions.html
+  commentId: T:WeihanLi.Common.Services.TenantIdProviderExtensions
+  fullName: WeihanLi.Common.Services.TenantIdProviderExtensions
+  nameWithType: TenantIdProviderExtensions
+- uid: WeihanLi.Common.Services.TenantIdProviderExtensions.GetTenantId*
+  name: GetTenantId
+  href: docs/api/WeihanLi.Common.Services.TenantIdProviderExtensions.html#WeihanLi_Common_Services_TenantIdProviderExtensions_GetTenantId_
+  commentId: Overload:WeihanLi.Common.Services.TenantIdProviderExtensions.GetTenantId
+  isSpec: "True"
+  fullName: WeihanLi.Common.Services.TenantIdProviderExtensions.GetTenantId
+  nameWithType: TenantIdProviderExtensions.GetTenantId
+- uid: WeihanLi.Common.Services.TenantIdProviderExtensions.GetTenantId``1(WeihanLi.Common.Services.ITenantProvider,``0)
+  name: GetTenantId<T>(ITenantProvider, T)
+  href: docs/api/WeihanLi.Common.Services.TenantIdProviderExtensions.html#WeihanLi_Common_Services_TenantIdProviderExtensions_GetTenantId__1_WeihanLi_Common_Services_ITenantProvider___0_
+  commentId: M:WeihanLi.Common.Services.TenantIdProviderExtensions.GetTenantId``1(WeihanLi.Common.Services.ITenantProvider,``0)
+  name.vb: GetTenantId(Of T)(ITenantProvider, T)
+  fullName: WeihanLi.Common.Services.TenantIdProviderExtensions.GetTenantId<T>(WeihanLi.Common.Services.ITenantProvider, T)
+  fullName.vb: WeihanLi.Common.Services.TenantIdProviderExtensions.GetTenantId(Of T)(WeihanLi.Common.Services.ITenantProvider, T)
+  nameWithType: TenantIdProviderExtensions.GetTenantId<T>(ITenantProvider, T)
+  nameWithType.vb: TenantIdProviderExtensions.GetTenantId(Of T)(ITenantProvider, T)
+- uid: WeihanLi.Common.Services.TenantIdProviderExtensions.TryGetTenantId*
+  name: TryGetTenantId
+  href: docs/api/WeihanLi.Common.Services.TenantIdProviderExtensions.html#WeihanLi_Common_Services_TenantIdProviderExtensions_TryGetTenantId_
+  commentId: Overload:WeihanLi.Common.Services.TenantIdProviderExtensions.TryGetTenantId
+  isSpec: "True"
+  fullName: WeihanLi.Common.Services.TenantIdProviderExtensions.TryGetTenantId
+  nameWithType: TenantIdProviderExtensions.TryGetTenantId
+- uid: WeihanLi.Common.Services.TenantIdProviderExtensions.TryGetTenantId``1(WeihanLi.Common.Services.ITenantProvider,``0@,``0)
+  name: TryGetTenantId<T>(ITenantProvider, out T, T)
+  href: docs/api/WeihanLi.Common.Services.TenantIdProviderExtensions.html#WeihanLi_Common_Services_TenantIdProviderExtensions_TryGetTenantId__1_WeihanLi_Common_Services_ITenantProvider___0____0_
+  commentId: M:WeihanLi.Common.Services.TenantIdProviderExtensions.TryGetTenantId``1(WeihanLi.Common.Services.ITenantProvider,``0@,``0)
+  name.vb: TryGetTenantId(Of T)(ITenantProvider, ByRef T, T)
+  fullName: WeihanLi.Common.Services.TenantIdProviderExtensions.TryGetTenantId<T>(WeihanLi.Common.Services.ITenantProvider, out T, T)
+  fullName.vb: WeihanLi.Common.Services.TenantIdProviderExtensions.TryGetTenantId(Of T)(WeihanLi.Common.Services.ITenantProvider, ByRef T, T)
+  nameWithType: TenantIdProviderExtensions.TryGetTenantId<T>(ITenantProvider, out T, T)
+  nameWithType.vb: TenantIdProviderExtensions.TryGetTenantId(Of T)(ITenantProvider, ByRef T, T)
 - uid: WeihanLi.Common.Services.UserIdProviderExtensions
   name: UserIdProviderExtensions
   href: docs/api/WeihanLi.Common.Services.UserIdProviderExtensions.html
@@ -15734,15 +16528,15 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId
   nameWithType: UserIdProviderExtensions.GetUserId
-- uid: WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId``1(WeihanLi.Common.Services.IUserIdProvider)
-  name: GetUserId<T>(IUserIdProvider)
-  href: docs/api/WeihanLi.Common.Services.UserIdProviderExtensions.html#WeihanLi_Common_Services_UserIdProviderExtensions_GetUserId__1_WeihanLi_Common_Services_IUserIdProvider_
-  commentId: M:WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId``1(WeihanLi.Common.Services.IUserIdProvider)
-  name.vb: GetUserId(Of T)(IUserIdProvider)
-  fullName: WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId<T>(WeihanLi.Common.Services.IUserIdProvider)
-  fullName.vb: WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId(Of T)(WeihanLi.Common.Services.IUserIdProvider)
-  nameWithType: UserIdProviderExtensions.GetUserId<T>(IUserIdProvider)
-  nameWithType.vb: UserIdProviderExtensions.GetUserId(Of T)(IUserIdProvider)
+- uid: WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId``1(WeihanLi.Common.Services.IUserIdProvider,``0)
+  name: GetUserId<T>(IUserIdProvider, T)
+  href: docs/api/WeihanLi.Common.Services.UserIdProviderExtensions.html#WeihanLi_Common_Services_UserIdProviderExtensions_GetUserId__1_WeihanLi_Common_Services_IUserIdProvider___0_
+  commentId: M:WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId``1(WeihanLi.Common.Services.IUserIdProvider,``0)
+  name.vb: GetUserId(Of T)(IUserIdProvider, T)
+  fullName: WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId<T>(WeihanLi.Common.Services.IUserIdProvider, T)
+  fullName.vb: WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId(Of T)(WeihanLi.Common.Services.IUserIdProvider, T)
+  nameWithType: UserIdProviderExtensions.GetUserId<T>(IUserIdProvider, T)
+  nameWithType.vb: UserIdProviderExtensions.GetUserId(Of T)(IUserIdProvider, T)
 - uid: WeihanLi.Common.Services.UserIdProviderExtensions.TryGetUserId*
   name: TryGetUserId
   href: docs/api/WeihanLi.Common.Services.UserIdProviderExtensions.html#WeihanLi_Common_Services_UserIdProviderExtensions_TryGetUserId_
@@ -16643,6 +17437,15 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.Ago
   nameWithType: CoreExtension.Ago
+- uid: WeihanLi.Extensions.CoreExtension.AppendIf(StringBuilder,System.Func{System.String},System.Boolean)
+  name: AppendIf(StringBuilder, Func<String>, Boolean)
+  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AppendIf_StringBuilder_System_Func_System_String__System_Boolean_
+  commentId: M:WeihanLi.Extensions.CoreExtension.AppendIf(StringBuilder,System.Func{System.String},System.Boolean)
+  name.vb: AppendIf(StringBuilder, Func(Of String), Boolean)
+  fullName: WeihanLi.Extensions.CoreExtension.AppendIf(StringBuilder, System.Func<System.String>, System.Boolean)
+  fullName.vb: WeihanLi.Extensions.CoreExtension.AppendIf(StringBuilder, System.Func(Of System.String), System.Boolean)
+  nameWithType: CoreExtension.AppendIf(StringBuilder, Func<String>, Boolean)
+  nameWithType.vb: CoreExtension.AppendIf(StringBuilder, Func(Of String), Boolean)
 - uid: WeihanLi.Extensions.CoreExtension.AppendIf(StringBuilder,System.String,System.Boolean)
   name: AppendIf(StringBuilder, String, Boolean)
   href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AppendIf_StringBuilder_System_String_System_Boolean_
@@ -16672,6 +17475,15 @@ references:
   fullName.vb: WeihanLi.Extensions.CoreExtension.AppendJoin(Of T)(StringBuilder, System.String, IEnumerable(Of T))
   nameWithType: CoreExtension.AppendJoin<T>(StringBuilder, String, IEnumerable<T>)
   nameWithType.vb: CoreExtension.AppendJoin(Of T)(StringBuilder, String, IEnumerable(Of T))
+- uid: WeihanLi.Extensions.CoreExtension.AppendLineIf(StringBuilder,System.Func{System.String},System.Boolean)
+  name: AppendLineIf(StringBuilder, Func<String>, Boolean)
+  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AppendLineIf_StringBuilder_System_Func_System_String__System_Boolean_
+  commentId: M:WeihanLi.Extensions.CoreExtension.AppendLineIf(StringBuilder,System.Func{System.String},System.Boolean)
+  name.vb: AppendLineIf(StringBuilder, Func(Of String), Boolean)
+  fullName: WeihanLi.Extensions.CoreExtension.AppendLineIf(StringBuilder, System.Func<System.String>, System.Boolean)
+  fullName.vb: WeihanLi.Extensions.CoreExtension.AppendLineIf(StringBuilder, System.Func(Of System.String), System.Boolean)
+  nameWithType: CoreExtension.AppendLineIf(StringBuilder, Func<String>, Boolean)
+  nameWithType.vb: CoreExtension.AppendLineIf(StringBuilder, Func(Of String), Boolean)
 - uid: WeihanLi.Extensions.CoreExtension.AppendLineIf(StringBuilder,System.String,System.Boolean)
   name: AppendLineIf(StringBuilder, String, Boolean)
   href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AppendLineIf_StringBuilder_System_String_System_Boolean_
@@ -16965,19 +17777,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.ConvertTimeToUtc
   nameWithType: CoreExtension.ConvertTimeToUtc
-- uid: WeihanLi.Extensions.CoreExtension.Copy(System.String)
-  name: Copy(String)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Copy_System_String_
-  commentId: M:WeihanLi.Extensions.CoreExtension.Copy(System.String)
-  fullName: WeihanLi.Extensions.CoreExtension.Copy(System.String)
-  nameWithType: CoreExtension.Copy(String)
-- uid: WeihanLi.Extensions.CoreExtension.Copy*
-  name: Copy
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Copy_
-  commentId: Overload:WeihanLi.Extensions.CoreExtension.Copy
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CoreExtension.Copy
-  nameWithType: CoreExtension.Copy
 - uid: WeihanLi.Extensions.CoreExtension.Cos(System.Double)
   name: Cos(Double)
   href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Cos_System_Double_
@@ -17011,15 +17810,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.CreateInstance
   nameWithType: CoreExtension.CreateInstance
-- uid: WeihanLi.Extensions.CoreExtension.CreateInstance``1(System.Type)
-  name: CreateInstance<T>(Type)
-  href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_CreateInstance__1_System_Type_
-  commentId: M:WeihanLi.Extensions.CoreExtension.CreateInstance``1(System.Type)
-  name.vb: CreateInstance(Of T)(Type)
-  fullName: WeihanLi.Extensions.CoreExtension.CreateInstance<T>(System.Type)
-  fullName.vb: WeihanLi.Extensions.CoreExtension.CreateInstance(Of T)(System.Type)
-  nameWithType: CoreExtension.CreateInstance<T>(Type)
-  nameWithType.vb: CoreExtension.CreateInstance(Of T)(Type)
 - uid: WeihanLi.Extensions.CoreExtension.CreateInstance``1(System.Type,System.Object[])
   name: CreateInstance<T>(Type, Object[])
   href: docs/api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_CreateInstance__1_System_Type_System_Object___

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CoreExtension
    ">
-    <meta name="generator" content="docfx 2.56.7.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -386,6 +386,63 @@ equal to 1.</p>
   
   
   <a id="WeihanLi_Extensions_CoreExtension_AppendIf_" data-uid="WeihanLi.Extensions.CoreExtension.AppendIf*"></a>
+  <h4 id="WeihanLi_Extensions_CoreExtension_AppendIf_StringBuilder_System_Func_System_String__System_Boolean_" data-uid="WeihanLi.Extensions.CoreExtension.AppendIf(StringBuilder,System.Func{System.String},System.Boolean)">AppendIf(StringBuilder, Func&lt;String&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Append text when condition is true</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendIf(this StringBuilder builder, Func&lt;string&gt; textFactory, bool condition)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">builder</span></td>
+        <td><p>StringBuilder</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">textFactory</span></td>
+        <td><p>factory for getting text to append</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p>condition to evaluate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>StringBuilder</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_CoreExtension_AppendIf_" data-uid="WeihanLi.Extensions.CoreExtension.AppendIf*"></a>
   <h4 id="WeihanLi_Extensions_CoreExtension_AppendIf_StringBuilder_System_String_System_Boolean_" data-uid="WeihanLi.Extensions.CoreExtension.AppendIf(StringBuilder,System.String,System.Boolean)">AppendIf(StringBuilder, String, Boolean)</h4>
   <div class="markdown level1 summary"><p>Append text when condition is true</p>
 </div>
@@ -508,6 +565,63 @@ equal to 1.</p>
       <tr>
         <td><span class="parametername">T</span></td>
         <td><p>Generic type parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="WeihanLi_Extensions_CoreExtension_AppendLineIf_" data-uid="WeihanLi.Extensions.CoreExtension.AppendLineIf*"></a>
+  <h4 id="WeihanLi_Extensions_CoreExtension_AppendLineIf_StringBuilder_System_Func_System_String__System_Boolean_" data-uid="WeihanLi.Extensions.CoreExtension.AppendLineIf(StringBuilder,System.Func{System.String},System.Boolean)">AppendLineIf(StringBuilder, Func&lt;String&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Append text when condition is true</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StringBuilder AppendLineIf(this StringBuilder builder, Func&lt;string&gt; textFactory, bool condition)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><span class="parametername">builder</span></td>
+        <td><p>StringBuilder</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">textFactory</span></td>
+        <td><p>text factory to produce text for appendding</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">condition</span></td>
+        <td><p>condition to evaluate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">StringBuilder</span></td>
+        <td><p>StringBuilder</p>
 </td>
       </tr>
     </tbody>
@@ -1884,51 +1998,6 @@ always set to .</p>
   </table>
   
   
-  <a id="WeihanLi_Extensions_CoreExtension_Copy_" data-uid="WeihanLi.Extensions.CoreExtension.Copy*"></a>
-  <h4 id="WeihanLi_Extensions_CoreExtension_Copy_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.Copy(System.String)">Copy(String)</h4>
-  <div class="markdown level1 summary"><p>Creates a new instance of  with the same value as a specified .</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string Copy(this string str)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">str</span></td>
-        <td><p>The string to copy.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>A new string with the same value as .</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <a id="WeihanLi_Extensions_CoreExtension_Cos_" data-uid="WeihanLi.Extensions.CoreExtension.Cos*"></a>
   <h4 id="WeihanLi_Extensions_CoreExtension_Cos_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Cos(System.Double)">Cos(Double)</h4>
   <div class="markdown level1 summary"><p>Returns the cosine of the specified angle.</p>
@@ -2013,67 +2082,6 @@ always set to .</p>
       <tr>
         <td><span class="xref">System.Double</span></td>
         <td><p>The hyperbolic cosine of . If  is equal to  or ,  is returned. If  is equal to ,  is returned.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="WeihanLi_Extensions_CoreExtension_CreateInstance_" data-uid="WeihanLi.Extensions.CoreExtension.CreateInstance*"></a>
-  <h4 id="WeihanLi_Extensions_CoreExtension_CreateInstance__1_System_Type_" data-uid="WeihanLi.Extensions.CoreExtension.CreateInstance``1(System.Type)">CreateInstance&lt;T&gt;(Type)</h4>
-  <div class="markdown level1 summary"><p>A Type extension method that creates an instance.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T CreateInstance&lt;T&gt;(this Type this)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Type</span></td>
-        <td><span class="parametername">this</span></td>
-        <td><p>The @this to act on.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><p>The new instance.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>Generic type parameter.</p>
 </td>
       </tr>
     </tbody>
