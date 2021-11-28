@@ -60,6 +60,10 @@ namespace WeihanLi.Common.Helpers
             '9'
         };
 
+#if NET6_0_OR_GREATER
+        public static Random Random => Random.Shared;
+#else
+
         [ThreadStatic]
         private static Random? _random;
 
@@ -70,13 +74,15 @@ namespace WeihanLi.Common.Helpers
         {
             get
             {
-                if(_random == null )
+                if (_random == null)
                 {
                     _random = new();
                 }
                 return _random;
             }
         }
+
+#endif
 
         /// <summary>
         /// 生成随机验证码
