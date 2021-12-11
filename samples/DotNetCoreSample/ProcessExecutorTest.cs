@@ -54,14 +54,14 @@ namespace DotNetCoreSample
             var folder = string.Empty;
             executor.OnOutputDataReceived += (sender, str) =>
             {
-                if(str is null)
-                  return;
+                if (str is null)
+                    return;
 
                 Console.WriteLine(str);
 
-                if(str.StartsWith("global-packages:"))
+                if (str.StartsWith("global-packages:"))
                 {
-                    folder = str.Substring("global-packages:".Length).Trim();                    
+                    folder = str.Substring("global-packages:".Length).Trim();
                 }
             };
             executor.Execute();

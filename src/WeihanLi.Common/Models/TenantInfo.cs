@@ -7,5 +7,5 @@
         public string? TenantName { get; set; }
     }
 
-    public class TenantInfo: TenantInfo<string> {}
+    public class TenantInfo : TenantInfo<string> { }
 }

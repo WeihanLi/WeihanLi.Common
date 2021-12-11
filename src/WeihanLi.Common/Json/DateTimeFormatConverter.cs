@@ -1,12 +1,12 @@
-using Newtonsoft.Json.Converters;
+﻿using Newtonsoft.Json.Converters;
 
 namespace WeihanLi.Common.Json
 {
-  public class DateTimeFormatConverter : IsoDateTimeConverter
-  {
-    public DateTimeFormatConverter(string format)
+    public class DateTimeFormatConverter : IsoDateTimeConverter
     {
-      DateTimeFormat = format;
+        public DateTimeFormatConverter(string format)
+        {
+            DateTimeFormat = format;
+        }
     }
-  }
 }
