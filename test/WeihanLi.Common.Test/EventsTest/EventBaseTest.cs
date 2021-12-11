@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using WeihanLi.Common.Event;
 using WeihanLi.Extensions;
 using Xunit;

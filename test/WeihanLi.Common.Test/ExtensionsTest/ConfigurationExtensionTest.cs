@@ -21,7 +21,7 @@ namespace WeihanLi.Common.Test.ExtensionsTest
                     new KeyValuePair<string, string>($"{ConfigurationExtension.FeatureFlagsSectionName}:{featureName}", value)
                 })
                 .Build();
-            
+
             var parseResult = bool.TryParse(value, out var flagValue);
             Assert.Equal(parseResult, configuration.TryGetFeatureFlagValue(featureName, out _));
             Assert.Equal(flagValue, configuration.IsFeatureEnabled(featureName));
