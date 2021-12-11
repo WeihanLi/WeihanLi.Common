@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <DefineConstants Condition="'$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'netstandard2.1'">($DefineConstants);ValueTaskSupport</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'netstandard2.1'">;ValueTaskSupport</DefineConstants>
   </PropertyGroup>
   <Import Project="../../build/common.props" />
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
