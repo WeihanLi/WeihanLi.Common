@@ -467,16 +467,16 @@ public static class ReflectionExtension
             var obj = Expression.Parameter(typeof(object), "o");
             var value = Expression.Parameter(typeof(object));
 
-                // Note that we are using Expression.Unbox for value types and Expression.Convert for reference types
-                var expr =
-                Expression.Lambda<Action<object, object?>>(
-                    Expression.Call(
-                        propertyInfo.DeclaringType!.IsValueType
-                            ? Expression.Unbox(obj, propertyInfo.DeclaringType)
-                            : Expression.Convert(obj, propertyInfo.DeclaringType),
-                        propertyInfo.GetSetMethod()!,
-                        Expression.Convert(value, propertyInfo.PropertyType)),
-                    obj, value);
+            // Note that we are using Expression.Unbox for value types and Expression.Convert for reference types
+            var expr =
+            Expression.Lambda<Action<object, object?>>(
+                Expression.Call(
+                    propertyInfo.DeclaringType!.IsValueType
+                        ? Expression.Unbox(obj, propertyInfo.DeclaringType)
+                        : Expression.Convert(obj, propertyInfo.DeclaringType),
+                    propertyInfo.GetSetMethod()!,
+                    Expression.Convert(value, propertyInfo.PropertyType)),
+                obj, value);
             return expr.Compile();
         });
     }

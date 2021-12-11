@@ -25,8 +25,8 @@ public class Program
                     .With<EventHandleLogInterceptor>();
             }, builder =>
             {
-                    //builder.UseCastleProxy();
-                })
+                //builder.UseCastleProxy();
+            })
             .Build();
         //var fields = host.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
         //    ;
