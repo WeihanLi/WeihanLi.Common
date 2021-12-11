@@ -1,45 +1,44 @@
 ﻿using System;
 
-namespace WeihanLi.Common.Aspect.Castle
+namespace WeihanLi.Common.Aspect.Castle;
+
+internal sealed class CastleProxyTypeFactory : IProxyTypeFactory
 {
-    internal sealed class CastleProxyTypeFactory : IProxyTypeFactory
+    public Type CreateProxyType(Type serviceType)
     {
-        public Type CreateProxyType(Type serviceType)
+        if (null == serviceType)
         {
-            if (null == serviceType)
-            {
-                throw new ArgumentNullException(nameof(serviceType));
-            }
+            throw new ArgumentNullException(nameof(serviceType));
+        }
 
-            if (serviceType.IsInterface)
-            {
-                return CastleHelper.ProxyBuilder.CreateInterfaceProxyTypeWithTargetInterface(serviceType, Type.EmptyTypes,
-                    CastleHelper.ProxyGenerationOptions);
-            }
-
-            return CastleHelper.ProxyBuilder.CreateClassProxyType(serviceType, Type.EmptyTypes,
+        if (serviceType.IsInterface)
+        {
+            return CastleHelper.ProxyBuilder.CreateInterfaceProxyTypeWithTargetInterface(serviceType, Type.EmptyTypes,
                 CastleHelper.ProxyGenerationOptions);
         }
 
-        public Type CreateProxyType(Type serviceType, Type implementType)
+        return CastleHelper.ProxyBuilder.CreateClassProxyType(serviceType, Type.EmptyTypes,
+            CastleHelper.ProxyGenerationOptions);
+    }
+
+    public Type CreateProxyType(Type serviceType, Type implementType)
+    {
+        if (null == serviceType)
         {
-            if (null == serviceType)
-            {
-                throw new ArgumentNullException(nameof(serviceType));
-            }
-            if (null == implementType)
-            {
-                throw new ArgumentNullException(nameof(implementType));
-            }
+            throw new ArgumentNullException(nameof(serviceType));
+        }
+        if (null == implementType)
+        {
+            throw new ArgumentNullException(nameof(implementType));
+        }
 
-            if (serviceType.IsInterface)
-            {
-                return CastleHelper.ProxyBuilder.CreateInterfaceProxyTypeWithTarget(serviceType, Type.EmptyTypes, implementType,
-                    CastleHelper.ProxyGenerationOptions);
-            }
-
-            return CastleHelper.ProxyBuilder.CreateClassProxyTypeWithTarget(implementType, Type.EmptyTypes,
+        if (serviceType.IsInterface)
+        {
+            return CastleHelper.ProxyBuilder.CreateInterfaceProxyTypeWithTarget(serviceType, Type.EmptyTypes, implementType,
                 CastleHelper.ProxyGenerationOptions);
         }
+
+        return CastleHelper.ProxyBuilder.CreateClassProxyTypeWithTarget(implementType, Type.EmptyTypes,
+            CastleHelper.ProxyGenerationOptions);
     }
 }

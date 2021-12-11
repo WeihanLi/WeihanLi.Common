@@ -1,14 +1,13 @@
 ﻿using System.Threading;
 
-namespace WeihanLi.Common.Services
-{
-    public interface ICancellationTokenProvider
-    {
-        CancellationToken GetCancellationToken();
-    }
+namespace WeihanLi.Common.Services;
 
-    public sealed class NullCancellationTokenProvider : ICancellationTokenProvider
-    {
-        public CancellationToken GetCancellationToken() => default;
-    }
+public interface ICancellationTokenProvider
+{
+    CancellationToken GetCancellationToken();
+}
+
+public sealed class NullCancellationTokenProvider : ICancellationTokenProvider
+{
+    public CancellationToken GetCancellationToken() => default;
 }

@@ -1,15 +1,14 @@
 ﻿using AspNetCoreSample.Events;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AspNetCoreSample.Controllers
+namespace AspNetCoreSample.Controllers;
+
+[Route("api/[controller]")]
+public class EventsController : ControllerBase
 {
-    [Route("api/[controller]")]
-    public class EventsController : ControllerBase
+    [HttpGet("pageViewCount")]
+    public IActionResult Count()
     {
-        [HttpGet("pageViewCount")]
-        public IActionResult Count()
-        {
-            return Ok(new { PageViewEventHandler.Count });
-        }
+        return Ok(new { PageViewEventHandler.Count });
     }
 }

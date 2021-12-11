@@ -1,39 +1,38 @@
-﻿namespace WeihanLi.Common.Models
-{
-    public class PagedRequest
-    {
-        private int _pageNum = 1;
-        private int _pageSize = 10;
+﻿namespace WeihanLi.Common.Models;
 
-        /// <summary>
-        /// PageNumber
-        /// 1 by default, 1 based
-        /// </summary>
-        public int PageNum
+public class PagedRequest
+{
+    private int _pageNum = 1;
+    private int _pageSize = 10;
+
+    /// <summary>
+    /// PageNumber
+    /// 1 by default, 1 based
+    /// </summary>
+    public int PageNum
+    {
+        get => _pageNum;
+        set
         {
-            get => _pageNum;
-            set
+            if (value > 0)
             {
-                if (value > 0)
-                {
-                    _pageNum = value;
-                }
+                _pageNum = value;
             }
         }
+    }
 
-        /// <summary>
-        /// PageSize
-        /// 10 by default
-        /// </summary>
-        public int PageSize
+    /// <summary>
+    /// PageSize
+    /// 10 by default
+    /// </summary>
+    public int PageSize
+    {
+        get => _pageSize;
+        set
         {
-            get => _pageSize;
-            set
+            if (value > 0)
             {
-                if (value > 0)
-                {
-                    _pageSize = value;
-                }
+                _pageSize = value;
             }
         }
     }

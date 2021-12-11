@@ -22,24 +22,23 @@
 
 using System;
 
-namespace WeihanLi.Common.Helpers.Cron
+namespace WeihanLi.Common.Helpers.Cron;
+
+/// <summary>
+/// Represents an exception that's thrown, when invalid Cron expression is given.
+/// </summary>
+[Serializable]
+internal class CronFormatException : FormatException
 {
     /// <summary>
-    /// Represents an exception that's thrown, when invalid Cron expression is given.
+    /// Initializes a new instance of the <see cref="CronFormatException"/> class with
+    /// the given message.
     /// </summary>
-    [Serializable]
-    internal class CronFormatException : FormatException
+    public CronFormatException(string message) : base(message)
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CronFormatException"/> class with
-        /// the given message.
-        /// </summary>
-        public CronFormatException(string message) : base(message)
-        {
-        }
+    }
 
-        internal CronFormatException(CronField field, string message) : this($"{field}: {message}")
-        {
-        }
+    internal CronFormatException(CronField field, string message) : this($"{field}: {message}")
+    {
     }
 }

@@ -1,7 +1,6 @@
-﻿namespace WeihanLi.Common.Helpers
+﻿namespace WeihanLi.Common.Helpers;
+
+public static class ArrayHelper
 {
-    public static class ArrayHelper
-    {
-        public static T[] Empty<T>() => System.Array.Empty<T>();
-    }
+    public static T[] Empty<T>() => System.Array.Empty<T>();
 }

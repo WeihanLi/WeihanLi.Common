@@ -4,76 +4,75 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace WeihanLi.Common.Http
+namespace WeihanLi.Common.Http;
+
+public interface IHttpRequester
 {
-    public interface IHttpRequester
-    {
-        #region WithUrl
+    #region WithUrl
 
-        IHttpRequester WithUrl(string url);
+    IHttpRequester WithUrl(string url);
 
-        #endregion WithUrl
+    #endregion WithUrl
 
-        #region Method
+    #region Method
 
-        IHttpRequester WithMethod(HttpMethod method);
+    IHttpRequester WithMethod(HttpMethod method);
 
-        #endregion Method
+    #endregion Method
 
-        #region AddHeader
+    #region AddHeader
 
-        IHttpRequester WithHeaders([NotNull] IEnumerable<KeyValuePair<string, string?>> customHeaders);
+    IHttpRequester WithHeaders([NotNull] IEnumerable<KeyValuePair<string, string?>> customHeaders);
 
-        #endregion AddHeader
+    #endregion AddHeader
 
-        #region UserAgent
+    #region UserAgent
 
-        IHttpRequester WithUserAgent([NotNull] string userAgent);
+    IHttpRequester WithUserAgent([NotNull] string userAgent);
 
-        #endregion UserAgent
+    #endregion UserAgent
 
-        #region Referer
+    #region Referer
 
-        IHttpRequester WithReferer([NotNull] string referer);
+    IHttpRequester WithReferer([NotNull] string referer);
 
-        #endregion Referer
+    #endregion Referer
 
-        #region Cookie
+    #region Cookie
 
-        IHttpRequester WithCookie(string? url, Cookie cookie);
+    IHttpRequester WithCookie(string? url, Cookie cookie);
 
-        IHttpRequester WithCookie(string? url, CookieCollection cookies);
+    IHttpRequester WithCookie(string? url, CookieCollection cookies);
 
-        #endregion Cookie
+    #endregion Cookie
 
-        #region Proxy
+    #region Proxy
 
-        IHttpRequester WithProxy(IWebProxy proxy);
+    IHttpRequester WithProxy(IWebProxy proxy);
 
-        #endregion Proxy
+    #endregion Proxy
 
-        #region Parameter
+    #region Parameter
 
-        IHttpRequester WithParameters([NotNull] byte[] requestBytes, string contentType);
+    IHttpRequester WithParameters([NotNull] byte[] requestBytes, string contentType);
 
-        IHttpRequester WithFile(string fileName, byte[] fileBytes, string fileKey = "file",
-            IEnumerable<KeyValuePair<string, string>>? formFields = null);
+    IHttpRequester WithFile(string fileName, byte[] fileBytes, string fileKey = "file",
+        IEnumerable<KeyValuePair<string, string>>? formFields = null);
 
-        IHttpRequester WithFiles(IEnumerable<KeyValuePair<string, byte[]>> files,
-            IEnumerable<KeyValuePair<string, string>>? formFields = null);
+    IHttpRequester WithFiles(IEnumerable<KeyValuePair<string, byte[]>> files,
+        IEnumerable<KeyValuePair<string, string>>? formFields = null);
 
-        #endregion Parameter
+    #endregion Parameter
 
-        #region Execute
+    #region Execute
 
-        byte[] ExecuteBytes();
+    byte[] ExecuteBytes();
 
-        Task<byte[]> ExecuteBytesAsync();
+    Task<byte[]> ExecuteBytesAsync();
 
-        HttpResponse ExecuteForResponse();
+    HttpResponse ExecuteForResponse();
 
-        Task<HttpResponse> ExecuteForResponseAsync();
+    Task<HttpResponse> ExecuteForResponseAsync();
 
-        #endregion Execute
-    }
+    #endregion Execute
 }

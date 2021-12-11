@@ -3,69 +3,68 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WeihanLi.Common.Helpers
+namespace WeihanLi.Common.Helpers;
+
+public class DelegateTextWriter : TextWriter
 {
-    public class DelegateTextWriter : TextWriter
+    public override Encoding Encoding => Encoding.UTF8;
+
+    private readonly Action<string> _onLineWritten;
+    private readonly StringBuilder _builder;
+
+    public DelegateTextWriter(Action<string> onLineWritten)
     {
-        public override Encoding Encoding => Encoding.UTF8;
+        _onLineWritten = onLineWritten ?? throw new ArgumentNullException(nameof(onLineWritten));
 
-        private readonly Action<string> _onLineWritten;
-        private readonly StringBuilder _builder;
+        _builder = new StringBuilder();
+    }
 
-        public DelegateTextWriter(Action<string> onLineWritten)
+    public override void Flush()
+    {
+        if (_builder.Length > 0)
         {
-            _onLineWritten = onLineWritten ?? throw new ArgumentNullException(nameof(onLineWritten));
+            FlushInternal();
+        }
+    }
 
-            _builder = new StringBuilder();
+    public override Task FlushAsync()
+    {
+        if (_builder.Length > 0)
+        {
+            FlushInternal();
         }
 
-        public override void Flush()
-        {
-            if (_builder.Length > 0)
-            {
-                FlushInternal();
-            }
-        }
+        return Task.CompletedTask;
+    }
 
-        public override Task FlushAsync()
+    public override void Write(char value)
+    {
+        if (value == '\n')
         {
-            if (_builder.Length > 0)
-            {
-                FlushInternal();
-            }
-
-            return Task.CompletedTask;
+            FlushInternal();
         }
-
-        public override void Write(char value)
+        else
         {
-            if (value == '\n')
-            {
-                FlushInternal();
-            }
-            else
-            {
-                _builder.Append(value);
-            }
+            _builder.Append(value);
         }
+    }
 
-        public override Task WriteAsync(char value)
+    public override Task WriteAsync(char value)
+    {
+        if (value == '\n')
         {
-            if (value == '\n')
-            {
-                FlushInternal();
-            }
-            else
-            {
-                _builder.Append(value);
-            }
-            return Task.CompletedTask;
+            FlushInternal();
         }
+        else
+        {
+            _builder.Append(value);
+        }
+        return Task.CompletedTask;
+    }
 
-        private void FlushInternal()
-        {
-            _onLineWritten(_builder.ToString());
-            _builder.Clear();
-        }
+    private void FlushInternal()
+    {
+        _onLineWritten(_builder.ToString());
+        _builder.Clear();
     }
 }

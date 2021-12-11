@@ -7,74 +7,73 @@ using WeihanLi.Common;
 using WeihanLi.Common.Data;
 using WeihanLi.Extensions;
 
-namespace DotNetCoreSample
+namespace DotNetCoreSample;
+
+public static class RepositoryTest
 {
-    public static class RepositoryTest
+    public static void MainTest()
     {
-        public static void MainTest()
+        var connectionPool = new DbConnectionPool(new DbConnectionPoolPolicy(DependencyResolver.ResolveService<IConfiguration>().GetConnectionString("Test")));
+
+        var repo = new Repository<TestEntity>(() => connectionPool.Get());
+        repo.Execute("TRUNCATE TABLE dbo.tabTestEntity");
+
+        repo.Insert(new TestEntity
         {
-            var connectionPool = new DbConnectionPool(new DbConnectionPoolPolicy(DependencyResolver.ResolveService<IConfiguration>().GetConnectionString("Test")));
+            Token = "1233",
+            CreatedTime = DateTime.UtcNow
+        });
 
-            var repo = new Repository<TestEntity>(() => connectionPool.Get());
-            repo.Execute("TRUNCATE TABLE dbo.tabTestEntity");
+        var entity = repo.Fetch(t => t.Id == 1);
+        System.Console.WriteLine(entity?.Token);
 
-            repo.Insert(new TestEntity
-            {
-                Token = "1233",
-                CreatedTime = DateTime.UtcNow
-            });
+        repo.Update(t => t.Id == 1, t => t.Token, 1);
 
-            var entity = repo.Fetch(t => t.Id == 1);
-            System.Console.WriteLine(entity?.Token);
+        entity = repo.Fetch(t => t.Id == 1);
+        System.Console.WriteLine(entity?.Token);
 
-            repo.Update(t => t.Id == 1, t => t.Token, 1);
+        var exists = repo.Exist(e => e.Id == 1);
+        Console.WriteLine($"exists pkid == 1: {exists}");
 
-            entity = repo.Fetch(t => t.Id == 1);
-            System.Console.WriteLine(entity?.Token);
+        repo.Delete(t => t.Id == 1);
+        entity = repo.Fetch(t => t.Id == 1);
+        System.Console.WriteLine($"delete operation {(entity == null ? "Success" : "Failed")}");
 
-            var exists = repo.Exist(e => e.Id == 1);
-            Console.WriteLine($"exists pkid == 1: {exists}");
+        exists = repo.Exist(e => e.Id > 1000);
+        Console.WriteLine($"exists PKID > 1000: {exists}");
+        repo.Execute("TRUNCATE TABLE dbo.tabTestEntity");
 
-            repo.Delete(t => t.Id == 1);
-            entity = repo.Fetch(t => t.Id == 1);
-            System.Console.WriteLine($"delete operation {(entity == null ? "Success" : "Failed")}");
+        Console.WriteLine("finished.");
+    }
 
-            exists = repo.Exist(e => e.Id > 1000);
-            Console.WriteLine($"exists PKID > 1000: {exists}");
-            repo.Execute("TRUNCATE TABLE dbo.tabTestEntity");
-
-            Console.WriteLine("finished.");
+    public class DbConnectionPool : DefaultObjectPool<DbConnection>
+    {
+        public DbConnectionPool(IPooledObjectPolicy<DbConnection> policy) : base(policy)
+        {
         }
 
-        public class DbConnectionPool : DefaultObjectPool<DbConnection>
+        public DbConnectionPool(IPooledObjectPolicy<DbConnection> policy, int maximumRetained) : base(policy, maximumRetained)
         {
-            public DbConnectionPool(IPooledObjectPolicy<DbConnection> policy) : base(policy)
-            {
-            }
+        }
+    }
 
-            public DbConnectionPool(IPooledObjectPolicy<DbConnection> policy, int maximumRetained) : base(policy, maximumRetained)
-            {
-            }
+    public class DbConnectionPoolPolicy : IPooledObjectPolicy<DbConnection>
+    {
+        private readonly string _connString;
+
+        public DbConnectionPoolPolicy(string connString)
+        {
+            _connString = connString;
         }
 
-        public class DbConnectionPoolPolicy : IPooledObjectPolicy<DbConnection>
+        public DbConnection Create()
         {
-            private readonly string _connString;
+            return new SqlConnection(_connString);
+        }
 
-            public DbConnectionPoolPolicy(string connString)
-            {
-                _connString = connString;
-            }
-
-            public DbConnection Create()
-            {
-                return new SqlConnection(_connString);
-            }
-
-            public bool Return(DbConnection obj)
-            {
-                return obj.ConnectionString.IsNotNullOrWhiteSpace();
-            }
+        public bool Return(DbConnection obj)
+        {
+            return obj.ConnectionString.IsNotNullOrWhiteSpace();
         }
     }
 }

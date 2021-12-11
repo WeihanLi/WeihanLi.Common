@@ -4,86 +4,85 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace WeihanLi.Common.Event
+namespace WeihanLi.Common.Event;
+
+public interface IEventBuilder
 {
-    public interface IEventBuilder
+    IServiceCollection Services { get; }
+}
+
+internal class EventBuilder : IEventBuilder
+{
+    public IServiceCollection Services { get; }
+
+    public EventBuilder(IServiceCollection services)
     {
-        IServiceCollection Services { get; }
+        Services = services;
+    }
+}
+
+public static class EventBusExtensions
+{
+    public static IEventBuilder AddEvents(this IServiceCollection services)
+    {
+        services.AddOptions();
+
+        services.TryAddSingleton<IEventSubscriptionManager, NullEventSubscriptionManager>();
+        services.TryAddSingleton<IEventHandlerFactory, DependencyInjectionEventHandlerFactory>();
+
+        services.TryAddSingleton<IEventSubscriber, NullEventSubscriptionManager>();
+        services.TryAddSingleton<IEventPublisher, EventBus>();
+        services.TryAddSingleton<IEventBus, EventBus>();
+
+        services.TryAddSingleton<IEventQueue, EventQueueInMemory>();
+        services.TryAddSingleton<IEventStore, EventStoreInMemory>();
+
+        return new EventBuilder(services);
     }
 
-    internal class EventBuilder : IEventBuilder
+    public static IEventBuilder AddEventHandler<TEvent, TEventHandler>(this IEventBuilder eventBuilder, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
+      where TEvent : class, IEventBase
+      where TEventHandler : class, IEventHandler<TEvent>
     {
-        public IServiceCollection Services { get; }
-
-        public EventBuilder(IServiceCollection services)
-        {
-            Services = services;
-        }
+        eventBuilder.Services.TryAddEnumerable(new ServiceDescriptor(typeof(IEventHandler<TEvent>), typeof(TEventHandler), serviceLifetime));
+        return eventBuilder;
     }
 
-    public static class EventBusExtensions
+    public static IEventBuilder AddEventHandler<TEvent>(this IEventBuilder eventBuilder, IEventHandler<TEvent> eventHandler)
+        where TEvent : class, IEventBase
     {
-        public static IEventBuilder AddEvents(this IServiceCollection services)
+        eventBuilder.Services.TryAddEnumerable(new ServiceDescriptor(typeof(IEventHandler<TEvent>), eventHandler));
+        return eventBuilder;
+    }
+
+    public static IEventBuilder RegisterEventHandlers(this IEventBuilder builder, Func<Type, bool>? filter = null, ServiceLifetime serviceLifetime = ServiceLifetime.Transient, params Assembly[] assemblies)
+    {
+        Guard.NotNull(assemblies, nameof(assemblies));
+        if (assemblies.Length == 0)
         {
-            services.AddOptions();
-
-            services.TryAddSingleton<IEventSubscriptionManager, NullEventSubscriptionManager>();
-            services.TryAddSingleton<IEventHandlerFactory, DependencyInjectionEventHandlerFactory>();
-
-            services.TryAddSingleton<IEventSubscriber, NullEventSubscriptionManager>();
-            services.TryAddSingleton<IEventPublisher, EventBus>();
-            services.TryAddSingleton<IEventBus, EventBus>();
-
-            services.TryAddSingleton<IEventQueue, EventQueueInMemory>();
-            services.TryAddSingleton<IEventStore, EventStoreInMemory>();
-
-            return new EventBuilder(services);
+            assemblies = Helpers.ReflectHelper.GetAssemblies();
         }
 
-        public static IEventBuilder AddEventHandler<TEvent, TEventHandler>(this IEventBuilder eventBuilder, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
-          where TEvent : class, IEventBase
-          where TEventHandler : class, IEventHandler<TEvent>
+        var handlerTypes = assemblies
+            .Select(ass => ass.GetTypes())
+            .SelectMany(t => t)
+            .Where(t => !t.IsAbstract && typeof(IEventHandler).IsAssignableFrom(t));
+        if (filter != null)
         {
-            eventBuilder.Services.TryAddEnumerable(new ServiceDescriptor(typeof(IEventHandler<TEvent>), typeof(TEventHandler), serviceLifetime));
-            return eventBuilder;
+            handlerTypes = handlerTypes.Where(filter);
         }
 
-        public static IEventBuilder AddEventHandler<TEvent>(this IEventBuilder eventBuilder, IEventHandler<TEvent> eventHandler)
-            where TEvent : class, IEventBase
+        foreach (var handlerType in handlerTypes)
         {
-            eventBuilder.Services.TryAddEnumerable(new ServiceDescriptor(typeof(IEventHandler<TEvent>), eventHandler));
-            return eventBuilder;
-        }
-
-        public static IEventBuilder RegisterEventHandlers(this IEventBuilder builder, Func<Type, bool>? filter = null, ServiceLifetime serviceLifetime = ServiceLifetime.Transient, params Assembly[] assemblies)
-        {
-            Guard.NotNull(assemblies, nameof(assemblies));
-            if (assemblies.Length == 0)
+            foreach (var implementedInterface in handlerType.GetTypeInfo().ImplementedInterfaces)
             {
-                assemblies = Helpers.ReflectHelper.GetAssemblies();
-            }
-
-            var handlerTypes = assemblies
-                .Select(ass => ass.GetTypes())
-                .SelectMany(t => t)
-                .Where(t => !t.IsAbstract && typeof(IEventHandler).IsAssignableFrom(t));
-            if (filter != null)
-            {
-                handlerTypes = handlerTypes.Where(filter);
-            }
-
-            foreach (var handlerType in handlerTypes)
-            {
-                foreach (var implementedInterface in handlerType.GetTypeInfo().ImplementedInterfaces)
+                if (implementedInterface.IsGenericType && typeof(IEventBase).IsAssignableFrom(implementedInterface.GenericTypeArguments[0]))
                 {
-                    if (implementedInterface.IsGenericType && typeof(IEventBase).IsAssignableFrom(implementedInterface.GenericTypeArguments[0]))
-                    {
-                        builder.Services.TryAddEnumerable(new ServiceDescriptor(implementedInterface, handlerType, serviceLifetime));
-                    }
+                    builder.Services.TryAddEnumerable(new ServiceDescriptor(implementedInterface, handlerType, serviceLifetime));
                 }
             }
-
-            return builder;
         }
+
+        return builder;
     }
 }

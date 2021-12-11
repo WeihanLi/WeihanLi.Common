@@ -1,28 +1,27 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace WeihanLi.Common.Helpers
+namespace WeihanLi.Common.Helpers;
+
+public static class PipelineBuilder
 {
-    public static class PipelineBuilder
+    public static IPipelineBuilder<TContext> Create<TContext>()
     {
-        public static IPipelineBuilder<TContext> Create<TContext>()
-        {
-            return new PipelineBuilder<TContext>(c => { });
-        }
+        return new PipelineBuilder<TContext>(c => { });
+    }
 
-        public static IPipelineBuilder<TContext> Create<TContext>(Action<TContext> completeAction)
-        {
-            return new PipelineBuilder<TContext>(completeAction);
-        }
+    public static IPipelineBuilder<TContext> Create<TContext>(Action<TContext> completeAction)
+    {
+        return new PipelineBuilder<TContext>(completeAction);
+    }
 
-        public static IAsyncPipelineBuilder<TContext> CreateAsync<TContext>()
-        {
-            return new AsyncPipelineBuilder<TContext>(c => Task.CompletedTask);
-        }
+    public static IAsyncPipelineBuilder<TContext> CreateAsync<TContext>()
+    {
+        return new AsyncPipelineBuilder<TContext>(c => Task.CompletedTask);
+    }
 
-        public static IAsyncPipelineBuilder<TContext> CreateAsync<TContext>(Func<TContext, Task> completeFunc)
-        {
-            return new AsyncPipelineBuilder<TContext>(completeFunc);
-        }
+    public static IAsyncPipelineBuilder<TContext> CreateAsync<TContext>(Func<TContext, Task> completeFunc)
+    {
+        return new AsyncPipelineBuilder<TContext>(completeFunc);
     }
 }

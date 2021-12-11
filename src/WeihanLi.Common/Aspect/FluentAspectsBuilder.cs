@@ -1,19 +1,18 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace WeihanLi.Common.Aspect
+namespace WeihanLi.Common.Aspect;
+
+public interface IFluentAspectsBuilder
 {
-    public interface IFluentAspectsBuilder
+    IServiceCollection Services { get; }
+}
+
+internal sealed class FluentAspectsBuilder : IFluentAspectsBuilder
+{
+    public FluentAspectsBuilder(IServiceCollection serviceCollection)
     {
-        IServiceCollection Services { get; }
+        Services = serviceCollection;
     }
 
-    internal sealed class FluentAspectsBuilder : IFluentAspectsBuilder
-    {
-        public FluentAspectsBuilder(IServiceCollection serviceCollection)
-        {
-            Services = serviceCollection;
-        }
-
-        public IServiceCollection Services { get; }
-    }
+    public IServiceCollection Services { get; }
 }

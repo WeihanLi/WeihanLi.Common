@@ -1,37 +1,36 @@
 ﻿using System;
 
-namespace WeihanLi.Common.Aspect
-{
-    public static class InvocationEnricherExtensions
-    {
-        public static void AddProperty(this IInvocation invocation, string propertyName,
-            object propertyValue, bool overwrite = false)
-        {
-            if (null == invocation)
-            {
-                throw new ArgumentNullException(nameof(invocation));
-            }
+namespace WeihanLi.Common.Aspect;
 
-            if (!invocation.Properties.ContainsKey(propertyName) || overwrite)
-            {
-                invocation.Properties[propertyName] = propertyValue;
-            }
+public static class InvocationEnricherExtensions
+{
+    public static void AddProperty(this IInvocation invocation, string propertyName,
+        object propertyValue, bool overwrite = false)
+    {
+        if (null == invocation)
+        {
+            throw new ArgumentNullException(nameof(invocation));
         }
 
-        public static void AddProperty(this IInvocation invocation, string propertyName,
-            Func<IInvocation, object?> propertyValueFactory, bool overwrite = false)
+        if (!invocation.Properties.ContainsKey(propertyName) || overwrite)
         {
-            if (null == invocation)
-            {
-                throw new ArgumentNullException(nameof(invocation));
-            }
+            invocation.Properties[propertyName] = propertyValue;
+        }
+    }
 
-            if (!invocation.Properties.ContainsKey(propertyName)
-                || overwrite)
-            {
-                invocation.Properties[propertyName]
-                    = Guard.NotNull(propertyValueFactory, nameof(propertyValueFactory)).Invoke(invocation);
-            }
+    public static void AddProperty(this IInvocation invocation, string propertyName,
+        Func<IInvocation, object?> propertyValueFactory, bool overwrite = false)
+    {
+        if (null == invocation)
+        {
+            throw new ArgumentNullException(nameof(invocation));
+        }
+
+        if (!invocation.Properties.ContainsKey(propertyName)
+            || overwrite)
+        {
+            invocation.Properties[propertyName]
+                = Guard.NotNull(propertyValueFactory, nameof(propertyValueFactory)).Invoke(invocation);
         }
     }
 }

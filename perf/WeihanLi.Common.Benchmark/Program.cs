@@ -3,24 +3,23 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace WeihanLi.Common.Benchmark
+namespace WeihanLi.Common.Benchmark;
+
+public class Program
 {
-    public class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            var configurationBuilder = new ConfigurationBuilder();
-            configurationBuilder.AddJsonFile("appsettings.json");
+        var configurationBuilder = new ConfigurationBuilder();
+        configurationBuilder.AddJsonFile("appsettings.json");
 
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.AddSingleton<IConfiguration>(configurationBuilder.Build());
-            DependencyResolver.SetDependencyResolver(serviceCollection);
+        var serviceCollection = new ServiceCollection();
+        serviceCollection.AddSingleton<IConfiguration>(configurationBuilder.Build());
+        DependencyResolver.SetDependencyResolver(serviceCollection);
 
-            BenchmarkRunner.Run<MapperTest>();
-            // BenchmarkRunner.Run<CreateInstanceTest>();
-            // BenchmarkRunner.Run<DITest>();
+        BenchmarkRunner.Run<MapperTest>();
+        // BenchmarkRunner.Run<CreateInstanceTest>();
+        // BenchmarkRunner.Run<DITest>();
 
-            Console.ReadLine();
-        }
+        Console.ReadLine();
     }
 }

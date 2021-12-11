@@ -2,186 +2,185 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace WeihanLi.Common.Helpers
+namespace WeihanLi.Common.Helpers;
+
+public class ProcessExecutor : IDisposable
 {
-    public class ProcessExecutor : IDisposable
+    public event EventHandler<int>? OnExited;
+
+    public event EventHandler<string>? OnOutputDataReceived;
+
+    public event EventHandler<string>? OnErrorDataReceived;
+
+    protected readonly Process _process;
+
+    protected bool _started;
+
+    public ProcessExecutor(string exePath) : this(new ProcessStartInfo(exePath))
     {
-        public event EventHandler<int>? OnExited;
+    }
 
-        public event EventHandler<string>? OnOutputDataReceived;
+    public ProcessExecutor(string exePath, string arguments) : this(new ProcessStartInfo(exePath, arguments))
+    {
+    }
 
-        public event EventHandler<string>? OnErrorDataReceived;
-
-        protected readonly Process _process;
-
-        protected bool _started;
-
-        public ProcessExecutor(string exePath) : this(new ProcessStartInfo(exePath))
+    public ProcessExecutor(ProcessStartInfo startInfo)
+    {
+        _process = new Process()
         {
-        }
+            StartInfo = startInfo,
+            EnableRaisingEvents = true,
+        };
+        _process.StartInfo.UseShellExecute = false;
+        _process.StartInfo.CreateNoWindow = true;
+        _process.StartInfo.RedirectStandardOutput = true;
+        _process.StartInfo.RedirectStandardInput = true;
+        _process.StartInfo.RedirectStandardError = true;
+    }
 
-        public ProcessExecutor(string exePath, string arguments) : this(new ProcessStartInfo(exePath, arguments))
+    protected virtual void InitializeEvents()
+    {
+        _process.OutputDataReceived += (sender, args) =>
         {
-        }
-
-        public ProcessExecutor(ProcessStartInfo startInfo)
-        {
-            _process = new Process()
+            if (args.Data != null)
             {
-                StartInfo = startInfo,
-                EnableRaisingEvents = true,
-            };
-            _process.StartInfo.UseShellExecute = false;
-            _process.StartInfo.CreateNoWindow = true;
-            _process.StartInfo.RedirectStandardOutput = true;
-            _process.StartInfo.RedirectStandardInput = true;
-            _process.StartInfo.RedirectStandardError = true;
-        }
-
-        protected virtual void InitializeEvents()
-        {
-            _process.OutputDataReceived += (sender, args) =>
-            {
-                if (args.Data != null)
-                {
-                    OnOutputDataReceived?.Invoke(sender, args.Data);
-                }
-            };
-            _process.ErrorDataReceived += (sender, args) =>
-            {
-                if (args.Data != null)
-                {
-                    OnErrorDataReceived?.Invoke(sender, args.Data);
-                }
-            };
-            _process.Exited += (sender, _) =>
-            {
-                if (sender is Process process)
-                {
-                    OnExited?.Invoke(sender, process.ExitCode);
-                }
-                else
-                {
-                    OnExited?.Invoke(sender, _process.ExitCode);
-                }
-            };
-        }
-
-        protected virtual void Start()
-        {
-            if (_started)
-            {
-                return;
+                OnOutputDataReceived?.Invoke(sender, args.Data);
             }
-            _started = true;
-
-            _process.Start();
-            _process.BeginOutputReadLine();
-            _process.BeginErrorReadLine();
-            _process.WaitForExit();
-        }
-
-        public virtual async Task SendInput(string input)
+        };
+        _process.ErrorDataReceived += (sender, args) =>
         {
-            try
+            if (args.Data != null)
             {
-                await _process.StandardInput.WriteAsync(input!);
+                OnErrorDataReceived?.Invoke(sender, args.Data);
             }
-            catch (Exception e)
-            {
-                OnErrorDataReceived?.Invoke(_process, e.ToString());
-            }
-        }
-
-        public virtual int Execute()
+        };
+        _process.Exited += (sender, _) =>
         {
-            InitializeEvents();
+            if (sender is Process process)
+            {
+                OnExited?.Invoke(sender, process.ExitCode);
+            }
+            else
+            {
+                OnExited?.Invoke(sender, _process.ExitCode);
+            }
+        };
+    }
+
+    protected virtual void Start()
+    {
+        if (_started)
+        {
+            return;
+        }
+        _started = true;
+
+        _process.Start();
+        _process.BeginOutputReadLine();
+        _process.BeginErrorReadLine();
+        _process.WaitForExit();
+    }
+
+    public virtual async Task SendInput(string input)
+    {
+        try
+        {
+            await _process.StandardInput.WriteAsync(input!);
+        }
+        catch (Exception e)
+        {
+            OnErrorDataReceived?.Invoke(_process, e.ToString());
+        }
+    }
+
+    public virtual int Execute()
+    {
+        InitializeEvents();
+        Start();
+        return _process.ExitCode;
+    }
+
+    public virtual async Task<int> ExecuteAsync()
+    {
+        InitializeEvents();
+        return await Task.Run(() =>
+        {
             Start();
             return _process.ExitCode;
-        }
-
-        public virtual async Task<int> ExecuteAsync()
-        {
-            InitializeEvents();
-            return await Task.Run(() =>
-            {
-                Start();
-                return _process.ExitCode;
-            }).ConfigureAwait(false);
-        }
-
-        public virtual void Dispose()
-        {
-            _process.Dispose();
-            OnExited = null;
-            OnOutputDataReceived = null;
-            OnErrorDataReceived = null;
-        }
+        }).ConfigureAwait(false);
     }
 
-    public static class CommandRunner
+    public virtual void Dispose()
     {
-        public static int Execute(string commandPath, string? arguments = null, string? workingDirectory = null)
-        {
-            using var process = new Process()
-            {
-                StartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
-                {
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-
-                    WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
-                }
-            };
-
-            process.Start();
-            process.WaitForExit();
-            return process.ExitCode;
-        }
-
-        public static CommandResult ExecuteAndCapture(string commandPath, string? arguments = null, string? workingDirectory = null)
-        {
-            using var process = new Process()
-            {
-                StartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
-                {
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-
-                    WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
-                }
-            };
-            process.Start();
-            var standardOut = process.StandardOutput.ReadToEnd();
-            var standardError = process.StandardError.ReadToEnd();
-            process.WaitForExit();
-            return new CommandResult(process.ExitCode, standardOut, standardError);
-        }
+        _process.Dispose();
+        OnExited = null;
+        OnOutputDataReceived = null;
+        OnErrorDataReceived = null;
     }
+}
 
-    public sealed class CommandResult
+public static class CommandRunner
+{
+    public static int Execute(string commandPath, string? arguments = null, string? workingDirectory = null)
     {
-        public CommandResult(int exitCode, string standardOut, string standardError)
+        using var process = new Process()
         {
-            ExitCode = exitCode;
-            StandardOut = standardOut;
-            StandardError = standardError;
-        }
-
-        public string StandardOut { get; }
-        public string StandardError { get; }
-        public int ExitCode { get; }
-
-        public CommandResult EnsureSuccessfulExitCode(int successCode = 0)
-        {
-            if (ExitCode != successCode)
+            StartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
             {
-                throw new InvalidOperationException(StandardError);
+                UseShellExecute = false,
+                CreateNoWindow = true,
+
+                WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
             }
-            return this;
+        };
+
+        process.Start();
+        process.WaitForExit();
+        return process.ExitCode;
+    }
+
+    public static CommandResult ExecuteAndCapture(string commandPath, string? arguments = null, string? workingDirectory = null)
+    {
+        using var process = new Process()
+        {
+            StartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
+            {
+                UseShellExecute = false,
+                CreateNoWindow = true,
+
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+
+                WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
+            }
+        };
+        process.Start();
+        var standardOut = process.StandardOutput.ReadToEnd();
+        var standardError = process.StandardError.ReadToEnd();
+        process.WaitForExit();
+        return new CommandResult(process.ExitCode, standardOut, standardError);
+    }
+}
+
+public sealed class CommandResult
+{
+    public CommandResult(int exitCode, string standardOut, string standardError)
+    {
+        ExitCode = exitCode;
+        StandardOut = standardOut;
+        StandardError = standardError;
+    }
+
+    public string StandardOut { get; }
+    public string StandardError { get; }
+    public int ExitCode { get; }
+
+    public CommandResult EnsureSuccessfulExitCode(int successCode = 0)
+    {
+        if (ExitCode != successCode)
+        {
+            throw new InvalidOperationException(StandardError);
         }
+        return this;
     }
 }
