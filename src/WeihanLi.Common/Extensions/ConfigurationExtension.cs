@@ -38,25 +38,25 @@ public static class ConfigurationExtension
             {
                 if (!match.Success)
                 {
-                        // Return the original value.
-                        return kvp.Value;
+                    // Return the original value.
+                    return kvp.Value;
                 }
 
                 if (match.Groups.Count != 2)
                 {
-                        // There is a match, but somehow no group for the placeholder.
-                        throw new InvalidConfigurationPlaceholderException(match.ToString());
+                    // There is a match, but somehow no group for the placeholder.
+                    throw new InvalidConfigurationPlaceholderException(match.ToString());
                 }
 
                 var placeholder = match.Groups[1].Value;
                 if (placeholder.StartsWith(":") || placeholder.EndsWith(":"))
                 {
-                        // Placeholders cannot start or end with a colon.
-                        throw new InvalidConfigurationPlaceholderException(placeholder);
+                    // Placeholders cannot start or end with a colon.
+                    throw new InvalidConfigurationPlaceholderException(placeholder);
                 }
 
-                    // Return the value in the configuration instance.
-                    return configuration[placeholder];
+                // Return the value in the configuration instance.
+                return configuration[placeholder];
             });
 
             // Replace the value in the configuration instance.

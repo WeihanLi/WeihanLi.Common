@@ -241,15 +241,15 @@ internal sealed class ServiceContainer : IServiceContainer
 
                 var innerParameters = ctorInfo.GetParameters();
                 var parameterExpression = Expression.Parameter(typeof(object[]), "arguments"); // create parameter Expression
-                    var argExpressions = new Expression[innerParameters.Length]; // array that will contains parameter expessions
-                    for (var i = 0; i < innerParameters.Length; i++)
+                var argExpressions = new Expression[innerParameters.Length]; // array that will contains parameter expessions
+                for (var i = 0; i < innerParameters.Length; i++)
                 {
                     var indexedAccess = Expression.ArrayIndex(parameterExpression, Expression.Constant(i));
 
                     if (!innerParameters[i].ParameterType.IsClass)
                     {
-                            // we should create local variable that will store parameter value
-                            var localVariable = Expression.Variable(innerParameters[i].ParameterType, "localVariable");
+                        // we should create local variable that will store parameter value
+                        var localVariable = Expression.Variable(innerParameters[i].ParameterType, "localVariable");
 
                         var block = Expression.Block(new[] { localVariable },
                             Expression.IfThenElse(Expression.Equal(indexedAccess, Expression.Constant(null)),
@@ -266,8 +266,8 @@ internal sealed class ServiceContainer : IServiceContainer
                         argExpressions[i] = Expression.Convert(indexedAccess, innerParameters[i].ParameterType);
                     }
                 }
-                    // create expression that represents call to specified ctor with the specified arguments.
-                    var newExpression = Expression.New(ctorInfo, argExpressions);
+                // create expression that represents call to specified ctor with the specified arguments.
+                var newExpression = Expression.New(ctorInfo, argExpressions);
 
                 return Expression.Lambda<Func<object?[], object>>(newExpression, parameterExpression)
                 .Compile();

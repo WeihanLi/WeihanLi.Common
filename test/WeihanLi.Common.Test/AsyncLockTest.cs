@@ -15,8 +15,8 @@ public class AsyncLockTest
         //
         Parallel.For(0, count, _ =>
         {
-                // ReSharper disable once AccessToDisposedClosure
-                using (locker.Lock())
+            // ReSharper disable once AccessToDisposedClosure
+            using (locker.Lock())
             {
                 num++;
             }
@@ -33,8 +33,8 @@ public class AsyncLockTest
         await Enumerable.Range(1, count)
             .Select(async _ =>
             {
-                    // ReSharper disable once AccessToDisposedClosure
-                    using (await locker.LockAsync())
+                // ReSharper disable once AccessToDisposedClosure
+                using (await locker.LockAsync())
                 {
                     num++;
                 }
