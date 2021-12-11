@@ -1,4 +1,4 @@
-﻿#if NETSTANDARD2_1
+﻿#if ValueTaskSupport
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
