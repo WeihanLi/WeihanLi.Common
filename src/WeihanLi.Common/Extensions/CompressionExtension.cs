@@ -1,8 +1,5 @@
-﻿using JetBrains.Annotations;
-using System.IO;
-using System.IO.Compression;
+﻿using System.IO.Compression;
 using System.Text;
-using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions;
@@ -17,7 +14,7 @@ public static class CompressionExtension
     /// </summary>
     /// <param name="this">The stringToCompress to act on.</param>
     /// <returns>The string compressed into a GZip byte array.</returns>
-    public static byte[] CompressGZip([NotNull] this string @this)
+    public static byte[] CompressGZip(this string @this)
         => @this.CompressGZip(Encoding.UTF8);
 
     /// <summary>
@@ -26,14 +23,14 @@ public static class CompressionExtension
     /// <param name="this">The stringToCompress to act on.</param>
     /// <param name="encoding">The encoding.</param>
     /// <returns>The string compressed into a GZip byte array.</returns>
-    public static byte[] CompressGZip([NotNull] this string @this, Encoding encoding) => encoding.GetBytes(@this).CompressGZip();
+    public static byte[] CompressGZip(this string @this, Encoding encoding) => encoding.GetBytes(@this).CompressGZip();
 
     /// <summary>
     ///     A byteArray extension method that compress the given byte array to GZip byte array.
     /// </summary>
     /// <param name="bytes">The stringToCompress to act on.</param>
     /// <returns>The string compressed into a GZip byte array.</returns>
-    public static byte[] CompressGZip([NotNull] this byte[] bytes)
+    public static byte[] CompressGZip(this byte[] bytes)
     {
         using var memoryStream = new MemoryStream();
         using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
@@ -43,7 +40,7 @@ public static class CompressionExtension
         return memoryStream.ToArray();
     }
 
-    public static async Task<byte[]> CompressGZipAsync([NotNull] this byte[] bytes)
+    public static async Task<byte[]> CompressGZipAsync(this byte[] bytes)
     {
         using var memoryStream = new MemoryStream();
         using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
@@ -53,7 +50,7 @@ public static class CompressionExtension
         return memoryStream.ToArray();
     }
 
-    public static byte[] CompressGZip([NotNull] this Stream stream)
+    public static byte[] CompressGZip(this Stream stream)
     {
         using var memoryStream = new MemoryStream();
         using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
@@ -63,7 +60,7 @@ public static class CompressionExtension
         return memoryStream.ToArray();
     }
 
-    public static async Task<byte[]> CompressGZipAsync([NotNull] this Stream stream)
+    public static async Task<byte[]> CompressGZipAsync(this Stream stream)
     {
         using var memoryStream = new MemoryStream();
         using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
@@ -78,19 +75,19 @@ public static class CompressionExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>The byte array gzip to string.</returns>
-    public static byte[] DecompressGZip([NotNull] this byte[] @this)
+    public static byte[] DecompressGZip(this byte[] @this)
     {
         using var memoryStream = new MemoryStream(@this);
         return memoryStream.DecompressGZip();
     }
 
-    public static async Task<byte[]> DecompressGZipAsync([NotNull] this byte[] @this)
+    public static async Task<byte[]> DecompressGZipAsync(this byte[] @this)
     {
         using var memoryStream = new MemoryStream(@this);
         return await memoryStream.DecompressGZipAsync();
     }
 
-    public static byte[] DecompressGZip([NotNull] this Stream stream)
+    public static byte[] DecompressGZip(this Stream stream)
     {
         using var outStream = new MemoryStream();
         using (var zipStream = new GZipStream(stream, CompressionMode.Decompress))
@@ -100,7 +97,7 @@ public static class CompressionExtension
         return outStream.GetBuffer();
     }
 
-    public static async Task<byte[]> DecompressGZipAsync([NotNull] this Stream stream)
+    public static async Task<byte[]> DecompressGZipAsync(this Stream stream)
     {
         using var outStream = new MemoryStream();
         using (var zipStream = new GZipStream(stream, CompressionMode.Decompress))
@@ -110,9 +107,9 @@ public static class CompressionExtension
         return outStream.GetBuffer();
     }
 
-    public static string CompressGZipString([NotNull] this byte[] bytes) => bytes.CompressGZipString(Encoding.UTF8);
+    public static string CompressGZipString(this byte[] bytes) => bytes.CompressGZipString(Encoding.UTF8);
 
-    public static string CompressGZipString([NotNull] this byte[] bytes, Encoding encoding)
+    public static string CompressGZipString(this byte[] bytes, Encoding encoding)
     {
         using var memoryStream = new MemoryStream();
         using (var zipStream = new GZipStream(memoryStream, CompressionMode.Compress))
@@ -122,16 +119,16 @@ public static class CompressionExtension
         return encoding.GetString(memoryStream.ToArray());
     }
 
-    public static string DecompressGZipString([NotNull] this byte[] bytes) =>
+    public static string DecompressGZipString(this byte[] bytes) =>
         bytes.DecompressGZipString(Encoding.UTF8);
 
-    public static string DecompressGZipString([NotNull] this byte[] bytes, Encoding encoding) => encoding.GetString(bytes.DecompressGZip());
+    public static string DecompressGZipString(this byte[] bytes, Encoding encoding) => encoding.GetString(bytes.DecompressGZip());
 
     /// <summary>
     ///     A FileInfo extension method that creates a zip file.
     /// </summary>
     /// <param name="this">The @this to act on.</param>
-    public static void CreateGZip([NotNull] this FileInfo @this)
+    public static void CreateGZip(this FileInfo @this)
     {
         using var originalFileStream = @this.OpenRead();
         using var compressedFileStream = File.Create(@this.FullName + ".gz");
@@ -144,7 +141,7 @@ public static class CompressionExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <param name="destination">Destination for the zip.</param>
-    public static void CreateGZip([NotNull] this FileInfo @this, string destination)
+    public static void CreateGZip(this FileInfo @this, string destination)
     {
         using var originalFileStream = @this.OpenRead();
         using var compressedFileStream = File.Create(destination);
@@ -157,7 +154,7 @@ public static class CompressionExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <param name="destination">Destination for the zip.</param>
-    public static void CreateGZip([NotNull] this FileInfo @this, FileInfo destination)
+    public static void CreateGZip(this FileInfo @this, FileInfo destination)
     {
         using var originalFileStream = @this.OpenRead();
         using var compressedFileStream = File.Create(destination.FullName);
@@ -170,7 +167,7 @@ public static class CompressionExtension
     ///     @this.
     /// </summary>
     /// <param name="this">The @this to act on.</param>
-    public static void ExtractGZipToDirectory([NotNull] this FileInfo @this)
+    public static void ExtractGZipToDirectory(this FileInfo @this)
     {
         using var originalFileStream = @this.OpenRead();
         var newFileName = Path.GetFileNameWithoutExtension(@this.FullName);
@@ -186,7 +183,7 @@ public static class CompressionExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <param name="destination">Destination for the.</param>
-    public static void ExtractGZipToDirectory([NotNull] this FileInfo @this, string destination)
+    public static void ExtractGZipToDirectory(this FileInfo @this, string destination)
     {
         using var originalFileStream = @this.OpenRead();
         using var compressedFileStream = File.Create(destination);
@@ -200,7 +197,7 @@ public static class CompressionExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <param name="destination">Destination for the.</param>
-    public static void ExtractGZipToDirectory([NotNull] this FileInfo @this, FileInfo destination)
+    public static void ExtractGZipToDirectory(this FileInfo @this, FileInfo destination)
     {
         using var originalFileStream = @this.OpenRead();
         using var compressedFileStream = File.Create(destination.FullName);
@@ -215,7 +212,7 @@ public static class CompressionExtension
     ///     on the entries in the opened archive.
     /// </param>
     /// <returns>A ZipArchive.</returns>
-    public static ZipArchive OpenZipFile([NotNull] this FileInfo @this, ZipArchiveMode mode)
+    public static ZipArchive OpenZipFile(this FileInfo @this, ZipArchiveMode mode)
     {
         return ZipFile.Open(@this.FullName, mode);
     }
@@ -236,7 +233,7 @@ public static class CompressionExtension
     ///     entry names.
     /// </param>
     /// <returns>A ZipArchive.</returns>
-    public static ZipArchive OpenZipFile([NotNull] this FileInfo @this, ZipArchiveMode mode, Encoding entryNameEncoding)
+    public static ZipArchive OpenZipFile(this FileInfo @this, ZipArchiveMode mode, Encoding entryNameEncoding)
     {
         return ZipFile.Open(@this.FullName, mode, entryNameEncoding);
     }
@@ -250,7 +247,7 @@ public static class CompressionExtension
     ///     interpreted as relative to the current working directory.
     /// </param>
     /// <returns>The opened zip archive.</returns>
-    public static ZipArchive OpenReadZipFile([NotNull] this FileInfo @this)
+    public static ZipArchive OpenReadZipFile(this FileInfo @this)
     {
         return ZipFile.OpenRead(@this.FullName);
     }
@@ -264,7 +261,7 @@ public static class CompressionExtension
     ///     extracted files, specified as a relative or absolute path. A relative path is interpreted as
     ///     relative to the current working directory.
     /// </param>
-    public static void ExtractZipFileToDirectory([NotNull] this FileInfo @this, string destinationDirectoryName)
+    public static void ExtractZipFileToDirectory(this FileInfo @this, string destinationDirectoryName)
     {
         ZipFile.ExtractToDirectory(@this.FullName, destinationDirectoryName);
     }
@@ -283,7 +280,7 @@ public static class CompressionExtension
     ///     value for this parameter only when an encoding is required for interoperability with zip archive tools and
     ///     libraries that do not support UTF-8 encoding for entry names.
     /// </param>
-    public static void ExtractZipFileToDirectory([NotNull] this FileInfo @this, string destinationDirectoryName, Encoding entryNameEncoding)
+    public static void ExtractZipFileToDirectory(this FileInfo @this, string destinationDirectoryName, Encoding entryNameEncoding)
     {
         ZipFile.ExtractToDirectory(@this.FullName, destinationDirectoryName, entryNameEncoding);
     }
@@ -291,7 +288,7 @@ public static class CompressionExtension
     /// <summary>Extracts all the files in the specified zip archive to a directory on the file system.</summary>
     /// <param name="this">The @this to act on.</param>
     /// <param name="destinationDirectory">Pathname of the destination directory.</param>
-    public static void ExtractZipFileToDirectory([NotNull] this FileInfo @this, DirectoryInfo destinationDirectory)
+    public static void ExtractZipFileToDirectory(this FileInfo @this, DirectoryInfo destinationDirectory)
     {
         ZipFile.ExtractToDirectory(@this.FullName, destinationDirectory.FullName);
     }
@@ -308,7 +305,7 @@ public static class CompressionExtension
     ///     interoperability with zip archive tools and libraries that do not support UTF-8 encoding for
     ///     entry names.
     /// </param>
-    public static void ExtractZipFileToDirectory([NotNull] this FileInfo @this, DirectoryInfo destinationDirectory, Encoding entryNameEncoding)
+    public static void ExtractZipFileToDirectory(this FileInfo @this, DirectoryInfo destinationDirectory, Encoding entryNameEncoding)
     {
         ZipFile.ExtractToDirectory(@this.FullName, destinationDirectory.FullName, entryNameEncoding);
     }
@@ -323,7 +320,7 @@ public static class CompressionExtension
     ///     relative or absolute path. A relative path is interpreted as relative to the current working
     ///     directory.
     /// </param>
-    public static void CreateZipFile([NotNull] this DirectoryInfo @this, string destinationArchiveFileName)
+    public static void CreateZipFile(this DirectoryInfo @this, string destinationArchiveFileName)
     {
         ZipFile.CreateFromDirectory(@this.FullName, destinationArchiveFileName);
     }
@@ -347,7 +344,7 @@ public static class CompressionExtension
     ///     sourceDirectoryName at the root of the archive; false to include only the contents of the
     ///     directory.
     /// </param>
-    public static void CreateZipFile([NotNull] this DirectoryInfo @this, string destinationArchiveFileName, CompressionLevel compressionLevel, bool includeBaseDirectory)
+    public static void CreateZipFile(this DirectoryInfo @this, string destinationArchiveFileName, CompressionLevel compressionLevel, bool includeBaseDirectory)
     {
         ZipFile.CreateFromDirectory(@this.FullName, destinationArchiveFileName, compressionLevel, includeBaseDirectory);
     }
@@ -377,7 +374,7 @@ public static class CompressionExtension
     ///     value for this parameter only when an encoding is required for interoperability with zip archive tools and
     ///     libraries that do not support UTF-8 encoding for entry names.
     /// </param>
-    public static void CreateZipFile([NotNull] this DirectoryInfo @this, string destinationArchiveFileName, CompressionLevel compressionLevel, bool includeBaseDirectory, Encoding entryNameEncoding)
+    public static void CreateZipFile(this DirectoryInfo @this, string destinationArchiveFileName, CompressionLevel compressionLevel, bool includeBaseDirectory, Encoding entryNameEncoding)
     {
         ZipFile.CreateFromDirectory(@this.FullName, destinationArchiveFileName, compressionLevel, includeBaseDirectory, entryNameEncoding);
     }
@@ -392,7 +389,7 @@ public static class CompressionExtension
     ///     relative or absolute path. A relative path is interpreted as relative to the current working
     ///     directory.
     /// </param>
-    public static void CreateZipFile([NotNull] this DirectoryInfo @this, FileInfo destinationArchiveFile)
+    public static void CreateZipFile(this DirectoryInfo @this, FileInfo destinationArchiveFile)
     {
         ZipFile.CreateFromDirectory(@this.FullName, destinationArchiveFile.FullName);
     }
@@ -416,7 +413,7 @@ public static class CompressionExtension
     ///     sourceDirectoryName at the root of the archive; false to include only the contents of the
     ///     directory.
     /// </param>
-    public static void CreateZipFile([NotNull] this DirectoryInfo @this, FileInfo destinationArchiveFile, CompressionLevel compressionLevel, bool includeBaseDirectory)
+    public static void CreateZipFile(this DirectoryInfo @this, FileInfo destinationArchiveFile, CompressionLevel compressionLevel, bool includeBaseDirectory)
     {
         ZipFile.CreateFromDirectory(@this.FullName, destinationArchiveFile.FullName, compressionLevel, includeBaseDirectory);
     }
@@ -450,7 +447,7 @@ public static class CompressionExtension
     ///     interoperability with zip archive tools and libraries that do not support UTF-8 encoding for
     ///     entry names.
     /// </param>
-    public static void CreateZipFile([NotNull] this DirectoryInfo @this, FileInfo destinationArchiveFile, CompressionLevel compressionLevel, bool includeBaseDirectory, Encoding entryNameEncoding)
+    public static void CreateZipFile(this DirectoryInfo @this, FileInfo destinationArchiveFile, CompressionLevel compressionLevel, bool includeBaseDirectory, Encoding entryNameEncoding)
     {
         ZipFile.CreateFromDirectory(@this.FullName, destinationArchiveFile.FullName, compressionLevel, includeBaseDirectory, entryNameEncoding);
     }

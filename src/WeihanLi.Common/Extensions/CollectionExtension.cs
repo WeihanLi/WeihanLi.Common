@@ -1,8 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
+﻿using System.Collections.Specialized;
 using System.Text;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
@@ -75,7 +71,7 @@ public static class CollectionExtension
     /// <param name="predicate">The predicate.</param>
     /// <param name="value">The value.</param>
     /// <returns>true if it succeeds, false if it fails.</returns>
-    public static bool AddIf<T>([NotNull] this ICollection<T> @this, Func<T, bool> predicate, T value)
+    public static bool AddIf<T>(this ICollection<T> @this, Func<T, bool> predicate, T value)
     {
         if (@this.IsReadOnly) return false;
 
@@ -95,7 +91,7 @@ public static class CollectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="value">The value.</param>
     /// <returns>true if it succeeds, false if it fails.</returns>
-    public static bool AddIfNotContains<T>([NotNull] this ICollection<T> @this, T value)
+    public static bool AddIfNotContains<T>(this ICollection<T> @this, T value)
     {
         if (@this.IsReadOnly) return false;
 
@@ -114,7 +110,7 @@ public static class CollectionExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <param name="values">A variable-length parameters list containing values.</param>
-    public static void AddRange<T>([NotNull] this ICollection<T> @this, params T[] values)
+    public static void AddRange<T>(this ICollection<T> @this, params T[] values)
     {
         if (@this.IsReadOnly)
         {
@@ -134,7 +130,7 @@ public static class CollectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="predicate">The predicate.</param>
     /// <param name="values">A variable-length parameters list containing values.</param>
-    public static void AddRangeIf<T>([NotNull] this ICollection<T> @this, Func<T, bool> predicate, params T[] values)
+    public static void AddRangeIf<T>(this ICollection<T> @this, Func<T, bool> predicate, params T[] values)
     {
         if (@this.IsReadOnly) return;
         foreach (var value in values)
@@ -152,7 +148,7 @@ public static class CollectionExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <param name="values">A variable-length parameters list containing values.</param>
-    public static void AddRangeIfNotContains<T>([NotNull] this ICollection<T> @this, params T[] values)
+    public static void AddRangeIfNotContains<T>(this ICollection<T> @this, params T[] values)
     {
         if (@this.IsReadOnly) return;
         foreach (var value in values)
@@ -171,7 +167,7 @@ public static class CollectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="values">A variable-length parameters list containing values.</param>
     /// <returns>true if it succeeds, false if it fails.</returns>
-    public static bool ContainsAll<T>([NotNull] this ICollection<T> @this, params T[] values)
+    public static bool ContainsAll<T>(this ICollection<T> @this, params T[] values)
     {
         return values.All(@this.Contains);
     }
@@ -183,7 +179,7 @@ public static class CollectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="values">A variable-length parameters list containing values.</param>
     /// <returns>true if it succeeds, false if it fails.</returns>
-    public static bool ContainsAny<T>([NotNull] this ICollection<T> @this, params T[] values)
+    public static bool ContainsAny<T>(this ICollection<T> @this, params T[] values)
     {
         return values.Any(@this.Contains);
     }
@@ -216,7 +212,7 @@ public static class CollectionExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <param name="predicate">The predicate.</param>
-    public static void RemoveWhere<T>([NotNull] this IList<T> @this, Func<T, bool> predicate)
+    public static void RemoveWhere<T>(this IList<T> @this, Func<T, bool> predicate)
     {
         if (@this.IsReadOnly || @this.Count == 0) return;
 
@@ -229,7 +225,7 @@ public static class CollectionExtension
         }
     }
 
-    public static IEnumerable<T> GetRandomList<T>([NotNull] this IList<T> list)
+    public static IEnumerable<T> GetRandomList<T>(this IList<T> list)
     {
         return Enumerable.Range(0, list.Count)
             .OrderBy(_ => SecurityHelper.Random.Next(list.Count))

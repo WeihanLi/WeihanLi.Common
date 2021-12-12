@@ -1,9 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using WeihanLi.Common;
 using WeihanLi.Common.Models;
 
@@ -12,7 +7,7 @@ namespace WeihanLi.Extensions;
 
 public static class EnumerableExtension
 {
-    public static void ForEach<T>([NotNull] this IEnumerable<T> ts, Action<T> action)
+    public static void ForEach<T>(this IEnumerable<T> ts, Action<T> action)
     {
         foreach (var t in ts)
         {
@@ -20,7 +15,7 @@ public static class EnumerableExtension
         }
     }
 
-    public static void ForEach<T>([NotNull] this IEnumerable<T> ts, Action<T, int> action)
+    public static void ForEach<T>(this IEnumerable<T> ts, Action<T, int> action)
     {
         var i = 0;
         foreach (var t in ts)
@@ -30,7 +25,7 @@ public static class EnumerableExtension
         }
     }
 
-    public static async Task ForEachAsync<T>([NotNull] this IEnumerable<T> ts, Func<T, Task> action)
+    public static async Task ForEachAsync<T>(this IEnumerable<T> ts, Func<T, Task> action)
     {
         foreach (var t in ts)
         {
@@ -38,7 +33,7 @@ public static class EnumerableExtension
         }
     }
 
-    public static async Task ForEachAsync<T>([NotNull] this IEnumerable<T> ts, Func<T, int, Task> action)
+    public static async Task ForEachAsync<T>(this IEnumerable<T> ts, Func<T, int, Task> action)
     {
         var i = 0;
         foreach (var t in ts)
@@ -54,7 +49,7 @@ public static class EnumerableExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>A list of.</returns>
-    public static ReadOnlyCollection<T> AsReadOnly<T>([NotNull] this IEnumerable<T> @this)
+    public static ReadOnlyCollection<T> AsReadOnly<T>(this IEnumerable<T> @this)
     {
         return Array.AsReadOnly(@this.ToArray());
     }
@@ -83,12 +78,12 @@ public static class EnumerableExtension
     ///     A string that consists of the elements in value delimited by the separator string. If value is an empty array,
     ///     the method returns String.Empty.
     /// </returns>
-    public static string StringJoin<T>([NotNull] this IEnumerable<T> @this, string separator)
+    public static string StringJoin<T>(this IEnumerable<T> @this, string separator)
     {
         return string.Join(separator, @this);
     }
 
-    public static IEnumerable<TSource> Prepend<TSource>([NotNull] this IEnumerable<TSource> source, TSource value)
+    public static IEnumerable<TSource> Prepend<TSource>(this IEnumerable<TSource> source, TSource value)
     {
         yield return value;
 
@@ -98,7 +93,7 @@ public static class EnumerableExtension
         }
     }
 
-    public static IEnumerable<TSource> Append<TSource>([NotNull] this IEnumerable<TSource> source, TSource value)
+    public static IEnumerable<TSource> Append<TSource>(this IEnumerable<TSource> source, TSource value)
     {
         foreach (var element in source)
         {
@@ -201,7 +196,7 @@ public static class EnumerableExtension
     /// <param name="data">data</param>
     /// <param name="totalCount">totalCount</param>
     /// <returns></returns>
-    public static IListResultWithTotal<T> ToListResultWithTotal<T>([NotNull] this IEnumerable<T> data, int totalCount)
+    public static IListResultWithTotal<T> ToListResultWithTotal<T>(this IEnumerable<T> data, int totalCount)
         => new ListResultWithTotal<T>
         {
             TotalCount = totalCount,
@@ -217,7 +212,7 @@ public static class EnumerableExtension
     /// <param name="pageSize">pageSize</param>
     /// <param name="totalCount">totalCount</param>
     /// <returns></returns>
-    public static IPagedListResult<T> ToPagedList<T>([NotNull] this IEnumerable<T> data, int pageNumber, int pageSize, int totalCount)
+    public static IPagedListResult<T> ToPagedList<T>(this IEnumerable<T> data, int pageNumber, int pageSize, int totalCount)
         => new PagedListResult<T>
         {
             PageNumber = pageNumber,
@@ -235,7 +230,7 @@ public static class EnumerableExtension
     /// <param name="pageSize">pageSize</param>
     /// <param name="totalCount">totalCount</param>
     /// <returns></returns>
-    public static IPagedListResult<T> ToPagedList<T>([NotNull] this IReadOnlyList<T> data, int pageNumber, int pageSize, int totalCount)
+    public static IPagedListResult<T> ToPagedList<T>(this IReadOnlyList<T> data, int pageNumber, int pageSize, int totalCount)
         => new PagedListResult<T>
         {
             PageNumber = pageNumber,

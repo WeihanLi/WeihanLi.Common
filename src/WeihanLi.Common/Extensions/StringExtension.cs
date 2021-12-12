@@ -1,7 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections.Specialized;
-using System.Linq;
+﻿using System.Collections.Specialized;
 using System.Text;
 using System.Web;
 using WeihanLi.Common;
@@ -19,7 +16,7 @@ public static class StringExtension
     /// </summary>
     /// <param name="s">The string to encode.</param>
     /// <returns>An encoded string.</returns>
-    public static string HtmlEncode([NotNull] this string s)
+    public static string HtmlEncode(this string s)
     {
         return HttpUtility.HtmlEncode(s);
     }
@@ -29,7 +26,7 @@ public static class StringExtension
     /// </summary>
     /// <param name="s">The string to decode.</param>
     /// <returns>A decoded string.</returns>
-    public static string HtmlDecode([NotNull] this string s)
+    public static string HtmlDecode(this string s)
     {
         return HttpUtility.HtmlDecode(s);
     }
@@ -39,7 +36,7 @@ public static class StringExtension
     /// </summary>
     /// <param name="value">A string to encode.</param>
     /// <returns>An encoded string.</returns>
-    public static string JavaScriptStringEncode([NotNull] this string value)
+    public static string JavaScriptStringEncode(this string value)
     {
         return HttpUtility.JavaScriptStringEncode(value);
     }
@@ -53,7 +50,7 @@ public static class StringExtension
     ///     encoded string.
     /// </param>
     /// <returns>An encoded string.</returns>
-    public static string JavaScriptStringEncode([NotNull] this string value, bool addDoubleQuotes)
+    public static string JavaScriptStringEncode(this string value, bool addDoubleQuotes)
     {
         return HttpUtility.JavaScriptStringEncode(value, addDoubleQuotes);
     }
@@ -63,7 +60,7 @@ public static class StringExtension
     /// </summary>
     /// <param name="query">The query string to parse.</param>
     /// <returns>A  of query parameters and values.</returns>
-    public static NameValueCollection ParseQueryString([NotNull] this string query)
+    public static NameValueCollection ParseQueryString(this string query)
     {
         return HttpUtility.ParseQueryString(query);
     }
@@ -74,7 +71,7 @@ public static class StringExtension
     /// <param name="query">The query string to parse.</param>
     /// <param name="encoding">The  to use.</param>
     /// <returns>A  of query parameters and values.</returns>
-    public static NameValueCollection ParseQueryString([NotNull] this string query, Encoding encoding)
+    public static NameValueCollection ParseQueryString(this string query, Encoding encoding)
     {
         return HttpUtility.ParseQueryString(query, encoding);
     }
@@ -84,7 +81,7 @@ public static class StringExtension
     /// </summary>
     /// <param name="str">The string to decode.</param>
     /// <returns>A decoded string.</returns>
-    public static string UrlDecode([NotNull] this string str)
+    public static string UrlDecode(this string str)
     {
         return HttpUtility.UrlDecode(str);
     }
@@ -95,7 +92,7 @@ public static class StringExtension
     /// <param name="str">The string to decode.</param>
     /// <param name="e">The  that specifies the decoding scheme.</param>
     /// <returns>A decoded string.</returns>
-    public static string UrlDecode([NotNull] this string str, Encoding e)
+    public static string UrlDecode(this string str, Encoding e)
     {
         return HttpUtility.UrlDecode(str, e);
     }
@@ -105,7 +102,7 @@ public static class StringExtension
     /// </summary>
     /// <param name="str">The text to encode.</param>
     /// <returns>An encoded string.</returns>
-    public static string UrlEncode([NotNull] this string str)
+    public static string UrlEncode(this string str)
     {
         return HttpUtility.UrlEncode(str);
     }
@@ -116,7 +113,7 @@ public static class StringExtension
     /// <param name="str">The text to encode.</param>
     /// <param name="e">The  object that specifies the encoding scheme.</param>
     /// <returns>An encoded string.</returns>
-    public static string UrlEncode([NotNull] this string str, Encoding e)
+    public static string UrlEncode(this string str, Encoding e)
     {
         return HttpUtility.UrlEncode(str, e);
     }
@@ -126,7 +123,7 @@ public static class StringExtension
     /// </summary>
     /// <param name="str">source string</param>
     /// <returns>base64 encoded string</returns>
-    public static string Base64Encode([NotNull] this string str) => Base64Encode(str, Encoding.UTF8);
+    public static string Base64Encode(this string str) => Base64Encode(str, Encoding.UTF8);
 
     /// <summary>
     /// Base64Encode
@@ -134,14 +131,14 @@ public static class StringExtension
     /// <param name="str">source string</param>
     /// <param name="encoding">encoding</param>
     /// <returns>base64 encoded string</returns>
-    public static string Base64Encode([NotNull] this string str, Encoding encoding) => Convert.ToBase64String(str.GetBytes(encoding));
+    public static string Base64Encode(this string str, Encoding encoding) => Convert.ToBase64String(str.GetBytes(encoding));
 
     /// <summary>
     /// Base64Decode with ytf8 encoding
     /// </summary>
     /// <param name="str">base64 encoded source string</param>
     /// <returns>base64 decoded string</returns>
-    public static string Base64Decode([NotNull] this string str) => Base64Decode(str, Encoding.UTF8);
+    public static string Base64Decode(this string str) => Base64Decode(str, Encoding.UTF8);
 
     /// <summary>
     /// Base64Decode
@@ -149,21 +146,21 @@ public static class StringExtension
     /// <param name="str">base64 encoded source string</param>
     /// <param name="encoding">encoding</param>
     /// <returns>base64 decoded string</returns>
-    public static string Base64Decode([NotNull] this string str, Encoding encoding) => Convert.FromBase64String(str).GetString(encoding);
+    public static string Base64Decode(this string str, Encoding encoding) => Convert.FromBase64String(str).GetString(encoding);
 
     /// <summary>
     /// Base64UrlEncode
     /// </summary>
     /// <param name="str">source string</param>
     /// <returns>encoded string</returns>
-    public static string Base64UrlEncode([NotNull] this string str) => Base64UrlEncodeHelper.Encode(str);
+    public static string Base64UrlEncode(this string str) => Base64UrlEncodeHelper.Encode(str);
 
     /// <summary>
     /// Base64UrlEncode
     /// </summary>
     /// <param name="str">base64url encoded string</param>
     /// <returns>decode string</returns>
-    public static string Base64UrlDecode([NotNull] this string str) => Base64UrlEncodeHelper.Decode(str);
+    public static string Base64UrlDecode(this string str) => Base64UrlEncodeHelper.Decode(str);
 
     #endregion Encode/Decode
 
@@ -173,7 +170,7 @@ public static class StringExtension
     /// </summary>
     /// <param name="typeName">typename</param>
     /// <returns></returns>
-    public static Type GetTypeByTypeName([NotNull] this string typeName)
+    public static Type GetTypeByTypeName(this string typeName)
     {
         var type = Guard.NotNullOrEmpty(typeName, nameof(typeName))
                 .ToLower() switch

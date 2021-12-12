@@ -1,8 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 using WeihanLi.Common.Compressor;
 using WeihanLi.Extensions;
 
@@ -16,7 +12,7 @@ public interface IDataSerializer
     /// <typeparam name="T">Type</typeparam>
     /// <param name="obj">object</param>
     /// <returns>bytes</returns>
-    byte[] Serialize<T>([NotNull] T obj);
+    byte[] Serialize<T>(T obj);
 
     /// <summary>
     /// 反序列化
@@ -24,7 +20,7 @@ public interface IDataSerializer
     /// <typeparam name="T">Type</typeparam>
     /// <param name="bytes">bytes</param>
     /// <returns>obj</returns>
-    T Deserialize<T>([NotNull] byte[] bytes);
+    T Deserialize<T>(byte[] bytes);
 }
 
 public class XmlDataSerializer : IDataSerializer

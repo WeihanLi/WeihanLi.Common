@@ -1,10 +1,7 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using WeihanLi.Common;
@@ -113,20 +110,20 @@ public static class ReflectionExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>The custom attribute.</returns>
-    public static string GetDisplayName([NotNull] this MemberInfo @this)
+    public static string GetDisplayName(this MemberInfo @this)
         => @this.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? @this.GetCustomAttribute<DisplayAttribute>()?.Name ?? @this.Name;
 
     /// <summary>
     /// GetColumnName
     /// </summary>
     /// <returns></returns>
-    public static string GetColumnName([NotNull] this PropertyInfo propertyInfo) => propertyInfo.GetCustomAttribute<ColumnAttribute>()?.Name ?? propertyInfo.Name;
+    public static string GetColumnName(this PropertyInfo propertyInfo) => propertyInfo.GetCustomAttribute<ColumnAttribute>()?.Name ?? propertyInfo.Name;
 
     /// <summary>
     /// GetDescription
     /// </summary>
     /// <returns></returns>
-    public static string GetDescription([NotNull] this MemberInfo @this) => @this.GetCustomAttribute<DescriptionAttribute>()?.Description ?? @this.Name;
+    public static string GetDescription(this MemberInfo @this) => @this.GetCustomAttribute<DescriptionAttribute>()?.Description ?? @this.Name;
 
     /// <summary>A T extension method that searches for the public field with the specified name.</summary>
     /// <typeparam name="T">Generic type parameter.</typeparam>
@@ -156,7 +153,7 @@ public static class ReflectionExtension
     ///     An object representing the field that matches the specified requirements, if found;
     ///     otherwise, null.
     /// </returns>
-    public static FieldInfo? GetField<T>([NotNull] this T @this, string name, BindingFlags bindingAttr)
+    public static FieldInfo? GetField<T>(this T @this, string name, BindingFlags bindingAttr)
     {
         if (@this == null)
         {
@@ -169,7 +166,7 @@ public static class ReflectionExtension
     /// <summary>An object extension method that gets the fields.</summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>An array of field information.</returns>
-    public static FieldInfo[] GetFields([NotNull] this object @this)
+    public static FieldInfo[] GetFields(this object @this)
     {
         return CacheUtil.GetTypeFields(Guard.NotNull(@this, nameof(@this)).GetType());
     }
@@ -178,7 +175,7 @@ public static class ReflectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="bindingAttr">The binding attribute.</param>
     /// <returns>An array of field information.</returns>
-    public static FieldInfo[] GetFields([NotNull] this object @this, BindingFlags bindingAttr)
+    public static FieldInfo[] GetFields(this object @this, BindingFlags bindingAttr)
     {
         return @this.GetType().GetFields(bindingAttr);
     }
@@ -190,7 +187,7 @@ public static class ReflectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="fieldName">Name of the field.</param>
     /// <returns>The field value.</returns>
-    public static object? GetFieldValue<T>([NotNull] this T @this, string fieldName)
+    public static object? GetFieldValue<T>(this T @this, string fieldName)
     {
         var field = @this.GetField(fieldName);
         return field?.GetValue(@this);
@@ -205,7 +202,7 @@ public static class ReflectionExtension
     /// <returns>
     ///     An object that represents the public method with the specified name, if found; otherwise, null.
     /// </returns>
-    public static MethodInfo GetMethod<T>([NotNull] this T @this, string name)
+    public static MethodInfo GetMethod<T>(this T @this, string name)
     {
         return CacheUtil.TypeMethodCache.GetOrAdd(typeof(T), t => t.GetMethods()).First(_ => _.Name == name);
     }
@@ -221,7 +218,7 @@ public static class ReflectionExtension
     /// <returns>
     ///     An object that represents the public method with the specified name, if found; otherwise, null.
     /// </returns>
-    public static MethodInfo? GetMethod<T>([NotNull] this T @this, string name, BindingFlags bindingAttr)
+    public static MethodInfo? GetMethod<T>(this T @this, string name, BindingFlags bindingAttr)
     {
         if (@this == null)
         {
@@ -240,7 +237,7 @@ public static class ReflectionExtension
     ///     An array of MethodInfo objects representing all the public methods defined for the current Type. or An empty
     ///     array of type MethodInfo, if no public methods are defined for the current Type.
     /// </returns>
-    public static MethodInfo[] GetMethods<T>([NotNull] this T @this)
+    public static MethodInfo[] GetMethods<T>(this T @this)
     {
         if (@this == null)
         {
@@ -262,7 +259,7 @@ public static class ReflectionExtension
     ///     binding constraints. or An empty array of type MethodInfo, if no methods are defined for the current Type, or
     ///     if none of the defined methods match the binding constraints.
     /// </returns>
-    public static MethodInfo[] GetMethods<T>([NotNull] this T @this, BindingFlags bindingAttr)
+    public static MethodInfo[] GetMethods<T>(this T @this, BindingFlags bindingAttr)
     {
         if (@this == null)
         {
@@ -275,7 +272,7 @@ public static class ReflectionExtension
     /// <summary>An object extension method that gets the properties.</summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>An array of property information.</returns>
-    public static PropertyInfo[] GetProperties([NotNull] this object @this)
+    public static PropertyInfo[] GetProperties(this object @this)
     {
         return CacheUtil.GetTypeProperties(@this.GetType());
     }
@@ -284,7 +281,7 @@ public static class ReflectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="bindingAttr">The binding attribute.</param>
     /// <returns>An array of property information.</returns>
-    public static PropertyInfo[] GetProperties([NotNull] this object @this, BindingFlags bindingAttr)
+    public static PropertyInfo[] GetProperties(this object @this, BindingFlags bindingAttr)
     {
         return @this.GetType().GetProperties(bindingAttr);
     }
@@ -296,7 +293,7 @@ public static class ReflectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="name">The name.</param>
     /// <returns>The property.</returns>
-    public static PropertyInfo? GetProperty<T>([NotNull] this T @this, string name)
+    public static PropertyInfo? GetProperty<T>(this T @this, string name)
     {
         if (@this == null)
         {
@@ -314,7 +311,7 @@ public static class ReflectionExtension
     /// <param name="name">The name.</param>
     /// <param name="bindingAttr">The binding attribute.</param>
     /// <returns>The property.</returns>
-    public static PropertyInfo? GetProperty<T>([NotNull] this T @this, string name, BindingFlags bindingAttr)
+    public static PropertyInfo? GetProperty<T>(this T @this, string name, BindingFlags bindingAttr)
     {
         if (@this == null)
         {
@@ -329,7 +326,7 @@ public static class ReflectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="name">The name.</param>
     /// <returns>The property or field.</returns>
-    public static MemberInfo? GetPropertyOrField<T>([NotNull] this T @this, string name)
+    public static MemberInfo? GetPropertyOrField<T>(this T @this, string name)
     {
         var property = @this.GetProperty(name);
         if (property != null)
@@ -348,7 +345,7 @@ public static class ReflectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="propertyName">Name of the property.</param>
     /// <returns>The property value.</returns>
-    public static object? GetPropertyValue<T>([NotNull] this T @this, string propertyName)
+    public static object? GetPropertyValue<T>(this T @this, string propertyName)
     {
         var property = @this.GetProperty(propertyName);
         return property?.GetValueGetter<T>()?.Invoke(@this);
@@ -361,7 +358,7 @@ public static class ReflectionExtension
     /// <param name="attributeType">Type of the attribute.</param>
     /// <param name="inherit">true to inherit.</param>
     /// <returns>true if attribute defined, false if not.</returns>
-    public static bool IsAttributeDefined([NotNull] this object @this, Type attributeType, bool inherit = true)
+    public static bool IsAttributeDefined(this object @this, Type attributeType, bool inherit = true)
     {
         return @this.GetType().IsDefined(attributeType, inherit);
     }
@@ -373,7 +370,7 @@ public static class ReflectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="inherit">true to inherit.</param>
     /// <returns>true if attribute defined, false if not.</returns>
-    public static bool IsAttributeDefined<T>([NotNull] this object @this, bool inherit = true) where T : Attribute
+    public static bool IsAttributeDefined<T>(this object @this, bool inherit = true) where T : Attribute
     {
         return @this.GetType().IsDefined(typeof(T), inherit);
     }
@@ -385,7 +382,7 @@ public static class ReflectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="fieldName">Name of the field.</param>
     /// <param name="value">The value.</param>
-    public static void SetFieldValue<T>([NotNull] this T @this, string fieldName, object? value)
+    public static void SetFieldValue<T>(this T @this, string fieldName, object? value)
     {
         if (@this == null)
         {
@@ -404,7 +401,7 @@ public static class ReflectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="propertyName">Name of the property.</param>
     /// <param name="value">The value.</param>
-    public static void SetPropertyValue<T>([NotNull] this T @this, string propertyName, object? value) where T : class
+    public static void SetPropertyValue<T>(this T @this, string propertyName, object? value) where T : class
     {
         var property = @this.GetProperty(propertyName);
         property?.GetValueSetter()?.Invoke(@this, value);
@@ -424,7 +421,7 @@ public static class ReflectionExtension
         });
     }
 
-    public static Func<object, object?>? GetValueGetter([NotNull] this PropertyInfo propertyInfo)
+    public static Func<object, object?>? GetValueGetter(this PropertyInfo propertyInfo)
     {
         return CacheUtil.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
         {
@@ -481,14 +478,14 @@ public static class ReflectionExtension
         });
     }
 
-    public static bool HasEmptyConstructor<T>([NotNull] this T @this)
+    public static bool HasEmptyConstructor<T>(this T @this)
         => typeof(T).HasEmptyConstructor();
 
     /// <summary>
     /// 是否是 ValueTuple
     /// </summary>
     /// <returns></returns>
-    public static bool IsValueTuple<T>([NotNull] this T t)
+    public static bool IsValueTuple<T>(this T t)
         => typeof(T).IsValueTuple();
 
     /// <summary>
@@ -496,7 +493,7 @@ public static class ReflectionExtension
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    public static bool IsValueType<T>([NotNull] this T t)
+    public static bool IsValueType<T>(this T t)
         => typeof(T).IsValueType;
 
     /// <summary>
@@ -505,7 +502,7 @@ public static class ReflectionExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>true if array, false if not.</returns>
-    public static bool IsArray<T>([NotNull] this T @this)
+    public static bool IsArray<T>(this T @this)
     {
         if (@this == null)
         {
@@ -521,7 +518,7 @@ public static class ReflectionExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>true if enum, false if not.</returns>
-    public static bool IsEnum<T>([NotNull] this T @this)
+    public static bool IsEnum<T>(this T @this)
     {
         return typeof(T).IsEnum;
     }
@@ -533,7 +530,7 @@ public static class ReflectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="type">The Type to process.</param>
     /// <returns>true if subclass of, false if not.</returns>
-    public static bool IsSubclassOf<T>([NotNull] this T @this, Type type)
+    public static bool IsSubclassOf<T>(this T @this, Type type)
     {
         return typeof(T).IsSubclassOf(type);
     }
@@ -548,7 +545,7 @@ public static class ReflectionExtension
     ///     A reference to the single custom attribute of type  that is applied to , or null if there is no such
     ///     attribute.
     /// </returns>
-    public static Attribute? GetCustomAttribute([NotNull] this Assembly element, Type attributeType)
+    public static Attribute? GetCustomAttribute(this Assembly element, Type attributeType)
     {
         return Attribute.GetCustomAttribute(element, attributeType);
     }
@@ -564,7 +561,7 @@ public static class ReflectionExtension
     ///     A reference to the single custom attribute of type  that is applied to , or null if there is no such
     ///     attribute.
     /// </returns>
-    public static Attribute? GetCustomAttribute([NotNull] this Assembly element, Type attributeType, bool inherit)
+    public static Attribute? GetCustomAttribute(this Assembly element, Type attributeType, bool inherit)
     {
         return Attribute.GetCustomAttribute(element, attributeType, inherit);
     }
@@ -579,7 +576,7 @@ public static class ReflectionExtension
     ///     An  array that contains the custom attributes of type  applied to , or an empty array if no such custom
     ///     attributes exist.
     /// </returns>
-    public static Attribute[] GetCustomAttributes([NotNull] this Assembly element, Type attributeType)
+    public static Attribute[] GetCustomAttributes(this Assembly element, Type attributeType)
     {
         return Attribute.GetCustomAttributes(element, attributeType);
     }
@@ -595,7 +592,7 @@ public static class ReflectionExtension
     ///     An  array that contains the custom attributes of type  applied to , or an empty array if no such custom
     ///     attributes exist.
     /// </returns>
-    public static Attribute[] GetCustomAttributes([NotNull] this Assembly element, Type attributeType, bool inherit)
+    public static Attribute[] GetCustomAttributes(this Assembly element, Type attributeType, bool inherit)
     {
         return Attribute.GetCustomAttributes(element, attributeType, inherit);
     }
@@ -608,7 +605,7 @@ public static class ReflectionExtension
     ///     An  array that contains the custom attributes applied to , or an empty array if no such custom attributes
     ///     exist.
     /// </returns>
-    public static Attribute[] GetCustomAttributes([NotNull] this Assembly element)
+    public static Attribute[] GetCustomAttributes(this Assembly element)
     {
         return Attribute.GetCustomAttributes(element);
     }
@@ -623,7 +620,7 @@ public static class ReflectionExtension
     ///     An  array that contains the custom attributes applied to , or an empty array if no such custom attributes
     ///     exist.
     /// </returns>
-    public static Attribute[] GetCustomAttributes([NotNull] this Assembly element, bool inherit)
+    public static Attribute[] GetCustomAttributes(this Assembly element, bool inherit)
     {
         return Attribute.GetCustomAttributes(element, inherit);
     }
@@ -635,7 +632,7 @@ public static class ReflectionExtension
     /// <param name="element">An object derived from the  class that describes a reusable collection of modules.</param>
     /// <param name="attributeType">The type, or a base type, of the custom attribute to search for.</param>
     /// <returns>true if a custom attribute of type  is applied to ; otherwise, false.</returns>
-    public static bool IsDefined([NotNull] this Assembly element, Type attributeType)
+    public static bool IsDefined(this Assembly element, Type attributeType)
     {
         return Attribute.IsDefined(element, attributeType);
     }
@@ -648,7 +645,7 @@ public static class ReflectionExtension
     /// <param name="attributeType">The type, or a base type, of the custom attribute to search for.</param>
     /// <param name="inherit">This parameter is ignored, and does not affect the operation of this method.</param>
     /// <returns>true if a custom attribute of type  is applied to ; otherwise, false.</returns>
-    public static bool IsDefined([NotNull] this Assembly element, Type attributeType, bool inherit)
+    public static bool IsDefined(this Assembly element, Type attributeType, bool inherit)
     {
         return Attribute.IsDefined(element, attributeType, inherit);
     }

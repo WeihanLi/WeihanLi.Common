@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using WeihanLi.Extensions;
 
 // ReSharper disable once CheckNamespace
@@ -23,7 +21,7 @@ public static class ConfigurationExtension
     /// </summary>
     /// <param name="configuration">The <see cref="IConfiguration"/> instance to replace placeholders in.</param>
     /// <returns>The given <see cref="IConfiguration"/> instance.</returns>
-    public static IConfiguration ReplacePlaceholders([NotNull] this IConfiguration configuration)
+    public static IConfiguration ReplacePlaceholders(this IConfiguration configuration)
     {
         foreach (var kvp in configuration.AsEnumerable())
         {
@@ -84,7 +82,7 @@ public static class ConfigurationExtension
     /// <param name="configuration">IConfiguration instance</param>
     /// <param name="key">appSettings key</param>
     /// <returns>app setting value</returns>
-    public static string? GetAppSetting([NotNull] this IConfiguration configuration, string key)
+    public static string? GetAppSetting(this IConfiguration configuration, string key)
     {
         return configuration.GetSection("AppSettings")?[key];
     }
@@ -96,7 +94,7 @@ public static class ConfigurationExtension
     /// <param name="configuration">IConfiguration instance</param>
     /// <param name="key">appSettings key</param>
     /// <returns>app setting value</returns>
-    public static T GetAppSetting<T>([NotNull] this IConfiguration configuration, string key)
+    public static T GetAppSetting<T>(this IConfiguration configuration, string key)
     {
         return configuration.GetAppSetting(key).To<T>();
     }
@@ -109,7 +107,7 @@ public static class ConfigurationExtension
     /// <param name="key">appSettings key</param>
     /// <param name="defaultValue">default value if not exist</param>
     /// <returns>app setting value</returns>
-    public static T? GetAppSetting<T>([NotNull] this IConfiguration configuration, string key, T defaultValue)
+    public static T? GetAppSetting<T>(this IConfiguration configuration, string key, T defaultValue)
     {
         return configuration.GetAppSetting(key).ToOrDefault(defaultValue);
     }
@@ -122,7 +120,7 @@ public static class ConfigurationExtension
     /// <param name="key">appSettings key</param>
     /// <param name="defaultValueFunc">default value func if not exist to get a default value</param>
     /// <returns>app setting value</returns>
-    public static T? GetAppSetting<T>([NotNull] this IConfiguration configuration, string key, Func<T> defaultValueFunc)
+    public static T? GetAppSetting<T>(this IConfiguration configuration, string key, Func<T> defaultValueFunc)
     {
         return configuration.GetAppSetting(key).ToOrDefault(defaultValueFunc);
     }

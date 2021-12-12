@@ -1,7 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
@@ -11,7 +8,7 @@ namespace Microsoft.Extensions.DependencyInjection;
 
 public interface IServiceModule
 {
-    void ConfigureServices([NotNull] IServiceCollection services);
+    void ConfigureServices(IServiceCollection services);
 }
 
 public static class ServiceCollectionExtension
@@ -22,7 +19,7 @@ public static class ServiceCollectionExtension
     /// <param name="services">services</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterAssemblyTypes([NotNull] this IServiceCollection services, params Assembly[] assemblies)
+    public static IServiceCollection RegisterAssemblyTypes(this IServiceCollection services, params Assembly[] assemblies)
         => RegisterAssemblyTypes(services, null, ServiceLifetime.Singleton, assemblies);
 
     /// <summary>
@@ -32,7 +29,7 @@ public static class ServiceCollectionExtension
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterAssemblyTypes([NotNull] this IServiceCollection services,
+    public static IServiceCollection RegisterAssemblyTypes(this IServiceCollection services,
         ServiceLifetime serviceLifetime, params Assembly[] assemblies)
         => RegisterAssemblyTypes(services, null, serviceLifetime, assemblies);
 
@@ -43,7 +40,7 @@ public static class ServiceCollectionExtension
     /// <param name="typesFilter">filter types to register</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterAssemblyTypes([NotNull] this IServiceCollection services,
+    public static IServiceCollection RegisterAssemblyTypes(this IServiceCollection services,
         Func<Type, bool>? typesFilter, params Assembly[] assemblies)
         => RegisterAssemblyTypes(services, typesFilter, ServiceLifetime.Singleton, assemblies);
 
@@ -55,7 +52,7 @@ public static class ServiceCollectionExtension
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterAssemblyTypes([NotNull] this IServiceCollection services, Func<Type, bool>? typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
+    public static IServiceCollection RegisterAssemblyTypes(this IServiceCollection services, Func<Type, bool>? typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
     {
         if (Guard.NotNull(assemblies, nameof(assemblies)).Length == 0)
         {
@@ -86,7 +83,7 @@ public static class ServiceCollectionExtension
     /// <param name="services">services</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceCollection services,
+    public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(this IServiceCollection services,
         params Assembly[] assemblies)
         => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: null, ServiceLifetime.Singleton, assemblies);
 
@@ -97,7 +94,7 @@ public static class ServiceCollectionExtension
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceCollection services,
+    public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(this IServiceCollection services,
         ServiceLifetime serviceLifetime, params Assembly[] assemblies)
         => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: null, serviceLifetime, assemblies);
 
@@ -108,7 +105,7 @@ public static class ServiceCollectionExtension
     /// <param name="typesFilter">filter types to register</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceCollection services, Func<Type, bool> typesFilter, params Assembly[] assemblies)
+    public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(this IServiceCollection services, Func<Type, bool> typesFilter, params Assembly[] assemblies)
         => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: typesFilter, ServiceLifetime.Singleton, assemblies);
 
     /// <summary>
@@ -120,7 +117,7 @@ public static class ServiceCollectionExtension
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
     public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(
-        [NotNull] this IServiceCollection services, Func<Type, bool>? typesFilter, ServiceLifetime serviceLifetime,
+        this IServiceCollection services, Func<Type, bool>? typesFilter, ServiceLifetime serviceLifetime,
         params Assembly[] assemblies)
         => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter, null, serviceLifetime, assemblies);
 
@@ -133,7 +130,7 @@ public static class ServiceCollectionExtension
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceCollection services, Func<Type, bool>? typesFilter, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
+    public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(this IServiceCollection services, Func<Type, bool>? typesFilter, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
     {
         if (Guard.NotNull(assemblies, nameof(assemblies)).Length == 0)
         {
@@ -171,7 +168,7 @@ public static class ServiceCollectionExtension
     /// <param name="type">type</param>
     /// <param name="serviceLifetime">service lifetime</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterTypeAsImplementedInterfaces([NotNull] this IServiceCollection services, Type type, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
+    public static IServiceCollection RegisterTypeAsImplementedInterfaces(this IServiceCollection services, Type type, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
         => RegisterTypeAsImplementedInterfaces(services, type, null, serviceLifetime);
 
     /// <summary>
@@ -182,7 +179,7 @@ public static class ServiceCollectionExtension
     /// <param name="interfaceTypeFilter">interfaceTypeFilter</param>
     /// <param name="serviceLifetime">service lifetime</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterTypeAsImplementedInterfaces([NotNull] this IServiceCollection services, Type type, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
+    public static IServiceCollection RegisterTypeAsImplementedInterfaces(this IServiceCollection services, Type type, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
     {
         if (type != null)
         {
@@ -203,7 +200,7 @@ public static class ServiceCollectionExtension
     /// <param name="services">services</param>
     /// <param name="module">service module</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterModule<TServiceModule>([NotNull] this IServiceCollection services, TServiceModule module)
+    public static IServiceCollection RegisterModule<TServiceModule>(this IServiceCollection services, TServiceModule module)
         where TServiceModule : IServiceModule
     {
         Guard.NotNull(module, nameof(module)).ConfigureServices(services);
@@ -217,7 +214,7 @@ public static class ServiceCollectionExtension
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
     public static IServiceCollection RegisterAssemblyModules(
-        [NotNull] this IServiceCollection services, params Assembly[] assemblies)
+        this IServiceCollection services, params Assembly[] assemblies)
     {
         Guard.NotNull(assemblies, nameof(assemblies));
         if (assemblies.Length == 0)

@@ -1,10 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
+﻿using System.Net;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Http;
 
@@ -57,12 +51,12 @@ public static class HttpRequesterExtension
         });
     }
 
-    public static IHttpRequester WithXmlParameter<TEntity>(this IHttpRequester httpRequester, [NotNull] TEntity entity)
+    public static IHttpRequester WithXmlParameter<TEntity>(this IHttpRequester httpRequester, TEntity entity)
     {
         return httpRequester.WithParameters(XmlDataSerializer._instance.Value.Serialize(entity), "application/xml;charset=UTF-8");
     }
 
-    public static IHttpRequester WithJsonParameter<TEntity>(this IHttpRequester httpRequester, [NotNull] TEntity entity)
+    public static IHttpRequester WithJsonParameter<TEntity>(this IHttpRequester httpRequester, TEntity entity)
     {
         return httpRequester.WithParameters(entity.ToJson().GetBytes(), "application/json;charset=UTF-8");
     }

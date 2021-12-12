@@ -1,7 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using System.Reflection;
 using WeihanLi.Common;
 
@@ -12,7 +9,7 @@ public static class ExpressionExtension
 {
     // https://stackoverflow.com/questions/457316/combining-two-expressions-expressionfunct-bool/457328#457328
 
-    public static Expression<Func<T, bool>> Or<T>([NotNull] this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2)
+    public static Expression<Func<T, bool>> Or<T>(this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2)
     {
         var parameter = Expression.Parameter(typeof(T));
 
@@ -25,7 +22,7 @@ public static class ExpressionExtension
             Expression.OrElse(Guard.NotNull(left), Guard.NotNull(right)), parameter);
     }
 
-    public static Expression<Func<T, bool>> And<T>([NotNull] this Expression<Func<T, bool>> expr1,
+    public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> expr1,
         Expression<Func<T, bool>> expr2)
     {
         var parameter = Expression.Parameter(typeof(T));
@@ -39,7 +36,7 @@ public static class ExpressionExtension
             Expression.AndAlso(Guard.NotNull(left), Guard.NotNull(right)), parameter);
     }
 
-    public static Expression<Func<T, bool>> AndIf<T>([NotNull] this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2, bool condition)
+    public static Expression<Func<T, bool>> AndIf<T>(this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2, bool condition)
     {
         if (!condition)
         {
@@ -122,7 +119,7 @@ public static class ExpressionExtension
     /// <param name="memberExpression">get member expression</param>
     /// <returns></returns>
     public static string
-        GetMemberName<TEntity, TMember>([NotNull] this Expression<Func<TEntity, TMember>> memberExpression) =>
+        GetMemberName<TEntity, TMember>(this Expression<Func<TEntity, TMember>> memberExpression) =>
         GetMemberInfo(memberExpression).Name;
 
     /// <summary>
@@ -132,7 +129,7 @@ public static class ExpressionExtension
     /// <typeparam name="TMember">TMember</typeparam>
     /// <param name="expression">get member expression</param>
     /// <returns></returns>
-    public static MemberInfo GetMemberInfo<TEntity, TMember>([NotNull] this Expression<Func<TEntity, TMember>> expression)
+    public static MemberInfo GetMemberInfo<TEntity, TMember>(this Expression<Func<TEntity, TMember>> expression)
     {
         if (expression.NodeType != ExpressionType.Lambda)
         {
@@ -157,7 +154,7 @@ public static class ExpressionExtension
     /// <param name="expression"></param>
     /// <returns></returns>
     public static PropertyInfo GetProperty<TEntity, TProperty>(
-        [NotNull] this Expression<Func<TEntity, TProperty>> expression)
+        this Expression<Func<TEntity, TProperty>> expression)
     {
         var member = GetMemberInfo(expression);
         if (null == member)

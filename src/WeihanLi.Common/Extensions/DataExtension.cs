@@ -1,14 +1,8 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Data;
 using System.Data.Common;
 using System.Diagnostics;
 using System.Dynamic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
@@ -49,7 +43,7 @@ public static partial class DataExtension
 
     #region DataTable
 
-    public static DataTable ToDataTable<T>([NotNull] this IEnumerable<T> entities)
+    public static DataTable ToDataTable<T>(this IEnumerable<T> entities)
     {
         if (null == entities)
         {
@@ -87,7 +81,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
-    public static IEnumerable<T> ToEntities<T>([NotNull] this DataTable @this)
+    public static IEnumerable<T> ToEntities<T>(this DataTable @this)
     {
         if (@this.Columns.Count > 0)
         {
@@ -113,7 +107,7 @@ public static partial class DataExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as an IEnumerable&lt;dynamic&gt;</returns>
-    public static IEnumerable<dynamic> ToExpandoObjects([NotNull] this DataTable @this)
+    public static IEnumerable<dynamic> ToExpandoObjects(this DataTable @this)
     {
         foreach (DataRow dr in @this.Rows)
         {
@@ -158,7 +152,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="dr">The @this to act on.</param>
     /// <returns>@this as a T.</returns>
-    public static T ToEntity<T>([NotNull] this DataRow dr)
+    public static T ToEntity<T>(this DataRow dr)
     {
         var type = typeof(T);
         var properties = CacheUtil.GetTypeProperties(type).Where(p => p.CanWrite).ToArray();
@@ -194,7 +188,7 @@ public static partial class DataExtension
     /// <summary>A DataRow extension method that converts the @this to an expando object.</summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as a dynamic.</returns>
-    public static dynamic ToExpandoObject([NotNull] this DataRow @this)
+    public static dynamic ToExpandoObject(this DataRow @this)
     {
         dynamic entity = new ExpandoObject();
         var expandoDict = (IDictionary<string, object>)entity;
@@ -216,7 +210,7 @@ public static partial class DataExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as a DataTable.</returns>
-    public static DataTable ToDataTable([NotNull] this IDataReader @this)
+    public static DataTable ToDataTable(this IDataReader @this)
     {
         var dt = new DataTable();
         dt.Load(@this);
@@ -229,7 +223,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
-    public static IEnumerable<T> ToEntities<T>([NotNull] this IDataReader @this)
+    public static IEnumerable<T> ToEntities<T>(this IDataReader @this)
     {
         var type = typeof(T);
         if (type.IsBasicType())
@@ -255,7 +249,7 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="hadRead">whether the DataReader had read</param>
     /// <returns>@this as a T.</returns>
-    public static T? ToEntity<T>([NotNull] this IDataReader @this, bool hadRead = false)
+    public static T? ToEntity<T>(this IDataReader @this, bool hadRead = false)
     {
         if (!hadRead)
         {
@@ -319,7 +313,7 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="hadRead">whether the DataReader had read</param>
     /// <returns>@this as a dynamic.</returns>
-    public static dynamic ToExpandoObject([NotNull] this IDataReader @this, bool hadRead = false)
+    public static dynamic ToExpandoObject(this IDataReader @this, bool hadRead = false)
     {
         dynamic entity = new ExpandoObject();
         if (!hadRead)
@@ -347,7 +341,7 @@ public static partial class DataExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as an IEnumerable&lt;dynamic&gt;</returns>
-    public static IEnumerable<dynamic> ToExpandoObjects([NotNull] this IDataReader @this)
+    public static IEnumerable<dynamic> ToExpandoObjects(this IDataReader @this)
     {
         var columnNames = Enumerable.Range(0, @this.FieldCount)
             .Select(x => new KeyValuePair<int, string>(x, @this.GetName(x)))
@@ -377,7 +371,7 @@ public static partial class DataExtension
     ///     An IDbConnection extension method that ensures that open.
     /// </summary>
     /// <param name="connection">The connection to act on.</param>
-    public static void EnsureOpen([NotNull] this IDbConnection connection)
+    public static void EnsureOpen(this IDbConnection connection)
     {
         if (connection.State == ConnectionState.Closed)
         {
@@ -388,7 +382,7 @@ public static partial class DataExtension
     /// <summary>A DbConnection extension method that queries if a connection is open.</summary>
     /// <param name="connection">The connection to act on.</param>
     /// <returns>true if a connection is open, false if not.</returns>
-    public static bool IsConnectionOpen([NotNull] this IDbConnection connection)
+    public static bool IsConnectionOpen(this IDbConnection connection)
     {
         return connection.State == ConnectionState.Open;
     }
@@ -401,7 +395,7 @@ public static partial class DataExtension
     ///     An DbConnection extension method that ensures that open.
     /// </summary>
     /// <param name="conn">The @this to act on.</param>
-    public static async Task EnsureOpenAsync([NotNull] this DbConnection conn)
+    public static async Task EnsureOpenAsync(this DbConnection conn)
     {
         if (conn.State == ConnectionState.Closed)
         {
@@ -418,7 +412,7 @@ public static partial class DataExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>A dynamic.</returns>
-    public static dynamic ExecuteExpandoObject([NotNull] this DbCommand @this)
+    public static dynamic ExecuteExpandoObject(this DbCommand @this)
     {
         using IDataReader reader = @this.ExecuteReader();
         reader.Read();
@@ -432,7 +426,7 @@ public static partial class DataExtension
     /// <returns>
     ///     An enumerator that allows foreach to be used to process execute expando objects in this collection.
     /// </returns>
-    public static IEnumerable<dynamic> ExecuteExpandoObjects([NotNull] this DbCommand @this)
+    public static IEnumerable<dynamic> ExecuteExpandoObjects(this DbCommand @this)
     {
         using IDataReader reader = @this.ExecuteReader();
         return reader.ToExpandoObjects();
@@ -445,7 +439,7 @@ public static partial class DataExtension
     /// <param name="this">db command</param>
     /// <param name="func">function</param>
     /// <returns></returns>
-    public static T ExecuteDataTable<T>([NotNull] this DbCommand @this, Func<DataTable, T> func) => func(@this.ExecuteDataTable());
+    public static T ExecuteDataTable<T>(this DbCommand @this, Func<DataTable, T> func) => func(@this.ExecuteDataTable());
 
     /// <summary>
     /// ExecuteDataTableToAsync
@@ -455,7 +449,7 @@ public static partial class DataExtension
     /// <param name="func">function</param>
     /// <param name="cancellationToken">cancellationToken</param>
     /// <returns></returns>
-    public static async Task<T> ExecuteDataTableAsync<T>([NotNull] this DbCommand @this, Func<DataTable, Task<T>> func, CancellationToken cancellationToken = default)
+    public static async Task<T> ExecuteDataTableAsync<T>(this DbCommand @this, Func<DataTable, Task<T>> func, CancellationToken cancellationToken = default)
     {
         var dataTable = await @this.ExecuteDataTableAsync(cancellationToken);
         var result = await func(dataTable);
@@ -468,7 +462,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>A T.</returns>
-    public static T ExecuteScalarTo<T>([NotNull] this DbCommand @this) => @this.ExecuteScalar().To<T>();
+    public static T ExecuteScalarTo<T>(this DbCommand @this) => @this.ExecuteScalar().To<T>();
 
     /// <summary>
     ///     A DbCommand extension method that executes the scalar to operation.
@@ -477,7 +471,7 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="cancellationToken"></param>
     /// <returns>A T.</returns>
-    public static async Task<T> ExecuteScalarToAsync<T>([NotNull] this DbCommand @this, CancellationToken cancellationToken = default) => (await @this.ExecuteScalarAsync(cancellationToken)).To<T>();
+    public static async Task<T> ExecuteScalarToAsync<T>(this DbCommand @this, CancellationToken cancellationToken = default) => (await @this.ExecuteScalarAsync(cancellationToken)).To<T>();
 
     /// <summary>
     ///     A DbCommand extension method that executes the scalar to operation.
@@ -485,7 +479,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>A T.</returns>
-    public static T? ExecuteScalarToOrDefault<T>([NotNull] this DbCommand @this) => @this.ExecuteScalar().ToOrDefault<T>();
+    public static T? ExecuteScalarToOrDefault<T>(this DbCommand @this) => @this.ExecuteScalar().ToOrDefault<T>();
 
     /// <summary>
     ///     A DbCommand extension method that executes the scalar to operation.
@@ -494,7 +488,7 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="cancellationToken"></param>
     /// <returns>A T.</returns>
-    public static async Task<T?> ExecuteScalarToOrDefaultAsync<T>([NotNull] this DbCommand @this, CancellationToken cancellationToken = default) => (await @this.ExecuteScalarAsync(cancellationToken)).ToOrDefault<T>();
+    public static async Task<T?> ExecuteScalarToOrDefaultAsync<T>(this DbCommand @this, CancellationToken cancellationToken = default) => (await @this.ExecuteScalarAsync(cancellationToken)).ToOrDefault<T>();
 
     /// <summary>
     ///     A DbCommand extension method that executes the scalar to or default operation.
@@ -503,12 +497,12 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="func">The default value factory.</param>
     /// <returns>A T.</returns>
-    public static T? ExecuteScalarTo<T>([NotNull] this DbCommand @this, Func<object?, T> func)
+    public static T? ExecuteScalarTo<T>(this DbCommand @this, Func<object?, T> func)
     {
         return func(@this.ExecuteScalar());
     }
 
-    private static DbCommand GetDbCommand([NotNull] this DbConnection conn, string cmdText, CommandType commandType = CommandType.Text, object? paramInfo = null, DbParameter[]? parameters = null, DbTransaction? transaction = null, int commandTimeout = 60)
+    private static DbCommand GetDbCommand(this DbConnection conn, string cmdText, CommandType commandType = CommandType.Text, object? paramInfo = null, DbParameter[]? parameters = null, DbTransaction? transaction = null, int commandTimeout = 60)
     {
         conn.EnsureOpen();
         var command = conn.CreateCommand();
@@ -533,7 +527,7 @@ public static partial class DataExtension
 
     #region DbParameter
 
-    public static bool ContainsParam([NotNull] this DbParameterCollection @this, string paramName)
+    public static bool ContainsParam(this DbParameterCollection @this, string paramName)
     {
         var originName = GetParameterName(paramName);
         return @this.Contains(originName)
@@ -541,7 +535,7 @@ public static partial class DataExtension
                || @this.Contains("?" + originName);
     }
 
-    public static void AttachDbParameters([NotNull] this DbCommand command, object? paramInfo)
+    public static void AttachDbParameters(this DbCommand command, object? paramInfo)
     {
         if (paramInfo != null)
         {
@@ -630,7 +624,7 @@ public static partial class DataExtension
         [typeof(object)] = DbType.Object
     };
 
-    public static DbType ToDbType([NotNull] this Type type)
+    public static DbType ToDbType(this Type type)
     {
         if (type.IsEnum() && !TypeMap.ContainsKey(type))
         {

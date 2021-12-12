@@ -1,7 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
@@ -9,7 +6,7 @@ namespace WeihanLi.Common.DependencyInjection;
 
 public static partial class ServiceContainerBuilderExtensions
 {
-    public static IServiceContainerBuilder AddSingleton<TService>([NotNull] this IServiceContainerBuilder serviceContainerBuilder, TService service)
+    public static IServiceContainerBuilder AddSingleton<TService>(this IServiceContainerBuilder serviceContainerBuilder, TService service)
     {
         Guard.NotNull(service, nameof(service));
         serviceContainerBuilder.Add(new ServiceDefinition(service!, typeof(TService)));
@@ -22,7 +19,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="services">services</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceContainerBuilder RegisterAssemblyTypes([NotNull] this IServiceContainerBuilder services, params Assembly[] assemblies)
+    public static IServiceContainerBuilder RegisterAssemblyTypes(this IServiceContainerBuilder services, params Assembly[] assemblies)
         => RegisterAssemblyTypes(services, null, ServiceLifetime.Singleton, assemblies);
 
     /// <summary>
@@ -32,7 +29,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceContainerBuilder RegisterAssemblyTypes([NotNull] this IServiceContainerBuilder services,
+    public static IServiceContainerBuilder RegisterAssemblyTypes(this IServiceContainerBuilder services,
         ServiceLifetime serviceLifetime, params Assembly[] assemblies)
         => RegisterAssemblyTypes(services, null, serviceLifetime, assemblies);
 
@@ -43,7 +40,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="typesFilter">filter types to register</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceContainerBuilder RegisterAssemblyTypes([NotNull] this IServiceContainerBuilder services,
+    public static IServiceContainerBuilder RegisterAssemblyTypes(this IServiceContainerBuilder services,
         Func<Type, bool>? typesFilter, params Assembly[] assemblies)
         => RegisterAssemblyTypes(services, typesFilter, ServiceLifetime.Singleton, assemblies);
 
@@ -55,7 +52,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceContainerBuilder RegisterAssemblyTypes([NotNull] this IServiceContainerBuilder services, Func<Type, bool>? typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
+    public static IServiceContainerBuilder RegisterAssemblyTypes(this IServiceContainerBuilder services, Func<Type, bool>? typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
     {
         Guard.NotNull(assemblies, nameof(assemblies));
 
@@ -88,7 +85,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="services">services</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services,
+    public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces(this IServiceContainerBuilder services,
         params Assembly[] assemblies)
         => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: null, ServiceLifetime.Singleton, assemblies);
 
@@ -99,7 +96,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services,
+    public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces(this IServiceContainerBuilder services,
         ServiceLifetime serviceLifetime, params Assembly[] assemblies)
         => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: null, serviceLifetime, assemblies);
 
@@ -110,7 +107,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="typesFilter">filter types to register</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services, Func<Type, bool>? typesFilter, params Assembly[] assemblies)
+    public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces(this IServiceContainerBuilder services, Func<Type, bool>? typesFilter, params Assembly[] assemblies)
         => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: typesFilter, ServiceLifetime.Singleton, assemblies);
 
     /// <summary>
@@ -122,7 +119,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
     public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces(
-        [NotNull] this IServiceContainerBuilder services, Func<Type, bool>? typesFilter,
+        this IServiceContainerBuilder services, Func<Type, bool>? typesFilter,
         ServiceLifetime serviceLifetime, params Assembly[] assemblies)
         => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter, null, serviceLifetime, assemblies);
 
@@ -135,7 +132,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
-    public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services, Func<Type, bool>? typesFilter, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
+    public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces(this IServiceContainerBuilder services, Func<Type, bool>? typesFilter, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
     {
         Guard.NotNull(assemblies, nameof(assemblies));
         if (assemblies.Length == 0)
@@ -175,7 +172,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="serviceLifetime">service lifetime</param>
     /// <returns>services</returns>
     public static IServiceContainerBuilder RegisterTypeAsImplementedInterfaces(
-        [NotNull] this IServiceContainerBuilder services, Type type,
+        this IServiceContainerBuilder services, Type type,
         ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
         => RegisterTypeAsImplementedInterfaces(services, type, null, serviceLifetime);
 
@@ -187,7 +184,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="interfaceTypeFilter">interfaceTypeFilter</param>
     /// <param name="serviceLifetime">service lifetime</param>
     /// <returns>services</returns>
-    public static IServiceContainerBuilder RegisterTypeAsImplementedInterfaces([NotNull] this IServiceContainerBuilder services, Type type, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
+    public static IServiceContainerBuilder RegisterTypeAsImplementedInterfaces(this IServiceContainerBuilder services, Type type, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
     {
         if (type != null)
         {
@@ -208,7 +205,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="services">services</param>
     /// <param name="module">service module</param>
     /// <returns>services</returns>
-    public static IServiceContainerBuilder RegisterModule<TServiceModule>([NotNull] this IServiceContainerBuilder services, TServiceModule module)
+    public static IServiceContainerBuilder RegisterModule<TServiceModule>(this IServiceContainerBuilder services, TServiceModule module)
         where TServiceModule : IServiceContainerModule
     {
         Guard.NotNull(module, nameof(module));
@@ -217,7 +214,7 @@ public static partial class ServiceContainerBuilderExtensions
     }
 
     public static IServiceContainerBuilder RegisterAssemblyModules(
-        [NotNull] this IServiceContainerBuilder serviceContainerBuilder, params Assembly[] assemblies)
+        this IServiceContainerBuilder serviceContainerBuilder, params Assembly[] assemblies)
     {
         Guard.NotNull(assemblies, nameof(assemblies));
 

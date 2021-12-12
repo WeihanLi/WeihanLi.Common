@@ -1,8 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Reflection;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
@@ -55,7 +51,7 @@ public static class TypeExtension
     /// </summary>
     /// <param name="type">type</param>
     /// <returns></returns>
-    public static bool IsValueTuple([NotNull] this Type type)
+    public static bool IsValueTuple(this Type type)
             => type.IsValueType && type.FullName?.StartsWith("System.ValueTuple`", StringComparison.Ordinal) == true;
 
     /// <summary>
@@ -63,7 +59,7 @@ public static class TypeExtension
     /// </summary>
     /// <param name="type">type</param>
     /// <returns></returns>
-    public static string GetDescription([NotNull] this Type type) =>
+    public static string GetDescription(this Type type) =>
         type.GetCustomAttribute<DescriptionAttribute>()?.Description ?? string.Empty;
 
     /// <summary>
@@ -72,12 +68,12 @@ public static class TypeExtension
     /// </summary>
     /// <param name="type">type</param>
     /// <returns></returns>
-    public static bool IsPrimitiveType([NotNull] this Type type)
+    public static bool IsPrimitiveType(this Type type)
         => (Nullable.GetUnderlyingType(type) ?? type).IsPrimitive;
 
     public static bool IsPrimitiveType<T>() => typeof(T).IsPrimitiveType();
 
-    public static bool IsBasicType([NotNull] this Type type)
+    public static bool IsBasicType(this Type type)
     {
         var unWrappedType = type.Unwrap();
         return unWrappedType.IsEnum || BasicTypes.Contains(unWrappedType);
@@ -154,7 +150,7 @@ public static class TypeExtension
     /// </summary>
     /// <param name="type">type</param>
     /// <returns></returns>
-    public static IEnumerable<Type> GetImplementedInterfaces([NotNull] this Type type)
+    public static IEnumerable<Type> GetImplementedInterfaces(this Type type)
     {
         return type.GetTypeInfo().ImplementedInterfaces;
     }

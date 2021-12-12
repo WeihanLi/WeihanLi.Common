@@ -1,10 +1,6 @@
-﻿using JetBrains.Annotations;
-using Serilog;
+﻿using Serilog;
 using Serilog.Events;
 using Serilog.Parsing;
-using System;
-using System.Collections.Generic;
-
 using SSerilog = Serilog;
 
 namespace WeihanLi.Common.Logging.Serilog;
@@ -88,13 +84,13 @@ internal sealed class SerilogLogHelperProvider : ILogHelperProvider, IDisposable
 
 public static class LogHelperFactoryExtensions
 {
-    public static ILogHelperLoggingBuilder AddSerilog([NotNull] this ILogHelperLoggingBuilder loggingBuilder, Action<LoggerConfiguration> loggerConfigurationAction)
+    public static ILogHelperLoggingBuilder AddSerilog(this ILogHelperLoggingBuilder loggingBuilder, Action<LoggerConfiguration> loggerConfigurationAction)
     {
         loggingBuilder.AddProvider(new SerilogLogHelperProvider(loggerConfigurationAction));
         return loggingBuilder;
     }
 
-    public static ILogHelperLoggingBuilder AddSerilog([NotNull] this ILogHelperLoggingBuilder loggingBuilder,
+    public static ILogHelperLoggingBuilder AddSerilog(this ILogHelperLoggingBuilder loggingBuilder,
         LoggerConfiguration loggerConfiguration)
     {
         loggingBuilder.AddProvider(new SerilogLogHelperProvider(loggerConfiguration));

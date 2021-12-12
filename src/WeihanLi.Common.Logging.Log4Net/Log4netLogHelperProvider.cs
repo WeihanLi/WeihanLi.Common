@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using log4net;
+﻿using log4net;
 using log4net.Core;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
@@ -94,13 +93,13 @@ internal sealed class Log4NetLogHelperProvider : ILogHelperProvider
 
 public static class LogHelperFactoryExtensions
 {
-    public static ILogHelperLoggingBuilder AddLog4Net([NotNull] this ILogHelperLoggingBuilder loggingBuilder)
+    public static ILogHelperLoggingBuilder AddLog4Net(this ILogHelperLoggingBuilder loggingBuilder)
     {
         loggingBuilder.AddProvider(new Log4NetLogHelperProvider());
         return loggingBuilder;
     }
 
-    public static ILogHelperLoggingBuilder AddLog4Net([NotNull] this ILogHelperLoggingBuilder loggingBuilder,
+    public static ILogHelperLoggingBuilder AddLog4Net(this ILogHelperLoggingBuilder loggingBuilder,
         string configFilePath)
     {
         loggingBuilder.AddProvider(new Log4NetLogHelperProvider(configFilePath));

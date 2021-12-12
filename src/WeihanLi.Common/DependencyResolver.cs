@@ -1,9 +1,4 @@
-﻿using JetBrains.Annotations;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.DependencyInjection;
 using WeihanLi.Common.DependencyInjection;
 
 namespace WeihanLi.Common;
@@ -31,7 +26,7 @@ public static class DependencyResolver
 
     public static Task<bool> TryInvokeAsync<TService>(Func<TService, Task> action) => Current.TryInvokeServiceAsync(action);
 
-    public static void SetDependencyResolver([NotNull] IDependencyResolver dependencyResolver)
+    public static void SetDependencyResolver(IDependencyResolver dependencyResolver)
     {
         lock (_lock)
         {
@@ -39,13 +34,13 @@ public static class DependencyResolver
         }
     }
 
-    public static void SetDependencyResolver([NotNull] IServiceContainer serviceContainer) => SetDependencyResolver(new ServiceContainerDependencyResolver(serviceContainer));
+    public static void SetDependencyResolver(IServiceContainer serviceContainer) => SetDependencyResolver(new ServiceContainerDependencyResolver(serviceContainer));
 
-    public static void SetDependencyResolver([NotNull] IServiceProvider serviceProvider) => SetDependencyResolver(serviceProvider.GetService);
+    public static void SetDependencyResolver(IServiceProvider serviceProvider) => SetDependencyResolver(serviceProvider.GetService);
 
-    public static void SetDependencyResolver([NotNull] Func<Type, object?> getServiceFunc) => SetDependencyResolver(getServiceFunc, serviceType => (IEnumerable<object>)Guard.NotNull(getServiceFunc(typeof(IEnumerable<>).MakeGenericType(serviceType))));
+    public static void SetDependencyResolver(Func<Type, object?> getServiceFunc) => SetDependencyResolver(getServiceFunc, serviceType => (IEnumerable<object>)Guard.NotNull(getServiceFunc(typeof(IEnumerable<>).MakeGenericType(serviceType))));
 
-    public static void SetDependencyResolver([NotNull] Func<Type, object?> getServiceFunc, [NotNull] Func<Type, IEnumerable<object>> getServicesFunc) => SetDependencyResolver(new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc));
+    public static void SetDependencyResolver(Func<Type, object?> getServiceFunc, Func<Type, IEnumerable<object>> getServicesFunc) => SetDependencyResolver(new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc));
 
     public static void SetDependencyResolver(IServiceCollection services) => SetDependencyResolver(new ServiceCollectionDependencyResolver(services));
 

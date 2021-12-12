@@ -1,10 +1,6 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
+﻿using System.Collections.Specialized;
 using System.Data;
 using System.Data.Common;
-using System.Linq;
 using System.Text;
 
 // ReSharper disable once CheckNamespace
@@ -25,7 +21,7 @@ public static class DictionaryExtension
     /// <param name="value">value</param>
     /// <param name="defaultValue">默认值</param>
     /// <returns></returns>
-    public static bool TryGetValue<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> dictionary, TKey key, out TValue value, TValue defaultValue)
+    public static bool TryGetValue<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, out TValue value, TValue defaultValue)
     {
         if (dictionary.TryGetValue(key, out var result))
         {
@@ -48,7 +44,7 @@ public static class DictionaryExtension
     /// <param name="key">The key.</param>
     /// <param name="value">The value.</param>
     /// <returns>true if it succeeds, false if it fails.</returns>
-    public static bool AddIfNotContainsKey<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, TValue value)
+    public static bool AddIfNotContainsKey<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey key, TValue value)
     {
         if (!@this.ContainsKey(key))
         {
@@ -68,7 +64,7 @@ public static class DictionaryExtension
     /// <param name="key">The key.</param>
     /// <param name="valueFactory">The value factory.</param>
     /// <returns>true if it succeeds, false if it fails.</returns>
-    public static bool AddIfNotContainsKey<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, Func<TValue> valueFactory)
+    public static bool AddIfNotContainsKey<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey key, Func<TValue> valueFactory)
     {
         if (!@this.ContainsKey(key))
         {
@@ -88,7 +84,7 @@ public static class DictionaryExtension
     /// <param name="key">The key.</param>
     /// <param name="valueFactory">The value factory.</param>
     /// <returns>true if it succeeds, false if it fails.</returns>
-    public static bool AddIfNotContainsKey<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, Func<TKey, TValue> valueFactory)
+    public static bool AddIfNotContainsKey<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey key, Func<TKey, TValue> valueFactory)
     {
         if (!@this.ContainsKey(key))
         {
@@ -111,7 +107,7 @@ public static class DictionaryExtension
     ///     The value for the key. This will be either the existing value for the key if the key is already in the
     ///     dictionary, or the new value if the key was not in the dictionary.
     /// </returns>
-    public static TValue GetOrAdd<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, TValue value)
+    public static TValue GetOrAdd<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey key, TValue value)
     {
         if (!@this.ContainsKey(key))
         {
@@ -133,7 +129,7 @@ public static class DictionaryExtension
     ///     The value for the key. This will be either the existing value for the key if the key is already in the
     ///     dictionary, or the new value for the key as returned by valueFactory if the key was not in the dictionary.
     /// </returns>
-    public static TValue GetOrAdd<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, Func<TKey, TValue> valueFactory)
+    public static TValue GetOrAdd<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey key, Func<TKey, TValue> valueFactory)
     {
         if (!@this.ContainsKey(key))
         {
@@ -154,7 +150,7 @@ public static class DictionaryExtension
     /// <param name="key">The key to be added or whose value should be updated.</param>
     /// <param name="value">The value to be added or updated.</param>
     /// <returns>The new value for the key.</returns>
-    public static TValue AddOrUpdate<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, TValue value)
+    public static TValue AddOrUpdate<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey key, TValue value)
     {
         if (!@this.ContainsKey(key))
         {
@@ -186,7 +182,7 @@ public static class DictionaryExtension
     ///     The new value for the key. This will be either be addValue (if the key was absent) or the result of
     ///     updateValueFactory (if the key was present).
     /// </returns>
-    public static TValue AddOrUpdate<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, TValue addValue, Func<TKey, TValue, TValue> updateValueFactory)
+    public static TValue AddOrUpdate<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey key, TValue addValue, Func<TKey, TValue, TValue> updateValueFactory)
     {
         if (!@this.ContainsKey(key))
         {
@@ -218,7 +214,7 @@ public static class DictionaryExtension
     ///     The new value for the key. This will be either be the result of addValueFactory (if the key was absent) or
     ///     the result of updateValueFactory (if the key was present).
     /// </returns>
-    public static TValue AddOrUpdate<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key, Func<TKey, TValue> addValueFactory, Func<TKey, TValue, TValue> updateValueFactory)
+    public static TValue AddOrUpdate<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey key, Func<TKey, TValue> addValueFactory, Func<TKey, TValue, TValue> updateValueFactory)
     {
         if (!@this.ContainsKey(key))
         {
@@ -239,7 +235,7 @@ public static class DictionaryExtension
     /// <typeparam name="TValue">Type of the value.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <param name="key">The key.</param>
-    public static void RemoveIfContainsKey<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, TKey key)
+    public static void RemoveIfContainsKey<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey key)
     {
         if (@this.ContainsKey(key))
         {
@@ -254,7 +250,7 @@ public static class DictionaryExtension
     /// <typeparam name="TValue">Type of the value.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as a SortedDictionary&lt;TKey,TValue&gt;</returns>
-    public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this) where TKey : notnull
+    public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>(this IDictionary<TKey, TValue> @this) where TKey : notnull
     {
         return new(@this);
     }
@@ -267,7 +263,7 @@ public static class DictionaryExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="comparer">The comparer.</param>
     /// <returns>@this as a SortedDictionary&lt;TKey,TValue&gt;</returns>
-    public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, IComparer<TKey> comparer) where TKey : notnull
+    public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>(this IDictionary<TKey, TValue> @this, IComparer<TKey> comparer) where TKey : notnull
     {
         return new(@this, comparer);
     }
@@ -280,7 +276,7 @@ public static class DictionaryExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="keys">A variable-length parameters list containing keys.</param>
     /// <returns>true if it succeeds, false if it fails.</returns>
-    public static bool ContainsAnyKey<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, params TKey[] keys) where TKey : notnull
+    public static bool ContainsAnyKey<TKey, TValue>(this IDictionary<TKey, TValue> @this, params TKey[] keys) where TKey : notnull
     {
         foreach (var value in keys)
         {
@@ -301,7 +297,7 @@ public static class DictionaryExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="keys">A variable-length parameters list containing keys.</param>
     /// <returns>true if it succeeds, false if it fails.</returns>
-    public static bool ContainsAllKey<TKey, TValue>([NotNull] this IDictionary<TKey, TValue> @this, params TKey[] keys)
+    public static bool ContainsAllKey<TKey, TValue>(this IDictionary<TKey, TValue> @this, params TKey[] keys)
     {
         foreach (var value in keys)
         {
@@ -360,7 +356,7 @@ public static class DictionaryExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="command">The command.</param>
     /// <returns>The given data converted to a DbParameter[].</returns>
-    public static DbParameter[] ToDbParameters([NotNull] this IDictionary<string, object> @this, DbCommand command)
+    public static DbParameter[] ToDbParameters(this IDictionary<string, object> @this, DbCommand command)
     {
         return @this.Select(x =>
         {
@@ -377,7 +373,7 @@ public static class DictionaryExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="connection">The connection.</param>
     /// <returns>The given data converted to a DbParameter[].</returns>
-    public static DbParameter[] ToDbParameters([NotNull] this IDictionary<string, object> @this, DbConnection connection)
+    public static DbParameter[] ToDbParameters(this IDictionary<string, object> @this, DbConnection connection)
     {
         var command = connection.CreateCommand();
 
@@ -395,7 +391,7 @@ public static class DictionaryExtension
     /// </summary>
     /// <param name="dictionary">IDictionary</param>
     /// <returns></returns>
-    public static DataTable ToDataTable([NotNull] this IDictionary<string, object> dictionary)
+    public static DataTable ToDataTable(this IDictionary<string, object> dictionary)
     {
         if (null == dictionary)
         {
@@ -416,7 +412,7 @@ public static class DictionaryExtension
         return dataTable;
     }
 
-    public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>([NotNull] this IEnumerable<KeyValuePair<TKey, TValue>> source) where TKey : notnull => source.ToDictionary(pair => pair.Key, pair => pair.Value);
+    public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> source) where TKey : notnull => source.ToDictionary(pair => pair.Key, pair => pair.Value);
 
     public static IEnumerable<KeyValuePair<string, string?>> ToKeyValuePair(this NameValueCollection? collection)
     {

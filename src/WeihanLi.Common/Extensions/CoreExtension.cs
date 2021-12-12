@@ -1,11 +1,7 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
-using System.IO;
-using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Text;
@@ -2223,7 +2219,7 @@ public static class CoreExtension
     /// <summary>An IEnumerable&lt;string&gt; extension method that concatenates the given this.</summary>
     /// <param name="stringCollection">The string collection to act on.</param>
     /// <returns>A string.</returns>
-    public static string Concatenate([NotNull] this IEnumerable<string> stringCollection)
+    public static string Concatenate(this IEnumerable<string> stringCollection)
     {
         if (stringCollection is null)
         {

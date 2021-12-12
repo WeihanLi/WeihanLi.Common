@@ -1,7 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using System.Reflection;
 using WeihanLi.Common;
 using WeihanLi.Common.Models;
@@ -29,7 +26,7 @@ public static class QueryableExtension
     /// <param name="pageNumber">The number of the page, start from 1.</param>
     /// <param name="pageSize">The size of the page.</param>
     /// <returns>An instance of  implements <see cref="IPagedListResult{T}"/> interface.</returns>
-    public static ListResultWithTotal<T> ToListResultWithTotal<T>([NotNull] this IQueryable<T> source, int pageNumber, int pageSize)
+    public static ListResultWithTotal<T> ToListResultWithTotal<T>(this IQueryable<T> source, int pageNumber, int pageSize)
     {
         if (pageNumber <= 0)
         {
@@ -66,7 +63,7 @@ public static class QueryableExtension
     /// <param name="pageNumber">The number of the page, start from 1.</param>
     /// <param name="pageSize">The size of the page.</param>
     /// <returns>An instance of  implements <see cref="IPagedListResult{T}"/> interface.</returns>
-    public static PagedListResult<T> ToPagedList<T>([NotNull] this IQueryable<T> source, int pageNumber, int pageSize)
+    public static PagedListResult<T> ToPagedList<T>(this IQueryable<T> source, int pageNumber, int pageSize)
     {
         if (pageNumber <= 0)
         {

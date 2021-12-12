@@ -11,7 +11,6 @@ using System.Data.Common;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 
 namespace WeihanLi.Extensions
 {
@@ -25,7 +24,7 @@ namespace WeihanLi.Extensions
     foreach(var cmd in commandNames)
     { 
 #>      
-        public static IEnumerable<dynamic> <#=            cmd #>([NotNull]this DbCommand command) 
+        public static IEnumerable<dynamic> <#=            cmd #>(this DbCommand command) 
         {
             using (var reader = command.ExecuteReader())
             {
@@ -33,7 +32,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-       public static async Task<IEnumerable<dynamic>> <#=            cmd #>Async([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
+       public static async Task<IEnumerable<dynamic>> <#=            cmd #>Async(this DbCommand command, CancellationToken cancellationToken = default)
        {
            using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
            {
@@ -46,7 +45,7 @@ namespace WeihanLi.Extensions
            }
        }
 
-        public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbCommand command) 
+        public static IEnumerable<T> <#=            cmd #><T>(this DbCommand command) 
         {
             using (var reader = command.ExecuteReader())
             {
@@ -59,7 +58,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-       public static async Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
+       public static async Task<IEnumerable<T>> <#=            cmd #>Async<T>(this DbCommand command, CancellationToken cancellationToken = default)
        {
            using (var reader = await command.ExecuteReaderAsync(cancellationToken))
            {
@@ -80,7 +79,7 @@ namespace WeihanLi.Extensions
     foreach(var cmd in commandNames1)
     { 
 #>      
-        public static dynamic <#=            cmd #>([NotNull]this DbCommand command)
+        public static dynamic <#=            cmd #>(this DbCommand command)
         {
             using (var reader = command.ExecuteReader())
             {
@@ -88,7 +87,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-       public static async Task<dynamic> <#=            cmd #>Async([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
+       public static async Task<dynamic> <#=            cmd #>Async(this DbCommand command, CancellationToken cancellationToken = default)
        {
            using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
            {
@@ -97,7 +96,7 @@ namespace WeihanLi.Extensions
            }
        }
 
-        public static T? <#=            cmd #><T>([NotNull]this DbCommand command)
+        public static T? <#=            cmd #><T>(this DbCommand command)
         {
             using (var reader = command.ExecuteReader())
             {
@@ -105,7 +104,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-       public static async Task<T?> <#=            cmd #>Async<T>([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
+       public static async Task<T?> <#=            cmd #>Async<T>(this DbCommand command, CancellationToken cancellationToken = default)
        {
            using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
            {
@@ -121,7 +120,7 @@ namespace WeihanLi.Extensions
     foreach(var cmd in commandNames2)
     { 
 #>      
-        public static DataTable <#=            cmd #>([NotNull]this DbCommand command)
+        public static DataTable <#=            cmd #>(this DbCommand command)
         {
             using (var reader = command.ExecuteReader())
             {
@@ -129,7 +128,7 @@ namespace WeihanLi.Extensions
             }
         }
 
-       public static async Task<DataTable> <#=            cmd #>Async([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
+       public static async Task<DataTable> <#=            cmd #>Async(this DbCommand command, CancellationToken cancellationToken = default)
        {
            using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
             {

@@ -1,12 +1,5 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Text;
-using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions;
@@ -66,7 +59,7 @@ public static class HttpClientExtension
     /// <param name="requestUri">requestUri</param>
     /// <param name="parameter">parameter</param>
     /// <returns></returns>
-    public static Task<HttpResponseMessage> PostAsJsonAsync<T>([NotNull] this HttpClient httpClient, string requestUri, T parameter)
+    public static Task<HttpResponseMessage> PostAsJsonAsync<T>(this HttpClient httpClient, string requestUri, T parameter)
         => httpClient.PostAsync(requestUri, new StringContent(parameter?.ToJson() ?? "", Encoding.UTF8, JsonMediaType));
 
     /// <summary>
@@ -76,7 +69,7 @@ public static class HttpClientExtension
     /// <param name="requestUri">requestUri</param>
     /// <param name="parameter">param</param>
     /// <returns></returns>
-    public static Task<HttpResponseMessage> PutAsJsonAsync<T>([NotNull] this HttpClient httpClient, string requestUri, T parameter)
+    public static Task<HttpResponseMessage> PutAsJsonAsync<T>(this HttpClient httpClient, string requestUri, T parameter)
         => httpClient.PutAsync(requestUri, new StringContent(parameter?.ToJson() ?? "", Encoding.UTF8, JsonMediaType));
 
     /// <summary>
@@ -86,7 +79,7 @@ public static class HttpClientExtension
     /// <param name="requestUri">requestUri</param>
     /// <param name="paramDic">paramDictionary</param>
     /// <returns></returns>
-    public static Task<HttpResponseMessage> PostAsFormAsync([NotNull] this HttpClient httpClient, string requestUri, IEnumerable<KeyValuePair<string, string>> paramDic)
+    public static Task<HttpResponseMessage> PostAsFormAsync(this HttpClient httpClient, string requestUri, IEnumerable<KeyValuePair<string, string>> paramDic)
         => httpClient.PostAsync(requestUri, new FormUrlEncodedContent(paramDic));
 
     /// <summary>
@@ -96,7 +89,7 @@ public static class HttpClientExtension
     /// <param name="requestUri">requestUri</param>
     /// <param name="paramDic">paramDictionary</param>
     /// <returns></returns>
-    public static Task<HttpResponseMessage> PutAsFormAsync([NotNull] this HttpClient httpClient, string requestUri, IEnumerable<KeyValuePair<string, string>> paramDic)
+    public static Task<HttpResponseMessage> PutAsFormAsync(this HttpClient httpClient, string requestUri, IEnumerable<KeyValuePair<string, string>> paramDic)
         => httpClient.PutAsync(requestUri, new FormUrlEncodedContent(paramDic));
 
     /// <summary>
@@ -108,7 +101,7 @@ public static class HttpClientExtension
     /// <param name="fileKey">fileKey,default is "file"</param>
     /// <param name="formFields">formFields,default is null</param>
     /// <returns></returns>
-    public static Task<HttpResponseMessage> PostFileAsync([NotNull] this HttpClient httpClient,
+    public static Task<HttpResponseMessage> PostFileAsync(this HttpClient httpClient,
         string requestUrl,
         string filePath,
         string fileKey = "file",
@@ -139,7 +132,7 @@ public static class HttpClientExtension
     /// <param name="fileKey">fileKey,default is "file"</param>
     /// <param name="formFields">formFields,default is null</param>
     /// <returns></returns>
-    public static async Task<HttpResponseMessage> PostFileAsync([NotNull] this HttpClient httpClient,
+    public static async Task<HttpResponseMessage> PostFileAsync(this HttpClient httpClient,
         string requestUrl,
         Stream? file,
         string fileName,
@@ -166,7 +159,7 @@ public static class HttpClientExtension
         return await httpClient.PostAsync(requestUrl, content);
     }
 
-    public static Task<HttpResponseMessage> PostFileAsync([NotNull] this HttpClient
+    public static Task<HttpResponseMessage> PostFileAsync(this HttpClient
             client, string requestUrl, ICollection<string> filePaths,
         IEnumerable<KeyValuePair<string, string>>? formFields = null) => client.PostFileAsync(requestUrl, filePaths.Select(p =>
                 new KeyValuePair<string, Stream>(Path.GetFileName(p), File.OpenRead(p))), formFields);
@@ -179,7 +172,7 @@ public static class HttpClientExtension
     /// <param name="files">The files. Key: File name, value: file read stream.</param>
     /// <param name="formFields">The form.</param>
     /// <returns></returns>
-    public static async Task<HttpResponseMessage> PostFileAsync([NotNull] this HttpClient httpClient,
+    public static async Task<HttpResponseMessage> PostFileAsync(this HttpClient httpClient,
         string requestUri,
         IEnumerable<KeyValuePair<string, Stream>>? files,
         IEnumerable<KeyValuePair<string, string>>? formFields = null)
@@ -213,7 +206,7 @@ public static class HttpClientExtension
     /// <param name="client">The client.</param>
     /// <param name="userName">Name of the user.</param>
     /// <param name="password">The password.</param>
-    public static void SetBasicAuthentication([NotNull] this HttpClient client, string userName, string password) =>
+    public static void SetBasicAuthentication(this HttpClient client, string userName, string password) =>
         client.DefaultRequestHeaders.Authorization = new BasicAuthenticationHeaderValue(userName, password);
 
     /// <summary>
@@ -238,7 +231,7 @@ public static class HttpClientExtension
     /// <param name="client">The client.</param>
     /// <param name="scheme">The scheme.</param>
     /// <param name="token">The token.</param>
-    public static void SetToken([NotNull] this HttpClient client, string scheme, string token) =>
+    public static void SetToken(this HttpClient client, string scheme, string token) =>
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(scheme, token);
 
     /// <summary>
@@ -254,7 +247,7 @@ public static class HttpClientExtension
     /// </summary>
     /// <param name="client">The client.</param>
     /// <param name="token">The token.</param>
-    public static void SetBearerToken([NotNull] this HttpClient client, string token) => client.SetToken("Bearer", token);
+    public static void SetBearerToken(this HttpClient client, string token) => client.SetToken("Bearer", token);
 
     /// <summary>
     /// Sets an authorization header with a bearer token.

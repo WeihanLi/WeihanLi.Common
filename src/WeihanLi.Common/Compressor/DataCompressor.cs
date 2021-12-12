@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-using System.Threading.Tasks;
-using WeihanLi.Extensions;
+﻿using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Compressor;
 
@@ -14,32 +12,28 @@ public interface IDataCompressor
     /// </summary>
     /// <param name="sourceData">source data</param>
     /// <returns>compressed data</returns>
-    [NotNull]
-    byte[] Compress([NotNull] byte[] sourceData);
+    byte[] Compress(byte[] sourceData);
 
     /// <summary>
     /// compress data async
     /// </summary>
     /// <param name="sourceData">source data</param>
     /// <returns>compressed data</returns>
-    [NotNull]
-    Task<byte[]> CompressAsync([NotNull] byte[] sourceData);
+    Task<byte[]> CompressAsync(byte[] sourceData);
 
     /// <summary>
     /// decompress compressed data
     /// </summary>
     /// <param name="compressedData">compressed data</param>
     /// <returns>source data</returns>
-    [NotNull]
-    byte[] Decompress([NotNull] byte[] compressedData);
+    byte[] Decompress(byte[] compressedData);
 
     /// <summary>
     /// decompress compressed data async
     /// </summary>
     /// <param name="compressedData">compressed data</param>
     /// <returns>source data</returns>
-    [NotNull]
-    Task<byte[]> DecompressAsync([NotNull] byte[] compressedData);
+    Task<byte[]> DecompressAsync(byte[] compressedData);
 }
 
 /// <summary>
