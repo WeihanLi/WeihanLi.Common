@@ -1,76 +1,74 @@
 ﻿using Newtonsoft.Json;
-using System;
 using WeihanLi.Extensions;
 
-namespace WeihanLi.Common.Event
+namespace WeihanLi.Common.Event;
+
+public interface IEventBase
 {
-    public interface IEventBase
-    {
-        /// <summary>
-        /// Event publish time
-        /// </summary>
-        DateTimeOffset EventAt { get; }
+    /// <summary>
+    /// Event publish time
+    /// </summary>
+    DateTimeOffset EventAt { get; }
 
-        /// <summary>
-        /// eventId
-        /// </summary>
-        string EventId { get; }
+    /// <summary>
+    /// eventId
+    /// </summary>
+    string EventId { get; }
+}
+
+public abstract class EventBase : IEventBase
+{
+    [JsonProperty]
+    public DateTimeOffset EventAt { get; private set; }
+
+    [JsonProperty]
+    public string EventId { get; private set; }
+
+    protected EventBase()
+    {
+        EventId = GuidIdGenerator.Instance.NewId();
+        EventAt = DateTimeOffset.UtcNow;
     }
 
-    public abstract class EventBase : IEventBase
+    protected EventBase(string eventId)
     {
-        [JsonProperty]
-        public DateTimeOffset EventAt { get; private set; }
-
-        [JsonProperty]
-        public string EventId { get; private set; }
-
-        protected EventBase()
-        {
-            EventId = GuidIdGenerator.Instance.NewId();
-            EventAt = DateTimeOffset.UtcNow;
-        }
-
-        protected EventBase(string eventId)
-        {
-            EventId = eventId;
-            EventAt = DateTimeOffset.UtcNow;
-        }
-
-        // https://www.newtonsoft.com/json/help/html/JsonConstructorAttribute.htm
-        [JsonConstructor]
-        protected EventBase(string eventId, DateTimeOffset eventAt)
-        {
-            EventId = eventId;
-            EventAt = eventAt;
-        }
+        EventId = eventId;
+        EventAt = DateTimeOffset.UtcNow;
     }
 
-    public static class EventBaseExtensions
+    // https://www.newtonsoft.com/json/help/html/JsonConstructorAttribute.htm
+    [JsonConstructor]
+    protected EventBase(string eventId, DateTimeOffset eventAt)
     {
-        private static readonly JsonSerializerSettings _eventSerializerSettings = JsonSerializeExtension.SerializerSettingsWith(s =>
-           {
-               s.TypeNameHandling = TypeNameHandling.Objects;
-           });
+        EventId = eventId;
+        EventAt = eventAt;
+    }
+}
 
-        public static string ToEventMsg<TEvent>(this TEvent @event) where TEvent : class, IEventBase
+public static class EventBaseExtensions
+{
+    private static readonly JsonSerializerSettings _eventSerializerSettings = JsonSerializeExtension.SerializerSettingsWith(s =>
+                {
+                    s.TypeNameHandling = TypeNameHandling.Objects;
+                });
+
+    public static string ToEventMsg<TEvent>(this TEvent @event) where TEvent : class, IEventBase
+    {
+        if (null == @event)
         {
-            if (null == @event)
-            {
-                throw new ArgumentNullException(nameof(@event));
-            }
-
-            return @event.ToJson(_eventSerializerSettings);
+            throw new ArgumentNullException(nameof(@event));
         }
 
-        public static IEventBase ToEvent(this string eventMsg)
-        {
-            if (null == eventMsg)
-            {
-                throw new ArgumentNullException(nameof(eventMsg));
-            }
+        return @event.ToJson(_eventSerializerSettings);
+    }
 
-            return eventMsg.JsonToObject<IEventBase>(_eventSerializerSettings);
+    public static IEventBase ToEvent(this string eventMsg)
+    {
+        if (null == eventMsg)
+        {
+            throw new ArgumentNullException(nameof(eventMsg));
         }
+
+        return eventMsg.JsonToObject<IEventBase>(_eventSerializerSettings);
     }
 }

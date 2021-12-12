@@ -1,23 +1,20 @@
-﻿using System;
-using System.Linq;
-using WeihanLi.Common.Models;
+﻿using WeihanLi.Common.Models;
 
-namespace DotNetCoreSample
+namespace DotNetCoreSample;
+
+public class PagedListResultTest
 {
-    public class PagedListResultTest
+    public static void MainTest()
     {
-        public static void MainTest()
+        var listResult = new ListResultWithTotal<int>()
         {
-            var listResult = new ListResultWithTotal<int>()
-            {
-                Data = Enumerable.Range(0, 10).ToArray(),
-                TotalCount = 20,
-            };
-            // GetEnumerator extensions for foreach
-            foreach (var res in listResult)
-            {
-                Console.WriteLine(res);
-            }
+            Data = Enumerable.Range(0, 10).ToArray(),
+            TotalCount = 20,
+        };
+        // GetEnumerator extensions for foreach
+        foreach (var res in listResult)
+        {
+            Console.WriteLine(res);
         }
     }
 }

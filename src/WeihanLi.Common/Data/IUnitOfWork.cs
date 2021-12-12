@@ -1,16 +1,12 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
+﻿namespace WeihanLi.Common.Data;
 
-namespace WeihanLi.Common.Data
+public interface IUnitOfWork
 {
-    public interface IUnitOfWork
-    {
-        void Commit();
+    void Commit();
 
-        Task CommitAsync(CancellationToken cancellationToken = default);
+    Task CommitAsync(CancellationToken cancellationToken = default);
 
-        void Rollback();
+    void Rollback();
 
-        Task RollbackAsync(CancellationToken cancellationToken = default);
-    }
+    Task RollbackAsync(CancellationToken cancellationToken = default);
 }

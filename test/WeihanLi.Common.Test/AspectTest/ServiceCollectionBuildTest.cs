@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Threading.Tasks;
 using WeihanLi.Common.Aspect;
 using WeihanLi.Common.Event;
 using WeihanLi.Common.Services;
@@ -8,127 +6,126 @@ using WeihanLi.Common.Test.EventsTest;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace WeihanLi.Common.Test.AspectTest
+namespace WeihanLi.Common.Test.AspectTest;
+
+public class ServiceCollectionBuildTest
 {
-    public class ServiceCollectionBuildTest
+    public class TestGenericEventHandler<TEvent> : EventHandlerBase<TEvent> where TEvent : class, IEventBase
     {
-        public class TestGenericEventHandler<TEvent> : EventHandlerBase<TEvent> where TEvent : class, IEventBase
+        public override Task Handle(TEvent @event) => Task.CompletedTask;
+    }
+
+    private readonly IServiceProvider _serviceProvider;
+
+    public ServiceCollectionBuildTest(ITestOutputHelper output)
+    {
+        var services = new ServiceCollection();
+        services.AddSingleton<IIdGenerator, GuidIdGenerator>();
+        services.AddSingleton(GuidIdGenerator.Instance);
+        services.AddSingleton<IUserIdProvider, EnvironmentUserIdProvider>();
+        services.AddSingleton<EnvironmentUserIdProvider>();
+
+        services.AddSingleton<IEventPublisher, EventQueuePublisher>();
+        services.AddSingleton<IEventQueue, EventQueueInMemory>();
+        services.AddOptions();
+
+        services.AddSingleton<EventHandlerBase<TestEvent>>(DelegateEventHandler.FromAction<TestEvent>(_ => { }));
+
+        services.AddSingleton(typeof(IEventHandler<>), typeof(TestGenericEventHandler<>));
+
+        _serviceProvider = services.BuildFluentAspectsProvider(options =>
         {
-            public override Task Handle(TEvent @event) => Task.CompletedTask;
-        }
+            options.InterceptAll()
+                .With<TestOutputInterceptor>();
+        });
+    }
 
-        private readonly IServiceProvider _serviceProvider;
+    [Fact]
+    public void InterfaceTest()
+    {
+        // unsealed implement
+        var userIdProvider = _serviceProvider.GetRequiredService<IUserIdProvider>();
+        Assert.NotNull(userIdProvider);
 
-        public ServiceCollectionBuildTest(ITestOutputHelper output)
-        {
-            var services = new ServiceCollection();
-            services.AddSingleton<IIdGenerator, GuidIdGenerator>();
-            services.AddSingleton(GuidIdGenerator.Instance);
-            services.AddSingleton<IUserIdProvider, EnvironmentUserIdProvider>();
-            services.AddSingleton<EnvironmentUserIdProvider>();
+        var userIdProviderType = userIdProvider.GetType();
+        Assert.True(userIdProviderType.IsSealed);
+        Assert.True(userIdProviderType.Assembly.IsDynamic);
 
-            services.AddSingleton<IEventPublisher, EventQueuePublisher>();
-            services.AddSingleton<IEventQueue, EventQueueInMemory>();
-            services.AddOptions();
+        var userId = userIdProvider.GetUserId();
+        Assert.NotNull(userId);
 
-            services.AddSingleton<EventHandlerBase<TestEvent>>(DelegateEventHandler.FromAction<TestEvent>(_ => { }));
+        // sealed implement
+        var idGenerator = _serviceProvider.GetRequiredService<IIdGenerator>();
+        Assert.NotNull(idGenerator);
+        var idGeneratorType = idGenerator.GetType();
+        Assert.True(idGeneratorType.IsSealed);
+        Assert.True(idGeneratorType.Assembly.IsDynamic);
 
-            services.AddSingleton(typeof(IEventHandler<>), typeof(TestGenericEventHandler<>));
+        var newId = idGenerator.NewId();
+        Assert.NotNull(newId);
+    }
 
-            _serviceProvider = services.BuildFluentAspectsProvider(options =>
-            {
-                options.InterceptAll()
-                    .With<TestOutputInterceptor>();
-            });
-        }
+    [Fact]
+    public void ClassTest()
+    {
+        // unsealed class, will intercept virtual method
+        var userIdProvider = _serviceProvider.GetRequiredService<EnvironmentUserIdProvider>();
+        Assert.NotNull(userIdProvider);
 
-        [Fact]
-        public void InterfaceTest()
-        {
-            // unsealed implement
-            var userIdProvider = _serviceProvider.GetService<IUserIdProvider>();
-            Assert.NotNull(userIdProvider);
+        var userIdProviderType = userIdProvider.GetType();
+        Assert.True(userIdProviderType.IsSealed);
+        Assert.True(userIdProviderType.Assembly.IsDynamic);
 
-            var userIdProviderType = userIdProvider.GetType();
-            Assert.True(userIdProviderType.IsSealed);
-            Assert.True(userIdProviderType.Assembly.IsDynamic);
+        var userId = userIdProvider.GetUserId();
+        Assert.NotNull(userId);
 
-            var userId = userIdProvider.GetUserId();
-            Assert.NotNull(userId);
+        // sealed class, will not be intercepted
+        var idGenerator = _serviceProvider.GetRequiredService<GuidIdGenerator>();
+        Assert.NotNull(idGenerator);
+        var idGeneratorType = idGenerator.GetType();
+        Assert.True(idGeneratorType.IsSealed);
+        Assert.False(idGeneratorType.Assembly.IsDynamic);
 
-            // sealed implement
-            var idGenerator = _serviceProvider.GetService<IIdGenerator>();
-            Assert.NotNull(idGenerator);
-            var idGeneratorType = idGenerator.GetType();
-            Assert.True(idGeneratorType.IsSealed);
-            Assert.True(idGeneratorType.Assembly.IsDynamic);
+        var newId = idGenerator.NewId();
+        Assert.NotNull(newId);
 
-            var newId = idGenerator.NewId();
-            Assert.NotNull(newId);
-        }
+        // unsealed service, sealed implement
+        var eventHandler = _serviceProvider.GetRequiredService<EventHandlerBase<TestEvent>>();
+        Assert.NotNull(eventHandler);
+        var eventHandlerType = eventHandler.GetType();
 
-        [Fact]
-        public void ClassTest()
-        {
-            // unsealed class, will intercept virtual method
-            var userIdProvider = _serviceProvider.GetService<EnvironmentUserIdProvider>();
-            Assert.NotNull(userIdProvider);
+        Assert.True(eventHandlerType.IsSealed);
+        Assert.True(eventHandlerType.Assembly.IsDynamic);
 
-            var userIdProviderType = userIdProvider.GetType();
-            Assert.True(userIdProviderType.IsSealed);
-            Assert.True(userIdProviderType.Assembly.IsDynamic);
+        var handTask = eventHandler.Handle(new TestEvent());
+        Assert.NotNull(handTask);
+        handTask.Wait();
+    }
 
-            var userId = userIdProvider.GetUserId();
-            Assert.NotNull(userId);
+    [Fact]
+    public void GenericMethodTest()
+    {
+        var publisher = _serviceProvider.GetRequiredService<IEventPublisher>();
+        Assert.NotNull(publisher);
+        var publisherType = publisher.GetType();
+        Assert.True(publisherType.IsSealed);
+        Assert.True(publisherType.Assembly.IsDynamic);
+        publisher.Publish(new TestEvent());
 
-            // sealed class, will not be intercepted
-            var idGenerator = _serviceProvider.GetService<GuidIdGenerator>();
-            Assert.NotNull(idGenerator);
-            var idGeneratorType = idGenerator.GetType();
-            Assert.True(idGeneratorType.IsSealed);
-            Assert.False(idGeneratorType.Assembly.IsDynamic);
+        publisher.PublishAsync(new TestEvent()).Wait();
+    }
 
-            var newId = idGenerator.NewId();
-            Assert.NotNull(newId);
+    // not supported, will not intercept
+    [Fact]
+    public void OpenGenericTypeTest()
+    {
+        var eventHandler = _serviceProvider.GetRequiredService<IEventHandler<TestEvent>>();
+        Assert.NotNull(eventHandler);
+        var eventHandlerType = eventHandler.GetType();
 
-            // unsealed service, sealed implement
-            var eventHandler = _serviceProvider.GetService<EventHandlerBase<TestEvent>>();
-            Assert.NotNull(eventHandler);
-            var eventHandlerType = eventHandler.GetType();
+        Assert.True(eventHandlerType.IsGenericType);
+        //Assert.False(eventHandlerType.Assembly.IsDynamic);
 
-            Assert.True(eventHandlerType.IsSealed);
-            Assert.True(eventHandlerType.Assembly.IsDynamic);
-
-            var handTask = eventHandler.Handle(new TestEvent());
-            Assert.NotNull(handTask);
-            handTask.Wait();
-        }
-
-        [Fact]
-        public void GenericMethodTest()
-        {
-            var publisher = _serviceProvider.GetService<IEventPublisher>();
-            Assert.NotNull(publisher);
-            var publisherType = publisher.GetType();
-            Assert.True(publisherType.IsSealed);
-            Assert.True(publisherType.Assembly.IsDynamic);
-            publisher.Publish(new TestEvent());
-
-            publisher.PublishAsync(new TestEvent()).Wait();
-        }
-
-        // not supported, will not intercept
-        [Fact]
-        public void OpenGenericTypeTest()
-        {
-            var eventHandler = _serviceProvider.GetService<IEventHandler<TestEvent>>();
-            Assert.NotNull(eventHandler);
-            var eventHandlerType = eventHandler.GetType();
-
-            Assert.True(eventHandlerType.IsGenericType);
-            //Assert.False(eventHandlerType.Assembly.IsDynamic);
-
-            //eventHandler.Handle(new TestEvent()).Wait();
-        }
+        //eventHandler.Handle(new TestEvent()).Wait();
     }
 }

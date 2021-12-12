@@ -1,58 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
+﻿using WeihanLi.Common.Helpers;
 
-namespace WeihanLi.Common.Aspect
+namespace WeihanLi.Common.Aspect;
+
+public interface IInterceptionConfiguration
 {
-    public interface IInterceptionConfiguration
+    ICollection<IInterceptor> Interceptors { get; }
+}
+
+internal class InterceptionConfiguration : IInterceptionConfiguration
+{
+    public ICollection<IInterceptor> Interceptors { get; }
+
+    public InterceptionConfiguration()
     {
-        ICollection<IInterceptor> Interceptors { get; }
+        Interceptors = new List<IInterceptor>();
+    }
+}
+
+public static class InterceptionConfigurationExtensions
+{
+    public static IInterceptionConfiguration With(this IInterceptionConfiguration interceptionConfiguration, Func<IInvocation, Func<Task>, Task> interceptFunc)
+    {
+        Guard.NotNull(interceptionConfiguration, nameof(interceptionConfiguration))
+            .Interceptors.Add(new DelegateInterceptor(interceptFunc));
+
+        return interceptionConfiguration;
     }
 
-    internal class InterceptionConfiguration : IInterceptionConfiguration
+    public static IInterceptionConfiguration With(this IInterceptionConfiguration interceptionConfiguration, IInterceptor interceptor)
     {
-        public ICollection<IInterceptor> Interceptors { get; }
-
-        public InterceptionConfiguration()
-        {
-            Interceptors = new List<IInterceptor>();
-        }
+        interceptionConfiguration.Interceptors.Add(interceptor);
+        return interceptionConfiguration;
     }
 
-    public static class InterceptionConfigurationExtensions
+    public static IInterceptionConfiguration With<TInterceptor>(this IInterceptionConfiguration interceptionConfiguration) where TInterceptor : IInterceptor, new()
     {
-        public static IInterceptionConfiguration With(this IInterceptionConfiguration interceptionConfiguration, Func<IInvocation, Func<Task>, Task> interceptFunc)
-        {
-            Guard.NotNull(interceptionConfiguration, nameof(interceptionConfiguration))
-                .Interceptors.Add(new DelegateInterceptor(interceptFunc));
+        interceptionConfiguration.With(new TInterceptor());
+        return interceptionConfiguration;
+    }
 
-            return interceptionConfiguration;
-        }
-
-        public static IInterceptionConfiguration With(this IInterceptionConfiguration interceptionConfiguration, IInterceptor interceptor)
+    public static IInterceptionConfiguration With<TInterceptor>(this IInterceptionConfiguration interceptionConfiguration, params object?[] parameters) where TInterceptor : IInterceptor
+    {
+        if (Guard.NotNull(parameters, nameof(parameters)).Length == 0)
         {
-            interceptionConfiguration.Interceptors.Add(interceptor);
-            return interceptionConfiguration;
+            interceptionConfiguration.With(NewFuncHelper<TInterceptor>.Instance());
         }
-
-        public static IInterceptionConfiguration With<TInterceptor>(this IInterceptionConfiguration interceptionConfiguration) where TInterceptor : IInterceptor, new()
+        else
         {
-            interceptionConfiguration.With(new TInterceptor());
-            return interceptionConfiguration;
+            interceptionConfiguration.With(ActivatorHelper.CreateInstance<TInterceptor>(parameters));
         }
-
-        public static IInterceptionConfiguration With<TInterceptor>(this IInterceptionConfiguration interceptionConfiguration, params object?[] parameters) where TInterceptor : IInterceptor
-        {
-            if (Guard.NotNull(parameters, nameof(parameters)).Length == 0)
-            {
-                interceptionConfiguration.With(NewFuncHelper<TInterceptor>.Instance());
-            }
-            else
-            {
-                interceptionConfiguration.With(ActivatorHelper.CreateInstance<TInterceptor>(parameters));
-            }
-            return interceptionConfiguration;
-        }
+        return interceptionConfiguration;
     }
 }

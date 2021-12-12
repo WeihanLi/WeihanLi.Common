@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
+﻿namespace WeihanLi.Common.Aspect;
 
-namespace WeihanLi.Common.Aspect
+public interface IInterceptorResolver
 {
-    public interface IInterceptorResolver
-    {
-        IReadOnlyList<IInterceptor> ResolveInterceptors(IInvocation invocation);
-    }
+    IReadOnlyList<IInterceptor> ResolveInterceptors(IInvocation invocation);
 }

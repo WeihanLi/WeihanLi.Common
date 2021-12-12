@@ -1,15 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿namespace WeihanLi.Common.Event;
 
-namespace WeihanLi.Common.Event
+public interface IEventStore
 {
-    public interface IEventStore
-    {
-        int SaveEvents(params IEventBase[] events);
+    int SaveEvents(params IEventBase[] events);
 
-        Task<int> SaveEventsAsync(params IEventBase[] events);
+    Task<int> SaveEventsAsync(params IEventBase[] events);
 
-        int DeleteEvents(params string[] eventIds);
+    int DeleteEvents(params string[] eventIds);
 
-        Task<int> DeleteEventsAsync(params string[] eventIds);
-    }
+    Task<int> DeleteEventsAsync(params string[] eventIds);
 }

@@ -4,138 +4,132 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ output extension=".generated.cs" #>
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using JetBrains.Annotations;
 
-namespace WeihanLi.Extensions
-{
+namespace WeihanLi.Extensions;
+
 #nullable enable
-    public static partial class DataExtension
+
+public static partial class DataExtension
+{
+    <#
+var commandNames = new string[]{
+    "Select",
+    };
+foreach(var cmd in commandNames)
+{ 
+#>      
+    public static IEnumerable<dynamic> <#=            cmd #>(this DbCommand command) 
     {
-        <#
-    var commandNames = new string[]{
-        "Select",
-        };
-    foreach(var cmd in commandNames)
-    { 
-#>      
-        public static IEnumerable<dynamic> <#=            cmd #>([NotNull]this DbCommand command) 
+        using (var reader = command.ExecuteReader())
         {
-            using (var reader = command.ExecuteReader())
-            {
-                return reader.ToExpandoObjects();
-            }
+            return reader.ToExpandoObjects();
         }
-
-       public static async Task<IEnumerable<dynamic>> <#=            cmd #>Async([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
-       {
-           using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
-           {
-                var list = new List<dynamic>();
-                while (await reader.ReadAsync(cancellationToken).ConfigureAwait(false))
-                {
-                    list.Add(reader.ToExpandoObject(true));
-                }
-                return list;
-           }
-       }
-
-        public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbCommand command) 
-        {
-            using (var reader = command.ExecuteReader())
-            {
-                var list = new List<T>();
-                while (reader.Read())
-                {
-                    list.Add(reader.ToEntity<T>(true)!);
-                }
-                return list;
-            }
-        }
-
-       public static async Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
-       {
-           using (var reader = await command.ExecuteReaderAsync(cancellationToken))
-           {
-                var list = new List<T>();
-                while (await reader.ReadAsync(cancellationToken).ConfigureAwait(false))
-                {
-                    list.Add(reader.ToEntity<T>(true)!);
-                }
-                return list;
-           }
-       }
-<#    }#>
-
-<#
-    var commandNames1 = new string[]{
-        "Fetch"
-        };
-    foreach(var cmd in commandNames1)
-    { 
-#>      
-        public static dynamic <#=            cmd #>([NotNull]this DbCommand command)
-        {
-            using (var reader = command.ExecuteReader())
-            {
-                return reader.ToExpandoObject();
-            }
-        }
-
-       public static async Task<dynamic> <#=            cmd #>Async([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
-       {
-           using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
-           {
-               await reader.ReadAsync().ConfigureAwait(false);
-               return reader.ToExpandoObject(true);
-           }
-       }
-
-        public static T? <#=            cmd #><T>([NotNull]this DbCommand command)
-        {
-            using (var reader = command.ExecuteReader())
-            {
-                return reader.ToEntity<T>();
-            }
-        }
-
-       public static async Task<T?> <#=            cmd #>Async<T>([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
-       {
-           using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
-           {
-               return reader.ToEntity<T>();
-           }
-       }
-<#    }#>
-
-<#
-    var commandNames2 = new string[]{
-        "ExecuteDataTable"
-        };
-    foreach(var cmd in commandNames2)
-    { 
-#>      
-        public static DataTable <#=            cmd #>([NotNull]this DbCommand command)
-        {
-            using (var reader = command.ExecuteReader())
-            {
-                return reader.ToDataTable();
-            }
-        }
-
-       public static async Task<DataTable> <#=            cmd #>Async([NotNull]this DbCommand command, CancellationToken cancellationToken = default)
-       {
-           using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
-            {
-                return reader.ToDataTable();
-            }
-       }
-<#    }#>
     }
+
+    public static async Task<IEnumerable<dynamic>> <#=            cmd #>Async(this DbCommand command, CancellationToken cancellationToken = default)
+    {
+        using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
+        {
+            var list = new List<dynamic>();
+            while (await reader.ReadAsync(cancellationToken).ConfigureAwait(false))
+            {
+                list.Add(reader.ToExpandoObject(true));
+            }
+            return list;
+        }
+    }
+
+    public static IEnumerable<T> <#=            cmd #><T>(this DbCommand command) 
+    {
+        using (var reader = command.ExecuteReader())
+        {
+            var list = new List<T>();
+            while (reader.Read())
+            {
+                list.Add(reader.ToEntity<T>(true)!);
+            }
+            return list;
+        }
+    }
+
+    public static async Task<IEnumerable<T>> <#=            cmd #>Async<T>(this DbCommand command, CancellationToken cancellationToken = default)
+    {
+        using (var reader = await command.ExecuteReaderAsync(cancellationToken))
+        {
+            var list = new List<T>();
+            while (await reader.ReadAsync(cancellationToken).ConfigureAwait(false))
+            {
+                list.Add(reader.ToEntity<T>(true)!);
+            }
+            return list;
+        }
+    }
+<#    }#>
+
+<#
+var commandNames1 = new string[]{
+    "Fetch"
+    };
+foreach(var cmd in commandNames1)
+{ 
+#>      
+    public static dynamic <#=            cmd #>(this DbCommand command)
+    {
+        using (var reader = command.ExecuteReader())
+        {
+            return reader.ToExpandoObject();
+        }
+    }
+
+    public static async Task<dynamic> <#=            cmd #>Async(this DbCommand command, CancellationToken cancellationToken = default)
+    {
+        using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
+        {
+            await reader.ReadAsync().ConfigureAwait(false);
+            return reader.ToExpandoObject(true);
+        }
+    }
+
+    public static T? <#=            cmd #><T>(this DbCommand command)
+    {
+        using (var reader = command.ExecuteReader())
+        {
+            return reader.ToEntity<T>();
+        }
+    }
+
+    public static async Task<T?> <#=            cmd #>Async<T>(this DbCommand command, CancellationToken cancellationToken = default)
+    {
+        using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
+        {
+            return reader.ToEntity<T>();
+        }
+    }
+<#    }#>
+
+<#
+var commandNames2 = new string[]{
+    "ExecuteDataTable"
+    };
+foreach(var cmd in commandNames2)
+{ 
+#>      
+    public static DataTable <#=            cmd #>(this DbCommand command)
+    {
+        using (var reader = command.ExecuteReader())
+        {
+            return reader.ToDataTable();
+        }
+    }
+
+    public static async Task<DataTable> <#=            cmd #>Async(this DbCommand command, CancellationToken cancellationToken = default)
+    {
+        using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
+        {
+            return reader.ToDataTable();
+        }
+    }
+<#    }#>
 }

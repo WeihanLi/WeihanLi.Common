@@ -1,16 +1,15 @@
 ﻿using WeihanLi.Common.Services;
 using Xunit;
 
-namespace WeihanLi.Common.Test.ServicesTest
+namespace WeihanLi.Common.Test.ServicesTest;
+
+public class CancellationTokenProviderTest
 {
-    public class CancellationTokenProviderTest
+    [Fact]
+    public void NullCancellationTokenProviderTest()
     {
-        [Fact]
-        public void NullCancellationTokenProviderTest()
-        {
-            var provider = new NullCancellationTokenProvider();
-            var cancellationToken = provider.GetCancellationToken();
-            Assert.Equal(default, cancellationToken);
-        }
+        var provider = new NullCancellationTokenProvider();
+        var cancellationToken = provider.GetCancellationToken();
+        Assert.Equal(default, cancellationToken);
     }
 }

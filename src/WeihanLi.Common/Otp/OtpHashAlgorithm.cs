@@ -1,21 +1,20 @@
 ﻿// ReSharper disable InconsistentNaming
-namespace WeihanLi.Common.Otp
+namespace WeihanLi.Common.Otp;
+
+public enum OtpHashAlgorithm
 {
-    public enum OtpHashAlgorithm
-    {
-        /// <summary>
-        /// Sha1 is used as the HMAC hashing algorithm
-        /// </summary>
-        SHA1 = 0,
+    /// <summary>
+    /// Sha1 is used as the HMAC hashing algorithm
+    /// </summary>
+    SHA1 = 0,
 
-        /// <summary>
-        /// Sha256 is used as the HMAC hashing algorithm
-        /// </summary>
-        SHA256 = 1,
+    /// <summary>
+    /// Sha256 is used as the HMAC hashing algorithm
+    /// </summary>
+    SHA256 = 1,
 
-        /// <summary>
-        /// Sha512 is used as the HMAC hashing algorithm
-        /// </summary>
-        SHA512 = 2,
-    }
+    /// <summary>
+    /// Sha512 is used as the HMAC hashing algorithm
+    /// </summary>
+    SHA512 = 2,
 }

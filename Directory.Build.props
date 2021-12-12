@@ -4,6 +4,7 @@
   
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
     <RepositoryType>git</RepositoryType>
@@ -27,15 +28,11 @@
     <Authors>WeihanLi</Authors>
     <Copyright>Copyright 2017-2021 (c) WeihanLi</Copyright>
     <NoWarn>$(NoWarn);NU5048;CS1591</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(TF_BUILD)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">
-    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <EnablePackageValidation>true</EnablePackageValidation>
+    <ContinuousIntegrationBuild Condition="'$(TF_BUILD)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Condition="'$(OS)' == 'Windows_NT'" Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
-    <PackageReference Condition="'$(OS)' != 'Windows_NT'" Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All"/>
-    <PackageReference Include="JetBrains.Annotations" Version="2021.2.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)icon.jpg" Pack="true" Visible="false" PackagePath=""/>

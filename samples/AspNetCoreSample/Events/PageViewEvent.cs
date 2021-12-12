@@ -1,22 +1,19 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using WeihanLi.Common.Event;
+﻿using WeihanLi.Common.Event;
 
-namespace AspNetCoreSample.Events
+namespace AspNetCoreSample.Events;
+
+public class PageViewEvent : EventBase
 {
-    public class PageViewEvent : EventBase
-    {
-        public string? Path { get; set; }
-    }
+    public string? Path { get; set; }
+}
 
-    public class PageViewEventHandler : EventHandlerBase<PageViewEvent>
-    {
-        public static int Count;
+public class PageViewEventHandler : EventHandlerBase<PageViewEvent>
+{
+    public static int Count;
 
-        public override Task Handle(PageViewEvent @event)
-        {
-            Interlocked.Increment(ref Count);
-            return Task.CompletedTask;
-        }
+    public override Task Handle(PageViewEvent @event)
+    {
+        Interlocked.Increment(ref Count);
+        return Task.CompletedTask;
     }
 }

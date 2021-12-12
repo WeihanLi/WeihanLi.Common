@@ -1,7 +1,6 @@
-﻿namespace WeihanLi.Common.Logging
+﻿namespace WeihanLi.Common.Logging;
+
+public interface ILogHelperProvider
 {
-    public interface ILogHelperProvider
-    {
-        void Log(LogHelperLoggingEvent loggingEvent);
-    }
+    void Log(LogHelperLoggingEvent loggingEvent);
 }

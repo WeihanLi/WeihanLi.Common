@@ -1,0 +1,9 @@
+{
+    "name": "CodeSpace",
+    "dockerFile": "Dockerfile",
+    // Install needed extensions
+    "extensions": [
+        "ms-dotnettools.csharp",
+        "davidanson.vscode-markdownlint"
+    ]
+}
