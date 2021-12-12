@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using Xunit;
+﻿using Xunit;
 
 namespace WeihanLi.Common.Test;
 
@@ -16,9 +15,5 @@ public class ProfilerTest
         Thread.Sleep(delay * 2);
         profiler.Stop();
         Assert.True(profiler.Elapsed.TotalMilliseconds >= delay);
-        profiler.Restart();
-        Thread.Sleep(delay / 2);
-        profiler.Stop();
-        Assert.True(profiler.Elapsed.TotalMilliseconds < delay);
     }
 }

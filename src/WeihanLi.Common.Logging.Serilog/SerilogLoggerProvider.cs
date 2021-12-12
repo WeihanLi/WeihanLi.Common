@@ -5,9 +5,6 @@ using Microsoft.Extensions.Logging;
 using Serilog.Context;
 using Serilog.Core;
 using Serilog.Events;
-using System;
-using System.Collections.Generic;
-using System.Threading;
 using FrameworkLogger = Microsoft.Extensions.Logging.ILogger;
 
 // ReSharper disable once CheckNamespace

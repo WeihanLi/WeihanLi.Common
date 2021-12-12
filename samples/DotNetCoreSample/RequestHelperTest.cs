@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Specialized;
+﻿using System.Collections.Specialized;
 using System.Diagnostics;
-using System.Linq;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
 

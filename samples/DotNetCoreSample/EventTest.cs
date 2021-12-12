@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using WeihanLi.Common;
+﻿using WeihanLi.Common;
 using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;

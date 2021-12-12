@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Extensions.Logging;
-using System;
 using ILogger = Serilog.ILogger;
 
 namespace WeihanLi.Common.Logging.Serilog;

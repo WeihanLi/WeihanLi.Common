@@ -1,8 +1,5 @@
 ﻿using log4net;
 using log4net.Config;
-using System;
-using System.IO;
-using System.Linq;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Logging.Log4Net;

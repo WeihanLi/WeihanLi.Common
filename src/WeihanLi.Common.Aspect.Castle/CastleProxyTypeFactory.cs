@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WeihanLi.Common.Aspect.Castle;
+﻿namespace WeihanLi.Common.Aspect.Castle;
 
 internal sealed class CastleProxyTypeFactory : IProxyTypeFactory
 {

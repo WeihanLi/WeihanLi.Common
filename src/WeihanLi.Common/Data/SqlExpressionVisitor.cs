@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Data;
@@ -22,31 +19,27 @@ public class SqlExpressionVisitor : ExpressionVisitor
     {
         string GetOperator()
         {
-            switch (node.NodeType)
+            return node.NodeType switch
             {
-                case ExpressionType.LeftShift: return "<<";
-                case ExpressionType.RightShift: return ">>";
-
-                case ExpressionType.AndAlso: return "AND";
-                case ExpressionType.OrElse: return "OR";
-
-                case ExpressionType.And: return "&";
-                case ExpressionType.Or: return "|";
-
-                case ExpressionType.GreaterThan: return ">";
-                case ExpressionType.GreaterThanOrEqual: return ">=";
-                case ExpressionType.LessThan: return "<";
-                case ExpressionType.LessThanOrEqual: return "<=";
-                case ExpressionType.Equal: return "=";
-                case ExpressionType.NotEqual: return "!=";
-
-                case ExpressionType.Add: return "+";
-                case ExpressionType.Subtract: return "-";
-                case ExpressionType.Multiply: return "*";
-                case ExpressionType.Divide: return "/";
-                case ExpressionType.Modulo: return "%";
-            }
-            return node.NodeType.ToString();
+                ExpressionType.LeftShift => "<<",
+                ExpressionType.RightShift => ">>",
+                ExpressionType.AndAlso => "AND",
+                ExpressionType.OrElse => "OR",
+                ExpressionType.And => "&",
+                ExpressionType.Or => "|",
+                ExpressionType.GreaterThan => ">",
+                ExpressionType.GreaterThanOrEqual => ">=",
+                ExpressionType.LessThan => "<",
+                ExpressionType.LessThanOrEqual => "<=",
+                ExpressionType.Equal => "=",
+                ExpressionType.NotEqual => "!=",
+                ExpressionType.Add => "+",
+                ExpressionType.Subtract => "-",
+                ExpressionType.Multiply => "*",
+                ExpressionType.Divide => "/",
+                ExpressionType.Modulo => "%",
+                _ => node.NodeType.ToString()
+            };
         }
 
         // right

@@ -1,5 +1,4 @@
-﻿using System;
-using WeihanLi.Common.Services;
+﻿using WeihanLi.Common.Services;
 using Xunit;
 
 namespace WeihanLi.Common.Test.ServicesTest;

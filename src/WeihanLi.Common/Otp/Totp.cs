@@ -1,5 +1,4 @@
-﻿using System;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 
 namespace WeihanLi.Common.Otp;
@@ -44,38 +43,25 @@ public class Totp
 
     private string Compute(byte[] securityToken, long counter)
     {
-        HMAC hmac;
-        switch (_hashAlgorithm)
+        using HMAC hmac = _hashAlgorithm switch
         {
-            case OtpHashAlgorithm.SHA256:
-                hmac = new HMACSHA256(securityToken);
-                break;
-
-            case OtpHashAlgorithm.SHA512:
-                hmac = new HMACSHA512(securityToken);
-                break;
-
-            default:
-                hmac = new HMACSHA1(securityToken);
-                break;
-        }
-
-        using (hmac)
+            OtpHashAlgorithm.SHA256 => new HMACSHA256(securityToken),
+            OtpHashAlgorithm.SHA512 => new HMACSHA512(securityToken),
+            _ => new HMACSHA1(securityToken)
+        };
+        var stepBytes = BitConverter.GetBytes(counter);
+        if (BitConverter.IsLittleEndian)
         {
-            var stepBytes = BitConverter.GetBytes(counter);
-            if (BitConverter.IsLittleEndian)
-            {
-                Array.Reverse(stepBytes); // need BigEndian
-            }
-            // See https://tools.ietf.org/html/rfc4226
-            var hashResult = hmac.ComputeHash(stepBytes);
-
-            var offset = hashResult[hashResult.Length - 1] & 0xf;
-            var p = $"{hashResult[offset]:X2}{hashResult[offset + 1]:X2}{hashResult[offset + 2]:X2}{hashResult[offset + 3]:X2}";
-            var num = Convert.ToInt64(p, 16) & 0x7FFFFFFF;
-            var code = (num % _base).ToString("");
-            return code.PadLeft(_codeSize, '0');
+            Array.Reverse(stepBytes); // need BigEndian
         }
+        // See https://tools.ietf.org/html/rfc4226
+        var hashResult = hmac.ComputeHash(stepBytes);
+
+        var offset = hashResult[hashResult.Length - 1] & 0xf;
+        var p = $"{hashResult[offset]:X2}{hashResult[offset + 1]:X2}{hashResult[offset + 2]:X2}{hashResult[offset + 3]:X2}";
+        var num = Convert.ToInt64(p, 16) & 0x7FFFFFFF;
+        var code = (num % _base).ToString("");
+        return code.PadLeft(_codeSize, '0');
     }
 
     public virtual bool Verify(string securityToken, string code) => Verify(_encoding.GetBytes(securityToken), code);

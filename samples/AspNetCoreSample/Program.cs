@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-using WeihanLi.Common.Aspect;
+﻿using WeihanLi.Common.Aspect;
 using WeihanLi.Common.Event;
 
 namespace AspNetCoreSample;

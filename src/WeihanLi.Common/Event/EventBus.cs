@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using WeihanLi.Common.Logging;
+﻿using WeihanLi.Common.Logging;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Event;

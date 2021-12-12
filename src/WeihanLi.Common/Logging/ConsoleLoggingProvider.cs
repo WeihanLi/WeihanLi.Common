@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System;
 using System.Collections.Concurrent;
-using System.Threading;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Logging;
@@ -93,7 +91,7 @@ internal sealed class ConsoleLoggingProvider : ILogHelperProvider
     {
         try
         {
-            foreach (LogHelperLoggingEvent message in _messageQueue.GetConsumingEnumerable())
+            foreach (var message in _messageQueue.GetConsumingEnumerable())
             {
                 WriteLoggingEvent(message);
             }

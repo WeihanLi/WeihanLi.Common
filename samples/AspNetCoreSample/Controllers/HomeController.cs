@@ -1,7 +1,5 @@
 ﻿using AspNetCoreSample.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Diagnostics;
 
 namespace AspNetCoreSample.Controllers;

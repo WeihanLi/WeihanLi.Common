@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
+﻿using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Test.EventsTest;
 using WeihanLi.Extensions;
 using Xunit;

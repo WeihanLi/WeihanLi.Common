@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using System.Reflection;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
@@ -301,11 +300,7 @@ public static class FluentAspectOptionsExtensions
     public static FluentAspectOptions UseInterceptorResolver(this FluentAspectOptions options,
         IInterceptorResolver resolver)
     {
-        if (null == resolver)
-        {
-            throw new ArgumentNullException(nameof(resolver));
-        }
-
+        Guard.NotNull(resolver);
         options.InterceptorResolver = resolver;
         return options;
     }

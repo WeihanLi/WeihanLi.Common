@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace WeihanLi.Common.Services;
+﻿namespace WeihanLi.Common.Services;
 
 public interface ICancellationTokenProvider
 {

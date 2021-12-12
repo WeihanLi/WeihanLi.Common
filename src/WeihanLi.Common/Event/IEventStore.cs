@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace WeihanLi.Common.Event;
+﻿namespace WeihanLi.Common.Event;
 
 public interface IEventStore
 {

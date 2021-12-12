@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace WeihanLi.Common;
+﻿namespace WeihanLi.Common;
 
 public interface IScope : IDisposable
 {
 }
 
-public class NullScope : IScope
+public sealed class NullScope : IScope
 {
     public void Dispose()
     {

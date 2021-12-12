@@ -1,5 +1,4 @@
-﻿using System;
-using WeihanLi.Common.Otp;
+﻿using WeihanLi.Common.Otp;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;

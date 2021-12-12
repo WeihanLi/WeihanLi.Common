@@ -1,5 +1,4 @@
-﻿using System;
-using WeihanLi.Extensions;
+﻿using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Services;
 

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace WeihanLi.Common.Aspect;
+﻿namespace WeihanLi.Common.Aspect;
 
 public sealed class FluentConfigInterceptorResolver : IInterceptorResolver
 {

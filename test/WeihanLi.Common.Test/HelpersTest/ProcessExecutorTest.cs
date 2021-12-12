@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Net;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
 using Xunit;
 

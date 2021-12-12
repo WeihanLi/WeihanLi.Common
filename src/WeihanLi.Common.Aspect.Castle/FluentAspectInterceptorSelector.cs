@@ -1,5 +1,4 @@
 ﻿using Castle.DynamicProxy;
-using System;
 using System.Reflection;
 
 namespace WeihanLi.Common.Aspect.Castle;

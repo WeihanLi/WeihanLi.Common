@@ -1,9 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
-
-namespace WeihanLi.Common.Aspect.Castle;
+﻿namespace WeihanLi.Common.Aspect.Castle;
 
 public sealed class CastleFluentAspectInterceptor : global::Castle.DynamicProxy.IInterceptor
 {

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using WeihanLi.Common.Helpers;
+﻿using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
 namespace DotNetCoreSample;

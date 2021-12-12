@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using WeihanLi.Extensions;
+﻿using WeihanLi.Extensions;
 using Xunit;
 
 namespace WeihanLi.Common.Test.ExtensionsTest;

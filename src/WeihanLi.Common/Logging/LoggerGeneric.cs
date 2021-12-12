@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Logging;

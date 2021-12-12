@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WeihanLi.Common.Aspect.AspectCore;
+﻿namespace WeihanLi.Common.Aspect.AspectCore;
 
 internal sealed class AspectCoreProxyTypeFactory : IProxyTypeFactory
 {

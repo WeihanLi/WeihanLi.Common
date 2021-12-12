@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Exception = System.Exception;
+﻿using Exception = System.Exception;
 
 namespace WeihanLi.Common.Helpers;
 

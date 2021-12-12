@@ -1,9 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace WeihanLi.Common.Helpers;
+﻿namespace WeihanLi.Common.Helpers;
 
 public sealed class ConsoleOutput : IDisposable
 {

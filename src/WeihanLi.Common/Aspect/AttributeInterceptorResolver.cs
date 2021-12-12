@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect;
@@ -31,7 +27,7 @@ public class AttributeInterceptorResolver : IInterceptorResolver
             return Array.Empty<IInterceptor>();
         }
 
-        Type? baseType = (invocation.Method ?? invocation.ProxyMethod).DeclaringType;
+        var baseType = (invocation.Method ?? invocation.ProxyMethod).DeclaringType;
         if (baseType?.IsDefined(typeof(NoIntercept)) == true)
         {
             return Array.Empty<IInterceptor>();

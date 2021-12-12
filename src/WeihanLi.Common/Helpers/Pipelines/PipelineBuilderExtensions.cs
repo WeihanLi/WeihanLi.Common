@@ -1,12 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-
-// ReSharper disable once CheckNamespace
+﻿// ReSharper disable once CheckNamespace
 namespace WeihanLi.Common.Helpers;
 
 public static class PipelineBuilderExtensions
 {
     #region IPipelineBuilder
+
     public static IPipelineBuilder<TContext> Use<TContext>(this IPipelineBuilder<TContext> builder, Action<TContext, Action> action)
 
     {
@@ -51,7 +49,8 @@ public static class PipelineBuilderExtensions
         return builder;
     }
 
-    #endregion
+    #endregion IPipelineBuilder
+
     #region IAsyncPipelineBuilder
 
     public static IAsyncPipelineBuilder<TContext> Use<TContext>(this IAsyncPipelineBuilder<TContext> builder,
@@ -94,7 +93,8 @@ public static class PipelineBuilderExtensions
         return builder.Use(_ => handler);
     }
 
-    #endregion
+    #endregion IAsyncPipelineBuilder
+
 #if ValueTaskSupport
 
     #region IValueAsyncPipelineBuilder
@@ -139,6 +139,7 @@ public static class PipelineBuilderExtensions
             return builder.Use(_ => handler);
         }
 
-    #endregion
+    #endregion IValueAsyncPipelineBuilder
+
 #endif
 }

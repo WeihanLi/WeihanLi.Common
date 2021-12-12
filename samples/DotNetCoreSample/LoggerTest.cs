@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
 

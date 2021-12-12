@@ -1,8 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace WeihanLi.Common.Logging;
+﻿namespace WeihanLi.Common.Logging;
 
 public interface ILogHelperLogger
 {

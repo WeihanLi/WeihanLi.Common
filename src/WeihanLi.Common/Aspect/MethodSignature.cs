@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace WeihanLi.Common.Aspect;
 
@@ -23,8 +20,7 @@ internal sealed class MethodSignature
     public override bool Equals(object? obj)
     {
         // if object is null or type does not match return false...
-        var signature = obj as MethodSignature;
-        if (signature == null)
+        if (obj is not MethodSignature signature)
             return false;
 
         // compares method name...

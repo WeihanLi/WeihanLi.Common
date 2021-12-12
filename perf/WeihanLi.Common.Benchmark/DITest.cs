@@ -4,7 +4,6 @@ using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Diagnosers;
 using BenchmarkDotNet.Validators;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Runtime.CompilerServices;
 using WeihanLi.Common.DependencyInjection;
 

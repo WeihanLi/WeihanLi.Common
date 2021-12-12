@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using WeihanLi.Extensions;
+﻿using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Logging;
 

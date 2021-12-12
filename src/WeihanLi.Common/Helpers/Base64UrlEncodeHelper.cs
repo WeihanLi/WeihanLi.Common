@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;

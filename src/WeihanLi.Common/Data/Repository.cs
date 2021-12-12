@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Common;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using WeihanLi.Common.Models;
 using WeihanLi.Extensions;
 
@@ -19,20 +14,20 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : new()
     #region TODO: Cache External
 
     private readonly Lazy<Dictionary<string, string>> PrimaryKeyColumns = new(() =>
-            CacheUtil.GetTypeProperties(typeof(TEntity))
-            .Any(x => x.IsDefined(typeof(KeyAttribute)))
-            ?
-            CacheUtil.GetTypeProperties(typeof(TEntity))
-            .ToDictionary(x => x.Name, x => x.GetColumnName())
-            :
-                new Dictionary<string, string>(1)
-                {
+              CacheUtil.GetTypeProperties(typeof(TEntity))
+              .Any(x => x.IsDefined(typeof(KeyAttribute)))
+              ?
+              CacheUtil.GetTypeProperties(typeof(TEntity))
+              .ToDictionary(x => x.Name, x => x.GetColumnName())
+              :
+                  new Dictionary<string, string>(1)
+                  {
                     { "Id",
                         CacheUtil.GetTypeProperties(typeof(TEntity))
                         .FirstOrDefault(x => x.Name.Equals("Id"))?.GetColumnName()
                         ?? throw new InvalidOperationException("no primary key found")
                         }
-                }
+                  }
             )
         ;
 
@@ -45,9 +40,9 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : new()
         .Where(_ => !_.IsDefined(typeof(NotMappedAttribute))).Select(_ => $"{_.GetColumnName()} AS {_.Name}").StringJoin(",");
 
     private readonly Lazy<Dictionary<string, string>> InsertColumnMappings = new(() => CacheUtil.GetTypeProperties(typeof(TEntity))
-            .Where(_ => !_.IsDefined(typeof(NotMappedAttribute)) && !_.IsDefined(typeof(DatabaseGeneratedAttribute)))
-            .Select(p => new KeyValuePair<string, string>(p.GetColumnName(), p.Name))
-            .ToDictionary(_ => _.Key, _ => _.Value));
+              .Where(_ => !_.IsDefined(typeof(NotMappedAttribute)) && !_.IsDefined(typeof(DatabaseGeneratedAttribute)))
+              .Select(p => new KeyValuePair<string, string>(p.GetColumnName(), p.Name))
+              .ToDictionary(_ => _.Key, _ => _.Value));
 
     private readonly string _tableName = typeof(TEntity).GetCustomAttribute<TableAttribute>()?.Name ?? typeof(TEntity).Name;
 

@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using WeihanLi.Extensions;
+﻿using WeihanLi.Extensions;
 using Xunit;
 
 namespace WeihanLi.Common.Test.ExtensionsTest;

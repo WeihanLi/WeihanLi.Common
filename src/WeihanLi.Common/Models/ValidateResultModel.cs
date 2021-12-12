@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace WeihanLi.Common.Models;
+﻿namespace WeihanLi.Common.Models;
 
 public class ValidateResultModel
 {

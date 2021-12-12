@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace

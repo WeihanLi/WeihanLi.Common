@@ -5,8 +5,6 @@ using Microsoft.Extensions.Logging;
 using Serilog.Core;
 using Serilog.Events;
 using Serilog.Parsing;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
 using FrameworkLogger = Microsoft.Extensions.Logging.ILogger;
 

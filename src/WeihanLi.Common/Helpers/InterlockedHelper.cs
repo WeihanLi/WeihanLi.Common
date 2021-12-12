@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace WeihanLi.Common.Helpers;
+﻿namespace WeihanLi.Common.Helpers;
 
 public static class InterlockedHelper
 {

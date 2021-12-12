@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace WeihanLi.Common.Models;
+﻿namespace WeihanLi.Common.Models;
 
 public interface IPagedListResult<out T> : IListResultWithTotal<T>
 {
@@ -38,7 +35,7 @@ public static class EnumerableExtensions
 
 public class ListResultWithTotal<T> : IListResultWithTotal<T>
 {
-    public static readonly ListResultWithTotal<T> Empty = new ListResultWithTotal<T>();
+    public static readonly ListResultWithTotal<T> Empty = new();
 
     private IReadOnlyList<T> _data = Array.Empty<T>();
 
@@ -58,7 +55,7 @@ public class ListResultWithTotal<T> : IListResultWithTotal<T>
 [Serializable]
 public class PagedListResult<T> : IPagedListResult<T>
 {
-    public static readonly PagedListResult<T> Empty = new PagedListResult<T>();
+    public static readonly PagedListResult<T> Empty = new();
 
     private IReadOnlyList<T> _data = Array.Empty<T>();
 

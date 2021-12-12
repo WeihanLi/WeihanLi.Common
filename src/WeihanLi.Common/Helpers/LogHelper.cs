@@ -1,5 +1,4 @@
-﻿using System;
-using WeihanLi.Common.Logging;
+﻿using WeihanLi.Common.Logging;
 
 namespace WeihanLi.Common.Helpers;
 

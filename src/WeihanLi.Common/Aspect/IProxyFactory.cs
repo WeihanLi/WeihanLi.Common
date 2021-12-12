@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WeihanLi.Common.Aspect;
+﻿namespace WeihanLi.Common.Aspect;
 
 public interface IProxyFactory
 {

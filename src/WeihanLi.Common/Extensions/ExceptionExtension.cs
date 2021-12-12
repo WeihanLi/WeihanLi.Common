@@ -1,7 +1,5 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Threading;
 using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace

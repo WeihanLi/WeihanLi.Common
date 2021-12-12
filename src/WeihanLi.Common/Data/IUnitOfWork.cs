@@ -1,7 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-
-namespace WeihanLi.Common.Data;
+﻿namespace WeihanLi.Common.Data;
 
 public interface IUnitOfWork
 {

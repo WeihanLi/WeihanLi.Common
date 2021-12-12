@@ -1,6 +1,4 @@
-﻿using System.Net.Http;
-
-namespace WeihanLi.Common.Http;
+﻿namespace WeihanLi.Common.Http;
 
 public sealed class NoProxyHttpClientHandler : HttpClientHandler
 {

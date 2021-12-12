@@ -1,7 +1,6 @@
 ﻿using AspectCore.Configuration;
 using AspectCore.DependencyInjection;
 using AspectCore.DynamicProxy;
-using System;
 
 namespace WeihanLi.Common.Aspect.AspectCore;
 

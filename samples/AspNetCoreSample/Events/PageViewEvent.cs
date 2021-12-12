@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using WeihanLi.Common.Event;
+﻿using WeihanLi.Common.Event;
 
 namespace AspNetCoreSample.Events;
 

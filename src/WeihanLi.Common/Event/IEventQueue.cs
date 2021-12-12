@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace WeihanLi.Common.Event;
+﻿namespace WeihanLi.Common.Event;
 
 public interface IEventQueue
 {

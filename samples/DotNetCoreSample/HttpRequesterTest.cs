@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
-using WeihanLi.Common.Http;
+﻿using WeihanLi.Common.Http;
 using WeihanLi.Extensions;
 
 namespace DotNetCoreSample;

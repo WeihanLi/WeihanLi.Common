@@ -12,8 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
-
 // https://github.com/serilog/serilog-sinks-periodicbatching
 namespace WeihanLi.Common.Helpers.PeriodBatching;
 

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.ObjectPool;
-using System;
 using System.Data.Common;
 using System.Data.SqlClient;
 using WeihanLi.Common;

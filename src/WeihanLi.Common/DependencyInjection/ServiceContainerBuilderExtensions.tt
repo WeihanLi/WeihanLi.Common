@@ -5,8 +5,6 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ output extension=".generated.cs" #>
 
-using System;
-
 namespace WeihanLi.Common.DependencyInjection;
 
 public static partial class ServiceContainerBuilderExtensions
@@ -18,31 +16,29 @@ foreach(var prefix in prefixes)
 foreach(var lifetime in lifetimes)
             {
 #>
-public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #>(this IServiceContainerBuilder serviceContainerBuilder, Type serviceType)
+    public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #>(this IServiceContainerBuilder serviceContainerBuilder, Type serviceType)
     {
         serviceContainerBuilder.<#= prefix#>Add(new ServiceDefinition(serviceType, ServiceLifetime.<#=lifetime #>));
         return serviceContainerBuilder;
     }
 
-public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #>(this IServiceContainerBuilder serviceContainerBuilder, Type serviceType, Type implementType)
+    public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #>(this IServiceContainerBuilder serviceContainerBuilder, Type serviceType, Type implementType)
     {
         serviceContainerBuilder.<#= prefix#>Add(new ServiceDefinition(serviceType, implementType, ServiceLifetime.<#=lifetime #>));
         return serviceContainerBuilder;
     }
 
-public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #><TService>(this IServiceContainerBuilder serviceContainerBuilder, Func<IServiceProvider, object> func)
+    public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #><TService>(this IServiceContainerBuilder serviceContainerBuilder, Func<IServiceProvider, object> func)
     {
         serviceContainerBuilder.<#= prefix#>Add(ServiceDefinition.<#=lifetime #><TService>(func));
         return serviceContainerBuilder;
     }
-
 
     public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #><TService>(this IServiceContainerBuilder serviceContainerBuilder)
     {
         serviceContainerBuilder.<#= prefix#>Add(ServiceDefinition.<#=lifetime #><TService>());
         return serviceContainerBuilder;
     }
-
 
     public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #><TService, TServiceImplement>(this IServiceContainerBuilder serviceContainerBuilder) where TServiceImplement : TService
     {
@@ -51,6 +47,6 @@ public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #><TService>(t
     }
 
 <#
-            }
+  }
 #>
 }

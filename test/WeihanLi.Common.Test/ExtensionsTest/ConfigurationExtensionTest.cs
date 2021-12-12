@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
 using Xunit;
 
 namespace WeihanLi.Common.Test.ExtensionsTest;
@@ -55,7 +53,6 @@ public class ConfigurationExtensionTest
         Assert.False(configuration.IsFeatureEnabled(featureName));
         Assert.True(configuration.IsFeatureEnabled(featureName, true));
     }
-
 
     [Fact]
     public void FeatureFlag_FeatureFlagValueIsNull()

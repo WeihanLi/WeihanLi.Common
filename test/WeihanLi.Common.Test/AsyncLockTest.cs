@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using WeihanLi.Extensions;
+﻿using WeihanLi.Extensions;
 using Xunit;
 
 namespace WeihanLi.Common.Test;

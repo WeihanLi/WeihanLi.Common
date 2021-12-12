@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WeihanLi.Common.Helpers;
+﻿namespace WeihanLi.Common.Helpers;
 
 /// <summary>
 /// Base32Encode

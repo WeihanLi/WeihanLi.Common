@@ -1,10 +1,6 @@
-﻿using System;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading;
 
 // ReSharper disable LocalizableElement
 namespace WeihanLi.Common;
@@ -25,10 +21,10 @@ public struct ObjectId : IComparable<ObjectId>, IEquatable<ObjectId>
     private static int _staticIncrement; // high byte will be masked out when generating new ObjectId
 
     private static readonly uint[] _lookup32 = Enumerable.Range(0, 256).Select(i =>
-             {
-                 var s = i.ToString("x2");
-                 return ((uint)s[0]) + ((uint)s[1] << 16);
-             }).ToArray();
+                   {
+                       var s = i.ToString("x2");
+                       return ((uint)s[0]) + ((uint)s[1] << 16);
+                   }).ToArray();
 
     // we're using 14 bytes instead of 12 to hold the ObjectId in memory but unlike a byte[] there is no additional object on the heap
     // the extra two bytes are not visible to anyone outside of this class and they buy us considerable simplification
@@ -330,7 +326,7 @@ public struct ObjectId : IComparable<ObjectId>, IEquatable<ObjectId>
 #if NET6_0_OR_GREATER
         return Environment.ProcessId;
 #else
-        return Process.GetCurrentProcess().Id;
+        return System.Diagnostics.Process.GetCurrentProcess().Id;
 #endif
     }
 

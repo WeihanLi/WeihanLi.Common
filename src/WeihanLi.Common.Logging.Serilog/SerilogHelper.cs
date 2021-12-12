@@ -1,5 +1,4 @@
 ﻿using Serilog;
-using System;
 
 namespace WeihanLi.Common.Logging.Serilog;
 

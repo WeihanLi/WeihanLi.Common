@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Data;
@@ -94,25 +91,25 @@ internal static partial class SqlExpressionParser
 
     private static string GetExpressionOperatorString(BinaryExpression exp)
     {
-        switch (exp.NodeType)
+        return exp.NodeType switch
         {
-            case ExpressionType.OrElse: return " OR ";
-            case ExpressionType.Or: return "|";
-            case ExpressionType.AndAlso: return " AND ";
-            case ExpressionType.And: return "&";
-            case ExpressionType.GreaterThan: return ">";
-            case ExpressionType.GreaterThanOrEqual: return ">=";
-            case ExpressionType.LessThan: return "<";
-            case ExpressionType.LessThanOrEqual: return "<=";
-            case ExpressionType.NotEqual: return "<>";
-            case ExpressionType.Add: return "+";
-            case ExpressionType.Subtract: return "-";
-            case ExpressionType.Multiply: return "*";
-            case ExpressionType.Divide: return "/";
-            case ExpressionType.Modulo: return "%";
-            case ExpressionType.Equal: return "=";
-        }
-        return exp.NodeType.ToString();
+            ExpressionType.OrElse => " OR ",
+            ExpressionType.Or => "|",
+            ExpressionType.AndAlso => " AND ",
+            ExpressionType.And => "&",
+            ExpressionType.GreaterThan => ">",
+            ExpressionType.GreaterThanOrEqual => ">=",
+            ExpressionType.LessThan => "<",
+            ExpressionType.LessThanOrEqual => "<=",
+            ExpressionType.NotEqual => "<>",
+            ExpressionType.Add => "+",
+            ExpressionType.Subtract => "-",
+            ExpressionType.Multiply => "*",
+            ExpressionType.Divide => "/",
+            ExpressionType.Modulo => "%",
+            ExpressionType.Equal => "=",
+            _ => exp.NodeType.ToString()
+        };
     }
 
     private static string ParseConstantExpression(ConstantExpression exp)

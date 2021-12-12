@@ -1,8 +1,4 @@
-﻿using Microsoft.Extensions.Hosting;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using WeihanLi.Common.Event;
+﻿using WeihanLi.Common.Event;
 using WeihanLi.Extensions;
 
 namespace AspNetCoreSample.Events;

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
+﻿using WeihanLi.Common.Helpers;
 
 // ReSharper disable LocalizableElement
 

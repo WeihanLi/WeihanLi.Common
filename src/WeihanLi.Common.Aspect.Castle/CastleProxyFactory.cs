@@ -1,5 +1,4 @@
-﻿using System;
-using WeihanLi.Common.Helpers;
+﻿using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect.Castle;
 

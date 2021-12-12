@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using WeihanLi.Common.Helpers;
+﻿using WeihanLi.Common.Helpers;
 using Xunit;
 
 namespace WeihanLi.Common.Test.HelpersTest;

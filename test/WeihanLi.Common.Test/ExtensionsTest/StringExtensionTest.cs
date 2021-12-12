@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using WeihanLi.Common.Models;
+﻿using WeihanLi.Common.Models;
 using WeihanLi.Extensions;
 using Xunit;
 

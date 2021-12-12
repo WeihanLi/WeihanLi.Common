@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Threading.Tasks;
 using WeihanLi.Common.Aspect;
 using WeihanLi.Common.Event;
 using WeihanLi.Common.Services;

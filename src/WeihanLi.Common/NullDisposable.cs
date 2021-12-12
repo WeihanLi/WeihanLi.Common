@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading;
-
-namespace WeihanLi.Common;
+﻿namespace WeihanLi.Common;
 
 /// <summary>
 /// A singleton disposable that does nothing when disposed.

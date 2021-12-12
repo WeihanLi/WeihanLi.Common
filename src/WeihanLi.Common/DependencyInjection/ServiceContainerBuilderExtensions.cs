@@ -186,14 +186,12 @@ public static partial class ServiceContainerBuilderExtensions
     /// <returns>services</returns>
     public static IServiceContainerBuilder RegisterTypeAsImplementedInterfaces(this IServiceContainerBuilder services, Type type, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
     {
-        if (type != null)
+        Guard.NotNull(type);
+        foreach (var interfaceType in type.GetImplementedInterfaces())
         {
-            foreach (var interfaceType in type.GetImplementedInterfaces())
+            if (interfaceTypeFilter?.Invoke(interfaceType) != false)
             {
-                if (interfaceTypeFilter?.Invoke(interfaceType) != false)
-                {
-                    services.Add(new ServiceDefinition(interfaceType, type, serviceLifetime));
-                }
+                services.Add(new ServiceDefinition(interfaceType, type, serviceLifetime));
             }
         }
         return services;

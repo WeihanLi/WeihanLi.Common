@@ -3,8 +3,6 @@
 
 using Serilog.Core;
 using Serilog.Events;
-using System;
-using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
 namespace Serilog.Extensions.Logging;
