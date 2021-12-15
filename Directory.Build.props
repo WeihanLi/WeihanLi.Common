@@ -28,7 +28,6 @@
     <Authors>WeihanLi</Authors>
     <Copyright>Copyright 2017-2021 (c) WeihanLi</Copyright>
     <NoWarn>$(NoWarn);NU5048;CS1591</NoWarn>
-    <EnablePackageValidation>true</EnablePackageValidation>
     <ContinuousIntegrationBuild Condition="'$(TF_BUILD)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
   </PropertyGroup>
   <ItemGroup>

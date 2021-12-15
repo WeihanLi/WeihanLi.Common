@@ -8,5 +8,7 @@
     <PackageSummary>common netfx and netstandard libarary,extensions helpers and useful utilities</PackageSummary>
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
     <NoWarn>$(NoWarn);1591;DE0003;SYSLIB0014;</NoWarn>
+    <EnablePackageValidation>true</EnablePackageValidation>
+    <PackageValidationBaselineVersion>1.0.47</PackageValidationBaselineVersion>
   </PropertyGroup>
 </Project>
