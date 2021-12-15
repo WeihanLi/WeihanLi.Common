@@ -9,6 +9,6 @@
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
     <NoWarn>$(NoWarn);1591;DE0003;SYSLIB0014;</NoWarn>
     <EnablePackageValidation>true</EnablePackageValidation>
-    <PackageValidationBaselineVersion>1.0.47</PackageValidationBaselineVersion>
+    <!-- <PackageValidationBaselineVersion>1.0.47</PackageValidationBaselineVersion> -->
   </PropertyGroup>
 </Project>
