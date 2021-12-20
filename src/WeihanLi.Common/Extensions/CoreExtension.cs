@@ -1613,13 +1613,17 @@ public static class CoreExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>A T.</returns>
-    public static T? AsOrDefault<T>(this object @this)
+    public static T? AsOrDefault<T>(this object? @this)
     {
+        if (@this is null)
+        {
+            return default;
+        }
         try
         {
             return (T)@this;
         }
-        catch (Exception)
+        catch
         {
             return default;
         }
@@ -1632,8 +1636,12 @@ public static class CoreExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="defaultValue">The default value.</param>
     /// <returns>A T.</returns>
-    public static T AsOrDefault<T>(this object @this, T defaultValue)
+    public static T AsOrDefault<T>(this object? @this, T defaultValue)
     {
+        if (@this is null)
+        {
+            return defaultValue;
+        }
         try
         {
             return (T)@this;
@@ -1651,8 +1659,12 @@ public static class CoreExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="defaultValueFactory">The default value factory.</param>
     /// <returns>A T.</returns>
-    public static T AsOrDefault<T>(this object @this, Func<T> defaultValueFactory)
+    public static T AsOrDefault<T>(this object? @this, Func<T> defaultValueFactory)
     {
+        if (@this is null)
+        {
+            return defaultValueFactory();
+        }
         try
         {
             return (T)@this;
@@ -1660,25 +1672,6 @@ public static class CoreExtension
         catch (Exception)
         {
             return defaultValueFactory();
-        }
-    }
-
-    /// <summary>
-    ///     An object extension method that converts the @this to an or default.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="defaultValueFactory">The default value factory.</param>
-    /// <returns>A T.</returns>
-    public static T AsOrDefault<T>(this object @this, Func<object, T> defaultValueFactory)
-    {
-        try
-        {
-            return (T)@this;
-        }
-        catch (Exception)
-        {
-            return defaultValueFactory(@this);
         }
     }
 
@@ -1792,7 +1785,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="type">type</param>
     /// <returns>The given data converted to</returns>
-    public static object? ToOrDefault(this object @this, Type type)
+    public static object? ToOrDefault(this object? @this, Type type)
     {
         Guard.NotNull(type, nameof(type));
         try
