@@ -16,7 +16,7 @@ public static class CommandExecutor
             return false;
         }
     }
-    
+
     /// <summary>
     /// Execute command with a process
     /// </summary>
@@ -64,7 +64,7 @@ public static class CommandExecutor
         {
             StartInfo = processStartInfo
         };
-        
+
         var tcs = new TaskCompletionSource<object>(TaskCreationOptions.RunContinuationsAsynchronously);
 
         process.EnableRaisingEvents = true;
@@ -83,10 +83,10 @@ public static class CommandExecutor
         {
             _ = await tcs.Task.ConfigureAwait(false);
         }
-        
+
         return process.ExitCode;
     }
-    
+
     /// <summary>
     /// Execute command with a process and capture the output
     /// </summary>
@@ -121,10 +121,10 @@ public static class CommandExecutor
             StartInfo = processStartInfo
         };
         process.Start();
-        
+
         var standardOut = process.StandardOutput.ReadToEnd();
         var standardError = process.StandardError.ReadToEnd();
-        
+
         process.WaitForExit();
         return new CommandResult(process.ExitCode, standardOut, standardError);
     }
@@ -147,7 +147,7 @@ public static class CommandExecutor
         };
         return ExecuteAndCaptureAsync(processStartInfo);
     }
-    
+
     /// <summary>
     /// Execute command with a process and capture the output
     /// </summary>
@@ -165,14 +165,14 @@ public static class CommandExecutor
             StartInfo = processStartInfo
         };
         var tcs = new TaskCompletionSource<object>(TaskCreationOptions.RunContinuationsAsynchronously);
-        
+
         process.EnableRaisingEvents = true;
         process.Exited += (s, e) => tcs.TrySetResult(0);
         process.Start();
-        
+
         var standardOutTask = process.StandardOutput.ReadToEndAsync();
         var standardErrorTask = process.StandardError.ReadToEndAsync();
-        
+
         using (cancellationToken.Register(
                    () =>
                    {
