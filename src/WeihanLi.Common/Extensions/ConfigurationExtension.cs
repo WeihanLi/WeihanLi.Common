@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using WeihanLi.Common;
 using WeihanLi.Extensions;
 
 // ReSharper disable once CheckNamespace
@@ -76,6 +77,19 @@ public static class ConfigurationExtension
     #region GetAppSetting
 
     /// <summary>
+    /// GetRequiredAppSetting
+    /// Shorthand for GetSection("AppSettings")[key]
+    /// </summary>
+    /// <param name="configuration">IConfiguration instance</param>
+    /// <param name="key">appSettings key</param>
+    /// <returns>app setting value</returns>
+    public static string GetRequiredAppSetting(this IConfiguration configuration, string key)
+    {
+        var value = configuration.GetSection("AppSettings")?[key];
+        return Guard.NotNull(value, nameof(key));
+    }
+    
+    /// <summary>
     /// GetAppSetting
     /// Shorthand for GetSection("AppSettings")[key]
     /// </summary>
@@ -85,6 +99,19 @@ public static class ConfigurationExtension
     public static string? GetAppSetting(this IConfiguration configuration, string key)
     {
         return configuration.GetSection("AppSettings")?[key];
+    }
+
+    /// <summary>
+    /// GetAppSetting
+    /// Shorthand for GetSection("AppSettings")[key]
+    /// </summary>
+    /// <param name="configuration">IConfiguration instance</param>
+    /// <param name="key">appSettings key</param>
+    /// <param name="defaultValue">defaultValue</param>
+    /// <returns>app setting value</returns>
+    public static string GetAppSetting(this IConfiguration configuration, string key, string defaultValue)
+    {
+        return configuration.GetSection("AppSettings")?[key] ?? defaultValue;
     }
 
     /// <summary>
