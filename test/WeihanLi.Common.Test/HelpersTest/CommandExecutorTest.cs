@@ -21,7 +21,7 @@ public class CommandExecutorTest
         Assert.Equal(hostName, result.StandardOut.TrimEnd());
         Assert.Equal(0, result.ExitCode);
     }
-    
+
     [Fact]
     public async Task HostNameTestAsync()
     {
