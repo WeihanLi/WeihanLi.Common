@@ -88,7 +88,7 @@ public static class ConfigurationExtension
         var value = configuration.GetSection("AppSettings")?[key];
         return Guard.NotNull(value, nameof(key));
     }
-    
+
     /// <summary>
     /// GetAppSetting
     /// Shorthand for GetSection("AppSettings")[key]
