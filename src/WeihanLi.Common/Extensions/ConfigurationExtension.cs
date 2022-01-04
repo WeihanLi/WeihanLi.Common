@@ -107,7 +107,7 @@ public static class ConfigurationExtension
     /// <param name="key">appSettings key</param>
     /// <param name="defaultValue">default value if not exist</param>
     /// <returns>app setting value</returns>
-    public static T? GetAppSetting<T>(this IConfiguration configuration, string key, T defaultValue)
+    public static T GetAppSetting<T>(this IConfiguration configuration, string key, T defaultValue)
     {
         return configuration.GetAppSetting(key).ToOrDefault(defaultValue);
     }
@@ -120,7 +120,7 @@ public static class ConfigurationExtension
     /// <param name="key">appSettings key</param>
     /// <param name="defaultValueFunc">default value func if not exist to get a default value</param>
     /// <returns>app setting value</returns>
-    public static T? GetAppSetting<T>(this IConfiguration configuration, string key, Func<T> defaultValueFunc)
+    public static T GetAppSetting<T>(this IConfiguration configuration, string key, Func<T> defaultValueFunc)
     {
         return configuration.GetAppSetting(key).ToOrDefault(defaultValueFunc);
     }
