@@ -28,6 +28,8 @@ indent_size = 2
 
 # Dotnet code style settings:
 [*.{cs,vb}]
+# File header
+file_header_template = Copyright (c) Weihan Li. All rights reserved.\nLicensed under the MIT license.
 # Sort using and Import directives with System.* appearing first
 dotnet_sort_system_directives_first = false
 # Avoid "this." and "Me." if not necessary
@@ -86,3 +88,10 @@ csharp_new_line_before_members_in_anonymous_types = true
 end_of_line=lf
 [*.{cmd, bat}]
 end_of_line=cr
+
+# Fix formatting, https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#rule-id-ide0055-fix-formatting
+dotnet_diagnostic.IDE00055.severity = warning
+# Remove unnecessary usings, https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0005
+dotnet_diagnostic.IDE0005.severity = warning
+# File header template
+dotnet_diagnostic.IDE0073.severity = warning
