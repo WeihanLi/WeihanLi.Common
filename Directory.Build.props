@@ -26,7 +26,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     
     <Authors>WeihanLi</Authors>
-    <Copyright>Copyright 2017-2021 (c) WeihanLi</Copyright>
+    <Copyright>Copyright 2017-2022 (c) WeihanLi</Copyright>
     <NoWarn>$(NoWarn);NU5048;CS1591</NoWarn>
     <ContinuousIntegrationBuild Condition="'$(TF_BUILD)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
   </PropertyGroup>
