@@ -1,6 +1,9 @@
 name: dotnet-format
 
-on: "push"
+on:
+  push:
+    branches:
+      - "dev"
 
 jobs:
   build:
@@ -15,7 +18,7 @@ jobs:
     - name: build
       run: dotnet build
     - name: format
-      run: dotnet format
+      run: dotnet format --severity=warning
     - name: check for changes
       run: |
         if git diff --exit-code; then
