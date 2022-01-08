@@ -87,7 +87,7 @@ csharp_new_line_before_members_in_anonymous_types = true
 [*.sh]
 end_of_line=lf
 [*.{cmd, bat}]
-end_of_line=cr
+end_of_line=crlf
 
 # Fix formatting, https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#rule-id-ide0055-fix-formatting
 dotnet_diagnostic.IDE00055.severity = warning
