@@ -10,7 +10,6 @@
 - Add `MockHttpHandler`
 - Remove `JetBrains.Annotations`
 - Refactor on `CommandExecutor`
-- Enable package validation
 - Add `GetRequiredAppSetting` and `GetAppSetting` with default value
 
 ### [WeihanLi.Common 1.0.47](https://www.nuget.org/packages/WeihanLi.Common/1.0.47)
