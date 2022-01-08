@@ -2,7 +2,16 @@
 
 ## WeihanLi.Common
 
-.netstandard2.0 based common helpers and extensions
+.net common helpers and extensions
+
+### [WeihanLi.Common 1.0.48](https://www.nuget.org/packages/WeihanLi.Common/1.0.48)
+
+- Fix `ValueTask` Support
+- Add `MockHttpHandler`
+- Remove `JetBrains.Annotations`
+- Refactor on `CommandExecutor`
+- Enable package validation
+- Add `GetRequiredAppSetting` and `GetAppSetting` with default value
 
 ### [WeihanLi.Common 1.0.47](https://www.nuget.org/packages/WeihanLi.Common/1.0.47)
 
