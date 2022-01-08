@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.ComponentModel;
+using System.Collections;
 using System.Data;
 using System.Data.Common;
 using System.Diagnostics;
@@ -583,7 +584,7 @@ public static partial class DataExtension
         return originName;
     }
 
-    private static readonly Dictionary<Type, DbType> TypeMap = new()
+    public static readonly Dictionary<Type, DbType> TypeMap = new()
     {
         [typeof(byte)] = DbType.Byte,
         [typeof(sbyte)] = DbType.SByte,
@@ -604,24 +605,11 @@ public static partial class DataExtension
         [typeof(DateTimeOffset)] = DbType.DateTimeOffset,
         [typeof(TimeSpan)] = DbType.Time,
         [typeof(byte[])] = DbType.Binary,
-        [typeof(byte?)] = DbType.Byte,
-        [typeof(sbyte?)] = DbType.SByte,
-        [typeof(short?)] = DbType.Int16,
-        [typeof(ushort?)] = DbType.UInt16,
-        [typeof(int?)] = DbType.Int32,
-        [typeof(uint?)] = DbType.UInt32,
-        [typeof(long?)] = DbType.Int64,
-        [typeof(ulong?)] = DbType.UInt64,
-        [typeof(float?)] = DbType.Single,
-        [typeof(double?)] = DbType.Double,
-        [typeof(decimal?)] = DbType.Decimal,
-        [typeof(bool?)] = DbType.Boolean,
-        [typeof(char?)] = DbType.StringFixedLength,
-        [typeof(Guid?)] = DbType.Guid,
-        [typeof(DateTime?)] = DbType.DateTime2,
-        [typeof(DateTimeOffset?)] = DbType.DateTimeOffset,
-        [typeof(TimeSpan?)] = DbType.Time,
-        [typeof(object)] = DbType.Object
+        [typeof(object)] = DbType.Object,
+#if NET6_0_OR_GREATER
+        [typeof(DateOnly)] = DbType.Date,
+        [typeof(TimeOnly)] = DbType.Time,
+#endif
     };
 
     public static DbType ToDbType(this Type type)
@@ -630,7 +618,7 @@ public static partial class DataExtension
         {
             type = Enum.GetUnderlyingType(type);
         }
-        if (TypeMap.TryGetValue(type, out var dbType))
+        if (TypeMap.TryGetValue(type.Unwrap(), out var dbType))
         {
             return dbType;
         }
