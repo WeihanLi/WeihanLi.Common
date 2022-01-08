@@ -1,6 +1,5 @@
 ﻿using log4net;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Concurrent;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging.Log4Net;

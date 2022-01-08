@@ -1,11 +1,8 @@
-﻿using System;
+﻿namespace WeihanLi.Common.Aspect;
 
-namespace WeihanLi.Common.Aspect
+public interface IProxyTypeFactory
 {
-    public interface IProxyTypeFactory
-    {
-        Type CreateProxyType(Type serviceType);
+    Type CreateProxyType(Type serviceType);
 
-        Type CreateProxyType(Type serviceType, Type implementType);
-    }
+    Type CreateProxyType(Type serviceType, Type implementType);
 }

@@ -1,12 +1,11 @@
-﻿namespace WeihanLi.Common.DependencyInjection
-{
-    public interface IServiceContainerModule
-    {
-        void ConfigureServices(IServiceContainerBuilder serviceContainerBuilder);
-    }
+﻿namespace WeihanLi.Common.DependencyInjection;
 
-    public abstract class ServiceContainerModule : IServiceContainerModule
-    {
-        public abstract void ConfigureServices(IServiceContainerBuilder serviceContainerBuilder);
-    }
+public interface IServiceContainerModule
+{
+    void ConfigureServices(IServiceContainerBuilder serviceContainerBuilder);
+}
+
+public abstract class ServiceContainerModule : IServiceContainerModule
+{
+    public abstract void ConfigureServices(IServiceContainerBuilder serviceContainerBuilder);
 }

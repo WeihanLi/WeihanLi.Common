@@ -1,64 +1,104 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using WeihanLi.Extensions;
 
-namespace WeihanLi.Common.Aspect
+namespace WeihanLi.Common.Aspect;
+
+public abstract class AbstractInterceptor : Attribute, IInterceptor
 {
-    public abstract class AbstractInterceptor : Attribute, IInterceptor
-    {
-        public abstract Task Invoke(IInvocation invocation, Func<Task> next);
-    }
+    public abstract Task Invoke(IInvocation invocation, Func<Task> next);
+}
 
-    public sealed class NoIntercept : Attribute
-    {
-    }
+public sealed class NoIntercept : Attribute
+{
+}
 
-    public class AttributeInterceptorResolver : IInterceptorResolver
+public class AttributeInterceptorResolver : IInterceptorResolver
+{
+    public virtual IReadOnlyList<IInterceptor> ResolveInterceptors(IInvocation invocation)
     {
-        public virtual IReadOnlyList<IInterceptor> ResolveInterceptors(IInvocation invocation)
+        // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+        if (null == invocation)
         {
-            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
-            if (null == invocation)
+            return Array.Empty<IInterceptor>();
+        }
+
+        if ((invocation.Method ?? invocation.ProxyMethod).IsDefined(typeof(NoIntercept)))
+        {
+            return Array.Empty<IInterceptor>();
+        }
+
+        var baseType = (invocation.Method ?? invocation.ProxyMethod).DeclaringType;
+        if (baseType?.IsDefined(typeof(NoIntercept)) == true)
+        {
+            return Array.Empty<IInterceptor>();
+        }
+
+        var list = new List<IInterceptor>();
+        var interceptorTypes = new HashSet<Type>();
+
+        // load method interceptor
+        if (invocation.Method != null)
+        {
+            if (invocation.Method.IsDefined(typeof(NoIntercept)))
             {
                 return Array.Empty<IInterceptor>();
             }
 
-            if ((invocation.Method ?? invocation.ProxyMethod).IsDefined(typeof(NoIntercept)))
+            foreach (var interceptor in invocation.Method.GetCustomAttributes<AbstractInterceptor>())
             {
-                return Array.Empty<IInterceptor>();
-            }
-
-            Type? baseType = (invocation.Method ?? invocation.ProxyMethod).DeclaringType;
-            if (baseType?.IsDefined(typeof(NoIntercept)) == true)
-            {
-                return Array.Empty<IInterceptor>();
-            }
-
-            var list = new List<IInterceptor>();
-            var interceptorTypes = new HashSet<Type>();
-
-            // load method interceptor
-            if (invocation.Method != null)
-            {
-                if (invocation.Method.IsDefined(typeof(NoIntercept)))
+                if (interceptorTypes.Add(interceptor.GetType()))
                 {
-                    return Array.Empty<IInterceptor>();
+                    list.Add(interceptor);
                 }
+            }
+        }
+        else
+        {
+            foreach (var interceptor in invocation.ProxyMethod.GetCustomAttributes<AbstractInterceptor>())
+            {
+                if (interceptorTypes.Add(interceptor.GetType()))
+                {
+                    list.Add(interceptor);
+                }
+            }
+        }
 
-                foreach (var interceptor in invocation.Method.GetCustomAttributes<AbstractInterceptor>())
+        var parameterTypes = invocation.ProxyMethod.GetParameters().Select(x => x.ParameterType).ToArray();
+
+        while (baseType != null)
+        {
+            if (baseType.GetMethod(invocation.ProxyMethod.Name, parameterTypes) != null)
+            {
+                foreach (var interceptor in baseType.GetCustomAttributes<AbstractInterceptor>())
                 {
                     if (interceptorTypes.Add(interceptor.GetType()))
                     {
                         list.Add(interceptor);
                     }
                 }
+                baseType = baseType.BaseType;
             }
             else
             {
-                foreach (var interceptor in invocation.ProxyMethod.GetCustomAttributes<AbstractInterceptor>())
+                break;
+            }
+        }
+
+        foreach (var @interface in invocation.ProxyTarget.GetType().GetImplementedInterfaces())
+        {
+            var interfaceMethod = @interface.GetMethod(invocation.ProxyMethod.Name, parameterTypes);
+            if (null != interfaceMethod)
+            {
+                // interface interceptor
+                foreach (var interceptor in @interface.GetCustomAttributes<AbstractInterceptor>())
+                {
+                    if (interceptorTypes.Add(interceptor.GetType()))
+                    {
+                        list.Add(interceptor);
+                    }
+                }
+                // interface method interceptor
+                foreach (var interceptor in interfaceMethod.GetCustomAttributes<AbstractInterceptor>())
                 {
                     if (interceptorTypes.Add(interceptor.GetType()))
                     {
@@ -66,53 +106,8 @@ namespace WeihanLi.Common.Aspect
                     }
                 }
             }
-
-            var parameterTypes = invocation.ProxyMethod.GetParameters().Select(x => x.ParameterType).ToArray();
-
-            while (baseType != null)
-            {
-                if (baseType.GetMethod(invocation.ProxyMethod.Name, parameterTypes) != null)
-                {
-                    foreach (var interceptor in baseType.GetCustomAttributes<AbstractInterceptor>())
-                    {
-                        if (interceptorTypes.Add(interceptor.GetType()))
-                        {
-                            list.Add(interceptor);
-                        }
-                    }
-                    baseType = baseType.BaseType;
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            foreach (var @interface in invocation.ProxyTarget.GetType().GetImplementedInterfaces())
-            {
-                var interfaceMethod = @interface.GetMethod(invocation.ProxyMethod.Name, parameterTypes);
-                if (null != interfaceMethod)
-                {
-                    // interface interceptor
-                    foreach (var interceptor in @interface.GetCustomAttributes<AbstractInterceptor>())
-                    {
-                        if (interceptorTypes.Add(interceptor.GetType()))
-                        {
-                            list.Add(interceptor);
-                        }
-                    }
-                    // interface method interceptor
-                    foreach (var interceptor in interfaceMethod.GetCustomAttributes<AbstractInterceptor>())
-                    {
-                        if (interceptorTypes.Add(interceptor.GetType()))
-                        {
-                            list.Add(interceptor);
-                        }
-                    }
-                }
-            }
-
-            return list;
         }
+
+        return list;
     }
 }

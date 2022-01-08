@@ -4,368 +4,361 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ output extension=".generated.cs" #>
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Threading;
-using System.Threading.Tasks;
-using JetBrains.Annotations;
 
-namespace WeihanLi.Extensions
-{
+namespace WeihanLi.Extensions;
 #nullable enable
-    public static partial class DataExtension
+public static partial class DataExtension
+{
+    <#
+var commandNames = new Tuple<string, string, string>[]{
+    Tuple.Create("Execute","int","ExecuteNonQuery"),
+    Tuple.Create("ExecuteScalar","object?","ExecuteScalar"),        
+    Tuple.Create("Fetch","dynamic","Fetch"),
+    Tuple.Create("ExecuteDataTable","DataTable","ExecuteDataTable"),        
+};
+
+var queryCommand= new Tuple<string,string,string>[]{
+    Tuple.Create("Fetch", "T?", "ToEntity"),
+};
+
+var deferQueryCommand= new Tuple<string,string,string>[]{
+    Tuple.Create("Select", "IEnumerable<T>", "<T>"),     
+    Tuple.Create("Select", "IEnumerable<dynamic>", "")
+};
+
+var queryDataTableCommand= new Tuple<string,string>[]{
+    Tuple.Create("ExecuteDataTable","T")
+};
+var queryScalarCommand= new Tuple<string,string, string>[]{
+    Tuple.Create("ExecuteScalarTo","To", "T"),
+    Tuple.Create("ExecuteScalarToOrDefault","ToOrDefault", "T?"),
+    };
+var queryColumnCommand = new string[]{ "QueryColumn", "SelectColumn" };
+foreach(var cmd in commandNames)
+{ 
+#>public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>(this DbConnection conn, string cmdText, int commandTimeout = 60) => conn.<#=            cmd.Item1 #>(cmdText, null, commandTimeout);
+
+    public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>(this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout = 60) => conn.<#=            cmd.Item1 #>(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout);
+
+    public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.<#=            cmd.Item1 #>(cmdText, CommandType.Text, paramInfo, parameters, null);
+
+    public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int commandTimeout = 60)=> conn.<#=            cmd.Item1 #>(cmdText, commandType, paramInfo, parameters, null, commandTimeout);
+
+    public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60)
     {
-        <#
-    var commandNames = new Tuple<string, string, string>[]{
-        Tuple.Create("Execute","int","ExecuteNonQuery"),
-        Tuple.Create("ExecuteScalar","object?","ExecuteScalar"),        
-        Tuple.Create("Fetch","dynamic","Fetch"),
-        Tuple.Create("ExecuteDataTable","DataTable","ExecuteDataTable"),        
-    };
+      conn.EnsureOpen();
+      try
+      {
+        using var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout);
+        return command.<#=            cmd.Item3 #>();
+      }
+      finally
+      {
+        conn.Close();
+      }
+    }
 
-    var queryCommand= new Tuple<string,string,string>[]{
-        Tuple.Create("Fetch", "T?", "ToEntity"),
-    };
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async(this DbConnection conn, string cmdText, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async(cmdText, null, commandTimeout, cancellationToken: cancellationToken);
 
-    var deferQueryCommand= new Tuple<string,string,string>[]{
-        Tuple.Create("Select", "IEnumerable<T>", "<T>"),     
-        Tuple.Create("Select", "IEnumerable<dynamic>", "")
-    };
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async(this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
-    var queryDataTableCommand= new Tuple<string,string>[]{
-        Tuple.Create("ExecuteDataTable","T")
-    };
-    var queryScalarCommand= new Tuple<string,string, string>[]{
-        Tuple.Create("ExecuteScalarTo","To", "T"),
-        Tuple.Create("ExecuteScalarToOrDefault","ToOrDefault", "T?"),
-        };
-    var queryColumnCommand = new string[]{ "QueryColumn", "SelectColumn" };
-    foreach(var cmd in commandNames)
-    { 
-#>      public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>([NotNull]this DbConnection conn, string cmdText, int commandTimeout = 60) => conn.<#=            cmd.Item1 #>(cmdText, null, commandTimeout);
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async(cmdText, commandType, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
-        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout = 60) => conn.<#=            cmd.Item1 #>(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout);
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.<#=            cmd.Item1 #>Async(cmdText, CommandType.Text, paramInfo, parameters, null);
 
-        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.<#=            cmd.Item1 #>(cmdText, CommandType.Text, paramInfo, parameters, null);
-
-        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int commandTimeout = 60)=> conn.<#=            cmd.Item1 #>(cmdText, commandType, paramInfo, parameters, null, commandTimeout);
-
-        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60)
-        {
-            conn.EnsureOpen();
-try{
-            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
-            {
-                return command.<#=            cmd.Item3 #>();
-            }
-}
-finally{
-   conn.Close();
-}
-        }
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async([NotNull]this DbConnection conn, string cmdText, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async(cmdText, null, commandTimeout, cancellationToken: cancellationToken);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async([NotNull]this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async(cmdText, commandType, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async([NotNull]this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.<#=            cmd.Item1 #>Async(cmdText, CommandType.Text, paramInfo, parameters, null);
-
-       public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default)
-       {
-           await conn.EnsureOpenAsync().ConfigureAwait(false);
+    public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default)
+    {
+        await conn.EnsureOpenAsync().ConfigureAwait(false);
 try{        
-   using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
-           {
-               return await command.<#=            cmd.Item3 #>Async(cancellationToken);
-           }
-}
-finally{
-   conn.Close();
-}
-       }
-<#    }#>
-
-<#
-    foreach(var cmd in queryCommand)
-    { 
-#>   public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, int commandTimeout = 60)  => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, null, commandTimeout);
-        
-        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout = 60)  => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo,null, null, commandTimeout);
-
-        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int commandTimeout = 60)  => conn.<#=            cmd.Item1 #><T>(cmdText, commandType, paramInfo, null, null, commandTimeout);
-
-        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters) => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo , parameters, null);
-
-        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60) 
+using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
         {
-            conn.EnsureOpen();
-            try
-            {
-                using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
-                {
-                    return command.<#=            cmd.Item1 #><T>();
-                }
-            }
-            finally
-            {
-                conn.Close();
-            }
+            return await command.<#=            cmd.Item3 #>Async(cancellationToken);
         }
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, int commandTimeout=60, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<T>(cmdText, null, commandTimeout, cancellationToken: cancellationToken);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout=60, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int commandTimeout=60, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, parameters, null);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int commandTimeout=60, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, parameters, null, commandTimeout, cancellationToken: cancellationToken);
-
-       public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default) 
-       {
-           await conn.EnsureOpenAsync().ConfigureAwait(false);
-try{
-           using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
-           {
-               return await command.<#=            cmd.Item1 #>Async<T>(cancellationToken);
-           }
 }
 finally{
-   conn.Close();
+conn.Close();
 }
-       }
-<#    }#>
-
-
-<#
-    foreach(var cmd in deferQueryCommand)
-    { 
-#>   public static <#=            cmd.Item2 #> <#= cmd.Item1 #><#= cmd.Item3 #>([NotNull]this DbConnection conn, string cmdText, int commandTimeout = 60)  => conn.<#= cmd.Item1 #><#= cmd.Item3 #>(cmdText, CommandType.Text, null, commandTimeout);
-        
-        public static <#=            cmd.Item2 #> <#= cmd.Item1 #><#= cmd.Item3 #>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout = 60)  => conn.<#= cmd.Item1 #><#= cmd.Item3 #>(cmdText, CommandType.Text, paramInfo,null, null, commandTimeout);
-
-        public static <#=            cmd.Item2 #> <#= cmd.Item1 #><#= cmd.Item3 #>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int commandTimeout = 60)  => conn.<#= cmd.Item1 #><#= cmd.Item3 #>(cmdText, commandType, paramInfo, null, null, commandTimeout);
-
-        public static <#=            cmd.Item2 #> <#= cmd.Item1 #><#= cmd.Item3 #>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters) => conn.<#= cmd.Item1 #><#= cmd.Item3 #>(cmdText, CommandType.Text, paramInfo , parameters, null);
-
-        public static <#=            cmd.Item2 #> <#= cmd.Item1 #><#= cmd.Item3 #>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60) 
-        {
-            conn.EnsureOpen();
-try
-{
-            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
-            {
-                return command.<#= cmd.Item1 #><#= cmd.Item3 #>();
-            }
-}
-finally{
-   conn.Close();
-}
-        }
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<#= cmd.Item3 #>([NotNull]this DbConnection conn, string cmdText, int commandTimeout=60, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<#= cmd.Item3 #>(cmdText, null, commandTimeout, cancellationToken: cancellationToken);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<#= cmd.Item3 #>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout=60, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<#= cmd.Item3 #>(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<#= cmd.Item3 #>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int commandTimeout=60, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<#= cmd.Item3 #>(cmdText, commandType, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<#= cmd.Item3 #>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters) => conn.<#=            cmd.Item1 #>Async<#= cmd.Item3 #>(cmdText, CommandType.Text, paramInfo, parameters, null);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<#= cmd.Item3 #>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int commandTimeout=60, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async<#= cmd.Item3 #>(cmdText, commandType, paramInfo, parameters, null, commandTimeout, cancellationToken: cancellationToken);
-
-       public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<#= cmd.Item3 #>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default) 
-       {
-           await conn.EnsureOpenAsync().ConfigureAwait(false);
-try
-{
-           using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
-           {
-               return await command.<#=            cmd.Item1 #>Async<#= cmd.Item3 #>(cancellationToken);
-           }
-}
-finally{
-   conn.Close();
-}
-       }
-<#    }#>
-
-
-<#
-    foreach(var cmd in queryDataTableCommand)
-    { 
-#>      public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, Func<DataTable, T> func)  => conn.<#=            cmd.Item1 #><T>(cmdText,null, null, func);
-        
-        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, Func<DataTable, T> func)  => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo,null, null, func);
-
-        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, Func<DataTable, T> func)  => conn.<#=            cmd.Item1 #><T>(cmdText, commandType, paramInfo, null, null, func);
-
-        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, DbParameter[]? parameters, Func<DataTable, T> func) => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo , parameters, null, func);
-
-        public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, DbTransaction? transaction, Func<DataTable, T> func, int commandTimeout = 60) 
-        {
-            conn.EnsureOpen();
-try{
-            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
-            {
-                return command.ExecuteDataTable(func);
-            }
-}
-finally{
-   conn.Close();
-}
-        }
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText,Func<DataTable, T> func, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<T>(cmdText, null, func, cancellationToken: cancellationToken);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo,Func<DataTable, T> func, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, null, null, func, cancellationToken: cancellationToken);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo,Func<DataTable, T> func, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, null, null, func, cancellationToken: cancellationToken);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, DbParameter[]? parameters,Func<DataTable, T> func, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, parameters, null, func, cancellationToken: cancellationToken);
-
-       public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,Func<DataTable, T> func, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, parameters, func, cancellationToken: cancellationToken);
-
-       public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction,Func<DataTable, T> func, int commandTimeout = 60, CancellationToken cancellationToken = default) 
-       {
-           await conn.EnsureOpenAsync().ConfigureAwait(false);
-try{
-           using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
-           {
-               return func(await command.ExecuteDataTableAsync(cancellationToken));
-           }
-}
-finally{
-   conn.Close();
-}
-       }
+    }
 <#    }#>
 
 <#
-    foreach(var cmd in queryScalarCommand)
-    { 
-#>      public static <#=            cmd.Item3 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText) => conn.<#=            cmd.Item1 #><T>(cmdText,null, null);
+foreach(var cmd in queryCommand)
+{ 
+#>   public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText, int commandTimeout = 60)  => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, null, commandTimeout);
         
-        public static <#=            cmd.Item3 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo) => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo,null, null);
+    public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout = 60)  => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo,null, null, commandTimeout);
 
-        public static <#=            cmd.Item3 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo) => conn.<#=            cmd.Item1 #><T>(cmdText, commandType, paramInfo, null, null);
+    public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int commandTimeout = 60)  => conn.<#=            cmd.Item1 #><T>(cmdText, commandType, paramInfo, null, null, commandTimeout);
 
-        public static <#=            cmd.Item3 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo , parameters, null);
+    public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters) => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo , parameters, null);
 
-        public static <#=            cmd.Item3 #> <#=            cmd.Item1 #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout=60)
+    public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60) 
+    {
+        conn.EnsureOpen();
+        try
         {
-            conn.EnsureOpen();
-try
-{
             using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
             {
                 return command.<#=            cmd.Item1 #><T>();
             }
-}
-finally{
-   conn.Close();
-}
         }
+        finally
+        {
+            conn.Close();
+        }
+    }
 
-       public static Task<<#=            cmd.Item3 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, null, cancellationToken: cancellationToken);
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, int commandTimeout=60, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<T>(cmdText, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static Task<<#=            cmd.Item3 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, null, null, cancellationToken: cancellationToken);
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout=60, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static Task<<#=            cmd.Item3 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, null, null, cancellationToken: cancellationToken);
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int commandTimeout=60, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static Task<<#=            cmd.Item3 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, parameters, null);
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, parameters, null);
 
-       public static Task<<#=            cmd.Item3 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, CancellationToken cancellationToken = default)=> conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, parameters, null, cancellationToken: cancellationToken);
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int commandTimeout=60, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, parameters, null, commandTimeout, cancellationToken: cancellationToken);
 
-       public static async Task<<#=            cmd.Item3 #>> <#=            cmd.Item1 #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout=60, CancellationToken cancellationToken = default)
-       {
-           await conn.EnsureOpenAsync().ConfigureAwait(false);
+    public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default) 
+    {
+        await conn.EnsureOpenAsync().ConfigureAwait(false);
 try{
-           using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
-           {
-               return await command.<#=            cmd.Item1 #>Async<T>(cancellationToken);
-           }
+        using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
+        {
+            return await command.<#=            cmd.Item1 #>Async<T>(cancellationToken);
+        }
 }
 finally{
-   conn.Close();
+conn.Close();
 }
-       }
+    }
+<#    }#>
+
+
+<#
+foreach(var cmd in deferQueryCommand)
+{ 
+#>   public static <#=            cmd.Item2 #> <#= cmd.Item1 #><#= cmd.Item3 #>(this DbConnection conn, string cmdText, int commandTimeout = 60)  => conn.<#= cmd.Item1 #><#= cmd.Item3 #>(cmdText, CommandType.Text, null, commandTimeout);
+        
+    public static <#=            cmd.Item2 #> <#= cmd.Item1 #><#= cmd.Item3 #>(this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout = 60)  => conn.<#= cmd.Item1 #><#= cmd.Item3 #>(cmdText, CommandType.Text, paramInfo,null, null, commandTimeout);
+
+    public static <#=            cmd.Item2 #> <#= cmd.Item1 #><#= cmd.Item3 #>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int commandTimeout = 60)  => conn.<#= cmd.Item1 #><#= cmd.Item3 #>(cmdText, commandType, paramInfo, null, null, commandTimeout);
+
+    public static <#=            cmd.Item2 #> <#= cmd.Item1 #><#= cmd.Item3 #>(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters) => conn.<#= cmd.Item1 #><#= cmd.Item3 #>(cmdText, CommandType.Text, paramInfo , parameters, null);
+
+    public static <#=            cmd.Item2 #> <#= cmd.Item1 #><#= cmd.Item3 #>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60) 
+    {
+        conn.EnsureOpen();
+try
+{
+        using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
+        {
+            return command.<#= cmd.Item1 #><#= cmd.Item3 #>();
+        }
+}
+finally{
+conn.Close();
+}
+    }
+
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<#= cmd.Item3 #>(this DbConnection conn, string cmdText, int commandTimeout=60, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<#= cmd.Item3 #>(cmdText, null, commandTimeout, cancellationToken: cancellationToken);
+
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<#= cmd.Item3 #>(this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout=60, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<#= cmd.Item3 #>(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
+
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<#= cmd.Item3 #>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int commandTimeout=60, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<#= cmd.Item3 #>(cmdText, commandType, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
+
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<#= cmd.Item3 #>(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters) => conn.<#=            cmd.Item1 #>Async<#= cmd.Item3 #>(cmdText, CommandType.Text, paramInfo, parameters, null);
+
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<#= cmd.Item3 #>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int commandTimeout=60, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async<#= cmd.Item3 #>(cmdText, commandType, paramInfo, parameters, null, commandTimeout, cancellationToken: cancellationToken);
+
+    public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<#= cmd.Item3 #>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default) 
+    {
+        await conn.EnsureOpenAsync().ConfigureAwait(false);
+try
+{
+        using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
+        {
+            return await command.<#=            cmd.Item1 #>Async<#= cmd.Item3 #>(cancellationToken);
+        }
+}
+finally{
+conn.Close();
+}
+    }
+<#    }#>
+
+
+<#
+foreach(var cmd in queryDataTableCommand)
+{ 
+#>      public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText, Func<DataTable, T> func)  => conn.<#=            cmd.Item1 #><T>(cmdText,null, null, func);
+        
+    public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText, object? paramInfo, Func<DataTable, T> func)  => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo,null, null, func);
+
+    public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, Func<DataTable, T> func)  => conn.<#=            cmd.Item1 #><T>(cmdText, commandType, paramInfo, null, null, func);
+
+    public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText, object? paramInfo, DbParameter[]? parameters, Func<DataTable, T> func) => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo , parameters, null, func);
+
+    public static <#=            cmd.Item2 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, DbTransaction? transaction, Func<DataTable, T> func, int commandTimeout = 60) 
+    {
+        conn.EnsureOpen();
+try{
+        using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
+        {
+            return command.ExecuteDataTable(func);
+        }
+}
+finally{
+conn.Close();
+}
+    }
+
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText,Func<DataTable, T> func, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<T>(cmdText, null, func, cancellationToken: cancellationToken);
+
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, object? paramInfo,Func<DataTable, T> func, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, null, null, func, cancellationToken: cancellationToken);
+
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo,Func<DataTable, T> func, CancellationToken cancellationToken = default)  => conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, null, null, func, cancellationToken: cancellationToken);
+
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, object? paramInfo, DbParameter[]? parameters,Func<DataTable, T> func, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, parameters, null, func, cancellationToken: cancellationToken);
+
+    public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,Func<DataTable, T> func, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, parameters, func, cancellationToken: cancellationToken);
+
+    public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction,Func<DataTable, T> func, int commandTimeout = 60, CancellationToken cancellationToken = default) 
+    {
+        await conn.EnsureOpenAsync().ConfigureAwait(false);
+try{
+        using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
+        {
+            return func(await command.ExecuteDataTableAsync(cancellationToken));
+        }
+}
+finally{
+conn.Close();
+}
+    }
 <#    }#>
 
 <#
-    foreach(var cmd in queryColumnCommand)
-    { 
-#>      public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbConnection conn, string cmdText, int columnIndex = 0) => conn.<#=            cmd #><T>(cmdText, null, columnIndex);
+foreach(var cmd in queryScalarCommand)
+{ 
+#>      public static <#=            cmd.Item3 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText) => conn.<#=            cmd.Item1 #><T>(cmdText,null, null);
+        
+    public static <#=            cmd.Item3 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText, object? paramInfo) => conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo,null, null);
 
-        public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0) => conn.<#=            cmd #><T>(cmdText, CommandType.Text, paramInfo, null, null, columnIndex);
+    public static <#=            cmd.Item3 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo) => conn.<#=            cmd.Item1 #><T>(cmdText, commandType, paramInfo, null, null);
 
-        public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int columnIndex = 0) => conn.<#=            cmd #><T>(cmdText, commandType, paramInfo, null, null, columnIndex);
+    public static <#=            cmd.Item3 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.<#=            cmd.Item1 #><T>(cmdText, CommandType.Text, paramInfo , parameters, null);
 
-        public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0, params DbParameter[]? parameters) => conn.<#=            cmd #><T>(cmdText, CommandType.Text, paramInfo, parameters, null, columnIndex);
-
-        public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int columnIndex = 0) => conn.<#=            cmd #><T>(cmdText, commandType, paramInfo, parameters, null, columnIndex);
-
-        public static IEnumerable<T> <#=            cmd #><T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, DbTransaction? transaction, int columnIndex = 0, int commandTimeout = 60)
+    public static <#=            cmd.Item3 #> <#=            cmd.Item1 #><T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout=60)
+    {
+        conn.EnsureOpen();
+try
+{
+        using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
         {
-try
-{
-            conn.EnsureOpen();
-            using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
-            {
-                using (var reader = command.ExecuteReader())
-                {
-                    var list = new List<T>();
-                    while (reader.Read())
-                    {
-                        list.Add(reader[columnIndex].To<T>());
-                    }
-                    return list;
-                }
-            }
-}
-finally{
-   conn.Close();
-}
+            return command.<#=            cmd.Item1 #><T>();
         }
-
-       public static Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.<#=            cmd #>Async<T>(cmdText, null, columnIndex);
-
-       public static Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.<#=            cmd #>Async<T>(cmdText, CommandType.Text, paramInfo, null, null, columnIndex);
-
-
-       public static Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.<#=            cmd #>Async<T>(cmdText, commandType, paramInfo, null, null, columnIndex, cancellationToken: cancellationToken);
-
-       public static Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0, params DbParameter[]? parameters)=> conn.<#=            cmd #>Async<T>(cmdText, CommandType.Text, paramInfo, parameters, null, columnIndex);
-
-       public static Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int columnIndex = 0, CancellationToken cancellationToken = default) => conn.<#=            cmd #>Async<T>(cmdText, commandType, paramInfo, parameters, null, columnIndex, cancellationToken: cancellationToken);
-
-       public static async Task<IEnumerable<T>> <#=            cmd #>Async<T>([NotNull]this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, DbTransaction? transaction, int columnIndex = 0, int commandTimeout=60, CancellationToken cancellationToken = default)
-       {
-           await conn.EnsureOpenAsync().ConfigureAwait(false);
-try
-{
-           using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
-           {
-               using (var reader = command.ExecuteReader())
-                {
-                    var list = new List<T>();
-                    while (await reader.ReadAsync().ConfigureAwait(false))
-                    {
-                        list.Add(reader[columnIndex].To<T>());
-                    }
-
-                    return list;
-                }
-           }
 }
 finally{
-   conn.Close();
+conn.Close();
 }
-       }
-<#    }#>
     }
+
+    public static Task<<#=            cmd.Item3 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, null, cancellationToken: cancellationToken);
+
+    public static Task<<#=            cmd.Item3 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, object? paramInfo, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, null, null, cancellationToken: cancellationToken);
+
+    public static Task<<#=            cmd.Item3 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, null, null, cancellationToken: cancellationToken);
+
+    public static Task<<#=            cmd.Item3 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.<#=            cmd.Item1 #>Async<T>(cmdText, CommandType.Text, paramInfo, parameters, null);
+
+    public static Task<<#=            cmd.Item3 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, CancellationToken cancellationToken = default)=> conn.<#=            cmd.Item1 #>Async<T>(cmdText, commandType, paramInfo, parameters, null, cancellationToken: cancellationToken);
+
+    public static async Task<<#=            cmd.Item3 #>> <#=            cmd.Item1 #>Async<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout=60, CancellationToken cancellationToken = default)
+    {
+        await conn.EnsureOpenAsync().ConfigureAwait(false);
+try{
+        using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
+        {
+            return await command.<#=            cmd.Item1 #>Async<T>(cancellationToken);
+        }
+}
+finally{
+conn.Close();
+}
+    }
+<#    }#>
+
+<#
+foreach(var cmd in queryColumnCommand)
+{ 
+#>      public static IEnumerable<T> <#=            cmd #><T>(this DbConnection conn, string cmdText, int columnIndex = 0) => conn.<#=            cmd #><T>(cmdText, null, columnIndex);
+
+    public static IEnumerable<T> <#=            cmd #><T>(this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0) => conn.<#=            cmd #><T>(cmdText, CommandType.Text, paramInfo, null, null, columnIndex);
+
+    public static IEnumerable<T> <#=            cmd #><T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int columnIndex = 0) => conn.<#=            cmd #><T>(cmdText, commandType, paramInfo, null, null, columnIndex);
+
+    public static IEnumerable<T> <#=            cmd #><T>(this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0, params DbParameter[]? parameters) => conn.<#=            cmd #><T>(cmdText, CommandType.Text, paramInfo, parameters, null, columnIndex);
+
+    public static IEnumerable<T> <#=            cmd #><T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int columnIndex = 0) => conn.<#=            cmd #><T>(cmdText, commandType, paramInfo, parameters, null, columnIndex);
+
+    public static IEnumerable<T> <#=            cmd #><T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, DbTransaction? transaction, int columnIndex = 0, int commandTimeout = 60)
+    {
+try
+{
+        conn.EnsureOpen();
+        using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
+        {
+            using (var reader = command.ExecuteReader())
+            {
+                var list = new List<T>();
+                while (reader.Read())
+                {
+                    list.Add(reader[columnIndex].To<T>());
+                }
+                return list;
+            }
+        }
+}
+finally{
+conn.Close();
+}
+    }
+
+    public static Task<IEnumerable<T>> <#=            cmd #>Async<T>(this DbConnection conn, string cmdText, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.<#=            cmd #>Async<T>(cmdText, null, columnIndex);
+
+    public static Task<IEnumerable<T>> <#=            cmd #>Async<T>(this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.<#=            cmd #>Async<T>(cmdText, CommandType.Text, paramInfo, null, null, columnIndex);
+
+
+    public static Task<IEnumerable<T>> <#=            cmd #>Async<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.<#=            cmd #>Async<T>(cmdText, commandType, paramInfo, null, null, columnIndex, cancellationToken: cancellationToken);
+
+    public static Task<IEnumerable<T>> <#=            cmd #>Async<T>(this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0, params DbParameter[]? parameters)=> conn.<#=            cmd #>Async<T>(cmdText, CommandType.Text, paramInfo, parameters, null, columnIndex);
+
+    public static Task<IEnumerable<T>> <#=            cmd #>Async<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int columnIndex = 0, CancellationToken cancellationToken = default) => conn.<#=            cmd #>Async<T>(cmdText, commandType, paramInfo, parameters, null, columnIndex, cancellationToken: cancellationToken);
+
+    public static async Task<IEnumerable<T>> <#=            cmd #>Async<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, DbTransaction? transaction, int columnIndex = 0, int commandTimeout=60, CancellationToken cancellationToken = default)
+    {
+        await conn.EnsureOpenAsync().ConfigureAwait(false);
+try
+{
+        using (var command = conn.GetDbCommand(cmdText,commandType: commandType, paramInfo: paramInfo, parameters: parameters, transaction: transaction, commandTimeout: commandTimeout))
+        {
+            using (var reader = command.ExecuteReader())
+            {
+                var list = new List<T>();
+                while (await reader.ReadAsync().ConfigureAwait(false))
+                {
+                    list.Add(reader[columnIndex].To<T>());
+                }
+
+                return list;
+            }
+        }
+}
+finally{
+conn.Close();
+}
+    }
+<#    }#>
 }

@@ -1,72 +1,68 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using WeihanLi.Common.Helpers;
+﻿using WeihanLi.Common.Helpers;
 
-namespace WeihanLi.Common
+namespace WeihanLi.Common;
+
+/// <inheritdoc />
+/// <summary>
+/// IDependencyResolver
+/// </summary>
+public interface IDependencyResolver : IServiceProvider
 {
-    /// <inheritdoc />
     /// <summary>
-    /// IDependencyResolver
+    /// GetServices
     /// </summary>
-    public interface IDependencyResolver : IServiceProvider
+    /// <returns></returns>
+    IEnumerable<object> GetServices(Type serviceType);
+
+    /// <summary>
+    /// Invoke action via get a service instance internal
+    /// </summary>
+    /// <typeparam name="TService">service type</typeparam>
+    /// <param name="action">action</param>
+    bool TryInvokeService<TService>(Action<TService> action);
+
+    Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action);
+}
+
+/// <summary>
+/// DependencyResolverExtensions
+/// </summary>
+public static class DependencyResolverExtensions
+{
+    /// <summary>
+    /// TryGetService
+    /// </summary>
+    /// <param name="dependencyResolver">dependencyResolver</param>
+    /// <param name="serviceType">serviceType</param>
+    /// <param name="service">service</param>
+    /// <returns>true if successfully get service otherwise false</returns>
+    public static bool TryGetService(this IDependencyResolver dependencyResolver, Type serviceType, out object? service)
     {
-        /// <summary>
-        /// GetServices
-        /// </summary>
-        /// <returns></returns>
-        IEnumerable<object> GetServices(Type serviceType);
-
-        /// <summary>
-        /// Invoke action via get a service instance internal
-        /// </summary>
-        /// <typeparam name="TService">service type</typeparam>
-        /// <param name="action">action</param>
-        bool TryInvokeService<TService>(Action<TService> action);
-
-        Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action);
+        try
+        {
+            service = dependencyResolver.GetService(serviceType);
+            return service != null;
+        }
+        catch (Exception e)
+        {
+            service = null;
+            InvokeHelper.OnInvokeException?.Invoke(e);
+            return false;
+        }
     }
 
-    /// <summary>
-    /// DependencyResolverExtensions
-    /// </summary>
-    public static class DependencyResolverExtensions
+    public static bool TryResolveService<TService>(this IDependencyResolver dependencyResolver,
+        out TService? service)
     {
-        /// <summary>
-        /// TryGetService
-        /// </summary>
-        /// <param name="dependencyResolver">dependencyResolver</param>
-        /// <param name="serviceType">serviceType</param>
-        /// <param name="service">service</param>
-        /// <returns>true if successfully get service otherwise false</returns>
-        public static bool TryGetService(this IDependencyResolver dependencyResolver, Type serviceType, out object? service)
+        var result = dependencyResolver.TryGetService(typeof(TService), out var serviceObj);
+        if (result)
         {
-            try
-            {
-                service = dependencyResolver.GetService(serviceType);
-                return service != null;
-            }
-            catch (Exception e)
-            {
-                service = null;
-                InvokeHelper.OnInvokeException?.Invoke(e);
-                return false;
-            }
+            service = (TService)serviceObj!;
         }
-
-        public static bool TryResolveService<TService>(this IDependencyResolver dependencyResolver,
-            out TService? service)
+        else
         {
-            var result = dependencyResolver.TryGetService(typeof(TService), out var serviceObj);
-            if (result)
-            {
-                service = (TService)serviceObj!;
-            }
-            else
-            {
-                service = default;
-            }
-            return result;
+            service = default;
         }
+        return result;
     }
 }

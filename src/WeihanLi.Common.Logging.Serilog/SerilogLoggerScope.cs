@@ -3,90 +3,87 @@
 
 using Serilog.Core;
 using Serilog.Events;
-using System;
-using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Serilog.Extensions.Logging
+namespace Serilog.Extensions.Logging;
+
+internal sealed class SerilogLoggerScope : IDisposable
 {
-    internal sealed class SerilogLoggerScope : IDisposable
+    private const string NoName = "None";
+
+    private readonly SerilogLoggerProvider _provider;
+    private readonly object? _state;
+    private readonly IDisposable? _chainedDisposable;
+
+    // An optimization only, no problem if there are data races on this.
+    private bool _disposed;
+
+    public SerilogLoggerScope(SerilogLoggerProvider provider, object? state, IDisposable? chainedDisposable = null)
     {
-        private const string NoName = "None";
+        _provider = provider;
+        _state = state;
 
-        private readonly SerilogLoggerProvider _provider;
-        private readonly object? _state;
-        private readonly IDisposable? _chainedDisposable;
+        Parent = _provider.CurrentScope;
+        _provider.CurrentScope = this;
+        _chainedDisposable = chainedDisposable;
+    }
 
-        // An optimization only, no problem if there are data races on this.
-        private bool _disposed;
+    public SerilogLoggerScope? Parent { get; }
 
-        public SerilogLoggerScope(SerilogLoggerProvider provider, object? state, IDisposable? chainedDisposable = null)
+    public void Dispose()
+    {
+        if (!_disposed)
         {
-            _provider = provider;
-            _state = state;
+            _disposed = true;
 
-            Parent = _provider.CurrentScope;
-            _provider.CurrentScope = this;
-            _chainedDisposable = chainedDisposable;
+            // In case one of the parent scopes has been disposed out-of-order, don't
+            // just blindly reinstate our own parent.
+            for (var scan = _provider.CurrentScope; scan != null; scan = scan.Parent)
+            {
+                if (ReferenceEquals(scan, this))
+                    _provider.CurrentScope = Parent;
+            }
+
+            _chainedDisposable?.Dispose();
+        }
+    }
+
+    public void EnrichAndCreateScopeItem(LogEvent logEvent, ILogEventPropertyFactory propertyFactory, out LogEventPropertyValue? scopeItem)
+    {
+        if (_state == null)
+        {
+            scopeItem = null;
+            return;
         }
 
-        public SerilogLoggerScope? Parent { get; }
-
-        public void Dispose()
+        if (_state is IEnumerable<KeyValuePair<string, object>> stateProperties)
         {
-            if (!_disposed)
-            {
-                _disposed = true;
+            scopeItem = null; // Unless it's `FormattedLogValues`, these are treated as property bags rather than scope items.
 
-                // In case one of the parent scopes has been disposed out-of-order, don't
-                // just blindly reinstate our own parent.
-                for (var scan = _provider.CurrentScope; scan != null; scan = scan.Parent)
+            foreach (var stateProperty in stateProperties)
+            {
+                if (stateProperty.Key == SerilogLoggerProvider.OriginalFormatPropertyName && stateProperty.Value is string)
                 {
-                    if (ReferenceEquals(scan, this))
-                        _provider.CurrentScope = Parent;
+                    scopeItem = new ScalarValue(_state.ToString());
+                    continue;
                 }
 
-                _chainedDisposable?.Dispose();
+                var key = stateProperty.Key;
+                var destructureObject = false;
+
+                if (key.StartsWith("@"))
+                {
+                    key = key.Substring(1);
+                    destructureObject = true;
+                }
+
+                var property = propertyFactory.CreateProperty(key, stateProperty.Value, destructureObject);
+                logEvent.AddPropertyIfAbsent(property);
             }
         }
-
-        public void EnrichAndCreateScopeItem(LogEvent logEvent, ILogEventPropertyFactory propertyFactory, out LogEventPropertyValue? scopeItem)
+        else
         {
-            if (_state == null)
-            {
-                scopeItem = null;
-                return;
-            }
-
-            if (_state is IEnumerable<KeyValuePair<string, object>> stateProperties)
-            {
-                scopeItem = null; // Unless it's `FormattedLogValues`, these are treated as property bags rather than scope items.
-
-                foreach (var stateProperty in stateProperties)
-                {
-                    if (stateProperty.Key == SerilogLoggerProvider.OriginalFormatPropertyName && stateProperty.Value is string)
-                    {
-                        scopeItem = new ScalarValue(_state.ToString());
-                        continue;
-                    }
-
-                    var key = stateProperty.Key;
-                    var destructureObject = false;
-
-                    if (key.StartsWith("@"))
-                    {
-                        key = key.Substring(1);
-                        destructureObject = true;
-                    }
-
-                    var property = propertyFactory.CreateProperty(key, stateProperty.Value, destructureObject);
-                    logEvent.AddPropertyIfAbsent(property);
-                }
-            }
-            else
-            {
-                scopeItem = propertyFactory.CreateProperty(NoName, _state).Value;
-            }
+            scopeItem = propertyFactory.CreateProperty(NoName, _state).Value;
         }
     }
 }

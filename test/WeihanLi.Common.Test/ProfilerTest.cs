@@ -1,25 +1,19 @@
-﻿using System.Threading;
-using Xunit;
+﻿using Xunit;
 
-namespace WeihanLi.Common.Test
+namespace WeihanLi.Common.Test;
+
+public class ProfilerTest
 {
-    public class ProfilerTest
+    [Theory]
+    [InlineData(500)]
+    [InlineData(1000)]
+    [InlineData(2000)]
+    public void StopWatchProfileTest(int delay)
     {
-        [Theory]
-        [InlineData(500)]
-        [InlineData(1000)]
-        [InlineData(2000)]
-        public void StopWatchProfileTest(int delay)
-        {
-            var profiler = new StopwatchProfiler();
-            profiler.Start();
-            Thread.Sleep(delay * 2);
-            profiler.Stop();
-            Assert.True(profiler.Elapsed.TotalMilliseconds >= delay);
-            profiler.Restart();
-            Thread.Sleep(delay / 2);
-            profiler.Stop();
-            Assert.True(profiler.Elapsed.TotalMilliseconds < delay);
-        }
+        var profiler = new StopwatchProfiler();
+        profiler.Start();
+        Thread.Sleep(delay * 2);
+        profiler.Stop();
+        Assert.True(profiler.Elapsed.TotalMilliseconds >= delay);
     }
 }

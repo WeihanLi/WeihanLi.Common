@@ -1,35 +1,33 @@
-﻿using System;
-using WeihanLi.Common.Helpers;
+﻿using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Models;
 using Xunit;
 
-namespace WeihanLi.Common.Test.HelpersTest
-{
-    public class EnumHelperTest
-    {
-        [Fact]
-        public void IdNameListTest()
-        {
-            var list = EnumHelper.ToIdNameList<ReviewState>();
-            Assert.Equal(list.Count, Enum.GetNames<ReviewState>().Length);
-            foreach (var (id, name) in list)
-            {
-                Assert.True(Enum.TryParse(name, out ReviewState state));
-                Assert.Equal((int)state, id);
-            }
-        }
+namespace WeihanLi.Common.Test.HelpersTest;
 
-        [Fact]
-        public void IdNameDescListTest()
+public class EnumHelperTest
+{
+    [Fact]
+    public void IdNameListTest()
+    {
+        var list = EnumHelper.ToIdNameList<ReviewState>();
+        Assert.Equal(list.Count, Enum.GetNames<ReviewState>().Length);
+        foreach (var (id, name) in list)
         {
-            var list = EnumHelper.ToIdNameDescList<ReviewState, sbyte>();
-            Assert.Equal(list.Count, Enum.GetNames<ReviewState>().Length);
-            foreach (var (id, name, description) in list)
-            {
-                Assert.True(Enum.TryParse(name, out ReviewState state));
-                Assert.Equal((int)state, id);
-                Assert.NotNull(description);
-            }
+            Assert.True(Enum.TryParse(name, out ReviewState state));
+            Assert.Equal((int)state, id);
+        }
+    }
+
+    [Fact]
+    public void IdNameDescListTest()
+    {
+        var list = EnumHelper.ToIdNameDescList<ReviewState, sbyte>();
+        Assert.Equal(list.Count, Enum.GetNames<ReviewState>().Length);
+        foreach (var (id, name, description) in list)
+        {
+            Assert.True(Enum.TryParse(name, out ReviewState state));
+            Assert.Equal((int)state, id);
+            Assert.NotNull(description);
         }
     }
 }

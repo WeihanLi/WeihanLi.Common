@@ -12,92 +12,43 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
 using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace WeihanLi.Common.Helpers.PeriodBatching
+namespace WeihanLi.Common.Helpers.PeriodBatching;
+
+internal class PortableTimer : IDisposable
 {
-    internal class PortableTimer : IDisposable
+    private readonly object _stateLock = new();
+    private readonly Func<CancellationToken, Task> _onTick;
+    private readonly CancellationTokenSource _cancel = new();
+    private readonly Timer _timer;
+    private bool _running;
+    private bool _disposed;
+
+    public PortableTimer(Func<CancellationToken, Task> onTick)
     {
-        private readonly object _stateLock = new();
-        private readonly Func<CancellationToken, Task> _onTick;
-        private readonly CancellationTokenSource _cancel = new();
-        private readonly Timer _timer;
-        private bool _running;
-        private bool _disposed;
+        _onTick = onTick ?? throw new ArgumentNullException(nameof(onTick));
 
-        public PortableTimer(Func<CancellationToken, Task> onTick)
+        _timer = new Timer(_ => OnTick(), null, Timeout.Infinite, Timeout.Infinite);
+    }
+
+    public void Start(TimeSpan interval)
+    {
+        if (interval < TimeSpan.Zero) throw new ArgumentOutOfRangeException(nameof(interval));
+
+        lock (_stateLock)
         {
-            _onTick = onTick ?? throw new ArgumentNullException(nameof(onTick));
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(PortableTimer));
 
-            _timer = new Timer(_ => OnTick(), null, Timeout.Infinite, Timeout.Infinite);
+            _timer.Change(interval, Timeout.InfiniteTimeSpan);
         }
+    }
 
-        public void Start(TimeSpan interval)
+    private async void OnTick()
+    {
+        try
         {
-            if (interval < TimeSpan.Zero) throw new ArgumentOutOfRangeException(nameof(interval));
-
-            lock (_stateLock)
-            {
-                if (_disposed)
-                    throw new ObjectDisposedException(nameof(PortableTimer));
-
-                _timer.Change(interval, Timeout.InfiniteTimeSpan);
-            }
-        }
-
-        private async void OnTick()
-        {
-            try
-            {
-                lock (_stateLock)
-                {
-                    if (_disposed)
-                    {
-                        return;
-                    }
-
-                    // There's a little bit of raciness here, but it's needed to support the
-                    // current API, which allows the tick handler to reenter and set the next interval.
-
-                    if (_running)
-                    {
-                        Monitor.Wait(_stateLock);
-
-                        if (_disposed)
-                        {
-                            return;
-                        }
-                    }
-
-                    _running = true;
-                }
-
-                if (!_cancel.Token.IsCancellationRequested)
-                {
-                    await _onTick(_cancel.Token);
-                }
-            }
-            catch (OperationCanceledException tcx)
-            {
-                Debug.WriteLine("The timer was canceled during invocation: {0}", tcx);
-            }
-            finally
-            {
-                lock (_stateLock)
-                {
-                    _running = false;
-                    Monitor.PulseAll(_stateLock);
-                }
-            }
-        }
-
-        public void Dispose()
-        {
-            _cancel.Cancel();
-
             lock (_stateLock)
             {
                 if (_disposed)
@@ -105,14 +56,59 @@ namespace WeihanLi.Common.Helpers.PeriodBatching
                     return;
                 }
 
-                while (_running)
+                // There's a little bit of raciness here, but it's needed to support the
+                // current API, which allows the tick handler to reenter and set the next interval.
+
+                if (_running)
                 {
                     Monitor.Wait(_stateLock);
+
+                    if (_disposed)
+                    {
+                        return;
+                    }
                 }
 
-                _timer.Dispose();
-                _disposed = true;
+                _running = true;
             }
+
+            if (!_cancel.Token.IsCancellationRequested)
+            {
+                await _onTick(_cancel.Token);
+            }
+        }
+        catch (OperationCanceledException tcx)
+        {
+            Debug.WriteLine("The timer was canceled during invocation: {0}", tcx);
+        }
+        finally
+        {
+            lock (_stateLock)
+            {
+                _running = false;
+                Monitor.PulseAll(_stateLock);
+            }
+        }
+    }
+
+    public void Dispose()
+    {
+        _cancel.Cancel();
+
+        lock (_stateLock)
+        {
+            if (_disposed)
+            {
+                return;
+            }
+
+            while (_running)
+            {
+                Monitor.Wait(_stateLock);
+            }
+
+            _timer.Dispose();
+            _disposed = true;
         }
     }
 }

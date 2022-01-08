@@ -1,120 +1,117 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Net;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using WeihanLi.Common.Helpers;
 using Xunit;
 
-namespace WeihanLi.Common.Test.HelpersTest
+namespace WeihanLi.Common.Test.HelpersTest;
+
+public class ProcessExecutorTest
 {
-    public class ProcessExecutorTest
+    [Fact]
+    public void DotnetInfoTest()
     {
-        [Fact]
-        public void DotnetInfoTest()
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                return;
-            }
-
-            using var executor = new ProcessExecutor("dotnet", "--info");
-            var list = new List<string>();
-            executor.OnOutputDataReceived += (_, str) =>
-            {
-                list.Add(str);
-            };
-            var exitCode = -1;
-            executor.OnExited += (_, code) =>
-            {
-                exitCode = code;
-            };
-            executor.Execute();
-
-            Assert.NotEmpty(list);
-            Assert.Equal(0, exitCode);
+            return;
         }
 
-        [Fact]
-        public async Task DotnetInfoAsyncTest()
+        using var executor = new ProcessExecutor("dotnet", "--info");
+        var list = new List<string>();
+        executor.OnOutputDataReceived += (_, str) =>
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                return;
-            }
+            list.Add(str);
+        };
+        var exitCode = -1;
+        executor.OnExited += (_, code) =>
+        {
+            exitCode = code;
+        };
+        executor.Execute();
 
-            using var executor = new ProcessExecutor("dotnet", "--info");
-            var list = new List<string>();
-            executor.OnOutputDataReceived += (_, str) =>
-            {
-                list.Add(str);
-            };
-            var exitCode = -1;
-            executor.OnExited += (_, code) =>
-            {
-                exitCode = code;
-            };
-            await executor.ExecuteAsync();
+        Assert.NotEmpty(list);
+        Assert.Equal(0, exitCode);
+    }
 
-            Assert.NotEmpty(list);
-            Assert.Equal(0, exitCode);
+    [Fact]
+    public async Task DotnetInfoAsyncTest()
+    {
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            return;
         }
 
-        [Fact]
-        public async Task HostNameTest()
+        using var executor = new ProcessExecutor("dotnet", "--info");
+        var list = new List<string>();
+        executor.OnOutputDataReceived += (_, str) =>
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                return;
-            }
-            using var executor = new ProcessExecutor("hostName");
-            var list = new List<string>();
-            executor.OnOutputDataReceived += (_, str) =>
-            {
-                list.Add(str);
-            };
-            var exitCode = -1;
-            executor.OnExited += (_, code) =>
-            {
-                exitCode = code;
-            };
-            await executor.ExecuteAsync();
-            Assert.NotEmpty(list);
+            list.Add(str);
+        };
+        var exitCode = -1;
+        executor.OnExited += (_, code) =>
+        {
+            exitCode = code;
+        };
+        await executor.ExecuteAsync();
 
-            var hostName = Dns.GetHostName();
-            Assert.Contains(list, x => hostName.Equals(x));
-            Assert.Equal(0, exitCode);
+        Assert.NotEmpty(list);
+        Assert.Equal(0, exitCode);
+    }
+
+    [Fact]
+    public async Task HostNameTest()
+    {
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            return;
         }
-
-        [Fact]
-        public async Task EnvironmentVariablesTest()
+        using var executor = new ProcessExecutor("hostName");
+        var list = new List<string>();
+        executor.OnOutputDataReceived += (_, str) =>
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                return;
-            }
-            using var executor = new ProcessExecutor(new ProcessStartInfo("powershell", "-Command \"Write-Host $env:TestUser\"")
-            {
-                Environment =
+            list.Add(str);
+        };
+        var exitCode = -1;
+        executor.OnExited += (_, code) =>
+        {
+            exitCode = code;
+        };
+        await executor.ExecuteAsync();
+        Assert.NotEmpty(list);
+
+        var hostName = Dns.GetHostName();
+        Assert.Contains(list, x => hostName.Equals(x));
+        Assert.Equal(0, exitCode);
+    }
+
+    [Fact]
+    public async Task EnvironmentVariablesTest()
+    {
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            return;
+        }
+        using var executor = new ProcessExecutor(new ProcessStartInfo("powershell", "-Command \"Write-Host $env:TestUser\"")
+        {
+            Environment =
                 {
                     { "TestUser", "Alice" }
                 }
-            });
-            var list = new List<string>();
-            executor.OnOutputDataReceived += (_, str) =>
-            {
-                list.Add(str);
-            };
-            var exitCode = -1;
-            executor.OnExited += (_, code) =>
-            {
-                exitCode = code;
-            };
-            await executor.ExecuteAsync();
-            Assert.NotEmpty(list);
+        });
+        var list = new List<string>();
+        executor.OnOutputDataReceived += (_, str) =>
+        {
+            list.Add(str);
+        };
+        var exitCode = -1;
+        executor.OnExited += (_, code) =>
+        {
+            exitCode = code;
+        };
+        await executor.ExecuteAsync();
+        Assert.NotEmpty(list);
 
-            Assert.Contains(list, x => "Alice".Equals(x));
-            Assert.Equal(0, exitCode);
-        }
+        Assert.Contains(list, x => "Alice".Equals(x));
+        Assert.Equal(0, exitCode);
     }
 }
