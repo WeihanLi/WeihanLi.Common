@@ -18,7 +18,7 @@ public class MockHttpHandlerTest
     [InlineData(HttpStatusCode.InternalServerError)]
     public async Task HttpStatusTest(HttpStatusCode httpStatusCode)
     {
-        var httpHandler = new MockHttpHandler(_ => new HttpResponseMessage(httpStatusCode));
+        using var httpHandler = new MockHttpHandler(_ => new HttpResponseMessage(httpStatusCode));
         using var httpClient = new HttpClient(httpHandler);
         using var response = await httpClient.GetAsync("http://localhost:32123/api/values");
         Assert.Equal(httpStatusCode, response.StatusCode);
@@ -27,20 +27,20 @@ public class MockHttpHandlerTest
     [Fact]
     public async Task SetResponseFactoryTest()
     {
-        var httpHandler = new MockHttpHandler();
+        using var httpHandler = new MockHttpHandler();
         using var httpClient = new HttpClient(httpHandler);
-        var response = await httpClient.GetAsync("http://localhost:32123/api/values");
+        using var response = await httpClient.GetAsync("http://localhost:32123/api/values");
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         httpHandler.SetResponseFactory(_ => new HttpResponseMessage(HttpStatusCode.BadRequest));
-        response = await httpClient.GetAsync("http://localhost:32123/api/values");
-        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        using var response1 = await httpClient.GetAsync("http://localhost:32123/api/values");
+        Assert.Equal(HttpStatusCode.BadRequest, response1.StatusCode);
     }
 
     [Fact]
     public async Task DynamicResponseTest()
     {
-        var httpHandler = new MockHttpHandler(req => new HttpResponseMessage(HttpStatusCode.OK)
+        using var httpHandler = new MockHttpHandler(req => new HttpResponseMessage(HttpStatusCode.OK)
         {
             Content = new StringContent(req.Method.Method)
         });
