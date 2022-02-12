@@ -1027,7 +1027,7 @@ public static class HttpHelper
             "Mozilla/5.0 (Windows; U; Windows NT 5.1; ) AppleWebKit/534.12 (KHTML, like Gecko) Maxthon/3.0 Safari/534.12"
         };
 
-    private static readonly string[] WechatUserAgents =
+    private static readonly string[] WeChatUserAgents =
     {
             "Mozilla/5.0 (Linux; Android 6.0; 1503-M02 Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile MQQBrowser/6.2 TBS/036558 Safari/537.36 MicroMessenger/6.3.25.861 NetType/WIFI Language/zh_CN",
             "Mozilla/5.0 (Linux; Android 5.1; OPPO R9tm Build/LMY47I; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043220 Safari/537.36 MicroMessenger/6.5.7.1041 NetType/4G Language/zh_CN",
@@ -1046,11 +1046,11 @@ public static class HttpHelper
     }
 
     /// <summary>
-    /// GetWechatUserAgent
+    /// GetWeChatUserAgent
     /// </summary>
     /// <returns></returns>
-    public static string GetWechatUserAgent()
-        => WechatUserAgents[SecurityHelper.Random.Next(WechatUserAgents.Length)];
+    public static string GetWeChatUserAgent()
+        => WeChatUserAgents[SecurityHelper.Random.Next(WeChatUserAgents.Length)];
 
     #endregion UserAgents
 }
