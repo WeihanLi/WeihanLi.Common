@@ -2467,7 +2467,7 @@ public static class CoreExtension
     /// <returns>A string.</returns>
     public static string Truncate(this string @this, int maxLength, string suffix)
     {
-        if (Guard.NotNull(@this, nameof(@this)).Length <= maxLength)
+        if (Guard.NotNull(@this).Length <= maxLength)
         {
             return @this;
         }
