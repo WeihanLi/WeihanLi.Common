@@ -8,6 +8,8 @@ namespace WeihanLi.Common.Http;
 
 public sealed class JsonHttpContent : StringContent
 {
+    private const string JsonMediaType = "application/json";
+
     public JsonHttpContent(object obj, JsonSerializerSettings? jsonSerializerSettings = null)
         : this(JsonConvert.SerializeObject(obj, jsonSerializerSettings))
     {
@@ -17,7 +19,16 @@ public sealed class JsonHttpContent : StringContent
     {
     }
 
-    public JsonHttpContent(string content, Encoding encoding) : base(content, encoding, "application/json")
+    public JsonHttpContent(string content, Encoding encoding) : base(content, encoding, JsonMediaType)
     {
+    }
+
+    public static HttpContent From(object? obj, JsonSerializerSettings? serializerSettings = null)
+    {
+        if (obj is null)
+        {
+            return new StringContent(string.Empty, Encoding.UTF8, JsonMediaType);
+        }
+        return new JsonHttpContent(obj, serializerSettings);
     }
 }

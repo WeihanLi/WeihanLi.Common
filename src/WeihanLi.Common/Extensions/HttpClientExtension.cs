@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Headers;
 using System.Text;
+using WeihanLi.Common.Http;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions;
@@ -50,8 +51,6 @@ public class BasicAuthenticationOAuthHeaderValue : AuthenticationHeaderValue
 
 public static class HttpClientExtension
 {
-    private const string JsonMediaType = "application/json";
-
     /// <summary>
     /// PostAsJsonAsync
     /// </summary>
@@ -60,7 +59,7 @@ public static class HttpClientExtension
     /// <param name="parameter">parameter</param>
     /// <returns></returns>
     public static Task<HttpResponseMessage> PostAsJsonAsync<T>(this HttpClient httpClient, string requestUri, T parameter)
-        => httpClient.PostAsync(requestUri, new StringContent(parameter?.ToJson() ?? "", Encoding.UTF8, JsonMediaType));
+        => httpClient.PostAsync(requestUri, JsonHttpContent.From(parameter));
 
     /// <summary>
     /// PutAsJsonAsync
@@ -70,7 +69,20 @@ public static class HttpClientExtension
     /// <param name="parameter">param</param>
     /// <returns></returns>
     public static Task<HttpResponseMessage> PutAsJsonAsync<T>(this HttpClient httpClient, string requestUri, T parameter)
-        => httpClient.PutAsync(requestUri, new StringContent(parameter?.ToJson() ?? "", Encoding.UTF8, JsonMediaType));
+        => httpClient.PutAsync(requestUri, JsonHttpContent.From(parameter));
+
+#if NET6_0_OR_GREATER
+    /// <summary>
+    /// PatchAsJsonAsync
+    /// </summary>
+    /// <param name="httpClient">httpClient</param>
+    /// <param name="requestUri">requestUri</param>
+    /// <param name="parameter">param</param>
+    /// <returns></returns>
+    public static Task<HttpResponseMessage> PatchAsJsonAsync<T>(this HttpClient httpClient, string requestUri, T parameter)
+        => httpClient.PatchAsync(requestUri, JsonHttpContent.From(parameter));
+
+#endif
 
     /// <summary>
     /// PostAsFormAsync
