@@ -29,7 +29,8 @@ indent_size = 2
 # Dotnet code style settings:
 [*.{cs,vb}]
 # File header
-file_header_template = Copyright (c) Weihan Li. All rights reserved.\nLicensed under the MIT license.
+file_header_template = Copyright (c) Weihan Li. All rights reserved.\nLicensed under the Apache license.
+
 # Sort using and Import directives with System.* appearing first
 dotnet_sort_system_directives_first = false
 # Avoid "this." and "Me." if not necessary
@@ -53,6 +54,7 @@ dotnet_style_explicit_tuple_names = true:suggestion
 [*.cs]
 # namespace style
 csharp_style_namespace_declarations=file_scoped:warning
+
 # Prefer "var" everywhere
 csharp_style_var_for_built_in_types = true:suggestion
 csharp_style_var_when_type_is_apparent = true:suggestion
