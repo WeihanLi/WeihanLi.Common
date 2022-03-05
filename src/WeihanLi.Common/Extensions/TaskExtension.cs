@@ -6,11 +6,12 @@ namespace WeihanLi.Extensions;
 
 public static class TaskExtension
 {
-    public static Task<T> WrapTask<T>(T t) => Task.FromResult<T>(t);
+    public static Task<T> WrapTask<T>(T t) => Task.FromResult(t);
 
 #if NET6_0_OR_GREATER
     public static ValueTask<T> WrapValueTask<T>(T t) => ValueTask.FromResult<T>(t);
 #endif
+
     public static Task AsTask(this CancellationToken cancellationToken)
     {
         var tcs = new TaskCompletionSource<object?>();

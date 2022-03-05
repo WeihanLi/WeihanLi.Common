@@ -24,7 +24,11 @@ public sealed class StringValueDictionary : IEquatable<StringValueDictionary>
 
     public static StringValueDictionary FromObject(object obj)
     {
-        if (obj is null) throw new ArgumentNullException(nameof(obj));
+        Guard.NotNull(obj);
+        if (obj is StringValueDictionary dictionary3)
+        {
+            return new StringValueDictionary(dictionary3);
+        }
         if (obj is IDictionary<string, string?> dictionary)
         {
             return new StringValueDictionary(dictionary);
@@ -32,10 +36,6 @@ public sealed class StringValueDictionary : IEquatable<StringValueDictionary>
         if (obj is IDictionary<string, object?> dictionary2)
         {
             return new StringValueDictionary(dictionary2.ToDictionary(p => p.Key, p => p.Value?.ToString()));
-        }
-        if (obj is StringValueDictionary dictionary3)
-        {
-            return new StringValueDictionary(dictionary3);
         }
         return new StringValueDictionary(obj.GetType().GetProperties()
             .ToDictionary(p => p.Name, p => p.GetValue(obj)?.ToString()));
