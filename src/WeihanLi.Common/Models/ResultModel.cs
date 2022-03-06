@@ -1,19 +1,13 @@
-﻿namespace WeihanLi.Common.Models;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
 
-/// <summary>
-/// ResultModel
-/// </summary>
-[Obsolete("Please use ")]
+namespace WeihanLi.Common.Models;
+
+[Obsolete("Please use Result")]
 public record ResultModel
 {
-    /// <summary>
-    /// ResultStatus
-    /// </summary>
     public ResultStatus Status { get; set; }
 
-    /// <summary>
-    /// Message
-    /// </summary>
     public string? ErrorMsg { get; set; }
 
     public static ResultModel Success()
@@ -63,16 +57,9 @@ public record ResultModel
     }
 }
 
-/// <summary>
-/// ResultModel
-/// </summary>
-/// <typeparam name="T">Type</typeparam>
-[Obsolete]
+[Obsolete("Please use Result<T>")]
 public record ResultModel<T> : ResultModel
 {
-    /// <summary>
-    /// ResponseData
-    /// </summary>
     public T? Result { get; set; }
 
     public ResultModel<T1> ToResult<T1>(Func<T?, T1> converter)

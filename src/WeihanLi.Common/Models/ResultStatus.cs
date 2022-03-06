@@ -5,9 +5,6 @@ using System.ComponentModel;
 
 namespace WeihanLi.Common.Models;
 
-/// <summary>
-/// Result Status
-/// </summary>
 public enum ResultStatus
 {
     [Description("Empty Status")]
