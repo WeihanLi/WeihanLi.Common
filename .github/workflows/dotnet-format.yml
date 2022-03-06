@@ -1,6 +1,9 @@
 name: dotnet-format
 
-on: "push"
+on:
+  push:
+    branches:
+      - "dev"
 
 jobs:
   build:
@@ -10,12 +13,12 @@ jobs:
     - name: Setup .NET 6
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: '6.0.100'
         include-prerelease: true
     - name: build
       run: dotnet build
     - name: format
-      run: dotnet format
+      run: dotnet format --severity=warn --diagnostics=warn -v=diag
     - name: check for changes
       run: |
         if git diff --exit-code; then

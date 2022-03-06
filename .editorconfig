@@ -28,8 +28,8 @@ indent_size = 2
 
 # Dotnet code style settings:
 [*.{cs,vb}]
-# namespace style
-csharp_style_namespace_declarations=file_scoped:warning
+# File header
+file_header_template = Copyright (c) Weihan Li. All rights reserved.\nLicensed under the Apache license.
 
 # Sort using and Import directives with System.* appearing first
 dotnet_sort_system_directives_first = false
@@ -52,6 +52,9 @@ dotnet_style_explicit_tuple_names = true:suggestion
 
 # CSharp code style settings:
 [*.cs]
+# namespace style
+csharp_style_namespace_declarations=file_scoped:warning
+
 # Prefer "var" everywhere
 csharp_style_var_for_built_in_types = true:suggestion
 csharp_style_var_when_type_is_apparent = true:suggestion
@@ -86,4 +89,11 @@ csharp_new_line_before_members_in_anonymous_types = true
 [*.sh]
 end_of_line=lf
 [*.{cmd, bat}]
-end_of_line=cr
+end_of_line=crlf
+
+# Fix formatting, https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#rule-id-ide0055-fix-formatting
+dotnet_diagnostic.IDE00055.severity = warning
+# Remove unnecessary usings, https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/ide0005
+dotnet_diagnostic.IDE0005.severity = warning
+# File header template
+dotnet_diagnostic.IDE0073.severity = warning

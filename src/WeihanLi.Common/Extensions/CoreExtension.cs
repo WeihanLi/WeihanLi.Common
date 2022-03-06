@@ -1755,7 +1755,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="defaultValueFactory">The default value factory.</param>
     /// <returns>The given data converted to a T.</returns>
-    public static T? ToOrDefault<T>(this object? @this, Func<object?, T?> defaultValueFactory)
+    public static T ToOrDefault<T>(this object? @this, Func<object?, T> defaultValueFactory)
     {
         try
         {
@@ -1774,7 +1774,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="defaultValueFactory">The default value factory.</param>
     /// <returns>The given data converted to a T.</returns>
-    public static T? ToOrDefault<T>(this object? @this, Func<T> defaultValueFactory)
+    public static T ToOrDefault<T>(this object? @this, Func<T> defaultValueFactory)
     {
         return @this.ToOrDefault(_ => defaultValueFactory());
     }
@@ -1816,7 +1816,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="defaultValue">The default value.</param>
     /// <returns>The given data converted to a T.</returns>
-    public static T? ToOrDefault<T>(this object? @this, T? defaultValue)
+    public static T ToOrDefault<T>(this object? @this, T defaultValue)
     {
         return @this.ToOrDefault(_ => defaultValue);
     }
@@ -2467,7 +2467,7 @@ public static class CoreExtension
     /// <returns>A string.</returns>
     public static string Truncate(this string @this, int maxLength, string suffix)
     {
-        if (Guard.NotNull(@this, nameof(@this)).Length <= maxLength)
+        if (Guard.NotNull(@this).Length <= maxLength)
         {
             return @this;
         }
