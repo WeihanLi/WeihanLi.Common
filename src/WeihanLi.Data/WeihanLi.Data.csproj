@@ -1,6 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <Import Project="../../build/data.props" />
   <ItemGroup>
@@ -8,11 +7,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
   </ItemGroup>
 </Project>
