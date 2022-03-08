@@ -8,7 +8,7 @@ namespace WeihanLi.Extensions;
 
 /// <summary>Basic Authentication HeaderValue</summary>
 /// <seealso cref="T:System.Net.Http.Headers.AuthenticationHeaderValue" />
-public sealed class BasicAuthenticationHeaderValue : AuthenticationHeaderValue
+internal sealed class BasicAuthenticationHeaderValue : AuthenticationHeaderValue
 {
     /// <inheritdoc />
     /// <param name="userName">Name of the user.</param>
