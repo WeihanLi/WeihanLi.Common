@@ -52,57 +52,97 @@ internal sealed class BasicAuthenticationOAuthHeaderValue : AuthenticationHeader
 
 public static class HttpClientExtension
 {
-    /// <summary>
-    /// PostAsJsonAsync
-    /// </summary>
-    /// <param name="httpClient">httpClient</param>
-    /// <param name="requestUri">requestUri</param>
-    /// <param name="parameter">parameter</param>
-    /// <returns></returns>
-    public static Task<HttpResponseMessage> PostAsJsonAsync<T>(this HttpClient httpClient, string requestUri, T parameter)
-        => httpClient.PostAsync(requestUri, JsonHttpContent.From(parameter));
+    public static Task<TResponse?> DeleteFromJsonAsync<TResponse>(this HttpClient httpClient, string requestUrl,
+        Action<HttpRequestMessage>? requestAction = null, CancellationToken cancellationToken = default)
+        => HttpFromJsonAsync<TResponse>(httpClient, HttpMethod.Delete, requestUrl, requestAction, cancellationToken);
+
+    public static Task<TResponse?> GetFromJsonAsync<TResponse>(this HttpClient httpClient, string requestUrl,
+        Action<HttpRequestMessage>? requestAction = null, CancellationToken cancellationToken = default)
+        => HttpFromJsonAsync<TResponse>(httpClient, HttpMethod.Get, requestUrl, requestAction, cancellationToken);
 
     /// <summary>
-    /// PostJson request body and get object from json response
+    /// Post object as json request body
     /// </summary>
-    /// <param name="httpClient">httpClient</param>
-    /// <param name="requestUri">requestUri</param>
-    /// <param name="request">request</param>
-    /// <returns></returns>
-    public static async Task<TResponse?> PostJsonAsync<TRequest, TResponse>
-    (this HttpClient httpClient, string requestUri,
-        TRequest request)
-    {
-        using var response = await httpClient.PostAsync(requestUri, JsonHttpContent.From(request));
-        response.EnsureSuccessStatusCode();
-        var responseText = await response.Content.ReadAsStringAsync();
-        return JsonConvert.DeserializeObject<TResponse>(responseText);
-    }
+    public static Task<HttpResponseMessage> PostAsJsonAsync<T>(this HttpClient httpClient, string requestUrl, T parameter, Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+        => HttpAsJsonAsync(httpClient, HttpMethod.Post, requestUrl, parameter, requestAction, cancellationToken);
 
     /// <summary>
     /// PutAsJsonAsync
     /// </summary>
-    /// <param name="httpClient">httpClient</param>
-    /// <param name="requestUri">requestUri</param>
-    /// <param name="parameter">param</param>
-    /// <returns></returns>
-    public static Task<HttpResponseMessage> PutAsJsonAsync<T>(this HttpClient httpClient, string requestUri, T parameter)
-        => httpClient.PutAsync(requestUri, JsonHttpContent.From(parameter));
+    public static Task<HttpResponseMessage> PutAsJsonAsync<T>(this HttpClient httpClient, string requestUrl, T parameter, Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+        => HttpAsJsonAsync(httpClient, HttpMethod.Put, requestUrl, parameter, requestAction, cancellationToken);
+
+    /// <summary>
+    /// PostJson request body and get object from json response
+    /// </summary>
+    public static Task<TResponse?> PostJsonAsync<TRequest, TResponse>
+    (this HttpClient httpClient, string requestUrl,
+        TRequest request, Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+        => HttpJsonAsync<TRequest, TResponse>(httpClient, HttpMethod.Post, requestUrl, request, requestAction,
+            cancellationToken);
 
     /// <summary>
     /// Put Json request body and get object from json response
     /// </summary>
-    /// <param name="httpClient">httpClient</param>
-    /// <param name="requestUri">requestUri</param>
-    /// <param name="request">request</param>
-    /// <returns></returns>
-    public static async Task<TResponse?> PutJsonAsync<TRequest, TResponse>
-    (this HttpClient httpClient, string requestUri,
-        TRequest request)
+    public static Task<TResponse?> PutJsonAsync<TRequest, TResponse>
+    (this HttpClient httpClient, string requestUrl,
+        TRequest request,
+        Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+        => HttpJsonAsync<TRequest, TResponse>(httpClient, HttpMethod.Put, requestUrl, request, requestAction,
+            cancellationToken);
+
+    public static async Task<TResponse?> HttpFromJsonAsync<TResponse>
+    (this HttpClient httpClient, HttpMethod httpMethod, string requestUrl,
+        Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
     {
-        using var response = await httpClient.PutAsync(requestUri, JsonHttpContent.From(request));
+        using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl);
+        requestAction?.Invoke(requestMessage);
+        using var response = await httpClient.SendAsync(requestMessage, cancellationToken);
         response.EnsureSuccessStatusCode();
+#if NET6_0_OR_GREATER
+        var responseText = await response.Content.ReadAsStringAsync(cancellationToken);
+#else
         var responseText = await response.Content.ReadAsStringAsync();
+#endif
+
+        return JsonConvert.DeserializeObject<TResponse>(responseText);
+    }
+
+    public static async Task<HttpResponseMessage> HttpAsJsonAsync<TRequest>
+    (this HttpClient httpClient, HttpMethod httpMethod, string requestUrl,
+        TRequest request, Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+    {
+        using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl)
+        {
+            Content = JsonHttpContent.From(request)
+        };
+        requestAction?.Invoke(requestMessage);
+        return await httpClient.SendAsync(requestMessage, cancellationToken);
+    }
+
+    public static async Task<TResponse?> HttpJsonAsync<TRequest, TResponse>
+    (this HttpClient httpClient, HttpMethod httpMethod, string requestUrl,
+        TRequest request, Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+    {
+        using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl)
+        {
+            Content = JsonHttpContent.From(request)
+        };
+        requestAction?.Invoke(requestMessage);
+        using var response = await httpClient.SendAsync(requestMessage, cancellationToken);
+        response.EnsureSuccessStatusCode();
+#if NET6_0_OR_GREATER
+        var responseText = await response.Content.ReadAsStringAsync(cancellationToken);
+#else
+        var responseText = await response.Content.ReadAsStringAsync();
+#endif
         return JsonConvert.DeserializeObject<TResponse>(responseText);
     }
 
@@ -110,29 +150,19 @@ public static class HttpClientExtension
     /// <summary>
     /// PatchAsJsonAsync
     /// </summary>
-    /// <param name="httpClient">httpClient</param>
-    /// <param name="requestUri">requestUri</param>
-    /// <param name="parameter">param</param>
-    /// <returns></returns>
-    public static Task<HttpResponseMessage> PatchAsJsonAsync<T>(this HttpClient httpClient, string requestUri, T parameter)
-        => httpClient.PatchAsync(requestUri, JsonHttpContent.From(parameter));
+    public static Task<HttpResponseMessage> PatchAsJsonAsync<T>(this HttpClient httpClient, string requestUrl, T parameter, Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+         => HttpAsJsonAsync(httpClient, HttpMethod.Patch, requestUrl, parameter, requestAction, cancellationToken);
 
     /// <summary>
     /// Patch Json request body and get object from json response
     /// </summary>
-    /// <param name="httpClient">httpClient</param>
-    /// <param name="requestUri">requestUri</param>
-    /// <param name="request">request</param>
-    /// <returns></returns>
-    public static async Task<TResponse?> PatchJsonAsync<TRequest, TResponse>
-    (this HttpClient httpClient, string requestUri,
-        TRequest request)
-    {
-        using var response = await httpClient.PatchAsync(requestUri, JsonHttpContent.From(request));
-        response.EnsureSuccessStatusCode();
-        var responseText = await response.Content.ReadAsStringAsync();
-        return JsonConvert.DeserializeObject<TResponse>(responseText);
-    }
+    public static Task<TResponse?> PatchJsonAsync<TRequest, TResponse>
+    (this HttpClient httpClient, string requestUrl,
+        TRequest request, Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+        => HttpJsonAsync<TRequest, TResponse>(httpClient, HttpMethod.Patch, requestUrl, request, requestAction,
+            cancellationToken);
 #endif
 
     /// <summary>
