@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using System.Text;
 using WeihanLi.Common.Http;
 
@@ -7,7 +8,7 @@ namespace WeihanLi.Extensions;
 
 /// <summary>Basic Authentication HeaderValue</summary>
 /// <seealso cref="T:System.Net.Http.Headers.AuthenticationHeaderValue" />
-public class BasicAuthenticationHeaderValue : AuthenticationHeaderValue
+public sealed class BasicAuthenticationHeaderValue : AuthenticationHeaderValue
 {
     /// <inheritdoc />
     /// <param name="userName">Name of the user.</param>
@@ -19,7 +20,7 @@ public class BasicAuthenticationHeaderValue : AuthenticationHeaderValue
 /// HTTP Basic Authentication authorization header for RFC6749 client authentication
 /// </summary>
 /// <seealso cref="T:System.Net.Http.Headers.AuthenticationHeaderValue" />
-public class BasicAuthenticationOAuthHeaderValue : AuthenticationHeaderValue
+internal sealed class BasicAuthenticationOAuthHeaderValue : AuthenticationHeaderValue
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="T:System.Net.Http.BasicAuthenticationOAuthHeaderValue" /> class.
@@ -62,6 +63,23 @@ public static class HttpClientExtension
         => httpClient.PostAsync(requestUri, JsonHttpContent.From(parameter));
 
     /// <summary>
+    /// PostJson request body and get object from json response
+    /// </summary>
+    /// <param name="httpClient">httpClient</param>
+    /// <param name="requestUri">requestUri</param>
+    /// <param name="request">request</param>
+    /// <returns></returns>
+    public static async Task<TResponse?> PostJsonAsync<TRequest, TResponse>
+    (this HttpClient httpClient, string requestUri,
+        TRequest request)
+    {
+        using var response = await httpClient.PostAsync(requestUri, JsonHttpContent.From(request));
+        response.EnsureSuccessStatusCode();
+        var responseText = await response.Content.ReadAsStringAsync();
+        return JsonConvert.DeserializeObject<TResponse>(responseText);
+    }
+
+    /// <summary>
     /// PutAsJsonAsync
     /// </summary>
     /// <param name="httpClient">httpClient</param>
@@ -70,6 +88,23 @@ public static class HttpClientExtension
     /// <returns></returns>
     public static Task<HttpResponseMessage> PutAsJsonAsync<T>(this HttpClient httpClient, string requestUri, T parameter)
         => httpClient.PutAsync(requestUri, JsonHttpContent.From(parameter));
+
+    /// <summary>
+    /// Put Json request body and get object from json response
+    /// </summary>
+    /// <param name="httpClient">httpClient</param>
+    /// <param name="requestUri">requestUri</param>
+    /// <param name="request">request</param>
+    /// <returns></returns>
+    public static async Task<TResponse?> PutJsonAsync<TRequest, TResponse>
+    (this HttpClient httpClient, string requestUri,
+        TRequest request)
+    {
+        using var response = await httpClient.PutAsync(requestUri, JsonHttpContent.From(request));
+        response.EnsureSuccessStatusCode();
+        var responseText = await response.Content.ReadAsStringAsync();
+        return JsonConvert.DeserializeObject<TResponse>(responseText);
+    }
 
 #if NET6_0_OR_GREATER
     /// <summary>
@@ -82,6 +117,22 @@ public static class HttpClientExtension
     public static Task<HttpResponseMessage> PatchAsJsonAsync<T>(this HttpClient httpClient, string requestUri, T parameter)
         => httpClient.PatchAsync(requestUri, JsonHttpContent.From(parameter));
 
+    /// <summary>
+    /// Patch Json request body and get object from json response
+    /// </summary>
+    /// <param name="httpClient">httpClient</param>
+    /// <param name="requestUri">requestUri</param>
+    /// <param name="request">request</param>
+    /// <returns></returns>
+    public static async Task<TResponse?> PatchJsonAsync<TRequest, TResponse>
+    (this HttpClient httpClient, string requestUri,
+        TRequest request)
+    {
+        using var response = await httpClient.PatchAsync(requestUri, JsonHttpContent.From(request));
+        response.EnsureSuccessStatusCode();
+        var responseText = await response.Content.ReadAsStringAsync();
+        return JsonConvert.DeserializeObject<TResponse>(responseText);
+    }
 #endif
 
     /// <summary>
