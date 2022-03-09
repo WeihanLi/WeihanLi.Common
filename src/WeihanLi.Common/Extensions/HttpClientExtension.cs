@@ -1,87 +1,155 @@
-﻿using System.Net.Http.Headers;
-using System.Text;
+﻿using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using WeihanLi.Common.Http;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions;
 
-/// <summary>Basic Authentication HeaderValue</summary>
-/// <seealso cref="T:System.Net.Http.Headers.AuthenticationHeaderValue" />
-public class BasicAuthenticationHeaderValue : AuthenticationHeaderValue
-{
-    /// <inheritdoc />
-    /// <param name="userName">Name of the user.</param>
-    /// <param name="password">The password.</param>
-    public BasicAuthenticationHeaderValue(string userName, string password) : base("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"{userName}:{password}"))) { }
-}
-
-/// <summary>
-/// HTTP Basic Authentication authorization header for RFC6749 client authentication
-/// </summary>
-/// <seealso cref="T:System.Net.Http.Headers.AuthenticationHeaderValue" />
-public class BasicAuthenticationOAuthHeaderValue : AuthenticationHeaderValue
-{
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:System.Net.Http.BasicAuthenticationOAuthHeaderValue" /> class.
-    /// </summary>
-    /// <param name="userName">Name of the user.</param>
-    /// <param name="password">The password.</param>
-    public BasicAuthenticationOAuthHeaderValue(string userName, string password) : base("Basic", EncodeCredential(userName, password))
-    {
-    }
-
-    private static string EncodeCredential(string userName, string password)
-    {
-        if (string.IsNullOrWhiteSpace(userName))
-        {
-            throw new ArgumentNullException(nameof(userName));
-        }
-        return Convert.ToBase64String($"{UrlEncode(userName)}:{UrlEncode(password)}".ToByteArray());
-    }
-
-    private static string UrlEncode(string value)
-    {
-        if (string.IsNullOrEmpty(value))
-        {
-            return string.Empty;
-        }
-        return Uri.EscapeDataString(value).Replace("%20", "+");
-    }
-}
-
 public static class HttpClientExtension
 {
     /// <summary>
-    /// PostAsJsonAsync
+    /// HTTP Basic Authentication authorization header for RFC6749 client authentication
     /// </summary>
-    /// <param name="httpClient">httpClient</param>
-    /// <param name="requestUri">requestUri</param>
-    /// <param name="parameter">parameter</param>
-    /// <returns></returns>
-    public static Task<HttpResponseMessage> PostAsJsonAsync<T>(this HttpClient httpClient, string requestUri, T parameter)
-        => httpClient.PostAsync(requestUri, JsonHttpContent.From(parameter));
+    /// <seealso cref="T:System.Net.Http.Headers.AuthenticationHeaderValue" />
+    private sealed class BasicAuthenticationHeaderValue : AuthenticationHeaderValue
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:System.Net.Http.BasicAuthenticationOAuthHeaderValue" /> class.
+        /// </summary>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="password">The password.</param>
+        public BasicAuthenticationHeaderValue(string userName, string password) : base("Basic", EncodeCredential(userName, password))
+        {
+        }
+
+        private static string EncodeCredential(string userName, string password)
+        {
+            if (string.IsNullOrWhiteSpace(userName))
+            {
+                throw new ArgumentNullException(nameof(userName));
+            }
+            return Convert.ToBase64String($"{UrlEncode(userName)}:{UrlEncode(password)}".ToByteArray());
+        }
+
+        private static string UrlEncode(string value)
+        {
+            return string.IsNullOrEmpty(value)
+                ? string.Empty
+                : Uri.EscapeDataString(value).Replace("%20", "+");
+        }
+    }
+
+    public static Task<TResponse?> DeleteFromJsonAsync<TResponse>(this HttpClient httpClient, string requestUrl,
+        Action<HttpRequestMessage>? requestAction = null, CancellationToken cancellationToken = default)
+        => HttpFromJsonAsync<TResponse>(httpClient, HttpMethod.Delete, requestUrl, requestAction, cancellationToken);
+
+    public static Task<TResponse?> GetFromJsonAsync<TResponse>(this HttpClient httpClient, string requestUrl,
+        Action<HttpRequestMessage>? requestAction = null, CancellationToken cancellationToken = default)
+        => HttpFromJsonAsync<TResponse>(httpClient, HttpMethod.Get, requestUrl, requestAction, cancellationToken);
+
+    /// <summary>
+    /// Post object as json request body
+    /// </summary>
+    public static Task<HttpResponseMessage> PostAsJsonAsync<T>(this HttpClient httpClient, string requestUrl, T parameter, Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+        => HttpAsJsonAsync(httpClient, HttpMethod.Post, requestUrl, parameter, requestAction, cancellationToken);
 
     /// <summary>
     /// PutAsJsonAsync
     /// </summary>
-    /// <param name="httpClient">httpClient</param>
-    /// <param name="requestUri">requestUri</param>
-    /// <param name="parameter">param</param>
-    /// <returns></returns>
-    public static Task<HttpResponseMessage> PutAsJsonAsync<T>(this HttpClient httpClient, string requestUri, T parameter)
-        => httpClient.PutAsync(requestUri, JsonHttpContent.From(parameter));
+    public static Task<HttpResponseMessage> PutAsJsonAsync<T>(this HttpClient httpClient, string requestUrl, T parameter, Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+        => HttpAsJsonAsync(httpClient, HttpMethod.Put, requestUrl, parameter, requestAction, cancellationToken);
+
+    /// <summary>
+    /// PostJson request body and get object from json response
+    /// </summary>
+    public static Task<TResponse?> PostJsonAsync<TRequest, TResponse>
+    (this HttpClient httpClient, string requestUrl,
+        TRequest request, Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+        => HttpJsonAsync<TRequest, TResponse>(httpClient, HttpMethod.Post, requestUrl, request, requestAction,
+            cancellationToken);
+
+    /// <summary>
+    /// Put Json request body and get object from json response
+    /// </summary>
+    public static Task<TResponse?> PutJsonAsync<TRequest, TResponse>
+    (this HttpClient httpClient, string requestUrl,
+        TRequest request,
+        Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+        => HttpJsonAsync<TRequest, TResponse>(httpClient, HttpMethod.Put, requestUrl, request, requestAction,
+            cancellationToken);
+
+    public static async Task<TResponse?> HttpFromJsonAsync<TResponse>
+    (this HttpClient httpClient, HttpMethod httpMethod, string requestUrl,
+        Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+    {
+        using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl);
+        requestAction?.Invoke(requestMessage);
+        using var response = await httpClient.SendAsync(requestMessage, cancellationToken);
+        response.EnsureSuccessStatusCode();
+#if NET6_0_OR_GREATER
+        var responseText = await response.Content.ReadAsStringAsync(cancellationToken);
+#else
+        var responseText = await response.Content.ReadAsStringAsync();
+#endif
+
+        return JsonConvert.DeserializeObject<TResponse>(responseText);
+    }
+
+    public static async Task<HttpResponseMessage> HttpAsJsonAsync<TRequest>
+    (this HttpClient httpClient, HttpMethod httpMethod, string requestUrl,
+        TRequest request, Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+    {
+        using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl)
+        {
+            Content = JsonHttpContent.From(request)
+        };
+        requestAction?.Invoke(requestMessage);
+        return await httpClient.SendAsync(requestMessage, cancellationToken);
+    }
+
+    public static async Task<TResponse?> HttpJsonAsync<TRequest, TResponse>
+    (this HttpClient httpClient, HttpMethod httpMethod, string requestUrl,
+        TRequest request, Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+    {
+        using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl)
+        {
+            Content = JsonHttpContent.From(request)
+        };
+        requestAction?.Invoke(requestMessage);
+        using var response = await httpClient.SendAsync(requestMessage, cancellationToken);
+        response.EnsureSuccessStatusCode();
+#if NET6_0_OR_GREATER
+        var responseText = await response.Content.ReadAsStringAsync(cancellationToken);
+#else
+        var responseText = await response.Content.ReadAsStringAsync();
+#endif
+        return JsonConvert.DeserializeObject<TResponse>(responseText);
+    }
 
 #if NET6_0_OR_GREATER
     /// <summary>
     /// PatchAsJsonAsync
     /// </summary>
-    /// <param name="httpClient">httpClient</param>
-    /// <param name="requestUri">requestUri</param>
-    /// <param name="parameter">param</param>
-    /// <returns></returns>
-    public static Task<HttpResponseMessage> PatchAsJsonAsync<T>(this HttpClient httpClient, string requestUri, T parameter)
-        => httpClient.PatchAsync(requestUri, JsonHttpContent.From(parameter));
+    public static Task<HttpResponseMessage> PatchAsJsonAsync<T>(this HttpClient httpClient, string requestUrl, T parameter, Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+         => HttpAsJsonAsync(httpClient, HttpMethod.Patch, requestUrl, parameter, requestAction, cancellationToken);
 
+    /// <summary>
+    /// Patch Json request body and get object from json response
+    /// </summary>
+    public static Task<TResponse?> PatchJsonAsync<TRequest, TResponse>
+    (this HttpClient httpClient, string requestUrl,
+        TRequest request, Action<HttpRequestMessage>? requestAction = null,
+        CancellationToken cancellationToken = default)
+        => HttpJsonAsync<TRequest, TResponse>(httpClient, HttpMethod.Patch, requestUrl, request, requestAction,
+            cancellationToken);
 #endif
 
     /// <summary>
@@ -235,7 +303,7 @@ public static class HttpClientExtension
     /// <param name="request">The HTTP request message.</param>
     /// <param name="userName">Name of the user.</param>
     /// <param name="password">The password.</param>
-    public static void SetBasicAuthenticationOAuth(this HttpRequestMessage request, string userName, string password) => request.Headers.Authorization = new BasicAuthenticationOAuthHeaderValue(userName, password);
+    public static void SetBasicAuthenticationOAuth(this HttpRequestMessage request, string userName, string password) => request.Headers.Authorization = new BasicAuthenticationHeaderValue(userName, password);
 
     /// <summary>
     /// Sets the token.
