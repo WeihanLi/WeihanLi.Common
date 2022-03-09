@@ -1,57 +1,44 @@
 ﻿using Newtonsoft.Json;
 using System.Net.Http.Headers;
-using System.Text;
 using WeihanLi.Common.Http;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions;
 
-/// <summary>Basic Authentication HeaderValue</summary>
-/// <seealso cref="T:System.Net.Http.Headers.AuthenticationHeaderValue" />
-internal sealed class BasicAuthenticationHeaderValue : AuthenticationHeaderValue
-{
-    /// <inheritdoc />
-    /// <param name="userName">Name of the user.</param>
-    /// <param name="password">The password.</param>
-    public BasicAuthenticationHeaderValue(string userName, string password) : base("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"{userName}:{password}"))) { }
-}
-
-/// <summary>
-/// HTTP Basic Authentication authorization header for RFC6749 client authentication
-/// </summary>
-/// <seealso cref="T:System.Net.Http.Headers.AuthenticationHeaderValue" />
-internal sealed class BasicAuthenticationOAuthHeaderValue : AuthenticationHeaderValue
-{
-    /// <summary>
-    /// Initializes a new instance of the <see cref="T:System.Net.Http.BasicAuthenticationOAuthHeaderValue" /> class.
-    /// </summary>
-    /// <param name="userName">Name of the user.</param>
-    /// <param name="password">The password.</param>
-    public BasicAuthenticationOAuthHeaderValue(string userName, string password) : base("Basic", EncodeCredential(userName, password))
-    {
-    }
-
-    private static string EncodeCredential(string userName, string password)
-    {
-        if (string.IsNullOrWhiteSpace(userName))
-        {
-            throw new ArgumentNullException(nameof(userName));
-        }
-        return Convert.ToBase64String($"{UrlEncode(userName)}:{UrlEncode(password)}".ToByteArray());
-    }
-
-    private static string UrlEncode(string value)
-    {
-        if (string.IsNullOrEmpty(value))
-        {
-            return string.Empty;
-        }
-        return Uri.EscapeDataString(value).Replace("%20", "+");
-    }
-}
-
 public static class HttpClientExtension
 {
+    /// <summary>
+    /// HTTP Basic Authentication authorization header for RFC6749 client authentication
+    /// </summary>
+    /// <seealso cref="T:System.Net.Http.Headers.AuthenticationHeaderValue" />
+    private sealed class BasicAuthenticationHeaderValue : AuthenticationHeaderValue
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:System.Net.Http.BasicAuthenticationOAuthHeaderValue" /> class.
+        /// </summary>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="password">The password.</param>
+        public BasicAuthenticationHeaderValue(string userName, string password) : base("Basic", EncodeCredential(userName, password))
+        {
+        }
+
+        private static string EncodeCredential(string userName, string password)
+        {
+            if (string.IsNullOrWhiteSpace(userName))
+            {
+                throw new ArgumentNullException(nameof(userName));
+            }
+            return Convert.ToBase64String($"{UrlEncode(userName)}:{UrlEncode(password)}".ToByteArray());
+        }
+
+        private static string UrlEncode(string value)
+        {
+            return string.IsNullOrEmpty(value)
+                ? string.Empty
+                : Uri.EscapeDataString(value).Replace("%20", "+");
+        }
+    }
+
     public static Task<TResponse?> DeleteFromJsonAsync<TResponse>(this HttpClient httpClient, string requestUrl,
         Action<HttpRequestMessage>? requestAction = null, CancellationToken cancellationToken = default)
         => HttpFromJsonAsync<TResponse>(httpClient, HttpMethod.Delete, requestUrl, requestAction, cancellationToken);
@@ -316,7 +303,7 @@ public static class HttpClientExtension
     /// <param name="request">The HTTP request message.</param>
     /// <param name="userName">Name of the user.</param>
     /// <param name="password">The password.</param>
-    public static void SetBasicAuthenticationOAuth(this HttpRequestMessage request, string userName, string password) => request.Headers.Authorization = new BasicAuthenticationOAuthHeaderValue(userName, password);
+    public static void SetBasicAuthenticationOAuth(this HttpRequestMessage request, string userName, string password) => request.Headers.Authorization = new BasicAuthenticationHeaderValue(userName, password);
 
     /// <summary>
     /// Sets the token.
