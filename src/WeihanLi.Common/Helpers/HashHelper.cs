@@ -2,6 +2,7 @@
 using System.Text;
 using WeihanLi.Extensions;
 
+// ReSharper disable InconsistentNaming
 namespace WeihanLi.Common.Helpers;
 
 /// <summary>
@@ -160,7 +161,7 @@ public static class HashHelper
             return bytes;
         }
 
-        HashAlgorithm algorithm = null!;
+        HashAlgorithm? algorithm = null;
         try
         {
             if (key == null)
@@ -189,7 +190,7 @@ public static class HashHelper
         }
         finally
         {
-            algorithm.Dispose();
+            algorithm?.Dispose();
         }
     }
 }
