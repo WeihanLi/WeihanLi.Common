@@ -4,7 +4,7 @@ namespace WeihanLi.Common.Logging.Serilog;
 
 public static class SerilogHelper
 {
-    private static readonly object _locker = new object();
+    private static readonly object Locker = new();
 
     public static void LogInit(Action<LoggerConfiguration> configAction)
     {
@@ -16,7 +16,7 @@ public static class SerilogHelper
 
     public static void LogInit(LoggerConfiguration loggerConfiguration)
     {
-        lock (_locker)
+        lock (Locker)
         {
             Log.Logger = loggerConfiguration.CreateLogger();
         }
