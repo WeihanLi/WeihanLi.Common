@@ -15,19 +15,21 @@ public record Result
     /// </summary>
     public string? Msg { get; set; }
 
-    public static Result Success()
+    public static Result Success(string? msg = null)
     {
         return new()
         {
             Status = ResultStatus.Success,
+            Msg = msg
         };
     }
 
-    public static Result<T> Success<T>(T result)
+    public static Result<T> Success<T>(T result, string? msg = null)
     {
         return new()
         {
             Status = ResultStatus.Success,
+            Msg = msg,
             Data = result
         };
     }
@@ -88,7 +90,7 @@ public static class ResultExtensions
     public static bool IsSuccess(this Result result)
         => Guard.NotNull(result).Status == ResultStatus.Success;
 
-    public static Result<T> WrapResult<T>(T t, ResultStatus status = ResultStatus.Success, string? msg = null)
+    public static Result<T> WrapResult<T>(this T t, ResultStatus status = ResultStatus.Success, string? msg = null)
         => new()
         {
             Data = t,
