@@ -267,11 +267,11 @@ public static class StringExtension
     /// <returns>start removed str</returns>
     public static string? TrimStart(this string? str, string start)
     {
-        if (str.IsNullOrEmpty() || Guard.NotNull(start, nameof(start)).Length == 0)
+        if (str.IsNullOrEmpty() || start.IsNullOrEmpty())
         {
             return str;
         }
-        if (str!.StartsWith(start))
+        if (str.StartsWith(start))
         {
             str = str.Substring(start.Length);
         }
