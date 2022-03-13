@@ -8,7 +8,7 @@
 
 - Update `HttpClientExtensions`
 - Add `WrapTask`/`WrapValueTask` support
-- Add `Properties` for `PipelineBuilder`
+- Add `Properties`/`UseWhen` for `PipelineBuilder`
 - Refactor `Result`
 - Better nullable analysis
 - Improve `ValueTask` support
