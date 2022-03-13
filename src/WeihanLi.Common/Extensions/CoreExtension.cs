@@ -2138,28 +2138,28 @@ public static class CoreExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>true if null or empty, false if not.</returns>
-    public static bool IsNullOrEmpty([NotNullWhen(false)]this string? @this) => string.IsNullOrEmpty(@this);
+    public static bool IsNullOrEmpty([NotNullWhen(false)] this string? @this) => string.IsNullOrEmpty(@this);
 
     /// <summary>
     ///     A string extension method that query if '@this' is not null and not empty.
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>false if null or empty, true if not.</returns>
-    public static bool IsNotNullOrEmpty([NotNullWhen(true)]this string? @this) => !string.IsNullOrEmpty(@this);
+    public static bool IsNotNullOrEmpty([NotNullWhen(true)] this string? @this) => !string.IsNullOrEmpty(@this);
 
     /// <summary>
     ///     A string extension method that query if '@this' is null or whiteSpace.
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>true if null or whiteSpace, false if not.</returns>
-    public static bool IsNullOrWhiteSpace([NotNullWhen(false)]this string? @this) => string.IsNullOrWhiteSpace(@this);
+    public static bool IsNullOrWhiteSpace([NotNullWhen(false)] this string? @this) => string.IsNullOrWhiteSpace(@this);
 
     /// <summary>
     ///     A string extension method that query if '@this' is not null and not whiteSpace.
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>false if null or whiteSpace, true if not.</returns>
-    public static bool IsNotNullOrWhiteSpace([NotNullWhen(true)]this string? @this) => !string.IsNullOrWhiteSpace(@this);
+    public static bool IsNotNullOrWhiteSpace([NotNullWhen(true)] this string? @this) => !string.IsNullOrWhiteSpace(@this);
 
     /// <summary>
     ///     Retrieves the system&#39;s reference to the specified .
