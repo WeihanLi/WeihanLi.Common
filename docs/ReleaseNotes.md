@@ -9,7 +9,7 @@
 - Update `HttpClientExtensions`
 - Add `WrapTask`/`WrapValueTask` support
 - Refactor `Result`
-- Update `Guard` for better nullable analysis
+- Better nullable analysis
 
 ### [WeihanLi.Common 1.0.48](https://www.nuget.org/packages/WeihanLi.Common/1.0.48)
 
