@@ -432,9 +432,6 @@ public static class DictionaryExtension
         }
     }
 
-    /// <summary>将键值集合转换成字符串，key1=value1&amp;key2=value2，k/v会编码</summary>
-    /// <param name="source">数据源</param>
-    /// <returns>字符串</returns>
     public static string ToQueryString(this IEnumerable<KeyValuePair<string, string>>? source)
     {
         if (source == null)
@@ -442,7 +439,7 @@ public static class DictionaryExtension
             return string.Empty;
         }
 
-        var sb = new StringBuilder(1024);
+        var sb = new StringBuilder();
 
         foreach (var item in source)
         {
@@ -453,10 +450,10 @@ public static class DictionaryExtension
             sb.Append("&");
             sb.Append(item.Key.UrlEncode());
             sb.Append("=");
-            if (item.Value != null)
+            if (item.Value.IsNotNullOrEmpty())
                 sb.Append(item.Value.UrlEncode());
         }
 
-        return sb.Length > 1 ? sb.ToString(1, sb.Length - 1) : "";
+        return sb.Length > 1 ? sb.ToString(1, sb.Length - 1) : string.Empty;
     }
 }
