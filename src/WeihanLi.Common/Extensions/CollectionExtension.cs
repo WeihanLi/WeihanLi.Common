@@ -191,7 +191,7 @@ public static class CollectionExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>true if null or empty&lt; t&gt;, false if not.</returns>
-    public static bool IsNullOrEmpty<T>([NotNullWhen(false)]this ICollection<T>? @this)
+    public static bool IsNullOrEmpty<T>([NotNullWhen(false)] this ICollection<T>? @this)
     {
         return @this == null || @this.Count == 0;
     }
@@ -202,7 +202,7 @@ public static class CollectionExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>true if the collection is not (null or empty), false if not.</returns>
-    public static bool HasValue<T>([NotNullWhen(true)]this ICollection<T>? @this)
+    public static bool HasValue<T>([NotNullWhen(true)] this ICollection<T>? @this)
     {
         return @this != null && @this.Count > 0;
     }
