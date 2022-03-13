@@ -8,8 +8,10 @@
 
 - Update `HttpClientExtensions`
 - Add `WrapTask`/`WrapValueTask` support
+- Add `Properties` for `PipelineBuilder`
 - Refactor `Result`
 - Better nullable analysis
+- Improve `ValueTask` support
 
 ### [WeihanLi.Common 1.0.48](https://www.nuget.org/packages/WeihanLi.Common/1.0.48)
 
