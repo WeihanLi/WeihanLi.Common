@@ -19,6 +19,7 @@ Console.WriteLine("----------DotNetCoreSample----------");
 //ProcessExecutorTest.RawProcessTest();
 //ProcessExecutorTest.DotNetInfoTest();
 // ProcessExecutorTest.DotNetNugetGlobalPackagesInfoTest();
+PipelineTest.TestV2();
 
 CommandExecutorTest.MainTest();
 
