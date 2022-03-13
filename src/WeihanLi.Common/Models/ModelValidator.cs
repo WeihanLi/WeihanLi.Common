@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using System.ComponentModel.DataAnnotations;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Models;

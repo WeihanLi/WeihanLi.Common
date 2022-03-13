@@ -21,13 +21,10 @@ public class ElasticSearchAppender : BufferingAppenderSkeleton
 
     public string Type { get; set; } = "logEvent";
 
-#nullable disable
-
     protected override void SendBuffer(LoggingEvent[] events)
     {
-        if (events == null || events.Length == 0)
+        if (events.IsNullOrEmpty())
             return;
-#nullable restore
 
         var sb = new StringBuilder(4096);
         foreach (var le in events)

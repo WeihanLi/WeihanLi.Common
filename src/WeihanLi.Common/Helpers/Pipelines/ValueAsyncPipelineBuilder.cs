@@ -1,9 +1,13 @@
-﻿#if ValueTaskSupport
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+#if ValueTaskSupport
+using WeihanLi.Common.Abstractions;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Common.Helpers;
 
-public interface IValueAsyncPipelineBuilder<TContext>
+public interface IValueAsyncPipelineBuilder<TContext> : IProperties
 {
     IValueAsyncPipelineBuilder<TContext> Use(Func<Func<TContext, ValueTask>, Func<TContext, ValueTask>> middleware);
 
@@ -21,6 +25,8 @@ internal sealed class ValueAsyncPipelineBuilder<TContext> : IValueAsyncPipelineB
     {
         _completeFunc = completeFunc;
     }
+
+    public IDictionary<string, object?> Properties { get; } = new Dictionary<string, object?>();
 
     public IValueAsyncPipelineBuilder<TContext> Use(Func<Func<TContext, ValueTask>, Func<TContext, ValueTask>> middleware)
     {

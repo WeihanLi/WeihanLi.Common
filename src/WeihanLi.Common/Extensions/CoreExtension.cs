@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Net;
 using System.Reflection;
@@ -2137,28 +2138,28 @@ public static class CoreExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>true if null or empty, false if not.</returns>
-    public static bool IsNullOrEmpty(this string? @this) => string.IsNullOrEmpty(@this);
+    public static bool IsNullOrEmpty([NotNullWhen(false)] this string? @this) => string.IsNullOrEmpty(@this);
 
     /// <summary>
     ///     A string extension method that query if '@this' is not null and not empty.
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>false if null or empty, true if not.</returns>
-    public static bool IsNotNullOrEmpty(this string? @this) => !string.IsNullOrEmpty(@this);
+    public static bool IsNotNullOrEmpty([NotNullWhen(true)] this string? @this) => !string.IsNullOrEmpty(@this);
 
     /// <summary>
     ///     A string extension method that query if '@this' is null or whiteSpace.
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>true if null or whiteSpace, false if not.</returns>
-    public static bool IsNullOrWhiteSpace(this string? @this) => string.IsNullOrWhiteSpace(@this);
+    public static bool IsNullOrWhiteSpace([NotNullWhen(false)] this string? @this) => string.IsNullOrWhiteSpace(@this);
 
     /// <summary>
     ///     A string extension method that query if '@this' is not null and not whiteSpace.
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>false if null or whiteSpace, true if not.</returns>
-    public static bool IsNotNullOrWhiteSpace(this string? @this) => !string.IsNullOrWhiteSpace(@this);
+    public static bool IsNotNullOrWhiteSpace([NotNullWhen(true)] this string? @this) => !string.IsNullOrWhiteSpace(@this);
 
     /// <summary>
     ///     Retrieves the system&#39;s reference to the specified .
@@ -2213,10 +2214,7 @@ public static class CoreExtension
     /// <returns>A string.</returns>
     public static string Concatenate(this IEnumerable<string> stringCollection)
     {
-        if (stringCollection is null)
-        {
-            throw new ArgumentNullException(nameof(stringCollection));
-        }
+        Guard.NotNull(stringCollection);
         return string.Join(string.Empty, stringCollection);
     }
 
@@ -2227,10 +2225,7 @@ public static class CoreExtension
     /// <returns>A string.</returns>
     public static string Concatenate<T>(this IEnumerable<T> source, Func<T, string> func)
     {
-        if (source is null)
-        {
-            throw new ArgumentNullException(nameof(source));
-        }
+        Guard.NotNull(source);
         return string.Join(string.Empty, source.Select(func));
     }
 
@@ -2383,12 +2378,12 @@ public static class CoreExtension
     /// <returns>The string reversed.</returns>
     public static string Reverse(this string? @this)
     {
-        if (string.IsNullOrWhiteSpace(@this))
+        if (@this.IsNullOrWhiteSpace())
         {
             return @this ?? string.Empty;
         }
 
-        var chars = @this!.ToCharArray();
+        var chars = @this.ToCharArray();
         Array.Reverse(chars);
         return new string(chars);
     }
@@ -2467,7 +2462,7 @@ public static class CoreExtension
     /// <returns>A string.</returns>
     public static string Truncate(this string @this, int maxLength, string suffix)
     {
-        if (Guard.NotNull(@this, nameof(@this)).Length <= maxLength)
+        if (Guard.NotNull(@this).Length <= maxLength)
         {
             return @this;
         }

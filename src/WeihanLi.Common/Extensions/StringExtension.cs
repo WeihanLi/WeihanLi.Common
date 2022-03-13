@@ -165,11 +165,11 @@ public static class StringExtension
     #endregion Encode/Decode
 
     /// <summary>
-    /// 根据TypeName获取相应的Type
-    /// 支持别名获取，如 int => System.Int32
+    /// Get type by TypeName
+    /// Support type alias，for example: int => System.Int32
     /// </summary>
     /// <param name="typeName">typename</param>
-    /// <returns></returns>
+    /// <returns>Type</returns>
     public static Type GetTypeByTypeName(this string typeName)
     {
         var type = Guard.NotNullOrEmpty(typeName, nameof(typeName))
@@ -253,7 +253,8 @@ public static class StringExtension
         {
             return Array.Empty<T>();
         }
-        return str!.Split(separators, splitOptions)
+        return Guard.NotNull(str)
+            .Split(separators, splitOptions)
             .Select(_ => _.To<T>())
             .ToArray();
     }
@@ -266,11 +267,11 @@ public static class StringExtension
     /// <returns>start removed str</returns>
     public static string? TrimStart(this string? str, string start)
     {
-        if (str.IsNullOrEmpty() || Guard.NotNull(start, nameof(start)).Length == 0)
+        if (str.IsNullOrEmpty() || start.IsNullOrEmpty())
         {
             return str;
         }
-        if (str!.StartsWith(start))
+        if (str.StartsWith(start))
         {
             str = str.Substring(start.Length);
         }

@@ -3,13 +3,13 @@ using Xunit;
 
 namespace WeihanLi.Common.Test.ModelsTest;
 
-public class ResultModelTest
+public class ResultTest
 {
     [Fact]
     public void SuccessTest()
     {
-        var result = ResultModel.Success();
-        Assert.Null(result.ErrorMsg);
+        var result = Result.Success();
+        Assert.Null(result.Msg);
         Assert.Equal(ResultStatus.Success, result.Status);
     }
 
@@ -22,7 +22,7 @@ public class ResultModelTest
     [InlineData(ResultStatus.RequestTimeout)]
     public void FailTest(ResultStatus resultStatus)
     {
-        var result = ResultModel.Fail("test error", resultStatus);
+        var result = Result.Fail("test error", resultStatus);
         Assert.Equal(resultStatus, result.Status);
     }
 }

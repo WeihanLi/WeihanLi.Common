@@ -1,9 +1,14 @@
-﻿namespace WeihanLi.Common;
+﻿using WeihanLi.Common.Helpers;
+
+namespace WeihanLi.Common;
 
 /// <summary>
 /// A singleton disposable that does nothing when disposed.
 /// </summary>
 public sealed class NullDisposable : IDisposable
+#if ValueTaskSupport
+    , IAsyncDisposable
+#endif
 {
     private NullDisposable()
     {
@@ -12,6 +17,10 @@ public sealed class NullDisposable : IDisposable
     public void Dispose()
     {
     }
+
+#if ValueTaskSupport
+    public ValueTask DisposeAsync() => TaskHelper.CompletedValueTask;
+#endif
 
     /// <summary>
     /// Gets the instance of <see cref="NullDisposable"/>.

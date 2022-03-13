@@ -1,7 +1,12 @@
-﻿// ReSharper disable once CheckNamespace
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using WeihanLi.Common.Abstractions;
+
+// ReSharper disable once CheckNamespace
 namespace WeihanLi.Common.Helpers;
 
-public interface IPipelineBuilder<TContext>
+public interface IPipelineBuilder<TContext> : IProperties
 {
     IPipelineBuilder<TContext> Use(Func<Action<TContext>, Action<TContext>> middleware);
 
@@ -19,6 +24,8 @@ internal sealed class PipelineBuilder<TContext> : IPipelineBuilder<TContext>
     {
         _completeFunc = completeFunc;
     }
+
+    public IDictionary<string, object?> Properties { get; } = new Dictionary<string, object?>();
 
     public IPipelineBuilder<TContext> Use(Func<Action<TContext>, Action<TContext>> middleware)
     {
