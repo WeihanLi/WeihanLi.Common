@@ -1,12 +1,12 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
+﻿using WeihanLi.Common.Helpers;
+
 namespace WeihanLi.Common;
 
 /// <summary>
 /// A singleton disposable that does nothing when disposed.
 /// </summary>
 public sealed class NullDisposable : IDisposable
-#if NET6_0_OR_GREATER
+#if ValueTaskSupport
     , IAsyncDisposable
 #endif
 {
@@ -17,9 +17,11 @@ public sealed class NullDisposable : IDisposable
     public void Dispose()
     {
     }
-#if NET6_0_OR_GREATER
-    public ValueTask DisposeAsync() => ValueTask.CompletedTask;
+
+#if ValueTaskSupport
+    public ValueTask DisposeAsync() => TaskHelper.CompletedValueTask;
 #endif
+
     /// <summary>
     /// Gets the instance of <see cref="NullDisposable"/>.
     /// </summary>
