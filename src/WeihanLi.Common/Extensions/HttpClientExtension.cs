@@ -124,7 +124,6 @@ public static class HttpClientExtension
         };
         requestAction?.Invoke(requestMessage);
         using var response = await httpClient.SendAsync(requestMessage, cancellationToken);
-        response.EnsureSuccessStatusCode();
 #if NET6_0_OR_GREATER
         var responseText = await response.Content.ReadAsStringAsync(cancellationToken);
 #else
