@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Net.Http.Headers;
+using WeihanLi.Common;
 using WeihanLi.Common.Http;
 
 // ReSharper disable once CheckNamespace
@@ -81,6 +82,7 @@ public static class HttpClientExtension
         TRequest request, Action<HttpRequestMessage>? requestAction = null,
         CancellationToken cancellationToken = default)
     {
+        Guard.NotNull(httpClient);
         using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl)
         {
             Content = JsonHttpContent.From(request)
@@ -89,12 +91,27 @@ public static class HttpClientExtension
         return await httpClient.SendAsync(requestMessage, cancellationToken);
     }
 
+    public static async Task<TResponse?> ReadJsonResponseAsync<TResponse>
+    (this HttpResponseMessage response, Action<HttpResponseMessage>? responseAction = null,
+        CancellationToken cancellationToken = default)
+    {
+        Guard.NotNull(response);
+        responseAction?.Invoke(response);
+#if NET6_0_OR_GREATER
+        var responseText = await response.Content.ReadAsStringAsync(cancellationToken);
+#else
+        var responseText = await response.Content.ReadAsStringAsync();
+#endif
+        return JsonConvert.DeserializeObject<TResponse>(responseText);
+    }
+
     public static async Task<TResponse?> HttpJsonAsync<TRequest, TResponse>
     (this HttpClient httpClient, HttpMethod httpMethod, string requestUrl,
         TRequest request, Action<HttpRequestMessage>? requestAction = null,
         Action<HttpResponseMessage>? responseAction = null,
         CancellationToken cancellationToken = default)
     {
+        Guard.NotNull(httpClient);
         using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl)
         {
             Content = JsonHttpContent.From(request)
