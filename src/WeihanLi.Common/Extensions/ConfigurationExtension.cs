@@ -11,11 +11,12 @@ namespace Microsoft.Extensions.Configuration;
 public static class ConfigurationExtension
 {
     #region Placeholder
+
     /// <summary>
     /// A regex which matches tokens in the following format: $(Item:Sub1:Sub2).
     /// inspired by https://github.com/henkmollema/ConfigurationPlaceholders
     /// </summary>
-    private static readonly Regex _configPlaceholderRegex = new(@"\$\(([A-Za-z0-9:_]+?)\)");
+    private static readonly Regex ConfigPlaceholderRegex = new(@"\$\(([A-Za-z0-9:_]+?)\)");
 
     /// <summary>
     /// Replaces the placeholders in the specified <see cref="IConfiguration"/> instance.
@@ -33,7 +34,7 @@ public static class ConfigurationExtension
             }
 
             // Replace placeholders in the configuration value.
-            var result = _configPlaceholderRegex.Replace(kvp.Value, match =>
+            var result = ConfigPlaceholderRegex.Replace(kvp.Value, match =>
             {
                 if (!match.Success)
                 {
@@ -72,7 +73,7 @@ public static class ConfigurationExtension
         }
     }
 
-    #endregion
+    #endregion Placeholder
 
     #region GetAppSetting
 
@@ -151,9 +152,11 @@ public static class ConfigurationExtension
     {
         return configuration.GetAppSetting(key).ToOrDefault(defaultValueFunc);
     }
-    #endregion
+
+    #endregion GetAppSetting
 
     #region FeatureFlag
+
     /// <summary>
     /// Feature flags configuration section name, FeatureFlags by default
     /// </summary>
@@ -192,5 +195,6 @@ public static class ConfigurationExtension
         }
         return defaultValue;
     }
-    #endregion
+
+    #endregion FeatureFlag
 }

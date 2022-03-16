@@ -158,7 +158,7 @@ public static class CoreExtension
     }
 
     public static string GetString(this byte[]? byteArray)
-        => byteArray.HasValue() ? byteArray!.GetString(Encoding.UTF8) : string.Empty;
+        => byteArray.HasValue() ? byteArray.GetString(Encoding.UTF8) : string.Empty;
 
     public static string GetString(this byte[] byteArray, Encoding encoding) => encoding.GetString(byteArray);
 
@@ -950,21 +950,6 @@ public static class CoreExtension
     public static int Floor(this double d)
     {
         return Convert.ToInt32(Math.Floor(d));
-    }
-
-    /// <summary>
-    ///     Returns the remainder resulting from the division of a specified number by another specified number.
-    /// </summary>
-    /// <param name="x">A dividend.</param>
-    /// <param name="y">A divisor.</param>
-    /// <returns>
-    ///     A number equal to  - ( Q), where Q is the quotient of  /  rounded to the nearest integer (if  /  falls
-    ///     halfway between two integers, the even integer is returned).If  - ( Q) is zero, the value +0 is returned if
-    ///     is positive, or -0 if  is negative.If  = 0,  is returned.
-    /// </returns>
-    public static double IEEERemainder(this double x, double y)
-    {
-        return Math.IEEERemainder(x, y);
     }
 
     /// <summary>
@@ -2214,7 +2199,6 @@ public static class CoreExtension
     /// <returns>A string.</returns>
     public static string Concatenate(this IEnumerable<string> stringCollection)
     {
-        Guard.NotNull(stringCollection);
         return string.Join(string.Empty, stringCollection);
     }
 
@@ -2225,7 +2209,6 @@ public static class CoreExtension
     /// <returns>A string.</returns>
     public static string Concatenate<T>(this IEnumerable<T> source, Func<T, string> func)
     {
-        Guard.NotNull(source);
         return string.Join(string.Empty, source.Select(func));
     }
 
@@ -2655,7 +2638,7 @@ public static class CoreExtension
         return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
     }
 
-    private static readonly ConcurrentDictionary<Type, object?> _defaultValues =
+    private static readonly ConcurrentDictionary<Type, object?> DefaultValues =
         new();
 
     /// <summary>
@@ -2667,7 +2650,7 @@ public static class CoreExtension
     {
         Guard.NotNull(type, nameof(type));
         return type.IsValueType && type != typeof(void)
-            ? _defaultValues.GetOrAdd(type, Activator.CreateInstance)
+            ? DefaultValues.GetOrAdd(type, Activator.CreateInstance)
             : null;
     }
 

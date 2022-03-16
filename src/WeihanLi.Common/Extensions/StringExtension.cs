@@ -205,7 +205,7 @@ public static class StringExtension
     /// <returns></returns>
     public static string GetNotEmptyValueOrDefault(this string? str, string defaultValue)
     {
-        return str.IsNullOrEmpty() ? defaultValue : str!;
+        return str.IsNullOrEmpty() ? defaultValue : str;
     }
 
     /// <summary>
@@ -216,7 +216,7 @@ public static class StringExtension
     /// <returns></returns>
     public static string GetValueOrDefault(this string? str, string defaultValue)
     {
-        return str.IsNullOrWhiteSpace() ? defaultValue : str!;
+        return str.IsNullOrWhiteSpace() ? defaultValue : str;
     }
 
     /// <summary>
@@ -227,7 +227,7 @@ public static class StringExtension
     /// <returns></returns>
     public static string GetValueOrDefault(this string? str, Func<string> getDefault)
     {
-        return str.IsNullOrWhiteSpace() ? getDefault() : str!;
+        return str.IsNullOrWhiteSpace() ? getDefault() : str;
     }
 
     /// <summary>

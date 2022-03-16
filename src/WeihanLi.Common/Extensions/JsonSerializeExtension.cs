@@ -9,7 +9,7 @@ public static class JsonSerializeExtension
     /// <summary>
     /// DefaultSerializerSettings
     /// </summary>
-    private static readonly JsonSerializerSettings _defaultSerializerSettings = GetDefaultSerializerSettings();
+    private static readonly JsonSerializerSettings DefaultSerializerSettings = GetDefaultSerializerSettings();
 
     private static JsonSerializerSettings GetDefaultSerializerSettings() => new()
     {
@@ -21,7 +21,7 @@ public static class JsonSerializeExtension
     public static JsonSerializerSettings SerializerSettingsWith(Action<JsonSerializerSettings>? action)
     {
         if (null == action)
-            return _defaultSerializerSettings;
+            return DefaultSerializerSettings;
 
         var serializerSettings = GetDefaultSerializerSettings();
         action.Invoke(serializerSettings);
@@ -65,7 +65,7 @@ public static class JsonSerializeExtension
         {
             return string.Empty;
         }
-        var result = JsonConvert.SerializeObject(obj, settings ?? _defaultSerializerSettings) ?? string.Empty;
+        var result = JsonConvert.SerializeObject(obj, settings ?? DefaultSerializerSettings) ?? string.Empty;
         if (isConvertToSingleQuotes)
         {
             result = result.Replace("\"", "'");
@@ -90,7 +90,7 @@ public static class JsonSerializeExtension
     /// <param name="settings">JsonSerializerSettings</param>
     /// <returns>由字符串转换得到的T对象</returns>
     public static T JsonToObject<T>(this string jsonString, JsonSerializerSettings? settings)
-        => Guard.NotNull(JsonConvert.DeserializeObject<T>(jsonString, settings ?? _defaultSerializerSettings));
+        => Guard.NotNull(JsonConvert.DeserializeObject<T>(jsonString, settings ?? DefaultSerializerSettings));
 
     /// <summary>
     /// 对象转换为string，如果是基元类型直接ToString(),如果是Entity则Json序列化

@@ -1,36 +1,14 @@
 <Project>
-  <Import Project="./build/sign.props" />
   <Import Project="./build/version.props" />
   
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-
-    <RepositoryType>git</RepositoryType>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <RepositoryUrl>https://github.com/WeihanLi/WeihanLi.Common</RepositoryUrl>
-    <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <!-- Optional: Embed source files that are not tracked by the source control manager in the PDB -->
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <!-- Optional: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>
-      https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
-    </PackageReleaseNotes>
-    <PackageIcon>icon.jpg</PackageIcon>    
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    
+    <RepositoryType>git</RepositoryType>    
     <Authors>WeihanLi</Authors>
-    <Copyright>Copyright 2017-2022 (c) WeihanLi</Copyright>
+    <Copyright>Copyright 2017-$([System.DateTime]::Now.Year) (c) WeihanLi</Copyright>
     <NoWarn>$(NoWarn);NU5048;CS1591</NoWarn>
     <ContinuousIntegrationBuild Condition="'$(TF_BUILD)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
   </PropertyGroup>
-  <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)icon.jpg" Pack="true" Visible="false" PackagePath=""/>
-  </ItemGroup>
 </Project>
