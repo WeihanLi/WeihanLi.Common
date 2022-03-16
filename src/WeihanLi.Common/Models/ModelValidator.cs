@@ -22,7 +22,7 @@ public static class ModelValidator
 
     public static bool TryValidate(object instance, out IReadOnlyDictionary<string, string>? result)
     {
-        if (TryValidate(instance, out IReadOnlyCollection<ValidationResult>? results))
+        if (TryValidate(instance, out IReadOnlyCollection<System.ComponentModel.DataAnnotations.ValidationResult>? results))
         {
             result = null;
             return true;
@@ -34,9 +34,9 @@ public static class ModelValidator
         return false;
     }
 
-    private static bool TryValidate(object instance, out IReadOnlyCollection<ValidationResult>? result)
+    private static bool TryValidate(object instance, out IReadOnlyCollection<System.ComponentModel.DataAnnotations.ValidationResult>? result)
     {
-        var results = new List<ValidationResult>();
+        var results = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
         if (Validator.TryValidateObject(instance, new ValidationContext(instance, null, null), results, true))
         {
             result = null;
