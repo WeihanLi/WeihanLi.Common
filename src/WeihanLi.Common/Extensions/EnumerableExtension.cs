@@ -61,7 +61,7 @@ public static class EnumerableExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="source">The collection to act on.</param>
     /// <returns>true if a not null or is t>, false if not.</returns>
-    public static bool HasValue<T>([NotNullWhen(true)] this IEnumerable<T> source)
+    public static bool HasValue<T>([NotNullWhen(true)] this IEnumerable<T>? source)
     {
         return source != null && source.Any();
     }

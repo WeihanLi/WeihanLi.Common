@@ -69,7 +69,7 @@ public static class ExpressionExtension
             if (node == _oldValue)
                 return _newValue;
 
-            return base.Visit(node)!;
+            return base.Visit(node);
         }
     }
 
