@@ -7,6 +7,7 @@
 ### [WeihanLi.Common 1.0.50](https://www.nuget.org/packages/WeihanLi.Common/1.0.50)
 
 - Update `HttpClientExtensions` to fix extension conflict with `System.Net.Http.Json`
+- Update `Validator`
 
 ### [WeihanLi.Common 1.0.49](https://www.nuget.org/packages/WeihanLi.Common/1.0.49)
 
