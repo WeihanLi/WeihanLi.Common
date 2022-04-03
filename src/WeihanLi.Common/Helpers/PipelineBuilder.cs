@@ -28,7 +28,13 @@ public static class PipelineBuilder
 #if ValueTaskSupport
     public static IValueAsyncPipelineBuilder<TContext> CreateValueAsync<TContext>()
     {
-        return new ValueAsyncPipelineBuilder<TContext>(c => TaskHelper.CompletedValueTask);
+        return new ValueAsyncPipelineBuilder<TContext>(c => 
+#if NET6_0_OR_GREATER
+        ValueTask.CompletedTask
+#else
+        TaskHelper.CompletedValueTask
+#endif
+        );
     }
     public static IValueAsyncPipelineBuilder<TContext> CreateValueAsync<TContext>(Func<TContext, ValueTask> completeFunc)
     {

@@ -19,7 +19,13 @@ public sealed class NullDisposable : IDisposable
     }
 
 #if ValueTaskSupport
-    public ValueTask DisposeAsync() => TaskHelper.CompletedValueTask;
+    public ValueTask DisposeAsync() =>
+#if NET6_0_OR_GREATER
+        ValueTask.CompletedTask
+#else
+        TaskHelper.CompletedValueTask
+#endif    
+    ;
 #endif
 
     /// <summary>
