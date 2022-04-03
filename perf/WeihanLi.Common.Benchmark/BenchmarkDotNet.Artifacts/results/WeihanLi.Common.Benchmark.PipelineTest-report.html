@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>WeihanLi.Common.Benchmark.PipelineTest-20220403-193147</title>
+<title>WeihanLi.Common.Benchmark.PipelineTest-20220404-002449</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -22,10 +22,12 @@ Intel Core i5-6300U CPU 2.40GHz (Skylake), 1 CPU, 4 logical and 2 physical cores
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>     Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Ratio</th><th>RatioSD</th><th>Gen 0</th><th>Allocated</th>
+<thead><tr><th>           Method</th><th>  Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Gen 0</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>ValueTaskPipeline</td><td>3.329 ms</td><td>0.1639 ms</td><td>0.4833 ms</td><td>1.00</td><td>0.00</td><td>1988.2813</td><td>3 MB</td>
-</tr><tr><td>TaskPipeline</td><td>2.775 ms</td><td>0.1464 ms</td><td>0.4316 ms</td><td>0.85</td><td>0.18</td><td>1988.2813</td><td>3 MB</td>
+</thead><tbody><tr><td>ValueTaskPipeline</td><td>18.69 &mu;s</td><td>1.402 &mu;s</td><td>4.133 &mu;s</td><td>16.55 &mu;s</td><td>19.3176</td><td>30 KB</td>
+</tr><tr><td>ValueTaskPipelineInvoke</td><td>21,669.82 &mu;s</td><td>403.984 &mu;s</td><td>449.027 &mu;s</td><td>21,635.27 &mu;s</td><td>19875.0000</td><td>30,470 KB</td>
+</tr><tr><td>TaskPipeline</td><td>14.00 &mu;s</td><td>0.279 &mu;s</td><td>0.443 &mu;s</td><td>13.87 &mu;s</td><td>19.3329</td><td>30 KB</td>
+</tr><tr><td>TaskPipelineInvoke</td><td>17,902.60 &mu;s</td><td>346.586 &mu;s</td><td>508.021 &mu;s</td><td>17,881.09 &mu;s</td><td>19875.0000</td><td>30,470 KB</td>
 </tr></tbody></table>
 </body>
 </html>

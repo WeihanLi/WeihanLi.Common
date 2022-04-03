@@ -8,7 +8,9 @@ Intel Core i5-6300U CPU 2.40GHz (Skylake), 1 CPU, 4 logical and 2 physical cores
 
 
 ```
-|            Method |     Mean |     Error |    StdDev | Ratio | RatioSD |     Gen 0 | Allocated |
-|------------------ |---------:|----------:|----------:|------:|--------:|----------:|----------:|
-| ValueTaskPipeline | 3.329 ms | 0.1639 ms | 0.4833 ms |  1.00 |    0.00 | 1988.2813 |      3 MB |
-|      TaskPipeline | 2.775 ms | 0.1464 ms | 0.4316 ms |  0.85 |    0.18 | 1988.2813 |      3 MB |
+|                  Method |         Mean |      Error |     StdDev |       Median |      Gen 0 | Allocated |
+|------------------------ |-------------:|-----------:|-----------:|-------------:|-----------:|----------:|
+|       ValueTaskPipeline |     18.69 μs |   1.402 μs |   4.133 μs |     16.55 μs |    19.3176 |     30 KB |
+| ValueTaskPipelineInvoke | 21,669.82 μs | 403.984 μs | 449.027 μs | 21,635.27 μs | 19875.0000 | 30,470 KB |
+|            TaskPipeline |     14.00 μs |   0.279 μs |   0.443 μs |     13.87 μs |    19.3329 |     30 KB |
+|      TaskPipelineInvoke | 17,902.60 μs | 346.586 μs | 508.021 μs | 17,881.09 μs | 19875.0000 | 30,470 KB |
