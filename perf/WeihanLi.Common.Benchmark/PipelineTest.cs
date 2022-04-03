@@ -14,8 +14,26 @@ public class PipelineTest
     {
     }
 
-    [Benchmark(Baseline = true)]
+    [Benchmark]
     public async Task ValueTaskPipeline()
+    {
+        var builder = PipelineBuilder.CreateValueAsync<TestContext>();
+        for(var i = 0;  i < 100; i++)
+        {
+            builder.Use(async (context, next) =>
+            {
+                Debug.WriteLine(context.GetHashCode());
+                await next();
+            });
+        }
+        var pipeline = builder.Build();
+
+        var context = new TestContext();
+        await pipeline(context);
+    }
+
+    [Benchmark]
+    public async Task ValueTaskPipelineInvoke()
     {
         var builder = PipelineBuilder.CreateValueAsync<TestContext>();
         builder.Use(async (context, next) =>
@@ -34,7 +52,7 @@ public class PipelineTest
             await next();
         });
         var pipeline = builder.Build();
-        for (var i = 0; i < 10000; i++)
+        for (var i = 0; i < 100000; i++)
         {
             var context = new TestContext();
             await pipeline(context);
@@ -43,6 +61,25 @@ public class PipelineTest
 
     [Benchmark]
     public async Task TaskPipeline()
+    {
+        var builder = PipelineBuilder.CreateAsync<TestContext>();
+        for(var i = 0;  i < 100; i++)
+        {
+            builder.Use(async (context, next) =>
+            {
+                Debug.WriteLine(context.GetHashCode());
+                await next();
+            });
+        }
+        var pipeline = builder.Build();
+
+        var context = new TestContext();
+        await pipeline(context);
+    }
+
+    
+    [Benchmark]
+    public async Task TaskPipelineInvoke()
     {
         var builder = PipelineBuilder.CreateAsync<TestContext>();
         builder.Use(async (context, next) =>
@@ -61,7 +98,7 @@ public class PipelineTest
             await next();
         });
         var pipeline = builder.Build();
-        for (var i = 0; i < 10000; i++)
+        for (var i = 0; i < 100000; i++)
         {
             var context = new TestContext();
             await pipeline(context);
