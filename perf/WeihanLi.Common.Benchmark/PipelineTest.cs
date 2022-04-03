@@ -18,7 +18,7 @@ public class PipelineTest
     public async Task ValueTaskPipeline()
     {
         var builder = PipelineBuilder.CreateValueAsync<TestContext>();
-        for(var i = 0;  i < 100; i++)
+        for (var i = 0; i < 100; i++)
         {
             builder.Use(async (context, next) =>
             {
@@ -63,7 +63,7 @@ public class PipelineTest
     public async Task TaskPipeline()
     {
         var builder = PipelineBuilder.CreateAsync<TestContext>();
-        for(var i = 0;  i < 100; i++)
+        for (var i = 0; i < 100; i++)
         {
             builder.Use(async (context, next) =>
             {
@@ -77,7 +77,7 @@ public class PipelineTest
         await pipeline(context);
     }
 
-    
+
     [Benchmark]
     public async Task TaskPipelineInvoke()
     {
