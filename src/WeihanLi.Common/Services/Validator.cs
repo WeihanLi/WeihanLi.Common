@@ -27,11 +27,11 @@ public sealed class DataAnnotationValidator : IValidator
     public ValidationResult Validate(object? value)
     {
         var validationResult = new ValidationResult();
-        if(value is null)
+        if (value is null)
         {
             validationResult.Valid = false;
             validationResult.Errors ??= new Dictionary<string, string[]>();
-            validationResult.Errors[string.Empty] = new[]{ "Value is null" };
+            validationResult.Errors[string.Empty] = new[] { "Value is null" };
         }
         else
         {
@@ -41,7 +41,7 @@ public sealed class DataAnnotationValidator : IValidator
             validationResult.Errors = annotationValidateResults
                 .GroupBy(x => x.MemberNames.StringJoin(","))
                 .ToDictionary(g => g.Key, g => g.Select(x => x.ErrorMessage).WhereNotNull().ToArray());
-        }        
+        }
         return validationResult;
     }
 }
