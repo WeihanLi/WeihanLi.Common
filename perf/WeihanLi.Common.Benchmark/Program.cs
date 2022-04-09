@@ -15,9 +15,11 @@ public class Program
         serviceCollection.AddSingleton<IConfiguration>(configurationBuilder.Build());
         DependencyResolver.SetDependencyResolver(serviceCollection);
 
-        BenchmarkRunner.Run<MapperTest>();
+        // BenchmarkRunner.Run<MapperTest>();
         // BenchmarkRunner.Run<CreateInstanceTest>();
         // BenchmarkRunner.Run<DITest>();
+
+        BenchmarkRunner.Run<PipelineTest>();
 
         Console.ReadLine();
     }
