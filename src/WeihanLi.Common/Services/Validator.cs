@@ -70,7 +70,7 @@ public sealed class DelegateValidator<T> : IValidator<T>, IAsyncValidator<T>
         Guard.NotNull(validateFunc);
         _validateFunc = t => validateFunc(t).WrapTask();
     }
-    
+
     public DelegateValidator(Func<T, Task<ValidationResult>> validateFunc)
     {
         _validateFunc = Guard.NotNull(validateFunc);
@@ -80,7 +80,7 @@ public sealed class DelegateValidator<T> : IValidator<T>, IAsyncValidator<T>
     {
         return _validateFunc.Invoke(value).GetAwaiter().GetResult();
     }
-    
+
     public Task<ValidationResult> ValidateAsync(T value)
     {
         return _validateFunc.Invoke(value);
