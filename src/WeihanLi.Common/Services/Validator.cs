@@ -10,9 +10,21 @@ public interface IValidator
     ValidationResult Validate(object value);
 }
 
-public class DataAnnotationValidator : IValidator
+public interface IValidator<T>
 {
-    public virtual ValidationResult Validate(object value)
+    Task<ValidationResult> ValidateAsync(T value);
+}
+
+public sealed class DataAnnotationValidator : IValidator
+{
+    public static IValidator Instance {get;}
+
+    static DataAnnotationValidator()
+    {
+        Instance = new DataAnnotationValidator();
+    }
+
+    public ValidationResult Validate(object value)
     {
         var validationResult = new ValidationResult();
         var annotationValidateResults = new List<AnnotationValidationResult>();
@@ -35,6 +47,21 @@ public sealed class DelegateValidator : IValidator
     }
 
     public ValidationResult Validate(object value)
+    {
+        return _validateFunc.Invoke(value);
+    }
+}
+
+public sealed class DelegateValidator<T> : IValidator<T>
+{
+    private readonly Func<T, Task<ValidationResult>> _validateFunc;
+
+    public DelegateValidator(Func<T, Task<ValidationResult>> validateFunc)
+    {
+        _validateFunc = Guard.NotNull(validateFunc);
+    }
+
+    public Task<ValidationResult> ValidateAsync(T value)
     {
         return _validateFunc.Invoke(value);
     }
