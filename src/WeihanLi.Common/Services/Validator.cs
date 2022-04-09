@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Services;
 
 public interface IValidator
 {
-    ValidationResult Validate(object value);
+    ValidationResult Validate(object? value);
 }
 
 public interface IValidator<T>
@@ -24,7 +24,7 @@ public sealed class DataAnnotationValidator : IValidator
         Instance = new DataAnnotationValidator();
     }
 
-    public ValidationResult Validate(object value)
+    public ValidationResult Validate(object? value)
     {
         var validationResult = new ValidationResult();
         var annotationValidateResults = new List<AnnotationValidationResult>();
@@ -39,14 +39,14 @@ public sealed class DataAnnotationValidator : IValidator
 
 public sealed class DelegateValidator : IValidator
 {
-    private readonly Func<object, ValidationResult> _validateFunc;
+    private readonly Func<object?, ValidationResult> _validateFunc;
 
-    public DelegateValidator(Func<object, ValidationResult> validateFunc)
+    public DelegateValidator(Func<object?, ValidationResult> validateFunc)
     {
         _validateFunc = Guard.NotNull(validateFunc);
     }
 
-    public ValidationResult Validate(object value)
+    public ValidationResult Validate(object? value)
     {
         return _validateFunc.Invoke(value);
     }
