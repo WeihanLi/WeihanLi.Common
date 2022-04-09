@@ -18,10 +18,10 @@ public interface IValidationResult
     Dictionary<string, string[]> Errors { get; }
 }
 
-public sealed class ValidationResult: IValidationResult
+public sealed class ValidationResult : IValidationResult
 {
     private Dictionary<string, string[]> _errors = new();
-    
+
     /// <inheritdoc cref="IValidationResult"/>
     public bool Valid { get; set; }
 
@@ -43,7 +43,7 @@ public sealed class ValidationResult: IValidationResult
         };
         return result;
     }
-    
+
     public static ValidationResult Failed(Dictionary<string, string[]> errors)
     {
         var result = new ValidationResult
