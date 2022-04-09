@@ -27,12 +27,21 @@ public sealed class DataAnnotationValidator : IValidator
     public ValidationResult Validate(object? value)
     {
         var validationResult = new ValidationResult();
-        var annotationValidateResults = new List<AnnotationValidationResult>();
-        validationResult.Valid =
-            Validator.TryValidateObject(value, new ValidationContext(value), annotationValidateResults);
-        validationResult.Errors = annotationValidateResults
-            .GroupBy(x => x.MemberNames.StringJoin(","))
-            .ToDictionary(g => g.Key, g => g.Select(x => x.ErrorMessage).WhereNotNull().ToArray());
+        if(value is null)
+        {
+            validationResult.Valid = false;
+            validationResult.Errors ??= new Dictionary<string, string[]>();
+            validationResult.Errors[string.Empty] = new[]{ "Value is null" };
+        }
+        else
+        {
+            var annotationValidateResults = new List<AnnotationValidationResult>();
+            validationResult.Valid =
+                Validator.TryValidateObject(value, new ValidationContext(value), annotationValidateResults);
+            validationResult.Errors = annotationValidateResults
+                .GroupBy(x => x.MemberNames.StringJoin(","))
+                .ToDictionary(g => g.Key, g => g.Select(x => x.ErrorMessage).WhereNotNull().ToArray());
+        }        
         return validationResult;
     }
 }
