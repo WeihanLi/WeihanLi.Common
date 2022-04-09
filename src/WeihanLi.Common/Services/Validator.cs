@@ -17,7 +17,7 @@ public interface IValidator<T>
 
 public sealed class DataAnnotationValidator : IValidator
 {
-    public static IValidator Instance {get;}
+    public static IValidator Instance { get; }
 
     static DataAnnotationValidator()
     {
