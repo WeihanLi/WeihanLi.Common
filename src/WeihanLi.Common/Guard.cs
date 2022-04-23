@@ -26,12 +26,23 @@ public static class Guard
 
     public static string NotNullOrEmpty([NotNull] string? str,
         [CallerArgumentExpression("str")]
-            string? paramName = default)
+            string? paramName = null)
     {
         NotNull(str, paramName);
-        if (string.IsNullOrEmpty(str))
+        if (str.Length == 0)
         {
-            throw new ArgumentException("The argument is IsNullOrEmpty", paramName);
+            throw new ArgumentException("The argument can not be Empty", paramName);
+        }
+        return str;
+    }
+
+    public static string NotNullOrWhiteSpace([NotNull] string? str,
+        [CallerArgumentExpression("str")] string? paramName = null)
+    {
+        NotNull(str, paramName);
+        if (str.Trim().Length == 0)
+        {
+            throw new ArgumentException("The argument can not be WhiteSpace", paramName);
         }
         return str;
     }
