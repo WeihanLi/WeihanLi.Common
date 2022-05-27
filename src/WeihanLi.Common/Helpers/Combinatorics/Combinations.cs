@@ -49,8 +49,6 @@ public sealed class Combinations<T> : IEnumerable<IReadOnlyList<T>>
     /// <param name="type">The type of Combinations set to generate.</param>
     public Combinations(IEnumerable<T> values, int lowerIndex, GenerateOption type)
     {
-        Guard.NotNull(values);
-
         // Copy the array and parameters and then create a map of booleans that will
         // be used by a permutations object to reference the subset.  This map is slightly
         // different based on whether the type is with or without repetition.
@@ -69,7 +67,7 @@ public sealed class Combinations<T> : IEnumerable<IReadOnlyList<T>>
 
         Type = type;
         LowerIndex = lowerIndex;
-        _myValues = values is IList<T> list ? list : values.ToArray();
+        _myValues = values is IList<T> list ? list : Guard.NotNull(values).ToArray();
         List<bool> myMap;
         if (type == GenerateOption.WithoutRepetition)
         {

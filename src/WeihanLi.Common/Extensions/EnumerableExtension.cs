@@ -84,6 +84,8 @@ public static class EnumerableExtension
         return string.Join(separator, @this);
     }
 
+#if NETSTANDARD2_0
+
     public static IEnumerable<TSource> Prepend<TSource>(this IEnumerable<TSource> source, TSource value)
     {
         yield return value;
@@ -103,6 +105,8 @@ public static class EnumerableExtension
 
         yield return value;
     }
+
+#endif
 
     #region Split
 

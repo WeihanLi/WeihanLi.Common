@@ -204,7 +204,7 @@ public static class CollectionExtension
     /// <returns>true if the collection is not (null or empty), false if not.</returns>
     public static bool HasValue<T>([NotNullWhen(true)] this ICollection<T>? @this)
     {
-        return @this != null && @this.Count > 0;
+        return @this is { Count: > 0 };
     }
 
     /// <summary>
@@ -233,4 +233,58 @@ public static class CollectionExtension
             .Select(i => list[i])
             ;
     }
+
+#if NET6_0_OR_GREATER
+    // https://github.com/more-itertools/more-itertools/blob/master/more_itertools/more.py#L3149
+    //def set_partitions_helper(L, k):
+    //n = len(L)
+    //if k == 1:
+    //    yield [L]
+    //elif n == k:
+    //    yield [[s] for s in L]
+    //else:
+    //    e, *M = L
+    //    for p in set_partitions_helper(M, k - 1):
+    //        yield [[e], *p]
+    //    for p in set_partitions_helper(M, k):
+    //        for i in range(len(p)):
+    //            yield p[:i] + [[e] + p[i]] + p[i + 1 :]
+    public static IEnumerable<T[][]> Partitions<T>(this T[] numbers, int batch)
+    {
+        if (batch <= 0 || numbers.Length < batch)
+        {
+            throw new ArgumentException("Invalid batch size", nameof(batch));
+        }
+        if (batch == 1)
+        {
+            yield return new[] { numbers };
+        }
+        else if (batch == numbers.Length)
+        {
+            yield return numbers.Select(x => new[] { x }).ToArray();
+        }
+        else
+        {
+            var e = numbers[0];
+            var m = numbers[1..];
+            foreach (var p in Partitions(m, batch - 1))
+            {
+                yield return new[]
+                {
+                    new []{e}
+                }.Concat(p).ToArray();
+            }
+            foreach (var p in Partitions(m, batch))
+            {
+                for (var i = 0; i < p.Length; i++)
+                {
+                    yield return p[..i]
+                        .Concat(new[] { new[] { e }.Concat(p[i]).ToArray() })
+                        .Concat(p[(i + 1)..])
+                        .ToArray();
+                }
+            }
+        }
+    }
+#endif
 }
