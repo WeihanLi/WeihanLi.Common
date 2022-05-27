@@ -52,4 +52,36 @@ public static class Guard
         }
         return collection;
     }
+
+    public static T Ensure<T>(Func<T, bool> condition, T t, [CallerArgumentExpression("t")]string? paramName = null)
+    {
+        NotNull(condition);
+        if (!condition(t))
+        {
+            throw new ArgumentException("The argument does not meet condition", paramName);
+        }
+        return t;
+    }
+
+    public static async Task<T> EnsureAsync<T>(Func<T, Task<bool>> condition, T t, [CallerArgumentExpression("t")] string? paramName = null)
+    {
+        NotNull(condition);
+        if (!await condition(t))
+        {
+            throw new ArgumentException("The argument does not meet condition", paramName);
+        }
+        return t;
+    }
+
+#if ValueTaskSupport
+    public static async Task<T> EnsureAsync<T>(Func<T, ValueTask<bool>> condition, T t, [CallerArgumentExpression("t")] string? paramName = null)
+    {
+        NotNull(condition);
+        if (!await condition(t))
+        {
+            throw new ArgumentException("The argument does not meet condition", paramName);
+        }
+        return t;
+    }
+#endif
 }
