@@ -14,15 +14,11 @@ public static class Guard
 #else
         if (t is null)
         {
-            ThrowNullException(paramName);
+            throw new ArgumentNullException(paramName)
         }
 #endif
         return t;
     }
-
-    [DoesNotReturn]
-    private static void ThrowNullException(string? paramName) =>
-        throw new ArgumentNullException(paramName);
 
     public static string NotNullOrEmpty([NotNull] string? str,
         [CallerArgumentExpression("str")]
@@ -40,10 +36,20 @@ public static class Guard
         [CallerArgumentExpression("str")] string? paramName = null)
     {
         NotNull(str, paramName);
-        if (str.Trim().Length == 0)
+        if (string.IsNullOrWhiteSpace(str))
         {
             throw new ArgumentException("The argument can not be WhiteSpace", paramName);
         }
         return str;
+    }
+
+    public static ICollection<T> NotEmpty<T>([NotNull] ICollection<T> collection, [CallerArgumentExpression("collection")] string? paramName = null)
+    {
+        NotNull(collection, paramName);
+        if (collection.Count == 0)
+        {
+            throw new ArgumentException("The collection could not be empty", paramName);
+        }
+        return collection;
     }
 }
