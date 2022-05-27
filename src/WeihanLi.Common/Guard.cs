@@ -14,7 +14,7 @@ public static class Guard
 #else
         if (t is null)
         {
-            throw new ArgumentNullException(paramName)
+            throw new ArgumentNullException(paramName);
         }
 #endif
         return t;
