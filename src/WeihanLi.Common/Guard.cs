@@ -53,7 +53,7 @@ public static class Guard
         return collection;
     }
 
-    public static T Ensure<T>(Func<T, bool> condition, T t, [CallerArgumentExpression("t")]string? paramName = null)
+    public static T Ensure<T>(Func<T, bool> condition, T t, [CallerArgumentExpression("t")] string? paramName = null)
     {
         NotNull(condition);
         if (!condition(t))
