@@ -249,24 +249,24 @@ public static class CollectionExtension
     //    for p in set_partitions_helper(M, k):
     //        for i in range(len(p)):
     //            yield p[:i] + [[e] + p[i]] + p[i + 1 :]
-    public static IEnumerable<T[][]> Partitions<T>(this T[] numbers, int batch)
+    public static IEnumerable<T[][]> Partitions<T>(this T[] array, int batch)
     {
-        if (batch <= 0 || numbers.Length < batch)
+        if (batch <= 0 || array.Length < batch)
         {
             throw new ArgumentException("Invalid batch size", nameof(batch));
         }
         if (batch == 1)
         {
-            yield return new[] { numbers };
+            yield return new[] { array };
         }
-        else if (batch == numbers.Length)
+        else if (batch == array.Length)
         {
-            yield return numbers.Select(x => new[] { x }).ToArray();
+            yield return array.Select(x => new[] { x }).ToArray();
         }
         else
         {
-            var e = numbers[0];
-            var m = numbers[1..];
+            var e = array[0];
+            var m = array[1..];
             foreach (var p in Partitions(m, batch - 1))
             {
                 yield return new[]
