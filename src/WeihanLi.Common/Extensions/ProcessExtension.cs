@@ -25,7 +25,7 @@ public static class ProcessExtension
             process.Exited += handler;
             tcs.Task.Wait(cancellationToken);
         }
-        catch (OperationCanceledException)when (cancellationToken.IsCancellationRequested)
+        catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
         {
             tcs.TrySetCanceled();
         }
