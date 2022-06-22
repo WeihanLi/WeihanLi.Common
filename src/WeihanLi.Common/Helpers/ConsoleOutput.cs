@@ -52,14 +52,12 @@ public sealed class ConsoleOutput : IDisposable
 
             Console.SetOut(outputCapture._outputWriter);
             Console.SetError(outputCapture._errorWriter);
+            return outputCapture;
         }
-        catch
+        finally
         {
             _consoleLock.Release();
-            throw;
         }
-
-        return outputCapture;
     }
 
     public void Dispose()
