@@ -1,4 +1,5 @@
-﻿// ReSharper disable LocalizableElement
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
 
 using DotNetCoreSample;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,8 @@ using WeihanLi.Common.Event;
 using WeihanLi.Extensions;
 
 Console.WriteLine("----------DotNetCoreSample----------");
+
+ServiceDecoratorTest.MainTest();
 
 // var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
 // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);

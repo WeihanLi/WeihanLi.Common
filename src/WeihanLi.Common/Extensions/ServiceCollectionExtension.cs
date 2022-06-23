@@ -1,4 +1,8 @@
-﻿using System.Reflection;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using System.Reflection;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
@@ -239,5 +243,62 @@ public static class ServiceCollectionExtension
         }
 
         return services;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TService"></typeparam>
+    /// <typeparam name="TDecorator"></typeparam>
+    /// <param name="services"></param>
+    /// <returns></returns>
+    public static IServiceCollection Decorate<TService, TDecorator>(this IServiceCollection services)
+         where TService : class
+         where TDecorator : class, TService
+    {
+        var serviceType = typeof(TService);
+        var service = services.FirstOrDefault(x => x.ServiceType == serviceType);
+        if (service == null)
+        {
+            throw new InvalidOperationException("The service is not registed, service need to be registered before decorating");
+        }
+        // create the object factory for our decorator type
+        var objectFactory = ActivatorUtilities.CreateFactory(typeof(TDecorator), new[] { serviceType });
+        var decoratorService = new ServiceDescriptor(serviceType, sp => objectFactory(sp, new object?[]
+        {
+            sp.CreateInstance(service)
+        }), service.Lifetime);
+
+        services.Replace(decoratorService);
+        return services;
+    }
+
+    public static IServiceCollection Decorate(this IServiceCollection services, Type serviceType, Type implementType)
+    {
+        var service = services.FirstOrDefault(x => x.ServiceType == serviceType);
+        if (service == null)
+        {
+            throw new InvalidOperationException("The service is not registed, service need to be registered before decorating");
+        }
+        // create the object factory for our decorator type
+        var objectFactory = ActivatorUtilities.CreateFactory(implementType, new[] { serviceType });
+        var decoratorService = new ServiceDescriptor(serviceType, sp => objectFactory(sp, new object?[]
+        {
+            sp.CreateInstance(service)
+        }), service.Lifetime);
+
+        services.Replace(decoratorService);
+        return services;
+    }
+
+    private static object CreateInstance(this IServiceProvider services, ServiceDescriptor descriptor)
+    {
+        if (descriptor.ImplementationInstance != null)
+            return descriptor.ImplementationInstance;
+
+        if (descriptor.ImplementationFactory != null)
+            return descriptor.ImplementationFactory(services);
+
+        return ActivatorUtilities.GetServiceOrCreateInstance(services, descriptor.ImplementationType!);
     }
 }
