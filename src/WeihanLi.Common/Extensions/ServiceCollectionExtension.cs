@@ -246,42 +246,36 @@ public static class ServiceCollectionExtension
     }
 
     /// <summary>
-    /// 
+    /// Register decorator for TService
     /// </summary>
-    /// <typeparam name="TService"></typeparam>
-    /// <typeparam name="TDecorator"></typeparam>
-    /// <param name="services"></param>
-    /// <returns></returns>
+    /// <typeparam name="TService">service type</typeparam>
+    /// <typeparam name="TDecorator">decorator type</typeparam>
+    /// <param name="services">services</param>
+    /// <returns>services</returns>
     public static IServiceCollection Decorate<TService, TDecorator>(this IServiceCollection services)
          where TService : class
          where TDecorator : class, TService
     {
-        var serviceType = typeof(TService);
-        var service = services.FirstOrDefault(x => x.ServiceType == serviceType);
-        if (service == null)
-        {
-            throw new InvalidOperationException("The service is not registed, service need to be registered before decorating");
-        }
-        // create the object factory for our decorator type
-        var objectFactory = ActivatorUtilities.CreateFactory(typeof(TDecorator), new[] { serviceType });
-        var decoratorService = new ServiceDescriptor(serviceType, sp => objectFactory(sp, new object?[]
-        {
-            sp.CreateInstance(service)
-        }), service.Lifetime);
-
-        services.Replace(decoratorService);
-        return services;
+        return services.Decorate(typeof(TService), typeof(TDecorator));
     }
 
-    public static IServiceCollection Decorate(this IServiceCollection services, Type serviceType, Type implementType)
+    /// <summary>
+    /// Register service decorator
+    /// </summary>
+    /// <param name="services">services</param>
+    /// <param name="serviceType">serviceType</param>
+    /// <param name="decoratorType">decoratorType</param>
+    /// <returns>services</returns>
+    /// <exception cref="InvalidOperationException">throw exception when serviceType not registered</exception>
+    public static IServiceCollection Decorate(this IServiceCollection services, Type serviceType, Type decoratorType)
     {
         var service = services.FirstOrDefault(x => x.ServiceType == serviceType);
         if (service == null)
         {
             throw new InvalidOperationException("The service is not registed, service need to be registered before decorating");
         }
-        // create the object factory for our decorator type
-        var objectFactory = ActivatorUtilities.CreateFactory(implementType, new[] { serviceType });
+
+        var objectFactory = ActivatorUtilities.CreateFactory(decoratorType, new[] { serviceType });
         var decoratorService = new ServiceDescriptor(serviceType, sp => objectFactory(sp, new object?[]
         {
             sp.CreateInstance(service)
