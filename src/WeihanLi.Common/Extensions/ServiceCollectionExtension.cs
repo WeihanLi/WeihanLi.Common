@@ -269,7 +269,7 @@ public static class ServiceCollectionExtension
     /// <exception cref="InvalidOperationException">throw exception when serviceType not registered</exception>
     public static IServiceCollection Decorate(this IServiceCollection services, Type serviceType, Type decoratorType)
     {
-        var service = services.FirstOrDefault(x => x.ServiceType == serviceType);
+        var service = services.LastOrDefault(x => x.ServiceType == serviceType);
         if (service == null)
         {
             throw new InvalidOperationException("The service is not registed, service need to be registered before decorating");
