@@ -185,16 +185,15 @@ public static class ServiceCollectionExtension
     /// <returns>services</returns>
     public static IServiceCollection RegisterTypeAsImplementedInterfaces(this IServiceCollection services, Type type, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
     {
-        if (type != null)
+        Guard.NotNull(type);
+        foreach (var interfaceType in type.GetImplementedInterfaces())
         {
-            foreach (var interfaceType in type.GetImplementedInterfaces())
+            if (interfaceTypeFilter?.Invoke(interfaceType) != false)
             {
-                if (interfaceTypeFilter?.Invoke(interfaceType) != false)
-                {
-                    services.Add(new ServiceDescriptor(interfaceType, type, serviceLifetime));
-                }
+                services.Add(new ServiceDescriptor(interfaceType, type, serviceLifetime));
             }
         }
+
         return services;
     }
 
@@ -272,11 +271,11 @@ public static class ServiceCollectionExtension
         var service = services.LastOrDefault(x => x.ServiceType == serviceType);
         if (service == null)
         {
-            throw new InvalidOperationException("The service is not registed, service need to be registered before decorating");
+            throw new InvalidOperationException("The service is not registered, service need to be registered before decorating");
         }
 
         var objectFactory = ActivatorUtilities.CreateFactory(decoratorType, new[] { serviceType });
-        var decoratorService = new ServiceDescriptor(serviceType, sp => objectFactory(sp, new object?[]
+        var decoratorService = new ServiceDescriptor(serviceType, sp => objectFactory(sp, new[]
         {
             sp.CreateInstance(service)
         }), service.Lifetime);
