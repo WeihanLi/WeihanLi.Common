@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Net;
 using System.Reflection;
@@ -157,7 +158,7 @@ public static class CoreExtension
     }
 
     public static string GetString(this byte[]? byteArray)
-        => byteArray.HasValue() ? byteArray!.GetString(Encoding.UTF8) : string.Empty;
+        => byteArray.HasValue() ? byteArray.GetString(Encoding.UTF8) : string.Empty;
 
     public static string GetString(this byte[] byteArray, Encoding encoding) => encoding.GetString(byteArray);
 
@@ -949,21 +950,6 @@ public static class CoreExtension
     public static int Floor(this double d)
     {
         return Convert.ToInt32(Math.Floor(d));
-    }
-
-    /// <summary>
-    ///     Returns the remainder resulting from the division of a specified number by another specified number.
-    /// </summary>
-    /// <param name="x">A dividend.</param>
-    /// <param name="y">A divisor.</param>
-    /// <returns>
-    ///     A number equal to  - ( Q), where Q is the quotient of  /  rounded to the nearest integer (if  /  falls
-    ///     halfway between two integers, the even integer is returned).If  - ( Q) is zero, the value +0 is returned if
-    ///     is positive, or -0 if  is negative.If  = 0,  is returned.
-    /// </returns>
-    public static double IEEERemainder(this double x, double y)
-    {
-        return Math.IEEERemainder(x, y);
     }
 
     /// <summary>
@@ -2137,28 +2123,28 @@ public static class CoreExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>true if null or empty, false if not.</returns>
-    public static bool IsNullOrEmpty(this string? @this) => string.IsNullOrEmpty(@this);
+    public static bool IsNullOrEmpty([NotNullWhen(false)] this string? @this) => string.IsNullOrEmpty(@this);
 
     /// <summary>
     ///     A string extension method that query if '@this' is not null and not empty.
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>false if null or empty, true if not.</returns>
-    public static bool IsNotNullOrEmpty(this string? @this) => !string.IsNullOrEmpty(@this);
+    public static bool IsNotNullOrEmpty([NotNullWhen(true)] this string? @this) => !string.IsNullOrEmpty(@this);
 
     /// <summary>
     ///     A string extension method that query if '@this' is null or whiteSpace.
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>true if null or whiteSpace, false if not.</returns>
-    public static bool IsNullOrWhiteSpace(this string? @this) => string.IsNullOrWhiteSpace(@this);
+    public static bool IsNullOrWhiteSpace([NotNullWhen(false)] this string? @this) => string.IsNullOrWhiteSpace(@this);
 
     /// <summary>
     ///     A string extension method that query if '@this' is not null and not whiteSpace.
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>false if null or whiteSpace, true if not.</returns>
-    public static bool IsNotNullOrWhiteSpace(this string? @this) => !string.IsNullOrWhiteSpace(@this);
+    public static bool IsNotNullOrWhiteSpace([NotNullWhen(true)] this string? @this) => !string.IsNullOrWhiteSpace(@this);
 
     /// <summary>
     ///     Retrieves the system&#39;s reference to the specified .
@@ -2213,10 +2199,6 @@ public static class CoreExtension
     /// <returns>A string.</returns>
     public static string Concatenate(this IEnumerable<string> stringCollection)
     {
-        if (stringCollection is null)
-        {
-            throw new ArgumentNullException(nameof(stringCollection));
-        }
         return string.Join(string.Empty, stringCollection);
     }
 
@@ -2227,10 +2209,6 @@ public static class CoreExtension
     /// <returns>A string.</returns>
     public static string Concatenate<T>(this IEnumerable<T> source, Func<T, string> func)
     {
-        if (source is null)
-        {
-            throw new ArgumentNullException(nameof(source));
-        }
         return string.Join(string.Empty, source.Select(func));
     }
 
@@ -2383,12 +2361,12 @@ public static class CoreExtension
     /// <returns>The string reversed.</returns>
     public static string Reverse(this string? @this)
     {
-        if (string.IsNullOrWhiteSpace(@this))
+        if (@this.IsNullOrWhiteSpace())
         {
             return @this ?? string.Empty;
         }
 
-        var chars = @this!.ToCharArray();
+        var chars = @this.ToCharArray();
         Array.Reverse(chars);
         return new string(chars);
     }
@@ -2660,7 +2638,7 @@ public static class CoreExtension
         return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
     }
 
-    private static readonly ConcurrentDictionary<Type, object?> _defaultValues =
+    private static readonly ConcurrentDictionary<Type, object?> DefaultValues =
         new();
 
     /// <summary>
@@ -2672,7 +2650,7 @@ public static class CoreExtension
     {
         Guard.NotNull(type, nameof(type));
         return type.IsValueType && type != typeof(void)
-            ? _defaultValues.GetOrAdd(type, Activator.CreateInstance)
+            ? DefaultValues.GetOrAdd(type, Activator.CreateInstance)
             : null;
     }
 

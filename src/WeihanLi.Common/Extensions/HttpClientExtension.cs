@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Net.Http.Headers;
+using WeihanLi.Common;
 using WeihanLi.Common.Http;
 
 // ReSharper disable once CheckNamespace
@@ -39,27 +40,19 @@ public static class HttpClientExtension
         }
     }
 
-    public static Task<TResponse?> DeleteFromJsonAsync<TResponse>(this HttpClient httpClient, string requestUrl,
-        Action<HttpRequestMessage>? requestAction = null, CancellationToken cancellationToken = default)
-        => HttpFromJsonAsync<TResponse>(httpClient, HttpMethod.Delete, requestUrl, requestAction, cancellationToken);
-
-    public static Task<TResponse?> GetFromJsonAsync<TResponse>(this HttpClient httpClient, string requestUrl,
-        Action<HttpRequestMessage>? requestAction = null, CancellationToken cancellationToken = default)
-        => HttpFromJsonAsync<TResponse>(httpClient, HttpMethod.Get, requestUrl, requestAction, cancellationToken);
-
     /// <summary>
     /// Post object as json request body
     /// </summary>
-    public static Task<HttpResponseMessage> PostAsJsonAsync<T>(this HttpClient httpClient, string requestUrl, T parameter, Action<HttpRequestMessage>? requestAction = null,
+    public static Task<HttpResponseMessage> PostJsonRequestAsync<T>(this HttpClient httpClient, string requestUrl, T parameter, Action<HttpRequestMessage>? requestAction = null,
         CancellationToken cancellationToken = default)
-        => HttpAsJsonAsync(httpClient, HttpMethod.Post, requestUrl, parameter, requestAction, cancellationToken);
+        => HttpJsonRequestAsync(httpClient, HttpMethod.Post, requestUrl, parameter, requestAction, cancellationToken);
 
     /// <summary>
     /// PutAsJsonAsync
     /// </summary>
-    public static Task<HttpResponseMessage> PutAsJsonAsync<T>(this HttpClient httpClient, string requestUrl, T parameter, Action<HttpRequestMessage>? requestAction = null,
+    public static Task<HttpResponseMessage> PutJsonRequestAsync<T>(this HttpClient httpClient, string requestUrl, T parameter, Action<HttpRequestMessage>? requestAction = null,
         CancellationToken cancellationToken = default)
-        => HttpAsJsonAsync(httpClient, HttpMethod.Put, requestUrl, parameter, requestAction, cancellationToken);
+        => HttpJsonRequestAsync(httpClient, HttpMethod.Put, requestUrl, parameter, requestAction, cancellationToken);
 
     /// <summary>
     /// PostJson request body and get object from json response
@@ -67,8 +60,9 @@ public static class HttpClientExtension
     public static Task<TResponse?> PostJsonAsync<TRequest, TResponse>
     (this HttpClient httpClient, string requestUrl,
         TRequest request, Action<HttpRequestMessage>? requestAction = null,
+        Action<HttpResponseMessage>? responseAction = null,
         CancellationToken cancellationToken = default)
-        => HttpJsonAsync<TRequest, TResponse>(httpClient, HttpMethod.Post, requestUrl, request, requestAction,
+        => HttpJsonAsync<TRequest, TResponse>(httpClient, HttpMethod.Post, requestUrl, request, requestAction, responseAction,
             cancellationToken);
 
     /// <summary>
@@ -78,33 +72,17 @@ public static class HttpClientExtension
     (this HttpClient httpClient, string requestUrl,
         TRequest request,
         Action<HttpRequestMessage>? requestAction = null,
+        Action<HttpResponseMessage>? responseAction = null,
         CancellationToken cancellationToken = default)
-        => HttpJsonAsync<TRequest, TResponse>(httpClient, HttpMethod.Put, requestUrl, request, requestAction,
+        => HttpJsonAsync<TRequest, TResponse>(httpClient, HttpMethod.Put, requestUrl, request, requestAction, responseAction,
             cancellationToken);
 
-    public static async Task<TResponse?> HttpFromJsonAsync<TResponse>
-    (this HttpClient httpClient, HttpMethod httpMethod, string requestUrl,
-        Action<HttpRequestMessage>? requestAction = null,
-        CancellationToken cancellationToken = default)
-    {
-        using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl);
-        requestAction?.Invoke(requestMessage);
-        using var response = await httpClient.SendAsync(requestMessage, cancellationToken);
-        response.EnsureSuccessStatusCode();
-#if NET6_0_OR_GREATER
-        var responseText = await response.Content.ReadAsStringAsync(cancellationToken);
-#else
-        var responseText = await response.Content.ReadAsStringAsync();
-#endif
-
-        return JsonConvert.DeserializeObject<TResponse>(responseText);
-    }
-
-    public static async Task<HttpResponseMessage> HttpAsJsonAsync<TRequest>
+    public static async Task<HttpResponseMessage> HttpJsonRequestAsync<TRequest>
     (this HttpClient httpClient, HttpMethod httpMethod, string requestUrl,
         TRequest request, Action<HttpRequestMessage>? requestAction = null,
         CancellationToken cancellationToken = default)
     {
+        Guard.NotNull(httpClient);
         using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl)
         {
             Content = JsonHttpContent.From(request)
@@ -113,18 +91,34 @@ public static class HttpClientExtension
         return await httpClient.SendAsync(requestMessage, cancellationToken);
     }
 
+    public static async Task<TResponse?> ReadJsonResponseAsync<TResponse>
+    (this HttpResponseMessage response, Action<HttpResponseMessage>? responseAction = null,
+        CancellationToken cancellationToken = default)
+    {
+        Guard.NotNull(response);
+        responseAction?.Invoke(response);
+#if NET6_0_OR_GREATER
+        var responseText = await response.Content.ReadAsStringAsync(cancellationToken);
+#else
+        var responseText = await response.Content.ReadAsStringAsync();
+#endif
+        return JsonConvert.DeserializeObject<TResponse>(responseText);
+    }
+
     public static async Task<TResponse?> HttpJsonAsync<TRequest, TResponse>
     (this HttpClient httpClient, HttpMethod httpMethod, string requestUrl,
         TRequest request, Action<HttpRequestMessage>? requestAction = null,
+        Action<HttpResponseMessage>? responseAction = null,
         CancellationToken cancellationToken = default)
     {
+        Guard.NotNull(httpClient);
         using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl)
         {
             Content = JsonHttpContent.From(request)
         };
         requestAction?.Invoke(requestMessage);
         using var response = await httpClient.SendAsync(requestMessage, cancellationToken);
-        response.EnsureSuccessStatusCode();
+        responseAction?.Invoke(response);
 #if NET6_0_OR_GREATER
         var responseText = await response.Content.ReadAsStringAsync(cancellationToken);
 #else
@@ -137,9 +131,9 @@ public static class HttpClientExtension
     /// <summary>
     /// PatchAsJsonAsync
     /// </summary>
-    public static Task<HttpResponseMessage> PatchAsJsonAsync<T>(this HttpClient httpClient, string requestUrl, T parameter, Action<HttpRequestMessage>? requestAction = null,
+    public static Task<HttpResponseMessage> PatchJsonRequestAsync<T>(this HttpClient httpClient, string requestUrl, T parameter, Action<HttpRequestMessage>? requestAction = null,
         CancellationToken cancellationToken = default)
-         => HttpAsJsonAsync(httpClient, HttpMethod.Patch, requestUrl, parameter, requestAction, cancellationToken);
+         => HttpJsonRequestAsync(httpClient, HttpMethod.Patch, requestUrl, parameter, requestAction, cancellationToken);
 
     /// <summary>
     /// Patch Json request body and get object from json response
@@ -147,8 +141,9 @@ public static class HttpClientExtension
     public static Task<TResponse?> PatchJsonAsync<TRequest, TResponse>
     (this HttpClient httpClient, string requestUrl,
         TRequest request, Action<HttpRequestMessage>? requestAction = null,
+        Action<HttpResponseMessage>? responseAction = null,
         CancellationToken cancellationToken = default)
-        => HttpJsonAsync<TRequest, TResponse>(httpClient, HttpMethod.Patch, requestUrl, request, requestAction,
+        => HttpJsonAsync<TRequest, TResponse>(httpClient, HttpMethod.Patch, requestUrl, request, requestAction, responseAction,
             cancellationToken);
 #endif
 

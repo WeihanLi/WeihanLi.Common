@@ -34,20 +34,20 @@ public record Result
         };
     }
 
-    public static Result Fail(string? errorMsg, ResultStatus status = ResultStatus.RequestError)
+    public static Result Fail(string? msg, ResultStatus status = ResultStatus.RequestError)
     {
         return new()
         {
-            Msg = errorMsg,
+            Msg = msg,
             Status = status,
         };
     }
 
-    public static Result<T> Fail<T>(string? errorMsg, ResultStatus status = ResultStatus.RequestError, T? result = default)
+    public static Result<T> Fail<T>(string? msg, ResultStatus status = ResultStatus.RequestError, T? result = default)
     {
         return new()
         {
-            Msg = errorMsg,
+            Msg = msg,
             Status = status,
             Data = result
         };

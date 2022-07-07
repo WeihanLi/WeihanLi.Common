@@ -1,4 +1,5 @@
 ﻿using System.Collections.Specialized;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
@@ -42,7 +43,7 @@ public static class CollectionExtension
             return string.Empty;
         }
 
-        var sb = new StringBuilder(1024);
+        var sb = new StringBuilder();
 
         foreach (var key in source.AllKeys)
         {
@@ -190,7 +191,7 @@ public static class CollectionExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>true if null or empty&lt; t&gt;, false if not.</returns>
-    public static bool IsNullOrEmpty<T>(this ICollection<T>? @this)
+    public static bool IsNullOrEmpty<T>([NotNullWhen(false)] this ICollection<T>? @this)
     {
         return @this == null || @this.Count == 0;
     }
@@ -201,9 +202,9 @@ public static class CollectionExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>true if the collection is not (null or empty), false if not.</returns>
-    public static bool HasValue<T>(this ICollection<T>? @this)
+    public static bool HasValue<T>([NotNullWhen(true)] this ICollection<T>? @this)
     {
-        return @this != null && @this.Count > 0;
+        return @this is { Count: > 0 };
     }
 
     /// <summary>
@@ -232,4 +233,58 @@ public static class CollectionExtension
             .Select(i => list[i])
             ;
     }
+
+#if NET6_0_OR_GREATER
+    // https://github.com/more-itertools/more-itertools/blob/master/more_itertools/more.py#L3149
+    //def set_partitions_helper(L, k):
+    //n = len(L)
+    //if k == 1:
+    //    yield [L]
+    //elif n == k:
+    //    yield [[s] for s in L]
+    //else:
+    //    e, *M = L
+    //    for p in set_partitions_helper(M, k - 1):
+    //        yield [[e], *p]
+    //    for p in set_partitions_helper(M, k):
+    //        for i in range(len(p)):
+    //            yield p[:i] + [[e] + p[i]] + p[i + 1 :]
+    public static IEnumerable<T[][]> Partitions<T>(this T[] array, int batch)
+    {
+        if (batch <= 0 || array.Length < batch)
+        {
+            throw new ArgumentException("Invalid batch size", nameof(batch));
+        }
+        if (batch == 1)
+        {
+            yield return new[] { array };
+        }
+        else if (batch == array.Length)
+        {
+            yield return array.Select(x => new[] { x }).ToArray();
+        }
+        else
+        {
+            var e = array[0];
+            var m = array[1..];
+            foreach (var p in Partitions(m, batch - 1))
+            {
+                yield return new[]
+                {
+                    new []{e}
+                }.Concat(p).ToArray();
+            }
+            foreach (var p in Partitions(m, batch))
+            {
+                for (var i = 0; i < p.Length; i++)
+                {
+                    yield return p[..i]
+                        .Concat(new[] { new[] { e }.Concat(p[i]).ToArray() })
+                        .Concat(p[(i + 1)..])
+                        .ToArray();
+                }
+            }
+        }
+    }
+#endif
 }

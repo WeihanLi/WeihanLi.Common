@@ -1,7 +1,12 @@
-﻿// ReSharper disable once CheckNamespace
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using WeihanLi.Common.Abstractions;
+
+// ReSharper disable once CheckNamespace
 namespace WeihanLi.Common.Helpers;
 
-public interface IAsyncPipelineBuilder<TContext>
+public interface IAsyncPipelineBuilder<TContext> : IProperties
 {
     IAsyncPipelineBuilder<TContext> Use(Func<Func<TContext, Task>, Func<TContext, Task>> middleware);
 
@@ -19,6 +24,8 @@ internal sealed class AsyncPipelineBuilder<TContext> : IAsyncPipelineBuilder<TCo
     {
         _completeFunc = completeFunc;
     }
+
+    public IDictionary<string, object?> Properties { get; } = new Dictionary<string, object?>();
 
     public IAsyncPipelineBuilder<TContext> Use(Func<Func<TContext, Task>, Func<TContext, Task>> middleware)
     {

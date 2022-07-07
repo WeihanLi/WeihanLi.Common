@@ -1,4 +1,7 @@
-﻿namespace WeihanLi.Common.Helpers;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+namespace WeihanLi.Common.Helpers;
 
 public static class PipelineBuilder
 {
@@ -21,4 +24,21 @@ public static class PipelineBuilder
     {
         return new AsyncPipelineBuilder<TContext>(completeFunc);
     }
+
+#if ValueTaskSupport
+    public static IValueAsyncPipelineBuilder<TContext> CreateValueAsync<TContext>()
+    {
+        return new ValueAsyncPipelineBuilder<TContext>(c => 
+#if NET6_0_OR_GREATER
+        ValueTask.CompletedTask
+#else
+        TaskHelper.CompletedValueTask
+#endif
+        );
+    }
+    public static IValueAsyncPipelineBuilder<TContext> CreateValueAsync<TContext>(Func<TContext, ValueTask> completeFunc)
+    {
+        return new ValueAsyncPipelineBuilder<TContext>(completeFunc);
+    }
+#endif
 }

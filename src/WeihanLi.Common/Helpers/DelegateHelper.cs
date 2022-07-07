@@ -56,7 +56,7 @@ public static class DelegateHelper
             throw new ArgumentNullException(nameof(method));
         }
 
-        Type delegateType = GetDelegateType(method);
+        var delegateType = GetDelegateType(method);
         return method.CreateDelegate(delegateType, target);
     }
 

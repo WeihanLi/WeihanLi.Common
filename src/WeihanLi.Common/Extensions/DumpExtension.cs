@@ -1,7 +1,7 @@
 ﻿using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
-namespace WeihanLi.Extensions;
+namespace WeihanLi.Extensions.Dump;
 
 public static class DumpExtension
 {

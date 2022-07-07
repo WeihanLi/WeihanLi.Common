@@ -1,4 +1,8 @@
-﻿using System.Reflection;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using System.Reflection;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
@@ -181,16 +185,15 @@ public static class ServiceCollectionExtension
     /// <returns>services</returns>
     public static IServiceCollection RegisterTypeAsImplementedInterfaces(this IServiceCollection services, Type type, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
     {
-        if (type != null)
+        Guard.NotNull(type);
+        foreach (var interfaceType in type.GetImplementedInterfaces())
         {
-            foreach (var interfaceType in type.GetImplementedInterfaces())
+            if (interfaceTypeFilter?.Invoke(interfaceType) != false)
             {
-                if (interfaceTypeFilter?.Invoke(interfaceType) != false)
-                {
-                    services.Add(new ServiceDescriptor(interfaceType, type, serviceLifetime));
-                }
+                services.Add(new ServiceDescriptor(interfaceType, type, serviceLifetime));
             }
         }
+
         return services;
     }
 
@@ -239,5 +242,56 @@ public static class ServiceCollectionExtension
         }
 
         return services;
+    }
+
+    /// <summary>
+    /// Register decorator for TService
+    /// </summary>
+    /// <typeparam name="TService">service type</typeparam>
+    /// <typeparam name="TDecorator">decorator type</typeparam>
+    /// <param name="services">services</param>
+    /// <returns>services</returns>
+    public static IServiceCollection Decorate<TService, TDecorator>(this IServiceCollection services)
+         where TService : class
+         where TDecorator : class, TService
+    {
+        return services.Decorate(typeof(TService), typeof(TDecorator));
+    }
+
+    /// <summary>
+    /// Register service decorator
+    /// </summary>
+    /// <param name="services">services</param>
+    /// <param name="serviceType">serviceType</param>
+    /// <param name="decoratorType">decoratorType</param>
+    /// <returns>services</returns>
+    /// <exception cref="InvalidOperationException">throw exception when serviceType not registered</exception>
+    public static IServiceCollection Decorate(this IServiceCollection services, Type serviceType, Type decoratorType)
+    {
+        var service = services.LastOrDefault(x => x.ServiceType == serviceType);
+        if (service == null)
+        {
+            throw new InvalidOperationException("The service is not registered, service need to be registered before decorating");
+        }
+
+        var objectFactory = ActivatorUtilities.CreateFactory(decoratorType, new[] { serviceType });
+        var decoratorService = new ServiceDescriptor(serviceType, sp => objectFactory(sp, new[]
+        {
+            sp.CreateInstance(service)
+        }), service.Lifetime);
+
+        services.Replace(decoratorService);
+        return services;
+    }
+
+    private static object CreateInstance(this IServiceProvider services, ServiceDescriptor descriptor)
+    {
+        if (descriptor.ImplementationInstance != null)
+            return descriptor.ImplementationInstance;
+
+        if (descriptor.ImplementationFactory != null)
+            return descriptor.ImplementationFactory(services);
+
+        return ActivatorUtilities.GetServiceOrCreateInstance(services, descriptor.ImplementationType!);
     }
 }

@@ -205,7 +205,7 @@ public static class StringExtension
     /// <returns></returns>
     public static string GetNotEmptyValueOrDefault(this string? str, string defaultValue)
     {
-        return str.IsNullOrEmpty() ? defaultValue : str!;
+        return str.IsNullOrEmpty() ? defaultValue : str;
     }
 
     /// <summary>
@@ -216,7 +216,7 @@ public static class StringExtension
     /// <returns></returns>
     public static string GetValueOrDefault(this string? str, string defaultValue)
     {
-        return str.IsNullOrWhiteSpace() ? defaultValue : str!;
+        return str.IsNullOrWhiteSpace() ? defaultValue : str;
     }
 
     /// <summary>
@@ -227,7 +227,7 @@ public static class StringExtension
     /// <returns></returns>
     public static string GetValueOrDefault(this string? str, Func<string> getDefault)
     {
-        return str.IsNullOrWhiteSpace() ? getDefault() : str!;
+        return str.IsNullOrWhiteSpace() ? getDefault() : str;
     }
 
     /// <summary>
@@ -267,11 +267,11 @@ public static class StringExtension
     /// <returns>start removed str</returns>
     public static string? TrimStart(this string? str, string start)
     {
-        if (str.IsNullOrEmpty() || Guard.NotNull(start, nameof(start)).Length == 0)
+        if (str.IsNullOrEmpty() || start.IsNullOrEmpty())
         {
             return str;
         }
-        if (str!.StartsWith(start))
+        if (str.StartsWith(start))
         {
             str = str.Substring(start.Length);
         }

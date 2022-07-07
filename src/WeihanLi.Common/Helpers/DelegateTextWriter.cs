@@ -2,7 +2,7 @@
 
 namespace WeihanLi.Common.Helpers;
 
-public class DelegateTextWriter : TextWriter
+public sealed class DelegateTextWriter : TextWriter
 {
     public override Encoding Encoding => Encoding.UTF8;
 
@@ -26,11 +26,7 @@ public class DelegateTextWriter : TextWriter
 
     public override Task FlushAsync()
     {
-        if (_builder.Length > 0)
-        {
-            FlushInternal();
-        }
-
+        Flush();
         return Task.CompletedTask;
     }
 

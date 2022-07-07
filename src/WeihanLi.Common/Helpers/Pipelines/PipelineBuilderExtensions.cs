@@ -1,4 +1,7 @@
-﻿// ReSharper disable once CheckNamespace
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+// ReSharper disable once CheckNamespace
 namespace WeihanLi.Common.Helpers;
 
 public static class PipelineBuilderExtensions
@@ -49,6 +52,27 @@ public static class PipelineBuilderExtensions
         return builder;
     }
 
+    public static IPipelineBuilder<TContext> UseWhen<TContext>(this IPipelineBuilder<TContext> builder, Func<TContext, bool> predict, Action<IPipelineBuilder<TContext>> configureAction)
+    {
+        var branchPipelineBuilder = builder.New();
+        configureAction(branchPipelineBuilder);
+        builder.Use((context, next) =>
+        {
+            branchPipelineBuilder.Run(_ => next(context));
+            var branch = branchPipelineBuilder.Build();
+            if (predict.Invoke(context))
+            {
+                branch(context);
+            }
+            else
+            {
+                next(context);
+            }
+        });
+
+        return builder;
+    }
+
     #endregion IPipelineBuilder
 
     #region IAsyncPipelineBuilder
@@ -88,6 +112,24 @@ public static class PipelineBuilderExtensions
         return builder;
     }
 
+    public static IAsyncPipelineBuilder<TContext> UseWhen<TContext>(this IAsyncPipelineBuilder<TContext> builder, Func<TContext, bool> predict, Action<IAsyncPipelineBuilder<TContext>> configureAction)
+    {
+        var branchPipelineBuilder = builder.New();
+        configureAction(branchPipelineBuilder);
+        builder.Use((context, next) =>
+        {
+            branchPipelineBuilder.Run(_ => next(context));
+            var branch = branchPipelineBuilder.Build();
+            if (predict.Invoke(context))
+            {
+                return branch(context);
+            }
+            return next(context);
+        });
+
+        return builder;
+    }
+
     public static IAsyncPipelineBuilder<TContext> Run<TContext>(this IAsyncPipelineBuilder<TContext> builder, Func<TContext, Task> handler)
     {
         return builder.Use(_ => handler);
@@ -99,45 +141,63 @@ public static class PipelineBuilderExtensions
 
     #region IValueAsyncPipelineBuilder
 
-        public static IValueAsyncPipelineBuilder<TContext> Use<TContext>(this IValueAsyncPipelineBuilder<TContext> builder,
-            Func<TContext, Func<ValueTask>, ValueTask> func)
-        {
-            return builder.Use(next =>
-                context =>
-                {
-                    return func(context, () => next(context));
-                });
-        }
-
-        public static IValueAsyncPipelineBuilder<TContext> Use<TContext>(this IValueAsyncPipelineBuilder<TContext> builder,
-            Func<TContext, Func<TContext, ValueTask>, ValueTask> func)
-        {
-            return builder.Use(next =>
-                context => func(context, next));
-        }
-
-        public static IValueAsyncPipelineBuilder<TContext> When<TContext>(this IValueAsyncPipelineBuilder<TContext> builder, Func<TContext, bool> predict, Action<IValueAsyncPipelineBuilder<TContext>> configureAction)
-        {
-            builder.Use((context, next) =>
+    public static IValueAsyncPipelineBuilder<TContext> Use<TContext>(this IValueAsyncPipelineBuilder<TContext> builder,
+        Func<TContext, Func<ValueTask>, ValueTask> func)
+    {
+        return builder.Use(next =>
+            context =>
             {
-                if (predict.Invoke(context))
-                {
-                    var branchPipelineBuilder = builder.New();
-                    configureAction(branchPipelineBuilder);
-                    var branchPipeline = branchPipelineBuilder.Build();
-                    return branchPipeline.Invoke(context);
-                }
-
-                return next();
+                return func(context, () => next(context));
             });
+    }
 
-            return builder;
-        }
+    public static IValueAsyncPipelineBuilder<TContext> Use<TContext>(this IValueAsyncPipelineBuilder<TContext> builder,
+        Func<TContext, Func<TContext, ValueTask>, ValueTask> func)
+    {
+        return builder.Use(next =>
+            context => func(context, next));
+    }
 
-        public static IValueAsyncPipelineBuilder<TContext> Run<TContext>(this IValueAsyncPipelineBuilder<TContext> builder, Func<TContext, ValueTask> handler)
+    public static IValueAsyncPipelineBuilder<TContext> When<TContext>(this IValueAsyncPipelineBuilder<TContext> builder, Func<TContext, bool> predict, Action<IValueAsyncPipelineBuilder<TContext>> configureAction)
+    {
+        builder.Use((context, next) =>
         {
-            return builder.Use(_ => handler);
-        }
+            var branchPipelineBuilder = builder.New();
+            configureAction(branchPipelineBuilder);
+            if (predict.Invoke(context))
+            {
+                var branchPipeline = branchPipelineBuilder.Build();
+                return branchPipeline.Invoke(context);
+            }
+
+            return next(context);
+        });
+
+        return builder;
+    }
+
+    public static IValueAsyncPipelineBuilder<TContext> UseWhen<TContext>(this IValueAsyncPipelineBuilder<TContext> builder, Func<TContext, bool> predict, Action<IValueAsyncPipelineBuilder<TContext>> configureAction)
+    {
+        var branchPipelineBuilder = builder.New();
+        configureAction(branchPipelineBuilder);
+        builder.Use((context, next) =>
+        {
+            branchPipelineBuilder.Run(_ => next(context));
+            var branch = branchPipelineBuilder.Build();
+            if (predict.Invoke(context))
+            {
+                return branch(context);
+            }
+            return next(context);
+        });
+
+        return builder;
+    }
+
+    public static IValueAsyncPipelineBuilder<TContext> Run<TContext>(this IValueAsyncPipelineBuilder<TContext> builder, Func<TContext, ValueTask> handler)
+    {
+        return builder.Use(_ => handler);
+    }
 
     #endregion IValueAsyncPipelineBuilder
 

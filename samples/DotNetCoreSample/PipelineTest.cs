@@ -82,6 +82,11 @@ public class PipelineTest
                 {
                     Console.WriteLine($"{context.RequesterName} {context.Hour}h apply failed");
                 })
+                .Use((context, next) =>
+                {
+                    Console.WriteLine("Initialize");
+                    next(context);
+                })
                 .When(context => context.Hour <= 2, pipeline =>
                        {
                            pipeline.Use((_, next) =>
@@ -97,6 +102,15 @@ public class PipelineTest
                                Console.WriteLine("will this invoke?");
                            });
                        })
+                .UseWhen(context => context.Hour > 2, pipeline =>
+                  {
+                      pipeline.Use((c, next) =>
+                      {
+                          Console.WriteLine("Use when middleware before");
+                          next();
+                          Console.WriteLine("Use when middleware after");
+                      });
+                  })
                 .When(context => context.Hour <= 4, pipeline =>
                    {
                        pipeline.Run(_ => Console.WriteLine("pass 2"));
