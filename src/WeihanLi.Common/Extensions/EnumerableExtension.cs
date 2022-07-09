@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
-using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers.Combinatorics;
@@ -54,7 +53,7 @@ public static class EnumerableExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>A list of.</returns>
-    public static ReadOnlyCollection<T> AsReadOnly<T>(this IEnumerable<T> @this)
+    public static IReadOnlyCollection<T> AsReadOnly<T>(this IEnumerable<T> @this)
     {
         return Array.AsReadOnly(@this.ToArray());
     }
