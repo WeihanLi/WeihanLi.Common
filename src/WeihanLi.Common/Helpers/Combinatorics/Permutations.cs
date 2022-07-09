@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using System.Collections;
 using System.Numerics;
 
 namespace WeihanLi.Common.Helpers.Combinatorics;
@@ -89,7 +92,7 @@ public sealed class Permutations<T> : IEnumerable<IReadOnlyList<T>>
         // Lexicographic Orders: {1 1 2 3 4 5 5}
 
         Type = type;
-        _myValues = values is T[] array ? array : values.ToArray();
+        _myValues = values as T[] ?? values.ToArray();
         _myLexicographicOrders = new int[_myValues.Length];
 
         if (type == GenerateOption.WithRepetition)
@@ -282,7 +285,7 @@ public sealed class Permutations<T> : IEnumerable<IReadOnlyList<T>>
         /// <summary>
         /// Flag indicating the position of the enumerator.
         /// </summary>
-        private Position _myPosition = Position.BeforeFirst;
+        private Position _myPosition;
 
         /// <summary>
         /// Parallel array of integers that represent the location of items in the myValues array.
