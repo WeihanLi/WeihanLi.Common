@@ -1,6 +1,10 @@
-﻿using System.Collections.ObjectModel;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using WeihanLi.Common;
+using WeihanLi.Common.Helpers.Combinatorics;
 using WeihanLi.Common.Models;
 
 // ReSharper disable once CheckNamespace
@@ -245,4 +249,13 @@ public static class EnumerableExtension
         };
 
     #endregion ToPagedList
+
+    public static IEnumerable<IReadOnlyList<T>> GetCombinations<T>(this IEnumerable<T> values, int count, bool withRepetition = false)
+    {
+        return new Combinations<T>(values, count, withRepetition ? GenerateOption.WithRepetition : GenerateOption.WithoutRepetition);
+    }
+    public static IEnumerable<IReadOnlyList<T>> GetPermutations<T>(this IEnumerable<T> values, bool withRepetition = false, IComparer<T>? comparer = null)
+    {
+        return new Permutations<T>(values, withRepetition ? GenerateOption.WithRepetition : GenerateOption.WithoutRepetition, comparer);
+    }
 }

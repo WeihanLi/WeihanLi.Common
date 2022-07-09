@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using System.Collections;
 using System.Numerics;
 
 namespace WeihanLi.Common.Helpers.Combinatorics;
