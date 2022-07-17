@@ -1,4 +1,5 @@
-﻿// ReSharper disable LocalizableElement
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
 
 using DotNetCoreSample;
 using Microsoft.EntityFrameworkCore;
@@ -8,8 +9,11 @@ using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
 using WeihanLi.Common.Event;
 using WeihanLi.Extensions;
+using WeihanLi.Extensions.Dump;
 
 Console.WriteLine("----------DotNetCoreSample----------");
+
+ServiceDecoratorTest.MainTest();
 
 // var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
 // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
@@ -19,7 +23,14 @@ Console.WriteLine("----------DotNetCoreSample----------");
 //ProcessExecutorTest.RawProcessTest();
 //ProcessExecutorTest.DotNetInfoTest();
 // ProcessExecutorTest.DotNetNugetGlobalPackagesInfoTest();
-PipelineTest.TestV2();
+// PipelineTest.TestV2();
+
+new[] { 1, 2, 3 }.GetCombinations(2).Dump();
+new[] { 1, 2, 3 }.GetCombinations(2, true).Dump();
+
+new[] { 1, 2, 3, 2 }.GetPermutations().Dump();
+new[] { 1, 2, 3, 2 }.GetPermutations(true).Dump();
+
 
 CommandExecutorTest.MainTest();
 

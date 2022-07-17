@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Reflection;
 
@@ -9,7 +12,7 @@ public interface IEventBuilder
     IServiceCollection Services { get; }
 }
 
-internal class EventBuilder : IEventBuilder
+internal sealed class EventBuilder : IEventBuilder
 {
     public IServiceCollection Services { get; }
 

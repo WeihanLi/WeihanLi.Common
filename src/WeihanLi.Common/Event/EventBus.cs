@@ -1,4 +1,7 @@
-﻿using WeihanLi.Common.Logging;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using WeihanLi.Common.Logging;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Event;
@@ -8,7 +11,7 @@ namespace WeihanLi.Common.Event;
 /// </summary>
 public sealed class EventBus : IEventBus
 {
-    private static readonly ILogHelperLogger _logger = Helpers.LogHelper.GetLogger<EventBus>();
+    private static readonly ILogHelperLogger Logger = Helpers.LogHelper.GetLogger<EventBus>();
 
     private readonly IEventSubscriptionManager _subscriptionManager;
     private readonly IEventHandlerFactory _eventHandlerFactory;
@@ -32,7 +35,7 @@ public sealed class EventBus : IEventBus
                 {
                     if (r.IsFaulted)
                     {
-                        _logger.Error(r.Exception?.Unwrap(),
+                        Logger.Error(r.Exception?.Unwrap(),
                             $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handler.GetType().FullName}");
                     }
                 });
@@ -58,7 +61,7 @@ public sealed class EventBus : IEventBus
                 {
                     if (r.IsFaulted)
                     {
-                        _logger.Error(r.Exception?.Unwrap(),
+                        Logger.Error(r.Exception?.Unwrap(),
                             $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handler.GetType().FullName}");
                     }
                 });
