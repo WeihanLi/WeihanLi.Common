@@ -1,4 +1,7 @@
-﻿namespace WeihanLi.Common.Helpers;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+namespace WeihanLi.Common.Helpers;
 
 public sealed class ConsoleOutput : IDisposable
 {
@@ -7,12 +10,12 @@ public sealed class ConsoleOutput : IDisposable
     private readonly StringWriter _outputWriter = new();
     private readonly StringWriter _errorWriter = new();
 
-    private const int NOT_DISPOSED = 0;
-    private const int DISPOSED = 1;
+    private const int NotDisposed = 0;
+    private const int Disposed = 1;
 
-    private int _alreadyDisposed = NOT_DISPOSED;
+    private int _alreadyDisposed = NotDisposed;
 
-    private static readonly SemaphoreSlim _consoleLock = new(1, 1);
+    private static readonly SemaphoreSlim ConsoleLock = new(1, 1);
 
     private ConsoleOutput()
     {
@@ -20,49 +23,19 @@ public sealed class ConsoleOutput : IDisposable
 
     public static ConsoleOutput Capture()
     {
-        var outputCapture = new ConsoleOutput();
-        _consoleLock.Wait();
-
-        try
-        {
-            outputCapture._originalOutputWriter = Console.Out;
-            outputCapture._originalErrorWriter = Console.Error;
-
-            Console.SetOut(outputCapture._outputWriter);
-            Console.SetError(outputCapture._errorWriter);
-        }
-        catch
-        {
-            _consoleLock.Release();
-            throw;
-        }
-
-        return outputCapture;
+        ConsoleLock.Wait();
+        return GetConsoleOutputInternal();
     }
 
     public static async Task<ConsoleOutput> CaptureAsync()
     {
-        var outputCapture = new ConsoleOutput();
-        await _consoleLock.WaitAsync();
-
-        try
-        {
-            outputCapture._originalOutputWriter = Console.Out;
-            outputCapture._originalErrorWriter = Console.Error;
-
-            Console.SetOut(outputCapture._outputWriter);
-            Console.SetError(outputCapture._errorWriter);
-            return outputCapture;
-        }
-        finally
-        {
-            _consoleLock.Release();
-        }
+        await ConsoleLock.WaitAsync();
+        return GetConsoleOutputInternal();
     }
 
     public void Dispose()
     {
-        if (Interlocked.CompareExchange(ref _alreadyDisposed, DISPOSED, NOT_DISPOSED) == NOT_DISPOSED)
+        if (Interlocked.CompareExchange(ref _alreadyDisposed, Disposed, NotDisposed) == NotDisposed)
         {
             if (_originalOutputWriter != null)
             {
@@ -72,9 +45,9 @@ public sealed class ConsoleOutput : IDisposable
             {
                 Console.SetError(_originalErrorWriter);
             }
-            if (_consoleLock.CurrentCount < 1)
+            if (ConsoleLock.CurrentCount < 1)
             {
-                _consoleLock.Release();
+                ConsoleLock.Release();
             }
         }
     }
@@ -87,5 +60,26 @@ public sealed class ConsoleOutput : IDisposable
     {
         _outputWriter.GetStringBuilder().Clear();
         _errorWriter.GetStringBuilder().Clear();
+    }
+
+    private static ConsoleOutput GetConsoleOutputInternal()
+    {
+        var outputCapture = new ConsoleOutput();
+        try
+        {
+            outputCapture._originalOutputWriter = Console.Out;
+            outputCapture._originalErrorWriter = Console.Error;
+
+            Console.SetOut(outputCapture._outputWriter);
+            Console.SetError(outputCapture._errorWriter);
+        }
+        catch
+        {
+            ConsoleLock.Release();
+            throw;
+        }
+
+        return outputCapture;
+
     }
 }
