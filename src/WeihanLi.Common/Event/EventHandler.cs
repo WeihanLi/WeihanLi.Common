@@ -1,4 +1,7 @@
-﻿using Newtonsoft.Json.Linq;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using Newtonsoft.Json.Linq;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Event;
