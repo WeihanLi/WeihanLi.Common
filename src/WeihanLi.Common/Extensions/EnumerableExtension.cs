@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
+using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers.Combinatorics;
@@ -256,5 +257,68 @@ public static class EnumerableExtension
     public static IEnumerable<IReadOnlyList<T>> GetPermutations<T>(this IEnumerable<T> values, bool withRepetition = false, IComparer<T>? comparer = null)
     {
         return new Permutations<T>(values, withRepetition ? GenerateOption.WithRepetition : GenerateOption.WithoutRepetition, comparer);
+    }
+    
+    public static IEnumerable<IGrouping<TKey, T>> GroupByEquality<T, TKey>(this IEnumerable<T> source,
+        Func<T, TKey> keySelector,
+        IEqualityComparer<TKey> keyComparer,
+        Action<T, TKey>? keyAction = null) where TKey : notnull
+    {
+        return GroupByEquality(source, keySelector, keyComparer.Equals, keyAction);
+    }
+    
+    public static IEnumerable<IGrouping<TKey, T>> GroupByEquality<T, TKey>(this IEnumerable<T> source,
+        Func<T, TKey> keySelector,
+        Func<TKey, TKey, bool> comparer,
+        Action<T, TKey>? keyAction = null) where TKey : notnull
+    {
+        var groups = new List<Grouping<TKey, T>>();
+        foreach (var item in source)
+        {
+            var key = keySelector(item);
+            var group = groups.FirstOrDefault(x => comparer(x.Key, key));
+            if (group is null)
+            {
+                group = new Grouping<TKey, T>() { Key = key };
+                group.List.Add(item);
+                groups.Add(group);
+            }
+            else
+            {
+                keyAction?.Invoke(item, group.Key);
+                group.List.Add(item);
+            }
+        }
+        
+        if (keyAction != null)
+        {
+            foreach (var group in groups.Where(group => groups.Count > 1))
+            {
+                keyAction.Invoke(group.List[0], group.Key);
+            }
+        }
+        return groups;
+    }
+
+    private sealed class Grouping<TKey, T> : IGrouping<TKey, T>
+    {
+        private List<T> _list = new();
+        public TKey Key { get; set; }
+
+        public List<T> List
+        {
+            get => _list;
+            set => _list = value ?? new();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return List.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }
