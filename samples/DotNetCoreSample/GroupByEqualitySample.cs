@@ -36,7 +36,7 @@ public static class GroupByEqualitySample
                 if (k.Name.IsNullOrEmpty() && x.StudentName.IsNotNullOrEmpty())
                 {
                     k.Name = x.StudentName;
-                } 
+                }
             }, (x, k) =>
             {
                 if (k.Id > 0 && x.StudentId <= 0)
