@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
+using System;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using WeihanLi.Common;
@@ -279,7 +280,7 @@ public static class EnumerableExtension
             var group = groups.FirstOrDefault(x => comparer(x.Key, key));
             if (group is null)
             {
-                group = new Grouping<TKey, T>() { Key = key };
+                group = new Grouping<TKey, T>(key);
                 group.List.Add(item);
                 groups.Add(group);
             }
@@ -304,7 +305,10 @@ public static class EnumerableExtension
     private sealed class Grouping<TKey, T> : IGrouping<TKey, T>
     {
         private List<T> _list = new();
-        public TKey Key { get; set; }
+
+        public Grouping(TKey key) => Key = key ?? throw new ArgumentNullException(nameof(key));
+
+        public TKey Key { get; }
 
         public List<T> List
         {
