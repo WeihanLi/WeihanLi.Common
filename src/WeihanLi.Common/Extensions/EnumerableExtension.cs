@@ -263,15 +263,15 @@ public static class EnumerableExtension
     public static IEnumerable<IGrouping<TKey, T>> GroupByEquality<T, TKey>(this IEnumerable<T> source,
         Func<T, TKey> keySelector,
         IEqualityComparer<TKey> keyComparer,
-        Action<T, TKey>? keyAction = null, bool updateItem = false) where TKey : notnull
+        Action<TKey, T>? keyAction = null, Action<T, TKey>? itemAction = null) where TKey : notnull
     {
-        return GroupByEquality(source, keySelector, keyComparer.Equals, keyAction);
+        return GroupByEquality(source, keySelector, keyComparer.Equals, keyAction, itemAction);
     }
 
     public static IEnumerable<IGrouping<TKey, T>> GroupByEquality<T, TKey>(this IEnumerable<T> source,
         Func<T, TKey> keySelector,
         Func<TKey, TKey, bool> comparer,
-        Action<T, TKey>? keyAction = null, bool updateItem = false) where TKey : notnull
+        Action<TKey, T>? keyAction = null, Action<T, TKey>? itemAction = null) where TKey : notnull
     {
         var groups = new List<Grouping<TKey, T>>();
         foreach (var item in source)
@@ -286,17 +286,17 @@ public static class EnumerableExtension
             }
             else
             {
-                keyAction?.Invoke(item, group.Key);
+                keyAction?.Invoke(group.Key, item);
                 group.List.Add(item);
             }
         }
 
-        if (keyAction != null && updateItem)
+        if (itemAction != null)
         {
             foreach (var group in groups.Where(group => groups.Count > 1))
             {
                 foreach (var item in group.List)
-                  keyAction.Invoke(item, group.Key);
+                    itemAction.Invoke(item, group.Key);
             }
         }
         return groups;

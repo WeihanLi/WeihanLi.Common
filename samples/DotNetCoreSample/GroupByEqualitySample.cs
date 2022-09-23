@@ -27,26 +27,27 @@ public static class GroupByEqualitySample
             },
         };
         var groups = students.GroupByEquality(x => new Student() { Id = x.StudentId, Name = x.StudentName },
-            (s1, s2) => s1.Id == s2.Id || s1.Name == s2.Name, (x, k) =>
+            (s1, s2) => s1.Id == s2.Id || s1.Name == s2.Name, (k, x) =>
             {
                 if (k.Id <= 0 && x.StudentId > 0)
                 {
                     k.Id = x.StudentId;
                 }
-                else if (k.Id > 0 && x.StudentId <= 0)
-                {
-                    x.StudentId = k.Id;
-                }
-
                 if (k.Name.IsNullOrEmpty() && x.StudentName.IsNotNullOrEmpty())
                 {
                     k.Name = x.StudentName;
+                } 
+            }, (x, k) =>
+            {
+                if (k.Id > 0 && x.StudentId <= 0)
+                {
+                    x.StudentId = k.Id;
                 }
-                else if (k.Name.IsNotNullOrEmpty() && x.StudentName.IsNullOrEmpty())
+                if (k.Name.IsNotNullOrEmpty() && x.StudentName.IsNullOrEmpty())
                 {
                     x.StudentName = k.Name;
                 }
-            }, true);
+            });
         foreach (var group in groups)
         {
             Console.WriteLine("-------------------------------------");
