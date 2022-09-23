@@ -44,7 +44,7 @@ public static class GroupByEqualitySample
                 {
                     x.StudentName = k.Name;
                 }
-            });
+            }, true);
         foreach (var group in groups)
         {
             Console.WriteLine("-------------------------------------");
