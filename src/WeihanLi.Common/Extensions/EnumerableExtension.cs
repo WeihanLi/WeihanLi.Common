@@ -296,7 +296,7 @@ public static class EnumerableExtension
             foreach (var group in groups.Where(group => groups.Count > 1))
             {
                 foreach (var item in group.List)
-                  keyAction.Invoke(item, group.Key);
+                    keyAction.Invoke(item, group.Key);
             }
         }
         return groups;
