@@ -32,7 +32,8 @@ public static class GroupByEqualitySample
                 if (k.Id <= 0 && x.StudentId > 0)
                 {
                     k.Id = x.StudentId;
-                } else if (k.Id > 0 && x.StudentId <= 0)
+                }
+                else if (k.Id > 0 && x.StudentId <= 0)
                 {
                     x.StudentId = k.Id;
                 }
@@ -40,7 +41,8 @@ public static class GroupByEqualitySample
                 if (k.Name.IsNullOrEmpty() && x.StudentName.IsNotNullOrEmpty())
                 {
                     k.Name = x.StudentName;
-                }else if (k.Name.IsNotNullOrEmpty() && x.StudentName.IsNullOrEmpty())
+                }
+                else if (k.Name.IsNotNullOrEmpty() && x.StudentName.IsNullOrEmpty())
                 {
                     x.StudentName = k.Name;
                 }
@@ -48,7 +50,7 @@ public static class GroupByEqualitySample
         foreach (var group in groups)
         {
             Console.WriteLine("-------------------------------------");
-            Console.WriteLine($"{group.Key.Id} {group.Key.Name}, Total score: {group.Sum(x=>x.Score)}");
+            Console.WriteLine($"{group.Key.Id} {group.Key.Name}, Total score: {group.Sum(x => x.Score)}");
             foreach (var result in group)
             {
                 Console.WriteLine($"{result.StudentId}  {result.StudentName}\n{result.CourseName}  {result.Score}");
@@ -63,13 +65,13 @@ public static class GroupByEqualitySample
         public int Id { get; set; }
         public string Name { get; set; } = "Ming";
     }
-    
+
     private sealed class StudentResult
     {
         public int StudentId { get; set; }
         public string StudentName { get; set; } = string.Empty;
-        
-        public string CourseName { get; set; }= string.Empty;
+
+        public string CourseName { get; set; } = string.Empty;
         public int Score { get; set; }
     }
 }

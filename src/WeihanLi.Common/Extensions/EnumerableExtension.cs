@@ -259,7 +259,7 @@ public static class EnumerableExtension
     {
         return new Permutations<T>(values, withRepetition ? GenerateOption.WithRepetition : GenerateOption.WithoutRepetition, comparer);
     }
-    
+
     public static IEnumerable<IGrouping<TKey, T>> GroupByEquality<T, TKey>(this IEnumerable<T> source,
         Func<T, TKey> keySelector,
         IEqualityComparer<TKey> keyComparer,
@@ -267,7 +267,7 @@ public static class EnumerableExtension
     {
         return GroupByEquality(source, keySelector, keyComparer.Equals, keyAction);
     }
-    
+
     public static IEnumerable<IGrouping<TKey, T>> GroupByEquality<T, TKey>(this IEnumerable<T> source,
         Func<T, TKey> keySelector,
         Func<TKey, TKey, bool> comparer,
@@ -290,7 +290,7 @@ public static class EnumerableExtension
                 group.List.Add(item);
             }
         }
-        
+
         if (keyAction != null && updateItem)
         {
             foreach (var group in groups.Where(group => groups.Count > 1))
