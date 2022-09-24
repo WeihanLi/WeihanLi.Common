@@ -206,7 +206,8 @@ public static class EnumerableExtension
     public static IListResultWithTotal<T> ToListResultWithTotal<T>(this IEnumerable<T> data, int totalCount)
         => new ListResultWithTotal<T>
         {
-            TotalCount = totalCount, Data = data is IReadOnlyList<T> dataList ? dataList : data.ToArray()
+            TotalCount = totalCount,
+            Data = data is IReadOnlyList<T> dataList ? dataList : data.ToArray()
         };
 
     /// <summary>
@@ -241,7 +242,10 @@ public static class EnumerableExtension
         int totalCount)
         => new PagedListResult<T>
         {
-            PageNumber = pageNumber, PageSize = pageSize, TotalCount = totalCount, Data = data
+            PageNumber = pageNumber,
+            PageSize = pageSize,
+            TotalCount = totalCount,
+            Data = data
         };
 
     #endregion ToPagedList
