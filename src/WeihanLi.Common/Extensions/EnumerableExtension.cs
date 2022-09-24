@@ -187,11 +187,8 @@ public static class EnumerableExtension
         Func<TOuter, TInner?, TResult> resultSelector)
     {
         return outer
-            .GroupJoin(inner, outerKeySelector, innerKeySelector, (outerObj, inners) => new
-            {
-                outerObj,
-                inners = inners.DefaultIfEmpty()
-            })
+            .GroupJoin(inner, outerKeySelector, innerKeySelector,
+                (outerObj, inners) => new { outerObj, inners = inners.DefaultIfEmpty() })
             .SelectMany(a => a.inners.Select(innerObj => resultSelector(a.outerObj, innerObj)));
     }
 
@@ -209,8 +206,7 @@ public static class EnumerableExtension
     public static IListResultWithTotal<T> ToListResultWithTotal<T>(this IEnumerable<T> data, int totalCount)
         => new ListResultWithTotal<T>
         {
-            TotalCount = totalCount,
-            Data = data is IReadOnlyList<T> dataList ? dataList : data.ToArray()
+            TotalCount = totalCount, Data = data is IReadOnlyList<T> dataList ? dataList : data.ToArray()
         };
 
     /// <summary>
@@ -222,7 +218,8 @@ public static class EnumerableExtension
     /// <param name="pageSize">pageSize</param>
     /// <param name="totalCount">totalCount</param>
     /// <returns></returns>
-    public static IPagedListResult<T> ToPagedList<T>(this IEnumerable<T> data, int pageNumber, int pageSize, int totalCount)
+    public static IPagedListResult<T> ToPagedList<T>(this IEnumerable<T> data, int pageNumber, int pageSize,
+        int totalCount)
         => new PagedListResult<T>
         {
             PageNumber = pageNumber,
@@ -240,24 +237,27 @@ public static class EnumerableExtension
     /// <param name="pageSize">pageSize</param>
     /// <param name="totalCount">totalCount</param>
     /// <returns></returns>
-    public static IPagedListResult<T> ToPagedList<T>(this IReadOnlyList<T> data, int pageNumber, int pageSize, int totalCount)
+    public static IPagedListResult<T> ToPagedList<T>(this IReadOnlyList<T> data, int pageNumber, int pageSize,
+        int totalCount)
         => new PagedListResult<T>
         {
-            PageNumber = pageNumber,
-            PageSize = pageSize,
-            TotalCount = totalCount,
-            Data = data
+            PageNumber = pageNumber, PageSize = pageSize, TotalCount = totalCount, Data = data
         };
 
     #endregion ToPagedList
 
-    public static IEnumerable<IReadOnlyList<T>> GetCombinations<T>(this IEnumerable<T> values, int count, bool withRepetition = false)
+    public static IEnumerable<IReadOnlyList<T>> GetCombinations<T>(this IEnumerable<T> values, int count,
+        bool withRepetition = false)
     {
-        return new Combinations<T>(values, count, withRepetition ? GenerateOption.WithRepetition : GenerateOption.WithoutRepetition);
+        return new Combinations<T>(values, count,
+            withRepetition ? GenerateOption.WithRepetition : GenerateOption.WithoutRepetition);
     }
-    public static IEnumerable<IReadOnlyList<T>> GetPermutations<T>(this IEnumerable<T> values, bool withRepetition = false, IComparer<T>? comparer = null)
+
+    public static IEnumerable<IReadOnlyList<T>> GetPermutations<T>(this IEnumerable<T> values,
+        bool withRepetition = false, IComparer<T>? comparer = null)
     {
-        return new Permutations<T>(values, withRepetition ? GenerateOption.WithRepetition : GenerateOption.WithoutRepetition, comparer);
+        return new Permutations<T>(values,
+            withRepetition ? GenerateOption.WithRepetition : GenerateOption.WithoutRepetition, comparer);
     }
 
     public static IEnumerable<IGrouping<TKey, T>> GroupByEquality<T, TKey>(this IEnumerable<T> source,
@@ -271,7 +271,7 @@ public static class EnumerableExtension
     public static IEnumerable<IGrouping<TKey, T>> GroupByEquality<T, TKey>(this IEnumerable<T> source,
         Func<T, TKey> keySelector,
         Func<TKey, TKey, bool> comparer,
-        Action<TKey, T>? keyAction = null, Action<T, TKey>? itemAction = null) where TKey : notnull
+        Action<TKey, T>? keyAction = null, Action<T, TKey>? itemAction = null)
     {
         var groups = new List<Grouping<TKey, T>>();
         foreach (var item in source)
@@ -280,45 +280,45 @@ public static class EnumerableExtension
             var group = groups.FirstOrDefault(x => comparer(x.Key, key));
             if (group is null)
             {
-                group = new Grouping<TKey, T>(key);
-                group.List.Add(item);
+                group = new Grouping<TKey, T>(key)
+                {
+                    item
+                };
                 groups.Add(group);
             }
             else
             {
                 keyAction?.Invoke(group.Key, item);
-                group.List.Add(item);
+                group.Add(item);
             }
         }
 
         if (itemAction != null)
         {
-            foreach (var group in groups.Where(group => groups.Count > 1))
+            foreach (var group in groups.Where(g => g.Count > 1))
             {
-                foreach (var item in group.List)
+                foreach (var item in group)
                     itemAction.Invoke(item, group.Key);
             }
         }
+
         return groups;
     }
 
     private sealed class Grouping<TKey, T> : IGrouping<TKey, T>
     {
-        private List<T> _list = new();
-
+        private readonly List<T> _items = new();
         public Grouping(TKey key) => Key = key ?? throw new ArgumentNullException(nameof(key));
 
         public TKey Key { get; }
 
-        public List<T> List
-        {
-            get => _list;
-            set => _list = value ?? new();
-        }
+        public void Add(T t) => _items.Add(t);
+
+        public int Count => _items.Count;
 
         public IEnumerator<T> GetEnumerator()
         {
-            return List.GetEnumerator();
+            return _items.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
