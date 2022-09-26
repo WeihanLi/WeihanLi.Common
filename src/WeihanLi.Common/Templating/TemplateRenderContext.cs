@@ -4,7 +4,7 @@
 using WeihanLi.Common.Abstractions;
 
 namespace WeihanLi.Common.Templating;
-public sealed class TemplateRenderContext: IProperties
+public sealed class TemplateRenderContext : IProperties
 {
     public TemplateRenderContext(string text, HashSet<string> variables)
     {

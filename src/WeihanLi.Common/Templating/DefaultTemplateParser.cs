@@ -5,14 +5,14 @@ using System.Text.RegularExpressions;
 
 namespace WeihanLi.Common.Templating;
 
-public sealed class DefaultTemplateParser: ITemplateParser
+public sealed class DefaultTemplateParser : ITemplateParser
 {
     private const string VariableRegexExp = @"\{\{(?\s*<Variable>.+)\s*\}\}";
     private static readonly Regex VariableRegex = new(VariableRegexExp, RegexOptions.Compiled);
     public Task<TemplateRenderContext> ParseAsync(string text)
     {
         var variables = new HashSet<string>();
-        var match = VariableRegex.Match(text);;
+        var match = VariableRegex.Match(text); ;
         while (match.Success)
         {
             var variable = match.Groups["Variable"].Value;
