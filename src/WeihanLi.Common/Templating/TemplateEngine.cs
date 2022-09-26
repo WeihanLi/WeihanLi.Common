@@ -21,7 +21,7 @@ public sealed class TemplateEngine : ITemplateRenderer, ITemplateParser
     {
         return await _templateRenderer.RenderAsync(context, globals);
     }
-    
+
     public static TemplateEngine CreateDefault() =>
         new TemplateEngine(new DefaultTemplateParser(), new DefaultTemplateRenderer(null));
 }

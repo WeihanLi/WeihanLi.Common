@@ -5,7 +5,7 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Templating;
 
-public class DefaultTemplateRenderer: ITemplateRenderer
+public class DefaultTemplateRenderer : ITemplateRenderer
 {
     private readonly Func<TemplateRenderContext, Task> _renderFunc;
 
@@ -13,11 +13,11 @@ public class DefaultTemplateRenderer: ITemplateRenderer
     {
         _renderFunc = renderFunc;
     }
-    
+
     public async Task<string> RenderAsync(TemplateRenderContext context, object globals)
     {
-       context.Parameters = globals.ParseParamDictionary();
-       await _renderFunc.Invoke(context);
-       return context.RenderedText;
+        context.Parameters = globals.ParseParamDictionary();
+        await _renderFunc.Invoke(context);
+        return context.RenderedText;
     }
 }
