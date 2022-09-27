@@ -7,8 +7,11 @@ namespace DotNetCoreSample;
 
 public class TemplatingSample
 {
-    public static async Task MainTest()
+    public static void MainTest()
     {
         var engine = TemplateEngine.CreateDefault();
+        var result = engine.RenderAsync("Hello {{Name}}", new { Name = ".NET" });
+        result.Wait();
+        Console.WriteLine(result.Result);
     }
 }

@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
-using Microsoft.Extensions.Options;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Templating;
 public sealed class TemplateEngine : ITemplateRenderer, ITemplateParser
@@ -22,6 +22,25 @@ public sealed class TemplateEngine : ITemplateRenderer, ITemplateParser
         return await _templateRenderer.RenderAsync(context, globals);
     }
 
+    public async Task<string> RenderAsync(string text, object parameters)
+    {
+        var context = await _templateParser.ParseAsync(text);
+        var result = await _templateRenderer.RenderAsync(context, parameters);
+        return result;
+    }
+
     public static TemplateEngine CreateDefault() =>
-        new TemplateEngine(new DefaultTemplateParser(), new DefaultTemplateRenderer(null));
+        new TemplateEngine(new DefaultTemplateParser(), new DefaultTemplateRenderer(context =>
+        {
+            if (context.Text.IsNullOrWhiteSpace())
+            {
+                return Task.CompletedTask;
+            }
+            context.RenderedText = context.Text;
+            foreach (var parameter in context.Parameters)
+            {
+                context.RenderedText = context.RenderedText.Replace($"{{{{{parameter.Key}}}}}", parameter.Value?.ToString());
+            }
+            return Task.CompletedTask;
+        }));
 }
