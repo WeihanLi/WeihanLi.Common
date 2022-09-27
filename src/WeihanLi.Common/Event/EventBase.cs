@@ -1,4 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using Newtonsoft.Json;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Event;
@@ -38,6 +41,9 @@ public abstract class EventBase : IEventBase
 
     // https://www.newtonsoft.com/json/help/html/JsonConstructorAttribute.htm
     [JsonConstructor]
+#if NET6_0_OR_GREATER
+    [System.Text.Json.Serialization.JsonConstructor]
+#endif
     protected EventBase(string eventId, DateTimeOffset eventAt)
     {
         EventId = eventId;
@@ -47,7 +53,7 @@ public abstract class EventBase : IEventBase
 
 public static class EventBaseExtensions
 {
-    private static readonly JsonSerializerSettings _eventSerializerSettings = JsonSerializeExtension.SerializerSettingsWith(s =>
+    private static readonly JsonSerializerSettings EventSerializerSettings = JsonSerializeExtension.SerializerSettingsWith(s =>
                 {
                     s.TypeNameHandling = TypeNameHandling.Objects;
                 });
@@ -59,7 +65,7 @@ public static class EventBaseExtensions
             throw new ArgumentNullException(nameof(@event));
         }
 
-        return @event.ToJson(_eventSerializerSettings);
+        return @event.ToJson(EventSerializerSettings);
     }
 
     public static IEventBase ToEvent(this string eventMsg)
@@ -69,6 +75,6 @@ public static class EventBaseExtensions
             throw new ArgumentNullException(nameof(eventMsg));
         }
 
-        return eventMsg.JsonToObject<IEventBase>(_eventSerializerSettings);
+        return eventMsg.JsonToObject<IEventBase>(EventSerializerSettings);
     }
 }

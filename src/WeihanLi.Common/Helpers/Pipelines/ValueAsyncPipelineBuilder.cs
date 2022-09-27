@@ -7,7 +7,7 @@ using WeihanLi.Common.Abstractions;
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Common.Helpers;
 
-public interface IValueAsyncPipelineBuilder<TContext> : IProperties
+public interface IValueAsyncPipelineBuilder<TContext>
 {
     IValueAsyncPipelineBuilder<TContext> Use(Func<Func<TContext, ValueTask>, Func<TContext, ValueTask>> middleware);
 
@@ -25,8 +25,6 @@ internal sealed class ValueAsyncPipelineBuilder<TContext> : IValueAsyncPipelineB
     {
         _completeFunc = completeFunc;
     }
-
-    public IDictionary<string, object?> Properties { get; } = new Dictionary<string, object?>();
 
     public IValueAsyncPipelineBuilder<TContext> Use(Func<Func<TContext, ValueTask>, Func<TContext, ValueTask>> middleware)
     {
