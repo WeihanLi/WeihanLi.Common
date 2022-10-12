@@ -17,7 +17,7 @@ public static class CommandExecutor
     public static int ExecuteCommand(string command, string? workingDirectory = null)
     {
         Guard.NotNullOrEmpty(command);
-        var cmd = command.Split(new[]{' '}, 2);
+        var cmd = command.Split(new[] { ' ' }, 2);
         return Execute(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory);
     }
 
@@ -30,7 +30,7 @@ public static class CommandExecutor
     public static Task<int> ExecuteCommandAsync(string command, string? workingDirectory = null)
     {
         Guard.NotNullOrEmpty(command);
-        var cmd = command.Split(new[]{' '}, 2);
+        var cmd = command.Split(new[] { ' ' }, 2);
         return ExecuteAsync(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory);
     }
 
