@@ -9,6 +9,32 @@ namespace WeihanLi.Common.Helpers;
 public static class CommandExecutor
 {
     /// <summary>
+    /// Execute command
+    /// </summary>
+    /// <param name="command">command with arguments</param>
+    /// <param name="workingDirectory">working directory for the command</param>
+    /// <returns>exit code</returns>
+    public static int ExecuteCommand(string command, string? workingDirectory = null)
+    {
+        Guard.NotNullOrEmpty(command);
+        var cmd = command.Split(new[]{' '}, 2);
+        return Execute(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory);
+    }
+
+    /// <summary>
+    /// Execute command async
+    /// </summary>
+    /// <param name="command">command with arguments</param>
+    /// <param name="workingDirectory">working directory for the command</param>
+    /// <returns>exit code</returns>
+    public static Task<int> ExecuteCommandAsync(string command, string? workingDirectory = null)
+    {
+        Guard.NotNullOrEmpty(command);
+        var cmd = command.Split(new[]{' '}, 2);
+        return ExecuteAsync(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory);
+    }
+
+    /// <summary>
     /// Execute command with a process
     /// </summary>
     /// <param name="commandPath">executable command path</param>
