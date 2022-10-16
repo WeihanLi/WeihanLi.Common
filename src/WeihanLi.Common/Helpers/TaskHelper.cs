@@ -17,9 +17,9 @@ public static class TaskHelper
 #endif
     ;
     
-    public static ValueTask ToTask(object? object)
+    public static ValueTask ToTask(object? obj)
     {
-        var task = object switch 
+        var task = obj switch 
         {
             ValueTask vt => vt,
             Task t => new ValueTask(t),
