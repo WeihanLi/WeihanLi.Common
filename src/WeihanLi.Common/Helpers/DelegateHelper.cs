@@ -1,52 +1,53 @@
 ﻿using System.Reflection;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
 public static class DelegateHelper
 {
-    private static readonly Type[] _funcMaker;
-    private static readonly Type[] _actionMaker;
+    private static readonly Type[] _funcFactory;
+    private static readonly Type[] _actionFactory;
 
     static DelegateHelper()
     {
-        _funcMaker = new Type[18];
-        _funcMaker[0] = typeof(Func<>);
-        _funcMaker[1] = typeof(Func<,>);
-        _funcMaker[2] = typeof(Func<,,>);
-        _funcMaker[3] = typeof(Func<,,,>);
-        _funcMaker[4] = typeof(Func<,,,,>);
-        _funcMaker[5] = typeof(Func<,,,,,>);
-        _funcMaker[6] = typeof(Func<,,,,,,>);
-        _funcMaker[7] = typeof(Func<,,,,,,,>);
-        _funcMaker[8] = typeof(Func<,,,,,,,,>);
-        _funcMaker[9] = typeof(Func<,,,,,,,,,>);
-        _funcMaker[10] = typeof(Func<,,,,,,,,,,>);
-        _funcMaker[11] = typeof(Func<,,,,,,,,,,,>);
-        _funcMaker[12] = typeof(Func<,,,,,,,,,,,,>);
-        _funcMaker[13] = typeof(Func<,,,,,,,,,,,,,>);
-        _funcMaker[14] = typeof(Func<,,,,,,,,,,,,,,>);
-        _funcMaker[15] = typeof(Func<,,,,,,,,,,,,,,,>);
-        _funcMaker[16] = typeof(Func<,,,,,,,,,,,,,,,>);
-        _funcMaker[17] = typeof(Func<,,,,,,,,,,,,,,,,>);
+        _funcFactory = new Type[18];
+        _funcFactory[0] = typeof(Func<>);
+        _funcFactory[1] = typeof(Func<,>);
+        _funcFactory[2] = typeof(Func<,,>);
+        _funcFactory[3] = typeof(Func<,,,>);
+        _funcFactory[4] = typeof(Func<,,,,>);
+        _funcFactory[5] = typeof(Func<,,,,,>);
+        _funcFactory[6] = typeof(Func<,,,,,,>);
+        _funcFactory[7] = typeof(Func<,,,,,,,>);
+        _funcFactory[8] = typeof(Func<,,,,,,,,>);
+        _funcFactory[9] = typeof(Func<,,,,,,,,,>);
+        _funcFactory[10] = typeof(Func<,,,,,,,,,,>);
+        _funcFactory[11] = typeof(Func<,,,,,,,,,,,>);
+        _funcFactory[12] = typeof(Func<,,,,,,,,,,,,>);
+        _funcFactory[13] = typeof(Func<,,,,,,,,,,,,,>);
+        _funcFactory[14] = typeof(Func<,,,,,,,,,,,,,,>);
+        _funcFactory[15] = typeof(Func<,,,,,,,,,,,,,,,>);
+        _funcFactory[16] = typeof(Func<,,,,,,,,,,,,,,,>);
+        _funcFactory[17] = typeof(Func<,,,,,,,,,,,,,,,,>);
 
-        _actionMaker = new Type[17];
-        _actionMaker[0] = typeof(Action);
-        _actionMaker[1] = typeof(Action<>);
-        _actionMaker[2] = typeof(Action<,>);
-        _actionMaker[3] = typeof(Action<,,>);
-        _actionMaker[4] = typeof(Action<,,,>);
-        _actionMaker[5] = typeof(Action<,,,,>);
-        _actionMaker[6] = typeof(Action<,,,,,>);
-        _actionMaker[7] = typeof(Action<,,,,,,>);
-        _actionMaker[8] = typeof(Action<,,,,,,,>);
-        _actionMaker[9] = typeof(Action<,,,,,,,,>);
-        _actionMaker[10] = typeof(Action<,,,,,,,,,>);
-        _actionMaker[11] = typeof(Action<,,,,,,,,,,>);
-        _actionMaker[12] = typeof(Action<,,,,,,,,,,,>);
-        _actionMaker[13] = typeof(Action<,,,,,,,,,,,,>);
-        _actionMaker[14] = typeof(Action<,,,,,,,,,,,,,>);
-        _actionMaker[15] = typeof(Action<,,,,,,,,,,,,,,>);
-        _actionMaker[16] = typeof(Action<,,,,,,,,,,,,,,,>);
+        _actionFactory = new Type[17];
+        _actionFactory[0] = typeof(Action);
+        _actionFactory[1] = typeof(Action<>);
+        _actionFactory[2] = typeof(Action<,>);
+        _actionFactory[3] = typeof(Action<,,>);
+        _actionFactory[4] = typeof(Action<,,,>);
+        _actionFactory[5] = typeof(Action<,,,,>);
+        _actionFactory[6] = typeof(Action<,,,,,>);
+        _actionFactory[7] = typeof(Action<,,,,,,>);
+        _actionFactory[8] = typeof(Action<,,,,,,,>);
+        _actionFactory[9] = typeof(Action<,,,,,,,,>);
+        _actionFactory[10] = typeof(Action<,,,,,,,,,>);
+        _actionFactory[11] = typeof(Action<,,,,,,,,,,>);
+        _actionFactory[12] = typeof(Action<,,,,,,,,,,,>);
+        _actionFactory[13] = typeof(Action<,,,,,,,,,,,,>);
+        _actionFactory[14] = typeof(Action<,,,,,,,,,,,,,>);
+        _actionFactory[15] = typeof(Action<,,,,,,,,,,,,,,>);
+        _actionFactory[16] = typeof(Action<,,,,,,,,,,,,,,,>);
     }
 
     public static Delegate FromMethod(MethodInfo method, object? target = null)
@@ -76,11 +77,11 @@ public static class DelegateHelper
         {
             if (parameterTypes.Length == 0)
             {
-                delegateType = _actionMaker[0];
+                delegateType = _actionFactory[0];
             }
             else
             {
-                delegateType = _actionMaker[parameterTypes.Length]
+                delegateType = _actionFactory[parameterTypes.Length]
                     .MakeGenericType(parameterTypes);
             }
         }
@@ -90,7 +91,7 @@ public static class DelegateHelper
             Array.Copy(parameterTypes, types, parameterTypes.Length);
             types[parameterTypes.Length] = method.ReturnType;
 
-            delegateType = _funcMaker[parameterTypes.Length]
+            delegateType = _funcFactory[parameterTypes.Length]
                 .MakeGenericType(types);
         }
 
@@ -114,16 +115,16 @@ public static class DelegateHelper
             return GetAction(parametersTypes);
         }
 
-        if (parametersTypes == null || parametersTypes.Length == 0)
+        if (parametersTypes.IsNullOrEmpty())
         {
-            return _funcMaker[0].MakeGenericType(returnType);
+            return _funcFactory[0].MakeGenericType(returnType);
         }
 
         var types = new Type[parametersTypes.Length + 1];
         Array.Copy(parametersTypes, types, parametersTypes.Length);
         types[parametersTypes.Length] = returnType;
 
-        return _funcMaker[parametersTypes.Length]
+        return _funcFactory[parametersTypes.Length]
             .MakeGenericType(types);
     }
 
@@ -131,10 +132,10 @@ public static class DelegateHelper
     {
         if (parametersTypes == null || parametersTypes.Length == 0)
         {
-            return _actionMaker[0];
+            return _actionFactory[0];
         }
 
-        return _actionMaker[parametersTypes.Length]
+        return _actionFactory[parametersTypes.Length]
             .MakeGenericType(parametersTypes);
     }
 }
