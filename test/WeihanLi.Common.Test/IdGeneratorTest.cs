@@ -23,6 +23,8 @@ public class IdGeneratorTest
     [Fact]
     public void SnowflakeIdTest()
     {
-        Assert.Throws<NotImplementedException>(() => new SnowflakeIdGenerator().NewId());
+        var idGenerator = new SnowflakeIdGenerator();
+        var id = idGenerator.NewId();
+        Assert.NotEqual(id, idGenerator.NewId());
     }
 }
