@@ -6,7 +6,7 @@ namespace WeihanLi.Common;
 public static class Guard
 {
     public static T NotNull<T>([NotNull] T? t,
-           [CallerArgumentExpression("t")]
+           [CallerArgumentExpression(nameof(t))]
             string? paramName = default)
     {
 #if NET6_0_OR_GREATER
@@ -21,7 +21,7 @@ public static class Guard
     }
 
     public static string NotNullOrEmpty([NotNull] string? str,
-        [CallerArgumentExpression("str")]
+        [CallerArgumentExpression(nameof(str))]
             string? paramName = null)
     {
         NotNull(str, paramName);
@@ -33,7 +33,7 @@ public static class Guard
     }
 
     public static string NotNullOrWhiteSpace([NotNull] string? str,
-        [CallerArgumentExpression("str")] string? paramName = null)
+        [CallerArgumentExpression(nameof(str))] string? paramName = null)
     {
         NotNull(str, paramName);
         if (string.IsNullOrWhiteSpace(str))
@@ -43,7 +43,7 @@ public static class Guard
         return str;
     }
 
-    public static ICollection<T> NotEmpty<T>([NotNull] ICollection<T> collection, [CallerArgumentExpression("collection")] string? paramName = null)
+    public static ICollection<T> NotEmpty<T>([NotNull] ICollection<T> collection, [CallerArgumentExpression(nameof(collection))] string? paramName = null)
     {
         NotNull(collection, paramName);
         if (collection.Count == 0)
@@ -53,7 +53,7 @@ public static class Guard
         return collection;
     }
 
-    public static T Ensure<T>(Func<T, bool> condition, T t, [CallerArgumentExpression("t")] string? paramName = null)
+    public static T Ensure<T>(Func<T, bool> condition, T t, [CallerArgumentExpression(nameof(t))] string? paramName = null)
     {
         NotNull(condition);
         if (!condition(t))
@@ -63,7 +63,7 @@ public static class Guard
         return t;
     }
 
-    public static async Task<T> EnsureAsync<T>(Func<T, Task<bool>> condition, T t, [CallerArgumentExpression("t")] string? paramName = null)
+    public static async Task<T> EnsureAsync<T>(Func<T, Task<bool>> condition, T t, [CallerArgumentExpression(nameof(t))] string? paramName = null)
     {
         NotNull(condition);
         if (!await condition(t))
@@ -74,7 +74,7 @@ public static class Guard
     }
 
 #if ValueTaskSupport
-    public static async Task<T> EnsureAsync<T>(Func<T, ValueTask<bool>> condition, T t, [CallerArgumentExpression("t")] string? paramName = null)
+    public static async Task<T> EnsureAsync<T>(Func<T, ValueTask<bool>> condition, T t, [CallerArgumentExpression(nameof(t))] string? paramName = null)
     {
         NotNull(condition);
         if (!await condition(t))

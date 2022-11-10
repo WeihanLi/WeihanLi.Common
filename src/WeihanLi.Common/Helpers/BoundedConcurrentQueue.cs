@@ -2,16 +2,16 @@
 
 namespace WeihanLi.Common.Helpers;
 
-public class BoundedConcurrentQueue<T>
+public sealed class BoundedConcurrentQueue<T>
 {
-    private const int NON_BOUNDED = -1;
+    private const int NonBounded = -1;
     private readonly ConcurrentQueue<T> _queue = new();
     private readonly int _queueLimit;
     private int _counter;
 
     public BoundedConcurrentQueue()
     {
-        _queueLimit = NON_BOUNDED;
+        _queueLimit = NonBounded;
     }
 
     public BoundedConcurrentQueue(int queueLimit)
@@ -26,7 +26,7 @@ public class BoundedConcurrentQueue<T>
 
     public bool TryDequeue(out T? item)
     {
-        if (_queueLimit == NON_BOUNDED)
+        if (_queueLimit == NonBounded)
             return _queue.TryDequeue(out item);
 
         var result = false;
@@ -46,7 +46,7 @@ public class BoundedConcurrentQueue<T>
 
     public bool TryEnqueue(T item)
     {
-        if (_queueLimit == NON_BOUNDED)
+        if (_queueLimit == NonBounded)
         {
             _queue.Enqueue(item);
             return true;

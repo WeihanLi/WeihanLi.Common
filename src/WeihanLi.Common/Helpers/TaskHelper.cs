@@ -16,5 +16,16 @@ public static class TaskHelper
     default
 #endif
     ;
+    
+    public static ValueTask ToTask(object? obj)
+    {
+        var task = obj switch 
+        {
+            ValueTask vt => vt,
+            Task t => new ValueTask(t),
+            _ => CompletedValueTask
+        };
+        return task;
+    }
 #endif
 }
