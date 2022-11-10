@@ -37,14 +37,6 @@ public sealed class SequentialGuidIdGenerator : IIdGenerator
 }
 
 /// <summary>
-/// IdGenerator based on ObjectId
-/// </summary>
-public sealed class ObjectIdGenerator : IIdGenerator
-{
-    public string NewId() => ObjectId.GenerateNewStringId();
-}
-
-/// <summary>
 /// Snowflake IdGenerator
 /// WARNING: NotImplemented, do not use
 /// </summary>
