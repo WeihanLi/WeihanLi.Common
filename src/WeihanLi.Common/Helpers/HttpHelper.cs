@@ -39,7 +39,7 @@ public static class HttpHelper
     /// Json ContentType
     /// </summary>
     public const string JsonContentType = "application/json;charset=UTF-8";
-    
+
     /// <summary>
     /// FormData ContentType
     /// </summary>
