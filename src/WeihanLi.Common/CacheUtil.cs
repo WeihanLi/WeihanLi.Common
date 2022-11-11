@@ -13,19 +13,13 @@ public static class CacheUtil
 
     public static PropertyInfo[] GetTypeProperties(Type type)
     {
-        if (null == type)
-        {
-            throw new ArgumentNullException(nameof(type));
-        }
+        Guard.NotNull(type);
         return TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
     }
 
     public static FieldInfo[] GetTypeFields(Type type)
     {
-        if (null == type)
-        {
-            throw new ArgumentNullException(nameof(type));
-        }
+        Guard.NotNull(type);
         return TypeFieldCache.GetOrAdd(type, t => t.GetFields());
     }
 
