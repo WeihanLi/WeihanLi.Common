@@ -11,7 +11,7 @@ public static class ApplicationHelper
     public static readonly string AppRoot = AppDomain.CurrentDomain.BaseDirectory;
 
     public static string MapPath(string virtualPath) => AppRoot + virtualPath.TrimStart('~');
-    
+
     /// <summary>
     /// Get the library info from the assembly info
     /// </summary>
@@ -64,7 +64,7 @@ public static class ApplicationHelper
             OSDescription = RuntimeInformation.OSDescription,
             OSVersion = Environment.OSVersion.ToString(),
             MachineName = Environment.MachineName,
-            
+
             IsInContainer = IsInContainer(),
             IsInKubernetes = IsInKubernetesCluster(),
 
@@ -74,14 +74,14 @@ public static class ApplicationHelper
         };
     }
 
-#region ContainerEnvironment
+    #region ContainerEnvironment
     private static bool IsInContainer()
     {
         // https://github.com/dotnet/dotnet-docker/blob/9b731e901dd4a343fc30da7b8b3ab7d305a4aff9/src/runtime-deps/7.0/cbl-mariner2.0/amd64/Dockerfile#L18
         return "true".Equals(Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER"),
             StringComparison.OrdinalIgnoreCase);
     }
-    
+
     private static readonly string ServiceAccountPath =
         Path.Combine(new string[]
         {
@@ -111,7 +111,7 @@ public static class ApplicationHelper
         var certPath = Path.Combine(ServiceAccountPath, ServiceAccountRootCAKeyFileName);
         return File.Exists(certPath);
     }
-#endregion ContainerEnvironment
+    #endregion ContainerEnvironment
 
 }
 
@@ -126,7 +126,7 @@ public sealed class RuntimeInfo : LibraryInfo
 {
     public required Version Version { get; init; }
     public required string FrameworkDescription { get; init; }
-    
+
     public required int ProcessorCount { get; init; }
     public required string OSArchitecture { get; init; }
     public required string OSDescription { get; init; }
@@ -139,13 +139,13 @@ public sealed class RuntimeInfo : LibraryInfo
     /// Is running in a container
     /// </summary>
     public required bool IsInContainer { get; init; }
-    
+
     /// <summary>
     /// Is running in a kubernetes cluster
     /// </summary>
     public required bool IsInKubernetes { get; init; }
-    
-#if NET6_0_OR_GREATER    
+
+#if NET6_0_OR_GREATER
     public required string RuntimeIdentifier { get; init; }
 #endif
 }
