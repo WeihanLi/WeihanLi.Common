@@ -26,8 +26,9 @@ public static class CommandExecutor
     /// </summary>
     /// <param name="command">command with arguments</param>
     /// <param name="workingDirectory">working directory for the command</param>
+    /// <param name="cancellationToken">cancellationToken</param>
     /// <returns>exit code</returns>
-    public static Task<int> ExecuteCommandAsync(string command, string? workingDirectory = null)
+    public static Task<int> ExecuteCommandAsync(string command, string? workingDirectory = null, CancellationToken cancellationToken = default)
     {
         Guard.NotNullOrEmpty(command);
         var cmd = command.Split(new[] { ' ' }, 2);
@@ -58,8 +59,9 @@ public static class CommandExecutor
     /// <param name="commandPath">executable command path</param>
     /// <param name="arguments">command arguments</param>
     /// <param name="workingDirectory">working directory</param>
+    /// <param name="cancellationToken">cancellationToken</param>
     /// <returns>exit code</returns>
-    public static async Task<int> ExecuteAsync(string commandPath, string? arguments = null, string? workingDirectory = null)
+    public static async Task<int> ExecuteAsync(string commandPath, string? arguments = null, string? workingDirectory = null, CancellationToken cancellationToken = default)
     {
         return await new ProcessStartInfo(commandPath, arguments ?? string.Empty)
         {
@@ -67,7 +69,7 @@ public static class CommandExecutor
             CreateNoWindow = true,
 
             WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
-        }.ExecuteAsync();
+        }.ExecuteAsync(cancellationToken);
     }
 
     /// <summary>
@@ -104,8 +106,9 @@ public static class CommandExecutor
     /// <param name="commandPath">executable command path</param>
     /// <param name="arguments">command arguments</param>
     /// <param name="workingDirectory">working directory</param>
+    /// <param name="cancellationToken">cancellationToken</param>
     /// <returns>command execute result</returns>
-    public static Task<CommandResult> ExecuteAndCaptureAsync(string commandPath, string? arguments = null, string? workingDirectory = null)
+    public static Task<CommandResult> ExecuteAndCaptureAsync(string commandPath, string? arguments = null, string? workingDirectory = null, CancellationToken cancellationToken = default)
     {
         var processStartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
         {
@@ -113,7 +116,7 @@ public static class CommandExecutor
             CreateNoWindow = true,
             WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
         };
-        return ExecuteAndCaptureAsync(processStartInfo);
+        return ExecuteAndCaptureAsync(processStartInfo, cancellationToken);
     }
 
     /// <summary>
