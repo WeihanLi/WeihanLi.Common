@@ -5,5 +5,5 @@ public interface ISoftDeleteEntity
 
 public interface ISoftDeleteEntityWithDeleted : ISoftDeleteEntity
 {
-    bool Deleted { get; set; }
+    bool IsDeleted { get; set; }
 }

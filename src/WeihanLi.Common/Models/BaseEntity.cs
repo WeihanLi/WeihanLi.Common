@@ -8,7 +8,7 @@ public class BaseEntity<TKey>
     public TKey Id { get; set; } = default!;
 }
 
-public class BaseEntityWithDeleted<TKey> : ISoftDeleteEntityWithDeleted, BaseEntity<TKey>
+public class BaseEntityWithDeleted<TKey> : BaseEntity<TKey>, ISoftDeleteEntityWithDeleted
 {
     public bool IsDeleted { get; set; }
 }
