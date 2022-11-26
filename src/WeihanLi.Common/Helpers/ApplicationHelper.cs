@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
 using WeihanLi.Extensions;
 
@@ -47,7 +46,7 @@ public static class ApplicationHelper
         }
         return new LibraryInfo()
         {
-            LibraryVersion = assembly.GetName().Version,
+            LibraryVersion = assembly.GetName().Version!,
             LibraryHash = string.Empty,
             RepositoryUrl = repositoryUrl
         };
@@ -74,7 +73,7 @@ public static class ApplicationHelper
         return commandPath;
     }
     
-    private static string GetDotnetDirectory()
+    public static string GetDotnetDirectory()
     {
         var environmentOverride = Environment.GetEnvironmentVariable("DOTNET_MSBUILD_SDK_RESOLVER_CLI_DIR");
         if (!string.IsNullOrEmpty(environmentOverride))
@@ -119,7 +118,7 @@ public static class ApplicationHelper
 
 #if NET6_0_OR_GREATER
             ProcessId = Environment.ProcessId,
-            ProcessPath = Environment.ProcessPath,
+            ProcessPath = Environment.ProcessPath ?? string.Empty,
             RuntimeIdentifier = RuntimeInformation.RuntimeIdentifier,
 #else
             ProcessId = currentProcess.Id,
