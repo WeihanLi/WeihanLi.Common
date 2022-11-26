@@ -1,12 +1,12 @@
-// Copyright (c) Weihan Li. All rights reserved.
+﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
 namespace WeihanLi.Common.Helpers;
 
-public sealed class ContextAccessor<TContext> where TContext: class
+public sealed class ContextAccessor<TContext> where TContext : class
 {
     private static readonly AsyncLocal<ContextHolder<TContext>> ContextCurrent = new();
-    
+
     public static TContext? Context
     {
         get
@@ -34,7 +34,7 @@ public sealed class ContextAccessor<TContext> where TContext: class
     }
 }
 
-file sealed class ContextHolder<TContext> where TContext: class
+file sealed class ContextHolder<TContext> where TContext : class
 {
     public TContext? Value;
 }
