@@ -19,7 +19,7 @@ public static class ApplicationHelper
     /// <param name="type">type in the assembly</param>
     /// <returns>The assembly library info</returns>
     public static LibraryInfo GetLibraryInfo(Type type) => GetLibraryInfo(Guard.NotNull(type).Assembly);
-    
+
     /// <summary>
     /// Get the library info from the assembly info
     /// </summary>
@@ -72,7 +72,7 @@ public static class ApplicationHelper
             .First(File.Exists);
         return commandPath;
     }
-    
+
     public static string GetDotnetDirectory()
     {
         var environmentOverride = Environment.GetEnvironmentVariable("DOTNET_MSBUILD_SDK_RESOLVER_CLI_DIR");
@@ -203,7 +203,7 @@ public sealed class RuntimeInfo : LibraryInfo
     public required string WorkingDirectory { get; init; }
     public required int ProcessId { get; init; }
     public required string ProcessPath { get; init; }
-    
+
     /// <summary>
     /// Is running in a container
     /// </summary>
