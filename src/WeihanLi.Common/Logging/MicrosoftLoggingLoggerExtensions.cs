@@ -51,13 +51,13 @@ public sealed class DelegateLoggerProvider : ILoggerProvider
         {
             return true;
         }
-        
+
 #if NET7_0_OR_GREATER
         IDisposable?
 #else
-    IDisposable
+        IDisposable
 #endif
-            ILogger.BeginScope<TState>(TState state)
+                ILogger.BeginScope<TState>(TState state)
         {
             return NullScope.Instance;
         }
