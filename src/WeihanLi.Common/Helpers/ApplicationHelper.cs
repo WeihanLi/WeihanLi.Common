@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
@@ -63,6 +64,35 @@ public static class ApplicationHelper
             .Select(p => Path.Combine(p, executableName))
             .First(File.Exists);
         return commandPath;
+    }
+    
+    private static string GetDotnetDirectory()
+    {
+        var environmentOverride = Environment.GetEnvironmentVariable("DOTNET_MSBUILD_SDK_RESOLVER_CLI_DIR");
+        if (!string.IsNullOrEmpty(environmentOverride))
+        {
+            return environmentOverride;
+        }
+
+        var dotnetExe = GetDotnetPath();
+
+        if (dotnetExe.IsNotNullOrEmpty() && !Interop.RunningOnWindows)
+        {
+            // e.g. on Linux the 'dotnet' command from PATH is a symlink so we need to
+            // resolve it to get the actual path to the binary
+            dotnetExe = Interop.Unix.RealPath(dotnetExe) ?? dotnetExe;
+        }
+
+        if (string.IsNullOrWhiteSpace(dotnetExe))
+        {
+#if NET6_0_OR_GREATER
+            dotnetExe = Environment.ProcessPath;
+#else
+            dotnetExe = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+#endif
+        }
+
+        return Guard.NotNull(Path.GetDirectoryName(dotnetExe));
     }
 
     private static RuntimeInfo GetRuntimeInfo()
