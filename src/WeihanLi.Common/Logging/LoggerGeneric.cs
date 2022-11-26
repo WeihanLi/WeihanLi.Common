@@ -30,7 +30,12 @@ internal sealed class GenericLogger<T> : ILogger<T>
     }
 
     /// <inheritdoc />
-    IDisposable ILogger.BeginScope<TState>(TState state)
+#if NET7_0_OR_GREATER
+    IDisposable?
+#else
+    IDisposable
+#endif
+        ILogger.BeginScope<TState>(TState state)
     {
         return _logger.BeginScope(state);
     }

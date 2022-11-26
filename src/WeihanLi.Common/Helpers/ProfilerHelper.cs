@@ -60,7 +60,12 @@ public static class ProfilerHelper
     /// <param name="startTimestamp">startTimestamp, get by Stopwatch.GetTimestamp()</param>
     /// <returns>elapsed timespan</returns>
     public static TimeSpan GetElapsedTime(long startTimestamp) =>
-        GetElapsedTime(startTimestamp, Stopwatch.GetTimestamp());
+#if NET7_0_OR_GREATER
+        Stopwatch.GetElapsedTime(startTimestamp)
+#else
+        GetElapsedTime(startTimestamp, Stopwatch.GetTimestamp())
+#endif
+        ;
 
     /// <summary>
     /// GetElapsedTime
@@ -70,7 +75,11 @@ public static class ProfilerHelper
     /// <returns>elapsed timespan</returns>
     public static TimeSpan GetElapsedTime(long startTimestamp, long endTimestamp)
     {
+#if NET7_0_OR_GREATER
+        return Stopwatch.GetElapsedTime(startTimestamp, endTimestamp);
+#else
         var ticks = (long)((endTimestamp - startTimestamp) * TicksPerTimestamp);
         return new TimeSpan(ticks);
+#endif
     }
 }
