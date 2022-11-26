@@ -4,6 +4,5 @@
     <VersionMinor>0</VersionMinor>
     <VersionPatch>58</VersionPatch>
     <VersionPrefix>$(VersionMajor).$(VersionMinor).$(VersionPatch)</VersionPrefix>
-    <InformationalVersion>$(PackageVersion)</InformationalVersion>
   </PropertyGroup>
 </Project>
