@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using WeihanLi.Extensions;
 
@@ -13,6 +14,13 @@ public static class ApplicationHelper
 
     public static string MapPath(string virtualPath) => AppRoot + virtualPath.TrimStart('~');
 
+    /// <summary>
+    /// Get the library info from the assembly info
+    /// </summary>
+    /// <param name="type">type in the assembly</param>
+    /// <returns>The assembly library info</returns>
+    public static LibraryInfo GetLibraryInfo(Type type) => GetLibraryInfo(Guard.NotNull(type).Assembly);
+    
     /// <summary>
     /// Get the library info from the assembly info
     /// </summary>
@@ -98,6 +106,10 @@ public static class ApplicationHelper
     private static RuntimeInfo GetRuntimeInfo()
     {
         var libInfo = GetLibraryInfo(typeof(object).Assembly);
+#if NET6_0_OR_GREATER
+#else
+        var currentProcess = System.Diagnostics.Process.GetCurrentProcess();
+#endif
         return new RuntimeInfo()
         {
             Version = Environment.Version,
@@ -106,7 +118,12 @@ public static class ApplicationHelper
             WorkingDirectory = Environment.CurrentDirectory,
 
 #if NET6_0_OR_GREATER
+            ProcessId = Environment.ProcessId,
+            ProcessPath = Environment.ProcessPath,
             RuntimeIdentifier = RuntimeInformation.RuntimeIdentifier,
+#else
+            ProcessId = currentProcess.Id,
+            ProcessPath = currentProcess.MainModule?.FileName ?? string.Empty,
 #endif
             OSArchitecture = RuntimeInformation.OSArchitecture.ToString(),
             OSDescription = RuntimeInformation.OSDescription,
@@ -138,7 +155,7 @@ public static class ApplicationHelper
     private const string ServiceAccountTokenKeyFileName = "token";
     private const string ServiceAccountRootCAKeyFileName = "ca.crt";
     /// <summary>
-    /// Whether running in 
+    /// Whether running in k8s cluster
     /// </summary>
     /// <returns></returns>
     private static bool IsInKubernetesCluster()
@@ -174,15 +191,20 @@ public sealed class RuntimeInfo : LibraryInfo
 {
     public required Version Version { get; init; }
     public required string FrameworkDescription { get; init; }
-
     public required int ProcessorCount { get; init; }
     public required string OSArchitecture { get; init; }
     public required string OSDescription { get; init; }
     public required string OSVersion { get; init; }
     public required string MachineName { get; init; }
 
-    public required string WorkingDirectory { get; init; }
+#if NET6_0_OR_GREATER
+    public required string RuntimeIdentifier { get; init; }
+#endif
 
+    public required string WorkingDirectory { get; init; }
+    public required int ProcessId { get; init; }
+    public required string ProcessPath { get; init; }
+    
     /// <summary>
     /// Is running in a container
     /// </summary>
@@ -192,8 +214,4 @@ public sealed class RuntimeInfo : LibraryInfo
     /// Is running in a kubernetes cluster
     /// </summary>
     public required bool IsInKubernetes { get; init; }
-
-#if NET6_0_OR_GREATER
-    public required string RuntimeIdentifier { get; init; }
-#endif
 }
