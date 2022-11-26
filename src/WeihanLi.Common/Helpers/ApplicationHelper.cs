@@ -31,7 +31,7 @@ public static class ApplicationHelper
                 return new LibraryInfo()
                 {
                     LibraryVersion = version,
-                    LibraryHash = informationalVersionSplit[1],
+                    LibraryHash = informationalVersionSplit.Length > 1 ? informationalVersionSplit[1] : string.Empty,
                     RepositoryUrl = repositoryUrl
                 };
             }
@@ -44,8 +44,26 @@ public static class ApplicationHelper
         };
     }
 
-    private static Lazy<RuntimeInfo> _runtimeInfo = new(GetRuntimeInfo);
-    public static RuntimeInfo RuntimeInfo => _runtimeInfo.Value;
+    private static readonly Lazy<RuntimeInfo> _runtimeInfoLazy = new(GetRuntimeInfo);
+    public static RuntimeInfo RuntimeInfo => _runtimeInfoLazy.Value;
+
+    /// <summary>
+    /// Get dotnet executable path
+    /// </summary>
+    public static string GetDotnetPath()
+    {
+        var executableName =
+            $"dotnet{(RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? ".exe" : string.Empty)}";
+        var searchPaths = Guard.NotNull(Environment.GetEnvironmentVariable("PATH"))
+            .Split(new[] { Path.PathSeparator }, options: StringSplitOptions.RemoveEmptyEntries)
+            .Select(p => p.Trim('"'))
+            .ToArray();
+        var commandPath = searchPaths
+            .Where(p => !Path.GetInvalidPathChars().Any(p.Contains))
+            .Select(p => Path.Combine(p, executableName))
+            .First(File.Exists);
+        return commandPath;
+    }
 
     private static RuntimeInfo GetRuntimeInfo()
     {
