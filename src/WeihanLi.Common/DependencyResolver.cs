@@ -38,6 +38,7 @@ public static class DependencyResolver
 
     public static void SetDependencyResolver(IServiceProvider serviceProvider)
     {
+        Guard.NotNull(serviceProvider);
         if (serviceProvider is ServiceProvider microServiceProvider)
             SetDependencyResolver(new ServiceProviderDependencyResolver(microServiceProvider));
         else
@@ -144,8 +145,8 @@ public static class DependencyResolver
 
         public DelegateBasedDependencyResolver(Func<Type, object?> getService, Func<Type, IEnumerable<object>> getServices)
         {
-            _getService = getService;
-            _getServices = getServices;
+            _getService = Guard.NotNull(getService);
+            _getServices = Guard.NotNull(getServices);
         }
 
         public object? GetService(Type serviceType)
