@@ -75,7 +75,7 @@ public static class DependencyResolver
             Guard.NotNull(action, nameof(action));
             using var scope = _serviceProvider.CreateScope();
             var service = scope.ServiceProvider.GetService<TService>();
-            if (service is null) 
+            if (service is null)
                 return false;
             action.Invoke(service);
             return true;
@@ -86,7 +86,7 @@ public static class DependencyResolver
             Guard.NotNull(action, nameof(action));
             using var scope = _serviceProvider.CreateScope();
             var service = scope.ServiceProvider.GetService<TService>();
-            if (service is null) 
+            if (service is null)
                 return false;
             await action.Invoke(service);
             return true;
