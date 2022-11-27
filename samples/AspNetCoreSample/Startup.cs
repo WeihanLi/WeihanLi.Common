@@ -25,7 +25,6 @@ public class Startup
 
         services.AddSingleton<IEventPublisher, EventQueuePublisher>();
         services.AddHostedService<EventConsumer>();
-        DependencyResolver.SetDependencyResolver(services);
 
         // TestReplaceHolder
         var abc = Configuration["TestSetting2:Setting2"];
@@ -35,6 +34,9 @@ public class Startup
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
+        // Init service locator
+        DependencyResolver.SetDependencyResolver(app.ApplicationServices);
+
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
