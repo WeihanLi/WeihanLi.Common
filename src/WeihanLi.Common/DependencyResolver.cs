@@ -9,13 +9,9 @@ namespace WeihanLi.Common;
 /// </summary>
 public static class DependencyResolver
 {
-    public static IDependencyResolver Current { get; private set; } = new DefaultDependencyResolver();
-
-    /// <summary>
-    /// locker
-    /// </summary>
     private static readonly object _lock = new();
-
+    public static IDependencyResolver Current { get; private set; } = new DefaultDependencyResolver();
+    
     public static TService? ResolveService<TService>() => Current.ResolveService<TService>();
 
     public static TService ResolveRequiredService<TService>() => Current.ResolveRequiredService<TService>();
