@@ -2,7 +2,7 @@
   <Import Project="../../build/common.props" />
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>    
-    <DefineConstants Condition="'$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net7.0' OR '$(TargetFramework)' == 'netstandard2.1'">;ValueTaskSupport</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net7.0' OR '$(TargetFramework)' == 'netstandard2.1'">$(DefineConstants);ValueTaskSupport</DefineConstants>
   </PropertyGroup>  
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
