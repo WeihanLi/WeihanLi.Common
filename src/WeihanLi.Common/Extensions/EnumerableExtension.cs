@@ -147,7 +147,7 @@ public static class EnumerableExtension
 
     public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T?> source) where T : class
         => Guard.NotNull(source).Where(_ => _ != null)!;
-    
+
     public static IEnumerable<T> Flatten<T>(this IEnumerable<IEnumerable<T>> source)
         => Guard.NotNull(source).SelectMany(_ => _);
 
