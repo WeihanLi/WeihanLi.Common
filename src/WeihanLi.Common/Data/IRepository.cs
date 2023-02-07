@@ -103,7 +103,7 @@ public interface IReadOnlyRepository<TEntity>
 /// Represents an entity repository
 /// </summary>
 /// <typeparam name="TEntity">Entity type</typeparam>
-public interface IRepository<TEntity>: IReadOnlyRepository<TEntity>
+public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
 {
     /// <summary>
     /// Insert a entity
