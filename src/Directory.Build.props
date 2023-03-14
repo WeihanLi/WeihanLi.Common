@@ -13,9 +13,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>
-      https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
-    </PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/WeihanLi/WeihanLi.Common/releases</PackageReleaseNotes>
     <PackageIcon>icon.jpg</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

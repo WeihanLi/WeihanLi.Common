@@ -9,12 +9,8 @@ namespace WeihanLi.Common;
 /// </summary>
 public static class DependencyResolver
 {
-    public static IDependencyResolver Current { get; private set; } = new DefaultDependencyResolver();
-
-    /// <summary>
-    /// locker
-    /// </summary>
     private static readonly object _lock = new();
+    public static IDependencyResolver Current { get; private set; } = new DefaultDependencyResolver();
 
     public static TService? ResolveService<TService>() => Current.ResolveService<TService>();
 
@@ -36,21 +32,28 @@ public static class DependencyResolver
 
     public static void SetDependencyResolver(IServiceContainer serviceContainer) => SetDependencyResolver(new ServiceContainerDependencyResolver(serviceContainer));
 
-    public static void SetDependencyResolver(IServiceProvider serviceProvider) => SetDependencyResolver(serviceProvider.GetService);
+    public static void SetDependencyResolver(IServiceProvider serviceProvider)
+    {
+        Guard.NotNull(serviceProvider);
+        if (serviceProvider is ServiceProvider microServiceProvider)
+            SetDependencyResolver(new ServiceProviderDependencyResolver(microServiceProvider));
+        else
+            SetDependencyResolver(serviceProvider.GetService);
+    }
 
     public static void SetDependencyResolver(Func<Type, object?> getServiceFunc) => SetDependencyResolver(getServiceFunc, serviceType => (IEnumerable<object>)Guard.NotNull(getServiceFunc(typeof(IEnumerable<>).MakeGenericType(serviceType))));
 
     public static void SetDependencyResolver(Func<Type, object?> getServiceFunc, Func<Type, IEnumerable<object>> getServicesFunc) => SetDependencyResolver(new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc));
 
-    public static void SetDependencyResolver(IServiceCollection services) => SetDependencyResolver(new ServiceCollectionDependencyResolver(services));
+    public static void SetDependencyResolver(IServiceCollection services) => SetDependencyResolver(new ServiceProviderDependencyResolver(services.BuildServiceProvider()));
 
-    private sealed class ServiceCollectionDependencyResolver : IDependencyResolver
+    private sealed class ServiceProviderDependencyResolver : IDependencyResolver
     {
-        private readonly IServiceProvider _serviceProvider;
+        private readonly ServiceProvider _serviceProvider;
 
-        public ServiceCollectionDependencyResolver(IServiceCollection services)
+        public ServiceProviderDependencyResolver(ServiceProvider serviceProvider)
         {
-            _serviceProvider = services.BuildServiceProvider();
+            _serviceProvider = serviceProvider;
         }
 
         public object? GetService(Type serviceType)
@@ -67,26 +70,22 @@ public static class DependencyResolver
         {
             Guard.NotNull(action, nameof(action));
             using var scope = _serviceProvider.CreateScope();
-            var svc = scope.ServiceProvider.GetService(typeof(TService));
-            if (svc is TService service)
-            {
-                action.Invoke(service);
-                return true;
-            }
-            return false;
+            var service = scope.ServiceProvider.GetService<TService>();
+            if (service is null)
+                return false;
+            action.Invoke(service);
+            return true;
         }
 
         public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
         {
             Guard.NotNull(action, nameof(action));
             using var scope = _serviceProvider.CreateScope();
-            var svc = scope.ServiceProvider.GetService(typeof(TService));
-            if (svc is TService service)
-            {
-                await action.Invoke(service);
-                return true;
-            }
-            return false;
+            var service = scope.ServiceProvider.GetService<TService>();
+            if (service is null)
+                return false;
+            await action.Invoke(service);
+            return true;
         }
     }
 
@@ -142,8 +141,8 @@ public static class DependencyResolver
 
         public DelegateBasedDependencyResolver(Func<Type, object?> getService, Func<Type, IEnumerable<object>> getServices)
         {
-            _getService = getService;
-            _getServices = getServices;
+            _getService = Guard.NotNull(getService);
+            _getServices = Guard.NotNull(getServices);
         }
 
         public object? GetService(Type serviceType)

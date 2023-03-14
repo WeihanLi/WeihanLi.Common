@@ -3,11 +3,7 @@ using WeihanLi.Common.Models;
 
 namespace WeihanLi.Common.Data;
 
-/// <summary>
-/// Represents an entity repository
-/// </summary>
-/// <typeparam name="TEntity">Entity type</typeparam>
-public interface IRepository<TEntity>
+public interface IReadOnlyRepository<TEntity>
 {
     /// <summary>
     /// Count
@@ -101,7 +97,14 @@ public interface IRepository<TEntity>
     /// <param name="cancellationToken">cancellationToken</param>
     /// <returns></returns>
     Task<IPagedListResult<TEntity>> PagedAsync<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default);
+}
 
+/// <summary>
+/// Represents an entity repository
+/// </summary>
+/// <typeparam name="TEntity">Entity type</typeparam>
+public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
+{
     /// <summary>
     /// Insert a entity
     /// </summary>
