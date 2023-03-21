@@ -18,6 +18,8 @@ jobs:
           path: source
       - name: install DocFX
         run: "dotnet tool install -g docfx"
+      - name: output current dir
+        run: "dir"
       - name: Build docs
         run: "docfx ./docs/docfx.json"
       - name: Deploy
