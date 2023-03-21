@@ -19,6 +19,8 @@ jobs:
         run: "dir"
       - name: Build docs
         run: "docfx ./docs/docfx.json"
+      - name: list site content
+        run: "ls ./docs/_site/"
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
