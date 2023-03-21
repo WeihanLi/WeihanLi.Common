@@ -12,10 +12,7 @@ jobs:
     steps:
       # Check out the branch that triggered this workflow to the 'source' subdirectory
       - name: Checkout Code
-        uses: actions/checkout@v2
-        with:
-          ref: master
-          path: source
+        uses: actions/checkout@v3
       - name: install DocFX
         run: "dotnet tool install -g docfx"
       - name: output current dir
