@@ -32,12 +32,6 @@
           "toc.yml",
           "*.md"
         ]
-      },
-      {
-        "files": [
-          "**.md"
-        ],
-        "src": "../docs/"
       }
     ],
     "resource": [

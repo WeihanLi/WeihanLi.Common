@@ -19,9 +19,9 @@ jobs:
       - name: install DocFX
         run: "dotnet tool install -g docfx"
       - name: Build docs
-        run: "docfx docfx/docfx.json"
+        run: "docfx ./docs/docfx.json"
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: docfx/_site
+            publish_dir: docs/_site
