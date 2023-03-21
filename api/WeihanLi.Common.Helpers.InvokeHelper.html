@@ -1,0 +1,875 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class InvokeHelper
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class InvokeHelper
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_InvokeHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.InvokeHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <body data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <form class="d-flex ms-auto" role="search" id="search">
+              <i class="bi bi-search"></i>
+              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="WeihanLi.Common.Helpers.InvokeHelper">
+
+
+  <h1 id="WeihanLi_Common_Helpers_InvokeHelper" data-uid="WeihanLi.Common.Helpers.InvokeHelper" class="text-break">
+    Class InvokeHelper
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L5"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Helpers.html">Helpers</a></dd></dl>
+    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class InvokeHelper</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">InvokeHelper</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_OnInvokeException_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.OnInvokeException*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_OnInvokeException" data-uid="WeihanLi.Common.Helpers.InvokeHelper.OnInvokeException">
+  OnInvokeException
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Action&lt;Exception&gt;? OnInvokeException { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Action</span>&lt;<span class="xref">Exception</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_Profile_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.Profile*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_Profile_System_Action_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.Profile(System.Action)">
+  Profile(Action)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Profile(Action action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <span class="xref">Action</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">double</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_Profile_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.Profile*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_Profile__1_System_Action___0____0_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.Profile``1(System.Action{``0},``0)">
+  Profile&lt;T&gt;(Action&lt;T&gt;, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Profile&lt;T&gt;(Action&lt;T&gt; action, T t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <span class="xref">Action</span>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>t</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">double</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_Profile_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.Profile*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_Profile__2_System_Action___0___1____0___1_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.Profile``2(System.Action{``0,``1},``0,``1)">
+  Profile&lt;T1, T2&gt;(Action&lt;T1, T2&gt;, T1, T2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Profile&lt;T1, T2&gt;(Action&lt;T1, T2&gt; action, T1 t1, T2 t2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <span class="xref">Action</span>&lt;T1, T2&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">double</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_Profile_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.Profile*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_Profile__3_System_Action___0___1___2____0___1___2_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.Profile``3(System.Action{``0,``1,``2},``0,``1,``2)">
+  Profile&lt;T1, T2, T3&gt;(Action&lt;T1, T2, T3&gt;, T1, T2, T3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Profile&lt;T1, T2, T3&gt;(Action&lt;T1, T2, T3&gt; action, T1 t1, T2 t2, T3 t3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <span class="xref">Action</span>&lt;T1, T2, T3&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+    <dt><code>t3</code> <span class="xref">T3</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">double</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+    <dt><code>T3</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_ProfileAsync_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.ProfileAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_ProfileAsync_System_Func_System_Threading_Tasks_Task__" data-uid="WeihanLi.Common.Helpers.InvokeHelper.ProfileAsync(System.Func{System.Threading.Tasks.Task})">
+  ProfileAsync(Func&lt;Task&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;double&gt; ProfileAsync(Func&lt;Task&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <span class="xref">Func</span>&lt;<span class="xref">Task</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">double</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_ProfileAsync_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.ProfileAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_ProfileAsync__1_System_Func___0_System_Threading_Tasks_Task____0_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.ProfileAsync``1(System.Func{``0,System.Threading.Tasks.Task},``0)">
+  ProfileAsync&lt;T&gt;(Func&lt;T, Task&gt;, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;double&gt; ProfileAsync&lt;T&gt;(Func&lt;T, Task&gt; func, T t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;T, <span class="xref">Task</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>t</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">double</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_ProfileAsync_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.ProfileAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_ProfileAsync__2_System_Func___0___1_System_Threading_Tasks_Task____0___1_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.ProfileAsync``2(System.Func{``0,``1,System.Threading.Tasks.Task},``0,``1)">
+  ProfileAsync&lt;T1, T2&gt;(Func&lt;T1, T2, Task&gt;, T1, T2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;double&gt; ProfileAsync&lt;T1, T2&gt;(Func&lt;T1, T2, Task&gt; func, T1 t1, T2 t2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;T1, T2, <span class="xref">Task</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">double</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_ProfileAsync_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.ProfileAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_ProfileAsync__3_System_Func___0___1___2_System_Threading_Tasks_Task____0___1___2_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.ProfileAsync``3(System.Func{``0,``1,``2,System.Threading.Tasks.Task},``0,``1,``2)">
+  ProfileAsync&lt;T1, T2, T3&gt;(Func&lt;T1, T2, T3, Task&gt;, T1, T2, T3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;double&gt; ProfileAsync&lt;T1, T2, T3&gt;(Func&lt;T1, T2, T3, Task&gt; func, T1 t1, T2 t2, T3 t3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;T1, T2, T3, <span class="xref">Task</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+    <dt><code>t3</code> <span class="xref">T3</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">double</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+    <dt><code>T3</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_TryInvoke_System_Action_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvoke(System.Action)">
+  TryInvoke(Action)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void TryInvoke(Action action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <span class="xref">Action</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_TryInvoke__1_System_Action___0____0_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``1(System.Action{``0},``0)">
+  TryInvoke&lt;T&gt;(Action&lt;T&gt;, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void TryInvoke&lt;T&gt;(Action&lt;T&gt; action, T t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <span class="xref">Action</span>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>t</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_TryInvoke__2_System_Action___0___1____0___1_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``2(System.Action{``0,``1},``0,``1)">
+  TryInvoke&lt;T1, T2&gt;(Action&lt;T1, T2&gt;, T1, T2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void TryInvoke&lt;T1, T2&gt;(Action&lt;T1, T2&gt; action, T1 t1, T2 t2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <span class="xref">Action</span>&lt;T1, T2&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_TryInvoke__3_System_Action___0___1___2____0___1___2_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``3(System.Action{``0,``1,``2},``0,``1,``2)">
+  TryInvoke&lt;T1, T2, T3&gt;(Action&lt;T1, T2, T3&gt;, T1, T2, T3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void TryInvoke&lt;T1, T2, T3&gt;(Action&lt;T1, T2, T3&gt; action, T1 t1, T2 t2, T3 t3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <span class="xref">Action</span>&lt;T1, T2, T3&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+    <dt><code>t3</code> <span class="xref">T3</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+    <dt><code>T3</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync_System_Func_System_Threading_Tasks_Task__" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(System.Func{System.Threading.Tasks.Task})">
+  TryInvokeAsync(Func&lt;Task&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task TryInvokeAsync(Func&lt;Task&gt; func)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;<span class="xref">Task</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync__1_System_Func___0_System_Threading_Tasks_Task____0_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``1(System.Func{``0,System.Threading.Tasks.Task},``0)">
+  TryInvokeAsync&lt;T&gt;(Func&lt;T, Task&gt;, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task TryInvokeAsync&lt;T&gt;(Func&lt;T, Task&gt; func, T t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;T, <span class="xref">Task</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>t</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync__2_System_Func___0___1_System_Threading_Tasks_Task____0___1_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``2(System.Func{``0,``1,System.Threading.Tasks.Task},``0,``1)">
+  TryInvokeAsync&lt;T1, T2&gt;(Func&lt;T1, T2, Task&gt;, T1, T2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task TryInvokeAsync&lt;T1, T2&gt;(Func&lt;T1, T2, Task&gt; func, T1 t1, T2 t2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;T1, T2, <span class="xref">Task</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync__3_System_Func___0___1___2_System_Threading_Tasks_Task____0___1___2_" data-uid="WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``3(System.Func{``0,``1,``2,System.Threading.Tasks.Task},``0,``1,``2)">
+  TryInvokeAsync&lt;T1, T2, T3&gt;(Func&lt;T1, T2, T3, Task&gt;, T1, T2, T3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/InvokeHelper.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task TryInvokeAsync&lt;T1, T2, T3&gt;(Func&lt;T1, T2, T3, Task&gt; func, T1 t1, T2 t2, T3 t3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;T1, T2, T3, <span class="xref">Task</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+    <dt><code>t3</code> <span class="xref">T3</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+    <dt><code>T3</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_InvokeHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.InvokeHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+        </div>
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="../styles/docfx.min.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

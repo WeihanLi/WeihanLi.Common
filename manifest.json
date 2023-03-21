@@ -4,12 +4,3591 @@
   "xrefmap": "xrefmap.yml",
   "files": [
     {
+      "type": "Conceptual",
+      "source_relative_path": "ReleaseNotes.md",
+      "output": {
+        ".html": {
+          "relative_path": "ReleaseNotes.html",
+          "hash": "PcwXkRJAGqn0rIqukArNcDb72V4If7P+C113hFiSdwg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.Configuration.ConfigurationExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.Configuration.ConfigurationExtension.html",
+          "hash": "bFeseg8xqYxhMwckeY/7+/1EQwBDQ19Rv10BXjbZdQE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.Configuration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.Configuration.html",
+          "hash": "UlDziLOuM+npJPxDJB0I8XudsOCpGP4mqSGsYClEZcI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.DependencyInjection.IServiceModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.DependencyInjection.IServiceModule.html",
+          "hash": "lPDaFRNuXaJnW4thMFVWQrhrKGC3qonhzlOlct4E7Jw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtension.html",
+          "hash": "W+8dcytU/xxHOXsfQ70gjxfV19yGdhpVp0WY3PECJS4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.DependencyInjection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.DependencyInjection.html",
+          "hash": "mEGvJJDs6i+gN7PMuVfkQxIpTNtkPXV1lGwZ+g6xmZk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.Logging.DelegateLoggerProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.Logging.DelegateLoggerProvider.html",
+          "hash": "TqZWX0Am7RenTLmYjXH6WMPD9aXUOCu8ymsSPoN4MUo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.Logging.Log4NetLoggerFactoryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.Logging.Log4NetLoggerFactoryExtensions.html",
+          "hash": "GE+SJzlBlMHvm3kKZq4dDTTROodX5rqBIxv6siLP+5M="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.Logging.LoggerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.Logging.LoggerExtensions.html",
+          "hash": "Z7G1omH7bl9qRngXEpSEWBqgRETkcpTdznoH3L4wONE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.Logging.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.Logging.html",
+          "hash": "uKHOQTTahMTOp5CLraWGHKaAFsG/NoicFeGl1vzbLO0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Abstractions.IProperties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Abstractions.IProperties.html",
+          "hash": "38fedNEKKxnkKUOyFbaHi+m8B6vLUEN5W9xwrgmY9Fs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Abstractions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Abstractions.html",
+          "hash": "TyQPusknSQt0gKNsczXbHiF8TKw+ywDPNXDH9Lfz+zE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.AbstractInterceptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.AbstractInterceptor.html",
+          "hash": "t78fsAEQBVo4p9u+/5xKea/HPdj8uFpqkT33kjEm00M="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.html",
+          "hash": "/XxOKzAocuNPwp+rbq3h0GQH5i2qlCQRiNs8BUvmuNs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.html",
+          "hash": "8cWoy3SyWeD2RyZwWM3tfi2WXmFixoXOJvzQdqUKYEs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.AspectCore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.AspectCore.html",
+          "hash": "pWcfpQddD3Y4yVx0eendvNFsU4XrTBK1dK13LRwQqtY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.AspectDelegate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.AspectDelegate.html",
+          "hash": "5UNuahF3C2lbaffCUtty2JH3K0YvTgzBZbqr2DaVJjc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.AspectInvocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.AspectInvocation.html",
+          "hash": "qd0Ma382n/w6uZLXcp66dZexrmaMKKC2rBg8QA9hpCw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.AspectInvokeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.AspectInvokeException.html",
+          "hash": "dTAyhs2z3TH+V+SL72mi/jZbILEg5uOiry6K0dWTGIo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.AttributeInterceptorResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.AttributeInterceptorResolver.html",
+          "hash": "4JILX4j64Z1fGjFfV3/P25Vj2CmVo0wMH9o0aR9hqYo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor.html",
+          "hash": "lcSVYbfdDlccqcjWBS9d9KczeDaX66qJLASvfIL/B6M="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.html",
+          "hash": "glaiXl8714GjSeumQpp01CWVvOEJrD7a/l4GUAYxylg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector.html",
+          "hash": "w5tBr156w0HhFHQ/anmyvgA0atK+BB3QGhF3wwjqLaI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension.html",
+          "hash": "hlPEJLGRLe+x5C3NMUedCQCHw4BjWj36IByYIsCuKJ0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.Castle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.Castle.html",
+          "hash": "6oaWn6YOFbyITaqKhNv+WzP54NrooRto8YLqkfWcrgM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.DefaultProxyFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.DefaultProxyFactory.html",
+          "hash": "KAJx93atwjw5ImFFExULamTFJjHN2FREhiKzwvKiQj8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.DefaultProxyTypeFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.DefaultProxyTypeFactory.html",
+          "hash": "mwRzIR5Ygnz9mLM0EKsdkBqPiQ+P3w4842HweBKhiBM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.DelegateInterceptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.DelegateInterceptor.html",
+          "hash": "dgohG0SmEMhyhSgirP7D1iPyZRtkJEH2nyV9/7eR6fk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.FluentAspectOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.FluentAspectOptions.html",
+          "hash": "fSTUbLsG/ivZ0r48FlYj6OV6cAMahrFk9LtYcIsc0l8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.html",
+          "hash": "8KgWZ4HcGE6tQC8fRx2CNG1lSRSawQCzvLSJ7A50Bsc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.FluentAspects.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.FluentAspects.html",
+          "hash": "AJhfBWYHkHvrKclMYjpFpDTtFKTCdcWvvwZHcNPACAQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.FluentConfigInterceptorResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.FluentConfigInterceptorResolver.html",
+          "hash": "0jD9zE9hm+lGLEkiZB14My4VbLQeV/Gj55rERLOmrJ4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.IFluentAspectsBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.IFluentAspectsBuilder.html",
+          "hash": "H1eniqk3pyPwvuxdz/xJem56x+v4rn0YDmX3uvhnKnc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.IFluentAspectsServiceContainerBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.IFluentAspectsServiceContainerBuilder.html",
+          "hash": "anjWPl5xoCFTsmS9T5CWp13lQEg63xHi5SJ/N3DBVxI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.IInterceptionConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.IInterceptionConfiguration.html",
+          "hash": "f0qQWUXJNHx6XiHZUfjycdpMGJPSauZOw9IevzGe5Zw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.IInterceptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.IInterceptor.html",
+          "hash": "Yv/Nd3HOpboMYwz55yOLpuqLbUB4wxMQmFCIxcWGES0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.IInterceptorResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.IInterceptorResolver.html",
+          "hash": "qZuaRScWcG8pquOD6AWmdtfiij0MbTztglaoiHFeZbc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.IInvocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.IInvocation.html",
+          "hash": "y0KyAsdv9WX6p8LtKVMqcWy1+Kx0pol9AQzEGscM2ME="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.IInvocationEnricher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.IInvocationEnricher.html",
+          "hash": "yTqjpLeXYjsBX5dlG7QMJYM/yOu8ukjciDhaqQjdbpA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.IProxyFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.IProxyFactory.html",
+          "hash": "OZ92qC74nzzvILZecKB+p4jEvj0lsvGZfT3froMR3WE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.IProxyTypeFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.IProxyTypeFactory.html",
+          "hash": "m8rpvbmvv8UkJRqfNzawW2uY5vWRXoCQwVW5xSj4kYM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.InterceptionConfigurationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.InterceptionConfigurationExtensions.html",
+          "hash": "adbmi9Xh0kL/xawrQmfQErMuXXu9Zo5WYtZ2jNPGEsI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.InvocationEnricherExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.InvocationEnricherExtensions.html",
+          "hash": "eCpwmEY2/HR1VvZpJCv9RAwNvP2Tb1M4PiK7SnNuYfE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.NoIntercept.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.NoIntercept.html",
+          "hash": "3DKUHeHDJzJ9xyD4KMGhV/66s64+R+uFMi0nnMh69SE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.PropertyInvocationEnricher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.PropertyInvocationEnricher.html",
+          "hash": "hRV+4xOaOObLg5wtJ0MJBPK24REdv0mK+GqAJ/KqsL4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.ProxyFactoryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.ProxyFactoryExtensions.html",
+          "hash": "tO7Gn9+HWxRC9kYuo2CYVdHcABdLr8JlAnvsgk2bE24="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.ServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.ServiceCollectionExtensions.html",
+          "hash": "0sWeBN8X16V+idIoNMUKH/Qu36+IRDwqjWuJb9hhu7I="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.html",
+          "hash": "1HcgP9agm1rw8getMo+YAu7Aryj6FrMJCnsIbyM9gEI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.TryInvokeInterceptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.TryInvokeInterceptor.html",
+          "hash": "aUbQM3Z2BF6/GXBd9doSaRHS/jA/DzAmxJAH70TT8Sc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Aspect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Aspect.html",
+          "hash": "X907KlPK0R6f6yq8qUYK6sJ2s4F0BGKSIXDIrFAh/NU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.AsyncLock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.AsyncLock.html",
+          "hash": "CuV/45LFgxffi2EJFVRM90GOKVmyfnB35+6BNywE2Ow="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.CacheUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.CacheUtil.html",
+          "hash": "scaN9DXFW+6Qj5HDVm1ORDJUU86iaGf/v/MFSCQ321o="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Compressor.GZipDataCompressor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Compressor.GZipDataCompressor.html",
+          "hash": "Zws5Hm7NZxIpqwQdFQa5yqjkPNaBuemcMO+blH1f8wY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Compressor.IDataCompressor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Compressor.IDataCompressor.html",
+          "hash": "IiaOGftshVhIXAHBR2EBcIK8ojCCftc88TwGPLPwZos="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Compressor.NullDataCompressor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Compressor.NullDataCompressor.html",
+          "hash": "P7543emit3zOZgKinsxn7SQcKI+zWyCet8Yp2oF/ATg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Compressor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Compressor.html",
+          "hash": "M0npUYR0YRTDUhQk8Kmy9aH6zkng3OJH6mufXeG1Ed0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Data.IReadOnlyRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Data.IReadOnlyRepository-1.html",
+          "hash": "mZkpgdCHlWhJRBdziXF4zldqXG6oIjasSyAd/gwYGpA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Data.IRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Data.IRepository-1.html",
+          "hash": "Qh3nBISDoCRpY0ZPskLLALa06PmZzLImhbIZm0aq/is="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Data.IUnitOfWork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Data.IUnitOfWork.html",
+          "hash": "KVTwGmMYMAykxcIAZiQNbE6yRszuij5iQhFAdjUWwXg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Data.Repository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Data.Repository-1.html",
+          "hash": "2xVnLb72Nxl0DIbV+orLmIQqJcW8L3xsqxOjyXWp7oo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Data.RepositoryExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Data.RepositoryExtension.html",
+          "hash": "zyq/99Zrc70Y1FLzmQbmPw1mfB+vOMV1CIoAqW2aX74="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Data.SqlExpressionVisitor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Data.SqlExpressionVisitor.html",
+          "hash": "eoTI1nbTQDMX1I1+QP7INC2v1c8fdjs5nir0mcMTg0E="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Data.UnitOfWork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Data.UnitOfWork.html",
+          "hash": "IpWldfssfYh45DvdDpdqnAOmcUBSKCnJ26Y/YNYBalo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Data.html",
+          "hash": "1KNY77xIKVgyIC1nxalpYJ1pLWQrOCBXohK6R2jX3zc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DependencyInjection.FromServiceAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DependencyInjection.FromServiceAttribute.html",
+          "hash": "YZjCvnAoWzwv7YWfqZ9Wq9ZECylnqyQc1SzABGwmkEk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DependencyInjection.IServiceContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DependencyInjection.IServiceContainer.html",
+          "hash": "slCs+4NurYz89myULfYXV+d23q0JWmhFnlSneCj/FNE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DependencyInjection.IServiceContainerBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DependencyInjection.IServiceContainerBuilder.html",
+          "hash": "tyZbnBzYipLrKFyhqi6Rmx5EUX1v0EByK7yga+LQDfc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DependencyInjection.IServiceContainerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DependencyInjection.IServiceContainerModule.html",
+          "hash": "XyBpCf3F3nvqMCcyLjjCKFpoTAvLy2IFE6uUmUDnYCQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceConstructorAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceConstructorAttribute.html",
+          "hash": "mA+PJVfi5eAExXWgXMDN/dTE9deila2FzhLUL5YPjlg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceContainerBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceContainerBuilder.html",
+          "hash": "A3Tpwm75bBcLUlSxoYtizD6bsiLkQtadCfIiheTtk7A="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceContainerBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceContainerBuilderExtensions.html",
+          "hash": "A40Dh4u57ZXx8YH1liZ3bgaR/ApjrPhtKJyOScb9jxU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceContainerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceContainerModule.html",
+          "hash": "RBxiNCUhW/zlBcDRm5obe3DsZ/nvGuckti87VfNeBd4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceDefinition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceDefinition.html",
+          "hash": "BMVBeXKU2L11wpzk2ZHmDo1pY1iXq6ttzl2P6W/4QyM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceLifetime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceLifetime.html",
+          "hash": "C2X++2+wrPF67XrauFqdljRnIx0M2Kwt2jipLKi9TQc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DependencyInjection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DependencyInjection.html",
+          "hash": "zmuz2ZI/dfG4pL75/IeHCU916FbMCH++dnzz6zYWWiU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DependencyInjectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DependencyInjectionExtensions.html",
+          "hash": "Gm5U8lA3C+y+W/Sl2mC0uAA8fFGk7x+kFlm0HcsCshQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DependencyResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DependencyResolver.html",
+          "hash": "JjNBB5j+EgerRjM6ihcQxC9M43INkTDtot3/G8glAOw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DependencyResolverExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DependencyResolverExtensions.html",
+          "hash": "dkBpXoJtlCyyci/tLuuxcC2jJbVwWFwseEEP8KTL6rE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.DisposableAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.DisposableAction.html",
+          "hash": "HNKSioc64J28TBzfCvkvbq3sHQuLKvKPozAskeQ95ZE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.DefaultEventHandlerFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.DefaultEventHandlerFactory.html",
+          "hash": "2ECP4Knqc3Ax98e6CtBmpWwMjY+t0a+Fckr0pezOVMg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.DelegateEventHandler-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.DelegateEventHandler-1.html",
+          "hash": "ZUHXHPQ9yshEAxgb0DMDIO9nMFhK1pOyc/UqKuKprqU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.DelegateEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.DelegateEventHandler.html",
+          "hash": "2bTG8sD3W4sXZAY+eQORxOEQ73KjPwK3324qVFggJ8E="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.DependencyInjectionEventHandlerFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.DependencyInjectionEventHandlerFactory.html",
+          "hash": "y5NV95u6iilthe/eNWCiyFbKqFg9bwnAQAHWn7TKg/8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventBase.html",
+          "hash": "7pgbbaMn51XjVvQ6cY91p4PZ0AHdiXPIfxaJ9dTHlYs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventBaseExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventBaseExtensions.html",
+          "hash": "7uSVhZzSrnzKwl0bus9PPUs97MB4a5ykkF1bLbD3dAY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventBus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventBus.html",
+          "hash": "mSL+bQ3GAHpCsIKM/kJ1wOSwtfuiy8x3HNunDLlAK/M="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventBusExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventBusExtensions.html",
+          "hash": "MXyyHL/TgA+0kwiTTTLxxaDeQzhL92rrbZ7n/h/PWo8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventHandlerBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventHandlerBase-1.html",
+          "hash": "EGAvwDchOgFoVWBTBOqhdkXtsjQcLROep0eMxf/LRtA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventHandlerFactoryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventHandlerFactoryExtensions.html",
+          "hash": "YXQgzqWGpce18n8ZuOl0SGffP3xYiUnnYFWjsnF3NoE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventQueueExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventQueueExtensions.html",
+          "hash": "CJcemQOWPTjBHJse6ot5TCGqjqoo3chb3MES6emcwbI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventQueueInMemory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventQueueInMemory.html",
+          "hash": "nebr6SJ/l0xqbPDTJOVS5SVqF1Po5gLoiJyskeZwq+E="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventQueuePublisher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventQueuePublisher.html",
+          "hash": "61oLng4mOsbvfHj6eLWqn+dwXsQwxz4QTDcCh/IqDHw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventQueuePublisherOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventQueuePublisherOptions.html",
+          "hash": "wjZSeywHCpOG5yYywdHANF1soVZxSJgpGfzhGwRWZM0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventStoreInMemory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventStoreInMemory.html",
+          "hash": "D0D8Jjg5lIZdu2hxW2NuPJVckGoINf+VZJC6NSDzunU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventSubscriberExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventSubscriberExtensions.html",
+          "hash": "pMKATTJ/e/vyo9nxvc0UTN6vSiX64O7DJ9JkHdtoqnA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventSubscriptionManagerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventSubscriptionManagerExtensions.html",
+          "hash": "CUx+lAXr0cB4Gs0A5bDtZZMBZ2O/Dk6X9YyhL8qftrQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventSubscriptionManagerInMemory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventSubscriptionManagerInMemory.html",
+          "hash": "oQjllLe0KKo/FNSAUHr31ICLihE7ISTvBE0dQr4m4tg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.IEventBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.IEventBase.html",
+          "hash": "roMqi91x8aKbLx/aH3uEOcwCoivsU5eOPcsqB96tDNg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.IEventBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.IEventBuilder.html",
+          "hash": "iT9CI2W1DGWSpWgWxvRAjAnwXZbRfk6u/FoqchGQh2E="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.IEventBus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.IEventBus.html",
+          "hash": "UfETaHFQZuWsJFkXgp+eBAEa4IHZh3hFsOK+ww309AQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.IEventHandler-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.IEventHandler-1.html",
+          "hash": "4pve8DgYWbkiIq4LgeThe5ja36PyxUgS4eR1gkqUQKg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.IEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.IEventHandler.html",
+          "hash": "SdHV+TxnGPwNC57bzdLe6JJ1u3j8vB3QnbzZouy1Bkw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.IEventHandlerFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.IEventHandlerFactory.html",
+          "hash": "kINReZJRnz+vhW/2eZMLRNmbk8YAjmmX4m8VigTw4iA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.IEventPublisher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.IEventPublisher.html",
+          "hash": "MQLIlGSGNuIFuNGRZoMXvUz4NlLeP36lvZXto7YQMek="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.IEventQueue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.IEventQueue.html",
+          "hash": "xuzXx2ERyUvg2AeblTPm0044U6T39dXCkOtbiG9U71g="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.IEventStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.IEventStore.html",
+          "hash": "EKoBi37Uru0d48RtTwDE2p6jY3JfwQ44gYKBWB+Ao/s="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.IEventSubscriber.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.IEventSubscriber.html",
+          "hash": "1gQhmPR4MRcTx/kkSEkCK/ogPWlQYaxrlW1eoiAWtIk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.IEventSubscriptionManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.IEventSubscriptionManager.html",
+          "hash": "FL4ry5PBUh050DtppX5SDNlfTZCHJ5lLmMOLGNtLeW0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.NullEventSubscriptionManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.NullEventSubscriptionManager.html",
+          "hash": "NTUcbbeBsI+wl1cIGnvenV00c59yO1oEZXim5mMo4dM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.html",
+          "hash": "zhXc/rsrX1T5vWx2lIlv+gOv1t8mXlnM5W3kN+72ZXU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Extensions.PropertiesExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Extensions.PropertiesExtensions.html",
+          "hash": "0H4rxTUHmy7VHlKHuX2XbiSeg5SDOA4t++WLiu1tPS0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Extensions.html",
+          "hash": "KmiFcwYJSxfbs6Y1qOcTl1Wbfpzsbjc/41IzG0+L9kQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Guard.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Guard.html",
+          "hash": "JT/AVMtihTYicK6cnsT2D7VGxDF3LLktNYIdyCAWe50="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.GuidIdGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.GuidIdGenerator.html",
+          "hash": "Qq5YXaNoPKAq2IO6oJ4fN0Vvk3S3gSdf5Cf5IV4tqak="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ActivatorHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ActivatorHelper.html",
+          "hash": "vVCp5SbaqmE8rZp5Yagq6mLUPJZy5oKEi6WGDqixyRI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ApplicationHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ApplicationHelper.html",
+          "hash": "eAC136RCyUVqLucZKsyyVRZvvlZx3a1JhZMgklli5/0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ArrayHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ArrayHelper.html",
+          "hash": "luShLCpy4uHA4qcr58naPZZxtbufBPAx0X9fvlkRHoI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.AsyncPropertyEnricher-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.AsyncPropertyEnricher-1.html",
+          "hash": "hwqtqRKHBzaH++I2fSMXfh9JMjzX+XdB9FNN3Ao9s+I="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.Base32EncodeHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.Base32EncodeHelper.html",
+          "hash": "iZBs+Wnh6Wo1Y7zAcjc+UcE2wNklBqnh6QDW3QEUykA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.Base36Encoder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.Base36Encoder.html",
+          "hash": "knhhADOhAhVLho6DexYJgvjF4UcSYkvHDRtpqLOfdD4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.Base62Encoder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.Base62Encoder.html",
+          "hash": "UE6doHoEtUD7iA12Ug3eSuMUwUtQzhn+95lWiq+983I="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.Base64UrlEncodeHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.Base64UrlEncodeHelper.html",
+          "hash": "wDBaKp+5SymtsCCihlOkl9/EgD129DdEWtnEucvkYVc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.BoundedConcurrentQueue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.BoundedConcurrentQueue-1.html",
+          "hash": "bg8IRlICxm2OkfEdITHfujatF6N/gmK3OVPbyY0lsvE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.Combinations-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.Combinations-1.html",
+          "hash": "9r9Mbi/8TJZDbvwnKNpyuixRv0hR3xzsLYbWTG01lVI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.GenerateOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.GenerateOption.html",
+          "hash": "KMuVELCaoK6TvrpuwedTvJYRDpAuvpExJ6YQagZLwuQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.Permutations-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.Permutations-1.html",
+          "hash": "8INESNWoAj1Q64E13fvH+7wzg9LupH59WCRToR6Svjw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.Variations-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.Variations-1.html",
+          "hash": "/q03idrGH/dJrYRPMYAXq+KBoRBGZdARpdocz+9yQgQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.html",
+          "hash": "jiCHNFbFZJTwalaUk/TgxXNd0aILss7Re7VzuKky3Ow="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.CommandExecutor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.CommandExecutor.html",
+          "hash": "rMyvEpYFv3SgRGEoOC8qDTaz44fDEIK0DlG10iLSgVo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.CommandResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.CommandResult.html",
+          "hash": "YOVqJ/J8HkpGQ4NMsySNtk6J9bC7rbN4da7j4Nd1DDQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.CompressDataSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.CompressDataSerializer.html",
+          "hash": "yy+rOJNmBhNLxywFZtJpo6RXDk/1GOLtvaKbtdCx284="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ConcurrentSet-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ConcurrentSet-1.html",
+          "hash": "9CV2pmjpcnovvq4++8q/cFBeaPStr4N4yqgT2ioEkxg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ConsoleHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ConsoleHelper.html",
+          "hash": "mlypduK9fHFVB8hfx4Stmz/fSi3NlBs4eMj+Una9Dk0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ConsoleOutput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ConsoleOutput.html",
+          "hash": "a9Ilso7LTAvPY+asZgZQkRxTZAdea2GXGmuWPA0AMVw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ContextAccessor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ContextAccessor-1.html",
+          "hash": "3R6KCnYDZUszNj67UbNJdmqTrMedHI9XaP074iDgOLM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ConvertHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ConvertHelper.html",
+          "hash": "bjQfWx3fSZzC7pOtECAbcUTVT1gLYhVfsrKGDiTrFQ0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.Cron.CronExpression.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.Cron.CronExpression.html",
+          "hash": "fBOlU3094gn7OmMRG24MdegMrc7FIZiwjj2BrYAH0To="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.Cron.CronFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.Cron.CronFormat.html",
+          "hash": "xukAlYjdYRfO6A+Mi2uzO+GC/qCSmOgIV4zOTtBpKcw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.Cron.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.Cron.html",
+          "hash": "lCItLMWtoGiie6WJNvN2rH618DM17GyBTvyZAr2SbRU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.CronHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.CronHelper.html",
+          "hash": "58HqsuyyPzmiCczksOr7c3kf8rINlH+YKcDkCKJgUdA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.DelegateHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.DelegateHelper.html",
+          "hash": "CZPpxxooDuF4dCsKjCqKIMDaFatZCawfYlND6a0gAEs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.DelegateTextWriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.DelegateTextWriter.html",
+          "hash": "tMUE0aHiiK0wgZhfiqyc5sTHqM7PzIEuek7EFsxqHp0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.EnumHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.EnumHelper.html",
+          "hash": "IEKIi2ma+ULmnOWgW8pk86x1Q61FLtNfiF2hW/XUj5I="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ExpressionHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ExpressionHelper.html",
+          "hash": "sup8hyB8PHhaR/lh+EmLDNqopgSBVrSo5heroXD5U50="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.HashHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.HashHelper.html",
+          "hash": "GZfJ2Lwc4QxxOwhull+jmGvIW2QKHqlRlPSE6wRaCq4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.HashType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.HashType.html",
+          "hash": "pl5+OtcbwnLs5bTlLQeB8kIAIUSgQOGWAjotSgHtpeQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.HttpHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.HttpHelper.html",
+          "hash": "GH8SAzrzYfY+HZmSjAgrCD9uTkJABe+0qZCaXuTeng0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.IAsyncEnricher-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.IAsyncEnricher-1.html",
+          "hash": "ytCf+wY+Qr5FgqX5wDGZxIzCr/MD/21Hj7CJ8FqIWqU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.IAsyncPipelineBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.IAsyncPipelineBuilder-1.html",
+          "hash": "vMkn32IfR1XHyVq632s1H5RZCZ2isZtSZ6kdUvZ1N3s="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.IDataSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.IDataSerializer.html",
+          "hash": "xSLyesNo10M3CSalv4uayERm5olDH0iy6Wf/IrhGRD4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.IEnricher-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.IEnricher-1.html",
+          "hash": "4XCWvBvG0SahK4r2ia1qoVZS4UJbYd1xT/pPzf9h7AU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.IPNetwork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.IPNetwork.html",
+          "hash": "+XybAh2sPuKTWFjCGsIms/w8erAt6N19jVPIdEclqX0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.IPipelineBuilder-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.IPipelineBuilder-1.html",
+          "hash": "8RLTbOQ7GvKFaG7NpA1LAgbHrE944QJw9rI5RK/BKe8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.InterlockedHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.InterlockedHelper.html",
+          "hash": "FHlTIZjJqhcNns/RenMCWY6Oov4h+fY1HJmFsGHKThg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.InvokeHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.InvokeHelper.html",
+          "hash": "ZWKz9YURHlq48d8H2E85ANulrAJmfQcTRJ5XFGaLQtM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.JsonDataSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.JsonDataSerializer.html",
+          "hash": "BfIbk8nbzyKIDXAWiRaT9L3KLC4y/K0V5nuh7axH2Ac="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.LibraryInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.LibraryInfo.html",
+          "hash": "FY+2fcCiAUVmYdf0779JDu214lPcf7n2u+WT82uDsYA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.LogHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.LogHelper.html",
+          "hash": "XMAeqr8+fOKmLQj+EX6xsuGQQzqS5dkYd33hKp9oUMg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.MapHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.MapHelper.html",
+          "hash": "DUnUVOsLmr644/Cz6vlyNS9Y8v0jaBhGpGO/HwGpKo0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.NetHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.NetHelper.html",
+          "hash": "tZk2JaQxjBid90YgnTjCf+vud7OJaD16qiMi4dk1Mc4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.NewFuncHelper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.NewFuncHelper-1.html",
+          "hash": "CuXmndvrbqv5ahoB2oTCCRDlO439DvuCvBMmpODMGdw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ObjectFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ObjectFactory.html",
+          "hash": "Apl/DoK0ni4chJEjhPx8QfH1bs3v2Bw4xfzlLOiQx6M="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching-1.html",
+          "hash": "GX+9t6BEk5wL3HJ7llKZLzKILB/m4gIKE2FsvKJc0+0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.PeriodBatching.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.PeriodBatching.html",
+          "hash": "IHeO0PFI696iLTj0ZKAySdK3//lYHA5TjAhmgZf54Yk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.PipelineBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.PipelineBuilder.html",
+          "hash": "JveQ7s8+Muo27HjAYJbziutVZlsu1ar1yximwLAXxjs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.PipelineBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.PipelineBuilderExtensions.html",
+          "hash": "BjQ83iRoej4ojKdp+kJEznt0BCCNMay50oXbb/RfH4A="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ProcessExecutor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ProcessExecutor.html",
+          "hash": "fp2U0w6bO5YUwjBlYz0uq51kT/VtW6ciWo9yRTEUvkQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ProfilerHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ProfilerHelper.html",
+          "hash": "IjrVZ9RkJZVnoBpk5NJ5zxX8RUhxz/yGoDN2Ub99T4A="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ProfilerStopper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ProfilerStopper.html",
+          "hash": "NexEf/4JNIuSnAV8Rt1YbuLqPeVRcX7lH1WTQNLPykE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.PropertyEnricher-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.PropertyEnricher-1.html",
+          "hash": "1twrLnnjaf1BRHAt1TdT45o4DRb9WcupEwGtNNHCf4I="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ReflectHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ReflectHelper.html",
+          "hash": "Wd5l7OW9+78ZXbMEj0UyP3enE01yct6RQwZJ4Yvy4S8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.RequestHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.RequestHelper.html",
+          "hash": "EZUXElSk5sDd6+DyYbY8qEZk6cWOA92IkV8p68ARdo4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.RetryHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.RetryHelper.html",
+          "hash": "OUg+VnRoNVYD9FTZWpbOG4JW5F+/A1skK+GvgetqdmY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.RuntimeInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.RuntimeInfo.html",
+          "hash": "lxrrDi6UK0TKctKzzLcxUlcBBHbebCsTq5iRHZk68JQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.SecurityHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.SecurityHelper.html",
+          "hash": "FEXbdRQJf+Vf9nWDw0kVl8Z/x5y5vOqLEgtGzuc7nGU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.SequentialGuidGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.SequentialGuidGenerator.html",
+          "hash": "BMMy01qM6kJjzuwrD64fYNZxaEO5+/YrA9jAffGA42U="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.SequentialGuidType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.SequentialGuidType.html",
+          "hash": "RCPavKkk+01Y5uEb+ossIz0Wl3unHqHaKaM3iD6SaA4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.StopwatchStopper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.StopwatchStopper.html",
+          "hash": "dXN7wC5sG3QleafnZk7UKQephZ6rHIQ9Fo7IUU45dhc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.StringHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.StringHelper.html",
+          "hash": "MYmJ6c9QYWWSCrWjCgO47dVgwSHMNLbulk1Ra3BYOaY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.TaskHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.TaskHelper.html",
+          "hash": "KSAYMv3VmAB4WGVV8fZ09DJdQ15kOxOVb96UKaYU5PI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.TotpHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.TotpHelper.html",
+          "hash": "NeVcdsgDw/TCVUGlT7aZdkjT3MwcAN8+zE+yspJf/iw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.TypeHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.TypeHelper.html",
+          "hash": "M9OOCqnojE1BonRs+lgwrtlzO1+FsCKFNTB9T6RiO8Y="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ValidateHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ValidateHelper.html",
+          "hash": "Atj/5PduTcyISYmoXKkfFSy1Ew14u/ATV9mB1iKKrP4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.ValueStopwatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.ValueStopwatch.html",
+          "hash": "p500jGfA2ci9ZQKMB86S1saZqGD/vZfBTHDYdC7lhcI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.XmlDataSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.XmlDataSerializer.html",
+          "hash": "YI+Yu2F91QmRS/5eS7jkkhc0fHwOK+wJ9vbrRie45+E="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.html",
+          "hash": "B60N3FUXForAGI0/lUNavv4rx8vXKxuKFg4hbabdY9o="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Http.HttpClientHttpRequester.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Http.HttpClientHttpRequester.html",
+          "hash": "0jYHXaUIvdzj3ugzgvnglvewg6EBPSQRFhem/pSjEMw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Http.HttpKnownHeaderNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Http.HttpKnownHeaderNames.html",
+          "hash": "08BsH3T42eAbKb2WN5vKc23+V/s3sRLF9kQy1eWDclc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Http.HttpResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Http.HttpResponse.html",
+          "hash": "zKWbmo/zFd8+ri0e42b1dYjT5CZjSmDxx5tPaKdSajA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Http.IHttpRequester.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Http.IHttpRequester.html",
+          "hash": "ssqDu0Xv1v9Tr7w4TobBaSyT3D7h1ZEVJN++udSUVOM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Http.JsonHttpContent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Http.JsonHttpContent.html",
+          "hash": "z1PMF5hcrfvWXiAp5gxtyrbFayw8T4Zn6s/pRfY5RLI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Http.MockHttpHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Http.MockHttpHandler.html",
+          "hash": "RNeDjfeuWZSGC4AA4rHjC6e269/HTqXWVcqYkbIdQiM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Http.NoProxyHttpClientHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Http.NoProxyHttpClientHandler.html",
+          "hash": "ZwG+SclXEYf19th2m5ZIuXW+UfdoFTsnhzbcff0tXLU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Http.WebRequestHttpRequester.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Http.WebRequestHttpRequester.html",
+          "hash": "2j48jUpjMYqhz306Ih+fxEN4dcB/dKyXt4lZCJDE4G0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Http.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Http.html",
+          "hash": "UDkqL7BUmBGTK+8u9d1hwp/fKicPU+78IGozVoR/m9c="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.IDependencyResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.IDependencyResolver.html",
+          "hash": "SKEHHEXdPDPOA/NWhuMcYzrGTmfdh+1AaASqEBOHFXI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.IIdGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.IIdGenerator.html",
+          "hash": "Vy6NB07kt6Fw2L5n0szY6acUFqo60EpFQvj94zo9UVs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.IProfiler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.IProfiler.html",
+          "hash": "ldRatYTxLl8Y/R9Y4MxXkcWdJzxmZKQJfQNOOoVgr1s="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.IScope.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.IScope.html",
+          "hash": "xonOfhBPn9qQHfVIx0kU6wwyKA6pGsRSC8dEsRdrMhg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Json.DateTimeFormatConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Json.DateTimeFormatConverter.html",
+          "hash": "KUbpDeDzQU/0aKvf7fnfE2T98WIWJWjS9gJYsnVLvF8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Json.IPAddressConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Json.IPAddressConverter.html",
+          "hash": "pGQ6QdigT66LnGcHUOdzFRN3ZcdCo/hBA0/exUv8mgQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Json.IPEndPointConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Json.IPEndPointConverter.html",
+          "hash": "hfEGQyo5Umw4Q2rEM2NB8ULIIm87VeMdj8zXA+vCpqM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Json.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Json.html",
+          "hash": "mToMVeS9YHpPPItqdNP4twIqVAJG2VgfpdXFMWcnfo8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.html",
+          "hash": "iCJrJYhvnnw8bt3FuU3RwtYW84k3m/5Jb3EYJOvTYno="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.GenericLoggerOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.GenericLoggerOptions.html",
+          "hash": "B9fvEeNCQuVhLY+FtzJsW5kjYfDxmH6tsrokzp6O5p4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.IConsoleLogFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.IConsoleLogFormatter.html",
+          "hash": "wYoegP99gpZcaYqTxrb/yUZ2zi+uwlIz79FQNKFDkRY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.ILogHelperFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.ILogHelperFactory.html",
+          "hash": "p3NeZfhzhYRKn68hmppx9Mxs8gSCD9xTXGQxyPcIzx4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.ILogHelperLogger-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.ILogHelperLogger-1.html",
+          "hash": "DVWg8FtGfF9lkgPT+3txRXZe7hwAENs2G8h5mraXmCo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.ILogHelperLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.ILogHelperLogger.html",
+          "hash": "YTdcDTu/MIUZNf0WpZZtsJvjQUExjXN0fAtMHpMUYXY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.ILogHelperLoggingBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html",
+          "hash": "90hImSL0vo7/9t9SHflzoan8x8og27ojdDB4fSVW3V8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.ILogHelperLoggingEnricher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.ILogHelperLoggingEnricher.html",
+          "hash": "7Tu6BrdCIZ1oPQAh94cq8tahDt9BHJ05GdMiYuYE33M="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.ILogHelperProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.ILogHelperProvider.html",
+          "hash": "MQWIKqxYLPPuHb32ZzaD5ZeIxBovnbXvXR5Cd4kVx0w="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.Log4Net.ElasticSearchAppender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.Log4Net.ElasticSearchAppender.html",
+          "hash": "jXb0h9f7kO2009itQFAKxZ8FCCx9Jp5iddvgT8WovJk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.Log4Net.Log4NetHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.Log4Net.Log4NetHelper.html",
+          "hash": "+nAJ2iADiUNwb2ZPVKa1Une6YDaA7/NSJrsuVMg8YjA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.Log4Net.LogHelperFactoryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.Log4Net.LogHelperFactoryExtensions.html",
+          "hash": "yvRNI0kSnAEBy18eIJo51y79uMlYoqtO2AwaQ09MpyY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.Log4Net.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.Log4Net.html",
+          "hash": "+hFyJea8R5teZr7OR923j28r0/H8z2zP/8HpcU24pNc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.LogHelperExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.LogHelperExtensions.html",
+          "hash": "615mlWVPeMrqbJUyQEy3ues14+HJS1cTkxWUcohvAC4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.LogHelperLogLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.LogHelperLogLevel.html",
+          "hash": "klnDlL3GCsRA0Hvva+DykTsfIqhfK3JdSjNLkZzPO+w="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.LogHelperLoggingEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html",
+          "hash": "Y6Vn9crmn23TQY3BaTgESKdCvNv6IzPkNY1GkVIKWPs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.Serilog.LogHelperFactoryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.Serilog.LogHelperFactoryExtensions.html",
+          "hash": "6II5OqL1rrJ6ADl4kdu9V3w2X3u4/23qpgboo6BefD0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.Serilog.SerilogHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.Serilog.SerilogHelper.html",
+          "hash": "yeJF0sYhILSxKoSNOreW9p9VV+Qms/+DA45EMhXJEqU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.html",
+          "hash": "8yA9folFQuonKNwMUueyvQjL5jquuO0SnsNq+XamDxs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.Serilog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.Serilog.html",
+          "hash": "496HOpfrtQNe/aQSgNOgWXyDfVzC2oyf9O9cKnHsXIk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Logging.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Logging.html",
+          "hash": "oQW3ijb4e145BTfpx4u01A2gJZaolpLt/bdV+PTfzpU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntity-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntity-1.html",
+          "hash": "qGuLH3Lpnpl6C5tjOH0srquCA39OufPJQM0mZxH8j5A="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntity.html",
+          "hash": "8RBp2TPI1RyZNLaXkvmnJVE8FTGPFTPkYqbcUDLcFtg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithDeleted-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithDeleted-1.html",
+          "hash": "DWMQtFE+tyg8UNc2OOLay6UcsEbibpA52/pDSb/swnQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithDeleted.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithDeleted.html",
+          "hash": "B5Ai9EBWL/28FtBcoZzkOUplKcRbPvyNiD6LNLaffIQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewState-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewState-1.html",
+          "hash": "paoY7yAi1qR3moRy22WGJ2LVignexHU+OSIhsHAda2k="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewState.html",
+          "hash": "xTy6r+tJgaggUGdlBIszNhd9qLQKvKWxYXTUvj3VfzM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted-1.html",
+          "hash": "f6FTZwkOTIoExn2CWS4iFq07SXBA0phAdOFvsq7vylM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted.html",
+          "hash": "BjPiDdvECbGphtR4UI20nE1TB6FEg4wFgIqAvdmAmjQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.Category-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.Category-1.html",
+          "hash": "XN+XbjKeXNQOydKjuMJa98Qd4RssUL3I4pX8/FDYntY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.Category.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.Category.html",
+          "hash": "OLNGf0k7jz8drjn3yeYmwHzD3Vc2+Iz2E8bB5Shi4CA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.CategoryWithDesc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.CategoryWithDesc.html",
+          "hash": "4or5H4tnVrvpIfjSvV05FppotaZqOBdzrwnP9nvSljU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.DataOperationType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.DataOperationType.html",
+          "hash": "oXAfkUSSSsWfFXR213CJZbNY0taTwCqZV5AvbsJ/JYY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.EnumerableExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.EnumerableExtensions.html",
+          "hash": "sFTyVpf6QZNiWz1WMvtS4GqkzA1yAKTSD1shnH7iTI4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IListResultWithTotal-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IListResultWithTotal-1.html",
+          "hash": "GOFVVE66hnW0ChClMa5P3WgR5Wq6PEBdliMn/aLYhkI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IPagedListResult-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IPagedListResult-1.html",
+          "hash": "w9+sHc9sfUT0Y+RxTpok3lsQDtuYQANVrkaL4okNXxY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.ISoftDeleteEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.ISoftDeleteEntity.html",
+          "hash": "2uC8frqv+qCXu4K63CzgdwGzYM2moEu/j4HOAM3YQg8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.ISoftDeleteEntityWithDeleted.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.ISoftDeleteEntityWithDeleted.html",
+          "hash": "Z5C+yjgxToFWOjHKiLKfG6pW//op1dWHCLhx5uRwH7s="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IValidationResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IValidationResult.html",
+          "hash": "QN1/wf0jlcjXKHkl8Xe19TYDYZtDQ7Jxlkp+1IGO1Jw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IdNameDescModel-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IdNameDescModel-1.html",
+          "hash": "7wuGevSoYi5e8xsHx4YCd+ytHkgIlZwjFFqG++E6QMc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IdNameDescModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IdNameDescModel.html",
+          "hash": "Jkw695oDDzqyDHsKjeXBRpEEIFKcSQOAeoCI4jA+DOI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IdNameModel-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IdNameModel-1.html",
+          "hash": "blAvdMIQgHe8bQoQ99swNpH2Zh5UR2L+2cKvcRQRxl0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IdNameModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IdNameModel.html",
+          "hash": "dovJr8hwCzRUjuadtKMXlTh6hkajiUD1p8qBS3XKf/0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.KeyEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.KeyEntry.html",
+          "hash": "kj8QW0R0UvJTBUvLNu5iSIX/oaRryfxdJzsJH4eS+YY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.ListResultWithTotal-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.ListResultWithTotal-1.html",
+          "hash": "n38K5hq5cw+ILnAiIz+pj8hHh4hB1RrHW2+l6cgznEs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.ModelValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.ModelValidator.html",
+          "hash": "nMZPZKLujvpRC+jM8NOl7IQPk8k7LPZjvAAursplnYU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.PagedListResult-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.PagedListResult-1.html",
+          "hash": "I+kZ6tV+gNu0epywthsED9s/8ZdHPxieW9qZRzCUcKQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.PagedRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.PagedRequest.html",
+          "hash": "XOr5Zv1s9Se+rOuaIYVlo5Zqz9jRFEtLWYsjtedf9lM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.Result-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.Result-1.html",
+          "hash": "JP0p3AplFwxe/Op4v8SoTLlhhvPvI2ZTs+lll9xP6nk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.Result.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.Result.html",
+          "hash": "QpCYYMBDAvaSTVxSzUJyAaV+ts2oKz0ngasip3ekjVU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.ResultExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.ResultExtensions.html",
+          "hash": "v2cna9kcrqIahX04mMI4+TQktchZFhdPfn5bkUSYnzs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.ResultStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.ResultStatus.html",
+          "hash": "jEzQoGfgaof+GFIBwIV6jqJNJoXJPzfGM/ndKrnkW/8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.ReviewRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.ReviewRequest.html",
+          "hash": "EYtNpHPGOzRbhsofaiWrZoJ+uznryamH0ouHEmDO7FA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.ReviewState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.ReviewState.html",
+          "hash": "RGLuKp6hPjwFKJPF3MF0id/uSwxhHY2UUoAPlpXtINU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.StringValueDictionary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.StringValueDictionary.html",
+          "hash": "yUBV/G84Acs4oxy6yU2IYj/1ecyKxLPe0mFGqUqHMrA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.TenantInfo-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.TenantInfo-1.html",
+          "hash": "fYiJhVPpYkukB1bwXa8zyU7Znlp5Ug9HVlqe2m5KJCw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.TenantInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.TenantInfo.html",
+          "hash": "aSpXOL24jyJUgzldjKaSR6z7+Rnq73c48YRtWuyYMNI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.ValidationResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.ValidationResult.html",
+          "hash": "Pqpq0ZRQTkqmrHPcu5xEvDP7QkrXDJd3AEoeJdCqsp8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.html",
+          "hash": "JxELe+ghL17cg+ZZ/RnMKeK50xWv8RUrliR9wOLf0dQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.NullDisposable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.NullDisposable.html",
+          "hash": "0hseUOQrQ+u0RaFG+y9/eaP16XgFldlMzbK0BADHYxc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.NullScope.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.NullScope.html",
+          "hash": "OzvsGuB/SUf6FoFh4IYwrqP37mZ9cpXbAf3gnjsJiZk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Otp.OtpHashAlgorithm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Otp.OtpHashAlgorithm.html",
+          "hash": "TH6eTzv7EKrjw17qHjiG60llAWCofEEUIsYvTufepzI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Otp.Totp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Otp.Totp.html",
+          "hash": "w4GL2UKBe7dOfPyps8MepMcrYhL+gz9eQy4m9cXgQTA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Otp.TotpOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Otp.TotpOptions.html",
+          "hash": "Hffuw/41ublJOjDr4prlEJ5PzBAdl/zMrVbRP8Tn8eY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Otp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Otp.html",
+          "hash": "E21M1x/wPdLAB1igTSFK/f/6vitIfgbAD0IYU9TXbzU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.SequentialGuidIdGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.SequentialGuidIdGenerator.html",
+          "hash": "Jpl1Pf7D2F6L62rJrxLRpuGA6huTeFmlG4XdYS54SD0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.DataAnnotationValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.DataAnnotationValidator.html",
+          "hash": "ZCYEP/5DHTRAqjCQrtBwmmfNUYrRUsxg3qrMdmZk7to="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.DelegateValidator-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.DelegateValidator-1.html",
+          "hash": "FAM+E7/FfZFV2hGinP/pLOMteX2y6QmX0oeH6/OS8n0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.DelegateValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.DelegateValidator.html",
+          "hash": "mNZErODXocE8SUl+eSgb3I0oqAoDBQdGbAfbGLt/4HQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.EnvironmentUserIdProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.EnvironmentUserIdProvider.html",
+          "hash": "Hf/ihhUNahN78YtKfzI7w5UhglI6i1QGXHvXmO+Il4w="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.IAsyncValidator-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.IAsyncValidator-1.html",
+          "hash": "pdsaAr8gee96Y/MqXll3oAWQgeFlY1DL3NyV17YGVUM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.ICancellationTokenProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.ICancellationTokenProvider.html",
+          "hash": "YTTLbBd6cZtI1IfU6WCEqqkiYb8eEuwvY2tVmSBwVZA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.ITenantProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.ITenantProvider.html",
+          "hash": "7Gg8ibOyeu3HcCsip628qWITNNiY/ScVgIbup0P2Qqg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.IUserIdProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.IUserIdProvider.html",
+          "hash": "sxWqIB8f5eL2tifZn9CLcGxsO34fN+LMQOFepKabt4g="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.IValidator-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.IValidator-1.html",
+          "hash": "DA9NK1FRyaUtrHUzpyLni7HjEvzs2L/WjH6Ro6ST08E="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.IValidator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.IValidator.html",
+          "hash": "Pof7oSmYs7GnhLKMfsmAMAEwrDNYHL+f4qp/7sfEO80="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.NullCancellationTokenProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.NullCancellationTokenProvider.html",
+          "hash": "wl97UqRkiHq4bHmyBFuMp7/b6ikCE9th3b+11QwZTIM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.TenantIdProviderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.TenantIdProviderExtensions.html",
+          "hash": "ynGiiVIpK91CUnng4TFHFAPuXYaFT8Y7bR6A01vKRKA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.UserIdProviderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.UserIdProviderExtensions.html",
+          "hash": "Fvwg7iBAXAVsYyC1iGHyeC02NId2dKciBGav21VEyDI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.html",
+          "hash": "PEVYFEIrRZURBYh6cWh/e8uCdhPPy/mBKJ/tXK67kdU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.SnowflakeId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.SnowflakeId.html",
+          "hash": "oMbCIUyTuZkMkQkecA7phimm+OPu2OtXi6g6jOOq1HI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.SnowflakeIdGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.SnowflakeIdGenerator.html",
+          "hash": "5G4RAVSFpMdqclL74fFiCV4l4SLzFDnV91w+fy10e4A="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.StopwatchProfiler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.StopwatchProfiler.html",
+          "hash": "Lim6Ck1VZgoKP+TO70I4+HbmBNko2QCxnqb6FUnvOjA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Templating.DefaultTemplateParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Templating.DefaultTemplateParser.html",
+          "hash": "jMY/l6vbP/1h/1jVhk/NVLVG1SpYG9lZmI4MbtBFNDM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Templating.DefaultTemplateRenderer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Templating.DefaultTemplateRenderer.html",
+          "hash": "FSm6ptI0HDwEnhO3PdAZSv0v0nWdx5WXQQtfyW+5ZKI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Templating.ITemplateParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Templating.ITemplateParser.html",
+          "hash": "EgtjH6d1y7Vt0lPgkah7XtJcRSMTOj/MwXW6L2GZDx8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Templating.ITemplateRenderer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Templating.ITemplateRenderer.html",
+          "hash": "8LpwIlCUNFV42itZA8+coRZHAFTe9ZHEX3XwuEMIyh0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Templating.ITemplateRendererBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Templating.ITemplateRendererBuilder.html",
+          "hash": "Tkr9KND7sE/NJsv72DPoe6lswaaB+B2xUNJPQaWt1Ng="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Templating.TemplateEngine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Templating.TemplateEngine.html",
+          "hash": "rixTh4YOroshpbpVAMWrvVW0DUfNV+9Asr2HQQMbMeI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Templating.TemplateOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Templating.TemplateOptions.html",
+          "hash": "iaIzrfUeYS3sXPlEGQmkIrVypPEInsSKAmXQ/zzLEcE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Templating.TemplateRenderContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Templating.TemplateRenderContext.html",
+          "hash": "OWJLUYaSjPzgn42jtlUl+EqOsI5mcyVlC06oSbHOlsU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Templating.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Templating.html",
+          "hash": "pErTJFwi2HWHGqeQxsjNq0C9XuKTfoRRygtqir5iyng="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.html",
+          "hash": "cXX+EvRvNCYaEXzZRhpQrkqUSpAq7RX15wZj2EC62zg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Data.SqlExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Data.SqlExtensions.html",
+          "hash": "+/KWwqRdIJisUS2CgMlIADSsaaKo0ptvuWlZ8Ftv8yI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Data.html",
+          "hash": "szeQDDUdUtTdy9dyM8vz//Pgr/oIGDvX+ArFiEQmEv4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.CollectionExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.CollectionExtension.html",
+          "hash": "hNUxTNFGqdMDf3kZhbAWYG/NDE9rK2jE8rGZAaX6EqM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.CompressionExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.CompressionExtension.html",
+          "hash": "c2JL5p3pmJn/K72PDTwY/wOhu49LyczyNu5eLbl/EYg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.CoreExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.CoreExtension.html",
+          "hash": "gC8WQxopG+E29xdhoeUYMDUw6XdJ28wnWpcm/HR0h5Q="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.CronExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.CronExtension.html",
+          "hash": "CxBCzmY+5fYU/phZy8lqpYR8oQ5GdgTzRggmFXvg2k8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.DataExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.DataExtension.html",
+          "hash": "kuiMTGeGVXLA4h6IVZ8B3WdQI4R4Td0J7HLvHxNZBiA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.DictionaryExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.DictionaryExtension.html",
+          "hash": "H6lEVUNI/CgncTzcH48Dx8qBdUJ/RAQvUW2hOBmTBns="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.Dump.DumpExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.Dump.DumpExtension.html",
+          "hash": "gYqooVqBm2Ln2zAdUHYw9p8bgcGBZ65U6RxQDN+nbV8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.Dump.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.Dump.html",
+          "hash": "yaE4YLvQvMSFlxHK86R2un3invzTTUxU4JrAsF3Sct4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.EnumerableExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.EnumerableExtension.html",
+          "hash": "wG22s5H5ds2yoEV62CrumbBab3XCu7WEaULdyjr5jrk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.ExceptionExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.ExceptionExtension.html",
+          "hash": "HPEUXup8GjMlkpj3hk/ib+Sgov807gfpEFJnnf5D0yI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.ExpressionExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.ExpressionExtension.html",
+          "hash": "qOuVGCiu0OF8urvD6nxuNtjtFQp+faZ/AZZ8zuNdfTA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.FuncExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.FuncExtension.html",
+          "hash": "IlSGzB+3DeZj+BxXDLXJmKKsBiPuUe1lxmrRvqnIBCs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.HttpClientExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.HttpClientExtension.html",
+          "hash": "S7vRNi6NGo4ZvrRxP3THGrVPx3fepnrT7Jv+jEkQfeI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.HttpRequesterExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.HttpRequesterExtension.html",
+          "hash": "SEdot1GImHoPRdgGcMcL8ofY7R2qx2xFLQLlp8Zs9Kg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.ILGeneratorExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.ILGeneratorExtensions.html",
+          "hash": "zszrSK8D63mlTRE2c7vA6cGQ5X/EHh8ur4dZyEMGuxI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.IOExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.IOExtension.html",
+          "hash": "aohTmAEg0X/ppvkTTLP19ss0IN4Ynebx+gXwSHN3S1w="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.JsonSerializeExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.JsonSerializeExtension.html",
+          "hash": "lstmUp+LetWUyuGT+nf7Bv2VDpRlNdW5Eiq6V++/LqM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.NetExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.NetExtension.html",
+          "hash": "jqhzNjEXRUHsIbaAXErbHpTQKnyRPWpsg8UuyfK5yms="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.ProcessExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.ProcessExtension.html",
+          "hash": "3ejOs2gIWs0KGpQIk5EE9BlWCMIXJX4x7TxHNrHtYPc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.QueryableExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.QueryableExtension.html",
+          "hash": "jkG77yOrxQsCXLekpfWj4Dw0QCSBkyI/8XMG1T/IPmo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.ReflectionExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.ReflectionExtension.html",
+          "hash": "69A0chOiKabTnmd2GIIBNI/erdTersrYitlcptjMcIo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.StringExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.StringExtension.html",
+          "hash": "ETnat9sKQcHJf10IcFl23eJ7PEky5ETPYNfON/Kq0hU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.TaskExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.TaskExtension.html",
+          "hash": "2NuooEU4lasbq4/aqNZFqvoI76pi7vLE0vkBfKALSXI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.TypeExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.TypeExtension.html",
+          "hash": "p4OCJKpCThoZqZMw1QujeYuLW5dXJrl3a9WxB7tTgYQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.html",
+          "hash": "6zHyQ3zbHiyP7RpNZe5Dj+PRJiGDBxA+vvxY90ybZqY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "1hX+qFn6LSni+GvQzaAis+DwFLhg7rZc5Y3S49ztG1I="
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "yZctVtyGu52SIUUfD5MqLSqdI0NDQ7NeukwM2Ygtv2Y="
+        },
         ".json": {
           "relative_path": "api/toc.json",
-          "hash": "Jsm8k9593IgRq/RCAjG9uUSNjLEZGXLIH/NW451R+cw="
+          "hash": "BVfkGDeZDH9TdqNoJR/nH4Cl+bCI5BQT0IWLIoXQMGA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "lYZkvg1wmAn+Xv/RytWRuZ6VpK5J1LD4epRWB3SW7jI="
         }
       },
       "version": ""
@@ -18,9 +3597,24 @@
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "+FPCLcvmNhVb9VLasYr6Tnep0PZtIA6V/UOJ0u+1RmE="
+        },
         ".json": {
           "relative_path": "articles/toc.json",
-          "hash": "c/66Y0p/S66v3vYaCrWqA2gTMf0TzuZd37L8KioUcMc="
+          "hash": "fyzooicK9ZpdtyFGEb/t662hrSHCQYpRH4hRTpRH4VQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "ZD36Q5fYLhfvxdPYQKShpmD9UdbA1f2nkaEkUrYPB2M="
         }
       },
       "version": ""
@@ -29,9 +3623,13 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "qvZc1uUuxhS80xgVsVS/cFWsk+r3BQ5rfvmgZtAZzbI="
+        },
         ".json": {
           "relative_path": "toc.json",
-          "hash": "B3SqtxHPRsik5YWTeFNRPBD4Y9K8YT7Im5a+dRXYiC8="
+          "hash": "KB3LP1n8XkcZayUxEIOBuG/Bs9twslbWMLlBriQohoo="
         }
       },
       "version": ""

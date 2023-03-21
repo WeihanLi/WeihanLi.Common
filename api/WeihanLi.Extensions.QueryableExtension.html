@@ -1,0 +1,396 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class QueryableExtension
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class QueryableExtension
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_QueryableExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.QueryableExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <body data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <form class="d-flex ms-auto" role="search" id="search">
+              <i class="bi bi-search"></i>
+              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="WeihanLi.Extensions.QueryableExtension">
+
+
+  <h1 id="WeihanLi_Extensions_QueryableExtension" data-uid="WeihanLi.Extensions.QueryableExtension" class="text-break">
+    Class QueryableExtension
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/QueryableExtension.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
+    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class QueryableExtension</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">QueryableExtension</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+  <a id="WeihanLi_Extensions_QueryableExtension_OrderBy_" data-uid="WeihanLi.Extensions.QueryableExtension.OrderBy*"></a>
+
+  <h3 id="WeihanLi_Extensions_QueryableExtension_OrderBy__1_System_Linq_IQueryable___0__System_String_System_Boolean_" data-uid="WeihanLi.Extensions.QueryableExtension.OrderBy``1(System.Linq.IQueryable{``0},System.String,System.Boolean)">
+  OrderBy&lt;T&gt;(IQueryable&lt;T&gt;, string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/QueryableExtension.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>OrderBy propertyName</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IQueryable&lt;T&gt; OrderBy&lt;T&gt;(this IQueryable&lt;T&gt; source, string propertyName, bool isAsc = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">IQueryable</span>&lt;T&gt;</dt>
+    <dd><p>source</p>
+</dd>
+    <dt><code>propertyName</code> <span class="xref">string</span></dt>
+    <dd><p>propertyName to orderBy</p>
+</dd>
+    <dt><code>isAsc</code> <span class="xref">bool</span></dt>
+    <dd><p>is ascending</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IQueryable</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>T</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_QueryableExtension_ToListResultWithTotal_" data-uid="WeihanLi.Extensions.QueryableExtension.ToListResultWithTotal*"></a>
+
+  <h3 id="WeihanLi_Extensions_QueryableExtension_ToListResultWithTotal__1_System_Linq_IQueryable___0__System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.QueryableExtension.ToListResultWithTotal``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+  ToListResultWithTotal&lt;T&gt;(IQueryable&lt;T&gt;, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/QueryableExtension.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the specified source to <a class="xref" href="WeihanLi.Common.Models.IPagedListResult-1.html">IPagedListResult&lt;T&gt;</a> by the specified <code data-dev-comment-type="paramref" class="paramref">pageNumber</code> and <code data-dev-comment-type="paramref" class="paramref">pageSize</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ListResultWithTotal&lt;T&gt; ToListResultWithTotal&lt;T&gt;(this IQueryable&lt;T&gt; source, int pageNumber, int pageSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">IQueryable</span>&lt;T&gt;</dt>
+    <dd><p>The source to paging.</p>
+</dd>
+    <dt><code>pageNumber</code> <span class="xref">int</span></dt>
+    <dd><p>The number of the page, start from 1.</p>
+</dd>
+    <dt><code>pageSize</code> <span class="xref">int</span></dt>
+    <dd><p>The size of the page.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Models.ListResultWithTotal-1.html">ListResultWithTotal</a>&lt;T&gt;</dt>
+    <dd><p>An instance of  implements <a class="xref" href="WeihanLi.Common.Models.IPagedListResult-1.html">IPagedListResult&lt;T&gt;</a> interface.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the source.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_QueryableExtension_ToPagedList_" data-uid="WeihanLi.Extensions.QueryableExtension.ToPagedList*"></a>
+
+  <h3 id="WeihanLi_Extensions_QueryableExtension_ToPagedList__1_System_Linq_IQueryable___0__System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.QueryableExtension.ToPagedList``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+  ToPagedList&lt;T&gt;(IQueryable&lt;T&gt;, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/QueryableExtension.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the specified source to <a class="xref" href="WeihanLi.Common.Models.IPagedListResult-1.html">IPagedListResult&lt;T&gt;</a> by the specified <code data-dev-comment-type="paramref" class="paramref">pageNumber</code> and <code data-dev-comment-type="paramref" class="paramref">pageSize</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PagedListResult&lt;T&gt; ToPagedList&lt;T&gt;(this IQueryable&lt;T&gt; source, int pageNumber, int pageSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">IQueryable</span>&lt;T&gt;</dt>
+    <dd><p>The source to paging.</p>
+</dd>
+    <dt><code>pageNumber</code> <span class="xref">int</span></dt>
+    <dd><p>The number of the page, start from 1.</p>
+</dd>
+    <dt><code>pageSize</code> <span class="xref">int</span></dt>
+    <dd><p>The size of the page.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Models.PagedListResult-1.html">PagedListResult</a>&lt;T&gt;</dt>
+    <dd><p>An instance of  implements <a class="xref" href="WeihanLi.Common.Models.IPagedListResult-1.html">IPagedListResult&lt;T&gt;</a> interface.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the source.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_QueryableExtension_WhereIf_" data-uid="WeihanLi.Extensions.QueryableExtension.WhereIf*"></a>
+
+  <h3 id="WeihanLi_Extensions_QueryableExtension_WhereIf__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Boolean_" data-uid="WeihanLi.Extensions.QueryableExtension.WhereIf``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Boolean)">
+  WhereIf&lt;T&gt;(IQueryable&lt;T&gt;, Expression&lt;Func&lt;T, bool&gt;&gt;, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/QueryableExtension.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IQueryable&lt;T&gt; WhereIf&lt;T&gt;(this IQueryable&lt;T&gt; source, Expression&lt;Func&lt;T, bool&gt;&gt; predicate, bool condition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">IQueryable</span>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>predicate</code> <span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">bool</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>condition</code> <span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IQueryable</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_QueryableExtension_WhereIf_" data-uid="WeihanLi.Extensions.QueryableExtension.WhereIf*"></a>
+
+  <h3 id="WeihanLi_Extensions_QueryableExtension_WhereIf__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Func_System_Boolean__" data-uid="WeihanLi.Extensions.QueryableExtension.WhereIf``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Func{System.Boolean})">
+  WhereIf&lt;T&gt;(IQueryable&lt;T&gt;, Expression&lt;Func&lt;T, bool&gt;&gt;, Func&lt;bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/QueryableExtension.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IQueryable&lt;T&gt; WhereIf&lt;T&gt;(this IQueryable&lt;T&gt; source, Expression&lt;Func&lt;T, bool&gt;&gt; predicate, Func&lt;bool&gt; conditionFunc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">IQueryable</span>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>predicate</code> <span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">bool</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>conditionFunc</code> <span class="xref">Func</span>&lt;<span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IQueryable</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_QueryableExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.QueryableExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+        </div>
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="../styles/docfx.min.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

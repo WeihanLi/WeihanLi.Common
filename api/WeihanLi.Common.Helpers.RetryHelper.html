@@ -1,0 +1,876 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RetryHelper
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RetryHelper
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_RetryHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.RetryHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <body data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <form class="d-flex ms-auto" role="search" id="search">
+              <i class="bi bi-search"></i>
+              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="WeihanLi.Common.Helpers.RetryHelper">
+
+
+  <h1 id="WeihanLi_Common_Helpers_RetryHelper" data-uid="WeihanLi.Common.Helpers.RetryHelper" class="text-break">
+    Class RetryHelper
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L5"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Helpers.html">Helpers</a></dd></dl>
+    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class RetryHelper</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">RetryHelper</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_System_Action_System_Int32_System_Action_System_Int32_System_TimeSpan_System_Exception__System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke(System.Action,System.Int32,System.Action{System.Int32,System.TimeSpan,System.Exception},System.Func{System.Int32,System.TimeSpan})">
+  TryInvoke(Action, int, Action&lt;int, TimeSpan, Exception?&gt;?, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryInvoke(Action action, int maxRetryTimes = 3, Action&lt;int, TimeSpan, Exception?&gt;? onRetry = null, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <span class="xref">Action</span></dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>onRetry</code> <span class="xref">Action</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>, <span class="xref">Exception</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <span class="xref">Func</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_System_Func_System_Boolean__System_Int32_System_Action_System_Int32_System_TimeSpan_System_Exception__System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke(System.Func{System.Boolean},System.Int32,System.Action{System.Int32,System.TimeSpan,System.Exception},System.Func{System.Int32,System.TimeSpan})">
+  TryInvoke(Func&lt;bool&gt;, int, Action&lt;int, TimeSpan, Exception?&gt;?, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryInvoke(Func&lt;bool&gt; func, int maxRetryTimes = 3, Action&lt;int, TimeSpan, Exception?&gt;? onRetry = null, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;<span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>onRetry</code> <span class="xref">Action</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>, <span class="xref">Exception</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <span class="xref">Func</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__1_System_Func___0__System_Func___0_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``1(System.Func{``0},System.Func{``0,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvoke&lt;TResult&gt;(Func&lt;TResult?&gt;, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult? TryInvoke&lt;TResult&gt;(Func&lt;TResult?&gt; func, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;TResult&gt;</dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <span class="xref">Func</span>&lt;TResult, <span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <span class="xref">Func</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__2_System_Func___0___1____0_System_Func___1_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``2(System.Func{``0,``1},``0,System.Func{``1,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvoke&lt;T1, TResult&gt;(Func&lt;T1, TResult?&gt;, T1, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult? TryInvoke&lt;T1, TResult&gt;(Func&lt;T1, TResult?&gt; func, T1 t1, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;T1, TResult&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <span class="xref">Func</span>&lt;TResult, <span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <span class="xref">Func</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__3_System_Func___0___1___2____0___1_System_Func___2_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``3(System.Func{``0,``1,``2},``0,``1,System.Func{``2,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvoke&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, TResult?&gt;, T1, T2, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult? TryInvoke&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, TResult?&gt; func, T1 t1, T2 t2, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;T1, T2, TResult&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <span class="xref">Func</span>&lt;TResult, <span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <span class="xref">Func</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__4_System_Func___0___1___2___3____0___1___2_System_Func___3_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``4(System.Func{``0,``1,``2,``3},``0,``1,``2,System.Func{``3,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvoke&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, TResult?&gt;, T1, T2, T3, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult? TryInvoke&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, TResult?&gt; func, T1 t1, T2 t2, T3 t3, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;T1, T2, T3, TResult&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+    <dt><code>t3</code> <span class="xref">T3</span></dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <span class="xref">Func</span>&lt;TResult, <span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <span class="xref">Func</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+    <dt><code>T3</code></dt>
+    <dd></dd>
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__5_System_Func___0___1___2___3___4____0___1___2___3_System_Func___4_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2,``3,System.Func{``4,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvoke&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, TResult&gt;, T1, T2, T3, T4, Func&lt;TResult, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult TryInvoke&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, TResult&gt; func, T1 t1, T2 t2, T3 t3, T4 t4, Func&lt;TResult, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;T1, T2, T3, T4, TResult&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+    <dt><code>t3</code> <span class="xref">T3</span></dt>
+    <dd></dd>
+    <dt><code>t4</code> <span class="xref">T4</span></dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <span class="xref">Func</span>&lt;TResult, <span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <span class="xref">Func</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+    <dt><code>T3</code></dt>
+    <dd></dd>
+    <dt><code>T4</code></dt>
+    <dd></dd>
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_System_Func_System_Threading_Tasks_Task_System_Boolean___System_Int32_System_Action_System_Int32_System_TimeSpan_System_Exception__System_Func_System_Int32_System_TimeSpan__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync(System.Func{System.Threading.Tasks.Task{System.Boolean}},System.Int32,System.Action{System.Int32,System.TimeSpan,System.Exception},System.Func{System.Int32,System.TimeSpan},System.Threading.CancellationToken)">
+  TryInvokeAsync(Func&lt;Task&lt;bool&gt;&gt;, int, Action&lt;int, TimeSpan, Exception?&gt;?, Func&lt;int, TimeSpan&gt;?, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L218"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; TryInvokeAsync(Func&lt;Task&lt;bool&gt;&gt; func, int maxRetryTimes = 3, Action&lt;int, TimeSpan, Exception?&gt;? onRetry = null, Func&lt;int, TimeSpan&gt;? delayFunc = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;<span class="xref">bool</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>onRetry</code> <span class="xref">Action</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>, <span class="xref">Exception</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <span class="xref">Func</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <span class="xref">CancellationToken</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_System_Func_System_Threading_Tasks_Task__System_Int32_System_Action_System_Int32_System_TimeSpan_System_Exception__System_Func_System_Int32_System_TimeSpan__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync(System.Func{System.Threading.Tasks.Task},System.Int32,System.Action{System.Int32,System.TimeSpan,System.Exception},System.Func{System.Int32,System.TimeSpan},System.Threading.CancellationToken)">
+  TryInvokeAsync(Func&lt;Task&gt;, int, Action&lt;int, TimeSpan, Exception&gt;?, Func&lt;int, TimeSpan&gt;?, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; TryInvokeAsync(Func&lt;Task&gt; action, int maxRetryTimes = 3, Action&lt;int, TimeSpan, Exception&gt;? onRetry = null, Func&lt;int, TimeSpan&gt;? delayFunc = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <span class="xref">Func</span>&lt;<span class="xref">Task</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>onRetry</code> <span class="xref">Action</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>, <span class="xref">Exception</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <span class="xref">Func</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <span class="xref">CancellationToken</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Func___0_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Func{``0,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvokeAsync&lt;TResult&gt;(Func&lt;Task&lt;TResult?&gt;&gt;, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;TResult&gt;(Func&lt;Task&lt;TResult?&gt;&gt; func, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;TResult&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <span class="xref">Func</span>&lt;TResult, <span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <span class="xref">Func</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;TResult&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__2_System_Func___0_System_Threading_Tasks_Task___1_____0_System_Func___1_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``2(System.Func{``0,System.Threading.Tasks.Task{``1}},``0,System.Func{``1,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvokeAsync&lt;T1, TResult&gt;(Func&lt;T1, Task&lt;TResult?&gt;&gt;, T1, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L277"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;T1, TResult&gt;(Func&lt;T1, Task&lt;TResult?&gt;&gt; func, T1 t1, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;TResult&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <span class="xref">Func</span>&lt;TResult, <span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <span class="xref">Func</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;TResult&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__3_System_Func___0___1_System_Threading_Tasks_Task___2_____0___1_System_Func___2_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``3(System.Func{``0,``1,System.Threading.Tasks.Task{``2}},``0,``1,System.Func{``2,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvokeAsync&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, Task&lt;TResult?&gt;&gt;, T1, T2, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L301"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, Task&lt;TResult?&gt;&gt; func, T1 t1, T2 t2, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;T1, T2, <span class="xref">Task</span>&lt;TResult&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <span class="xref">Func</span>&lt;TResult, <span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <span class="xref">Func</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;TResult&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__4_System_Func___0___1___2_System_Threading_Tasks_Task___3_____0___1___2_System_Func___3_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``4(System.Func{``0,``1,``2,System.Threading.Tasks.Task{``3}},``0,``1,``2,System.Func{``3,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvokeAsync&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, Task&lt;TResult?&gt;&gt;, T1, T2, T3, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, Task&lt;TResult?&gt;&gt; func, T1 t1, T2 t2, T3 t3, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;T1, T2, T3, <span class="xref">Task</span>&lt;TResult&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+    <dt><code>t3</code> <span class="xref">T3</span></dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <span class="xref">Func</span>&lt;TResult, <span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <span class="xref">Func</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;TResult&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+    <dt><code>T3</code></dt>
+    <dd></dd>
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__5_System_Func___0___1___2___3_System_Threading_Tasks_Task___4_____0___1___2___3_System_Func___4_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``5(System.Func{``0,``1,``2,``3,System.Threading.Tasks.Task{``4}},``0,``1,``2,``3,System.Func{``4,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvokeAsync&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, Task&lt;TResult&gt;&gt;, T1, T2, T3, T4, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L349"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, Task&lt;TResult&gt;&gt; func, T1 t1, T2 t2, T3 t3, T4 t4, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <span class="xref">Func</span>&lt;T1, T2, T3, T4, <span class="xref">Task</span>&lt;TResult&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+    <dt><code>t3</code> <span class="xref">T3</span></dt>
+    <dd></dd>
+    <dt><code>t4</code> <span class="xref">T4</span></dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <span class="xref">Func</span>&lt;TResult, <span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <span class="xref">Func</span>&lt;<span class="xref">int</span>, <span class="xref">TimeSpan</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;TResult&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+    <dt><code>T3</code></dt>
+    <dd></dd>
+    <dt><code>T4</code></dt>
+    <dd></dd>
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_RetryHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.RetryHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+        </div>
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="../styles/docfx.min.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

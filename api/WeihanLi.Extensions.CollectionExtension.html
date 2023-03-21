@@ -1,0 +1,731 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CollectionExtension
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CollectionExtension
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_CollectionExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.CollectionExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <body data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <form class="d-flex ms-auto" role="search" id="search">
+              <i class="bi bi-search"></i>
+              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="WeihanLi.Extensions.CollectionExtension">
+
+
+  <h1 id="WeihanLi_Extensions_CollectionExtension" data-uid="WeihanLi.Extensions.CollectionExtension" class="text-break">
+    Class CollectionExtension
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/CollectionExtension.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
+    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>CollectionExtension</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class CollectionExtension</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">CollectionExtension</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+  <a id="WeihanLi_Extensions_CollectionExtension_AddIf_" data-uid="WeihanLi.Extensions.CollectionExtension.AddIf*"></a>
+
+  <h3 id="WeihanLi_Extensions_CollectionExtension_AddIf__1_System_Collections_Generic_ICollection___0__System_Func___0_System_Boolean____0_" data-uid="WeihanLi.Extensions.CollectionExtension.AddIf``1(System.Collections.Generic.ICollection{``0},System.Func{``0,System.Boolean},``0)">
+  AddIf&lt;T&gt;(ICollection&lt;T&gt;, Func&lt;T, bool&gt;, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/CollectionExtension.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An ICollection&lt;T&gt; extension method that adds only if the value satisfies the predicate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AddIf&lt;T&gt;(this ICollection&lt;T&gt; @this, Func&lt;T, bool&gt; predicate, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">ICollection</span>&lt;T&gt;</dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>predicate</code> <span class="xref">Func</span>&lt;T, <span class="xref">bool</span>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>true if it succeeds, false if it fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_CollectionExtension_AddIfNotContains_" data-uid="WeihanLi.Extensions.CollectionExtension.AddIfNotContains*"></a>
+
+  <h3 id="WeihanLi_Extensions_CollectionExtension_AddIfNotContains__1_System_Collections_Generic_ICollection___0____0_" data-uid="WeihanLi.Extensions.CollectionExtension.AddIfNotContains``1(System.Collections.Generic.ICollection{``0},``0)">
+  AddIfNotContains&lt;T&gt;(ICollection&lt;T&gt;, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/CollectionExtension.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An ICollection&lt;T&gt; extension method that add value if the ICollection doesn't contains it already.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AddIfNotContains&lt;T&gt;(this ICollection&lt;T&gt; @this, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">ICollection</span>&lt;T&gt;</dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>true if it succeeds, false if it fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_CollectionExtension_AddRange_" data-uid="WeihanLi.Extensions.CollectionExtension.AddRange*"></a>
+
+  <h3 id="WeihanLi_Extensions_CollectionExtension_AddRange__1_System_Collections_Generic_ICollection___0____0___" data-uid="WeihanLi.Extensions.CollectionExtension.AddRange``1(System.Collections.Generic.ICollection{``0},``0[])">
+  AddRange&lt;T&gt;(ICollection&lt;T&gt;, params T[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/CollectionExtension.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An ICollection&lt;T&gt; extension method that adds a range to 'values'.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddRange&lt;T&gt;(this ICollection&lt;T&gt; @this, params T[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">ICollection</span>&lt;T&gt;</dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>values</code> T[]</dt>
+    <dd><p>A variable-length parameters list containing values.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_CollectionExtension_AddRangeIf_" data-uid="WeihanLi.Extensions.CollectionExtension.AddRangeIf*"></a>
+
+  <h3 id="WeihanLi_Extensions_CollectionExtension_AddRangeIf__1_System_Collections_Generic_ICollection___0__System_Func___0_System_Boolean____0___" data-uid="WeihanLi.Extensions.CollectionExtension.AddRangeIf``1(System.Collections.Generic.ICollection{``0},System.Func{``0,System.Boolean},``0[])">
+  AddRangeIf&lt;T&gt;(ICollection&lt;T&gt;, Func&lt;T, bool&gt;, params T[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/CollectionExtension.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An ICollection&lt;T&gt; extension method that adds a collection of objects to the end of this collection only
+for value who satisfies the predicate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddRangeIf&lt;T&gt;(this ICollection&lt;T&gt; @this, Func&lt;T, bool&gt; predicate, params T[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">ICollection</span>&lt;T&gt;</dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>predicate</code> <span class="xref">Func</span>&lt;T, <span class="xref">bool</span>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+    <dt><code>values</code> T[]</dt>
+    <dd><p>A variable-length parameters list containing values.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_CollectionExtension_AddRangeIfNotContains_" data-uid="WeihanLi.Extensions.CollectionExtension.AddRangeIfNotContains*"></a>
+
+  <h3 id="WeihanLi_Extensions_CollectionExtension_AddRangeIfNotContains__1_System_Collections_Generic_ICollection___0____0___" data-uid="WeihanLi.Extensions.CollectionExtension.AddRangeIfNotContains``1(System.Collections.Generic.ICollection{``0},``0[])">
+  AddRangeIfNotContains&lt;T&gt;(ICollection&lt;T&gt;, params T[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/CollectionExtension.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An ICollection&lt;T&gt; extension method that adds a range of values that's not already in the ICollection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddRangeIfNotContains&lt;T&gt;(this ICollection&lt;T&gt; @this, params T[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">ICollection</span>&lt;T&gt;</dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>values</code> T[]</dt>
+    <dd><p>A variable-length parameters list containing values.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_CollectionExtension_ContainsAll_" data-uid="WeihanLi.Extensions.CollectionExtension.ContainsAll*"></a>
+
+  <h3 id="WeihanLi_Extensions_CollectionExtension_ContainsAll__1_System_Collections_Generic_ICollection___0____0___" data-uid="WeihanLi.Extensions.CollectionExtension.ContainsAll``1(System.Collections.Generic.ICollection{``0},``0[])">
+  ContainsAll&lt;T&gt;(ICollection&lt;T&gt;, params T[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/CollectionExtension.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An ICollection&lt;T&gt; extension method that query if '@this&amp;apos; contains all values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ContainsAll&lt;T&gt;(this ICollection&lt;T&gt; @this, params T[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">ICollection</span>&lt;T&gt;</dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>values</code> T[]</dt>
+    <dd><p>A variable-length parameters list containing values.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>true if it succeeds, false if it fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_CollectionExtension_ContainsAny_" data-uid="WeihanLi.Extensions.CollectionExtension.ContainsAny*"></a>
+
+  <h3 id="WeihanLi_Extensions_CollectionExtension_ContainsAny__1_System_Collections_Generic_ICollection___0____0___" data-uid="WeihanLi.Extensions.CollectionExtension.ContainsAny``1(System.Collections.Generic.ICollection{``0},``0[])">
+  ContainsAny&lt;T&gt;(ICollection&lt;T&gt;, params T[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/CollectionExtension.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An ICollection&lt;T&gt; extension method that query if '@this&amp;apos; contains any value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ContainsAny&lt;T&gt;(this ICollection&lt;T&gt; @this, params T[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">ICollection</span>&lt;T&gt;</dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>values</code> T[]</dt>
+    <dd><p>A variable-length parameters list containing values.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>true if it succeeds, false if it fails.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_CollectionExtension_GetRandomList_" data-uid="WeihanLi.Extensions.CollectionExtension.GetRandomList*"></a>
+
+  <h3 id="WeihanLi_Extensions_CollectionExtension_GetRandomList__1_System_Collections_Generic_IList___0__" data-uid="WeihanLi.Extensions.CollectionExtension.GetRandomList``1(System.Collections.Generic.IList{``0})">
+  GetRandomList&lt;T&gt;(IList&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/CollectionExtension.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; GetRandomList&lt;T&gt;(this IList&lt;T&gt; list)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>list</code> <span class="xref">IList</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IEnumerable</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_CollectionExtension_HasValue_" data-uid="WeihanLi.Extensions.CollectionExtension.HasValue*"></a>
+
+  <h3 id="WeihanLi_Extensions_CollectionExtension_HasValue__1_System_Collections_Generic_ICollection___0__" data-uid="WeihanLi.Extensions.CollectionExtension.HasValue``1(System.Collections.Generic.ICollection{``0})">
+  HasValue&lt;T&gt;(ICollection&lt;T&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/CollectionExtension.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An ICollection&lt;T&gt; extension method that queries if the collection is not (null or is empty).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasValue&lt;T&gt;(this ICollection&lt;T&gt;? @this)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">ICollection</span>&lt;T&gt;</dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>true if the collection is not (null or empty), false if not.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_CollectionExtension_IsNullOrEmpty_" data-uid="WeihanLi.Extensions.CollectionExtension.IsNullOrEmpty*"></a>
+
+  <h3 id="WeihanLi_Extensions_CollectionExtension_IsNullOrEmpty__1_System_Collections_Generic_ICollection___0__" data-uid="WeihanLi.Extensions.CollectionExtension.IsNullOrEmpty``1(System.Collections.Generic.ICollection{``0})">
+  IsNullOrEmpty&lt;T&gt;(ICollection&lt;T&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/CollectionExtension.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An ICollection&lt;T&gt; extension method that queries if the collection is null or is empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNullOrEmpty&lt;T&gt;(this ICollection&lt;T&gt;? @this)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">ICollection</span>&lt;T&gt;</dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>true if null or empty&lt; t&gt;, false if not.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_CollectionExtension_RemoveWhere_" data-uid="WeihanLi.Extensions.CollectionExtension.RemoveWhere*"></a>
+
+  <h3 id="WeihanLi_Extensions_CollectionExtension_RemoveWhere__1_System_Collections_Generic_IList___0__System_Func___0_System_Boolean__" data-uid="WeihanLi.Extensions.CollectionExtension.RemoveWhere``1(System.Collections.Generic.IList{``0},System.Func{``0,System.Boolean})">
+  RemoveWhere&lt;T&gt;(IList&lt;T&gt;, Func&lt;T, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/CollectionExtension.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An ICollection&lt;T&gt; extension method that removes value that satisfy the predicate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RemoveWhere&lt;T&gt;(this IList&lt;T&gt; @this, Func&lt;T, bool&gt; predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">IList</span>&lt;T&gt;</dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>predicate</code> <span class="xref">Func</span>&lt;T, <span class="xref">bool</span>&gt;</dt>
+    <dd><p>The predicate.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_CollectionExtension_ToDictionary_" data-uid="WeihanLi.Extensions.CollectionExtension.ToDictionary*"></a>
+
+  <h3 id="WeihanLi_Extensions_CollectionExtension_ToDictionary_System_Collections_Specialized_NameValueCollection_" data-uid="WeihanLi.Extensions.CollectionExtension.ToDictionary(System.Collections.Specialized.NameValueCollection)">
+  ToDictionary(NameValueCollection?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/CollectionExtension.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A NameValueCollection extension method that converts the @this to a dictionary.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IDictionary&lt;string, string?&gt; ToDictionary(this NameValueCollection? @this)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">NameValueCollection</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IDictionary</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;</dt>
+    <dd><p>@this as an IDictionary&lt;string,object&gt;</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_CollectionExtension_ToQueryString_" data-uid="WeihanLi.Extensions.CollectionExtension.ToQueryString*"></a>
+
+  <h3 id="WeihanLi_Extensions_CollectionExtension_ToQueryString_System_Collections_Specialized_NameValueCollection_" data-uid="WeihanLi.Extensions.CollectionExtension.ToQueryString(System.Collections.Specialized.NameValueCollection)">
+  ToQueryString(NameValueCollection?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/CollectionExtension.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>将名值集合转换成字符串，key1=value1&amp;key2=value2，k/v会编码</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToQueryString(this NameValueCollection? source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <span class="xref">NameValueCollection</span></dt>
+    <dd><p>数据源</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>字符串</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_CollectionExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.CollectionExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+        </div>
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="../styles/docfx.min.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

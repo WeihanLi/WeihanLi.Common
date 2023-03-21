@@ -1,0 +1,2109 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ReflectionExtension
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ReflectionExtension
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_ReflectionExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.ReflectionExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <body data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <form class="d-flex ms-auto" role="search" id="search">
+              <i class="bi bi-search"></i>
+              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="WeihanLi.Extensions.ReflectionExtension">
+
+
+  <h1 id="WeihanLi_Extensions_ReflectionExtension" data-uid="WeihanLi.Extensions.ReflectionExtension" class="text-break">
+    Class ReflectionExtension
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
+    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ReflectionExtension</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ReflectionExtension</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetBaseMethod_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetBaseMethod*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetBaseMethod_System_Reflection_MethodInfo_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetBaseMethod(System.Reflection.MethodInfo)">
+  GetBaseMethod(MethodInfo?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MethodInfo? GetBaseMethod(this MethodInfo? currentMethod)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>currentMethod</code> <span class="xref">MethodInfo</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MethodInfo</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetColumnName_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetColumnName*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetColumnName_System_Reflection_PropertyInfo_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetColumnName(System.Reflection.PropertyInfo)">
+  GetColumnName(PropertyInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>GetColumnName</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetColumnName(this PropertyInfo propertyInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyInfo</code> <span class="xref">PropertyInfo</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetCustomAttribute_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetCustomAttribute*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetCustomAttribute_System_Reflection_Assembly_System_Type_System_Boolean_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)">
+  GetCustomAttribute(Assembly, Type, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L564"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a custom attribute applied to an assembly. Parameters specify the assembly, the type of the custom
+attribute to search for, and an ignored search option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Attribute? GetCustomAttribute(this Assembly element, Type attributeType, bool inherit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Assembly</span></dt>
+    <dd><p>An object derived from the  class that describes a reusable collection of modules.</p>
+</dd>
+    <dt><code>attributeType</code> <span class="xref">Type</span></dt>
+    <dd><p>The type, or a base type, of the custom attribute to search for.</p>
+</dd>
+    <dt><code>inherit</code> <span class="xref">bool</span></dt>
+    <dd><p>This parameter is ignored, and does not affect the operation of this method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Attribute</span></dt>
+    <dd><p>A reference to the single custom attribute of type  that is applied to , or null if there is no such
+attribute.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetCustomAttribute_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetCustomAttribute*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetCustomAttribute_System_Reflection_Assembly_System_Type_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetCustomAttribute(System.Reflection.Assembly,System.Type)">
+  GetCustomAttribute(Assembly, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L548"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a custom attribute applied to a specified assembly. Parameters specify the assembly and the type of
+the custom attribute to search for.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Attribute? GetCustomAttribute(this Assembly element, Type attributeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Assembly</span></dt>
+    <dd><p>An object derived from the  class that describes a reusable collection of modules.</p>
+</dd>
+    <dt><code>attributeType</code> <span class="xref">Type</span></dt>
+    <dd><p>The type, or a base type, of the custom attribute to search for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Attribute</span></dt>
+    <dd><p>A reference to the single custom attribute of type  that is applied to , or null if there is no such
+attribute.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetCustomAttributes_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetCustomAttributes*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetCustomAttributes_System_Reflection_Assembly_System_Boolean_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)">
+  GetCustomAttributes(Assembly, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L623"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves an array of the custom attributes applied to an assembly. Parameters specify the assembly, and an
+ignored search option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Attribute[] GetCustomAttributes(this Assembly element, bool inherit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Assembly</span></dt>
+    <dd><p>An object derived from the  class that describes a reusable collection of modules.</p>
+</dd>
+    <dt><code>inherit</code> <span class="xref">bool</span></dt>
+    <dd><p>This parameter is ignored, and does not affect the operation of this method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Attribute</span>[]</dt>
+    <dd><p>An  array that contains the custom attributes applied to , or an empty array if no such custom attributes
+exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetCustomAttributes_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetCustomAttributes*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetCustomAttributes_System_Reflection_Assembly_System_Type_System_Boolean_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)">
+  GetCustomAttributes(Assembly, Type, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L595"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves an array of the custom attributes applied to an assembly. Parameters specify the assembly, the type
+of the custom attribute to search for, and an ignored search option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Attribute[] GetCustomAttributes(this Assembly element, Type attributeType, bool inherit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Assembly</span></dt>
+    <dd><p>An object derived from the  class that describes a reusable collection of modules.</p>
+</dd>
+    <dt><code>attributeType</code> <span class="xref">Type</span></dt>
+    <dd><p>The type, or a base type, of the custom attribute to search for.</p>
+</dd>
+    <dt><code>inherit</code> <span class="xref">bool</span></dt>
+    <dd><p>This parameter is ignored, and does not affect the operation of this method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Attribute</span>[]</dt>
+    <dd><p>An  array that contains the custom attributes of type  applied to , or an empty array if no such custom
+attributes exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetCustomAttributes_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetCustomAttributes*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetCustomAttributes_System_Reflection_Assembly_System_Type_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetCustomAttributes(System.Reflection.Assembly,System.Type)">
+  GetCustomAttributes(Assembly, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L579"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves an array of the custom attributes applied to an assembly. Parameters specify the assembly, and the
+type of the custom attribute to search for.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Attribute[] GetCustomAttributes(this Assembly element, Type attributeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Assembly</span></dt>
+    <dd><p>An object derived from the  class that describes a reusable collection of modules.</p>
+</dd>
+    <dt><code>attributeType</code> <span class="xref">Type</span></dt>
+    <dd><p>The type, or a base type, of the custom attribute to search for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Attribute</span>[]</dt>
+    <dd><p>An  array that contains the custom attributes of type  applied to , or an empty array if no such custom
+attributes exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetCustomAttributes_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetCustomAttributes*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetCustomAttributes_System_Reflection_Assembly_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetCustomAttributes(System.Reflection.Assembly)">
+  GetCustomAttributes(Assembly)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L608"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves an array of the custom attributes applied to an assembly. A parameter specifies the assembly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Attribute[] GetCustomAttributes(this Assembly element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Assembly</span></dt>
+    <dd><p>An object derived from the  class that describes a reusable collection of modules.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Attribute</span>[]</dt>
+    <dd><p>An  array that contains the custom attributes applied to , or an empty array if no such custom attributes
+exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetDescription_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetDescription*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetDescription_System_Reflection_MemberInfo_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetDescription(System.Reflection.MemberInfo)">
+  GetDescription(MemberInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>GetDescription</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetDescription(this MemberInfo @this)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">MemberInfo</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetDisplayName_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetDisplayName*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetDisplayName_System_Reflection_MemberInfo_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetDisplayName(System.Reflection.MemberInfo)">
+  GetDisplayName(MemberInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An object extension method that gets DisplayName if DisplayAttribute does not exist,return the MemberName</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetDisplayName(this MemberInfo @this)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">MemberInfo</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The custom attribute.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetField_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetField*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetField__1___0_System_String_System_Reflection_BindingFlags_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetField``1(``0,System.String,System.Reflection.BindingFlags)">
+  GetField&lt;T&gt;(T, string, BindingFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that searches for the specified field, using the specified
+binding constraints.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FieldInfo? GetField&lt;T&gt;(this T @this, string name, BindingFlags bindingAttr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The string containing the name of the data field to get.</p>
+</dd>
+    <dt><code>bindingAttr</code> <span class="xref">BindingFlags</span></dt>
+    <dd><p>A bitmask comprised of one or more BindingFlags that specify how the
+search is conducted.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">FieldInfo</span></dt>
+    <dd><p>An object representing the field that matches the specified requirements, if found;
+otherwise, null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetField_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetField*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetField__1___0_System_String_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetField``1(``0,System.String)">
+  GetField&lt;T&gt;(T, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that searches for the public field with the specified name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FieldInfo? GetField&lt;T&gt;(this T @this, string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The string containing the name of the data field to get.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">FieldInfo</span></dt>
+    <dd><p>An object representing the field that matches the specified requirements, if found;
+otherwise, null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetFields_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetFields*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetFields_System_Object_System_Reflection_BindingFlags_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetFields(System.Object,System.Reflection.BindingFlags)">
+  GetFields(object, BindingFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An object extension method that gets the fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FieldInfo[] GetFields(this object @this, BindingFlags bindingAttr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">object</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>bindingAttr</code> <span class="xref">BindingFlags</span></dt>
+    <dd><p>The binding attribute.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">FieldInfo</span>[]</dt>
+    <dd><p>An array of field information.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetFields_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetFields*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetFields_System_Object_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetFields(System.Object)">
+  GetFields(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An object extension method that gets the fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FieldInfo[] GetFields(this object @this)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">object</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">FieldInfo</span>[]</dt>
+    <dd><p>An array of field information.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetFieldValue_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetFieldValue*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetFieldValue__1___0_System_String_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetFieldValue``1(``0,System.String)">
+  GetFieldValue&lt;T&gt;(T, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that gets a field value (Public | NonPublic | Instance | Static)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static object? GetFieldValue&lt;T&gt;(this T @this, string fieldName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>fieldName</code> <span class="xref">string</span></dt>
+    <dd><p>Name of the field.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd><p>The field value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetMethod_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetMethod*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetMethod__1___0_System_String_System_Reflection_BindingFlags_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetMethod``1(``0,System.String,System.Reflection.BindingFlags)">
+  GetMethod&lt;T&gt;(T, string, BindingFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that searches for the specified method whose parameters match the specified argument
+types and modifiers, using the specified binding constraints.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MethodInfo? GetMethod&lt;T&gt;(this T @this, string name, BindingFlags bindingAttr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The string containing the name of the public method to get.</p>
+</dd>
+    <dt><code>bindingAttr</code> <span class="xref">BindingFlags</span></dt>
+    <dd><p>A bitmask comprised of one or more BindingFlags that specify how the search is conducted.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MethodInfo</span></dt>
+    <dd><p>An object that represents the public method with the specified name, if found; otherwise, null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetMethod_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetMethod*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetMethod__1___0_System_String_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetMethod``1(``0,System.String)">
+  GetMethod&lt;T&gt;(T, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that searches for the public method with the specified name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MethodInfo GetMethod&lt;T&gt;(this T @this, string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The string containing the name of the public method to get.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MethodInfo</span></dt>
+    <dd><p>An object that represents the public method with the specified name, if found; otherwise, null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetMethodBySignature_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetMethodBySignature*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetMethodBySignature_System_Type_System_Reflection_MethodInfo_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetMethodBySignature(System.Type,System.Reflection.MethodInfo)">
+  GetMethodBySignature(Type, MethodInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MethodInfo? GetMethodBySignature(this Type type, MethodInfo method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <span class="xref">Type</span></dt>
+    <dd></dd>
+    <dt><code>method</code> <span class="xref">MethodInfo</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MethodInfo</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetMethods_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetMethods*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetMethods__1___0_System_Reflection_BindingFlags_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetMethods``1(``0,System.Reflection.BindingFlags)">
+  GetMethods&lt;T&gt;(T, BindingFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that searches for the methods defined for the current Type, using the specified binding
+constraints.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MethodInfo[] GetMethods&lt;T&gt;(this T @this, BindingFlags bindingAttr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>bindingAttr</code> <span class="xref">BindingFlags</span></dt>
+    <dd><p>A bitmask comprised of one or more BindingFlags that specify how the search is conducted.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MethodInfo</span>[]</dt>
+    <dd><p>An array of MethodInfo objects representing all methods defined for the current Type that match the specified
+binding constraints. or An empty array of type MethodInfo, if no methods are defined for the current Type, or
+if none of the defined methods match the binding constraints.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetMethods_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetMethods*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetMethods__1___0_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetMethods``1(``0)">
+  GetMethods&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that returns all the public methods of the current Type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MethodInfo[] GetMethods&lt;T&gt;(this T @this)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MethodInfo</span>[]</dt>
+    <dd><p>An array of MethodInfo objects representing all the public methods defined for the current Type. or An empty
+array of type MethodInfo, if no public methods are defined for the current Type.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetProperties_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetProperties*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetProperties_System_Object_System_Reflection_BindingFlags_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetProperties(System.Object,System.Reflection.BindingFlags)">
+  GetProperties(object, BindingFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L284"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An object extension method that gets the properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PropertyInfo[] GetProperties(this object @this, BindingFlags bindingAttr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">object</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>bindingAttr</code> <span class="xref">BindingFlags</span></dt>
+    <dd><p>The binding attribute.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">PropertyInfo</span>[]</dt>
+    <dd><p>An array of property information.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetProperties_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetProperties*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetProperties_System_Object_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetProperties(System.Object)">
+  GetProperties(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L275"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An object extension method that gets the properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PropertyInfo[] GetProperties(this object @this)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">object</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">PropertyInfo</span>[]</dt>
+    <dd><p>An array of property information.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetProperty_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetProperty*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetProperty__1___0_System_String_System_Reflection_BindingFlags_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetProperty``1(``0,System.String,System.Reflection.BindingFlags)">
+  GetProperty&lt;T&gt;(T, string, BindingFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L314"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that gets a property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PropertyInfo? GetProperty&lt;T&gt;(this T @this, string name, BindingFlags bindingAttr)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The name.</p>
+</dd>
+    <dt><code>bindingAttr</code> <span class="xref">BindingFlags</span></dt>
+    <dd><p>The binding attribute.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">PropertyInfo</span></dt>
+    <dd><p>The property.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetProperty_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetProperty*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetProperty__1___0_System_String_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetProperty``1(``0,System.String)">
+  GetProperty&lt;T&gt;(T, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L296"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that gets a property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PropertyInfo? GetProperty&lt;T&gt;(this T @this, string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">PropertyInfo</span></dt>
+    <dd><p>The property.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetPropertyOrField_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetPropertyOrField*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetPropertyOrField__1___0_System_String_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetPropertyOrField``1(``0,System.String)">
+  GetPropertyOrField&lt;T&gt;(T, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L329"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that gets property or field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MemberInfo? GetPropertyOrField&lt;T&gt;(this T @this, string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>name</code> <span class="xref">string</span></dt>
+    <dd><p>The name.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MemberInfo</span></dt>
+    <dd><p>The property or field.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetPropertyValue_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetPropertyValue*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetPropertyValue__1___0_System_String_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetPropertyValue``1(``0,System.String)">
+  GetPropertyValue&lt;T&gt;(T, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L348"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that gets property value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static object? GetPropertyValue&lt;T&gt;(this T @this, string propertyName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>propertyName</code> <span class="xref">string</span></dt>
+    <dd><p>Name of the property.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd><p>The property value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetValueGetter_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetValueGetter*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetValueGetter_System_Reflection_PropertyInfo_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetValueGetter(System.Reflection.PropertyInfo)">
+  GetValueGetter(PropertyInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L424"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Func&lt;object, object?&gt;? GetValueGetter(this PropertyInfo propertyInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyInfo</code> <span class="xref">PropertyInfo</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Func</span>&lt;<span class="xref">object</span>, <span class="xref">object</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetValueGetter_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetValueGetter*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetValueGetter__1_System_Reflection_PropertyInfo_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetValueGetter``1(System.Reflection.PropertyInfo)">
+  GetValueGetter&lt;T&gt;(PropertyInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L410"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Func&lt;T, object?&gt;? GetValueGetter&lt;T&gt;(this PropertyInfo propertyInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyInfo</code> <span class="xref">PropertyInfo</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Func</span>&lt;T, <span class="xref">object</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetValueSetter_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetValueSetter*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetValueSetter_System_Reflection_PropertyInfo_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetValueSetter(System.Reflection.PropertyInfo)">
+  GetValueSetter(PropertyInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L456"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Action&lt;object, object?&gt;? GetValueSetter(this PropertyInfo propertyInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyInfo</code> <span class="xref">PropertyInfo</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Action</span>&lt;<span class="xref">object</span>, <span class="xref">object</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_GetValueSetter_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetValueSetter*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_GetValueSetter__1_System_Reflection_PropertyInfo_" data-uid="WeihanLi.Extensions.ReflectionExtension.GetValueSetter``1(System.Reflection.PropertyInfo)">
+  GetValueSetter&lt;T&gt;(PropertyInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L442"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Action&lt;T, object?&gt;? GetValueSetter&lt;T&gt;(this PropertyInfo propertyInfo) where T : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyInfo</code> <span class="xref">PropertyInfo</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Action</span>&lt;T, <span class="xref">object</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_HasEmptyConstructor_" data-uid="WeihanLi.Extensions.ReflectionExtension.HasEmptyConstructor*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_HasEmptyConstructor__1___0_" data-uid="WeihanLi.Extensions.ReflectionExtension.HasEmptyConstructor``1(``0)">
+  HasEmptyConstructor&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L481"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasEmptyConstructor&lt;T&gt;(this T @this)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_IsArray_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsArray*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_IsArray__1___0_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsArray``1(``0)">
+  IsArray&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L505"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that query if '@this&amp;apos; is array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsArray&lt;T&gt;(this T @this)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>true if array, false if not.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_IsAttributeDefined_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsAttributeDefined*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_IsAttributeDefined_System_Object_System_Type_System_Boolean_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsAttributeDefined(System.Object,System.Type,System.Boolean)">
+  IsAttributeDefined(object, Type, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L361"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An object extension method that query if '@this&amp;apos; is attribute defined.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsAttributeDefined(this object @this, Type attributeType, bool inherit = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">object</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>attributeType</code> <span class="xref">Type</span></dt>
+    <dd><p>Type of the attribute.</p>
+</dd>
+    <dt><code>inherit</code> <span class="xref">bool</span></dt>
+    <dd><p>true to inherit.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>true if attribute defined, false if not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_IsAttributeDefined_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsAttributeDefined*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_IsAttributeDefined__1_System_Object_System_Boolean_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsAttributeDefined``1(System.Object,System.Boolean)">
+  IsAttributeDefined&lt;T&gt;(object, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L373"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An object extension method that query if '@this&amp;apos; is attribute defined.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsAttributeDefined&lt;T&gt;(this object @this, bool inherit = true) where T : Attribute</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">object</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>inherit</code> <span class="xref">bool</span></dt>
+    <dd><p>true to inherit.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>true if attribute defined, false if not.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_IsDefined_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsDefined*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_IsDefined_System_Reflection_Assembly_System_Type_System_Boolean_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)">
+  IsDefined(Assembly, Type, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L648"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether any custom attributes are applied to an assembly. Parameters specify the assembly, the
+type of the custom attribute to search for, and an ignored search option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsDefined(this Assembly element, Type attributeType, bool inherit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Assembly</span></dt>
+    <dd><p>An object derived from the  class that describes a reusable collection of modules.</p>
+</dd>
+    <dt><code>attributeType</code> <span class="xref">Type</span></dt>
+    <dd><p>The type, or a base type, of the custom attribute to search for.</p>
+</dd>
+    <dt><code>inherit</code> <span class="xref">bool</span></dt>
+    <dd><p>This parameter is ignored, and does not affect the operation of this method.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>true if a custom attribute of type  is applied to ; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_IsDefined_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsDefined*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_IsDefined_System_Reflection_Assembly_System_Type_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsDefined(System.Reflection.Assembly,System.Type)">
+  IsDefined(Assembly, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L635"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether any custom attributes are applied to an assembly. Parameters specify the assembly, and the
+type of the custom attribute to search for.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsDefined(this Assembly element, Type attributeType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">Assembly</span></dt>
+    <dd><p>An object derived from the  class that describes a reusable collection of modules.</p>
+</dd>
+    <dt><code>attributeType</code> <span class="xref">Type</span></dt>
+    <dd><p>The type, or a base type, of the custom attribute to search for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>true if a custom attribute of type  is applied to ; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_IsEnum_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsEnum*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_IsEnum__1___0_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsEnum``1(``0)">
+  IsEnum&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L521"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that query if '@this&amp;apos; is enum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsEnum&lt;T&gt;(this T @this)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>true if enum, false if not.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_IsSubclassOf_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsSubclassOf*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_IsSubclassOf__1___0_System_Type_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsSubclassOf``1(``0,System.Type)">
+  IsSubclassOf&lt;T&gt;(T, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L533"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that query if '@this&amp;apos; is subclass of.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsSubclassOf&lt;T&gt;(this T @this, Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>type</code> <span class="xref">Type</span></dt>
+    <dd><p>The Type to process.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>true if subclass of, false if not.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_IsValueTuple_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsValueTuple*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_IsValueTuple__1___0_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsValueTuple``1(``0)">
+  IsValueTuple&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L488"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>是否是 ValueTuple</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsValueTuple&lt;T&gt;(this T t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_IsValueType_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsValueType*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_IsValueType__1___0_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsValueType``1(``0)">
+  IsValueType&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L496"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>是否是值类型</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsValueType&lt;T&gt;(this T t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_IsVisible_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsVisible*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_IsVisible_System_Reflection_MethodBase_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsVisible(System.Reflection.MethodBase)">
+  IsVisible(MethodBase)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsVisible(this MethodBase method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <span class="xref">MethodBase</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_IsVisibleAndVirtual_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsVisibleAndVirtual*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_IsVisibleAndVirtual_System_Reflection_MethodInfo_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsVisibleAndVirtual(System.Reflection.MethodInfo)">
+  IsVisibleAndVirtual(MethodInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsVisibleAndVirtual(this MethodInfo method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <span class="xref">MethodInfo</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_IsVisibleAndVirtual_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsVisibleAndVirtual*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_IsVisibleAndVirtual_System_Reflection_PropertyInfo_" data-uid="WeihanLi.Extensions.ReflectionExtension.IsVisibleAndVirtual(System.Reflection.PropertyInfo)">
+  IsVisibleAndVirtual(PropertyInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsVisibleAndVirtual(this PropertyInfo property)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>property</code> <span class="xref">PropertyInfo</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_SetFieldValue_" data-uid="WeihanLi.Extensions.ReflectionExtension.SetFieldValue*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_SetFieldValue__1___0_System_String_System_Object_" data-uid="WeihanLi.Extensions.ReflectionExtension.SetFieldValue``1(``0,System.String,System.Object)">
+  SetFieldValue&lt;T&gt;(T, string, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L385"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that sets field value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetFieldValue&lt;T&gt;(this T @this, string fieldName, object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>fieldName</code> <span class="xref">string</span></dt>
+    <dd><p>Name of the field.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">object</span></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ReflectionExtension_SetPropertyValue_" data-uid="WeihanLi.Extensions.ReflectionExtension.SetPropertyValue*"></a>
+
+  <h3 id="WeihanLi_Extensions_ReflectionExtension_SetPropertyValue__1___0_System_String_System_Object_" data-uid="WeihanLi.Extensions.ReflectionExtension.SetPropertyValue``1(``0,System.String,System.Object)">
+  SetPropertyValue&lt;T&gt;(T, string, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ReflectionExtension.cs/#L404"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A T extension method that sets property value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetPropertyValue&lt;T&gt;(this T @this, string propertyName, object? value) where T : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <span class="xref">T</span></dt>
+    <dd><p>The @this to act on.</p>
+</dd>
+    <dt><code>propertyName</code> <span class="xref">string</span></dt>
+    <dd><p>Name of the property.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">object</span></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generic type parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_ReflectionExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.ReflectionExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+        </div>
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="../styles/docfx.min.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

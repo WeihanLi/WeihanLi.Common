@@ -1,0 +1,696 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class HashHelper
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class HashHelper
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_HashHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.HashHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <body data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <form class="d-flex ms-auto" role="search" id="search">
+              <i class="bi bi-search"></i>
+              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="WeihanLi.Common.Helpers.HashHelper">
+
+
+  <h1 id="WeihanLi_Common_Helpers_HashHelper" data-uid="WeihanLi.Common.Helpers.HashHelper" class="text-break">
+    Class HashHelper
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HashHelper.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Helpers.html">Helpers</a></dd></dl>
+    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>HashHelper</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class HashHelper</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">HashHelper</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+  <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_WeihanLi_Common_Helpers_HashType_System_Byte___System_Byte___" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes(WeihanLi.Common.Helpers.HashType,System.Byte[],System.Byte[])">
+  GetHashedBytes(HashType, byte[], byte[]?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HashHelper.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>获取Hash后的字节数组</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetHashedBytes(HashType type, byte[] bytes, byte[]? key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="WeihanLi.Common.Helpers.HashType.html">HashType</a></dt>
+    <dd><p>哈希类型</p>
+</dd>
+    <dt><code>bytes</code> <span class="xref">byte</span>[]</dt>
+    <dd><p>原字节数组</p>
+</dd>
+    <dt><code>key</code> <span class="xref">byte</span>[]</dt>
+    <dd><p>key</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">byte</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_WeihanLi_Common_Helpers_HashType_System_Byte___" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes(WeihanLi.Common.Helpers.HashType,System.Byte[])">
+  GetHashedBytes(HashType, byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HashHelper.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>获取Hash后的字节数组</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetHashedBytes(HashType type, byte[] bytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="WeihanLi.Common.Helpers.HashType.html">HashType</a></dt>
+    <dd><p>哈希类型</p>
+</dd>
+    <dt><code>bytes</code> <span class="xref">byte</span>[]</dt>
+    <dd><p>原字节数组</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">byte</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_WeihanLi_Common_Helpers_HashType_System_String_System_Text_Encoding_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes(WeihanLi.Common.Helpers.HashType,System.String,System.Text.Encoding)">
+  GetHashedBytes(HashType, string, Encoding)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HashHelper.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>计算字符串Hash值</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetHashedBytes(HashType type, string str, Encoding encoding)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="WeihanLi.Common.Helpers.HashType.html">HashType</a></dt>
+    <dd><p>hash类型</p>
+</dd>
+    <dt><code>str</code> <span class="xref">string</span></dt>
+    <dd><p>要hash的字符串</p>
+</dd>
+    <dt><code>encoding</code> <span class="xref">Encoding</span></dt>
+    <dd><p>编码类型</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">byte</span>[]</dt>
+    <dd><p>hash过的字节数组</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_WeihanLi_Common_Helpers_HashType_System_String_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes(WeihanLi.Common.Helpers.HashType,System.String)">
+  GetHashedBytes(HashType, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HashHelper.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>计算字符串Hash值</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetHashedBytes(HashType type, string str)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="WeihanLi.Common.Helpers.HashType.html">HashType</a></dt>
+    <dd><p>hash类型</p>
+</dd>
+    <dt><code>str</code> <span class="xref">string</span></dt>
+    <dd><p>要hash的字符串</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">byte</span>[]</dt>
+    <dd><p>hash过的字节数组</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_Byte___System_Boolean_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.Byte[],System.Boolean)">
+  GetHashedString(HashType, byte[], bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HashHelper.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>计算字符串Hash值</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetHashedString(HashType type, byte[] source, bool isLower)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="WeihanLi.Common.Helpers.HashType.html">HashType</a></dt>
+    <dd><p>hash类型</p>
+</dd>
+    <dt><code>source</code> <span class="xref">byte</span>[]</dt>
+    <dd><p>source</p>
+</dd>
+    <dt><code>isLower</code> <span class="xref">bool</span></dt>
+    <dd><p>isLower</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>hash过的字节数组</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_Byte___System_Byte___System_Boolean_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.Byte[],System.Byte[],System.Boolean)">
+  GetHashedString(HashType, byte[], byte[]?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HashHelper.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>获取哈希之后的字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetHashedString(HashType type, byte[] source, byte[]? key, bool isLower = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="WeihanLi.Common.Helpers.HashType.html">HashType</a></dt>
+    <dd><p>哈希类型</p>
+</dd>
+    <dt><code>source</code> <span class="xref">byte</span>[]</dt>
+    <dd><p>源</p>
+</dd>
+    <dt><code>key</code> <span class="xref">byte</span>[]</dt>
+    <dd><p>key</p>
+</dd>
+    <dt><code>isLower</code> <span class="xref">bool</span></dt>
+    <dd><p>是否是小写</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>哈希算法处理之后的字符串</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_Byte___" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.Byte[])">
+  GetHashedString(HashType, byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HashHelper.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>计算字符串Hash值</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetHashedString(HashType type, byte[] source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="WeihanLi.Common.Helpers.HashType.html">HashType</a></dt>
+    <dd><p>hash类型</p>
+</dd>
+    <dt><code>source</code> <span class="xref">byte</span>[]</dt>
+    <dd><p>source</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>hash过的字节数组</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.String,System.Boolean)">
+  GetHashedString(HashType, string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HashHelper.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>获取哈希之后的字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetHashedString(HashType type, string str, bool isLower)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="WeihanLi.Common.Helpers.HashType.html">HashType</a></dt>
+    <dd><p>哈希类型</p>
+</dd>
+    <dt><code>str</code> <span class="xref">string</span></dt>
+    <dd><p>源字符串</p>
+</dd>
+    <dt><code>isLower</code> <span class="xref">bool</span></dt>
+    <dd><p>是否是小写</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>哈希算法处理之后的字符串</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_String_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.String,System.String,System.Boolean)">
+  GetHashedString(HashType, string, string?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HashHelper.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>获取哈希之后的字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetHashedString(HashType type, string str, string? key, bool isLower = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="WeihanLi.Common.Helpers.HashType.html">HashType</a></dt>
+    <dd><p>哈希类型</p>
+</dd>
+    <dt><code>str</code> <span class="xref">string</span></dt>
+    <dd><p>源字符串</p>
+</dd>
+    <dt><code>key</code> <span class="xref">string</span></dt>
+    <dd><p>key</p>
+</dd>
+    <dt><code>isLower</code> <span class="xref">bool</span></dt>
+    <dd><p>是否是小写</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>哈希算法处理之后的字符串</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_String_System_String_System_Text_Encoding_System_Boolean_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.String,System.String,System.Text.Encoding,System.Boolean)">
+  GetHashedString(HashType, string, string?, Encoding, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HashHelper.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>获取哈希之后的字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetHashedString(HashType type, string str, string? key, Encoding encoding, bool isLower = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="WeihanLi.Common.Helpers.HashType.html">HashType</a></dt>
+    <dd><p>哈希类型</p>
+</dd>
+    <dt><code>str</code> <span class="xref">string</span></dt>
+    <dd><p>源字符串</p>
+</dd>
+    <dt><code>key</code> <span class="xref">string</span></dt>
+    <dd><p>key</p>
+</dd>
+    <dt><code>encoding</code> <span class="xref">Encoding</span></dt>
+    <dd><p>编码类型</p>
+</dd>
+    <dt><code>isLower</code> <span class="xref">bool</span></dt>
+    <dd><p>是否是小写</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>哈希算法处理之后的字符串</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_String_System_Text_Encoding_System_Boolean_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.String,System.Text.Encoding,System.Boolean)">
+  GetHashedString(HashType, string, Encoding, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HashHelper.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>获取哈希之后的字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetHashedString(HashType type, string str, Encoding encoding, bool isLower = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="WeihanLi.Common.Helpers.HashType.html">HashType</a></dt>
+    <dd><p>哈希类型</p>
+</dd>
+    <dt><code>str</code> <span class="xref">string</span></dt>
+    <dd><p>源字符串</p>
+</dd>
+    <dt><code>encoding</code> <span class="xref">Encoding</span></dt>
+    <dd><p>编码类型</p>
+</dd>
+    <dt><code>isLower</code> <span class="xref">bool</span></dt>
+    <dd><p>是否是小写</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>哈希算法处理之后的字符串</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_String_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.String)">
+  GetHashedString(HashType, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HashHelper.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>获取哈希之后的字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetHashedString(HashType type, string str)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="WeihanLi.Common.Helpers.HashType.html">HashType</a></dt>
+    <dd><p>哈希类型</p>
+</dd>
+    <dt><code>str</code> <span class="xref">string</span></dt>
+    <dd><p>源字符串</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>哈希算法处理之后的字符串</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_HashHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.HashHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+        </div>
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="../styles/docfx.min.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

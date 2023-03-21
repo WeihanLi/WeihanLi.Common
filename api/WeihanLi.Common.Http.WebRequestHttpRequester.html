@@ -1,0 +1,1334 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class WebRequestHttpRequester
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class WebRequestHttpRequester
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Http_WebRequestHttpRequester.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Http.WebRequestHttpRequester%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <body data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <form class="d-flex ms-auto" role="search" id="search">
+              <i class="bi bi-search"></i>
+              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="WeihanLi.Common.Http.WebRequestHttpRequester">
+
+
+  <h1 id="WeihanLi_Common_Http_WebRequestHttpRequester" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester" class="text-break">
+    Class WebRequestHttpRequester
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Http.html">Http</a></dd></dl>
+    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class WebRequestHttpRequester : IHttpRequester</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">WebRequestHttpRequester</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object_">CoreExtension.AsOrDefault&lt;T&gt;(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object___0_">CoreExtension.AsOrDefault&lt;T&gt;(object?, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object_System_Func___0__">CoreExtension.AsOrDefault&lt;T&gt;(object?, Func&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_IsAssignableFrom_System_Object_System_Type_">CoreExtension.IsAssignableFrom(object, Type)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_IsAssignableFrom__1_System_Object_">CoreExtension.IsAssignableFrom&lt;T&gt;(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ParseParamDictionary_System_Object_">CoreExtension.ParseParamDictionary(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_To_System_Object_System_Type_">CoreExtension.To(object?, Type)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_To__1_System_Object_">CoreExtension.To&lt;T&gt;(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault_System_Object_System_Type_">CoreExtension.ToOrDefault(object?, Type)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_">CoreExtension.ToOrDefault&lt;T&gt;(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object___0_">CoreExtension.ToOrDefault&lt;T&gt;(object?, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func___0__">CoreExtension.ToOrDefault&lt;T&gt;(object?, Func&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func_System_Object___0__">CoreExtension.ToOrDefault&lt;T&gt;(object?, Func&lt;object?, T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToSafeString_System_Object_">CoreExtension.ToSafeString(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_">JsonSerializeExtension.ToJson(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_Newtonsoft_Json_JsonSerializerSettings_">JsonSerializeExtension.ToJson(object, JsonSerializerSettings?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_Newtonsoft_Json_JsonSerializerSettings_">JsonSerializeExtension.ToJson(object?, bool, JsonSerializerSettings?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_">JsonSerializeExtension.ToJson(object?, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJsonOrString_System_Object_">JsonSerializeExtension.ToJsonOrString(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetFields_System_Object_">ReflectionExtension.GetFields(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetFields_System_Object_System_Reflection_BindingFlags_">ReflectionExtension.GetFields(object, BindingFlags)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetProperties_System_Object_">ReflectionExtension.GetProperties(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetProperties_System_Object_System_Reflection_BindingFlags_">ReflectionExtension.GetProperties(object, BindingFlags)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsAttributeDefined_System_Object_System_Type_System_Boolean_">ReflectionExtension.IsAttributeDefined(object, Type, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsAttributeDefined__1_System_Object_System_Boolean_">ReflectionExtension.IsAttributeDefined&lt;T&gt;(object, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_AjaxRequest_WeihanLi_Common_Http_IHttpRequester_">HttpRequesterExtension.AjaxRequest(IHttpRequester)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_Execute_WeihanLi_Common_Http_IHttpRequester_">HttpRequesterExtension.Execute(IHttpRequester)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_Execute__1_WeihanLi_Common_Http_IHttpRequester___0_">HttpRequesterExtension.Execute&lt;T&gt;(IHttpRequester, T?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_ExecuteAsync_WeihanLi_Common_Http_IHttpRequester_">HttpRequesterExtension.ExecuteAsync(IHttpRequester)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_ExecuteAsync__1_WeihanLi_Common_Http_IHttpRequester___0_">HttpRequesterExtension.ExecuteAsync&lt;T&gt;(IHttpRequester, T?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_ExecuteForJson__1_WeihanLi_Common_Http_IHttpRequester_">HttpRequesterExtension.ExecuteForJson&lt;TEntity&gt;(IHttpRequester)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_ExecuteForJsonAsync__1_WeihanLi_Common_Http_IHttpRequester_">HttpRequesterExtension.ExecuteForJsonAsync&lt;TEntity&gt;(IHttpRequester)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_ExecuteForXml__1_WeihanLi_Common_Http_IHttpRequester_">HttpRequesterExtension.ExecuteForXml&lt;TEntity&gt;(IHttpRequester)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_ExecuteForXmlAsync__1_WeihanLi_Common_Http_IHttpRequester_">HttpRequesterExtension.ExecuteForXmlAsync&lt;TEntity&gt;(IHttpRequester)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_WithCookie_WeihanLi_Common_Http_IHttpRequester_System_Net_Cookie_">HttpRequesterExtension.WithCookie(IHttpRequester, Cookie)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_WithCookie_WeihanLi_Common_Http_IHttpRequester_System_Net_CookieCollection_">HttpRequesterExtension.WithCookie(IHttpRequester, CookieCollection)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_WithCookie_WeihanLi_Common_Http_IHttpRequester_System_String_System_String_">HttpRequesterExtension.WithCookie(IHttpRequester, string, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_WithFile_WeihanLi_Common_Http_IHttpRequester_System_String_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___">HttpRequesterExtension.WithFile(IHttpRequester, string, string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_WithFiles_WeihanLi_Common_Http_IHttpRequester_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___">HttpRequesterExtension.WithFiles(IHttpRequester, IEnumerable&lt;string&gt;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_WithFormParams_WeihanLi_Common_Http_IHttpRequester_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___">HttpRequesterExtension.WithFormParams(IHttpRequester, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_WithJsonParameter__1_WeihanLi_Common_Http_IHttpRequester___0_">HttpRequesterExtension.WithJsonParameter&lt;TEntity&gt;(IHttpRequester, TEntity)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_WithProxy_WeihanLi_Common_Http_IHttpRequester_System_String_System_String_System_String_">HttpRequesterExtension.WithProxy(IHttpRequester, string, string, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_WithProxy_WeihanLi_Common_Http_IHttpRequester_System_String_">HttpRequesterExtension.WithProxy(IHttpRequester, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_WithUrl_WeihanLi_Common_Http_IHttpRequester_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___">HttpRequesterExtension.WithUrl(IHttpRequester, string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.HttpRequesterExtension.html#WeihanLi_Extensions_HttpRequesterExtension_WithXmlParameter__1_WeihanLi_Common_Http_IHttpRequester___0_">HttpRequesterExtension.WithXmlParameter&lt;TEntity&gt;(IHttpRequester, TEntity)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Models.ResultExtensions.html#WeihanLi_Common_Models_ResultExtensions_WrapResult__1___0_WeihanLi_Common_Models_ResultStatus_System_String_">ResultExtensions.WrapResult&lt;T&gt;(T, ResultStatus, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Chain__1___0_System_Action___0__">CoreExtension.Chain&lt;T&gt;(T, Action&lt;T&gt;?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_GetValueOrDefault__2___0_System_Func___0___1____1_">CoreExtension.GetValueOrDefault&lt;T, TResult&gt;(T, Func&lt;T, TResult&gt;, TResult)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_GetValueOrDefault__2___0_System_Func___0___1__">CoreExtension.GetValueOrDefault&lt;T, TResult&gt;(T, Func&lt;T, TResult&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_IsDefault__1___0_">CoreExtension.IsDefault&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_NullIf__1___0_System_Func___0_System_Boolean__">CoreExtension.NullIf&lt;T&gt;(T, Func&lt;T, bool&gt;?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__1___0_System_Action___0__System_Action___0__">CoreExtension.Try&lt;TType&gt;(TType, Action&lt;TType&gt;, Action&lt;TType&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__1___0_System_Action___0__">CoreExtension.Try&lt;TType&gt;(TType, Action&lt;TType&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1___1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, TResult, out TResult)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1_">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, TResult)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, out TResult?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1__System_Func___0___1____1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, Func&lt;TType, TResult&gt;, out TResult)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1__System_Func___0___1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, Func&lt;TType, TResult&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_">DumpExtension.Dump&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_System_Action_System_String__System_Func___0_System_String__">DumpExtension.Dump&lt;T&gt;(T, Action&lt;string&gt;, Func&lt;T, string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_System_Action_System_String__">DumpExtension.Dump&lt;T&gt;(T, Action&lt;string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_Task__System_Func___0_System_String__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, Task&gt;, Func&lt;T, string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_Task__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetField__1___0_System_String_System_Reflection_BindingFlags_">ReflectionExtension.GetField&lt;T&gt;(T, string, BindingFlags)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetField__1___0_System_String_">ReflectionExtension.GetField&lt;T&gt;(T, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetFieldValue__1___0_System_String_">ReflectionExtension.GetFieldValue&lt;T&gt;(T, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetMethod__1___0_System_String_System_Reflection_BindingFlags_">ReflectionExtension.GetMethod&lt;T&gt;(T, string, BindingFlags)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetMethod__1___0_System_String_">ReflectionExtension.GetMethod&lt;T&gt;(T, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetMethods__1___0_">ReflectionExtension.GetMethods&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetMethods__1___0_System_Reflection_BindingFlags_">ReflectionExtension.GetMethods&lt;T&gt;(T, BindingFlags)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetProperty__1___0_System_String_System_Reflection_BindingFlags_">ReflectionExtension.GetProperty&lt;T&gt;(T, string, BindingFlags)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetProperty__1___0_System_String_">ReflectionExtension.GetProperty&lt;T&gt;(T, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetPropertyOrField__1___0_System_String_">ReflectionExtension.GetPropertyOrField&lt;T&gt;(T, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetPropertyValue__1___0_System_String_">ReflectionExtension.GetPropertyValue&lt;T&gt;(T, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_HasEmptyConstructor__1___0_">ReflectionExtension.HasEmptyConstructor&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsArray__1___0_">ReflectionExtension.IsArray&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsEnum__1___0_">ReflectionExtension.IsEnum&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsSubclassOf__1___0_System_Type_">ReflectionExtension.IsSubclassOf&lt;T&gt;(T, Type)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsValueTuple__1___0_">ReflectionExtension.IsValueTuple&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsValueType__1___0_">ReflectionExtension.IsValueType&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_SetFieldValue__1___0_System_String_System_Object_">ReflectionExtension.SetFieldValue&lt;T&gt;(T, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_SetPropertyValue__1___0_System_String_System_Object_">ReflectionExtension.SetPropertyValue&lt;T&gt;(T, string, object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.TaskExtension.html#WeihanLi_Extensions_TaskExtension_WrapTask__1___0_">TaskExtension.WrapTask&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.TypeExtension.html#WeihanLi_Extensions_TypeExtension_IsBasicType__1___0_">TypeExtension.IsBasicType&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester__ctor_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.#ctor*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester__ctor" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.#ctor">
+  WebRequestHttpRequester()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WebRequestHttpRequester()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester__ctor_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.#ctor*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester__ctor_System_String_System_Collections_Generic_IDictionary_System_String_System_String__System_Net_Http_HttpMethod_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.#ctor(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Net.Http.HttpMethod)">
+  WebRequestHttpRequester(string, IDictionary&lt;string, string&gt;?, HttpMethod)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create HttpRequest with specific Request Method</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WebRequestHttpRequester(string requestUrl, IDictionary&lt;string, string&gt;? queryDictionary, HttpMethod method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>requestUrl</code> <span class="xref">string</span></dt>
+    <dd><p>requestUrl</p>
+</dd>
+    <dt><code>queryDictionary</code> <span class="xref">IDictionary</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;</dt>
+    <dd><p>queryDictionary</p>
+</dd>
+    <dt><code>method</code> <span class="xref">HttpMethod</span></dt>
+    <dd><p>method</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester__ctor_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.#ctor*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester__ctor_System_String_System_Net_Http_HttpMethod_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.#ctor(System.String,System.Net.Http.HttpMethod)">
+  WebRequestHttpRequester(string, HttpMethod)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create HttpRequest with specific Request Method</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WebRequestHttpRequester(string requestUrl, HttpMethod method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>requestUrl</code> <span class="xref">string</span></dt>
+    <dd><p>requestUrl</p>
+</dd>
+    <dt><code>method</code> <span class="xref">HttpMethod</span></dt>
+    <dd><p>request method</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester__ctor_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.#ctor*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester__ctor_System_String_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.#ctor(System.String)">
+  WebRequestHttpRequester(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create HttpRequest with GET Request Method</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WebRequestHttpRequester(string requestUrl)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>requestUrl</code> <span class="xref">string</span></dt>
+    <dd><p>requestUrl</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_ExecuteAsync_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.ExecuteAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_ExecuteAsync" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.ExecuteAsync">
+  ExecuteAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L374"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;string&gt; ExecuteAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_ExecuteBytes_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.ExecuteBytes*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_ExecuteBytes" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.ExecuteBytes">
+  ExecuteBytes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L362"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] ExecuteBytes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">byte</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_ExecuteBytesAsync_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.ExecuteBytesAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_ExecuteBytesAsync" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.ExecuteBytesAsync">
+  ExecuteBytesAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L368"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;byte[]&gt; ExecuteBytesAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">byte</span>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_ExecuteForResponse_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.ExecuteForResponse*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_ExecuteForResponse" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.ExecuteForResponse">
+  ExecuteForResponse()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L337"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HttpResponse ExecuteForResponse()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.HttpResponse.html">HttpResponse</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_ExecuteForResponseAsync_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.ExecuteForResponseAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_ExecuteForResponseAsync" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.ExecuteForResponseAsync">
+  ExecuteForResponseAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L349"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;HttpResponse&gt; ExecuteForResponseAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="WeihanLi.Common.Http.HttpResponse.html">HttpResponse</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_New_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.New*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_New" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.New">
+  New()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IHttpRequester New()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithCookie_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithCookie*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithCookie_System_String_System_Net_Cookie_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithCookie(System.String,System.Net.Cookie)">
+  WithCookie(string?, Cookie)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithCookie(string? url, Cookie cookie)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>cookie</code> <span class="xref">Cookie</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithCookie_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithCookie*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithCookie_System_String_System_Net_CookieCollection_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithCookie(System.String,System.Net.CookieCollection)">
+  WithCookie(string?, CookieCollection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithCookie(string? url, CookieCollection cookies)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>cookies</code> <span class="xref">CookieCollection</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFile_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFile*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFile_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFile(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  WithFile(string, byte[], string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithFile(string fileName, byte[] fileBytes, string fileKey = &quot;file&quot;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fileName</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>fileBytes</code> <span class="xref">byte</span>[]</dt>
+    <dd></dd>
+    <dt><code>fileKey</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>formFields</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFile_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFile*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFile_System_String_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFile(System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  WithFile(string, string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithFile(string filePath, string fileKey = &quot;file&quot;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePath</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>fileKey</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>formFields</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFiles_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFiles*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFiles_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Byte_____System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFiles(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Byte[]}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  WithFiles(IEnumerable&lt;KeyValuePair&lt;string, byte[]&gt;&gt;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L273"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithFiles(IEnumerable&lt;KeyValuePair&lt;string, byte[]&gt;&gt; files, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>files</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">byte</span>[]&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>formFields</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFiles_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFiles*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithFiles_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithFiles(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  WithFiles(IEnumerable&lt;string&gt;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L266"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithFiles(IEnumerable&lt;string&gt; filePaths, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePaths</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>formFields</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithHeaders_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithHeaders*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithHeaders_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithHeaders(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  WithHeaders(IEnumerable&lt;KeyValuePair&lt;string, string?&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithHeaders(IEnumerable&lt;KeyValuePair&lt;string, string?&gt;&gt; customHeaders)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithHeaders_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithHeaders*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithHeaders_System_Collections_Specialized_NameValueCollection_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithHeaders(System.Collections.Specialized.NameValueCollection)">
+  WithHeaders(NameValueCollection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithHeaders(NameValueCollection customHeaders)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>customHeaders</code> <span class="xref">NameValueCollection</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithMethod_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithMethod*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithMethod_System_Net_Http_HttpMethod_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithMethod(System.Net.Http.HttpMethod)">
+  WithMethod(HttpMethod)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithMethod(HttpMethod method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <span class="xref">HttpMethod</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithParameters_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithParameters*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithParameters_System_Byte___System_String_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithParameters(System.Byte[],System.String)">
+  WithParameters(byte[], string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithParameters(byte[] requestBytes, string? contentType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>requestBytes</code> <span class="xref">byte</span>[]</dt>
+    <dd></dd>
+    <dt><code>contentType</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithParameters_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithParameters*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithParameters_System_Byte___" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithParameters(System.Byte[])">
+  WithParameters(byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L214"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithParameters(byte[] requestBytes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>requestBytes</code> <span class="xref">byte</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithProxy_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithProxy*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithProxy_System_Net_IWebProxy_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithProxy(System.Net.IWebProxy)">
+  WithProxy(IWebProxy)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithProxy(IWebProxy proxy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>proxy</code> <span class="xref">IWebProxy</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithReferer_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithReferer*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithReferer_System_String_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithReferer(System.String)">
+  WithReferer(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithReferer(string referer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>referer</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithUrl_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithUrl*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithUrl_System_String_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithUrl(System.String)">
+  WithUrl(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithUrl(string url)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithUserAgent_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithUserAgent*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithUserAgent_System_Boolean_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithUserAgent(System.Boolean)">
+  WithUserAgent(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithUserAgent(bool isMobile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>isMobile</code> <span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Http_WebRequestHttpRequester_WithUserAgent_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithUserAgent*"></a>
+
+  <h3 id="WeihanLi_Common_Http_WebRequestHttpRequester_WithUserAgent_System_String_" data-uid="WeihanLi.Common.Http.WebRequestHttpRequester.WithUserAgent(System.String)">
+  WithUserAgent(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Http/HttpRequester.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IHttpRequester WithUserAgent(string userAgent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>userAgent</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Http.IHttpRequester.html">IHttpRequester</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Http_WebRequestHttpRequester.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Http.WebRequestHttpRequester%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+        </div>
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="../styles/docfx.min.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

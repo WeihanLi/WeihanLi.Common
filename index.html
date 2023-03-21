@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>WeihanLi.Common </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="WeihanLi.Common ">
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="styles/docfx.min.css">
+      <link rel="stylesheet" href="styles/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/index.md/#L1">
+  </head>
+
+  <body data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <form class="d-flex ms-auto" role="search" id="search">
+              <i class="bi bi-search"></i>
+              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="weihanlicommon">WeihanLi.Common</h1>
+
+<h2 id="build-status">Build status</h2>
+<p><a href="https://www.nuget.org/packages/WeihanLi.Common/"><img src="https://img.shields.io/nuget/v/WeihanLi.Common.svg" alt="WeihanLi.Common Latest Stable"></a></p>
+<p><a href="https://www.nuget.org/packages/WeihanLi.Common/absoluteLatest"><img src="https://img.shields.io/nuget/vpre/WeihanLi.Common" alt="WeihanLi.Common Latest"></a></p>
+<p><a href="https://weihanli.visualstudio.com/Pipelines/_build/latest?definitionId=16&amp;branchName=dev"><img src="https://weihanli.visualstudio.com/Pipelines/_apis/build/status/WeihanLi.WeihanLi.Common?branchName=dev" alt="Pipelines Build Status"></a></p>
+<p><a href="https://github.com/WeihanLi/WeihanLi.Common/actions?query=workflow%3Adotnetcore+branch%3Adev"><img src="https://github.com/WeihanLi/WeihanLi.Common/workflows/dotnetcore/badge.svg?branch=dev" alt="Github Build Status"></a></p>
+<h2 id="intro">Intro</h2>
+<p>基于 .netstandard2.0 的 .NET 常用帮助类，扩展方法等，基础类库</p>
+<h2 id="packages">Packages</h2>
+<p>与这个 Repository 相关的 nuget 包：</p>
+<ul>
+<li><a href="https://www.nuget.org/packages/WeihanLi.Common">WeihanLi.Common</a> 基础组件</li>
+<li><a href="https://www.nuget.org/packages/WeihanLi.Common.Aspect.Castle/">WeihanLi.Common.Aspect.Castle</a>  基于 Castle 的 AOP 扩展</li>
+<li><a href="https://www.nuget.org/packages/WeihanLi.Common.Aspect.Castle/">WeihanLi.Common.Aspect.AspectCore</a>  基于 AspectCore 的 AOP 扩展（<code>CreateProxyWithTarget</code> 不支持 class)</li>
+<li><a href="https://www.nuget.org/packages/WeihanLi.Data">WeihanLi.Data</a> 数据库扩展</li>
+<li><a href="https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net">WeihanLi.Common.Logging.Log4Net</a> 日志 log4net 扩展</li>
+<li><a href="https://www.nuget.org/packages/WeihanLi.Common.Logging.Serilog">WeihanLi.Common.Logging.Serilog</a> 日志 serilog 扩展</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>Dependence Injection(类比微软依赖注入框架自定义实现的依赖注入框架)</li>
+<li>Fluent Aspects -- AOP implemented(基于动态代理实现的 AOP 框架)</li>
+<li>Event Related(EventBus/EventQueue/EventStore)</li>
+<li>Logging Framework(结合log4net/serilog/微软日志框架实现的日志框架)</li>
+<li>Dapper-like Ado.Net extensions(类似 Dapper 的 Ado.Net 扩展)</li>
+<li>TOTP implement(TOTP算法实现)</li>
+<li>and more ...</li>
+</ul>
+<h2 id="contact">Contact</h2>
+<p>Contact me if you need: <a href="mailto:weihanli@outlook.com">weihanli@outlook.com</a></p>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="styles/docfx.min.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,2617 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class HttpHelper
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class HttpHelper
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.min.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_HttpHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.HttpHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <body data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <form class="d-flex ms-auto" role="search" id="search">
+              <i class="bi bi-search"></i>
+              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="WeihanLi.Common.Helpers.HttpHelper">
+
+
+  <h1 id="WeihanLi_Common_Helpers_HttpHelper" data-uid="WeihanLi.Common.Helpers.HttpHelper" class="text-break">
+    Class HttpHelper
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Helpers.html">Helpers</a></dd></dl>
+    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>HTTP请求帮助类</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class HttpHelper</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">HttpHelper</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_FormDataContentType" data-uid="WeihanLi.Common.Helpers.HttpHelper.FormDataContentType">
+  FormDataContentType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>FormData ContentType</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string FormDataContentType = &quot;application/x-www-form-urlencoded;charset=UTF-8&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpClient" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpClient">
+  HttpClient
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shared HttpClient(no proxy)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly HttpClient HttpClient</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">HttpClient</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_JsonContentType" data-uid="WeihanLi.Common.Helpers.HttpHelper.JsonContentType">
+  JsonContentType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Json ContentType</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string JsonContentType = &quot;application/json;charset=UTF-8&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_WellKnownContentHeaders" data-uid="WeihanLi.Common.Helpers.HttpHelper.WellKnownContentHeaders">
+  WellKnownContentHeaders
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Content Header
+get latest from <a href="https://github.com/dotnet/corefx/blob/master/src/System.Net.Requests/src/System/Net/HttpWebRequest.cs#L1420">https://github.com/dotnet/corefx/blob/master/src/System.Net.Requests/src/System/Net/HttpWebRequest.cs#L1420</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly HashSet&lt;string&gt; WellKnownContentHeaders</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">HashSet</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_GetUserAgent_" data-uid="WeihanLi.Common.Helpers.HttpHelper.GetUserAgent*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_GetUserAgent_System_Boolean_" data-uid="WeihanLi.Common.Helpers.HttpHelper.GetUserAgent(System.Boolean)">
+  GetUserAgent(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L1060"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>GetUserAgent</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetUserAgent(bool isMobileUserAgent = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>isMobileUserAgent</code> <span class="xref">bool</span></dt>
+    <dd><p>isMobileUserAgent</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>UserAgent</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_GetWeChatUserAgent_" data-uid="WeihanLi.Common.Helpers.HttpHelper.GetWeChatUserAgent*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_GetWeChatUserAgent" data-uid="WeihanLi.Common.Helpers.HttpHelper.GetWeChatUserAgent">
+  GetWeChatUserAgent()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L1069"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>GetWeChatUserAgent</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetWeChatUserAgent()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetFor_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetFor*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetFor__1_System_String_System_Collections_Generic_IDictionary_System_String_System_String__" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetFor``1(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+  HttpGetFor&lt;T&gt;(string, IDictionary&lt;string, string&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L362"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T HttpGetFor&lt;T&gt;(string url, IDictionary&lt;string, string&gt;? parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>parameters</code> <span class="xref">IDictionary</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetFor_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetFor*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetFor__1_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetFor``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)">
+  HttpGetFor&lt;T&gt;(string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, WebProxy?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L300"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T HttpGetFor&lt;T&gt;(string url, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders, WebProxy? proxy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>proxy</code> <span class="xref">WebProxy</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetFor_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetFor*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetFor__1_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetFor``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  HttpGetFor&lt;T&gt;(string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L297"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T HttpGetFor&lt;T&gt;(string url, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetFor_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetFor*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetFor__1_System_String_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetFor``1(System.String)">
+  HttpGetFor&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T HttpGetFor&lt;T&gt;(string url)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForAsync__1_System_String_System_Collections_Generic_IDictionary_System_String_System_String__" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+  HttpGetForAsync&lt;T&gt;(string, IDictionary&lt;string, string&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L371"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; HttpGetForAsync&lt;T&gt;(string url, IDictionary&lt;string, string&gt;? parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>parameters</code> <span class="xref">IDictionary</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForAsync__1_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)">
+  HttpGetForAsync&lt;T&gt;(string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, WebProxy?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L310"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; HttpGetForAsync&lt;T&gt;(string url, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders, WebProxy? proxy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>proxy</code> <span class="xref">WebProxy</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForAsync__1_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  HttpGetForAsync&lt;T&gt;(string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L307"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; HttpGetForAsync&lt;T&gt;(string url, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForAsync__1_System_String_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync``1(System.String)">
+  HttpGetForAsync&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L304"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; HttpGetForAsync&lt;T&gt;(string url)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytes_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytes_System_String_System_Collections_Generic_IDictionary_System_String_System_String__" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+  HttpGetForBytes(string, IDictionary&lt;string, string&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L344"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] HttpGetForBytes(string url, IDictionary&lt;string, string&gt;? parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>parameters</code> <span class="xref">IDictionary</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">byte</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytes_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytes_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)">
+  HttpGetForBytes(string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, WebProxy?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP GET请求，返回字节数组</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] HttpGetForBytes(string url, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders, WebProxy? proxy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>proxy</code> <span class="xref">WebProxy</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">byte</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytes_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytes_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  HttpGetForBytes(string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP GET请求，返回字节数组</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] HttpGetForBytes(string url, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>url</p>
+</dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>customHeaders</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">byte</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytes_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytes_System_String_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(System.String)">
+  HttpGetForBytes(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L198"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP GET请求，返回字节数组</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] HttpGetForBytes(string url)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>url</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">byte</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytesAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytesAsync_System_String_System_Collections_Generic_IDictionary_System_String_System_String__" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+  HttpGetForBytesAsync(string, IDictionary&lt;string, string&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L353"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;byte[]&gt; HttpGetForBytesAsync(string url, IDictionary&lt;string, string&gt;? parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>parameters</code> <span class="xref">IDictionary</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">byte</span>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytesAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytesAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)">
+  HttpGetForBytesAsync(string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, WebProxy?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L261"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP GET请求，返回字节数组</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;byte[]&gt; HttpGetForBytesAsync(string url, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders, WebProxy? proxy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>proxy</code> <span class="xref">WebProxy</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">byte</span>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytesAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytesAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  HttpGetForBytesAsync(string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;byte[]&gt; HttpGetForBytesAsync(string url, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">byte</span>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytesAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytesAsync_System_String_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(System.String)">
+  HttpGetForBytesAsync(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;byte[]&gt; HttpGetForBytesAsync(string url)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">byte</span>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetString_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetString*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetString_System_String_System_Collections_Generic_IDictionary_System_String_System_String__" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetString(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+  HttpGetString(string, IDictionary&lt;string, string&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L320"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP GET 请求，返回字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string HttpGetString(string url, IDictionary&lt;string, string&gt;? parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>url</p>
+</dd>
+    <dt><code>parameters</code> <span class="xref">IDictionary</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;</dt>
+    <dd><p>post数据字典</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetString_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetString*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetString_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetString(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)">
+  HttpGetString(string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, WebProxy?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP GET请求，返回字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string HttpGetString(string url, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders, WebProxy? proxy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>url</p>
+</dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>customHeaders</p>
+</dd>
+    <dt><code>proxy</code> <span class="xref">WebProxy</span></dt>
+    <dd><p>proxy</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetString_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetString*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetString_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetString(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  HttpGetString(string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP GET请求，返回字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string HttpGetString(string url, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>url</p>
+</dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetString_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetString*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetString_System_String_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetString(System.String)">
+  HttpGetString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP GET请求，返回字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string HttpGetString(string url)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>url</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetStringAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetStringAsync_System_String_System_Collections_Generic_IDictionary_System_String_System_String__" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+  HttpGetStringAsync(string, IDictionary&lt;string, string&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L335"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP GET 请求，返回字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; HttpGetStringAsync(string url, IDictionary&lt;string, string&gt;? parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>url</p>
+</dd>
+    <dt><code>parameters</code> <span class="xref">IDictionary</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;</dt>
+    <dd><p>post数据字典</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetStringAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetStringAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)">
+  HttpGetStringAsync(string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, WebProxy?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP GET请求，返回字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; HttpGetStringAsync(string url, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders, WebProxy? proxy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>url</p>
+</dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>proxy</code> <span class="xref">WebProxy</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetStringAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetStringAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  HttpGetStringAsync(string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP GET请求，返回字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; HttpGetStringAsync(string url, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>url</p>
+</dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpGetStringAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpGetStringAsync_System_String_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(System.String)">
+  HttpGetStringAsync(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP GET请求，返回字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; HttpGetStringAsync(string url)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>url</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPost_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPost*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPost_System_String_System_Byte___System_Boolean_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPost(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)">
+  HttpPost(string, byte[], bool, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, WebProxy?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L460"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP POST 请求，返回字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string HttpPost(string url, byte[] postData, bool isJsonFormat = true, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders = null, WebProxy? proxy = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>url</p>
+</dd>
+    <dt><code>postData</code> <span class="xref">byte</span>[]</dt>
+    <dd><p>post数据</p>
+</dd>
+    <dt><code>isJsonFormat</code> <span class="xref">bool</span></dt>
+    <dd><p>是否是json格式数据</p>
+</dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>proxy</code> <span class="xref">WebProxy</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPost_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPost*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPost_System_String_System_Collections_Generic_IDictionary_System_String_System_String__" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPost(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+  HttpPost(string, IDictionary&lt;string, string&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L397"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP POST 请求，返回字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string HttpPost(string url, IDictionary&lt;string, string&gt;? parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>url</p>
+</dd>
+    <dt><code>parameters</code> <span class="xref">IDictionary</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;</dt>
+    <dd><p>post数据字典</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostAsync_System_String_System_Byte___System_Boolean_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)">
+  HttpPostAsync(string, byte[], bool, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, WebProxy?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L503"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP POST 请求，返回字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; HttpPostAsync(string url, byte[] postData, bool isJsonFormat = true, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders = null, WebProxy? proxy = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>url</p>
+</dd>
+    <dt><code>postData</code> <span class="xref">byte</span>[]</dt>
+    <dd><p>post数据</p>
+</dd>
+    <dt><code>isJsonFormat</code> <span class="xref">bool</span></dt>
+    <dd><p>是否是json格式数据</p>
+</dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>proxy</code> <span class="xref">WebProxy</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostAsync_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)">
+  HttpPostAsync(string, byte[], string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, WebProxy?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L537"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; HttpPostAsync(string url, byte[] postData, string contentType, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders = null, WebProxy? proxy = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>postData</code> <span class="xref">byte</span>[]</dt>
+    <dd></dd>
+    <dt><code>contentType</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>proxy</code> <span class="xref">WebProxy</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostAsync_System_String_System_Collections_Generic_IDictionary_System_String_System_String__" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+  HttpPostAsync(string, IDictionary&lt;string, string&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L408"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HTTP POST 请求，返回字符串</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; HttpPostAsync(string url, IDictionary&lt;string, string&gt;? parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>url</p>
+</dd>
+    <dt><code>parameters</code> <span class="xref">IDictionary</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;</dt>
+    <dd><p>post数据字典</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFile_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFile*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFile_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Byte_____System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Byte[]}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  HttpPostFile(string, IEnumerable&lt;KeyValuePair&lt;string, byte[]&gt;&gt;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L814"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>PostMultiFile</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string HttpPostFile(string url, IEnumerable&lt;KeyValuePair&lt;string, byte[]&gt;&gt; files, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = null, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? headers = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>post url</p>
+</dd>
+    <dt><code>files</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">byte</span>[]&gt;&gt;</dt>
+    <dd><p>files</p>
+</dd>
+    <dt><code>formFields</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>other form fields</p>
+</dd>
+    <dt><code>headers</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>request headers</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFile_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFile*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFile_System_String_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  HttpPostFile(string, IEnumerable&lt;string&gt;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L800"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>PostMultiFile</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string HttpPostFile(string url, IEnumerable&lt;string&gt; filePaths, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = null, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? headers = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>post url</p>
+</dd>
+    <dt><code>filePaths</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd><p>files</p>
+</dd>
+    <dt><code>formFields</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>other form fields</p>
+</dd>
+    <dt><code>headers</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>request headers</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFile_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFile*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFile_System_String_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(System.String,System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  HttpPostFile(string, string, byte[], string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L744"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>PostFile</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string HttpPostFile(string url, string fileName, byte[] fileBytes, string fileKey = &quot;file&quot;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = null, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? headers = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>post url</p>
+</dd>
+    <dt><code>fileName</code> <span class="xref">string</span></dt>
+    <dd><p>fileName</p>
+</dd>
+    <dt><code>fileBytes</code> <span class="xref">byte</span>[]</dt>
+    <dd><p>fileBytes</p>
+</dd>
+    <dt><code>fileKey</code> <span class="xref">string</span></dt>
+    <dd><p>fileKey in form,default is &quot;file&quot;</p>
+</dd>
+    <dt><code>formFields</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>other form fields</p>
+</dd>
+    <dt><code>headers</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>request headers</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFile_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFile*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFile_System_String_System_String_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  HttpPostFile(string, string, string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L730"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>PostFile
+<a href="https://stackoverflow.com/questions/566462/upload-files-with-httpwebrequest-multipart-form-data">https://stackoverflow.com/questions/566462/upload-files-with-httpwebrequest-multipart-form-data</a>
+<a href="http://www.cnblogs.com/greenerycn/archive/2010/05/15/csharp_http_post.html">http://www.cnblogs.com/greenerycn/archive/2010/05/15/csharp_http_post.html</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string HttpPostFile(string url, string filePath, string fileKey = &quot;file&quot;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = null, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? headers = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>post url</p>
+</dd>
+    <dt><code>filePath</code> <span class="xref">string</span></dt>
+    <dd><p>filePath</p>
+</dd>
+    <dt><code>fileKey</code> <span class="xref">string</span></dt>
+    <dd><p>fileKey in form,default is &quot;file&quot;</p>
+</dd>
+    <dt><code>formFields</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>other form fields</p>
+</dd>
+    <dt><code>headers</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>headers</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFileAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFileAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Byte_____System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Byte[]}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  HttpPostFileAsync(string, IEnumerable&lt;KeyValuePair&lt;string, byte[]&gt;&gt;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L956"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Post Multi File Async</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; HttpPostFileAsync(string url, IEnumerable&lt;KeyValuePair&lt;string, byte[]&gt;&gt; files, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = null, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? headers = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>post url</p>
+</dd>
+    <dt><code>files</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">byte</span>[]&gt;&gt;</dt>
+    <dd><p>files</p>
+</dd>
+    <dt><code>formFields</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>other form fields</p>
+</dd>
+    <dt><code>headers</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>request headers</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFileAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFileAsync_System_String_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  HttpPostFileAsync(string, IEnumerable&lt;string&gt;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L942"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Post Multi File Async</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; HttpPostFileAsync(string url, IEnumerable&lt;string&gt; filePaths, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = null, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? headers = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>post url</p>
+</dd>
+    <dt><code>filePaths</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd><p>files</p>
+</dd>
+    <dt><code>formFields</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>other form fields</p>
+</dd>
+    <dt><code>headers</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>request headers</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFileAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFileAsync_System_String_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(System.String,System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  HttpPostFileAsync(string, string, byte[], string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L888"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>PostFileAsync</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; HttpPostFileAsync(string url, string fileName, byte[] fileBytes, string fileKey = &quot;file&quot;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = null, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? headers = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>post url</p>
+</dd>
+    <dt><code>fileName</code> <span class="xref">string</span></dt>
+    <dd><p>fileName</p>
+</dd>
+    <dt><code>fileBytes</code> <span class="xref">byte</span>[]</dt>
+    <dd><p>fileBytes</p>
+</dd>
+    <dt><code>fileKey</code> <span class="xref">string</span></dt>
+    <dd><p>fileKey in form,default is &quot;file&quot;</p>
+</dd>
+    <dt><code>formFields</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>other form fields</p>
+</dd>
+    <dt><code>headers</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>request headers</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFileAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFileAsync_System_String_System_String_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+  HttpPostFileAsync(string, string, string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L874"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>PostFileAsync
+<a href="https://stackoverflow.com/questions/566462/upload-files-with-httpwebrequest-multipart-form-data">https://stackoverflow.com/questions/566462/upload-files-with-httpwebrequest-multipart-form-data</a>
+<a href="http://www.cnblogs.com/greenerycn/archive/2010/05/15/csharp_http_post.html">http://www.cnblogs.com/greenerycn/archive/2010/05/15/csharp_http_post.html</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; HttpPostFileAsync(string url, string filePath, string fileKey = &quot;file&quot;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? formFields = null, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? headers = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd><p>post url</p>
+</dd>
+    <dt><code>filePath</code> <span class="xref">string</span></dt>
+    <dd><p>filePath</p>
+</dd>
+    <dt><code>fileKey</code> <span class="xref">string</span></dt>
+    <dd><p>fileKey in form,default is &quot;file&quot;</p>
+</dd>
+    <dt><code>formFields</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>other form fields</p>
+</dd>
+    <dt><code>headers</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd><p>request headers</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd><p>response text</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFor_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFor*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostFor__1_System_String_System_Byte___System_Boolean_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostFor``1(System.String,System.Byte[],System.Boolean)">
+  HttpPostFor&lt;T&gt;(string, byte[], bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L573"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T HttpPostFor&lt;T&gt;(string url, byte[] postData, bool isJsonFormat)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>postData</code> <span class="xref">byte</span>[]</dt>
+    <dd></dd>
+    <dt><code>isJsonFormat</code> <span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostForAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostForAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostForAsync__1_System_String_System_Byte___System_Boolean_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostForAsync``1(System.String,System.Byte[],System.Boolean)">
+  HttpPostForAsync&lt;T&gt;(string, byte[], bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L576"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; HttpPostForAsync&lt;T&gt;(string url, byte[] postData, bool isJsonFormat)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>postData</code> <span class="xref">byte</span>[]</dt>
+    <dd></dd>
+    <dt><code>isJsonFormat</code> <span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostForBytes_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostForBytes_System_String_System_Byte___System_Boolean_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)">
+  HttpPostForBytes(string, byte[], bool, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, WebProxy?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L579"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] HttpPostForBytes(string url, byte[] postData, bool isJsonFormat, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders = null, WebProxy? proxy = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>postData</code> <span class="xref">byte</span>[]</dt>
+    <dd></dd>
+    <dt><code>isJsonFormat</code> <span class="xref">bool</span></dt>
+    <dd></dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>proxy</code> <span class="xref">WebProxy</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">byte</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostForBytes_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostForBytes_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)">
+  HttpPostForBytes(string, byte[], string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, WebProxy?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L616"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] HttpPostForBytes(string url, byte[] postData, string contentType, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders = null, WebProxy? proxy = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>postData</code> <span class="xref">byte</span>[]</dt>
+    <dd></dd>
+    <dt><code>contentType</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>proxy</code> <span class="xref">WebProxy</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">byte</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostForBytesAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostForBytesAsync_System_String_System_Byte___System_Boolean_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)">
+  HttpPostForBytesAsync(string, byte[], bool, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, WebProxy?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L651"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;byte[]&gt; HttpPostForBytesAsync(string url, byte[] postData, bool isJsonFormat, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders = null, WebProxy? proxy = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>postData</code> <span class="xref">byte</span>[]</dt>
+    <dd></dd>
+    <dt><code>isJsonFormat</code> <span class="xref">bool</span></dt>
+    <dd></dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>proxy</code> <span class="xref">WebProxy</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">byte</span>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostForBytesAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostForBytesAsync_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)">
+  HttpPostForBytesAsync(string, byte[], string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, WebProxy?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L685"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;byte[]&gt; HttpPostForBytesAsync(string url, byte[] postData, string contentType, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;? customHeaders = null, WebProxy? proxy = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>postData</code> <span class="xref">byte</span>[]</dt>
+    <dd></dd>
+    <dt><code>contentType</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>customHeaders</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;<span class="xref">string</span>, <span class="xref">string</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>proxy</code> <span class="xref">WebProxy</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">byte</span>[]&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJson_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJson*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJson__1_System_String___0_System_Text_Encoding_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJson``1(System.String,``0,System.Text.Encoding)">
+  HttpPostJson&lt;T&gt;(string, T, Encoding)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L423"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string HttpPostJson&lt;T&gt;(string url, T data, Encoding encoding)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>data</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>encoding</code> <span class="xref">Encoding</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJson_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJson*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJson__1_System_String___0_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJson``1(System.String,``0)">
+  HttpPostJson&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L420"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Http</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string HttpPostJson&lt;T&gt;(string url, T data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>data</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonAsync__1_System_String___0_System_Text_Encoding_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync``1(System.String,``0,System.Text.Encoding)">
+  HttpPostJsonAsync&lt;T&gt;(string, T, Encoding)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L436"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; HttpPostJsonAsync&lt;T&gt;(string url, T data, Encoding encoding)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>data</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>encoding</code> <span class="xref">Encoding</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonAsync__1_System_String___0_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync``1(System.String,``0)">
+  HttpPostJsonAsync&lt;T&gt;(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L433"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>HttpPostJsonAsync</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; HttpPostJsonAsync&lt;T&gt;(string url, T data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>data</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonFor_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonFor__2_System_String___0_System_Text_Encoding_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor``2(System.String,``0,System.Text.Encoding)">
+  HttpPostJsonFor&lt;TRequest, TResponse&gt;(string, TRequest, Encoding)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L442"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResponse HttpPostJsonFor&lt;TRequest, TResponse&gt;(string url, TRequest data, Encoding encoding)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>data</code> <span class="xref">TRequest</span></dt>
+    <dd></dd>
+    <dt><code>encoding</code> <span class="xref">Encoding</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResponse</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TRequest</code></dt>
+    <dd></dd>
+    <dt><code>TResponse</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonFor_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonFor__2_System_String___0_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor``2(System.String,``0)">
+  HttpPostJsonFor&lt;TRequest, TResponse&gt;(string, TRequest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L439"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResponse HttpPostJsonFor&lt;TRequest, TResponse&gt;(string url, TRequest data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>data</code> <span class="xref">TRequest</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResponse</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TRequest</code></dt>
+    <dd></dd>
+    <dt><code>TResponse</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonForAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonForAsync__2_System_String___0_System_Text_Encoding_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync``2(System.String,``0,System.Text.Encoding)">
+  HttpPostJsonForAsync&lt;TRequest, TResponse&gt;(string, TRequest, Encoding)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L448"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResponse&gt; HttpPostJsonForAsync&lt;TRequest, TResponse&gt;(string url, TRequest data, Encoding encoding)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>data</code> <span class="xref">TRequest</span></dt>
+    <dd></dd>
+    <dt><code>encoding</code> <span class="xref">Encoding</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;TResponse&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TRequest</code></dt>
+    <dd></dd>
+    <dt><code>TResponse</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonForAsync_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonForAsync__2_System_String___0_" data-uid="WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync``2(System.String,``0)">
+  HttpPostJsonForAsync&lt;TRequest, TResponse&gt;(string, TRequest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L445"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResponse&gt; HttpPostJsonForAsync&lt;TRequest, TResponse&gt;(string url, TRequest data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>data</code> <span class="xref">TRequest</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;TResponse&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TRequest</code></dt>
+    <dd></dd>
+    <dt><code>TResponse</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HttpHelper_IsWellKnownContentHeader_" data-uid="WeihanLi.Common.Helpers.HttpHelper.IsWellKnownContentHeader*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_HttpHelper_IsWellKnownContentHeader_System_String_" data-uid="WeihanLi.Common.Helpers.HttpHelper.IsWellKnownContentHeader(System.String)">
+  IsWellKnownContentHeader(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/HttpHelper.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsWellKnownContentHeader(string header)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>header</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_HttpHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.HttpHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+        </div>
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="../styles/docfx.min.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
