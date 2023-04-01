@@ -16,7 +16,7 @@ jobs:
         dotnet-version: |
           6.0.x
           7.0.x
-          8.0.0-preview.2.23128.3
+          8.0.100-preview.2.23157.25
     - name: build
       run: dotnet build
     - name: format
