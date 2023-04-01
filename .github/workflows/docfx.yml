@@ -13,14 +13,19 @@ jobs:
       # Check out the branch that triggered this workflow to the 'source' subdirectory
       - name: Checkout Code
         uses: actions/checkout@v3
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: |
+            6.0.x
+            7.0.x
+            8.0.0-preview.2.23128.3
       - name: install DocFX
         run: "dotnet tool install -g docfx"
-      - name: output current dir
-        run: "dir"
+      # - name: output current dir
+      #   run: "dir"
       - name: Build docs
         run: "docfx ./docs/docfx.json"
-      - name: list site content
-        run: "ls ./docs/_site/"
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

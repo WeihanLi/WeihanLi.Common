@@ -23,6 +23,12 @@ steps:
     packageType: sdk
     version: 7.0.x
     includePreviewVersions: true # Required for preview versions
+- task: UseDotNet@2
+  displayName: 'Use .NET 8 sdk'
+  inputs:
+    packageType: sdk
+    version: 8.0.x
+    includePreviewVersions: true # Required for preview versions
 
 
 - script: dotnet --info
