@@ -3,7 +3,8 @@ name: dotnet-format
 on:
   push:
     branches:
-      - "dev"
+      - "main"
+      # - "dev"
 
 jobs:
   build:
