@@ -1,7 +1,7 @@
 name: Release
 on:
   push:
-    branches: [ master ]
+    branches: [ master, main ]
 jobs:
   build:
     name: Release
@@ -14,7 +14,7 @@ jobs:
         dotnet-version: |
           6.0.x
           7.0.x
-          8.0.100-preview.2.23157.25
+          8.0.x
     - name: Build
       shell: pwsh
       run: .\build.ps1 --stable=true
