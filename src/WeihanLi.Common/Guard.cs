@@ -5,6 +5,7 @@ namespace WeihanLi.Common;
 
 public static class Guard
 {
+    [return: NotNull]
     public static T NotNull<T>([NotNull] T? t,
            [CallerArgumentExpression(nameof(t))]
             string? paramName = default)
@@ -20,29 +21,40 @@ public static class Guard
         return t;
     }
 
+    [return: NotNull]
     public static string NotNullOrEmpty([NotNull] string? str,
         [CallerArgumentExpression(nameof(str))]
             string? paramName = null)
     {
+#if NET7_0_OR_GREATER
+        ArgumentException.ThrowIfNullOrEmpty(str, paramName);
+#else
         NotNull(str, paramName);
         if (str.Length == 0)
         {
             throw new ArgumentException("The argument can not be Empty", paramName);
         }
+#endif
         return str;
     }
 
+    [return: NotNull]
     public static string NotNullOrWhiteSpace([NotNull] string? str,
         [CallerArgumentExpression(nameof(str))] string? paramName = null)
     {
+// #if NET8_0_OR_GREATER
+//         ArgumentException.ThrowIfNullOrWhiteSpace(str, paramName);
+// #else
         NotNull(str, paramName);
         if (string.IsNullOrWhiteSpace(str))
         {
             throw new ArgumentException("The argument can not be WhiteSpace", paramName);
         }
+// #endif
         return str;
     }
 
+    [return: NotNull]
     public static ICollection<T> NotEmpty<T>([NotNull] ICollection<T> collection, [CallerArgumentExpression(nameof(collection))] string? paramName = null)
     {
         NotNull(collection, paramName);
