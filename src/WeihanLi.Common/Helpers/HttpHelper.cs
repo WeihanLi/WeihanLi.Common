@@ -85,7 +85,7 @@ public static class HttpHelper
     /// <summary>
     /// Shared HttpClient(no proxy)
     /// </summary>
-    public static readonly HttpClient HttpClient = new(new NoProxyHttpClientHandler());
+    public static readonly Lazy<HttpClient> SharedHttpClient = new(() => new(new NoProxyHttpClientHandler()));
 
     #region HttpGet
 
