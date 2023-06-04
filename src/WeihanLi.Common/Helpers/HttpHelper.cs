@@ -33,17 +33,25 @@ public static class HttpHelper
 
     #endregion UploadFileHeaderFormat
 
+    #region MediaType
+
+    public const string ApplicationJsonMediaType = "application/json";
+    public const string ApplicationFormUrlEncodedMediaType = "application/x-www-form-urlencoded";
+    public const string TextPlainMediaType = "text/plain";
+
+    #endregion MediaType
+
     #region ContentType
 
     /// <summary>
     /// Json ContentType
     /// </summary>
-    public const string JsonContentType = "application/json;charset=UTF-8";
+    public const string JsonContentType = $"{ApplicationJsonMediaType};charset=UTF-8";
 
     /// <summary>
     /// FormData ContentType
     /// </summary>
-    public const string FormDataContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+    public const string FormDataContentType = $"{ApplicationFormUrlEncodedMediaType};charset=UTF-8";
 
     #endregion ContentType
 
