@@ -36,7 +36,7 @@ public static class HttpHelper
     #region MediaType
 
     public const string ApplicationJsonMediaType = "application/json";
-    public const string ApplicationFormUrlEncodedMediaType = "application/x-www-form-urlencoded";
+    public const string ApplicationXmlMediaType = "application/xml";
     public const string TextPlainMediaType = "text/plain";
 
     #endregion MediaType
@@ -51,7 +51,7 @@ public static class HttpHelper
     /// <summary>
     /// FormData ContentType
     /// </summary>
-    public const string FormDataContentType = $"{ApplicationFormUrlEncodedMediaType};charset=UTF-8";
+    public const string FormDataContentType = "application/x-www-form-urlencoded;charset=UTF-8";
 
     #endregion ContentType
 

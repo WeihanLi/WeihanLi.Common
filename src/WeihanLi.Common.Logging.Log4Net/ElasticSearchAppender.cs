@@ -59,7 +59,7 @@ public class ElasticSearchAppender : BufferingAppenderSkeleton
         var url = $"{ElasticSearchUrl}/{IndexFormat.Replace("{applicationName}", ApplicationName.GetValueOrDefault(ApplicationHelper.ApplicationName).ToLower()).Replace("{rollingDate}", DateTime.UtcNow.ToString("yyyyMMdd"))}/{Type}/_bulk";
         try
         {
-            _httpClient.PostAsync(url, new StringContent(sb.ToString(), Encoding.UTF8, "application/json"))
+            _httpClient.PostAsync(url, new StringContent(sb.ToString(), Encoding.UTF8, HttpHelper.ApplicationJsonMediaType))
                 .ContinueWith(_ => _.Result.Dispose()).ConfigureAwait(false);
         }
         catch (Exception ex)
