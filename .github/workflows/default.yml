@@ -13,7 +13,7 @@ jobs:
         dotnet-version: |
           6.0.x
           7.0.x
-          8.0.100-preview.4.23260.5
+          8.0.100-preview.6.23329.4
     - name: build
       run: bash build.sh
   
@@ -27,7 +27,7 @@ jobs:
         dotnet-version: |
           6.0.x
           7.0.x
-          8.0.100-preview.4.23260.5
+          8.0.100-preview.6.23329.4
     - name: build
       run: bash build.sh
   
@@ -41,7 +41,7 @@ jobs:
         dotnet-version: |
           6.0.x
           7.0.x
-          8.0.100-preview.4.23260.5
+          8.0.100-preview.6.23329.4
     - name: build
       shell: pwsh
       run: .\build.ps1
