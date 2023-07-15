@@ -42,15 +42,15 @@ public static class Guard
     public static string NotNullOrWhiteSpace([NotNull] string? str,
         [CallerArgumentExpression(nameof(str))] string? paramName = null)
     {
-// #if NET8_0_OR_GREATER
-//         ArgumentException.ThrowIfNullOrWhiteSpace(str, paramName);
-// #else
+#if NET8_0_OR_GREATER
+        ArgumentException.ThrowIfNullOrWhiteSpace(str, paramName);
+#else
         NotNull(str, paramName);
         if (string.IsNullOrWhiteSpace(str))
         {
             throw new ArgumentException("The argument can not be WhiteSpace", paramName);
         }
-// #endif
+#endif
         return str;
     }
 
