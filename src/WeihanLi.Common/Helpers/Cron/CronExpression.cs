@@ -200,7 +200,6 @@ public sealed class CronExpression : IEquatable<CronExpression>
         }
     }
 
-    /// <inheritdoc />
     public override string ToString()
     {
         var expressionBuilder = new StringBuilder();

@@ -1,24 +1,216 @@
 ﻿using System.Reflection;
+using System.Runtime.InteropServices;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
 public static class ApplicationHelper
 {
-    /// <summary>
-    /// ApplicationName
-    /// </summary>
     public static string ApplicationName =>
         Assembly.GetEntryAssembly()?.GetName().Name ?? AppDomain.CurrentDomain.FriendlyName;
 
-    /// <summary>
-    /// 应用根目录
-    /// </summary>
     public static readonly string AppRoot = AppDomain.CurrentDomain.BaseDirectory;
 
-    /// <summary>
-    /// 将虚拟路径转换为物理路径，相对路径转换为绝对路径
-    /// </summary>
-    /// <param name="virtualPath">虚拟路径</param>
-    /// <returns>虚拟路径对应的物理路径</returns>
     public static string MapPath(string virtualPath) => AppRoot + virtualPath.TrimStart('~');
+
+    /// <summary>
+    /// Get the library info from the assembly info
+    /// </summary>
+    /// <param name="type">type in the assembly</param>
+    /// <returns>The assembly library info</returns>
+    public static LibraryInfo GetLibraryInfo(Type type) => GetLibraryInfo(Guard.NotNull(type).Assembly);
+
+    /// <summary>
+    /// Get the library info from the assembly info
+    /// </summary>
+    /// <param name="assembly">assembly</param>
+    /// <returns>The assembly library info</returns>
+    public static LibraryInfo GetLibraryInfo(Assembly assembly)
+    {
+        Guard.NotNull(assembly);
+        var assemblyInformation = assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>();
+        var repositoryUrl = assembly.GetCustomAttributes<AssemblyMetadataAttribute>()
+            .FirstOrDefault(x => nameof(LibraryInfo.RepositoryUrl).Equals(x.Key))?.Value ?? string.Empty;
+        if (assemblyInformation is not null)
+        {
+            var informationalVersionSplit = assemblyInformation.InformationalVersion.Split('+');
+            if (Version.TryParse(informationalVersionSplit[0], out var version))
+            {
+                return new LibraryInfo()
+                {
+                    LibraryVersion = version,
+                    LibraryHash = informationalVersionSplit.Length > 1 ? informationalVersionSplit[1] : string.Empty,
+                    RepositoryUrl = repositoryUrl
+                };
+            }
+        }
+        return new LibraryInfo()
+        {
+            LibraryVersion = assembly.GetName().Version!,
+            LibraryHash = string.Empty,
+            RepositoryUrl = repositoryUrl
+        };
+    }
+
+    private static readonly Lazy<RuntimeInfo> _runtimeInfoLazy = new(GetRuntimeInfo);
+    public static RuntimeInfo RuntimeInfo => _runtimeInfoLazy.Value;
+
+    /// <summary>
+    /// Get dotnet executable path
+    /// </summary>
+    public static string GetDotnetPath()
+    {
+        var executableName =
+            $"dotnet{(RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? ".exe" : string.Empty)}";
+        var searchPaths = Guard.NotNull(Environment.GetEnvironmentVariable("PATH"))
+            .Split(new[] { Path.PathSeparator }, options: StringSplitOptions.RemoveEmptyEntries)
+            .Select(p => p.Trim('"'))
+            .ToArray();
+        var commandPath = searchPaths
+            .Where(p => !Path.GetInvalidPathChars().Any(p.Contains))
+            .Select(p => Path.Combine(p, executableName))
+            .First(File.Exists);
+        return commandPath;
+    }
+
+    public static string GetDotnetDirectory()
+    {
+        var environmentOverride = Environment.GetEnvironmentVariable("DOTNET_MSBUILD_SDK_RESOLVER_CLI_DIR");
+        if (!string.IsNullOrEmpty(environmentOverride))
+        {
+            return environmentOverride;
+        }
+
+        var dotnetExe = GetDotnetPath();
+
+        if (dotnetExe.IsNotNullOrEmpty() && !Interop.RunningOnWindows)
+        {
+            // e.g. on Linux the 'dotnet' command from PATH is a symlink so we need to
+            // resolve it to get the actual path to the binary
+            dotnetExe = Interop.Unix.RealPath(dotnetExe) ?? dotnetExe;
+        }
+
+        if (string.IsNullOrWhiteSpace(dotnetExe))
+        {
+#if NET6_0_OR_GREATER
+            dotnetExe = Environment.ProcessPath;
+#else
+            dotnetExe = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+#endif
+        }
+
+        return Guard.NotNull(Path.GetDirectoryName(dotnetExe));
+    }
+
+    private static RuntimeInfo GetRuntimeInfo()
+    {
+        var libInfo = GetLibraryInfo(typeof(object).Assembly);
+#if NET6_0_OR_GREATER
+#else
+        var currentProcess = System.Diagnostics.Process.GetCurrentProcess();
+#endif
+        return new RuntimeInfo()
+        {
+            Version = Environment.Version,
+            ProcessorCount = Environment.ProcessorCount,
+            FrameworkDescription = RuntimeInformation.FrameworkDescription,
+            WorkingDirectory = Environment.CurrentDirectory,
+
+#if NET6_0_OR_GREATER
+            ProcessId = Environment.ProcessId,
+            ProcessPath = Environment.ProcessPath ?? string.Empty,
+            RuntimeIdentifier = RuntimeInformation.RuntimeIdentifier,
+#else
+            ProcessId = currentProcess.Id,
+            ProcessPath = currentProcess.MainModule?.FileName ?? string.Empty,
+#endif
+            OSArchitecture = RuntimeInformation.OSArchitecture.ToString(),
+            OSDescription = RuntimeInformation.OSDescription,
+            OSVersion = Environment.OSVersion.ToString(),
+            MachineName = Environment.MachineName,
+
+            IsInContainer = IsInContainer(),
+            IsInKubernetes = IsInKubernetesCluster(),
+
+            LibraryVersion = libInfo.LibraryVersion,
+            LibraryHash = libInfo.LibraryHash,
+            RepositoryUrl = libInfo.RepositoryUrl,
+        };
+    }
+
+    #region ContainerEnvironment
+    private static bool IsInContainer()
+    {
+        // https://github.com/dotnet/dotnet-docker/blob/9b731e901dd4a343fc30da7b8b3ab7d305a4aff9/src/runtime-deps/7.0/cbl-mariner2.0/amd64/Dockerfile#L18
+        return "true".Equals(Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER"),
+            StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static readonly string ServiceAccountPath =
+        Path.Combine(new string[]
+        {
+            $"{Path.DirectorySeparatorChar}var", "run", "secrets", "kubernetes.io", "serviceaccount",
+        });
+    private const string ServiceAccountTokenKeyFileName = "token";
+    private const string ServiceAccountRootCAKeyFileName = "ca.crt";
+    /// <summary>
+    /// Whether running in k8s cluster
+    /// </summary>
+    /// <returns></returns>
+    private static bool IsInKubernetesCluster()
+    {
+        var host = Environment.GetEnvironmentVariable("KUBERNETES_SERVICE_HOST");
+        var port = Environment.GetEnvironmentVariable("KUBERNETES_SERVICE_PORT");
+
+        if (string.IsNullOrEmpty(host) || string.IsNullOrEmpty(port))
+        {
+            return false;
+        }
+
+        var tokenPath = Path.Combine(ServiceAccountPath, ServiceAccountTokenKeyFileName);
+        if (!File.Exists(tokenPath))
+        {
+            return false;
+        }
+        var certPath = Path.Combine(ServiceAccountPath, ServiceAccountRootCAKeyFileName);
+        return File.Exists(certPath);
+    }
+    #endregion ContainerEnvironment
+
+}
+
+public class LibraryInfo
+{
+    public required Version LibraryVersion { get; init; }
+    public required string LibraryHash { get; init; }
+    public required string RepositoryUrl { get; init; }
+}
+
+public sealed class RuntimeInfo : LibraryInfo
+{
+    public required Version Version { get; init; }
+    public required string FrameworkDescription { get; init; }
+    public required int ProcessorCount { get; init; }
+    public required string OSArchitecture { get; init; }
+    public required string OSDescription { get; init; }
+    public required string OSVersion { get; init; }
+    public required string MachineName { get; init; }
+
+#if NET6_0_OR_GREATER
+    public required string RuntimeIdentifier { get; init; }
+#endif
+
+    public required string WorkingDirectory { get; init; }
+    public required int ProcessId { get; init; }
+    public required string ProcessPath { get; init; }
+
+    /// <summary>
+    /// Is running in a container
+    /// </summary>
+    public required bool IsInContainer { get; init; }
+
+    /// <summary>
+    /// Is running in a kubernetes cluster
+    /// </summary>
+    public required bool IsInKubernetes { get; init; }
 }

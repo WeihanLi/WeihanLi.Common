@@ -42,6 +42,9 @@ public static class RepositoryTest
         Console.WriteLine($"exists PKID > 1000: {exists}");
         repo.Execute("TRUNCATE TABLE dbo.tabTestEntity");
 
+        var data = repo.Paged(1, 10, t => t.Id > 10, t => t.CreatedTime, true);
+        Console.WriteLine($"TotalCount: {data.TotalCount}, dataCount: {data.Count}");
+
         Console.WriteLine("finished.");
     }
 

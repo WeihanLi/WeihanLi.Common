@@ -56,7 +56,7 @@ public static class ConfigurationExtension
                 }
 
                 // Return the value in the configuration instance.
-                return configuration[placeholder];
+                return configuration[placeholder]!;
             });
 
             // Replace the value in the configuration instance.

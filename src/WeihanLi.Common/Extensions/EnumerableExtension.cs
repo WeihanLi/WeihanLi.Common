@@ -146,7 +146,10 @@ public static class EnumerableExtension
         => condition() ? Guard.NotNull(source, nameof(source)).Where(predict) : source;
 
     public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T?> source) where T : class
-        => Guard.NotNull(source, nameof(source)).Where(_ => _ != null)!;
+        => Guard.NotNull(source).Where(_ => _ != null)!;
+
+    public static IEnumerable<T> Flatten<T>(this IEnumerable<IEnumerable<T>> source)
+        => Guard.NotNull(source).SelectMany(_ => _);
 
     public static IEnumerable<T> Distinct<T>(this IEnumerable<T> source, Func<T?, T?, bool> comparer) where T : class
         => source.Distinct(new DynamicEqualityComparer<T>(comparer));

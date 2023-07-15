@@ -3,7 +3,7 @@
   </PropertyGroup>
   <Import Project="../../build/logging.log4net.props" />
   <ItemGroup>
-    <PackageReference Include="log4net" Version="2.0.12" />
+    <PackageReference Include="log4net" Version="2.0.15" />
     <None Include="log4net.config" Pack="true" />
     <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
   </ItemGroup>

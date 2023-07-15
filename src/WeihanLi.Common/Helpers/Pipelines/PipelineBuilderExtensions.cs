@@ -31,6 +31,23 @@ public static class PipelineBuilderExtensions
     {
         return builder.Use(_ => handler);
     }
+    
+    public static IPipelineBuilder<TContext> UseMiddleware<TContext, TMiddleware>(this IPipelineBuilder<TContext> builder, TMiddleware middleware)
+        where  TMiddleware : class, IPipelineMiddleware<TContext>
+    {
+        Guard.NotNull(middleware);
+        return builder.Use(next =>
+            context =>
+            {
+                middleware.Invoke(context, next);
+            });
+    }
+    
+    public static IPipelineBuilder<TContext> UseMiddleware<TContext, TMiddleware>(this IPipelineBuilder<TContext> builder)
+      where  TMiddleware : class, IPipelineMiddleware<TContext>
+    {
+        return builder.UseMiddleware(DependencyResolver.Current.GetServiceOrCreateInstance<TMiddleware>());
+    }
 
     public static IPipelineBuilder<TContext> When<TContext>(this IPipelineBuilder<TContext> builder, Func<TContext, bool> predict, Action<IPipelineBuilder<TContext>> configureAction)
     {
@@ -93,6 +110,22 @@ public static class PipelineBuilderExtensions
         return builder.Use(next =>
             context => func(context, next));
     }
+    
+    public static IAsyncPipelineBuilder<TContext> UseMiddleware<TContext>(this IAsyncPipelineBuilder<TContext> builder, IAsyncPipelineMiddleware<TContext> middleware)
+    {
+        Guard.NotNull(middleware);
+        return builder.Use(next =>
+            async context =>
+            {
+                await middleware.InvokeAsync(context, next);
+            });
+    }
+
+    public static IAsyncPipelineBuilder<TContext> UseMiddleware<TContext, TMiddleware>(this IAsyncPipelineBuilder<TContext> builder)
+        where  TMiddleware : class, IAsyncPipelineMiddleware<TContext>
+    {
+        return builder.UseMiddleware(DependencyResolver.Current.GetServiceOrCreateInstance<TMiddleware>());
+    }
 
     public static IAsyncPipelineBuilder<TContext> When<TContext>(this IAsyncPipelineBuilder<TContext> builder, Func<TContext, bool> predict, Action<IAsyncPipelineBuilder<TContext>> configureAction)
     {
@@ -134,9 +167,8 @@ public static class PipelineBuilderExtensions
     {
         return builder.Use(_ => handler);
     }
-
-    #endregion IAsyncPipelineBuilder
-
+#endregion IAsyncPipelineBuilder
+    
 #if ValueTaskSupport
 
     #region IValueAsyncPipelineBuilder
@@ -156,6 +188,23 @@ public static class PipelineBuilderExtensions
     {
         return builder.Use(next =>
             context => func(context, next));
+    }
+    
+    public static IValueAsyncPipelineBuilder<TContext> UseMiddleware<TContext>(this IValueAsyncPipelineBuilder<TContext> builder, IValueAsyncPipelineMiddleware<TContext> middleware)
+    {
+        Guard.NotNull(middleware);
+        return builder.Use(next =>
+            async context =>
+            {
+                await middleware.InvokeAsync(context, next);
+                await next(context);
+            });
+    }
+
+    public static IValueAsyncPipelineBuilder<TContext> UseMiddleware<TContext, TMiddleware>(this IValueAsyncPipelineBuilder<TContext> builder)
+        where  TMiddleware : class, IValueAsyncPipelineMiddleware<TContext>
+    {
+        return builder.UseMiddleware(DependencyResolver.Current.GetServiceOrCreateInstance<TMiddleware>());
     }
 
     public static IValueAsyncPipelineBuilder<TContext> When<TContext>(this IValueAsyncPipelineBuilder<TContext> builder, Func<TContext, bool> predict, Action<IValueAsyncPipelineBuilder<TContext>> configureAction)

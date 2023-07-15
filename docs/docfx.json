@@ -4,27 +4,31 @@
       "src": [
         {
           "files": [
-            "src/WeihanLi.Common/**/*.cs",
-            "src/**/*.cs"
+            "src/**.csproj"
           ],
-          "exclude": [ "**/bin/**", "**/obj/**" ]
+          "src": "../"
         }
       ],
-      "dest": "docs/api",
+      "dest": "api",
+      "includePrivateMembers": false,
       "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "disableDefaultFilter": false,
+      "noRestore": false,
+      "namespaceLayout": "flattened"
     }
   ],
   "build": {
     "content": [
       {
         "files": [
-          "docs/ReleaseNotes.md",
-          "docs/articles/**.md",          
-          "docs/articles/**/toc.yml",
-          "docs/api/**.md",
-          "docs/api/**.yml",
-          "docs/api/**/toc.yml",
+          "api/**.yml",
+          "api/index.md"
+        ]
+      },
+      {
+        "files": [
+          "articles/**.md",
+          "articles/**/toc.yml",
           "toc.yml",
           "*.md"
         ]
@@ -33,14 +37,14 @@
     "resource": [
       {
         "files": [
-          "docs/**/images/**"
+          "images/**"
         ]
       }
     ],
     "overwrite": [
       {
         "files": [
-          "docs/apidoc/*.md"
+          "apidoc/**.md"
         ],
         "exclude": [
           "obj/**",
@@ -52,13 +56,12 @@
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
-      "default"
+      "default",
+      "modern"
     ],
     "postProcessors": [],
-    "markdownEngineName": "markdig",
     "noLangKeyword": false,
     "keepFileLink": false,
-    "cleanupCacheHistory": false,
     "disableGitFeatures": false
   }
 }

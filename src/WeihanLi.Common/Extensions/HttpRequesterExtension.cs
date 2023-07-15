@@ -58,13 +58,13 @@ public static class HttpRequesterExtension
 
     public static IHttpRequester WithJsonParameter<TEntity>(this IHttpRequester httpRequester, TEntity entity)
     {
-        return httpRequester.WithParameters(entity.ToJson().GetBytes(), "application/json;charset=UTF-8");
+        return httpRequester.WithParameters(entity.ToJson().GetBytes(), HttpHelper.JsonContentType);
     }
 
     public static IHttpRequester WithFormParams(this IHttpRequester httpRequester,
         IEnumerable<KeyValuePair<string, string>> formParams)
     {
-        return httpRequester.WithParameters(formParams.ToQueryString().GetBytes(), "application/x-www-form-urlencoded;charset=UTF-8");
+        return httpRequester.WithParameters(formParams.ToQueryString().GetBytes(), HttpHelper.FormDataContentType);
     }
 
     public static IHttpRequester WithFile(this IHttpRequester httpRequester, string filePath, string fileKey = "file",

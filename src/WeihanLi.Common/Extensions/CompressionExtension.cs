@@ -94,7 +94,7 @@ public static class CompressionExtension
         {
             zipStream.CopyTo(outStream);
         }
-        return outStream.GetBuffer();
+        return outStream.ToArray();
     }
 
     public static async Task<byte[]> DecompressGZipAsync(this Stream stream)
@@ -104,7 +104,7 @@ public static class CompressionExtension
         {
             await zipStream.CopyToAsync(outStream);
         }
-        return outStream.GetBuffer();
+        return outStream.ToArray();
     }
 
     public static string CompressGZipString(this byte[] bytes) => bytes.CompressGZipString(Encoding.UTF8);

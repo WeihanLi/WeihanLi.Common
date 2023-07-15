@@ -220,7 +220,7 @@ public class WebRequestHttpRequester : IHttpRequester
         _requestDataBytes = requestBytes;
         if (string.IsNullOrWhiteSpace(contentType))
         {
-            contentType = "application/json;charset=utf-8";
+            contentType = HttpHelper.JsonContentType;
         }
         _request.ContentType = contentType;
         return this;

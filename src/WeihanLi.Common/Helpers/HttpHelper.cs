@@ -33,12 +33,20 @@ public static class HttpHelper
 
     #endregion UploadFileHeaderFormat
 
+    #region MediaType
+
+    public const string ApplicationJsonMediaType = "application/json";
+    public const string ApplicationXmlMediaType = "application/xml";
+    public const string TextPlainMediaType = "text/plain";
+
+    #endregion MediaType
+
     #region ContentType
 
     /// <summary>
     /// Json ContentType
     /// </summary>
-    public const string JsonContentType = "application/json;charset=UTF-8";
+    public const string JsonContentType = $"{ApplicationJsonMediaType};charset=UTF-8";
 
     /// <summary>
     /// FormData ContentType
@@ -77,7 +85,7 @@ public static class HttpHelper
     /// <summary>
     /// Shared HttpClient(no proxy)
     /// </summary>
-    public static readonly HttpClient HttpClient = new(new NoProxyHttpClientHandler());
+    public static readonly Lazy<HttpClient> SharedHttpClient = new(() => new(new NoProxyHttpClientHandler()));
 
     #region HttpGet
 

@@ -58,4 +58,73 @@ public static class ConsoleHelper
             Console.BackgroundColor = originalBackgroundColor;
         }
     }
+    
+    public static string? GetInput(string? prompt = null, bool insertNewLine = true)
+    {
+        Console.WriteLine(prompt ?? "Enter your input here");
+        var input = Console.ReadLine();
+        if (insertNewLine)
+        {
+            Console.WriteLine();
+        }
+        return input;
+    }
+    
+    public static async Task HandleInputLoopAsync(Func<string, Task<bool>> handler, 
+        string? inputPrompt = null, 
+        string exitInput = "q", 
+        bool insertNewLine = true)
+    {
+        Guard.NotNull(handler);
+        var input = GetInput(inputPrompt, insertNewLine);
+        while (input != exitInput)
+        {
+            var result = await handler(input ?? string.Empty);
+            if (!result) break;
+
+            input = GetInput(inputPrompt);
+        }
+    }
+    
+    public static async Task HandleInputLoopAsync(Func<string, Task> handler, 
+        string? inputPrompt = null, 
+        string exitInput = "q", 
+        bool insertNewLine = true)
+    {
+        Guard.NotNull(handler);
+        await HandleInputLoopAsync(async input =>
+        {
+            await handler.Invoke(input);
+            return true;
+        }, inputPrompt, exitInput, insertNewLine);
+    }
+    
+    public static void HandleInputLoop(Func<string, bool> handler, 
+        string? inputPrompt = null, 
+        string exitInput = "q", 
+        bool insertNewLine = true)
+    {
+        Guard.NotNull(handler);
+        var input = GetInput(inputPrompt, insertNewLine);
+        while (input != exitInput)
+        {
+            var result = handler(input ?? string.Empty);
+            if (!result) break;
+
+            input = GetInput(inputPrompt);
+        }
+    }
+    
+    public static void HandleInputLoop(Action<string> handler, 
+        string? inputPrompt = null, 
+        string exitInput = "q", 
+        bool insertNewLine = true)
+    {
+        Guard.NotNull(handler);
+        HandleInputLoop( input =>
+        {
+            handler.Invoke(input);
+            return true;
+        }, inputPrompt, exitInput, insertNewLine);
+    }
 }
