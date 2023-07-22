@@ -81,12 +81,12 @@ public static class HttpHelper
     }
 
     #region WebRequest
-
+    
+    private static readonly Lazy<HttpClient> SharedHttpClient = new(() => new(new NoProxyHttpClientHandler()));
     /// <summary>
     /// Shared HttpClient(no proxy)
     /// </summary>
-    public static readonly Lazy<HttpClient> SharedHttpClient = new(() => new(new NoProxyHttpClientHandler()));
-
+    public static HttpClient HttpClient => SharedHttpClient.Value;
     #region HttpGet
 
     /// <summary>
@@ -327,7 +327,7 @@ public static class HttpHelper
     /// <returns></returns>
     public static string HttpGetString(string url, IDictionary<string, string>? parameters)
     {
-        if (parameters != null && parameters.Count > 0)
+        if (parameters is { Count: > 0 })
         {
             url = url + (url.IndexOf('?') < 0 ? "?" : "&") + string.Join("&", parameters.Select(p => $"{WebUtility.UrlEncode(p.Key)}={WebUtility.UrlEncode(p.Value)}"));
         }
@@ -342,7 +342,7 @@ public static class HttpHelper
     /// <returns></returns>
     public static async Task<string> HttpGetStringAsync(string url, IDictionary<string, string>? parameters)
     {
-        if (parameters != null && parameters.Count > 0)
+        if (parameters is { Count: > 0 })
         {
             url = url + (url.IndexOf('?') < 0 ? "?" : "&") + string.Join("&", parameters.Select(p => $"{WebUtility.UrlEncode(p.Key)}={WebUtility.UrlEncode(p.Value)}"));
         }
@@ -351,7 +351,7 @@ public static class HttpHelper
 
     public static byte[] HttpGetForBytes(string url, IDictionary<string, string>? parameters)
     {
-        if (parameters != null && parameters.Count > 0)
+        if (parameters is { Count: > 0 })
         {
             url = url + (url.IndexOf('?') < 0 ? "?" : "&") + string.Join("&", parameters.Select(p => $"{p.Key}={p.Value}"));
         }
@@ -360,7 +360,7 @@ public static class HttpHelper
 
     public static async Task<byte[]> HttpGetForBytesAsync(string url, IDictionary<string, string>? parameters)
     {
-        if (parameters != null && parameters.Count > 0)
+        if (parameters is { Count: > 0 })
         {
             url = url + (url.IndexOf('?') < 0 ? "?" : "&") + string.Join("&", parameters.Select(p => $"{p.Key}={p.Value}"));
         }
