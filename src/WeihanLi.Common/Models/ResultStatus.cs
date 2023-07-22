@@ -27,15 +27,18 @@ public enum ResultStatus
 
     [Description("BadRequest, Request Parameter Error")]
     RequestError = 400,
+    BadRequest = 400,
 
     [Description("Unauthorized")]
     Unauthorized = 401,
 
     [Description("NoPermission")]
     NoPermission = 403,
+    Forbidden = 403,
 
     [Description("ResourceNotFound")]
     ResourceNotFound = 404,
+    NotFound = 404,
 
     [Description("MethodNotAllowed")]
     MethodNotAllowed = 405,
@@ -43,8 +46,12 @@ public enum ResultStatus
     [Description("RequestTimeout")]
     RequestTimeout = 408,
 
+    [Description("TooManyRequests")]
+    TooManyRequests = 429,
+    
     [Description("Process failed, Server Internal Error")]
     ProcessFail = 500,
+    InternalError = 500,
 
     [Description("Not Implemented")]
     NotImplemented = 501,
