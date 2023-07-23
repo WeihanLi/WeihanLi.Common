@@ -32,7 +32,7 @@ public static class Guard
         NotNull(str, paramName);
         if (str.Length == 0)
         {
-            throw new ArgumentException("The argument can not be Empty", paramName);
+            throw new ArgumentException(@"The argument can not be Empty", paramName);
         }
 #endif
         return str;
@@ -48,7 +48,7 @@ public static class Guard
         NotNull(str, paramName);
         if (string.IsNullOrWhiteSpace(str))
         {
-            throw new ArgumentException("The argument can not be WhiteSpace", paramName);
+            throw new ArgumentException(@"The argument can not be WhiteSpace", paramName);
         }
 #endif
         return str;
@@ -60,7 +60,7 @@ public static class Guard
         NotNull(collection, paramName);
         if (collection.Count == 0)
         {
-            throw new ArgumentException("The collection could not be empty", paramName);
+            throw new ArgumentException(@"The collection could not be empty", paramName);
         }
         return collection;
     }
@@ -70,7 +70,7 @@ public static class Guard
         NotNull(condition);
         if (!condition(t))
         {
-            throw new ArgumentException("The argument does not meet condition", paramName);
+            throw new ArgumentException(@"The argument does not meet condition", paramName);
         }
         return t;
     }
@@ -80,7 +80,7 @@ public static class Guard
         NotNull(condition);
         if (!await condition(t))
         {
-            throw new ArgumentException("The argument does not meet condition", paramName);
+            throw new ArgumentException(@"The argument does not meet condition", paramName);
         }
         return t;
     }
@@ -91,7 +91,7 @@ public static class Guard
         NotNull(condition);
         if (!await condition(t))
         {
-            throw new ArgumentException("The argument does not meet condition", paramName);
+            throw new ArgumentException(@"The argument does not meet condition", paramName);
         }
         return t;
     }
