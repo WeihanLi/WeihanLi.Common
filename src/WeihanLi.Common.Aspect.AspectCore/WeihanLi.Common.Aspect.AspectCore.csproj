@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspectCore.Core" Version="2.3.0" />
+    <PackageReference Include="AspectCore.Core" Version="2.4.0" />
     <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
   </ItemGroup>
 
