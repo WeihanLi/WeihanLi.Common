@@ -127,4 +127,16 @@ public static class ConsoleHelper
             return true;
         }, inputPrompt, exitInput, insertNewLine);
     }
+    
+    public static string? ReadLineWithPrompt(string? prompt = "Press Enter to continue")
+    {
+        if (prompt is not null) Console.WriteLine(prompt);
+        return Console.ReadLine();
+    }
+    
+    public static ConsoleKeyInfo ReadKeyWithPrompt(string? prompt = "Press Enter to continue")
+    {
+        if (prompt is not null) Console.WriteLine(prompt);
+        return Console.ReadKey();
+    }
 }
