@@ -8,20 +8,20 @@ namespace WeihanLi.Common.Helpers;
 /// </summary>
 public static class Base32EncodeHelper
 {
-    public static byte[] GetBytes(string input)
+    public static byte[] GetBytes(string base32String)
     {
-        if (string.IsNullOrEmpty(input))
+        if (string.IsNullOrEmpty(base32String))
         {
-            throw new ArgumentNullException(nameof(input));
+            throw new ArgumentNullException(nameof(base32String));
         }
 
-        input = input.TrimEnd('='); //remove padding characters
-        var byteCount = input.Length * 5 / 8; //this must be TRUNCATED
+        base32String = base32String.TrimEnd('='); //remove padding characters
+        var byteCount = base32String.Length * 5 / 8; //this must be TRUNCATED
         var returnArray = new byte[byteCount];
 
         byte curByte = 0, bitsRemaining = 8;
         var arrayIndex = 0;
-        foreach (var c in input)
+        foreach (var c in base32String)
         {
             var cValue = CharToValue(c);
 
@@ -51,20 +51,20 @@ public static class Base32EncodeHelper
         return returnArray;
     }
 
-    public static string FromBytes(byte[] input)
+    public static string FromBytes(byte[] base32Bytes)
     {
-        if (input.IsNullOrEmpty())
+        if (base32Bytes.IsNullOrEmpty())
         {
             return string.Empty;
         }
 
-        var charCount = (int)Math.Ceiling(input.Length / 5d) * 8;
+        var charCount = (int)Math.Ceiling(base32Bytes.Length / 5d) * 8;
         var returnArray = new char[charCount];
 
         byte nextChar = 0, bitsRemaining = 5;
         var arrayIndex = 0;
 
-        foreach (var b in input)
+        foreach (var b in base32Bytes)
         {
             nextChar = (byte)(nextChar | (b >> (8 - bitsRemaining)));
             returnArray[arrayIndex++] = ValueToChar(nextChar);

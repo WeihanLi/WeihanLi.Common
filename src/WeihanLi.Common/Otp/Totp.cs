@@ -13,34 +13,112 @@ public class Totp
     private readonly int _codeSize;
     private readonly int _base;
 
-    public Totp() : this(OtpHashAlgorithm.SHA1, 6)
+    /// <summary>
+    /// Create a totp instance with with default algorithm(SHA1 by default) and default code size(6 by default)
+    /// </summary>
+    public Totp() : this(OtpHashAlgorithm.SHA1)
     {
     }
 
+    /// <summary>
+    /// Create a totp instance with with default algorithm(SHA1 by default) and expected code size
+    /// </summary>
+    /// <param name="codeSize">The expected code size, 6 by default, should between 1 and 9</param>
+    /// <exception cref="ArgumentOutOfRangeException">Exception when codeSize invalid</exception>
     public Totp(int codeSize) : this(OtpHashAlgorithm.SHA1, codeSize)
     {
     }
 
-    public Totp(OtpHashAlgorithm hashAlgorithm) : this(hashAlgorithm, 6)
+    /// <summary>
+    /// Create a totp instance
+    /// </summary>
+    /// <param name="otpHashAlgorithm">The hash algorithm to compute, SHA1 by default</param>
+    /// <param name="codeSize">The expected code size, 6 by default, should between 1 and 9</param>
+    /// <exception cref="ArgumentOutOfRangeException">Exception when codeSize invalid</exception>
+    public Totp(OtpHashAlgorithm otpHashAlgorithm, int codeSize = 6)
     {
-    }
-
-    public Totp(OtpHashAlgorithm otpHashAlgorithm, int codeSize)
-    {
-        _hashAlgorithm = otpHashAlgorithm;
-
         // valid input parameter
-        if (codeSize <= 0 || codeSize >= 10)
+        if (codeSize is <= 0 or >= 10)
         {
-            throw new ArgumentOutOfRangeException(nameof(codeSize), codeSize, @"length must between 1 and 9");
+            throw new ArgumentOutOfRangeException(nameof(codeSize), codeSize, @"The codeSize must between 1 and 9");
         }
         _codeSize = codeSize;
+        _hashAlgorithm = otpHashAlgorithm;
         _base = (int)Math.Pow(10, _codeSize);
     }
     
+    /// <summary>
+    /// Compute totp
+    /// </summary>
+    /// <param name="securityToken">base32 encoded token/secret</param>
+    /// <returns>computed totp code</returns>
     public virtual string Compute(string securityToken) => Compute(Base32EncodeHelper.GetBytes(securityToken));
 
+    /// <summary>
+    /// Compute totp
+    /// </summary>
+    /// <param name="securityToken">security token/secret</param>
+    /// <returns>computed totp code</returns>
     public virtual string Compute(byte[] securityToken) => Compute(securityToken, GetCurrentTimeStepNumber());
+    
+    /// <summary>
+    /// Compute totp with ttl
+    /// </summary>
+    /// <param name="securityToken">security token/secret</param>
+    /// <returns>computed totp code and code ttl</returns>
+    public virtual (string Code, int Ttl) ComputeWithTtl(byte[] securityToken)
+    {
+        var currentStep = GetCurrentTimeStepNumber();
+        var ttl = Ttl(currentStep);
+        if (ttl < 1)
+        {
+            //going to be expired
+            currentStep++;
+            ttl = Ttl(currentStep);
+        }
+        var totp = Compute(securityToken, currentStep);
+        return (totp, ttl);
+    }
+
+    /// <summary>
+    /// Verify whether the input code is correct
+    /// </summary>
+    /// <param name="securityToken">base32 encoded token/secret</param>
+    /// <param name="code">The code to validate</param>
+    /// <param name="timeToleration">The time that could be treated as valid</param>
+    /// <returns>whether the code is valid, <c>true</c> valid, otherwise invalid</returns>
+    public virtual bool Verify(string securityToken, string code, TimeSpan? timeToleration = null) => Verify(Base32EncodeHelper.GetBytes(securityToken), code, timeToleration);
+    
+    /// <summary>
+    /// Verify whether the input code is correct
+    /// </summary>
+    /// <param name="securityToken">base32 encoded token/secret</param>
+    /// <param name="code">The code to validate</param>
+    /// <param name="timeToleration">The time that could be treated as valid</param>
+    /// <returns>whether the code is valid, <c>true</c> valid, otherwise invalid</returns>
+    public virtual bool Verify(byte[] securityToken, string code, TimeSpan? timeToleration = null)
+    {
+        if (string.IsNullOrWhiteSpace(code))
+            return false;
+
+        if (code.Length != _codeSize)
+            return false;
+
+        var step = GetCurrentTimeStepNumber();
+
+        var futureStep = timeToleration > TimeSpan.Zero 
+            ? Math.Min((int)(timeToleration.Value.TotalSeconds / TimeStepSeconds), step)
+            : 0;
+        for (var i = 0; i <= futureStep; i++)
+        {
+            var totp = Compute(securityToken, step - i);
+            if (totp == code)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     private string Compute(byte[] securityToken, long counter)
     {
@@ -64,48 +142,15 @@ public class Totp
         var code = (num % _base).ToString("");
         return code.PadLeft(_codeSize, '0');
     }
-
-    public virtual bool Verify(string securityToken, string code) => Verify(Base32EncodeHelper.GetBytes(securityToken), code);
-
-    public virtual bool Verify(string securityToken, string code, TimeSpan timeToleration) => Verify(Base32EncodeHelper.GetBytes(securityToken), code, timeToleration);
-
-    public virtual bool Verify(byte[] securityToken, string code) => Verify(securityToken, code, TimeSpan.Zero);
-
-    public virtual bool Verify(byte[] securityToken, string code, TimeSpan timeToleration)
-    {
-        if (string.IsNullOrWhiteSpace(code))
-            return false;
-
-        if (code.Length != _codeSize)
-            return false;
-
-        var step = GetCurrentTimeStepNumber();
-
-        var futureStep = Math.Min((int)(timeToleration.TotalSeconds * TimeSpan.TicksPerSecond / TimeStepTicks), step);
-        for (var i = 0; i <= futureStep; i++)
-        {
-            var totp = Compute(securityToken, step - i);
-            if (totp == code)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public int RemainingSeconds()
-    {
-        return (int)(TimeStepTicks - ((DateTime.UtcNow.Ticks - _unixEpochTicks) / TimeSpan.TicksPerSecond) % TimeStepTicks);
-    }
-
-    private static readonly long _unixEpochTicks = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).Ticks;
-
+    
     /// <summary>
     /// time step
     /// 30s(Recommend)
     /// </summary>
-    private const long TimeStepTicks = TimeSpan.TicksPerSecond * 30;
+    private const int TimeStepSeconds = 30;
 
     // More info: https://tools.ietf.org/html/rfc6238#section-4
-    private static long GetCurrentTimeStepNumber() => (DateTime.UtcNow.Ticks - _unixEpochTicks) / TimeStepTicks;
+    private static long GetCurrentTimeStepNumber() => DateTimeOffset.UtcNow.ToUnixTimeSeconds() / TimeStepSeconds;
+    
+    private static int Ttl(long step) => (int)((step + 1) * TimeStepSeconds - DateTimeOffset.UtcNow.ToUnixTimeSeconds());
 }

@@ -11,11 +11,11 @@ public class TotpTest
     public static void MainTest()
     {
         var secret = "xx";
-        var totp = new Totp(OtpHashAlgorithm.SHA1, 6);
+        var totp = new Totp();
         while (true)
         {
-            var code = totp.Compute(Base32EncodeHelper.GetBytes(secret));
-            Console.WriteLine(code);
+            var code = totp.ComputeWithTtl(Base32EncodeHelper.GetBytes(secret));
+            Console.WriteLine(@$"{code.Code} {code.Ttl}");
             ConsoleHelper.ReadLineWithPrompt();
         }
     }

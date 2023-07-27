@@ -1,12 +1,12 @@
 ﻿using System.Text;
 using WeihanLi.Common.Otp;
-using WeihanLi.Extensions;
+using WeihanLi.Common.Services;
 
 namespace WeihanLi.Common.Helpers;
 
 public static class TotpHelper
 {
-    private static readonly Lazy<Totp> _totp = new(() => new Totp(_defaultOptions.Algorithm, _defaultOptions.Size));
+    private static readonly Lazy<ITotpService> _totp = new(() => new TotpService(_defaultOptions));
 
     private static readonly TotpOptions _defaultOptions = new();
 
@@ -27,19 +27,9 @@ public static class TotpHelper
     /// </summary>
     /// <param name="securityToken">The security token to generate code.</param>
     /// <returns>The generated code.</returns>
-    public static string GenerateCode(byte[] securityToken)
+    public static string GetCode(byte[] securityToken)
     {
-        Guard.NotNull(securityToken, nameof(securityToken));
-
-        if (_defaultOptions.SaltBytes == null)
-        {
-            return _totp.Value.Compute(securityToken);
-        }
-        var bytes = new byte[securityToken.Length + _defaultOptions.SaltBytes.Length];
-        Array.Copy(securityToken, bytes, securityToken.Length);
-        Array.Copy(_defaultOptions.SaltBytes, 0, bytes, securityToken.Length, _defaultOptions.SaltBytes.Length);
-
-        return _totp.Value.Compute(bytes);
+        return _totp.Value.GetCode(securityToken);
     }
 
     /// <summary>
@@ -47,60 +37,25 @@ public static class TotpHelper
     /// </summary>
     /// <param name="securityToken">The security token to generate code.</param>
     /// <returns>The generated code.</returns>
-    public static string GenerateCode(string securityToken) => GenerateCode(Encoding.UTF8.GetBytes(securityToken));
-
-    /// <summary>
-    /// ttl of the code for the specified <paramref name="securityToken"/>.
-    /// </summary>
-    /// <param name="securityToken">The security token to generate code.</param>
-    /// <returns>the code remaining seconds expires in</returns>
-    public static int TTL(byte[] securityToken)
-    {
-        Guard.NotNull(securityToken, nameof(securityToken));
-
-        return _totp.Value.RemainingSeconds();
-    }
-
-    /// <summary>
-    /// ttl of the code for the specified <paramref name="securityToken"/>.
-    /// </summary>
-    /// <param name="securityToken">The security token to generate code.</param>
-    public static int TTL(string securityToken) => TTL(Encoding.UTF8.GetBytes(securityToken));
-
+    public static string GetCode(string securityToken) => GetCode(Encoding.UTF8.GetBytes(securityToken));
+    
     /// <summary>
     /// Validates the code for the specified <paramref name="securityToken"/>.
     /// </summary>
     /// <param name="securityToken">The security token for verifying.</param>
     /// <param name="code">The code to validate.</param>
-    /// <param name="expiresIn">expiresIn, in seconds</param>
     /// <returns><c>True</c> if validate succeed, otherwise, <c>false</c>.</returns>
-    public static bool VerifyCode(byte[] securityToken, string code, int expiresIn = -1)
+    public static bool VerifyCode(byte[] securityToken, string code)
     {
         Guard.NotNull(securityToken, nameof(securityToken));
-        if (string.IsNullOrWhiteSpace(code))
-        {
-            return false;
-        }
-
-        if (_defaultOptions.SaltBytes.IsNullOrEmpty())
-        {
-            return _totp.Value.Verify(securityToken, code, TimeSpan.FromSeconds(expiresIn >= 0 ? expiresIn : _defaultOptions.ExpiresIn));
-        }
-
-        var saltBytes = _defaultOptions.SaltBytes;
-        var bytes = new byte[securityToken.Length + saltBytes.Length];
-        Array.Copy(securityToken, bytes, securityToken.Length);
-        Array.Copy(saltBytes, 0, bytes, securityToken.Length, saltBytes.Length);
-
-        return _totp.Value.Verify(bytes, code, TimeSpan.FromSeconds(expiresIn >= 0 ? expiresIn : _defaultOptions.ExpiresIn));
+        return _totp.Value.VerifyCode(securityToken, code);
     }
 
     /// <summary>
     /// Validates the code for the specified <paramref name="securityToken"/>.
     /// </summary>
-    /// <param name="securityToken">The security token for verifying.</param>
+    /// <param name="securityToken">The security token for verifying</param>
     /// <param name="code">The code to validate.</param>
-    /// <param name="expiresIn">expiresIn, in seconds</param>
     /// <returns><c>True</c> if validate succeed, otherwise, <c>false</c>.</returns>
-    public static bool VerifyCode(string securityToken, string code, int expiresIn = -1) => VerifyCode(Encoding.UTF8.GetBytes(securityToken), code, expiresIn);
+    public static bool VerifyCode(string securityToken, string code) => VerifyCode(Encoding.UTF8.GetBytes(securityToken), code);
 }

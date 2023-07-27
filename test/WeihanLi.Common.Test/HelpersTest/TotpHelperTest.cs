@@ -18,7 +18,7 @@ public class TotpHelperTest
                 options.Salt = null;
                 options.ExpiresIn = 30;
             });
-            var code = TotpHelper.GenerateCode(bizToken);
+            var code = TotpHelper.GetCode(bizToken);
             Assert.NotEmpty(code);
             Thread.Sleep(2000);
             Assert.True(TotpHelper.VerifyCode(bizToken, code));
@@ -33,7 +33,7 @@ public class TotpHelperTest
         lock (_lock)
         {
             TotpHelper.ConfigureTotpOptions(options => options.Salt = null);
-            var code = TotpHelper.GenerateCode(bizToken);
+            var code = TotpHelper.GetCode(bizToken);
             Assert.NotEmpty(code);
 
             TotpHelper.ConfigureTotpOptions(options =>
@@ -43,7 +43,7 @@ public class TotpHelperTest
             });
             Assert.False(TotpHelper.VerifyCode(bizToken, code));
 
-            var code1 = TotpHelper.GenerateCode(bizToken);
+            var code1 = TotpHelper.GetCode(bizToken);
             Assert.NotEmpty(code1);
             Thread.Sleep(2000);
             Assert.True(TotpHelper.VerifyCode(bizToken, code1));
