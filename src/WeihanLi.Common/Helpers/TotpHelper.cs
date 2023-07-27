@@ -5,10 +5,15 @@ namespace WeihanLi.Common.Helpers;
 
 public static class TotpHelper
 {
-    private static readonly Lazy<Totp> _totp = new(() => new Totp(_defaultOptions!.Algorithm, _defaultOptions.Size));
+    private static readonly Lazy<Totp> _totp = new(() => new Totp(_defaultOptions.Algorithm, _defaultOptions.Size));
 
     private static readonly TotpOptions _defaultOptions = new();
 
+    /// <summary>
+    /// Configure the default <see cref="TotpOptions"/> for <see cref="TotpHelper"/>
+    /// </summary>
+    /// <param name="configAction">configure</param>
+    /// <returns>configured options</returns>
     public static TotpOptions ConfigureTotpOptions(Action<TotpOptions> configAction)
     {
         Guard.NotNull(configAction, nameof(configAction));
@@ -41,7 +46,7 @@ public static class TotpHelper
     /// </summary>
     /// <param name="securityToken">The security token to generate code.</param>
     /// <returns>The generated code.</returns>
-    public static string GenerateCode(string securityToken) => GenerateCode(securityToken.GetBytes());
+    public static string GenerateCode(string securityToken) => GenerateCode(Base32EncodeHelper.GetBytes(securityToken));
 
     /// <summary>
     /// ttl of the code for the specified <paramref name="securityToken"/>.
@@ -59,7 +64,7 @@ public static class TotpHelper
     /// ttl of the code for the specified <paramref name="securityToken"/>.
     /// </summary>
     /// <param name="securityToken">The security token to generate code.</param>
-    public static int TTL(string securityToken) => TTL(System.Text.Encoding.UTF8.GetBytes(securityToken));
+    public static int TTL(string securityToken) => TTL(Base32EncodeHelper.GetBytes(securityToken));
 
     /// <summary>
     /// Validates the code for the specified <paramref name="securityToken"/>.
@@ -76,7 +81,7 @@ public static class TotpHelper
             return false;
         }
 
-        if (null == _defaultOptions.SaltBytes)
+        if (_defaultOptions.SaltBytes.IsNullOrEmpty())
         {
             return _totp.Value.Verify(securityToken, code, TimeSpan.FromSeconds(expiresIn >= 0 ? expiresIn : _defaultOptions.ExpiresIn));
         }
@@ -96,5 +101,5 @@ public static class TotpHelper
     /// <param name="code">The code to validate.</param>
     /// <param name="expiresIn">expiresIn, in seconds</param>
     /// <returns><c>True</c> if validate succeed, otherwise, <c>false</c>.</returns>
-    public static bool VerifyCode(string securityToken, string code, int expiresIn = -1) => VerifyCode(securityToken.GetBytes(), code, expiresIn);
+    public static bool VerifyCode(string securityToken, string code, int expiresIn = -1) => VerifyCode(Base32EncodeHelper.GetBytes(securityToken), code, expiresIn);
 }

@@ -1,13 +1,16 @@
 ﻿using System.Security.Cryptography;
-using System.Text;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Otp;
 
+/// <summary>
+/// Time-Based One-Time Password
+/// https://datatracker.ietf.org/doc/html/rfc6238
+/// </summary>
 public class Totp
 {
     private readonly OtpHashAlgorithm _hashAlgorithm;
     private readonly int _codeSize;
-
     private readonly int _base;
 
     public Totp() : this(OtpHashAlgorithm.SHA1, 6)
@@ -29,15 +32,13 @@ public class Totp
         // valid input parameter
         if (codeSize <= 0 || codeSize >= 10)
         {
-            throw new ArgumentOutOfRangeException(nameof(codeSize), codeSize, "length must between 1 and 9");
+            throw new ArgumentOutOfRangeException(nameof(codeSize), codeSize, @"length must between 1 and 9");
         }
         _codeSize = codeSize;
         _base = (int)Math.Pow(10, _codeSize);
     }
-
-    private static readonly Encoding _encoding = new UTF8Encoding(false, true);
-
-    public virtual string Compute(string securityToken) => Compute(_encoding.GetBytes(securityToken));
+    
+    public virtual string Compute(string securityToken) => Compute(Base32EncodeHelper.GetBytes(securityToken));
 
     public virtual string Compute(byte[] securityToken) => Compute(securityToken, GetCurrentTimeStepNumber());
 
@@ -57,16 +58,16 @@ public class Totp
         // See https://tools.ietf.org/html/rfc4226
         var hashResult = hmac.ComputeHash(stepBytes);
 
-        var offset = hashResult[hashResult.Length - 1] & 0xf;
+        var offset = hashResult[^1] & 0xf;
         var p = $"{hashResult[offset]:X2}{hashResult[offset + 1]:X2}{hashResult[offset + 2]:X2}{hashResult[offset + 3]:X2}";
         var num = Convert.ToInt64(p, 16) & 0x7FFFFFFF;
         var code = (num % _base).ToString("");
         return code.PadLeft(_codeSize, '0');
     }
 
-    public virtual bool Verify(string securityToken, string code) => Verify(_encoding.GetBytes(securityToken), code);
+    public virtual bool Verify(string securityToken, string code) => Verify(Base32EncodeHelper.GetBytes(securityToken), code);
 
-    public virtual bool Verify(string securityToken, string code, TimeSpan timeToleration) => Verify(_encoding.GetBytes(securityToken), code, timeToleration);
+    public virtual bool Verify(string securityToken, string code, TimeSpan timeToleration) => Verify(Base32EncodeHelper.GetBytes(securityToken), code, timeToleration);
 
     public virtual bool Verify(byte[] securityToken, string code) => Verify(securityToken, code, TimeSpan.Zero);
 
