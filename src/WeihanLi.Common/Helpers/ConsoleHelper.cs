@@ -59,10 +59,9 @@ public static class ConsoleHelper
         }
     }
     
-    public static string? GetInput(string? prompt = null, bool insertNewLine = true)
+    public static string? GetInput(string? inputPrompt = null, bool insertNewLine = true)
     {
-        Console.WriteLine(prompt ?? "Enter your input here");
-        var input = Console.ReadLine();
+        var input = ReadLineWithPrompt(inputPrompt);
         if (insertNewLine)
         {
             Console.WriteLine();
@@ -111,7 +110,7 @@ public static class ConsoleHelper
             var result = handler(input ?? string.Empty);
             if (!result) break;
 
-            input = GetInput(inputPrompt);
+            input = GetInput(inputPrompt, insertNewLine);
         }
     }
     
