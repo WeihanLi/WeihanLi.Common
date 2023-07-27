@@ -1,4 +1,4 @@
-﻿using WeihanLi.Common.Helpers;
+﻿using System.Text;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Otp;
@@ -34,7 +34,7 @@ public class TotpOptions
         set
         {
             _salt = value;
-            SaltBytes = value.IsNullOrEmpty() ? null : Base32EncodeHelper.GetBytes(value);
+            SaltBytes = value.IsNullOrEmpty() ? null : Encoding.UTF8.GetBytes(value);
         }
     }
 

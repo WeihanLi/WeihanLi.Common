@@ -1,4 +1,5 @@
-﻿using WeihanLi.Common.Otp;
+﻿using System.Text;
+using WeihanLi.Common.Otp;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
@@ -46,7 +47,7 @@ public static class TotpHelper
     /// </summary>
     /// <param name="securityToken">The security token to generate code.</param>
     /// <returns>The generated code.</returns>
-    public static string GenerateCode(string securityToken) => GenerateCode(Base32EncodeHelper.GetBytes(securityToken));
+    public static string GenerateCode(string securityToken) => GenerateCode(Encoding.UTF8.GetBytes(securityToken));
 
     /// <summary>
     /// ttl of the code for the specified <paramref name="securityToken"/>.
@@ -64,7 +65,7 @@ public static class TotpHelper
     /// ttl of the code for the specified <paramref name="securityToken"/>.
     /// </summary>
     /// <param name="securityToken">The security token to generate code.</param>
-    public static int TTL(string securityToken) => TTL(Base32EncodeHelper.GetBytes(securityToken));
+    public static int TTL(string securityToken) => TTL(Encoding.UTF8.GetBytes(securityToken));
 
     /// <summary>
     /// Validates the code for the specified <paramref name="securityToken"/>.
@@ -101,5 +102,5 @@ public static class TotpHelper
     /// <param name="code">The code to validate.</param>
     /// <param name="expiresIn">expiresIn, in seconds</param>
     /// <returns><c>True</c> if validate succeed, otherwise, <c>false</c>.</returns>
-    public static bool VerifyCode(string securityToken, string code, int expiresIn = -1) => VerifyCode(Base32EncodeHelper.GetBytes(securityToken), code, expiresIn);
+    public static bool VerifyCode(string securityToken, string code, int expiresIn = -1) => VerifyCode(Encoding.UTF8.GetBytes(securityToken), code, expiresIn);
 }
