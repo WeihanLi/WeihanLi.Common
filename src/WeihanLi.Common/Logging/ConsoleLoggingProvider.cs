@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Collections.Concurrent;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Logging;
@@ -113,35 +114,32 @@ internal sealed class ConsoleLoggingProvider : ILogHelperProvider
     {
         try
         {
-            var originalColor = Console.ForegroundColor;
-            try
-            {
-                var log = _formatter.FormatAsString(loggingEvent);
-                var logLevelColor = GetLogLevelConsoleColor(loggingEvent.LogLevel);
-                Console.ForegroundColor = logLevelColor.GetValueOrDefault(originalColor);
-
-                if (loggingEvent.LogLevel == LogHelperLogLevel.Error
-                    || loggingEvent.LogLevel == LogHelperLogLevel.Fatal)
+            var logLevelColor = GetLogLevelConsoleColor(loggingEvent.LogLevel).GetValueOrDefault(Console.ForegroundColor);
+            ConsoleHelper.InvokeWithConsoleColor(
+                () =>
                 {
-                    Console.Error.WriteLine(log);
-                }
-                else
-                {
-                    Console.Out.WriteLine(log);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-            finally
-            {
-                Console.ForegroundColor = originalColor;
-            }
+                    try
+                    {
+                        var log = _formatter.FormatAsString(loggingEvent);
+                        if (loggingEvent.LogLevel is LogHelperLogLevel.Error 
+                            or LogHelperLogLevel.Fatal)
+                        {
+                            Console.Error.WriteLine(log);
+                        }
+                        else
+                        {
+                            Console.Out.WriteLine(log);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                }, logLevelColor);
         }
         catch
         {
-            Console.WriteLine(loggingEvent.ToJson());
+            Console.WriteLine(@"Error when trying to log to console" + loggingEvent.ToJson());
         }
     }
 
@@ -150,7 +148,7 @@ internal sealed class ConsoleLoggingProvider : ILogHelperProvider
         return logLevel switch
         {
             LogHelperLogLevel.Trace => ConsoleColor.Gray,
-            LogHelperLogLevel.Debug => ConsoleColor.Gray,
+            LogHelperLogLevel.Debug => ConsoleColor.DarkGray,
             LogHelperLogLevel.Info => ConsoleColor.DarkGreen,
             LogHelperLogLevel.Warn => ConsoleColor.Yellow,
             LogHelperLogLevel.Error => ConsoleColor.Red,
