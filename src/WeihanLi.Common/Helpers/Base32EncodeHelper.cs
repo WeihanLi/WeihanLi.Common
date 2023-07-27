@@ -8,14 +8,20 @@ namespace WeihanLi.Common.Helpers;
 /// </summary>
 public static class Base32EncodeHelper
 {
-    public static byte[] GetBytes(string base32String)
+    /// <summary>
+    /// Standard Base32 characters
+    /// https://www.rfc-editor.org/rfc/rfc4648#section-6
+    /// </summary>
+    public static readonly char[] Characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567".ToCharArray();
+    
+    public static byte[] GetBytes(string base32String, char paddingChar = '=')
     {
         if (string.IsNullOrEmpty(base32String))
         {
             throw new ArgumentNullException(nameof(base32String));
         }
 
-        base32String = base32String.TrimEnd('='); //remove padding characters
+        base32String = base32String.TrimEnd(paddingChar); //remove padding characters
         var byteCount = base32String.Length * 5 / 8; //this must be TRUNCATED
         var returnArray = new byte[byteCount];
 
@@ -51,7 +57,7 @@ public static class Base32EncodeHelper
         return returnArray;
     }
 
-    public static string FromBytes(byte[] base32Bytes)
+    public static string FromBytes(byte[] base32Bytes, char paddingChar = '=')
     {
         if (base32Bytes.IsNullOrEmpty())
         {
@@ -84,7 +90,7 @@ public static class Base32EncodeHelper
         if (arrayIndex != charCount)
         {
             returnArray[arrayIndex++] = ValueToChar(nextChar);
-            while (arrayIndex != charCount) returnArray[arrayIndex++] = '='; //padding
+            while (arrayIndex != charCount) returnArray[arrayIndex++] = paddingChar; //padding
         }
 
         return new string(returnArray);
