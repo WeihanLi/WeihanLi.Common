@@ -105,11 +105,10 @@ public class Totp
             return false;
 
         var step = GetCurrentTimeStepNumber();
-
-        var futureStep = timeToleration > TimeSpan.Zero 
-            ? Math.Min((int)(timeToleration.Value.TotalSeconds / TimeStepSeconds), step)
-            : 0;
-        for (var i = 0; i <= futureStep; i++)
+        var futureStep = timeToleration is { TotalSeconds: > TimeStepSeconds }
+            ? Math.Min((int)(timeToleration.Value.TotalSeconds / TimeStepSeconds), MaxTimeSteps)
+            : 1;
+        for (var i = 0; i < futureStep; i++)
         {
             var totp = Compute(securityToken, step - i);
             if (totp == code)
@@ -147,8 +146,18 @@ public class Totp
     /// time step
     /// 30s(Recommend)
     /// </summary>
-    private const int TimeStepSeconds = 30;
+    public const int TimeStepSeconds = 30;
 
+    /// <summary>
+    /// MaxTimeSteps
+    /// </summary>
+    public const int MaxTimeSteps = 20;
+    
+    /// <summary>
+    /// MaxTimeStepSeconds
+    /// </summary>
+    public const int MaxTimeStepSeconds = TimeStepSeconds * MaxTimeSteps;
+    
     // More info: https://tools.ietf.org/html/rfc6238#section-4
     private static long GetCurrentTimeStepNumber() => DateTimeOffset.UtcNow.ToUnixTimeSeconds() / TimeStepSeconds;
     

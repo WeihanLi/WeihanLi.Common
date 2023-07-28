@@ -66,13 +66,15 @@ public sealed class TotpServiceFactory: ITotpServiceFactory
 public sealed class TotpService: ITotpService
 {
     private readonly TotpOptions _totpOptions;
-    private readonly TimeSpan _expiry;
+    private readonly TimeSpan? _expiry;
     private readonly Totp _totp;
 
     public TotpService(TotpOptions totpOptions)
     {
         _totpOptions = totpOptions;
-        _expiry = TimeSpan.FromSeconds(totpOptions.ExpiresIn);
+        _expiry = totpOptions.ExpiresIn is >= Totp.TimeStepSeconds * 2 and <= Totp.MaxTimeStepSeconds   
+            ? TimeSpan.FromSeconds(totpOptions.ExpiresIn) 
+            : null;
         _totp = new Totp(_totpOptions.Algorithm, _totpOptions.Size);
     }
     

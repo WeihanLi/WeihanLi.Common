@@ -13,13 +13,13 @@ public class TotpOptions
 
     /// <summary>
     /// 生成的 code 长度
-    /// The expected code length
+    /// The expected code length, 4-8 expected
     /// </summary>
     public int Size { get; set; } = 6;
 
     /// <summary>
     /// 过期时间，单位是秒
-    /// The code expire time, 300s by default
+    /// The code expire time, 300s by default, should be 30,60,90..., the min value is 30s
     /// </summary>
     public int ExpiresIn { get; set; } = 300;
 
