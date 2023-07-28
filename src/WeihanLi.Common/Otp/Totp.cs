@@ -46,7 +46,7 @@ public class Totp
         _hashAlgorithm = otpHashAlgorithm;
         _base = (int)Math.Pow(10, _codeSize);
     }
-    
+
     /// <summary>
     /// Compute totp
     /// </summary>
@@ -60,7 +60,7 @@ public class Totp
     /// <param name="securityToken">security token/secret</param>
     /// <returns>computed totp code</returns>
     public virtual string Compute(byte[] securityToken) => Compute(securityToken, GetCurrentTimeStepNumber());
-    
+
     /// <summary>
     /// Compute totp with ttl
     /// </summary>
@@ -88,7 +88,7 @@ public class Totp
     /// <param name="timeToleration">The time that could be treated as valid</param>
     /// <returns>whether the code is valid, <c>true</c> valid, otherwise invalid</returns>
     public virtual bool Verify(string securityToken, string code, TimeSpan? timeToleration = null) => Verify(Base32EncodeHelper.GetBytes(securityToken), code, timeToleration);
-    
+
     /// <summary>
     /// Verify whether the input code is correct
     /// </summary>
@@ -141,7 +141,7 @@ public class Totp
         var code = (num % _base).ToString("");
         return code.PadLeft(_codeSize, '0');
     }
-    
+
     /// <summary>
     /// time step
     /// 30s(Recommend)
@@ -152,14 +152,14 @@ public class Totp
     /// MaxTimeSteps
     /// </summary>
     public const int MaxTimeSteps = 20;
-    
+
     /// <summary>
     /// MaxTimeStepSeconds
     /// </summary>
     public const int MaxTimeStepSeconds = TimeStepSeconds * MaxTimeSteps;
-    
+
     // More info: https://tools.ietf.org/html/rfc6238#section-4
     private static long GetCurrentTimeStepNumber() => DateTimeOffset.UtcNow.ToUnixTimeSeconds() / TimeStepSeconds;
-    
+
     private static int Ttl(long step) => (int)((step + 1) * TimeStepSeconds - DateTimeOffset.UtcNow.ToUnixTimeSeconds());
 }

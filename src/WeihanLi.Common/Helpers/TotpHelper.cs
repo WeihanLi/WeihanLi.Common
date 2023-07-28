@@ -38,7 +38,7 @@ public static class TotpHelper
     /// <param name="securityToken">The security token to generate code.</param>
     /// <returns>The generated code.</returns>
     public static string GetCode(string securityToken) => GetCode(Encoding.UTF8.GetBytes(securityToken));
-    
+
     /// <summary>
     /// Validates the code for the specified <paramref name="securityToken"/>.
     /// </summary>

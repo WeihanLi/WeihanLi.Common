@@ -121,7 +121,7 @@ internal sealed class ConsoleLoggingProvider : ILogHelperProvider
                     try
                     {
                         var log = _formatter.FormatAsString(loggingEvent);
-                        if (loggingEvent.LogLevel is LogHelperLogLevel.Error 
+                        if (loggingEvent.LogLevel is LogHelperLogLevel.Error
                             or LogHelperLogLevel.Fatal)
                         {
                             Console.Error.WriteLine(log);

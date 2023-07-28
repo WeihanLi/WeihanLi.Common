@@ -13,7 +13,7 @@ public static class Base32EncodeHelper
     /// https://www.rfc-editor.org/rfc/rfc4648#section-6
     /// </summary>
     public static readonly char[] Characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567".ToCharArray();
-    
+
     public static byte[] GetBytes(string base32String, char paddingChar = '=')
     {
         if (string.IsNullOrEmpty(base32String))

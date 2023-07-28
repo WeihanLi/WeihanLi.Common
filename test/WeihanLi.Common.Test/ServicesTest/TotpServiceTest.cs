@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
-using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Otp;
 using WeihanLi.Common.Services;
 using Xunit;
@@ -25,7 +24,7 @@ public class TotpServiceTest
         Thread.Sleep(30 * 1000);
         Assert.False(totpService.VerifyCode(bizToken, code));
     }
-    
+
     [Fact]
     public void GetCodeWithTtlTest()
     {
