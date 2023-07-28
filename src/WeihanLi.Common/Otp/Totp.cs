@@ -74,7 +74,7 @@ public class Totp
         {
             //going to be expired
             currentStep++;
-            ttl = Ttl(currentStep);
+            ttl = TimeStepSeconds;
         }
         var totp = Compute(securityToken, currentStep);
         return (totp, ttl);

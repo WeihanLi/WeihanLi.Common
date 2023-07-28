@@ -3,7 +3,7 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Otp;
 
-public class TotpOptions
+public sealed class TotpOptions
 {
     /// <summary>
     /// 计算 code 的算法
@@ -13,9 +13,18 @@ public class TotpOptions
 
     /// <summary>
     /// 生成的 code 长度
-    /// The expected code length, 4-8 expected
+    /// The expected code length, 4-9 expected
     /// </summary>
-    public int Size { get; set; } = 6;
+    public int Size
+    {
+        get => _size;
+        set
+        {
+            if (value is > 9 or < 4)
+                throw new ArgumentOutOfRangeException(nameof(value), value, @"Size out of range, allowed range 4~9");
+            _size = value;
+        }
+    }
 
     /// <summary>
     /// 过期时间，单位是秒
@@ -24,6 +33,7 @@ public class TotpOptions
     public int ExpiresIn { get; set; } = 300;
 
     private string? _salt;
+    private int _size = 6;
 
     /// <summary>
     /// Salt for security consideration
