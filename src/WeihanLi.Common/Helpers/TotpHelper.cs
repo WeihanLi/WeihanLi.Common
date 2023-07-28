@@ -6,7 +6,7 @@ namespace WeihanLi.Common.Helpers;
 
 public static class TotpHelper
 {
-    private static readonly Lazy<ITotpService> _totp = new(() => new TotpService(_defaultOptions));
+    private static readonly Lazy<ITotpService> _totp = new(() => new TotpService(_defaultOptions!));
 
     private static readonly TotpOptions _defaultOptions = new();
 
