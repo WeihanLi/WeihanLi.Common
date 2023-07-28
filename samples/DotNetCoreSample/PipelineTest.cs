@@ -249,7 +249,7 @@ file class RequestContext
     public int Hour { get; set; }
 }
 
-file class FooMiddleware: IPipelineMiddleware<RequestContext>, IAsyncPipelineMiddleware<RequestContext> 
+file class FooMiddleware : IPipelineMiddleware<RequestContext>, IAsyncPipelineMiddleware<RequestContext>
 {
     public void Invoke(RequestContext context, Action<RequestContext> next)
     {
@@ -260,11 +260,11 @@ file class FooMiddleware: IPipelineMiddleware<RequestContext>, IAsyncPipelineMid
     public Task InvokeAsync(RequestContext context, Func<RequestContext, Task> next)
     {
         Console.WriteLine("I'm foo");
-        return next(context);;
+        return next(context); ;
     }
 }
 
-file class BarMiddleware: IPipelineMiddleware<RequestContext>, IAsyncPipelineMiddleware<RequestContext> 
+file class BarMiddleware : IPipelineMiddleware<RequestContext>, IAsyncPipelineMiddleware<RequestContext>
 {
     public void Invoke(RequestContext context, Action<RequestContext> next)
     {
@@ -275,6 +275,6 @@ file class BarMiddleware: IPipelineMiddleware<RequestContext>, IAsyncPipelineMid
     public Task InvokeAsync(RequestContext context, Func<RequestContext, Task> next)
     {
         Console.WriteLine("I'm bar");
-        return next(context);;
+        return next(context); ;
     }
 }

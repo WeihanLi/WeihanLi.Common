@@ -31,9 +31,9 @@ public static class PipelineBuilderExtensions
     {
         return builder.Use(_ => handler);
     }
-    
+
     public static IPipelineBuilder<TContext> UseMiddleware<TContext, TMiddleware>(this IPipelineBuilder<TContext> builder, TMiddleware middleware)
-        where  TMiddleware : class, IPipelineMiddleware<TContext>
+        where TMiddleware : class, IPipelineMiddleware<TContext>
     {
         Guard.NotNull(middleware);
         return builder.Use(next =>
@@ -42,9 +42,9 @@ public static class PipelineBuilderExtensions
                 middleware.Invoke(context, next);
             });
     }
-    
+
     public static IPipelineBuilder<TContext> UseMiddleware<TContext, TMiddleware>(this IPipelineBuilder<TContext> builder)
-      where  TMiddleware : class, IPipelineMiddleware<TContext>
+      where TMiddleware : class, IPipelineMiddleware<TContext>
     {
         return builder.UseMiddleware(DependencyResolver.Current.GetServiceOrCreateInstance<TMiddleware>());
     }
@@ -110,7 +110,7 @@ public static class PipelineBuilderExtensions
         return builder.Use(next =>
             context => func(context, next));
     }
-    
+
     public static IAsyncPipelineBuilder<TContext> UseMiddleware<TContext>(this IAsyncPipelineBuilder<TContext> builder, IAsyncPipelineMiddleware<TContext> middleware)
     {
         Guard.NotNull(middleware);
@@ -122,7 +122,7 @@ public static class PipelineBuilderExtensions
     }
 
     public static IAsyncPipelineBuilder<TContext> UseMiddleware<TContext, TMiddleware>(this IAsyncPipelineBuilder<TContext> builder)
-        where  TMiddleware : class, IAsyncPipelineMiddleware<TContext>
+        where TMiddleware : class, IAsyncPipelineMiddleware<TContext>
     {
         return builder.UseMiddleware(DependencyResolver.Current.GetServiceOrCreateInstance<TMiddleware>());
     }
@@ -167,8 +167,8 @@ public static class PipelineBuilderExtensions
     {
         return builder.Use(_ => handler);
     }
-#endregion IAsyncPipelineBuilder
-    
+    #endregion IAsyncPipelineBuilder
+
 #if ValueTaskSupport
 
     #region IValueAsyncPipelineBuilder

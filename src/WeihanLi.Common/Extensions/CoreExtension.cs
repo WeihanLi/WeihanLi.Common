@@ -2438,9 +2438,9 @@ public static class CoreExtension
     /// <returns>@this as a byte[].</returns>
     public static byte[] ToByteArray(this string @this, Encoding encoding) => encoding.GetBytes(Guard.NotNull(@this, nameof(@this)));
 
-    public static byte[] GetBytes(this string str) => Guard.NotNull(str, nameof(str)).GetBytes(Encoding.UTF8);
+    public static byte[] GetBytes(this string str) => Guard.NotNull(str, nameof(str)).GetBytes(null);
 
-    public static byte[] GetBytes(this string str, Encoding encoding) => encoding.GetBytes(Guard.NotNull(str, nameof(str)));
+    public static byte[] GetBytes(this string str, Encoding? encoding) => (encoding ?? Encoding.UTF8).GetBytes(Guard.NotNull(str, nameof(str)));
 
     /// <summary>
     ///     A string extension method that converts the @this to an enum.

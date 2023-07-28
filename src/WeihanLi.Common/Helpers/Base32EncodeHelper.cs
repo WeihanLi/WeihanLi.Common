@@ -1,4 +1,6 @@
-﻿namespace WeihanLi.Common.Helpers;
+﻿using WeihanLi.Extensions;
+
+namespace WeihanLi.Common.Helpers;
 
 /// <summary>
 /// Base32Encode
@@ -6,20 +8,26 @@
 /// </summary>
 public static class Base32EncodeHelper
 {
-    public static byte[] Encode(string input)
+    /// <summary>
+    /// Standard Base32 characters
+    /// https://www.rfc-editor.org/rfc/rfc4648#section-6
+    /// </summary>
+    public static readonly char[] Characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567".ToCharArray();
+
+    public static byte[] GetBytes(string base32String, char paddingChar = '=')
     {
-        if (string.IsNullOrEmpty(input))
+        if (string.IsNullOrEmpty(base32String))
         {
-            throw new ArgumentNullException(nameof(input));
+            throw new ArgumentNullException(nameof(base32String));
         }
 
-        input = input.TrimEnd('='); //remove padding characters
-        var byteCount = input.Length * 5 / 8; //this must be TRUNCATED
+        base32String = base32String.TrimEnd(paddingChar); //remove padding characters
+        var byteCount = base32String.Length * 5 / 8; //this must be TRUNCATED
         var returnArray = new byte[byteCount];
 
         byte curByte = 0, bitsRemaining = 8;
         var arrayIndex = 0;
-        foreach (var c in input)
+        foreach (var c in base32String)
         {
             var cValue = CharToValue(c);
 
@@ -49,20 +57,20 @@ public static class Base32EncodeHelper
         return returnArray;
     }
 
-    public static string Decode(byte[] input)
+    public static string FromBytes(byte[] base32Bytes, char paddingChar = '=')
     {
-        if (input == null || input.Length == 0)
+        if (base32Bytes.IsNullOrEmpty())
         {
-            throw new ArgumentNullException(nameof(input));
+            return string.Empty;
         }
 
-        var charCount = (int)Math.Ceiling(input.Length / 5d) * 8;
+        var charCount = (int)Math.Ceiling(base32Bytes.Length / 5d) * 8;
         var returnArray = new char[charCount];
 
         byte nextChar = 0, bitsRemaining = 5;
         var arrayIndex = 0;
 
-        foreach (var b in input)
+        foreach (var b in base32Bytes)
         {
             nextChar = (byte)(nextChar | (b >> (8 - bitsRemaining)));
             returnArray[arrayIndex++] = ValueToChar(nextChar);
@@ -82,7 +90,7 @@ public static class Base32EncodeHelper
         if (arrayIndex != charCount)
         {
             returnArray[arrayIndex++] = ValueToChar(nextChar);
-            while (arrayIndex != charCount) returnArray[arrayIndex++] = '='; //padding
+            while (arrayIndex != charCount) returnArray[arrayIndex++] = paddingChar; //padding
         }
 
         return new string(returnArray);
@@ -91,36 +99,25 @@ public static class Base32EncodeHelper
     private static int CharToValue(char c)
     {
         var value = (int)c;
-
-        //65-90 == uppercase letters
-        if (value < 91 && value > 64)
+        return value switch
         {
-            return value - 65;
-        }
-        //50-55 == numbers 2-7
-        if (value < 56 && value > 49)
-        {
-            return value - 24;
-        }
-        //97-122 == lowercase letters
-        if (value < 123 && value > 96)
-        {
-            return value - 97;
-        }
-
-        throw new ArgumentException("Character is not a Base32 character.", nameof(c));
+            //65-90 == uppercase letters
+            < 91 and > 64 => value - 65,
+            //50-55 == numbers 2-7
+            < 56 and > 49 => value - 24,
+            //97-122 == lowercase letters
+            < 123 and > 96 => value - 97,
+            _ => throw new ArgumentException(@"Character is not a Base32 character.", nameof(c))
+        };
     }
 
     private static char ValueToChar(byte b)
     {
-        if (b < 26)
+        return b switch
         {
-            return (char)(b + 65);
-        }
-        if (b < 32)
-        {
-            return (char)(b + 24);
-        }
-        throw new ArgumentException("Byte is not a Base32 value.", "b");
+            < 26 => (char)(b + 65),
+            < 32 => (char)(b + 24),
+            _ => throw new ArgumentException(@"The byte is not a Base32 value.", nameof(b))
+        };
     }
 }

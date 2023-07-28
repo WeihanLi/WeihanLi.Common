@@ -58,21 +58,20 @@ public static class ConsoleHelper
             Console.BackgroundColor = originalBackgroundColor;
         }
     }
-    
-    public static string? GetInput(string? prompt = null, bool insertNewLine = true)
+
+    public static string? GetInput(string? inputPrompt = null, bool insertNewLine = true)
     {
-        Console.WriteLine(prompt ?? "Enter your input here");
-        var input = Console.ReadLine();
+        var input = ReadLineWithPrompt(inputPrompt);
         if (insertNewLine)
         {
             Console.WriteLine();
         }
         return input;
     }
-    
-    public static async Task HandleInputLoopAsync(Func<string, Task<bool>> handler, 
-        string? inputPrompt = null, 
-        string exitInput = "q", 
+
+    public static async Task HandleInputLoopAsync(Func<string, Task<bool>> handler,
+        string? inputPrompt = null,
+        string exitInput = "q",
         bool insertNewLine = true)
     {
         Guard.NotNull(handler);
@@ -85,10 +84,10 @@ public static class ConsoleHelper
             input = GetInput(inputPrompt);
         }
     }
-    
-    public static async Task HandleInputLoopAsync(Func<string, Task> handler, 
-        string? inputPrompt = null, 
-        string exitInput = "q", 
+
+    public static async Task HandleInputLoopAsync(Func<string, Task> handler,
+        string? inputPrompt = null,
+        string exitInput = "q",
         bool insertNewLine = true)
     {
         Guard.NotNull(handler);
@@ -98,10 +97,10 @@ public static class ConsoleHelper
             return true;
         }, inputPrompt, exitInput, insertNewLine);
     }
-    
-    public static void HandleInputLoop(Func<string, bool> handler, 
-        string? inputPrompt = null, 
-        string exitInput = "q", 
+
+    public static void HandleInputLoop(Func<string, bool> handler,
+        string? inputPrompt = null,
+        string exitInput = "q",
         bool insertNewLine = true)
     {
         Guard.NotNull(handler);
@@ -111,20 +110,32 @@ public static class ConsoleHelper
             var result = handler(input ?? string.Empty);
             if (!result) break;
 
-            input = GetInput(inputPrompt);
+            input = GetInput(inputPrompt, insertNewLine);
         }
     }
-    
-    public static void HandleInputLoop(Action<string> handler, 
-        string? inputPrompt = null, 
-        string exitInput = "q", 
+
+    public static void HandleInputLoop(Action<string> handler,
+        string? inputPrompt = null,
+        string exitInput = "q",
         bool insertNewLine = true)
     {
         Guard.NotNull(handler);
-        HandleInputLoop( input =>
+        HandleInputLoop(input =>
         {
             handler.Invoke(input);
             return true;
         }, inputPrompt, exitInput, insertNewLine);
+    }
+
+    public static string? ReadLineWithPrompt(string? prompt = "Press Enter to continue")
+    {
+        if (prompt is not null) Console.WriteLine(prompt);
+        return Console.ReadLine();
+    }
+
+    public static ConsoleKeyInfo ReadKeyWithPrompt(string? prompt = "Press Enter to continue")
+    {
+        if (prompt is not null) Console.WriteLine(prompt);
+        return Console.ReadKey();
     }
 }

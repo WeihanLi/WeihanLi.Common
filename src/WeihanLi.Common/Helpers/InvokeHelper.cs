@@ -1,4 +1,4 @@
-﻿using WeihanLi.Common.Logging;
+﻿using System.Diagnostics;
 
 namespace WeihanLi.Common.Helpers;
 
@@ -6,7 +6,7 @@ public static class InvokeHelper
 {
     static InvokeHelper()
     {
-        OnInvokeException = ex => LogHelper.GetLogger(typeof(InvokeHelper)).Error(ex);
+        OnInvokeException = ex => Debug.WriteLine(ex);
     }
 
     #region Profile

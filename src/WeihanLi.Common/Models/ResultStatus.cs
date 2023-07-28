@@ -48,7 +48,7 @@ public enum ResultStatus
 
     [Description("TooManyRequests")]
     TooManyRequests = 429,
-    
+
     [Description("Process failed, Server Internal Error")]
     ProcessFail = 500,
     InternalError = 500,

@@ -182,7 +182,7 @@ public static class HttpClientExtension
         }
 
         content.Add(new StreamContent(File.OpenRead(filePath)), fileKey, Path.GetFileName(filePath));
-        
+
         return httpClient.PostAsync(requestUrl, content, cancellationToken);
     }
 
@@ -226,7 +226,7 @@ public static class HttpClientExtension
 
     public static Task<HttpResponseMessage> PostFileAsync(this HttpClient
             client, string requestUrl, ICollection<string> filePaths,
-        IEnumerable<KeyValuePair<string, string>>? formFields = null, CancellationToken cancellationToken = default) => 
+        IEnumerable<KeyValuePair<string, string>>? formFields = null, CancellationToken cancellationToken = default) =>
         client.PostFileAsync(requestUrl, filePaths.Select(p =>
                 new KeyValuePair<string, Stream>(Path.GetFileName(p), File.OpenRead(p))), formFields, cancellationToken);
 
