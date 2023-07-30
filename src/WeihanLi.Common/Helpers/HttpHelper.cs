@@ -6,7 +6,7 @@ using WeihanLi.Extensions;
 namespace WeihanLi.Common.Helpers;
 
 /// <summary>
-/// HTTP请求帮助类
+/// Http request helper
 /// </summary>
 public static class HttpHelper
 {
