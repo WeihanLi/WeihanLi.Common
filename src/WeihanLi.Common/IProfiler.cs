@@ -21,14 +21,9 @@ public interface IProfiler
     TimeSpan Elapsed { get; }
 }
 
-public class StopwatchProfiler : IProfiler
+public sealed class StopwatchProfiler : IProfiler
 {
-    private readonly Stopwatch _stopwatch;
-
-    public StopwatchProfiler()
-    {
-        _stopwatch = new Stopwatch();
-    }
+    private readonly Stopwatch _stopwatch = new();
 
     public void Start()
     {
