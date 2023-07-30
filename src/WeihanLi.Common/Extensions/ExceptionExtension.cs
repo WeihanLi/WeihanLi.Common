@@ -38,21 +38,19 @@ public static class ExceptionExtension
     /// - System.InsufficientMemoryException
     /// - System.ThreadAbortException
     /// - System.AccessViolationException
-    /// - System.SEHException
     /// - System.StackOverflowException
     /// - System.TypeInitializationException
-    /// - Microsoft.PowerApps.CoreFramework.MonitoredException marked as Fatal.
+    /// marked as Fatal.
     /// </summary>
     public static bool IsFatal(this Exception exception)
     {
         while (exception != null)
         {
-            if ((exception is OutOfMemoryException && !(exception is InsufficientMemoryException)) ||
-                (exception is ThreadAbortException) ||
-                (exception is AccessViolationException) ||
-                (exception is SEHException) ||
-                (exception is StackOverflowException) ||
-                (exception is TypeInitializationException))
+            if (exception is OutOfMemoryException and not InsufficientMemoryException 
+                or ThreadAbortException 
+                or AccessViolationException 
+                or StackOverflowException 
+                or TypeInitializationException)
             {
                 return true;
             }
