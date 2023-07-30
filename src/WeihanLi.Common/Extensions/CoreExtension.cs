@@ -2601,7 +2601,7 @@ public static class CoreExtension
     /// Append text when condition is true
     /// </summary>
     /// <param name="builder">StringBuilder</param>
-    /// <param name="textFactory">text factory to produce text for appendding</param>
+    /// <param name="textFactory">text factory to produce text for appending</param>
     /// <param name="condition">condition to evaluate</param>
     /// <returns>StringBuilder</returns>
     public static StringBuilder AppendLineIf(this StringBuilder builder, Func<string> textFactory, bool condition)
