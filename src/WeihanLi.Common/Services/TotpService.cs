@@ -70,7 +70,7 @@ public sealed class TotpService : ITotpService
     private readonly Totp _totp;
 
     public TotpService(TotpOptions totpOptions)
-    {        
+    {
         _totpOptions = Guard.NotNull(totpOptions);
         _expiry = totpOptions.ExpiresIn is >= Totp.TimeStepSeconds * 2 and <= Totp.MaxTimeStepSeconds
             ? TimeSpan.FromSeconds(totpOptions.ExpiresIn)

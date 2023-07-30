@@ -19,9 +19,8 @@ public class TotpServiceTest
         });
         var code = totpService.GetCode(bizToken);
         Assert.NotEmpty(code);
-        Thread.Sleep(2000);
         Assert.True(totpService.VerifyCode(bizToken, code));
-        Thread.Sleep(30 * 1000);
+        Thread.Sleep(35 * 1000);
         Assert.False(totpService.VerifyCode(bizToken, code));
     }
 

@@ -58,7 +58,7 @@ public static class HttpRequesterExtension
 
     public static IHttpRequester WithJsonParameter<TEntity>(this IHttpRequester httpRequester, TEntity entity)
     {
-        return httpRequester.WithParameters(entity.ToJson().GetBytes(), HttpHelper.JsonContentType);
+        return httpRequester.WithParameters(entity.ToJson().GetBytes(), HttpHelper.ApplicationJsonContentType);
     }
 
     public static IHttpRequester WithFormParams(this IHttpRequester httpRequester,

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using WeihanLi.Common;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Http;
 
 // ReSharper disable once CheckNamespace
@@ -323,4 +324,57 @@ public static class HttpClientExtension
     /// <param name="request">The HTTP request message.</param>
     /// <param name="token">The token.</param>
     public static void SetBearerToken(this HttpRequestMessage request, string token) => request.SetToken("Bearer", token);
+
+    /// <summary>
+    /// Try to add a header to the request message, would add to content header if the header belongs to content header 
+    /// </summary>
+    /// <param name="requestMessage">request message to add</param>
+    /// <param name="headerName">header name</param>
+    /// <param name="headerValue">header value</param>
+    /// <returns>the request message</returns>
+    public static HttpRequestMessage TryAddHeader(this HttpRequestMessage requestMessage,
+        string headerName, string headerValue)
+    {
+        Guard.NotNull(requestMessage);
+        Guard.NotNullOrEmpty(headerName);
+        if (HttpHelper.IsWellKnownContentHeader(headerName))
+        {
+            requestMessage.Content?.Headers.Remove(headerName);
+            requestMessage.Content?.Headers.TryAddWithoutValidation(headerName, headerValue);
+        }
+        else
+        {
+            requestMessage.Headers.TryAddWithoutValidation(headerName, headerValue);
+        }
+        return requestMessage;
+    }
+
+    /// <summary>
+    /// Try to add a header to the request message when not exists, would add to content header if the header belongs to content header 
+    /// </summary>
+    /// <param name="requestMessage">request message to add</param>
+    /// <param name="headerName">header name</param>
+    /// <param name="headerValue">header value</param>
+    /// <returns>the request message</returns>
+    public static HttpRequestMessage TryAddHeaderIfNotExists(this HttpRequestMessage requestMessage,
+        string headerName, string headerValue)
+    {
+        Guard.NotNull(requestMessage);
+        Guard.NotNullOrEmpty(headerName);
+        if (HttpHelper.IsWellKnownContentHeader(headerName))
+        {
+            if (requestMessage.Content is not null && !requestMessage.Content.Headers.Contains(headerName))
+            {
+                requestMessage.Content.Headers.TryAddWithoutValidation(headerName, headerValue);
+            }
+        }
+        else
+        {
+            if (!requestMessage.Headers.Contains(headerName))
+            {
+                requestMessage.Content.Headers.TryAddWithoutValidation(headerName, headerValue);
+            }
+        }
+        return requestMessage;
+    }
 }

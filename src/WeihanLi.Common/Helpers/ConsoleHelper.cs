@@ -138,4 +138,14 @@ public static class ConsoleHelper
         if (prompt is not null) Console.WriteLine(prompt);
         return Console.ReadKey();
     }
+
+    public static void WriteLineIf(string output, bool condition)
+    {
+        if (condition) Console.WriteLine(output);
+    }
+    
+    public static void WriteIf(string output, bool condition)
+    {
+        if (condition) Console.Write(output);
+    }
 }

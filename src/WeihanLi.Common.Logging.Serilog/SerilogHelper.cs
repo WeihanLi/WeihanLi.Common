@@ -6,11 +6,12 @@ public static class SerilogHelper
 {
     private static readonly object Locker = new();
 
-    public static void LogInit(Action<LoggerConfiguration> configAction)
+    public static void LogInit(Action<LoggerConfiguration> configureAction)
     {
+        Guard.NotNull(configureAction);
         var loggerConfiguration = new LoggerConfiguration();
         loggerConfiguration.Enrich.FromLogContext();
-        configAction?.Invoke(loggerConfiguration);
+        configureAction(loggerConfiguration);
         LogInit(loggerConfiguration);
     }
 
