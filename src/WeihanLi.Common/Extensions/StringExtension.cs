@@ -265,6 +265,7 @@ public static class StringExtension
     /// <param name="str">str</param>
     /// <param name="start">start to remove</param>
     /// <returns>start removed str</returns>
+    [return: System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(str))]
     public static string? TrimStart(this string? str, string start)
     {
         if (str.IsNullOrEmpty() || start.IsNullOrEmpty())
