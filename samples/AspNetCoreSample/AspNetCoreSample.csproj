@@ -4,13 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
-
-  <ItemGroup>
-    <None Include="log4net.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\src\WeihanLi.Common.Aspect.Castle\WeihanLi.Common.Aspect.Castle.csproj" />
     <ProjectReference Include="..\..\src\WeihanLi.Common\WeihanLi.Common.csproj" />

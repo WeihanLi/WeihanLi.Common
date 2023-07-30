@@ -20,7 +20,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\WeihanLi.Common.Aspect.AspectCore\WeihanLi.Common.Aspect.AspectCore.csproj" />
     <ProjectReference Include="..\..\src\WeihanLi.Common.Aspect.Castle\WeihanLi.Common.Aspect.Castle.csproj" />
-    <ProjectReference Include="..\..\src\WeihanLi.Common.Logging.Log4Net\WeihanLi.Common.Logging.Log4Net.csproj" />
     <ProjectReference Include="..\..\src\WeihanLi.Common.Logging.Serilog\WeihanLi.Common.Logging.Serilog.csproj" />
     <ProjectReference Include="..\..\src\WeihanLi.Common\WeihanLi.Common.csproj" />
   </ItemGroup>
@@ -28,9 +27,6 @@
   <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="log4net.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>

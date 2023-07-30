@@ -210,7 +210,6 @@ Console.WriteLine("----------DotNetCoreSample----------");
 
 // log test
 // LoggerTest.MainTest();
-// Log4NetTest.MainTest();
 
 //ILoggerFactory loggerFactory = new LoggerFactory();
 //loggerFactory.AddConsole();
