@@ -339,6 +339,7 @@ public static class HttpClientExtension
         Guard.NotNullOrEmpty(headerName);
         if (HttpHelper.IsWellKnownContentHeader(headerName))
         {
+            requestMessage.Content?.Headers.Remove(headerName);
             requestMessage.Content?.Headers.TryAddWithoutValidation(headerName, headerValue);
         }
         else
