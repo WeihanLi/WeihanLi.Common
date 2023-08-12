@@ -16,7 +16,7 @@ public static class LineParser
         options ??= new();
         var tokenBuilder = new StringBuilder();
 
-        var inToken= false;
+        var inToken = false;
         var inQuotes = false;
 
         // Iterate through every character in the line

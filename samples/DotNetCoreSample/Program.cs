@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
 using WeihanLi.Common.Event;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 using WeihanLi.Extensions.Dump;
 
@@ -307,7 +308,12 @@ Console.WriteLine("----------DotNetCoreSample----------");
 //PipelineTest.TestV2();
 //PipelineTest.AsyncPipelineBuilderTestV2().Wait();
 
-TotpTest.MainTest();
+//TotpTest.MainTest();
+
+// exit test
+// InvokeHelper.OnExit += (_, _) => Console.WriteLine(@"exit now");
+// var exitToken = ConsoleHelper.GetExitToken();
+// exitToken.Register(() => Console.WriteLine(@"Console exiting"));
 
 Console.ReadLine();
 

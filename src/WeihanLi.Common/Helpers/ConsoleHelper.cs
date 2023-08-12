@@ -59,6 +59,20 @@ public static class ConsoleHelper
         }
     }
 
+    public static void WriteWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
+    {
+        if (!string.IsNullOrEmpty(output))
+            InvokeWithConsoleColor(() => Console.Write(output), foregroundColor, backgroundColor);
+    }
+    
+    public static void WriteLineWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
+    {
+        if (string.IsNullOrEmpty(output))
+            Console.WriteLine();
+        else
+            InvokeWithConsoleColor(() => Console.WriteLine(output), foregroundColor, backgroundColor);
+    }
+
     public static string? GetInput(string? inputPrompt = null, bool insertNewLine = true)
     {
         var input = ReadLineWithPrompt(inputPrompt);
@@ -133,7 +147,7 @@ public static class ConsoleHelper
         return Console.ReadLine();
     }
 
-    public static ConsoleKeyInfo ReadKeyWithPrompt(string? prompt = "Press Enter to continue")
+    public static ConsoleKeyInfo ReadKeyWithPrompt(string? prompt = "Press any key to continue")
     {
         if (prompt is not null) Console.WriteLine(prompt);
         return Console.ReadKey();
@@ -143,9 +157,23 @@ public static class ConsoleHelper
     {
         if (condition) Console.WriteLine(output);
     }
-    
+
     public static void WriteIf(string? output, bool condition)
     {
         if (condition) Console.Write(output);
     }
+
+    public static CancellationToken GetExitToken()
+    {
+        if (!LazyCancellationTokenSource.IsValueCreated)
+        {
+            Console.CancelKeyPress += (sender, args) =>
+            {
+                LazyCancellationTokenSource.Value.Cancel(false);
+            };
+        }
+        return LazyCancellationTokenSource.Value.Token;
+    }
+
+    private static readonly Lazy<CancellationTokenSource> LazyCancellationTokenSource = new();
 }

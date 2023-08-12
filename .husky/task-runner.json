@@ -1,0 +1,30 @@
+{
+  "tasks": 
+  [
+    {
+      "name": "dotnet-format",
+      "group": "pre-push",
+      "command": "dotnet",
+      "args": [ "format", "--verify-no-changes" ],
+      "include": [
+        "**/*.cs"
+      ]
+    },
+    {
+      "name": "commit-message-linter",
+      "group": "commit-msg",
+      "command": "dotnet-exec",
+      "args": [".husky/scripts/commit-lint.cs", "--args", "${args}"]
+    },
+    {
+      "name": "test",
+      "group": "pre-push",
+      "command": "dotnet",
+      "args": [ "test" ],
+      "exclude": [
+        "**/*.md",
+        "docs/**/*"
+      ]
+    }
+  ]
+}

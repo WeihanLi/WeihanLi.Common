@@ -7,6 +7,22 @@ public static class InvokeHelper
     static InvokeHelper()
     {
         OnInvokeException = ex => Debug.WriteLine(ex);
+
+        #region Exit event register
+
+        // https://newlifex.com/blood/elegant_exit
+        // https://github.com/NewLifeX/X/blob/e65dfa0998ec393804f3f793f333c237110d890e/NewLife.Core/Model/Host.cs#L61
+        AppDomain.CurrentDomain.ProcessExit += InvokeExitHandler;
+        Console.CancelKeyPress += InvokeExitHandler;
+#if NETCOREAPP
+        System.Runtime.Loader.AssemblyLoadContext.Default.Unloading += ctx => InvokeExitHandler(ctx, null);
+#endif
+#if NET6_0_OR_GREATER
+        System.Runtime.InteropServices.PosixSignalRegistration.Create(System.Runtime.InteropServices.PosixSignal.SIGINT, ctx => InvokeExitHandler(ctx, null));
+        System.Runtime.InteropServices.PosixSignalRegistration.Create(System.Runtime.InteropServices.PosixSignal.SIGTERM, ctx => InvokeExitHandler(ctx, null));
+#endif
+
+        #endregion ExitHandler
     }
 
     #region Profile
@@ -75,6 +91,22 @@ public static class InvokeHelper
     #region TryInvoke
 
     public static Action<Exception>? OnInvokeException { get; set; }
+
+    public static event Action<object?, EventArgs?>? OnExit;
+    private static readonly object _exitLock = new();
+    private static volatile bool _exited;
+    private static void InvokeExitHandler(object? sender, EventArgs? args)
+    {
+        if (_exited) return;
+        lock (_exitLock)
+        {
+            if (_exited) return;
+            Debug.WriteLine("exiting...");
+            OnExit?.Invoke(sender, args);
+            Debug.WriteLine("exited");
+            _exited = true;
+        }
+    }
 
     public static void TryInvoke(Action action)
     {
