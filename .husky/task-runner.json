@@ -11,7 +11,7 @@
       "name": "dotnet-format",
       "group": "pre-push",
       "command": "dotnet",
-      "args": [ "format", "--include" , "${staged}" ],
+      "args": [ "format", "--verify-no-changes" ],
       "include": [
         "**/*.cs"
       ]
