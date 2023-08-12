@@ -138,7 +138,7 @@ public static class ConsoleHelper
         return Console.ReadLine();
     }
 
-    public static ConsoleKeyInfo ReadKeyWithPrompt(string? prompt = "Press Enter to continue")
+    public static ConsoleKeyInfo ReadKeyWithPrompt(string? prompt = "Press any key to continue")
     {
         if (prompt is not null) Console.WriteLine(prompt);
         return Console.ReadKey();
@@ -153,4 +153,18 @@ public static class ConsoleHelper
     {
         if (condition) Console.Write(output);
     }
+
+    public static CancellationToken GetExitToken()
+    {
+        if (!LazyCancellationTokenSource.IsValueCreated)
+        {
+            Console.CancelKeyPress += (sender, args) =>
+            {
+                LazyCancellationTokenSource.Value.Cancel(false);
+            };
+        }
+        return LazyCancellationTokenSource.Value.Token;
+    }
+
+    private static readonly Lazy<CancellationTokenSource> LazyCancellationTokenSource = new();
 }
