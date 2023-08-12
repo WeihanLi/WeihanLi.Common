@@ -1,6 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Runtime.Loader;
 
 namespace WeihanLi.Common.Helpers;
 
@@ -17,11 +15,11 @@ public static class InvokeHelper
         AppDomain.CurrentDomain.ProcessExit += InvokeExitHandler;
         Console.CancelKeyPress += InvokeExitHandler;
 #if NETCOREAPP
-        AssemblyLoadContext.Default.Unloading += ctx => InvokeExitHandler(ctx, null);
+        System.Runtime.Loader.AssemblyLoadContext.Default.Unloading += ctx => InvokeExitHandler(ctx, null);
 #endif
 #if NET6_0_OR_GREATER
-        PosixSignalRegistration.Create(PosixSignal.SIGINT, ctx => InvokeExitHandler(ctx, null));
-        PosixSignalRegistration.Create(PosixSignal.SIGTERM, ctx => InvokeExitHandler(ctx, null));
+        System.Runtime.InteropServices.PosixSignalRegistration.Create(System.Runtime.InteropServices.PosixSignal.SIGINT, ctx => InvokeExitHandler(ctx, null));
+        System.Runtime.InteropServices.PosixSignalRegistration.Create(System.Runtime.InteropServices.PosixSignal.SIGTERM, ctx => InvokeExitHandler(ctx, null));
 #endif
 
         #endregion ExitHandler
@@ -96,7 +94,7 @@ public static class InvokeHelper
 
     public static event Action<object?, EventArgs?>? OnExit;
     private static readonly object _exitLock = new();
-    private static volatile bool _exited = false;
+    private static volatile bool _exited;
     private static void InvokeExitHandler(object? sender, EventArgs? args)
     {
         if (_exited) return;
