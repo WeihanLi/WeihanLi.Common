@@ -146,7 +146,7 @@ public static class EnumerableExtension
         => condition() ? Guard.NotNull(source, nameof(source)).Where(predict) : source;
 
     [MemberNotNull]
-    [return:NotNull]
+    [return: NotNull]
     public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T?> source) where T : class
         => Guard.NotNull(source).Where(x => x != null)!;
 

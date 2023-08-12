@@ -148,7 +148,7 @@ public static class ConsoleHelper
     {
         if (condition) Console.WriteLine(output);
     }
-    
+
     public static void WriteIf(string? output, bool condition)
     {
         if (condition) Console.Write(output);

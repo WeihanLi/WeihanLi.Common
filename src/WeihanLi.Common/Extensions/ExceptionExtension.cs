@@ -15,7 +15,7 @@ public static class ExceptionExtension
     /// <param name="ex">origin exception</param>
     /// <param name="depth">depth</param>
     /// <returns>inner exception</returns>
-    [return:NotNullIfNotNull(nameof(ex))]
+    [return: NotNullIfNotNull(nameof(ex))]
     public static Exception? Unwrap(this Exception? ex, int depth = 16)
     {
         var exception = ex;
@@ -43,10 +43,10 @@ public static class ExceptionExtension
     public static bool IsFatal(this Exception? exception)
     {
         var unwrappedException = exception.Unwrap(256);
-        return unwrappedException is OutOfMemoryException and not InsufficientMemoryException 
-            or ThreadAbortException 
-            or AccessViolationException 
-            or StackOverflowException 
+        return unwrappedException is OutOfMemoryException and not InsufficientMemoryException
+            or ThreadAbortException
+            or AccessViolationException
+            or StackOverflowException
             or TypeInitializationException;
     }
 }
