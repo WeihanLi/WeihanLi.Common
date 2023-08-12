@@ -59,6 +59,12 @@ public static class ConsoleHelper
         }
     }
 
+    public static void WriteWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
+    {
+        if (!string.IsNullOrEmpty(output))
+            InvokeWithConsoleColor(() => Console.Write(output), foregroundColor, backgroundColor);
+    }
+    
     public static void WriteLineWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
     {
         if (string.IsNullOrEmpty(output))
