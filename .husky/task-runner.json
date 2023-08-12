@@ -2,12 +2,6 @@
   "tasks": 
   [
     {
-      "name": "build",
-      "group": "pre-push",
-      "command": "dotnet",
-      "args": [ "build" ]
-    },
-    {
       "name": "dotnet-format",
       "group": "pre-push",
       "command": "dotnet",
