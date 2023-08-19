@@ -64,7 +64,7 @@ public static class ConsoleHelper
         if (!string.IsNullOrEmpty(output))
             InvokeWithConsoleColor(() => Console.Write(output), foregroundColor, backgroundColor);
     }
-    
+
     public static void WriteLineWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
     {
         if (string.IsNullOrEmpty(output))

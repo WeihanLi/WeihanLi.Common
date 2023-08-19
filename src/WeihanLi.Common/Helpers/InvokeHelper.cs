@@ -111,7 +111,7 @@ public static class InvokeHelper
             posixSignalContext.Cancel = true;
         }
 #endif
-        
+
         if (_exited) return;
         lock (_exitLock)
         {
