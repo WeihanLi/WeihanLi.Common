@@ -3,6 +3,8 @@
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using System.Text.Encodings.Web;
+using System.Text.Json;
 using WeihanLi.Common.Helpers;
 
 namespace DotNetCoreSample;
@@ -16,6 +18,10 @@ public class AppHostTest
         builder.Logging.AddJsonConsole(options =>
         {
             options.TimestampFormat = "yyyy-MM-dd HH:mm:ss";
+            options.JsonWriterOptions = new JsonWriterOptions()
+            {
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+            };
         });
         var cts = new CancellationTokenSource(5000);
         var app = builder.Build();
