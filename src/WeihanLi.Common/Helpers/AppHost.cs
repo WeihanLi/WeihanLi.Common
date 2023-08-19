@@ -85,6 +85,7 @@ public sealed class AppHost : IAppHost
 {
     private const string
         AppHostStartingMessage = "AppHost starting",
+        AppHostStartedMessage = "AppHost started. Press Ctrl+C to shut down",
         AppHostStoppedMessage = "AppHost stopped"
         ;
     
@@ -106,6 +107,8 @@ public sealed class AppHost : IAppHost
         var exitToken = CancellationTokenSource.CreateLinkedTokenSource(InvokeHelper.GetExitToken(), cancellationToken);
         var waitForStopTask = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
         exitToken.Token.Register(() => waitForStopTask.TrySetResult());
+        Debug.WriteLine(AppHostStartedMessage);
+        _logger.LogInformation(AppHostStartedMessage);
         await waitForStopTask.Task.ConfigureAwait(false);
         Debug.WriteLine(AppHostStoppedMessage);
         _logger.LogInformation(AppHostStoppedMessage);
