@@ -163,17 +163,4 @@ public static class ConsoleHelper
         if (condition) Console.Write(output);
     }
 
-    public static CancellationToken GetExitToken()
-    {
-        if (!LazyCancellationTokenSource.IsValueCreated)
-        {
-            Console.CancelKeyPress += (sender, args) =>
-            {
-                LazyCancellationTokenSource.Value.Cancel(false);
-            };
-        }
-        return LazyCancellationTokenSource.Value.Token;
-    }
-
-    private static readonly Lazy<CancellationTokenSource> LazyCancellationTokenSource = new();
 }
