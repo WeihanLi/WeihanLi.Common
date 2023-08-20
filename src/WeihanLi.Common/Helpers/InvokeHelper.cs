@@ -102,16 +102,17 @@ public static class InvokeHelper
     private static void InvokeExitHandler(object? sender, EventArgs? args)
     {
         if (_exited) return;
-        if (args is ConsoleCancelEventArgs consoleCancelEventArgs)
-        {
-            consoleCancelEventArgs.Cancel = true;
-        }
-#if NET6_0_OR_GREATER
-        if (sender is PosixSignalContext posixSignalContext)
-        {
-            posixSignalContext.Cancel = true;
-        }
-#endif
+// no need to configure since we're going to exit
+//         if (args is ConsoleCancelEventArgs consoleCancelEventArgs)
+//         {
+//             consoleCancelEventArgs.Cancel = true;
+//         }
+// #if NET6_0_OR_GREATER
+//         if (sender is PosixSignalContext posixSignalContext)
+//         {
+//             posixSignalContext.Cancel = true;
+//         }
+// #endif
         lock (_exitLock)
         {
             if (_exited) return;
