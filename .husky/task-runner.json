@@ -6,16 +6,7 @@
       "group": "commit-msg",
       "command": "dotnet-exec",
       "args": [".husky/scripts/commit-lint.cs", "--args", "${args}"]
-    },
-    {
-      "name": "dotnet-format",
-      "group": "pre-push",
-      "command": "dotnet",
-      "args": [ "format" ],
-      "include": [
-        "**/*.cs"
-      ]
-    },
+    },    
     {
       "name": "test",
       "group": "pre-push",
@@ -24,6 +15,15 @@
       "exclude": [
         "**/*.md",
         "docs/**/*"
+      ]
+    },
+    {
+      "name": "dotnet-format",
+      "group": "post-push",
+      "command": "dotnet",
+      "args": [ "format" ],
+      "include": [
+        "**/*.cs"
       ]
     }
   ]
