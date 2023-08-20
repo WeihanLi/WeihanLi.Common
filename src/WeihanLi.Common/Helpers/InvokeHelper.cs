@@ -119,7 +119,7 @@ public static class InvokeHelper
             Debug.WriteLine("exiting...");
             if (LazyCancellationTokenSource.IsValueCreated)
             {
-                LazyCancellationTokenSource.Value.Cancel();
+                LazyCancellationTokenSource.Value.Cancel(false);
                 LazyCancellationTokenSource.Value.Dispose();
             }
             Debug.WriteLine("exited");
