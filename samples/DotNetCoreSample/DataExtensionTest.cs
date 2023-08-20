@@ -35,7 +35,7 @@ public class DataExtensionTest
 
     public static void MainTest()
     {
-        var connString = DependencyResolver.ResolveService<IConfiguration>().GetConnectionString("TestDb");
+        var connString = DependencyResolver.ResolveRequiredService<IConfiguration>().GetConnectionString("TestDb");
         using (var conn = new SqlConnection(connString))
         {
             Init(conn);

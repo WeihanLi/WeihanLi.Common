@@ -372,7 +372,7 @@ public static class HttpClientExtension
         {
             if (!requestMessage.Headers.Contains(headerName))
             {
-                requestMessage.Content.Headers.TryAddWithoutValidation(headerName, headerValue);
+                requestMessage.Headers.TryAddWithoutValidation(headerName, headerValue);
             }
         }
         return requestMessage;

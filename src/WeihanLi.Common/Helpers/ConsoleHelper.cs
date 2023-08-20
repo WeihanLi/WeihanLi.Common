@@ -64,7 +64,7 @@ public static class ConsoleHelper
         if (!string.IsNullOrEmpty(output))
             InvokeWithConsoleColor(() => Console.Write(output), foregroundColor, backgroundColor);
     }
-    
+
     public static void WriteLineWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
     {
         if (string.IsNullOrEmpty(output))
@@ -163,17 +163,4 @@ public static class ConsoleHelper
         if (condition) Console.Write(output);
     }
 
-    public static CancellationToken GetExitToken()
-    {
-        if (!LazyCancellationTokenSource.IsValueCreated)
-        {
-            Console.CancelKeyPress += (sender, args) =>
-            {
-                LazyCancellationTokenSource.Value.Cancel(false);
-            };
-        }
-        return LazyCancellationTokenSource.Value.Token;
-    }
-
-    private static readonly Lazy<CancellationTokenSource> LazyCancellationTokenSource = new();
 }

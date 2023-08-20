@@ -311,11 +311,17 @@ Console.WriteLine("----------DotNetCoreSample----------");
 //TotpTest.MainTest();
 
 // exit test
-// InvokeHelper.OnExit += (_, _) => Console.WriteLine(@"exit now");
-// var exitToken = ConsoleHelper.GetExitToken();
-// exitToken.Register(() => Console.WriteLine(@"Console exiting"));
+var exitToken = InvokeHelper.GetExitToken();
+exitToken.Register(() =>
+{
+    Console.WriteLine(@"Exiting");
+    Thread.Sleep(3000);
+    Console.WriteLine(@"Exited");
+});
 
-Console.ReadLine();
+await AppHostTest.MainTest();
+
+// ConsoleHelper.ReadKeyWithPrompt("Press any key to exit");
 
 internal struct TestStruct
 {

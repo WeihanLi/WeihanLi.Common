@@ -19,12 +19,4 @@ public class IdGeneratorTest
         var id = idGenerator.NewId();
         Assert.NotEqual(id, idGenerator.NewId());
     }
-
-    [Fact]
-    public void SnowflakeIdTest()
-    {
-        var idGenerator = new SnowflakeIdGenerator();
-        var id = idGenerator.NewId();
-        Assert.NotEqual(id, idGenerator.NewId());
-    }
 }

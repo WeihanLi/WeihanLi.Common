@@ -3,16 +3,15 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <Optimize>true</Optimize>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Benchmark>True</Benchmark>
     <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="6.2.2" />
-    <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
-    <PackageReference Include="Dapper" Version="1.50.4" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.1" />
+    <PackageReference Include="BenchmarkDotNet" />
+    <PackageReference Include="Dapper" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
   </ItemGroup>
 
   <ItemGroup>

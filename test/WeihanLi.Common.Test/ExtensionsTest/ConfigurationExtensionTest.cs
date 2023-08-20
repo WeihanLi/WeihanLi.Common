@@ -16,7 +16,7 @@ public class ConfigurationExtensionTest
         var configuration = new ConfigurationBuilder()
             .AddInMemoryCollection(new[]
             {
-                    new KeyValuePair<string, string>($"{ConfigurationExtension.FeatureFlagsSectionName}:{featureName}", value)
+                    new KeyValuePair<string, string?>($"{ConfigurationExtension.FeatureFlagsSectionName}:{featureName}", value)
             })
             .Build();
 
@@ -45,7 +45,7 @@ public class ConfigurationExtensionTest
         var configuration = new ConfigurationBuilder()
                  .AddInMemoryCollection(new[]
                  {
-                         new KeyValuePair<string, string>($"{ConfigurationExtension.FeatureFlagsSectionName}:Test","")
+                         new KeyValuePair<string, string?>($"{ConfigurationExtension.FeatureFlagsSectionName}:Test","")
                  })
                  .Build();
         Assert.False(configuration.TryGetFeatureFlagValue(featureName, out _));

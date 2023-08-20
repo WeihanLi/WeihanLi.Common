@@ -3,7 +3,7 @@
   </PropertyGroup>
   <Import Project="../../build/logging.serilog.props" />
   <ItemGroup>
-    <PackageReference Include="Serilog" Version="3.0.1" />
+    <PackageReference Include="Serilog" />
     <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
   </ItemGroup>
 </Project>

@@ -12,7 +12,8 @@ public static class RepositoryTest
 {
     public static void MainTest()
     {
-        var connectionPool = new DbConnectionPool(new DbConnectionPoolPolicy(DependencyResolver.ResolveService<IConfiguration>().GetConnectionString("Test")));
+        var connectionPool = new DbConnectionPool(new DbConnectionPoolPolicy(DependencyResolver.ResolveRequiredService<IConfiguration>()
+            .GetRequiredConnectionString("Test")!));
 
         var repo = new Repository<TestEntity>(() => connectionPool.Get());
         repo.Execute("TRUNCATE TABLE dbo.tabTestEntity");
