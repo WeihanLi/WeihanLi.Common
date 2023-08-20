@@ -116,7 +116,7 @@ public static class ConfigurationExtension
             throw new InvalidOperationException("Connection string not exists");
         return connString;
     }
-    
+
     /// <summary>
     /// GetAppSetting
     /// Shorthand for GetSection("AppSettings")[key]
