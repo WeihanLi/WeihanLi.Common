@@ -101,27 +101,19 @@ public static class InvokeHelper
     private static readonly Lazy<CancellationTokenSource> LazyCancellationTokenSource = new();
     private static void InvokeExitHandler(object? sender, EventArgs? args)
     {
-        if (args is ConsoleCancelEventArgs consoleCancelEventArgs)
-        {
-            consoleCancelEventArgs.Cancel = true;
-        }
-#if NET6_0_OR_GREATER
-        if (sender is PosixSignalContext posixSignalContext)
-        {
-            posixSignalContext.Cancel = true;
-        }
-#endif
-
         if (_exited) return;
         lock (_exitLock)
         {
             if (_exited) return;
 
             Debug.WriteLine("exiting...");
-            LazyCancellationTokenSource.Value.Cancel();
+            if (LazyCancellationTokenSource.IsValueCreated)
+            {
+                LazyCancellationTokenSource.Value.Cancel();
+                LazyCancellationTokenSource.Value.Dispose();
+            }
             Debug.WriteLine("exited");
             _exited = true;
-            LazyCancellationTokenSource.Value.Dispose();
         }
     }
 

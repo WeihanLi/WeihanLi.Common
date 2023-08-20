@@ -312,7 +312,12 @@ Console.WriteLine("----------DotNetCoreSample----------");
 
 // exit test
 var exitToken = InvokeHelper.GetExitToken();
-exitToken.Register(() => Console.WriteLine(@"Console exiting"));
+exitToken.Register(() =>
+{
+    Console.WriteLine(@"Exiting");
+    Thread.Sleep(3000);
+    Console.WriteLine(@"Exited");
+});
 
 await AppHostTest.MainTest();
 
