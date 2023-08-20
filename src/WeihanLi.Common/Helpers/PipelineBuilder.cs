@@ -32,7 +32,7 @@ public static class PipelineBuilder
 #if NET6_0_OR_GREATER
         ValueTask.CompletedTask
 #else
-        TaskHelper.CompletedValueTask
+        default(ValueTask)
 #endif
         );
     }

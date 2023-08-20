@@ -23,7 +23,7 @@ public sealed class NullDisposable : IDisposable
 #if NET6_0_OR_GREATER
         ValueTask.CompletedTask
 #else
-        TaskHelper.CompletedValueTask
+        default(ValueTask)
 #endif    
     ;
 #endif
