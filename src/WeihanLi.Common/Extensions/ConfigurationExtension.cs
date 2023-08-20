@@ -107,12 +107,27 @@ public static class ConfigurationExtension
     /// Shorthand for GetSection("AppSettings")[key]
     /// </summary>
     /// <param name="configuration">IConfiguration instance</param>
+    /// <param name="name">The connection string key</param>
+    /// <returns>The connection string value</returns>
+    public static string GetRequiredConnectionString(this IConfiguration configuration, string name)
+    {
+        var connString = configuration.GetConnectionString(name);
+        if (connString is null)
+            throw new InvalidOperationException("Connection string not exists");
+        return connString;
+    }
+    
+    /// <summary>
+    /// GetAppSetting
+    /// Shorthand for GetSection("AppSettings")[key]
+    /// </summary>
+    /// <param name="configuration">IConfiguration instance</param>
     /// <param name="key">appSettings key</param>
     /// <param name="defaultValue">defaultValue</param>
     /// <returns>app setting value</returns>
     public static string GetAppSetting(this IConfiguration configuration, string key, string defaultValue)
     {
-        return configuration.GetSection("AppSettings")?[key] ?? defaultValue;
+        return configuration.GetSection("AppSettings")[key] ?? defaultValue;
     }
 
     /// <summary>
