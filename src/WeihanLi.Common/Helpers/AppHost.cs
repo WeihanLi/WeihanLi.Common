@@ -104,7 +104,7 @@ public sealed class AppHost : IAppHost
     {
         Debug.WriteLine(AppHostStartingMessage);
         _logger.LogInformation(AppHostStartingMessage);
-        var hostStopTokenSource = CancellationTokenSource.CreateLinkedTokenSource(InvokeHelper.GetExitToken(), cancellationToken);
+        using var hostStopTokenSource = CancellationTokenSource.CreateLinkedTokenSource(InvokeHelper.GetExitToken(), cancellationToken);
         var waitForStopTask = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
         hostStopTokenSource.Token.Register(() => waitForStopTask.TrySetResult());
         Debug.WriteLine(AppHostStartedMessage);
