@@ -1,6 +1,6 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
-#if NET8_0_OR_GREATER
+#if NET6_0_OR_GREATER
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -20,7 +20,7 @@ public interface IAppHostBuilder
     /// <summary>
     /// Gets the set of key/value configuration properties.
     /// </summary>
-    IConfigurationManager Configuration { get; }
+    ConfigurationManager Configuration { get; }
     
     /// <summary>
     /// Gets a collection of logging providers for the application to compose. This is useful for adding new logging providers.
@@ -35,7 +35,7 @@ public interface IAppHostBuilder
 
 public sealed class AppHostBuilderSettings
 {
-    public IConfigurationManager? Configuration { get; set; }
+    public ConfigurationManager? Configuration { get; set; }
 }
 
 public sealed class AppHostBuilder : IAppHostBuilder
@@ -54,7 +54,7 @@ public sealed class AppHostBuilder : IAppHostBuilder
         _serviceCollection.AddLogging();
     }
 
-    public IConfigurationManager Configuration { get; }
+    public ConfigurationManager Configuration { get; }
     public ILoggingBuilder Logging { get; }
     public IServiceCollection Services => _serviceCollection;
 
@@ -104,9 +104,9 @@ public sealed class AppHost : IAppHost
     {
         Debug.WriteLine(AppHostStartingMessage);
         _logger.LogInformation(AppHostStartingMessage);
-        var exitToken = CancellationTokenSource.CreateLinkedTokenSource(InvokeHelper.GetExitToken(), cancellationToken);
+        var hostStopTokenSource = CancellationTokenSource.CreateLinkedTokenSource(InvokeHelper.GetExitToken(), cancellationToken);
         var waitForStopTask = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
-        exitToken.Token.Register(() => waitForStopTask.TrySetResult());
+        hostStopTokenSource.Token.Register(() => waitForStopTask.TrySetResult());
         Debug.WriteLine(AppHostStartedMessage);
         _logger.LogInformation(AppHostStartedMessage);
         await waitForStopTask.Task.ConfigureAwait(false);
