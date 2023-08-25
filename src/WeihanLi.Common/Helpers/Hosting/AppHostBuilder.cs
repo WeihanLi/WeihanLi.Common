@@ -1,19 +1,11 @@
-﻿// Copyright (c) Weihan Li. All rights reserved.
+// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
-#if NET6_0_OR_GREATER
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System.Diagnostics;
 
-namespace WeihanLi.Common.Helpers;
-
-public interface IAppHost
-{
-    IConfiguration Configuration { get; }
-    IServiceProvider Services { get; }
-    Task RunAsync(CancellationToken cancellationToken = default);
-}
+namespace WeihanLi.Common.Helpers.Hosting;
 
 public interface IAppHostBuilder
 {
@@ -31,11 +23,6 @@ public interface IAppHostBuilder
     /// Gets a collection of services for the application to compose. This is useful for adding user provided or framework provided services.
     /// </summary>
     IServiceCollection Services { get; }
-}
-
-public sealed class AppHostBuilderSettings
-{
-    public ConfigurationManager? Configuration { get; set; }
 }
 
 public sealed class AppHostBuilder : IAppHostBuilder
@@ -82,43 +69,3 @@ public sealed class AppHostBuilder : IAppHostBuilder
     }
 }
 
-public sealed class AppHost : IAppHost
-{
-    private const string
-        AppHostStartingMessage = "AppHost starting",
-        AppHostStartedMessage = "AppHost started. Press Ctrl+C to shut down",
-        AppHostStoppedMessage = "AppHost stopped"
-        ;
-    
-    private readonly ILogger _logger;
-    public AppHost(IServiceProvider services, IConfiguration configuration)
-    {
-        Services = services;
-        Configuration = configuration;
-        _logger = services.GetRequiredService<ILogger<AppHost>>();
-    }
-    
-    public IConfiguration Configuration { get; }
-    public IServiceProvider Services { get; }
-    
-    public async Task RunAsync(CancellationToken cancellationToken = default)
-    {
-        Debug.WriteLine(AppHostStartingMessage);
-        _logger.LogInformation(AppHostStartingMessage);
-        using var hostStopTokenSource = CancellationTokenSource.CreateLinkedTokenSource(InvokeHelper.GetExitToken(), cancellationToken);
-        var waitForStopTask = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
-        hostStopTokenSource.Token.Register(() => waitForStopTask.TrySetResult());
-        Debug.WriteLine(AppHostStartedMessage);
-        _logger.LogInformation(AppHostStartedMessage);
-        await waitForStopTask.Task.ConfigureAwait(false);
-        Debug.WriteLine(AppHostStoppedMessage);
-        _logger.LogInformation(AppHostStoppedMessage);
-    }
-    
-    public static AppHostBuilder CreateBuilder(AppHostBuilderSettings? settings = null)
-    {
-        return new AppHostBuilder(settings);
-    }
-}
-
-#endif

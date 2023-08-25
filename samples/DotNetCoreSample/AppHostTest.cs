@@ -5,11 +5,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Text.Encodings.Web;
 using System.Text.Json;
-using WeihanLi.Common.Helpers;
+using WeihanLi.Common.Helpers.Hosting;
 
 namespace DotNetCoreSample;
 
-public class AppHostTest
+public static class AppHostTest
 {
     public static async Task MainTest()
     {
@@ -23,8 +23,20 @@ public class AppHostTest
                 Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
             };
         });
+        builder.AddHostedService<TimerService>();
         var cts = new CancellationTokenSource(5000);
         var app = builder.Build();
         await app.RunAsync(cts.Token);
     }
+}
+
+file sealed class TimerService : TimerBaseBackgroundService
+{
+    protected override TimeSpan Period => TimeSpan.FromSeconds(1);
+    protected override Task TimedTask(CancellationToken cancellationToken)
+    {
+        Console.WriteLine(DateTimeOffset.Now);
+        return Task.CompletedTask;
+    }
+    
 }
