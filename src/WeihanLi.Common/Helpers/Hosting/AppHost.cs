@@ -16,7 +16,6 @@ public interface IAppHost
 {
     IConfiguration Configuration { get; }
     IServiceProvider Services { get; }
-    ILoggerFactory LoggerFactory { get; }
     Task RunAsync(CancellationToken cancellationToken = default);
 }
 
@@ -38,8 +37,7 @@ public sealed class AppHost : IAppHost
     {
         Services = services;
         Configuration = configuration;
-        LoggerFactory = services.GetRequiredService<ILoggerFactory>();
-        _logger = LoggerFactory.CreateLogger<ILogger<AppHost>>();
+        _logger = services.GetRequiredService<ILogger<AppHost>>();
         _appHostOptions = services.GetRequiredService<IOptions<AppHostOptions>>().Value;
 
         _hostedServices = services.GetServices<IHostedService>().ToArray();
@@ -49,7 +47,6 @@ public sealed class AppHost : IAppHost
     
     public IConfiguration Configuration { get; }
     public IServiceProvider Services { get; }
-    public ILoggerFactory LoggerFactory { get; }
 
     public async Task RunAsync(CancellationToken cancellationToken = default)
     {

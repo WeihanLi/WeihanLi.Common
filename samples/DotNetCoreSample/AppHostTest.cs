@@ -38,5 +38,4 @@ file sealed class TimerService : TimerBaseBackgroundService
         Console.WriteLine(DateTimeOffset.Now);
         return Task.CompletedTask;
     }
-    
 }
