@@ -5,30 +5,40 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
-#if NET6_0_OR_GREATER
-
 namespace WeihanLi.Common.Helpers.Hosting;
 
-public abstract class TimerBaseBackgroundService : BackgroundService
+public abstract class CronBasedBackgroundService : BackgroundService
 {
-    protected abstract TimeSpan Period { get; }
+    protected abstract string CronExpression { get; }
+
     protected abstract Task TimedTask(CancellationToken cancellationToken);
-    
+
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        using var timer = new PeriodicTimer(Period);
-        while (await timer.WaitForNextTickAsync(stoppingToken).ConfigureAwait(false))
+        var next = CronHelper.GetNextOccurrence(CronExpression);
+        while (!stoppingToken.IsCancellationRequested && next.HasValue)
         {
-            await TimedTask(stoppingToken).ConfigureAwait(false);
+            var now = DateTimeOffset.UtcNow;
+            if (now >= next)
+            {
+                _ = TimedTask(stoppingToken);
+                next = CronHelper.GetNextOccurrence(CronExpression);
+                if (!next.HasValue) break;
+            }
+            else
+            {
+                var delay = next.Value - DateTimeOffset.UtcNow;
+                await Task.Delay(delay, stoppingToken);
+            }
         }
     }
 }
 
-public abstract class TimerBaseBackgroundServiceWithDiagnostic : TimerBaseBackgroundService
+public abstract class CronBasedBackgroundServiceWithDiagnostic : CronBasedBackgroundService
 {
     private readonly IServiceProvider _serviceProvider;
 
-    protected TimerBaseBackgroundServiceWithDiagnostic(IServiceProvider serviceProvider)
+    protected CronBasedBackgroundServiceWithDiagnostic(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
         Logger = serviceProvider.GetRequiredService<ILoggerFactory>()
@@ -55,5 +65,3 @@ public abstract class TimerBaseBackgroundServiceWithDiagnostic : TimerBaseBackgr
         }
     }
 }
-
-#endif
