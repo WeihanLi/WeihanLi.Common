@@ -3,6 +3,7 @@
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using WeihanLi.Common.Helpers.Hosting;
@@ -15,13 +16,9 @@ public static class AppHostTest
     {
         var builder = AppHost.CreateBuilder();
         builder.Configuration.AddJsonFile("appsettings.json");
-        builder.Logging.AddJsonConsole(options =>
+        builder.Logging.AddNewtonJsonConsole(options =>
         {
             options.TimestampFormat = "yyyy-MM-dd HH:mm:ss";
-            options.JsonWriterOptions = new JsonWriterOptions()
-            {
-                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-            };
         });
         builder.AddHostedService<TimerService>();
         var cts = new CancellationTokenSource(5000);
@@ -37,5 +34,21 @@ file sealed class TimerService : TimerBaseBackgroundService
     {
         Console.WriteLine(DateTimeOffset.Now);
         return Task.CompletedTask;
+    }
+}
+
+public static partial class LoggingBuilderExtensions
+{
+    public static ILoggingBuilder AddRelaxedJsonConsole(this ILoggingBuilder loggingBuilder, 
+        Action<JsonConsoleFormatterOptions>? optionsConfigure = null)
+    {
+        return loggingBuilder.AddJsonConsole(options =>
+        {
+            options.JsonWriterOptions = new JsonWriterOptions()
+            {
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+            };
+            optionsConfigure?.Invoke(options);
+        });
     }
 }
