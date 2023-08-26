@@ -2,6 +2,7 @@
 // Licensed under the Apache license.
 
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Logging.Console;
@@ -91,5 +92,17 @@ public static partial class LoggingBuilderExtensions
             loggingBuilder.Services.Configure(optionsConfigure);
         }
         return loggingBuilder;
+    }
+}
+
+public static class NewtonJsonFormatterTest
+{
+    public static void MainTest()
+    {
+        var builder = Host.CreateEmptyApplicationBuilder(null);
+        // builder.Logging.AddJsonConsole();
+        builder.Logging.AddNewtonJsonConsole();
+        using var host = builder.Build();
+        host.Run();
     }
 }

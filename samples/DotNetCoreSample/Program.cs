@@ -311,15 +311,16 @@ Console.WriteLine("----------DotNetCoreSample----------");
 //TotpTest.MainTest();
 
 // exit test
-var exitToken = InvokeHelper.GetExitToken();
-exitToken.Register(() =>
-{
-    Console.WriteLine(@"Exiting");
-    Thread.Sleep(3000);
-    Console.WriteLine(@"Exited");
-});
+// var exitToken = InvokeHelper.GetExitToken();
+// exitToken.Register(() =>
+// {
+//     Console.WriteLine(@"Exiting");
+//     Thread.Sleep(3000);
+//     Console.WriteLine(@"Exited");
+// });
 
-await AppHostTest.MainTest();
+// await AppHostTest.MainTest();
+NewtonJsonFormatterTest.MainTest();
 
 // ConsoleHelper.ReadKeyWithPrompt("Press any key to exit");
 
