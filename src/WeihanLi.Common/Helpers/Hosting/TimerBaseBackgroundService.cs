@@ -1,8 +1,9 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
+#if NET6_0_OR_GREATER
 
 namespace WeihanLi.Common.Helpers.Hosting;
-#if NET6_0_OR_GREATER
+
 public abstract class TimerBaseBackgroundService : BackgroundService
 {
     protected abstract TimeSpan Period { get; }
@@ -18,4 +19,5 @@ public abstract class TimerBaseBackgroundService : BackgroundService
         }
     }
 }
+
 #endif
