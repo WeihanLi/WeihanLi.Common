@@ -33,12 +33,9 @@ public sealed class EventBus : IEventBus
             {
                 handlerTasks[index] = handler.Handle(@event).ContinueWith(r =>
                 {
-                    if (r.IsFaulted)
-                    {
-                        Logger.Error(r.Exception?.Unwrap(),
-                            $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handler.GetType().FullName}");
-                    }
-                });
+                    Logger.Error(r.Exception?.Unwrap(),
+                        $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handler.GetType().FullName}");
+                }, TaskContinuationOptions.OnlyOnFaulted);
             });
 
             _ = handlerTasks.WhenAllSafely().ConfigureAwait(false);

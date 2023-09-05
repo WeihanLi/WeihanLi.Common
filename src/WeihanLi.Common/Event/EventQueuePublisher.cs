@@ -34,7 +34,7 @@ public class EventQueuePublisher : IEventPublisher
     }
 }
 
-public class EventQueuePublisherOptions
+public sealed class EventQueuePublisherOptions
 {
     private Func<Type, string> _eventQueueNameResolver = _ => "events";
 
