@@ -26,26 +26,23 @@ public abstract class EventHandlerBase<TEvent> : IEventHandler<TEvent> where TEv
 
     public virtual Task Handle(object eventData)
     {
-        if (null == eventData)
-        {
-            throw new ArgumentNullException(nameof(eventData));
-        }
+        Guard.NotNull(eventData);
 
-        if (eventData is TEvent data)
+        switch (eventData)
         {
-            return Handle(data);
-        }
-        if (eventData is JObject jObject)
-        {
-            var @event = jObject.ToObject<TEvent>();
-            if (@event != null)
+            case TEvent data:
+                return Handle(data);
+            case JObject jObject:
             {
-                return Handle(@event);
+                var @event = jObject.ToObject<TEvent>();
+                if (@event != null)
+                {
+                    return Handle(@event);
+                }
+                break;
             }
-        }
-        if (eventData is string eventDataJson)
-        {
-            return Handle(eventDataJson.JsonToObject<TEvent>());
+            case string eventDataJson:
+                return Handle(eventDataJson.JsonToObject<TEvent>());
         }
 
         // ReSharper disable once LocalizableElement
