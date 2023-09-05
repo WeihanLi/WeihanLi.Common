@@ -27,6 +27,18 @@ public static class TaskExtension
     public static Task<Task<TResult>> WhenAny<TResult>(this IEnumerable<Task<TResult>> tasks) => Task.WhenAny(tasks);
 
     public static Task WhenAll(this IEnumerable<Task> tasks) => Task.WhenAll(tasks);
+    
+    public static Task WhenAllSafely(this IEnumerable<Task> tasks, Action<Exception>? onException = null) => Task.WhenAll(tasks.Select(async t =>
+    {
+        try
+        {
+          await t;
+        }
+        catch(Exception ex)
+        {
+            onException?.Invoke(ex);
+        }
+    }));
 
     public static Task<TResult[]> WhenAll<TResult>(this IEnumerable<Task<TResult>> tasks) => Task.WhenAll(tasks);
 

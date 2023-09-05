@@ -41,7 +41,7 @@ public sealed class EventBus : IEventBus
                 });
             });
 
-            _ = handlerTasks.WhenAll().ConfigureAwait(false);
+            _ = handlerTasks.WhenAllSafely().ConfigureAwait(false);
 
             return true;
         }
@@ -54,20 +54,15 @@ public sealed class EventBus : IEventBus
         if (handlers.Count > 0)
         {
             var handlerTasks = new Task[handlers.Count];
-
             handlers.ForEach((handler, index) =>
             {
                 handlerTasks[index] = handler.Handle(@event).ContinueWith(r =>
                 {
-                    if (r.IsFaulted)
-                    {
-                        Logger.Error(r.Exception?.Unwrap(),
-                            $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handler.GetType().FullName}");
-                    }
-                });
+                    Logger.Error(r.Exception?.Unwrap(),
+                        $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handler.GetType().FullName}");
+                }, TaskContinuationOptions.OnlyOnFaulted);
             });
-
-            await handlerTasks.WhenAll().ConfigureAwait(false);
+            await handlerTasks.WhenAllSafely().ConfigureAwait(false);
 
             return true;
         }

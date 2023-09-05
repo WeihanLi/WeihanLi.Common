@@ -45,7 +45,6 @@ public abstract class EventHandlerBase<TEvent> : IEventHandler<TEvent> where TEv
                 return Handle(eventDataJson.JsonToObject<TEvent>());
         }
 
-        // ReSharper disable once LocalizableElement
-        throw new ArgumentException($"Unsupported event DataType:{eventData.GetType()}", nameof(eventData));
+        throw new ArgumentException(@$"Unsupported event DataType:{eventData.GetType()}", nameof(eventData));
     }
 }
