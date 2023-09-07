@@ -33,7 +33,8 @@ public static class EventBusExtensions
 
         services.TryAddSingleton<IEventQueue, EventQueueInMemory>();
         services.TryAddSingleton<IEventStore, EventStoreInMemory>();
-        services.TryAddSingleton<IEventPublisher, EventQueuePublisher>();        
+        services.TryAddSingleton<IEventPublisher, EventQueuePublisher>();     
+        services.TryAddSingleton<IEventSubscriptionManager, NullEventSubscriptionManager>();
 
         return new EventBuilder(services);
     }
