@@ -24,6 +24,7 @@ public sealed class AppHost : IAppHost
     private const string
         AppHostStartingMessage = "AppHost starting",
         AppHostStartedMessage = "AppHost started. Press Ctrl+C to shut down",
+        AppHostStoppingMessage = "AppHost stopping",
         AppHostStoppedMessage = "AppHost stopped"
         ;
 
@@ -46,6 +47,7 @@ public sealed class AppHost : IAppHost
     }
     
     public IConfiguration Configuration { get; }
+    public ILogger Logger => _logger;
     public IServiceProvider Services { get; }
 
     public async Task RunAsync(CancellationToken cancellationToken = default)
@@ -88,7 +90,8 @@ public sealed class AppHost : IAppHost
         _logger.LogInformation(AppHostStartedMessage);
         
         await waitForStopTask.Task.ConfigureAwait(false);
-        
+        Debug.WriteLine(AppHostStoppingMessage);
+        _logger.LogInformation(AppHostStoppingMessage);
         // reverse to keep first startup last stop when not in concurrent
         Array.Reverse(_hostedServices); 
         Array.Reverse(_hostedLifecycleServices);

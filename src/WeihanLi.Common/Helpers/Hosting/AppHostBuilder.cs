@@ -45,7 +45,7 @@ public sealed class AppHostBuilder : IAppHostBuilder
     public ILoggingBuilder Logging { get; }
     public IServiceCollection Services => _serviceCollection;
 
-    public IAppHost Build()
+    public AppHost Build()
     {
         if (_hostBuilt)
         {
