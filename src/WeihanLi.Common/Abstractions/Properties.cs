@@ -7,3 +7,8 @@ public interface IProperties
 {
     IDictionary<string, object?> Properties { get; }
 }
+
+public interface IStringProperties
+{
+    IDictionary<string, string> Properties { get; }
+}

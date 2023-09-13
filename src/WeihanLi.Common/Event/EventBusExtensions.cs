@@ -27,16 +27,14 @@ public static class EventBusExtensions
     public static IEventBuilder AddEvents(this IServiceCollection services)
     {
         services.AddOptions();
-
-        services.TryAddSingleton<IEventSubscriptionManager, NullEventSubscriptionManager>();
+        
         services.TryAddSingleton<IEventHandlerFactory, DependencyInjectionEventHandlerFactory>();
-
-        services.TryAddSingleton<IEventSubscriber, NullEventSubscriptionManager>();
-        services.TryAddSingleton<IEventPublisher, EventBus>();
         services.TryAddSingleton<IEventBus, EventBus>();
 
         services.TryAddSingleton<IEventQueue, EventQueueInMemory>();
         services.TryAddSingleton<IEventStore, EventStoreInMemory>();
+        services.TryAddSingleton<IEventPublisher, EventQueuePublisher>();     
+        services.TryAddSingleton<IEventSubscriptionManager, NullEventSubscriptionManager>();
 
         return new EventBuilder(services);
     }
@@ -56,7 +54,7 @@ public static class EventBusExtensions
         return eventBuilder;
     }
 
-    public static IEventBuilder RegisterEventHandlers(this IEventBuilder builder, Func<Type, bool>? filter = null, ServiceLifetime serviceLifetime = ServiceLifetime.Transient, params Assembly[] assemblies)
+    public static IEventBuilder RegisterEventHandlers(this IEventBuilder builder, Func<Type, bool>? filter = null, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton, params Assembly[] assemblies)
     {
         Guard.NotNull(assemblies, nameof(assemblies));
         if (assemblies.Length == 0)
