@@ -22,15 +22,15 @@
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.1.1" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
     <PackageVersion Include="FluentAssertions" Version="6.6.0" />
-    <PackageVersion Include="Moq" Version="4.17.2" />
+    <PackageVersion Include="Moq" Version="4.18.4" />
     <PackageVersion Include="xunit" Version="2.5.0" />
     <PackageVersion Include="Xunit.DependencyInjection" Version="8.7.1" />
     <PackageVersion Include="Xunit.DependencyInjection.Logging" Version="8.1.0" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.0" />
     <PackageVersion Include="coverlet.collector" Version="6.0.0" />
-    <PackageVersion Include="BenchmarkDotNet" Version="0.13.1" />
+    <PackageVersion Include="BenchmarkDotNet" Version="0.13.8" />
   </ItemGroup>
   <ItemGroup>
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.0-rc.1.23419.6" />
@@ -39,9 +39,9 @@
     <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0-rc.1.23419.4" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="8.0.0-rc.1.23419.4" />
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="8.0.0-rc.1.23419.4" />
-    <PackageVersion Include="Serilog.Sinks.Console" Version="4.0.0" />
+    <PackageVersion Include="Serilog.Sinks.Console" Version="4.1.0" />
     <PackageVersion Include="System.Data.SqlClient" Version="4.8.5" />
-    <PackageVersion Include="Dapper" Version="1.50.4" />
+    <PackageVersion Include="Dapper" Version="2.0.151" />
   </ItemGroup>
   <ItemGroup>
     <GlobalPackageReference Include="PolySharp" Version="1.13.2" />
