@@ -319,8 +319,8 @@ Console.WriteLine("----------DotNetCoreSample----------");
 //     Console.WriteLine(@"Exited");
 // });
 
-// await AppHostTest.MainTest();
-NewtonJsonFormatterTest.MainTest();
+await AppHostTest.MainTest();
+// NewtonJsonFormatterTest.MainTest();
 
 // ConsoleHelper.ReadKeyWithPrompt("Press any key to exit");
 
