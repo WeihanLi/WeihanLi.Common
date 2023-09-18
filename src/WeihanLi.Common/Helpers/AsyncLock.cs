@@ -1,4 +1,4 @@
-﻿namespace WeihanLi.Common;
+﻿namespace WeihanLi.Common.Helpers;
 
 /// <summary>
 /// AsyncLock basedOn SemaphoreSlim

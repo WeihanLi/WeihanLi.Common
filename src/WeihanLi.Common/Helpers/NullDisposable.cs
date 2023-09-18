@@ -1,6 +1,4 @@
-﻿using WeihanLi.Common.Helpers;
-
-namespace WeihanLi.Common;
+﻿namespace WeihanLi.Common.Helpers;
 
 /// <summary>
 /// A singleton disposable that does nothing when disposed.
@@ -23,7 +21,7 @@ public sealed class NullDisposable : IDisposable
 #if NET6_0_OR_GREATER
         ValueTask.CompletedTask
 #else
-        default(ValueTask)
+        default
 #endif    
     ;
 #endif
@@ -35,6 +33,9 @@ public sealed class NullDisposable : IDisposable
 }
 
 public sealed class DisposableAction : IDisposable
+#if ValueTaskSupport
+    , IAsyncDisposable
+#endif
 {
     public static readonly DisposableAction Empty = new(null);
 
@@ -49,4 +50,18 @@ public sealed class DisposableAction : IDisposable
     {
         Interlocked.Exchange(ref _disposeAction, null)?.Invoke();
     }
+    
+#if ValueTaskSupport
+    public ValueTask DisposeAsync()
+    {
+        Dispose();
+        return 
+#if NET6_0_OR_GREATER
+            ValueTask.CompletedTask
+#else
+        default
+#endif
+            ;
+    }
+#endif
 }

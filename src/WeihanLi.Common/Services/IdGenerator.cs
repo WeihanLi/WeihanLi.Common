@@ -1,6 +1,6 @@
 ﻿using WeihanLi.Common.Helpers;
 
-namespace WeihanLi.Common;
+namespace WeihanLi.Common.Services;
 
 /// <summary>
 /// IdGenerator
