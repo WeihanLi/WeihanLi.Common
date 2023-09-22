@@ -44,8 +44,8 @@ public abstract class CronBasedBackgroundServiceWithDiagnostic : CronBasedBackgr
         Logger = serviceProvider.GetRequiredService<ILoggerFactory>()
             .CreateLogger(GetType());
     }
-    
-    protected ILogger Logger { get;}
+
+    protected ILogger Logger { get; }
     protected abstract Task TimedTask(IServiceProvider serviceProvider, CancellationToken cancellationToken);
 
     protected override async Task TimedTask(CancellationToken cancellationToken)

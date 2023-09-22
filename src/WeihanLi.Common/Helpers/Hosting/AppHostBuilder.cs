@@ -1,4 +1,4 @@
-// Copyright (c) Weihan Li. All rights reserved.
+﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
 using Microsoft.Extensions.Configuration;
@@ -13,7 +13,7 @@ public interface IAppHostBuilder
     /// Gets the set of key/value configuration properties.
     /// </summary>
     ConfigurationManager Configuration { get; }
-    
+
     /// <summary>
     /// Gets a collection of logging providers for the application to compose. This is useful for adding new logging providers.
     /// </summary>
@@ -34,9 +34,9 @@ public sealed class AppHostBuilder : IAppHostBuilder
         settings ??= new();
         _serviceCollection = new ServiceCollection();
         Configuration = settings.Configuration ?? new ConfigurationManager();
-        
+
         Logging = new LoggingBuilder(Services);
-        
+
         _serviceCollection.AddSingleton<IConfiguration>(Configuration);
         _serviceCollection.AddLogging();
     }
@@ -59,7 +59,7 @@ public sealed class AppHostBuilder : IAppHostBuilder
         return new AppHost(services, Configuration);
     }
 
-    private sealed class LoggingBuilder: ILoggingBuilder
+    private sealed class LoggingBuilder : ILoggingBuilder
     {
         public LoggingBuilder(IServiceCollection services)
         {

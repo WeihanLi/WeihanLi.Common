@@ -50,7 +50,7 @@ public sealed class DisposableAction : IDisposable
     {
         Interlocked.Exchange(ref _disposeAction, null)?.Invoke();
     }
-    
+
 #if ValueTaskSupport
     public ValueTask DisposeAsync()
     {
@@ -82,7 +82,7 @@ public class DisposableBase : IDisposable
     public void Dispose()
     {
         if (_disposed) return;
-        
+
         Dispose(disposing: true);
         GC.SuppressFinalize(this);
     }
@@ -122,6 +122,6 @@ public class DisposableBase : IDisposable
             ;
     }
 #endif
-    
+
     ~DisposableBase() => Dispose(false);
 }

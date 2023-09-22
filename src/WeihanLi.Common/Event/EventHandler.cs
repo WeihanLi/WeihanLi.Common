@@ -33,14 +33,14 @@ public abstract class EventHandlerBase<TEvent> : IEventHandler<TEvent> where TEv
             case TEvent data:
                 return Handle(data);
             case JObject jObject:
-            {
-                var @event = jObject.ToObject<TEvent>();
-                if (@event != null)
                 {
-                    return Handle(@event);
+                    var @event = jObject.ToObject<TEvent>();
+                    if (@event != null)
+                    {
+                        return Handle(@event);
+                    }
+                    break;
                 }
-                break;
-            }
             case string eventDataJson:
                 return Handle(eventDataJson.JsonToObject<TEvent>());
         }
