@@ -34,19 +34,16 @@ public static class ApplicationHelper
         if (assemblyInformation is not null)
         {
             var informationalVersionSplit = assemblyInformation.InformationalVersion.Split('+');
-            if (Version.TryParse(informationalVersionSplit[0], out var version))
+            return new LibraryInfo()
             {
-                return new LibraryInfo()
-                {
-                    LibraryVersion = version,
-                    LibraryHash = informationalVersionSplit.Length > 1 ? informationalVersionSplit[1] : string.Empty,
-                    RepositoryUrl = repositoryUrl
-                };
-            }
+                LibraryVersion = informationalVersionSplit[0],
+                LibraryHash = informationalVersionSplit.Length > 1 ? informationalVersionSplit[1] : string.Empty,
+                RepositoryUrl = repositoryUrl
+            };
         }
         return new LibraryInfo()
         {
-            LibraryVersion = assembly.GetName().Version!,
+            LibraryVersion = assembly.GetName().Version.ToString(),
             LibraryHash = string.Empty,
             RepositoryUrl = repositoryUrl
         };
@@ -111,7 +108,7 @@ public static class ApplicationHelper
 #endif
         return new RuntimeInfo()
         {
-            Version = Environment.Version,
+            Version = Environment.Version.ToString(),
             ProcessorCount = Environment.ProcessorCount,
             FrameworkDescription = RuntimeInformation.FrameworkDescription,
             WorkingDirectory = Environment.CurrentDirectory,
@@ -181,14 +178,14 @@ public static class ApplicationHelper
 
 public class LibraryInfo
 {
-    public required Version LibraryVersion { get; init; }
+    public required string LibraryVersion { get; init; }
     public required string LibraryHash { get; init; }
     public required string RepositoryUrl { get; init; }
 }
 
 public sealed class RuntimeInfo : LibraryInfo
 {
-    public required Version Version { get; init; }
+    public required string Version { get; init; }
     public required string FrameworkDescription { get; init; }
     public required int ProcessorCount { get; init; }
     public required string OSArchitecture { get; init; }

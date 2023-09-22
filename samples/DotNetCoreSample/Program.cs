@@ -1,4 +1,5 @@
-﻿// Copyright (c) Weihan Li. All rights reserved.
+﻿using System.Net.Mime;
+// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
 using DotNetCoreSample;
@@ -318,7 +319,7 @@ Console.WriteLine("----------DotNetCoreSample----------");
 //     Thread.Sleep(3000);
 //     Console.WriteLine(@"Exited");
 // });
-
+// ApplicationHelper.RuntimeInfo.Dump();
 await AppHostTest.MainTest();
 // NewtonJsonFormatterTest.MainTest();
 
