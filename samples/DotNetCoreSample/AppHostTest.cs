@@ -19,7 +19,10 @@ public static class AppHostTest
     {
         var builder = AppHost.CreateBuilder();
         builder.Configuration.AddJsonFile("appsettings.json");
-        builder.Logging.AddRelaxedJsonConsole(options => { options.TimestampFormat = "yyyy-MM-dd HH:mm:ss"; });
+        builder.Logging.AddRelaxedJsonConsole(options =>
+        {
+            options.TimestampFormat = "yyyy-MM-dd HH:mm:ss";
+        });
         // builder.AddHostedService<TimerService>();
         // builder.AddHostedService<DiagnosticBackgroundService>();
         builder.Services.AddSingleton<IWebServer, HttpListenerWebServer>();
