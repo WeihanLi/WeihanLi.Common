@@ -43,7 +43,7 @@ public static class ApplicationHelper
         }
         return new LibraryInfo()
         {
-            LibraryVersion = assembly.GetName().Version.ToString(),
+            LibraryVersion = assembly.GetName().Version?.ToString() ?? string.Empty,
             LibraryHash = string.Empty,
             RepositoryUrl = repositoryUrl
         };
