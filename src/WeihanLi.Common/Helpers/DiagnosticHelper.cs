@@ -2,12 +2,19 @@
 // Licensed under the Apache license.
 
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 
 namespace WeihanLi.Common.Helpers;
 
 public static class DiagnosticHelper
 {
-    public const string ActivitySourceName = "WeihanLi.Common";
-    internal static readonly ActivitySource ActivitySource = new(ActivitySourceName,
-        typeof(DiagnosticHelper).Assembly.GetName().Version?.ToString(3));
+    private const string DiagnosticSourceName = "WeihanLi.Common";
+    internal static readonly ActivitySource ActivitySource;
+    internal static readonly Meter Meter;
+    static DiagnosticHelper()
+    {
+        var version = typeof(DiagnosticHelper).Assembly.GetName().Version?.ToString(3);
+        ActivitySource = new(DiagnosticSourceName, version);
+        Meter = new(DiagnosticSourceName, version);
+    }
 }
