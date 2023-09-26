@@ -52,8 +52,7 @@ public sealed class AppHost : IAppHost
 
     public async Task RunAsync(CancellationToken cancellationToken = default)
     {
-        Debug.WriteLine(AppHostStartingMessage);
-        _logger.LogInformation(AppHostStartingMessage);
+        LogAppHostMessage(AppHostStartingMessage);
         using var hostStopTokenSource = CancellationTokenSource.CreateLinkedTokenSource(InvokeHelper.GetExitToken(), cancellationToken);
 #if NET6_0_OR_GREATER
         var waitForStopTask = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
@@ -86,12 +85,11 @@ public sealed class AppHost : IAppHost
                     }).ConfigureAwait(false);
         LogAndRethrow();
         startTimeoutCts.Dispose();
-        Debug.WriteLine(AppHostStartedMessage);
-        _logger.LogInformation(AppHostStartedMessage);
+        LogAppHostMessage(AppHostStartedMessage);
 
         await waitForStopTask.Task.ConfigureAwait(false);
-        Debug.WriteLine(AppHostStoppingMessage);
-        _logger.LogInformation(AppHostStoppingMessage);
+        LogAppHostMessage(AppHostStoppingMessage);
+
         // reverse to keep first startup last stop when not in concurrent
         Array.Reverse(_hostedServices);
         Array.Reverse(_hostedLifecycleServices);
@@ -113,8 +111,7 @@ public sealed class AppHost : IAppHost
                 await service.StoppedAsync(cancelToken);
             }).ConfigureAwait(false);
 
-        Debug.WriteLine(AppHostStoppedMessage);
-        _logger.LogInformation(AppHostStoppedMessage);
+        LogAppHostMessage(AppHostStoppedMessage);
 
         // Log and abort if there are exceptions.
         void LogAndRethrow()
@@ -134,6 +131,12 @@ public sealed class AppHost : IAppHost
                 _logger.LogCritical(ex, "AppHost Startup exception");
                 throw ex;
             }
+        }
+
+        void LogAppHostMessage(string message)
+        {
+            Debug.WriteLine(message);
+            _logger.LogInformation(message);
         }
     }
 
