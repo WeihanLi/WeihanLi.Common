@@ -25,9 +25,10 @@ public static class AppHostTest
         });
         // builder.AddHostedService<TimerService>();
         // builder.AddHostedService<DiagnosticBackgroundService>();
+
         builder.Services.AddSingleton<IWebServer, HttpListenerWebServer>();
         builder.AddHostedService<WebServerHostedService>();
-        var cts = new CancellationTokenSource(60_000);
+        var cts = new CancellationTokenSource(10_000);
         var app = builder.Build();
         await app.RunAsync(cts.Token);
     }
