@@ -1,4 +1,4 @@
-// Copyright (c) Weihan Li. All rights reserved.
+﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
 
@@ -33,7 +33,7 @@ public sealed class AppHost : IAppHost
 
     private readonly IHostedService[] _hostedServices;
     private readonly IHostedLifecycleService[] _hostedLifecycleServices;
-    
+
     public AppHost(IServiceProvider services, IConfiguration configuration)
     {
         Services = services;
@@ -42,18 +42,17 @@ public sealed class AppHost : IAppHost
         _appHostOptions = services.GetRequiredService<IOptions<AppHostOptions>>().Value;
 
         _hostedServices = services.GetServices<IHostedService>().ToArray();
-        _hostedLifecycleServices = _hostedServices.Select(x=> x as IHostedLifecycleService)
+        _hostedLifecycleServices = _hostedServices.Select(x => x as IHostedLifecycleService)
             .WhereNotNull().ToArray();
     }
-    
+
     public IConfiguration Configuration { get; }
     public ILogger Logger => _logger;
     public IServiceProvider Services { get; }
 
     public async Task RunAsync(CancellationToken cancellationToken = default)
     {
-        Debug.WriteLine(AppHostStartingMessage);
-        _logger.LogInformation(AppHostStartingMessage);
+        LogAppHostMessage(AppHostStartingMessage);
         using var hostStopTokenSource = CancellationTokenSource.CreateLinkedTokenSource(InvokeHelper.GetExitToken(), cancellationToken);
 #if NET6_0_OR_GREATER
         var waitForStopTask = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
@@ -63,7 +62,7 @@ public sealed class AppHost : IAppHost
         hostStopTokenSource.Token.Register(() => waitForStopTask.TrySetResult(null));
 #endif
         var exceptions = new List<Exception>();
-        
+
         var startTimeoutCts = new CancellationTokenSource(_appHostOptions.StartupTimeout);
         var hostStartCancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, InvokeHelper.GetExitToken(), startTimeoutCts.Token);
         var hostStartCancellationToken = hostStartCancellationTokenSource.Token;
@@ -86,14 +85,13 @@ public sealed class AppHost : IAppHost
                     }).ConfigureAwait(false);
         LogAndRethrow();
         startTimeoutCts.Dispose();
-        Debug.WriteLine(AppHostStartedMessage);
-        _logger.LogInformation(AppHostStartedMessage);
-        
+        LogAppHostMessage(AppHostStartedMessage);
+
         await waitForStopTask.Task.ConfigureAwait(false);
-        Debug.WriteLine(AppHostStoppingMessage);
-        _logger.LogInformation(AppHostStoppingMessage);
+        LogAppHostMessage(AppHostStoppingMessage);
+
         // reverse to keep first startup last stop when not in concurrent
-        Array.Reverse(_hostedServices); 
+        Array.Reverse(_hostedServices);
         Array.Reverse(_hostedLifecycleServices);
         var stopTimeoutCts = new CancellationTokenSource(_appHostOptions.ShutdownTimeout);
         var hostStopCancellationToken = stopTimeoutCts.Token;
@@ -112,15 +110,14 @@ public sealed class AppHost : IAppHost
             {
                 await service.StoppedAsync(cancelToken);
             }).ConfigureAwait(false);
-        
-        Debug.WriteLine(AppHostStoppedMessage);
-        _logger.LogInformation(AppHostStoppedMessage);
-        
+
+        LogAppHostMessage(AppHostStoppedMessage);
+
         // Log and abort if there are exceptions.
         void LogAndRethrow()
         {
             if (exceptions is not { Count: > 0 }) return;
-            
+
             if (exceptions.Count == 1)
             {
                 // Rethrow if it's a single error
@@ -135,13 +132,19 @@ public sealed class AppHost : IAppHost
                 throw ex;
             }
         }
+
+        void LogAppHostMessage(string message)
+        {
+            Debug.WriteLine(message);
+            _logger.LogInformation(message);
+        }
     }
-    
+
     public static AppHostBuilder CreateBuilder(AppHostBuilderSettings? settings = null)
     {
         return new AppHostBuilder(settings);
     }
-    
+
     private static async Task ForeachService<T>(
         T[] services,
         CancellationToken token,
@@ -151,7 +154,7 @@ public sealed class AppHost : IAppHost
         Func<T, CancellationToken, Task> operation)
     {
         if (services.IsNullOrEmpty()) return;
-        
+
         if (concurrent)
         {
             // The beginning synchronous portions of the implementations are run serially in registration order for

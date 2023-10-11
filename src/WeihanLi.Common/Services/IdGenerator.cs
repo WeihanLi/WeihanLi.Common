@@ -1,6 +1,6 @@
 ﻿using WeihanLi.Common.Helpers;
 
-namespace WeihanLi.Common;
+namespace WeihanLi.Common.Services;
 
 /// <summary>
 /// IdGenerator
@@ -19,7 +19,7 @@ public interface IIdGenerator
 /// </summary>
 public sealed class GuidIdGenerator : IIdGenerator
 {
-    public static readonly GuidIdGenerator Instance = new();
+    public static GuidIdGenerator Instance { get; } = new();
 
     public string NewId() => Guid.NewGuid().ToString("N");
 }

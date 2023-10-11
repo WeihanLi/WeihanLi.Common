@@ -27,14 +27,14 @@ public static class TaskExtension
     public static Task<Task<TResult>> WhenAny<TResult>(this IEnumerable<Task<TResult>> tasks) => Task.WhenAny(tasks);
 
     public static Task WhenAll(this IEnumerable<Task> tasks) => Task.WhenAll(tasks);
-    
+
     public static Task WhenAllSafely(this IEnumerable<Task> tasks, Action<Exception>? onException = null) => Task.WhenAll(tasks.Select(async t =>
     {
         try
         {
-          await t;
+            await t;
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             onException?.Invoke(ex);
         }
@@ -49,12 +49,12 @@ public static class TaskExtension
     /// </summary>
     /// <param name="scheduler">Scheduler for the action to be scheduled on.</param>
     /// <param name="action">Action to be scheduled.</param>
-    /// <param name="cancelationToken">Cancellation token to link the new task to. If canceled before being scheduled, the action will not be run.</param>
+    /// <param name="cancellationToken">Cancellation token to link the new task to. If canceled before being scheduled, the action will not be run.</param>
     /// <returns>New task created for the action.</returns>
-    public static Task Run(this TaskScheduler scheduler, Action action, CancellationToken cancelationToken = default)
+    public static Task Run(this TaskScheduler scheduler, Action action, CancellationToken cancellationToken = default)
     {
         var taskFactory = new TaskFactory(CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskContinuationOptions.None, scheduler);
-        return taskFactory.StartNew(action, cancellationToken: cancelationToken);
+        return taskFactory.StartNew(action, cancellationToken: cancellationToken);
     }
 
     /// <summary>
@@ -63,12 +63,12 @@ public static class TaskExtension
     /// <typeparam name="T">Result type.</typeparam>
     /// <param name="scheduler">Scheduler for the action to be scheduled on.</param>
     /// <param name="function">Function to be scheduled.</param>
-    /// <param name="cancelationToken">Cancellation token to link the new task to. If canceled before being scheduled, the action will not be run.</param>
+    /// <param name="cancellationToken">Cancellation token to link the new task to. If canceled before being scheduled, the action will not be run.</param>
     /// <returns>New task created for the function. This task completes with the result of calling the function.</returns>
-    public static Task<T> Run<T>(this TaskScheduler scheduler, Func<T> function, CancellationToken cancelationToken = default)
+    public static Task<T> Run<T>(this TaskScheduler scheduler, Func<T> function, CancellationToken cancellationToken = default)
     {
         var taskFactory = new TaskFactory(CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskContinuationOptions.None, scheduler);
-        return taskFactory.StartNew(function, cancellationToken: cancelationToken);
+        return taskFactory.StartNew(function, cancellationToken: cancellationToken);
     }
 
     /// <summary>

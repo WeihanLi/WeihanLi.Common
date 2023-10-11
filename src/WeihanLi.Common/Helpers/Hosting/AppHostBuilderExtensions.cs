@@ -1,4 +1,4 @@
-// Copyright (c) Weihan Li. All rights reserved.
+﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
 using Microsoft.Extensions.Configuration;
@@ -9,7 +9,7 @@ namespace WeihanLi.Common.Helpers.Hosting;
 
 public static class AppHostBuilderExtensions
 {
-    public static IAppHostBuilder AddHostedService<TService>(this IAppHostBuilder appHostBuilder) 
+    public static IAppHostBuilder AddHostedService<TService>(this IAppHostBuilder appHostBuilder)
         where TService : class, IHostedService
     {
         Guard.NotNull(appHostBuilder);
@@ -26,7 +26,7 @@ public static class AppHostBuilderExtensions
         appHostBuilder.Services.Configure(configure);
         return appHostBuilder;
     }
-    
+
     public static IAppHostBuilder ConfigureHostOptions(this IAppHostBuilder appHostBuilder, Action<AppHostOptions, IConfiguration> configure)
     {
         Guard.NotNull(appHostBuilder);

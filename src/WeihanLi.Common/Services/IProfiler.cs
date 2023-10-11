@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace WeihanLi.Common;
+namespace WeihanLi.Common.Services;
 
 public interface IProfiler
 {

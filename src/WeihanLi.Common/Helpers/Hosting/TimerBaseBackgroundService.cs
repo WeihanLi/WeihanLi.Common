@@ -4,6 +4,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 
 #if NET6_0_OR_GREATER
 
@@ -27,12 +28,15 @@ public abstract class TimerBaseBackgroundService : BackgroundService
 public abstract class TimerBaseBackgroundServiceWithDiagnostic : TimerBaseBackgroundService
 {
     private readonly IServiceProvider _serviceProvider;
+    private readonly Counter<int> _executeSuccessCounter, _executeErrorCounter;
 
     protected TimerBaseBackgroundServiceWithDiagnostic(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
         Logger = serviceProvider.GetRequiredService<ILoggerFactory>()
             .CreateLogger(GetType());
+        _executeSuccessCounter = DiagnosticHelper.Meter.CreateCounter<int>("timer-service-executed-counter", "count", "Background service count");
+        _executeErrorCounter = DiagnosticHelper.Meter.CreateCounter<int>("timer-service-execute-error-counter", "count", "Background service count");
     }
     
     protected ILogger Logger { get;}
@@ -47,11 +51,13 @@ public abstract class TimerBaseBackgroundServiceWithDiagnostic : TimerBaseBackgr
             Logger.LogInformation("BackgroundService execute begin");
             await TimedTask(scope.ServiceProvider, cancellationToken);
             Logger.LogInformation("BackgroundService execute end");
+            if (_executeSuccessCounter.Enabled) _executeSuccessCounter.Add(1);
         }
         catch (Exception e)
         {
             activity?.SetStatus(ActivityStatusCode.Error, e.Message);
             Logger.LogError(e, "BackgroundService execute exception");
+            if (_executeErrorCounter.Enabled) _executeErrorCounter.Add(1);
         }
     }
 }

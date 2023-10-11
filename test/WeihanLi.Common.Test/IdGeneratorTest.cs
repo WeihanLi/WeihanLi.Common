@@ -1,4 +1,5 @@
 ﻿using WeihanLi.Common.Helpers;
+using WeihanLi.Common.Services;
 using Xunit;
 
 namespace WeihanLi.Common.Test;

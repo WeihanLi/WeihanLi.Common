@@ -27,13 +27,13 @@ public static class EventBusExtensions
     public static IEventBuilder AddEvents(this IServiceCollection services)
     {
         services.AddOptions();
-        
+
         services.TryAddSingleton<IEventHandlerFactory, DependencyInjectionEventHandlerFactory>();
         services.TryAddSingleton<IEventBus, EventBus>();
 
         services.TryAddSingleton<IEventQueue, EventQueueInMemory>();
         services.TryAddSingleton<IEventStore, EventStoreInMemory>();
-        services.TryAddSingleton<IEventPublisher, EventQueuePublisher>();     
+        services.TryAddSingleton<IEventPublisher, EventQueuePublisher>();
         services.TryAddSingleton<IEventSubscriptionManager, NullEventSubscriptionManager>();
 
         return new EventBuilder(services);

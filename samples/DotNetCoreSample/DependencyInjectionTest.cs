@@ -5,6 +5,7 @@ using WeihanLi.Common.Aspect;
 using WeihanLi.Common.DependencyInjection;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
+using WeihanLi.Common.Services;
 using WeihanLi.Extensions;
 
 namespace DotNetCoreSample;
