@@ -66,7 +66,7 @@ public class ServiceCollectionBuildTest
     }
 
     [Fact]
-    public void ClassTest()
+    public async Task ClassTest()
     {
         // unsealed class, will intercept virtual method
         var userIdProvider = _serviceProvider.GetRequiredService<EnvironmentUserIdProvider>();
@@ -99,11 +99,11 @@ public class ServiceCollectionBuildTest
 
         var handTask = eventHandler.Handle(new TestEvent());
         Assert.NotNull(handTask);
-        handTask.Wait();
+        await handTask;
     }
 
     [Fact]
-    public void GenericMethodTest()
+    public async void GenericMethodTest()
     {
         var publisher = _serviceProvider.GetRequiredService<IEventPublisher>();
         Assert.NotNull(publisher);
@@ -112,7 +112,7 @@ public class ServiceCollectionBuildTest
         Assert.True(publisherType.Assembly.IsDynamic);
         publisher.Publish(new TestEvent());
 
-        publisher.PublishAsync(new TestEvent()).Wait();
+        await publisher.PublishAsync(new TestEvent());
     }
 
     // not supported, will not intercept
