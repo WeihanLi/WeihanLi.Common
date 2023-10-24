@@ -3,9 +3,12 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Data;
 
+[CLSCompliant(false)]
 public class UnitOfWork : IUnitOfWork, IDisposable
 {
-    protected readonly IDbTransaction _dbTransaction;
+    private readonly IDbTransaction _dbTransaction;
+
+    protected IDbTransaction DbTransaction => _dbTransaction;
 
     public UnitOfWork(IDbConnection dbConnection)
     {
