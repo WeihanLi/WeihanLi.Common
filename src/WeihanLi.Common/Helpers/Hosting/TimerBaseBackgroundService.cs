@@ -40,7 +40,7 @@ public abstract class TimerBaseBackgroundServiceWithDiagnostic : TimerBaseBackgr
 
     protected ILogger Logger { get; }
 
-    protected abstract Task ExecuteTaskInternalAsync(IServiceProvider serviceProvider, Activity? activity, CancellationToken cancellationToken);
+    protected abstract Task ExecuteTaskInternalAsync(IServiceProvider serviceProvider, CancellationToken cancellationToken);
 
     protected override async Task ExecuteTaskAsync(CancellationToken cancellationToken)
     {
@@ -49,7 +49,7 @@ public abstract class TimerBaseBackgroundServiceWithDiagnostic : TimerBaseBackgr
         try
         {
             Logger.LogInformation("BackgroundService execute begin");
-            await ExecuteTaskInternalAsync(scope.ServiceProvider, activity, cancellationToken);
+            await ExecuteTaskInternalAsync(scope.ServiceProvider, cancellationToken);
             Logger.LogInformation("BackgroundService execute end");
             if (_executeCounter.Enabled) _executeCounter.Add(1, new KeyValuePair<string, object?>("status", "0"));
         }
