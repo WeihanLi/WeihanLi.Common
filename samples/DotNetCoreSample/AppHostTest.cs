@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;
+using System.Diagnostics;
 using System.Net;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -38,7 +39,7 @@ file sealed class TimerService : TimerBaseBackgroundService
 {
     protected override TimeSpan Period => TimeSpan.FromSeconds(1);
 
-    protected override Task TimedTask(CancellationToken cancellationToken)
+    protected override Task ExecuteTaskAsync(CancellationToken cancellationToken)
     {
         Console.WriteLine(DateTimeOffset.Now);
         return Task.CompletedTask;
@@ -53,7 +54,7 @@ file sealed class DiagnosticBackgroundService : CronBasedBackgroundServiceWithDi
 
     protected override string CronExpression => CronHelper.Secondly;
 
-    protected override Task TimedTask(IServiceProvider serviceProvider, CancellationToken cancellationToken)
+    protected override Task ExecuteTaskInternalAsync(IServiceProvider serviceProvider, Activity? activity, CancellationToken cancellationToken)
     {
         Console.WriteLine(DateTimeOffset.Now);
         return Task.CompletedTask;
