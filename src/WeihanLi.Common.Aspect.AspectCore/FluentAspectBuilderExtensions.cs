@@ -7,10 +7,7 @@ public static class FluentAspectBuilderExtensions
 {
     public static IFluentAspectsBuilder UseAspectCoreProxy(this IFluentAspectsBuilder builder)
     {
-        if (builder is null)
-        {
-            throw new ArgumentNullException(nameof(builder));
-        }
+        Guard.NotNull(builder);
 
         builder.Services.AddTransient<IProxyFactory, AspectCoreProxyFactory>();
         builder.Services.AddTransient<IProxyTypeFactory, AspectCoreProxyTypeFactory>();
@@ -21,10 +18,7 @@ public static class FluentAspectBuilderExtensions
 
     public static IFluentAspectsServiceContainerBuilder UseAspectCoreProxy(this IFluentAspectsServiceContainerBuilder builder)
     {
-        if (builder is null)
-        {
-            throw new ArgumentNullException(nameof(builder));
-        }
+        Guard.NotNull(builder);
 
         builder.Services.AddTransient<IProxyFactory, AspectCoreProxyFactory>();
         builder.Services.AddTransient<IProxyTypeFactory, AspectCoreProxyTypeFactory>();

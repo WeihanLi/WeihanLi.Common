@@ -22,7 +22,7 @@ public static class SerilogLoggerExtensions
         ILogger? logger = null,
         bool dispose = false)
     {
-        if (factory == null) throw new ArgumentNullException(nameof(factory));
+        Guard.NotNull(factory);
 
         factory.AddProvider(new SerilogLoggerProvider(logger, dispose));
 
@@ -40,8 +40,7 @@ public static class SerilogLoggerExtensions
     /// <returns>The logging builder.</returns>
     public static ILoggingBuilder AddSerilog(this ILoggingBuilder builder, ILogger? logger = null, bool dispose = false)
     {
-        if (builder == null)
-            throw new ArgumentNullException(nameof(builder));
+        Guard.NotNull(builder);
 
         if (dispose)
         {
