@@ -3,7 +3,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 var target = Argument("target", "Default");
-var configuration = Argument("configuration", "Release");
+var configuration = Argument("configuration", "Debug");
 var stable = Argument("stable", "false");
 
 var branchName = EnvironmentVariable("BUILD_SOURCEBRANCHNAME") ?? "local";
@@ -102,7 +102,7 @@ Task("pack")
     {
       var settings = new DotNetPackSettings
       {
-         Configuration = configuration,
+         Configuration = "Release",
          OutputDirectory = artifacts,
          VersionSuffix = "",
          NoRestore = true,
