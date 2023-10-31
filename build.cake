@@ -3,7 +3,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 var target = Argument("target", "Default");
-var configuration = Argument("configuration", "Debug");
+var configuration = Argument("configuration", "Release");
 var stable = Argument("stable", "false");
 
 var branchName = EnvironmentVariable("BUILD_SOURCEBRANCHNAME") ?? "local";
@@ -68,7 +68,8 @@ Task("build")
     .IsDependentOn("restore")
     .Does(() =>
     {
-      var buildSetting = new DotNetBuildSettings{
+      var buildSetting = new DotNetBuildSettings
+      {
          NoRestore = true,
          Configuration = configuration
       };
@@ -87,7 +88,7 @@ Task("test")
       var testSettings = new DotNetTestSettings
       {
         NoRestore = false,
-        Configuration = configuration
+        Configuration = "Debug"
       };
       foreach(var project in testProjects)
       {
