@@ -50,45 +50,41 @@ public static class FuncExtension
         };
     }
 
-#if ValueTaskSupport
-
-        public static Func<T, ValueTask> WrapValueTask<T>(this Action<T> action)
+    public static Func<T, ValueTask> WrapValueTask<T>(this Action<T> action)
+    {
+        return (t) =>
         {
-            return (t) =>
-            {
-                action.Invoke(t);
-                return default;
-            };
-        }
+            action.Invoke(t);
+            return default;
+        };
+    }
 
-        public static Func<T1, T2, ValueTask> WrapValueTask<T1, T2>(this Action<T1, T2> action)
+    public static Func<T1, T2, ValueTask> WrapValueTask<T1, T2>(this Action<T1, T2> action)
+    {
+        return (t1, t2) =>
         {
-            return (t1, t2) =>
-            {
-                action.Invoke(t1, t2);
-                return default;
-            };
-        }
+            action.Invoke(t1, t2);
+            return default;
+        };
+    }
 
-        public static Func<T1, T2, T3, ValueTask> WrapValueTask<T1, T2, T3>(this Action<T1, T2, T3> action)
+    public static Func<T1, T2, T3, ValueTask> WrapValueTask<T1, T2, T3>(this Action<T1, T2, T3> action)
+    {
+        return (t1, t2, t3) =>
         {
-            return (t1, t2, t3) =>
-            {
-                action.Invoke(t1, t2, t3);
-                return default;
-            };
-        }
+            action.Invoke(t1, t2, t3);
+            return default;
+        };
+    }
 
-        public static Func<T1, T2, T3, T4, ValueTask> WrapValueTask<T1, T2, T3, T4>(this Action<T1, T2, T3, T4> action)
+    public static Func<T1, T2, T3, T4, ValueTask> WrapValueTask<T1, T2, T3, T4>(this Action<T1, T2, T3, T4> action)
+    {
+        return (t1, t2, t3, t4) =>
         {
-            return (t1, t2, t3, t4) =>
-            {
-                action.Invoke(t1, t2, t3, t4);
-                return default;
-            };
-        }
-
-#endif
+            action.Invoke(t1, t2, t3, t4);
+            return default;
+        };
+    }
 
     public static Func<CancellationToken, Task> WrapCancellation(this Func<Task> func) => _ => Guard.NotNull(func, nameof(func)).Invoke();
 

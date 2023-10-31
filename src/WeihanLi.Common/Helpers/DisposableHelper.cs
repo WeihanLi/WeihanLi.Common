@@ -3,10 +3,7 @@
 /// <summary>
 /// A singleton disposable that does nothing when disposed.
 /// </summary>
-public sealed class NullDisposable : IDisposable
-#if ValueTaskSupport
-    , IAsyncDisposable
-#endif
+public sealed class NullDisposable : IDisposable, IAsyncDisposable
 {
     private NullDisposable()
     {
@@ -16,15 +13,13 @@ public sealed class NullDisposable : IDisposable
     {
     }
 
-#if ValueTaskSupport
-    public ValueTask DisposeAsync() =>
+    public ValueTask DisposeAsync() => 
 #if NET6_0_OR_GREATER
         ValueTask.CompletedTask
 #else
         default
-#endif    
-    ;
 #endif
+        ;
 
     /// <summary>
     /// Gets the instance of <see cref="NullDisposable"/>.
@@ -32,10 +27,7 @@ public sealed class NullDisposable : IDisposable
     public static NullDisposable Instance { get; } = new();
 }
 
-public sealed class DisposableAction : IDisposable
-#if ValueTaskSupport
-    , IAsyncDisposable
-#endif
+public sealed class DisposableAction : IDisposable, IAsyncDisposable
 {
     public static readonly DisposableAction Empty = new(null);
 
@@ -51,7 +43,6 @@ public sealed class DisposableAction : IDisposable
         Interlocked.Exchange(ref _disposeAction, null)?.Invoke();
     }
 
-#if ValueTaskSupport
     public ValueTask DisposeAsync()
     {
         Dispose();
@@ -59,11 +50,10 @@ public sealed class DisposableAction : IDisposable
 #if NET6_0_OR_GREATER
             ValueTask.CompletedTask
 #else
-        default
+            default
 #endif
-            ;
+        ;
     }
-#endif
 }
 
 /// <summary>
@@ -72,10 +62,7 @@ public sealed class DisposableAction : IDisposable
 /// https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync
 /// https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync#implement-both-dispose-and-async-dispose-patterns
 /// </summary>
-public class DisposableBase : IDisposable
-#if ValueTaskSupport
-    , IAsyncDisposable
-#endif
+public class DisposableBase : IDisposable, IAsyncDisposable
 {
     // To detect redundant calls
     private bool _disposed;
@@ -86,7 +73,7 @@ public class DisposableBase : IDisposable
         Dispose(disposing: true);
         GC.SuppressFinalize(this);
     }
-#if ValueTaskSupport
+
     public async ValueTask DisposeAsync()
     {
         if (_disposed) return;
@@ -97,7 +84,7 @@ public class DisposableBase : IDisposable
         // Suppress finalization.
         GC.SuppressFinalize(this);
     }
-#endif
+
     protected virtual void Dispose(bool disposing)
     {
         if (disposing)
@@ -110,18 +97,16 @@ public class DisposableBase : IDisposable
         _disposed = true;
     }
 
-#if ValueTaskSupport
     protected virtual ValueTask DisposeAsyncCore()
     {
         return 
 #if NET6_0_OR_GREATER
-        ValueTask.CompletedTask
+            ValueTask.CompletedTask
 #else
-        default
+            default
 #endif
-            ;
+        ;
     }
-#endif
 
     ~DisposableBase() => Dispose(false);
 }

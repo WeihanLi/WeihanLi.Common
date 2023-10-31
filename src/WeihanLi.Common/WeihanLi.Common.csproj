@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="../../build/common.props" />
   <PropertyGroup>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>    
-    <DefineConstants Condition="'$(TargetFramework)' != 'netstandard2.0'">$(DefineConstants);ValueTaskSupport</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IsAotCompatible Condition="'$(TargetFramework)' == 'net8.0'">true</IsAotCompatible>
   </PropertyGroup>  
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Reflection.Emit" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard2.1'">
     <PackageReference Include="System.ComponentModel.Annotations" />
