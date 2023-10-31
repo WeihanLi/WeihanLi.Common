@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Xml.Serialization;
 using WeihanLi.Common.Compressor;
 using WeihanLi.Extensions;
 
@@ -12,6 +13,7 @@ public interface IDataSerializer
     /// <typeparam name="T">Type</typeparam>
     /// <param name="obj">object</param>
     /// <returns>bytes</returns>
+    [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     byte[] Serialize<T>(T obj);
 
     /// <summary>
@@ -20,25 +22,15 @@ public interface IDataSerializer
     /// <typeparam name="T">Type</typeparam>
     /// <param name="bytes">bytes</param>
     /// <returns>obj</returns>
+    [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     T Deserialize<T>(byte[] bytes);
 }
 
 public class XmlDataSerializer : IDataSerializer
 {
-    internal static readonly Lazy<XmlDataSerializer> _instance = new();
-
-    public virtual T Deserialize<T>(byte[] bytes)
-    {
-        if (typeof(Task).IsAssignableFrom(typeof(T)))
-        {
-            throw new ArgumentException(Resource.TaskCanNotBeSerialized);
-        }
-
-        using var ms = new MemoryStream(bytes);
-        var serializer = new XmlSerializer(typeof(T));
-        return (T)serializer.Deserialize(ms)!;
-    }
-
+    internal static readonly Lazy<XmlDataSerializer> Instance = new();
+    
+    [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public virtual byte[] Serialize<T>(T obj)
     {
         if (typeof(Task).IsAssignableFrom(typeof(T)))
@@ -54,10 +46,35 @@ public class XmlDataSerializer : IDataSerializer
         serializer.Serialize(ms, obj);
         return ms.ToArray();
     }
+    
+    [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
+    public virtual T Deserialize<T>(byte[] bytes)
+    {
+        if (typeof(Task).IsAssignableFrom(typeof(T)))
+        {
+            throw new ArgumentException(Resource.TaskCanNotBeSerialized);
+        }
+
+        using var ms = new MemoryStream(bytes);
+        var serializer = new XmlSerializer(typeof(T));
+        return (T)serializer.Deserialize(ms)!;
+    }
+
 }
 
 public class JsonDataSerializer : IDataSerializer
 {
+    [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
+    public virtual byte[] Serialize<T>(T obj)
+    {
+        if (typeof(Task).IsAssignableFrom(typeof(T)))
+        {
+         throw new ArgumentException(Resource.TaskCanNotBeSerialized);
+        }
+        return obj.ToJson().GetBytes();
+    }
+     
+    [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public virtual T Deserialize<T>(byte[] bytes)
     {
         if (typeof(Task).IsAssignableFrom(typeof(T)))
@@ -66,15 +83,6 @@ public class JsonDataSerializer : IDataSerializer
         }
 
         return bytes.GetString().JsonToObject<T>() ?? throw new ArgumentNullException(nameof(bytes));
-    }
-
-    public virtual byte[] Serialize<T>(T obj)
-    {
-        if (typeof(Task).IsAssignableFrom(typeof(T)))
-        {
-            throw new ArgumentException(Resource.TaskCanNotBeSerialized);
-        }
-        return obj.ToJson().GetBytes();
     }
 }
 
@@ -89,11 +97,13 @@ public sealed class CompressDataSerializer : IDataSerializer
         _compressor = compressor ?? throw new ArgumentNullException(nameof(compressor));
     }
 
+    [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public byte[] Serialize<T>(T obj)
     {
         return _compressor.Compress(_serializer.Serialize(obj));
     }
 
+    [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public T Deserialize<T>(byte[] bytes)
     {
         return _serializer.Deserialize<T>(_compressor.Decompress(bytes));

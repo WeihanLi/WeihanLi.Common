@@ -4,12 +4,13 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WeihanLi.Common.Helpers.Hosting;
 
 public static class AppHostBuilderExtensions
 {
-    public static IAppHostBuilder AddHostedService<TService>(this IAppHostBuilder appHostBuilder)
+    public static IAppHostBuilder AddHostedService<[DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes.PublicConstructors))]TService>(this IAppHostBuilder appHostBuilder)
         where TService : class, IHostedService
     {
         Guard.NotNull(appHostBuilder);

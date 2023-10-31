@@ -108,7 +108,7 @@ public static class TypeExtension
     /// <param name="this">The type to test.</param>
     /// <returns>True if this type is assignable to references of type
     /// <typeparamref name="T"/>; otherwise, False.</returns>
-    public static bool IsAssignableTo<T>([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)]this Type @this)
+    public static bool IsAssignableTo<T>(this Type @this)
     {
         Guard.NotNull(@this);
         return typeof(T).IsAssignableFrom(@this);
