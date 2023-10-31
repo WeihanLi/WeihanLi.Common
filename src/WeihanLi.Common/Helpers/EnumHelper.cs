@@ -1,10 +1,12 @@
-﻿using WeihanLi.Common.Models;
+﻿using System.Diagnostics.CodeAnalysis;
+using WeihanLi.Common.Models;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
 public static class EnumHelper
 {
+    [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]
     public static IReadOnlyList<IdNameModel> ToIdNameList<TEnum>() where TEnum : Enum
     {
         var enumType = typeof(TEnum);
@@ -15,6 +17,7 @@ public static class EnumHelper
         });
     }
 
+    [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]
     public static IReadOnlyList<IdNameModel<TValue>> ToIdNameList<TEnum, TValue>() where TEnum : Enum
     {
         var enumType = typeof(TEnum);
@@ -25,6 +28,7 @@ public static class EnumHelper
         });
     }
 
+    [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]
     public static IReadOnlyList<IdNameDescModel> ToIdNameDescList<TEnum>() where TEnum : Enum
     {
         var enumType = typeof(TEnum);
@@ -36,6 +40,7 @@ public static class EnumHelper
         });
     }
 
+    [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]
     public static IReadOnlyList<IdNameDescModel<TValue>> ToIdNameDescList<TEnum, TValue>() where TEnum : Enum
     {
         var enumType = typeof(TEnum);

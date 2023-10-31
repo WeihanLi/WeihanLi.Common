@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Reflection;
 using WeihanLi.Common;
@@ -166,6 +167,7 @@ public static class ReflectionExtension
     /// <summary>An object extension method that gets the fields.</summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>An array of field information.</returns>
+    [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]
     public static FieldInfo[] GetFields(this object @this)
     {
         return CacheUtil.GetTypeFields(Guard.NotNull(@this, nameof(@this)).GetType());
@@ -175,6 +177,7 @@ public static class ReflectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="bindingAttr">The binding attribute.</param>
     /// <returns>An array of field information.</returns>
+    [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields | DynamicallyAccessedMemberTypes.NonPublicFields)]
     public static FieldInfo[] GetFields(this object @this, BindingFlags bindingAttr)
     {
         return @this.GetType().GetFields(bindingAttr);

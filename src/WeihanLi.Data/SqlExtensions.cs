@@ -44,7 +44,7 @@ ORDER BY c.[column_id];
         {
             return 0;
         }
-        var props = CacheUtil.GetTypeFields(typeof(T));
+        var props = CacheUtil.GetTypeProperties(typeof(T));
         var cols = conn.GetColumnNamesFromDb(tableName).Where(_ => props.Any(p => p.Name.EqualsIgnoreCase(_))).ToArray();
         var dataTable = new DataTable();
         dataTable.Columns.AddRange(cols.Select(c => new DataColumn(c)).ToArray());

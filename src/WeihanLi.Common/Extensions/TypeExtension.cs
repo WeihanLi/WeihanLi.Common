@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
@@ -8,9 +9,6 @@ namespace WeihanLi.Extensions;
 
 public static class TypeExtension
 {
-    /// <summary>
-    /// 基础类型
-    /// </summary>
     private static readonly Type[] BasicTypes =
     {
             typeof(bool),
@@ -36,21 +34,16 @@ public static class TypeExtension
             typeof(char),
             typeof(string),// IsPrimitive:False
 
+#if NET6_0_OR_GREATER
+            typeof(DateOnly),
+            typeof(TimeOnly),
+#endif
+
             //typeof(object),// IsPrimitive:False
         };
 
-    /// <summary>
-    /// get TypeCode for specific type
-    /// </summary>
-    /// <param name="type">type</param>
-    /// <returns></returns>
     public static TypeCode GetTypeCode(this Type type) => Type.GetTypeCode(type);
 
-    /// <summary>
-    /// 是否是 ValueTuple
-    /// </summary>
-    /// <param name="type">type</param>
-    /// <returns></returns>
     public static bool IsValueTuple(this Type type)
             => type.IsValueType && type.FullName?.StartsWith("System.ValueTuple`", StringComparison.Ordinal) == true;
 
@@ -59,8 +52,8 @@ public static class TypeExtension
     /// </summary>
     /// <param name="type">type</param>
     /// <returns></returns>
-    public static string GetDescription(this Type type) =>
-        type.GetCustomAttribute<DescriptionAttribute>()?.Description ?? string.Empty;
+    public static string? GetDescription(this Type type) =>
+        type.GetCustomAttribute<DescriptionAttribute>()?.Description;
 
     /// <summary>
     /// 判断是否基元类型，如果是可空类型会先获取里面的类型，如 int? 也是基元类型
@@ -71,7 +64,7 @@ public static class TypeExtension
     public static bool IsPrimitiveType(this Type type)
         => (Nullable.GetUnderlyingType(type) ?? type).IsPrimitive;
 
-    public static bool IsPrimitiveType<T>() => typeof(T).IsPrimitiveType();
+    public static bool IsPrimitiveType<T>() => IsPrimitiveType(typeof(T));
 
     public static bool IsBasicType(this Type type)
     {
@@ -79,11 +72,9 @@ public static class TypeExtension
         return unWrappedType.IsEnum || BasicTypes.Contains(unWrappedType);
     }
 
-    public static bool IsBasicType<T>() => typeof(T).IsBasicType();
+    public static bool IsBasicType<T>() => IsBasicType(typeof(T));
 
-    public static bool IsBasicType<T>(this T value) => typeof(T).IsBasicType();
-
-    public static bool HasNamespace(this Type type) => Guard.NotNull(type, nameof(type)).Namespace != null;
+    public static bool HasNamespace(this Type type) => Guard.NotNull(type).Namespace != null;
 
     /// <summary>
     /// Finds best constructor, least parameter
@@ -91,7 +82,7 @@ public static class TypeExtension
     /// <param name="type">type</param>
     /// <param name="parameterTypes"></param>
     /// <returns>Matching constructor or default one</returns>
-    public static ConstructorInfo? GetConstructor(this Type type, params Type[]? parameterTypes)
+    public static ConstructorInfo? GetConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]this Type type, params Type[]? parameterTypes)
     {
         if (parameterTypes == null || parameterTypes.Length == 0)
             return GetEmptyConstructor(type);
@@ -100,7 +91,7 @@ public static class TypeExtension
         return ctor;
     }
 
-    public static ConstructorInfo? GetEmptyConstructor(this Type type)
+    public static ConstructorInfo? GetEmptyConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]this Type type)
     {
         var constructors = type.GetConstructors();
 
@@ -117,13 +108,9 @@ public static class TypeExtension
     /// <param name="this">The type to test.</param>
     /// <returns>True if this type is assignable to references of type
     /// <typeparamref name="T"/>; otherwise, False.</returns>
-    public static bool IsAssignableTo<T>(this Type @this)
+    public static bool IsAssignableTo<T>([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)]this Type @this)
     {
-        if (@this == null)
-        {
-            throw new ArgumentNullException(nameof(@this));
-        }
-
+        Guard.NotNull(@this);
         return typeof(T).IsAssignableFrom(@this);
     }
 
@@ -133,7 +120,7 @@ public static class TypeExtension
     /// <param name="type">The type being tested.</param>
     /// <param name="constructorParameterTypes">The types of the contractor to find.</param>
     /// <returns>The <see cref="ConstructorInfo"/> is a match is found; otherwise, <c>null</c>.</returns>
-    public static ConstructorInfo? GetMatchingConstructor(this Type type, Type[]? constructorParameterTypes)
+    public static ConstructorInfo? GetMatchingConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]this Type type, Type[]? constructorParameterTypes)
     {
         if (constructorParameterTypes == null || constructorParameterTypes.Length == 0)
             return GetEmptyConstructor(type);
@@ -150,7 +137,7 @@ public static class TypeExtension
     /// </summary>
     /// <param name="type">type</param>
     /// <returns></returns>
-    public static IEnumerable<Type> GetImplementedInterfaces(this Type type)
+    public static IEnumerable<Type> GetImplementedInterfaces([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.Interfaces)]this Type type)
     {
         return type.GetTypeInfo().ImplementedInterfaces;
     }

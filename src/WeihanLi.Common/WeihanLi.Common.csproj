@@ -4,6 +4,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>    
     <DefineConstants Condition="'$(TargetFramework)' != 'netstandard2.0'">$(DefineConstants);ValueTaskSupport</DefineConstants>
     <IsAotCompatible Condition="'$(TargetFramework)' == 'net8.0'">true</IsAotCompatible>
+    <!-- DynamicallyAccessedMembers not included by default https://github.com/Sergio0694/PolySharp/issues/84#issuecomment-1751772472 -->
+    <PolySharpIncludeRuntimeSupportedAttributes Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard2.1'">true</PolySharpIncludeRuntimeSupportedAttributes>
   </PropertyGroup>  
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Reflection.Emit" />
