@@ -4,8 +4,7 @@
 namespace WeihanLi.Common.Helpers;
 
 public static class TaskHelper
-{
-#if ValueTaskSupport    
+{   
     public static ValueTask ToTask(object? obj)
     {
         var task = obj switch 
@@ -21,5 +20,4 @@ public static class TaskHelper
         };
         return task;
     }
-#endif
 }

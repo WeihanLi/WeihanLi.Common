@@ -169,8 +169,6 @@ public static class PipelineBuilderExtensions
     }
     #endregion IAsyncPipelineBuilder
 
-#if ValueTaskSupport
-
     #region IValueAsyncPipelineBuilder
 
     public static IValueAsyncPipelineBuilder<TContext> Use<TContext>(this IValueAsyncPipelineBuilder<TContext> builder,
@@ -249,6 +247,4 @@ public static class PipelineBuilderExtensions
     }
 
     #endregion IValueAsyncPipelineBuilder
-
-#endif
 }

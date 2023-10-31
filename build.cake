@@ -68,7 +68,8 @@ Task("build")
     .IsDependentOn("restore")
     .Does(() =>
     {
-      var buildSetting = new DotNetBuildSettings{
+      var buildSetting = new DotNetBuildSettings
+      {
          NoRestore = true,
          Configuration = configuration
       };
@@ -87,7 +88,7 @@ Task("test")
       var testSettings = new DotNetTestSettings
       {
         NoRestore = false,
-        Configuration = configuration
+        Configuration = "Debug"
       };
       foreach(var project in testProjects)
       {
@@ -102,7 +103,7 @@ Task("pack")
     {
       var settings = new DotNetPackSettings
       {
-         Configuration = configuration,
+         Configuration = "Release",
          OutputDirectory = artifacts,
          VersionSuffix = "",
          NoRestore = true,

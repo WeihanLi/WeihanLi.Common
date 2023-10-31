@@ -85,7 +85,6 @@ public static class Guard
         return t;
     }
 
-#if ValueTaskSupport
     public static async Task<T> EnsureAsync<T>(Func<T, ValueTask<bool>> condition, T t, [CallerArgumentExpression(nameof(t))] string? paramName = null)
     {
         NotNull(condition);
@@ -95,5 +94,4 @@ public static class Guard
         }
         return t;
     }
-#endif
 }

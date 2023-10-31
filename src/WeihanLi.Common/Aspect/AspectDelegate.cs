@@ -69,7 +69,6 @@ public static class AspectDelegate
                 invocation.ReturnValue = Task.FromResult(resultType.GetDefaultValue());
             }
 
-#if ValueTaskSupport
             if (invocation.ProxyMethod.ReturnType == typeof(ValueTask))
             {
                 invocation.ReturnValue = default(ValueTask);
@@ -80,7 +79,6 @@ public static class AspectDelegate
                 var resultType = invocation.ProxyMethod.ReturnType.GetGenericArguments()[0];
                 invocation.ReturnValue = new ValueTask(Task.FromResult(resultType.GetDefaultValue()));
             }
-#endif
         }
     }
 
@@ -116,13 +114,10 @@ public static class AspectDelegate
                 {
                     return task;
                 }
-
-#if ValueTaskSupport
                 if (invocation.ReturnValue is ValueTask valTask)
                 {
                     return valTask.AsTask();
                 }
-#endif
 
                 return Task.CompletedTask;
             };

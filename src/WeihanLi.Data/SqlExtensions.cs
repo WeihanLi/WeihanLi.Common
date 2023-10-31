@@ -94,6 +94,7 @@ ORDER BY c.[column_id];
     /// <returns></returns>
     public static int BulkCopy(this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string>? columnMappings, int bulkCopyTimeout = 60)
     {
+        Guard.NotNull(conn);
         conn.EnsureOpen();
         using var bulkCopy = new SqlBulkCopy(conn);
         if (null == columnMappings)
@@ -175,6 +176,7 @@ ORDER BY c.[column_id];
     /// <returns></returns>
     public static async Task<int> BulkCopyAsync(this SqlConnection conn, DataTable dataTable, string destinationTableName, int batchSize, IDictionary<string, string>? columnMappings, int bulkCopyTimeout = 60)
     {
+        Guard.NotNull(conn);
         await conn.EnsureOpenAsync();
         using var bulkCopy = new SqlBulkCopy(conn);
         if (null == columnMappings)

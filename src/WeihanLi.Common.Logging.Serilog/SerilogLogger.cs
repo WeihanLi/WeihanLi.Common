@@ -23,7 +23,7 @@ internal sealed class SerilogLogger : FrameworkLogger
         ILogger? logger = null,
         string? name = null)
     {
-        _provider = provider ?? throw new ArgumentNullException(nameof(provider));
+        _provider = WeihanLi.Common.Guard.NotNull(provider);
 
         // If a logger was passed, the provider has already added itself as an enricher
         _logger = logger ?? Serilog.Log.Logger.ForContext(new[] { provider });
