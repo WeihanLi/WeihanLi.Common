@@ -1,6 +1,7 @@
 ﻿// Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.ExceptionServices;
@@ -11,8 +12,9 @@ public delegate object ObjectFactory(IServiceProvider serviceProvider, object?[]
 
 internal static class ParameterDefaultValue
 {
-    private static readonly Type _nullable = typeof(Nullable<>);
-
+    private static readonly Type NullableOpenGenericType = typeof(Nullable<>);
+    
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static bool TryGetDefaultValue(ParameterInfo parameter, out object? defaultValue)
     {
         bool hasDefaultValue;
@@ -48,11 +50,11 @@ internal static class ParameterDefaultValue
             // Handle nullable enums
             if (defaultValue != null &&
                 parameter.ParameterType.IsGenericType &&
-                parameter.ParameterType.GetGenericTypeDefinition() == _nullable
+                parameter.ParameterType.GetGenericTypeDefinition() == NullableOpenGenericType
                 )
             {
                 var underlyingType = Nullable.GetUnderlyingType(parameter.ParameterType);
-                if (underlyingType != null && underlyingType.IsEnum)
+                if (underlyingType is { IsEnum: true })
                 {
                     defaultValue = Enum.ToObject(underlyingType, defaultValue);
                 }
@@ -68,7 +70,7 @@ internal static class ParameterDefaultValue
 /// </summary>
 public static class ActivatorHelper
 {
-    private static readonly MethodInfo _getServiceInfo =
+    private static readonly MethodInfo GetServiceInfo =
         GetMethodInfo<Func<IServiceProvider, Type, Type, bool, object?>>((sp, t, r, c) => GetService(sp, t, r, c));
 
     /// <summary>
@@ -77,7 +79,7 @@ public static class ActivatorHelper
     /// <typeparam name="T">type</typeparam>
     /// <param name="parameters">parameters</param>
     /// <returns>T instance</returns>
-    public static T CreateInstance<T>(params object?[] parameters)
+    public static T CreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]T>(params object?[] parameters)
     {
         return (T)(Activator.CreateInstance(typeof(T), parameters) ?? throw new InvalidOperationException());
     }
@@ -89,7 +91,10 @@ public static class ActivatorHelper
     /// <param name="instanceType">The type to activate</param>
     /// <param name="parameters">Constructor arguments not provided by the <paramref name="provider"/>.</param>
     /// <returns>An activated object of type instanceType</returns>
-    public static object CreateInstance(this IServiceProvider provider, Type instanceType, params object?[] parameters)
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
+    public static object CreateInstance(this IServiceProvider provider, 
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]Type instanceType,
+        params object?[] parameters)
     {
         return MatchConstructor(instanceType, parameters).CreateInstance(provider);
     }
@@ -100,7 +105,9 @@ public static class ActivatorHelper
     /// <param name="instanceType">instance type to new</param>
     /// <param name="parameters">Constructor arguments not provided by di sys</param>
     /// <returns>Best Constructor Matched</returns>
-    private static ConstructorMatcher MatchConstructor(Type instanceType, params object?[]? parameters)
+    private static ConstructorMatcher MatchConstructor(
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]
+        Type instanceType, params object?[]? parameters)
     {
         parameters ??= Array.Empty<object?>();
 
@@ -143,12 +150,14 @@ public static class ActivatorHelper
     /// <param name="instanceType">instance type to new</param>
     /// <param name="parameters">Constructor arguments not provided by di sys</param>
     /// <returns>Best Constructor Matched</returns>
-    public static ConstructorInfo MatchBestConstructor(Type instanceType, params object[] parameters)
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
+    public static ConstructorInfo MatchBestConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]Type instanceType, params object[] parameters)
     {
         return MatchConstructor(instanceType, parameters).Constructor;
     }
 
-    public static object?[] GetBestConstructorArguments(IServiceProvider serviceProvider, Type instanceType, params object?[] parameters)
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
+    public static object?[] GetBestConstructorArguments(IServiceProvider serviceProvider, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]Type instanceType, params object?[] parameters)
     {
         return MatchConstructor(instanceType, parameters).GetConstructorArguments(serviceProvider);
     }
@@ -165,9 +174,10 @@ public static class ActivatorHelper
     /// A factory that will instantiate instanceType using an <see cref="IServiceProvider"/>
     /// and an argument array containing objects matching the types defined in argumentTypes
     /// </returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static ObjectFactory CreateFactory(Type instanceType, Type[] argumentTypes)
     {
-        FindApplicableConstructor(instanceType, argumentTypes, out ConstructorInfo? constructor, out var parameterMap);
+        FindApplicableConstructor(instanceType, argumentTypes, out var constructor, out var parameterMap);
 
         var provider = Expression.Parameter(typeof(IServiceProvider), "provider");
         var argumentArray = Expression.Parameter(typeof(object[]), "argumentArray");
@@ -187,7 +197,8 @@ public static class ActivatorHelper
     /// <param name="provider">The service provider used to resolve dependencies</param>
     /// <param name="parameters">Constructor arguments not provided by the <paramref name="provider"/>.</param>
     /// <returns>An activated object of type T</returns>
-    public static T CreateInstance<T>(this IServiceProvider provider, params object[] parameters)
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
+    public static T CreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]T>(this IServiceProvider provider, params object[] parameters)
     {
         return (T)CreateInstance(provider, typeof(T), parameters);
     }
@@ -198,7 +209,8 @@ public static class ActivatorHelper
     /// <typeparam name="T">The type of the service</typeparam>
     /// <param name="provider">The service provider used to resolve dependencies</param>
     /// <returns>The resolved service or created instance</returns>
-    public static T GetServiceOrCreateInstance<T>(this IServiceProvider provider)
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
+    public static T GetServiceOrCreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]T>(this IServiceProvider provider)
     {
         return (T)GetServiceOrCreateInstance(provider, typeof(T));
     }
@@ -209,7 +221,8 @@ public static class ActivatorHelper
     /// <param name="provider">The service provider</param>
     /// <param name="type">The type of the service</param>
     /// <returns>The resolved service or created instance</returns>
-    public static object GetServiceOrCreateInstance(this IServiceProvider provider, Type type)
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
+    public static object GetServiceOrCreateInstance(this IServiceProvider provider, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]Type type)
     {
         return provider.GetService(type) ?? CreateInstance(provider, type);
     }
@@ -231,6 +244,7 @@ public static class ActivatorHelper
         return service;
     }
 
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     private static Expression BuildFactoryExpression(
         ConstructorInfo constructor,
         int?[] parameterMap,
@@ -256,7 +270,7 @@ public static class ActivatorHelper
                         Expression.Constant(parameterType, typeof(Type)),
                         Expression.Constant(constructor.DeclaringType, typeof(Type)),
                         Expression.Constant(hasDefaultValue) };
-                constructorArguments[i] = Expression.Call(_getServiceInfo, parameterTypeExpression);
+                constructorArguments[i] = Expression.Call(GetServiceInfo, parameterTypeExpression);
             }
 
             // Support optional constructor arguments by passing in the default value
@@ -273,6 +287,7 @@ public static class ActivatorHelper
         return Expression.New(constructor, constructorArguments);
     }
 
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static void FindApplicableConstructor(
         Type instanceType,
         Type[] argumentTypes,
@@ -290,8 +305,9 @@ public static class ActivatorHelper
     }
 
     // Tries to find constructor based on provided argument types
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     private static bool TryFindMatchingConstructor(
-        Type instanceType,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]Type instanceType,
         Type[] argumentTypes,
         ref ConstructorInfo? matchingConstructor,
         ref int?[]? parameterMap)
@@ -403,6 +419,7 @@ public static class ActivatorHelper
             return applyExactLength;
         }
 
+        [RequiresUnreferencedCode("Unreferenced code may be used")]
         public object CreateInstance(IServiceProvider provider)
         {
             for (var index = 0; index != _parameters.Length; index++)
@@ -440,6 +457,7 @@ public static class ActivatorHelper
             }
         }
 
+        [RequiresUnreferencedCode("Unreferenced code may be used")]
         public object?[] GetConstructorArguments(IServiceProvider provider)
         {
             for (var index = 0; index != _parameters.Length; index++)

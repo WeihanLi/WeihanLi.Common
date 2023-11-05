@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
-using Microsoft.Extensions.Options;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Templating;

@@ -2659,14 +2659,14 @@ public static class CoreExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="args">The arguments.</param>
     /// <returns>The new instance.</returns>
-    public static T? CreateInstance<T>(this Type @this, params object?[]? args) => (T?)Activator.CreateInstance(@this, args);
+    public static T? CreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]T>([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]this Type @this, params object?[]? args) => (T?)Activator.CreateInstance(@this, args);
 
     /// <summary>
     /// if a type has empty constructor
     /// </summary>
     /// <param name="type">type</param>
     /// <returns></returns>
-    public static bool HasEmptyConstructor(this Type type)
+    public static bool HasEmptyConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]this Type type)
         => Guard.NotNull(type, nameof(type)).GetConstructors(BindingFlags.Instance).Any(c => c.GetParameters().Length == 0);
 
     public static bool IsNullableType(this Type type)

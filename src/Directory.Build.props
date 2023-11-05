@@ -1,7 +1,12 @@
 <Project>
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
   <Import Project="../build/sign.props" />
-  <PropertyGroup>    
+  <PropertyGroup>
+    <!-- code analysis https://github.com/dotnet/docs/blob/main/docs/core/project-sdk/msbuild-props.md#code-analysis-properties -->
+    <!-- <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <AnalysisMode>Recommended</AnalysisMode>
+    <AnalysisModeSecurity>All</AnalysisModeSecurity> -->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RepositoryUrl>https://github.com/WeihanLi/WeihanLi.Common</RepositoryUrl>
     <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->

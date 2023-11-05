@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
@@ -50,6 +51,8 @@ public static class DelegateHelper
         _actionFactory[16] = typeof(Action<,,,,,,,,,,,,,,,>);
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     public static Delegate FromMethod(MethodInfo method, object? target = null)
     {
         if (null == method)
@@ -61,6 +64,8 @@ public static class DelegateHelper
         return method.CreateDelegate(delegateType, target);
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     public static Type GetDelegateType(MethodInfo method)
     {
         if (null == method)
@@ -98,6 +103,8 @@ public static class DelegateHelper
         return delegateType;
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     public static Type GetDelegate(Type[]? parametersTypes = null, Type? returnType = null)
     {
         if (returnType == null || returnType == typeof(void))
@@ -108,6 +115,8 @@ public static class DelegateHelper
         return GetFunc(returnType, parametersTypes);
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     public static Type GetFunc(Type returnType, params Type[]? parametersTypes)
     {
         if (returnType == typeof(void))
@@ -128,6 +137,8 @@ public static class DelegateHelper
             .MakeGenericType(types);
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     public static Type GetAction(params Type[]? parametersTypes)
     {
         if (parametersTypes == null || parametersTypes.Length == 0)

@@ -15,8 +15,7 @@ internal sealed class CastleProxyFactory : IProxyFactory
 
     public object CreateProxy(Type serviceType, object?[] arguments)
     {
-        if (null == serviceType)
-            throw new ArgumentNullException(nameof(serviceType));
+        Guard.NotNull(serviceType);
 
         if (serviceType.IsInterface)
         {
@@ -32,11 +31,8 @@ internal sealed class CastleProxyFactory : IProxyFactory
 
     public object CreateProxy(Type serviceType, Type implementType, params object?[] arguments)
     {
-        if (null == serviceType)
-            throw new ArgumentNullException(nameof(serviceType));
-
-        if (null == implementType)
-            throw new ArgumentNullException(nameof(implementType));
+        Guard.NotNull(serviceType);
+        Guard.NotNull(implementType);
 
         if (serviceType.IsInterface)
         {
@@ -49,11 +45,8 @@ internal sealed class CastleProxyFactory : IProxyFactory
 
     public object CreateProxyWithTarget(Type serviceType, object implement, object?[] arguments)
     {
-        if (null == serviceType)
-            throw new ArgumentNullException(nameof(serviceType));
-
-        if (null == implement)
-            throw new ArgumentNullException(nameof(implement));
+        Guard.NotNull(serviceType);
+        Guard.NotNull(implement);
 
         if (serviceType.IsInterface)
         {

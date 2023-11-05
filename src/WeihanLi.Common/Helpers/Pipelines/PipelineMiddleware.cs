@@ -14,12 +14,7 @@ public interface IAsyncPipelineMiddleware<TContext>
     Task InvokeAsync(TContext context, Func<TContext, Task> next);
 }
 
-#if ValueTaskSupport
-
 public interface IValueAsyncPipelineMiddleware<TContext>
 {
     ValueTask InvokeAsync(TContext context, Func<TContext, ValueTask> next);
 }
-
-#endif
-

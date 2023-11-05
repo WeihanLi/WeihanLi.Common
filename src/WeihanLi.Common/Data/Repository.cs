@@ -9,6 +9,7 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Data;
 
+[CLSCompliant(false)]
 public class Repository<TEntity> : IRepository<TEntity> where TEntity : new()
 {
     #region TODO: Cache External

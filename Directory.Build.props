@@ -8,7 +8,12 @@
     <RepositoryType>git</RepositoryType>    
     <Authors>WeihanLi</Authors>
     <Copyright>Copyright 2017-$([System.DateTime]::Now.Year) (c) WeihanLi</Copyright>
-    <NoWarn>$(NoWarn);NU5048;CS1591</NoWarn>
+    <NoWarn>$(NoWarn);NU5048;CS1591;NETSDK1057</NoWarn>
+    <ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>
     <ContinuousIntegrationBuild Condition="'$(TF_BUILD)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Condition="'$(Configuration)'=='Debug'" Include="WeihanLi.Common.Test" />
+  </ItemGroup>
 </Project>

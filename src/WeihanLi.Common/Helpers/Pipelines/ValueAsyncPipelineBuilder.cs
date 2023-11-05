@@ -1,9 +1,6 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
-#if ValueTaskSupport
-using WeihanLi.Common.Abstractions;
-
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Common.Helpers;
 
@@ -44,4 +41,3 @@ internal sealed class ValueAsyncPipelineBuilder<TContext> : IValueAsyncPipelineB
 
     public IValueAsyncPipelineBuilder<TContext> New() => new ValueAsyncPipelineBuilder<TContext>(_completeFunc);
 }
-#endif

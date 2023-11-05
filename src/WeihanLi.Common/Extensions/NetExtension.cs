@@ -102,7 +102,7 @@ public static class NetExtension
     /// <returns>The response stream as byte array</returns>
     public static byte[] ReadAllBytes(this WebResponse @this)
     {
-        using var stream = @this.GetResponseStream()!;
+        using var stream = @this.GetResponseStream();
         var byteArray = new byte[stream.Length];
         stream.Write(byteArray, 0, byteArray.Length);
         return byteArray;
@@ -115,7 +115,7 @@ public static class NetExtension
     /// <returns>The response stream as byte array</returns>
     public static async Task<byte[]> ReadAllBytesAsync(this WebResponse @this)
     {
-        using var stream = @this.GetResponseStream()!;
+        using var stream = @this.GetResponseStream();
         var byteArray = new byte[stream.Length];
         await stream.WriteAsync(byteArray, 0, byteArray.Length).ConfigureAwait(false);
         return byteArray;
@@ -128,7 +128,7 @@ public static class NetExtension
     /// <returns>The response stream as a string, from the current position to the end.</returns>
     public static string ReadToEnd(this WebResponse response)
     {
-        using var stream = response.GetResponseStream()!;
+        using var stream = response.GetResponseStream();
         return stream.ReadToEnd(Encoding.UTF8);
     }
 
@@ -139,7 +139,7 @@ public static class NetExtension
     /// <returns>The response stream as a string, from the current position to the end.</returns>
     public static async Task<string> ReadToEndAsync(this WebResponse @this)
     {
-        using var stream = @this.GetResponseStream()!;
+        using var stream = @this.GetResponseStream();
         return await stream.ReadToEndAsync().ConfigureAwait(false);
     }
 

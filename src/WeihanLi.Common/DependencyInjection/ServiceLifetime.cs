@@ -1,6 +1,6 @@
 ﻿namespace WeihanLi.Common.DependencyInjection;
 
-public enum ServiceLifetime : sbyte
+public enum ServiceLifetime
 {
     /// <summary>
     /// Specifies that a single instance of the service will be created.

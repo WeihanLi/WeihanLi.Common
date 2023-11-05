@@ -36,7 +36,7 @@ public sealed class CastleFluentAspectInterceptor : global::Castle.DynamicProxy.
             }
             else
             {
-                completeFunc = c => Task.CompletedTask;
+                completeFunc = _ => Task.CompletedTask;
             }
             AspectDelegate.InvokeWithCompleteFunc(aspectInvocation, completeFunc);
         }

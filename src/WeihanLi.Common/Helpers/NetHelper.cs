@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Helpers;
 /// IPNetwork
 /// https://source.dot.net/#Microsoft.AspNetCore.HttpOverrides/IPNetwork.cs,ab4d458482303384
 /// </summary>
-public class IPNetwork
+internal sealed class IPNetwork
 {
     public IPNetwork(string cidr)
     {
