@@ -6,8 +6,8 @@
     <!-- <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <AnalysisLevel>latest</AnalysisLevel>
     <AnalysisMode>Recommended</AnalysisMode>
-    <AnalysisModeSecurity>All</AnalysisModeSecurity>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile> -->
+    <AnalysisModeSecurity>All</AnalysisModeSecurity> -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RepositoryUrl>https://github.com/WeihanLi/WeihanLi.Common</RepositoryUrl>
     <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
