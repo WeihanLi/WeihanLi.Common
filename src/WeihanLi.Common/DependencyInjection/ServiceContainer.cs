@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Reflection;
 using WeihanLi.Extensions;
@@ -19,7 +20,7 @@ internal sealed class ServiceContainer : IServiceContainer
     private readonly ConcurrentDictionary<ServiceKey, object?> _scopedInstances = new();
     private readonly ConcurrentBag<object> _transientDisposables = new();
 
-    private class ServiceKey : IEquatable<ServiceKey>
+    private sealed class ServiceKey : IEquatable<ServiceKey>
     {
         public Type ServiceType { get; }
 
@@ -129,6 +130,8 @@ internal sealed class ServiceContainer : IServiceContainer
         }
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     private object? EnrichObject(object? obj)
     {
         if (obj is not null)
@@ -150,9 +153,13 @@ internal sealed class ServiceContainer : IServiceContainer
         return obj;
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     private object? GetServiceInstance(Type serviceType, ServiceDefinition serviceDefinition)
         => EnrichObject(GetServiceInstanceInternal(serviceType, serviceDefinition));
-
+    
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     private object? GetServiceInstanceInternal(Type serviceType, ServiceDefinition serviceDefinition)
     {
         if (serviceDefinition.ImplementationInstance != null)
@@ -198,7 +205,7 @@ internal sealed class ServiceContainer : IServiceContainer
                 {
                     ctorInfo = ctorInfos.FirstOrDefault(x => x.IsDefined(typeof(ServiceConstructorAttribute)))
                         ?? ctorInfos
-                        .OrderBy(_ => _.GetParameters().Length)
+                        .OrderBy(c => c.GetParameters().Length)
                         .First();
                 }
 
@@ -238,7 +245,7 @@ internal sealed class ServiceContainer : IServiceContainer
 
                 var innerParameters = ctorInfo.GetParameters();
                 var parameterExpression = Expression.Parameter(typeof(object[]), "arguments"); // create parameter Expression
-                var argExpressions = new Expression[innerParameters.Length]; // array that will contains parameter expessions
+                var argExpressions = new Expression[innerParameters.Length]; // array that will contains parameter expressions
                 for (var i = 0; i < innerParameters.Length; i++)
                 {
                     var indexedAccess = Expression.ArrayIndex(parameterExpression, Expression.Constant(i));
@@ -272,9 +279,11 @@ internal sealed class ServiceContainer : IServiceContainer
             return func.Invoke(ctorParams);
         });
 
-        return newFunc?.Invoke(this);
+        return newFunc.Invoke(this);
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     public object? GetService(Type serviceType)
     {
         if (_disposed)
@@ -282,13 +291,13 @@ internal sealed class ServiceContainer : IServiceContainer
             throw new InvalidOperationException($"can not get scope service from a disposed scope, serviceType: {serviceType.FullName}");
         }
 
-        var serviceDefinition = _services.LastOrDefault(_ => _.ServiceType == serviceType);
+        var serviceDefinition = _services.LastOrDefault(s => s.ServiceType == serviceType);
         if (null == serviceDefinition)
         {
             if (serviceType.IsGenericType)
             {
                 var genericType = serviceType.GetGenericTypeDefinition();
-                serviceDefinition = _services.LastOrDefault(_ => _.ServiceType == genericType);
+                serviceDefinition = _services.LastOrDefault(s => s.ServiceType == genericType);
                 if (null == serviceDefinition)
                 {
                     var innerServiceType = serviceType.GetGenericArguments().First();
@@ -302,7 +311,7 @@ internal sealed class ServiceContainer : IServiceContainer
                         }
                         //
                         var list = new List<object>(4);
-                        foreach (var def in _services.Where(_ => _.ServiceType == innerRegType))
+                        foreach (var def in _services.Where(s => s.ServiceType == innerRegType))
                         {
                             object? svc;
                             if (def.ServiceLifetime == ServiceLifetime.Singleton)

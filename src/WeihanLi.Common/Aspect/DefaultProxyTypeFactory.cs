@@ -1,9 +1,13 @@
-﻿namespace WeihanLi.Common.Aspect;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace WeihanLi.Common.Aspect;
 
 public sealed class DefaultProxyTypeFactory : IProxyTypeFactory
 {
     public static readonly IProxyTypeFactory Instance = new DefaultProxyTypeFactory();
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public Type CreateProxyType(Type serviceType)
     {
         if (null == serviceType)
@@ -18,6 +22,8 @@ public sealed class DefaultProxyTypeFactory : IProxyTypeFactory
         return ProxyUtils.CreateClassProxy(serviceType, serviceType);
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public Type CreateProxyType(Type serviceType, Type implementType)
     {
         if (null == serviceType)

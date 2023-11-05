@@ -1,8 +1,11 @@
-﻿// ReSharper disable once CheckNamespace
+﻿using System.Diagnostics.CodeAnalysis;
+
+// ReSharper disable once CheckNamespace
 namespace WeihanLi.Common;
 
 public static class DependencyInjectionExtensions
 {
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IEnumerable<object> GetServices(
         this IServiceProvider provider,
         Type serviceType)
@@ -52,6 +55,7 @@ public static class DependencyInjectionExtensions
     /// <typeparam name="TService">TService</typeparam>
     /// <param name="serviceProvider">serviceProvider</param>
     /// <returns></returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IEnumerable<TService> ResolveServices<TService>(this IServiceProvider serviceProvider)
         => Guard.NotNull(serviceProvider.ResolveService<IEnumerable<TService>>());
 }

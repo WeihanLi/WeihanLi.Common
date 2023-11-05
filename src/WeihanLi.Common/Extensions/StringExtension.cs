@@ -1,4 +1,5 @@
 ﻿using System.Collections.Specialized;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Web;
 using WeihanLi.Common;
@@ -170,6 +171,7 @@ public static class StringExtension
     /// </summary>
     /// <param name="typeName">typename</param>
     /// <returns>Type</returns>
+    [RequiresUnreferencedCode("The type might be removed")]
     public static Type GetTypeByTypeName(this string typeName)
     {
         var type = Guard.NotNullOrEmpty(typeName, nameof(typeName))
@@ -265,7 +267,7 @@ public static class StringExtension
     /// <param name="str">str</param>
     /// <param name="start">start to remove</param>
     /// <returns>start removed str</returns>
-    [return: System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(str))]
+    [return: NotNullIfNotNull(nameof(str))]
     public static string? TrimStart(this string? str, string start)
     {
         if (str.IsNullOrEmpty() || start.IsNullOrEmpty())

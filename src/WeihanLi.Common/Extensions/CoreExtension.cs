@@ -2659,7 +2659,7 @@ public static class CoreExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="args">The arguments.</param>
     /// <returns>The new instance.</returns>
-    public static T? CreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]T>(this Type @this, params object?[]? args) => (T?)Activator.CreateInstance(@this, args);
+    public static T? CreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]T>([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]this Type @this, params object?[]? args) => (T?)Activator.CreateInstance(@this, args);
 
     /// <summary>
     /// if a type has empty constructor

@@ -9,16 +9,14 @@ public static class CacheUtil
 {
     private static readonly ConcurrentDictionary<Type, PropertyInfo[]> TypePropertyCache = new();
     private static readonly ConcurrentDictionary<Type, FieldInfo[]> TypeFieldCache = new();
-
-    [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]
-    public static PropertyInfo[] GetTypeProperties(Type type)
+        
+    public static PropertyInfo[] GetTypeProperties([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]Type type)
     {
         Guard.NotNull(type);
         return TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
     }
-
-    [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]
-    public static FieldInfo[] GetTypeFields(Type type)
+    
+    public static FieldInfo[] GetTypeFields([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]Type type)
     {
         Guard.NotNull(type);
         return TypeFieldCache.GetOrAdd(type, t => t.GetFields());

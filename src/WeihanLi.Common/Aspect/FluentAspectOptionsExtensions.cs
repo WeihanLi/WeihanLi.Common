@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq.Expressions;
 using System.Reflection;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
@@ -328,9 +329,9 @@ public static class FluentAspectOptionsExtensions
         options.ProxyFactory = new TProxyFactory();
         return options;
     }
-
-    public static FluentAspectOptions UseProxyFactory<TProxyFactory>(this FluentAspectOptions options,
-        params object[] parameters) where TProxyFactory : class, IProxyFactory, new()
+    
+    public static FluentAspectOptions UseProxyFactory<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TProxyFactory>(this FluentAspectOptions options,
+        params object[] parameters) where TProxyFactory : class, IProxyFactory
     {
         options.ProxyFactory = ActivatorHelper.CreateInstance<TProxyFactory>(parameters);
         return options;
