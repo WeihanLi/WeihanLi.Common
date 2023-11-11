@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using WeihanLi.Common;
 using WeihanLi.Common.Logging;
+using WeihanLi.Common.Services;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.Logging;
