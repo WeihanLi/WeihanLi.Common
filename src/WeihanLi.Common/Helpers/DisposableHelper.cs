@@ -62,7 +62,7 @@ public sealed class DisposableAction : IDisposable, IAsyncDisposable
 /// https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync
 /// https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync#implement-both-dispose-and-async-dispose-patterns
 /// </summary>
-public class DisposableBase : IDisposable, IAsyncDisposable
+public abstract class DisposableBase : IDisposable, IAsyncDisposable
 {
     // To detect redundant calls
     private bool _disposed;
