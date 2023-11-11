@@ -320,6 +320,7 @@ Console.WriteLine("----------DotNetCoreSample----------");
 //     Console.WriteLine(@"Exited");
 // });
 // ApplicationHelper.RuntimeInfo.Dump();
+Console.WriteLine(ApplicationHelper.ResolvePath("yarn.cmd"));
 await AppHostTest.MainTest();
 // NewtonJsonFormatterTest.MainTest();
 

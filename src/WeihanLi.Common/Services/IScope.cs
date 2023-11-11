@@ -1,4 +1,4 @@
-﻿namespace WeihanLi.Common;
+﻿namespace WeihanLi.Common.Services;
 
 public interface IScope : IDisposable
 {

@@ -38,4 +38,9 @@ public sealed class MockHttpHandler : HttpMessageHandler
     {
         return _responseFactory(request);
     }
+    
+    public HttpClient GetHttpClient() => new(this)
+    {
+        BaseAddress = new Uri("http://localhost/")
+    };
 }

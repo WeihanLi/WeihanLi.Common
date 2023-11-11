@@ -13,12 +13,13 @@ public static class CommandExecutor
     /// </summary>
     /// <param name="command">command with arguments</param>
     /// <param name="workingDirectory">working directory for the command</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
     /// <returns>exit code</returns>
-    public static int ExecuteCommand(string command, string? workingDirectory = null)
+    public static int ExecuteCommand(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null)
     {
         Guard.NotNullOrEmpty(command);
         var cmd = command.Split(new[] { ' ' }, 2);
-        return Execute(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory);
+        return Execute(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure);
     }
 
     /// <summary>
@@ -26,13 +27,14 @@ public static class CommandExecutor
     /// </summary>
     /// <param name="command">command with arguments</param>
     /// <param name="workingDirectory">working directory for the command</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
     /// <param name="cancellationToken">cancellationToken</param>
     /// <returns>exit code</returns>
-    public static Task<int> ExecuteCommandAsync(string command, string? workingDirectory = null, CancellationToken cancellationToken = default)
+    public static Task<int> ExecuteCommandAsync(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null, CancellationToken cancellationToken = default)
     {
         Guard.NotNullOrEmpty(command);
         var cmd = command.Split(new[] { ' ' }, 2);
-        return ExecuteAsync(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory);
+        return ExecuteAsync(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure, cancellationToken);
     }
 
     /// <summary>
@@ -41,16 +43,18 @@ public static class CommandExecutor
     /// <param name="commandPath">executable command path</param>
     /// <param name="arguments">command arguments</param>
     /// <param name="workingDirectory">working directory</param>
+    /// <param name="configure">configure ProcessStartInfo</param>
     /// <returns>exit code</returns>
-    public static int Execute(string commandPath, string? arguments = null, string? workingDirectory = null)
+    public static int Execute(string commandPath, string? arguments = null, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null)
     {
-        return new ProcessStartInfo(commandPath, arguments ?? string.Empty)
+        var processStartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
         {
             UseShellExecute = false,
             CreateNoWindow = true,
-
             WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
-        }.Execute();
+        };
+        configure?.Invoke(processStartInfo);
+        return processStartInfo.Execute();
     }
 
     /// <summary>
@@ -59,17 +63,19 @@ public static class CommandExecutor
     /// <param name="commandPath">executable command path</param>
     /// <param name="arguments">command arguments</param>
     /// <param name="workingDirectory">working directory</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
     /// <param name="cancellationToken">cancellationToken</param>
     /// <returns>exit code</returns>
-    public static async Task<int> ExecuteAsync(string commandPath, string? arguments = null, string? workingDirectory = null, CancellationToken cancellationToken = default)
+    public static async Task<int> ExecuteAsync(string commandPath, string? arguments = null, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null, CancellationToken cancellationToken = default)
     {
-        return await new ProcessStartInfo(commandPath, arguments ?? string.Empty)
+        var processStartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
         {
             UseShellExecute = false,
             CreateNoWindow = true,
-
             WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
-        }.ExecuteAsync(cancellationToken);
+        };
+        configure?.Invoke(processStartInfo);
+        return await processStartInfo.ExecuteAsync(cancellationToken);
     }
 
     /// <summary>
@@ -78,8 +84,9 @@ public static class CommandExecutor
     /// <param name="commandPath">executable command path</param>
     /// <param name="arguments">command arguments</param>
     /// <param name="workingDirectory">working directory</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
     /// <returns>command execute result</returns>
-    public static CommandResult ExecuteAndCapture(string commandPath, string? arguments = null, string? workingDirectory = null)
+    public static CommandResult ExecuteAndCapture(string commandPath, string? arguments = null, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null)
     {
         var processStartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
         {
@@ -87,6 +94,7 @@ public static class CommandExecutor
             CreateNoWindow = true,
             WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
         };
+        configure?.Invoke(processStartInfo);
         return ExecuteAndCapture(processStartInfo);
     }
 
@@ -106,9 +114,10 @@ public static class CommandExecutor
     /// <param name="commandPath">executable command path</param>
     /// <param name="arguments">command arguments</param>
     /// <param name="workingDirectory">working directory</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
     /// <param name="cancellationToken">cancellationToken</param>
     /// <returns>command execute result</returns>
-    public static Task<CommandResult> ExecuteAndCaptureAsync(string commandPath, string? arguments = null, string? workingDirectory = null, CancellationToken cancellationToken = default)
+    public static Task<CommandResult> ExecuteAndCaptureAsync(string commandPath, string? arguments = null, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null, CancellationToken cancellationToken = default)
     {
         var processStartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
         {
@@ -116,6 +125,7 @@ public static class CommandExecutor
             CreateNoWindow = true,
             WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
         };
+        configure?.Invoke(processStartInfo);
         return ExecuteAndCaptureAsync(processStartInfo, cancellationToken);
     }
 
