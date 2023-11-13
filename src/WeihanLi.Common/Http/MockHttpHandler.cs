@@ -6,7 +6,11 @@ public sealed class MockHttpHandler : HttpMessageHandler
 {
     private Func<HttpRequestMessage, Task<HttpResponseMessage>> _responseFactory;
 
-    public MockHttpHandler() : this(_ => Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)))
+    public MockHttpHandler() : this(HttpStatusCode.OK)
+    {
+    }
+
+    public MockHttpHandler(HttpStatusCode httpStatusCode) : this(_ => Task.FromResult(new HttpResponseMessage(httpStatusCode)))
     {
     }
 
