@@ -99,6 +99,7 @@ public abstract class DisposableBase : IDisposable, IAsyncDisposable
 
     protected virtual ValueTask DisposeAsyncCore()
     {
+        // dispose managed state in async way (managed objects)
         return 
 #if NET6_0_OR_GREATER
             ValueTask.CompletedTask

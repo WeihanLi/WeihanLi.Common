@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Dynamic;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
@@ -44,7 +45,7 @@ public static partial class DataExtension
 
     #region DataTable
 
-    public static DataTable ToDataTable<T>(this IEnumerable<T> entities)
+    public static DataTable ToDataTable<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]T>(this IEnumerable<T> entities)
     {
         if (null == entities)
         {
@@ -540,15 +541,17 @@ public static partial class DataExtension
     {
         if (paramInfo != null)
         {
+            var paramType = paramInfo.GetType();
             if (!(paramInfo is IDictionary<string, object?> parameters))
             {
-                if (paramInfo.IsValueTuple()) // Tuple
+                if (paramType.IsValueTuple()) // Tuple
                 {
-                    parameters = paramInfo.GetFields().ToDictionary(f => f.Name, f => f?.GetValue(paramInfo));
+                    parameters = CacheUtil.GetTypeFields(paramType)
+                        .ToDictionary(f => f.Name, f => f?.GetValue(paramInfo));
                 }
                 else // get properties
                 {
-                    parameters = CacheUtil.GetTypeProperties(paramInfo.GetType())
+                    parameters = CacheUtil.GetTypeProperties(paramType)
                         .ToDictionary(x => x.Name, x => x.GetValueGetter()?.Invoke(paramInfo));
                 }
             }
@@ -614,7 +617,7 @@ public static partial class DataExtension
 
     public static DbType ToDbType(this Type type)
     {
-        if (type.IsEnum() && !TypeMap.ContainsKey(type))
+        if (type.IsEnum && !TypeMap.ContainsKey(type))
         {
             type = Enum.GetUnderlyingType(type);
         }
