@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WeihanLi.Common.Helpers;
 
@@ -24,7 +25,7 @@ public sealed class BoundedConcurrentQueue<T>
 
     public int Count => _queue.Count;
 
-    public bool TryDequeue(out T? item)
+    public bool TryDequeue([NotNullWhen(true)]out T? item)
     {
         if (_queueLimit == NonBounded)
             return _queue.TryDequeue(out item);
