@@ -4,7 +4,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <ExtensionPackageVersion Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard2.1' OR '$(TargetFramework)' == 'net6.0'">6.0.0</ExtensionPackageVersion>
     <ExtensionPackageVersion Condition="'$(TargetFramework)' == 'net7.0'">7.0.0</ExtensionPackageVersion>
-    <ExtensionPackageVersion Condition="'$(TargetFramework)' == 'net8.0'">8.0.0-rc.2.23479.6</ExtensionPackageVersion>
+    <ExtensionPackageVersion Condition="'$(TargetFramework)' == 'net8.0'">8.0.0</ExtensionPackageVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Microsoft.Extensions.Configuration" Version="$(ExtensionPackageVersion)" />
@@ -19,28 +19,27 @@
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageVersion Include="AspectCore.Core" Version="2.4.0" />
     <PackageVersion Include="Castle.Core" Version="5.1.1" />
-    <PackageVersion Include="Serilog" Version="3.0.1" />
-    <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+    <PackageVersion Include="Serilog" Version="3.1.1" />
+    <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.1.2" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageVersion Include="FluentAssertions" Version="6.6.0" />
     <PackageVersion Include="Moq" Version="4.18.4" />
-    <PackageVersion Include="xunit" Version="2.5.1" />
+    <PackageVersion Include="xunit" Version="2.6.1" />
     <PackageVersion Include="Xunit.DependencyInjection" Version="8.7.1" />
     <PackageVersion Include="Xunit.DependencyInjection.Logging" Version="8.1.0" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.1" />
     <PackageVersion Include="coverlet.collector" Version="6.0.0" />
     <PackageVersion Include="BenchmarkDotNet" Version="0.13.8" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.0-rc.2.23480.1" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0-rc.2.23480.1" />
-    <PackageVersion Include="Microsoft.Extensions.ObjectPool" Version=" 8.0.0-rc.2.23480.2" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0-rc.2.23479.6" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="8.0.0-rc.2.23479.6" />
-    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="8.0.0-rc.2.23479.6" />
-    <PackageVersion Include="Serilog.Sinks.Console" Version="4.1.0" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.ObjectPool" Version=" 8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageVersion Include="Serilog.Sinks.Console" Version="5.0.0" />
     <PackageVersion Include="System.Data.SqlClient" Version="4.8.5" />
     <PackageVersion Include="Dapper" Version="2.0.151" />
   </ItemGroup>
