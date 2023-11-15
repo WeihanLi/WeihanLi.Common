@@ -8,38 +8,37 @@ public sealed class BoundedConcurrentQueue<T>
     private const int NonBounded = -1;
     private readonly ConcurrentQueue<T> _queue = new();
     private readonly int _queueLimit;
+    private readonly BoundedQueueFullMode _mode;
     private int _counter;
 
     public BoundedConcurrentQueue()
     {
         _queueLimit = NonBounded;
+        _mode = BoundedQueueFullMode.DropWrite;
     }
 
-    public BoundedConcurrentQueue(int queueLimit)
+    public BoundedConcurrentQueue(int queueLimit, BoundedQueueFullMode mode = BoundedQueueFullMode.DropWrite)
     {
         if (queueLimit <= 0)
             throw new ArgumentOutOfRangeException(nameof(queueLimit), Resource.ValueMustBePositive);
 
         _queueLimit = queueLimit;
+        _mode = mode;
     }
 
     public int Count => _queue.Count;
 
-    public bool TryDequeue([NotNullWhen(true)]out T? item)
+    public bool TryDequeue([NotNullWhen(true)]out T item)
     {
         if (_queueLimit == NonBounded)
             return _queue.TryDequeue(out item);
 
         var result = false;
-        try
-        { }
-        finally // prevent state corrupt while aborting
+        
+        if (_queue.TryDequeue(out item))
         {
-            if (_queue.TryDequeue(out item))
-            {
-                Interlocked.Decrement(ref _counter);
-                result = true;
-            }
+            result = true;
+            Interlocked.Decrement(ref _counter);
         }
 
         return result;
@@ -54,21 +53,35 @@ public sealed class BoundedConcurrentQueue<T>
         }
 
         var result = true;
-        try
-        { }
-        finally
+        
+        if (Interlocked.Increment(ref _counter) <= _queueLimit)
         {
-            if (Interlocked.Increment(ref _counter) <= _queueLimit)
+            _queue.Enqueue(item);
+        }
+        else
+        {
+            if (_mode == BoundedQueueFullMode.DropOldest)
             {
+                while (Interlocked.Decrement(ref _counter) >= _queueLimit)
+                {
+                    _queue.TryDequeue(out _);
+                }
                 _queue.Enqueue(item);
+                result = true;
             }
             else
             {
                 Interlocked.Decrement(ref _counter);
-                result = false;
+                result = false;   
             }
         }
 
         return result;
     }
+}
+
+public enum BoundedQueueFullMode
+{
+    DropWrite = 0,
+    DropOldest = 1
 }
