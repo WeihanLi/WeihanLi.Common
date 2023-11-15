@@ -28,7 +28,7 @@ public sealed class BoundedConcurrentQueue<T>
 
     public int Count => _queue.Count;
 
-    public bool TryDequeue([NotNullWhen(true)]out T item)
+    public bool TryDequeue([MaybeNullWhen(false)]out T item)
     {
         if (_queueLimit == NonBounded)
             return _queue.TryDequeue(out item);
@@ -78,6 +78,8 @@ public sealed class BoundedConcurrentQueue<T>
 
         return result;
     }
+
+    public T[] ToArray() => _queue.ToArray();
 }
 
 public enum BoundedQueueFullMode
