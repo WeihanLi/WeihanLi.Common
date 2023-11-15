@@ -13,13 +13,13 @@ public static class CacheUtil
     public static PropertyInfo[] GetTypeProperties([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]Type type)
     {
         Guard.NotNull(type);
-        return TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
+        return TypePropertyCache.GetOrAdd(type, _ => type.GetProperties());
     }
     
     public static FieldInfo[] GetTypeFields([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]Type type)
     {
         Guard.NotNull(type);
-        return TypeFieldCache.GetOrAdd(type, t => t.GetFields());
+        return TypeFieldCache.GetOrAdd(type, _ => type.GetFields());
     }
 
     internal static readonly ConcurrentDictionary<Type, MethodInfo[]> TypeMethodCache = new();

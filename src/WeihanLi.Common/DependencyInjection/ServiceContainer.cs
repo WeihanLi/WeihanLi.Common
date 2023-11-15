@@ -142,13 +142,10 @@ internal sealed class ServiceContainer : IServiceContainer
             foreach (var property in CacheUtil.GetTypeProperties(type)
                 .Where(x => x.IsDefined(typeof(FromServiceAttribute))))
             {
-                if (property.GetValueGetter()?.Invoke(obj) == null)
-                {
-                    property.GetValueSetter()?.Invoke(
-                        obj,
-                        GetService(property.PropertyType)
-                    );
-                }
+                property.GetValueSetter()?.Invoke(
+                    obj,
+                    GetService(property.PropertyType)
+                );
             }
         }
         return obj;

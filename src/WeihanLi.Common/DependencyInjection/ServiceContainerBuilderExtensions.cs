@@ -7,7 +7,7 @@ namespace WeihanLi.Common.DependencyInjection;
 
 public static partial class ServiceContainerBuilderExtensions
 {
-    public static IServiceContainerBuilder AddSingleton<TService>(this IServiceContainerBuilder serviceContainerBuilder, TService service)
+    public static IServiceContainerBuilder AddSingleton<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TService>(this IServiceContainerBuilder serviceContainerBuilder, TService service)
     {
         Guard.NotNull(service, nameof(service));
         serviceContainerBuilder.Add(new ServiceDefinition(service!, typeof(TService)));
@@ -182,7 +182,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="serviceLifetime">service lifetime</param>
     /// <returns>services</returns>
     public static IServiceContainerBuilder RegisterTypeAsImplementedInterfaces(
-        this IServiceContainerBuilder services, Type type,
+        this IServiceContainerBuilder services, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.Interfaces)]Type type,
         ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
         => RegisterTypeAsImplementedInterfaces(services, type, null, serviceLifetime);
 
@@ -194,7 +194,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="interfaceTypeFilter">interfaceTypeFilter</param>
     /// <param name="serviceLifetime">service lifetime</param>
     /// <returns>services</returns>
-    public static IServiceContainerBuilder RegisterTypeAsImplementedInterfaces(this IServiceContainerBuilder services, Type type, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
+    public static IServiceContainerBuilder RegisterTypeAsImplementedInterfaces(this IServiceContainerBuilder services, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.Interfaces)]Type type, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
     {
         Guard.NotNull(type);
         foreach (var interfaceType in type.GetImplementedInterfaces())
