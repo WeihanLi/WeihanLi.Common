@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Guard.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Guard%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Guard.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Guard%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="WeihanLi_Common_Guard" data-uid="WeihanLi.Common.Guard" class="text-break">
     Class Guard
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Guard.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Guard.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Common.html">Common</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Common.html">Common</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
@@ -133,56 +150,11 @@
 </h2>
 
 
-  <a id="WeihanLi_Common_Guard_Ensure_" data-uid="WeihanLi.Common.Guard.Ensure*"></a>
-
-  <h3 id="WeihanLi_Common_Guard_Ensure__1_System_Func___0_System_Boolean____0_System_String_" data-uid="WeihanLi.Common.Guard.Ensure``1(System.Func{``0,System.Boolean},``0,System.String)">
-  Ensure&lt;T&gt;(Func&lt;T, bool&gt;, T, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Guard.cs/#L56"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T Ensure&lt;T&gt;(Func&lt;T, bool&gt; condition, T t, string? paramName = null)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>condition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>t</code> <span class="xref">T</span></dt>
-    <dd></dd>
-    <dt><code>paramName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">T</span></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Common_Guard_EnsureAsync_" data-uid="WeihanLi.Common.Guard.EnsureAsync*"></a>
 
   <h3 id="WeihanLi_Common_Guard_EnsureAsync__1_System_Func___0_System_Threading_Tasks_Task_System_Boolean_____0_System_String_" data-uid="WeihanLi.Common.Guard.EnsureAsync``1(System.Func{``0,System.Threading.Tasks.Task{System.Boolean}},``0,System.String)">
   EnsureAsync&lt;T&gt;(Func&lt;T, Task&lt;bool&gt;&gt;, T, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Guard.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Guard.cs/#L78"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -223,11 +195,101 @@
 
 
 
+  <a id="WeihanLi_Common_Guard_EnsureAsync_" data-uid="WeihanLi.Common.Guard.EnsureAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Guard_EnsureAsync__1_System_Func___0_System_Threading_Tasks_ValueTask_System_Boolean_____0_System_String_" data-uid="WeihanLi.Common.Guard.EnsureAsync``1(System.Func{``0,System.Threading.Tasks.ValueTask{System.Boolean}},``0,System.String)">
+  EnsureAsync&lt;T&gt;(Func&lt;T, ValueTask&lt;bool&gt;&gt;, T, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Guard.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; EnsureAsync&lt;T&gt;(Func&lt;T, ValueTask&lt;bool&gt;&gt; condition, T t, string? paramName = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>condition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>t</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>paramName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Guard_Ensure_" data-uid="WeihanLi.Common.Guard.Ensure*"></a>
+
+  <h3 id="WeihanLi_Common_Guard_Ensure__1_System_Func___0_System_Boolean____0_System_String_" data-uid="WeihanLi.Common.Guard.Ensure``1(System.Func{``0,System.Boolean},``0,System.String)">
+  Ensure&lt;T&gt;(Func&lt;T, bool&gt;, T, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Guard.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Ensure&lt;T&gt;(Func&lt;T, bool&gt; condition, T t, string? paramName = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>condition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>t</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>paramName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Common_Guard_NotEmpty_" data-uid="WeihanLi.Common.Guard.NotEmpty*"></a>
 
   <h3 id="WeihanLi_Common_Guard_NotEmpty__1_System_Collections_Generic_ICollection___0__System_String_" data-uid="WeihanLi.Common.Guard.NotEmpty``1(System.Collections.Generic.ICollection{``0},System.String)">
   NotEmpty&lt;T&gt;(ICollection&lt;T&gt;, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Guard.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Guard.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -266,11 +328,87 @@
 
 
 
+  <a id="WeihanLi_Common_Guard_NotNullOrEmpty_" data-uid="WeihanLi.Common.Guard.NotNullOrEmpty*"></a>
+
+  <h3 id="WeihanLi_Common_Guard_NotNullOrEmpty_System_String_System_String_" data-uid="WeihanLi.Common.Guard.NotNullOrEmpty(System.String,System.String)">
+  NotNullOrEmpty(string?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Guard.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string NotNullOrEmpty(string? str, string? paramName = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>paramName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Guard_NotNullOrWhiteSpace_" data-uid="WeihanLi.Common.Guard.NotNullOrWhiteSpace*"></a>
+
+  <h3 id="WeihanLi_Common_Guard_NotNullOrWhiteSpace_System_String_System_String_" data-uid="WeihanLi.Common.Guard.NotNullOrWhiteSpace(System.String,System.String)">
+  NotNullOrWhiteSpace(string?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Guard.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string NotNullOrWhiteSpace(string? str, string? paramName = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>paramName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Common_Guard_NotNull_" data-uid="WeihanLi.Common.Guard.NotNull*"></a>
 
   <h3 id="WeihanLi_Common_Guard_NotNull__1___0_System_String_" data-uid="WeihanLi.Common.Guard.NotNull``1(``0,System.String)">
   NotNull&lt;T&gt;(T?, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Guard.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Guard.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -309,88 +447,14 @@
 
 
 
-  <a id="WeihanLi_Common_Guard_NotNullOrEmpty_" data-uid="WeihanLi.Common.Guard.NotNullOrEmpty*"></a>
-
-  <h3 id="WeihanLi_Common_Guard_NotNullOrEmpty_System_String_System_String_" data-uid="WeihanLi.Common.Guard.NotNullOrEmpty(System.String,System.String)">
-  NotNullOrEmpty(string?, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Guard.cs/#L23"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string NotNullOrEmpty(string? str, string? paramName = null)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-    <dt><code>paramName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Common_Guard_NotNullOrWhiteSpace_" data-uid="WeihanLi.Common.Guard.NotNullOrWhiteSpace*"></a>
-
-  <h3 id="WeihanLi_Common_Guard_NotNullOrWhiteSpace_System_String_System_String_" data-uid="WeihanLi.Common.Guard.NotNullOrWhiteSpace(System.String,System.String)">
-  NotNullOrWhiteSpace(string?, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Guard.cs/#L35"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string NotNullOrWhiteSpace(string? str, string? paramName = null)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-    <dt><code>paramName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Guard.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Guard%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Guard.cs/#L6" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -399,7 +463,7 @@
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>

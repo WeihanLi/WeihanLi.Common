@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_TypeExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.TypeExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Extensions_TypeExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.TypeExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="WeihanLi_Extensions_TypeExtension" data-uid="WeihanLi.Extensions.TypeExtension" class="text-break">
     Class TypeExtension
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
@@ -137,7 +154,7 @@
 
   <h3 id="WeihanLi_Extensions_TypeExtension_GetConstructor_System_Type_System_Type___" data-uid="WeihanLi.Extensions.TypeExtension.GetConstructor(System.Type,System.Type[])">
   GetConstructor(Type, params Type[]?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Finds best constructor, least parameter</p>
@@ -178,7 +195,7 @@
 
   <h3 id="WeihanLi_Extensions_TypeExtension_GetDescription_System_Type_" data-uid="WeihanLi.Extensions.TypeExtension.GetDescription(System.Type)">
   GetDescription(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>GetDescription</p>
@@ -186,7 +203,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string GetDescription(this Type type)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string? GetDescription(this Type type)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -216,7 +233,7 @@
 
   <h3 id="WeihanLi_Extensions_TypeExtension_GetEmptyConstructor_System_Type_" data-uid="WeihanLi.Extensions.TypeExtension.GetEmptyConstructor(System.Type)">
   GetEmptyConstructor(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -252,7 +269,7 @@
 
   <h3 id="WeihanLi_Extensions_TypeExtension_GetImplementedInterfaces_System_Type_" data-uid="WeihanLi.Extensions.TypeExtension.GetImplementedInterfaces(System.Type)">
   GetImplementedInterfaces(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L140"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get ImplementedInterfaces</p>
@@ -290,7 +307,7 @@
 
   <h3 id="WeihanLi_Extensions_TypeExtension_GetMatchingConstructor_System_Type_System_Type___" data-uid="WeihanLi.Extensions.TypeExtension.GetMatchingConstructor(System.Type,System.Type[])">
   GetMatchingConstructor(Type, Type[]?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L123"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Finds a constructor with the matching type parameters.</p>
@@ -332,11 +349,10 @@
 
   <h3 id="WeihanLi_Extensions_TypeExtension_GetTypeCode_System_Type_" data-uid="WeihanLi.Extensions.TypeExtension.GetTypeCode(System.Type)">
   GetTypeCode(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>get TypeCode for specific type</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -346,8 +362,7 @@
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd><p>type</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -370,7 +385,7 @@
 
   <h3 id="WeihanLi_Extensions_TypeExtension_HasNamespace_System_Type_" data-uid="WeihanLi.Extensions.TypeExtension.HasNamespace(System.Type)">
   HasNamespace(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L77"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -406,10 +421,10 @@
 
   <h3 id="WeihanLi_Extensions_TypeExtension_IsAssignableTo__1_System_Type_" data-uid="WeihanLi.Extensions.TypeExtension.IsAssignableTo``1(System.Type)">
   IsAssignableTo&lt;T&gt;(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L111"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Determines whether this type is assignable to <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+  <div class="markdown level1 summary"><p>Determines whether this type is assignable to <code class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -428,7 +443,7 @@
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>True if this type is assignable to references of type
-<code data-dev-comment-type="typeparamref" class="typeparamref">T</code>; otherwise, False.</p>
+<code class="typeparamref">T</code>; otherwise, False.</p>
 </dd>
   </dl>
 
@@ -452,7 +467,7 @@
 
   <h3 id="WeihanLi_Extensions_TypeExtension_IsBasicType_System_Type_" data-uid="WeihanLi.Extensions.TypeExtension.IsBasicType(System.Type)">
   IsBasicType(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -488,7 +503,7 @@
 
   <h3 id="WeihanLi_Extensions_TypeExtension_IsBasicType__1" data-uid="WeihanLi.Extensions.TypeExtension.IsBasicType``1">
   IsBasicType&lt;T&gt;()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -520,52 +535,11 @@
 
 
 
-  <a id="WeihanLi_Extensions_TypeExtension_IsBasicType_" data-uid="WeihanLi.Extensions.TypeExtension.IsBasicType*"></a>
-
-  <h3 id="WeihanLi_Extensions_TypeExtension_IsBasicType__1___0_" data-uid="WeihanLi.Extensions.TypeExtension.IsBasicType``1(``0)">
-  IsBasicType&lt;T&gt;(T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L84"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool IsBasicType&lt;T&gt;(this T value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <span class="xref">T</span></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_TypeExtension_IsPrimitiveType_" data-uid="WeihanLi.Extensions.TypeExtension.IsPrimitiveType*"></a>
 
   <h3 id="WeihanLi_Extensions_TypeExtension_IsPrimitiveType_System_Type_" data-uid="WeihanLi.Extensions.TypeExtension.IsPrimitiveType(System.Type)">
   IsPrimitiveType(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L64"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>判断是否基元类型，如果是可空类型会先获取里面的类型，如 int? 也是基元类型
@@ -604,7 +578,7 @@ The primitive types are Boolean, Byte, SByte, Int16, UInt16, Int32, UInt32, Int6
 
   <h3 id="WeihanLi_Extensions_TypeExtension_IsPrimitiveType__1" data-uid="WeihanLi.Extensions.TypeExtension.IsPrimitiveType``1">
   IsPrimitiveType&lt;T&gt;()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -640,11 +614,10 @@ The primitive types are Boolean, Byte, SByte, Int16, UInt16, Int32, UInt32, Int6
 
   <h3 id="WeihanLi_Extensions_TypeExtension_IsValueTuple_System_Type_" data-uid="WeihanLi.Extensions.TypeExtension.IsValueTuple(System.Type)">
   IsValueTuple(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>是否是 ValueTuple</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -654,8 +627,7 @@ The primitive types are Boolean, Byte, SByte, Int16, UInt16, Int32, UInt32, Int6
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd><p>type</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -678,8 +650,10 @@ The primitive types are Boolean, Byte, SByte, Int16, UInt16, Int32, UInt32, Int6
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_TypeExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.TypeExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TypeExtension.cs/#L10" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -688,7 +662,7 @@ The primitive types are Boolean, Byte, SByte, Int16, UInt16, Int32, UInt32, Int6
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>

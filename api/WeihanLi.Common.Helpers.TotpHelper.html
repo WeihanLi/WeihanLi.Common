@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_TotpHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.TotpHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Helpers_TotpHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.TotpHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="WeihanLi_Common_Helpers_TotpHelper" data-uid="WeihanLi.Common.Helpers.TotpHelper" class="text-break">
     Class TotpHelper
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Helpers.html">Helpers</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Helpers.html">Helpers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
@@ -137,10 +154,11 @@
 
   <h3 id="WeihanLi_Common_Helpers_TotpHelper_ConfigureTotpOptions_System_Action_WeihanLi_Common_Otp_TotpOptions__" data-uid="WeihanLi.Common.Helpers.TotpHelper.ConfigureTotpOptions(System.Action{WeihanLi.Common.Otp.TotpOptions})">
   ConfigureTotpOptions(Action&lt;TotpOptions&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Configure the default <a class="xref" href="WeihanLi.Common.Otp.TotpOptions.html">TotpOptions</a> for <a class="xref" href="WeihanLi.Common.Helpers.TotpHelper.html">TotpHelper</a></p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -150,13 +168,15 @@
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>configAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="WeihanLi.Common.Otp.TotpOptions.html">TotpOptions</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>configure</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="WeihanLi.Common.Otp.TotpOptions.html">TotpOptions</a></dt>
-    <dd></dd>
+    <dd><p>configured options</p>
+</dd>
   </dl>
 
 
@@ -169,19 +189,19 @@
 
 
 
-  <a id="WeihanLi_Common_Helpers_TotpHelper_GenerateCode_" data-uid="WeihanLi.Common.Helpers.TotpHelper.GenerateCode*"></a>
+  <a id="WeihanLi_Common_Helpers_TotpHelper_GetCode_" data-uid="WeihanLi.Common.Helpers.TotpHelper.GetCode*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_TotpHelper_GenerateCode_System_Byte___" data-uid="WeihanLi.Common.Helpers.TotpHelper.GenerateCode(System.Byte[])">
-  GenerateCode(byte[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Helpers_TotpHelper_GetCode_System_Byte___" data-uid="WeihanLi.Common.Helpers.TotpHelper.GetCode(System.Byte[])">
+  GetCode(byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Generates code for the specified <code data-dev-comment-type="paramref" class="paramref">securityToken</code>.</p>
+  <div class="markdown level1 summary"><p>Generates code for the specified <code class="paramref">securityToken</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string GenerateCode(byte[] securityToken)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string GetCode(byte[] securityToken)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -208,19 +228,19 @@
 
 
 
-  <a id="WeihanLi_Common_Helpers_TotpHelper_GenerateCode_" data-uid="WeihanLi.Common.Helpers.TotpHelper.GenerateCode*"></a>
+  <a id="WeihanLi_Common_Helpers_TotpHelper_GetCode_" data-uid="WeihanLi.Common.Helpers.TotpHelper.GetCode*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_TotpHelper_GenerateCode_System_String_" data-uid="WeihanLi.Common.Helpers.TotpHelper.GenerateCode(System.String)">
-  GenerateCode(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Helpers_TotpHelper_GetCode_System_String_" data-uid="WeihanLi.Common.Helpers.TotpHelper.GetCode(System.String)">
+  GetCode(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Generates code for the specified <code data-dev-comment-type="paramref" class="paramref">securityToken</code>.</p>
+  <div class="markdown level1 summary"><p>Generates code for the specified <code class="paramref">securityToken</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string GenerateCode(string securityToken)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string GetCode(string securityToken)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -235,83 +255,6 @@
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>The generated code.</p>
 </dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Common_Helpers_TotpHelper_TTL_" data-uid="WeihanLi.Common.Helpers.TotpHelper.TTL*"></a>
-
-  <h3 id="WeihanLi_Common_Helpers_TotpHelper_TTL_System_Byte___" data-uid="WeihanLi.Common.Helpers.TotpHelper.TTL(System.Byte[])">
-  TTL(byte[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L51"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>ttl of the code for the specified <code data-dev-comment-type="paramref" class="paramref">securityToken</code>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int TTL(byte[] securityToken)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>securityToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
-    <dd><p>The security token to generate code.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>the code remaining seconds expires in</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Common_Helpers_TotpHelper_TTL_" data-uid="WeihanLi.Common.Helpers.TotpHelper.TTL*"></a>
-
-  <h3 id="WeihanLi_Common_Helpers_TotpHelper_TTL_System_String_" data-uid="WeihanLi.Common.Helpers.TotpHelper.TTL(System.String)">
-  TTL(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L62"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>ttl of the code for the specified <code data-dev-comment-type="paramref" class="paramref">securityToken</code>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int TTL(string securityToken)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>securityToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The security token to generate code.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
   </dl>
 
 
@@ -326,17 +269,17 @@
 
   <a id="WeihanLi_Common_Helpers_TotpHelper_VerifyCode_" data-uid="WeihanLi.Common.Helpers.TotpHelper.VerifyCode*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_TotpHelper_VerifyCode_System_Byte___System_String_System_Int32_" data-uid="WeihanLi.Common.Helpers.TotpHelper.VerifyCode(System.Byte[],System.String,System.Int32)">
-  VerifyCode(byte[], string, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Helpers_TotpHelper_VerifyCode_System_Byte___System_String_" data-uid="WeihanLi.Common.Helpers.TotpHelper.VerifyCode(System.Byte[],System.String)">
+  VerifyCode(byte[], string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Validates the code for the specified <code data-dev-comment-type="paramref" class="paramref">securityToken</code>.</p>
+  <div class="markdown level1 summary"><p>Validates the code for the specified <code class="paramref">securityToken</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool VerifyCode(byte[] securityToken, string code, int expiresIn = -1)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool VerifyCode(byte[] securityToken, string code)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -346,9 +289,6 @@
 </dd>
     <dt><code>code</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>The code to validate.</p>
-</dd>
-    <dt><code>expiresIn</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>expiresIn, in seconds</p>
 </dd>
   </dl>
 
@@ -371,29 +311,26 @@
 
   <a id="WeihanLi_Common_Helpers_TotpHelper_VerifyCode_" data-uid="WeihanLi.Common.Helpers.TotpHelper.VerifyCode*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_TotpHelper_VerifyCode_System_String_System_String_System_Int32_" data-uid="WeihanLi.Common.Helpers.TotpHelper.VerifyCode(System.String,System.String,System.Int32)">
-  VerifyCode(string, string, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Helpers_TotpHelper_VerifyCode_System_String_System_String_" data-uid="WeihanLi.Common.Helpers.TotpHelper.VerifyCode(System.String,System.String)">
+  VerifyCode(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Validates the code for the specified <code data-dev-comment-type="paramref" class="paramref">securityToken</code>.</p>
+  <div class="markdown level1 summary"><p>Validates the code for the specified <code class="paramref">securityToken</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool VerifyCode(string securityToken, string code, int expiresIn = -1)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool VerifyCode(string securityToken, string code)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>securityToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The security token for verifying.</p>
+    <dd><p>The security token for verifying</p>
 </dd>
     <dt><code>code</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>The code to validate.</p>
-</dd>
-    <dt><code>expiresIn</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>expiresIn, in seconds</p>
 </dd>
   </dl>
 
@@ -418,8 +355,10 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_TotpHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.TotpHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/TotpHelper.cs/#L7" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -428,7 +367,7 @@
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>

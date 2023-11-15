@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions" class="text-break">
     Class ServiceContainerBuilderExtensions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Aspect.html">Aspect</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Aspect.html">Aspect</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
@@ -135,9 +152,45 @@
 
   <a id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddFluentAspects_" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddFluentAspects*"></a>
 
+  <h3 id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddFluentAspects_WeihanLi_Common_DependencyInjection_IServiceContainerBuilder_" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddFluentAspects(WeihanLi.Common.DependencyInjection.IServiceContainerBuilder)">
+  AddFluentAspects(IServiceContainerBuilder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IFluentAspectsServiceContainerBuilder AddFluentAspects(this IServiceContainerBuilder serviceCollection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceCollection</code> <a class="xref" href="WeihanLi.Common.DependencyInjection.IServiceContainerBuilder.html">IServiceContainerBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Aspect.IFluentAspectsServiceContainerBuilder.html">IFluentAspectsServiceContainerBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddFluentAspects_" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddFluentAspects*"></a>
+
   <h3 id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddFluentAspects_WeihanLi_Common_DependencyInjection_IServiceContainerBuilder_System_Action_WeihanLi_Common_Aspect_FluentAspectOptions__" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddFluentAspects(WeihanLi.Common.DependencyInjection.IServiceContainerBuilder,System.Action{WeihanLi.Common.Aspect.FluentAspectOptions})">
   AddFluentAspects(IServiceContainerBuilder, Action&lt;FluentAspectOptions&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -171,47 +224,11 @@
 
 
 
-  <a id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddFluentAspects_" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddFluentAspects*"></a>
-
-  <h3 id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddFluentAspects_WeihanLi_Common_DependencyInjection_IServiceContainerBuilder_" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddFluentAspects(WeihanLi.Common.DependencyInjection.IServiceContainerBuilder)">
-  AddFluentAspects(IServiceContainerBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L24"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IFluentAspectsServiceContainerBuilder AddFluentAspects(this IServiceContainerBuilder serviceCollection)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>serviceCollection</code> <a class="xref" href="WeihanLi.Common.DependencyInjection.IServiceContainerBuilder.html">IServiceContainerBuilder</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="WeihanLi.Common.Aspect.IFluentAspectsServiceContainerBuilder.html">IFluentAspectsServiceContainerBuilder</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddProxyService_" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddProxyService*"></a>
 
   <h3 id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddProxyService__1_WeihanLi_Common_DependencyInjection_IServiceContainerBuilder_WeihanLi_Common_DependencyInjection_ServiceLifetime_" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddProxyService``1(WeihanLi.Common.DependencyInjection.IServiceContainerBuilder,WeihanLi.Common.DependencyInjection.ServiceLifetime)">
   AddProxyService&lt;TService&gt;(IServiceContainerBuilder, ServiceLifetime)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -254,7 +271,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddProxyService__2_WeihanLi_Common_DependencyInjection_IServiceContainerBuilder_WeihanLi_Common_DependencyInjection_ServiceLifetime_" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddProxyService``2(WeihanLi.Common.DependencyInjection.IServiceContainerBuilder,WeihanLi.Common.DependencyInjection.ServiceLifetime)">
   AddProxyService&lt;TService, TImplement&gt;(IServiceContainerBuilder, ServiceLifetime)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -299,7 +316,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddScopedProxy__1_WeihanLi_Common_DependencyInjection_IServiceContainerBuilder_" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddScopedProxy``1(WeihanLi.Common.DependencyInjection.IServiceContainerBuilder)">
   AddScopedProxy&lt;TService&gt;(IServiceContainerBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -340,7 +357,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddScopedProxy__2_WeihanLi_Common_DependencyInjection_IServiceContainerBuilder_" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddScopedProxy``2(WeihanLi.Common.DependencyInjection.IServiceContainerBuilder)">
   AddScopedProxy&lt;TService, TImplement&gt;(IServiceContainerBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -383,7 +400,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddSingletonProxy__1_WeihanLi_Common_DependencyInjection_IServiceContainerBuilder_" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddSingletonProxy``1(WeihanLi.Common.DependencyInjection.IServiceContainerBuilder)">
   AddSingletonProxy&lt;TService&gt;(IServiceContainerBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L81"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -424,7 +441,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddSingletonProxy__2_WeihanLi_Common_DependencyInjection_IServiceContainerBuilder_" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddSingletonProxy``2(WeihanLi.Common.DependencyInjection.IServiceContainerBuilder)">
   AddSingletonProxy&lt;TService, TImplement&gt;(IServiceContainerBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -467,7 +484,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddTransientProxy__1_WeihanLi_Common_DependencyInjection_IServiceContainerBuilder_" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddTransientProxy``1(WeihanLi.Common.DependencyInjection.IServiceContainerBuilder)">
   AddTransientProxy&lt;TService&gt;(IServiceContainerBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L89"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -508,7 +525,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_AddTransientProxy__2_WeihanLi_Common_DependencyInjection_IServiceContainerBuilder_" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.AddTransientProxy``2(WeihanLi.Common.DependencyInjection.IServiceContainerBuilder)">
   AddTransientProxy&lt;TService, TImplement&gt;(IServiceContainerBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -551,7 +568,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions_BuildFluentAspectsContainer_WeihanLi_Common_DependencyInjection_IServiceContainerBuilder_System_Action_WeihanLi_Common_Aspect_FluentAspectOptions__System_Action_WeihanLi_Common_Aspect_IFluentAspectsServiceContainerBuilder__System_Linq_Expressions_Expression_System_Func_System_Type_System_Boolean___" data-uid="WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.BuildFluentAspectsContainer(WeihanLi.Common.DependencyInjection.IServiceContainerBuilder,System.Action{WeihanLi.Common.Aspect.FluentAspectOptions},System.Action{WeihanLi.Common.Aspect.IFluentAspectsServiceContainerBuilder},System.Linq.Expressions.Expression{System.Func{System.Type,System.Boolean}})">
   BuildFluentAspectsContainer(IServiceContainerBuilder, Action&lt;FluentAspectOptions&gt;?, Action&lt;IFluentAspectsServiceContainerBuilder&gt;?, Expression&lt;Func&lt;Type, bool&gt;&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L93"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -593,8 +610,10 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Aspect_ServiceContainerBuilderExtensions.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/ServiceContainerBuilderExtensions.cs/#L8" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -603,7 +622,7 @@
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>

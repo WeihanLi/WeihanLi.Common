@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_PipelineBuilderExtensions.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.PipelineBuilderExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Helpers_PipelineBuilderExtensions.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.PipelineBuilderExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions" class="text-break">
     Class PipelineBuilderExtensions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Helpers.html">Helpers</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Helpers.html">Helpers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
@@ -137,7 +154,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Run__1_WeihanLi_Common_Helpers_IAsyncPipelineBuilder___0__System_Func___0_System_Threading_Tasks_Task__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Run``1(WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0},System.Func{``0,System.Threading.Tasks.Task})">
   Run&lt;TContext&gt;(IAsyncPipelineBuilder&lt;TContext&gt;, Func&lt;TContext, Task&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L170"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -180,7 +197,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Run__1_WeihanLi_Common_Helpers_IPipelineBuilder___0__System_Action___0__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Run``1(WeihanLi.Common.Helpers.IPipelineBuilder{``0},System.Action{``0})">
   Run&lt;TContext&gt;(IPipelineBuilder&lt;TContext&gt;, Action&lt;TContext&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -219,25 +236,68 @@
 
 
 
-  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use*"></a>
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Run_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Run*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use__1_WeihanLi_Common_Helpers_IAsyncPipelineBuilder___0__System_Func___0_System_Func___0_System_Threading_Tasks_Task__System_Threading_Tasks_Task__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use``1(WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0},System.Func{``0,System.Func{``0,System.Threading.Tasks.Task},System.Threading.Tasks.Task})">
-  Use&lt;TContext&gt;(IAsyncPipelineBuilder&lt;TContext&gt;, Func&lt;TContext, Func&lt;TContext, Task&gt;, Task&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Run__1_WeihanLi_Common_Helpers_IValueAsyncPipelineBuilder___0__System_Func___0_System_Threading_Tasks_ValueTask__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Run``1(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder{``0},System.Func{``0,System.Threading.Tasks.ValueTask})">
+  Run&lt;TContext&gt;(IValueAsyncPipelineBuilder&lt;TContext&gt;, Func&lt;TContext, ValueTask&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L249"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IAsyncPipelineBuilder&lt;TContext&gt; Use&lt;TContext&gt;(this IAsyncPipelineBuilder&lt;TContext&gt; builder, Func&lt;TContext, Func&lt;TContext, Task&gt;, Task&gt; func)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IValueAsyncPipelineBuilder&lt;TContext&gt; Run&lt;TContext&gt;(this IValueAsyncPipelineBuilder&lt;TContext&gt; builder, Func&lt;TContext, ValueTask&gt; handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+    <dt><code>handler</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TContext</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware__1_WeihanLi_Common_Helpers_IAsyncPipelineBuilder___0__WeihanLi_Common_Helpers_IAsyncPipelineMiddleware___0__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware``1(WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0},WeihanLi.Common.Helpers.IAsyncPipelineMiddleware{``0})">
+  UseMiddleware&lt;TContext&gt;(IAsyncPipelineBuilder&lt;TContext&gt;, IAsyncPipelineMiddleware&lt;TContext&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IAsyncPipelineBuilder&lt;TContext&gt; UseMiddleware&lt;TContext&gt;(this IAsyncPipelineBuilder&lt;TContext&gt; builder, IAsyncPipelineMiddleware&lt;TContext&gt; middleware)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IAsyncPipelineBuilder-1.html">IAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
     <dd></dd>
-    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</dt>
+    <dt><code>middleware</code> <a class="xref" href="WeihanLi.Common.Helpers.IAsyncPipelineMiddleware-1.html">IAsyncPipelineMiddleware</a>&lt;TContext&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -262,25 +322,66 @@
 
 
 
-  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use*"></a>
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use__1_WeihanLi_Common_Helpers_IAsyncPipelineBuilder___0__System_Func___0_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use``1(WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0},System.Func{``0,System.Func{System.Threading.Tasks.Task},System.Threading.Tasks.Task})">
-  Use&lt;TContext&gt;(IAsyncPipelineBuilder&lt;TContext&gt;, Func&lt;TContext, Func&lt;Task&gt;, Task&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware__1_WeihanLi_Common_Helpers_IValueAsyncPipelineBuilder___0__WeihanLi_Common_Helpers_IValueAsyncPipelineMiddleware___0__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware``1(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder{``0},WeihanLi.Common.Helpers.IValueAsyncPipelineMiddleware{``0})">
+  UseMiddleware&lt;TContext&gt;(IValueAsyncPipelineBuilder&lt;TContext&gt;, IValueAsyncPipelineMiddleware&lt;TContext&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L195"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IAsyncPipelineBuilder&lt;TContext&gt; Use&lt;TContext&gt;(this IAsyncPipelineBuilder&lt;TContext&gt; builder, Func&lt;TContext, Func&lt;Task&gt;, Task&gt; func)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IValueAsyncPipelineBuilder&lt;TContext&gt; UseMiddleware&lt;TContext&gt;(this IValueAsyncPipelineBuilder&lt;TContext&gt; builder, IValueAsyncPipelineMiddleware&lt;TContext&gt; middleware)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+    <dt><code>middleware</code> <a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineMiddleware-1.html">IValueAsyncPipelineMiddleware</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TContext</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware__2_WeihanLi_Common_Helpers_IAsyncPipelineBuilder___0__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0})">
+  UseMiddleware&lt;TContext, TMiddleware&gt;(IAsyncPipelineBuilder&lt;TContext&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IAsyncPipelineBuilder&lt;TContext&gt; UseMiddleware&lt;TContext, TMiddleware&gt;(this IAsyncPipelineBuilder&lt;TContext&gt; builder) where TMiddleware : class, IAsyncPipelineMiddleware&lt;TContext&gt;</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IAsyncPipelineBuilder-1.html">IAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
-    <dd></dd>
-    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -294,6 +395,8 @@
   <dl class="parameters">
     <dt><code>TContext</code></dt>
     <dd></dd>
+    <dt><code>TMiddleware</code></dt>
+    <dd></dd>
   </dl>
 
 
@@ -305,25 +408,23 @@
 
 
 
-  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use*"></a>
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use__1_WeihanLi_Common_Helpers_IPipelineBuilder___0__System_Action___0_System_Action___0___" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use``1(WeihanLi.Common.Helpers.IPipelineBuilder{``0},System.Action{``0,System.Action{``0}})">
-  Use&lt;TContext&gt;(IPipelineBuilder&lt;TContext&gt;, Action&lt;TContext, Action&lt;TContext&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware__2_WeihanLi_Common_Helpers_IPipelineBuilder___0__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IPipelineBuilder{``0})">
+  UseMiddleware&lt;TContext, TMiddleware&gt;(IPipelineBuilder&lt;TContext&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IPipelineBuilder&lt;TContext&gt; Use&lt;TContext&gt;(this IPipelineBuilder&lt;TContext&gt; builder, Action&lt;TContext, Action&lt;TContext&gt;&gt; action)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IPipelineBuilder&lt;TContext&gt; UseMiddleware&lt;TContext, TMiddleware&gt;(this IPipelineBuilder&lt;TContext&gt; builder) where TMiddleware : class, IPipelineMiddleware&lt;TContext&gt;</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IPipelineBuilder-1.html">IPipelineBuilder</a>&lt;TContext&gt;</dt>
-    <dd></dd>
-    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TContext&gt;&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -337,6 +438,8 @@
   <dl class="parameters">
     <dt><code>TContext</code></dt>
     <dd></dd>
+    <dt><code>TMiddleware</code></dt>
+    <dd></dd>
   </dl>
 
 
@@ -348,25 +451,25 @@
 
 
 
-  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use*"></a>
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use__1_WeihanLi_Common_Helpers_IPipelineBuilder___0__System_Action___0_System_Action__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use``1(WeihanLi.Common.Helpers.IPipelineBuilder{``0},System.Action{``0,System.Action})">
-  Use&lt;TContext&gt;(IPipelineBuilder&lt;TContext&gt;, Action&lt;TContext, Action&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware__2_WeihanLi_Common_Helpers_IPipelineBuilder___0____1_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IPipelineBuilder{``0},``1)">
+  UseMiddleware&lt;TContext, TMiddleware&gt;(IPipelineBuilder&lt;TContext&gt;, TMiddleware)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IPipelineBuilder&lt;TContext&gt; Use&lt;TContext&gt;(this IPipelineBuilder&lt;TContext&gt; builder, Action&lt;TContext, Action&gt; action)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IPipelineBuilder&lt;TContext&gt; UseMiddleware&lt;TContext, TMiddleware&gt;(this IPipelineBuilder&lt;TContext&gt; builder, TMiddleware middleware) where TMiddleware : class, IPipelineMiddleware&lt;TContext&gt;</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IPipelineBuilder-1.html">IPipelineBuilder</a>&lt;TContext&gt;</dt>
     <dd></dd>
-    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a>&gt;</dt>
+    <dt><code>middleware</code> <span class="xref">TMiddleware</span></dt>
     <dd></dd>
   </dl>
 
@@ -379,6 +482,51 @@
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>TContext</code></dt>
+    <dd></dd>
+    <dt><code>TMiddleware</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware__2_WeihanLi_Common_Helpers_IValueAsyncPipelineBuilder___0__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder{``0})">
+  UseMiddleware&lt;TContext, TMiddleware&gt;(IValueAsyncPipelineBuilder&lt;TContext&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValueAsyncPipelineBuilder&lt;TContext&gt; UseMiddleware&lt;TContext, TMiddleware&gt;(this IValueAsyncPipelineBuilder&lt;TContext&gt; builder) where TMiddleware : class, IValueAsyncPipelineMiddleware&lt;TContext&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TContext</code></dt>
+    <dd></dd>
+    <dt><code>TMiddleware</code></dt>
     <dd></dd>
   </dl>
 
@@ -395,7 +543,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseWhen__1_WeihanLi_Common_Helpers_IAsyncPipelineBuilder___0__System_Func___0_System_Boolean__System_Action_WeihanLi_Common_Helpers_IAsyncPipelineBuilder___0___" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseWhen``1(WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0},System.Func{``0,System.Boolean},System.Action{WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0}})">
   UseWhen&lt;TContext&gt;(IAsyncPipelineBuilder&lt;TContext&gt;, Func&lt;TContext, bool&gt;, Action&lt;IAsyncPipelineBuilder&lt;TContext&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -440,7 +588,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseWhen__1_WeihanLi_Common_Helpers_IPipelineBuilder___0__System_Func___0_System_Boolean__System_Action_WeihanLi_Common_Helpers_IPipelineBuilder___0___" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseWhen``1(WeihanLi.Common.Helpers.IPipelineBuilder{``0},System.Func{``0,System.Boolean},System.Action{WeihanLi.Common.Helpers.IPipelineBuilder{``0}})">
   UseWhen&lt;TContext&gt;(IPipelineBuilder&lt;TContext&gt;, Func&lt;TContext, bool&gt;, Action&lt;IPipelineBuilder&lt;TContext&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -481,11 +629,314 @@
 
 
 
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseWhen_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseWhen*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseWhen__1_WeihanLi_Common_Helpers_IValueAsyncPipelineBuilder___0__System_Func___0_System_Boolean__System_Action_WeihanLi_Common_Helpers_IValueAsyncPipelineBuilder___0___" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseWhen``1(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder{``0},System.Func{``0,System.Boolean},System.Action{WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder{``0}})">
+  UseWhen&lt;TContext&gt;(IValueAsyncPipelineBuilder&lt;TContext&gt;, Func&lt;TContext, bool&gt;, Action&lt;IValueAsyncPipelineBuilder&lt;TContext&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValueAsyncPipelineBuilder&lt;TContext&gt; UseWhen&lt;TContext&gt;(this IValueAsyncPipelineBuilder&lt;TContext&gt; builder, Func&lt;TContext, bool&gt; predict, Action&lt;IValueAsyncPipelineBuilder&lt;TContext&gt;&gt; configureAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+    <dt><code>predict</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>configureAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TContext</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use__1_WeihanLi_Common_Helpers_IAsyncPipelineBuilder___0__System_Func___0_System_Func_System_Threading_Tasks_Task__System_Threading_Tasks_Task__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use``1(WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0},System.Func{``0,System.Func{System.Threading.Tasks.Task},System.Threading.Tasks.Task})">
+  Use&lt;TContext&gt;(IAsyncPipelineBuilder&lt;TContext&gt;, Func&lt;TContext, Func&lt;Task&gt;, Task&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IAsyncPipelineBuilder&lt;TContext&gt; Use&lt;TContext&gt;(this IAsyncPipelineBuilder&lt;TContext&gt; builder, Func&lt;TContext, Func&lt;Task&gt;, Task&gt; func)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IAsyncPipelineBuilder-1.html">IAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Helpers.IAsyncPipelineBuilder-1.html">IAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TContext</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use__1_WeihanLi_Common_Helpers_IAsyncPipelineBuilder___0__System_Func___0_System_Func___0_System_Threading_Tasks_Task__System_Threading_Tasks_Task__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use``1(WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0},System.Func{``0,System.Func{``0,System.Threading.Tasks.Task},System.Threading.Tasks.Task})">
+  Use&lt;TContext&gt;(IAsyncPipelineBuilder&lt;TContext&gt;, Func&lt;TContext, Func&lt;TContext, Task&gt;, Task&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IAsyncPipelineBuilder&lt;TContext&gt; Use&lt;TContext&gt;(this IAsyncPipelineBuilder&lt;TContext&gt; builder, Func&lt;TContext, Func&lt;TContext, Task&gt;, Task&gt; func)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IAsyncPipelineBuilder-1.html">IAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Helpers.IAsyncPipelineBuilder-1.html">IAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TContext</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use__1_WeihanLi_Common_Helpers_IPipelineBuilder___0__System_Action___0_System_Action___0___" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use``1(WeihanLi.Common.Helpers.IPipelineBuilder{``0},System.Action{``0,System.Action{``0}})">
+  Use&lt;TContext&gt;(IPipelineBuilder&lt;TContext&gt;, Action&lt;TContext, Action&lt;TContext&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPipelineBuilder&lt;TContext&gt; Use&lt;TContext&gt;(this IPipelineBuilder&lt;TContext&gt; builder, Action&lt;TContext, Action&lt;TContext&gt;&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IPipelineBuilder-1.html">IPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TContext&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Helpers.IPipelineBuilder-1.html">IPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TContext</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use__1_WeihanLi_Common_Helpers_IPipelineBuilder___0__System_Action___0_System_Action__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use``1(WeihanLi.Common.Helpers.IPipelineBuilder{``0},System.Action{``0,System.Action})">
+  Use&lt;TContext&gt;(IPipelineBuilder&lt;TContext&gt;, Action&lt;TContext, Action&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPipelineBuilder&lt;TContext&gt; Use&lt;TContext&gt;(this IPipelineBuilder&lt;TContext&gt; builder, Action&lt;TContext, Action&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IPipelineBuilder-1.html">IPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Helpers.IPipelineBuilder-1.html">IPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TContext</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use__1_WeihanLi_Common_Helpers_IValueAsyncPipelineBuilder___0__System_Func___0_System_Func_System_Threading_Tasks_ValueTask__System_Threading_Tasks_ValueTask__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use``1(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder{``0},System.Func{``0,System.Func{System.Threading.Tasks.ValueTask},System.Threading.Tasks.ValueTask})">
+  Use&lt;TContext&gt;(IValueAsyncPipelineBuilder&lt;TContext&gt;, Func&lt;TContext, Func&lt;ValueTask&gt;, ValueTask&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValueAsyncPipelineBuilder&lt;TContext&gt; Use&lt;TContext&gt;(this IValueAsyncPipelineBuilder&lt;TContext&gt; builder, Func&lt;TContext, Func&lt;ValueTask&gt;, ValueTask&gt; func)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TContext</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_Use__1_WeihanLi_Common_Helpers_IValueAsyncPipelineBuilder___0__System_Func___0_System_Func___0_System_Threading_Tasks_ValueTask__System_Threading_Tasks_ValueTask__" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.Use``1(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder{``0},System.Func{``0,System.Func{``0,System.Threading.Tasks.ValueTask},System.Threading.Tasks.ValueTask})">
+  Use&lt;TContext&gt;(IValueAsyncPipelineBuilder&lt;TContext&gt;, Func&lt;TContext, Func&lt;TContext, ValueTask&gt;, ValueTask&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValueAsyncPipelineBuilder&lt;TContext&gt; Use&lt;TContext&gt;(this IValueAsyncPipelineBuilder&lt;TContext&gt; builder, Func&lt;TContext, Func&lt;TContext, ValueTask&gt;, ValueTask&gt; func)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TContext</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_When_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.When*"></a>
 
   <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_When__1_WeihanLi_Common_Helpers_IAsyncPipelineBuilder___0__System_Func___0_System_Boolean__System_Action_WeihanLi_Common_Helpers_IAsyncPipelineBuilder___0___" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.When``1(WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0},System.Func{``0,System.Boolean},System.Action{WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0}})">
   When&lt;TContext&gt;(IAsyncPipelineBuilder&lt;TContext&gt;, Func&lt;TContext, bool&gt;, Action&lt;IAsyncPipelineBuilder&lt;TContext&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L134"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -530,7 +981,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_When__1_WeihanLi_Common_Helpers_IPipelineBuilder___0__System_Func___0_System_Boolean__System_Action_WeihanLi_Common_Helpers_IPipelineBuilder___0___" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.When``1(WeihanLi.Common.Helpers.IPipelineBuilder{``0},System.Func{``0,System.Boolean},System.Action{WeihanLi.Common.Helpers.IPipelineBuilder{``0}})">
   When&lt;TContext&gt;(IPipelineBuilder&lt;TContext&gt;, Func&lt;TContext, bool&gt;, Action&lt;IPipelineBuilder&lt;TContext&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -571,12 +1022,59 @@
 
 
 
+  <a id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_When_" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.When*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_PipelineBuilderExtensions_When__1_WeihanLi_Common_Helpers_IValueAsyncPipelineBuilder___0__System_Func___0_System_Boolean__System_Action_WeihanLi_Common_Helpers_IValueAsyncPipelineBuilder___0___" data-uid="WeihanLi.Common.Helpers.PipelineBuilderExtensions.When``1(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder{``0},System.Func{``0,System.Boolean},System.Action{WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder{``0}})">
+  When&lt;TContext&gt;(IValueAsyncPipelineBuilder&lt;TContext&gt;, Func&lt;TContext, bool&gt;, Action&lt;IValueAsyncPipelineBuilder&lt;TContext&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IValueAsyncPipelineBuilder&lt;TContext&gt; When&lt;TContext&gt;(this IValueAsyncPipelineBuilder&lt;TContext&gt; builder, Func&lt;TContext, bool&gt; predict, Action&lt;IValueAsyncPipelineBuilder&lt;TContext&gt;&gt; configureAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+    <dt><code>predict</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TContext, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>configureAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html">IValueAsyncPipelineBuilder</a>&lt;TContext&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TContext</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_PipelineBuilderExtensions.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.PipelineBuilderExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Pipelines/PipelineBuilderExtensions.cs/#L9" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -585,7 +1083,7 @@
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>

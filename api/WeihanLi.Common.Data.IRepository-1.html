@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Data_IRepository_1.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Data.IRepository%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Data_IRepository_1.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Data.IRepository%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="WeihanLi_Common_Data_IRepository_1" data-uid="WeihanLi.Common.Data.IRepository`1" class="text-break">
     Interface IRepository&lt;TEntity&gt;
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L106"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Data.html">Data</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"><p>Represents an entity repository</p>
@@ -158,16 +175,10 @@
       <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object_">CoreExtension.AsOrDefault&lt;T&gt;(object?)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object___0_">CoreExtension.AsOrDefault&lt;T&gt;(object?, T)</a>
-  </div>
-  <div>
       <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object_System_Func___0__">CoreExtension.AsOrDefault&lt;T&gt;(object?, Func&lt;T&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_IsAssignableFrom_System_Object_System_Type_">CoreExtension.IsAssignableFrom(object, Type)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_IsAssignableFrom__1_System_Object_">CoreExtension.IsAssignableFrom&lt;T&gt;(object)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object___0_">CoreExtension.AsOrDefault&lt;T&gt;(object?, T)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ParseParamDictionary_System_Object_">CoreExtension.ParseParamDictionary(object?)</a>
@@ -176,25 +187,22 @@
       <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_To_System_Object_System_Type_">CoreExtension.To(object?, Type)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_To__1_System_Object_">CoreExtension.To&lt;T&gt;(object?)</a>
-  </div>
-  <div>
       <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault_System_Object_System_Type_">CoreExtension.ToOrDefault(object?, Type)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_">CoreExtension.ToOrDefault&lt;T&gt;(object?)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object___0_">CoreExtension.ToOrDefault&lt;T&gt;(object?, T)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func_System_Object___0__">CoreExtension.ToOrDefault&lt;T&gt;(object?, Func&lt;object?, T&gt;)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func___0__">CoreExtension.ToOrDefault&lt;T&gt;(object?, Func&lt;T&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func_System_Object___0__">CoreExtension.ToOrDefault&lt;T&gt;(object?, Func&lt;object?, T&gt;)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object___0_">CoreExtension.ToOrDefault&lt;T&gt;(object?, T)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToSafeString_System_Object_">CoreExtension.ToSafeString(object?)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_To__1_System_Object_">CoreExtension.To&lt;T&gt;(object?)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_">JsonSerializeExtension.ToJson(object?)</a>
@@ -203,43 +211,19 @@
       <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_Newtonsoft_Json_JsonSerializerSettings_">JsonSerializeExtension.ToJson(object, JsonSerializerSettings?)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_Newtonsoft_Json_JsonSerializerSettings_">JsonSerializeExtension.ToJson(object?, bool, JsonSerializerSettings?)</a>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_">JsonSerializeExtension.ToJson(object?, bool)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_">JsonSerializeExtension.ToJson(object?, bool)</a>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_Newtonsoft_Json_JsonSerializerSettings_">JsonSerializeExtension.ToJson(object?, bool, JsonSerializerSettings?)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJsonOrString_System_Object_">JsonSerializeExtension.ToJsonOrString(object?)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetFields_System_Object_">ReflectionExtension.GetFields(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetFields_System_Object_System_Reflection_BindingFlags_">ReflectionExtension.GetFields(object, BindingFlags)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetProperties_System_Object_">ReflectionExtension.GetProperties(object)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetProperties_System_Object_System_Reflection_BindingFlags_">ReflectionExtension.GetProperties(object, BindingFlags)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsAttributeDefined_System_Object_System_Type_System_Boolean_">ReflectionExtension.IsAttributeDefined(object, Type, bool)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsAttributeDefined__1_System_Object_System_Boolean_">ReflectionExtension.IsAttributeDefined&lt;T&gt;(object, bool)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_Count__1_WeihanLi_Common_Data_IReadOnlyRepository___0__">RepositoryExtension.Count&lt;TEntity&gt;(IReadOnlyRepository&lt;TEntity&gt;)</a>
-  </div>
-  <div>
       <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_CountAsync__1_WeihanLi_Common_Data_IReadOnlyRepository___0__System_Threading_CancellationToken_">RepositoryExtension.CountAsync&lt;TEntity&gt;(IReadOnlyRepository&lt;TEntity&gt;, CancellationToken)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_Fetch__1_WeihanLi_Common_Data_IReadOnlyRepository___0__">RepositoryExtension.Fetch&lt;TEntity&gt;(IReadOnlyRepository&lt;TEntity&gt;)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_Fetch__2_WeihanLi_Common_Data_IReadOnlyRepository___0__System_Linq_Expressions_Expression_System_Func___0___1___System_Boolean_">RepositoryExtension.Fetch&lt;TEntity, TProperty&gt;(IReadOnlyRepository&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;, bool)</a>
+      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_Count__1_WeihanLi_Common_Data_IReadOnlyRepository___0__">RepositoryExtension.Count&lt;TEntity&gt;(IReadOnlyRepository&lt;TEntity&gt;)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_FetchAsync__1_WeihanLi_Common_Data_IReadOnlyRepository___0__System_Threading_CancellationToken_">RepositoryExtension.FetchAsync&lt;TEntity&gt;(IReadOnlyRepository&lt;TEntity&gt;, CancellationToken)</a>
@@ -248,28 +232,34 @@
       <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_FetchAsync__2_WeihanLi_Common_Data_IReadOnlyRepository___0__System_Linq_Expressions_Expression_System_Func___0___1___System_Boolean_System_Threading_CancellationToken_">RepositoryExtension.FetchAsync&lt;TEntity, TProperty&gt;(IReadOnlyRepository&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;, bool, CancellationToken)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_GetAll__1_WeihanLi_Common_Data_IReadOnlyRepository___0__">RepositoryExtension.GetAll&lt;TEntity&gt;(IReadOnlyRepository&lt;TEntity&gt;)</a>
+      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_Fetch__1_WeihanLi_Common_Data_IReadOnlyRepository___0__">RepositoryExtension.Fetch&lt;TEntity&gt;(IReadOnlyRepository&lt;TEntity&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_Fetch__2_WeihanLi_Common_Data_IReadOnlyRepository___0__System_Linq_Expressions_Expression_System_Func___0___1___System_Boolean_">RepositoryExtension.Fetch&lt;TEntity, TProperty&gt;(IReadOnlyRepository&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;, bool)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_GetAllAsync__1_WeihanLi_Common_Data_IReadOnlyRepository___0__System_Threading_CancellationToken_">RepositoryExtension.GetAllAsync&lt;TEntity&gt;(IReadOnlyRepository&lt;TEntity&gt;, CancellationToken)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_LongCount__1_WeihanLi_Common_Data_IReadOnlyRepository___0__">RepositoryExtension.LongCount&lt;TEntity&gt;(IReadOnlyRepository&lt;TEntity&gt;)</a>
+      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_GetAll__1_WeihanLi_Common_Data_IReadOnlyRepository___0__">RepositoryExtension.GetAll&lt;TEntity&gt;(IReadOnlyRepository&lt;TEntity&gt;)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_LongCountAsync__1_WeihanLi_Common_Data_IReadOnlyRepository___0__System_Threading_CancellationToken_">RepositoryExtension.LongCountAsync&lt;TEntity&gt;(IReadOnlyRepository&lt;TEntity&gt;, CancellationToken)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_Top__2_WeihanLi_Common_Data_IReadOnlyRepository___0__System_Int32_System_Linq_Expressions_Expression_System_Func___0___1___System_Boolean_">RepositoryExtension.Top&lt;TEntity, TProperty&gt;(IReadOnlyRepository&lt;TEntity&gt;, int, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;, bool)</a>
+      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_LongCount__1_WeihanLi_Common_Data_IReadOnlyRepository___0__">RepositoryExtension.LongCount&lt;TEntity&gt;(IReadOnlyRepository&lt;TEntity&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_Top__2_WeihanLi_Common_Data_IReadOnlyRepository___0__System_Int32_System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Linq_Expressions_Expression_System_Func___0___1___System_Boolean_">RepositoryExtension.Top&lt;TEntity, TProperty&gt;(IReadOnlyRepository&lt;TEntity&gt;, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;, bool)</a>
+      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_TopAsync__2_WeihanLi_Common_Data_IReadOnlyRepository___0__System_Int32_System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Linq_Expressions_Expression_System_Func___0___1___System_Boolean_System_Threading_CancellationToken_">RepositoryExtension.TopAsync&lt;TEntity, TProperty&gt;(IReadOnlyRepository&lt;TEntity&gt;, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;, bool, CancellationToken)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_TopAsync__2_WeihanLi_Common_Data_IReadOnlyRepository___0__System_Int32_System_Linq_Expressions_Expression_System_Func___0___1___System_Boolean_System_Threading_CancellationToken_">RepositoryExtension.TopAsync&lt;TEntity, TProperty&gt;(IReadOnlyRepository&lt;TEntity&gt;, int, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;, bool, CancellationToken)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_TopAsync__2_WeihanLi_Common_Data_IReadOnlyRepository___0__System_Int32_System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Linq_Expressions_Expression_System_Func___0___1___System_Boolean_System_Threading_CancellationToken_">RepositoryExtension.TopAsync&lt;TEntity, TProperty&gt;(IReadOnlyRepository&lt;TEntity&gt;, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;, bool, CancellationToken)</a>
+      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_Top__2_WeihanLi_Common_Data_IReadOnlyRepository___0__System_Int32_System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Linq_Expressions_Expression_System_Func___0___1___System_Boolean_">RepositoryExtension.Top&lt;TEntity, TProperty&gt;(IReadOnlyRepository&lt;TEntity&gt;, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Data.RepositoryExtension.html#WeihanLi_Common_Data_RepositoryExtension_Top__2_WeihanLi_Common_Data_IReadOnlyRepository___0__System_Int32_System_Linq_Expressions_Expression_System_Func___0___1___System_Boolean_">RepositoryExtension.Top&lt;TEntity, TProperty&gt;(IReadOnlyRepository&lt;TEntity&gt;, int, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;, bool)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Common.Models.ResultExtensions.html#WeihanLi_Common_Models_ResultExtensions_WrapResult__1___0_WeihanLi_Common_Models_ResultStatus_System_String_">ResultExtensions.WrapResult&lt;T&gt;(T, ResultStatus, string?)</a>
@@ -278,115 +268,61 @@
       <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Chain__1___0_System_Action___0__">CoreExtension.Chain&lt;T&gt;(T, Action&lt;T&gt;?)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_GetValueOrDefault__2___0_System_Func___0___1____1_">CoreExtension.GetValueOrDefault&lt;T, TResult&gt;(T, Func&lt;T, TResult&gt;, TResult)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_GetValueOrDefault__2___0_System_Func___0___1__">CoreExtension.GetValueOrDefault&lt;T, TResult&gt;(T, Func&lt;T, TResult&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_GetValueOrDefault__2___0_System_Func___0___1__">CoreExtension.GetValueOrDefault&lt;T, TResult&gt;(T, Func&lt;T, TResult&gt;)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_GetValueOrDefault__2___0_System_Func___0___1____1_">CoreExtension.GetValueOrDefault&lt;T, TResult&gt;(T, Func&lt;T, TResult&gt;, TResult)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_IsDefault__1___0_">CoreExtension.IsDefault&lt;T&gt;(T)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_NullIf__1___0_System_Func___0_System_Boolean__">CoreExtension.NullIf&lt;T&gt;(T, Func&lt;T, bool&gt;?)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__1___0_System_Action___0__">CoreExtension.Try&lt;TType&gt;(TType, Action&lt;TType&gt;)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__1___0_System_Action___0__System_Action___0__">CoreExtension.Try&lt;TType&gt;(TType, Action&lt;TType&gt;, Action&lt;TType&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__1___0_System_Action___0__">CoreExtension.Try&lt;TType&gt;(TType, Action&lt;TType&gt;)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1___1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, TResult, out TResult)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1_">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, TResult)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, out TResult?)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1__System_Func___0___1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, Func&lt;TType, TResult&gt;)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1__System_Func___0___1____1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, Func&lt;TType, TResult&gt;, out TResult)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1__System_Func___0___1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, Func&lt;TType, TResult&gt;)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1_">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, TResult)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_">DumpExtension.Dump&lt;T&gt;(T)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1___1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, TResult, out TResult)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_System_Action_System_String__System_Func___0_System_String__">DumpExtension.Dump&lt;T&gt;(T, Action&lt;string&gt;, Func&lt;T, string&gt;)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_System_Action_System_String__">DumpExtension.Dump&lt;T&gt;(T, Action&lt;string&gt;)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_Task__System_Func___0_System_String__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, Task&gt;, Func&lt;T, string&gt;)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, out TResult?)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_Task__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, Task&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetField__1___0_System_String_System_Reflection_BindingFlags_">ReflectionExtension.GetField&lt;T&gt;(T, string, BindingFlags)</a>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_Task__System_Func___0_System_String__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, Task&gt;, Func&lt;T, string&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetField__1___0_System_String_">ReflectionExtension.GetField&lt;T&gt;(T, string)</a>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_ValueTask__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, ValueTask&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetFieldValue__1___0_System_String_">ReflectionExtension.GetFieldValue&lt;T&gt;(T, string)</a>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_ValueTask__System_Func___0_System_String__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, ValueTask&gt;, Func&lt;T, string&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetMethod__1___0_System_String_System_Reflection_BindingFlags_">ReflectionExtension.GetMethod&lt;T&gt;(T, string, BindingFlags)</a>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_">DumpExtension.Dump&lt;T&gt;(T)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetMethod__1___0_System_String_">ReflectionExtension.GetMethod&lt;T&gt;(T, string)</a>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_System_Action_System_String__">DumpExtension.Dump&lt;T&gt;(T, Action&lt;string&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetMethods__1___0_">ReflectionExtension.GetMethods&lt;T&gt;(T)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetMethods__1___0_System_Reflection_BindingFlags_">ReflectionExtension.GetMethods&lt;T&gt;(T, BindingFlags)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetProperty__1___0_System_String_System_Reflection_BindingFlags_">ReflectionExtension.GetProperty&lt;T&gt;(T, string, BindingFlags)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetProperty__1___0_System_String_">ReflectionExtension.GetProperty&lt;T&gt;(T, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetPropertyOrField__1___0_System_String_">ReflectionExtension.GetPropertyOrField&lt;T&gt;(T, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetPropertyValue__1___0_System_String_">ReflectionExtension.GetPropertyValue&lt;T&gt;(T, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_HasEmptyConstructor__1___0_">ReflectionExtension.HasEmptyConstructor&lt;T&gt;(T)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsArray__1___0_">ReflectionExtension.IsArray&lt;T&gt;(T)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsEnum__1___0_">ReflectionExtension.IsEnum&lt;T&gt;(T)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsSubclassOf__1___0_System_Type_">ReflectionExtension.IsSubclassOf&lt;T&gt;(T, Type)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsValueTuple__1___0_">ReflectionExtension.IsValueTuple&lt;T&gt;(T)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_IsValueType__1___0_">ReflectionExtension.IsValueType&lt;T&gt;(T)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_SetFieldValue__1___0_System_String_System_Object_">ReflectionExtension.SetFieldValue&lt;T&gt;(T, string, object?)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_SetPropertyValue__1___0_System_String_System_Object_">ReflectionExtension.SetPropertyValue&lt;T&gt;(T, string, object?)</a>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_System_Action_System_String__System_Func___0_System_String__">DumpExtension.Dump&lt;T&gt;(T, Action&lt;string&gt;, Func&lt;T, string&gt;)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.TaskExtension.html#WeihanLi_Extensions_TaskExtension_WrapTask__1___0_">TaskExtension.WrapTask&lt;T&gt;(T)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.TypeExtension.html#WeihanLi_Extensions_TypeExtension_IsBasicType__1___0_">TypeExtension.IsBasicType&lt;T&gt;(T)</a>
+      <a class="xref" href="WeihanLi.Extensions.TaskExtension.html#WeihanLi_Extensions_TaskExtension_WrapValueTask__1___0_">TaskExtension.WrapValueTask&lt;T&gt;(T)</a>
   </div>
   </dd></dl>
 
@@ -400,9 +336,47 @@
 
   <a id="WeihanLi_Common_Data_IRepository_1_Delete_" data-uid="WeihanLi.Common.Data.IRepository`1.Delete*"></a>
 
+  <h3 id="WeihanLi_Common_Data_IRepository_1_Delete_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___" data-uid="WeihanLi.Common.Data.IRepository`1.Delete(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+  Delete(Expression&lt;Func&lt;TEntity, bool&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Delete entities by where</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int Delete(Expression&lt;Func&lt;TEntity, bool&gt;&gt; whereExpression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>whereExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TEntity, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;&gt;</dt>
+    <dd><p>whereExpression</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Data_IRepository_1_Delete_" data-uid="WeihanLi.Common.Data.IRepository`1.Delete*"></a>
+
   <h3 id="WeihanLi_Common_Data_IRepository_1_Delete__0_" data-uid="WeihanLi.Common.Data.IRepository`1.Delete(`0)">
   Delete(TEntity)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L252"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>delete entity</p>
@@ -437,19 +411,19 @@
 
 
 
-  <a id="WeihanLi_Common_Data_IRepository_1_Delete_" data-uid="WeihanLi.Common.Data.IRepository`1.Delete*"></a>
+  <a id="WeihanLi_Common_Data_IRepository_1_DeleteAsync_" data-uid="WeihanLi.Common.Data.IRepository`1.DeleteAsync*"></a>
 
-  <h3 id="WeihanLi_Common_Data_IRepository_1_Delete_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___" data-uid="WeihanLi.Common.Data.IRepository`1.Delete(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
-  Delete(Expression&lt;Func&lt;TEntity, bool&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Data_IRepository_1_DeleteAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.DeleteAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+  DeleteAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L259"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Delete entities by where</p>
+  <div class="markdown level1 summary"><p>Delete entities by  where</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int Delete(Expression&lt;Func&lt;TEntity, bool&gt;&gt; whereExpression)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; DeleteAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt; whereExpression, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -457,11 +431,14 @@
     <dt><code>whereExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TEntity, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;&gt;</dt>
     <dd><p>whereExpression</p>
 </dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>cancellationToken</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -479,7 +456,7 @@
 
   <h3 id="WeihanLi_Common_Data_IRepository_1_DeleteAsync__0_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.DeleteAsync(`0,System.Threading.CancellationToken)">
   DeleteAsync(TEntity, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L267"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L267"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>delete entity async</p>
@@ -517,90 +494,11 @@
 
 
 
-  <a id="WeihanLi_Common_Data_IRepository_1_DeleteAsync_" data-uid="WeihanLi.Common.Data.IRepository`1.DeleteAsync*"></a>
-
-  <h3 id="WeihanLi_Common_Data_IRepository_1_DeleteAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.DeleteAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
-  DeleteAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L259"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Delete entities by  where</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;int&gt; DeleteAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt; whereExpression, CancellationToken cancellationToken = default)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>whereExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TEntity, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;&gt;</dt>
-    <dd><p>whereExpression</p>
-</dd>
-    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd><p>cancellationToken</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Common_Data_IRepository_1_Insert_" data-uid="WeihanLi.Common.Data.IRepository`1.Insert*"></a>
-
-  <h3 id="WeihanLi_Common_Data_IRepository_1_Insert__0_" data-uid="WeihanLi.Common.Data.IRepository`1.Insert(`0)">
-  Insert(TEntity)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L112"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Insert a entity</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int Insert(TEntity entity)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>entity</code> <span class="xref">TEntity</span></dt>
-    <dd><p>Entity</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Common_Data_IRepository_1_Insert_" data-uid="WeihanLi.Common.Data.IRepository`1.Insert*"></a>
 
   <h3 id="WeihanLi_Common_Data_IRepository_1_Insert_System_Collections_Generic_IEnumerable__0__" data-uid="WeihanLi.Common.Data.IRepository`1.Insert(System.Collections.Generic.IEnumerable{`0})">
   Insert(IEnumerable&lt;TEntity&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L125"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Insert entities</p>
@@ -634,11 +532,11 @@
 
 
 
-  <a id="WeihanLi_Common_Data_IRepository_1_InsertAsync_" data-uid="WeihanLi.Common.Data.IRepository`1.InsertAsync*"></a>
+  <a id="WeihanLi_Common_Data_IRepository_1_Insert_" data-uid="WeihanLi.Common.Data.IRepository`1.Insert*"></a>
 
-  <h3 id="WeihanLi_Common_Data_IRepository_1_InsertAsync__0_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.InsertAsync(`0,System.Threading.CancellationToken)">
-  InsertAsync(TEntity, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Data_IRepository_1_Insert__0_" data-uid="WeihanLi.Common.Data.IRepository`1.Insert(`0)">
+  Insert(TEntity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L112"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Insert a entity</p>
@@ -646,7 +544,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;int&gt; InsertAsync(TEntity entity, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">int Insert(TEntity entity)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -654,14 +552,11 @@
     <dt><code>entity</code> <span class="xref">TEntity</span></dt>
     <dd><p>Entity</p>
 </dd>
-    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd><p>cancellationToken</p>
-</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -679,7 +574,7 @@
 
   <h3 id="WeihanLi_Common_Data_IRepository_1_InsertAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.InsertAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
   InsertAsync(IEnumerable&lt;TEntity&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L133"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Insert entities</p>
@@ -717,11 +612,94 @@
 
 
 
+  <a id="WeihanLi_Common_Data_IRepository_1_InsertAsync_" data-uid="WeihanLi.Common.Data.IRepository`1.InsertAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Data_IRepository_1_InsertAsync__0_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.InsertAsync(`0,System.Threading.CancellationToken)">
+  InsertAsync(TEntity, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Insert a entity</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; InsertAsync(TEntity entity, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <span class="xref">TEntity</span></dt>
+    <dd><p>Entity</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>cancellationToken</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Data_IRepository_1_Update_" data-uid="WeihanLi.Common.Data.IRepository`1.Update*"></a>
+
+  <h3 id="WeihanLi_Common_Data_IRepository_1_Update_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="WeihanLi.Common.Data.IRepository`1.Update(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Collections.Generic.IDictionary{System.String,System.Object})">
+  Update(Expression&lt;Func&lt;TEntity, bool&gt;&gt;, IDictionary&lt;string, object?&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Update entities properties by where</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int Update(Expression&lt;Func&lt;TEntity, bool&gt;&gt; whereExpression, IDictionary&lt;string, object?&gt; propertyValues)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>whereExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TEntity, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;&gt;</dt>
+    <dd><p>whereExpression</p>
+</dd>
+    <dt><code>propertyValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>propertyValues to update</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>updated rows count</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Common_Data_IRepository_1_Update_" data-uid="WeihanLi.Common.Data.IRepository`1.Update*"></a>
 
   <h3 id="WeihanLi_Common_Data_IRepository_1_Update__0_System_Linq_Expressions_Expression_System_Func__0_System_Object_____" data-uid="WeihanLi.Common.Data.IRepository`1.Update(`0,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
   Update(TEntity, params Expression&lt;Func&lt;TEntity, object?&gt;&gt;[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L170"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>update entities with specific properties</p>
@@ -763,7 +741,7 @@
 
   <h3 id="WeihanLi_Common_Data_IRepository_1_Update__0_System_String___" data-uid="WeihanLi.Common.Data.IRepository`1.Update(`0,System.String[])">
   Update(TEntity, params string[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L186"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>update entities with specific properties</p>
@@ -801,11 +779,11 @@
 
 
 
-  <a id="WeihanLi_Common_Data_IRepository_1_Update_" data-uid="WeihanLi.Common.Data.IRepository`1.Update*"></a>
+  <a id="WeihanLi_Common_Data_IRepository_1_UpdateAsync_" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateAsync*"></a>
 
-  <h3 id="WeihanLi_Common_Data_IRepository_1_Update_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="WeihanLi.Common.Data.IRepository`1.Update(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Collections.Generic.IDictionary{System.String,System.Object})">
-  Update(Expression&lt;Func&lt;TEntity, bool&gt;&gt;, IDictionary&lt;string, object?&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Data_IRepository_1_UpdateAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Collections_Generic_IDictionary_System_String_System_Object__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)">
+  UpdateAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt;, IDictionary&lt;string, object?&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L239"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Update entities properties by where</p>
@@ -813,7 +791,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int Update(Expression&lt;Func&lt;TEntity, bool&gt;&gt; whereExpression, IDictionary&lt;string, object?&gt; propertyValues)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; UpdateAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt; whereExpression, IDictionary&lt;string, object?&gt; propertyValues, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -824,11 +802,14 @@
     <dt><code>propertyValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
     <dd><p>propertyValues to update</p>
 </dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>cancellationToken</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
     <dd><p>updated rows count</p>
 </dd>
   </dl>
@@ -843,61 +824,11 @@
 
 
 
-  <a id="WeihanLi_Common_Data_IRepository_1_Update_" data-uid="WeihanLi.Common.Data.IRepository`1.Update*"></a>
-
-  <h3 id="WeihanLi_Common_Data_IRepository_1_Update__1_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Linq_Expressions_Expression_System_Func__0___0___System_Object_" data-uid="WeihanLi.Common.Data.IRepository`1.Update``1(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Object)">
-  Update&lt;TProperty&gt;(Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;, object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L143"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>update entity specific property by where</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int Update&lt;TProperty&gt;(Expression&lt;Func&lt;TEntity, bool&gt;&gt; whereExpression, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt; propertyExpression, object? value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>whereExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TEntity, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;&gt;</dt>
-    <dd><p>where</p>
-</dd>
-    <dt><code>propertyExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TEntity, TProperty&gt;&gt;</dt>
-    <dd><p>property</p>
-</dd>
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd><p>new property value</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TProperty</code></dt>
-    <dd><p>TProperty</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Common_Data_IRepository_1_UpdateAsync_" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateAsync*"></a>
 
   <h3 id="WeihanLi_Common_Data_IRepository_1_UpdateAsync__0_System_Linq_Expressions_Expression_System_Func__0_System_Object_____System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateAsync(`0,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[],System.Threading.CancellationToken)">
   UpdateAsync(TEntity, Expression&lt;Func&lt;TEntity, object?&gt;&gt;[], CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L212"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L212"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>update entities with specific properties</p>
@@ -941,7 +872,7 @@
 
   <h3 id="WeihanLi_Common_Data_IRepository_1_UpdateAsync__0_System_String___System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateAsync(`0,System.String[],System.Threading.CancellationToken)">
   UpdateAsync(TEntity, string[], CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L230"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L230"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>update entities with specific properties</p>
@@ -983,54 +914,9 @@
 
   <a id="WeihanLi_Common_Data_IRepository_1_UpdateAsync_" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateAsync*"></a>
 
-  <h3 id="WeihanLi_Common_Data_IRepository_1_UpdateAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Collections_Generic_IDictionary_System_String_System_Object__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)">
-  UpdateAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt;, IDictionary&lt;string, object?&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L239"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Update entities properties by where</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;int&gt; UpdateAsync(Expression&lt;Func&lt;TEntity, bool&gt;&gt; whereExpression, IDictionary&lt;string, object?&gt; propertyValues, CancellationToken cancellationToken = default)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>whereExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TEntity, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;&gt;</dt>
-    <dd><p>whereExpression</p>
-</dd>
-    <dt><code>propertyValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
-    <dd><p>propertyValues to update</p>
-</dd>
-    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd><p>cancellationToken</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
-    <dd><p>updated rows count</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Common_Data_IRepository_1_UpdateAsync_" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateAsync*"></a>
-
   <h3 id="WeihanLi_Common_Data_IRepository_1_UpdateAsync__1_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Linq_Expressions_Expression_System_Func__0___0___System_Object_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateAsync``1(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Object,System.Threading.CancellationToken)">
   UpdateAsync&lt;TProperty&gt;(Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;, object?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L154"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>update entity specific property by where</p>
@@ -1083,7 +969,7 @@
 
   <h3 id="WeihanLi_Common_Data_IRepository_1_UpdateWithout__0_System_Linq_Expressions_Expression_System_Func__0_System_Object_____" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateWithout(`0,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
   UpdateWithout(TEntity, params Expression&lt;Func&lt;TEntity, object?&gt;&gt;[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L178"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Update entity without specific properties</p>
@@ -1125,7 +1011,7 @@
 
   <h3 id="WeihanLi_Common_Data_IRepository_1_UpdateWithout__0_System_String___" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateWithout(`0,System.String[])">
   UpdateWithout(TEntity, params string[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L194"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Update entity without specific properties</p>
@@ -1167,7 +1053,7 @@
 
   <h3 id="WeihanLi_Common_Data_IRepository_1_UpdateWithoutAsync__0_System_Linq_Expressions_Expression_System_Func__0_System_Object_____System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateWithoutAsync(`0,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[],System.Threading.CancellationToken)">
   UpdateWithoutAsync(TEntity, Expression&lt;Func&lt;TEntity, object?&gt;&gt;[], CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L221"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Update entity without specific properties</p>
@@ -1212,7 +1098,7 @@
 
   <h3 id="WeihanLi_Common_Data_IRepository_1_UpdateWithoutAsync__0_System_String___System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.IRepository`1.UpdateWithoutAsync(`0,System.String[],System.Threading.CancellationToken)">
   UpdateWithoutAsync(TEntity, string[], CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Data/IRepository.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L203"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Update entity without specific properties</p>
@@ -1253,12 +1139,64 @@
 
 
 
+  <a id="WeihanLi_Common_Data_IRepository_1_Update_" data-uid="WeihanLi.Common.Data.IRepository`1.Update*"></a>
+
+  <h3 id="WeihanLi_Common_Data_IRepository_1_Update__1_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Linq_Expressions_Expression_System_Func__0___0___System_Object_" data-uid="WeihanLi.Common.Data.IRepository`1.Update``1(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Object)">
+  Update&lt;TProperty&gt;(Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt;, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>update entity specific property by where</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int Update&lt;TProperty&gt;(Expression&lt;Func&lt;TEntity, bool&gt;&gt; whereExpression, Expression&lt;Func&lt;TEntity, TProperty&gt;&gt; propertyExpression, object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>whereExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TEntity, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;&gt;</dt>
+    <dd><p>where</p>
+</dd>
+    <dt><code>propertyExpression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TEntity, TProperty&gt;&gt;</dt>
+    <dd><p>property</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>new property value</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TProperty</code></dt>
+    <dd><p>TProperty</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Data_IRepository_1.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Data.IRepository%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/IRepository.cs/#L106" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -1267,7 +1205,7 @@
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>

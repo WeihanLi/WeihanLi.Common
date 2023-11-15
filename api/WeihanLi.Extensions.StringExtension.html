@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_StringExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.StringExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Extensions_StringExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.StringExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="WeihanLi_Extensions_StringExtension" data-uid="WeihanLi.Extensions.StringExtension" class="text-break">
     Class StringExtension
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
@@ -135,9 +152,48 @@
 
   <a id="WeihanLi_Extensions_StringExtension_Base64Decode_" data-uid="WeihanLi.Extensions.StringExtension.Base64Decode*"></a>
 
+  <h3 id="WeihanLi_Extensions_StringExtension_Base64Decode_System_String_" data-uid="WeihanLi.Extensions.StringExtension.Base64Decode(System.String)">
+  Base64Decode(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Base64Decode with ytf8 encoding</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Base64Decode(this string str)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>base64 encoded source string</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>base64 decoded string</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_StringExtension_Base64Decode_" data-uid="WeihanLi.Extensions.StringExtension.Base64Decode*"></a>
+
   <h3 id="WeihanLi_Extensions_StringExtension_Base64Decode_System_String_System_Text_Encoding_" data-uid="WeihanLi.Extensions.StringExtension.Base64Decode(System.String,System.Text.Encoding)">
   Base64Decode(string, Encoding)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L150"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Base64Decode</p>
@@ -175,32 +231,32 @@
 
 
 
-  <a id="WeihanLi_Extensions_StringExtension_Base64Decode_" data-uid="WeihanLi.Extensions.StringExtension.Base64Decode*"></a>
+  <a id="WeihanLi_Extensions_StringExtension_Base64Encode_" data-uid="WeihanLi.Extensions.StringExtension.Base64Encode*"></a>
 
-  <h3 id="WeihanLi_Extensions_StringExtension_Base64Decode_System_String_" data-uid="WeihanLi.Extensions.StringExtension.Base64Decode(System.String)">
-  Base64Decode(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Extensions_StringExtension_Base64Encode_System_String_" data-uid="WeihanLi.Extensions.StringExtension.Base64Encode(System.String)">
+  Base64Encode(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L127"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Base64Decode with ytf8 encoding</p>
+  <div class="markdown level1 summary"><p>Base64Encode with utf8 encoding</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string Base64Decode(this string str)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string Base64Encode(this string str)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>base64 encoded source string</p>
+    <dd><p>source string</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>base64 decoded string</p>
+    <dd><p>base64 encoded string</p>
 </dd>
   </dl>
 
@@ -218,7 +274,7 @@
 
   <h3 id="WeihanLi_Extensions_StringExtension_Base64Encode_System_String_System_Text_Encoding_" data-uid="WeihanLi.Extensions.StringExtension.Base64Encode(System.String,System.Text.Encoding)">
   Base64Encode(string, Encoding)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L135"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Base64Encode</p>
@@ -256,50 +312,11 @@
 
 
 
-  <a id="WeihanLi_Extensions_StringExtension_Base64Encode_" data-uid="WeihanLi.Extensions.StringExtension.Base64Encode*"></a>
-
-  <h3 id="WeihanLi_Extensions_StringExtension_Base64Encode_System_String_" data-uid="WeihanLi.Extensions.StringExtension.Base64Encode(System.String)">
-  Base64Encode(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L126"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Base64Encode with utf8 encoding</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string Base64Encode(this string str)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>source string</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>base64 encoded string</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_StringExtension_Base64UrlDecode_" data-uid="WeihanLi.Extensions.StringExtension.Base64UrlDecode*"></a>
 
   <h3 id="WeihanLi_Extensions_StringExtension_Base64UrlDecode_System_String_" data-uid="WeihanLi.Extensions.StringExtension.Base64UrlDecode(System.String)">
   Base64UrlDecode(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L164"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Base64UrlEncode</p>
@@ -338,7 +355,7 @@
 
   <h3 id="WeihanLi_Extensions_StringExtension_Base64UrlEncode_System_String_" data-uid="WeihanLi.Extensions.StringExtension.Base64UrlEncode(System.String)">
   Base64UrlEncode(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Base64UrlEncode</p>
@@ -377,7 +394,7 @@
 
   <h3 id="WeihanLi_Extensions_StringExtension_GetNotEmptyValueOrDefault_System_String_System_String_" data-uid="WeihanLi.Extensions.StringExtension.GetNotEmptyValueOrDefault(System.String,System.String)">
   GetNotEmptyValueOrDefault(string?, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L208"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Return value if value IsNotNullOrEmpty else return defaultValue</p>
@@ -418,7 +435,7 @@
 
   <h3 id="WeihanLi_Extensions_StringExtension_GetTypeByTypeName_System_String_" data-uid="WeihanLi.Extensions.StringExtension.GetTypeByTypeName(System.String)">
   GetTypeByTypeName(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L174"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get type by TypeName
@@ -458,7 +475,7 @@ Support type alias，for example: int =&gt; System.Int32</p>
 
   <h3 id="WeihanLi_Extensions_StringExtension_GetValueOrDefault_System_String_System_Func_System_String__" data-uid="WeihanLi.Extensions.StringExtension.GetValueOrDefault(System.String,System.Func{System.String})">
   GetValueOrDefault(string?, Func&lt;string&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L230"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Return value if value IsNotNullOrWhiteSpace else return defaultValue</p>
@@ -499,7 +516,7 @@ Support type alias，for example: int =&gt; System.Int32</p>
 
   <h3 id="WeihanLi_Extensions_StringExtension_GetValueOrDefault_System_String_System_String_" data-uid="WeihanLi.Extensions.StringExtension.GetValueOrDefault(System.String,System.String)">
   GetValueOrDefault(string?, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L219"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Return value if value IsNotNullOrWhiteSpace else return defaultValue</p>
@@ -540,7 +557,7 @@ Support type alias，for example: int =&gt; System.Int32</p>
 
   <h3 id="WeihanLi_Extensions_StringExtension_HtmlDecode_System_String_" data-uid="WeihanLi.Extensions.StringExtension.HtmlDecode(System.String)">
   HtmlDecode(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts a string that has been HTML-encoded for HTTP transmission into a decoded string.</p>
@@ -579,7 +596,7 @@ Support type alias，for example: int =&gt; System.Int32</p>
 
   <h3 id="WeihanLi_Extensions_StringExtension_HtmlEncode_System_String_" data-uid="WeihanLi.Extensions.StringExtension.HtmlEncode(System.String)">
   HtmlEncode(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts a string to an HTML-encoded string.</p>
@@ -616,9 +633,48 @@ Support type alias，for example: int =&gt; System.Int32</p>
 
   <a id="WeihanLi_Extensions_StringExtension_JavaScriptStringEncode_" data-uid="WeihanLi.Extensions.StringExtension.JavaScriptStringEncode*"></a>
 
+  <h3 id="WeihanLi_Extensions_StringExtension_JavaScriptStringEncode_System_String_" data-uid="WeihanLi.Extensions.StringExtension.JavaScriptStringEncode(System.String)">
+  JavaScriptStringEncode(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Encodes a string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string JavaScriptStringEncode(this string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string to encode.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>An encoded string.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_StringExtension_JavaScriptStringEncode_" data-uid="WeihanLi.Extensions.StringExtension.JavaScriptStringEncode*"></a>
+
   <h3 id="WeihanLi_Extensions_StringExtension_JavaScriptStringEncode_System_String_System_Boolean_" data-uid="WeihanLi.Extensions.StringExtension.JavaScriptStringEncode(System.String,System.Boolean)">
   JavaScriptStringEncode(string, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Encodes a string.</p>
@@ -657,32 +713,32 @@ encoded string.</p>
 
 
 
-  <a id="WeihanLi_Extensions_StringExtension_JavaScriptStringEncode_" data-uid="WeihanLi.Extensions.StringExtension.JavaScriptStringEncode*"></a>
+  <a id="WeihanLi_Extensions_StringExtension_ParseQueryString_" data-uid="WeihanLi.Extensions.StringExtension.ParseQueryString*"></a>
 
-  <h3 id="WeihanLi_Extensions_StringExtension_JavaScriptStringEncode_System_String_" data-uid="WeihanLi.Extensions.StringExtension.JavaScriptStringEncode(System.String)">
-  JavaScriptStringEncode(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Extensions_StringExtension_ParseQueryString_System_String_" data-uid="WeihanLi.Extensions.StringExtension.ParseQueryString(System.String)">
+  ParseQueryString(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L64"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Encodes a string.</p>
+  <div class="markdown level1 summary"><p>Parses a query string into a  using  encoding.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string JavaScriptStringEncode(this string value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static NameValueCollection ParseQueryString(this string query)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>A string to encode.</p>
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The query string to parse.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>An encoded string.</p>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.specialized.namevaluecollection">NameValueCollection</a></dt>
+    <dd><p>A  of query parameters and values.</p>
 </dd>
   </dl>
 
@@ -700,7 +756,7 @@ encoded string.</p>
 
   <h3 id="WeihanLi_Extensions_StringExtension_ParseQueryString_System_String_System_Text_Encoding_" data-uid="WeihanLi.Extensions.StringExtension.ParseQueryString(System.String,System.Text.Encoding)">
   ParseQueryString(string, Encoding)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Parses a query string into a  using the specified .</p>
@@ -738,50 +794,11 @@ encoded string.</p>
 
 
 
-  <a id="WeihanLi_Extensions_StringExtension_ParseQueryString_" data-uid="WeihanLi.Extensions.StringExtension.ParseQueryString*"></a>
-
-  <h3 id="WeihanLi_Extensions_StringExtension_ParseQueryString_System_String_" data-uid="WeihanLi.Extensions.StringExtension.ParseQueryString(System.String)">
-  ParseQueryString(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L63"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Parses a query string into a  using  encoding.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static NameValueCollection ParseQueryString(this string query)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The query string to parse.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.specialized.namevaluecollection">NameValueCollection</a></dt>
-    <dd><p>A  of query parameters and values.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_StringExtension_SplitArray_" data-uid="WeihanLi.Extensions.StringExtension.SplitArray*"></a>
 
   <h3 id="WeihanLi_Extensions_StringExtension_SplitArray__1_System_String_System_Char___System_StringSplitOptions_" data-uid="WeihanLi.Extensions.StringExtension.SplitArray``1(System.String,System.Char[],System.StringSplitOptions)">
   SplitArray&lt;T&gt;(string?, char[], StringSplitOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L252"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>split specific separator separated string to T array</p>
@@ -831,7 +848,7 @@ encoded string.</p>
 
   <h3 id="WeihanLi_Extensions_StringExtension_SplitArray__1_System_String_System_StringSplitOptions_" data-uid="WeihanLi.Extensions.StringExtension.SplitArray``1(System.String,System.StringSplitOptions)">
   SplitArray&lt;T&gt;(string?, StringSplitOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L242"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>split comma separated string to T array</p>
@@ -877,7 +894,7 @@ encoded string.</p>
 
   <h3 id="WeihanLi_Extensions_StringExtension_TrimStart_System_String_System_String_" data-uid="WeihanLi.Extensions.StringExtension.TrimStart(System.String,System.String)">
   TrimStart(string?, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L268"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L270"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>remove start if start with</p>
@@ -917,9 +934,48 @@ encoded string.</p>
 
   <a id="WeihanLi_Extensions_StringExtension_UrlDecode_" data-uid="WeihanLi.Extensions.StringExtension.UrlDecode*"></a>
 
+  <h3 id="WeihanLi_Extensions_StringExtension_UrlDecode_System_String_" data-uid="WeihanLi.Extensions.StringExtension.UrlDecode(System.String)">
+  UrlDecode(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a string that has been encoded for transmission in a URL into a decoded string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string UrlDecode(this string str)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The string to decode.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A decoded string.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_StringExtension_UrlDecode_" data-uid="WeihanLi.Extensions.StringExtension.UrlDecode*"></a>
+
   <h3 id="WeihanLi_Extensions_StringExtension_UrlDecode_System_String_System_Text_Encoding_" data-uid="WeihanLi.Extensions.StringExtension.UrlDecode(System.String,System.Text.Encoding)">
   UrlDecode(string, Encoding)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L96"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts a URL-encoded string into a decoded string, using the specified encoding object.</p>
@@ -957,32 +1013,32 @@ encoded string.</p>
 
 
 
-  <a id="WeihanLi_Extensions_StringExtension_UrlDecode_" data-uid="WeihanLi.Extensions.StringExtension.UrlDecode*"></a>
+  <a id="WeihanLi_Extensions_StringExtension_UrlEncode_" data-uid="WeihanLi.Extensions.StringExtension.UrlEncode*"></a>
 
-  <h3 id="WeihanLi_Extensions_StringExtension_UrlDecode_System_String_" data-uid="WeihanLi.Extensions.StringExtension.UrlDecode(System.String)">
-  UrlDecode(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Extensions_StringExtension_UrlEncode_System_String_" data-uid="WeihanLi.Extensions.StringExtension.UrlEncode(System.String)">
+  UrlEncode(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L106"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Converts a string that has been encoded for transmission in a URL into a decoded string.</p>
+  <div class="markdown level1 summary"><p>Encodes a URL string.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string UrlDecode(this string str)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string UrlEncode(this string str)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The string to decode.</p>
+    <dd><p>The text to encode.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>A decoded string.</p>
+    <dd><p>An encoded string.</p>
 </dd>
   </dl>
 
@@ -1000,7 +1056,7 @@ encoded string.</p>
 
   <h3 id="WeihanLi_Extensions_StringExtension_UrlEncode_System_String_System_Text_Encoding_" data-uid="WeihanLi.Extensions.StringExtension.UrlEncode(System.String,System.Text.Encoding)">
   UrlEncode(string, Encoding)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L117"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Encodes a URL string using the specified encoding object.</p>
@@ -1038,51 +1094,14 @@ encoded string.</p>
 
 
 
-  <a id="WeihanLi_Extensions_StringExtension_UrlEncode_" data-uid="WeihanLi.Extensions.StringExtension.UrlEncode*"></a>
-
-  <h3 id="WeihanLi_Extensions_StringExtension_UrlEncode_System_String_" data-uid="WeihanLi.Extensions.StringExtension.UrlEncode(System.String)">
-  UrlEncode(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/StringExtension.cs/#L105"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Encodes a URL string.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string UrlEncode(this string str)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The text to encode.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>An encoded string.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_StringExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.StringExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/StringExtension.cs/#L11" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -1091,7 +1110,7 @@ encoded string.</p>
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>

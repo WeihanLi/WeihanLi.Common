@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_ConsoleHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.ConsoleHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Helpers_ConsoleHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.ConsoleHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="WeihanLi_Common_Helpers_ConsoleHelper" data-uid="WeihanLi.Common.Helpers.ConsoleHelper" class="text-break">
     Class ConsoleHelper
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Helpers.html">Helpers</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Helpers.html">Helpers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
@@ -133,11 +150,207 @@
 </h2>
 
 
+  <a id="WeihanLi_Common_Helpers_ConsoleHelper_GetInput_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.GetInput*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_ConsoleHelper_GetInput_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.GetInput(System.String,System.Boolean)">
+  GetInput(string?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? GetInput(string? inputPrompt = null, bool insertNewLine = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputPrompt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>insertNewLine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_ConsoleHelper_HandleInputLoop_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.HandleInputLoop*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_ConsoleHelper_HandleInputLoop_System_Action_System_String__System_String_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.HandleInputLoop(System.Action{System.String},System.String,System.String,System.Boolean)">
+  HandleInputLoop(Action&lt;string&gt;, string?, string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void HandleInputLoop(Action&lt;string&gt; handler, string? inputPrompt = null, string exitInput = &quot;q&quot;, bool insertNewLine = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>inputPrompt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>exitInput</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>insertNewLine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_ConsoleHelper_HandleInputLoop_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.HandleInputLoop*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_ConsoleHelper_HandleInputLoop_System_Func_System_String_System_Boolean__System_String_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.HandleInputLoop(System.Func{System.String,System.Boolean},System.String,System.String,System.Boolean)">
+  HandleInputLoop(Func&lt;string, bool&gt;, string?, string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void HandleInputLoop(Func&lt;string, bool&gt; handler, string? inputPrompt = null, string exitInput = &quot;q&quot;, bool insertNewLine = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>inputPrompt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>exitInput</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>insertNewLine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_ConsoleHelper_HandleInputLoopAsync_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.HandleInputLoopAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_ConsoleHelper_HandleInputLoopAsync_System_Func_System_String_System_Threading_Tasks_Task_System_Boolean___System_String_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.HandleInputLoopAsync(System.Func{System.String,System.Threading.Tasks.Task{System.Boolean}},System.String,System.String,System.Boolean)">
+  HandleInputLoopAsync(Func&lt;string, Task&lt;bool&gt;&gt;, string?, string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task HandleInputLoopAsync(Func&lt;string, Task&lt;bool&gt;&gt; handler, string? inputPrompt = null, string exitInput = &quot;q&quot;, bool insertNewLine = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>inputPrompt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>exitInput</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>insertNewLine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_ConsoleHelper_HandleInputLoopAsync_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.HandleInputLoopAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_ConsoleHelper_HandleInputLoopAsync_System_Func_System_String_System_Threading_Tasks_Task__System_String_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.HandleInputLoopAsync(System.Func{System.String,System.Threading.Tasks.Task},System.String,System.String,System.Boolean)">
+  HandleInputLoopAsync(Func&lt;string, Task&gt;, string?, string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task HandleInputLoopAsync(Func&lt;string, Task&gt; handler, string? inputPrompt = null, string exitInput = &quot;q&quot;, bool insertNewLine = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>inputPrompt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>exitInput</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>insertNewLine</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Common_Helpers_ConsoleHelper_InvokeWithConsoleColor_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.InvokeWithConsoleColor*"></a>
 
   <h3 id="WeihanLi_Common_Helpers_ConsoleHelper_InvokeWithConsoleColor_System_Action_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.InvokeWithConsoleColor(System.Action,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">
   InvokeWithConsoleColor(Action, ConsoleColor?, ConsoleColor?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -172,7 +385,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_ConsoleHelper_InvokeWithConsoleColor_System_Func_System_Threading_Tasks_Task__System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.InvokeWithConsoleColor(System.Func{System.Threading.Tasks.Task},System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">
   InvokeWithConsoleColor(Func&lt;Task&gt;, ConsoleColor?, ConsoleColor?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -208,12 +421,222 @@
 
 
 
+  <a id="WeihanLi_Common_Helpers_ConsoleHelper_ReadKeyWithPrompt_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.ReadKeyWithPrompt*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_ConsoleHelper_ReadKeyWithPrompt_System_String_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.ReadKeyWithPrompt(System.String)">
+  ReadKeyWithPrompt(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ConsoleKeyInfo ReadKeyWithPrompt(string? prompt = &quot;Press any key to continue&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prompt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekeyinfo">ConsoleKeyInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_ConsoleHelper_ReadLineWithPrompt_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.ReadLineWithPrompt*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_ConsoleHelper_ReadLineWithPrompt_System_String_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.ReadLineWithPrompt(System.String)">
+  ReadLineWithPrompt(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? ReadLineWithPrompt(string? prompt = &quot;Press Enter to continue&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prompt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_ConsoleHelper_WriteIf_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.WriteIf*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_ConsoleHelper_WriteIf_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.WriteIf(System.String,System.Boolean)">
+  WriteIf(string?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteIf(string? output, bool condition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>output</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>condition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_ConsoleHelper_WriteLineIf_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.WriteLineIf*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_ConsoleHelper_WriteLineIf_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.WriteLineIf(System.String,System.Boolean)">
+  WriteLineIf(string?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLineIf(string? output, bool condition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>output</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>condition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_ConsoleHelper_WriteLineWithColor_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.WriteLineWithColor*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_ConsoleHelper_WriteLineWithColor_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.WriteLineWithColor(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">
+  WriteLineWithColor(string?, ConsoleColor?, ConsoleColor?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteLineWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>output</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>foregroundColor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolecolor">ConsoleColor</a>?</dt>
+    <dd></dd>
+    <dt><code>backgroundColor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolecolor">ConsoleColor</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_ConsoleHelper_WriteWithColor_" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.WriteWithColor*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_ConsoleHelper_WriteWithColor_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__" data-uid="WeihanLi.Common.Helpers.ConsoleHelper.WriteWithColor(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">
+  WriteWithColor(string?, ConsoleColor?, ConsoleColor?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void WriteWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>output</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>foregroundColor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolecolor">ConsoleColor</a>?</dt>
+    <dd></dd>
+    <dt><code>backgroundColor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolecolor">ConsoleColor</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_ConsoleHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.ConsoleHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ConsoleHelper.cs/#L6" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -222,7 +645,7 @@
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>

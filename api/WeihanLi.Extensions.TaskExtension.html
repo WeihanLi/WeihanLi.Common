@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_TaskExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.TaskExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Extensions_TaskExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.TaskExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="WeihanLi_Extensions_TaskExtension" data-uid="WeihanLi.Extensions.TaskExtension" class="text-break">
     Class TaskExtension
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
@@ -137,7 +154,7 @@
 
   <h3 id="WeihanLi_Extensions_TaskExtension_AsTask_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.TaskExtension.AsTask(System.Threading.CancellationToken)">
   AsTask(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -173,7 +190,7 @@
 
   <h3 id="WeihanLi_Extensions_TaskExtension_Run_System_Threading_Tasks_TaskScheduler_System_Action_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.TaskExtension.Run(System.Threading.Tasks.TaskScheduler,System.Action,System.Threading.CancellationToken)">
   Run(TaskScheduler, Action, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Runs an action on the current scheduler instead of the default scheduler.</p>
@@ -181,7 +198,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task Run(this TaskScheduler scheduler, Action action, CancellationToken cancelationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task Run(this TaskScheduler scheduler, Action action, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -192,7 +209,7 @@
     <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
     <dd><p>Action to be scheduled.</p>
 </dd>
-    <dt><code>cancelationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
     <dd><p>Cancellation token to link the new task to. If canceled before being scheduled, the action will not be run.</p>
 </dd>
   </dl>
@@ -218,7 +235,7 @@
 
   <h3 id="WeihanLi_Extensions_TaskExtension_Run_System_Threading_Tasks_TaskScheduler_System_Func_System_Threading_Tasks_Task__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.TaskExtension.Run(System.Threading.Tasks.TaskScheduler,System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)">
   Run(TaskScheduler, Func&lt;Task&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Runs a function on the current scheduler instead of the default scheduler.</p>
@@ -261,60 +278,9 @@
 
   <a id="WeihanLi_Extensions_TaskExtension_Run_" data-uid="WeihanLi.Extensions.TaskExtension.Run*"></a>
 
-  <h3 id="WeihanLi_Extensions_TaskExtension_Run__1_System_Threading_Tasks_TaskScheduler_System_Func___0__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.TaskExtension.Run``1(System.Threading.Tasks.TaskScheduler,System.Func{``0},System.Threading.CancellationToken)">
-  Run&lt;T&gt;(TaskScheduler, Func&lt;T&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L56"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Runs a function on the current scheduler instead of the default scheduler.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; Run&lt;T&gt;(this TaskScheduler scheduler, Func&lt;T&gt; function, CancellationToken cancelationToken = default)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>scheduler</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.taskscheduler">TaskScheduler</a></dt>
-    <dd><p>Scheduler for the action to be scheduled on.</p>
-</dd>
-    <dt><code>function</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;T&gt;</dt>
-    <dd><p>Function to be scheduled.</p>
-</dd>
-    <dt><code>cancelationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd><p>Cancellation token to link the new task to. If canceled before being scheduled, the action will not be run.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;</dt>
-    <dd><p>New task created for the function. This task completes with the result of calling the function.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
-    <dd><p>Result type.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_TaskExtension_Run_" data-uid="WeihanLi.Extensions.TaskExtension.Run*"></a>
-
   <h3 id="WeihanLi_Extensions_TaskExtension_Run__1_System_Threading_Tasks_TaskScheduler_System_Func_System_Threading_Tasks_Task___0___System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.TaskExtension.Run``1(System.Threading.Tasks.TaskScheduler,System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)">
   Run&lt;T&gt;(TaskScheduler, Func&lt;Task&lt;T&gt;&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Runs a function on the current scheduler instead of the default scheduler.</p>
@@ -361,11 +327,62 @@
 
 
 
+  <a id="WeihanLi_Extensions_TaskExtension_Run_" data-uid="WeihanLi.Extensions.TaskExtension.Run*"></a>
+
+  <h3 id="WeihanLi_Extensions_TaskExtension_Run__1_System_Threading_Tasks_TaskScheduler_System_Func___0__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.TaskExtension.Run``1(System.Threading.Tasks.TaskScheduler,System.Func{``0},System.Threading.CancellationToken)">
+  Run&lt;T&gt;(TaskScheduler, Func&lt;T&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs a function on the current scheduler instead of the default scheduler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;T&gt; Run&lt;T&gt;(this TaskScheduler scheduler, Func&lt;T&gt; function, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scheduler</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.taskscheduler">TaskScheduler</a></dt>
+    <dd><p>Scheduler for the action to be scheduled on.</p>
+</dd>
+    <dt><code>function</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;T&gt;</dt>
+    <dd><p>Function to be scheduled.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token to link the new task to. If canceled before being scheduled, the action will not be run.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;</dt>
+    <dd><p>New task created for the function. This task completes with the result of calling the function.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Result type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Extensions_TaskExtension_TimeoutAfter_" data-uid="WeihanLi.Extensions.TaskExtension.TimeoutAfter*"></a>
 
   <h3 id="WeihanLi_Extensions_TaskExtension_TimeoutAfter_System_Threading_Tasks_Task_System_TimeSpan_System_String_System_Int32_" data-uid="WeihanLi.Extensions.TaskExtension.TimeoutAfter(System.Threading.Tasks.Task,System.TimeSpan,System.String,System.Int32)">
   TimeoutAfter(Task, TimeSpan, string?, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L122"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -407,7 +424,7 @@
 
   <h3 id="WeihanLi_Extensions_TaskExtension_TimeoutAfter__1_System_Threading_Tasks_Task___0__System_TimeSpan_System_String_System_Int32_" data-uid="WeihanLi.Extensions.TaskExtension.TimeoutAfter``1(System.Threading.Tasks.Task{``0},System.TimeSpan,System.String,System.Int32)">
   TimeoutAfter&lt;T&gt;(Task&lt;T&gt;, TimeSpan, string?, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L103"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -454,7 +471,7 @@
 
   <h3 id="WeihanLi_Extensions_TaskExtension_WhenAll_System_Collections_Generic_IEnumerable_System_Threading_Tasks_Task__" data-uid="WeihanLi.Extensions.TaskExtension.WhenAll(System.Collections.Generic.IEnumerable{System.Threading.Tasks.Task})">
   WhenAll(IEnumerable&lt;Task&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -486,11 +503,49 @@
 
 
 
+  <a id="WeihanLi_Extensions_TaskExtension_WhenAllSafely_" data-uid="WeihanLi.Extensions.TaskExtension.WhenAllSafely*"></a>
+
+  <h3 id="WeihanLi_Extensions_TaskExtension_WhenAllSafely_System_Collections_Generic_IEnumerable_System_Threading_Tasks_Task__System_Action_System_Exception__" data-uid="WeihanLi.Extensions.TaskExtension.WhenAllSafely(System.Collections.Generic.IEnumerable{System.Threading.Tasks.Task},System.Action{System.Exception})">
+  WhenAllSafely(IEnumerable&lt;Task&gt;, Action&lt;Exception&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task WhenAllSafely(this IEnumerable&lt;Task&gt; tasks, Action&lt;Exception&gt;? onException = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tasks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>onException</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Extensions_TaskExtension_WhenAll_" data-uid="WeihanLi.Extensions.TaskExtension.WhenAll*"></a>
 
   <h3 id="WeihanLi_Extensions_TaskExtension_WhenAll__1_System_Collections_Generic_IEnumerable_System_Threading_Tasks_Task___0___" data-uid="WeihanLi.Extensions.TaskExtension.WhenAll``1(System.Collections.Generic.IEnumerable{System.Threading.Tasks.Task{``0}})">
   WhenAll&lt;TResult&gt;(IEnumerable&lt;Task&lt;TResult&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -531,7 +586,7 @@
 
   <h3 id="WeihanLi_Extensions_TaskExtension_WhenAny_System_Collections_Generic_IEnumerable_System_Threading_Tasks_Task__" data-uid="WeihanLi.Extensions.TaskExtension.WhenAny(System.Collections.Generic.IEnumerable{System.Threading.Tasks.Task})">
   WhenAny(IEnumerable&lt;Task&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -567,7 +622,7 @@
 
   <h3 id="WeihanLi_Extensions_TaskExtension_WhenAny__1_System_Collections_Generic_IEnumerable_System_Threading_Tasks_Task___0___" data-uid="WeihanLi.Extensions.TaskExtension.WhenAny``1(System.Collections.Generic.IEnumerable{System.Threading.Tasks.Task{``0}})">
   WhenAny&lt;TResult&gt;(IEnumerable&lt;Task&lt;TResult&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -608,7 +663,7 @@
 
   <h3 id="WeihanLi_Extensions_TaskExtension_WrapTask__1___0_" data-uid="WeihanLi.Extensions.TaskExtension.WrapTask``1(``0)">
   WrapTask&lt;T&gt;(T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -645,12 +700,55 @@
 
 
 
+  <a id="WeihanLi_Extensions_TaskExtension_WrapValueTask_" data-uid="WeihanLi.Extensions.TaskExtension.WrapValueTask*"></a>
+
+  <h3 id="WeihanLi_Extensions_TaskExtension_WrapValueTask__1___0_" data-uid="WeihanLi.Extensions.TaskExtension.WrapValueTask``1(``0)">
+  WrapValueTask&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T&gt; WrapValueTask&lt;T&gt;(this T t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_TaskExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.TaskExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L7" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -659,7 +757,7 @@
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>

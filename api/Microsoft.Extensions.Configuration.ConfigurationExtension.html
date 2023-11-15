@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=Microsoft_Extensions_Configuration_ConfigurationExtension.md&amp;value=---%0Auid%3A%20Microsoft.Extensions.Configuration.ConfigurationExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=Microsoft_Extensions_Configuration_ConfigurationExtension.md&amp;value=---%0Auid%3A%20Microsoft.Extensions.Configuration.ConfigurationExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="Microsoft_Extensions_Configuration_ConfigurationExtension" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension" class="text-break">
     Class ConfigurationExtension
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
     <dl><dt>Namespace</dt><dd><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft">Microsoft</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions">Extensions</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration">Configuration</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"><p>Provides extensions for <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a> instances.</p>
@@ -137,7 +154,7 @@
 
   <h3 id="Microsoft_Extensions_Configuration_ConfigurationExtension_FeatureFlagsSectionName" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.FeatureFlagsSectionName">
   FeatureFlagsSectionName
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L178"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Feature flags configuration section name, FeatureFlags by default</p>
@@ -171,9 +188,52 @@
 
   <a id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting*"></a>
 
+  <h3 id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting_Microsoft_Extensions_Configuration_IConfiguration_System_String_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+  GetAppSetting(IConfiguration, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>GetAppSetting
+Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? GetAppSetting(this IConfiguration configuration, string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configuration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></dt>
+    <dd><p>IConfiguration instance</p>
+</dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>appSettings key</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>app setting value</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting*"></a>
+
   <h3 id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting_Microsoft_Extensions_Configuration_IConfiguration_System_String_System_String_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.String)">
   GetAppSetting(IConfiguration, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L128"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>GetAppSetting
@@ -217,9 +277,9 @@ Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
 
   <a id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting*"></a>
 
-  <h3 id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting_Microsoft_Extensions_Configuration_IConfiguration_System_String_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
-  GetAppSetting(IConfiguration, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting__1_Microsoft_Extensions_Configuration_IConfiguration_System_String_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting``1(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+  GetAppSetting&lt;T&gt;(IConfiguration, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L140"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>GetAppSetting
@@ -228,7 +288,7 @@ Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string? GetAppSetting(this IConfiguration configuration, string key)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T GetAppSetting&lt;T&gt;(this IConfiguration configuration, string key)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -238,52 +298,6 @@ Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
 </dd>
     <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>appSettings key</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>app setting value</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting*"></a>
-
-  <h3 id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting__1_Microsoft_Extensions_Configuration_IConfiguration_System_String___0_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting``1(Microsoft.Extensions.Configuration.IConfiguration,System.String,``0)">
-  GetAppSetting&lt;T&gt;(IConfiguration, string, T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L138"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>GetAppSetting
-Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T GetAppSetting&lt;T&gt;(this IConfiguration configuration, string key, T defaultValue)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>configuration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></dt>
-    <dd><p>IConfiguration instance</p>
-</dd>
-    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>appSettings key</p>
-</dd>
-    <dt><code>defaultValue</code> <span class="xref">T</span></dt>
-    <dd><p>default value if not exist</p>
 </dd>
   </dl>
 
@@ -313,7 +327,7 @@ Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
 
   <h3 id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting__1_Microsoft_Extensions_Configuration_IConfiguration_System_String_System_Func___0__" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting``1(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Func{``0})">
   GetAppSetting&lt;T&gt;(IConfiguration, string, Func&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L166"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>GetAppSetting
@@ -362,9 +376,9 @@ Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
 
   <a id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting*"></a>
 
-  <h3 id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting__1_Microsoft_Extensions_Configuration_IConfiguration_System_String_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting``1(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
-  GetAppSetting&lt;T&gt;(IConfiguration, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetAppSetting__1_Microsoft_Extensions_Configuration_IConfiguration_System_String___0_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetAppSetting``1(Microsoft.Extensions.Configuration.IConfiguration,System.String,``0)">
+  GetAppSetting&lt;T&gt;(IConfiguration, string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L153"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>GetAppSetting
@@ -373,7 +387,7 @@ Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T GetAppSetting&lt;T&gt;(this IConfiguration configuration, string key)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T GetAppSetting&lt;T&gt;(this IConfiguration configuration, string key, T defaultValue)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -383,6 +397,9 @@ Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
 </dd>
     <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>appSettings key</p>
+</dd>
+    <dt><code>defaultValue</code> <span class="xref">T</span></dt>
+    <dd><p>default value if not exist</p>
 </dd>
   </dl>
 
@@ -412,7 +429,7 @@ Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
 
   <h3 id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetRequiredAppSetting_Microsoft_Extensions_Configuration_IConfiguration_System_String_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetRequiredAppSetting(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
   GetRequiredAppSetting(IConfiguration, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>GetRequiredAppSetting
@@ -451,11 +468,54 @@ Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
 
 
 
+  <a id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetRequiredConnectionString_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetRequiredConnectionString*"></a>
+
+  <h3 id="Microsoft_Extensions_Configuration_ConfigurationExtension_GetRequiredConnectionString_Microsoft_Extensions_Configuration_IConfiguration_System_String_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.GetRequiredConnectionString(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+  GetRequiredConnectionString(IConfiguration, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>GetAppSetting
+Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetRequiredConnectionString(this IConfiguration configuration, string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configuration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a></dt>
+    <dd><p>IConfiguration instance</p>
+</dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The connection string key</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The connection string value</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Microsoft_Extensions_Configuration_ConfigurationExtension_IsFeatureEnabled_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.IsFeatureEnabled*"></a>
 
   <h3 id="Microsoft_Extensions_Configuration_ConfigurationExtension_IsFeatureEnabled_Microsoft_Extensions_Configuration_IConfiguration_System_String_System_Boolean_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.IsFeatureEnabled(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Boolean)">
   IsFeatureEnabled(IConfiguration, string, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L205"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>FeatureFlag extension, (FeatureFlags:Feature) is feature enabled</p>
@@ -500,7 +560,7 @@ Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
 
   <h3 id="Microsoft_Extensions_Configuration_ConfigurationExtension_ReplacePlaceholders_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.ReplacePlaceholders(Microsoft.Extensions.Configuration.IConfiguration)">
   ReplacePlaceholders(IConfiguration)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Replaces the placeholders in the specified <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a> instance.</p>
@@ -539,7 +599,7 @@ Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
 
   <h3 id="Microsoft_Extensions_Configuration_ConfigurationExtension_TryGetFeatureFlagValue_Microsoft_Extensions_Configuration_IConfiguration_System_String_System_Boolean__" data-uid="Microsoft.Extensions.Configuration.ConfigurationExtension.TryGetFeatureFlagValue(Microsoft.Extensions.Configuration.IConfiguration,System.String,System.Boolean@)">
   TryGetFeatureFlagValue(IConfiguration, string, out bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L187"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>FeatureFlag extension, (FeatureFlags:Feature) is feature enabled</p>
@@ -584,8 +644,10 @@ Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=Microsoft_Extensions_Configuration_ConfigurationExtension.md&amp;value=---%0Auid%3A%20Microsoft.Extensions.Configuration.ConfigurationExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ConfigurationExtension.cs/#L11" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -594,7 +656,7 @@ Shorthand for GetSection(&quot;AppSettings&quot;)[key]</p>
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>

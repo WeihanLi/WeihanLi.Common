@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_JsonSerializeExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.JsonSerializeExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Extensions_JsonSerializeExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.JsonSerializeExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="WeihanLi_Extensions_JsonSerializeExtension" data-uid="WeihanLi.Extensions.JsonSerializeExtension" class="text-break">
     Class JsonSerializeExtension
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
@@ -135,9 +152,54 @@
 
   <a id="WeihanLi_Extensions_JsonSerializeExtension_JsonToObject_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.JsonToObject*"></a>
 
+  <h3 id="WeihanLi_Extensions_JsonSerializeExtension_JsonToObject__1_System_String_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.JsonToObject``1(System.String)">
+  JsonToObject&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>将Json对象转换为T对象</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T JsonToObject&lt;T&gt;(this string jsonString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jsonString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>json对象字符串</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>由字符串转换得到的T对象</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>对象的类型</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_JsonSerializeExtension_JsonToObject_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.JsonToObject*"></a>
+
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_JsonToObject__1_System_String_Newtonsoft_Json_JsonSerializerSettings_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.JsonToObject``1(System.String,Newtonsoft.Json.JsonSerializerSettings)">
   JsonToObject&lt;T&gt;(string, JsonSerializerSettings?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L92"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>将Json对象转换为T对象</p>
@@ -181,56 +243,11 @@
 
 
 
-  <a id="WeihanLi_Extensions_JsonSerializeExtension_JsonToObject_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.JsonToObject*"></a>
-
-  <h3 id="WeihanLi_Extensions_JsonSerializeExtension_JsonToObject__1_System_String_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.JsonToObject``1(System.String)">
-  JsonToObject&lt;T&gt;(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L82"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>将Json对象转换为T对象</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T JsonToObject&lt;T&gt;(this string jsonString)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>jsonString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>json对象字符串</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">T</span></dt>
-    <dd><p>由字符串转换得到的T对象</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
-    <dd><p>对象的类型</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_JsonSerializeExtension_SerializerSettingsWith_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.SerializerSettingsWith*"></a>
 
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_SerializerSettingsWith_System_Action_Newtonsoft_Json_JsonSerializerSettings__" data-uid="WeihanLi.Extensions.JsonSerializeExtension.SerializerSettingsWith(System.Action{Newtonsoft.Json.JsonSerializerSettings})">
   SerializerSettingsWith(Action&lt;JsonSerializerSettings&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -264,9 +281,53 @@
 
   <a id="WeihanLi_Extensions_JsonSerializeExtension_StringToType_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.StringToType*"></a>
 
+  <h3 id="WeihanLi_Extensions_JsonSerializeExtension_StringToType__1_System_String_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.StringToType``1(System.String)">
+  StringToType&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>字符串数据转换为相应类型的对象，如果是基本数据类型则转换类型，是Entity则Json反序列化</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T StringToType&lt;T&gt;(this string jsonString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jsonString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>字符串</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_JsonSerializeExtension_StringToType_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.StringToType*"></a>
+
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_StringToType__1_System_String___0_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.StringToType``1(System.String,``0)">
   StringToType&lt;T&gt;(string, T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L143"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>字符串数据转换为相应类型的对象，如果是基元类型则转换类型，是Entity则Json反序列化</p>
@@ -309,40 +370,35 @@
 
 
 
-  <a id="WeihanLi_Extensions_JsonSerializeExtension_StringToType_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.StringToType*"></a>
+  <a id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson*"></a>
 
-  <h3 id="WeihanLi_Extensions_JsonSerializeExtension_StringToType__1_System_String_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.StringToType``1(System.String)">
-  StringToType&lt;T&gt;(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object)">
+  ToJson(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>字符串数据转换为相应类型的对象，如果是基本数据类型则转换类型，是Entity则Json反序列化</p>
+  <div class="markdown level1 summary"><p>将object对象转换为Json数据</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T StringToType&lt;T&gt;(this string jsonString)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string ToJson(this object? obj)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>jsonString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>字符串</p>
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>object对象</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><span class="xref">T</span></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
-    <dd><p>Type</p>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>转换后的json字符串</p>
 </dd>
   </dl>
+
 
 
 
@@ -357,7 +413,7 @@
 
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_Newtonsoft_Json_JsonSerializerSettings_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object,Newtonsoft.Json.JsonSerializerSettings)">
   ToJson(object, JsonSerializerSettings?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>将object对象转换为Json数据</p>
@@ -397,9 +453,50 @@
 
   <a id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson*"></a>
 
+  <h3 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object,System.Boolean)">
+  ToJson(object?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>将object对象转换为Json数据</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToJson(this object? obj, bool isConvertToSingleQuotes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>目标对象</p>
+</dd>
+    <dt><code>isConvertToSingleQuotes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>是否将双引号转成单引号</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson*"></a>
+
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_Newtonsoft_Json_JsonSerializerSettings_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object,System.Boolean,Newtonsoft.Json.JsonSerializerSettings)">
   ToJson(object?, bool, JsonSerializerSettings?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>将object对象转换为Json数据</p>
@@ -439,91 +536,11 @@
 
 
 
-  <a id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson*"></a>
-
-  <h3 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object,System.Boolean)">
-  ToJson(object?, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L53"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>将object对象转换为Json数据</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string ToJson(this object? obj, bool isConvertToSingleQuotes)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd><p>目标对象</p>
-</dd>
-    <dt><code>isConvertToSingleQuotes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>是否将双引号转成单引号</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson*"></a>
-
-  <h3 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object)">
-  ToJson(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L36"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>将object对象转换为Json数据</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string ToJson(this object? obj)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd><p>object对象</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>转换后的json字符串</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_JsonSerializeExtension_ToJsonOrString_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJsonOrString*"></a>
 
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_ToJsonOrString_System_Object_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJsonOrString(System.Object)">
   ToJsonOrString(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L100"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>对象转换为string，如果是基元类型直接ToString(),如果是Entity则Json序列化</p>
@@ -561,8 +578,10 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_JsonSerializeExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.JsonSerializeExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L7" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -571,7 +590,7 @@
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>

@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_EnumerableExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.EnumerableExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Extensions_EnumerableExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.EnumerableExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="WeihanLi_Extensions_EnumerableExtension" data-uid="WeihanLi.Extensions.EnumerableExtension" class="text-break">
     Class EnumerableExtension
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
@@ -137,7 +154,7 @@
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_Append__1_System_Collections_Generic_IEnumerable___0____0_" data-uid="WeihanLi.Extensions.EnumerableExtension.Append``1(System.Collections.Generic.IEnumerable{``0},``0)">
   Append&lt;TSource&gt;(IEnumerable&lt;TSource&gt;, TSource)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -180,7 +197,7 @@
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_AsReadOnly__1_System_Collections_Generic_IEnumerable___0__" data-uid="WeihanLi.Extensions.EnumerableExtension.AsReadOnly``1(System.Collections.Generic.IEnumerable{``0})">
   AsReadOnly&lt;T&gt;(IEnumerable&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A T[] extension method that converts an array to a read only.</p>
@@ -225,7 +242,7 @@
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_Distinct__1_System_Collections_Generic_IEnumerable___0__System_Func___0___0_System_Boolean__" data-uid="WeihanLi.Extensions.EnumerableExtension.Distinct``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,System.Boolean})">
   Distinct&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T?, T?, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L155"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -268,7 +285,7 @@
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_Flatten__1_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable___0___" data-uid="WeihanLi.Extensions.EnumerableExtension.Flatten``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})">
   Flatten&lt;T&gt;(IEnumerable&lt;IEnumerable&lt;T&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -305,87 +322,11 @@
 
 
 
-  <a id="WeihanLi_Extensions_EnumerableExtension_ForEach_" data-uid="WeihanLi.Extensions.EnumerableExtension.ForEach*"></a>
-
-  <h3 id="WeihanLi_Extensions_EnumerableExtension_ForEach__1_System_Collections_Generic_IEnumerable___0__System_Action___0_System_Int32__" data-uid="WeihanLi.Extensions.EnumerableExtension.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})">
-  ForEach&lt;T&gt;(IEnumerable&lt;T&gt;, Action&lt;T, int&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L24"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void ForEach&lt;T&gt;(this IEnumerable&lt;T&gt; ts, Action&lt;T, int&gt; action)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>ts</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
-    <dd></dd>
-    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_EnumerableExtension_ForEach_" data-uid="WeihanLi.Extensions.EnumerableExtension.ForEach*"></a>
-
-  <h3 id="WeihanLi_Extensions_EnumerableExtension_ForEach__1_System_Collections_Generic_IEnumerable___0__System_Action___0__" data-uid="WeihanLi.Extensions.EnumerableExtension.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
-  ForEach&lt;T&gt;(IEnumerable&lt;T&gt;, Action&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L16"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void ForEach&lt;T&gt;(this IEnumerable&lt;T&gt; ts, Action&lt;T&gt; action)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>ts</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
-    <dd></dd>
-    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;T&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_EnumerableExtension_ForEachAsync_" data-uid="WeihanLi.Extensions.EnumerableExtension.ForEachAsync*"></a>
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_ForEachAsync__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Int32_System_Threading_Tasks_Task__" data-uid="WeihanLi.Extensions.EnumerableExtension.ForEachAsync``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32,System.Threading.Tasks.Task})">
   ForEachAsync&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, int, Task&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -428,7 +369,7 @@
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_ForEachAsync__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Threading_Tasks_Task__" data-uid="WeihanLi.Extensions.EnumerableExtension.ForEachAsync``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Threading.Tasks.Task})">
   ForEachAsync&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, Task&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -467,11 +408,87 @@
 
 
 
+  <a id="WeihanLi_Extensions_EnumerableExtension_ForEach_" data-uid="WeihanLi.Extensions.EnumerableExtension.ForEach*"></a>
+
+  <h3 id="WeihanLi_Extensions_EnumerableExtension_ForEach__1_System_Collections_Generic_IEnumerable___0__System_Action___0_System_Int32__" data-uid="WeihanLi.Extensions.EnumerableExtension.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})">
+  ForEach&lt;T&gt;(IEnumerable&lt;T&gt;, Action&lt;T, int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForEach&lt;T&gt;(this IEnumerable&lt;T&gt; ts, Action&lt;T, int&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ts</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_EnumerableExtension_ForEach_" data-uid="WeihanLi.Extensions.EnumerableExtension.ForEach*"></a>
+
+  <h3 id="WeihanLi_Extensions_EnumerableExtension_ForEach__1_System_Collections_Generic_IEnumerable___0__System_Action___0__" data-uid="WeihanLi.Extensions.EnumerableExtension.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+  ForEach&lt;T&gt;(IEnumerable&lt;T&gt;, Action&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForEach&lt;T&gt;(this IEnumerable&lt;T&gt; ts, Action&lt;T&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ts</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Extensions_EnumerableExtension_GetCombinations_" data-uid="WeihanLi.Extensions.EnumerableExtension.GetCombinations*"></a>
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_GetCombinations__1_System_Collections_Generic_IEnumerable___0__System_Int32_System_Boolean_" data-uid="WeihanLi.Extensions.EnumerableExtension.GetCombinations``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Boolean)">
   GetCombinations&lt;T&gt;(IEnumerable&lt;T&gt;, int, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L256"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L257"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -516,7 +533,7 @@
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_GetPermutations__1_System_Collections_Generic_IEnumerable___0__System_Boolean_System_Collections_Generic_IComparer___0__" data-uid="WeihanLi.Extensions.EnumerableExtension.GetPermutations``1(System.Collections.Generic.IEnumerable{``0},System.Boolean,System.Collections.Generic.IComparer{``0})">
   GetPermutations&lt;T&gt;(IEnumerable&lt;T&gt;, bool, IComparer&lt;T&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L263"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L264"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -561,7 +578,7 @@
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_GroupByEquality__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__System_Collections_Generic_IEqualityComparer___1__System_Action___1___0__System_Action___0___1__" data-uid="WeihanLi.Extensions.EnumerableExtension.GroupByEquality``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1},System.Action{``1,``0},System.Action{``0,``1})">
   GroupByEquality&lt;T, TKey&gt;(IEnumerable&lt;T&gt;, Func&lt;T, TKey&gt;, IEqualityComparer&lt;TKey&gt;, Action&lt;TKey, T&gt;?, Action&lt;T, TKey&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L271"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -612,7 +629,7 @@
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_GroupByEquality__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__System_Func___1___1_System_Boolean__System_Action___1___0__System_Action___0___1__" data-uid="WeihanLi.Extensions.EnumerableExtension.GroupByEquality``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``1,``1,System.Boolean},System.Action{``1,``0},System.Action{``0,``1})">
   GroupByEquality&lt;T, TKey&gt;(IEnumerable&lt;T&gt;, Func&lt;T, TKey&gt;, Func&lt;TKey, TKey, bool&gt;, Action&lt;TKey, T&gt;?, Action&lt;T, TKey&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L278"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L279"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -663,7 +680,7 @@
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_HasValue__1_System_Collections_Generic_IEnumerable___0__" data-uid="WeihanLi.Extensions.EnumerableExtension.HasValue``1(System.Collections.Generic.IEnumerable{``0})">
   HasValue&lt;T&gt;(IEnumerable&lt;T&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An IEnumerable&lt;T&gt; extension method that queries if a not null or is empty.</p>
@@ -708,7 +725,7 @@
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_LeftJoin__4_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___1__System_Func___0___2__System_Func___1___2__System_Func___0___1___3__" data-uid="WeihanLi.Extensions.EnumerableExtension.LeftJoin``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``2},System.Func{``1,``2},System.Func{``0,``1,``3})">
   LeftJoin&lt;TOuter, TInner, TKey, TResult&gt;(IEnumerable&lt;TOuter&gt;, IEnumerable&lt;TInner&gt;, Func&lt;TOuter, TKey&gt;, Func&lt;TInner, TKey&gt;, Func&lt;TOuter, TInner?, TResult&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L189"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>LeftJoin extension</p>
@@ -773,7 +790,7 @@
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_Prepend__1_System_Collections_Generic_IEnumerable___0____0_" data-uid="WeihanLi.Extensions.EnumerableExtension.Prepend``1(System.Collections.Generic.IEnumerable{``0},``0)">
   Prepend&lt;TSource&gt;(IEnumerable&lt;TSource&gt;, TSource)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -816,7 +833,7 @@
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_Split__1_System_Collections_Generic_IEnumerable___0__System_Int32_" data-uid="WeihanLi.Extensions.EnumerableExtension.Split``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
   Split&lt;T&gt;(IEnumerable&lt;T&gt;, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L123"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>将一维集合分割成二维集合</p>
@@ -862,7 +879,7 @@
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_StringJoin__1_System_Collections_Generic_IEnumerable___0__System_String_" data-uid="WeihanLi.Extensions.EnumerableExtension.StringJoin``1(System.Collections.Generic.IEnumerable{``0},System.String)">
   StringJoin&lt;T&gt;(IEnumerable&lt;T&gt;, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Concatenates all the elements of a IEnumerable, using the specified separator between each element.</p>
@@ -912,7 +929,7 @@ the method returns String.Empty.</p>
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_ToListResultWithTotal__1_System_Collections_Generic_IEnumerable___0__System_Int32_" data-uid="WeihanLi.Extensions.EnumerableExtension.ToListResultWithTotal``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
   ToListResultWithTotal&lt;T&gt;(IEnumerable&lt;T&gt;, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L210"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>ToPagedList</p>
@@ -959,7 +976,7 @@ the method returns String.Empty.</p>
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_ToPagedList__1_System_Collections_Generic_IEnumerable___0__System_Int32_System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.EnumerableExtension.ToPagedList``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32,System.Int32)">
   ToPagedList&lt;T&gt;(IEnumerable&lt;T&gt;, int, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L226"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>ToPagedList</p>
@@ -1012,7 +1029,7 @@ the method returns String.Empty.</p>
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_ToPagedList__1_System_Collections_Generic_IReadOnlyList___0__System_Int32_System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.EnumerableExtension.ToPagedList``1(System.Collections.Generic.IReadOnlyList{``0},System.Int32,System.Int32,System.Int32)">
   ToPagedList&lt;T&gt;(IReadOnlyList&lt;T&gt;, int, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L244"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L245"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>ToPagedList</p>
@@ -1065,7 +1082,7 @@ the method returns String.Empty.</p>
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_WhereIf__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__System_Boolean_" data-uid="WeihanLi.Extensions.EnumerableExtension.WhereIf``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Boolean)">
   WhereIf&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L142"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1110,7 +1127,7 @@ the method returns String.Empty.</p>
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_WhereIf__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__System_Func_System_Boolean__" data-uid="WeihanLi.Extensions.EnumerableExtension.WhereIf``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{System.Boolean})">
   WhereIf&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;, Func&lt;bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L145"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1155,7 +1172,7 @@ the method returns String.Empty.</p>
 
   <h3 id="WeihanLi_Extensions_EnumerableExtension_WhereNotNull__1_System_Collections_Generic_IEnumerable___0__" data-uid="WeihanLi.Extensions.EnumerableExtension.WhereNotNull``1(System.Collections.Generic.IEnumerable{``0})">
   WhereNotNull&lt;T&gt;(IEnumerable&lt;T?&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L148"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1196,8 +1213,10 @@ the method returns String.Empty.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_EnumerableExtension.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.EnumerableExtension%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/EnumerableExtension.cs/#L14" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -1206,7 +1225,7 @@ the method returns String.Empty.</p>
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>

@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Aspect_FluentAspectOptionsExtensions.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Aspect.FluentAspectOptionsExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Aspect_FluentAspectOptionsExtensions.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Aspect.FluentAspectOptionsExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions" class="text-break">
     Class FluentAspectOptionsExtensions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Aspect.html">Aspect</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Aspect.html">Aspect</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
@@ -137,7 +154,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_Intercept_WeihanLi_Common_Aspect_FluentAspectOptions_System_Func_WeihanLi_Common_Aspect_IInvocation_System_Boolean__" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.Intercept(WeihanLi.Common.Aspect.FluentAspectOptions,System.Func{WeihanLi.Common.Aspect.IInvocation,System.Boolean})">
   Intercept(FluentAspectOptions, Func&lt;IInvocation, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -175,7 +192,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptAll_WeihanLi_Common_Aspect_FluentAspectOptions_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptAll(WeihanLi.Common.Aspect.FluentAspectOptions)">
   InterceptAll(FluentAspectOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -211,7 +228,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod_WeihanLi_Common_Aspect_FluentAspectOptions_System_Func_System_Reflection_MethodInfo_System_Boolean__" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod(WeihanLi.Common.Aspect.FluentAspectOptions,System.Func{System.Reflection.MethodInfo,System.Boolean})">
   InterceptMethod(FluentAspectOptions, Func&lt;MethodInfo, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L123"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -249,7 +266,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod_WeihanLi_Common_Aspect_FluentAspectOptions_System_Reflection_MethodInfo_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod(WeihanLi.Common.Aspect.FluentAspectOptions,System.Reflection.MethodInfo)">
   InterceptMethod(FluentAspectOptions, MethodInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -287,7 +304,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_Expression_System_Action___0___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.Expression{System.Action{``0}})">
   InterceptMethod&lt;T&gt;(FluentAspectOptions, Expression&lt;Action&lt;T&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -328,52 +345,9 @@
 
   <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod*"></a>
 
-  <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_Expression_System_Func___0_System_Object___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
-  InterceptMethod&lt;T&gt;(FluentAspectOptions, Expression&lt;Func&lt;T, object&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L45"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IInterceptionConfiguration InterceptMethod&lt;T&gt;(this FluentAspectOptions options, Expression&lt;Func&lt;T, object&gt;&gt; method)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>options</code> <a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
-    <dd></dd>
-    <dt><code>method</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="WeihanLi.Common.Aspect.IInterceptionConfiguration.html">IInterceptionConfiguration</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod*"></a>
-
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_Expression_System_Func_System_Reflection_MethodInfo_System_Boolean___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.Expression{System.Func{System.Reflection.MethodInfo,System.Boolean}})">
   InterceptMethod&lt;T&gt;(FluentAspectOptions, Expression&lt;Func&lt;MethodInfo, bool&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L115"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -414,9 +388,52 @@
 
   <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod*"></a>
 
+  <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_Expression_System_Func___0_System_Object___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+  InterceptMethod&lt;T&gt;(FluentAspectOptions, Expression&lt;Func&lt;T, object&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IInterceptionConfiguration InterceptMethod&lt;T&gt;(this FluentAspectOptions options, Expression&lt;Func&lt;T, object&gt;&gt; method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
+    <dd></dd>
+    <dt><code>method</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Aspect.IInterceptionConfiguration.html">IInterceptionConfiguration</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod*"></a>
+
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_MethodCallExpression_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.MethodCallExpression)">
   InterceptMethod&lt;T&gt;(FluentAspectOptions, MethodCallExpression)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L129"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -459,7 +476,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Reflection_MethodInfo_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Reflection.MethodInfo)">
   InterceptMethod&lt;T&gt;(FluentAspectOptions, MethodInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -502,7 +519,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptPropertyGetter__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_Expression_System_Func___0_System_Object___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptPropertyGetter``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
   InterceptPropertyGetter&lt;T&gt;(FluentAspectOptions, Expression&lt;Func&lt;T, object&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -545,7 +562,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptPropertySetter__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_Expression_System_Func___0_System_Object___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptPropertySetter``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
   InterceptPropertySetter&lt;T&gt;(FluentAspectOptions, Expression&lt;Func&lt;T, object&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -588,7 +605,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptType_WeihanLi_Common_Aspect_FluentAspectOptions_System_Func_System_Type_System_Boolean__" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptType(WeihanLi.Common.Aspect.FluentAspectOptions,System.Func{System.Type,System.Boolean})">
   InterceptType(FluentAspectOptions, Func&lt;Type, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -626,7 +643,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_InterceptType__1_WeihanLi_Common_Aspect_FluentAspectOptions_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.InterceptType``1(WeihanLi.Common.Aspect.FluentAspectOptions)">
   InterceptType&lt;T&gt;(FluentAspectOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -667,7 +684,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoIntercept_WeihanLi_Common_Aspect_FluentAspectOptions_System_Func_WeihanLi_Common_Aspect_IInvocation_System_Boolean__" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoIntercept(WeihanLi.Common.Aspect.FluentAspectOptions,System.Func{WeihanLi.Common.Aspect.IInvocation,System.Boolean})">
   NoIntercept(FluentAspectOptions, Func&lt;IInvocation, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L148"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -705,7 +722,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod_WeihanLi_Common_Aspect_FluentAspectOptions_System_Func_System_Reflection_MethodInfo_System_Boolean__" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod(WeihanLi.Common.Aspect.FluentAspectOptions,System.Func{System.Reflection.MethodInfo,System.Boolean})">
   NoInterceptMethod(FluentAspectOptions, Func&lt;MethodInfo, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L206"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -743,7 +760,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod_WeihanLi_Common_Aspect_FluentAspectOptions_System_Reflection_MethodInfo_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod(WeihanLi.Common.Aspect.FluentAspectOptions,System.Reflection.MethodInfo)">
   NoInterceptMethod(FluentAspectOptions, MethodInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L230"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L225"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -781,7 +798,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_Expression_System_Action___0___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.Expression{System.Action{``0}})">
   NoInterceptMethod&lt;T&gt;(FluentAspectOptions, Expression&lt;Action&lt;T&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L160"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -822,52 +839,9 @@
 
   <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod*"></a>
 
-  <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_Expression_System_Func___0_System_Object___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
-  NoInterceptMethod&lt;T&gt;(FluentAspectOptions, Expression&lt;Func&lt;T, object&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L158"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static FluentAspectOptions NoInterceptMethod&lt;T&gt;(this FluentAspectOptions options, Expression&lt;Func&lt;T, object&gt;&gt; method)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>options</code> <a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
-    <dd></dd>
-    <dt><code>method</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod*"></a>
-
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_Expression_System_Func_System_Reflection_MethodInfo_System_Boolean___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.Expression{System.Func{System.Reflection.MethodInfo,System.Boolean}})">
   NoInterceptMethod&lt;T&gt;(FluentAspectOptions, Expression&lt;Func&lt;MethodInfo, bool&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L182"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -908,9 +882,52 @@
 
   <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod*"></a>
 
+  <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_Expression_System_Func___0_System_Object___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+  NoInterceptMethod&lt;T&gt;(FluentAspectOptions, Expression&lt;Func&lt;T, object&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FluentAspectOptions NoInterceptMethod&lt;T&gt;(this FluentAspectOptions options, Expression&lt;Func&lt;T, object&gt;&gt; method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
+    <dd></dd>
+    <dt><code>method</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod*"></a>
+
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_MethodCallExpression_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.MethodCallExpression)">
   NoInterceptMethod&lt;T&gt;(FluentAspectOptions, MethodCallExpression)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L191"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -953,7 +970,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptMethod__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Reflection_MethodInfo_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptMethod``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Reflection.MethodInfo)">
   NoInterceptMethod&lt;T&gt;(FluentAspectOptions, MethodInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L218"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L213"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -992,54 +1009,11 @@
 
 
 
-  <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptProperty_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptProperty*"></a>
-
-  <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptProperty__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_Expression_System_Func___0_System_Object___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptProperty``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
-  NoInterceptProperty&lt;T&gt;(FluentAspectOptions, Expression&lt;Func&lt;T, object&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L242"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static FluentAspectOptions NoInterceptProperty&lt;T&gt;(this FluentAspectOptions options, Expression&lt;Func&lt;T, object&gt;&gt; expression)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>options</code> <a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
-    <dd></dd>
-    <dt><code>expression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptPropertyGetter_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptPropertyGetter*"></a>
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptPropertyGetter__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_Expression_System_Func___0_System_Object___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptPropertyGetter``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
   NoInterceptPropertyGetter&lt;T&gt;(FluentAspectOptions, Expression&lt;Func&lt;T, object&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L257"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1082,7 +1056,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptPropertySetter__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_Expression_System_Func___0_System_Object___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptPropertySetter``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
   NoInterceptPropertySetter&lt;T&gt;(FluentAspectOptions, Expression&lt;Func&lt;T, object&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L279"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L274"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1121,11 +1095,54 @@
 
 
 
+  <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptProperty_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptProperty*"></a>
+
+  <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptProperty__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Linq_Expressions_Expression_System_Func___0_System_Object___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptProperty``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+  NoInterceptProperty&lt;T&gt;(FluentAspectOptions, Expression&lt;Func&lt;T, object&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FluentAspectOptions NoInterceptProperty&lt;T&gt;(this FluentAspectOptions options, Expression&lt;Func&lt;T, object&gt;&gt; expression)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
+    <dd></dd>
+    <dt><code>expression</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptType_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptType*"></a>
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptType_WeihanLi_Common_Aspect_FluentAspectOptions_System_Func_System_Type_System_Boolean__" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptType(WeihanLi.Common.Aspect.FluentAspectOptions,System.Func{System.Type,System.Boolean})">
   NoInterceptType(FluentAspectOptions, Func&lt;Type, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L167"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1163,7 +1180,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_NoInterceptType__1_WeihanLi_Common_Aspect_FluentAspectOptions_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.NoInterceptType``1(WeihanLi.Common.Aspect.FluentAspectOptions)">
   NoInterceptType&lt;T&gt;(FluentAspectOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L176"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1204,7 +1221,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_UseInterceptorResolver_WeihanLi_Common_Aspect_FluentAspectOptions_WeihanLi_Common_Aspect_IInterceptorResolver_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.UseInterceptorResolver(WeihanLi.Common.Aspect.FluentAspectOptions,WeihanLi.Common.Aspect.IInterceptorResolver)">
   UseInterceptorResolver(FluentAspectOptions, IInterceptorResolver)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L300"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L295"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1242,7 +1259,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_UseInterceptorResolver__1_WeihanLi_Common_Aspect_FluentAspectOptions_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.UseInterceptorResolver``1(WeihanLi.Common.Aspect.FluentAspectOptions)">
   UseInterceptorResolver&lt;TResolver&gt;(FluentAspectOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L308"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L303"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1283,7 +1300,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_UseProxyFactory_WeihanLi_Common_Aspect_FluentAspectOptions_WeihanLi_Common_Aspect_IProxyFactory_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.UseProxyFactory(WeihanLi.Common.Aspect.FluentAspectOptions,WeihanLi.Common.Aspect.IProxyFactory)">
   UseProxyFactory(FluentAspectOptions, IProxyFactory)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L319"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L314"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1319,52 +1336,9 @@
 
   <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_UseProxyFactory_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.UseProxyFactory*"></a>
 
-  <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_UseProxyFactory__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Object___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.UseProxyFactory``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Object[])">
-  UseProxyFactory&lt;TProxyFactory&gt;(FluentAspectOptions, params object[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L332"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static FluentAspectOptions UseProxyFactory&lt;TProxyFactory&gt;(this FluentAspectOptions options, params object[] parameters) where TProxyFactory : class, IProxyFactory, new()</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>options</code> <a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
-    <dd></dd>
-    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TProxyFactory</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_UseProxyFactory_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.UseProxyFactory*"></a>
-
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_UseProxyFactory__1_WeihanLi_Common_Aspect_FluentAspectOptions_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.UseProxyFactory``1(WeihanLi.Common.Aspect.FluentAspectOptions)">
   UseProxyFactory&lt;TProxyFactory&gt;(FluentAspectOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L320"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1401,11 +1375,95 @@
 
 
 
+  <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_UseProxyFactory_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.UseProxyFactory*"></a>
+
+  <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_UseProxyFactory__1_WeihanLi_Common_Aspect_FluentAspectOptions_System_Object___" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.UseProxyFactory``1(WeihanLi.Common.Aspect.FluentAspectOptions,System.Object[])">
+  UseProxyFactory&lt;TProxyFactory&gt;(FluentAspectOptions, params object[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L327"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FluentAspectOptions UseProxyFactory&lt;TProxyFactory&gt;(this FluentAspectOptions options, params object[] parameters) where TProxyFactory : class, IProxyFactory</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
+    <dd></dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TProxyFactory</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_WithEnricher_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.WithEnricher*"></a>
+
+  <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_WithEnricher__1_WeihanLi_Common_Aspect_FluentAspectOptions_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.WithEnricher``1(WeihanLi.Common.Aspect.FluentAspectOptions)">
+  WithEnricher&lt;TEnricher&gt;(FluentAspectOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L352"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FluentAspectOptions WithEnricher&lt;TEnricher&gt;(this FluentAspectOptions options) where TEnricher : IInvocationEnricher, new()</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>options</code> <a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TEnricher</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_WithEnricher_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.WithEnricher*"></a>
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_WithEnricher__1_WeihanLi_Common_Aspect_FluentAspectOptions___0_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.WithEnricher``1(WeihanLi.Common.Aspect.FluentAspectOptions,``0)">
   WithEnricher&lt;TEnricher&gt;(FluentAspectOptions, TEnricher)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L363"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L358"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1444,52 +1502,11 @@
 
 
 
-  <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_WithEnricher_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.WithEnricher*"></a>
-
-  <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_WithEnricher__1_WeihanLi_Common_Aspect_FluentAspectOptions_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.WithEnricher``1(WeihanLi.Common.Aspect.FluentAspectOptions)">
-  WithEnricher&lt;TEnricher&gt;(FluentAspectOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L357"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static FluentAspectOptions WithEnricher&lt;TEnricher&gt;(this FluentAspectOptions options) where TEnricher : IInvocationEnricher, new()</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>options</code> <a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="WeihanLi.Common.Aspect.FluentAspectOptions.html">FluentAspectOptions</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TEnricher</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_WithProperty_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.WithProperty*"></a>
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_WithProperty_WeihanLi_Common_Aspect_FluentAspectOptions_System_String_System_Func_WeihanLi_Common_Aspect_IInvocation_System_Object__System_Boolean_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.WithProperty(WeihanLi.Common.Aspect.FluentAspectOptions,System.String,System.Func{WeihanLi.Common.Aspect.IInvocation,System.Object},System.Boolean)">
   WithProperty(FluentAspectOptions, string, Func&lt;IInvocation, object&gt;, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L350"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L345"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1531,7 +1548,7 @@
 
   <h3 id="WeihanLi_Common_Aspect_FluentAspectOptionsExtensions_WithProperty_WeihanLi_Common_Aspect_FluentAspectOptions_System_String_System_Object_System_Boolean_" data-uid="WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.WithProperty(WeihanLi.Common.Aspect.FluentAspectOptions,System.String,System.Object,System.Boolean)">
   WithProperty(FluentAspectOptions, string, object, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L343"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L338"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1573,8 +1590,10 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Aspect_FluentAspectOptionsExtensions.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Aspect.FluentAspectOptionsExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Aspect/FluentAspectOptionsExtensions.cs/#L9" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -1583,7 +1602,7 @@
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>

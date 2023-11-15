@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_ILGeneratorExtensions.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.ILGeneratorExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Extensions_ILGeneratorExtensions.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.ILGeneratorExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="WeihanLi_Extensions_ILGeneratorExtensions" data-uid="WeihanLi.Extensions.ILGeneratorExtensions" class="text-break">
     Class ILGeneratorExtensions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
@@ -136,7 +153,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_GetMethodFromHandle" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.GetMethodFromHandle">
   GetMethodFromHandle
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -171,7 +188,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_Call_System_Reflection_Emit_ILGenerator_System_Reflection_ConstructorInfo_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.Call(System.Reflection.Emit.ILGenerator,System.Reflection.ConstructorInfo)">
   Call(ILGenerator, ConstructorInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L439"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L441"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -204,7 +221,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_Call_System_Reflection_Emit_ILGenerator_System_Reflection_MethodInfo_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.Call(System.Reflection.Emit.ILGenerator,System.Reflection.MethodInfo)">
   Call(ILGenerator, MethodInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L434"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L436"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -237,7 +254,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_DeclareReturnValue_System_Reflection_Emit_ILGenerator_System_Type_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.DeclareReturnValue(System.Reflection.Emit.ILGenerator,System.Type)">
   DeclareReturnValue(ILGenerator, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L413"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L415"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -275,7 +292,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitBoolean_System_Reflection_Emit_ILGenerator_System_Boolean_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitBoolean(System.Reflection.Emit.ILGenerator,System.Boolean)">
   EmitBoolean(ILGenerator, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L529"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L525"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -308,7 +325,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitCastToType_System_Reflection_Emit_ILGenerator_System_Type_System_Type_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitCastToType(System.Reflection.Emit.ILGenerator,System.Type,System.Type)">
   EmitCastToType(ILGenerator, Type, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L385"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L389"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -343,7 +360,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitConvertFromObject_System_Reflection_Emit_ILGenerator_System_Type_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitConvertFromObject(System.Reflection.Emit.ILGenerator,System.Type)">
   EmitConvertFromObject(ILGenerator, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -376,7 +393,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitConvertToObject_System_Reflection_Emit_ILGenerator_System_Type_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitConvertToObject(System.Reflection.Emit.ILGenerator,System.Type)">
   EmitConvertToObject(ILGenerator, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -409,7 +426,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitConvertToType_System_Reflection_Emit_ILGenerator_System_Type_System_Type_System_Boolean_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitConvertToType(System.Reflection.Emit.ILGenerator,System.Type,System.Type,System.Boolean)">
   EmitConvertToType(ILGenerator, Type, Type, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -446,7 +463,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitDefaultValue_System_Reflection_Emit_ILGenerator_System_Type_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitDefaultValue(System.Reflection.Emit.ILGenerator,System.Type)">
   EmitDefaultValue(ILGenerator, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L563"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L557"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -479,7 +496,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitGetValue_System_Reflection_Emit_ILGenerator_System_Type_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitGetValue(System.Reflection.Emit.ILGenerator,System.Type)">
   EmitGetValue(ILGenerator, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L557"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L551"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -512,7 +529,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitGetValueOrDefault_System_Reflection_Emit_ILGenerator_System_Type_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitGetValueOrDefault(System.Reflection.Emit.ILGenerator,System.Type)">
   EmitGetValueOrDefault(ILGenerator, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L551"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L545"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -545,7 +562,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitHasValue_System_Reflection_Emit_ILGenerator_System_Type_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitHasValue(System.Reflection.Emit.ILGenerator,System.Type)">
   EmitHasValue(ILGenerator, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L541"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L537"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -578,7 +595,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitLoadArg_System_Reflection_Emit_ILGenerator_System_Int32_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitLoadArg(System.Reflection.Emit.ILGenerator,System.Int32)">
   EmitLoadArg(ILGenerator, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L481"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L480"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -609,9 +626,42 @@
 
   <a id="WeihanLi_Extensions_ILGeneratorExtensions_EmitMethod_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitMethod*"></a>
 
+  <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitMethod_System_Reflection_Emit_ILGenerator_System_Reflection_MethodInfo_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitMethod(System.Reflection.Emit.ILGenerator,System.Reflection.MethodInfo)">
+  EmitMethod(ILGenerator, MethodInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void EmitMethod(this ILGenerator ilGenerator, MethodInfo method)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ilGenerator</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.emit.ilgenerator">ILGenerator</a></dt>
+    <dd></dd>
+    <dt><code>method</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ILGeneratorExtensions_EmitMethod_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitMethod*"></a>
+
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitMethod_System_Reflection_Emit_ILGenerator_System_Reflection_MethodInfo_System_Type_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitMethod(System.Reflection.Emit.ILGenerator,System.Reflection.MethodInfo,System.Type)">
   EmitMethod(ILGenerator, MethodInfo, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -642,44 +692,11 @@
 
 
 
-  <a id="WeihanLi_Extensions_ILGeneratorExtensions_EmitMethod_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitMethod*"></a>
-
-  <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitMethod_System_Reflection_Emit_ILGenerator_System_Reflection_MethodInfo_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitMethod(System.Reflection.Emit.ILGenerator,System.Reflection.MethodInfo)">
-  EmitMethod(ILGenerator, MethodInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L14"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void EmitMethod(this ILGenerator ilGenerator, MethodInfo method)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>ilGenerator</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.emit.ilgenerator">ILGenerator</a></dt>
-    <dd></dd>
-    <dt><code>method</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.methodinfo">MethodInfo</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_ILGeneratorExtensions_EmitNull_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitNull*"></a>
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitNull_System_Reflection_Emit_ILGenerator_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitNull(System.Reflection.Emit.ILGenerator)">
   EmitNull(ILGenerator)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L519"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L515"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -710,7 +727,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitString_System_Reflection_Emit_ILGenerator_System_String_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitString(System.Reflection.Emit.ILGenerator,System.String)">
   EmitString(ILGenerator, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L524"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L520"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -743,7 +760,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_EmitThis_System_Reflection_Emit_ILGenerator_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.EmitThis(System.Reflection.Emit.ILGenerator)">
   EmitThis(ILGenerator)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L471"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L473"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -774,7 +791,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_LoadObj_System_Reflection_Emit_ILGenerator_System_Object_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.LoadObj(System.Reflection.Emit.ILGenerator,System.Object)">
   LoadObj(ILGenerator, object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L450"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L452"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -807,7 +824,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_New_System_Reflection_Emit_ILGenerator_System_Reflection_ConstructorInfo_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.New(System.Reflection.Emit.ILGenerator,System.Reflection.ConstructorInfo)">
   New(ILGenerator, ConstructorInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L444"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L446"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -840,7 +857,7 @@
 
   <h3 id="WeihanLi_Extensions_ILGeneratorExtensions_Return_System_Reflection_Emit_ILGenerator_System_Reflection_MethodInfo_System_Reflection_Emit_LocalBuilder_" data-uid="WeihanLi.Extensions.ILGeneratorExtensions.Return(System.Reflection.Emit.ILGenerator,System.Reflection.MethodInfo,System.Reflection.Emit.LocalBuilder)">
   Return(ILGenerator, MethodInfo, LocalBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L423"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L425"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -875,8 +892,10 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Extensions_ILGeneratorExtensions.md&amp;value=---%0Auid%3A%20WeihanLi.Extensions.ILGeneratorExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ILGeneratorExtensions.cs/#L11" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -885,7 +904,7 @@
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>

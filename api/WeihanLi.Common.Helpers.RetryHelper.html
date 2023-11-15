@@ -9,19 +9,38 @@
  ">
       
       <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.min.css">
-      <link rel="stylesheet" href="../styles/main.css">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_RetryHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.RetryHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
-
-      <script type="text/javascript" src="../styles/docfx.min.js"></script>
-      <script type="text/javascript" src="../styles/main.js"></script>
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Helpers_RetryHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.RetryHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
 
-  <body data-layout="" data-yaml-mime="ManagedReference">
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -29,14 +48,12 @@
             <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbar">
-            <form class="d-flex ms-auto" role="search" id="search">
-              <i class="bi bi-search"></i>
-              <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
-            </form>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
           </div>
         </div>
       </nav>
@@ -70,12 +87,12 @@
 
   <h1 id="WeihanLi_Common_Helpers_RetryHelper" data-uid="WeihanLi.Common.Helpers.RetryHelper" class="text-break">
     Class RetryHelper
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L5"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L5"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">WeihanLi</span>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Helpers.html">Helpers</a></dd></dl>
-    <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Helpers.html">Helpers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
@@ -137,7 +154,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_System_Action_System_Int32_System_Action_System_Int32_System_TimeSpan_System_Exception__System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke(System.Action,System.Int32,System.Action{System.Int32,System.TimeSpan,System.Exception},System.Func{System.Int32,System.TimeSpan})">
   TryInvoke(Action, int, Action&lt;int, TimeSpan, Exception?&gt;?, Func&lt;int, TimeSpan&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -179,7 +196,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_System_Func_System_Boolean__System_Int32_System_Action_System_Int32_System_TimeSpan_System_Exception__System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke(System.Func{System.Boolean},System.Int32,System.Action{System.Int32,System.TimeSpan,System.Exception},System.Func{System.Int32,System.TimeSpan})">
   TryInvoke(Func&lt;bool&gt;, int, Action&lt;int, TimeSpan, Exception?&gt;?, Func&lt;int, TimeSpan&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -217,286 +234,11 @@
 
 
 
-  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
-
-  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__1_System_Func___0__System_Func___0_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``1(System.Func{``0},System.Func{``0,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
-  TryInvoke&lt;TResult&gt;(Func&lt;TResult?&gt;, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L69"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TResult? TryInvoke&lt;TResult&gt;(Func&lt;TResult?&gt; func, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TResult&gt;</dt>
-    <dd></dd>
-    <dt><code>validFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TResult, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">TResult</span></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TResult</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
-
-  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__2_System_Func___0___1____0_System_Func___1_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``2(System.Func{``0,``1},``0,System.Func{``1,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
-  TryInvoke&lt;T1, TResult&gt;(Func&lt;T1, TResult?&gt;, T1, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L92"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TResult? TryInvoke&lt;T1, TResult&gt;(Func&lt;T1, TResult?&gt; func, T1 t1, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T1, TResult&gt;</dt>
-    <dd></dd>
-    <dt><code>t1</code> <span class="xref">T1</span></dt>
-    <dd></dd>
-    <dt><code>validFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TResult, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">TResult</span></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T1</code></dt>
-    <dd></dd>
-    <dt><code>TResult</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
-
-  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__3_System_Func___0___1___2____0___1_System_Func___2_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``3(System.Func{``0,``1,``2},``0,``1,System.Func{``2,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
-  TryInvoke&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, TResult?&gt;, T1, T2, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L116"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TResult? TryInvoke&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, TResult?&gt; func, T1 t1, T2 t2, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T1, T2, TResult&gt;</dt>
-    <dd></dd>
-    <dt><code>t1</code> <span class="xref">T1</span></dt>
-    <dd></dd>
-    <dt><code>t2</code> <span class="xref">T2</span></dt>
-    <dd></dd>
-    <dt><code>validFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TResult, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">TResult</span></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T1</code></dt>
-    <dd></dd>
-    <dt><code>T2</code></dt>
-    <dd></dd>
-    <dt><code>TResult</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
-
-  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__4_System_Func___0___1___2___3____0___1___2_System_Func___3_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``4(System.Func{``0,``1,``2,``3},``0,``1,``2,System.Func{``3,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
-  TryInvoke&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, TResult?&gt;, T1, T2, T3, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L140"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TResult? TryInvoke&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, TResult?&gt; func, T1 t1, T2 t2, T3 t3, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;T1, T2, T3, TResult&gt;</dt>
-    <dd></dd>
-    <dt><code>t1</code> <span class="xref">T1</span></dt>
-    <dd></dd>
-    <dt><code>t2</code> <span class="xref">T2</span></dt>
-    <dd></dd>
-    <dt><code>t3</code> <span class="xref">T3</span></dt>
-    <dd></dd>
-    <dt><code>validFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TResult, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">TResult</span></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T1</code></dt>
-    <dd></dd>
-    <dt><code>T2</code></dt>
-    <dd></dd>
-    <dt><code>T3</code></dt>
-    <dd></dd>
-    <dt><code>TResult</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
-
-  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__5_System_Func___0___1___2___3___4____0___1___2___3_System_Func___4_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2,``3,System.Func{``4,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
-  TryInvoke&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, TResult&gt;, T1, T2, T3, T4, Func&lt;TResult, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L164"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TResult TryInvoke&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, TResult&gt; func, T1 t1, T2 t2, T3 t3, T4 t4, Func&lt;TResult, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-5">Func</a>&lt;T1, T2, T3, T4, TResult&gt;</dt>
-    <dd></dd>
-    <dt><code>t1</code> <span class="xref">T1</span></dt>
-    <dd></dd>
-    <dt><code>t2</code> <span class="xref">T2</span></dt>
-    <dd></dd>
-    <dt><code>t3</code> <span class="xref">T3</span></dt>
-    <dd></dd>
-    <dt><code>t4</code> <span class="xref">T4</span></dt>
-    <dd></dd>
-    <dt><code>validFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TResult, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">TResult</span></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T1</code></dt>
-    <dd></dd>
-    <dt><code>T2</code></dt>
-    <dd></dd>
-    <dt><code>T3</code></dt>
-    <dd></dd>
-    <dt><code>T4</code></dt>
-    <dd></dd>
-    <dt><code>TResult</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
 
   <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_System_Func_System_Threading_Tasks_Task_System_Boolean___System_Int32_System_Action_System_Int32_System_TimeSpan_System_Exception__System_Func_System_Int32_System_TimeSpan__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync(System.Func{System.Threading.Tasks.Task{System.Boolean}},System.Int32,System.Action{System.Int32,System.TimeSpan,System.Exception},System.Func{System.Int32,System.TimeSpan},System.Threading.CancellationToken)">
   TryInvokeAsync(Func&lt;Task&lt;bool&gt;&gt;, int, Action&lt;int, TimeSpan, Exception?&gt;?, Func&lt;int, TimeSpan&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L218"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L218"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -540,7 +282,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_System_Func_System_Threading_Tasks_Task__System_Int32_System_Action_System_Int32_System_TimeSpan_System_Exception__System_Func_System_Int32_System_TimeSpan__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync(System.Func{System.Threading.Tasks.Task},System.Int32,System.Action{System.Int32,System.TimeSpan,System.Exception},System.Func{System.Int32,System.TimeSpan},System.Threading.CancellationToken)">
   TryInvokeAsync(Func&lt;Task&gt;, int, Action&lt;int, TimeSpan, Exception&gt;?, Func&lt;int, TimeSpan&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L192"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -584,7 +326,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Func___0_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Func{``0,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
   TryInvokeAsync&lt;TResult&gt;(Func&lt;Task&lt;TResult?&gt;&gt;, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L252"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -631,7 +373,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__2_System_Func___0_System_Threading_Tasks_Task___1_____0_System_Func___1_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``2(System.Func{``0,System.Threading.Tasks.Task{``1}},``0,System.Func{``1,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
   TryInvokeAsync&lt;T1, TResult&gt;(Func&lt;T1, Task&lt;TResult?&gt;&gt;, T1, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L277"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L277"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -682,7 +424,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__3_System_Func___0___1_System_Threading_Tasks_Task___2_____0___1_System_Func___2_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``3(System.Func{``0,``1,System.Threading.Tasks.Task{``2}},``0,``1,System.Func{``2,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
   TryInvokeAsync&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, Task&lt;TResult?&gt;&gt;, T1, T2, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L301"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L301"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -737,7 +479,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__4_System_Func___0___1___2_System_Threading_Tasks_Task___3_____0___1___2_System_Func___3_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``4(System.Func{``0,``1,``2,System.Threading.Tasks.Task{``3}},``0,``1,``2,System.Func{``3,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
   TryInvokeAsync&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, Task&lt;TResult?&gt;&gt;, T1, T2, T3, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L325"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -796,7 +538,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__5_System_Func___0___1___2___3_System_Threading_Tasks_Task___4_____0___1___2___3_System_Func___4_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``5(System.Func{``0,``1,``2,``3,System.Threading.Tasks.Task{``4}},``0,``1,``2,``3,System.Func{``4,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
   TryInvokeAsync&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, Task&lt;TResult&gt;&gt;, T1, T2, T3, T4, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L349"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L349"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -855,12 +597,289 @@
 
 
 
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__1_System_Func___0__System_Func___0_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``1(System.Func{``0},System.Func{``0,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvoke&lt;TResult&gt;(Func&lt;TResult?&gt;, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult? TryInvoke&lt;TResult&gt;(Func&lt;TResult?&gt; func, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TResult&gt;</dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TResult, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__2_System_Func___0___1____0_System_Func___1_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``2(System.Func{``0,``1},``0,System.Func{``1,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvoke&lt;T1, TResult&gt;(Func&lt;T1, TResult?&gt;, T1, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult? TryInvoke&lt;T1, TResult&gt;(Func&lt;T1, TResult?&gt; func, T1 t1, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T1, TResult&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TResult, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__3_System_Func___0___1___2____0___1_System_Func___2_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``3(System.Func{``0,``1,``2},``0,``1,System.Func{``2,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvoke&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, TResult?&gt;, T1, T2, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult? TryInvoke&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, TResult?&gt; func, T1 t1, T2 t2, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;T1, T2, TResult&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TResult, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__4_System_Func___0___1___2___3____0___1___2_System_Func___3_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``4(System.Func{``0,``1,``2,``3},``0,``1,``2,System.Func{``3,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvoke&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, TResult?&gt;, T1, T2, T3, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult? TryInvoke&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, TResult?&gt; func, T1 t1, T2 t2, T3 t3, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-4">Func</a>&lt;T1, T2, T3, TResult&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+    <dt><code>t3</code> <span class="xref">T3</span></dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TResult, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+    <dt><code>T3</code></dt>
+    <dd></dd>
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvoke__5_System_Func___0___1___2___3___4____0___1___2___3_System_Func___4_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvoke``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2,``3,System.Func{``4,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
+  TryInvoke&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, TResult&gt;, T1, T2, T3, T4, Func&lt;TResult, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TResult TryInvoke&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, TResult&gt; func, T1 t1, T2 t2, T3 t3, T4 t4, Func&lt;TResult, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>func</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-5">Func</a>&lt;T1, T2, T3, T4, TResult&gt;</dt>
+    <dd></dd>
+    <dt><code>t1</code> <span class="xref">T1</span></dt>
+    <dd></dd>
+    <dt><code>t2</code> <span class="xref">T2</span></dt>
+    <dd></dd>
+    <dt><code>t3</code> <span class="xref">T3</span></dt>
+    <dd></dd>
+    <dt><code>t4</code> <span class="xref">T4</span></dt>
+    <dd></dd>
+    <dt><code>validFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TResult, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TResult</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T1</code></dt>
+    <dd></dd>
+    <dt><code>T2</code></dt>
+    <dd></dd>
+    <dt><code>T3</code></dt>
+    <dd></dd>
+    <dt><code>T4</code></dt>
+    <dd></dd>
+    <dt><code>TResult</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/new/dev/apiSpec/new?filename=WeihanLi_Common_Helpers_RetryHelper.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.RetryHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L5" class="edit-link">Edit this page</a>
         </div>
+
+
       </div>
 
       <div class="affix">
@@ -869,7 +888,7 @@
     </main>
 
 
-    <footer class="border-top">
+    <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
           <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
