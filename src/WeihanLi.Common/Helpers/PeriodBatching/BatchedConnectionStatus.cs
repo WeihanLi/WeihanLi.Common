@@ -31,7 +31,7 @@ namespace WeihanLi.Common.Helpers.PeriodBatching;
 /// provide the basis for a "smart" exponential backoff timer. There are other factors to consider
 /// including the desire to send batches "when full" rather than continuing to buffer, and so-on.
 /// </remarks>
-internal class BatchedConnectionStatus
+internal sealed class BatchedConnectionStatus
 {
     private static readonly TimeSpan MinimumBackoffPeriod = TimeSpan.FromSeconds(5);
     private static readonly TimeSpan MaximumBackoffInterval = TimeSpan.FromMinutes(10);

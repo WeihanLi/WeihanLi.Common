@@ -17,7 +17,7 @@ public sealed class ServiceContainerBuilder : IServiceContainerBuilder
 
     public IServiceContainerBuilder Add(ServiceDefinition item)
     {
-        if (_services.Any(_ => _.ServiceType == item.ServiceType && _.GetImplementType() == item.GetImplementType()))
+        if (_services.Any(s => s.ServiceType == item.ServiceType && s.GetImplementType() == item.GetImplementType()))
         {
             return this;
         }
@@ -28,7 +28,7 @@ public sealed class ServiceContainerBuilder : IServiceContainerBuilder
 
     public IServiceContainerBuilder TryAdd(ServiceDefinition item)
     {
-        if (_services.Any(_ => _.ServiceType == item.ServiceType))
+        if (_services.Any(s => s.ServiceType == item.ServiceType))
         {
             return this;
         }

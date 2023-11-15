@@ -1,25 +1,30 @@
-﻿using WeihanLi.Common.Helpers;
+﻿using System.Diagnostics.CodeAnalysis;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect;
 
 public static class AspectDelegate
 {
+    [RequiresUnreferencedCode("Unreferenced code may be used.")]
     public static void Invoke(IInvocation context)
     {
         InvokeInternal(context, null, null);
     }
 
+    [RequiresUnreferencedCode("Unreferenced code may be used.")]
     public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyList<IInterceptor>? interceptors)
     {
         InvokeInternal(invocation, interceptors, null);
     }
 
+    [RequiresUnreferencedCode("Unreferenced code may be used.")]
     public static void InvokeWithCompleteFunc(IInvocation invocation, Func<IInvocation, Task>? completeFunc)
     {
         InvokeInternal(invocation, null, completeFunc);
     }
 
+    [RequiresUnreferencedCode("Unreferenced code may be used.")]
     public static void InvokeInternal(IInvocation invocation, IReadOnlyList<IInterceptor>? interceptors, Func<IInvocation, Task>? completeFunc)
     {
         // enrich
@@ -81,7 +86,8 @@ public static class AspectDelegate
             }
         }
     }
-
+    
+    [RequiresUnreferencedCode("Unreferenced code may be used.")]
     private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyList<IInterceptor>? interceptors, Func<IInvocation, Task>? completeFunc)
     {
         // ReSharper disable once ConvertToLocalFunction

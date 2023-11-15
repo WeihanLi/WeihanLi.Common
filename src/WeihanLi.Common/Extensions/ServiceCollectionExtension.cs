@@ -2,6 +2,7 @@
 // Licensed under the Apache license.
 
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
@@ -23,6 +24,7 @@ public static class ServiceCollectionExtension
     /// <param name="services">services</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection RegisterAssemblyTypes(this IServiceCollection services, params Assembly[] assemblies)
         => RegisterAssemblyTypes(services, null, ServiceLifetime.Singleton, assemblies);
 
@@ -33,6 +35,7 @@ public static class ServiceCollectionExtension
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection RegisterAssemblyTypes(this IServiceCollection services,
         ServiceLifetime serviceLifetime, params Assembly[] assemblies)
         => RegisterAssemblyTypes(services, null, serviceLifetime, assemblies);
@@ -44,6 +47,7 @@ public static class ServiceCollectionExtension
     /// <param name="typesFilter">filter types to register</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection RegisterAssemblyTypes(this IServiceCollection services,
         Func<Type, bool>? typesFilter, params Assembly[] assemblies)
         => RegisterAssemblyTypes(services, typesFilter, ServiceLifetime.Singleton, assemblies);
@@ -56,6 +60,7 @@ public static class ServiceCollectionExtension
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection RegisterAssemblyTypes(this IServiceCollection services, Func<Type, bool>? typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
     {
         if (Guard.NotNull(assemblies, nameof(assemblies)).Length == 0)
@@ -87,6 +92,7 @@ public static class ServiceCollectionExtension
     /// <param name="services">services</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(this IServiceCollection services,
         params Assembly[] assemblies)
         => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: null, ServiceLifetime.Singleton, assemblies);
@@ -98,6 +104,7 @@ public static class ServiceCollectionExtension
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(this IServiceCollection services,
         ServiceLifetime serviceLifetime, params Assembly[] assemblies)
         => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: null, serviceLifetime, assemblies);
@@ -109,6 +116,7 @@ public static class ServiceCollectionExtension
     /// <param name="typesFilter">filter types to register</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(this IServiceCollection services, Func<Type, bool> typesFilter, params Assembly[] assemblies)
         => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: typesFilter, ServiceLifetime.Singleton, assemblies);
 
@@ -120,6 +128,7 @@ public static class ServiceCollectionExtension
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(
         this IServiceCollection services, Func<Type, bool>? typesFilter, ServiceLifetime serviceLifetime,
         params Assembly[] assemblies)
@@ -134,6 +143,7 @@ public static class ServiceCollectionExtension
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection RegisterAssemblyTypesAsImplementedInterfaces(this IServiceCollection services, Func<Type, bool>? typesFilter, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
     {
         if (Guard.NotNull(assemblies, nameof(assemblies)).Length == 0)
@@ -172,7 +182,9 @@ public static class ServiceCollectionExtension
     /// <param name="type">type</param>
     /// <param name="serviceLifetime">service lifetime</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterTypeAsImplementedInterfaces(this IServiceCollection services, Type type, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
+    public static IServiceCollection RegisterTypeAsImplementedInterfaces(this IServiceCollection services, 
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.Interfaces | DynamicallyAccessedMemberTypes.PublicConstructors)]Type type, 
+        ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
         => RegisterTypeAsImplementedInterfaces(services, type, null, serviceLifetime);
 
     /// <summary>
@@ -183,7 +195,9 @@ public static class ServiceCollectionExtension
     /// <param name="interfaceTypeFilter">interfaceTypeFilter</param>
     /// <param name="serviceLifetime">service lifetime</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterTypeAsImplementedInterfaces(this IServiceCollection services, Type type, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
+    public static IServiceCollection RegisterTypeAsImplementedInterfaces(this IServiceCollection services, 
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.Interfaces | DynamicallyAccessedMemberTypes.PublicConstructors)]Type type, 
+        Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
     {
         Guard.NotNull(type);
         foreach (var interfaceType in type.GetImplementedInterfaces())
@@ -216,6 +230,7 @@ public static class ServiceCollectionExtension
     /// <param name="services">services</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection RegisterAssemblyModules(
         this IServiceCollection services, params Assembly[] assemblies)
     {
@@ -225,7 +240,7 @@ public static class ServiceCollectionExtension
             assemblies = ReflectHelper.GetAssemblies();
         }
         foreach (var type in assemblies.SelectMany(ass => ass.GetTypes())
-            .Where(t => t.IsClass && !t.IsAbstract && typeof(IServiceModule).IsAssignableFrom(t))
+            .Where(t => t is { IsClass: true, IsAbstract: false } && typeof(IServiceModule).IsAssignableFrom(t))
         )
         {
             try
@@ -251,7 +266,7 @@ public static class ServiceCollectionExtension
     /// <typeparam name="TDecorator">decorator type</typeparam>
     /// <param name="services">services</param>
     /// <returns>services</returns>
-    public static IServiceCollection Decorate<TService, TDecorator>(this IServiceCollection services)
+    public static IServiceCollection Decorate<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TDecorator>(this IServiceCollection services)
          where TService : class
          where TDecorator : class, TService
     {
@@ -266,7 +281,8 @@ public static class ServiceCollectionExtension
     /// <param name="decoratorType">decoratorType</param>
     /// <returns>services</returns>
     /// <exception cref="InvalidOperationException">throw exception when serviceType not registered</exception>
-    public static IServiceCollection Decorate(this IServiceCollection services, Type serviceType, Type decoratorType)
+    public static IServiceCollection Decorate(this IServiceCollection services, Type serviceType, 
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]Type decoratorType)
     {
         var service = services.LastOrDefault(x => x.ServiceType == serviceType);
         if (service == null)

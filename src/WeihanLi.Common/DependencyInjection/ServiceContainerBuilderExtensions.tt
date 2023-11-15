@@ -17,7 +17,7 @@ foreach(var prefix in prefixes)
 foreach(var lifetime in lifetimes)
             {
 #>
-    public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #>(this IServiceContainerBuilder serviceContainerBuilder, Type serviceType)
+    public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #>(this IServiceContainerBuilder serviceContainerBuilder, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]Type serviceType)
     {
         serviceContainerBuilder.<#= prefix#>Add(new ServiceDefinition(serviceType, ServiceLifetime.<#=lifetime #>));
         return serviceContainerBuilder;

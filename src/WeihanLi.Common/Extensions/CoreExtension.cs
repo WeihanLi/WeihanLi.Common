@@ -1846,22 +1846,6 @@ public static class CoreExtension
     }
 
     /// <summary>
-    ///     A T extension method that null if.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="predicate">The predicate.</param>
-    /// <returns>A T.</returns>
-    public static T? NullIf<T>(this T @this, Func<T, bool>? predicate) where T : class
-    {
-        if (predicate?.Invoke(@this) == true)
-        {
-            return default;
-        }
-        return @this;
-    }
-
-    /// <summary>
     ///     A T extension method that gets value or default.
     /// </summary>
     /// <typeparam name="T">Generic type parameter.</typeparam>
@@ -2085,9 +2069,10 @@ public static class CoreExtension
             return paramDic;
         }
 
-        if (paramInfo.IsValueTuple()) // Tuple
+        var type = paramInfo.GetType();
+        if (type.IsValueTuple()) // Tuple
         {
-            var fields = paramInfo.GetFields();
+            var fields = CacheUtil.GetTypeFields(type);
             foreach (var field in fields)
             {
                 paramDic[field.Name] = field.GetValue(paramInfo);
@@ -2099,7 +2084,7 @@ public static class CoreExtension
         }
         else // get properties
         {
-            var properties = CacheUtil.GetTypeProperties(paramInfo.GetType());
+            var properties = CacheUtil.GetTypeProperties(type);
             foreach (var property in properties)
             {
                 if (property.CanRead)

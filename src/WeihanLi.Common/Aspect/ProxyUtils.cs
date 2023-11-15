@@ -433,7 +433,8 @@ internal static class ProxyUtils
     {
         if (null != proxyService && null != target)
         {
-            var targetField = proxyService.GetField(TargetFieldName, BindingFlags.Instance | BindingFlags.NonPublic);
+            var proxyServiceType = proxyService.GetType();
+            var targetField = proxyServiceType.GetField(TargetFieldName, BindingFlags.Instance | BindingFlags.NonPublic);
             if (targetField != null && targetField.FieldType.IsInstanceOfType(target))
             {
                 targetField.SetValue(proxyService, target);

@@ -37,7 +37,7 @@ public sealed class AsyncLock : IDisposable
 
     #region AsyncLockReleaser
 
-    private struct AsyncLockReleaser : IDisposable
+    private readonly struct AsyncLockReleaser : IDisposable
     {
         private readonly SemaphoreSlim _semaphoreSlim;
 

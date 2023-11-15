@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeihanLi.Common.Aspect.Cast
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeihanLi.Common.Aspect.AspectCore", "src\WeihanLi.Common.Aspect.AspectCore\WeihanLi.Common.Aspect.AspectCore.csproj", "{A58FF0A2-BECB-4B35-975E-6F56BBFE2501}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeihanLi.Extensions.Hosting", "src\WeihanLi.Extensions.Hosting\WeihanLi.Extensions.Hosting.csproj", "{3E93CA2E-132B-42D4-9EFD-B75A478EAA06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{A58FF0A2-BECB-4B35-975E-6F56BBFE2501}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A58FF0A2-BECB-4B35-975E-6F56BBFE2501}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A58FF0A2-BECB-4B35-975E-6F56BBFE2501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E93CA2E-132B-42D4-9EFD-B75A478EAA06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E93CA2E-132B-42D4-9EFD-B75A478EAA06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E93CA2E-132B-42D4-9EFD-B75A478EAA06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E93CA2E-132B-42D4-9EFD-B75A478EAA06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +91,7 @@ Global
 		{BBD103A7-78BC-4B31-9DA7-2E79FA266E22} = {63395248-E549-4CEA-858B-DEAB098DF7E3}
 		{67AF4380-35BA-4FBE-A53A-DBC822FF00B2} = {63395248-E549-4CEA-858B-DEAB098DF7E3}
 		{A58FF0A2-BECB-4B35-975E-6F56BBFE2501} = {63395248-E549-4CEA-858B-DEAB098DF7E3}
+		{3E93CA2E-132B-42D4-9EFD-B75A478EAA06} = {63395248-E549-4CEA-858B-DEAB098DF7E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {02FEB140-185F-4225-9FBE-BE7005ED6DC9}
