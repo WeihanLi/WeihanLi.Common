@@ -1,5 +1,5 @@
-﻿using System.Linq.Expressions;
-using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq.Expressions;
 using WeihanLi.Common;
 using WeihanLi.Common.Models;
 
@@ -102,6 +102,8 @@ public static class QueryableExtension
     /// <param name="propertyName">propertyName to orderBy</param>
     /// <param name="isAsc">is ascending</param>
     /// <returns></returns>
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     public static IQueryable<T> OrderBy<T>(this IQueryable<T> source, string propertyName, bool isAsc = false)
     {
         Guard.NotNull(source);
@@ -110,9 +112,9 @@ public static class QueryableExtension
             throw new ArgumentException(nameof(propertyName));
         }
 
-        Type type = typeof(T);
-        ParameterExpression arg = Expression.Parameter(type, "x");
-        PropertyInfo? propertyInfo = type.GetProperty(propertyName);
+        var type = typeof(T);
+        var arg = Expression.Parameter(type, "x");
+        var propertyInfo = type.GetProperty(propertyName);
         if (null == propertyInfo)
         {
             throw new InvalidOperationException($"{propertyName} does not exists");

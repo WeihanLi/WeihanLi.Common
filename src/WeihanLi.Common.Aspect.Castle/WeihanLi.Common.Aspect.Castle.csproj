@@ -1,19 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
     <Title>WeihanLi.Common.Aspect.Castle</Title>    
     <Description>FluentAspect Castle extensions</Description>
     <PackageSummary>FluentAspect Castle extensions</PackageSummary>
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common.Aspect.Castle</PackageProjectUrl>
-    <PackageTags>FluentAspect,Aspect,Castle,AOP,proxy</PackageTags>
+    <PackageTags>$(PackageTags);FluentAspect;Aspect;Castle;AOP;proxy</PackageTags>
     <PackageReleaseNotes>
       https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
     </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Castle.Core" Version="4.4.1" />
+    <PackageReference Include="Castle.Core" />
     <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />
   </ItemGroup>
 

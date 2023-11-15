@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Net;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Http;
 
@@ -51,20 +52,22 @@ public static class HttpRequesterExtension
         });
     }
 
+    [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public static IHttpRequester WithXmlParameter<TEntity>(this IHttpRequester httpRequester, TEntity entity)
     {
-        return httpRequester.WithParameters(XmlDataSerializer._instance.Value.Serialize(entity), "application/xml;charset=UTF-8");
+        return httpRequester.WithParameters(XmlDataSerializer.Instance.Value.Serialize(entity), "application/xml;charset=UTF-8");
     }
 
+    [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public static IHttpRequester WithJsonParameter<TEntity>(this IHttpRequester httpRequester, TEntity entity)
     {
-        return httpRequester.WithParameters(entity.ToJson().GetBytes(), "application/json;charset=UTF-8");
+        return httpRequester.WithParameters(entity.ToJson().GetBytes(), HttpHelper.ApplicationJsonContentType);
     }
 
     public static IHttpRequester WithFormParams(this IHttpRequester httpRequester,
         IEnumerable<KeyValuePair<string, string>> formParams)
     {
-        return httpRequester.WithParameters(formParams.ToQueryString().GetBytes(), "application/x-www-form-urlencoded;charset=UTF-8");
+        return httpRequester.WithParameters(formParams.ToQueryString().GetBytes(), HttpHelper.FormDataContentType);
     }
 
     public static IHttpRequester WithFile(this IHttpRequester httpRequester, string filePath, string fileKey = "file",
@@ -73,9 +76,9 @@ public static class HttpRequesterExtension
 
     public static IHttpRequester WithFiles(this IHttpRequester httpRequester, IEnumerable<string> filePaths, IEnumerable<KeyValuePair<string, string>>? formFields = null)
         => httpRequester.WithFiles(
-            filePaths.Select(_ => new KeyValuePair<string, byte[]>(
-                Path.GetFileName(_),
-                File.ReadAllBytes(_))),
+            filePaths.Select(f => new KeyValuePair<string, byte[]>(
+                Path.GetFileName(f),
+                File.ReadAllBytes(f))),
             formFields);
 
     public static string Execute(this IHttpRequester httpRequester) => httpRequester.ExecuteBytes().GetString();
@@ -102,13 +105,15 @@ public static class HttpRequesterExtension
         return httpRequester.ExecuteAsync().ContinueWith(r => r.Result.JsonToObject<TEntity>());
     }
 
+    [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public static TEntity ExecuteForXml<TEntity>(this IHttpRequester httpRequester)
     {
-        return XmlDataSerializer._instance.Value.Deserialize<TEntity>(httpRequester.ExecuteBytes());
+        return XmlDataSerializer.Instance.Value.Deserialize<TEntity>(httpRequester.ExecuteBytes());
     }
 
+    [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public static Task<TEntity> ExecuteForXmlAsync<TEntity>(this IHttpRequester httpRequester)
     {
-        return httpRequester.ExecuteBytesAsync().ContinueWith(r => XmlDataSerializer._instance.Value.Deserialize<TEntity>(r.Result));
+        return httpRequester.ExecuteBytesAsync().ContinueWith(r => XmlDataSerializer.Instance.Value.Deserialize<TEntity>(r.Result));
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq.Expressions;
 
 namespace WeihanLi.Common.Helpers;
 
@@ -15,6 +16,7 @@ public static class ExpressionHelper
     }
 
 
+    [RequiresUnreferencedCode("Creating Expressions requires unreferenced code because the members being referenced by the Expression may be trimmed.")]
     public static Expression<Func<T, TProperty>> GetPropertySelector<T, TProperty>(string propertyName)
     {
         var arg = Expression.Parameter(typeof(T), "x");

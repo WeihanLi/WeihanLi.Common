@@ -6,7 +6,7 @@ using WeihanLi.Extensions;
 namespace WeihanLi.Common.Helpers;
 
 /// <summary>
-/// HTTP请求帮助类
+/// Http request helper
 /// </summary>
 public static class HttpHelper
 {
@@ -33,12 +33,20 @@ public static class HttpHelper
 
     #endregion UploadFileHeaderFormat
 
+    #region MediaType
+
+    public const string ApplicationJsonMediaType = "application/json";
+    public const string ApplicationXmlMediaType = "application/xml";
+    public const string TextPlainMediaType = "text/plain";
+
+    #endregion MediaType
+
     #region ContentType
 
     /// <summary>
     /// Json ContentType
     /// </summary>
-    public const string JsonContentType = "application/json;charset=UTF-8";
+    public const string ApplicationJsonContentType = $"{ApplicationJsonMediaType};charset=UTF-8";
 
     /// <summary>
     /// FormData ContentType
@@ -55,16 +63,16 @@ public static class HttpHelper
     /// </summary>
     public static readonly HashSet<string> WellKnownContentHeaders = new(StringComparer.OrdinalIgnoreCase)
     {
-        HttpKnownHeaderNames.ContentDisposition,
-        HttpKnownHeaderNames.ContentEncoding,
-        HttpKnownHeaderNames.ContentLanguage,
-        HttpKnownHeaderNames.ContentLength,
-        HttpKnownHeaderNames.ContentLocation,
-        HttpKnownHeaderNames.ContentMD5,
-        HttpKnownHeaderNames.ContentRange,
-        HttpKnownHeaderNames.ContentType,
-        HttpKnownHeaderNames.Expires,
-        HttpKnownHeaderNames.LastModified
+        HttpHeaderNames.ContentDisposition,
+        HttpHeaderNames.ContentEncoding,
+        HttpHeaderNames.ContentLanguage,
+        HttpHeaderNames.ContentLength,
+        HttpHeaderNames.ContentLocation,
+        HttpHeaderNames.ContentMD5,
+        HttpHeaderNames.ContentRange,
+        HttpHeaderNames.ContentType,
+        HttpHeaderNames.Expires,
+        HttpHeaderNames.LastModified
     };
 
     public static bool IsWellKnownContentHeader(string header)
@@ -74,11 +82,11 @@ public static class HttpHelper
 
     #region WebRequest
 
+    private static readonly Lazy<HttpClient> SharedHttpClient = new(() => new(new NoProxyHttpClientHandler()));
     /// <summary>
     /// Shared HttpClient(no proxy)
     /// </summary>
-    public static readonly HttpClient HttpClient = new(new NoProxyHttpClientHandler());
-
+    public static HttpClient HttpClient => SharedHttpClient.Value;
     #region HttpGet
 
     /// <summary>
@@ -115,12 +123,12 @@ public static class HttpHelper
         {
             foreach (var header in customHeaders)
             {
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.Referer))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.Referer))
                 {
                     request.Referer = header.Value;
                     continue;
                 }
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.UserAgent))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.UserAgent))
                 {
                     request.UserAgent = header.Value;
                     continue;
@@ -170,12 +178,12 @@ public static class HttpHelper
         {
             foreach (var header in customHeaders)
             {
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.Referer))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.Referer))
                 {
                     request.Referer = header.Value;
                     continue;
                 }
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.UserAgent))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.UserAgent))
                 {
                     request.UserAgent = header.Value;
                     continue;
@@ -225,12 +233,12 @@ public static class HttpHelper
         {
             foreach (var header in customHeaders)
             {
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.Referer))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.Referer))
                 {
                     request.Referer = header.Value;
                     continue;
                 }
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.UserAgent))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.UserAgent))
                 {
                     request.UserAgent = header.Value;
                     continue;
@@ -269,12 +277,12 @@ public static class HttpHelper
         {
             foreach (var header in customHeaders)
             {
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.Referer))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.Referer))
                 {
                     request.Referer = header.Value;
                     continue;
                 }
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.UserAgent))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.UserAgent))
                 {
                     request.UserAgent = header.Value;
                     continue;
@@ -319,7 +327,7 @@ public static class HttpHelper
     /// <returns></returns>
     public static string HttpGetString(string url, IDictionary<string, string>? parameters)
     {
-        if (parameters != null && parameters.Count > 0)
+        if (parameters is { Count: > 0 })
         {
             url = url + (url.IndexOf('?') < 0 ? "?" : "&") + string.Join("&", parameters.Select(p => $"{WebUtility.UrlEncode(p.Key)}={WebUtility.UrlEncode(p.Value)}"));
         }
@@ -334,7 +342,7 @@ public static class HttpHelper
     /// <returns></returns>
     public static async Task<string> HttpGetStringAsync(string url, IDictionary<string, string>? parameters)
     {
-        if (parameters != null && parameters.Count > 0)
+        if (parameters is { Count: > 0 })
         {
             url = url + (url.IndexOf('?') < 0 ? "?" : "&") + string.Join("&", parameters.Select(p => $"{WebUtility.UrlEncode(p.Key)}={WebUtility.UrlEncode(p.Value)}"));
         }
@@ -343,7 +351,7 @@ public static class HttpHelper
 
     public static byte[] HttpGetForBytes(string url, IDictionary<string, string>? parameters)
     {
-        if (parameters != null && parameters.Count > 0)
+        if (parameters is { Count: > 0 })
         {
             url = url + (url.IndexOf('?') < 0 ? "?" : "&") + string.Join("&", parameters.Select(p => $"{p.Key}={p.Value}"));
         }
@@ -352,7 +360,7 @@ public static class HttpHelper
 
     public static async Task<byte[]> HttpGetForBytesAsync(string url, IDictionary<string, string>? parameters)
     {
-        if (parameters != null && parameters.Count > 0)
+        if (parameters is { Count: > 0 })
         {
             url = url + (url.IndexOf('?') < 0 ? "?" : "&") + string.Join("&", parameters.Select(p => $"{p.Key}={p.Value}"));
         }
@@ -386,7 +394,7 @@ public static class HttpHelper
     /// </summary>
     /// <param name="isJsonFormat">请求参数是否是Json格式</param>
     /// <returns></returns>
-    private static string GetContentType(bool isJsonFormat) => isJsonFormat ? JsonContentType : FormDataContentType;
+    private static string GetContentType(bool isJsonFormat) => isJsonFormat ? ApplicationJsonContentType : FormDataContentType;
 
     /// <summary>
     /// HTTP POST 请求，返回字符串
@@ -511,12 +519,12 @@ public static class HttpHelper
         {
             foreach (var header in customHeaders)
             {
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.Referer))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.Referer))
                 {
                     request.Referer = header.Value;
                     continue;
                 }
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.UserAgent))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.UserAgent))
                 {
                     request.UserAgent = header.Value;
                     continue;
@@ -546,12 +554,12 @@ public static class HttpHelper
         {
             foreach (var header in customHeaders)
             {
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.Referer))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.Referer))
                 {
                     request.Referer = header.Value;
                     continue;
                 }
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.UserAgent))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.UserAgent))
                 {
                     request.UserAgent = header.Value;
                     continue;
@@ -588,12 +596,12 @@ public static class HttpHelper
         {
             foreach (var header in customHeaders)
             {
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.Referer))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.Referer))
                 {
                     request.Referer = header.Value;
                     continue;
                 }
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.UserAgent))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.UserAgent))
                 {
                     request.UserAgent = header.Value;
                     continue;
@@ -625,12 +633,12 @@ public static class HttpHelper
         {
             foreach (var header in customHeaders)
             {
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.Referer))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.Referer))
                 {
                     request.Referer = header.Value;
                     continue;
                 }
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.UserAgent))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.UserAgent))
                 {
                     request.UserAgent = header.Value;
                     continue;
@@ -659,12 +667,12 @@ public static class HttpHelper
         {
             foreach (var header in customHeaders)
             {
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.Referer))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.Referer))
                 {
                     request.Referer = header.Value;
                     continue;
                 }
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.UserAgent))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.UserAgent))
                 {
                     request.UserAgent = header.Value;
                     continue;
@@ -693,12 +701,12 @@ public static class HttpHelper
         {
             foreach (var header in customHeaders)
             {
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.Referer))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.Referer))
                 {
                     request.Referer = header.Value;
                     continue;
                 }
-                if (header.Key.EqualsIgnoreCase(HttpKnownHeaderNames.UserAgent))
+                if (header.Key.EqualsIgnoreCase(HttpHeaderNames.UserAgent))
                 {
                     request.UserAgent = header.Value;
                     continue;

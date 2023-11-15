@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using WeihanLi.Extensions;
 using AnnotationValidationResult = System.ComponentModel.DataAnnotations.ValidationResult;
 using ValidationResult = WeihanLi.Common.Models.ValidationResult;
@@ -24,6 +25,7 @@ public sealed class DataAnnotationValidator : IValidator
 {
     public static IValidator Instance { get; } = new DataAnnotationValidator();
 
+    [RequiresUnreferencedCode("Unreferenced code may be used.")]
     public ValidationResult Validate(object? value)
     {
         var validationResult = new ValidationResult();

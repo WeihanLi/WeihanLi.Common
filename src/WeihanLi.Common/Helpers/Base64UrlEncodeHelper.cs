@@ -53,7 +53,7 @@ public static class Base64UrlEncodeHelper
     /// the subset as an offset in the input array, and the number of elements in the array to convert.
     /// </summary>
     /// <param name="inArray">An array of 8-bit unsigned integers.</param>
-    /// <returns>The string representation in base 64 url encodingof length elements of inArray, starting at position offset.</returns>
+    /// <returns>The string representation in base 64 url encoding of length elements of inArray, starting at position offset.</returns>
     /// <exception cref="T:System.ArgumentNullException">'inArray' is null.</exception>
     /// <exception cref="T:System.ArgumentOutOfRangeException">offset or length is negative OR offset plus length is greater than the length of inArray.</exception>
     public static string Encode(byte[] inArray)

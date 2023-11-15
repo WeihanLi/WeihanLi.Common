@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
@@ -6,7 +7,7 @@ namespace WeihanLi.Common.DependencyInjection;
 
 public static partial class ServiceContainerBuilderExtensions
 {
-    public static IServiceContainerBuilder AddSingleton<TService>(this IServiceContainerBuilder serviceContainerBuilder, TService service)
+    public static IServiceContainerBuilder AddSingleton<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TService>(this IServiceContainerBuilder serviceContainerBuilder, TService service)
     {
         Guard.NotNull(service, nameof(service));
         serviceContainerBuilder.Add(new ServiceDefinition(service!, typeof(TService)));
@@ -19,6 +20,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="services">services</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder RegisterAssemblyTypes(this IServiceContainerBuilder services, params Assembly[] assemblies)
         => RegisterAssemblyTypes(services, null, ServiceLifetime.Singleton, assemblies);
 
@@ -29,6 +31,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder RegisterAssemblyTypes(this IServiceContainerBuilder services,
         ServiceLifetime serviceLifetime, params Assembly[] assemblies)
         => RegisterAssemblyTypes(services, null, serviceLifetime, assemblies);
@@ -40,6 +43,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="typesFilter">filter types to register</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder RegisterAssemblyTypes(this IServiceContainerBuilder services,
         Func<Type, bool>? typesFilter, params Assembly[] assemblies)
         => RegisterAssemblyTypes(services, typesFilter, ServiceLifetime.Singleton, assemblies);
@@ -52,6 +56,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder RegisterAssemblyTypes(this IServiceContainerBuilder services, Func<Type, bool>? typesFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
     {
         Guard.NotNull(assemblies, nameof(assemblies));
@@ -85,6 +90,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="services">services</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces(this IServiceContainerBuilder services,
         params Assembly[] assemblies)
         => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: null, ServiceLifetime.Singleton, assemblies);
@@ -96,6 +102,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces(this IServiceContainerBuilder services,
         ServiceLifetime serviceLifetime, params Assembly[] assemblies)
         => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: null, serviceLifetime, assemblies);
@@ -107,6 +114,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="typesFilter">filter types to register</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces(this IServiceContainerBuilder services, Func<Type, bool>? typesFilter, params Assembly[] assemblies)
         => RegisterAssemblyTypesAsImplementedInterfaces(services, typesFilter: typesFilter, ServiceLifetime.Singleton, assemblies);
 
@@ -118,6 +126,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces(
         this IServiceContainerBuilder services, Func<Type, bool>? typesFilter,
         ServiceLifetime serviceLifetime, params Assembly[] assemblies)
@@ -132,9 +141,10 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="serviceLifetime">service lifetime</param>
     /// <param name="assemblies">assemblies</param>
     /// <returns>services</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder RegisterAssemblyTypesAsImplementedInterfaces(this IServiceContainerBuilder services, Func<Type, bool>? typesFilter, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime, params Assembly[] assemblies)
     {
-        Guard.NotNull(assemblies, nameof(assemblies));
+        Guard.NotNull(assemblies);
         if (assemblies.Length == 0)
         {
             assemblies = ReflectHelper.GetAssemblies();
@@ -172,7 +182,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="serviceLifetime">service lifetime</param>
     /// <returns>services</returns>
     public static IServiceContainerBuilder RegisterTypeAsImplementedInterfaces(
-        this IServiceContainerBuilder services, Type type,
+        this IServiceContainerBuilder services, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.Interfaces)]Type type,
         ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
         => RegisterTypeAsImplementedInterfaces(services, type, null, serviceLifetime);
 
@@ -184,7 +194,7 @@ public static partial class ServiceContainerBuilderExtensions
     /// <param name="interfaceTypeFilter">interfaceTypeFilter</param>
     /// <param name="serviceLifetime">service lifetime</param>
     /// <returns>services</returns>
-    public static IServiceContainerBuilder RegisterTypeAsImplementedInterfaces(this IServiceContainerBuilder services, Type type, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
+    public static IServiceContainerBuilder RegisterTypeAsImplementedInterfaces(this IServiceContainerBuilder services, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.Interfaces)]Type type, Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
     {
         Guard.NotNull(type);
         foreach (var interfaceType in type.GetImplementedInterfaces())
@@ -211,6 +221,7 @@ public static partial class ServiceContainerBuilderExtensions
         return services;
     }
 
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder RegisterAssemblyModules(
         this IServiceContainerBuilder serviceContainerBuilder, params Assembly[] assemblies)
     {

@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq.Expressions;
 using System.Reflection;
 using WeihanLi.Common;
 
@@ -90,7 +91,7 @@ public static class ExpressionExtension
     public static MethodCallExpression GetMethodExpression<T>(this Expression<Action<T>> method)
     {
         if (method.Body.NodeType != ExpressionType.Call)
-            throw new ArgumentException("Method call expected", method.Body.ToString());
+            throw new ArgumentException(@"Method call expected", method.Body.ToString());
         return (MethodCallExpression)method.Body;
     }
 
@@ -153,7 +154,7 @@ public static class ExpressionExtension
     /// <typeparam name="TProperty"></typeparam>
     /// <param name="expression"></param>
     /// <returns></returns>
-    public static PropertyInfo GetProperty<TEntity, TProperty>(
+    public static PropertyInfo GetProperty<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]TEntity, TProperty>(
         this Expression<Func<TEntity, TProperty>> expression)
     {
         var member = GetMemberInfo(expression);

@@ -50,10 +50,7 @@ internal sealed class SerilogLoggerProvider : ILoggerProvider, ILogEventEnricher
 
     public IDisposable BeginScope<T>(T state)
     {
-        if (state == null)
-        {
-            throw new ArgumentNullException(nameof(state));
-        }
+        WeihanLi.Common.Guard.NotNull(state);
 
         if (CurrentScope != null)
             return new SerilogLoggerScope(this, state);

@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# task-runner config https://alirezanet.github.io/Husky.Net/guide/task-runner.html
+
+# run tasks by task name
+# dotnet husky run --name "build"
+# dotnet husky run --name "format-verify"
+
+# run tasks by task group name
+# dotnet husky run --group pre-commit

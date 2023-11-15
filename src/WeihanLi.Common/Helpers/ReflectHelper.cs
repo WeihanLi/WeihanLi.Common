@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace WeihanLi.Common.Helpers;
@@ -10,9 +11,11 @@ public static class ReflectHelper
         return AppDomain.CurrentDomain.GetAssemblies();
     }
 
+    [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public static bool IsAwaitable(this Type type)
     {
-        if (type == null || type == typeof(void))
+        Guard.NotNull(type);
+        if (type == typeof(void))
             return false;
 
         return AwaitableInfo.IsTypeAwaitable(type, out _);
@@ -47,7 +50,8 @@ internal readonly struct AwaitableInfo
         GetAwaiterMethod = getAwaiterMethod;
     }
 
-    public static bool IsTypeAwaitable(Type type, out AwaitableInfo? awaitableInfo)
+    [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
+    public static bool IsTypeAwaitable([DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes.PublicMethods))]Type type, out AwaitableInfo? awaitableInfo)
     {
         // Based on Roslyn code: http://source.roslyn.io/#Microsoft.CodeAnalysis.Workspaces/Shared/Extensions/ISymbolExtensions.cs,db4d48ba694b9347
 

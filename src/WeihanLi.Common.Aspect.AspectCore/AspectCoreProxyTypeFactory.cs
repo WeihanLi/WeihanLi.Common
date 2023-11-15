@@ -4,10 +4,7 @@ internal sealed class AspectCoreProxyTypeFactory : IProxyTypeFactory
 {
     public Type CreateProxyType(Type serviceType)
     {
-        if (null == serviceType)
-        {
-            throw new ArgumentNullException(nameof(serviceType));
-        }
+        Guard.NotNull(serviceType);
 
         if (serviceType.IsInterface)
         {
@@ -19,14 +16,9 @@ internal sealed class AspectCoreProxyTypeFactory : IProxyTypeFactory
 
     public Type CreateProxyType(Type serviceType, Type implementType)
     {
-        if (null == serviceType)
-        {
-            throw new ArgumentNullException(nameof(serviceType));
-        }
-        if (null == implementType)
-        {
-            throw new ArgumentNullException(nameof(implementType));
-        }
+        Guard.NotNull(serviceType);
+        Guard.NotNull(implementType);
+
         if (serviceType.IsInterface)
         {
             return AspectCoreHelper.ProxyGenerator.TypeGenerator.CreateClassProxyType(serviceType, implementType);

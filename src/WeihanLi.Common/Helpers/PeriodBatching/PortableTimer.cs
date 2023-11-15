@@ -16,7 +16,7 @@ using System.Diagnostics;
 
 namespace WeihanLi.Common.Helpers.PeriodBatching;
 
-internal class PortableTimer : IDisposable
+internal sealed class PortableTimer : IDisposable
 {
     private readonly object _stateLock = new();
     private readonly Func<CancellationToken, Task> _onTick;

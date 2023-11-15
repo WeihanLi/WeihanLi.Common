@@ -2,6 +2,7 @@
 // Licensed under the Apache license.
 
 using System.Collections.Concurrent;
+using System.Diagnostics.CodeAnalysis;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Event;
@@ -18,6 +19,7 @@ public sealed class DefaultEventHandlerFactory : IEventHandlerFactory
         _serviceProvider = serviceProvider;
     }
 
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public ICollection<IEventHandler> GetHandlers(Type eventType)
     {
         var eventHandlers = _eventHandlers.GetOrAdd(eventType, type =>
@@ -41,6 +43,7 @@ public sealed class DependencyInjectionEventHandlerFactory : IEventHandlerFactor
         _serviceProvider = serviceProvider ?? DependencyResolver.Current;
     }
 
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public ICollection<IEventHandler> GetHandlers(Type eventType)
     {
         var eventHandlerType = typeof(IEventHandler<>).MakeGenericType(eventType);

@@ -44,3 +44,4 @@ internal sealed class PipelineBuilder<TContext> : IPipelineBuilder<TContext>
 
     public IPipelineBuilder<TContext> New() => new PipelineBuilder<TContext>(_completeFunc);
 }
+

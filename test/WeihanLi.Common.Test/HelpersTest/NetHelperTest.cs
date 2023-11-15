@@ -23,6 +23,6 @@ public class NetHelperTest
     [InlineData("23.100.91.85", "23.100.91.85", true)]
     public void IPNetworkTest(string cidr, string ip, bool contains)
     {
-        Assert.Equal(contains, new IPNetwork(cidr).Contains(IPAddress.Parse(ip)));
+        Assert.Equal(contains, new WeihanLi.Common.Helpers.IPNetwork(cidr).Contains(IPAddress.Parse(ip)));
     }
 }

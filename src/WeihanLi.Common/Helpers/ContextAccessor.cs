@@ -32,9 +32,9 @@ public sealed class ContextAccessor<TContext> where TContext : class
             }
         }
     }
-}
 
-file sealed class ContextHolder<TContext> where TContext : class
-{
-    public TContext? Value;
+    private sealed class ContextHolder<TContext1> where TContext1 : class
+    {
+        public TContext1? Value;
+    }
 }

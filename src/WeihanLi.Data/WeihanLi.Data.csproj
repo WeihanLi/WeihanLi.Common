@@ -1,9 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <PackageId>WeihanLi.Data</PackageId>
+    <Title>WeihanLi.Data</Title>    
+    <Description>sql database data extensions</Description>
+    <PackageSummary>sql database data extensions</PackageSummary>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Data</PackageProjectUrl>
+    <PackageTags>$(PackageTags);db;database;sql;data</PackageTags>
+    <PackageReleaseNotes>
+      https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
+    </PackageReleaseNotes>
   </PropertyGroup>
-  <Import Project="../../build/data.props" />
   <ItemGroup>
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />

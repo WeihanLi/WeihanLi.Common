@@ -63,7 +63,7 @@ public class ServiceContainerBuilderBuildTest
     }
 
     [Fact]
-    public void ClassTest()
+    public async Task ClassTest()
     {
         // unsealed class, will intercept virtual method
         var userIdProvider = _serviceProvider.ResolveRequiredService<EnvironmentUserIdProvider>();
@@ -96,11 +96,11 @@ public class ServiceContainerBuilderBuildTest
 
         var handTask = eventHandler.Handle(new TestEvent());
         Assert.NotNull(handTask);
-        handTask.Wait();
+        await handTask;
     }
 
     [Fact]
-    public void GenericMethodTest()
+    public async Task GenericMethodTest()
     {
         var publisher = _serviceProvider.ResolveRequiredService<IEventPublisher>();
         Assert.NotNull(publisher);
@@ -109,7 +109,7 @@ public class ServiceContainerBuilderBuildTest
         Assert.True(publisherType.Assembly.IsDynamic);
         publisher.Publish(new TestEvent());
 
-        publisher.PublishAsync(new TestEvent()).Wait();
+        await publisher.PublishAsync(new TestEvent());
     }
 
     // not supported, will not intercept

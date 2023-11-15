@@ -1,7 +1,12 @@
 <Project>
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
   <Import Project="../build/sign.props" />
-  <PropertyGroup>    
+  <PropertyGroup>
+    <!-- code analysis https://github.com/dotnet/docs/blob/main/docs/core/project-sdk/msbuild-props.md#code-analysis-properties -->
+    <!-- <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <AnalysisMode>Recommended</AnalysisMode>
+    <AnalysisModeSecurity>All</AnalysisModeSecurity> -->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RepositoryUrl>https://github.com/WeihanLi/WeihanLi.Common</RepositoryUrl>
     <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
@@ -14,6 +19,7 @@
 
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>https://github.com/WeihanLi/WeihanLi.Common/releases</PackageReleaseNotes>
+    <PackageTags>$(PackageTags);WeihanLi</PackageTags>
     <PackageIcon>icon.jpg</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -21,8 +27,5 @@
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
     <None Include="$([MSBuild]::GetPathOfFileAbove('icon.jpg', '$(MSBuildThisFileDirectory)../'))" Pack="true" Visible="false" PackagePath=""/>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
   </ItemGroup>
 </Project>

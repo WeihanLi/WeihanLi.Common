@@ -6,13 +6,6 @@ namespace DotNetCoreSample;
 
 public class PipelineTest
 {
-    private class RequestContext
-    {
-        public string? RequesterName { get; set; }
-
-        public int Hour { get; set; }
-    }
-
     public static void Test()
     {
         var requestContext = new RequestContext()
@@ -68,6 +61,16 @@ public class PipelineTest
             requestPipeline.Invoke(requestContext);
             Console.WriteLine("----------------------------");
         }
+    }
+
+    public static void MiddlewareTest()
+    {
+        var context = new RequestContext();
+        var pipeline = PipelineBuilder.Create<RequestContext>()
+            .UseMiddleware<RequestContext, FooMiddleware>()
+            .UseMiddleware<RequestContext, BarMiddleware>()
+            .Build();
+        pipeline(context);
     }
 
     public static void TestV2()
@@ -237,5 +240,41 @@ public class PipelineTest
             await requestPipeline.Invoke(requestContext);
             Console.WriteLine("----------------------------");
         }
+    }
+}
+file class RequestContext
+{
+    public string? RequesterName { get; set; }
+
+    public int Hour { get; set; }
+}
+
+file class FooMiddleware : IPipelineMiddleware<RequestContext>, IAsyncPipelineMiddleware<RequestContext>
+{
+    public void Invoke(RequestContext context, Action<RequestContext> next)
+    {
+        Console.WriteLine("I'm foo");
+        next(context);
+    }
+
+    public Task InvokeAsync(RequestContext context, Func<RequestContext, Task> next)
+    {
+        Console.WriteLine("I'm foo");
+        return next(context); ;
+    }
+}
+
+file class BarMiddleware : IPipelineMiddleware<RequestContext>, IAsyncPipelineMiddleware<RequestContext>
+{
+    public void Invoke(RequestContext context, Action<RequestContext> next)
+    {
+        Console.WriteLine("I'm bar");
+        next(context);
+    }
+
+    public Task InvokeAsync(RequestContext context, Func<RequestContext, Task> next)
+    {
+        Console.WriteLine("I'm bar");
+        return next(context); ;
     }
 }

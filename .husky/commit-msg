@@ -1,0 +1,9 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+dotnet tool update -g dotnet-execute --prerelease
+dotnet husky run --name "commit-message-linter" --args "$1"
+
+echo
+echo Great work! 🥂
+echo

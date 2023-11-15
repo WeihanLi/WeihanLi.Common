@@ -3,6 +3,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Diagnostic.CodeAnalysis" #>
 <#@ output extension=".generated.cs" #>
 
 namespace WeihanLi.Common.DependencyInjection;
@@ -16,7 +17,7 @@ foreach(var prefix in prefixes)
 foreach(var lifetime in lifetimes)
             {
 #>
-    public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #>(this IServiceContainerBuilder serviceContainerBuilder, Type serviceType)
+    public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #>(this IServiceContainerBuilder serviceContainerBuilder, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]Type serviceType)
     {
         serviceContainerBuilder.<#= prefix#>Add(new ServiceDefinition(serviceType, ServiceLifetime.<#=lifetime #>));
         return serviceContainerBuilder;
@@ -28,19 +29,19 @@ foreach(var lifetime in lifetimes)
         return serviceContainerBuilder;
     }
 
-    public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #><TService>(this IServiceContainerBuilder serviceContainerBuilder, Func<IServiceProvider, object> func)
+    public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #><[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TService>(this IServiceContainerBuilder serviceContainerBuilder, Func<IServiceProvider, object> func)
     {
         serviceContainerBuilder.<#= prefix#>Add(ServiceDefinition.<#=lifetime #><TService>(func));
         return serviceContainerBuilder;
     }
 
-    public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #><TService>(this IServiceContainerBuilder serviceContainerBuilder)
+    public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #><[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TService>(this IServiceContainerBuilder serviceContainerBuilder)
     {
         serviceContainerBuilder.<#= prefix#>Add(ServiceDefinition.<#=lifetime #><TService>());
         return serviceContainerBuilder;
     }
 
-    public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #><TService, TServiceImplement>(this IServiceContainerBuilder serviceContainerBuilder) where TServiceImplement : TService
+    public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #><TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TServiceImplement>(this IServiceContainerBuilder serviceContainerBuilder) where TServiceImplement : TService
     {
         serviceContainerBuilder.<#= prefix#>Add(ServiceDefinition.<#=lifetime #><TService, TServiceImplement>());
         return serviceContainerBuilder;

@@ -1808,30 +1808,6 @@ public static class CoreExtension
     }
 
     /// <summary>
-    ///     An object extension method that query if '@this' is assignable from.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>true if assignable from, false if not.</returns>
-    public static bool IsAssignableFrom<T>(this object @this)
-    {
-        var type = @this.GetType();
-        return type.IsAssignableFrom(typeof(T));
-    }
-
-    /// <summary>
-    ///     An object extension method that query if '@this' is assignable from.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="targetType">Type of the target.</param>
-    /// <returns>true if assignable from, false if not.</returns>
-    public static bool IsAssignableFrom(this object @this, Type targetType)
-    {
-        var type = @this.GetType();
-        return type.IsAssignableFrom(targetType);
-    }
-
-    /// <summary>
     ///     A T extension method that chains actions.
     /// </summary>
     /// <typeparam name="T">Generic type parameter.</typeparam>
@@ -1842,22 +1818,6 @@ public static class CoreExtension
     {
         action?.Invoke(@this);
 
-        return @this;
-    }
-
-    /// <summary>
-    ///     A T extension method that null if.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="predicate">The predicate.</param>
-    /// <returns>A T.</returns>
-    public static T? NullIf<T>(this T @this, Func<T, bool>? predicate) where T : class
-    {
-        if (predicate?.Invoke(@this) == true)
-        {
-            return default;
-        }
         return @this;
     }
 
@@ -2068,13 +2028,6 @@ public static class CoreExtension
     }
 
     /// <summary>
-    ///     An object extension method that converts the @this to string or return an empty string if the value is null.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as a string or empty if the value is null.</returns>
-    public static string ToSafeString(this object? @this) => $"{@this}";
-
-    /// <summary>
     /// Get param dictionary
     /// </summary>
     public static IDictionary<string, object?> ParseParamDictionary(this object? paramInfo)
@@ -2085,9 +2038,10 @@ public static class CoreExtension
             return paramDic;
         }
 
-        if (paramInfo.IsValueTuple()) // Tuple
+        var type = paramInfo.GetType();
+        if (type.IsValueTuple()) // Tuple
         {
-            var fields = paramInfo.GetFields();
+            var fields = CacheUtil.GetTypeFields(type);
             foreach (var field in fields)
             {
                 paramDic[field.Name] = field.GetValue(paramInfo);
@@ -2099,7 +2053,7 @@ public static class CoreExtension
         }
         else // get properties
         {
-            var properties = CacheUtil.GetTypeProperties(paramInfo.GetType());
+            var properties = CacheUtil.GetTypeProperties(type);
             foreach (var property in properties)
             {
                 if (property.CanRead)
@@ -2112,20 +2066,6 @@ public static class CoreExtension
         return paramDic;
     }
     #endregion object
-
-    #region object[]
-
-    /// <summary>
-    ///     Gets the types of the objects in the specified array.
-    /// </summary>
-    /// <param name="args">An array of objects whose types to determine.</param>
-    /// <returns>An array of  objects representing the types of the corresponding elements in .</returns>
-    public static Type[] GetTypeArray(this object[] args)
-    {
-        return Type.GetTypeArray(args);
-    }
-
-    #endregion object[]
 
     #region Random
 
@@ -2438,9 +2378,9 @@ public static class CoreExtension
     /// <returns>@this as a byte[].</returns>
     public static byte[] ToByteArray(this string @this, Encoding encoding) => encoding.GetBytes(Guard.NotNull(@this, nameof(@this)));
 
-    public static byte[] GetBytes(this string str) => Guard.NotNull(str, nameof(str)).GetBytes(Encoding.UTF8);
+    public static byte[] GetBytes(this string str) => Guard.NotNull(str, nameof(str)).GetBytes(null);
 
-    public static byte[] GetBytes(this string str, Encoding encoding) => encoding.GetBytes(Guard.NotNull(str, nameof(str)));
+    public static byte[] GetBytes(this string str, Encoding? encoding) => (encoding ?? Encoding.UTF8).GetBytes(Guard.NotNull(str, nameof(str)));
 
     /// <summary>
     ///     A string extension method that converts the @this to an enum.
@@ -2601,7 +2541,7 @@ public static class CoreExtension
     /// Append text when condition is true
     /// </summary>
     /// <param name="builder">StringBuilder</param>
-    /// <param name="textFactory">text factory to produce text for appendding</param>
+    /// <param name="textFactory">text factory to produce text for appending</param>
     /// <param name="condition">condition to evaluate</param>
     /// <returns>StringBuilder</returns>
     public static StringBuilder AppendLineIf(this StringBuilder builder, Func<string> textFactory, bool condition)
@@ -2659,14 +2599,14 @@ public static class CoreExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="args">The arguments.</param>
     /// <returns>The new instance.</returns>
-    public static T? CreateInstance<T>(this Type @this, params object?[]? args) => (T?)Activator.CreateInstance(@this, args);
+    public static T? CreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]T>([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]this Type @this, params object?[]? args) => (T?)Activator.CreateInstance(@this, args);
 
     /// <summary>
     /// if a type has empty constructor
     /// </summary>
     /// <param name="type">type</param>
     /// <returns></returns>
-    public static bool HasEmptyConstructor(this Type type)
+    public static bool HasEmptyConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]this Type type)
         => Guard.NotNull(type, nameof(type)).GetConstructors(BindingFlags.Instance).Any(c => c.GetParameters().Length == 0);
 
     public static bool IsNullableType(this Type type)

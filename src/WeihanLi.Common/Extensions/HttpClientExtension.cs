@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using WeihanLi.Common;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Http;
 
 // ReSharper disable once CheckNamespace
@@ -83,10 +84,8 @@ public static class HttpClientExtension
         CancellationToken cancellationToken = default)
     {
         Guard.NotNull(httpClient);
-        using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl)
-        {
-            Content = JsonHttpContent.From(request)
-        };
+        using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl);
+        requestMessage.Content = JsonHttpContent.From(request);
         requestAction?.Invoke(requestMessage);
         return await httpClient.SendAsync(requestMessage, cancellationToken);
     }
@@ -112,10 +111,8 @@ public static class HttpClientExtension
         CancellationToken cancellationToken = default)
     {
         Guard.NotNull(httpClient);
-        using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl)
-        {
-            Content = JsonHttpContent.From(request)
-        };
+        using var requestMessage = new HttpRequestMessage(httpMethod, requestUrl);
+        requestMessage.Content = JsonHttpContent.From(request);
         requestAction?.Invoke(requestMessage);
         using var response = await httpClient.SendAsync(requestMessage, cancellationToken);
         responseAction?.Invoke(response);
@@ -150,22 +147,14 @@ public static class HttpClientExtension
     /// <summary>
     /// PostAsFormAsync
     /// </summary>
-    /// <param name="httpClient">httpClient</param>
-    /// <param name="requestUri">requestUri</param>
-    /// <param name="paramDic">paramDictionary</param>
-    /// <returns></returns>
-    public static Task<HttpResponseMessage> PostAsFormAsync(this HttpClient httpClient, string requestUri, IEnumerable<KeyValuePair<string, string>> paramDic)
-        => httpClient.PostAsync(requestUri, new FormUrlEncodedContent(paramDic));
+    public static Task<HttpResponseMessage> PostAsFormAsync(this HttpClient httpClient, string requestUri, IEnumerable<KeyValuePair<string, string>> paramDic, CancellationToken cancellationToken = default)
+        => httpClient.PostAsync(requestUri, new FormUrlEncodedContent(paramDic), cancellationToken);
 
     /// <summary>
     /// PutAsFormAsync
     /// </summary>
-    /// <param name="httpClient">httpClient</param>
-    /// <param name="requestUri">requestUri</param>
-    /// <param name="paramDic">paramDictionary</param>
-    /// <returns></returns>
-    public static Task<HttpResponseMessage> PutAsFormAsync(this HttpClient httpClient, string requestUri, IEnumerable<KeyValuePair<string, string>> paramDic)
-        => httpClient.PutAsync(requestUri, new FormUrlEncodedContent(paramDic));
+    public static Task<HttpResponseMessage> PutAsFormAsync(this HttpClient httpClient, string requestUri, IEnumerable<KeyValuePair<string, string>> paramDic, CancellationToken cancellationToken = default)
+        => httpClient.PutAsync(requestUri, new FormUrlEncodedContent(paramDic), cancellationToken);
 
     /// <summary>
     /// HttpClient Post a file
@@ -175,12 +164,13 @@ public static class HttpClientExtension
     /// <param name="filePath">filePath</param>
     /// <param name="fileKey">fileKey,default is "file"</param>
     /// <param name="formFields">formFields,default is null</param>
-    /// <returns></returns>
+    /// <param name="cancellationToken">cancellationToken</param>
+    /// <returns>response message</returns>
     public static Task<HttpResponseMessage> PostFileAsync(this HttpClient httpClient,
         string requestUrl,
         string filePath,
         string fileKey = "file",
-        IEnumerable<KeyValuePair<string, string>>? formFields = null)
+        IEnumerable<KeyValuePair<string, string>>? formFields = null, CancellationToken cancellationToken = default)
     {
         var content = new MultipartFormDataContent($"form--{DateTime.UtcNow.Ticks:X}");
 
@@ -194,7 +184,7 @@ public static class HttpClientExtension
 
         content.Add(new StreamContent(File.OpenRead(filePath)), fileKey, Path.GetFileName(filePath));
 
-        return httpClient.PostAsync(requestUrl, content);
+        return httpClient.PostAsync(requestUrl, content, cancellationToken);
     }
 
     /// <summary>
@@ -206,17 +196,18 @@ public static class HttpClientExtension
     /// <param name="fileName">fileName</param>
     /// <param name="fileKey">fileKey,default is "file"</param>
     /// <param name="formFields">formFields,default is null</param>
+    /// <param name="cancellationToken">cancellationToken</param>
     /// <returns></returns>
     public static async Task<HttpResponseMessage> PostFileAsync(this HttpClient httpClient,
         string requestUrl,
         Stream? file,
         string fileName,
         string fileKey = "file",
-        IEnumerable<KeyValuePair<string, string>>? formFields = null)
+        IEnumerable<KeyValuePair<string, string>>? formFields = null, CancellationToken cancellationToken = default)
     {
         if (file == null)
         {
-            return await httpClient.PostAsFormAsync(requestUrl, formFields ?? Array.Empty<KeyValuePair<string, string>>());
+            return await httpClient.PostAsFormAsync(requestUrl, formFields ?? Array.Empty<KeyValuePair<string, string>>(), cancellationToken);
         }
 
         var content = new MultipartFormDataContent($"form--{DateTime.UtcNow.Ticks:X}");
@@ -231,13 +222,14 @@ public static class HttpClientExtension
 
         content.Add(new StreamContent(file), fileKey, fileName);
 
-        return await httpClient.PostAsync(requestUrl, content);
+        return await httpClient.PostAsync(requestUrl, content, cancellationToken);
     }
 
     public static Task<HttpResponseMessage> PostFileAsync(this HttpClient
             client, string requestUrl, ICollection<string> filePaths,
-        IEnumerable<KeyValuePair<string, string>>? formFields = null) => client.PostFileAsync(requestUrl, filePaths.Select(p =>
-                new KeyValuePair<string, Stream>(Path.GetFileName(p), File.OpenRead(p))), formFields);
+        IEnumerable<KeyValuePair<string, string>>? formFields = null, CancellationToken cancellationToken = default) =>
+        client.PostFileAsync(requestUrl, filePaths.Select(p =>
+                new KeyValuePair<string, Stream>(Path.GetFileName(p), File.OpenRead(p))), formFields, cancellationToken);
 
     /// <summary>
     /// HttpClient Post files. <see href="https://stackoverflow.com/questions/18059588/httpclient-multipart-form-post-in-c-sharp">See here</see>.
@@ -246,15 +238,17 @@ public static class HttpClientExtension
     /// <param name="requestUri">The request URI.</param>
     /// <param name="files">The files. Key: File name, value: file read stream.</param>
     /// <param name="formFields">The form.</param>
+    /// <param name="cancellationToken">cancellationToken</param>
     /// <returns></returns>
     public static async Task<HttpResponseMessage> PostFileAsync(this HttpClient httpClient,
         string requestUri,
         IEnumerable<KeyValuePair<string, Stream>>? files,
-        IEnumerable<KeyValuePair<string, string>>? formFields = null)
+        IEnumerable<KeyValuePair<string, string>>? formFields = null,
+        CancellationToken cancellationToken = default)
     {
-        if (files == null)
+        if (files is null)
         {
-            return await httpClient.PostAsFormAsync(requestUri, formFields ?? Array.Empty<KeyValuePair<string, string>>());
+            return await httpClient.PostAsFormAsync(requestUri, formFields ?? Array.Empty<KeyValuePair<string, string>>(), cancellationToken);
         }
 
         var content = new MultipartFormDataContent($"form--{DateTime.UtcNow.Ticks:X}");
@@ -272,7 +266,7 @@ public static class HttpClientExtension
             content.Add(new StreamContent(file.Value), Path.GetFileNameWithoutExtension(file.Key), Path.GetFileName(file.Key));
         }
 
-        return await httpClient.PostAsync(requestUri, content);
+        return await httpClient.PostAsync(requestUri, content, cancellationToken);
     }
 
     /// <summary>
@@ -330,4 +324,57 @@ public static class HttpClientExtension
     /// <param name="request">The HTTP request message.</param>
     /// <param name="token">The token.</param>
     public static void SetBearerToken(this HttpRequestMessage request, string token) => request.SetToken("Bearer", token);
+
+    /// <summary>
+    /// Try to add a header to the request message, would add to content header if the header belongs to content header 
+    /// </summary>
+    /// <param name="requestMessage">request message to add</param>
+    /// <param name="headerName">header name</param>
+    /// <param name="headerValue">header value</param>
+    /// <returns>the request message</returns>
+    public static HttpRequestMessage TryAddHeader(this HttpRequestMessage requestMessage,
+        string headerName, string headerValue)
+    {
+        Guard.NotNull(requestMessage);
+        Guard.NotNullOrEmpty(headerName);
+        if (HttpHelper.IsWellKnownContentHeader(headerName))
+        {
+            requestMessage.Content?.Headers.Remove(headerName);
+            requestMessage.Content?.Headers.TryAddWithoutValidation(headerName, headerValue);
+        }
+        else
+        {
+            requestMessage.Headers.TryAddWithoutValidation(headerName, headerValue);
+        }
+        return requestMessage;
+    }
+
+    /// <summary>
+    /// Try to add a header to the request message when not exists, would add to content header if the header belongs to content header 
+    /// </summary>
+    /// <param name="requestMessage">request message to add</param>
+    /// <param name="headerName">header name</param>
+    /// <param name="headerValue">header value</param>
+    /// <returns>the request message</returns>
+    public static HttpRequestMessage TryAddHeaderIfNotExists(this HttpRequestMessage requestMessage,
+        string headerName, string headerValue)
+    {
+        Guard.NotNull(requestMessage);
+        Guard.NotNullOrEmpty(headerName);
+        if (HttpHelper.IsWellKnownContentHeader(headerName))
+        {
+            if (requestMessage.Content is not null && !requestMessage.Content.Headers.Contains(headerName))
+            {
+                requestMessage.Content.Headers.TryAddWithoutValidation(headerName, headerValue);
+            }
+        }
+        else
+        {
+            if (!requestMessage.Headers.Contains(headerName))
+            {
+                requestMessage.Headers.TryAddWithoutValidation(headerName, headerValue);
+            }
+        }
+        return requestMessage;
+    }
 }

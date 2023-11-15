@@ -1,4 +1,5 @@
-﻿// Copyright (c) Weihan Li. All rights reserved.
+﻿using System.Net.Mime;
+// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
 using DotNetCoreSample;
@@ -8,12 +9,13 @@ using Microsoft.Extensions.DependencyInjection;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
 using WeihanLi.Common.Event;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 using WeihanLi.Extensions.Dump;
 
 Console.WriteLine("----------DotNetCoreSample----------");
 
-ServiceDecoratorTest.MainTest();
+// ServiceDecoratorTest.MainTest();
 
 // var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
 // DataExtension.CommandLogAction = msg => dataLogger.Debug(msg);
@@ -25,31 +27,31 @@ ServiceDecoratorTest.MainTest();
 // ProcessExecutorTest.DotNetNugetGlobalPackagesInfoTest();
 // PipelineTest.TestV2();
 
-new[] { 1, 2, 3 }.GetCombinations(2).Dump();
-new[] { 1, 2, 3 }.GetCombinations(2, true).Dump();
+// new[] { 1, 2, 3 }.GetCombinations(2).Dump();
+// new[] { 1, 2, 3 }.GetCombinations(2, true).Dump();
+//
+// new[] { 1, 2, 3, 2 }.GetPermutations().Dump();
+// new[] { 1, 2, 3, 2 }.GetPermutations(true).Dump();
+//
 
-new[] { 1, 2, 3, 2 }.GetPermutations().Dump();
-new[] { 1, 2, 3, 2 }.GetPermutations(true).Dump();
-
-
-CommandExecutorTest.MainTest();
+// CommandExecutorTest.MainTest();
 
 //LoggerTest.MainTest();
-LoggerTest.MicrosoftLoggingTest();
+// LoggerTest.MicrosoftLoggingTest();
 
-Console.ReadLine();
+// Console.ReadLine();
 
-var services = new ServiceCollection();
-services.AddTransient<IFly, MonkeyKing>();
-IConfiguration configuration = new ConfigurationBuilder()
-    .AddJsonFile("appsettings.json")
-    .Build();
-
-var city = configuration.GetAppSetting("City");
-var number = configuration.GetAppSetting<int>("Number");
-Console.WriteLine($"City:{city}, Number:{number}");
-
-services.AddSingleton(configuration);
+// var services = new ServiceCollection();
+// services.AddTransient<IFly, MonkeyKing>();
+// IConfiguration configuration = new ConfigurationBuilder()
+//     .AddJsonFile("appsettings.json")
+//     .Build();
+//
+// var city = configuration.GetAppSetting("City");
+// var number = configuration.GetAppSetting<int>("Number");
+// Console.WriteLine($"City:{city}, Number:{number}");
+//
+// services.AddSingleton(configuration);
 
 //services.AddSingleton<IEventStore, EventStoreInMemory>();
 //services.AddSingleton<IEventBus, EventBus>();
@@ -59,44 +61,44 @@ services.AddSingleton(configuration);
 //        .Info($"Event Info: {@event.ToJson()}")
 //    )
 //);
-
-services.AddSingletonProxy<IFly, MonkeyKing>();
-
-Action<DbContextOptionsBuilder> dbContextOptionsAction = options =>
-{
-    options.UseInMemoryDatabase("Test");
-};
-services.AddDbContext<TestDbContext>(dbContextOptionsAction);
-
-services.AddScopedProxy<TestDbContext>();
-services.AddEvents();
-
-services.AddSingletonProxy<IEventBus, EventBus>();
-services.AddFluentAspects(options =>
-    {
-        options.NoInterceptPropertyGetter<IFly>(f => f.Name);
-
-        options.InterceptAll()
-            .With<LogInterceptor>()
-            ;
-        options.InterceptMethod<DbContext>(x => x.Name == nameof(DbContext.SaveChanges)
-                                                || x.Name == nameof(DbContext.SaveChangesAsync))
-            .With<DbContextSaveInterceptor>()
-            ;
-        options.InterceptMethod<IFly>(f => f.Fly())
-            .With<LogInterceptor>();
-        options.InterceptType<IFly>()
-            .With<LogInterceptor>();
-
-        options
-            .WithProperty("TraceId", "121212")
-            ;
-    })
-    // .UseCastleProxy()
-    // .UseAspectCoreProxy()
-    ;
-
-DependencyResolver.SetDependencyResolver(services);
+//
+// services.AddSingletonProxy<IFly, MonkeyKing>();
+//
+// Action<DbContextOptionsBuilder> dbContextOptionsAction = options =>
+// {
+//     options.UseInMemoryDatabase("Test");
+// };
+// services.AddDbContext<TestDbContext>(dbContextOptionsAction);
+//
+// services.AddScopedProxy<TestDbContext>();
+// services.AddEvents();
+//
+// services.AddSingletonProxy<IEventBus, EventBus>();
+// services.AddFluentAspects(options =>
+//     {
+//         options.NoInterceptPropertyGetter<IFly>(f => f.Name);
+//
+//         options.InterceptAll()
+//             .With<LogInterceptor>()
+//             ;
+//         options.InterceptMethod<DbContext>(x => x.Name == nameof(DbContext.SaveChanges)
+//                                                 || x.Name == nameof(DbContext.SaveChangesAsync))
+//             .With<DbContextSaveInterceptor>()
+//             ;
+//         options.InterceptMethod<IFly>(f => f.Fly())
+//             .With<LogInterceptor>();
+//         options.InterceptType<IFly>()
+//             .With<LogInterceptor>();
+//
+//         options
+//             .WithProperty("TraceId", "121212")
+//             ;
+//     })
+//     // .UseCastleProxy()
+//     // .UseAspectCoreProxy()
+//     ;
+//
+// DependencyResolver.SetDependencyResolver(services);
 
 //var fly = DependencyResolver.ResolveService<IFly>();
 //Console.WriteLine(fly.Name);
@@ -138,19 +140,19 @@ DependencyResolver.SetDependencyResolver(services);
 //    eventBus.Publish(new CounterEvent());
 //});
 
-DependencyResolver.TryInvoke<IProxyFactory>(proxyFactory =>
-{
-    var counterEvent = new CounterEvent() { Counter = 1 };
-    var eventBusProxy = proxyFactory.CreateProxy<IEventBus, EventBus>();
-    eventBusProxy.Publish(counterEvent);
-
-    var handlerProxy = proxyFactory.CreateProxyWithTarget<IEventHandler<CounterEvent>>(DelegateEventHandler.FromAction<CounterEvent>(e =>
-    {
-        Console.WriteLine(e.ToJson());
-    }));
-    handlerProxy.Handle(counterEvent)
-        .GetAwaiter().GetResult();
-});
+// DependencyResolver.TryInvoke<IProxyFactory>(proxyFactory =>
+// {
+//     var counterEvent = new CounterEvent() { Counter = 1 };
+//     var eventBusProxy = proxyFactory.CreateProxy<IEventBus, EventBus>();
+//     eventBusProxy.Publish(counterEvent);
+//
+//     var handlerProxy = proxyFactory.CreateProxyWithTarget<IEventHandler<CounterEvent>>(DelegateEventHandler.FromAction<CounterEvent>(e =>
+//     {
+//         Console.WriteLine(e.ToJson());
+//     }));
+//     handlerProxy.Handle(counterEvent)
+//         .GetAwaiter().GetResult();
+// });
 
 //DependencyResolver.TryInvokeServiceAsync<TestDbContext>(dbContext =>
 //{
@@ -210,7 +212,6 @@ DependencyResolver.TryInvoke<IProxyFactory>(proxyFactory =>
 
 // log test
 // LoggerTest.MainTest();
-// Log4NetTest.MainTest();
 
 //ILoggerFactory loggerFactory = new LoggerFactory();
 //loggerFactory.AddConsole();
@@ -308,7 +309,22 @@ DependencyResolver.TryInvoke<IProxyFactory>(proxyFactory =>
 //PipelineTest.TestV2();
 //PipelineTest.AsyncPipelineBuilderTestV2().Wait();
 
-Console.ReadLine();
+//TotpTest.MainTest();
+
+// exit test
+// var exitToken = InvokeHelper.GetExitToken();
+// exitToken.Register(() =>
+// {
+//     Console.WriteLine(@"Exiting");
+//     Thread.Sleep(3000);
+//     Console.WriteLine(@"Exited");
+// });
+// ApplicationHelper.RuntimeInfo.Dump();
+Console.WriteLine(ApplicationHelper.ResolvePath("yarn.cmd"));
+await AppHostTest.MainTest();
+// NewtonJsonFormatterTest.MainTest();
+
+// ConsoleHelper.ReadKeyWithPrompt("Press any key to exit");
 
 internal struct TestStruct
 {

@@ -2,6 +2,7 @@
 
 namespace WeihanLi.Common.Helpers;
 
+[CLSCompliant(false)]
 public class ProcessExecutor : IDisposable
 {
     public event EventHandler<int>? OnExited;
@@ -83,7 +84,7 @@ public class ProcessExecutor : IDisposable
     {
         try
         {
-            await _process.StandardInput.WriteAsync(input!);
+            await _process.StandardInput.WriteAsync(input);
         }
         catch (Exception e)
         {

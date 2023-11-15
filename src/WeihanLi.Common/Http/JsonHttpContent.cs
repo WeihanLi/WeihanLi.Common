@@ -3,13 +3,12 @@
 
 using Newtonsoft.Json;
 using System.Text;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Http;
 
 public sealed class JsonHttpContent : StringContent
 {
-    private const string JsonMediaType = "application/json";
-
     public JsonHttpContent(object obj, JsonSerializerSettings? jsonSerializerSettings = null)
         : this(JsonConvert.SerializeObject(obj, jsonSerializerSettings))
     {
@@ -19,7 +18,7 @@ public sealed class JsonHttpContent : StringContent
     {
     }
 
-    public JsonHttpContent(string content, Encoding encoding) : base(content, encoding, JsonMediaType)
+    public JsonHttpContent(string content, Encoding encoding) : base(content, encoding, HttpHelper.ApplicationJsonMediaType)
     {
     }
 
@@ -27,7 +26,7 @@ public sealed class JsonHttpContent : StringContent
     {
         if (obj is null)
         {
-            return new StringContent(string.Empty, Encoding.UTF8, JsonMediaType);
+            return new StringContent(string.Empty, Encoding.UTF8, HttpHelper.ApplicationJsonMediaType);
         }
         return new JsonHttpContent(obj, serializerSettings);
     }

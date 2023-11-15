@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect;
@@ -14,13 +15,10 @@ public sealed class NoIntercept : Attribute
 
 public class AttributeInterceptorResolver : IInterceptorResolver
 {
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public virtual IReadOnlyList<IInterceptor> ResolveInterceptors(IInvocation invocation)
     {
-        // ReSharper disable once ConditionIsAlwaysTrueOrFalse
-        if (null == invocation)
-        {
-            return Array.Empty<IInterceptor>();
-        }
+        Guard.NotNull(invocation);
 
         if ((invocation.Method ?? invocation.ProxyMethod).IsDefined(typeof(NoIntercept)))
         {

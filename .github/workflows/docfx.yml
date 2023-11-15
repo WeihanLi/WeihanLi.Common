@@ -1,8 +1,10 @@
-name: docfx build
+name: docs
 on:
   push:
     branches:
       - main
+      - master
+    #  - dev
 jobs:
   build:
     name: Build
@@ -10,42 +12,22 @@ jobs:
     steps:
       # Check out the branch that triggered this workflow to the 'source' subdirectory
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
         with:
-          ref: master
-          path: source
+          dotnet-version: |
+            6.0.x
+            7.0.x
+            8.0.x
       - name: install DocFX
-        run: "& choco install docfx -y"
-      # Run a build
+        run: "dotnet tool install -g docfx"
+      # - name: output current dir
+      #   run: "dir"
       - name: Build docs
-        run: "& docfx ./docfx.json"
-        working-directory: ./source
-      # Check out gh-pages branch to the 'docs' subdirectory
-      - name: Checkout docs
-        uses: actions/checkout@v2
+        run: "docfx ./docs/docfx.json"
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          ref: gh-pages
-          path: docs
-      # Sync the site
-      - name: Clear docs repo
-        run: Get-ChildItem -Force -Exclude .git | ForEach-Object { Remove-Item -Recurse -Verbose -Force $_ }
-        working-directory: ./docs
-      - name: Sync new content
-        run: Copy-Item -Recurse -Verbose -Force "$env:GITHUB_WORKSPACE/source/_site/*" "$env:GITHUB_WORKSPACE/docs"
-        working-directory: ./docs
-        # update docs
-      - name: Commit to gh-pages and push
-        run: |
-          $ErrorActionPreference = "Continue"
-          git add -A
-          git diff HEAD --exit-code
-          if ($LASTEXITCODE -eq 0) {
-            Write-Host "No changes to commit!"
-          } else {
-            git config --global user.name "github-actions-docfx[bot]"
-            git config --global user.email "weihanli@outlook.com"
-            git commit -m "Updated docs from commit $env:GITHUB_SHA on $env:GITHUB_REF"
-            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-            git push origin gh-pages
-          }
-        working-directory: ./docs
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: docs/_site

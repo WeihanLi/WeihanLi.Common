@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 
 namespace WeihanLi.Common.Aspect;
 
@@ -39,6 +40,8 @@ public class AspectInvocation : IInvocation
 
     public Dictionary<string, object?> Properties { get; }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     public AspectInvocation(
         MethodInfo proxyMethod,
         MethodInfo? methodBase,

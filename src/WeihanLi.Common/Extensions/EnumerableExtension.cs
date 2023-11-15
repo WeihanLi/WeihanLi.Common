@@ -145,11 +145,12 @@ public static class EnumerableExtension
     public static IEnumerable<T> WhereIf<T>(this IEnumerable<T> source, Func<T, bool> predict, Func<bool> condition)
         => condition() ? Guard.NotNull(source, nameof(source)).Where(predict) : source;
 
+    [return: NotNull]
     public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T?> source) where T : class
-        => Guard.NotNull(source).Where(_ => _ != null)!;
+        => Guard.NotNull(source).Where(x => x != null)!;
 
     public static IEnumerable<T> Flatten<T>(this IEnumerable<IEnumerable<T>> source)
-        => Guard.NotNull(source).SelectMany(_ => _);
+        => Guard.NotNull(source).SelectMany(x => x);
 
     public static IEnumerable<T> Distinct<T>(this IEnumerable<T> source, Func<T?, T?, bool> comparer) where T : class
         => source.Distinct(new DynamicEqualityComparer<T>(comparer));

@@ -2,7 +2,7 @@
 
 ## WeihanLi.Common
 
-.net common helpers and extensions
+See pull requests list for changes <https://github.com/WeihanLi/WeihanLi.Common/pulls?q=is%3Apr+is%3Amerged+base%3Amaster>
 
 ### [WeihanLi.Common 1.0.50](https://www.nuget.org/packages/WeihanLi.Common/1.0.50)
 
@@ -53,7 +53,7 @@
 
 ### [WeihanLi.Common 1.0.43](https://www.nuget.org/packages/WeihanLi.Common/1.0.43)
 
-- refact `RetryHelper`
+- refactor `RetryHelper`
 - update `MapHelper`/`UnitOfWork`
 
 ### [WeihanLi.Common 1.0.42](https://www.nuget.org/packages/WeihanLi.Common/1.0.42)
@@ -65,7 +65,7 @@
 ### [WeihanLi.Common 1.0.41](https://www.nuget.org/packages/WeihanLi.Common/1.0.41)
 
 - update `ConsoleOutput`
-- update `IRepository`, fix #100 
+- update `IRepository`, fix #100
 
 ### [WeihanLi.Common 1.0.40](https://www.nuget.org/packages/WeihanLi.Common/1.0.40)
 
@@ -250,43 +250,3 @@
 - update DataExtension, add support for DbConnection Extension select/fetch int
 - refact `HttpRequestClient` => `HttpRequester` with fluent api
 - add TotpHelper/ObjectId/ObjectIdGenerator
-
-### [WeihanLi.Common 1.0.12](https://www.nuget.org/packages/WeihanLi.Common/1.0.12)
-
-- refact logging and remove package dependency for log4net, move log4net related to WeihanLi.Common.Logging.Log4Net
-- update repository, add support for columns mapping
-
-## WeihanLi.Common.Logging.Log4Net
-
-### [WeihanLi.Common.Logging.Log4Net 1.0.28](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.28)
-
-- refact logging
-
-### [WeihanLi.Common.Logging.Log4Net 1.0.23.8](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.23.8)
-
-- add `ILoggingBuilder` extension for log4net
-
-### [WeihanLi.Common.Logging.Log4Net 1.0.23.7](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.23.7)
-
-- add lock for ConfigInit, fix concurrent LogInit bug
-
-### [WeihanLi.Common.Logging.Log4Net 1.0.22.6](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.22.6)
-
-- add [sourceLink](https://github.com/dotnet/sourcelink) support
-- Optimize `ElasticSearchAppender`, add support for none rolling date index, update LogFields, fix Content-Type warning
-- Optimize Log4Net for netframework, add support for `LogManager.GetLogger(loggerName)`/`LogManager.GetLogger(loggerType)`
-
-### [WeihanLi.Common.Logging.Log4Net 1.0.17](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.17)
-
-- Update `ElasticSearchAppender` index format, update DateTime => `DateTime.UtcNow`
-- Remove `PackageCopyToOutput="true"` to fix some bug when you change the default config file
-
-### [WeihanLi.Common.Logging.Log4Net 1.0.13](https://www.nuget.org/packages/WeihanLi.Common.Logging.Log4Net/1.0.13)
-
-- Add `Log4NetHelper` to use log4net inpendently easily
-
-## WeihanLi.Data
-
-### [WeihanLi.Data 1.0.21](https://www.nuget.org/packages/WeihanLi.Data/1.0.21)
-
-- add [sourceLink](https://github.com/dotnet/sourcelink) support

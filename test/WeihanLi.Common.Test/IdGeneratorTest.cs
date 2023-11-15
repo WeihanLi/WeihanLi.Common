@@ -1,4 +1,5 @@
 ﻿using WeihanLi.Common.Helpers;
+using WeihanLi.Common.Services;
 using Xunit;
 
 namespace WeihanLi.Common.Test;
@@ -16,14 +17,6 @@ public class IdGeneratorTest
     public void SequentialGuidIdTest()
     {
         var idGenerator = new SequentialGuidIdGenerator(SequentialGuidType.SequentialAsString);
-        var id = idGenerator.NewId();
-        Assert.NotEqual(id, idGenerator.NewId());
-    }
-
-    [Fact]
-    public void SnowflakeIdTest()
-    {
-        var idGenerator = new SnowflakeIdGenerator();
         var id = idGenerator.NewId();
         Assert.NotEqual(id, idGenerator.NewId());
     }

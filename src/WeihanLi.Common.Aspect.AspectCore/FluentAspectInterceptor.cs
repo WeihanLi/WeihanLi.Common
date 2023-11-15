@@ -21,7 +21,7 @@ public sealed class AspectCoreFluentAspectInterceptor : global::AspectCore.Dynam
         else
         {
             // ReSharper disable once ConvertToLocalFunction
-            Func<IInvocation, Task> completeFunc = async c =>
+            Func<IInvocation, Task> completeFunc = async _ =>
             {
                 await next(context);
                 aspectInvocation.ReturnValue = context.ReturnValue;

@@ -34,19 +34,16 @@ public static class ApplicationHelper
         if (assemblyInformation is not null)
         {
             var informationalVersionSplit = assemblyInformation.InformationalVersion.Split('+');
-            if (Version.TryParse(informationalVersionSplit[0], out var version))
+            return new LibraryInfo()
             {
-                return new LibraryInfo()
-                {
-                    LibraryVersion = version,
-                    LibraryHash = informationalVersionSplit.Length > 1 ? informationalVersionSplit[1] : string.Empty,
-                    RepositoryUrl = repositoryUrl
-                };
-            }
+                LibraryVersion = informationalVersionSplit[0],
+                LibraryHash = informationalVersionSplit.Length > 1 ? informationalVersionSplit[1] : string.Empty,
+                RepositoryUrl = repositoryUrl
+            };
         }
         return new LibraryInfo()
         {
-            LibraryVersion = assembly.GetName().Version!,
+            LibraryVersion = assembly.GetName().Version?.ToString() ?? string.Empty,
             LibraryHash = string.Empty,
             RepositoryUrl = repositoryUrl
         };
@@ -58,19 +55,11 @@ public static class ApplicationHelper
     /// <summary>
     /// Get dotnet executable path
     /// </summary>
-    public static string GetDotnetPath()
+    public static string? GetDotnetPath()
     {
         var executableName =
             $"dotnet{(RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? ".exe" : string.Empty)}";
-        var searchPaths = Guard.NotNull(Environment.GetEnvironmentVariable("PATH"))
-            .Split(new[] { Path.PathSeparator }, options: StringSplitOptions.RemoveEmptyEntries)
-            .Select(p => p.Trim('"'))
-            .ToArray();
-        var commandPath = searchPaths
-            .Where(p => !Path.GetInvalidPathChars().Any(p.Contains))
-            .Select(p => Path.Combine(p, executableName))
-            .First(File.Exists);
-        return commandPath;
+        return ResolvePath("dotnet");
     }
 
     public static string GetDotnetDirectory()
@@ -95,11 +84,30 @@ public static class ApplicationHelper
 #if NET6_0_OR_GREATER
             dotnetExe = Environment.ProcessPath;
 #else
-            dotnetExe = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+            dotnetExe = System.Diagnostics.Process.GetCurrentProcess().MainModule?.FileName;
 #endif
         }
 
         return Guard.NotNull(Path.GetDirectoryName(dotnetExe));
+    }
+
+    public static string? ResolvePath(string execName)
+    {
+        var executableName = execName;
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) 
+            && !Path.HasExtension(execName))
+        {
+            executableName += ".exe";
+        }
+        var searchPaths = Guard.NotNull(Environment.GetEnvironmentVariable("PATH"))
+            .Split(new[] { Path.PathSeparator }, options: StringSplitOptions.RemoveEmptyEntries)
+            .Select(p => p.Trim('"'))
+            .ToArray();
+        var commandPath = searchPaths
+            .Where(p => !Path.GetInvalidPathChars().Any(p.Contains))
+            .Select(p => Path.Combine(p, executableName))
+            .FirstOrDefault(File.Exists);
+        return commandPath;
     }
 
     private static RuntimeInfo GetRuntimeInfo()
@@ -111,7 +119,7 @@ public static class ApplicationHelper
 #endif
         return new RuntimeInfo()
         {
-            Version = Environment.Version,
+            Version = Environment.Version.ToString(),
             ProcessorCount = Environment.ProcessorCount,
             FrameworkDescription = RuntimeInformation.FrameworkDescription,
             WorkingDirectory = Environment.CurrentDirectory,
@@ -181,14 +189,14 @@ public static class ApplicationHelper
 
 public class LibraryInfo
 {
-    public required Version LibraryVersion { get; init; }
+    public required string LibraryVersion { get; init; }
     public required string LibraryHash { get; init; }
     public required string RepositoryUrl { get; init; }
 }
 
 public sealed class RuntimeInfo : LibraryInfo
 {
-    public required Version Version { get; init; }
+    public required string Version { get; init; }
     public required string FrameworkDescription { get; init; }
     public required int ProcessorCount { get; init; }
     public required string OSArchitecture { get; init; }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using WeihanLi.Common.DependencyInjection;
 
@@ -6,24 +7,20 @@ namespace WeihanLi.Common;
 
 public static class CacheUtil
 {
-    /// <summary>
-    /// TypePropertyCache
-    /// </summary>
     private static readonly ConcurrentDictionary<Type, PropertyInfo[]> TypePropertyCache = new();
-
-    public static PropertyInfo[] GetTypeProperties(Type type)
-    {
-        Guard.NotNull(type);
-        return TypePropertyCache.GetOrAdd(type, t => t.GetProperties());
-    }
-
-    public static FieldInfo[] GetTypeFields(Type type)
-    {
-        Guard.NotNull(type);
-        return TypeFieldCache.GetOrAdd(type, t => t.GetFields());
-    }
-
     private static readonly ConcurrentDictionary<Type, FieldInfo[]> TypeFieldCache = new();
+        
+    public static PropertyInfo[] GetTypeProperties([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]Type type)
+    {
+        Guard.NotNull(type);
+        return TypePropertyCache.GetOrAdd(type, _ => type.GetProperties());
+    }
+    
+    public static FieldInfo[] GetTypeFields([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)]Type type)
+    {
+        Guard.NotNull(type);
+        return TypeFieldCache.GetOrAdd(type, _ => type.GetFields());
+    }
 
     internal static readonly ConcurrentDictionary<Type, MethodInfo[]> TypeMethodCache = new();
 

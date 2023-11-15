@@ -3,6 +3,7 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace WeihanLi.Common.Event;
@@ -28,20 +29,18 @@ public static class EventBusExtensions
     {
         services.AddOptions();
 
-        services.TryAddSingleton<IEventSubscriptionManager, NullEventSubscriptionManager>();
         services.TryAddSingleton<IEventHandlerFactory, DependencyInjectionEventHandlerFactory>();
-
-        services.TryAddSingleton<IEventSubscriber, NullEventSubscriptionManager>();
-        services.TryAddSingleton<IEventPublisher, EventBus>();
         services.TryAddSingleton<IEventBus, EventBus>();
 
         services.TryAddSingleton<IEventQueue, EventQueueInMemory>();
         services.TryAddSingleton<IEventStore, EventStoreInMemory>();
+        services.TryAddSingleton<IEventPublisher, EventQueuePublisher>();
+        services.TryAddSingleton<IEventSubscriptionManager, NullEventSubscriptionManager>();
 
         return new EventBuilder(services);
     }
-
-    public static IEventBuilder AddEventHandler<TEvent, TEventHandler>(this IEventBuilder eventBuilder, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
+    
+    public static IEventBuilder AddEventHandler<TEvent, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TEventHandler>(this IEventBuilder eventBuilder, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
       where TEvent : class, IEventBase
       where TEventHandler : class, IEventHandler<TEvent>
     {
@@ -55,8 +54,9 @@ public static class EventBusExtensions
         eventBuilder.Services.TryAddEnumerable(new ServiceDescriptor(typeof(IEventHandler<TEvent>), eventHandler));
         return eventBuilder;
     }
-
-    public static IEventBuilder RegisterEventHandlers(this IEventBuilder builder, Func<Type, bool>? filter = null, ServiceLifetime serviceLifetime = ServiceLifetime.Transient, params Assembly[] assemblies)
+    
+    [RequiresUnreferencedCode("Assembly.GetTypes() requires unreferenced code")]
+    public static IEventBuilder RegisterEventHandlers(this IEventBuilder builder, Func<Type, bool>? filter = null, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton, params Assembly[] assemblies)
     {
         Guard.NotNull(assemblies, nameof(assemblies));
         if (assemblies.Length == 0)

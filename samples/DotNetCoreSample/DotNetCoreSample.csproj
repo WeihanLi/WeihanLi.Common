@@ -2,35 +2,28 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.0" />
-
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="6.0.0" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
+    <PackageReference Include="Microsoft.Extensions.ObjectPool" />
+    <PackageReference Include="Serilog.Sinks.Console" />
+    <PackageReference Include="System.Data.SqlClient" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\WeihanLi.Common.Aspect.AspectCore\WeihanLi.Common.Aspect.AspectCore.csproj" />
     <ProjectReference Include="..\..\src\WeihanLi.Common.Aspect.Castle\WeihanLi.Common.Aspect.Castle.csproj" />
-    <ProjectReference Include="..\..\src\WeihanLi.Common.Logging.Log4Net\WeihanLi.Common.Logging.Log4Net.csproj" />
     <ProjectReference Include="..\..\src\WeihanLi.Common.Logging.Serilog\WeihanLi.Common.Logging.Serilog.csproj" />
     <ProjectReference Include="..\..\src\WeihanLi.Common\WeihanLi.Common.csproj" />
+    <ProjectReference Include="..\..\src\WeihanLi.Extensions.Hosting\WeihanLi.Extensions.Hosting.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="log4net.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>

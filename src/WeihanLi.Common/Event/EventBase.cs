@@ -2,6 +2,7 @@
 // Licensed under the Apache license.
 
 using Newtonsoft.Json;
+using WeihanLi.Common.Services;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Event;

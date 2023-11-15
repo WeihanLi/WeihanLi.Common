@@ -1,4 +1,5 @@
-﻿using WeihanLi.Common.Logging;
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace WeihanLi.Common.Helpers;
 
@@ -6,7 +7,26 @@ public static class InvokeHelper
 {
     static InvokeHelper()
     {
-        OnInvokeException = ex => LogHelper.GetLogger(typeof(InvokeHelper)).Error(ex);
+        OnInvokeException = ex => Debug.WriteLine(ex);
+
+        #region Exit event register
+
+        // https://newlifex.com/blood/elegant_exit
+        // https://github.com/NewLifeX/X/blob/e65dfa0998ec393804f3f793f333c237110d890e/NewLife.Core/Model/Host.cs#L61
+        // https://github.com/dotnet/runtime/blob/940b332ad04e58862febe019788a5b21e266ea10/src/libraries/Microsoft.Extensions.Hosting/src/Internal/ConsoleLifetime.notnetcoreapp.cs
+        AppDomain.CurrentDomain.ProcessExit += InvokeExitHandler;
+        Console.CancelKeyPress += InvokeExitHandler;
+#if NETCOREAPP
+        System.Runtime.Loader.AssemblyLoadContext.Default.Unloading += ctx => InvokeExitHandler(ctx, null);
+#endif
+#if NET6_0_OR_GREATER
+        // https://github.com/dotnet/runtime/blob/940b332ad04e58862febe019788a5b21e266ea10/src/libraries/Microsoft.Extensions.Hosting/src/Internal/ConsoleLifetime.netcoreapp.cs
+        PosixSignalRegistration.Create(PosixSignal.SIGINT, ctx => InvokeExitHandler(ctx, null));
+        PosixSignalRegistration.Create(PosixSignal.SIGQUIT, ctx => InvokeExitHandler(ctx, null));
+        PosixSignalRegistration.Create(PosixSignal.SIGTERM, ctx => InvokeExitHandler(ctx, null));
+#endif
+
+        #endregion ExitHandler
     }
 
     #region Profile
@@ -75,6 +95,39 @@ public static class InvokeHelper
     #region TryInvoke
 
     public static Action<Exception>? OnInvokeException { get; set; }
+
+    private static readonly object _exitLock = new();
+    private static volatile bool _exited;
+    private static readonly Lazy<CancellationTokenSource> LazyCancellationTokenSource = new();
+    private static void InvokeExitHandler(object? sender, EventArgs? args)
+    {
+        if (_exited) return;
+        // no need to configure since we're going to exit
+        //         if (args is ConsoleCancelEventArgs consoleCancelEventArgs)
+        //         {
+        //             consoleCancelEventArgs.Cancel = true;
+        //         }
+        // #if NET6_0_OR_GREATER
+        //         if (sender is PosixSignalContext posixSignalContext)
+        //         {
+        //             posixSignalContext.Cancel = true;
+        //         }
+        // #endif
+        lock (_exitLock)
+        {
+            if (_exited) return;
+            Debug.WriteLine("exiting...");
+            if (LazyCancellationTokenSource.IsValueCreated)
+            {
+                LazyCancellationTokenSource.Value.Cancel(false);
+                LazyCancellationTokenSource.Value.Dispose();
+            }
+            Debug.WriteLine("exited");
+            _exited = true;
+        }
+    }
+
+    public static CancellationToken GetExitToken() => LazyCancellationTokenSource.Value.Token;
 
     public static void TryInvoke(Action action)
     {

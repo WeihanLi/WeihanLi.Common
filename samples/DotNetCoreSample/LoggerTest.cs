@@ -13,7 +13,6 @@ internal class LoggerTest
         {
             builder
                 .AddConsole()
-                //.AddLog4Net()
                 //.AddSerilog(loggerConfig => loggerConfig.WriteTo.Console())
                 //.WithMinimumLevel(LogHelperLogLevel.Info)
                 //.WithFilter((category, level) => level > LogHelperLogLevel.Error && category.StartsWith("System"))

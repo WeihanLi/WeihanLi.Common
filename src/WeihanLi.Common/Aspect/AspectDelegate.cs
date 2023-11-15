@@ -1,25 +1,30 @@
-﻿using WeihanLi.Common.Helpers;
+﻿using System.Diagnostics.CodeAnalysis;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect;
 
 public static class AspectDelegate
 {
+    [RequiresUnreferencedCode("Unreferenced code may be used.")]
     public static void Invoke(IInvocation context)
     {
         InvokeInternal(context, null, null);
     }
 
+    [RequiresUnreferencedCode("Unreferenced code may be used.")]
     public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyList<IInterceptor>? interceptors)
     {
         InvokeInternal(invocation, interceptors, null);
     }
 
+    [RequiresUnreferencedCode("Unreferenced code may be used.")]
     public static void InvokeWithCompleteFunc(IInvocation invocation, Func<IInvocation, Task>? completeFunc)
     {
         InvokeInternal(invocation, null, completeFunc);
     }
 
+    [RequiresUnreferencedCode("Unreferenced code may be used.")]
     public static void InvokeInternal(IInvocation invocation, IReadOnlyList<IInterceptor>? interceptors, Func<IInvocation, Task>? completeFunc)
     {
         // enrich
@@ -69,7 +74,6 @@ public static class AspectDelegate
                 invocation.ReturnValue = Task.FromResult(resultType.GetDefaultValue());
             }
 
-#if ValueTaskSupport
             if (invocation.ProxyMethod.ReturnType == typeof(ValueTask))
             {
                 invocation.ReturnValue = default(ValueTask);
@@ -80,10 +84,10 @@ public static class AspectDelegate
                 var resultType = invocation.ProxyMethod.ReturnType.GetGenericArguments()[0];
                 invocation.ReturnValue = new ValueTask(Task.FromResult(resultType.GetDefaultValue()));
             }
-#endif
         }
     }
-
+    
+    [RequiresUnreferencedCode("Unreferenced code may be used.")]
     private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyList<IInterceptor>? interceptors, Func<IInvocation, Task>? completeFunc)
     {
         // ReSharper disable once ConvertToLocalFunction
@@ -116,13 +120,10 @@ public static class AspectDelegate
                 {
                     return task;
                 }
-
-#if ValueTaskSupport
                 if (invocation.ReturnValue is ValueTask valTask)
                 {
                     return valTask.AsTask();
                 }
-#endif
 
                 return Task.CompletedTask;
             };

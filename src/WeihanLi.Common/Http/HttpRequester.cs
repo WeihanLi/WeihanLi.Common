@@ -220,7 +220,7 @@ public class WebRequestHttpRequester : IHttpRequester
         _requestDataBytes = requestBytes;
         if (string.IsNullOrWhiteSpace(contentType))
         {
-            contentType = "application/json;charset=utf-8";
+            contentType = HttpHelper.ApplicationJsonContentType;
         }
         _request.ContentType = contentType;
         return this;
@@ -580,20 +580,20 @@ public class HttpClientHttpRequester : IHttpRequester
         _request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse(contentType);
         return WithHeaders(new Dictionary<string, string?>
             {
-                {HttpKnownHeaderNames.ContentType, contentType}
+                {HttpHeaderNames.ContentType, contentType}
             });
     }
 
     public IHttpRequester WithReferer(string referer)
     {
         _request.Headers.Referrer = new Uri(referer);
-        _request.Headers.TryAddWithoutValidation(HttpKnownHeaderNames.Referer, referer);
+        _request.Headers.TryAddWithoutValidation(HttpHeaderNames.Referer, referer);
         return this;
     }
 
     public IHttpRequester WithUserAgent(string userAgent)
     {
-        _request.Headers.TryAddWithoutValidation(HttpKnownHeaderNames.UserAgent, userAgent);
+        _request.Headers.TryAddWithoutValidation(HttpHeaderNames.UserAgent, userAgent);
         return this;
     }
 }

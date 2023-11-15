@@ -1,9 +1,11 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using System.Reflection.Emit;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect;
 
+[RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
 internal static class ProxyUtils
 {
     public const string ProxyAssemblyName = "FluentAspects.DynamicGenerated";
@@ -27,7 +29,7 @@ internal static class ProxyUtils
         "GetType",
         "Finalize",
     };
-
+    
     static ProxyUtils()
     {
         var asmBuilder = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName(ProxyAssemblyName), AssemblyBuilderAccess.Run);
@@ -47,9 +49,9 @@ internal static class ProxyUtils
         return Guard.NotNull(type, nameof(type)).FullName?.StartsWith(ProxyAssemblyName) == true && type.Assembly.IsDynamic;
     }
 
-    private static string GetFriendlyTypeName(this Type type)
+    private static string GetFriendlyTypeName(this Type? type)
     {
-        if (null == type)
+        if (type is null)
             return string.Empty;
 
         if (type.IsGenericType && !type.IsGenericTypeDefinition)
@@ -68,19 +70,18 @@ internal static class ProxyUtils
 
         return type.IsBasicType() ? type.Name : type.FullName ?? type.Name;
     }
-
+    
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static Type CreateInterfaceProxy(Type interfaceType)
     {
-        if (null == interfaceType)
-        {
-            throw new ArgumentNullException(nameof(interfaceType));
-        }
+        Guard.NotNull(interfaceType);
         if (!interfaceType.IsInterface)
         {
             throw new InvalidOperationException($"{interfaceType.FullName} is not an interface");
         }
 
-        var proxyTypeName = _proxyTypeNameResolver(interfaceType, null)!;
+        var proxyTypeName = _proxyTypeNameResolver(interfaceType, null);
 
         // ReSharper disable once InconsistentlySynchronizedField
         if (_proxyTypes.TryGetValue(proxyTypeName, out var proxyType))
@@ -195,18 +196,17 @@ internal static class ProxyUtils
         }
     }
 
-    public static Type CreateInterfaceProxy(Type interfaceType, Type implementType)
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
+    public static Type CreateInterfaceProxy(Type interfaceType, Type? implementType)
     {
-        if (null == interfaceType)
-        {
-            throw new ArgumentNullException(nameof(interfaceType));
-        }
+        Guard.NotNull(interfaceType);
         if (!interfaceType.IsInterface)
         {
             throw new InvalidOperationException($"{interfaceType.FullName} is not an interface");
         }
 
-        if (null == implementType)
+        if (implementType is null)
             return CreateInterfaceProxy(interfaceType);
 
         var proxyTypeName = _proxyTypeNameResolver(interfaceType, implementType);
@@ -310,13 +310,13 @@ internal static class ProxyUtils
         }
     }
 
-    public static Type CreateClassProxy(Type serviceType, Type implementType)
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
+    public static Type CreateClassProxy(Type serviceType, Type? implementType)
     {
-        if (null == serviceType)
-        {
-            throw new ArgumentNullException(nameof(serviceType));
-        }
-        if (null == implementType)
+        Guard.NotNull(serviceType);
+        
+        if (implementType is null)
         {
             implementType = serviceType;
         }
@@ -433,7 +433,8 @@ internal static class ProxyUtils
     {
         if (null != proxyService && null != target)
         {
-            var targetField = proxyService.GetField(TargetFieldName, BindingFlags.Instance | BindingFlags.NonPublic);
+            var proxyServiceType = proxyService.GetType();
+            var targetField = proxyServiceType.GetField(TargetFieldName, BindingFlags.Instance | BindingFlags.NonPublic);
             if (targetField != null && targetField.FieldType.IsInstanceOfType(target))
             {
                 targetField.SetValue(proxyService, target);
@@ -443,6 +444,8 @@ internal static class ProxyUtils
 
     private static class MethodUtils
     {
+        [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+        [RequiresUnreferencedCode("Unreferenced code may be used")]
         public static MethodBuilder DefineInterfaceMethod(TypeBuilder typeBuilder, MethodInfo method, FieldBuilder? targetField)
         {
             var methodParameters = method.GetParameters();
@@ -554,6 +557,8 @@ internal static class ProxyUtils
             return methodBuilder;
         }
 
+        [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+        [RequiresUnreferencedCode("Unreferenced code may be used")]
         public static MethodBuilder DefineClassMethod(TypeBuilder typeBuilder, MethodInfo method, FieldBuilder? targetField)
         {
             var methodParameterTypes = method.GetParameters()
@@ -677,6 +682,8 @@ internal static class ProxyUtils
 
     private static class GenericParameterUtils
     {
+        [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+        [RequiresUnreferencedCode("Unreferenced code may be used")]
         public static void DefineGenericParameter(Type targetType, TypeBuilder typeBuilder)
         {
             if (!targetType.IsGenericTypeDefinition)
@@ -703,6 +710,8 @@ internal static class ProxyUtils
             }
         }
 
+        [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+        [RequiresUnreferencedCode("Unreferenced code may be used")]
         public static void DefineGenericParameter(MethodInfo targetMethod, MethodBuilder methodBuilder)
         {
             if (!targetMethod.IsGenericMethod)
@@ -758,36 +767,38 @@ internal static class ProxyUtils
             return GenericParameterAttributes.None;
         }
     }
-
+    
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     private static CustomAttributeBuilder DefineCustomAttribute(CustomAttributeData customAttributeData)
     {
-        if (customAttributeData.NamedArguments != null)
-        {
-            var attributeTypeInfo = customAttributeData.AttributeType.GetTypeInfo();
-            var constructorArgs = customAttributeData.ConstructorArguments
-                .Select(ReadAttributeValue)
-                .ToArray();
-            var namedProperties = customAttributeData.NamedArguments
-                    .Where(n => !n.IsField)
-                    .Select(n => Guard.NotNull(attributeTypeInfo.GetProperty(n.MemberName)))
-                    .ToArray();
-            var propertyValues = customAttributeData.NamedArguments
-                     .Where(n => !n.IsField)
-                     .Select(n => ReadAttributeValue(n.TypedValue)!)
-                     .ToArray();
-            var namedFields = customAttributeData.NamedArguments.Where(n => n.IsField)
-                     .Select(n => Guard.NotNull(attributeTypeInfo.GetField(n.MemberName)))
-                     .ToArray();
-            var fieldValues = customAttributeData.NamedArguments.Where(n => n.IsField)
-                     .Select(n => ReadAttributeValue(n.TypedValue)!)
-                     .ToArray();
-            return new CustomAttributeBuilder(customAttributeData.Constructor, constructorArgs
-               , namedProperties
-               , propertyValues, namedFields, fieldValues);
-        }
+        // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
+        if (customAttributeData.NamedArguments is null)
+            return new CustomAttributeBuilder(customAttributeData.Constructor,
+                customAttributeData.ConstructorArguments.Select(c => c.Value).ToArray());
+        
+        var attributeTypeInfo = customAttributeData.AttributeType.GetTypeInfo();
+        var constructorArgs = customAttributeData.ConstructorArguments
+            .Select(ReadAttributeValue)
+            .ToArray();
+        var namedProperties = customAttributeData.NamedArguments
+            .Where(n => !n.IsField)
+            .Select(n => Guard.NotNull(attributeTypeInfo.GetProperty(n.MemberName)))
+            .ToArray();
+        var propertyValues = customAttributeData.NamedArguments
+            .Where(n => !n.IsField)
+            .Select(n => ReadAttributeValue(n.TypedValue)!)
+            .ToArray();
+        var namedFields = customAttributeData.NamedArguments.Where(n => n.IsField)
+            .Select(n => Guard.NotNull(attributeTypeInfo.GetField(n.MemberName)))
+            .ToArray();
+        var fieldValues = customAttributeData.NamedArguments.Where(n => n.IsField)
+            .Select(n => ReadAttributeValue(n.TypedValue)!)
+            .ToArray();
+        return new CustomAttributeBuilder(customAttributeData.Constructor, constructorArgs
+            , namedProperties
+            , propertyValues, namedFields, fieldValues);
 
-        return new CustomAttributeBuilder(customAttributeData.Constructor,
-            customAttributeData.ConstructorArguments.Select(c => c.Value).ToArray());
     }
 
     private static object? ReadAttributeValue(CustomAttributeTypedArgument argument)

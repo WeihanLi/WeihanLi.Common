@@ -151,7 +151,7 @@ public abstract class PeriodicBatching<TEvent> : IDisposable where TEvent : clas
                     _queue.TryDequeue(out var next))
                 {
                     if (CanInclude(next))
-                        _waitingBatch.Enqueue(next!);
+                        _waitingBatch.Enqueue(next);
                 }
 
                 if (_waitingBatch.Count == 0)
@@ -200,16 +200,16 @@ public abstract class PeriodicBatching<TEvent> : IDisposable where TEvent : clas
     /// Emit the provided log event to the sink. If the sink is being disposed or
     /// the app domain unloaded, then the event is ignored.
     /// </summary>
-    /// <param name="TEvent">Log event to emit.</param>
+    /// <param name="event">Log event to emit.</param>
     /// <exception cref="ArgumentNullException">The event is null.</exception>
     /// <remarks>
     /// The sink implements the contract that any events whose Emit() method has
     /// completed at the time of sink disposal will be flushed (or attempted to,
     /// depending on app domain state).
     /// </remarks>
-    public void Emit(TEvent TEvent)
+    public void Emit(TEvent @event)
     {
-        if (TEvent == null) throw new ArgumentNullException(nameof(TEvent));
+        Guard.NotNull(@event);
 
         if (_unloading)
             return;
@@ -223,7 +223,7 @@ public abstract class PeriodicBatching<TEvent> : IDisposable where TEvent : clas
                 {
                     // Special handling to try to get the first event across as quickly
                     // as possible to show we're alive!
-                    _queue.TryEnqueue(TEvent);
+                    _queue.TryEnqueue(@event);
                     _started = true;
                     SetTimer(TimeSpan.Zero);
                     return;
@@ -231,7 +231,7 @@ public abstract class PeriodicBatching<TEvent> : IDisposable where TEvent : clas
             }
         }
 
-        _queue.TryEnqueue(TEvent);
+        _queue.TryEnqueue(@event);
     }
 
     /// <summary>

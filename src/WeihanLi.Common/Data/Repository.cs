@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Common;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
@@ -9,7 +10,8 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Data;
 
-public class Repository<TEntity> : IRepository<TEntity> where TEntity : new()
+[CLSCompliant(false)]
+public class Repository<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors|DynamicallyAccessedMemberTypes.PublicProperties)]TEntity> : IRepository<TEntity> where TEntity : new()
 {
     #region TODO: Cache External
 
@@ -279,7 +281,7 @@ FETCH NEXT {pageSize} ROWS ONLY
         sqlBuilder.AppendLine(")");
         foreach (var field in InsertColumnMappings.Value.Keys)
         {
-            paramDictionary.Add($"{field}", entity.GetPropertyValue(InsertColumnMappings.Value[field]));
+            paramDictionary.Add($"{field}", Guard.NotNull(typeof(TEntity).GetProperty(InsertColumnMappings.Value[field])).GetValue(entity));
         }
         var sql = sqlBuilder.ToString();
 
@@ -298,7 +300,7 @@ FETCH NEXT {pageSize} ROWS ONLY
         sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => $"@{_}").StringJoin($",{Environment.NewLine}")}");
         foreach (var field in InsertColumnMappings.Value.Keys)
         {
-            paramDictionary.Add($"{field}", entity.GetPropertyValue(InsertColumnMappings.Value[field]));
+            paramDictionary.Add($"{field}", Guard.NotNull(typeof(TEntity).GetProperty(InsertColumnMappings.Value[field])).GetValue(entity));
         }
 
         sqlBuilder.AppendLine(")");
@@ -323,17 +325,18 @@ FETCH NEXT {pageSize} ROWS ONLY
         sqlBuilder.AppendLine(")");
         sqlBuilder.AppendLine("VALUES");
 
-        for (var i = 0; i < count; i++)
+        foreach (var entity in entities)
         {
+            var i = 0;
             sqlBuilder.AppendLine();
             sqlBuilder.AppendLine("(");
-            var k = i;
-            sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => $"@{_}_{k}").StringJoin($",{Environment.NewLine}")}");
+            sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => $"@{_}_{i}").StringJoin($",{Environment.NewLine}")}");
             foreach (var field in InsertColumnMappings.Value.Keys)
             {
-                paramDictionary.Add($"{field}_{i}", typeof(TEntity).GetPropertyValue(InsertColumnMappings.Value[field]));
+                paramDictionary.Add($"{field}_{i}", Guard.NotNull(typeof(TEntity).GetProperty(InsertColumnMappings.Value[field])).GetValue(entity));
             }
             sqlBuilder.Append("),");
+            i++;
         }
         sqlBuilder.Remove(sqlBuilder.Length - 2, 1);
 
@@ -358,18 +361,20 @@ FETCH NEXT {pageSize} ROWS ONLY
         sqlBuilder.AppendLine(")");
         sqlBuilder.AppendLine("VALUES");
 
-        for (var i = 0; i < count; i++)
+        foreach (var entity in entities)
         {
+            var i = 0;
             sqlBuilder.AppendLine();
             sqlBuilder.AppendLine("(");
-            var k = i;
-            sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => $"@{_}_{k}").StringJoin($",{Environment.NewLine}")}");
+            sqlBuilder.AppendLine($"{InsertColumnMappings.Value.Keys.Select(_ => $"@{_}_{i}").StringJoin($",{Environment.NewLine}")}");
             foreach (var field in InsertColumnMappings.Value.Keys)
             {
-                paramDictionary.Add($"{field}_{i}", typeof(TEntity).GetPropertyValue(InsertColumnMappings.Value[field]));
+                paramDictionary.Add($"{field}_{i}", Guard.NotNull(typeof(TEntity).GetProperty(InsertColumnMappings.Value[field])).GetValue(entity));
             }
             sqlBuilder.Append("),");
+            i++;
         }
+
         sqlBuilder.Remove(sqlBuilder.Length - 2, 1);
 
         return _dbConnection.Value.ExecuteAsync(sqlBuilder.ToString(), paramDictionary, cancellationToken: cancellationToken);
@@ -432,7 +437,7 @@ SET {propertyValues.Keys.Select(p => $"{GetColumnName(p)}=@set_{p}").StringJoin(
             {
                 PropertyName = p.Key,
                 ColumnName = p.Value,
-                Value = typeof(TEntity).GetPropertyValue(p.Key)
+                Value = Guard.NotNull(typeof(TEntity).GetProperty(p.Key)).GetValue(entity)
             });
         if (keyEntries.Count == 0)
         {
@@ -466,7 +471,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             {
                 PropertyName = p.Key,
                 ColumnName = p.Value,
-                Value = typeof(TEntity).GetPropertyValue(p.Key)
+                Value = Guard.NotNull(typeof(TEntity).GetProperty(p.Key)).GetValue(entity)
             });
         if (keyEntries.Count == 0)
         {
@@ -509,7 +514,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             {
                 PropertyName = p.Key,
                 ColumnName = p.Value,
-                Value = typeof(TEntity).GetPropertyValue(p.Key)
+                Value = Guard.NotNull(typeof(TEntity).GetProperty(p.Key)).GetValue(entity)
             });
         if (keyEntries.Count == 0)
         {
@@ -541,7 +546,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             {
                 PropertyName = p.Key,
                 ColumnName = p.Value,
-                Value = typeof(TEntity).GetPropertyValue(p.Key)
+                Value = Guard.NotNull(typeof(TEntity).GetProperty(p.Key)).GetValue(entity)
             });
         if (keyEntries.Count == 0)
         {
@@ -579,7 +584,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             {
                 PropertyName = p.Key,
                 ColumnName = p.Value,
-                Value = typeof(TEntity).GetPropertyValue(p.Key)
+                Value = Guard.NotNull(typeof(TEntity).GetProperty(p.Key)).GetValue(entity)
             });
         if (keyEntries.Count == 0)
         {
@@ -625,7 +630,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             {
                 PropertyName = p.Key,
                 ColumnName = p.Value,
-                Value = typeof(TEntity).GetPropertyValue(p.Key)
+                Value = Guard.NotNull(typeof(TEntity).GetProperty(p.Key)).GetValue(entity)
             });
         if (keyEntries.Count == 0)
         {
@@ -658,7 +663,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
           {
               PropertyName = p.Key,
               ColumnName = p.Value,
-              Value = typeof(TEntity).GetPropertyValue(p.Key)
+              Value = Guard.NotNull(typeof(TEntity).GetProperty(p.Key)).GetValue(entity)
           });
         if (keyEntries.Count == 0)
         {
@@ -703,7 +708,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             {
                 PropertyName = p.Key,
                 ColumnName = p.Value,
-                Value = typeof(TEntity).GetPropertyValue(p.Key)
+                Value = Guard.NotNull(typeof(TEntity).GetProperty(p.Key)).GetValue(entity)
             });
         if (keyEntries.Count == 0)
         {
@@ -765,7 +770,7 @@ DELETE FROM {_tableName}
             {
                 PropertyName = p.Key,
                 ColumnName = p.Value,
-                Value = typeof(TEntity).GetPropertyValue(p.Key)
+                Value = Guard.NotNull(typeof(TEntity).GetProperty(p.Key)).GetValue(entity)
             });
         if (keyEntries.Count == 0)
         {
@@ -799,7 +804,7 @@ DELETE FROM {_tableName}
             {
                 PropertyName = p.Key,
                 ColumnName = p.Value,
-                Value = typeof(TEntity).GetPropertyValue(p.Key)
+                Value = Guard.NotNull(typeof(TEntity).GetProperty(p.Key)).GetValue(entity)
             });
         if (keyEntries.Count == 0)
         {
