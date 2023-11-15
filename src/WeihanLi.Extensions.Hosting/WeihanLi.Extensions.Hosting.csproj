@@ -6,7 +6,7 @@
       <Description>Hosting extensions</Description>
       <PackageSummary>Hosting extensions</PackageSummary>
       <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Extensions.Hosting</PackageProjectUrl>
-      <PackageTags>Hosting;WeihanLi</PackageTags>
+      <PackageTags>$(PackageTags);Hosting</PackageTags>
       <PackageReleaseNotes>
         https://github.com/WeihanLi/WeihanLi.Common/releases
       </PackageReleaseNotes>
