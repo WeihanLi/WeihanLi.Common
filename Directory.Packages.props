@@ -8,13 +8,11 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Microsoft.Extensions.Configuration" Version="$(ExtensionPackageVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="$(ExtensionPackageVersion)" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="$(ExtensionPackageVersion)" />
   </ItemGroup>
   <ItemGroup>
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageVersion Include="System.Reflection.Emit" Version="4.7.0" />
-    <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0" />
     <PackageVersion Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageVersion Include="AspectCore.Core" Version="2.4.0" />
@@ -36,8 +34,6 @@
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.ObjectPool" Version=" 8.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="5.0.0" />
     <PackageVersion Include="System.Data.SqlClient" Version="4.8.5" />
