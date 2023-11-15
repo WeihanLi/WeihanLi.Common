@@ -43,7 +43,7 @@
 
 ## Release Notes
 
-you can see a summary of package release notes [here](./docs/ReleaseNotes.md).
+See pull requests list for changes <https://github.com/WeihanLi/WeihanLi.Common/pulls?q=is%3Apr+is%3Amerged+base%3Amaster>
 
 ## Contact
 
