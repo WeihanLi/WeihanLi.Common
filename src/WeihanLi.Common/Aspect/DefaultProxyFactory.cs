@@ -20,10 +20,7 @@ public sealed class DefaultProxyFactory : IProxyFactory
     [RequiresUnreferencedCode("Unreferenced code may be used")]
     public object CreateProxy(Type serviceType, object?[] arguments)
     {
-        if (serviceType == null)
-        {
-            throw new ArgumentNullException(nameof(serviceType));
-        }
+        Guard.NotNull(serviceType);
 
         var proxyType = _proxyTypeFactory.CreateProxyType(serviceType);
         var proxy = _serviceProvider.CreateInstance(proxyType, arguments);
@@ -34,15 +31,8 @@ public sealed class DefaultProxyFactory : IProxyFactory
     [RequiresUnreferencedCode("Unreferenced code may be used")]
     public object CreateProxy(Type serviceType, Type implementType, params object?[] arguments)
     {
-        if (serviceType == null)
-        {
-            throw new ArgumentNullException(nameof(serviceType));
-        }
-
-        if (implementType == null)
-        {
-            throw new ArgumentNullException(nameof(implementType));
-        }
+        Guard.NotNull(serviceType);
+        Guard.NotNull(implementType);
 
         var proxyType = _proxyTypeFactory.CreateProxyType(serviceType, implementType);
         if (serviceType.IsInterface)
@@ -60,14 +50,8 @@ public sealed class DefaultProxyFactory : IProxyFactory
     [RequiresUnreferencedCode("Unreferenced code may be used")]
     public object CreateProxyWithTarget(Type serviceType, object implement, object?[] arguments)
     {
-        if (null == serviceType)
-        {
-            throw new ArgumentNullException(nameof(serviceType));
-        }
-        if (null == implement)
-        {
-            throw new ArgumentNullException(nameof(implement));
-        }
+        Guard.NotNull(serviceType);
+        Guard.NotNull(implement);
 
         var implementType = implement.GetType();
 
