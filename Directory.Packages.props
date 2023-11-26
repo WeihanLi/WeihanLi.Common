@@ -41,6 +41,5 @@
   </ItemGroup>
   <ItemGroup>
     <GlobalPackageReference Include="PolySharp" Version="1.13.2" />
-    <GlobalPackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" />
   </ItemGroup>
 </Project>
