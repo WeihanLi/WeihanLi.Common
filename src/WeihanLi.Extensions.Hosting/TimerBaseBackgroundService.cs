@@ -11,7 +11,7 @@ namespace WeihanLi.Extensions.Hosting;
 public abstract class TimerBaseBackgroundService : BackgroundService, IMyHostedService
 {
     protected abstract TimeSpan Period { get; }
-    protected abstract Task ExecuteTaskAsync(CancellationToken cancellationToken);
+    protected abstract Task ExecuteTaskAsync(CancellationToken stoppingToken);
     
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
@@ -38,16 +38,16 @@ public abstract class TimerBaseBackgroundServiceWithDiagnostic : TimerBaseBackgr
 
     protected ILogger Logger { get; }
 
-    protected abstract Task ExecuteTaskInternalAsync(IServiceProvider serviceProvider, CancellationToken cancellationToken);
+    protected abstract Task ExecuteTaskInternalAsync(IServiceProvider serviceProvider, CancellationToken stoppingToken);
 
-    protected override async Task ExecuteTaskAsync(CancellationToken cancellationToken)
+    protected override async Task ExecuteTaskAsync(CancellationToken stoppingToken)
     {
         using var scope = _serviceProvider.CreateScope();
         using var activity = DiagnosticHelper.ActivitySource.StartActivity();
         try
         {
             Logger.LogInformation("BackgroundService execute begin");
-            await ExecuteTaskInternalAsync(scope.ServiceProvider, cancellationToken);
+            await ExecuteTaskInternalAsync(scope.ServiceProvider, stoppingToken);
             Logger.LogInformation("BackgroundService execute end");
             if (_executeCounter.Enabled) _executeCounter.Add(1, new KeyValuePair<string, object?>("status", "0"));
         }
