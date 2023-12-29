@@ -154,7 +154,10 @@ public sealed class CommandResult
     public string StandardError { get; }
     public int ExitCode { get; }
 
-    public CommandResult EnsureSuccessfulExitCode(int successCode = 0)
+    [Obsolete("Please use EnsureSuccessExitCode() instead")]
+    public CommandResult EnsureSuccessfulExitCode(int successCode = 0) => EnsureSuccessExitCode(successCode);
+    
+    public CommandResult EnsureSuccessExitCode(int successCode = 0)
     {
         if (ExitCode != successCode)
         {
