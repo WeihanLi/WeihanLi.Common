@@ -2,7 +2,7 @@
 
 ## WeihanLi.Common
 
-common helpers and extensions, see pull requests list <https://github.com/WeihanLi/WeihanLi.Common/pulls?q=is%3Apr+is%3Amerged+base%3Amaster>
+See pull requests list for changes <https://github.com/WeihanLi/WeihanLi.Common/pulls?q=is%3Apr+is%3Amerged+base%3Amaster>
 
 ### [WeihanLi.Common 1.0.50](https://www.nuget.org/packages/WeihanLi.Common/1.0.50)
 
@@ -65,7 +65,7 @@ common helpers and extensions, see pull requests list <https://github.com/Weihan
 ### [WeihanLi.Common 1.0.41](https://www.nuget.org/packages/WeihanLi.Common/1.0.41)
 
 - update `ConsoleOutput`
-- update `IRepository`, fix #100 
+- update `IRepository`, fix #100
 
 ### [WeihanLi.Common 1.0.40](https://www.nuget.org/packages/WeihanLi.Common/1.0.40)
 
@@ -250,9 +250,3 @@ common helpers and extensions, see pull requests list <https://github.com/Weihan
 - update DataExtension, add support for DbConnection Extension select/fetch int
 - refact `HttpRequestClient` => `HttpRequester` with fluent api
 - add TotpHelper/ObjectId/ObjectIdGenerator
-
-## WeihanLi.Data
-
-### [WeihanLi.Data 1.0.21](https://www.nuget.org/packages/WeihanLi.Data/1.0.21)
-
-- add [sourceLink](https://github.com/dotnet/sourcelink) support

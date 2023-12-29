@@ -19,6 +19,7 @@
 
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>https://github.com/WeihanLi/WeihanLi.Common/releases</PackageReleaseNotes>
+    <PackageTags>$(PackageTags);WeihanLi</PackageTags>
     <PackageIcon>icon.jpg</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

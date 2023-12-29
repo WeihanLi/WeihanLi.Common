@@ -38,7 +38,7 @@ file sealed class TimerService : TimerBaseBackgroundService
 {
     protected override TimeSpan Period => TimeSpan.FromSeconds(1);
 
-    protected override Task ExecuteTaskAsync(CancellationToken cancellationToken)
+    protected override Task ExecuteTaskAsync(CancellationToken stoppingToken)
     {
         Console.WriteLine(DateTimeOffset.Now);
         return Task.CompletedTask;
@@ -53,7 +53,7 @@ file sealed class DiagnosticBackgroundService : CronBasedBackgroundServiceWithDi
 
     protected override string CronExpression => CronHelper.Secondly;
 
-    protected override Task ExecuteTaskInternalAsync(IServiceProvider serviceProvider, CancellationToken cancellationToken)
+    protected override Task ExecuteTaskInternalAsync(IServiceProvider serviceProvider, CancellationToken stoppingToken)
     {
         Console.WriteLine(DateTimeOffset.Now);
         return Task.CompletedTask;

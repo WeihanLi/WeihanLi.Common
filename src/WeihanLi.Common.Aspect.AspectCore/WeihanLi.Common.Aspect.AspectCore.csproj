@@ -5,7 +5,7 @@
     <Description>FluentAspect AspectCore extensions</Description>
     <PackageSummary>FluentAspect AspectCore extensions</PackageSummary>
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common.Aspect.AspectCore</PackageProjectUrl>
-    <PackageTags>FluentAspect,Aspect,AspectCore,AOP</PackageTags>
+    <PackageTags>$(PackageTags);FluentAspect;Aspect;AspectCore;AOP</PackageTags>
     <PackageReleaseNotes>
       https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
     </PackageReleaseNotes>

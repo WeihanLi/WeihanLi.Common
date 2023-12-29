@@ -1,7 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common.Logging.Serilog</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>$(PackageTags);logging;serilog</PackageTags>
+    <Title>WeihanLi.Common.Logging.Serilog</Title>
+    <Description>serilog logging provider for WeihanLi.Common.Logging, and serilog extensions, see details https://github.com/WeihanLi/WeihanLi.Common/blob/dev/src/WeihanLi.Common.Logging.Serilog/README.md</Description>
+    <PackageSummary>serilog logging provider for WeihanLi.Common.Logging, and serilog extensions</PackageSummary>
+    <PackageReleaseNotes>
+      https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
+    </PackageReleaseNotes>
   </PropertyGroup>
-  <Import Project="../../build/logging.serilog.props" />
   <ItemGroup>
     <PackageReference Include="Serilog" />
     <ProjectReference Include="..\WeihanLi.Common\WeihanLi.Common.csproj" />

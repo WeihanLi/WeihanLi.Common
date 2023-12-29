@@ -320,11 +320,24 @@ Console.WriteLine("----------DotNetCoreSample----------");
 //     Console.WriteLine(@"Exited");
 // });
 // ApplicationHelper.RuntimeInfo.Dump();
-Console.WriteLine(ApplicationHelper.ResolvePath("yarn.cmd"));
-await AppHostTest.MainTest();
+// Console.WriteLine(ApplicationHelper.ResolvePath("yarn.cmd"));
+// await AppHostTest.MainTest();
 // NewtonJsonFormatterTest.MainTest();
 
-// ConsoleHelper.ReadKeyWithPrompt("Press any key to exit");
+DisposeTest.MainTest();
+Console.WriteLine();
+await DisposeTest.MainTestAsync();
+Console.WriteLine();
+
+ConsoleHelper.ReadKeyWithPrompt("Press any key to continue");
+
+await DisposeTest.MainTestAsync();
+Console.WriteLine();
+
+GC.Collect();
+GC.WaitForPendingFinalizers();
+
+ConsoleHelper.ReadKeyWithPrompt("Press any key to exit");
 
 internal struct TestStruct
 {

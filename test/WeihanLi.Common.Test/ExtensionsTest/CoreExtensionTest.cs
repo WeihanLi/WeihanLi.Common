@@ -57,15 +57,6 @@ public class CoreExtensionTest
         Assert.True((bool)1.To(typeof(bool))!);
     }
 
-    [Fact]
-    public void ToSafeString()
-    {
-        var category = new Category();
-        Assert.Equal(category.ToString(), category.ToSafeString());
-        category = null;
-        Assert.Equal(string.Empty, category.ToSafeString());
-    }
-
     #endregion ObjectExtension
 
     #region BoolExtensions

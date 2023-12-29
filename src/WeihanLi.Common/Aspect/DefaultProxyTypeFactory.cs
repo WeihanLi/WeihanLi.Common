@@ -10,10 +10,7 @@ public sealed class DefaultProxyTypeFactory : IProxyTypeFactory
     [RequiresUnreferencedCode("Unreferenced code may be used")]
     public Type CreateProxyType(Type serviceType)
     {
-        if (null == serviceType)
-        {
-            throw new ArgumentNullException(nameof(serviceType));
-        }
+        Guard.NotNull(serviceType);
 
         if (serviceType.IsInterface)
         {
@@ -26,10 +23,7 @@ public sealed class DefaultProxyTypeFactory : IProxyTypeFactory
     [RequiresUnreferencedCode("Unreferenced code may be used")]
     public Type CreateProxyType(Type serviceType, Type implementType)
     {
-        if (null == serviceType)
-        {
-            throw new ArgumentNullException(nameof(serviceType));
-        }
+        Guard.NotNull(serviceType);
 
         if (serviceType.IsInterface)
         {

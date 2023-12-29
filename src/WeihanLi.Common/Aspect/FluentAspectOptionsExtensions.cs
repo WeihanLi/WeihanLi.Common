@@ -13,10 +13,7 @@ public static class FluentAspectOptionsExtensions
     public static IInterceptionConfiguration Intercept(this FluentAspectOptions options,
         Func<IInvocation, bool> predict)
     {
-        if (null == predict)
-        {
-            throw new ArgumentNullException(nameof(predict));
-        }
+        Guard.NotNull(predict);
 
         if (options.InterceptionConfigurations.TryGetValue
             (predict, out var interceptionConfiguration))
@@ -35,10 +32,7 @@ public static class FluentAspectOptionsExtensions
     public static IInterceptionConfiguration InterceptType(this FluentAspectOptions options,
         Func<Type, bool> typesFilter)
     {
-        if (null == typesFilter)
-        {
-            throw new ArgumentNullException(nameof(typesFilter));
-        }
+        Guard.NotNull(typesFilter);
 
         return options.InterceptMethod(m => typesFilter(m.DeclaringType!));
     }

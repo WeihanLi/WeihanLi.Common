@@ -1808,30 +1808,6 @@ public static class CoreExtension
     }
 
     /// <summary>
-    ///     An object extension method that query if '@this' is assignable from.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>true if assignable from, false if not.</returns>
-    public static bool IsAssignableFrom<T>(this object @this)
-    {
-        var type = @this.GetType();
-        return type.IsAssignableFrom(typeof(T));
-    }
-
-    /// <summary>
-    ///     An object extension method that query if '@this' is assignable from.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="targetType">Type of the target.</param>
-    /// <returns>true if assignable from, false if not.</returns>
-    public static bool IsAssignableFrom(this object @this, Type targetType)
-    {
-        var type = @this.GetType();
-        return type.IsAssignableFrom(targetType);
-    }
-
-    /// <summary>
     ///     A T extension method that chains actions.
     /// </summary>
     /// <typeparam name="T">Generic type parameter.</typeparam>
@@ -2052,13 +2028,6 @@ public static class CoreExtension
     }
 
     /// <summary>
-    ///     An object extension method that converts the @this to string or return an empty string if the value is null.
-    /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <returns>@this as a string or empty if the value is null.</returns>
-    public static string ToSafeString(this object? @this) => $"{@this}";
-
-    /// <summary>
     /// Get param dictionary
     /// </summary>
     public static IDictionary<string, object?> ParseParamDictionary(this object? paramInfo)
@@ -2097,20 +2066,6 @@ public static class CoreExtension
         return paramDic;
     }
     #endregion object
-
-    #region object[]
-
-    /// <summary>
-    ///     Gets the types of the objects in the specified array.
-    /// </summary>
-    /// <param name="args">An array of objects whose types to determine.</param>
-    /// <returns>An array of  objects representing the types of the corresponding elements in .</returns>
-    public static Type[] GetTypeArray(this object[] args)
-    {
-        return Type.GetTypeArray(args);
-    }
-
-    #endregion object[]
 
     #region Random
 
