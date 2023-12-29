@@ -163,4 +163,14 @@ public static class ConsoleHelper
         if (condition) Console.Write(output);
     }
 
+    public static CommandResult PrintOutputToConsole(this CommandResult commandResult)
+    {
+        Guard.NotNull(commandResult);
+        
+        Console.WriteLine(commandResult.StandardOut);
+        if (!string.IsNullOrEmpty(commandResult.StandardError))
+            WriteLineWithColor(commandResult.StandardError, ConsoleColor.DarkRed);
+
+        return commandResult;
+    }
 }

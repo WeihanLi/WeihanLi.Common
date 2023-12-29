@@ -21,6 +21,20 @@ public static class CommandExecutor
         var cmd = command.Split(new[] { ' ' }, 2);
         return Execute(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure);
     }
+    
+    /// <summary>
+    /// Execute command and capture output
+    /// </summary>
+    /// <param name="command">command with arguments</param>
+    /// <param name="workingDirectory">working directory for the command</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
+    /// <returns>exit code</returns>
+    public static CommandResult ExecuteCommandAndCapture(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null)
+    {
+        Guard.NotNullOrEmpty(command);
+        var cmd = command.Split([' '], 2);
+        return ExecuteAndCapture(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure);
+    }
 
     /// <summary>
     /// Execute command async
@@ -33,8 +47,23 @@ public static class CommandExecutor
     public static Task<int> ExecuteCommandAsync(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null, CancellationToken cancellationToken = default)
     {
         Guard.NotNullOrEmpty(command);
-        var cmd = command.Split(new[] { ' ' }, 2);
+        var cmd = command.Split([' '], 2);
         return ExecuteAsync(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure, cancellationToken);
+    }
+    
+    /// <summary>
+    /// Execute command and capture output async
+    /// </summary>
+    /// <param name="command">command with arguments</param>
+    /// <param name="workingDirectory">working directory for the command</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
+    /// <param name="cancellationToken">cancellationToken</param>
+    /// <returns>exit code</returns>
+    public static Task<CommandResult> ExecuteCommandAndCaptureAsync(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null, CancellationToken cancellationToken = default)
+    {
+        Guard.NotNullOrEmpty(command);
+        var cmd = command.Split(new[] { ' ' }, 2);
+        return ExecuteAndCaptureAsync(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure, cancellationToken);
     }
 
     /// <summary>
