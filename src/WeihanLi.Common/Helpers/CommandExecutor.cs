@@ -28,7 +28,7 @@ public static class CommandExecutor
     /// <param name="command">command with arguments</param>
     /// <param name="workingDirectory">working directory for the command</param>
     /// <param name="configure">configure the ProcessStartInfo</param>
-    /// <returns>exit code</returns>
+    /// <returns>command execute result</returns>
     public static CommandResult ExecuteCommandAndCapture(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null)
     {
         Guard.NotNullOrEmpty(command);
@@ -58,7 +58,7 @@ public static class CommandExecutor
     /// <param name="workingDirectory">working directory for the command</param>
     /// <param name="configure">configure the ProcessStartInfo</param>
     /// <param name="cancellationToken">cancellationToken</param>
-    /// <returns>exit code</returns>
+    /// <returns>command execute result</returns>
     public static Task<CommandResult> ExecuteCommandAndCaptureAsync(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null, CancellationToken cancellationToken = default)
     {
         Guard.NotNullOrEmpty(command);
