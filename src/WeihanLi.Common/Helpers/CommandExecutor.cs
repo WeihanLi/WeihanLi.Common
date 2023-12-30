@@ -190,7 +190,7 @@ public sealed class CommandResult
     {
         if (ExitCode != successCode)
         {
-            throw new InvalidOperationException($"Unexpected exit code:{ExitCode} {StandardError}");
+            throw new InvalidOperationException($"Unexpected exit code:{ExitCode}");
         }
         return this;
     }
