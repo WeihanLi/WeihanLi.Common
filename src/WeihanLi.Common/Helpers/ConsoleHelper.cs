@@ -169,7 +169,7 @@ public static class ConsoleHelper
         
         Console.WriteLine(commandResult.StandardOut);
         if (!string.IsNullOrEmpty(commandResult.StandardError))
-            WriteLineWithColor(commandResult.StandardError, ConsoleColor.DarkRed);
+            Console.Error.WriteLine(commandResult.StandardError);
 
         return commandResult;
     }
