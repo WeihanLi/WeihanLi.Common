@@ -9,7 +9,7 @@ namespace WeihanLi.Common.Helpers;
 public static class CommandExecutor
 {
     private static readonly char[] SpaceSeparator = [' '];
-    
+
     /// <summary>
     /// Execute command
     /// </summary>
@@ -23,7 +23,7 @@ public static class CommandExecutor
         var cmd = command.Split(SpaceSeparator, 2);
         return Execute(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure);
     }
-    
+
     /// <summary>
     /// Execute command and capture output
     /// </summary>
@@ -37,7 +37,7 @@ public static class CommandExecutor
         var cmd = command.Split(SpaceSeparator, 2);
         return ExecuteAndCapture(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure);
     }
-    
+
     /// <summary>
     /// Execute command with a process
     /// </summary>
@@ -47,15 +47,15 @@ public static class CommandExecutor
     /// <param name="workingDirectory">working directory</param>
     /// <param name="configure">configure the ProcessStartInfo</param>
     /// <returns>exit code</returns>
-    public static int ExecuteCommandAndOutput(string command,  
-        TextWriter? stdout = null, TextWriter? stderr = null, 
+    public static int ExecuteCommandAndOutput(string command,
+        TextWriter? stdout = null, TextWriter? stderr = null,
         string? workingDirectory = null, Action<ProcessStartInfo>? configure = null)
     {
         Guard.NotNullOrEmpty(command);
         var cmd = command.Split(SpaceSeparator, 2);
         return ExecuteAndOutput(cmd[0], cmd.Length > 1 ? cmd[1] : null, stdout, stderr, workingDirectory, configure);
     }
-    
+
     /// <summary>
     /// Execute command async
     /// </summary>
@@ -70,7 +70,7 @@ public static class CommandExecutor
         var cmd = command.Split(SpaceSeparator, 2);
         return ExecuteAsync(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure, cancellationToken);
     }
-    
+
     /// <summary>
     /// Execute command and capture output async
     /// </summary>
@@ -105,7 +105,7 @@ public static class CommandExecutor
         var cmd = command.Split(SpaceSeparator, 2);
         return ExecuteAndOutputAsync(cmd[0], cmd.Length > 1 ? cmd[1] : null, stdout, stderr, workingDirectory, configure, cancellationToken);
     }
-    
+
     /// <summary>
     /// Execute command with a process
     /// </summary>
@@ -146,7 +146,7 @@ public static class CommandExecutor
         configure?.Invoke(processStartInfo);
         return await processStartInfo.ExecuteAsync(cancellationToken);
     }
-    
+
     /// <summary>
     /// Execute command with a process
     /// </summary>
@@ -157,8 +157,8 @@ public static class CommandExecutor
     /// <param name="workingDirectory">working directory</param>
     /// <param name="configure">configure the ProcessStartInfo</param>
     /// <returns>exit code</returns>
-    public static int ExecuteAndOutput(string commandPath, string? arguments = null, 
-        TextWriter? stdout = null, TextWriter? stderr = null, 
+    public static int ExecuteAndOutput(string commandPath, string? arguments = null,
+        TextWriter? stdout = null, TextWriter? stderr = null,
         string? workingDirectory = null, Action<ProcessStartInfo>? configure = null)
     {
         var processStartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
@@ -170,7 +170,7 @@ public static class CommandExecutor
         configure?.Invoke(processStartInfo);
         return processStartInfo.GetExitCode(stdout ?? Console.Out, stderr ?? Console.Error);
     }
-    
+
     /// <summary>
     /// Execute command with a process
     /// </summary>
@@ -193,7 +193,7 @@ public static class CommandExecutor
             WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
         };
         configure?.Invoke(processStartInfo);
-        return await processStartInfo.GetExitCodeAsync(stdout ?? Console.Out, stderr ?? Console.Error,cancellationToken);
+        return await processStartInfo.GetExitCodeAsync(stdout ?? Console.Out, stderr ?? Console.Error, cancellationToken);
     }
 
     /// <summary>
@@ -267,7 +267,7 @@ public sealed class CommandResult(int exitCode, string standardOut, string stand
 
     [Obsolete("Please use EnsureSuccessExitCode() instead", true)]
     public CommandResult EnsureSuccessfulExitCode(int successCode = 0) => EnsureSuccessExitCode(successCode);
-    
+
     public CommandResult EnsureSuccessExitCode(int successCode = 0)
     {
         ExitCode.EnsureSuccessExitCode(successCode);

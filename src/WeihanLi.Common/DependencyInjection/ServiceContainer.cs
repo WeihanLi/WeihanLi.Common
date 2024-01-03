@@ -155,7 +155,7 @@ internal sealed class ServiceContainer : IServiceContainer
     [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     private object? GetServiceInstance(Type serviceType, ServiceDefinition serviceDefinition)
         => EnrichObject(GetServiceInstanceInternal(serviceType, serviceDefinition));
-    
+
     [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
     [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     private object? GetServiceInstanceInternal(Type serviceType, ServiceDefinition serviceDefinition)

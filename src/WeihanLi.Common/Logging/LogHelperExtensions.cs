@@ -165,7 +165,7 @@ public static class LogHelperExtensions
         return loggingBuilder;
     }
 
-    public static ILogHelperLoggingBuilder WithProvider<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TLogProvider>(this ILogHelperLoggingBuilder loggingBuilder, params object[] ctorParams) where TLogProvider : ILogHelperProvider
+    public static ILogHelperLoggingBuilder WithProvider<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TLogProvider>(this ILogHelperLoggingBuilder loggingBuilder, params object[] ctorParams) where TLogProvider : ILogHelperProvider
     {
         Guard.NotNull(loggingBuilder, nameof(loggingBuilder));
 
@@ -173,7 +173,7 @@ public static class LogHelperExtensions
         return loggingBuilder;
     }
 
-    public static ILogHelperLoggingBuilder WithEnricher<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TEnricher>(this ILogHelperLoggingBuilder loggingBuilder,
+    public static ILogHelperLoggingBuilder WithEnricher<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TEnricher>(this ILogHelperLoggingBuilder loggingBuilder,
         TEnricher enricher) where TEnricher : ILogHelperLoggingEnricher
     {
         Guard.NotNull(loggingBuilder, nameof(loggingBuilder));
@@ -190,7 +190,7 @@ public static class LogHelperExtensions
         return loggingBuilder;
     }
 
-    public static ILogHelperLoggingBuilder WithEnricher<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TEnricher>(this ILogHelperLoggingBuilder loggingBuilder, params object[] ctorParams) where TEnricher : ILogHelperLoggingEnricher
+    public static ILogHelperLoggingBuilder WithEnricher<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TEnricher>(this ILogHelperLoggingBuilder loggingBuilder, params object[] ctorParams) where TEnricher : ILogHelperLoggingEnricher
     {
         loggingBuilder.AddEnricher(ActivatorHelper.CreateInstance<TEnricher>(ctorParams));
         return loggingBuilder;

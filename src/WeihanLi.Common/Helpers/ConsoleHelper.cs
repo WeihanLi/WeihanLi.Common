@@ -176,7 +176,7 @@ public static class ConsoleHelper
     {
         if (condition) Console.Write(output);
     }
-    
+
     public static void ErrorWriteLineIf(string? output, bool condition)
     {
         if (condition) Console.Error.WriteLine(output);
@@ -190,9 +190,9 @@ public static class ConsoleHelper
     public static CommandResult PrintOutputToConsole(this CommandResult commandResult)
     {
         Guard.NotNull(commandResult);
-        
+
         Console.WriteLine(commandResult.StandardOut);
-        
+
         if (!string.IsNullOrEmpty(commandResult.StandardError))
         {
             Console.WriteLine();

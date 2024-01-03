@@ -13,11 +13,11 @@ internal static class CommandExecutorTest
         ExecuteAndCapture("hostname")
             .PrintOutputToConsole()
             .EnsureSuccessExitCode();
-        
+
         ExecuteAndOutput("hostname").EnsureSuccessExitCode();
 
         ExecuteAndOutputAsync("hostname").Wait();
-        
+
         ExecuteCommandAndOutput("hostname").EnsureSuccessExitCode();
     }
 }

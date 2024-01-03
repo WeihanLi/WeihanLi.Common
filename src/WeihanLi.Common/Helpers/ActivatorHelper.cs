@@ -13,7 +13,7 @@ public delegate object ObjectFactory(IServiceProvider serviceProvider, object?[]
 internal static class ParameterDefaultValue
 {
     private static readonly Type NullableOpenGenericType = typeof(Nullable<>);
-    
+
     [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static bool TryGetDefaultValue(ParameterInfo parameter, out object? defaultValue)
     {
@@ -79,7 +79,7 @@ public static class ActivatorHelper
     /// <typeparam name="T">type</typeparam>
     /// <param name="parameters">parameters</param>
     /// <returns>T instance</returns>
-    public static T CreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]T>(params object?[] parameters)
+    public static T CreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] T>(params object?[] parameters)
     {
         return (T)(Activator.CreateInstance(typeof(T), parameters) ?? throw new InvalidOperationException());
     }
@@ -92,8 +92,8 @@ public static class ActivatorHelper
     /// <param name="parameters">Constructor arguments not provided by the <paramref name="provider"/>.</param>
     /// <returns>An activated object of type instanceType</returns>
     [RequiresUnreferencedCode("Unreferenced code may be used")]
-    public static object CreateInstance(this IServiceProvider provider, 
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]Type instanceType,
+    public static object CreateInstance(this IServiceProvider provider,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)] Type instanceType,
         params object?[] parameters)
     {
         return MatchConstructor(instanceType, parameters).CreateInstance(provider);
@@ -151,13 +151,13 @@ public static class ActivatorHelper
     /// <param name="parameters">Constructor arguments not provided by di sys</param>
     /// <returns>Best Constructor Matched</returns>
     [RequiresUnreferencedCode("Unreferenced code may be used")]
-    public static ConstructorInfo MatchBestConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]Type instanceType, params object[] parameters)
+    public static ConstructorInfo MatchBestConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)] Type instanceType, params object[] parameters)
     {
         return MatchConstructor(instanceType, parameters).Constructor;
     }
 
     [RequiresUnreferencedCode("Unreferenced code may be used")]
-    public static object?[] GetBestConstructorArguments(IServiceProvider serviceProvider, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]Type instanceType, params object?[] parameters)
+    public static object?[] GetBestConstructorArguments(IServiceProvider serviceProvider, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)] Type instanceType, params object?[] parameters)
     {
         return MatchConstructor(instanceType, parameters).GetConstructorArguments(serviceProvider);
     }
@@ -198,7 +198,7 @@ public static class ActivatorHelper
     /// <param name="parameters">Constructor arguments not provided by the <paramref name="provider"/>.</param>
     /// <returns>An activated object of type T</returns>
     [RequiresUnreferencedCode("Unreferenced code may be used")]
-    public static T CreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]T>(this IServiceProvider provider, params object[] parameters)
+    public static T CreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(this IServiceProvider provider, params object[] parameters)
     {
         return (T)CreateInstance(provider, typeof(T), parameters);
     }
@@ -210,7 +210,7 @@ public static class ActivatorHelper
     /// <param name="provider">The service provider used to resolve dependencies</param>
     /// <returns>The resolved service or created instance</returns>
     [RequiresUnreferencedCode("Unreferenced code may be used")]
-    public static T GetServiceOrCreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]T>(this IServiceProvider provider)
+    public static T GetServiceOrCreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(this IServiceProvider provider)
     {
         return (T)GetServiceOrCreateInstance(provider, typeof(T));
     }
@@ -222,7 +222,7 @@ public static class ActivatorHelper
     /// <param name="type">The type of the service</param>
     /// <returns>The resolved service or created instance</returns>
     [RequiresUnreferencedCode("Unreferenced code may be used")]
-    public static object GetServiceOrCreateInstance(this IServiceProvider provider, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]Type type)
+    public static object GetServiceOrCreateInstance(this IServiceProvider provider, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)] Type type)
     {
         return provider.GetService(type) ?? CreateInstance(provider, type);
     }
@@ -307,7 +307,7 @@ public static class ActivatorHelper
     // Tries to find constructor based on provided argument types
     [RequiresUnreferencedCode("Unreferenced code may be used")]
     private static bool TryFindMatchingConstructor(
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]Type instanceType,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)] Type instanceType,
         Type[] argumentTypes,
         ref ConstructorInfo? matchingConstructor,
         ref int?[]? parameterMap)

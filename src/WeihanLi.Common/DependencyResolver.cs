@@ -62,6 +62,7 @@ public static class DependencyResolver
             return _serviceProvider.GetService(serviceType);
         }
 
+        [RequiresUnreferencedCode("Calls WeihanLi.Common.DependencyInjectionExtensions.GetServices(Type)")]
         public IEnumerable<object> GetServices(Type serviceType)
         {
             return _serviceProvider.GetServices(serviceType);
@@ -92,7 +93,7 @@ public static class DependencyResolver
 
     private sealed class DefaultDependencyResolver : IDependencyResolver
     {
-        public object? GetService([DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes.PublicParameterlessConstructor))]Type serviceType)
+        public object? GetService([DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes.PublicParameterlessConstructor))] Type serviceType)
         {
             // Since attempting to create an instance of an interface or an abstract type results in an exception, immediately return null
             // to improve performance and the debugging experience with first-chance exceptions enabled.

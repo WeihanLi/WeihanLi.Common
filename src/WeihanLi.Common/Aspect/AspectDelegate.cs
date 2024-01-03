@@ -86,7 +86,7 @@ public static class AspectDelegate
             }
         }
     }
-    
+
     [RequiresUnreferencedCode("Unreferenced code may be used.")]
     private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyList<IInterceptor>? interceptors, Func<IInvocation, Task>? completeFunc)
     {

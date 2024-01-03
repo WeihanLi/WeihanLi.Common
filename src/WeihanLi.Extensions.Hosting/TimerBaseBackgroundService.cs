@@ -12,7 +12,7 @@ public abstract class TimerBaseBackgroundService : BackgroundService, IMyHostedS
 {
     protected abstract TimeSpan Period { get; }
     protected abstract Task ExecuteTaskAsync(CancellationToken stoppingToken);
-    
+
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         using var timer = new PeriodicTimer(Period);

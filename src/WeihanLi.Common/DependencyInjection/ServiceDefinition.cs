@@ -58,27 +58,27 @@ public class ServiceDefinition
         return new(typeof(TService), factory, ServiceLifetime.Singleton);
     }
 
-    public static ServiceDefinition Singleton<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TServiceImplement>() where TServiceImplement : TService
+    public static ServiceDefinition Singleton<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TServiceImplement>() where TServiceImplement : TService
     {
         return new(typeof(TService), typeof(TServiceImplement), ServiceLifetime.Singleton);
     }
 
-    public static ServiceDefinition Singleton<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TService>()
+    public static ServiceDefinition Singleton<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TService>()
     {
         return new(typeof(TService), ServiceLifetime.Singleton);
     }
 
-    public static ServiceDefinition Scoped<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TService>(Func<IServiceProvider, object> factory)
+    public static ServiceDefinition Scoped<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TService>(Func<IServiceProvider, object> factory)
     {
         return new(typeof(TService), factory, ServiceLifetime.Scoped);
     }
 
-    public static ServiceDefinition Scoped<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TServiceImplement>() where TServiceImplement : TService
+    public static ServiceDefinition Scoped<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TServiceImplement>() where TServiceImplement : TService
     {
         return new(typeof(TService), typeof(TServiceImplement), ServiceLifetime.Scoped);
     }
 
-    public static ServiceDefinition Scoped<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TService>()
+    public static ServiceDefinition Scoped<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TService>()
     {
         return new(typeof(TService), ServiceLifetime.Scoped);
     }
@@ -88,12 +88,12 @@ public class ServiceDefinition
         return new(typeof(TService), factory, ServiceLifetime.Transient);
     }
 
-    public static ServiceDefinition Transient<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TService>()
+    public static ServiceDefinition Transient<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TService>()
     {
         return new(typeof(TService), ServiceLifetime.Transient);
     }
 
-    public static ServiceDefinition Transient<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TServiceImplement>() where TServiceImplement : TService
+    public static ServiceDefinition Transient<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TServiceImplement>() where TServiceImplement : TService
     {
         return new(typeof(TService), typeof(TServiceImplement), ServiceLifetime.Transient);
     }

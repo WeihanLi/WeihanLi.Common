@@ -23,7 +23,7 @@ public sealed class TemplateEngine(ITemplateParser templateParser, ITemplateRend
         var result = await _templateRenderer.RenderAsync(context, parameters);
         return result;
     }
-    
+
     public static TemplateEngine CreateDefault(Action<ITemplateEngineBuilder>? builderConfigure = null)
     {
         var builder = new TemplateEngineBuilder();

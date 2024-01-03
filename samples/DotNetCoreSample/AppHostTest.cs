@@ -99,7 +99,7 @@ file sealed class HttpListenerWebServer : IWebServer
         _listener.Start();
         var logger = _serviceProvider.GetRequiredService<ILogger<HttpListenerWebServer>>();
         logger.LogInformation("WebServer started");
-        
+
         while (!cancellationToken.IsCancellationRequested)
         {
             var listenerContext = await _listener.GetContextAsync();
@@ -135,7 +135,7 @@ file sealed class WebServerHostedService : BackgroundService
     {
         _server = server;
     }
-    
+
     public override async Task StopAsync(CancellationToken cancellationToken)
     {
         await _server.StopAsync(cancellationToken);

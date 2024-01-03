@@ -136,7 +136,7 @@ public static class ProcessExtension
             if (e.Data != null)
                 stdErr?.WriteLine(e.Data);
         };
-        
+
         try
         {
             process.Start();

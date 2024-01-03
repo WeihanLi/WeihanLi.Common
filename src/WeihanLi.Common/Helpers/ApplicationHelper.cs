@@ -94,7 +94,7 @@ public static class ApplicationHelper
     public static string? ResolvePath(string execName)
     {
         var executableName = execName;
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) 
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
             && !Path.HasExtension(execName))
         {
             executableName += ".exe";

@@ -4,14 +4,14 @@
 namespace WeihanLi.Common.Helpers;
 
 public static class TaskHelper
-{   
+{
     public static ValueTask ToTask(object? obj)
     {
-        var task = obj switch 
+        var task = obj switch
         {
             ValueTask vt => vt,
             Task t => new ValueTask(t),
-            _ => 
+            _ =>
 #if NET6_0_OR_GREATER
         ValueTask.CompletedTask
 #else

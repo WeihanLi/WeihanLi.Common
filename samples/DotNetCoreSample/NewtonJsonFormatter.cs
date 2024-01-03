@@ -11,14 +11,14 @@ using Newtonsoft.Json;
 
 namespace DotNetCoreSample;
 
-public sealed class NewtonJsonFormatterOptions: ConsoleFormatterOptions
+public sealed class NewtonJsonFormatterOptions : ConsoleFormatterOptions
 {
 }
 
-public sealed class NewtonJsonFormatter: ConsoleFormatter
+public sealed class NewtonJsonFormatter : ConsoleFormatter
 {
     public const string FormatterName = "NewtonJson";
-    
+
     private readonly NewtonJsonFormatterOptions _options;
 
     public NewtonJsonFormatter(IOptions<NewtonJsonFormatterOptions> options) : base(FormatterName)
@@ -73,7 +73,7 @@ public sealed class NewtonJsonFormatter: ConsoleFormatter
             }
             writer.WriteEndObject();
         }
-        
+
         writer.WriteEndObject();
         writer.Flush();
         textWriter.WriteLine();
@@ -82,7 +82,7 @@ public sealed class NewtonJsonFormatter: ConsoleFormatter
 
 public static partial class LoggingBuilderExtensions
 {
-    public static ILoggingBuilder AddNewtonJsonConsole(this ILoggingBuilder loggingBuilder, 
+    public static ILoggingBuilder AddNewtonJsonConsole(this ILoggingBuilder loggingBuilder,
         Action<NewtonJsonFormatterOptions>? optionsConfigure = null)
     {
         loggingBuilder.AddConsole(options => options.FormatterName = NewtonJsonFormatter.FormatterName);

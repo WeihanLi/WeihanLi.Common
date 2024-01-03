@@ -16,14 +16,14 @@ public static class DependencyInjectionExtensions
         Guard.NotNull(services);
         if (services.Any(x => x.ServiceType == typeof(ITemplateEngine)))
             throw new InvalidOperationException("Templating services had been registered");
-        
+
         if (optionsConfigure != null)
             services.AddOptions().Configure(optionsConfigure);
 
         services.TryAddSingleton<ITemplateParser, DefaultTemplateParser>();
         services.TryAddSingleton<ITemplateRenderer, DefaultTemplateRenderer>();
         services.TryAddSingleton<ITemplateEngine, TemplateEngine>();
-        
+
         services.TryAddEnumerable(ServiceDescriptor.Singleton<IRenderMiddleware, DefaultRenderMiddleware>());
         services.TryAddEnumerable(ServiceDescriptor.Singleton<IRenderMiddleware, EnvRenderMiddleware>());
         services.AddSingleton<IRenderMiddleware>(sp =>
@@ -32,7 +32,7 @@ public static class DependencyInjectionExtensions
                 ?? sp.GetService<IConfiguration>();
             return new ConfigurationRenderMiddleware(configuration);
         });
-        
+
         services.TryAddSingleton(sp =>
         {
             var pipelineBuilder = PipelineBuilder.CreateAsync<TemplateRenderContext>();
@@ -42,7 +42,7 @@ public static class DependencyInjectionExtensions
             }
             return pipelineBuilder.Build();
         });
-        
+
         return services;
     }
 }

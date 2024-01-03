@@ -17,7 +17,7 @@ internal sealed class ConfigurationRenderMiddleware(IConfiguration? configuratio
                 context.Parameters[variable] = configuration[variable[Prefix.Length..]];
             }
         }
-        
+
         return next(context);
     }
 }

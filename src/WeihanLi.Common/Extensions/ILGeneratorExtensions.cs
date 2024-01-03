@@ -18,7 +18,7 @@ public static class ILGeneratorExtensions
     {
         Guard.NotNull(ilGenerator);
         Guard.NotNull(method);
-        
+
         EmitMethod(ilGenerator, method, method.DeclaringType!);
     }
 
@@ -38,7 +38,7 @@ public static class ILGeneratorExtensions
 
     [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
     [RequiresUnreferencedCode("Unreferenced code may be used")]
-    public static void EmitConvertToObject(this ILGenerator ilGenerator, 
+    public static void EmitConvertToObject(this ILGenerator ilGenerator,
         [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)] Type typeFrom)
     {
         Guard.NotNull(ilGenerator);
@@ -56,7 +56,7 @@ public static class ILGeneratorExtensions
 
     [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
     [RequiresUnreferencedCode("Unreferenced code may be used")]
-    public static void EmitConvertFromObject(this ILGenerator ilGenerator, 
+    public static void EmitConvertFromObject(this ILGenerator ilGenerator,
         [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods | DynamicallyAccessedMemberTypes.PublicConstructors)] Type typeTo)
     {
         Guard.NotNull(ilGenerator);
@@ -71,12 +71,12 @@ public static class ILGeneratorExtensions
             ilGenerator.EmitConvertToType(typeof(object), typeTo);
         }
     }
-    
+
     [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
     [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static void EmitConvertToType(this ILGenerator ilGenerator,
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)]Type typeFrom, 
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods | DynamicallyAccessedMemberTypes.PublicConstructors)]Type typeTo,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)] Type typeFrom,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods | DynamicallyAccessedMemberTypes.PublicConstructors)] Type typeTo,
         bool isChecked = true)
     {
         Guard.NotNull(ilGenerator);
@@ -125,9 +125,9 @@ public static class ILGeneratorExtensions
 
     [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
     [RequiresUnreferencedCode("Unreferenced code may be used")]
-    private static void EmitNullableConversion(this ILGenerator ilGenerator, 
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)]Type typeFrom, 
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods | DynamicallyAccessedMemberTypes.PublicConstructors)]Type typeTo, 
+    private static void EmitNullableConversion(this ILGenerator ilGenerator,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)] Type typeFrom,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods | DynamicallyAccessedMemberTypes.PublicConstructors)] Type typeTo,
         bool isChecked)
     {
         var isTypeFromNullable = typeFrom.IsNullableType();
@@ -142,9 +142,9 @@ public static class ILGeneratorExtensions
 
     [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
     [RequiresUnreferencedCode("Unreferenced code may be used")]
-    private static void EmitNullableToNullableConversion(this ILGenerator ilGenerator, 
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)]Type typeFrom, 
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods | DynamicallyAccessedMemberTypes.PublicConstructors)]Type typeTo, 
+    private static void EmitNullableToNullableConversion(this ILGenerator ilGenerator,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)] Type typeFrom,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods | DynamicallyAccessedMemberTypes.PublicConstructors)] Type typeTo,
         bool isChecked)
     {
         var locFrom = ilGenerator.DeclareLocal(typeFrom);
@@ -176,8 +176,8 @@ public static class ILGeneratorExtensions
 
     [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
     [RequiresUnreferencedCode("Unreferenced code may be used")]
-    private static void EmitNullableToNonNullableConversion(this ILGenerator ilGenerator, 
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)]Type typeFrom, 
+    private static void EmitNullableToNonNullableConversion(this ILGenerator ilGenerator,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)] Type typeFrom,
         Type typeTo, bool isChecked)
     {
         if (typeTo.IsValueType)
@@ -188,8 +188,8 @@ public static class ILGeneratorExtensions
 
     [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
     [RequiresUnreferencedCode("Unreferenced code may be used")]
-    private static void EmitNullableToNonNullableStructConversion(this ILGenerator ilGenerator, 
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)]Type typeFrom, 
+    private static void EmitNullableToNonNullableStructConversion(this ILGenerator ilGenerator,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)] Type typeFrom,
         Type typeTo, bool isChecked)
     {
         var locFrom = ilGenerator.DeclareLocal(typeFrom);
@@ -209,9 +209,9 @@ public static class ILGeneratorExtensions
 
     [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
     [RequiresUnreferencedCode("Unreferenced code may be used")]
-    private static void EmitNonNullableToNullableConversion(this ILGenerator ilGenerator, 
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)]Type typeFrom, 
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods | DynamicallyAccessedMemberTypes.PublicConstructors)]Type typeTo, 
+    private static void EmitNonNullableToNullableConversion(this ILGenerator ilGenerator,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)] Type typeFrom,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods | DynamicallyAccessedMemberTypes.PublicConstructors)] Type typeTo,
         bool isChecked)
     {
         var locTo = ilGenerator.DeclareLocal(typeTo);
@@ -389,7 +389,7 @@ public static class ILGeneratorExtensions
     public static void EmitCastToType(this ILGenerator ilGenerator, Type typeFrom, Type typeTo)
     {
         Guard.NotNull(ilGenerator);
-        
+
         if (!typeFrom.IsValueType && typeTo.IsValueType)
         {
             ilGenerator.Emit(OpCodes.Unbox_Any, typeTo);
@@ -534,21 +534,21 @@ public static class ILGeneratorExtensions
         }
     }
 
-    public static void EmitHasValue(this ILGenerator ilGenerator, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)]Type nullableType)
+    public static void EmitHasValue(this ILGenerator ilGenerator, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)] Type nullableType)
     {
         Guard.NotNull(ilGenerator);
-        
+
         var mi = nullableType.GetTypeInfo().GetMethod("get_HasValue", BindingFlags.Instance | BindingFlags.Public)!;
         ilGenerator.Emit(OpCodes.Call, mi);
     }
 
-    public static void EmitGetValueOrDefault(this ILGenerator ilGenerator, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)]Type nullableType)
+    public static void EmitGetValueOrDefault(this ILGenerator ilGenerator, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)] Type nullableType)
     {
         var mi = nullableType.GetTypeInfo().GetMethod("GetValueOrDefault", Type.EmptyTypes)!;
         ilGenerator.Emit(OpCodes.Call, mi);
     }
 
-    public static void EmitGetValue(this ILGenerator ilGenerator, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)]Type nullableType)
+    public static void EmitGetValue(this ILGenerator ilGenerator, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods)] Type nullableType)
     {
         var mi = nullableType.GetTypeInfo().GetMethod("get_Value", BindingFlags.Instance | BindingFlags.Public)!;
         ilGenerator.Emit(OpCodes.Call, mi);
@@ -558,7 +558,7 @@ public static class ILGeneratorExtensions
     {
         Guard.NotNull(ilGenerator);
         Guard.NotNull(type);
-        
+
         switch (Type.GetTypeCode(type))
         {
             case TypeCode.Object:

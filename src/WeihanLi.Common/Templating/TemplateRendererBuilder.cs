@@ -10,8 +10,8 @@ internal sealed class TemplateEngineBuilder : ITemplateEngineBuilder
     private readonly IAsyncPipelineBuilder<TemplateRenderContext> _pipelineBuilder =
         PipelineBuilder.CreateAsync<TemplateRenderContext>();
     private Action<TemplateEngineOptions>? _optionsConfigure;
-    
-    public ITemplateRendererBuilder UseRenderMiddleware<TMiddleware>(TMiddleware middleware) where TMiddleware: class, IRenderMiddleware
+
+    public ITemplateRendererBuilder UseRenderMiddleware<TMiddleware>(TMiddleware middleware) where TMiddleware : class, IRenderMiddleware
     {
         _pipelineBuilder.UseMiddleware(Guard.NotNull(middleware));
         return this;

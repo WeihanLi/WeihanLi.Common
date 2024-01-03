@@ -28,13 +28,13 @@ public sealed class BoundedConcurrentQueue<T>
 
     public int Count => _queue.Count;
 
-    public bool TryDequeue([MaybeNullWhen(false)]out T item)
+    public bool TryDequeue([MaybeNullWhen(false)] out T item)
     {
         if (_queueLimit == NonBounded)
             return _queue.TryDequeue(out item);
 
         var result = false;
-        
+
         if (_queue.TryDequeue(out item))
         {
             result = true;
@@ -53,7 +53,7 @@ public sealed class BoundedConcurrentQueue<T>
         }
 
         var result = true;
-        
+
         if (Interlocked.Increment(ref _counter) <= _queueLimit)
         {
             _queue.Enqueue(item);
@@ -72,7 +72,7 @@ public sealed class BoundedConcurrentQueue<T>
             else
             {
                 Interlocked.Decrement(ref _counter);
-                result = false;   
+                result = false;
             }
         }
 

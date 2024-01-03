@@ -82,7 +82,8 @@ public static class TypeExtension
     /// <param name="type">type</param>
     /// <param name="parameterTypes"></param>
     /// <returns>Matching constructor or default one</returns>
-    public static ConstructorInfo? GetConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]this Type type, params Type[]? parameterTypes)
+    [RequiresUnreferencedCode()]
+    public static ConstructorInfo? GetConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] this Type type, params Type[]? parameterTypes)
     {
         if (parameterTypes == null || parameterTypes.Length == 0)
             return GetEmptyConstructor(type);
@@ -91,7 +92,7 @@ public static class TypeExtension
         return ctor;
     }
 
-    public static ConstructorInfo? GetEmptyConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]this Type type)
+    public static ConstructorInfo? GetEmptyConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] this Type type)
     {
         var constructors = type.GetConstructors();
 
@@ -120,7 +121,7 @@ public static class TypeExtension
     /// <param name="type">The type being tested.</param>
     /// <param name="constructorParameterTypes">The types of the contractor to find.</param>
     /// <returns>The <see cref="ConstructorInfo"/> is a match is found; otherwise, <c>null</c>.</returns>
-    public static ConstructorInfo? GetMatchingConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]this Type type, Type[]? constructorParameterTypes)
+    public static ConstructorInfo? GetMatchingConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] this Type type, Type[]? constructorParameterTypes)
     {
         if (constructorParameterTypes == null || constructorParameterTypes.Length == 0)
             return GetEmptyConstructor(type);
@@ -137,7 +138,7 @@ public static class TypeExtension
     /// </summary>
     /// <param name="type">type</param>
     /// <returns></returns>
-    public static IEnumerable<Type> GetImplementedInterfaces([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.Interfaces)]this Type type)
+    public static IEnumerable<Type> GetImplementedInterfaces([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.Interfaces)] this Type type)
     {
         return type.GetTypeInfo().ImplementedInterfaces;
     }
