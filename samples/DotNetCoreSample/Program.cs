@@ -324,18 +324,20 @@ Console.WriteLine("----------DotNetCoreSample----------");
 // await AppHostTest.MainTest();
 // NewtonJsonFormatterTest.MainTest();
 
-DisposeTest.MainTest();
-Console.WriteLine();
-await DisposeTest.MainTestAsync();
-Console.WriteLine();
+// DisposeTest.MainTest();
+// Console.WriteLine();
+// await DisposeTest.MainTestAsync();
+// Console.WriteLine();
+//
+// ConsoleHelper.ReadKeyWithPrompt("Press any key to continue");
+//
+// await DisposeTest.MainTestAsync();
+// Console.WriteLine();
+//
+// GC.Collect();
+// GC.WaitForPendingFinalizers();
 
-ConsoleHelper.ReadKeyWithPrompt("Press any key to continue");
-
-await DisposeTest.MainTestAsync();
-Console.WriteLine();
-
-GC.Collect();
-GC.WaitForPendingFinalizers();
+InvokeHelper.TryInvoke(CommandExecutorTest.MainTest);
 
 ConsoleHelper.ReadKeyWithPrompt("Press any key to exit");
 

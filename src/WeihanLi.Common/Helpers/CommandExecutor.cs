@@ -89,7 +89,7 @@ public static class CommandExecutor
     }
 
     /// <summary>
-    /// Execute command with a process
+    /// Execute command with a process async
     /// </summary>
     /// <param name="commandPath">executable command path</param>
     /// <param name="arguments">command arguments</param>
@@ -107,6 +107,54 @@ public static class CommandExecutor
         };
         configure?.Invoke(processStartInfo);
         return await processStartInfo.ExecuteAsync(cancellationToken);
+    }
+
+
+    /// <summary>
+    /// Execute command with a process
+    /// </summary>
+    /// <param name="commandPath">executable command path</param>
+    /// <param name="arguments">command arguments</param>
+    /// <param name="workingDirectory">working directory</param>
+    /// <param name="stdout">stdout writer, write to console by default</param>
+    /// <param name="stderr">stderr writer, write to console by default</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
+    /// <returns>exit code</returns>
+    public static int ExecuteAndOutput(string commandPath, string? arguments = null, string? workingDirectory = null, 
+        TextWriter? stdout = null, TextWriter? stderr = null, Action<ProcessStartInfo>? configure = null)
+    {
+        var processStartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
+        {
+            UseShellExecute = false,
+            CreateNoWindow = true,
+            WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
+        };
+        configure?.Invoke(processStartInfo);
+        return processStartInfo.GetExitCode(stdout ?? Console.Out, stderr ?? Console.Error);
+    }
+    
+    /// <summary>
+    /// Execute command with a process
+    /// </summary>
+    /// <param name="commandPath">executable command path</param>
+    /// <param name="arguments">command arguments</param>
+    /// <param name="workingDirectory">working directory</param>
+    /// <param name="stdout">stdout writer, write to console by default</param>
+    /// <param name="stderr">stderr writer, write to console by default</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
+    /// <param name="cancellationToken">cancellationToken</param>
+    /// <returns>exit code</returns>
+    public static async Task<int> ExecuteAndOutputAsync(string commandPath, string? arguments = null, string? workingDirectory = null,
+        TextWriter? stdout = null, TextWriter? stderr = null, Action<ProcessStartInfo>? configure = null, CancellationToken cancellationToken = default)
+    {
+        var processStartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
+        {
+            UseShellExecute = false,
+            CreateNoWindow = true,
+            WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
+        };
+        configure?.Invoke(processStartInfo);
+        return await processStartInfo.GetExitCodeAsync(stdout ?? Console.Out, stderr ?? Console.Error,cancellationToken);
     }
 
     /// <summary>
