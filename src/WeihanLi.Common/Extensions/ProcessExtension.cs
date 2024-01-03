@@ -122,12 +122,8 @@ public static class ProcessExtension
     public static int GetExitCode(this ProcessStartInfo psi, TextWriter? stdOut = null,
         TextWriter? stdErr = null)
     {
-        if (stdOut != null)
-            psi.RedirectStandardOutput = true;
-        
-        if (stdErr != null)
-            psi.RedirectStandardError = true;
-     
+        psi.RedirectStandardOutput = stdOut != null;
+        psi.RedirectStandardError = stdErr != null;
         psi.UseShellExecute = false;
         using var process = new Process { StartInfo = psi };
         process.OutputDataReceived += (_, e) =>
@@ -168,12 +164,8 @@ public static class ProcessExtension
     public static async Task<int> GetExitCodeAsync(this ProcessStartInfo psi, TextWriter? stdOut = null,
         TextWriter? stdErr = null, CancellationToken cancellationToken = default)
     {
-        if (stdOut != null)
-            psi.RedirectStandardOutput = true;
-        
-        if (stdErr != null)
-            psi.RedirectStandardError = true;
-        
+        psi.RedirectStandardOutput = stdOut != null;
+        psi.RedirectStandardError = stdErr != null;
         psi.UseShellExecute = false;
         using var process = new Process { StartInfo = psi };
         var stdOutComplete = new TaskCompletionSource<object?>();
