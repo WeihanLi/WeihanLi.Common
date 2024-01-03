@@ -73,6 +73,20 @@ public static class ConsoleHelper
             InvokeWithConsoleColor(() => Console.WriteLine(output), foregroundColor, backgroundColor);
     }
 
+    public static void ErrorWriteWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
+    {
+        if (!string.IsNullOrEmpty(output))
+            InvokeWithConsoleColor(() => Console.Error.Write(output), foregroundColor, backgroundColor);
+    }
+
+    public static void ErrorWriteLineWithColor(string error, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
+    {
+        if (string.IsNullOrEmpty(error))
+            Console.Error.WriteLine();
+        else
+            InvokeWithConsoleColor(() => Console.Error.WriteLine(error), foregroundColor, backgroundColor);
+    }
+
     public static string? GetInput(string? inputPrompt = null, bool insertNewLine = true)
     {
         var input = ReadLineWithPrompt(inputPrompt);
@@ -168,8 +182,12 @@ public static class ConsoleHelper
         Guard.NotNull(commandResult);
         
         Console.WriteLine(commandResult.StandardOut);
+        
         if (!string.IsNullOrEmpty(commandResult.StandardError))
-            Console.Error.WriteLine(commandResult.StandardError);
+        {
+            Console.WriteLine();
+            ErrorWriteLineWithColor(commandResult.StandardError, ConsoleColor.DarkRed);
+        }
 
         return commandResult;
     }
