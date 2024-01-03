@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 
 using WeihanLi.Common.Helpers;
+using WeihanLi.Extensions;
 using static WeihanLi.Common.Helpers.CommandExecutor;
 
 namespace DotNetCoreSample;

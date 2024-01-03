@@ -1682,7 +1682,7 @@ public static class CoreExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">this.</param>
     /// <returns>A T.</returns>
-    [RequiresUnreferencedCode()]
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T To<T>(this object? @this)
     {
 #nullable disable
@@ -1720,7 +1720,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="type">The type.</param>
     /// <returns>An object.</returns>
-    [RequiresUnreferencedCode()]
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static object? To(this object? @this, Type type)
     {
         if (@this == null || @this == DBNull.Value)

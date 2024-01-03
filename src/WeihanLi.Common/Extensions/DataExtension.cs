@@ -212,7 +212,7 @@ public static partial class DataExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as a DataTable.</returns>
-    [RequiresUnreferencedCode()]
+    [RequiresUnreferencedCode("Members from types used in the expression column to be trimmed if not referenced directly.")]
     public static DataTable ToDataTable(this IDataReader @this)
     {
         var dt = new DataTable();

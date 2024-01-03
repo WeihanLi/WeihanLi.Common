@@ -82,7 +82,7 @@ public static class TypeExtension
     /// <param name="type">type</param>
     /// <param name="parameterTypes"></param>
     /// <returns>Matching constructor or default one</returns>
-    [RequiresUnreferencedCode()]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static ConstructorInfo? GetConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] this Type type, params Type[]? parameterTypes)
     {
         if (parameterTypes == null || parameterTypes.Length == 0)
