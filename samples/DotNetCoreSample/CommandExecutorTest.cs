@@ -14,8 +14,10 @@ internal static class CommandExecutorTest
             .PrintOutputToConsole()
             .EnsureSuccessExitCode();
         
-        ExecuteAndOutput("hostname");
+        ExecuteAndOutput("hostname").EnsureSuccessExitCode();
 
         ExecuteAndOutputAsync("hostname").Wait();
+        
+        ExecuteCommandAndOutput("hostname").EnsureSuccessExitCode();
     }
 }

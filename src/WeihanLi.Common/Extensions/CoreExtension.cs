@@ -1555,6 +1555,21 @@ public static class CoreExtension
         return Math.Sign(value);
     }
 
+    /// <summary>
+    /// Ensures the exitCode success
+    /// </summary>
+    /// <param name="exitCode">exitCode</param>
+    /// <param name="successCode">successCode</param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException">Exception when exitCode not match the successCode</exception>
+    public static int EnsureSuccessExitCode(this int exitCode, int successCode = 0)
+    {
+        if (exitCode != 0)        
+            throw new InvalidOperationException($"Unexpected exit code:{ExitCode}");
+        
+        return exitCode;
+    }
+
     #endregion int
 
     #region long
