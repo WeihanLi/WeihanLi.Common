@@ -11,5 +11,5 @@ public interface ITemplateRendererBuilder
 
 public interface ITemplateEngineBuilder : ITemplateRendererBuilder
 {
-    ITemplateRendererBuilder ConfigureOptions(Action<TemplateEngineOptions> configureOptionsAction);
+    ITemplateRendererBuilder ConfigureOptions(Action<TemplateEngineOptions> optionsConfigure);
 }
