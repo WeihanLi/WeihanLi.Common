@@ -14,7 +14,7 @@ public sealed class DefaultTemplateRenderer : ITemplateRenderer
         _renderFunc = renderFunc;
     }
 
-    public async Task<string> RenderAsync(TemplateRenderContext context, object globals)
+    public async Task<string> RenderAsync(TemplateRenderContext context, object? globals)
     {
         context.Parameters = globals.ParseParamDictionary();
         await _renderFunc.Invoke(context);

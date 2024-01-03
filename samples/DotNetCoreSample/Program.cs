@@ -337,7 +337,7 @@ Console.WriteLine("----------DotNetCoreSample----------");
 // GC.Collect();
 // GC.WaitForPendingFinalizers();
 
-InvokeHelper.TryInvoke(CommandExecutorTest.MainTest);
+await InvokeHelper.TryInvokeAsync(TemplatingSample.MainTest);
 
 ConsoleHelper.ReadKeyWithPrompt("Press any key to exit");
 

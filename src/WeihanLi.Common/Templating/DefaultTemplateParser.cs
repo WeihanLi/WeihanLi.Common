@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Templating;
 
 public sealed class DefaultTemplateParser : ITemplateParser
 {
-    private const string VariableRegexExp = @"\{\{\s*(?<Variable>.+)\s*\}\}";
+    private const string VariableRegexExp = @"\{\{(?<Variable>.+)\}\}";
     private static readonly Regex VariableRegex = new(VariableRegexExp, RegexOptions.Compiled);
     public Task<TemplateRenderContext> ParseAsync(string text)
     {
