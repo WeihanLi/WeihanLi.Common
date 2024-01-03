@@ -5,7 +5,7 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Templating;
 
-public sealed class DefaultTemplateRenderer : ITemplateRenderer
+internal sealed class DefaultTemplateRenderer : ITemplateRenderer
 {
     private readonly Func<TemplateRenderContext, Task> _renderFunc;
 
