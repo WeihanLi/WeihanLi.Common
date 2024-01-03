@@ -15,6 +15,8 @@ using WeihanLi.Extensions.Dump;
 
 Console.WriteLine("----------DotNetCoreSample----------");
 
+InvokeHelper.OnInvokeException = ex => ConsoleHelper.ErrorWriteWithColor(ex.ToString(), ConsoleColor.DarkRed);
+
 // ServiceDecoratorTest.MainTest();
 
 // var dataLogger = LogHelper.GetLogger(typeof(DataExtension));
