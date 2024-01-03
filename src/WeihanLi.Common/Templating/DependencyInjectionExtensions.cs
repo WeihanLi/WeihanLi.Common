@@ -1,17 +1,21 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Templating;
 
 public static class DependencyInjectionExtensions
 {
-    public static IServiceCollection AddTemplating(this IServiceCollection services)
+    public static IServiceCollection AddTemplating(this IServiceCollection services, Action<TemplateEngineOptions>? optionsConfigure = null)
     {
         Guard.NotNull(services);
+        if (optionsConfigure != null)
+            services.Configure(optionsConfigure);
 
         services.TryAddSingleton<ITemplateParser, DefaultTemplateParser>();
         services.TryAddSingleton<ITemplateRenderer, DefaultTemplateRenderer>();
@@ -19,7 +23,12 @@ public static class DependencyInjectionExtensions
         
         services.TryAddEnumerable(ServiceDescriptor.Singleton<IRenderMiddleware, DefaultRenderMiddleware>());
         services.TryAddEnumerable(ServiceDescriptor.Singleton<IRenderMiddleware, EnvRenderMiddleware>());
-        services.TryAddEnumerable(ServiceDescriptor.Singleton<IRenderMiddleware, ConfigurationRenderMiddleware>());
+        services.TryAddEnumerable(ServiceDescriptor.Singleton(typeof(IRenderMiddleware), sp =>
+        {
+            var configuration = sp.GetRequiredService<IOptions<TemplateEngineOptions>>().Value.Configuration
+                ?? sp.GetService<IConfiguration>();
+            return new ConfigurationRenderMiddleware(configuration);
+        }));
         services.TryAddSingleton(sp =>
         {
             var pipelineBuilder = PipelineBuilder.CreateAsync<TemplateRenderContext>();
