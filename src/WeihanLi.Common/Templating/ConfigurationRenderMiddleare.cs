@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace WeihanLi.Common.Templating;
 
-internal sealed class ConfigurationRenderMiddleware(IConfiguration? configuration) : IRenderMiddleware
+internal sealed class ConfigurationRenderMiddleware(IConfiguration? configuration = null) : IRenderMiddleware
 {
     private const string Prefix = "$config ";
     public Task InvokeAsync(TemplateRenderContext context, Func<TemplateRenderContext, Task> next)

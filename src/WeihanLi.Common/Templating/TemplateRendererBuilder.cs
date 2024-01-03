@@ -30,9 +30,9 @@ internal sealed class TemplateEngineBuilder : ITemplateEngineBuilder
         var options = new TemplateEngineOptions();
         _optionsConfigure?.Invoke(options);
         _pipelineBuilder
+            .UseMiddleware(new DefaultRenderMiddleware())
             .UseMiddleware(new EnvRenderMiddleware())
             .UseMiddleware(new ConfigurationRenderMiddleware(options.Configuration))
-            .UseMiddleware(new DefaultRenderMiddleware())
             ;
         return new DefaultTemplateRenderer(_pipelineBuilder.Build());
     }

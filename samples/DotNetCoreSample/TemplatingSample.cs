@@ -2,6 +2,7 @@
 // Licensed under the Apache license.
 
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using WeihanLi.Common.Templating;
 
 namespace DotNetCoreSample;
@@ -27,6 +28,19 @@ public class TemplatingSample
                 .Build();
             var result = await TemplateEngine.CreateDefault(builder => builder.ConfigureOptions(options => options.Configuration = configuration))
                 .RenderAsync("Hello {{$config UserName}}");
+            Console.WriteLine(result);
+        }
+
+        {
+            var services = new ServiceCollection();
+            IConfiguration configuration = new ConfigurationBuilder()
+                .AddInMemoryCollection([new("UserName1", "Test1234")])
+                .Build();
+            services.AddSingleton(configuration);
+            services.AddTemplating();
+            await using var provider = services.BuildServiceProvider();
+            var result = await provider.GetRequiredService<ITemplateEngine>()
+                .RenderAsync("Hello {{$config UserName1}}");
             Console.WriteLine(result);
         }
     }
