@@ -29,8 +29,6 @@ public sealed class NullDisposable : IDisposable, IAsyncDisposable
 
 public sealed class DisposableAction : IDisposable, IAsyncDisposable
 {
-    public static readonly DisposableAction Empty = new(null);
-
     private Action? _disposeAction;
 
     public DisposableAction(Action? disposeAction)
