@@ -176,6 +176,16 @@ public static class ConsoleHelper
     {
         if (condition) Console.Write(output);
     }
+    
+    public static void ErrorWriteLineIf(string? output, bool condition)
+    {
+        if (condition) Console.Error.WriteLine(output);
+    }
+
+    public static void ErrorWriteIf(string? output, bool condition)
+    {
+        if (condition) Console.Error.Write(output);
+    }
 
     public static CommandResult PrintOutputToConsole(this CommandResult commandResult)
     {
