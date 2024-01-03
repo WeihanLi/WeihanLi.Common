@@ -28,9 +28,9 @@ public sealed class NullDisposable : IDisposable, IAsyncDisposable
 }
 
 /// <summary>
-/// Dispose
+/// Delegate-based Disposable implement
 /// </summary>
-/// <param name="disposeAction"></param>
+/// <param name="disposeAction">dispose delegate</param>
 public sealed class DisposableAction(Action? disposeAction) : IDisposable, IAsyncDisposable
 {
     public void Dispose()

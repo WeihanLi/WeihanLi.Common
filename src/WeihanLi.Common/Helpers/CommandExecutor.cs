@@ -108,8 +108,7 @@ public static class CommandExecutor
         configure?.Invoke(processStartInfo);
         return await processStartInfo.ExecuteAsync(cancellationToken);
     }
-
-
+    
     /// <summary>
     /// Execute command with a process
     /// </summary>
