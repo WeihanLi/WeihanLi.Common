@@ -13,13 +13,13 @@ public sealed class NullDisposable : IDisposable, IAsyncDisposable
     {
     }
 
-    public ValueTask DisposeAsync() => 
+    public ValueTask DisposeAsync() =>
 #if NET6_0_OR_GREATER
         ValueTask.CompletedTask
 #else
         default
 #endif
-        ;
+    ;
 
     /// <summary>
     /// Gets the instance of <see cref="NullDisposable"/>.
@@ -27,30 +27,27 @@ public sealed class NullDisposable : IDisposable, IAsyncDisposable
     public static NullDisposable Instance { get; } = new();
 }
 
-public sealed class DisposableAction : IDisposable, IAsyncDisposable
+/// <summary>
+/// Dispose
+/// </summary>
+/// <param name="disposeAction"></param>
+public sealed class DisposableAction(Action? disposeAction) : IDisposable, IAsyncDisposable
 {
-    private Action? _disposeAction;
-
-    public DisposableAction(Action? disposeAction)
-    {
-        _disposeAction = disposeAction;
-    }
-
     public void Dispose()
     {
-        Interlocked.Exchange(ref _disposeAction, null)?.Invoke();
+        Interlocked.Exchange(ref disposeAction, null)?.Invoke();
     }
 
     public ValueTask DisposeAsync()
     {
         Dispose();
-        return 
+        return
 #if NET6_0_OR_GREATER
             ValueTask.CompletedTask
 #else
             default
 #endif
-        ;
+            ;
     }
 }
 
@@ -62,11 +59,17 @@ public sealed class DisposableAction : IDisposable, IAsyncDisposable
 /// </summary>
 public abstract class DisposableBase : IDisposable, IAsyncDisposable
 {
+    /// <summary>
+    /// Set to <c>true</c> when the inherits place dispose logics in <c>Dispose</c> method other than <c>DisposeAsync</c>
+    /// </summary>
+    protected virtual bool UseDispose { get; }
+
     // To detect redundant calls
-    private bool _disposed;
+    private int _disposedStatus;
+
     public void Dispose()
     {
-        if (_disposed) return;
+        if (Interlocked.CompareExchange(ref _disposedStatus, 1, 0) != 0) return;
 
         Dispose(disposing: true);
         GC.SuppressFinalize(this);
@@ -74,11 +77,21 @@ public abstract class DisposableBase : IDisposable, IAsyncDisposable
 
     public async ValueTask DisposeAsync()
     {
-        if (_disposed) return;
+        if (Interlocked.CompareExchange(ref _disposedStatus, 1, 0) != 0) return;
+
         // Perform async cleanup.
         await DisposeAsyncCore().ConfigureAwait(false);
-        // Dispose of unmanaged resources.
-        Dispose(disposing: false);
+
+        if (UseDispose)
+        {
+            Dispose();
+        }
+        else
+        {
+            // Dispose of unmanaged resources.
+            Dispose(disposing: false);
+        }
+
         // Suppress finalization.
         GC.SuppressFinalize(this);
     }
@@ -92,19 +105,18 @@ public abstract class DisposableBase : IDisposable, IAsyncDisposable
 
         // free unmanaged resources (unmanaged objects) and override finalizer
         // set large fields to null
-        _disposed = true;
     }
 
     protected virtual ValueTask DisposeAsyncCore()
     {
         // dispose managed state in async way (managed objects)
-        return 
+        return
 #if NET6_0_OR_GREATER
             ValueTask.CompletedTask
 #else
             default
 #endif
-        ;
+            ;
     }
 
     ~DisposableBase() => Dispose(false);
