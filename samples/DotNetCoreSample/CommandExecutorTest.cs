@@ -10,7 +10,7 @@ internal class CommandExecutorTest
     public static void MainTest()
     {
         var result = ExecuteAndCapture("hostname");
-        result.EnsureSuccessfulExitCode();
+        result.EnsureSuccessExitCode();
         Console.WriteLine(result.StandardOut);
     }
 }
