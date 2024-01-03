@@ -8,6 +8,8 @@ namespace WeihanLi.Common.Helpers;
 
 public static class CommandExecutor
 {
+    private static readonly char[] SpaceSeparator = [' '];
+    
     /// <summary>
     /// Execute command
     /// </summary>
@@ -18,7 +20,7 @@ public static class CommandExecutor
     public static int ExecuteCommand(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null)
     {
         Guard.NotNullOrEmpty(command);
-        var cmd = command.Split(new[] { ' ' }, 2);
+        var cmd = command.Split(SpaceSeparator, 2);
         return Execute(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure);
     }
     
@@ -32,7 +34,7 @@ public static class CommandExecutor
     public static CommandResult ExecuteCommandAndCapture(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null)
     {
         Guard.NotNullOrEmpty(command);
-        var cmd = command.Split([' '], 2);
+        var cmd = command.Split(SpaceSeparator, 2);
         return ExecuteAndCapture(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure);
     }
 
@@ -47,7 +49,7 @@ public static class CommandExecutor
     public static Task<int> ExecuteCommandAsync(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null, CancellationToken cancellationToken = default)
     {
         Guard.NotNullOrEmpty(command);
-        var cmd = command.Split([' '], 2);
+        var cmd = command.Split(SpaceSeparator, 2);
         return ExecuteAsync(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure, cancellationToken);
     }
     
@@ -62,7 +64,7 @@ public static class CommandExecutor
     public static Task<CommandResult> ExecuteCommandAndCaptureAsync(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null, CancellationToken cancellationToken = default)
     {
         Guard.NotNullOrEmpty(command);
-        var cmd = command.Split(new[] { ' ' }, 2);
+        var cmd = command.Split(SpaceSeparator, 2);
         return ExecuteAndCaptureAsync(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure, cancellationToken);
     }
 
@@ -170,20 +172,13 @@ public static class CommandExecutor
     }
 }
 
-public sealed class CommandResult
+public sealed class CommandResult(int exitCode, string standardOut, string standardError)
 {
-    public CommandResult(int exitCode, string standardOut, string standardError)
-    {
-        ExitCode = exitCode;
-        StandardOut = standardOut;
-        StandardError = standardError;
-    }
+    public string StandardOut { get; } = standardOut;
+    public string StandardError { get; } = standardError;
+    public int ExitCode { get; } = exitCode;
 
-    public string StandardOut { get; }
-    public string StandardError { get; }
-    public int ExitCode { get; }
-
-    [Obsolete("Please use EnsureSuccessExitCode() instead")]
+    [Obsolete("Please use EnsureSuccessExitCode() instead", true)]
     public CommandResult EnsureSuccessfulExitCode(int successCode = 0) => EnsureSuccessExitCode(successCode);
     
     public CommandResult EnsureSuccessExitCode(int successCode = 0)
