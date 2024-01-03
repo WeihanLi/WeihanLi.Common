@@ -51,7 +51,7 @@ internal readonly struct AwaitableInfo
     }
 
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
-    public static bool IsTypeAwaitable([DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes.PublicMethods))]Type type, out AwaitableInfo? awaitableInfo)
+    public static bool IsTypeAwaitable([DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes.PublicMethods))] Type type, out AwaitableInfo? awaitableInfo)
     {
         // Based on Roslyn code: http://source.roslyn.io/#Microsoft.CodeAnalysis.Workspaces/Shared/Extensions/ISymbolExtensions.cs,db4d48ba694b9347
 

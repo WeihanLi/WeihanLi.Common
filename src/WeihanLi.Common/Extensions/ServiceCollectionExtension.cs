@@ -182,8 +182,8 @@ public static class ServiceCollectionExtension
     /// <param name="type">type</param>
     /// <param name="serviceLifetime">service lifetime</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterTypeAsImplementedInterfaces(this IServiceCollection services, 
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.Interfaces | DynamicallyAccessedMemberTypes.PublicConstructors)]Type type, 
+    public static IServiceCollection RegisterTypeAsImplementedInterfaces(this IServiceCollection services,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.Interfaces | DynamicallyAccessedMemberTypes.PublicConstructors)] Type type,
         ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
         => RegisterTypeAsImplementedInterfaces(services, type, null, serviceLifetime);
 
@@ -195,8 +195,8 @@ public static class ServiceCollectionExtension
     /// <param name="interfaceTypeFilter">interfaceTypeFilter</param>
     /// <param name="serviceLifetime">service lifetime</param>
     /// <returns>services</returns>
-    public static IServiceCollection RegisterTypeAsImplementedInterfaces(this IServiceCollection services, 
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.Interfaces | DynamicallyAccessedMemberTypes.PublicConstructors)]Type type, 
+    public static IServiceCollection RegisterTypeAsImplementedInterfaces(this IServiceCollection services,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.Interfaces | DynamicallyAccessedMemberTypes.PublicConstructors)] Type type,
         Func<Type, bool>? interfaceTypeFilter, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton)
     {
         Guard.NotNull(type);
@@ -266,7 +266,7 @@ public static class ServiceCollectionExtension
     /// <typeparam name="TDecorator">decorator type</typeparam>
     /// <param name="services">services</param>
     /// <returns>services</returns>
-    public static IServiceCollection Decorate<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TDecorator>(this IServiceCollection services)
+    public static IServiceCollection Decorate<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TDecorator>(this IServiceCollection services)
          where TService : class
          where TDecorator : class, TService
     {
@@ -281,8 +281,8 @@ public static class ServiceCollectionExtension
     /// <param name="decoratorType">decoratorType</param>
     /// <returns>services</returns>
     /// <exception cref="InvalidOperationException">throw exception when serviceType not registered</exception>
-    public static IServiceCollection Decorate(this IServiceCollection services, Type serviceType, 
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]Type decoratorType)
+    public static IServiceCollection Decorate(this IServiceCollection services, Type serviceType,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] Type decoratorType)
     {
         var service = services.LastOrDefault(x => x.ServiceType == serviceType);
         if (service == null)

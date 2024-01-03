@@ -36,4 +36,3 @@ steps:
   displayName: 'Powershell Script'
   env:
     Nuget__ApiKey: $(nugetApiKey)
-    Nuget__SourceUrl: $(nugetSourceUrl)

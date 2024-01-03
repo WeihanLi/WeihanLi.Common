@@ -29,7 +29,7 @@ public interface IDataSerializer
 public class XmlDataSerializer : IDataSerializer
 {
     internal static readonly Lazy<XmlDataSerializer> Instance = new();
-    
+
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public virtual byte[] Serialize<T>(T obj)
     {
@@ -46,7 +46,7 @@ public class XmlDataSerializer : IDataSerializer
         serializer.Serialize(ms, obj);
         return ms.ToArray();
     }
-    
+
     [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     public virtual T Deserialize<T>(byte[] bytes)
     {
@@ -69,11 +69,11 @@ public class JsonDataSerializer : IDataSerializer
     {
         if (typeof(Task).IsAssignableFrom(typeof(T)))
         {
-         throw new ArgumentException(Resource.TaskCanNotBeSerialized);
+            throw new ArgumentException(Resource.TaskCanNotBeSerialized);
         }
         return obj.ToJson().GetBytes();
     }
-     
+
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public virtual T Deserialize<T>(byte[] bytes)
     {

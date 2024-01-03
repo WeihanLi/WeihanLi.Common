@@ -1,8 +1,5 @@
-[string]$SCRIPT       = '.\build.cake'
+dotnet tool update -g dotnet-execute --prerelease
+
+Write-Host 'dotnet-exec ./build/build.cs "--args=$ARGS"' -ForegroundColor GREEN
  
-# Install cake.tool
-dotnet tool install --global cake.tool
-
-Write-Host "dotnet cake $SCRIPT $ARGS" -ForegroundColor GREEN
-
-dotnet cake $SCRIPT $CAKE_ARGS $ARGS
+dotnet-exec ./build/build.cs --args $ARGS

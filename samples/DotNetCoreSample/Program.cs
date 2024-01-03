@@ -1,11 +1,11 @@
-﻿using System.Net.Mime;
-// Copyright (c) Weihan Li. All rights reserved.
+﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
 using DotNetCoreSample;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Net.Mime;
 using WeihanLi.Common;
 using WeihanLi.Common.Aspect;
 using WeihanLi.Common.Event;
@@ -14,6 +14,8 @@ using WeihanLi.Extensions;
 using WeihanLi.Extensions.Dump;
 
 Console.WriteLine("----------DotNetCoreSample----------");
+
+InvokeHelper.OnInvokeException = ex => ConsoleHelper.ErrorWriteWithColor(ex.ToString(), ConsoleColor.DarkRed);
 
 // ServiceDecoratorTest.MainTest();
 
@@ -324,18 +326,20 @@ Console.WriteLine("----------DotNetCoreSample----------");
 // await AppHostTest.MainTest();
 // NewtonJsonFormatterTest.MainTest();
 
-DisposeTest.MainTest();
-Console.WriteLine();
-await DisposeTest.MainTestAsync();
-Console.WriteLine();
+// DisposeTest.MainTest();
+// Console.WriteLine();
+// await DisposeTest.MainTestAsync();
+// Console.WriteLine();
+//
+// ConsoleHelper.ReadKeyWithPrompt("Press any key to continue");
+//
+// await DisposeTest.MainTestAsync();
+// Console.WriteLine();
+//
+// GC.Collect();
+// GC.WaitForPendingFinalizers();
 
-ConsoleHelper.ReadKeyWithPrompt("Press any key to continue");
-
-await DisposeTest.MainTestAsync();
-Console.WriteLine();
-
-GC.Collect();
-GC.WaitForPendingFinalizers();
+await InvokeHelper.TryInvokeAsync(TemplatingSample.MainTest);
 
 ConsoleHelper.ReadKeyWithPrompt("Press any key to exit");
 

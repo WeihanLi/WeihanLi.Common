@@ -1,10 +1,7 @@
 #!/bin/sh
-SCRIPT='./build.cake'
 
-# Install cake.tool
-dotnet tool install --global cake.tool
+dotnet tool update -g dotnet-execute --prerelease
 export PATH="$PATH:$HOME/.dotnet/tools"
 
-echo "dotnet cake $SCRIPT $@"
-
-dotnet cake $SCRIPT "$@"
+echo "dotnet-exec ./build/build.cs --args $@"
+dotnet-exec ./build/build.cs --args "$@"

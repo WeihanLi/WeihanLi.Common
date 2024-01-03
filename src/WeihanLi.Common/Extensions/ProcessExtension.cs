@@ -122,22 +122,21 @@ public static class ProcessExtension
     public static int GetExitCode(this ProcessStartInfo psi, TextWriter? stdOut = null,
         TextWriter? stdErr = null)
     {
-        stdOut ??= Console.Out;
-        stdErr ??= Console.Error;
+        psi.RedirectStandardOutput = stdOut != null;
+        psi.RedirectStandardError = stdErr != null;
         psi.UseShellExecute = false;
-        psi.RedirectStandardError = true;
-        psi.RedirectStandardOutput = true;
         using var process = new Process { StartInfo = psi };
         process.OutputDataReceived += (_, e) =>
         {
             if (e.Data != null)
-                stdOut.WriteLine(e.Data);
+                stdOut?.WriteLine(e.Data);
         };
         process.ErrorDataReceived += (_, e) =>
         {
             if (e.Data != null)
-                stdErr.WriteLine(e.Data);
+                stdErr?.WriteLine(e.Data);
         };
+
         try
         {
             process.Start();
@@ -165,25 +164,23 @@ public static class ProcessExtension
     public static async Task<int> GetExitCodeAsync(this ProcessStartInfo psi, TextWriter? stdOut = null,
         TextWriter? stdErr = null, CancellationToken cancellationToken = default)
     {
-        stdOut ??= Console.Out;
-        stdErr ??= Console.Error;
+        psi.RedirectStandardOutput = stdOut != null;
+        psi.RedirectStandardError = stdErr != null;
         psi.UseShellExecute = false;
-        psi.RedirectStandardError = true;
-        psi.RedirectStandardOutput = true;
         using var process = new Process { StartInfo = psi };
         var stdOutComplete = new TaskCompletionSource<object?>();
         var stdErrComplete = new TaskCompletionSource<object?>();
         process.OutputDataReceived += (_, e) =>
         {
             if (e.Data != null)
-                stdOut.WriteLine(e.Data);
+                stdOut?.WriteLine(e.Data);
             else
                 stdOutComplete.SetResult(null);
         };
         process.ErrorDataReceived += (_, e) =>
         {
             if (e.Data != null)
-                stdErr.WriteLine(e.Data);
+                stdErr?.WriteLine(e.Data);
             else
                 stdErrComplete.SetResult(null);
         };

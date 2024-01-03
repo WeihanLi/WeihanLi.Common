@@ -12,33 +12,25 @@ on:
       - "dev"
 
 jobs:
-  mac-build:
-    runs-on: macos-latest
+  build:
+    name: Running tests on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest]
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: |
-          6.0.x
-          7.0.x
-          8.0.x
+          6.x
+          7.x
+          8.x
+    - name: dotnet info
+      run: dotnet --info
     - name: build
-      run: bash build.sh
-  
-  linux-build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: |
-          6.0.x
-          7.0.x
-          8.0.x
-    - name: build
-      run: bash build.sh
+      run: bash build.sh --target=test
   
   windows-build:
     runs-on: windows-latest

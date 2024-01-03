@@ -2,9 +2,14 @@
 // Licensed under the Apache license.
 
 namespace WeihanLi.Common.Templating;
+
 public interface ITemplateRendererBuilder
 {
-    ITemplateRendererBuilder Use(Func<TemplateRenderContext, Func<TemplateRenderContext, Task>, Task> middleware);
-    ITemplateRendererBuilder ConfigureOptions(Action<TemplateOptions> configureOptionsAction);
-    ITemplateRenderer Build();
+    ITemplateRendererBuilder UseRenderMiddleware<TMiddleware>(TMiddleware middleware)
+        where TMiddleware : class, IRenderMiddleware;
+}
+
+public interface ITemplateEngineBuilder : ITemplateRendererBuilder
+{
+    ITemplateRendererBuilder ConfigureOptions(Action<TemplateEngineOptions> optionsConfigure);
 }

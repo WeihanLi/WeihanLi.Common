@@ -17,7 +17,7 @@ public sealed class BoundedConcurrentQueueTest
         Assert.False(queue.TryEnqueue(null));
         Assert.Equal(1, queue.Count);
     }
-    
+
     [Fact]
     public void FullQueue_DropOldest()
     {

@@ -11,8 +11,8 @@ using WeihanLi.Common;
 namespace WeihanLi.Extensions;
 
 public static class ReflectionExtension
-{    
-    public static MethodInfo? GetMethodBySignature([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods | DynamicallyAccessedMemberTypes.NonPublicMethods)]this Type type, MethodInfo method)
+{
+    public static MethodInfo? GetMethodBySignature([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicMethods | DynamicallyAccessedMemberTypes.NonPublicMethods)] this Type type, MethodInfo method)
     {
         Guard.NotNull(type);
         Guard.NotNull(method);

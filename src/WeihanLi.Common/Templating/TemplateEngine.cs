@@ -1,46 +1,33 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
-using WeihanLi.Extensions;
-
 namespace WeihanLi.Common.Templating;
-public sealed class TemplateEngine : ITemplateRenderer, ITemplateParser
+public sealed class TemplateEngine(ITemplateParser templateParser, ITemplateRenderer templateRenderer)
+    : ITemplateEngine, ITemplateRenderer, ITemplateParser
 {
-    private readonly ITemplateParser _templateParser;
-    private readonly ITemplateRenderer _templateRenderer;
-    public TemplateEngine(ITemplateParser templateParser, ITemplateRenderer templateRenderer)
-    {
-        _templateParser = templateParser;
-        _templateRenderer = templateRenderer;
-    }
+    private readonly ITemplateParser _templateParser = templateParser;
+    private readonly ITemplateRenderer _templateRenderer = templateRenderer;
+
     public Task<TemplateRenderContext> ParseAsync(string text)
     {
         return _templateParser.ParseAsync(text);
     }
-    public async Task<string> RenderAsync(TemplateRenderContext context, object globals)
+    public async Task<string> RenderAsync(TemplateRenderContext context, object? globals)
     {
         return await _templateRenderer.RenderAsync(context, globals);
     }
 
-    public async Task<string> RenderAsync(string text, object parameters)
+    public async Task<string> RenderAsync(string text, object? parameters = null)
     {
         var context = await _templateParser.ParseAsync(text);
         var result = await _templateRenderer.RenderAsync(context, parameters);
         return result;
     }
 
-    public static TemplateEngine CreateDefault() =>
-        new TemplateEngine(new DefaultTemplateParser(), new DefaultTemplateRenderer(context =>
-        {
-            if (context.Text.IsNullOrWhiteSpace())
-            {
-                return Task.CompletedTask;
-            }
-            context.RenderedText = context.Text;
-            foreach (var parameter in context.Parameters)
-            {
-                context.RenderedText = context.RenderedText.Replace($"{{{{{parameter.Key}}}}}", parameter.Value?.ToString());
-            }
-            return Task.CompletedTask;
-        }));
+    public static TemplateEngine CreateDefault(Action<ITemplateEngineBuilder>? builderConfigure = null)
+    {
+        var builder = new TemplateEngineBuilder();
+        builderConfigure?.Invoke(builder);
+        return new TemplateEngine(builder.BuildParser(), builder.BuildRenderer());
+    }
 }

@@ -2,6 +2,8 @@
 // Licensed under the Apache license.
 
 namespace WeihanLi.Common.Templating;
-public sealed class TemplateOptions
+
+public interface ITemplateEngine
 {
+    Task<string> RenderAsync(string text, object? globals = null);
 }

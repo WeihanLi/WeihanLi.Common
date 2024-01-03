@@ -45,7 +45,7 @@ public static partial class DataExtension
 
     #region DataTable
 
-    public static DataTable ToDataTable<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]T>(this IEnumerable<T> entities)
+    public static DataTable ToDataTable<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] T>(this IEnumerable<T> entities)
     {
         if (null == entities)
         {
@@ -212,6 +212,7 @@ public static partial class DataExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as a DataTable.</returns>
+    [RequiresUnreferencedCode("Members from types used in the expression column to be trimmed if not referenced directly.")]
     public static DataTable ToDataTable(this IDataReader @this)
     {
         var dt = new DataTable();

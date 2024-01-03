@@ -5,29 +5,35 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Templating;
 
-internal sealed class TemplateRendererBuilder : ITemplateRendererBuilder
+internal sealed class TemplateEngineBuilder : ITemplateEngineBuilder
 {
     private readonly IAsyncPipelineBuilder<TemplateRenderContext> _pipelineBuilder =
         PipelineBuilder.CreateAsync<TemplateRenderContext>();
-    private Action<TemplateOptions>? _optionsAction;
+    private Action<TemplateEngineOptions>? _optionsConfigure;
 
-    public ITemplateRendererBuilder Use(Func<TemplateRenderContext, Func<TemplateRenderContext, Task>, Task> middleware)
+    public ITemplateRendererBuilder UseRenderMiddleware<TMiddleware>(TMiddleware middleware) where TMiddleware : class, IRenderMiddleware
     {
-        _pipelineBuilder.Use(middleware);
+        _pipelineBuilder.UseMiddleware(Guard.NotNull(middleware));
         return this;
     }
 
-    public ITemplateRendererBuilder ConfigureOptions(Action<TemplateOptions> configureOptionsAction)
+    public ITemplateRendererBuilder ConfigureOptions(Action<TemplateEngineOptions> optionsConfigure)
     {
-        Guard.NotNull(configureOptionsAction);
-        _optionsAction = configureOptionsAction;
+        _optionsConfigure = Guard.NotNull(optionsConfigure);
         return this;
     }
 
-    public ITemplateRenderer Build()
+    public ITemplateParser BuildParser() => new DefaultTemplateParser();
+
+    public ITemplateRenderer BuildRenderer()
     {
-        var options = new TemplateOptions();
-        _optionsAction?.Invoke(options);
+        var options = new TemplateEngineOptions();
+        _optionsConfigure?.Invoke(options);
+        _pipelineBuilder
+            .UseMiddleware(new DefaultRenderMiddleware())
+            .UseMiddleware(new EnvRenderMiddleware())
+            .UseMiddleware(new ConfigurationRenderMiddleware(options.Configuration))
+            ;
         return new DefaultTemplateRenderer(_pipelineBuilder.Build());
     }
 }

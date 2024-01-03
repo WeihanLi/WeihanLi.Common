@@ -1555,6 +1555,21 @@ public static class CoreExtension
         return Math.Sign(value);
     }
 
+    /// <summary>
+    /// Ensures the exitCode success
+    /// </summary>
+    /// <param name="exitCode">exitCode</param>
+    /// <param name="successCode">successCode</param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException">Exception when exitCode not match the successCode</exception>
+    public static int EnsureSuccessExitCode(this int exitCode, int successCode = 0)
+    {
+        if (exitCode != 0)
+            throw new InvalidOperationException($"Unexpected exit code:{exitCode}");
+
+        return exitCode;
+    }
+
     #endregion int
 
     #region long
@@ -1667,6 +1682,7 @@ public static class CoreExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">this.</param>
     /// <returns>A T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T To<T>(this object? @this)
     {
 #nullable disable
@@ -1704,6 +1720,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="type">The type.</param>
     /// <returns>An object.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static object? To(this object? @this, Type type)
     {
         if (@this == null || @this == DBNull.Value)
@@ -2599,14 +2616,14 @@ public static class CoreExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="args">The arguments.</param>
     /// <returns>The new instance.</returns>
-    public static T? CreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]T>([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]this Type @this, params object?[]? args) => (T?)Activator.CreateInstance(@this, args);
+    public static T? CreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] T>([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] this Type @this, params object?[]? args) => (T?)Activator.CreateInstance(@this, args);
 
     /// <summary>
     /// if a type has empty constructor
     /// </summary>
     /// <param name="type">type</param>
     /// <returns></returns>
-    public static bool HasEmptyConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]this Type type)
+    public static bool HasEmptyConstructor([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] this Type type)
         => Guard.NotNull(type, nameof(type)).GetConstructors(BindingFlags.Instance).Any(c => c.GetParameters().Length == 0);
 
     public static bool IsNullableType(this Type type)

@@ -73,6 +73,20 @@ public static class ConsoleHelper
             InvokeWithConsoleColor(() => Console.WriteLine(output), foregroundColor, backgroundColor);
     }
 
+    public static void ErrorWriteWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
+    {
+        if (!string.IsNullOrEmpty(output))
+            InvokeWithConsoleColor(() => Console.Error.Write(output), foregroundColor, backgroundColor);
+    }
+
+    public static void ErrorWriteLineWithColor(string error, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
+    {
+        if (string.IsNullOrEmpty(error))
+            Console.Error.WriteLine();
+        else
+            InvokeWithConsoleColor(() => Console.Error.WriteLine(error), foregroundColor, backgroundColor);
+    }
+
     public static string? GetInput(string? inputPrompt = null, bool insertNewLine = true)
     {
         var input = ReadLineWithPrompt(inputPrompt);
@@ -163,13 +177,27 @@ public static class ConsoleHelper
         if (condition) Console.Write(output);
     }
 
+    public static void ErrorWriteLineIf(string? output, bool condition)
+    {
+        if (condition) Console.Error.WriteLine(output);
+    }
+
+    public static void ErrorWriteIf(string? output, bool condition)
+    {
+        if (condition) Console.Error.Write(output);
+    }
+
     public static CommandResult PrintOutputToConsole(this CommandResult commandResult)
     {
         Guard.NotNull(commandResult);
-        
+
         Console.WriteLine(commandResult.StandardOut);
+
         if (!string.IsNullOrEmpty(commandResult.StandardError))
-            WriteLineWithColor(commandResult.StandardError, ConsoleColor.DarkRed);
+        {
+            Console.WriteLine();
+            ErrorWriteLineWithColor(commandResult.StandardError, ConsoleColor.DarkRed);
+        }
 
         return commandResult;
     }

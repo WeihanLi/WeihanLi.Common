@@ -30,7 +30,7 @@ public class DisposeTest
                 Name = "MainTest2"
             };
             Console.WriteLine(service.GetType());
-            
+
             service = null;
             Console.WriteLine(service is null);
         }
@@ -39,7 +39,7 @@ public class DisposeTest
 
         Console.WriteLine(@$"---- {nameof(MainTest)} end");
     }
-    
+
     public static async ValueTask MainTestAsync()
     {
         Console.WriteLine(@$"---- {nameof(MainTestAsync)} start");
@@ -63,7 +63,7 @@ public class DisposeTest
                 Name = "MainTestAsync2"
             };
             Console.WriteLine(service.GetType());
-            
+
             service = null;
             Console.WriteLine(service is null);
         }
@@ -77,12 +77,12 @@ public class DisposeTest
 file sealed class TestService : DisposableBase
 {
     public required string Name { get; init; }
-    
+
     protected override void Dispose(bool disposing)
     {
         if (disposing)
         {
-            Console.WriteLine($@"<<{Name}>> disposes managed resources");    
+            Console.WriteLine($@"<<{Name}>> disposes managed resources");
         }
         Console.WriteLine($@"<<{Name}>> disposes unmanaged resources");
         base.Dispose(disposing);

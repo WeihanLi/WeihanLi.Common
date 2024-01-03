@@ -40,7 +40,7 @@ public static class InterceptionConfigurationExtensions
         return interceptionConfiguration;
     }
 
-    public static IInterceptionConfiguration With<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TInterceptor>(this IInterceptionConfiguration interceptionConfiguration, params object?[] parameters) where TInterceptor : IInterceptor
+    public static IInterceptionConfiguration With<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TInterceptor>(this IInterceptionConfiguration interceptionConfiguration, params object?[] parameters) where TInterceptor : IInterceptor
     {
         if (Guard.NotNull(parameters, nameof(parameters)).Length == 0)
         {
