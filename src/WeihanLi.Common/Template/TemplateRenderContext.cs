@@ -3,7 +3,7 @@
 
 using WeihanLi.Common.Abstractions;
 
-namespace WeihanLi.Common.Templating;
+namespace WeihanLi.Common.Template;
 public sealed class TemplateRenderContext : IProperties
 {
     public TemplateRenderContext(string text, HashSet<string> variables)

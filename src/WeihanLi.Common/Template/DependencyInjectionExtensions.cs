@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using WeihanLi.Common.Helpers;
 
-namespace WeihanLi.Common.Templating;
+namespace WeihanLi.Common.Template;
 
 public static class DependencyInjectionExtensions
 {

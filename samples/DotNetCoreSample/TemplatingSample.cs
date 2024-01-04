@@ -3,7 +3,7 @@
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WeihanLi.Common.Templating;
+using WeihanLi.Common.Template;
 
 namespace DotNetCoreSample;
 

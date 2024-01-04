@@ -3,7 +3,7 @@
 
 using Microsoft.Extensions.Configuration;
 
-namespace WeihanLi.Common.Templating;
+namespace WeihanLi.Common.Template;
 
 internal sealed class ConfigurationRenderMiddleware(IConfiguration? configuration = null) : IRenderMiddleware
 {

@@ -3,7 +3,7 @@
 
 using WeihanLi.Extensions;
 
-namespace WeihanLi.Common.Templating;
+namespace WeihanLi.Common.Template;
 
 internal sealed class DefaultTemplateRenderer(Func<TemplateRenderContext, Task> renderFunc) : ITemplateRenderer
 {

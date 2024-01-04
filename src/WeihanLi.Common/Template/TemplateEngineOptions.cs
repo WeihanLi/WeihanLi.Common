@@ -3,7 +3,7 @@
 
 using Microsoft.Extensions.Configuration;
 
-namespace WeihanLi.Common.Templating;
+namespace WeihanLi.Common.Template;
 public sealed class TemplateEngineOptions
 {
     public IConfiguration? Configuration { get; set; }
