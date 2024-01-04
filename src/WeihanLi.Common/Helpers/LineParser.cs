@@ -7,7 +7,10 @@ namespace WeihanLi.Common.Helpers;
 
 public static class LineParser
 {
-    public static IEnumerable<string> ParseLine(string line, LineParseOptions? options = null)
+    [Obsolete("Please use Parse instead", true)]
+    public static IEnumerable<string> ParseLine(string line, LineParseOptions? options = null) => Parse(line, options);
+
+    public static IEnumerable<string> Parse(string line, LineParseOptions? options = null)
     {
         if (string.IsNullOrEmpty(line))
         {

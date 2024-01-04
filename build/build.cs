@@ -1,9 +1,6 @@
 // Copyright (c) 2022-2023 Weihan Li. All rights reserved.
 // Licensed under the Apache license version 2.0 http://www.apache.org/licenses/LICENSE-2.0
 
-// r: "nuget: CliWrap, 3.6.4"
-
-using CliWrap;
 using Newtonsoft.Json;
 
 //
@@ -15,11 +12,8 @@ var branchName = Environment.GetEnvironmentVariable("BUILD_SOURCEBRANCHNAME") ??
 
 var solutionPath = "./WeihanLi.Common.sln";
 string[] srcProjects = [ 
-    "./src/WeihanLi.Common/WeihanLi.Common.csproj", 
-    "./src/WeihanLi.Common.Aspect.AspectCore/WeihanLi.Common.Aspect.AspectCore.csproj", 
-    "./src/WeihanLi.Common.Aspect.Castle/WeihanLi.Common.Aspect.Castle.csproj",
+    "./src/WeihanLi.Common/WeihanLi.Common.csproj",
     "./src/WeihanLi.Common.Logging.Serilog/WeihanLi.Common.Logging.Serilog.csproj",
-    "./src/WeihanLi.Data/WeihanLi.Data.csproj",
     "./src/WeihanLi.Extensions.Hosting/WeihanLi.Extensions.Hosting.csproj",
 ];
 string[] testProjects = [ "./test/WeihanLi.Common.Test/WeihanLi.Common.Test.csproj" ];
@@ -109,7 +103,7 @@ await BuildProcess.CreateBuilder()
             // push nuget packages
             foreach (var file in Directory.GetFiles("./artifacts/packages/", "*.nupkg"))
             {
-                await ExecuteCommandAsync($"dotnet nuget push {file} -k {apiKey} --skip-duplicate");
+                await ExecuteCommandAsync($"dotnet nuget push {file} -k {apiKey} --skip-duplicate", [new("$NuGet__ApiKey", apiKey)]);
             }
         }))
     .WithTask("Default", b => b.WithDependency("hello").WithDependency("pack"))
@@ -152,18 +146,21 @@ string? ArgumentInternal(string argumentName)
     return null;
 }
 
-async Task ExecuteCommandAsync(string commandText)
+async Task ExecuteCommandAsync(string commandText, KeyValuePair<string, string>[]? replacements = null)
 {
-    Console.WriteLine($"Executing command: \n    {commandText}");
+    var commandTextWithReplacements = commandText;
+    if (replacements is { Length: > 0})
+    {
+        foreach (var item in replacements)
+        {
+            commandTextWithReplacements = commandTextWithReplacements.Replace(item.Value, item.Key);
+        }
+    }
+    Console.WriteLine($"Executing command: \n    {commandTextWithReplacements}");
     Console.WriteLine();
-    var splits = commandText.Split([' '], 2);
-    var result = await Cli.Wrap(splits[0])
-        .WithArguments(splits.Length > 1 ? splits[1] : string.Empty)
-        .WithStandardErrorPipe(PipeTarget.ToStream(Console.OpenStandardError()))
-        .WithStandardOutputPipe(PipeTarget.ToStream(Console.OpenStandardOutput()))
-        .ExecuteAsync();
+    var result = await CommandExecutor.ExecuteCommandAndOutputAsync(commandText);
+    result.EnsureSuccessExitCode();
     Console.WriteLine();
-    Console.WriteLine($"ExitCode: {result.ExitCode} ElapsedTime: {result.RunTime}");
 }
 
 file sealed class BuildProcess

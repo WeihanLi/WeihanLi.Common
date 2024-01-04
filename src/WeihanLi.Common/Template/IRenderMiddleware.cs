@@ -3,7 +3,7 @@
 
 using WeihanLi.Common.Helpers;
 
-namespace WeihanLi.Common.Templating;
+namespace WeihanLi.Common.Template;
 
 public interface IRenderMiddleware : IAsyncPipelineMiddleware<TemplateRenderContext>
 {

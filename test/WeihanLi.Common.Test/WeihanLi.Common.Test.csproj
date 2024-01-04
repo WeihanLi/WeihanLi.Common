@@ -22,6 +22,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\WeihanLi.Common\WeihanLi.Common.csproj" />
-    <ProjectReference Include="..\..\src\WeihanLi.Data\WeihanLi.Data.csproj" />
   </ItemGroup>
 </Project>
