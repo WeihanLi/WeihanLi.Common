@@ -161,7 +161,7 @@ async Task ExecuteCommandAsync(string commandText, KeyValuePair<string, string>[
     }
     Console.WriteLine($"Executing command: \n    {commandTextWithReplacements}");
     Console.WriteLine();
-    var result = await CommandExecutor.ExecuteAndOutputAsync(commandText);
+    var result = await CommandExecutor.ExecuteCommandAndOutputAsync(commandText);
     result.EnsureSuccessExitCode();
     Console.WriteLine();
 }
