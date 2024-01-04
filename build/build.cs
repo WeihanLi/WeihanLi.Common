@@ -51,7 +51,7 @@ await BuildProcess.CreateBuilder()
             {
                 foreach (var project in testProjects)
                 {
-                    await ExecuteCommandAsync($"dotnet test {project}");
+                    await ExecuteCommandAsync($"dotnet test {project} --collect 'XPlat Code Coverage;ExcludeByAttribute=ExcludeFromCodeCoverage,Obsolete,GeneratedCode,CompilerGeneratedAttribute'");
                 }
             })
             ;

@@ -32,13 +32,15 @@ steps:
 - script: dotnet --info
   displayName: 'dotnet info'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Run Unit Tests'
-  inputs:
-    command: 'test'
-    arguments: '--no-build -c Release --collect "XPlat Code Coverage"'
-
 - powershell: ./build.ps1
   displayName: 'Powershell Script'
   env:
     Nuget__ApiKey: $(nugetApiKey)
+
+# Publish code coverage results v2
+# Publish any of the code coverage results from a build.
+- task: PublishCodeCoverageResults@2
+  inputs:
+    summaryFileLocation: "**/coverage.*.xml" # string. Required. Path to summary files. 
+    #pathToSources: # string. Path to Source files. 
+    #failIfCoverageEmpty: false # boolean. Fail if code coverage results are missing. Default: false.
