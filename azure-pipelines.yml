@@ -32,6 +32,12 @@ steps:
 - script: dotnet --info
   displayName: 'dotnet info'
 
+- task: DotNetCoreCLI@2
+  displayName: 'Run Unit Tests'
+  inputs:
+    command: 'test'
+    arguments: '--no-build -c Release --collect "XPlat Code Coverage"'
+
 - powershell: ./build.ps1
   displayName: 'Powershell Script'
   env:
