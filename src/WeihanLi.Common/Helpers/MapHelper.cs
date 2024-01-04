@@ -5,7 +5,7 @@ namespace WeihanLi.Common.Helpers;
 
 public static class MapHelper
 {
-    public static TTarget Map<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]TSource, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]TTarget>(TSource source) where TTarget : new()
+    public static TTarget Map<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TSource, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TTarget>(TSource source) where TTarget : new()
     {
         if (source is null)
         {
@@ -41,7 +41,7 @@ public static class MapHelper
         return result;
     }
 
-    public static TTarget MapWith<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]TSource, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]TTarget>(TSource source, params string[] propertiesToMap) where TTarget : new()
+    public static TTarget MapWith<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TSource, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TTarget>(TSource source, params string[] propertiesToMap) where TTarget : new()
     {
         if (source is null)
         {
@@ -78,7 +78,7 @@ public static class MapHelper
         return result;
     }
 
-    public static TTarget MapWithout<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]TSource, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]TTarget>(TSource source, params string[] propertiesNoMap) where TTarget : new()
+    public static TTarget MapWithout<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TSource, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TTarget>(TSource source, params string[] propertiesNoMap) where TTarget : new()
     {
         if (source is null)
         {

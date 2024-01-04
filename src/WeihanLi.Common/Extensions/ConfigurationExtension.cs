@@ -66,12 +66,8 @@ public static class ConfigurationExtension
         return configuration;
     }
 
-    private sealed class InvalidConfigurationPlaceholderException : InvalidOperationException
-    {
-        public InvalidConfigurationPlaceholderException(string placeholder) : base($"Invalid configuration placeholder: '{placeholder}'.")
-        {
-        }
-    }
+    private sealed class InvalidConfigurationPlaceholderException(string placeholder)
+        : InvalidOperationException($"Invalid configuration placeholder: '{placeholder}'.");
 
     #endregion Placeholder
 
@@ -86,7 +82,7 @@ public static class ConfigurationExtension
     /// <returns>app setting value</returns>
     public static string GetRequiredAppSetting(this IConfiguration configuration, string key)
     {
-        var value = configuration.GetSection("AppSettings")?[key];
+        var value = configuration.GetAppSetting(key);
         return Guard.NotNull(value, nameof(key));
     }
 
@@ -127,7 +123,7 @@ public static class ConfigurationExtension
     /// <returns>app setting value</returns>
     public static string GetAppSetting(this IConfiguration configuration, string key, string defaultValue)
     {
-        return configuration.GetSection("AppSettings")[key] ?? defaultValue;
+        return configuration.GetAppSetting(key) ?? defaultValue;
     }
 
     /// <summary>

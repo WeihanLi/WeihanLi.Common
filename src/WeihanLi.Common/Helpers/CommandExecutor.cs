@@ -8,6 +8,8 @@ namespace WeihanLi.Common.Helpers;
 
 public static class CommandExecutor
 {
+    private static readonly char[] SpaceSeparator = [' '];
+
     /// <summary>
     /// Execute command
     /// </summary>
@@ -18,8 +20,40 @@ public static class CommandExecutor
     public static int ExecuteCommand(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null)
     {
         Guard.NotNullOrEmpty(command);
-        var cmd = command.Split(new[] { ' ' }, 2);
+        var cmd = command.Split(SpaceSeparator, 2);
         return Execute(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure);
+    }
+
+    /// <summary>
+    /// Execute command and capture output
+    /// </summary>
+    /// <param name="command">command with arguments</param>
+    /// <param name="workingDirectory">working directory for the command</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
+    /// <returns>command execute result</returns>
+    public static CommandResult ExecuteCommandAndCapture(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null)
+    {
+        Guard.NotNullOrEmpty(command);
+        var cmd = command.Split(SpaceSeparator, 2);
+        return ExecuteAndCapture(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure);
+    }
+
+    /// <summary>
+    /// Execute command with a process
+    /// </summary>
+    /// <param name="command">executable command and argument</param>
+    /// <param name="stdout">stdout writer, write to console by default</param>
+    /// <param name="stderr">stderr writer, write to console by default</param>
+    /// <param name="workingDirectory">working directory</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
+    /// <returns>exit code</returns>
+    public static int ExecuteCommandAndOutput(string command,
+        TextWriter? stdout = null, TextWriter? stderr = null,
+        string? workingDirectory = null, Action<ProcessStartInfo>? configure = null)
+    {
+        Guard.NotNullOrEmpty(command);
+        var cmd = command.Split(SpaceSeparator, 2);
+        return ExecuteAndOutput(cmd[0], cmd.Length > 1 ? cmd[1] : null, stdout, stderr, workingDirectory, configure);
     }
 
     /// <summary>
@@ -33,8 +67,43 @@ public static class CommandExecutor
     public static Task<int> ExecuteCommandAsync(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null, CancellationToken cancellationToken = default)
     {
         Guard.NotNullOrEmpty(command);
-        var cmd = command.Split(new[] { ' ' }, 2);
+        var cmd = command.Split(SpaceSeparator, 2);
         return ExecuteAsync(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure, cancellationToken);
+    }
+
+    /// <summary>
+    /// Execute command and capture output async
+    /// </summary>
+    /// <param name="command">command with arguments</param>
+    /// <param name="workingDirectory">working directory for the command</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
+    /// <param name="cancellationToken">cancellationToken</param>
+    /// <returns>command execute result</returns>
+    public static Task<CommandResult> ExecuteCommandAndCaptureAsync(string command, string? workingDirectory = null, Action<ProcessStartInfo>? configure = null, CancellationToken cancellationToken = default)
+    {
+        Guard.NotNullOrEmpty(command);
+        var cmd = command.Split(SpaceSeparator, 2);
+        return ExecuteAndCaptureAsync(cmd[0], cmd.Length > 1 ? cmd[1] : null, workingDirectory, configure, cancellationToken);
+    }
+
+    /// <summary>
+    /// Execute command with a process
+    /// </summary>
+    /// <param name="command">executable command and argument</param>
+    /// <param name="arguments">command arguments</param>
+    /// <param name="stdout">stdout writer, write to console by default</param>
+    /// <param name="stderr">stderr writer, write to console by default</param>
+    /// <param name="workingDirectory">working directory</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
+    /// <param name="cancellationToken">cancellationToken</param>
+    /// <returns>exit code</returns>
+    public static Task<int> ExecuteCommandAndOutputAsync(string command, string? arguments = null,
+        TextWriter? stdout = null, TextWriter? stderr = null,
+        string? workingDirectory = null, Action<ProcessStartInfo>? configure = null, CancellationToken cancellationToken = default)
+    {
+        Guard.NotNullOrEmpty(command);
+        var cmd = command.Split(SpaceSeparator, 2);
+        return ExecuteAndOutputAsync(cmd[0], cmd.Length > 1 ? cmd[1] : null, stdout, stderr, workingDirectory, configure, cancellationToken);
     }
 
     /// <summary>
@@ -58,7 +127,7 @@ public static class CommandExecutor
     }
 
     /// <summary>
-    /// Execute command with a process
+    /// Execute command with a process async
     /// </summary>
     /// <param name="commandPath">executable command path</param>
     /// <param name="arguments">command arguments</param>
@@ -76,6 +145,55 @@ public static class CommandExecutor
         };
         configure?.Invoke(processStartInfo);
         return await processStartInfo.ExecuteAsync(cancellationToken);
+    }
+
+    /// <summary>
+    /// Execute command with a process
+    /// </summary>
+    /// <param name="commandPath">executable command path</param>
+    /// <param name="arguments">command arguments</param>
+    /// <param name="stdout">stdout writer, write to console by default</param>
+    /// <param name="stderr">stderr writer, write to console by default</param>
+    /// <param name="workingDirectory">working directory</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
+    /// <returns>exit code</returns>
+    public static int ExecuteAndOutput(string commandPath, string? arguments = null,
+        TextWriter? stdout = null, TextWriter? stderr = null,
+        string? workingDirectory = null, Action<ProcessStartInfo>? configure = null)
+    {
+        var processStartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
+        {
+            UseShellExecute = false,
+            CreateNoWindow = true,
+            WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
+        };
+        configure?.Invoke(processStartInfo);
+        return processStartInfo.GetExitCode(stdout ?? Console.Out, stderr ?? Console.Error);
+    }
+
+    /// <summary>
+    /// Execute command with a process
+    /// </summary>
+    /// <param name="commandPath">executable command path</param>
+    /// <param name="arguments">command arguments</param>
+    /// <param name="stdout">stdout writer, write to console by default</param>
+    /// <param name="stderr">stderr writer, write to console by default</param>
+    /// <param name="workingDirectory">working directory</param>
+    /// <param name="configure">configure the ProcessStartInfo</param>
+    /// <param name="cancellationToken">cancellationToken</param>
+    /// <returns>exit code</returns>
+    public static async Task<int> ExecuteAndOutputAsync(string commandPath, string? arguments = null,
+        TextWriter? stdout = null, TextWriter? stderr = null,
+        string? workingDirectory = null, Action<ProcessStartInfo>? configure = null, CancellationToken cancellationToken = default)
+    {
+        var processStartInfo = new ProcessStartInfo(commandPath, arguments ?? string.Empty)
+        {
+            UseShellExecute = false,
+            CreateNoWindow = true,
+            WorkingDirectory = workingDirectory ?? Environment.CurrentDirectory
+        };
+        configure?.Invoke(processStartInfo);
+        return await processStartInfo.GetExitCodeAsync(stdout ?? Console.Out, stderr ?? Console.Error, cancellationToken);
     }
 
     /// <summary>
@@ -141,25 +259,18 @@ public static class CommandExecutor
     }
 }
 
-public sealed class CommandResult
+public sealed class CommandResult(int exitCode, string standardOut, string standardError)
 {
-    public CommandResult(int exitCode, string standardOut, string standardError)
-    {
-        ExitCode = exitCode;
-        StandardOut = standardOut;
-        StandardError = standardError;
-    }
+    public string StandardOut { get; } = standardOut;
+    public string StandardError { get; } = standardError;
+    public int ExitCode { get; } = exitCode;
 
-    public string StandardOut { get; }
-    public string StandardError { get; }
-    public int ExitCode { get; }
+    [Obsolete("Please use EnsureSuccessExitCode() instead", true)]
+    public CommandResult EnsureSuccessfulExitCode(int successCode = 0) => EnsureSuccessExitCode(successCode);
 
-    public CommandResult EnsureSuccessfulExitCode(int successCode = 0)
+    public CommandResult EnsureSuccessExitCode(int successCode = 0)
     {
-        if (ExitCode != successCode)
-        {
-            throw new InvalidOperationException($"Unexpected exit code:{ExitCode} {StandardError}");
-        }
+        ExitCode.EnsureSuccessExitCode(successCode);
         return this;
     }
 }

@@ -39,8 +39,8 @@ public static class EventBusExtensions
 
         return new EventBuilder(services);
     }
-    
-    public static IEventBuilder AddEventHandler<TEvent, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TEventHandler>(this IEventBuilder eventBuilder, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
+
+    public static IEventBuilder AddEventHandler<TEvent, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TEventHandler>(this IEventBuilder eventBuilder, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
       where TEvent : class, IEventBase
       where TEventHandler : class, IEventHandler<TEvent>
     {
@@ -54,7 +54,7 @@ public static class EventBusExtensions
         eventBuilder.Services.TryAddEnumerable(new ServiceDescriptor(typeof(IEventHandler<TEvent>), eventHandler));
         return eventBuilder;
     }
-    
+
     [RequiresUnreferencedCode("Assembly.GetTypes() requires unreferenced code")]
     public static IEventBuilder RegisterEventHandlers(this IEventBuilder builder, Func<Type, bool>? filter = null, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton, params Assembly[] assemblies)
     {

@@ -10,7 +10,7 @@ namespace WeihanLi.Common.Helpers.Hosting;
 
 public static class AppHostBuilderExtensions
 {
-    public static IAppHostBuilder AddHostedService<[DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes.PublicConstructors))]TService>(this IAppHostBuilder appHostBuilder)
+    public static IAppHostBuilder AddHostedService<[DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes.PublicConstructors))] TService>(this IAppHostBuilder appHostBuilder)
         where TService : class, IHostedService
     {
         Guard.NotNull(appHostBuilder);

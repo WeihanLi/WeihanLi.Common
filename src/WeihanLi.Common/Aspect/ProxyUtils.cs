@@ -29,7 +29,7 @@ internal static class ProxyUtils
         "GetType",
         "Finalize",
     };
-    
+
     static ProxyUtils()
     {
         var asmBuilder = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName(ProxyAssemblyName), AssemblyBuilderAccess.Run);
@@ -70,7 +70,7 @@ internal static class ProxyUtils
 
         return type.IsBasicType() ? type.Name : type.FullName ?? type.Name;
     }
-    
+
     [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
     [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static Type CreateInterfaceProxy(Type interfaceType)
@@ -315,7 +315,7 @@ internal static class ProxyUtils
     public static Type CreateClassProxy(Type serviceType, Type? implementType)
     {
         Guard.NotNull(serviceType);
-        
+
         if (implementType is null)
         {
             implementType = serviceType;
@@ -767,7 +767,7 @@ internal static class ProxyUtils
             return GenericParameterAttributes.None;
         }
     }
-    
+
     [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
     [RequiresUnreferencedCode("Unreferenced code may be used")]
     private static CustomAttributeBuilder DefineCustomAttribute(CustomAttributeData customAttributeData)
@@ -776,7 +776,7 @@ internal static class ProxyUtils
         if (customAttributeData.NamedArguments is null)
             return new CustomAttributeBuilder(customAttributeData.Constructor,
                 customAttributeData.ConstructorArguments.Select(c => c.Value).ToArray());
-        
+
         var attributeTypeInfo = customAttributeData.AttributeType.GetTypeInfo();
         var constructorArgs = customAttributeData.ConstructorArguments
             .Select(ReadAttributeValue)

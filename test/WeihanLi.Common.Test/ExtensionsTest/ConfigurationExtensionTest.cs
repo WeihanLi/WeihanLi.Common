@@ -10,7 +10,7 @@ public class ConfigurationExtensionTest
     [InlineData("false")]
     [InlineData("false-value")]
     [InlineData(null)]
-    public void FeatureFlagTest(string value)
+    public void FeatureFlagTest(string? value)
     {
         var featureName = "TestFeature";
         var configuration = new ConfigurationBuilder()

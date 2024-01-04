@@ -1,16 +1,24 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the MIT license.
 
+using WeihanLi.Common.Helpers;
+using WeihanLi.Extensions;
 using static WeihanLi.Common.Helpers.CommandExecutor;
 
 namespace DotNetCoreSample;
 
-internal class CommandExecutorTest
+internal static class CommandExecutorTest
 {
     public static void MainTest()
     {
-        var result = ExecuteAndCapture("hostname");
-        result.EnsureSuccessfulExitCode();
-        Console.WriteLine(result.StandardOut);
+        ExecuteAndCapture("hostname")
+            .PrintOutputToConsole()
+            .EnsureSuccessExitCode();
+
+        ExecuteAndOutput("hostname").EnsureSuccessExitCode();
+
+        ExecuteAndOutputAsync("hostname").Wait();
+
+        ExecuteCommandAndOutput("hostname").EnsureSuccessExitCode();
     }
 }

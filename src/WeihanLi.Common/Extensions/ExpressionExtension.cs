@@ -154,7 +154,7 @@ public static class ExpressionExtension
     /// <typeparam name="TProperty"></typeparam>
     /// <param name="expression"></param>
     /// <returns></returns>
-    public static PropertyInfo GetProperty<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]TEntity, TProperty>(
+    public static PropertyInfo GetProperty<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TEntity, TProperty>(
         this Expression<Func<TEntity, TProperty>> expression)
     {
         var member = GetMemberInfo(expression);

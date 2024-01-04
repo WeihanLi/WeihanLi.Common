@@ -32,7 +32,7 @@ public class StringExtensionTest
     [InlineData("", "123")]
     [InlineData(" ", "123")]
     [InlineData(null, "123")]
-    public void GetNotEmptyValue(string value, string defaultValue)
+    public void GetNotEmptyValue(string? value, string defaultValue)
     {
         var expected = string.IsNullOrEmpty(value) ? defaultValue : value;
         Assert.Equal(expected, value.GetNotEmptyValueOrDefault(defaultValue));
@@ -43,7 +43,7 @@ public class StringExtensionTest
     [InlineData("", "123")]
     [InlineData(" ", "123")]
     [InlineData(null, "123")]
-    public void StringGetValue(string value, string defaultValue)
+    public void StringGetValue(string? value, string defaultValue)
     {
         var expected = string.IsNullOrWhiteSpace(value) ? defaultValue : value;
         Assert.Equal(expected, value.GetValueOrDefault(defaultValue));
@@ -68,7 +68,7 @@ public class StringExtensionTest
     [InlineData(" ")]
     [InlineData("")]
     [InlineData(null)]
-    public void IsNullOrEmpty(string value)
+    public void IsNullOrEmpty(string? value)
     {
         Assert.Equal(string.IsNullOrEmpty(value), value.IsNullOrEmpty());
     }
@@ -79,7 +79,7 @@ public class StringExtensionTest
     [InlineData(" ")]
     [InlineData("")]
     [InlineData(null)]
-    public void IsNotNullOrEmpty(string value)
+    public void IsNotNullOrEmpty(string? value)
     {
         Assert.Equal(!string.IsNullOrEmpty(value), value.IsNotNullOrEmpty());
     }
@@ -90,7 +90,7 @@ public class StringExtensionTest
     [InlineData(" ")]
     [InlineData("")]
     [InlineData(null)]
-    public void IsNullOrWhiteSpace(string value)
+    public void IsNullOrWhiteSpace(string? value)
     {
         Assert.Equal(string.IsNullOrWhiteSpace(value), value.IsNullOrWhiteSpace());
     }
@@ -101,7 +101,7 @@ public class StringExtensionTest
     [InlineData(" ")]
     [InlineData("")]
     [InlineData(null)]
-    public void IsNotNullOrWhiteSpace(string value)
+    public void IsNotNullOrWhiteSpace(string? value)
     {
         Assert.Equal(!string.IsNullOrWhiteSpace(value), value.IsNotNullOrWhiteSpace());
     }

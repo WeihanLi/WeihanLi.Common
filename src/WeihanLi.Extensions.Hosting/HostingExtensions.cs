@@ -14,7 +14,7 @@ public static class HostingExtensions
         ArgumentNullException.ThrowIfNull(optionsConfigure);
 
         hostApplicationBuilder.Services.Configure(optionsConfigure);
-        
+
         return hostApplicationBuilder;
     }
 }

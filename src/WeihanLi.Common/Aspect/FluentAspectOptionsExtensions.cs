@@ -67,7 +67,7 @@ public static class FluentAspectOptionsExtensions
         return options.InterceptMethod(m => m.GetSignature().Equals(methodSignature));
     }
 
-    public static IInterceptionConfiguration InterceptPropertyGetter<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]T>(this FluentAspectOptions options,
+    public static IInterceptionConfiguration InterceptPropertyGetter<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] T>(this FluentAspectOptions options,
         Expression<Func<T, object>> expression)
     {
         var prop = expression.GetProperty();
@@ -84,7 +84,7 @@ public static class FluentAspectOptionsExtensions
         return options.InterceptMethod<T>(prop.GetMethod);
     }
 
-    public static IInterceptionConfiguration InterceptPropertySetter<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]T>(this FluentAspectOptions options,
+    public static IInterceptionConfiguration InterceptPropertySetter<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] T>(this FluentAspectOptions options,
         Expression<Func<T, object>> expression)
     {
         var prop = expression.GetProperty();
@@ -234,7 +234,7 @@ public static class FluentAspectOptionsExtensions
         return options.NoInterceptMethod(m => m.GetSignature().Equals(methodSignature));
     }
 
-    public static FluentAspectOptions NoInterceptProperty<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]T>(this FluentAspectOptions options,
+    public static FluentAspectOptions NoInterceptProperty<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] T>(this FluentAspectOptions options,
         Expression<Func<T, object>> expression)
     {
         var prop = expression.GetProperty();
@@ -254,7 +254,7 @@ public static class FluentAspectOptionsExtensions
         return options;
     }
 
-    public static FluentAspectOptions NoInterceptPropertyGetter<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]T>(this FluentAspectOptions options,
+    public static FluentAspectOptions NoInterceptPropertyGetter<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] T>(this FluentAspectOptions options,
         Expression<Func<T, object>> expression)
     {
         var prop = expression.GetProperty();
@@ -271,7 +271,7 @@ public static class FluentAspectOptionsExtensions
         return options.NoInterceptMethod<T>(prop.GetMethod);
     }
 
-    public static FluentAspectOptions NoInterceptPropertySetter<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]T>(this FluentAspectOptions options,
+    public static FluentAspectOptions NoInterceptPropertySetter<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] T>(this FluentAspectOptions options,
         Expression<Func<T, object>> expression)
     {
         var prop = expression.GetProperty();
@@ -323,8 +323,8 @@ public static class FluentAspectOptionsExtensions
         options.ProxyFactory = new TProxyFactory();
         return options;
     }
-    
-    public static FluentAspectOptions UseProxyFactory<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TProxyFactory>(this FluentAspectOptions options,
+
+    public static FluentAspectOptions UseProxyFactory<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TProxyFactory>(this FluentAspectOptions options,
         params object[] parameters) where TProxyFactory : class, IProxyFactory
     {
         options.ProxyFactory = ActivatorHelper.CreateInstance<TProxyFactory>(parameters);

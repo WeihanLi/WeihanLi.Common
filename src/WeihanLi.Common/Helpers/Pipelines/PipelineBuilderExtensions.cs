@@ -191,7 +191,7 @@ public static class PipelineBuilderExtensions
         return builder.Use(next =>
             context => func(context, next));
     }
-    
+
     public static IValueAsyncPipelineBuilder<TContext> UseMiddleware<TContext>(this IValueAsyncPipelineBuilder<TContext> builder, IValueAsyncPipelineMiddleware<TContext> middleware)
     {
         Guard.NotNull(middleware);
@@ -205,7 +205,7 @@ public static class PipelineBuilderExtensions
 
     [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IValueAsyncPipelineBuilder<TContext> UseMiddleware<TContext, TMiddleware>(this IValueAsyncPipelineBuilder<TContext> builder)
-        where  TMiddleware : class, IValueAsyncPipelineMiddleware<TContext>
+        where TMiddleware : class, IValueAsyncPipelineMiddleware<TContext>
     {
         return builder.UseMiddleware(DependencyResolver.Current.GetServiceOrCreateInstance<TMiddleware>());
     }
