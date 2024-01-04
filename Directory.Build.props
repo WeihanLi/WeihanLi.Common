@@ -13,7 +13,4 @@
     <ContinuousIntegrationBuild Condition="'$(TF_BUILD)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
-  <ItemGroup>
-    <InternalsVisibleTo Condition="'$(Configuration)'=='Debug'" Include="WeihanLi.Common.Test" />
-  </ItemGroup>
 </Project>

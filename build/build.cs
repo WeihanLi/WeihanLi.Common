@@ -12,11 +12,8 @@ var branchName = Environment.GetEnvironmentVariable("BUILD_SOURCEBRANCHNAME") ??
 
 var solutionPath = "./WeihanLi.Common.sln";
 string[] srcProjects = [ 
-    "./src/WeihanLi.Common/WeihanLi.Common.csproj", 
-    "./src/WeihanLi.Common.Aspect.AspectCore/WeihanLi.Common.Aspect.AspectCore.csproj", 
-    "./src/WeihanLi.Common.Aspect.Castle/WeihanLi.Common.Aspect.Castle.csproj",
+    "./src/WeihanLi.Common/WeihanLi.Common.csproj",
     "./src/WeihanLi.Common.Logging.Serilog/WeihanLi.Common.Logging.Serilog.csproj",
-    "./src/WeihanLi.Data/WeihanLi.Data.csproj",
     "./src/WeihanLi.Extensions.Hosting/WeihanLi.Extensions.Hosting.csproj",
 ];
 string[] testProjects = [ "./test/WeihanLi.Common.Test/WeihanLi.Common.Test.csproj" ];

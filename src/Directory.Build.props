@@ -28,4 +28,7 @@
     <None Include="README.md" Pack="true" PackagePath="\" />
     <None Include="$([MSBuild]::GetPathOfFileAbove('icon.jpg', '$(MSBuildThisFileDirectory)../'))" Pack="true" Visible="false" PackagePath=""/>
   </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Condition="'$(Configuration)'=='Debug'" Include="WeihanLi.Common.Test" />
+  </ItemGroup>
 </Project>
