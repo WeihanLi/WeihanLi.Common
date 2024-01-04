@@ -134,36 +134,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Aspect.AspectCore.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Common.Aspect.AspectCore.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Aspect.AspectDelegate.yml",
       "output": {
         ".html": {
@@ -198,56 +168,6 @@
       "output": {
         ".html": {
           "relative_path": "api/WeihanLi.Common.Aspect.AttributeInterceptorResolver.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Aspect.Castle.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Common.Aspect.Castle.html"
         }
       },
       "version": ""
@@ -3074,90 +2994,110 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Templating.DefaultTemplateParser.yml",
+      "source_relative_path": "api/WeihanLi.Common.Template.DependencyInjectionExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/WeihanLi.Common.Templating.DefaultTemplateParser.html"
+          "relative_path": "api/WeihanLi.Common.Template.DependencyInjectionExtensions.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Templating.DefaultTemplateRenderer.yml",
+      "source_relative_path": "api/WeihanLi.Common.Template.IRenderMiddleware.yml",
       "output": {
         ".html": {
-          "relative_path": "api/WeihanLi.Common.Templating.DefaultTemplateRenderer.html"
+          "relative_path": "api/WeihanLi.Common.Template.IRenderMiddleware.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Templating.ITemplateParser.yml",
+      "source_relative_path": "api/WeihanLi.Common.Template.ITemplateEngine.yml",
       "output": {
         ".html": {
-          "relative_path": "api/WeihanLi.Common.Templating.ITemplateParser.html"
+          "relative_path": "api/WeihanLi.Common.Template.ITemplateEngine.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Templating.ITemplateRenderer.yml",
+      "source_relative_path": "api/WeihanLi.Common.Template.ITemplateEngineBuilder.yml",
       "output": {
         ".html": {
-          "relative_path": "api/WeihanLi.Common.Templating.ITemplateRenderer.html"
+          "relative_path": "api/WeihanLi.Common.Template.ITemplateEngineBuilder.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Templating.ITemplateRendererBuilder.yml",
+      "source_relative_path": "api/WeihanLi.Common.Template.ITemplateParser.yml",
       "output": {
         ".html": {
-          "relative_path": "api/WeihanLi.Common.Templating.ITemplateRendererBuilder.html"
+          "relative_path": "api/WeihanLi.Common.Template.ITemplateParser.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Templating.TemplateEngine.yml",
+      "source_relative_path": "api/WeihanLi.Common.Template.ITemplateRenderer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/WeihanLi.Common.Templating.TemplateEngine.html"
+          "relative_path": "api/WeihanLi.Common.Template.ITemplateRenderer.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Templating.TemplateOptions.yml",
+      "source_relative_path": "api/WeihanLi.Common.Template.ITemplateRendererBuilder.yml",
       "output": {
         ".html": {
-          "relative_path": "api/WeihanLi.Common.Templating.TemplateOptions.html"
+          "relative_path": "api/WeihanLi.Common.Template.ITemplateRendererBuilder.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Templating.TemplateRenderContext.yml",
+      "source_relative_path": "api/WeihanLi.Common.Template.TemplateEngine.yml",
       "output": {
         ".html": {
-          "relative_path": "api/WeihanLi.Common.Templating.TemplateRenderContext.html"
+          "relative_path": "api/WeihanLi.Common.Template.TemplateEngine.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Templating.yml",
+      "source_relative_path": "api/WeihanLi.Common.Template.TemplateEngineOptions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/WeihanLi.Common.Templating.html"
+          "relative_path": "api/WeihanLi.Common.Template.TemplateEngineOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Template.TemplateRenderContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Template.TemplateRenderContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Template.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Template.html"
         }
       },
       "version": ""
@@ -3168,26 +3108,6 @@
       "output": {
         ".html": {
           "relative_path": "api/WeihanLi.Common.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Data.SqlExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Data.SqlExtensions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Data.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Data.html"
         }
       },
       "version": ""

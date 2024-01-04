@@ -715,95 +715,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Aspect.AbstractInterceptor.Invoke
   nameWithType: AbstractInterceptor.Invoke
-- uid: WeihanLi.Common.Aspect.AspectCore
-  name: WeihanLi.Common.Aspect.AspectCore
-  href: api/WeihanLi.Common.Aspect.AspectCore.html
-  commentId: N:WeihanLi.Common.Aspect.AspectCore
-  fullName: WeihanLi.Common.Aspect.AspectCore
-  nameWithType: WeihanLi.Common.Aspect.AspectCore
-- uid: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor
-  name: AspectCoreFluentAspectInterceptor
-  href: api/WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.html
-  commentId: T:WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor
-  fullName: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor
-  nameWithType: AspectCoreFluentAspectInterceptor
-- uid: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.AllowMultiple
-  name: AllowMultiple
-  href: api/WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.html#WeihanLi_Common_Aspect_AspectCore_AspectCoreFluentAspectInterceptor_AllowMultiple
-  commentId: P:WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.AllowMultiple
-  fullName: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.AllowMultiple
-  nameWithType: AspectCoreFluentAspectInterceptor.AllowMultiple
-- uid: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.AllowMultiple*
-  name: AllowMultiple
-  href: api/WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.html#WeihanLi_Common_Aspect_AspectCore_AspectCoreFluentAspectInterceptor_AllowMultiple_
-  commentId: Overload:WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.AllowMultiple
-  isSpec: "True"
-  fullName: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.AllowMultiple
-  nameWithType: AspectCoreFluentAspectInterceptor.AllowMultiple
-- uid: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Inherited
-  name: Inherited
-  href: api/WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.html#WeihanLi_Common_Aspect_AspectCore_AspectCoreFluentAspectInterceptor_Inherited
-  commentId: P:WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Inherited
-  fullName: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Inherited
-  nameWithType: AspectCoreFluentAspectInterceptor.Inherited
-- uid: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Inherited*
-  name: Inherited
-  href: api/WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.html#WeihanLi_Common_Aspect_AspectCore_AspectCoreFluentAspectInterceptor_Inherited_
-  commentId: Overload:WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Inherited
-  isSpec: "True"
-  fullName: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Inherited
-  nameWithType: AspectCoreFluentAspectInterceptor.Inherited
-- uid: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Invoke(AspectCore.DynamicProxy.AspectContext,AspectCore.DynamicProxy.AspectDelegate)
-  name: Invoke(AspectContext, AspectDelegate)
-  href: api/WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.html#WeihanLi_Common_Aspect_AspectCore_AspectCoreFluentAspectInterceptor_Invoke_AspectCore_DynamicProxy_AspectContext_AspectCore_DynamicProxy_AspectDelegate_
-  commentId: M:WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Invoke(AspectCore.DynamicProxy.AspectContext,AspectCore.DynamicProxy.AspectDelegate)
-  fullName: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Invoke(AspectCore.DynamicProxy.AspectContext, AspectCore.DynamicProxy.AspectDelegate)
-  nameWithType: AspectCoreFluentAspectInterceptor.Invoke(AspectContext, AspectDelegate)
-- uid: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Invoke*
-  name: Invoke
-  href: api/WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.html#WeihanLi_Common_Aspect_AspectCore_AspectCoreFluentAspectInterceptor_Invoke_
-  commentId: Overload:WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Invoke
-  isSpec: "True"
-  fullName: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Invoke
-  nameWithType: AspectCoreFluentAspectInterceptor.Invoke
-- uid: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Order
-  name: Order
-  href: api/WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.html#WeihanLi_Common_Aspect_AspectCore_AspectCoreFluentAspectInterceptor_Order
-  commentId: P:WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Order
-  fullName: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Order
-  nameWithType: AspectCoreFluentAspectInterceptor.Order
-- uid: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Order*
-  name: Order
-  href: api/WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.html#WeihanLi_Common_Aspect_AspectCore_AspectCoreFluentAspectInterceptor_Order_
-  commentId: Overload:WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Order
-  isSpec: "True"
-  fullName: WeihanLi.Common.Aspect.AspectCore.AspectCoreFluentAspectInterceptor.Order
-  nameWithType: AspectCoreFluentAspectInterceptor.Order
-- uid: WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions
-  name: FluentAspectBuilderExtensions
-  href: api/WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.html
-  commentId: T:WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions
-  fullName: WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions
-  nameWithType: FluentAspectBuilderExtensions
-- uid: WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.UseAspectCoreProxy(WeihanLi.Common.Aspect.IFluentAspectsBuilder)
-  name: UseAspectCoreProxy(IFluentAspectsBuilder)
-  href: api/WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.html#WeihanLi_Common_Aspect_AspectCore_FluentAspectBuilderExtensions_UseAspectCoreProxy_WeihanLi_Common_Aspect_IFluentAspectsBuilder_
-  commentId: M:WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.UseAspectCoreProxy(WeihanLi.Common.Aspect.IFluentAspectsBuilder)
-  fullName: WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.UseAspectCoreProxy(WeihanLi.Common.Aspect.IFluentAspectsBuilder)
-  nameWithType: FluentAspectBuilderExtensions.UseAspectCoreProxy(IFluentAspectsBuilder)
-- uid: WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.UseAspectCoreProxy(WeihanLi.Common.Aspect.IFluentAspectsServiceContainerBuilder)
-  name: UseAspectCoreProxy(IFluentAspectsServiceContainerBuilder)
-  href: api/WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.html#WeihanLi_Common_Aspect_AspectCore_FluentAspectBuilderExtensions_UseAspectCoreProxy_WeihanLi_Common_Aspect_IFluentAspectsServiceContainerBuilder_
-  commentId: M:WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.UseAspectCoreProxy(WeihanLi.Common.Aspect.IFluentAspectsServiceContainerBuilder)
-  fullName: WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.UseAspectCoreProxy(WeihanLi.Common.Aspect.IFluentAspectsServiceContainerBuilder)
-  nameWithType: FluentAspectBuilderExtensions.UseAspectCoreProxy(IFluentAspectsServiceContainerBuilder)
-- uid: WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.UseAspectCoreProxy*
-  name: UseAspectCoreProxy
-  href: api/WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.html#WeihanLi_Common_Aspect_AspectCore_FluentAspectBuilderExtensions_UseAspectCoreProxy_
-  commentId: Overload:WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.UseAspectCoreProxy
-  isSpec: "True"
-  fullName: WeihanLi.Common.Aspect.AspectCore.FluentAspectBuilderExtensions.UseAspectCoreProxy
-  nameWithType: FluentAspectBuilderExtensions.UseAspectCoreProxy
 - uid: WeihanLi.Common.Aspect.AspectDelegate
   name: AspectDelegate
   href: api/WeihanLi.Common.Aspect.AspectDelegate.html
@@ -1057,97 +968,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Aspect.AttributeInterceptorResolver.ResolveInterceptors
   nameWithType: AttributeInterceptorResolver.ResolveInterceptors
-- uid: WeihanLi.Common.Aspect.Castle
-  name: WeihanLi.Common.Aspect.Castle
-  href: api/WeihanLi.Common.Aspect.Castle.html
-  commentId: N:WeihanLi.Common.Aspect.Castle
-  fullName: WeihanLi.Common.Aspect.Castle
-  nameWithType: WeihanLi.Common.Aspect.Castle
-- uid: WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor
-  name: CastleFluentAspectInterceptor
-  href: api/WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor.html
-  commentId: T:WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor
-  fullName: WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor
-  nameWithType: CastleFluentAspectInterceptor
-- uid: WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor.Intercept(Castle.DynamicProxy.IInvocation)
-  name: Intercept(IInvocation)
-  href: api/WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor.html#WeihanLi_Common_Aspect_Castle_CastleFluentAspectInterceptor_Intercept_Castle_DynamicProxy_IInvocation_
-  commentId: M:WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor.Intercept(Castle.DynamicProxy.IInvocation)
-  fullName: WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor.Intercept(Castle.DynamicProxy.IInvocation)
-  nameWithType: CastleFluentAspectInterceptor.Intercept(IInvocation)
-- uid: WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor.Intercept*
-  name: Intercept
-  href: api/WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor.html#WeihanLi_Common_Aspect_Castle_CastleFluentAspectInterceptor_Intercept_
-  commentId: Overload:WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor.Intercept
-  isSpec: "True"
-  fullName: WeihanLi.Common.Aspect.Castle.CastleFluentAspectInterceptor.Intercept
-  nameWithType: CastleFluentAspectInterceptor.Intercept
-- uid: WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions
-  name: FluentAspectBuilderExtensions
-  href: api/WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.html
-  commentId: T:WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions
-  fullName: WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions
-  nameWithType: FluentAspectBuilderExtensions
-- uid: WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.UseCastleProxy(WeihanLi.Common.Aspect.IFluentAspectsBuilder)
-  name: UseCastleProxy(IFluentAspectsBuilder)
-  href: api/WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.html#WeihanLi_Common_Aspect_Castle_FluentAspectBuilderExtensions_UseCastleProxy_WeihanLi_Common_Aspect_IFluentAspectsBuilder_
-  commentId: M:WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.UseCastleProxy(WeihanLi.Common.Aspect.IFluentAspectsBuilder)
-  fullName: WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.UseCastleProxy(WeihanLi.Common.Aspect.IFluentAspectsBuilder)
-  nameWithType: FluentAspectBuilderExtensions.UseCastleProxy(IFluentAspectsBuilder)
-- uid: WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.UseCastleProxy(WeihanLi.Common.Aspect.IFluentAspectsServiceContainerBuilder)
-  name: UseCastleProxy(IFluentAspectsServiceContainerBuilder)
-  href: api/WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.html#WeihanLi_Common_Aspect_Castle_FluentAspectBuilderExtensions_UseCastleProxy_WeihanLi_Common_Aspect_IFluentAspectsServiceContainerBuilder_
-  commentId: M:WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.UseCastleProxy(WeihanLi.Common.Aspect.IFluentAspectsServiceContainerBuilder)
-  fullName: WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.UseCastleProxy(WeihanLi.Common.Aspect.IFluentAspectsServiceContainerBuilder)
-  nameWithType: FluentAspectBuilderExtensions.UseCastleProxy(IFluentAspectsServiceContainerBuilder)
-- uid: WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.UseCastleProxy*
-  name: UseCastleProxy
-  href: api/WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.html#WeihanLi_Common_Aspect_Castle_FluentAspectBuilderExtensions_UseCastleProxy_
-  commentId: Overload:WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.UseCastleProxy
-  isSpec: "True"
-  fullName: WeihanLi.Common.Aspect.Castle.FluentAspectBuilderExtensions.UseCastleProxy
-  nameWithType: FluentAspectBuilderExtensions.UseCastleProxy
-- uid: WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector
-  name: FluentAspectInterceptorSelector
-  href: api/WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector.html
-  commentId: T:WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector
-  fullName: WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector
-  nameWithType: FluentAspectInterceptorSelector
-- uid: WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector.SelectInterceptors(System.Type,System.Reflection.MethodInfo,Castle.DynamicProxy.IInterceptor[])
-  name: SelectInterceptors(Type, MethodInfo, IInterceptor[])
-  href: api/WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector.html#WeihanLi_Common_Aspect_Castle_FluentAspectInterceptorSelector_SelectInterceptors_System_Type_System_Reflection_MethodInfo_Castle_DynamicProxy_IInterceptor___
-  commentId: M:WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector.SelectInterceptors(System.Type,System.Reflection.MethodInfo,Castle.DynamicProxy.IInterceptor[])
-  name.vb: SelectInterceptors(Type, MethodInfo, IInterceptor())
-  fullName: WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector.SelectInterceptors(System.Type, System.Reflection.MethodInfo, Castle.DynamicProxy.IInterceptor[])
-  fullName.vb: WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector.SelectInterceptors(System.Type, System.Reflection.MethodInfo, Castle.DynamicProxy.IInterceptor())
-  nameWithType: FluentAspectInterceptorSelector.SelectInterceptors(Type, MethodInfo, IInterceptor[])
-  nameWithType.vb: FluentAspectInterceptorSelector.SelectInterceptors(Type, MethodInfo, IInterceptor())
-- uid: WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector.SelectInterceptors*
-  name: SelectInterceptors
-  href: api/WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector.html#WeihanLi_Common_Aspect_Castle_FluentAspectInterceptorSelector_SelectInterceptors_
-  commentId: Overload:WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector.SelectInterceptors
-  isSpec: "True"
-  fullName: WeihanLi.Common.Aspect.Castle.FluentAspectInterceptorSelector.SelectInterceptors
-  nameWithType: FluentAspectInterceptorSelector.SelectInterceptors
-- uid: WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension
-  name: FluentAspectOptionsExtension
-  href: api/WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension.html
-  commentId: T:WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension
-  fullName: WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension
-  nameWithType: FluentAspectOptionsExtension
-- uid: WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension.UseCastleProxy(WeihanLi.Common.Aspect.FluentAspectOptions)
-  name: UseCastleProxy(FluentAspectOptions)
-  href: api/WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension.html#WeihanLi_Common_Aspect_Castle_FluentAspectOptionsExtension_UseCastleProxy_WeihanLi_Common_Aspect_FluentAspectOptions_
-  commentId: M:WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension.UseCastleProxy(WeihanLi.Common.Aspect.FluentAspectOptions)
-  fullName: WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension.UseCastleProxy(WeihanLi.Common.Aspect.FluentAspectOptions)
-  nameWithType: FluentAspectOptionsExtension.UseCastleProxy(FluentAspectOptions)
-- uid: WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension.UseCastleProxy*
-  name: UseCastleProxy
-  href: api/WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension.html#WeihanLi_Common_Aspect_Castle_FluentAspectOptionsExtension_UseCastleProxy_
-  commentId: Overload:WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension.UseCastleProxy
-  isSpec: "True"
-  fullName: WeihanLi.Common.Aspect.Castle.FluentAspectOptionsExtension.UseCastleProxy
-  nameWithType: FluentAspectOptionsExtension.UseCastleProxy
 - uid: WeihanLi.Common.Aspect.DefaultProxyFactory
   name: DefaultProxyFactory
   href: api/WeihanLi.Common.Aspect.DefaultProxyFactory.html
@@ -8636,6 +8456,38 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndCaptureAsync
   nameWithType: CommandExecutor.ExecuteAndCaptureAsync
+- uid: WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndOutput(System.String,System.String,System.IO.TextWriter,System.IO.TextWriter,System.String,System.Action{System.Diagnostics.ProcessStartInfo})
+  name: ExecuteAndOutput(string, string?, TextWriter?, TextWriter?, string?, Action<ProcessStartInfo>?)
+  href: api/WeihanLi.Common.Helpers.CommandExecutor.html#WeihanLi_Common_Helpers_CommandExecutor_ExecuteAndOutput_System_String_System_String_System_IO_TextWriter_System_IO_TextWriter_System_String_System_Action_System_Diagnostics_ProcessStartInfo__
+  commentId: M:WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndOutput(System.String,System.String,System.IO.TextWriter,System.IO.TextWriter,System.String,System.Action{System.Diagnostics.ProcessStartInfo})
+  name.vb: ExecuteAndOutput(String, String, TextWriter, TextWriter, String, Action(Of ProcessStartInfo))
+  fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndOutput(string, string?, System.IO.TextWriter?, System.IO.TextWriter?, string?, System.Action<System.Diagnostics.ProcessStartInfo>?)
+  fullName.vb: WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndOutput(String, String, System.IO.TextWriter, System.IO.TextWriter, String, System.Action(Of System.Diagnostics.ProcessStartInfo))
+  nameWithType: CommandExecutor.ExecuteAndOutput(string, string?, TextWriter?, TextWriter?, string?, Action<ProcessStartInfo>?)
+  nameWithType.vb: CommandExecutor.ExecuteAndOutput(String, String, TextWriter, TextWriter, String, Action(Of ProcessStartInfo))
+- uid: WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndOutput*
+  name: ExecuteAndOutput
+  href: api/WeihanLi.Common.Helpers.CommandExecutor.html#WeihanLi_Common_Helpers_CommandExecutor_ExecuteAndOutput_
+  commentId: Overload:WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndOutput
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndOutput
+  nameWithType: CommandExecutor.ExecuteAndOutput
+- uid: WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndOutputAsync(System.String,System.String,System.IO.TextWriter,System.IO.TextWriter,System.String,System.Action{System.Diagnostics.ProcessStartInfo},System.Threading.CancellationToken)
+  name: ExecuteAndOutputAsync(string, string?, TextWriter?, TextWriter?, string?, Action<ProcessStartInfo>?, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.CommandExecutor.html#WeihanLi_Common_Helpers_CommandExecutor_ExecuteAndOutputAsync_System_String_System_String_System_IO_TextWriter_System_IO_TextWriter_System_String_System_Action_System_Diagnostics_ProcessStartInfo__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndOutputAsync(System.String,System.String,System.IO.TextWriter,System.IO.TextWriter,System.String,System.Action{System.Diagnostics.ProcessStartInfo},System.Threading.CancellationToken)
+  name.vb: ExecuteAndOutputAsync(String, String, TextWriter, TextWriter, String, Action(Of ProcessStartInfo), CancellationToken)
+  fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndOutputAsync(string, string?, System.IO.TextWriter?, System.IO.TextWriter?, string?, System.Action<System.Diagnostics.ProcessStartInfo>?, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndOutputAsync(String, String, System.IO.TextWriter, System.IO.TextWriter, String, System.Action(Of System.Diagnostics.ProcessStartInfo), System.Threading.CancellationToken)
+  nameWithType: CommandExecutor.ExecuteAndOutputAsync(string, string?, TextWriter?, TextWriter?, string?, Action<ProcessStartInfo>?, CancellationToken)
+  nameWithType.vb: CommandExecutor.ExecuteAndOutputAsync(String, String, TextWriter, TextWriter, String, Action(Of ProcessStartInfo), CancellationToken)
+- uid: WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndOutputAsync*
+  name: ExecuteAndOutputAsync
+  href: api/WeihanLi.Common.Helpers.CommandExecutor.html#WeihanLi_Common_Helpers_CommandExecutor_ExecuteAndOutputAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndOutputAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteAndOutputAsync
+  nameWithType: CommandExecutor.ExecuteAndOutputAsync
 - uid: WeihanLi.Common.Helpers.CommandExecutor.ExecuteAsync(System.String,System.String,System.String,System.Action{System.Diagnostics.ProcessStartInfo},System.Threading.CancellationToken)
   name: ExecuteAsync(string, string?, string?, Action<ProcessStartInfo>?, CancellationToken)
   href: api/WeihanLi.Common.Helpers.CommandExecutor.html#WeihanLi_Common_Helpers_CommandExecutor_ExecuteAsync_System_String_System_String_System_String_System_Action_System_Diagnostics_ProcessStartInfo__System_Threading_CancellationToken_
@@ -8668,6 +8520,70 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommand
   nameWithType: CommandExecutor.ExecuteCommand
+- uid: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndCapture(System.String,System.String,System.Action{System.Diagnostics.ProcessStartInfo})
+  name: ExecuteCommandAndCapture(string, string?, Action<ProcessStartInfo>?)
+  href: api/WeihanLi.Common.Helpers.CommandExecutor.html#WeihanLi_Common_Helpers_CommandExecutor_ExecuteCommandAndCapture_System_String_System_String_System_Action_System_Diagnostics_ProcessStartInfo__
+  commentId: M:WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndCapture(System.String,System.String,System.Action{System.Diagnostics.ProcessStartInfo})
+  name.vb: ExecuteCommandAndCapture(String, String, Action(Of ProcessStartInfo))
+  fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndCapture(string, string?, System.Action<System.Diagnostics.ProcessStartInfo>?)
+  fullName.vb: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndCapture(String, String, System.Action(Of System.Diagnostics.ProcessStartInfo))
+  nameWithType: CommandExecutor.ExecuteCommandAndCapture(string, string?, Action<ProcessStartInfo>?)
+  nameWithType.vb: CommandExecutor.ExecuteCommandAndCapture(String, String, Action(Of ProcessStartInfo))
+- uid: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndCapture*
+  name: ExecuteCommandAndCapture
+  href: api/WeihanLi.Common.Helpers.CommandExecutor.html#WeihanLi_Common_Helpers_CommandExecutor_ExecuteCommandAndCapture_
+  commentId: Overload:WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndCapture
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndCapture
+  nameWithType: CommandExecutor.ExecuteCommandAndCapture
+- uid: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndCaptureAsync(System.String,System.String,System.Action{System.Diagnostics.ProcessStartInfo},System.Threading.CancellationToken)
+  name: ExecuteCommandAndCaptureAsync(string, string?, Action<ProcessStartInfo>?, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.CommandExecutor.html#WeihanLi_Common_Helpers_CommandExecutor_ExecuteCommandAndCaptureAsync_System_String_System_String_System_Action_System_Diagnostics_ProcessStartInfo__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndCaptureAsync(System.String,System.String,System.Action{System.Diagnostics.ProcessStartInfo},System.Threading.CancellationToken)
+  name.vb: ExecuteCommandAndCaptureAsync(String, String, Action(Of ProcessStartInfo), CancellationToken)
+  fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndCaptureAsync(string, string?, System.Action<System.Diagnostics.ProcessStartInfo>?, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndCaptureAsync(String, String, System.Action(Of System.Diagnostics.ProcessStartInfo), System.Threading.CancellationToken)
+  nameWithType: CommandExecutor.ExecuteCommandAndCaptureAsync(string, string?, Action<ProcessStartInfo>?, CancellationToken)
+  nameWithType.vb: CommandExecutor.ExecuteCommandAndCaptureAsync(String, String, Action(Of ProcessStartInfo), CancellationToken)
+- uid: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndCaptureAsync*
+  name: ExecuteCommandAndCaptureAsync
+  href: api/WeihanLi.Common.Helpers.CommandExecutor.html#WeihanLi_Common_Helpers_CommandExecutor_ExecuteCommandAndCaptureAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndCaptureAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndCaptureAsync
+  nameWithType: CommandExecutor.ExecuteCommandAndCaptureAsync
+- uid: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndOutput(System.String,System.IO.TextWriter,System.IO.TextWriter,System.String,System.Action{System.Diagnostics.ProcessStartInfo})
+  name: ExecuteCommandAndOutput(string, TextWriter?, TextWriter?, string?, Action<ProcessStartInfo>?)
+  href: api/WeihanLi.Common.Helpers.CommandExecutor.html#WeihanLi_Common_Helpers_CommandExecutor_ExecuteCommandAndOutput_System_String_System_IO_TextWriter_System_IO_TextWriter_System_String_System_Action_System_Diagnostics_ProcessStartInfo__
+  commentId: M:WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndOutput(System.String,System.IO.TextWriter,System.IO.TextWriter,System.String,System.Action{System.Diagnostics.ProcessStartInfo})
+  name.vb: ExecuteCommandAndOutput(String, TextWriter, TextWriter, String, Action(Of ProcessStartInfo))
+  fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndOutput(string, System.IO.TextWriter?, System.IO.TextWriter?, string?, System.Action<System.Diagnostics.ProcessStartInfo>?)
+  fullName.vb: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndOutput(String, System.IO.TextWriter, System.IO.TextWriter, String, System.Action(Of System.Diagnostics.ProcessStartInfo))
+  nameWithType: CommandExecutor.ExecuteCommandAndOutput(string, TextWriter?, TextWriter?, string?, Action<ProcessStartInfo>?)
+  nameWithType.vb: CommandExecutor.ExecuteCommandAndOutput(String, TextWriter, TextWriter, String, Action(Of ProcessStartInfo))
+- uid: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndOutput*
+  name: ExecuteCommandAndOutput
+  href: api/WeihanLi.Common.Helpers.CommandExecutor.html#WeihanLi_Common_Helpers_CommandExecutor_ExecuteCommandAndOutput_
+  commentId: Overload:WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndOutput
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndOutput
+  nameWithType: CommandExecutor.ExecuteCommandAndOutput
+- uid: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndOutputAsync(System.String,System.String,System.IO.TextWriter,System.IO.TextWriter,System.String,System.Action{System.Diagnostics.ProcessStartInfo},System.Threading.CancellationToken)
+  name: ExecuteCommandAndOutputAsync(string, string?, TextWriter?, TextWriter?, string?, Action<ProcessStartInfo>?, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.CommandExecutor.html#WeihanLi_Common_Helpers_CommandExecutor_ExecuteCommandAndOutputAsync_System_String_System_String_System_IO_TextWriter_System_IO_TextWriter_System_String_System_Action_System_Diagnostics_ProcessStartInfo__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndOutputAsync(System.String,System.String,System.IO.TextWriter,System.IO.TextWriter,System.String,System.Action{System.Diagnostics.ProcessStartInfo},System.Threading.CancellationToken)
+  name.vb: ExecuteCommandAndOutputAsync(String, String, TextWriter, TextWriter, String, Action(Of ProcessStartInfo), CancellationToken)
+  fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndOutputAsync(string, string?, System.IO.TextWriter?, System.IO.TextWriter?, string?, System.Action<System.Diagnostics.ProcessStartInfo>?, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndOutputAsync(String, String, System.IO.TextWriter, System.IO.TextWriter, String, System.Action(Of System.Diagnostics.ProcessStartInfo), System.Threading.CancellationToken)
+  nameWithType: CommandExecutor.ExecuteCommandAndOutputAsync(string, string?, TextWriter?, TextWriter?, string?, Action<ProcessStartInfo>?, CancellationToken)
+  nameWithType.vb: CommandExecutor.ExecuteCommandAndOutputAsync(String, String, TextWriter, TextWriter, String, Action(Of ProcessStartInfo), CancellationToken)
+- uid: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndOutputAsync*
+  name: ExecuteCommandAndOutputAsync
+  href: api/WeihanLi.Common.Helpers.CommandExecutor.html#WeihanLi_Common_Helpers_CommandExecutor_ExecuteCommandAndOutputAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndOutputAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAndOutputAsync
+  nameWithType: CommandExecutor.ExecuteCommandAndOutputAsync
 - uid: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAsync(System.String,System.String,System.Action{System.Diagnostics.ProcessStartInfo},System.Threading.CancellationToken)
   name: ExecuteCommandAsync(string, string?, Action<ProcessStartInfo>?, CancellationToken)
   href: api/WeihanLi.Common.Helpers.CommandExecutor.html#WeihanLi_Common_Helpers_CommandExecutor_ExecuteCommandAsync_System_String_System_String_System_Action_System_Diagnostics_ProcessStartInfo__System_Threading_CancellationToken_
@@ -8709,6 +8625,22 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.CommandResult.New
   nameWithType: CommandResult.CommandResult
   nameWithType.vb: CommandResult.New
+- uid: WeihanLi.Common.Helpers.CommandResult.EnsureSuccessExitCode(System.Int32)
+  name: EnsureSuccessExitCode(int)
+  href: api/WeihanLi.Common.Helpers.CommandResult.html#WeihanLi_Common_Helpers_CommandResult_EnsureSuccessExitCode_System_Int32_
+  commentId: M:WeihanLi.Common.Helpers.CommandResult.EnsureSuccessExitCode(System.Int32)
+  name.vb: EnsureSuccessExitCode(Integer)
+  fullName: WeihanLi.Common.Helpers.CommandResult.EnsureSuccessExitCode(int)
+  fullName.vb: WeihanLi.Common.Helpers.CommandResult.EnsureSuccessExitCode(Integer)
+  nameWithType: CommandResult.EnsureSuccessExitCode(int)
+  nameWithType.vb: CommandResult.EnsureSuccessExitCode(Integer)
+- uid: WeihanLi.Common.Helpers.CommandResult.EnsureSuccessExitCode*
+  name: EnsureSuccessExitCode
+  href: api/WeihanLi.Common.Helpers.CommandResult.html#WeihanLi_Common_Helpers_CommandResult_EnsureSuccessExitCode_
+  commentId: Overload:WeihanLi.Common.Helpers.CommandResult.EnsureSuccessExitCode
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.CommandResult.EnsureSuccessExitCode
+  nameWithType: CommandResult.EnsureSuccessExitCode
 - uid: WeihanLi.Common.Helpers.CommandResult.EnsureSuccessfulExitCode(System.Int32)
   name: EnsureSuccessfulExitCode(int)
   href: api/WeihanLi.Common.Helpers.CommandResult.html#WeihanLi_Common_Helpers_CommandResult_EnsureSuccessfulExitCode_System_Int32_
@@ -9041,6 +8973,70 @@ references:
   commentId: T:WeihanLi.Common.Helpers.ConsoleHelper
   fullName: WeihanLi.Common.Helpers.ConsoleHelper
   nameWithType: ConsoleHelper
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteIf(System.String,System.Boolean)
+  name: ErrorWriteIf(string?, bool)
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_ErrorWriteIf_System_String_System_Boolean_
+  commentId: M:WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteIf(System.String,System.Boolean)
+  name.vb: ErrorWriteIf(String, Boolean)
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteIf(string?, bool)
+  fullName.vb: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteIf(String, Boolean)
+  nameWithType: ConsoleHelper.ErrorWriteIf(string?, bool)
+  nameWithType.vb: ConsoleHelper.ErrorWriteIf(String, Boolean)
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteIf*
+  name: ErrorWriteIf
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_ErrorWriteIf_
+  commentId: Overload:WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteIf
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteIf
+  nameWithType: ConsoleHelper.ErrorWriteIf
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineIf(System.String,System.Boolean)
+  name: ErrorWriteLineIf(string?, bool)
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_ErrorWriteLineIf_System_String_System_Boolean_
+  commentId: M:WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineIf(System.String,System.Boolean)
+  name.vb: ErrorWriteLineIf(String, Boolean)
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineIf(string?, bool)
+  fullName.vb: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineIf(String, Boolean)
+  nameWithType: ConsoleHelper.ErrorWriteLineIf(string?, bool)
+  nameWithType.vb: ConsoleHelper.ErrorWriteLineIf(String, Boolean)
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineIf*
+  name: ErrorWriteLineIf
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_ErrorWriteLineIf_
+  commentId: Overload:WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineIf
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineIf
+  nameWithType: ConsoleHelper.ErrorWriteLineIf
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineWithColor(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  name: ErrorWriteLineWithColor(string, ConsoleColor?, ConsoleColor?)
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_ErrorWriteLineWithColor_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
+  commentId: M:WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineWithColor(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  name.vb: ErrorWriteLineWithColor(String, ConsoleColor?, ConsoleColor?)
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineWithColor(string, System.ConsoleColor?, System.ConsoleColor?)
+  fullName.vb: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineWithColor(String, System.ConsoleColor?, System.ConsoleColor?)
+  nameWithType: ConsoleHelper.ErrorWriteLineWithColor(string, ConsoleColor?, ConsoleColor?)
+  nameWithType.vb: ConsoleHelper.ErrorWriteLineWithColor(String, ConsoleColor?, ConsoleColor?)
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineWithColor*
+  name: ErrorWriteLineWithColor
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_ErrorWriteLineWithColor_
+  commentId: Overload:WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineWithColor
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineWithColor
+  nameWithType: ConsoleHelper.ErrorWriteLineWithColor
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteWithColor(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  name: ErrorWriteWithColor(string?, ConsoleColor?, ConsoleColor?)
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_ErrorWriteWithColor_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
+  commentId: M:WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteWithColor(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  name.vb: ErrorWriteWithColor(String, ConsoleColor?, ConsoleColor?)
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteWithColor(string?, System.ConsoleColor?, System.ConsoleColor?)
+  fullName.vb: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteWithColor(String, System.ConsoleColor?, System.ConsoleColor?)
+  nameWithType: ConsoleHelper.ErrorWriteWithColor(string?, ConsoleColor?, ConsoleColor?)
+  nameWithType.vb: ConsoleHelper.ErrorWriteWithColor(String, ConsoleColor?, ConsoleColor?)
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteWithColor*
+  name: ErrorWriteWithColor
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_ErrorWriteWithColor_
+  commentId: Overload:WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteWithColor
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteWithColor
+  nameWithType: ConsoleHelper.ErrorWriteWithColor
 - uid: WeihanLi.Common.Helpers.ConsoleHelper.GetInput(System.String,System.Boolean)
   name: GetInput(string?, bool)
   href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_GetInput_System_String_System_Boolean_
@@ -9129,6 +9125,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.ConsoleHelper.InvokeWithConsoleColor
   nameWithType: ConsoleHelper.InvokeWithConsoleColor
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.PrintOutputToConsole(WeihanLi.Common.Helpers.CommandResult)
+  name: PrintOutputToConsole(CommandResult)
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_PrintOutputToConsole_WeihanLi_Common_Helpers_CommandResult_
+  commentId: M:WeihanLi.Common.Helpers.ConsoleHelper.PrintOutputToConsole(WeihanLi.Common.Helpers.CommandResult)
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.PrintOutputToConsole(WeihanLi.Common.Helpers.CommandResult)
+  nameWithType: ConsoleHelper.PrintOutputToConsole(CommandResult)
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.PrintOutputToConsole*
+  name: PrintOutputToConsole
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_PrintOutputToConsole_
+  commentId: Overload:WeihanLi.Common.Helpers.ConsoleHelper.PrintOutputToConsole
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.PrintOutputToConsole
+  nameWithType: ConsoleHelper.PrintOutputToConsole
 - uid: WeihanLi.Common.Helpers.ConsoleHelper.ReadKeyWithPrompt(System.String)
   name: ReadKeyWithPrompt(string?)
   href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_ReadKeyWithPrompt_System_String_
@@ -9876,12 +9885,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.DisposableAction.DisposeAsync
   nameWithType: DisposableAction.DisposeAsync
-- uid: WeihanLi.Common.Helpers.DisposableAction.Empty
-  name: Empty
-  href: api/WeihanLi.Common.Helpers.DisposableAction.html#WeihanLi_Common_Helpers_DisposableAction_Empty
-  commentId: F:WeihanLi.Common.Helpers.DisposableAction.Empty
-  fullName: WeihanLi.Common.Helpers.DisposableAction.Empty
-  nameWithType: DisposableAction.Empty
 - uid: WeihanLi.Common.Helpers.DisposableBase
   name: DisposableBase
   href: api/WeihanLi.Common.Helpers.DisposableBase.html
@@ -9952,6 +9955,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.DisposableBase.~DisposableBase
   nameWithType: DisposableBase.~DisposableBase
+- uid: WeihanLi.Common.Helpers.DisposableBase.UseDispose
+  name: UseDispose
+  href: api/WeihanLi.Common.Helpers.DisposableBase.html#WeihanLi_Common_Helpers_DisposableBase_UseDispose
+  commentId: P:WeihanLi.Common.Helpers.DisposableBase.UseDispose
+  fullName: WeihanLi.Common.Helpers.DisposableBase.UseDispose
+  nameWithType: DisposableBase.UseDispose
+- uid: WeihanLi.Common.Helpers.DisposableBase.UseDispose*
+  name: UseDispose
+  href: api/WeihanLi.Common.Helpers.DisposableBase.html#WeihanLi_Common_Helpers_DisposableBase_UseDispose_
+  commentId: Overload:WeihanLi.Common.Helpers.DisposableBase.UseDispose
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DisposableBase.UseDispose
+  nameWithType: DisposableBase.UseDispose
 - uid: WeihanLi.Common.Helpers.EnumHelper
   name: EnumHelper
   href: api/WeihanLi.Common.Helpers.EnumHelper.html
@@ -12314,6 +12330,22 @@ references:
   commentId: T:WeihanLi.Common.Helpers.LineParser
   fullName: WeihanLi.Common.Helpers.LineParser
   nameWithType: LineParser
+- uid: WeihanLi.Common.Helpers.LineParser.Parse(System.String,WeihanLi.Common.Helpers.LineParseOptions)
+  name: Parse(string, LineParseOptions?)
+  href: api/WeihanLi.Common.Helpers.LineParser.html#WeihanLi_Common_Helpers_LineParser_Parse_System_String_WeihanLi_Common_Helpers_LineParseOptions_
+  commentId: M:WeihanLi.Common.Helpers.LineParser.Parse(System.String,WeihanLi.Common.Helpers.LineParseOptions)
+  name.vb: Parse(String, LineParseOptions)
+  fullName: WeihanLi.Common.Helpers.LineParser.Parse(string, WeihanLi.Common.Helpers.LineParseOptions?)
+  fullName.vb: WeihanLi.Common.Helpers.LineParser.Parse(String, WeihanLi.Common.Helpers.LineParseOptions)
+  nameWithType: LineParser.Parse(string, LineParseOptions?)
+  nameWithType.vb: LineParser.Parse(String, LineParseOptions)
+- uid: WeihanLi.Common.Helpers.LineParser.Parse*
+  name: Parse
+  href: api/WeihanLi.Common.Helpers.LineParser.html#WeihanLi_Common_Helpers_LineParser_Parse_
+  commentId: Overload:WeihanLi.Common.Helpers.LineParser.Parse
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.LineParser.Parse
+  nameWithType: LineParser.Parse
 - uid: WeihanLi.Common.Helpers.LineParser.ParseLine(System.String,WeihanLi.Common.Helpers.LineParseOptions)
   name: ParseLine(string, LineParseOptions?)
   href: api/WeihanLi.Common.Helpers.LineParser.html#WeihanLi_Common_Helpers_LineParser_ParseLine_System_String_WeihanLi_Common_Helpers_LineParseOptions_
@@ -19864,523 +19896,341 @@ references:
   fullName.vb: WeihanLi.Common.Services.UserIdProviderExtensions.TryGetUserId(Of T)(WeihanLi.Common.Services.IUserIdProvider, T, T)
   nameWithType: UserIdProviderExtensions.TryGetUserId<T>(IUserIdProvider, out T?, T?)
   nameWithType.vb: UserIdProviderExtensions.TryGetUserId(Of T)(IUserIdProvider, T, T)
-- uid: WeihanLi.Common.Templating
-  name: WeihanLi.Common.Templating
-  href: api/WeihanLi.Common.Templating.html
-  commentId: N:WeihanLi.Common.Templating
-  fullName: WeihanLi.Common.Templating
-  nameWithType: WeihanLi.Common.Templating
-- uid: WeihanLi.Common.Templating.DefaultTemplateParser
-  name: DefaultTemplateParser
-  href: api/WeihanLi.Common.Templating.DefaultTemplateParser.html
-  commentId: T:WeihanLi.Common.Templating.DefaultTemplateParser
-  fullName: WeihanLi.Common.Templating.DefaultTemplateParser
-  nameWithType: DefaultTemplateParser
-- uid: WeihanLi.Common.Templating.DefaultTemplateParser.ParseAsync(System.String)
-  name: ParseAsync(string)
-  href: api/WeihanLi.Common.Templating.DefaultTemplateParser.html#WeihanLi_Common_Templating_DefaultTemplateParser_ParseAsync_System_String_
-  commentId: M:WeihanLi.Common.Templating.DefaultTemplateParser.ParseAsync(System.String)
-  name.vb: ParseAsync(String)
-  fullName: WeihanLi.Common.Templating.DefaultTemplateParser.ParseAsync(string)
-  fullName.vb: WeihanLi.Common.Templating.DefaultTemplateParser.ParseAsync(String)
-  nameWithType: DefaultTemplateParser.ParseAsync(string)
-  nameWithType.vb: DefaultTemplateParser.ParseAsync(String)
-- uid: WeihanLi.Common.Templating.DefaultTemplateParser.ParseAsync*
-  name: ParseAsync
-  href: api/WeihanLi.Common.Templating.DefaultTemplateParser.html#WeihanLi_Common_Templating_DefaultTemplateParser_ParseAsync_
-  commentId: Overload:WeihanLi.Common.Templating.DefaultTemplateParser.ParseAsync
+- uid: WeihanLi.Common.Template
+  name: WeihanLi.Common.Template
+  href: api/WeihanLi.Common.Template.html
+  commentId: N:WeihanLi.Common.Template
+  fullName: WeihanLi.Common.Template
+  nameWithType: WeihanLi.Common.Template
+- uid: WeihanLi.Common.Template.DependencyInjectionExtensions
+  name: DependencyInjectionExtensions
+  href: api/WeihanLi.Common.Template.DependencyInjectionExtensions.html
+  commentId: T:WeihanLi.Common.Template.DependencyInjectionExtensions
+  fullName: WeihanLi.Common.Template.DependencyInjectionExtensions
+  nameWithType: DependencyInjectionExtensions
+- uid: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplating(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{WeihanLi.Common.Template.TemplateEngineOptions})
+  name: AddTemplating(IServiceCollection, Action<TemplateEngineOptions>?)
+  href: api/WeihanLi.Common.Template.DependencyInjectionExtensions.html#WeihanLi_Common_Template_DependencyInjectionExtensions_AddTemplating_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_WeihanLi_Common_Template_TemplateEngineOptions__
+  commentId: M:WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplating(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{WeihanLi.Common.Template.TemplateEngineOptions})
+  name.vb: AddTemplating(IServiceCollection, Action(Of TemplateEngineOptions))
+  fullName: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplating(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<WeihanLi.Common.Template.TemplateEngineOptions>?)
+  fullName.vb: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplating(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of WeihanLi.Common.Template.TemplateEngineOptions))
+  nameWithType: DependencyInjectionExtensions.AddTemplating(IServiceCollection, Action<TemplateEngineOptions>?)
+  nameWithType.vb: DependencyInjectionExtensions.AddTemplating(IServiceCollection, Action(Of TemplateEngineOptions))
+- uid: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplating*
+  name: AddTemplating
+  href: api/WeihanLi.Common.Template.DependencyInjectionExtensions.html#WeihanLi_Common_Template_DependencyInjectionExtensions_AddTemplating_
+  commentId: Overload:WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplating
   isSpec: "True"
-  fullName: WeihanLi.Common.Templating.DefaultTemplateParser.ParseAsync
-  nameWithType: DefaultTemplateParser.ParseAsync
-- uid: WeihanLi.Common.Templating.DefaultTemplateRenderer
-  name: DefaultTemplateRenderer
-  href: api/WeihanLi.Common.Templating.DefaultTemplateRenderer.html
-  commentId: T:WeihanLi.Common.Templating.DefaultTemplateRenderer
-  fullName: WeihanLi.Common.Templating.DefaultTemplateRenderer
-  nameWithType: DefaultTemplateRenderer
-- uid: WeihanLi.Common.Templating.DefaultTemplateRenderer.#ctor(System.Func{WeihanLi.Common.Templating.TemplateRenderContext,System.Threading.Tasks.Task})
-  name: DefaultTemplateRenderer(Func<TemplateRenderContext, Task>)
-  href: api/WeihanLi.Common.Templating.DefaultTemplateRenderer.html#WeihanLi_Common_Templating_DefaultTemplateRenderer__ctor_System_Func_WeihanLi_Common_Templating_TemplateRenderContext_System_Threading_Tasks_Task__
-  commentId: M:WeihanLi.Common.Templating.DefaultTemplateRenderer.#ctor(System.Func{WeihanLi.Common.Templating.TemplateRenderContext,System.Threading.Tasks.Task})
-  name.vb: New(Func(Of TemplateRenderContext, Task))
-  fullName: WeihanLi.Common.Templating.DefaultTemplateRenderer.DefaultTemplateRenderer(System.Func<WeihanLi.Common.Templating.TemplateRenderContext, System.Threading.Tasks.Task>)
-  fullName.vb: WeihanLi.Common.Templating.DefaultTemplateRenderer.New(System.Func(Of WeihanLi.Common.Templating.TemplateRenderContext, System.Threading.Tasks.Task))
-  nameWithType: DefaultTemplateRenderer.DefaultTemplateRenderer(Func<TemplateRenderContext, Task>)
-  nameWithType.vb: DefaultTemplateRenderer.New(Func(Of TemplateRenderContext, Task))
-- uid: WeihanLi.Common.Templating.DefaultTemplateRenderer.#ctor*
-  name: DefaultTemplateRenderer
-  href: api/WeihanLi.Common.Templating.DefaultTemplateRenderer.html#WeihanLi_Common_Templating_DefaultTemplateRenderer__ctor_
-  commentId: Overload:WeihanLi.Common.Templating.DefaultTemplateRenderer.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: WeihanLi.Common.Templating.DefaultTemplateRenderer.DefaultTemplateRenderer
-  fullName.vb: WeihanLi.Common.Templating.DefaultTemplateRenderer.New
-  nameWithType: DefaultTemplateRenderer.DefaultTemplateRenderer
-  nameWithType.vb: DefaultTemplateRenderer.New
-- uid: WeihanLi.Common.Templating.DefaultTemplateRenderer.RenderAsync(WeihanLi.Common.Templating.TemplateRenderContext,System.Object)
-  name: RenderAsync(TemplateRenderContext, object)
-  href: api/WeihanLi.Common.Templating.DefaultTemplateRenderer.html#WeihanLi_Common_Templating_DefaultTemplateRenderer_RenderAsync_WeihanLi_Common_Templating_TemplateRenderContext_System_Object_
-  commentId: M:WeihanLi.Common.Templating.DefaultTemplateRenderer.RenderAsync(WeihanLi.Common.Templating.TemplateRenderContext,System.Object)
-  name.vb: RenderAsync(TemplateRenderContext, Object)
-  fullName: WeihanLi.Common.Templating.DefaultTemplateRenderer.RenderAsync(WeihanLi.Common.Templating.TemplateRenderContext, object)
-  fullName.vb: WeihanLi.Common.Templating.DefaultTemplateRenderer.RenderAsync(WeihanLi.Common.Templating.TemplateRenderContext, Object)
-  nameWithType: DefaultTemplateRenderer.RenderAsync(TemplateRenderContext, object)
-  nameWithType.vb: DefaultTemplateRenderer.RenderAsync(TemplateRenderContext, Object)
-- uid: WeihanLi.Common.Templating.DefaultTemplateRenderer.RenderAsync*
+  fullName: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplating
+  nameWithType: DependencyInjectionExtensions.AddTemplating
+- uid: WeihanLi.Common.Template.IRenderMiddleware
+  name: IRenderMiddleware
+  href: api/WeihanLi.Common.Template.IRenderMiddleware.html
+  commentId: T:WeihanLi.Common.Template.IRenderMiddleware
+  fullName: WeihanLi.Common.Template.IRenderMiddleware
+  nameWithType: IRenderMiddleware
+- uid: WeihanLi.Common.Template.ITemplateEngine
+  name: ITemplateEngine
+  href: api/WeihanLi.Common.Template.ITemplateEngine.html
+  commentId: T:WeihanLi.Common.Template.ITemplateEngine
+  fullName: WeihanLi.Common.Template.ITemplateEngine
+  nameWithType: ITemplateEngine
+- uid: WeihanLi.Common.Template.ITemplateEngine.RenderAsync(System.String,System.Object)
+  name: RenderAsync(string, object?)
+  href: api/WeihanLi.Common.Template.ITemplateEngine.html#WeihanLi_Common_Template_ITemplateEngine_RenderAsync_System_String_System_Object_
+  commentId: M:WeihanLi.Common.Template.ITemplateEngine.RenderAsync(System.String,System.Object)
+  name.vb: RenderAsync(String, Object)
+  fullName: WeihanLi.Common.Template.ITemplateEngine.RenderAsync(string, object?)
+  fullName.vb: WeihanLi.Common.Template.ITemplateEngine.RenderAsync(String, Object)
+  nameWithType: ITemplateEngine.RenderAsync(string, object?)
+  nameWithType.vb: ITemplateEngine.RenderAsync(String, Object)
+- uid: WeihanLi.Common.Template.ITemplateEngine.RenderAsync*
   name: RenderAsync
-  href: api/WeihanLi.Common.Templating.DefaultTemplateRenderer.html#WeihanLi_Common_Templating_DefaultTemplateRenderer_RenderAsync_
-  commentId: Overload:WeihanLi.Common.Templating.DefaultTemplateRenderer.RenderAsync
+  href: api/WeihanLi.Common.Template.ITemplateEngine.html#WeihanLi_Common_Template_ITemplateEngine_RenderAsync_
+  commentId: Overload:WeihanLi.Common.Template.ITemplateEngine.RenderAsync
   isSpec: "True"
-  fullName: WeihanLi.Common.Templating.DefaultTemplateRenderer.RenderAsync
-  nameWithType: DefaultTemplateRenderer.RenderAsync
-- uid: WeihanLi.Common.Templating.ITemplateParser
+  fullName: WeihanLi.Common.Template.ITemplateEngine.RenderAsync
+  nameWithType: ITemplateEngine.RenderAsync
+- uid: WeihanLi.Common.Template.ITemplateEngineBuilder
+  name: ITemplateEngineBuilder
+  href: api/WeihanLi.Common.Template.ITemplateEngineBuilder.html
+  commentId: T:WeihanLi.Common.Template.ITemplateEngineBuilder
+  fullName: WeihanLi.Common.Template.ITemplateEngineBuilder
+  nameWithType: ITemplateEngineBuilder
+- uid: WeihanLi.Common.Template.ITemplateEngineBuilder.ConfigureOptions(System.Action{WeihanLi.Common.Template.TemplateEngineOptions})
+  name: ConfigureOptions(Action<TemplateEngineOptions>)
+  href: api/WeihanLi.Common.Template.ITemplateEngineBuilder.html#WeihanLi_Common_Template_ITemplateEngineBuilder_ConfigureOptions_System_Action_WeihanLi_Common_Template_TemplateEngineOptions__
+  commentId: M:WeihanLi.Common.Template.ITemplateEngineBuilder.ConfigureOptions(System.Action{WeihanLi.Common.Template.TemplateEngineOptions})
+  name.vb: ConfigureOptions(Action(Of TemplateEngineOptions))
+  fullName: WeihanLi.Common.Template.ITemplateEngineBuilder.ConfigureOptions(System.Action<WeihanLi.Common.Template.TemplateEngineOptions>)
+  fullName.vb: WeihanLi.Common.Template.ITemplateEngineBuilder.ConfigureOptions(System.Action(Of WeihanLi.Common.Template.TemplateEngineOptions))
+  nameWithType: ITemplateEngineBuilder.ConfigureOptions(Action<TemplateEngineOptions>)
+  nameWithType.vb: ITemplateEngineBuilder.ConfigureOptions(Action(Of TemplateEngineOptions))
+- uid: WeihanLi.Common.Template.ITemplateEngineBuilder.ConfigureOptions*
+  name: ConfigureOptions
+  href: api/WeihanLi.Common.Template.ITemplateEngineBuilder.html#WeihanLi_Common_Template_ITemplateEngineBuilder_ConfigureOptions_
+  commentId: Overload:WeihanLi.Common.Template.ITemplateEngineBuilder.ConfigureOptions
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.ITemplateEngineBuilder.ConfigureOptions
+  nameWithType: ITemplateEngineBuilder.ConfigureOptions
+- uid: WeihanLi.Common.Template.ITemplateParser
   name: ITemplateParser
-  href: api/WeihanLi.Common.Templating.ITemplateParser.html
-  commentId: T:WeihanLi.Common.Templating.ITemplateParser
-  fullName: WeihanLi.Common.Templating.ITemplateParser
+  href: api/WeihanLi.Common.Template.ITemplateParser.html
+  commentId: T:WeihanLi.Common.Template.ITemplateParser
+  fullName: WeihanLi.Common.Template.ITemplateParser
   nameWithType: ITemplateParser
-- uid: WeihanLi.Common.Templating.ITemplateParser.ParseAsync(System.String)
+- uid: WeihanLi.Common.Template.ITemplateParser.ParseAsync(System.String)
   name: ParseAsync(string)
-  href: api/WeihanLi.Common.Templating.ITemplateParser.html#WeihanLi_Common_Templating_ITemplateParser_ParseAsync_System_String_
-  commentId: M:WeihanLi.Common.Templating.ITemplateParser.ParseAsync(System.String)
+  href: api/WeihanLi.Common.Template.ITemplateParser.html#WeihanLi_Common_Template_ITemplateParser_ParseAsync_System_String_
+  commentId: M:WeihanLi.Common.Template.ITemplateParser.ParseAsync(System.String)
   name.vb: ParseAsync(String)
-  fullName: WeihanLi.Common.Templating.ITemplateParser.ParseAsync(string)
-  fullName.vb: WeihanLi.Common.Templating.ITemplateParser.ParseAsync(String)
+  fullName: WeihanLi.Common.Template.ITemplateParser.ParseAsync(string)
+  fullName.vb: WeihanLi.Common.Template.ITemplateParser.ParseAsync(String)
   nameWithType: ITemplateParser.ParseAsync(string)
   nameWithType.vb: ITemplateParser.ParseAsync(String)
-- uid: WeihanLi.Common.Templating.ITemplateParser.ParseAsync*
+- uid: WeihanLi.Common.Template.ITemplateParser.ParseAsync*
   name: ParseAsync
-  href: api/WeihanLi.Common.Templating.ITemplateParser.html#WeihanLi_Common_Templating_ITemplateParser_ParseAsync_
-  commentId: Overload:WeihanLi.Common.Templating.ITemplateParser.ParseAsync
+  href: api/WeihanLi.Common.Template.ITemplateParser.html#WeihanLi_Common_Template_ITemplateParser_ParseAsync_
+  commentId: Overload:WeihanLi.Common.Template.ITemplateParser.ParseAsync
   isSpec: "True"
-  fullName: WeihanLi.Common.Templating.ITemplateParser.ParseAsync
+  fullName: WeihanLi.Common.Template.ITemplateParser.ParseAsync
   nameWithType: ITemplateParser.ParseAsync
-- uid: WeihanLi.Common.Templating.ITemplateRenderer
+- uid: WeihanLi.Common.Template.ITemplateRenderer
   name: ITemplateRenderer
-  href: api/WeihanLi.Common.Templating.ITemplateRenderer.html
-  commentId: T:WeihanLi.Common.Templating.ITemplateRenderer
-  fullName: WeihanLi.Common.Templating.ITemplateRenderer
+  href: api/WeihanLi.Common.Template.ITemplateRenderer.html
+  commentId: T:WeihanLi.Common.Template.ITemplateRenderer
+  fullName: WeihanLi.Common.Template.ITemplateRenderer
   nameWithType: ITemplateRenderer
-- uid: WeihanLi.Common.Templating.ITemplateRenderer.RenderAsync(WeihanLi.Common.Templating.TemplateRenderContext,System.Object)
-  name: RenderAsync(TemplateRenderContext, object)
-  href: api/WeihanLi.Common.Templating.ITemplateRenderer.html#WeihanLi_Common_Templating_ITemplateRenderer_RenderAsync_WeihanLi_Common_Templating_TemplateRenderContext_System_Object_
-  commentId: M:WeihanLi.Common.Templating.ITemplateRenderer.RenderAsync(WeihanLi.Common.Templating.TemplateRenderContext,System.Object)
+- uid: WeihanLi.Common.Template.ITemplateRenderer.RenderAsync(WeihanLi.Common.Template.TemplateRenderContext,System.Object)
+  name: RenderAsync(TemplateRenderContext, object?)
+  href: api/WeihanLi.Common.Template.ITemplateRenderer.html#WeihanLi_Common_Template_ITemplateRenderer_RenderAsync_WeihanLi_Common_Template_TemplateRenderContext_System_Object_
+  commentId: M:WeihanLi.Common.Template.ITemplateRenderer.RenderAsync(WeihanLi.Common.Template.TemplateRenderContext,System.Object)
   name.vb: RenderAsync(TemplateRenderContext, Object)
-  fullName: WeihanLi.Common.Templating.ITemplateRenderer.RenderAsync(WeihanLi.Common.Templating.TemplateRenderContext, object)
-  fullName.vb: WeihanLi.Common.Templating.ITemplateRenderer.RenderAsync(WeihanLi.Common.Templating.TemplateRenderContext, Object)
-  nameWithType: ITemplateRenderer.RenderAsync(TemplateRenderContext, object)
+  fullName: WeihanLi.Common.Template.ITemplateRenderer.RenderAsync(WeihanLi.Common.Template.TemplateRenderContext, object?)
+  fullName.vb: WeihanLi.Common.Template.ITemplateRenderer.RenderAsync(WeihanLi.Common.Template.TemplateRenderContext, Object)
+  nameWithType: ITemplateRenderer.RenderAsync(TemplateRenderContext, object?)
   nameWithType.vb: ITemplateRenderer.RenderAsync(TemplateRenderContext, Object)
-- uid: WeihanLi.Common.Templating.ITemplateRenderer.RenderAsync*
+- uid: WeihanLi.Common.Template.ITemplateRenderer.RenderAsync*
   name: RenderAsync
-  href: api/WeihanLi.Common.Templating.ITemplateRenderer.html#WeihanLi_Common_Templating_ITemplateRenderer_RenderAsync_
-  commentId: Overload:WeihanLi.Common.Templating.ITemplateRenderer.RenderAsync
+  href: api/WeihanLi.Common.Template.ITemplateRenderer.html#WeihanLi_Common_Template_ITemplateRenderer_RenderAsync_
+  commentId: Overload:WeihanLi.Common.Template.ITemplateRenderer.RenderAsync
   isSpec: "True"
-  fullName: WeihanLi.Common.Templating.ITemplateRenderer.RenderAsync
+  fullName: WeihanLi.Common.Template.ITemplateRenderer.RenderAsync
   nameWithType: ITemplateRenderer.RenderAsync
-- uid: WeihanLi.Common.Templating.ITemplateRendererBuilder
+- uid: WeihanLi.Common.Template.ITemplateRendererBuilder
   name: ITemplateRendererBuilder
-  href: api/WeihanLi.Common.Templating.ITemplateRendererBuilder.html
-  commentId: T:WeihanLi.Common.Templating.ITemplateRendererBuilder
-  fullName: WeihanLi.Common.Templating.ITemplateRendererBuilder
+  href: api/WeihanLi.Common.Template.ITemplateRendererBuilder.html
+  commentId: T:WeihanLi.Common.Template.ITemplateRendererBuilder
+  fullName: WeihanLi.Common.Template.ITemplateRendererBuilder
   nameWithType: ITemplateRendererBuilder
-- uid: WeihanLi.Common.Templating.ITemplateRendererBuilder.Build
-  name: Build()
-  href: api/WeihanLi.Common.Templating.ITemplateRendererBuilder.html#WeihanLi_Common_Templating_ITemplateRendererBuilder_Build
-  commentId: M:WeihanLi.Common.Templating.ITemplateRendererBuilder.Build
-  fullName: WeihanLi.Common.Templating.ITemplateRendererBuilder.Build()
-  nameWithType: ITemplateRendererBuilder.Build()
-- uid: WeihanLi.Common.Templating.ITemplateRendererBuilder.Build*
-  name: Build
-  href: api/WeihanLi.Common.Templating.ITemplateRendererBuilder.html#WeihanLi_Common_Templating_ITemplateRendererBuilder_Build_
-  commentId: Overload:WeihanLi.Common.Templating.ITemplateRendererBuilder.Build
+- uid: WeihanLi.Common.Template.ITemplateRendererBuilder.UseRenderMiddleware*
+  name: UseRenderMiddleware
+  href: api/WeihanLi.Common.Template.ITemplateRendererBuilder.html#WeihanLi_Common_Template_ITemplateRendererBuilder_UseRenderMiddleware_
+  commentId: Overload:WeihanLi.Common.Template.ITemplateRendererBuilder.UseRenderMiddleware
   isSpec: "True"
-  fullName: WeihanLi.Common.Templating.ITemplateRendererBuilder.Build
-  nameWithType: ITemplateRendererBuilder.Build
-- uid: WeihanLi.Common.Templating.ITemplateRendererBuilder.ConfigureOptions(System.Action{WeihanLi.Common.Templating.TemplateOptions})
-  name: ConfigureOptions(Action<TemplateOptions>)
-  href: api/WeihanLi.Common.Templating.ITemplateRendererBuilder.html#WeihanLi_Common_Templating_ITemplateRendererBuilder_ConfigureOptions_System_Action_WeihanLi_Common_Templating_TemplateOptions__
-  commentId: M:WeihanLi.Common.Templating.ITemplateRendererBuilder.ConfigureOptions(System.Action{WeihanLi.Common.Templating.TemplateOptions})
-  name.vb: ConfigureOptions(Action(Of TemplateOptions))
-  fullName: WeihanLi.Common.Templating.ITemplateRendererBuilder.ConfigureOptions(System.Action<WeihanLi.Common.Templating.TemplateOptions>)
-  fullName.vb: WeihanLi.Common.Templating.ITemplateRendererBuilder.ConfigureOptions(System.Action(Of WeihanLi.Common.Templating.TemplateOptions))
-  nameWithType: ITemplateRendererBuilder.ConfigureOptions(Action<TemplateOptions>)
-  nameWithType.vb: ITemplateRendererBuilder.ConfigureOptions(Action(Of TemplateOptions))
-- uid: WeihanLi.Common.Templating.ITemplateRendererBuilder.ConfigureOptions*
-  name: ConfigureOptions
-  href: api/WeihanLi.Common.Templating.ITemplateRendererBuilder.html#WeihanLi_Common_Templating_ITemplateRendererBuilder_ConfigureOptions_
-  commentId: Overload:WeihanLi.Common.Templating.ITemplateRendererBuilder.ConfigureOptions
-  isSpec: "True"
-  fullName: WeihanLi.Common.Templating.ITemplateRendererBuilder.ConfigureOptions
-  nameWithType: ITemplateRendererBuilder.ConfigureOptions
-- uid: WeihanLi.Common.Templating.ITemplateRendererBuilder.Use(System.Func{WeihanLi.Common.Templating.TemplateRenderContext,System.Func{WeihanLi.Common.Templating.TemplateRenderContext,System.Threading.Tasks.Task},System.Threading.Tasks.Task})
-  name: Use(Func<TemplateRenderContext, Func<TemplateRenderContext, Task>, Task>)
-  href: api/WeihanLi.Common.Templating.ITemplateRendererBuilder.html#WeihanLi_Common_Templating_ITemplateRendererBuilder_Use_System_Func_WeihanLi_Common_Templating_TemplateRenderContext_System_Func_WeihanLi_Common_Templating_TemplateRenderContext_System_Threading_Tasks_Task__System_Threading_Tasks_Task__
-  commentId: M:WeihanLi.Common.Templating.ITemplateRendererBuilder.Use(System.Func{WeihanLi.Common.Templating.TemplateRenderContext,System.Func{WeihanLi.Common.Templating.TemplateRenderContext,System.Threading.Tasks.Task},System.Threading.Tasks.Task})
-  name.vb: Use(Func(Of TemplateRenderContext, Func(Of TemplateRenderContext, Task), Task))
-  fullName: WeihanLi.Common.Templating.ITemplateRendererBuilder.Use(System.Func<WeihanLi.Common.Templating.TemplateRenderContext, System.Func<WeihanLi.Common.Templating.TemplateRenderContext, System.Threading.Tasks.Task>, System.Threading.Tasks.Task>)
-  fullName.vb: WeihanLi.Common.Templating.ITemplateRendererBuilder.Use(System.Func(Of WeihanLi.Common.Templating.TemplateRenderContext, System.Func(Of WeihanLi.Common.Templating.TemplateRenderContext, System.Threading.Tasks.Task), System.Threading.Tasks.Task))
-  nameWithType: ITemplateRendererBuilder.Use(Func<TemplateRenderContext, Func<TemplateRenderContext, Task>, Task>)
-  nameWithType.vb: ITemplateRendererBuilder.Use(Func(Of TemplateRenderContext, Func(Of TemplateRenderContext, Task), Task))
-- uid: WeihanLi.Common.Templating.ITemplateRendererBuilder.Use*
-  name: Use
-  href: api/WeihanLi.Common.Templating.ITemplateRendererBuilder.html#WeihanLi_Common_Templating_ITemplateRendererBuilder_Use_
-  commentId: Overload:WeihanLi.Common.Templating.ITemplateRendererBuilder.Use
-  isSpec: "True"
-  fullName: WeihanLi.Common.Templating.ITemplateRendererBuilder.Use
-  nameWithType: ITemplateRendererBuilder.Use
-- uid: WeihanLi.Common.Templating.TemplateEngine
+  fullName: WeihanLi.Common.Template.ITemplateRendererBuilder.UseRenderMiddleware
+  nameWithType: ITemplateRendererBuilder.UseRenderMiddleware
+- uid: WeihanLi.Common.Template.ITemplateRendererBuilder.UseRenderMiddleware``1(``0)
+  name: UseRenderMiddleware<TMiddleware>(TMiddleware)
+  href: api/WeihanLi.Common.Template.ITemplateRendererBuilder.html#WeihanLi_Common_Template_ITemplateRendererBuilder_UseRenderMiddleware__1___0_
+  commentId: M:WeihanLi.Common.Template.ITemplateRendererBuilder.UseRenderMiddleware``1(``0)
+  name.vb: UseRenderMiddleware(Of TMiddleware)(TMiddleware)
+  fullName: WeihanLi.Common.Template.ITemplateRendererBuilder.UseRenderMiddleware<TMiddleware>(TMiddleware)
+  fullName.vb: WeihanLi.Common.Template.ITemplateRendererBuilder.UseRenderMiddleware(Of TMiddleware)(TMiddleware)
+  nameWithType: ITemplateRendererBuilder.UseRenderMiddleware<TMiddleware>(TMiddleware)
+  nameWithType.vb: ITemplateRendererBuilder.UseRenderMiddleware(Of TMiddleware)(TMiddleware)
+- uid: WeihanLi.Common.Template.TemplateEngine
   name: TemplateEngine
-  href: api/WeihanLi.Common.Templating.TemplateEngine.html
-  commentId: T:WeihanLi.Common.Templating.TemplateEngine
-  fullName: WeihanLi.Common.Templating.TemplateEngine
+  href: api/WeihanLi.Common.Template.TemplateEngine.html
+  commentId: T:WeihanLi.Common.Template.TemplateEngine
+  fullName: WeihanLi.Common.Template.TemplateEngine
   nameWithType: TemplateEngine
-- uid: WeihanLi.Common.Templating.TemplateEngine.#ctor(WeihanLi.Common.Templating.ITemplateParser,WeihanLi.Common.Templating.ITemplateRenderer)
+- uid: WeihanLi.Common.Template.TemplateEngine.#ctor(WeihanLi.Common.Template.ITemplateParser,WeihanLi.Common.Template.ITemplateRenderer)
   name: TemplateEngine(ITemplateParser, ITemplateRenderer)
-  href: api/WeihanLi.Common.Templating.TemplateEngine.html#WeihanLi_Common_Templating_TemplateEngine__ctor_WeihanLi_Common_Templating_ITemplateParser_WeihanLi_Common_Templating_ITemplateRenderer_
-  commentId: M:WeihanLi.Common.Templating.TemplateEngine.#ctor(WeihanLi.Common.Templating.ITemplateParser,WeihanLi.Common.Templating.ITemplateRenderer)
+  href: api/WeihanLi.Common.Template.TemplateEngine.html#WeihanLi_Common_Template_TemplateEngine__ctor_WeihanLi_Common_Template_ITemplateParser_WeihanLi_Common_Template_ITemplateRenderer_
+  commentId: M:WeihanLi.Common.Template.TemplateEngine.#ctor(WeihanLi.Common.Template.ITemplateParser,WeihanLi.Common.Template.ITemplateRenderer)
   name.vb: New(ITemplateParser, ITemplateRenderer)
-  fullName: WeihanLi.Common.Templating.TemplateEngine.TemplateEngine(WeihanLi.Common.Templating.ITemplateParser, WeihanLi.Common.Templating.ITemplateRenderer)
-  fullName.vb: WeihanLi.Common.Templating.TemplateEngine.New(WeihanLi.Common.Templating.ITemplateParser, WeihanLi.Common.Templating.ITemplateRenderer)
+  fullName: WeihanLi.Common.Template.TemplateEngine.TemplateEngine(WeihanLi.Common.Template.ITemplateParser, WeihanLi.Common.Template.ITemplateRenderer)
+  fullName.vb: WeihanLi.Common.Template.TemplateEngine.New(WeihanLi.Common.Template.ITemplateParser, WeihanLi.Common.Template.ITemplateRenderer)
   nameWithType: TemplateEngine.TemplateEngine(ITemplateParser, ITemplateRenderer)
   nameWithType.vb: TemplateEngine.New(ITemplateParser, ITemplateRenderer)
-- uid: WeihanLi.Common.Templating.TemplateEngine.#ctor*
+- uid: WeihanLi.Common.Template.TemplateEngine.#ctor*
   name: TemplateEngine
-  href: api/WeihanLi.Common.Templating.TemplateEngine.html#WeihanLi_Common_Templating_TemplateEngine__ctor_
-  commentId: Overload:WeihanLi.Common.Templating.TemplateEngine.#ctor
+  href: api/WeihanLi.Common.Template.TemplateEngine.html#WeihanLi_Common_Template_TemplateEngine__ctor_
+  commentId: Overload:WeihanLi.Common.Template.TemplateEngine.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: WeihanLi.Common.Templating.TemplateEngine.TemplateEngine
-  fullName.vb: WeihanLi.Common.Templating.TemplateEngine.New
+  fullName: WeihanLi.Common.Template.TemplateEngine.TemplateEngine
+  fullName.vb: WeihanLi.Common.Template.TemplateEngine.New
   nameWithType: TemplateEngine.TemplateEngine
   nameWithType.vb: TemplateEngine.New
-- uid: WeihanLi.Common.Templating.TemplateEngine.CreateDefault
-  name: CreateDefault()
-  href: api/WeihanLi.Common.Templating.TemplateEngine.html#WeihanLi_Common_Templating_TemplateEngine_CreateDefault
-  commentId: M:WeihanLi.Common.Templating.TemplateEngine.CreateDefault
-  fullName: WeihanLi.Common.Templating.TemplateEngine.CreateDefault()
-  nameWithType: TemplateEngine.CreateDefault()
-- uid: WeihanLi.Common.Templating.TemplateEngine.CreateDefault*
+- uid: WeihanLi.Common.Template.TemplateEngine.CreateDefault(System.Action{WeihanLi.Common.Template.ITemplateEngineBuilder})
+  name: CreateDefault(Action<ITemplateEngineBuilder>?)
+  href: api/WeihanLi.Common.Template.TemplateEngine.html#WeihanLi_Common_Template_TemplateEngine_CreateDefault_System_Action_WeihanLi_Common_Template_ITemplateEngineBuilder__
+  commentId: M:WeihanLi.Common.Template.TemplateEngine.CreateDefault(System.Action{WeihanLi.Common.Template.ITemplateEngineBuilder})
+  name.vb: CreateDefault(Action(Of ITemplateEngineBuilder))
+  fullName: WeihanLi.Common.Template.TemplateEngine.CreateDefault(System.Action<WeihanLi.Common.Template.ITemplateEngineBuilder>?)
+  fullName.vb: WeihanLi.Common.Template.TemplateEngine.CreateDefault(System.Action(Of WeihanLi.Common.Template.ITemplateEngineBuilder))
+  nameWithType: TemplateEngine.CreateDefault(Action<ITemplateEngineBuilder>?)
+  nameWithType.vb: TemplateEngine.CreateDefault(Action(Of ITemplateEngineBuilder))
+- uid: WeihanLi.Common.Template.TemplateEngine.CreateDefault*
   name: CreateDefault
-  href: api/WeihanLi.Common.Templating.TemplateEngine.html#WeihanLi_Common_Templating_TemplateEngine_CreateDefault_
-  commentId: Overload:WeihanLi.Common.Templating.TemplateEngine.CreateDefault
+  href: api/WeihanLi.Common.Template.TemplateEngine.html#WeihanLi_Common_Template_TemplateEngine_CreateDefault_
+  commentId: Overload:WeihanLi.Common.Template.TemplateEngine.CreateDefault
   isSpec: "True"
-  fullName: WeihanLi.Common.Templating.TemplateEngine.CreateDefault
+  fullName: WeihanLi.Common.Template.TemplateEngine.CreateDefault
   nameWithType: TemplateEngine.CreateDefault
-- uid: WeihanLi.Common.Templating.TemplateEngine.ParseAsync(System.String)
+- uid: WeihanLi.Common.Template.TemplateEngine.ParseAsync(System.String)
   name: ParseAsync(string)
-  href: api/WeihanLi.Common.Templating.TemplateEngine.html#WeihanLi_Common_Templating_TemplateEngine_ParseAsync_System_String_
-  commentId: M:WeihanLi.Common.Templating.TemplateEngine.ParseAsync(System.String)
+  href: api/WeihanLi.Common.Template.TemplateEngine.html#WeihanLi_Common_Template_TemplateEngine_ParseAsync_System_String_
+  commentId: M:WeihanLi.Common.Template.TemplateEngine.ParseAsync(System.String)
   name.vb: ParseAsync(String)
-  fullName: WeihanLi.Common.Templating.TemplateEngine.ParseAsync(string)
-  fullName.vb: WeihanLi.Common.Templating.TemplateEngine.ParseAsync(String)
+  fullName: WeihanLi.Common.Template.TemplateEngine.ParseAsync(string)
+  fullName.vb: WeihanLi.Common.Template.TemplateEngine.ParseAsync(String)
   nameWithType: TemplateEngine.ParseAsync(string)
   nameWithType.vb: TemplateEngine.ParseAsync(String)
-- uid: WeihanLi.Common.Templating.TemplateEngine.ParseAsync*
+- uid: WeihanLi.Common.Template.TemplateEngine.ParseAsync*
   name: ParseAsync
-  href: api/WeihanLi.Common.Templating.TemplateEngine.html#WeihanLi_Common_Templating_TemplateEngine_ParseAsync_
-  commentId: Overload:WeihanLi.Common.Templating.TemplateEngine.ParseAsync
+  href: api/WeihanLi.Common.Template.TemplateEngine.html#WeihanLi_Common_Template_TemplateEngine_ParseAsync_
+  commentId: Overload:WeihanLi.Common.Template.TemplateEngine.ParseAsync
   isSpec: "True"
-  fullName: WeihanLi.Common.Templating.TemplateEngine.ParseAsync
+  fullName: WeihanLi.Common.Template.TemplateEngine.ParseAsync
   nameWithType: TemplateEngine.ParseAsync
-- uid: WeihanLi.Common.Templating.TemplateEngine.RenderAsync(System.String,System.Object)
-  name: RenderAsync(string, object)
-  href: api/WeihanLi.Common.Templating.TemplateEngine.html#WeihanLi_Common_Templating_TemplateEngine_RenderAsync_System_String_System_Object_
-  commentId: M:WeihanLi.Common.Templating.TemplateEngine.RenderAsync(System.String,System.Object)
+- uid: WeihanLi.Common.Template.TemplateEngine.RenderAsync(System.String,System.Object)
+  name: RenderAsync(string, object?)
+  href: api/WeihanLi.Common.Template.TemplateEngine.html#WeihanLi_Common_Template_TemplateEngine_RenderAsync_System_String_System_Object_
+  commentId: M:WeihanLi.Common.Template.TemplateEngine.RenderAsync(System.String,System.Object)
   name.vb: RenderAsync(String, Object)
-  fullName: WeihanLi.Common.Templating.TemplateEngine.RenderAsync(string, object)
-  fullName.vb: WeihanLi.Common.Templating.TemplateEngine.RenderAsync(String, Object)
-  nameWithType: TemplateEngine.RenderAsync(string, object)
+  fullName: WeihanLi.Common.Template.TemplateEngine.RenderAsync(string, object?)
+  fullName.vb: WeihanLi.Common.Template.TemplateEngine.RenderAsync(String, Object)
+  nameWithType: TemplateEngine.RenderAsync(string, object?)
   nameWithType.vb: TemplateEngine.RenderAsync(String, Object)
-- uid: WeihanLi.Common.Templating.TemplateEngine.RenderAsync(WeihanLi.Common.Templating.TemplateRenderContext,System.Object)
-  name: RenderAsync(TemplateRenderContext, object)
-  href: api/WeihanLi.Common.Templating.TemplateEngine.html#WeihanLi_Common_Templating_TemplateEngine_RenderAsync_WeihanLi_Common_Templating_TemplateRenderContext_System_Object_
-  commentId: M:WeihanLi.Common.Templating.TemplateEngine.RenderAsync(WeihanLi.Common.Templating.TemplateRenderContext,System.Object)
+- uid: WeihanLi.Common.Template.TemplateEngine.RenderAsync(WeihanLi.Common.Template.TemplateRenderContext,System.Object)
+  name: RenderAsync(TemplateRenderContext, object?)
+  href: api/WeihanLi.Common.Template.TemplateEngine.html#WeihanLi_Common_Template_TemplateEngine_RenderAsync_WeihanLi_Common_Template_TemplateRenderContext_System_Object_
+  commentId: M:WeihanLi.Common.Template.TemplateEngine.RenderAsync(WeihanLi.Common.Template.TemplateRenderContext,System.Object)
   name.vb: RenderAsync(TemplateRenderContext, Object)
-  fullName: WeihanLi.Common.Templating.TemplateEngine.RenderAsync(WeihanLi.Common.Templating.TemplateRenderContext, object)
-  fullName.vb: WeihanLi.Common.Templating.TemplateEngine.RenderAsync(WeihanLi.Common.Templating.TemplateRenderContext, Object)
-  nameWithType: TemplateEngine.RenderAsync(TemplateRenderContext, object)
+  fullName: WeihanLi.Common.Template.TemplateEngine.RenderAsync(WeihanLi.Common.Template.TemplateRenderContext, object?)
+  fullName.vb: WeihanLi.Common.Template.TemplateEngine.RenderAsync(WeihanLi.Common.Template.TemplateRenderContext, Object)
+  nameWithType: TemplateEngine.RenderAsync(TemplateRenderContext, object?)
   nameWithType.vb: TemplateEngine.RenderAsync(TemplateRenderContext, Object)
-- uid: WeihanLi.Common.Templating.TemplateEngine.RenderAsync*
+- uid: WeihanLi.Common.Template.TemplateEngine.RenderAsync*
   name: RenderAsync
-  href: api/WeihanLi.Common.Templating.TemplateEngine.html#WeihanLi_Common_Templating_TemplateEngine_RenderAsync_
-  commentId: Overload:WeihanLi.Common.Templating.TemplateEngine.RenderAsync
+  href: api/WeihanLi.Common.Template.TemplateEngine.html#WeihanLi_Common_Template_TemplateEngine_RenderAsync_
+  commentId: Overload:WeihanLi.Common.Template.TemplateEngine.RenderAsync
   isSpec: "True"
-  fullName: WeihanLi.Common.Templating.TemplateEngine.RenderAsync
+  fullName: WeihanLi.Common.Template.TemplateEngine.RenderAsync
   nameWithType: TemplateEngine.RenderAsync
-- uid: WeihanLi.Common.Templating.TemplateOptions
-  name: TemplateOptions
-  href: api/WeihanLi.Common.Templating.TemplateOptions.html
-  commentId: T:WeihanLi.Common.Templating.TemplateOptions
-  fullName: WeihanLi.Common.Templating.TemplateOptions
-  nameWithType: TemplateOptions
-- uid: WeihanLi.Common.Templating.TemplateRenderContext
+- uid: WeihanLi.Common.Template.TemplateEngineOptions
+  name: TemplateEngineOptions
+  href: api/WeihanLi.Common.Template.TemplateEngineOptions.html
+  commentId: T:WeihanLi.Common.Template.TemplateEngineOptions
+  fullName: WeihanLi.Common.Template.TemplateEngineOptions
+  nameWithType: TemplateEngineOptions
+- uid: WeihanLi.Common.Template.TemplateEngineOptions.Configuration
+  name: Configuration
+  href: api/WeihanLi.Common.Template.TemplateEngineOptions.html#WeihanLi_Common_Template_TemplateEngineOptions_Configuration
+  commentId: P:WeihanLi.Common.Template.TemplateEngineOptions.Configuration
+  fullName: WeihanLi.Common.Template.TemplateEngineOptions.Configuration
+  nameWithType: TemplateEngineOptions.Configuration
+- uid: WeihanLi.Common.Template.TemplateEngineOptions.Configuration*
+  name: Configuration
+  href: api/WeihanLi.Common.Template.TemplateEngineOptions.html#WeihanLi_Common_Template_TemplateEngineOptions_Configuration_
+  commentId: Overload:WeihanLi.Common.Template.TemplateEngineOptions.Configuration
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TemplateEngineOptions.Configuration
+  nameWithType: TemplateEngineOptions.Configuration
+- uid: WeihanLi.Common.Template.TemplateRenderContext
   name: TemplateRenderContext
-  href: api/WeihanLi.Common.Templating.TemplateRenderContext.html
-  commentId: T:WeihanLi.Common.Templating.TemplateRenderContext
-  fullName: WeihanLi.Common.Templating.TemplateRenderContext
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html
+  commentId: T:WeihanLi.Common.Template.TemplateRenderContext
+  fullName: WeihanLi.Common.Template.TemplateRenderContext
   nameWithType: TemplateRenderContext
-- uid: WeihanLi.Common.Templating.TemplateRenderContext.#ctor(System.String,System.Collections.Generic.HashSet{System.String})
+- uid: WeihanLi.Common.Template.TemplateRenderContext.#ctor(System.String,System.Collections.Generic.HashSet{System.String})
   name: TemplateRenderContext(string, HashSet<string>)
-  href: api/WeihanLi.Common.Templating.TemplateRenderContext.html#WeihanLi_Common_Templating_TemplateRenderContext__ctor_System_String_System_Collections_Generic_HashSet_System_String__
-  commentId: M:WeihanLi.Common.Templating.TemplateRenderContext.#ctor(System.String,System.Collections.Generic.HashSet{System.String})
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext__ctor_System_String_System_Collections_Generic_HashSet_System_String__
+  commentId: M:WeihanLi.Common.Template.TemplateRenderContext.#ctor(System.String,System.Collections.Generic.HashSet{System.String})
   name.vb: New(String, HashSet(Of String))
-  fullName: WeihanLi.Common.Templating.TemplateRenderContext.TemplateRenderContext(string, System.Collections.Generic.HashSet<string>)
-  fullName.vb: WeihanLi.Common.Templating.TemplateRenderContext.New(String, System.Collections.Generic.HashSet(Of String))
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.TemplateRenderContext(string, System.Collections.Generic.HashSet<string>)
+  fullName.vb: WeihanLi.Common.Template.TemplateRenderContext.New(String, System.Collections.Generic.HashSet(Of String))
   nameWithType: TemplateRenderContext.TemplateRenderContext(string, HashSet<string>)
   nameWithType.vb: TemplateRenderContext.New(String, HashSet(Of String))
-- uid: WeihanLi.Common.Templating.TemplateRenderContext.#ctor*
+- uid: WeihanLi.Common.Template.TemplateRenderContext.#ctor*
   name: TemplateRenderContext
-  href: api/WeihanLi.Common.Templating.TemplateRenderContext.html#WeihanLi_Common_Templating_TemplateRenderContext__ctor_
-  commentId: Overload:WeihanLi.Common.Templating.TemplateRenderContext.#ctor
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext__ctor_
+  commentId: Overload:WeihanLi.Common.Template.TemplateRenderContext.#ctor
   isSpec: "True"
   name.vb: New
-  fullName: WeihanLi.Common.Templating.TemplateRenderContext.TemplateRenderContext
-  fullName.vb: WeihanLi.Common.Templating.TemplateRenderContext.New
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.TemplateRenderContext
+  fullName.vb: WeihanLi.Common.Template.TemplateRenderContext.New
   nameWithType: TemplateRenderContext.TemplateRenderContext
   nameWithType.vb: TemplateRenderContext.New
-- uid: WeihanLi.Common.Templating.TemplateRenderContext.Parameters
+- uid: WeihanLi.Common.Template.TemplateRenderContext.Parameters
   name: Parameters
-  href: api/WeihanLi.Common.Templating.TemplateRenderContext.html#WeihanLi_Common_Templating_TemplateRenderContext_Parameters
-  commentId: P:WeihanLi.Common.Templating.TemplateRenderContext.Parameters
-  fullName: WeihanLi.Common.Templating.TemplateRenderContext.Parameters
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Parameters
+  commentId: P:WeihanLi.Common.Template.TemplateRenderContext.Parameters
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.Parameters
   nameWithType: TemplateRenderContext.Parameters
-- uid: WeihanLi.Common.Templating.TemplateRenderContext.Parameters*
+- uid: WeihanLi.Common.Template.TemplateRenderContext.Parameters*
   name: Parameters
-  href: api/WeihanLi.Common.Templating.TemplateRenderContext.html#WeihanLi_Common_Templating_TemplateRenderContext_Parameters_
-  commentId: Overload:WeihanLi.Common.Templating.TemplateRenderContext.Parameters
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Parameters_
+  commentId: Overload:WeihanLi.Common.Template.TemplateRenderContext.Parameters
   isSpec: "True"
-  fullName: WeihanLi.Common.Templating.TemplateRenderContext.Parameters
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.Parameters
   nameWithType: TemplateRenderContext.Parameters
-- uid: WeihanLi.Common.Templating.TemplateRenderContext.Properties
+- uid: WeihanLi.Common.Template.TemplateRenderContext.Properties
   name: Properties
-  href: api/WeihanLi.Common.Templating.TemplateRenderContext.html#WeihanLi_Common_Templating_TemplateRenderContext_Properties
-  commentId: P:WeihanLi.Common.Templating.TemplateRenderContext.Properties
-  fullName: WeihanLi.Common.Templating.TemplateRenderContext.Properties
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Properties
+  commentId: P:WeihanLi.Common.Template.TemplateRenderContext.Properties
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.Properties
   nameWithType: TemplateRenderContext.Properties
-- uid: WeihanLi.Common.Templating.TemplateRenderContext.Properties*
+- uid: WeihanLi.Common.Template.TemplateRenderContext.Properties*
   name: Properties
-  href: api/WeihanLi.Common.Templating.TemplateRenderContext.html#WeihanLi_Common_Templating_TemplateRenderContext_Properties_
-  commentId: Overload:WeihanLi.Common.Templating.TemplateRenderContext.Properties
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Properties_
+  commentId: Overload:WeihanLi.Common.Template.TemplateRenderContext.Properties
   isSpec: "True"
-  fullName: WeihanLi.Common.Templating.TemplateRenderContext.Properties
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.Properties
   nameWithType: TemplateRenderContext.Properties
-- uid: WeihanLi.Common.Templating.TemplateRenderContext.RenderedText
+- uid: WeihanLi.Common.Template.TemplateRenderContext.RenderedText
   name: RenderedText
-  href: api/WeihanLi.Common.Templating.TemplateRenderContext.html#WeihanLi_Common_Templating_TemplateRenderContext_RenderedText
-  commentId: P:WeihanLi.Common.Templating.TemplateRenderContext.RenderedText
-  fullName: WeihanLi.Common.Templating.TemplateRenderContext.RenderedText
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_RenderedText
+  commentId: P:WeihanLi.Common.Template.TemplateRenderContext.RenderedText
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.RenderedText
   nameWithType: TemplateRenderContext.RenderedText
-- uid: WeihanLi.Common.Templating.TemplateRenderContext.RenderedText*
+- uid: WeihanLi.Common.Template.TemplateRenderContext.RenderedText*
   name: RenderedText
-  href: api/WeihanLi.Common.Templating.TemplateRenderContext.html#WeihanLi_Common_Templating_TemplateRenderContext_RenderedText_
-  commentId: Overload:WeihanLi.Common.Templating.TemplateRenderContext.RenderedText
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_RenderedText_
+  commentId: Overload:WeihanLi.Common.Template.TemplateRenderContext.RenderedText
   isSpec: "True"
-  fullName: WeihanLi.Common.Templating.TemplateRenderContext.RenderedText
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.RenderedText
   nameWithType: TemplateRenderContext.RenderedText
-- uid: WeihanLi.Common.Templating.TemplateRenderContext.Text
+- uid: WeihanLi.Common.Template.TemplateRenderContext.Text
   name: Text
-  href: api/WeihanLi.Common.Templating.TemplateRenderContext.html#WeihanLi_Common_Templating_TemplateRenderContext_Text
-  commentId: P:WeihanLi.Common.Templating.TemplateRenderContext.Text
-  fullName: WeihanLi.Common.Templating.TemplateRenderContext.Text
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Text
+  commentId: P:WeihanLi.Common.Template.TemplateRenderContext.Text
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.Text
   nameWithType: TemplateRenderContext.Text
-- uid: WeihanLi.Common.Templating.TemplateRenderContext.Text*
+- uid: WeihanLi.Common.Template.TemplateRenderContext.Text*
   name: Text
-  href: api/WeihanLi.Common.Templating.TemplateRenderContext.html#WeihanLi_Common_Templating_TemplateRenderContext_Text_
-  commentId: Overload:WeihanLi.Common.Templating.TemplateRenderContext.Text
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Text_
+  commentId: Overload:WeihanLi.Common.Template.TemplateRenderContext.Text
   isSpec: "True"
-  fullName: WeihanLi.Common.Templating.TemplateRenderContext.Text
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.Text
   nameWithType: TemplateRenderContext.Text
-- uid: WeihanLi.Common.Templating.TemplateRenderContext.Variables
+- uid: WeihanLi.Common.Template.TemplateRenderContext.Variables
   name: Variables
-  href: api/WeihanLi.Common.Templating.TemplateRenderContext.html#WeihanLi_Common_Templating_TemplateRenderContext_Variables
-  commentId: P:WeihanLi.Common.Templating.TemplateRenderContext.Variables
-  fullName: WeihanLi.Common.Templating.TemplateRenderContext.Variables
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Variables
+  commentId: P:WeihanLi.Common.Template.TemplateRenderContext.Variables
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.Variables
   nameWithType: TemplateRenderContext.Variables
-- uid: WeihanLi.Common.Templating.TemplateRenderContext.Variables*
+- uid: WeihanLi.Common.Template.TemplateRenderContext.Variables*
   name: Variables
-  href: api/WeihanLi.Common.Templating.TemplateRenderContext.html#WeihanLi_Common_Templating_TemplateRenderContext_Variables_
-  commentId: Overload:WeihanLi.Common.Templating.TemplateRenderContext.Variables
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Variables_
+  commentId: Overload:WeihanLi.Common.Template.TemplateRenderContext.Variables
   isSpec: "True"
-  fullName: WeihanLi.Common.Templating.TemplateRenderContext.Variables
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.Variables
   nameWithType: TemplateRenderContext.Variables
-- uid: WeihanLi.Data
-  name: WeihanLi.Data
-  href: api/WeihanLi.Data.html
-  commentId: N:WeihanLi.Data
-  fullName: WeihanLi.Data
-  nameWithType: WeihanLi.Data
-- uid: WeihanLi.Data.SqlExtensions
-  name: SqlExtensions
-  href: api/WeihanLi.Data.SqlExtensions.html
-  commentId: T:WeihanLi.Data.SqlExtensions
-  fullName: WeihanLi.Data.SqlExtensions
-  nameWithType: SqlExtensions
-- uid: WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable)
-  name: BulkCopy(SqlConnection, DataTable)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopy_Microsoft_Data_SqlClient_SqlConnection_System_Data_DataTable_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable)
-  nameWithType: SqlExtensions.BulkCopy(SqlConnection, DataTable)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.Int32)
-  name: BulkCopy(SqlConnection, DataTable, int)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopy_Microsoft_Data_SqlClient_SqlConnection_System_Data_DataTable_System_Int32_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.Int32)
-  name.vb: BulkCopy(SqlConnection, DataTable, Integer)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, int)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, Integer)
-  nameWithType: SqlExtensions.BulkCopy(SqlConnection, DataTable, int)
-  nameWithType.vb: SqlExtensions.BulkCopy(SqlConnection, DataTable, Integer)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.String)
-  name: BulkCopy(SqlConnection, DataTable, string)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopy_Microsoft_Data_SqlClient_SqlConnection_System_Data_DataTable_System_String_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.String)
-  name.vb: BulkCopy(SqlConnection, DataTable, String)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, string)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, String)
-  nameWithType: SqlExtensions.BulkCopy(SqlConnection, DataTable, string)
-  nameWithType.vb: SqlExtensions.BulkCopy(SqlConnection, DataTable, String)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.String,System.Int32)
-  name: BulkCopy(SqlConnection, DataTable, string, int)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopy_Microsoft_Data_SqlClient_SqlConnection_System_Data_DataTable_System_String_System_Int32_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.String,System.Int32)
-  name.vb: BulkCopy(SqlConnection, DataTable, String, Integer)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, string, int)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, String, Integer)
-  nameWithType: SqlExtensions.BulkCopy(SqlConnection, DataTable, string, int)
-  nameWithType.vb: SqlExtensions.BulkCopy(SqlConnection, DataTable, String, Integer)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.String,System.Int32,System.Collections.Generic.IDictionary{System.String,System.String},System.Int32)
-  name: BulkCopy(SqlConnection, DataTable, string, int, IDictionary<string, string>?, int)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopy_Microsoft_Data_SqlClient_SqlConnection_System_Data_DataTable_System_String_System_Int32_System_Collections_Generic_IDictionary_System_String_System_String__System_Int32_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.String,System.Int32,System.Collections.Generic.IDictionary{System.String,System.String},System.Int32)
-  name.vb: BulkCopy(SqlConnection, DataTable, String, Integer, IDictionary(Of String, String), Integer)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, string, int, System.Collections.Generic.IDictionary<string, string>?, int)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopy(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, String, Integer, System.Collections.Generic.IDictionary(Of String, String), Integer)
-  nameWithType: SqlExtensions.BulkCopy(SqlConnection, DataTable, string, int, IDictionary<string, string>?, int)
-  nameWithType.vb: SqlExtensions.BulkCopy(SqlConnection, DataTable, String, Integer, IDictionary(Of String, String), Integer)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopy*
-  name: BulkCopy
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopy_
-  commentId: Overload:WeihanLi.Data.SqlExtensions.BulkCopy
-  isSpec: "True"
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopy
-  nameWithType: SqlExtensions.BulkCopy
-- uid: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable)
-  name: BulkCopyAsync(SqlConnection, DataTable)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopyAsync_Microsoft_Data_SqlClient_SqlConnection_System_Data_DataTable_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable)
-  nameWithType: SqlExtensions.BulkCopyAsync(SqlConnection, DataTable)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.Int32)
-  name: BulkCopyAsync(SqlConnection, DataTable, int)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopyAsync_Microsoft_Data_SqlClient_SqlConnection_System_Data_DataTable_System_Int32_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.Int32)
-  name.vb: BulkCopyAsync(SqlConnection, DataTable, Integer)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, int)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, Integer)
-  nameWithType: SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, int)
-  nameWithType.vb: SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, Integer)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.String)
-  name: BulkCopyAsync(SqlConnection, DataTable, string)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopyAsync_Microsoft_Data_SqlClient_SqlConnection_System_Data_DataTable_System_String_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.String)
-  name.vb: BulkCopyAsync(SqlConnection, DataTable, String)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, string)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, String)
-  nameWithType: SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, string)
-  nameWithType.vb: SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, String)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.String,System.Int32)
-  name: BulkCopyAsync(SqlConnection, DataTable, string, int)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopyAsync_Microsoft_Data_SqlClient_SqlConnection_System_Data_DataTable_System_String_System_Int32_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.String,System.Int32)
-  name.vb: BulkCopyAsync(SqlConnection, DataTable, String, Integer)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, string, int)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, String, Integer)
-  nameWithType: SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, string, int)
-  nameWithType.vb: SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, String, Integer)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.String,System.Int32,System.Collections.Generic.IDictionary{System.String,System.String},System.Int32)
-  name: BulkCopyAsync(SqlConnection, DataTable, string, int, IDictionary<string, string>?, int)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopyAsync_Microsoft_Data_SqlClient_SqlConnection_System_Data_DataTable_System_String_System_Int32_System_Collections_Generic_IDictionary_System_String_System_String__System_Int32_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection,System.Data.DataTable,System.String,System.Int32,System.Collections.Generic.IDictionary{System.String,System.String},System.Int32)
-  name.vb: BulkCopyAsync(SqlConnection, DataTable, String, Integer, IDictionary(Of String, String), Integer)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, string, int, System.Collections.Generic.IDictionary<string, string>?, int)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Microsoft.Data.SqlClient.SqlConnection, System.Data.DataTable, String, Integer, System.Collections.Generic.IDictionary(Of String, String), Integer)
-  nameWithType: SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, string, int, IDictionary<string, string>?, int)
-  nameWithType.vb: SqlExtensions.BulkCopyAsync(SqlConnection, DataTable, String, Integer, IDictionary(Of String, String), Integer)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopyAsync*
-  name: BulkCopyAsync
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopyAsync_
-  commentId: Overload:WeihanLi.Data.SqlExtensions.BulkCopyAsync
-  isSpec: "True"
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopyAsync
-  nameWithType: SqlExtensions.BulkCopyAsync
-- uid: WeihanLi.Data.SqlExtensions.BulkCopyAsync``1(Microsoft.Data.SqlClient.SqlConnection,System.Collections.Generic.IReadOnlyCollection{``0},System.String)
-  name: BulkCopyAsync<T>(SqlConnection, IReadOnlyCollection<T>, string)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopyAsync__1_Microsoft_Data_SqlClient_SqlConnection_System_Collections_Generic_IReadOnlyCollection___0__System_String_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopyAsync``1(Microsoft.Data.SqlClient.SqlConnection,System.Collections.Generic.IReadOnlyCollection{``0},System.String)
-  name.vb: BulkCopyAsync(Of T)(SqlConnection, IReadOnlyCollection(Of T), String)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopyAsync<T>(Microsoft.Data.SqlClient.SqlConnection, System.Collections.Generic.IReadOnlyCollection<T>, string)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Of T)(Microsoft.Data.SqlClient.SqlConnection, System.Collections.Generic.IReadOnlyCollection(Of T), String)
-  nameWithType: SqlExtensions.BulkCopyAsync<T>(SqlConnection, IReadOnlyCollection<T>, string)
-  nameWithType.vb: SqlExtensions.BulkCopyAsync(Of T)(SqlConnection, IReadOnlyCollection(Of T), String)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopyAsync``1(Microsoft.Data.SqlClient.SqlConnection,System.Collections.Generic.IReadOnlyCollection{``0},System.String,System.Int32)
-  name: BulkCopyAsync<T>(SqlConnection, IReadOnlyCollection<T>?, string, int)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopyAsync__1_Microsoft_Data_SqlClient_SqlConnection_System_Collections_Generic_IReadOnlyCollection___0__System_String_System_Int32_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopyAsync``1(Microsoft.Data.SqlClient.SqlConnection,System.Collections.Generic.IReadOnlyCollection{``0},System.String,System.Int32)
-  name.vb: BulkCopyAsync(Of T)(SqlConnection, IReadOnlyCollection(Of T), String, Integer)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopyAsync<T>(Microsoft.Data.SqlClient.SqlConnection, System.Collections.Generic.IReadOnlyCollection<T>?, string, int)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopyAsync(Of T)(Microsoft.Data.SqlClient.SqlConnection, System.Collections.Generic.IReadOnlyCollection(Of T), String, Integer)
-  nameWithType: SqlExtensions.BulkCopyAsync<T>(SqlConnection, IReadOnlyCollection<T>?, string, int)
-  nameWithType.vb: SqlExtensions.BulkCopyAsync(Of T)(SqlConnection, IReadOnlyCollection(Of T), String, Integer)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopy``1(Microsoft.Data.SqlClient.SqlConnection,System.Collections.Generic.IReadOnlyCollection{``0},System.String)
-  name: BulkCopy<T>(SqlConnection, IReadOnlyCollection<T>, string)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopy__1_Microsoft_Data_SqlClient_SqlConnection_System_Collections_Generic_IReadOnlyCollection___0__System_String_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopy``1(Microsoft.Data.SqlClient.SqlConnection,System.Collections.Generic.IReadOnlyCollection{``0},System.String)
-  name.vb: BulkCopy(Of T)(SqlConnection, IReadOnlyCollection(Of T), String)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopy<T>(Microsoft.Data.SqlClient.SqlConnection, System.Collections.Generic.IReadOnlyCollection<T>, string)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopy(Of T)(Microsoft.Data.SqlClient.SqlConnection, System.Collections.Generic.IReadOnlyCollection(Of T), String)
-  nameWithType: SqlExtensions.BulkCopy<T>(SqlConnection, IReadOnlyCollection<T>, string)
-  nameWithType.vb: SqlExtensions.BulkCopy(Of T)(SqlConnection, IReadOnlyCollection(Of T), String)
-- uid: WeihanLi.Data.SqlExtensions.BulkCopy``1(Microsoft.Data.SqlClient.SqlConnection,System.Collections.Generic.IReadOnlyCollection{``0},System.String,System.Int32)
-  name: BulkCopy<T>(SqlConnection, IReadOnlyCollection<T>?, string, int)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_BulkCopy__1_Microsoft_Data_SqlClient_SqlConnection_System_Collections_Generic_IReadOnlyCollection___0__System_String_System_Int32_
-  commentId: M:WeihanLi.Data.SqlExtensions.BulkCopy``1(Microsoft.Data.SqlClient.SqlConnection,System.Collections.Generic.IReadOnlyCollection{``0},System.String,System.Int32)
-  name.vb: BulkCopy(Of T)(SqlConnection, IReadOnlyCollection(Of T), String, Integer)
-  fullName: WeihanLi.Data.SqlExtensions.BulkCopy<T>(Microsoft.Data.SqlClient.SqlConnection, System.Collections.Generic.IReadOnlyCollection<T>?, string, int)
-  fullName.vb: WeihanLi.Data.SqlExtensions.BulkCopy(Of T)(Microsoft.Data.SqlClient.SqlConnection, System.Collections.Generic.IReadOnlyCollection(Of T), String, Integer)
-  nameWithType: SqlExtensions.BulkCopy<T>(SqlConnection, IReadOnlyCollection<T>?, string, int)
-  nameWithType.vb: SqlExtensions.BulkCopy(Of T)(SqlConnection, IReadOnlyCollection(Of T), String, Integer)
-- uid: WeihanLi.Data.SqlExtensions.GetColumnNamesFromDb(Microsoft.Data.SqlClient.SqlConnection,System.String)
-  name: GetColumnNamesFromDb(SqlConnection, string)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_GetColumnNamesFromDb_Microsoft_Data_SqlClient_SqlConnection_System_String_
-  commentId: M:WeihanLi.Data.SqlExtensions.GetColumnNamesFromDb(Microsoft.Data.SqlClient.SqlConnection,System.String)
-  name.vb: GetColumnNamesFromDb(SqlConnection, String)
-  fullName: WeihanLi.Data.SqlExtensions.GetColumnNamesFromDb(Microsoft.Data.SqlClient.SqlConnection, string)
-  fullName.vb: WeihanLi.Data.SqlExtensions.GetColumnNamesFromDb(Microsoft.Data.SqlClient.SqlConnection, String)
-  nameWithType: SqlExtensions.GetColumnNamesFromDb(SqlConnection, string)
-  nameWithType.vb: SqlExtensions.GetColumnNamesFromDb(SqlConnection, String)
-- uid: WeihanLi.Data.SqlExtensions.GetColumnNamesFromDb*
-  name: GetColumnNamesFromDb
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_GetColumnNamesFromDb_
-  commentId: Overload:WeihanLi.Data.SqlExtensions.GetColumnNamesFromDb
-  isSpec: "True"
-  fullName: WeihanLi.Data.SqlExtensions.GetColumnNamesFromDb
-  nameWithType: SqlExtensions.GetColumnNamesFromDb
-- uid: WeihanLi.Data.SqlExtensions.GetColumnNamesFromDbAsync(Microsoft.Data.SqlClient.SqlConnection,System.String)
-  name: GetColumnNamesFromDbAsync(SqlConnection, string)
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_GetColumnNamesFromDbAsync_Microsoft_Data_SqlClient_SqlConnection_System_String_
-  commentId: M:WeihanLi.Data.SqlExtensions.GetColumnNamesFromDbAsync(Microsoft.Data.SqlClient.SqlConnection,System.String)
-  name.vb: GetColumnNamesFromDbAsync(SqlConnection, String)
-  fullName: WeihanLi.Data.SqlExtensions.GetColumnNamesFromDbAsync(Microsoft.Data.SqlClient.SqlConnection, string)
-  fullName.vb: WeihanLi.Data.SqlExtensions.GetColumnNamesFromDbAsync(Microsoft.Data.SqlClient.SqlConnection, String)
-  nameWithType: SqlExtensions.GetColumnNamesFromDbAsync(SqlConnection, string)
-  nameWithType.vb: SqlExtensions.GetColumnNamesFromDbAsync(SqlConnection, String)
-- uid: WeihanLi.Data.SqlExtensions.GetColumnNamesFromDbAsync*
-  name: GetColumnNamesFromDbAsync
-  href: api/WeihanLi.Data.SqlExtensions.html#WeihanLi_Data_SqlExtensions_GetColumnNamesFromDbAsync_
-  commentId: Overload:WeihanLi.Data.SqlExtensions.GetColumnNamesFromDbAsync
-  isSpec: "True"
-  fullName: WeihanLi.Data.SqlExtensions.GetColumnNamesFromDbAsync
-  nameWithType: SqlExtensions.GetColumnNamesFromDbAsync
 - uid: WeihanLi.Extensions
   name: WeihanLi.Extensions
   href: api/WeihanLi.Extensions.html
@@ -21490,6 +21340,22 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.DivRem
   nameWithType: CoreExtension.DivRem
+- uid: WeihanLi.Extensions.CoreExtension.EnsureSuccessExitCode(System.Int32,System.Int32)
+  name: EnsureSuccessExitCode(int, int)
+  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_EnsureSuccessExitCode_System_Int32_System_Int32_
+  commentId: M:WeihanLi.Extensions.CoreExtension.EnsureSuccessExitCode(System.Int32,System.Int32)
+  name.vb: EnsureSuccessExitCode(Integer, Integer)
+  fullName: WeihanLi.Extensions.CoreExtension.EnsureSuccessExitCode(int, int)
+  fullName.vb: WeihanLi.Extensions.CoreExtension.EnsureSuccessExitCode(Integer, Integer)
+  nameWithType: CoreExtension.EnsureSuccessExitCode(int, int)
+  nameWithType.vb: CoreExtension.EnsureSuccessExitCode(Integer, Integer)
+- uid: WeihanLi.Extensions.CoreExtension.EnsureSuccessExitCode*
+  name: EnsureSuccessExitCode
+  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_EnsureSuccessExitCode_
+  commentId: Overload:WeihanLi.Extensions.CoreExtension.EnsureSuccessExitCode
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.CoreExtension.EnsureSuccessExitCode
+  nameWithType: CoreExtension.EnsureSuccessExitCode
 - uid: WeihanLi.Extensions.CoreExtension.EqualsIgnoreCase(System.String,System.String)
   name: EqualsIgnoreCase(string?, string?)
   href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_EqualsIgnoreCase_System_String_System_String_

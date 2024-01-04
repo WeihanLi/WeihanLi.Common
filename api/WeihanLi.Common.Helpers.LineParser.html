@@ -150,6 +150,44 @@
 </h2>
 
 
+  <a id="WeihanLi_Common_Helpers_LineParser_Parse_" data-uid="WeihanLi.Common.Helpers.LineParser.Parse*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_LineParser_Parse_System_String_WeihanLi_Common_Helpers_LineParseOptions_" data-uid="WeihanLi.Common.Helpers.LineParser.Parse(System.String,WeihanLi.Common.Helpers.LineParseOptions)">
+  Parse(string, LineParseOptions?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/LineParser.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;string&gt; Parse(string line, LineParseOptions? options = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>options</code> <a class="xref" href="WeihanLi.Common.Helpers.LineParseOptions.html">LineParseOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Common_Helpers_LineParser_ParseLine_" data-uid="WeihanLi.Common.Helpers.LineParser.ParseLine*"></a>
 
   <h3 id="WeihanLi_Common_Helpers_LineParser_ParseLine_System_String_WeihanLi_Common_Helpers_LineParseOptions_" data-uid="WeihanLi.Common.Helpers.LineParser.ParseLine(System.String,WeihanLi.Common.Helpers.LineParseOptions)">
@@ -161,7 +199,8 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;string&gt; ParseLine(string line, LineParseOptions? options = null)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Please use Parse instead&quot;, true)]
+public static IEnumerable&lt;string&gt; ParseLine(string line, LineParseOptions? options = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>

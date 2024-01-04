@@ -87,7 +87,7 @@
 
   <h1 id="WeihanLi_Common_Helpers_CommandResult" data-uid="WeihanLi.Common.Helpers.CommandResult" class="text-break">
     Class CommandResult
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L262"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -190,6 +190,9 @@
       <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJsonOrString_System_Object_">JsonSerializeExtension.ToJsonOrString(object?)</a>
   </div>
   <div>
+      <a class="xref" href="WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_PrintOutputToConsole_WeihanLi_Common_Helpers_CommandResult_">ConsoleHelper.PrintOutputToConsole(CommandResult)</a>
+  </div>
+  <div>
       <a class="xref" href="WeihanLi.Common.Models.ResultExtensions.html#WeihanLi_Common_Models_ResultExtensions_WrapResult__1___0_WeihanLi_Common_Models_ResultStatus_System_String_">ResultExtensions.WrapResult&lt;T&gt;(T, ResultStatus, string?)</a>
   </div>
   <div>
@@ -266,7 +269,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_CommandResult__ctor_System_Int32_System_String_System_String_" data-uid="WeihanLi.Common.Helpers.CommandResult.#ctor(System.Int32,System.String,System.String)">
   CommandResult(int, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L262"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -305,7 +308,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_CommandResult_ExitCode" data-uid="WeihanLi.Common.Helpers.CommandResult.ExitCode">
   ExitCode
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L266"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -336,7 +339,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_CommandResult_StandardError" data-uid="WeihanLi.Common.Helpers.CommandResult.StandardError">
   StandardError
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L265"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -367,7 +370,7 @@
 
   <h3 id="WeihanLi_Common_Helpers_CommandResult_StandardOut" data-uid="WeihanLi.Common.Helpers.CommandResult.StandardOut">
   StandardOut
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L264"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -398,18 +401,55 @@
 </h2>
 
 
-  <a id="WeihanLi_Common_Helpers_CommandResult_EnsureSuccessfulExitCode_" data-uid="WeihanLi.Common.Helpers.CommandResult.EnsureSuccessfulExitCode*"></a>
+  <a id="WeihanLi_Common_Helpers_CommandResult_EnsureSuccessExitCode_" data-uid="WeihanLi.Common.Helpers.CommandResult.EnsureSuccessExitCode*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_CommandResult_EnsureSuccessfulExitCode_System_Int32_" data-uid="WeihanLi.Common.Helpers.CommandResult.EnsureSuccessfulExitCode(System.Int32)">
-  EnsureSuccessfulExitCode(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Helpers_CommandResult_EnsureSuccessExitCode_System_Int32_" data-uid="WeihanLi.Common.Helpers.CommandResult.EnsureSuccessExitCode(System.Int32)">
+  EnsureSuccessExitCode(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L271"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CommandResult EnsureSuccessfulExitCode(int successCode = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public CommandResult EnsureSuccessExitCode(int successCode = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>successCode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Helpers.CommandResult.html">CommandResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_CommandResult_EnsureSuccessfulExitCode_" data-uid="WeihanLi.Common.Helpers.CommandResult.EnsureSuccessfulExitCode*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_CommandResult_EnsureSuccessfulExitCode_System_Int32_" data-uid="WeihanLi.Common.Helpers.CommandResult.EnsureSuccessfulExitCode(System.Int32)">
+  EnsureSuccessfulExitCode(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L268"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Please use EnsureSuccessExitCode() instead&quot;, true)]
+public CommandResult EnsureSuccessfulExitCode(int successCode = 0)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -438,7 +478,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L144" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandExecutor.cs/#L262" class="edit-link">Edit this page</a>
         </div>
 
 
