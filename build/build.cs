@@ -60,7 +60,7 @@ await BuildProcess.CreateBuilder()
         .WithDependency("test")
         .WithExecution(async () =>
         {
-            if (stable)
+            if (stable || branchName == "master")
             {
                 foreach (var project in srcProjects)
                 {
