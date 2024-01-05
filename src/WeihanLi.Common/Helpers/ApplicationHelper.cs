@@ -10,6 +10,9 @@ public static class ApplicationHelper
         Assembly.GetEntryAssembly()?.GetName().Name ?? AppDomain.CurrentDomain.FriendlyName;
 
     public static readonly string AppRoot = AppDomain.CurrentDomain.BaseDirectory;
+    
+    private static CancellationToken? _exitToken;
+    public static CancellationToken GetExitToken() => _exitToken ??= InvokeHelper.GetExitToken();
 
     public static string MapPath(string virtualPath) => AppRoot + virtualPath.TrimStart('~');
 
