@@ -85,7 +85,11 @@ public static class HttpHelper
     private static readonly Lazy<HttpClient> SharedHttpClient = new(() => new(new NoProxyHttpClientHandler()
     {
         UseCookies = false,
+#if NET6_0_OR_GREATER
         AutomaticDecompression = DecompressionMethods.All
+#else
+        AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
+#endif
     }));
     
     /// <summary>
