@@ -12,7 +12,7 @@ public static class ApplicationHelper
     public static readonly string AppRoot = AppDomain.CurrentDomain.BaseDirectory;
 
     private static CancellationToken? _exitToken;
-    public static CancellationToken ExitToken => _exitToken ??= InvokeHelper.GetExitToken();
+    public static CancellationToken ExitToken => _exitToken ??= InvokeHelper.GetExitTokenInternal();
 
     public static string MapPath(string virtualPath) => AppRoot + virtualPath.TrimStart('~');
 
