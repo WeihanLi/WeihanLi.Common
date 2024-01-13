@@ -323,12 +323,15 @@ public static class HttpHelper
         WebProxy? proxy)
         => HttpGetString(url, customHeaders, proxy).StringToType<T>();
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static Task<T> HttpGetForAsync<T>(string url)
         => HttpGetStringAsync(url).ContinueWith(result => result.Result.StringToType<T>());
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static Task<T> HttpGetForAsync<T>(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders)
         => HttpGetStringAsync(url, customHeaders).ContinueWith(result => result.Result.StringToType<T>());
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static Task<T> HttpGetForAsync<T>(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders,
         WebProxy? proxy)
         => HttpGetStringAsync(url, customHeaders, proxy).ContinueWith(result => result.Result.StringToType<T>());
@@ -391,6 +394,7 @@ public static class HttpHelper
         return HttpGetFor<T>(url);
     }
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static async Task<T> HttpGetForAsync<T>(string url, IDictionary<string, string>? parameters)
     {
         if (parameters.HasValue())
@@ -857,7 +861,7 @@ public static class HttpHelper
             }
         }
 
-        var boundarybytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
+        var boundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}\r\n");
         var endBoundaryBytes = Encoding.ASCII.GetBytes($"\r\n--{boundary}--");
 
         using var memStream = new MemoryStream();
@@ -871,7 +875,7 @@ public static class HttpHelper
 
         foreach (var file in files)
         {
-            memStream.Write(boundarybytes);
+            memStream.Write(boundaryBytes);
 
             memStream.Write(Encoding.UTF8.GetBytes(string.Format(FileHeaderFormat, Path.GetFileNameWithoutExtension(file.Key), file.Key)));
             memStream.Write(file.Value);

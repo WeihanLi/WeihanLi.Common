@@ -47,10 +47,7 @@ public static partial class DataExtension
 
     public static DataTable ToDataTable<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] T>(this IEnumerable<T> entities)
     {
-        if (null == entities)
-        {
-            throw new ArgumentNullException(nameof(entities));
-        }
+        Guard.NotNull(entities);
         var properties = CacheUtil.GetTypeProperties(typeof(T))
             .Where(_ => _.CanRead)
             .ToArray();
@@ -156,7 +153,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="dr">The @this to act on.</param>
     /// <returns>@this as a T.</returns>
-    public static T ToEntity<T>(this DataRow dr)
+    public static T ToEntity<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]T>(this DataRow dr)
     {
         var type = typeof(T);
         var properties = CacheUtil.GetTypeProperties(type).Where(p => p.CanWrite).ToArray();
