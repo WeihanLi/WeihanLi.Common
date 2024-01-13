@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.RegularExpressions;
 using WeihanLi.Common;
 using WeihanLi.Extensions;
 
@@ -133,6 +134,7 @@ public static class ConfigurationExtension
     /// <param name="configuration">IConfiguration instance</param>
     /// <param name="key">appSettings key</param>
     /// <returns>app setting value</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T GetAppSetting<T>(this IConfiguration configuration, string key)
     {
         return configuration.GetAppSetting(key).To<T>();
@@ -146,6 +148,7 @@ public static class ConfigurationExtension
     /// <param name="key">appSettings key</param>
     /// <param name="defaultValue">default value if not exist</param>
     /// <returns>app setting value</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T GetAppSetting<T>(this IConfiguration configuration, string key, T defaultValue)
     {
         return configuration.GetAppSetting(key).ToOrDefault(defaultValue);
@@ -159,6 +162,7 @@ public static class ConfigurationExtension
     /// <param name="key">appSettings key</param>
     /// <param name="defaultValueFunc">default value func if not exist to get a default value</param>
     /// <returns>app setting value</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T GetAppSetting<T>(this IConfiguration configuration, string key, Func<T> defaultValueFunc)
     {
         return configuration.GetAppSetting(key).ToOrDefault(defaultValueFunc);

@@ -22,11 +22,7 @@ public static class Base64UrlEncodeHelper
     /// <returns>Base64Url encoding of the UTF8 bytes.</returns>
     public static string Encode(string arg)
     {
-        if (arg == null)
-        {
-            throw new ArgumentNullException(nameof(arg));
-        }
-        return Encode(arg.GetBytes());
+        return Encode(Guard.NotNull(arg).GetBytes());
     }
 
     /// <summary>
@@ -41,10 +37,7 @@ public static class Base64UrlEncodeHelper
     /// <exception cref="T:System.ArgumentOutOfRangeException">offset or length is negative OR offset plus length is greater than the length of inArray.</exception>
     public static string Encode(byte[] inArray, int offset, int length)
     {
-        if (inArray == null)
-        {
-            throw new ArgumentNullException(nameof(inArray));
-        }
+        Guard.NotNull(inArray);
         return Convert.ToBase64String(inArray, offset, length).Split(Base64PadCharacter)[0].Replace(Base64Character62, Base64UrlCharacter62).Replace(Base64Character63, Base64UrlCharacter63);
     }
 
@@ -58,10 +51,7 @@ public static class Base64UrlEncodeHelper
     /// <exception cref="T:System.ArgumentOutOfRangeException">offset or length is negative OR offset plus length is greater than the length of inArray.</exception>
     public static string Encode(byte[] inArray)
     {
-        if (inArray == null)
-        {
-            throw new ArgumentNullException(nameof(inArray));
-        }
+        Guard.NotNull(inArray);
         return Convert.ToBase64String(inArray, 0, inArray.Length).Split(Base64PadCharacter)[0].Replace(Base64Character62, Base64UrlCharacter62).Replace(Base64Character63, Base64UrlCharacter63);
     }
 
@@ -71,10 +61,7 @@ public static class Base64UrlEncodeHelper
     /// <returns>UTF8 bytes.</returns>
     public static byte[] DecodeBytes(string str)
     {
-        if (str == null)
-        {
-            throw new ArgumentNullException(nameof(str));
-        }
+        Guard.NotNullOrEmpty(str);
         str = str.Replace(Base64UrlCharacter62, Base64Character62);
         str = str.Replace(Base64UrlCharacter63, Base64Character63);
         switch (str.Length % 4)

@@ -34,7 +34,7 @@ internal sealed class DelegateConsoleLogFormatter : IConsoleLogFormatter
 
     public DelegateConsoleLogFormatter(Func<LogHelperLoggingEvent, string> formatter)
     {
-        _formatter = formatter ?? throw new ArgumentNullException(nameof(formatter));
+        _formatter = Guard.NotNull(formatter);
     }
 
     public string FormatAsString(LogHelperLoggingEvent loggingEvent) => _formatter(loggingEvent);

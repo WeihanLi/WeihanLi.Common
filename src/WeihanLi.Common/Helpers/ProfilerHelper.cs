@@ -10,8 +10,8 @@ public sealed class ProfilerStopper : IDisposable
 
     public ProfilerStopper(IProfiler profiler, Action<TimeSpan> profileAction)
     {
-        _profiler = profiler ?? throw new ArgumentNullException(nameof(profiler));
-        _profileAction = profileAction ?? throw new ArgumentNullException(nameof(profileAction));
+        _profiler = Guard.NotNull(profiler);
+        _profileAction = Guard.NotNull(profileAction);
     }
 
     public void Dispose()
@@ -28,8 +28,8 @@ public sealed class StopwatchStopper : IDisposable
 
     public StopwatchStopper(Stopwatch stopwatch, Action<TimeSpan> profileAction)
     {
-        _stopwatch = stopwatch ?? throw new ArgumentNullException(nameof(stopwatch));
-        _profileAction = profileAction ?? throw new ArgumentNullException(nameof(profileAction));
+        _stopwatch = Guard.NotNull(stopwatch);
+        _profileAction = Guard.NotNull(profileAction);
     }
 
     public void Dispose()
@@ -43,13 +43,13 @@ public static class ProfilerHelper
 {
     public static StopwatchStopper Profile(this Stopwatch watch, Action<TimeSpan> profilerAction)
     {
-        Guard.NotNull(watch, nameof(watch)).Restart();
+        Guard.NotNull(watch).Restart();
         return new StopwatchStopper(watch, profilerAction);
     }
 
     public static ProfilerStopper StartNew(this IProfiler profiler, Action<TimeSpan> profilerAction)
     {
-        Guard.NotNull(profiler, nameof(profiler)).Restart();
+        Guard.NotNull(profiler).Restart();
         return new ProfilerStopper(profiler, profilerAction);
     }
 
@@ -59,7 +59,7 @@ public static class ProfilerHelper
     /// GetElapsedTime
     /// </summary>
     /// <param name="startTimestamp">startTimestamp, get by Stopwatch.GetTimestamp()</param>
-    /// <returns>elapsed timespan</returns>
+    /// <returns>elapsed time</returns>
     public static TimeSpan GetElapsedTime(long startTimestamp) =>
 #if NET7_0_OR_GREATER
         Stopwatch.GetElapsedTime(startTimestamp)
@@ -73,7 +73,7 @@ public static class ProfilerHelper
     /// </summary>
     /// <param name="startTimestamp">startTimestamp, get by Stopwatch.GetTimestamp()</param>
     /// <param name="endTimestamp">endTimestamp, get by Stopwatch.GetTimestamp</param>
-    /// <returns>elapsed timespan</returns>
+    /// <returns>elapsed time</returns>
     public static TimeSpan GetElapsedTime(long startTimestamp, long endTimestamp)
     {
 #if NET7_0_OR_GREATER

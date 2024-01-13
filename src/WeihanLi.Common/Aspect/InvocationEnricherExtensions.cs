@@ -5,10 +5,7 @@ public static class InvocationEnricherExtensions
     public static void AddProperty(this IInvocation invocation, string propertyName,
         object propertyValue, bool overwrite = false)
     {
-        if (null == invocation)
-        {
-            throw new ArgumentNullException(nameof(invocation));
-        }
+        Guard.NotNull(invocation);
 
         if (!invocation.Properties.ContainsKey(propertyName) || overwrite)
         {
@@ -19,10 +16,7 @@ public static class InvocationEnricherExtensions
     public static void AddProperty(this IInvocation invocation, string propertyName,
         Func<IInvocation, object?> propertyValueFactory, bool overwrite = false)
     {
-        if (null == invocation)
-        {
-            throw new ArgumentNullException(nameof(invocation));
-        }
+        Guard.NotNull(invocation);
 
         if (!invocation.Properties.ContainsKey(propertyName)
             || overwrite)

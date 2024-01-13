@@ -7,7 +7,7 @@ public sealed class DelegateInterceptor : AbstractInterceptor
 
     public DelegateInterceptor(Func<IInvocation, Func<Task>, Task> interceptFunc)
     {
-        _interceptFunc = interceptFunc ?? throw new ArgumentNullException(nameof(interceptFunc));
+        _interceptFunc = Guard.NotNull(interceptFunc);
     }
 
     public override Task Invoke(IInvocation invocation, Func<Task> next)

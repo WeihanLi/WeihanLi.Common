@@ -20,11 +20,7 @@ internal sealed class GenericLogger<T> : ILogger<T>
     /// <param name="options">GenericLoggerOptions</param>
     public GenericLogger(ILoggerFactory factory, IOptions<GenericLoggerOptions> options)
     {
-        if (factory == null)
-        {
-            throw new ArgumentNullException(nameof(factory));
-        }
-
+        Guard.NotNull(factory);
         var includeGenericParameters = options.Value.FullNamePredict?.Invoke(typeof(T)) == true;
         _logger = factory.CreateLogger(TypeHelper.GetTypeDisplayName(typeof(T), includeGenericParameters: includeGenericParameters, nestedTypeDelimiter: '.'));
     }

@@ -9,22 +9,15 @@ public static class ServiceCollectionExtensions
 {
     public static IFluentAspectsBuilder AddFluentAspects(this IServiceCollection serviceCollection, Action<FluentAspectOptions> optionsAction)
     {
-        if (null == serviceCollection)
-        {
-            throw new ArgumentNullException(nameof(serviceCollection));
-        }
-        if (null == optionsAction)
-        {
-            throw new ArgumentNullException(nameof(optionsAction));
-        }
+        Guard.NotNull(serviceCollection);
+        Guard.NotNull(optionsAction);        
         FluentAspects.Configure(optionsAction);
         return AddFluentAspects(serviceCollection);
     }
 
     public static IFluentAspectsBuilder AddFluentAspects(this IServiceCollection serviceCollection)
     {
-        if (null == serviceCollection)
-            throw new ArgumentNullException(nameof(serviceCollection));
+        Guard.NotNull(serviceCollection);
 
         serviceCollection.TryAddTransient<IProxyTypeFactory, DefaultProxyTypeFactory>();
         serviceCollection.TryAddTransient<IProxyFactory, DefaultProxyFactory>();

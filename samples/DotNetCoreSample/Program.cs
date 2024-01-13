@@ -312,7 +312,7 @@ InvokeHelper.OnInvokeException = ex => ConsoleHelper.ErrorWriteWithColor(ex.ToSt
 //TotpTest.MainTest();
 
 // exit test
-// var exitToken = InvokeHelper.GetExitToken();
+// var exitToken = ApplicationHelper.ExitToken;
 // exitToken.Register(() =>
 // {
 //     Console.WriteLine(@"Exiting");

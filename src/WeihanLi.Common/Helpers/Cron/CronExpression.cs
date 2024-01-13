@@ -102,7 +102,7 @@ public sealed class CronExpression : IEquatable<CronExpression>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static unsafe CronExpression Parse(string expression, CronFormat format)
     {
-        if (string.IsNullOrEmpty(expression)) throw new ArgumentNullException(nameof(expression));
+        Guard.NotNullOrEmpty(expression);
 
         fixed (char* value = expression)
         {
