@@ -126,8 +126,8 @@ public static class InvokeHelper
             _exited = true;
         }
     }
-
-    public static CancellationToken GetExitToken() => LazyCancellationTokenSource.Value.Token;
+    
+    internal static CancellationToken GetExitToken() => LazyCancellationTokenSource.Value.Token;
 
     public static void TryInvoke(Action action)
     {

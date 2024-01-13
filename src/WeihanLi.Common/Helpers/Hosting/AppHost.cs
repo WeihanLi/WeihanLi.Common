@@ -53,7 +53,7 @@ public sealed class AppHost : IAppHost
     public async Task RunAsync(CancellationToken cancellationToken = default)
     {
         LogAppHostMessage(AppHostStartingMessage);
-        using var hostStopTokenSource = CancellationTokenSource.CreateLinkedTokenSource(InvokeHelper.GetExitToken(), cancellationToken);
+        using var hostStopTokenSource = CancellationTokenSource.CreateLinkedTokenSource(ApplicationHelper.ExitToken, cancellationToken);
 #if NET6_0_OR_GREATER
         var waitForStopTask = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
         hostStopTokenSource.Token.Register(() => waitForStopTask.TrySetResult());
