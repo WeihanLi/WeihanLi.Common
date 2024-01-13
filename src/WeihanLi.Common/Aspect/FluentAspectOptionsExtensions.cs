@@ -46,10 +46,7 @@ public static class FluentAspectOptionsExtensions
     public static IInterceptionConfiguration InterceptMethod<T>(this FluentAspectOptions options,
         MethodInfo method)
     {
-        if (null == method)
-        {
-            throw new ArgumentNullException(nameof(method));
-        }
+        Guard.NotNull(method);
 
         var methodSignature = method.GetSignature();
         return options.InterceptMethod<T>(m => m.GetSignature().Equals(methodSignature));
@@ -58,10 +55,7 @@ public static class FluentAspectOptionsExtensions
     public static IInterceptionConfiguration InterceptMethod(this FluentAspectOptions options,
         MethodInfo method)
     {
-        if (null == method)
-        {
-            throw new ArgumentNullException(nameof(method));
-        }
+        Guard.NotNull(method);
 
         var methodSignature = method.GetSignature();
         return options.InterceptMethod(m => m.GetSignature().Equals(methodSignature));
@@ -213,10 +207,7 @@ public static class FluentAspectOptionsExtensions
     public static FluentAspectOptions NoInterceptMethod<T>(this FluentAspectOptions options,
         MethodInfo method)
     {
-        if (null == method)
-        {
-            throw new ArgumentNullException(nameof(method));
-        }
+        Guard.NotNull(method);
 
         var methodSignature = method.GetSignature();
         return options.NoInterceptMethod<T>(m => m.GetSignature().Equals(methodSignature));
@@ -225,10 +216,7 @@ public static class FluentAspectOptionsExtensions
     public static FluentAspectOptions NoInterceptMethod(this FluentAspectOptions options,
         MethodInfo method)
     {
-        if (null == method)
-        {
-            throw new ArgumentNullException(nameof(method));
-        }
+        Guard.NotNull(method);
 
         var methodSignature = method.GetSignature();
         return options.NoInterceptMethod(m => m.GetSignature().Equals(methodSignature));

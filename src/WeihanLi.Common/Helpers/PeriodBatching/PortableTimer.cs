@@ -27,7 +27,7 @@ internal sealed class PortableTimer : IDisposable
 
     public PortableTimer(Func<CancellationToken, Task> onTick)
     {
-        _onTick = onTick ?? throw new ArgumentNullException(nameof(onTick));
+        _onTick = Guard.NotNull(onTick);
 
         _timer = new Timer(_ => OnTick(), null, Timeout.Infinite, Timeout.Infinite);
     }

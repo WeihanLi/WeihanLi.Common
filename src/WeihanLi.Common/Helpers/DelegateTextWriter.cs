@@ -11,7 +11,7 @@ public sealed class DelegateTextWriter : TextWriter
 
     public DelegateTextWriter(Action<string> onLineWritten)
     {
-        _onLineWritten = onLineWritten ?? throw new ArgumentNullException(nameof(onLineWritten));
+        _onLineWritten = Guard.NotNull(onLineWritten);
 
         _builder = new StringBuilder();
     }

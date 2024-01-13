@@ -316,7 +316,7 @@ public static class EnumerableExtension
     private sealed class Grouping<TKey, T> : IGrouping<TKey, T>
     {
         private readonly List<T> _items = new();
-        public Grouping(TKey key) => Key = key ?? throw new ArgumentNullException(nameof(key));
+        public Grouping(TKey key) => Key = Guard.NotNull(key);
 
         public TKey Key { get; }
 

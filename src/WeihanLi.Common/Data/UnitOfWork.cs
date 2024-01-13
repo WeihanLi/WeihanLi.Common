@@ -12,17 +12,14 @@ public class UnitOfWork : IUnitOfWork, IDisposable
 
     public UnitOfWork(IDbConnection dbConnection)
     {
-        if (null == dbConnection)
-        {
-            throw new ArgumentNullException(nameof(dbConnection));
-        }
+        Guard.NotNull(dbConnection);
         dbConnection.EnsureOpen();
         _dbTransaction = dbConnection.BeginTransaction();
     }
 
     public UnitOfWork(IDbTransaction dbTransaction)
     {
-        _dbTransaction = dbTransaction ?? throw new ArgumentNullException(nameof(dbTransaction));
+        _dbTransaction = Guard.NotNull(dbTransaction);
     }
 
     public virtual void Commit() => _dbTransaction.Commit();

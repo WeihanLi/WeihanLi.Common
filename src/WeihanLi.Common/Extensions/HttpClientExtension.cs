@@ -26,10 +26,7 @@ public static class HttpClientExtension
 
         private static string EncodeCredential(string userName, string password)
         {
-            if (string.IsNullOrWhiteSpace(userName))
-            {
-                throw new ArgumentNullException(nameof(userName));
-            }
+            Guard.NotNullOrWhiteSpace(userName);
             return Convert.ToBase64String($"{UrlEncode(userName)}:{UrlEncode(password)}".ToByteArray());
         }
 

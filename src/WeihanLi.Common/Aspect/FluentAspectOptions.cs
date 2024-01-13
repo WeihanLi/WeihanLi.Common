@@ -10,7 +10,7 @@ public sealed class FluentAspectOptions
     public IInterceptorResolver InterceptorResolver
     {
         get => _interceptorResolver;
-        set => _interceptorResolver = value ?? throw new ArgumentNullException(nameof(value));
+        set => _interceptorResolver = Guard.NotNull(value);
     }
 
     public HashSet<IInvocationEnricher> Enrichers { get; } = new();

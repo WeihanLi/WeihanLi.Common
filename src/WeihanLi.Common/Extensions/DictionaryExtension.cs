@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.Common;
 using System.Text;
+using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions;
@@ -392,11 +393,8 @@ public static class DictionaryExtension
     /// <param name="dictionary">IDictionary</param>
     /// <returns></returns>
     public static DataTable ToDataTable(this IDictionary<string, object> dictionary)
-    {
-        if (null == dictionary)
-        {
-            throw new ArgumentNullException(nameof(dictionary));
-        }
+    {        
+        Guard.NotNull(dictionary);
         var dataTable = new DataTable();
         if (dictionary.Keys.Count == 0)
         {

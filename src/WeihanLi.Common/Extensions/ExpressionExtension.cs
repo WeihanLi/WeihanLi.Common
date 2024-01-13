@@ -76,10 +76,7 @@ public static class ExpressionExtension
 
     public static MethodInfo GetMethod<T>(this Expression<T> expression)
     {
-        if (expression == null)
-        {
-            throw new ArgumentNullException(nameof(expression));
-        }
+        Guard.NotNull(expression);
 
         if (!(expression.Body is MethodCallExpression methodCallExpression))
         {

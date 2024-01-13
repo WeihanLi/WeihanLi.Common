@@ -9,22 +9,15 @@ public static class ServiceContainerBuilderExtensions
 {
     public static IFluentAspectsServiceContainerBuilder AddFluentAspects(this IServiceContainerBuilder serviceCollection, Action<FluentAspectOptions> optionsAction)
     {
-        if (null == serviceCollection)
-        {
-            throw new ArgumentNullException(nameof(serviceCollection));
-        }
-        if (null == optionsAction)
-        {
-            throw new ArgumentNullException(nameof(optionsAction));
-        }
+        Guard.NotNull(serviceCollection);
+        Guard.NotNull(optionsAction);
         FluentAspects.Configure(optionsAction);
         return AddFluentAspects(serviceCollection);
     }
 
     public static IFluentAspectsServiceContainerBuilder AddFluentAspects(this IServiceContainerBuilder serviceCollection)
     {
-        if (null == serviceCollection)
-            throw new ArgumentNullException(nameof(serviceCollection));
+        Guard.NotNull(serviceCollection);
 
         serviceCollection.AddTransient<IProxyTypeFactory, DefaultProxyTypeFactory>();
         serviceCollection.AddTransient<IProxyFactory, DefaultProxyFactory>();
@@ -37,6 +30,8 @@ public static class ServiceContainerBuilderExtensions
         where TImplement : TService
         where TService : class
     {
+        Guard.NotNull(serviceCollection);
+
         serviceCollection.Add(new ServiceDefinition(typeof(TService), sp =>
         {
             var proxyFactory = sp.ResolveRequiredService<IProxyFactory>();
@@ -49,6 +44,7 @@ public static class ServiceContainerBuilderExtensions
         where TImplement : TService
         where TService : class
     {
+        Guard.NotNull(serviceCollection);
         return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Singleton);
     }
 
@@ -56,6 +52,7 @@ public static class ServiceContainerBuilderExtensions
         where TImplement : TService
         where TService : class
     {
+        Guard.NotNull(serviceCollection);
         return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Scoped);
     }
 
@@ -63,12 +60,14 @@ public static class ServiceContainerBuilderExtensions
         where TImplement : TService
         where TService : class
     {
+        Guard.NotNull(serviceCollection);
         return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Transient);
     }
 
     public static IServiceContainerBuilder AddProxyService<TService>(this IServiceContainerBuilder serviceCollection, ServiceLifetime serviceLifetime)
         where TService : class
     {
+        Guard.NotNull(serviceCollection);
         serviceCollection.Add(new ServiceDefinition(typeof(TService), sp =>
         {
             var proxyFactory = sp.ResolveRequiredService<IProxyFactory>();
@@ -95,6 +94,7 @@ public static class ServiceContainerBuilderExtensions
         Action<IFluentAspectsServiceContainerBuilder>? aspectBuildAction = null,
         Expression<Func<Type, bool>>? ignoreTypesFilter = null)
     {
+        Guard.NotNull(serviceCollection);
         var services = new ServiceContainerBuilder();
 
         var aspectBuilder = null != optionsAction

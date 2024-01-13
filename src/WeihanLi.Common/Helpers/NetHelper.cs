@@ -11,10 +11,7 @@ internal sealed class IPNetwork
 {
     public IPNetwork(string cidr)
     {
-        if (string.IsNullOrWhiteSpace(cidr))
-        {
-            throw new ArgumentNullException(nameof(cidr));
-        }
+        Guard.NotNullOrWhiteSpace(cidr);
         var arr = cidr.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
         if (arr.Length == 0 || arr.Length > 2)
         {
