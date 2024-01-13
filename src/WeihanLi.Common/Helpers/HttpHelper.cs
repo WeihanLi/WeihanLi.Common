@@ -82,11 +82,17 @@ public static class HttpHelper
 
     #region WebRequest
 
-    private static readonly Lazy<HttpClient> SharedHttpClient = new(() => new(new NoProxyHttpClientHandler()));
+    private static readonly Lazy<HttpClient> SharedHttpClient = new(() => new(new NoProxyHttpClientHandler()
+    {
+        UseCookies = false,
+        AutomaticDecompression = DecompressionMethods.All
+    }));
+    
     /// <summary>
-    /// Shared HttpClient(no proxy)
+    /// Shared HttpClient(no proxy, disable cookie, enable auto decompression)
     /// </summary>
     public static HttpClient HttpClient => SharedHttpClient.Value;
+
     #region HttpGet
 
     /// <summary>
