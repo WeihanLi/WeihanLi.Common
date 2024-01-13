@@ -133,6 +133,7 @@ public static partial class DataExtension
     /// <param name="dataTable">The dataTable to act on.</param>
     /// <param name="index">column index</param>
     /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static IEnumerable<T?> ColumnToList<T>(this DataTable dataTable, int index)
     {
         Guard.NotNull(dataTable, nameof(dataTable));
@@ -254,6 +255,7 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="hadRead">whether the DataReader had read</param>
     /// <returns>@this as a T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T? ToEntity<T>(this IDataReader @this, bool hadRead = false)
     {
         if (!hadRead)

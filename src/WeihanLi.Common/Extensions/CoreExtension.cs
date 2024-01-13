@@ -1778,6 +1778,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="defaultValueFactory">The default value factory.</param>
     /// <returns>The given data converted to a T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T ToOrDefault<T>(this object? @this, Func<T> defaultValueFactory)
     {
         return @this.ToOrDefault(_ => defaultValueFactory());
@@ -1809,6 +1810,7 @@ public static class CoreExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">this.</param>
     /// <returns>The given data converted to a T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T? ToOrDefault<T>(this object? @this)
     {
         return @this.ToOrDefault(_ => default(T));
@@ -1821,6 +1823,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="defaultValue">The default value.</param>
     /// <returns>The given data converted to a T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T ToOrDefault<T>(this object? @this, T defaultValue)
     {
         return @this.ToOrDefault(_ => defaultValue);

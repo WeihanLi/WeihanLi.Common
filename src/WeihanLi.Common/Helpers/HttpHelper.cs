@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Net;
 using System.Text;
 using WeihanLi.Common.Http;
 using WeihanLi.Extensions;
@@ -309,12 +310,15 @@ public static class HttpHelper
         return await request.GetResponseBytesSafeAsync();
     }
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T HttpGetFor<T>(string url)
         => HttpGetString(url).StringToType<T>();
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T HttpGetFor<T>(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders)
         => HttpGetString(url, customHeaders).StringToType<T>();
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T HttpGetFor<T>(string url, IEnumerable<KeyValuePair<string, string>>? customHeaders,
         WebProxy? proxy)
         => HttpGetString(url, customHeaders, proxy).StringToType<T>();
@@ -377,6 +381,7 @@ public static class HttpHelper
         return await HttpGetForBytesAsync(url);
     }
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T HttpGetFor<T>(string url, IDictionary<string, string>? parameters)
     {
         if (parameters.HasValue())
@@ -454,15 +459,19 @@ public static class HttpHelper
     public static Task<string> HttpPostJsonAsync<T>(string url, T data, Encoding encoding)
         => HttpPostAsync(url, encoding.GetBytes(data.ToJson()));
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static TResponse HttpPostJsonFor<TRequest, TResponse>(string url, TRequest data)
     => HttpPostFor<TResponse>(url, Encoding.UTF8.GetBytes(data.ToJson()), true);
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static TResponse HttpPostJsonFor<TRequest, TResponse>(string url, TRequest data, Encoding encoding)
     => HttpPostFor<TResponse>(url, encoding.GetBytes(data.ToJson()), true);
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static Task<TResponse> HttpPostJsonForAsync<TRequest, TResponse>(string url, TRequest data)
         => HttpPostForAsync<TResponse>(url, Encoding.UTF8.GetBytes(data.ToJson()), true);
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static Task<TResponse> HttpPostJsonForAsync<TRequest, TResponse>(string url, TRequest data, Encoding encoding)
         => HttpPostForAsync<TResponse>(url, encoding.GetBytes(data.ToJson()), true);
 
@@ -588,9 +597,11 @@ public static class HttpHelper
         return await request.GetResponseStringSafeAsync();
     }
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T HttpPostFor<T>(string url, byte[] postData, bool isJsonFormat)
         => HttpPost(url, postData, isJsonFormat).StringToType<T>();
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static async Task<T> HttpPostForAsync<T>(string url, byte[] postData, bool isJsonFormat)
         => (await HttpPostAsync(url, postData, isJsonFormat)).StringToType<T>();
 

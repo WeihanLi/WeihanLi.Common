@@ -83,6 +83,7 @@ public static class HttpRequesterExtension
 
     public static string Execute(this IHttpRequester httpRequester) => httpRequester.ExecuteBytes().GetString();
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T? Execute<T>(this IHttpRequester httpRequester, T? defaultVal = default) => httpRequester.ExecuteBytes().GetString().ToOrDefault(defaultVal);
 
     public static Task<string> ExecuteAsync(this IHttpRequester httpRequester)
@@ -90,6 +91,7 @@ public static class HttpRequesterExtension
         return httpRequester.ExecuteBytesAsync().ContinueWith(r => r.Result.GetString());
     }
 
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static Task<T?> ExecuteAsync<T>(this IHttpRequester httpRequester, T? defaultVal = default)
     {
         return httpRequester.ExecuteBytesAsync().ContinueWith(r => r.Result.GetString().ToOrDefault(defaultVal));
