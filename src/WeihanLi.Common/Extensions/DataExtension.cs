@@ -83,7 +83,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
-    [RequiresUnreferencedCode()]
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static IEnumerable<T> ToEntities<T>(this DataTable @this)
     {
         if (@this.Columns.Count > 0)
@@ -227,7 +227,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
-    [RequiresUnreferencedCode()]
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static IEnumerable<T> ToEntities<T>(this IDataReader @this)
     {
         var type = typeof(T);
@@ -467,7 +467,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>A T.</returns>
-    [RequiresUnreferencedCode()]
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T ExecuteScalarTo<T>(this DbCommand @this) => @this.ExecuteScalar().To<T>();
 
     /// <summary>
@@ -477,7 +477,7 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="cancellationToken"></param>
     /// <returns>A T.</returns>
-    [RequiresUnreferencedCode()]
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static async Task<T> ExecuteScalarToAsync<T>(this DbCommand @this, CancellationToken cancellationToken = default) => (await @this.ExecuteScalarAsync(cancellationToken)).To<T>();
 
     /// <summary>
@@ -486,6 +486,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>A T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T? ExecuteScalarToOrDefault<T>(this DbCommand @this) => @this.ExecuteScalar().ToOrDefault<T>();
 
     /// <summary>
@@ -495,6 +496,7 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="cancellationToken"></param>
     /// <returns>A T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static async Task<T?> ExecuteScalarToOrDefaultAsync<T>(this DbCommand @this, CancellationToken cancellationToken = default) => (await @this.ExecuteScalarAsync(cancellationToken)).ToOrDefault<T>();
 
     /// <summary>
@@ -504,6 +506,7 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="func">The default value factory.</param>
     /// <returns>A T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T? ExecuteScalarTo<T>(this DbCommand @this, Func<object?, T> func)
     {
         return func(@this.ExecuteScalar());
