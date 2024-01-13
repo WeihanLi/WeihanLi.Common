@@ -79,7 +79,7 @@ public static class HttpHelper
     {
         return WellKnownContentHeaders.Contains(header);
     }
-    
+
     private static readonly Lazy<HttpClient> SharedHttpClient = new(() => new(new NoProxyHttpClientHandler()
     {
         UseCookies = false,
@@ -89,12 +89,12 @@ public static class HttpHelper
         AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
 #endif
     }));
-    
+
     /// <summary>
     /// Shared HttpClient(no proxy, disable cookie, enable auto decompression)
     /// </summary>
     public static HttpClient HttpClient => SharedHttpClient.Value;
-    
+
     #region WebRequest
 
     #region HttpGet

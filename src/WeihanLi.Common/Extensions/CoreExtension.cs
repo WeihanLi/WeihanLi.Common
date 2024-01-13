@@ -1758,6 +1758,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="defaultValueFactory">The default value factory.</param>
     /// <returns>The given data converted to a T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T ToOrDefault<T>(this object? @this, Func<object?, T> defaultValueFactory)
     {
         try
@@ -1788,6 +1789,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="type">type</param>
     /// <returns>The given data converted to</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static object? ToOrDefault(this object? @this, Type type)
     {
         Guard.NotNull(type, nameof(type));

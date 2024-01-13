@@ -10,7 +10,7 @@ public static class ApplicationHelper
         Assembly.GetEntryAssembly()?.GetName().Name ?? AppDomain.CurrentDomain.FriendlyName;
 
     public static readonly string AppRoot = AppDomain.CurrentDomain.BaseDirectory;
-    
+
     private static CancellationToken? _exitToken;
     public static CancellationToken ExitToken => _exitToken ??= InvokeHelper.GetExitToken();
 

@@ -83,6 +83,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
+    [RequiresUnreferencedCode()]
     public static IEnumerable<T> ToEntities<T>(this DataTable @this)
     {
         if (@this.Columns.Count > 0)
@@ -226,6 +227,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
+    [RequiresUnreferencedCode()]
     public static IEnumerable<T> ToEntities<T>(this IDataReader @this)
     {
         var type = typeof(T);
@@ -465,6 +467,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>A T.</returns>
+    [RequiresUnreferencedCode()]
     public static T ExecuteScalarTo<T>(this DbCommand @this) => @this.ExecuteScalar().To<T>();
 
     /// <summary>
@@ -474,6 +477,7 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="cancellationToken"></param>
     /// <returns>A T.</returns>
+    [RequiresUnreferencedCode()]
     public static async Task<T> ExecuteScalarToAsync<T>(this DbCommand @this, CancellationToken cancellationToken = default) => (await @this.ExecuteScalarAsync(cancellationToken)).To<T>();
 
     /// <summary>
