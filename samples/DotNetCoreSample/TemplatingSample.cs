@@ -7,7 +7,7 @@ using WeihanLi.Common.Template;
 
 namespace DotNetCoreSample;
 
-public class TemplatingSample
+public static class TemplatingSample
 {
     public static async Task MainTest()
     {
