@@ -48,14 +48,9 @@ public static class DependencyResolver
 
     public static void SetDependencyResolver(IServiceCollection services) => SetDependencyResolver(new ServiceProviderDependencyResolver(services.BuildServiceProvider()));
 
-    private sealed class ServiceProviderDependencyResolver : IDependencyResolver
+    private sealed class ServiceProviderDependencyResolver(ServiceProvider serviceProvider) : IDependencyResolver
     {
-        private readonly ServiceProvider _serviceProvider;
-
-        public ServiceProviderDependencyResolver(ServiceProvider serviceProvider)
-        {
-            _serviceProvider = serviceProvider;
-        }
+        private readonly ServiceProvider _serviceProvider = serviceProvider;
 
         public object? GetService(Type serviceType)
         {
@@ -136,16 +131,10 @@ public static class DependencyResolver
         }
     }
 
-    private sealed class DelegateBasedDependencyResolver : IDependencyResolver
+    private sealed class DelegateBasedDependencyResolver(Func<Type, object?> getService, Func<Type, IEnumerable<object>> getServices) : IDependencyResolver
     {
-        private readonly Func<Type, object?> _getService;
-        private readonly Func<Type, IEnumerable<object>> _getServices;
-
-        public DelegateBasedDependencyResolver(Func<Type, object?> getService, Func<Type, IEnumerable<object>> getServices)
-        {
-            _getService = Guard.NotNull(getService);
-            _getServices = Guard.NotNull(getServices);
-        }
+        private readonly Func<Type, object?> _getService = Guard.NotNull(getService);
+        private readonly Func<Type, IEnumerable<object>> _getServices = Guard.NotNull(getServices);
 
         public object? GetService(Type serviceType)
         => _getService(serviceType);
@@ -176,14 +165,9 @@ public static class DependencyResolver
         }
     }
 
-    private sealed class ServiceContainerDependencyResolver : IDependencyResolver
+    private sealed class ServiceContainerDependencyResolver(IServiceContainer serviceContainer) : IDependencyResolver
     {
-        private readonly IServiceContainer _rootContainer;
-
-        public ServiceContainerDependencyResolver(IServiceContainer serviceContainer)
-        {
-            _rootContainer = serviceContainer;
-        }
+        private readonly IServiceContainer _rootContainer = serviceContainer;
 
         public object? GetService(Type serviceType)
         {

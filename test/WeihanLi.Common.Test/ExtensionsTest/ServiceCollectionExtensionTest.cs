@@ -49,13 +49,9 @@ public class ServiceCollectionExtensionTest
         }
     }
 
-    private sealed class JobDecorator : IJob
+    private sealed class JobDecorator(IJob job) : IJob
     {
-        private readonly IJob _job;
-        public JobDecorator(IJob job)
-        {
-            _job = job;
-        }
+        private readonly IJob _job = job;
 
         public string Name => $"??? {_job.Name}";
 
@@ -79,14 +75,9 @@ public class ServiceCollectionExtensionTest
             return default;
         }
     }
-    private sealed class ValueProviderDecorator<T> : IValueProvider<T>
+    private sealed class ValueProviderDecorator<T>(IValueProvider<T> valueProvider) : IValueProvider<T>
     {
-        private readonly IValueProvider<T> _valueProvider;
-
-        public ValueProviderDecorator(IValueProvider<T> valueProvider)
-        {
-            _valueProvider = valueProvider;
-        }
+        private readonly IValueProvider<T> _valueProvider = valueProvider;
 
         public int Counter { get; private set; }
 

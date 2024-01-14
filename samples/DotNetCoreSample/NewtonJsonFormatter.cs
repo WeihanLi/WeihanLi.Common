@@ -15,16 +15,11 @@ public sealed class NewtonJsonFormatterOptions : ConsoleFormatterOptions
 {
 }
 
-public sealed class NewtonJsonFormatter : ConsoleFormatter
+public sealed class NewtonJsonFormatter(IOptions<NewtonJsonFormatterOptions> options) : ConsoleFormatter(FormatterName)
 {
     public const string FormatterName = "NewtonJson";
 
-    private readonly NewtonJsonFormatterOptions _options;
-
-    public NewtonJsonFormatter(IOptions<NewtonJsonFormatterOptions> options) : base(FormatterName)
-    {
-        _options = options.Value;
-    }
+    private readonly NewtonJsonFormatterOptions _options = options.Value;
 
     public override void Write<TState>(in LogEntry<TState> logEntry, IExternalScopeProvider? scopeProvider, TextWriter textWriter)
     {

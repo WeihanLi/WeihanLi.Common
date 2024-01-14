@@ -10,7 +10,7 @@ public static class ServiceCollectionExtensions
     public static IFluentAspectsBuilder AddFluentAspects(this IServiceCollection serviceCollection, Action<FluentAspectOptions> optionsAction)
     {
         Guard.NotNull(serviceCollection);
-        Guard.NotNull(optionsAction);        
+        Guard.NotNull(optionsAction);
         FluentAspects.Configure(optionsAction);
         return AddFluentAspects(serviceCollection);
     }

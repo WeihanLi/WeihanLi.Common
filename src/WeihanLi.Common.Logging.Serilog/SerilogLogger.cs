@@ -16,7 +16,7 @@ internal sealed class SerilogLogger : FrameworkLogger
     private readonly SerilogLoggerProvider _provider;
     private readonly ILogger _logger;
 
-    private static readonly MessageTemplateParser _messageTemplateParser = new MessageTemplateParser();
+    private static readonly MessageTemplateParser _messageTemplateParser = new();
 
     public SerilogLogger(
         SerilogLoggerProvider provider,
@@ -67,7 +67,7 @@ internal sealed class SerilogLogger : FrameworkLogger
                 }
                 else if (property.Key.StartsWith("@"))
                 {
-                    if (logger.BindProperty(property.Key.Substring(1), property.Value, true, out var destructured))
+                    if (logger.BindProperty(property.Key[1..], property.Value, true, out var destructured))
                         properties.Add(destructured);
                 }
                 else
@@ -127,27 +127,16 @@ internal sealed class SerilogLogger : FrameworkLogger
 
     private static LogEventLevel ConvertLevel(LogLevel logLevel)
     {
-        switch (logLevel)
+        return logLevel switch
         {
-            case LogLevel.Critical:
-                return LogEventLevel.Fatal;
-
-            case LogLevel.Error:
-                return LogEventLevel.Error;
-
-            case LogLevel.Warning:
-                return LogEventLevel.Warning;
-
-            case LogLevel.Information:
-                return LogEventLevel.Information;
-
-            case LogLevel.Debug:
-                return LogEventLevel.Debug;
+            LogLevel.Critical => LogEventLevel.Fatal,
+            LogLevel.Error => LogEventLevel.Error,
+            LogLevel.Warning => LogEventLevel.Warning,
+            LogLevel.Information => LogEventLevel.Information,
+            LogLevel.Debug => LogEventLevel.Debug,
             // ReSharper disable once RedundantCaseLabel
-            case LogLevel.Trace:
-            default:
-                return LogEventLevel.Verbose;
-        }
+            _ => LogEventLevel.Verbose,
+        };
     }
 
     private static LogEventProperty CreateEventIdProperty(EventId eventId)

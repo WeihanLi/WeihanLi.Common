@@ -73,19 +73,12 @@ public sealed class Variations<T> : IEnumerable<IReadOnlyList<T>>
     /// <summary>
     /// An enumerator for Variations when the type is set to WithRepetition.
     /// </summary>
-    private sealed class EnumeratorWithRepetition : IEnumerator<IReadOnlyList<T>>
+    /// <remarks>
+    /// Construct a enumerator with the parent object.
+    /// </remarks>
+    /// <param name="source">The source Variations object.</param>
+    private sealed class EnumeratorWithRepetition(Variations<T> source) : IEnumerator<IReadOnlyList<T>>
     {
-        /// <summary>
-        /// Construct a enumerator with the parent object.
-        /// </summary>
-        /// <param name="source">The source Variations object.</param>
-        public EnumeratorWithRepetition(Variations<T> source)
-        {
-            _myParent = source;
-            _myCurrentList = null;
-            _myListIndexes = null;
-        }
-
         void IEnumerator.Reset() => throw new NotSupportedException();
 
         /// <summary>
@@ -168,17 +161,17 @@ public sealed class Variations<T> : IEnumerable<IReadOnlyList<T>>
         /// <summary>
         /// Parent object this is an enumerator for.
         /// </summary>
-        private readonly Variations<T> _myParent;
+        private readonly Variations<T> _myParent = source;
 
         /// <summary>
         /// The current list of values, this is lazy evaluated by the Current property.
         /// </summary>
-        private List<T>? _myCurrentList;
+        private List<T>? _myCurrentList = null;
 
         /// <summary>
         /// An enumerator of the parents list of lexicographic orderings.
         /// </summary>
-        private List<int>? _myListIndexes;
+        private List<int>? _myListIndexes = null;
     }
 
     /// <summary>

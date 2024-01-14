@@ -71,7 +71,7 @@ internal sealed class SerilogLoggerProvider : ILoggerProvider, ILogEventEnricher
 
             if (scopeItem != null)
             {
-                scopeItems ??= new List<LogEventPropertyValue>();
+                scopeItems ??= [];
                 scopeItems.Add(scopeItem);
             }
         }
@@ -83,7 +83,7 @@ internal sealed class SerilogLoggerProvider : ILoggerProvider, ILogEventEnricher
         }
     }
 
-    private readonly AsyncLocal<SerilogLoggerScope?> _value = new AsyncLocal<SerilogLoggerScope?>();
+    private readonly AsyncLocal<SerilogLoggerScope?> _value = new();
 
     internal SerilogLoggerScope? CurrentScope
     {

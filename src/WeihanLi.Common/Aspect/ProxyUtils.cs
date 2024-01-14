@@ -14,21 +14,21 @@ internal static class ProxyUtils
     private const MethodAttributes InterfaceMethodAttributes = MethodAttributes.Public | MethodAttributes.Final | MethodAttributes.HideBySig | MethodAttributes.NewSlot | MethodAttributes.Virtual;
 
     private static readonly ModuleBuilder _moduleBuilder;
-    private static readonly Dictionary<string, Type> _proxyTypes = new();
+    private static readonly Dictionary<string, Type> _proxyTypes = [];
 
     private const string TargetFieldName = "__target";
     private static readonly object _typeLock = new();
 
     private static readonly Func<Type, Type?, string> _proxyTypeNameResolver;
 
-    private static readonly HashSet<string> _ignoredMethods = new()
-    {
+    private static readonly HashSet<string> _ignoredMethods =
+    [
         "ToString",
         "GetHashCode",
         "Equals",
         "GetType",
         "Finalize",
-    };
+    ];
 
     static ProxyUtils()
     {
@@ -96,7 +96,7 @@ internal static class ProxyUtils
                 return proxyType;
             }
 
-            var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Class | TypeAttributes.Sealed, typeof(object), new[] { interfaceType });
+            var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Public | TypeAttributes.Class | TypeAttributes.Sealed, typeof(object), [interfaceType]);
 
             GenericParameterUtils.DefineGenericParameter(interfaceType, typeBuilder);
 
@@ -217,7 +217,7 @@ internal static class ProxyUtils
             {
                 return proxyType;
             }
-            var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Class | TypeAttributes.Public | TypeAttributes.Sealed, null, new[] { interfaceType });
+            var typeBuilder = _moduleBuilder.DefineType(proxyTypeName, TypeAttributes.Class | TypeAttributes.Public | TypeAttributes.Sealed, null, [interfaceType]);
             GenericParameterUtils.DefineGenericParameter(interfaceType, typeBuilder);
 
             var targetField = typeBuilder.DefineField(TargetFieldName, implementType, FieldAttributes.Private);
@@ -316,10 +316,7 @@ internal static class ProxyUtils
     {
         Guard.NotNull(serviceType);
 
-        if (implementType is null)
-        {
-            implementType = serviceType;
-        }
+        implementType ??= serviceType;
         if (serviceType.IsSealed || implementType.IsSealed)
         {
             throw new InvalidOperationException("the class type is sealed");

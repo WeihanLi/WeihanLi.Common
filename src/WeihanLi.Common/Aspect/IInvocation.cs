@@ -53,7 +53,7 @@ public class AspectInvocation : IInvocation
         ProxyTarget = proxyTarget;
         Target = target;
         Arguments = arguments;
-        GenericArguments = methodBase?.GetGenericArguments() ?? Array.Empty<Type>();
+        GenericArguments = methodBase?.GetGenericArguments() ?? [];
 
         if (proxyMethod.ContainsGenericParameters && GenericArguments.Length > 0)
         {
@@ -64,6 +64,6 @@ public class AspectInvocation : IInvocation
             ProxyMethod = proxyMethod;
         }
 
-        Properties = new Dictionary<string, object?>();
+        Properties = [];
     }
 }

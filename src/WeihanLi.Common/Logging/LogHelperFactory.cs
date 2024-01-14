@@ -27,23 +27,16 @@ internal sealed class NullLogHelperFactory : ILogHelperFactory
     public ILogHelperLogger CreateLogger(string categoryName) => NullLogHelperLogger.Instance;
 }
 
-internal sealed class LogHelperFactory : ILogHelperFactory
+internal sealed class LogHelperFactory(IReadOnlyDictionary<Type, ILogHelperProvider> logHelperProviders,
+    IReadOnlyCollection<ILogHelperLoggingEnricher> logHelperEnrichers,
+    IReadOnlyCollection<Func<Type, LogHelperLoggingEvent, bool>> logFilters
+        ) : ILogHelperFactory
 {
-    internal readonly IReadOnlyDictionary<Type, ILogHelperProvider> _logHelperProviders;
-    internal readonly IReadOnlyCollection<ILogHelperLoggingEnricher> _logHelperEnrichers;
-    internal readonly IReadOnlyCollection<Func<Type, LogHelperLoggingEvent, bool>> _logFilters;
+    internal readonly IReadOnlyDictionary<Type, ILogHelperProvider> _logHelperProviders = logHelperProviders;
+    internal readonly IReadOnlyCollection<ILogHelperLoggingEnricher> _logHelperEnrichers = logHelperEnrichers;
+    internal readonly IReadOnlyCollection<Func<Type, LogHelperLoggingEvent, bool>> _logFilters = logFilters;
 
     private readonly ConcurrentDictionary<string, ILogHelperLogger> _loggers = new();
-
-    public LogHelperFactory(IReadOnlyDictionary<Type, ILogHelperProvider> logHelperProviders,
-        IReadOnlyCollection<ILogHelperLoggingEnricher> logHelperEnrichers,
-        IReadOnlyCollection<Func<Type, LogHelperLoggingEvent, bool>> logFilters
-        )
-    {
-        _logHelperProviders = logHelperProviders;
-        _logHelperEnrichers = logHelperEnrichers;
-        _logFilters = logFilters;
-    }
 
     public ILogHelperLogger CreateLogger(string categoryName) => _loggers.GetOrAdd(categoryName, _ => new LogHelper(this, _));
 

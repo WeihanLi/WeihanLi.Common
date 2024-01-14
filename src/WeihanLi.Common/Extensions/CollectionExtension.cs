@@ -51,9 +51,9 @@ public static class CollectionExtension
             {
                 continue;
             }
-            sb.Append("&");
+            sb.Append('&');
             sb.Append(key.UrlEncode());
-            sb.Append("=");
+            sb.Append('=');
             var val = source.Get(key);
             if (val != null)
             {

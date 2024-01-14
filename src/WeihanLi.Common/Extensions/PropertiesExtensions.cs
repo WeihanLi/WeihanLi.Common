@@ -9,7 +9,7 @@ public static class PropertiesExtensions
 {
     public static T? GetProperty<T>(this IDictionary<string, object?> properties, string key)
     {
-        return Guard.NotNull(properties).TryGetValue(key, out var value) ? (T?)value : default(T);
+        return Guard.NotNull(properties).TryGetValue(key, out var value) ? (T?)value : default;
     }
 
     public static void SetProperty<T>(this IDictionary<string, object?> properties, string key, T value)
@@ -20,7 +20,7 @@ public static class PropertiesExtensions
     public static T? GetProperty<T>(this IProperties propertiesHolder, string key)
     {
         Guard.NotNull(propertiesHolder);
-        return propertiesHolder.Properties.TryGetValue(key, out var value) ? (T?)value : default(T);
+        return propertiesHolder.Properties.TryGetValue(key, out var value) ? (T?)value : default;
     }
 
     public static void SetProperty<T>(this IProperties propertiesHolder, string key, T value)

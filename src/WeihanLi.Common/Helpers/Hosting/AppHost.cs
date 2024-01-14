@@ -185,7 +185,7 @@ public sealed class AppHost : IAppHost
                 else
                 {
                     // The task encountered an await; add it to a list to run concurrently.
-                    tasks ??= new();
+                    tasks ??= [];
                     tasks.Add(Task.Run(() => task, token));
                 }
             }

@@ -156,15 +156,10 @@ public static class EnumerableExtension
         => source.Distinct(new DynamicEqualityComparer<T>(comparer));
 
     // https://github.com/aspnet/EntityFrameworkCore/blob/release/3.0/src/EFCore.SqlServer/Utilities/EnumerableExtensions.cs
-    private sealed class DynamicEqualityComparer<T> : IEqualityComparer<T>
+    private sealed class DynamicEqualityComparer<T>(Func<T?, T?, bool> func) : IEqualityComparer<T>
         where T : class
     {
-        private readonly Func<T?, T?, bool> _func;
-
-        public DynamicEqualityComparer(Func<T?, T?, bool> func)
-        {
-            _func = func;
-        }
+        private readonly Func<T?, T?, bool> _func = func;
 
         public bool Equals(T? x, T? y) => _func(x, y);
 
@@ -313,12 +308,11 @@ public static class EnumerableExtension
         return groups;
     }
 
-    private sealed class Grouping<TKey, T> : IGrouping<TKey, T>
+    private sealed class Grouping<TKey, T>(TKey key) : IGrouping<TKey, T>
     {
-        private readonly List<T> _items = new();
-        public Grouping(TKey key) => Key = Guard.NotNull(key);
+        private readonly List<T> _items = [];
 
-        public TKey Key { get; }
+        public TKey Key { get; } = Guard.NotNull(key);
 
         public void Add(T t) => _items.Add(t);
 

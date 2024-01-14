@@ -14,15 +14,10 @@ public interface IPipelineBuilder<TContext>
     IPipelineBuilder<TContext> New();
 }
 
-internal sealed class PipelineBuilder<TContext> : IPipelineBuilder<TContext>
+internal sealed class PipelineBuilder<TContext>(Action<TContext> completeFunc) : IPipelineBuilder<TContext>
 {
-    private readonly Action<TContext> _completeFunc;
-    private readonly List<Func<Action<TContext>, Action<TContext>>> _pipelines = new();
-
-    public PipelineBuilder(Action<TContext> completeFunc)
-    {
-        _completeFunc = completeFunc;
-    }
+    private readonly Action<TContext> _completeFunc = completeFunc;
+    private readonly List<Func<Action<TContext>, Action<TContext>>> _pipelines = [];
 
     public IPipelineBuilder<TContext> Use(Func<Action<TContext>, Action<TContext>> middleware)
     {

@@ -268,9 +268,7 @@ public sealed class Permutations<T> : IEnumerable<IReadOnlyList<T>>
         /// </summary>
         private void Swap(int i, int j)
         {
-            var temp = _myValues[i];
-            _myValues[i] = _myValues[j];
-            _myValues[j] = temp;
+            (_myValues[j], _myValues[i]) = (_myValues[i], _myValues[j]);
             _myKviTemp = _myLexicographicalOrders[i];
             _myLexicographicalOrders[i] = _myLexicographicalOrders[j];
             _myLexicographicalOrders[j] = _myKviTemp;

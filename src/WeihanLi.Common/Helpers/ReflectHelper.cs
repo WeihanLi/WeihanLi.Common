@@ -22,33 +22,22 @@ public static class ReflectHelper
     }
 }
 
-internal readonly struct AwaitableInfo
+internal readonly struct AwaitableInfo(
+    Type awaiterType,
+    PropertyInfo awaiterIsCompletedProperty,
+    MethodInfo awaiterGetResultMethod,
+    MethodInfo awaiterOnCompletedMethod,
+    MethodInfo? awaiterUnsafeOnCompletedMethod,
+    Type resultType,
+    MethodInfo getAwaiterMethod)
 {
-    public Type AwaiterType { get; }
-    public PropertyInfo AwaiterIsCompletedProperty { get; }
-    public MethodInfo AwaiterGetResultMethod { get; }
-    public MethodInfo AwaiterOnCompletedMethod { get; }
-    public MethodInfo? AwaiterUnsafeOnCompletedMethod { get; }
-    public Type ResultType { get; }
-    public MethodInfo GetAwaiterMethod { get; }
-
-    public AwaitableInfo(
-        Type awaiterType,
-        PropertyInfo awaiterIsCompletedProperty,
-        MethodInfo awaiterGetResultMethod,
-        MethodInfo awaiterOnCompletedMethod,
-        MethodInfo? awaiterUnsafeOnCompletedMethod,
-        Type resultType,
-        MethodInfo getAwaiterMethod)
-    {
-        AwaiterType = awaiterType;
-        AwaiterIsCompletedProperty = awaiterIsCompletedProperty;
-        AwaiterGetResultMethod = awaiterGetResultMethod;
-        AwaiterOnCompletedMethod = awaiterOnCompletedMethod;
-        AwaiterUnsafeOnCompletedMethod = awaiterUnsafeOnCompletedMethod;
-        ResultType = resultType;
-        GetAwaiterMethod = getAwaiterMethod;
-    }
+    public Type AwaiterType { get; } = awaiterType;
+    public PropertyInfo AwaiterIsCompletedProperty { get; } = awaiterIsCompletedProperty;
+    public MethodInfo AwaiterGetResultMethod { get; } = awaiterGetResultMethod;
+    public MethodInfo AwaiterOnCompletedMethod { get; } = awaiterOnCompletedMethod;
+    public MethodInfo? AwaiterUnsafeOnCompletedMethod { get; } = awaiterUnsafeOnCompletedMethod;
+    public Type ResultType { get; } = resultType;
+    public MethodInfo GetAwaiterMethod { get; } = getAwaiterMethod;
 
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public static bool IsTypeAwaitable([DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes.PublicMethods))] Type type, out AwaitableInfo? awaitableInfo)

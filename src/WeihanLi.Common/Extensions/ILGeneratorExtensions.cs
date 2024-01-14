@@ -161,7 +161,7 @@ public static class ILGeneratorExtensions
         var nnTypeTo = typeTo.GetNonNullableType();
         ilGenerator.EmitConvertToType(nnTypeFrom, nnTypeTo, isChecked);
         // construct result type
-        var ci = typeTo.GetConstructor(new[] { nnTypeTo });
+        var ci = typeTo.GetConstructor([nnTypeTo]);
         ilGenerator.Emit(OpCodes.Newobj, ci!);
         ilGenerator.Emit(OpCodes.Stloc, locTo);
         var labEnd = ilGenerator.DefineLabel();
@@ -217,7 +217,7 @@ public static class ILGeneratorExtensions
         var locTo = ilGenerator.DeclareLocal(typeTo);
         var nnTypeTo = typeTo.Unwrap();
         ilGenerator.EmitConvertToType(typeFrom, nnTypeTo, isChecked);
-        var ci = Guard.NotNull(typeTo.GetConstructor(new[] { nnTypeTo })!, "constructor");
+        var ci = Guard.NotNull(typeTo.GetConstructor([nnTypeTo])!, "constructor");
         ilGenerator.Emit(OpCodes.Newobj, ci);
         ilGenerator.Emit(OpCodes.Stloc, locTo);
         ilGenerator.Emit(OpCodes.Ldloc, locTo);
@@ -613,7 +613,7 @@ public static class ILGeneratorExtensions
 
             case TypeCode.Decimal:
                 ilGenerator.Emit(OpCodes.Ldc_I4_0);
-                ilGenerator.Emit(OpCodes.Newobj, typeof(decimal).GetTypeInfo().GetConstructor(new[] { typeof(int) })!);
+                ilGenerator.Emit(OpCodes.Newobj, typeof(decimal).GetTypeInfo().GetConstructor([typeof(int)])!);
                 break;
 
             default:
@@ -793,14 +793,10 @@ internal static class TypeInfoUtils
 
     internal static bool IsFloatingPoint(Type type)
     {
-        switch (Type.GetTypeCode(type.Unwrap()))
+        return Type.GetTypeCode(type.Unwrap()) switch
         {
-            case TypeCode.Single:
-            case TypeCode.Double:
-                return true;
-
-            default:
-                return false;
-        }
+            TypeCode.Single or TypeCode.Double => true,
+            _ => false,
+        };
     }
 }

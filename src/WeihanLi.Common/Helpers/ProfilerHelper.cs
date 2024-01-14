@@ -3,16 +3,10 @@ using WeihanLi.Common.Services;
 
 namespace WeihanLi.Common.Helpers;
 
-public sealed class ProfilerStopper : IDisposable
+public sealed class ProfilerStopper(IProfiler profiler, Action<TimeSpan> profileAction) : IDisposable
 {
-    private readonly IProfiler _profiler;
-    private readonly Action<TimeSpan> _profileAction;
-
-    public ProfilerStopper(IProfiler profiler, Action<TimeSpan> profileAction)
-    {
-        _profiler = Guard.NotNull(profiler);
-        _profileAction = Guard.NotNull(profileAction);
-    }
+    private readonly IProfiler _profiler = Guard.NotNull(profiler);
+    private readonly Action<TimeSpan> _profileAction = Guard.NotNull(profileAction);
 
     public void Dispose()
     {
@@ -21,16 +15,10 @@ public sealed class ProfilerStopper : IDisposable
     }
 }
 
-public sealed class StopwatchStopper : IDisposable
+public sealed class StopwatchStopper(Stopwatch stopwatch, Action<TimeSpan> profileAction) : IDisposable
 {
-    private readonly Stopwatch _stopwatch;
-    private readonly Action<TimeSpan> _profileAction;
-
-    public StopwatchStopper(Stopwatch stopwatch, Action<TimeSpan> profileAction)
-    {
-        _stopwatch = Guard.NotNull(stopwatch);
-        _profileAction = Guard.NotNull(profileAction);
-    }
+    private readonly Stopwatch _stopwatch = Guard.NotNull(stopwatch);
+    private readonly Action<TimeSpan> _profileAction = Guard.NotNull(profileAction);
 
     public void Dispose()
     {

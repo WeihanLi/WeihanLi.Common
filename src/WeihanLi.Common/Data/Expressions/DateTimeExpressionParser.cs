@@ -10,18 +10,13 @@ internal static partial class SqlExpressionParser
 {
     public static string ParseDateTimeMemberAccess(MemberExpression exp, IDictionary<string, string>? columnMappings)
     {
-        switch (exp.Member.Name)
+        return exp.Member.Name switch
         {
-            case "Now":
-                return $"GETDATE()";
-
-            case "UtcNow":
-                return $"GETUTCDATE()";
-
-            case "Today":
-                return "CONVERT(CHAR(10), GETDATE(),120)";
-        }
-        return string.Empty;
+            "Now" => $"GETDATE()",
+            "UtcNow" => $"GETUTCDATE()",
+            "Today" => "CONVERT(CHAR(10), GETDATE(),120)",
+            _ => string.Empty,
+        };
     }
 
     public static string ParseDateTimeMethodCall(MethodCallExpression exp, IDictionary<string, string>? columnMappings)

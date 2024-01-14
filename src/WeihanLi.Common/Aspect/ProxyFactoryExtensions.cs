@@ -111,7 +111,7 @@ public static class ProxyFactoryExtensions
 
     public static object CreateProxyWithTarget(this IProxyFactory proxyFactory, Type serviceType, object target)
     {
-        return proxyFactory.CreateProxyWithTarget(serviceType, target, Array.Empty<object>());
+        return proxyFactory.CreateProxyWithTarget(serviceType, target, []);
     }
 
     #endregion CreateProxyWithTarget

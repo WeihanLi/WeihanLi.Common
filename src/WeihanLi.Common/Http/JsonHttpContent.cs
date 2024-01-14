@@ -7,7 +7,7 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Http;
 
-public sealed class JsonHttpContent : StringContent
+public sealed class JsonHttpContent(string content, Encoding encoding) : StringContent(content, encoding, HttpHelper.ApplicationJsonMediaType)
 {
     public JsonHttpContent(object obj, JsonSerializerSettings? jsonSerializerSettings = null)
         : this(JsonConvert.SerializeObject(obj, jsonSerializerSettings))
@@ -15,10 +15,6 @@ public sealed class JsonHttpContent : StringContent
     }
 
     public JsonHttpContent(string content) : this(content, Encoding.UTF8)
-    {
-    }
-
-    public JsonHttpContent(string content, Encoding encoding) : base(content, encoding, HttpHelper.ApplicationJsonMediaType)
     {
     }
 

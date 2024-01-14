@@ -73,7 +73,7 @@ internal sealed class SerilogLoggerScope : IDisposable
 
                 if (key.StartsWith("@"))
                 {
-                    key = key.Substring(1);
+                    key = key[1..];
                     destructureObject = true;
                 }
 

@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Logging.Serilog;
 
 internal sealed class SerilogLogHelperProvider : ILogHelperProvider, IDisposable
 {
-    private static readonly MessageTemplateParser _messageTemplateParser = new MessageTemplateParser();
+    private static readonly MessageTemplateParser _messageTemplateParser = new();
 
     public SerilogLogHelperProvider(LoggerConfiguration configuration)
     {
@@ -46,37 +46,20 @@ internal sealed class SerilogLogHelperProvider : ILogHelperProvider, IDisposable
         }
     }
 
-    private LogEventLevel GetSerilogEventLevel(LogHelperLogLevel logHelperLevel)
+    private static LogEventLevel GetSerilogEventLevel(LogHelperLogLevel logHelperLevel)
     {
-        switch (logHelperLevel)
+        return logHelperLevel switch
         {
-            case LogHelperLogLevel.All:
-                return LogEventLevel.Verbose;
-
-            case LogHelperLogLevel.Debug:
-                return LogEventLevel.Debug;
-
-            case LogHelperLogLevel.Info:
-                return LogEventLevel.Information;
-
-            case LogHelperLogLevel.Trace:
-                return LogEventLevel.Debug;
-
-            case LogHelperLogLevel.Warn:
-                return LogEventLevel.Warning;
-
-            case LogHelperLogLevel.Error:
-                return LogEventLevel.Error;
-
-            case LogHelperLogLevel.Fatal:
-                return LogEventLevel.Fatal;
-
-            case LogHelperLogLevel.None:
-                return LogEventLevel.Fatal;
-
-            default:
-                return LogEventLevel.Warning;
-        }
+            LogHelperLogLevel.All => LogEventLevel.Verbose,
+            LogHelperLogLevel.Debug => LogEventLevel.Debug,
+            LogHelperLogLevel.Info => LogEventLevel.Information,
+            LogHelperLogLevel.Trace => LogEventLevel.Debug,
+            LogHelperLogLevel.Warn => LogEventLevel.Warning,
+            LogHelperLogLevel.Error => LogEventLevel.Error,
+            LogHelperLogLevel.Fatal => LogEventLevel.Fatal,
+            LogHelperLogLevel.None => LogEventLevel.Fatal,
+            _ => LogEventLevel.Warning,
+        };
     }
 
     private const string SourceContextPropName = "SourceContext";

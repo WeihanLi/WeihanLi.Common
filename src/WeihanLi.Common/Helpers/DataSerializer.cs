@@ -84,16 +84,10 @@ public class JsonDataSerializer : IDataSerializer
     }
 }
 
-public sealed class CompressDataSerializer : IDataSerializer
+public sealed class CompressDataSerializer(IDataSerializer serializer, IDataCompressor compressor) : IDataSerializer
 {
-    private readonly IDataSerializer _serializer;
-    private readonly IDataCompressor _compressor;
-
-    public CompressDataSerializer(IDataSerializer serializer, IDataCompressor compressor)
-    {
-        _serializer = Guard.NotNull(serializer);
-        _compressor = Guard.NotNull(compressor);
-    }
+    private readonly IDataSerializer _serializer = Guard.NotNull(serializer);
+    private readonly IDataCompressor _compressor = Guard.NotNull(compressor);
 
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public byte[] Serialize<T>(T obj)

@@ -14,8 +14,8 @@ public class TotpTest
         var totp = new Totp();
         while (true)
         {
-            var code = totp.ComputeWithTtl(Base32EncodeHelper.GetBytes(secret));
-            Console.WriteLine(@$"{code.Code} {code.Ttl}");
+            var (Code, Ttl) = totp.ComputeWithTtl(Base32EncodeHelper.GetBytes(secret));
+            Console.WriteLine(@$"{Code} {Ttl}");
             ConsoleHelper.ReadLineWithPrompt();
         }
     }

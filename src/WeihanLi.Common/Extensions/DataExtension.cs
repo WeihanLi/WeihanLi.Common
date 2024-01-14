@@ -14,14 +14,9 @@ namespace WeihanLi.Extensions;
 
 public static partial class DataExtension
 {
-    private sealed class DbParameterReadOnlyCollection : IReadOnlyCollection<DbParameter>
+    private sealed class DbParameterReadOnlyCollection(DbParameterCollection parameterCollection) : IReadOnlyCollection<DbParameter>
     {
-        private readonly DbParameterCollection _paramCollection;
-
-        public DbParameterReadOnlyCollection(DbParameterCollection parameterCollection)
-        {
-            _paramCollection = parameterCollection;
-        }
+        private readonly DbParameterCollection _paramCollection = parameterCollection;
 
         public int Count => _paramCollection.Count;
 
@@ -153,7 +148,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="dr">The @this to act on.</param>
     /// <returns>@this as a T.</returns>
-    public static T ToEntity<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]T>(this DataRow dr)
+    public static T ToEntity<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] T>(this DataRow dr)
     {
         var type = typeof(T);
         var properties = CacheUtil.GetTypeProperties(type).Where(p => p.CanWrite).ToArray();
@@ -549,7 +544,7 @@ public static partial class DataExtension
         if (paramInfo != null)
         {
             var paramType = paramInfo.GetType();
-            if (!(paramInfo is IDictionary<string, object?> parameters))
+            if (paramInfo is not IDictionary<string, object?> parameters)
             {
                 if (paramType.IsValueTuple()) // Tuple
                 {
@@ -588,7 +583,7 @@ public static partial class DataExtension
                 case '@':
                 case ':':
                 case '?':
-                    return originName.Substring(1);
+                    return originName[1..];
             }
         }
         return originName;

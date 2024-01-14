@@ -35,21 +35,21 @@ public static class StringHelper
 
         if (info!.Length - left - right > 0)
         {
-            return info.Substring(0, left)
+            return info[..left]
                 .PadRight(left + sensitiveCharCount, SensitiveChar)
-                .Insert(left + sensitiveCharCount, info.Substring(info.Length - right));
+                .Insert(left + sensitiveCharCount, info[^right..]);
         }
 
         if (basedOnLeft)
         {
             return info.Length > left && left > 0
                 ? info.Remove(left).Insert(left, new string(SensitiveChar, sensitiveCharCount))
-                : info.Substring(0, 1).PadRight(1 + sensitiveCharCount, SensitiveChar);
+                : info[..1].PadRight(1 + sensitiveCharCount, SensitiveChar);
         }
 
         return info.Length > right && right > 0
-            ? info.Substring(info.Length - right).PadLeft(right + sensitiveCharCount, SensitiveChar)
-            : info.Substring(0, 1).PadLeft(1 + sensitiveCharCount, SensitiveChar);
+            ? info[^right..].PadLeft(right + sensitiveCharCount, SensitiveChar)
+            : info[..1].PadLeft(1 + sensitiveCharCount, SensitiveChar);
     }
 
     /// <summary>
@@ -218,8 +218,8 @@ public static class StringHelper
             return s;
         }
 
-        StringBuilder sb = new StringBuilder();
-        SeparatedCaseState state = SeparatedCaseState.Start;
+        var sb = new StringBuilder();
+        var state = SeparatedCaseState.Start;
 
         for (var i = 0; i < s.Length; i++)
         {
@@ -285,6 +285,6 @@ public static class StringHelper
 
     public static bool EndsWith(this string source, char value)
     {
-        return !string.IsNullOrEmpty(source) && source![source!.Length - 1] == value;
+        return !string.IsNullOrEmpty(source) && source![^1] == value;
     }
 }

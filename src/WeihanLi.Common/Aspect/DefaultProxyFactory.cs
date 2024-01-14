@@ -3,18 +3,13 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Aspect;
 
-public sealed class DefaultProxyFactory : IProxyFactory
+public sealed class DefaultProxyFactory
+    (IProxyTypeFactory proxyTypeFactory, IServiceProvider? serviceProvider = null) : IProxyFactory
 {
     public static readonly IProxyFactory Instance = new DefaultProxyFactory(DefaultProxyTypeFactory.Instance);
 
-    private readonly IProxyTypeFactory _proxyTypeFactory;
-    private readonly IServiceProvider _serviceProvider;
-
-    public DefaultProxyFactory(IProxyTypeFactory proxyTypeFactory, IServiceProvider? serviceProvider = null)
-    {
-        _proxyTypeFactory = proxyTypeFactory;
-        _serviceProvider = serviceProvider ?? DependencyResolver.Current;
-    }
+    private readonly IProxyTypeFactory _proxyTypeFactory = proxyTypeFactory;
+    private readonly IServiceProvider _serviceProvider = serviceProvider ?? DependencyResolver.Current;
 
     [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
     [RequiresUnreferencedCode("Unreferenced code may be used")]

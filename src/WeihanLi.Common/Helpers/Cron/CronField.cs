@@ -27,14 +27,14 @@ namespace WeihanLi.Common.Helpers.Cron;
 internal sealed class CronField
 {
     private static readonly string[] MonthNames =
-    {
-            null, "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
-        };
+    [
+        null, "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
+    ];
 
     private static readonly string[] DayOfWeekNames =
-    {
-            "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"
-        };
+    [
+        "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"
+    ];
 
     private static readonly int[] MonthNamesArray = new int[MonthNames.Length];
     private static readonly int[] DayOfWeekNamesArray = new int[DayOfWeekNames.Length];
@@ -93,7 +93,7 @@ internal sealed class CronField
         CanDefineInterval = canDefineInterval;
         for (var i = First; i <= Last; i++)
         {
-            AllBits = AllBits | (1L << i);
+            AllBits |= (1L << i);
         }
     }
 

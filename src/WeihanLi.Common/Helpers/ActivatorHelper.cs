@@ -109,7 +109,7 @@ public static class ActivatorHelper
         [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.NonPublicConstructors)]
         Type instanceType, params object?[]? parameters)
     {
-        parameters ??= Array.Empty<object?>();
+        parameters ??= [];
 
         var bestLength = -1;
 

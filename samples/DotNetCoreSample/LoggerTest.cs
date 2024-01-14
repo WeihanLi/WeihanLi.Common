@@ -55,14 +55,9 @@ internal class LoggerTest
             .Test();
     }
 
-    private class GenericTest<T>
+    private class GenericTest<T>(ILogger<GenericTest<T>> logger)
     {
-        private readonly ILogger<GenericTest<T>> _logger;
-
-        public GenericTest(ILogger<GenericTest<T>> logger)
-        {
-            _logger = logger;
-        }
+        private readonly ILogger<GenericTest<T>> _logger = logger;
 
         public void Test() => _logger.LogInformation("test");
     }

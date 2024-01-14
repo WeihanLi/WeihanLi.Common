@@ -25,7 +25,7 @@ public sealed class DelegateEventHandler<TEvent> : EventHandlerBase<TEvent>
 
     public DelegateEventHandler(Func<TEvent, Task> func)
     {
-        _func = Guard.NotNull(func);;
+        _func = Guard.NotNull(func);
     }
 
     public override Task Handle(TEvent @event)
