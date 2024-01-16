@@ -4,6 +4,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
+using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 
 // ReSharper disable once CheckNamespace
@@ -11,11 +12,18 @@ namespace WeihanLi.Extensions;
 
 public static class ProcessExtension
 {
+    public static ProcessStartInfo WithEnv(this ProcessStartInfo processStartInfo, string name, string value)
+    {
+        Guard.NotNull(processStartInfo);
+        processStartInfo.Environment[name] = value;
+        return processStartInfo;
+    }
+    
 #if NET6_0_OR_GREATER
 #else
     public static Task WaitForExitAsync(this Process process, CancellationToken cancellationToken = default)
     {
-        Common.Guard.NotNull(process);
+        Guard.NotNull(process);
         process.EnableRaisingEvents = true;
         var tcs = new TaskCompletionSource<object?>(TaskCreationOptions.RunContinuationsAsynchronously);
         try
