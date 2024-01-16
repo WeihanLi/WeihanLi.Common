@@ -58,7 +58,7 @@ public class StringExtensionTest
     [InlineData(null, null)]
     public void TrimStart(string? value, string? start)
     {
-        var expected = start.IsNotNullOrEmpty() && value?.StartsWith(start!) == true ? value.Substring(start!.Length) : value;
+        var expected = start.IsNotNullOrEmpty() && value?.StartsWith(start!) == true ? value[start!.Length..] : value;
         Assert.Equal(expected, value!.TrimStart(start!));
     }
 
@@ -117,11 +117,11 @@ public class StringExtensionTest
         Assert.True(array.SequenceEqual(Enumerable.Range(1, count)));
 
         str = Enumerable.Range(1, count).StringJoin(";");
-        array = str.SplitArray<int>(new[] { ';' });
+        array = str.SplitArray<int>([';']);
         Assert.Equal(count, array.Length);
         Assert.True(array.SequenceEqual(Enumerable.Range(1, count)));
 
-        var array1 = str.SplitArray<int?>(new[] { ';' });
+        var array1 = str.SplitArray<int?>([';']);
         Assert.Equal(count, array1.Length);
         Assert.True(array1.Select(x => x.GetValueOrDefault()).SequenceEqual(Enumerable.Range(1, count)));
     }

@@ -5,17 +5,11 @@ using Microsoft.Extensions.Options;
 
 namespace WeihanLi.Common.Event;
 
-public class EventQueuePublisher : IEventPublisher
+public class EventQueuePublisher(IEventQueue eventQueue, IOptions<EventQueuePublisherOptions> options) : IEventPublisher
 {
-    private readonly IEventQueue _eventQueue;
+    private readonly IEventQueue _eventQueue = eventQueue;
 
-    private readonly EventQueuePublisherOptions _options;
-
-    public EventQueuePublisher(IEventQueue eventQueue, IOptions<EventQueuePublisherOptions> options)
-    {
-        _eventQueue = eventQueue;
-        _options = options.Value;
-    }
+    private readonly EventQueuePublisherOptions _options = options.Value;
 
     public virtual bool Publish<TEvent>(TEvent @event)
         where TEvent : class, IEventBase

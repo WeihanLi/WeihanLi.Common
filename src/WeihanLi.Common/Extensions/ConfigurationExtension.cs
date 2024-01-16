@@ -108,9 +108,7 @@ public static class ConfigurationExtension
     /// <returns>The connection string value</returns>
     public static string GetRequiredConnectionString(this IConfiguration configuration, string name)
     {
-        var connString = configuration.GetConnectionString(name);
-        if (connString is null)
-            throw new InvalidOperationException("Connection string not exists");
+        var connString = configuration.GetConnectionString(name) ?? throw new InvalidOperationException("Connection string not exists");
         return connString;
     }
 

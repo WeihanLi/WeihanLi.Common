@@ -22,7 +22,7 @@ public sealed class EventSubscriptionManagerInMemory : IEventSubscriptionManager
 
     public bool Subscribe(Type eventType, Type eventHandlerType)
     {
-        var handlers = _eventHandlers.GetOrAdd(eventType, new ConcurrentSet<Type>());
+        var handlers = _eventHandlers.GetOrAdd(eventType, []);
         return handlers.TryAdd(eventHandlerType);
     }
 

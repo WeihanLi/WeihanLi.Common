@@ -13,17 +13,13 @@ public static class HttpClientExtension
     /// HTTP Basic Authentication authorization header for RFC6749 client authentication
     /// </summary>
     /// <seealso cref="T:System.Net.Http.Headers.AuthenticationHeaderValue" />
-    private sealed class BasicAuthenticationHeaderValue : AuthenticationHeaderValue
+    /// <remarks>
+    /// Initializes a new instance of the <see cref="T:System.Net.Http.BasicAuthenticationOAuthHeaderValue" /> class.
+    /// </remarks>
+    /// <param name="userName">Name of the user.</param>
+    /// <param name="password">The password.</param>
+    private sealed class BasicAuthenticationHeaderValue(string userName, string password) : AuthenticationHeaderValue("Basic", EncodeCredential(userName, password))
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:System.Net.Http.BasicAuthenticationOAuthHeaderValue" /> class.
-        /// </summary>
-        /// <param name="userName">Name of the user.</param>
-        /// <param name="password">The password.</param>
-        public BasicAuthenticationHeaderValue(string userName, string password) : base("Basic", EncodeCredential(userName, password))
-        {
-        }
-
         private static string EncodeCredential(string userName, string password)
         {
             Guard.NotNullOrWhiteSpace(userName);

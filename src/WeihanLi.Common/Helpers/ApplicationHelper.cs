@@ -12,7 +12,7 @@ public static class ApplicationHelper
     public static readonly string AppRoot = AppDomain.CurrentDomain.BaseDirectory;
 
     private static CancellationToken? _exitToken;
-    public static CancellationToken ExitToken => _exitToken ??= InvokeHelper.GetExitToken();
+    public static CancellationToken ExitToken => _exitToken ??= InvokeHelper.GetExitTokenInternal();
 
     public static string MapPath(string virtualPath) => AppRoot + virtualPath.TrimStart('~');
 
@@ -60,8 +60,6 @@ public static class ApplicationHelper
     /// </summary>
     public static string? GetDotnetPath()
     {
-        var executableName =
-            $"dotnet{(RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? ".exe" : string.Empty)}";
         return ResolvePath("dotnet");
     }
 
@@ -158,10 +156,10 @@ public static class ApplicationHelper
     }
 
     private static readonly string ServiceAccountPath =
-        Path.Combine(new string[]
-        {
+        Path.Combine(
+        [
             $"{Path.DirectorySeparatorChar}var", "run", "secrets", "kubernetes.io", "serviceaccount",
-        });
+        ]);
     private const string ServiceAccountTokenKeyFileName = "token";
     private const string ServiceAccountRootCAKeyFileName = "ca.crt";
     /// <summary>

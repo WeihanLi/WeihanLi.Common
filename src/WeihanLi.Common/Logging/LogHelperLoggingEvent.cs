@@ -21,7 +21,7 @@ public class LogHelperLoggingEvent
         var newEvent = (LogHelperLoggingEvent)MemberwiseClone();
         if (Properties != null)
         {
-            newEvent.Properties = new Dictionary<string, object?>();
+            newEvent.Properties = [];
             foreach (var property in Properties)
             {
                 newEvent.Properties[property.Key] = property.Value;

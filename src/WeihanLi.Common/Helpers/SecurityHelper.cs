@@ -7,57 +7,59 @@ namespace WeihanLi.Common.Helpers;
 /// </summary>
 public static class SecurityHelper
 {
-    private static readonly char[] _constantCharacters = {
-            '0',
-            '1',
-            '2',
-            '3',
-            '4',
-            '5',
-            '6',
-            '7',
-            '8',
-            '9',
-            'a',
-            'b',
-            'c',
-            'd',
-            'e',
-            'f',
-            'g',
-            'h',
-            'i',
-            'j',
-            'k',
-            'l',
-            'm',
-            'n',
-            'o',
-            'p',
-            'q',
-            'r',
-            's',
-            't',
-            'u',
-            'v',
-            'w',
-            'x',
-            'y',
-            'z'
-        };
+    private static readonly char[] _constantCharacters = 
+    [
+        '0',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        'a',
+        'b',
+        'c',
+        'd',
+        'e',
+        'f',
+        'g',
+        'h',
+        'i',
+        'j',
+        'k',
+        'l',
+        'm',
+        'n',
+        'o',
+        'p',
+        'q',
+        'r',
+        's',
+        't',
+        'u',
+        'v',
+        'w',
+        'x',
+        'y',
+        'z'
+    ];
 
-    private static readonly char[] _constantNumber = {
-            '0',
-            '1',
-            '2',
-            '3',
-            '4',
-            '5',
-            '6',
-            '7',
-            '8',
-            '9'
-        };
+    private static readonly char[] _constantNumber = 
+    [
+        '0',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9'
+    ];
 
 #if NET6_0_OR_GREATER
         public static Random Random => Random.Shared;
@@ -73,10 +75,7 @@ public static class SecurityHelper
     {
         get
         {
-            if (_random == null)
-            {
-                _random = new();
-            }
+            _random ??= new();
             return _random;
         }
     }

@@ -50,7 +50,7 @@ public class WebRequestHttpRequester : IHttpRequester
     /// <param name="method">method</param>
     public WebRequestHttpRequester(string requestUrl, IDictionary<string, string>? queryDictionary, HttpMethod method)
     {
-        _requestUrl = $"{requestUrl}{(requestUrl.Contains("?") ? "&" : "?")}{queryDictionary.ToQueryString()}";
+        _requestUrl = $"{requestUrl}{(requestUrl.Contains('?') ? "&" : "?")}{queryDictionary.ToQueryString()}";
         _request = WebRequest.CreateHttp(requestUrl);
         _request.UserAgent = HttpHelper.GetUserAgent();
 
@@ -547,7 +547,7 @@ public class HttpClientHttpRequester : IHttpRequester
                 // are only allowed in the request headers collection and not in the request content headers collection.
                 if (HttpHelper.IsWellKnownContentHeader(header.Key))
                 {
-                    _request.Content ??= new ByteArrayContent(Array.Empty<byte>());
+                    _request.Content ??= new ByteArrayContent([]);
                     if (header.Value is null)
                     {
                         _request.Content.Headers.Remove(header.Key);

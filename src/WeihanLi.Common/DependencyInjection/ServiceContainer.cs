@@ -19,19 +19,13 @@ internal sealed class ServiceContainer : IServiceContainer
     private readonly ConcurrentDictionary<ServiceKey, object?> _singletonInstances;
 
     private readonly ConcurrentDictionary<ServiceKey, object?> _scopedInstances = new();
-    private readonly ConcurrentBag<object> _transientDisposables = new();
+    private readonly ConcurrentBag<object> _transientDisposables = [];
 
-    private sealed class ServiceKey : IEquatable<ServiceKey>
+    private sealed class ServiceKey(Type serviceType, ServiceDefinition definition) : IEquatable<ServiceKey>
     {
-        public Type ServiceType { get; }
+        public Type ServiceType { get; } = serviceType;
 
-        public Type ImplementType { get; }
-
-        public ServiceKey(Type serviceType, ServiceDefinition definition)
-        {
-            ServiceType = serviceType;
-            ImplementType = definition.GetImplementType();
-        }
+        public Type ImplementType { get; } = definition.GetImplementType();
 
         public bool Equals(ServiceKey? other)
         {
@@ -208,13 +202,8 @@ internal sealed class ServiceContainer : IServiceContainer
                 }
 
                 return ctorInfo;
-            });
-            if (ctor == null)
-            {
-                throw new InvalidOperationException(
+            }) ?? throw new InvalidOperationException(
                     $"service {serviceType.FullName} does not have any public constructors");
-            }
-
             var parameters = ctor.GetParameters();
             if (parameters.Length == 0)
             {
@@ -347,7 +336,7 @@ internal sealed class ServiceContainer : IServiceContainer
                             var toArrayMethod = typeof(Enumerable).GetMethod("ToArray", BindingFlags.Static | BindingFlags.Public)
                                 ?.MakeGenericMethod(innerServiceType);
 
-                            return toArrayMethod?.Invoke(null, new[] { castValue });
+                            return toArrayMethod?.Invoke(null, [castValue]);
                         }
                         return list;
                     }

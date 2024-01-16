@@ -48,14 +48,9 @@ public interface ITotpServiceFactory
     ITotpService GetService(string? name = null);
 }
 
-public sealed class TotpServiceFactory : ITotpServiceFactory
+public sealed class TotpServiceFactory(IOptionsMonitor<TotpOptions> optionsMonitor) : ITotpServiceFactory
 {
-    private readonly IOptionsMonitor<TotpOptions> _optionsMonitor;
-
-    public TotpServiceFactory(IOptionsMonitor<TotpOptions> optionsMonitor)
-    {
-        _optionsMonitor = optionsMonitor;
-    }
+    private readonly IOptionsMonitor<TotpOptions> _optionsMonitor = optionsMonitor;
 
     public ITotpService GetService(string? name = null)
     {

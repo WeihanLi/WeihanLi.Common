@@ -13,15 +13,10 @@ public interface IValueAsyncPipelineBuilder<TContext>
     IValueAsyncPipelineBuilder<TContext> New();
 }
 
-internal sealed class ValueAsyncPipelineBuilder<TContext> : IValueAsyncPipelineBuilder<TContext>
+internal sealed class ValueAsyncPipelineBuilder<TContext>(Func<TContext, ValueTask> completeFunc) : IValueAsyncPipelineBuilder<TContext>
 {
-    private readonly Func<TContext, ValueTask> _completeFunc;
-    private readonly List<Func<Func<TContext, ValueTask>, Func<TContext, ValueTask>>> _pipelines = new();
-
-    public ValueAsyncPipelineBuilder(Func<TContext, ValueTask> completeFunc)
-    {
-        _completeFunc = completeFunc;
-    }
+    private readonly Func<TContext, ValueTask> _completeFunc = completeFunc;
+    private readonly List<Func<Func<TContext, ValueTask>, Func<TContext, ValueTask>>> _pipelines = [];
 
     public IValueAsyncPipelineBuilder<TContext> Use(Func<Func<TContext, ValueTask>, Func<TContext, ValueTask>> middleware)
     {

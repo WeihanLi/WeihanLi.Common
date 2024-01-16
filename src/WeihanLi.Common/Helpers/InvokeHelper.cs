@@ -127,7 +127,10 @@ public static class InvokeHelper
         }
     }
 
-    internal static CancellationToken GetExitToken() => LazyCancellationTokenSource.Value.Token;
+    [Obsolete("Please use ApplicationHelper.ExitToken instead")]
+    public static CancellationToken GetExitToken() => GetExitTokenInternal();
+
+    internal static CancellationToken GetExitTokenInternal() => LazyCancellationTokenSource.Value.Token;
 
     public static void TryInvoke(Action action)
     {

@@ -6,12 +6,8 @@ using WeihanLi.Extensions;
 
 namespace DotNetCoreSample;
 
-public class TestDbContext : DbContext
+public class TestDbContext(DbContextOptions<TestDbContext> dbContextOptions) : DbContext(dbContextOptions)
 {
-    public TestDbContext(DbContextOptions<TestDbContext> dbContextOptions) : base(dbContextOptions)
-    {
-    }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         // optionsBuilder.UseSqlServer(DbConnectionString);

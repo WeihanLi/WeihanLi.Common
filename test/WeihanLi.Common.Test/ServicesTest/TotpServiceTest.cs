@@ -29,8 +29,8 @@ public class TotpServiceTest
     {
         const string bizToken = "Test1234";
         var totpService = new TotpService(new TotpOptions());
-        var code = totpService.GetCodeWithTtl(bizToken);
-        Assert.NotEmpty(code.Code);
-        Assert.True(code.Ttl >= 1);
+        var (Code, Ttl) = totpService.GetCodeWithTtl(bizToken);
+        Assert.NotEmpty(Code);
+        Assert.True(Ttl >= 1);
     }
 }

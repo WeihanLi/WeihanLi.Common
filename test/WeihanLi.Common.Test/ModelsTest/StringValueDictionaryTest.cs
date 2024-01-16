@@ -31,9 +31,11 @@ public class StringValueDictionaryTest
                 { "Id", 1 },
                 { "Name", "Tom" },
             });
-        var set = new HashSet<StringValueDictionary>();
-        set.Add(dic1);
-        set.Add(dic2);
+        var set = new HashSet<StringValueDictionary>
+        {
+            dic1,
+            dic2
+        };
 
         Assert.Single(set);
     }

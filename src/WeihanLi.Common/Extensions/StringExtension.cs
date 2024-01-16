@@ -239,7 +239,7 @@ public static class StringExtension
     /// <param name="str">str</param>
     /// <param name="splitOptions"></param>
     /// <returns></returns>
-    public static T[] SplitArray<T>(this string? str, StringSplitOptions splitOptions = StringSplitOptions.None) => SplitArray<T>(str, new[] { ',' }, splitOptions);
+    public static T[] SplitArray<T>(this string? str, StringSplitOptions splitOptions = StringSplitOptions.None) => SplitArray<T>(str, [','], splitOptions);
 
     /// <summary>
     /// split specific separator separated string to T array
@@ -253,7 +253,7 @@ public static class StringExtension
     {
         if (string.IsNullOrWhiteSpace(str))
         {
-            return Array.Empty<T>();
+            return [];
         }
         return Guard.NotNull(str)
             .Split(separators, splitOptions)
@@ -276,7 +276,7 @@ public static class StringExtension
         }
         if (str.StartsWith(start))
         {
-            str = str.Substring(start.Length);
+            str = str[start.Length..];
         }
         return str;
     }

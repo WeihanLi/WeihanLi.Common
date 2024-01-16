@@ -4,17 +4,11 @@ using System.Text;
 
 namespace WeihanLi.Common.Logging;
 
-internal struct FormattedLogValue
+internal struct FormattedLogValue(string msg, Dictionary<string, object?>? values)
 {
-    public string Msg { get; set; }
+    public string Msg { get; set; } = msg;
 
-    public Dictionary<string, object?>? Values { get; set; }
-
-    public FormattedLogValue(string msg, Dictionary<string, object?>? values)
-    {
-        Msg = msg;
-        Values = values;
-    }
+    public Dictionary<string, object?>? Values { get; set; } = values;
 }
 
 internal static class LoggingFormatter
@@ -38,9 +32,9 @@ internal static class LoggingFormatter
     private class LogValuesFormatter
     {
         private const string NullValue = "(null)";
-        private static readonly char[] _formatDelimiters = { ':' };
+        private static readonly char[] _formatDelimiters = [':'];
         private readonly string _format;
-        private readonly List<string> _valueNames = new();
+        private readonly List<string> _valueNames = [];
 
         public LogValuesFormatter(string format)
         {
@@ -143,7 +137,7 @@ internal static class LoggingFormatter
                 }
             }
 
-            return string.Format(CultureInfo.InvariantCulture, _format, values ?? Array.Empty<object>());
+            return string.Format(CultureInfo.InvariantCulture, _format, values ?? []);
         }
 
         public IEnumerable<KeyValuePair<string, object?>> GetValues(object?[] values)
@@ -154,7 +148,7 @@ internal static class LoggingFormatter
                 valueArray[index] = new KeyValuePair<string, object?>(_valueNames[index], values[index]);
             }
 
-            valueArray[valueArray.Length - 1] = new KeyValuePair<string, object?>("{OriginalFormat}", OriginalFormat);
+            valueArray[^1] = new KeyValuePair<string, object?>("{OriginalFormat}", OriginalFormat);
             return valueArray;
         }
 

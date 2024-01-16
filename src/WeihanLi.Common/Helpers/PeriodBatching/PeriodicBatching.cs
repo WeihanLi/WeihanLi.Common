@@ -77,10 +77,10 @@ public abstract class PeriodicBatching<TEvent> : IDisposable where TEvent : clas
 
         // This is the place where SynchronizationContext.Current is unknown and can be != null
         // so we prevent possible deadlocks here for sync-over-async downstream implementations
-        ResetSyncContextAndWait(OnTick);
+        PeriodicBatching<TEvent>.ResetSyncContextAndWait(OnTick);
     }
 
-    private void ResetSyncContextAndWait(Func<Task> taskFactory)
+    private static void ResetSyncContextAndWait(Func<Task> taskFactory)
     {
         var prevContext = SynchronizationContext.Current;
         SynchronizationContext.SetSynchronizationContext(null);

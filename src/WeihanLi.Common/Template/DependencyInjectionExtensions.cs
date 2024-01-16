@@ -11,11 +11,11 @@ namespace WeihanLi.Common.Template;
 
 public static class DependencyInjectionExtensions
 {
-    public static IServiceCollection AddTemplating(this IServiceCollection services, Action<TemplateEngineOptions>? optionsConfigure = null)
+    public static IServiceCollection AddTemplateEngine(this IServiceCollection services, Action<TemplateEngineOptions>? optionsConfigure = null)
     {
         Guard.NotNull(services);
         if (services.Any(x => x.ServiceType == typeof(ITemplateEngine)))
-            throw new InvalidOperationException("Templating services had been registered");
+            throw new InvalidOperationException("Template engine services had been registered");
 
         if (optionsConfigure != null)
             services.AddOptions().Configure(optionsConfigure);

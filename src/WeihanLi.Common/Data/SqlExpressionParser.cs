@@ -33,9 +33,7 @@ internal static partial class SqlExpressionParser
             var right = ParseExpression(binaryExpression.Right, columnMappings);
             if (left == "NULL")
             {
-                var tmp = right;
-                right = left;
-                left = tmp;
+                (left, right) = (right, left);
             }
             if (right == "NULL")
             {
@@ -140,15 +138,9 @@ internal static partial class SqlExpressionParser
     }
 }
 
-internal class SqlParseResult
+internal class SqlParseResult(string sqlText, IDictionary<string, object?> parameters)
 {
-    public string SqlText { get; }
+    public string SqlText { get; } = sqlText;
 
-    public IDictionary<string, object?> Parameters { get; }
-
-    public SqlParseResult(string sqlText, IDictionary<string, object?> parameters)
-    {
-        SqlText = sqlText;
-        Parameters = parameters;
-    }
+    public IDictionary<string, object?> Parameters { get; } = parameters;
 }

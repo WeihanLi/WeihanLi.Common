@@ -34,7 +34,7 @@ public struct ValueStopwatch
 
     /// <summary>Gets a value indicating whether the <see cref="ValueStopwatch"></see> timer is running.</summary>
     /// <returns>true if the <see cref="ValueStopwatch"></see> instance is currently running and measuring elapsed time for an interval; otherwise, false.</returns>
-    public bool IsRunning => _stopTimestamp == 0;
+    public readonly bool IsRunning => _stopTimestamp == 0;
 
     /// <summary>Stops time interval measurement, resets the elapsed time to zero, and starts measuring elapsed time.</summary>
     public void Restart()

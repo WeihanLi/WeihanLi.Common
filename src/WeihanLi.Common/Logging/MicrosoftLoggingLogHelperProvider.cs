@@ -2,14 +2,9 @@
 
 namespace WeihanLi.Common.Logging;
 
-internal class MicrosoftLoggingLogHelperProvider : ILogHelperProvider
+internal class MicrosoftLoggingLogHelperProvider(ILoggerFactory loggerFactory) : ILogHelperProvider
 {
-    private readonly ILoggerFactory _loggerFactory;
-
-    public MicrosoftLoggingLogHelperProvider(ILoggerFactory loggerFactory)
-    {
-        _loggerFactory = loggerFactory;
-    }
+    private readonly ILoggerFactory _loggerFactory = loggerFactory;
 
     public void Log(LogHelperLoggingEvent loggingEvent)
     {
@@ -63,35 +58,18 @@ internal class MicrosoftLoggingLogHelperProvider : ILogHelperProvider
 
     private static LogLevel ConvertLogLevel(LogHelperLogLevel logHelperLevel)
     {
-        switch (logHelperLevel)
+        return logHelperLevel switch
         {
-            case LogHelperLogLevel.All:
-                return LogLevel.Debug;
-
-            case LogHelperLogLevel.Info:
-                return LogLevel.Information;
-
-            case LogHelperLogLevel.Debug:
-                return LogLevel.Debug;
-
-            case LogHelperLogLevel.Trace:
-                return LogLevel.Trace;
-
-            case LogHelperLogLevel.Warn:
-                return LogLevel.Warning;
-
-            case LogHelperLogLevel.Error:
-                return LogLevel.Error;
-
-            case LogHelperLogLevel.Fatal:
-                return LogLevel.Critical;
-
-            case LogHelperLogLevel.None:
-                return LogLevel.None;
-
-            default:
-                return LogLevel.Warning;
-        }
+            LogHelperLogLevel.All => LogLevel.Debug,
+            LogHelperLogLevel.Info => LogLevel.Information,
+            LogHelperLogLevel.Debug => LogLevel.Debug,
+            LogHelperLogLevel.Trace => LogLevel.Trace,
+            LogHelperLogLevel.Warn => LogLevel.Warning,
+            LogHelperLogLevel.Error => LogLevel.Error,
+            LogHelperLogLevel.Fatal => LogLevel.Critical,
+            LogHelperLogLevel.None => LogLevel.None,
+            _ => LogLevel.Warning,
+        };
     }
 }
 

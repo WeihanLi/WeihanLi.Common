@@ -10,15 +10,12 @@ internal static partial class SqlExpressionParser
 {
     public static string ParseStringMemberAccess(MemberExpression exp, IDictionary<string, string>? columnMappings)
     {
-        switch (exp.Member.Name)
+        return exp.Member.Name switch
         {
-            case "Empty":
-                return string.Empty;
-
-            case "Length":
-                return $"LEN({ParseExpression(exp.Expression, columnMappings)})";
-        }
-        throw new NotImplementedException();
+            "Empty" => string.Empty,
+            "Length" => $"LEN({ParseExpression(exp.Expression, columnMappings)})",
+            _ => throw new NotImplementedException(),
+        };
     }
 
     public static string ParseStringMethodCall(MethodCallExpression exp, IDictionary<string, string>? columnMappings)

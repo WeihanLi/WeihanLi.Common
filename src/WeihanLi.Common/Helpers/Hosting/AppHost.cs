@@ -64,7 +64,7 @@ public sealed class AppHost : IAppHost
         var exceptions = new List<Exception>();
 
         var startTimeoutCts = new CancellationTokenSource(_appHostOptions.StartupTimeout);
-        var hostStartCancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, InvokeHelper.GetExitToken(), startTimeoutCts.Token);
+        var hostStartCancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, ApplicationHelper.ExitToken, startTimeoutCts.Token);
         var hostStartCancellationToken = hostStartCancellationTokenSource.Token;
         await ForeachService(_hostedLifecycleServices, hostStartCancellationToken, _appHostOptions.ServicesStartConcurrently,
             !_appHostOptions.ServicesStartConcurrently, exceptions, async (service, cancelToken) =>
@@ -185,7 +185,7 @@ public sealed class AppHost : IAppHost
                 else
                 {
                     // The task encountered an await; add it to a list to run concurrently.
-                    tasks ??= new();
+                    tasks ??= [];
                     tasks.Add(Task.Run(() => task, token));
                 }
             }

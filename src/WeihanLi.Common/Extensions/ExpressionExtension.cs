@@ -54,16 +54,10 @@ public static class ExpressionExtension
             Expression.AndAlso(Guard.NotNull(left), Guard.NotNull(right)), parameter);
     }
 
-    private sealed class ReplaceExpressionVisitor : ExpressionVisitor
+    private sealed class ReplaceExpressionVisitor(Expression oldValue, Expression newValue) : ExpressionVisitor
     {
-        private readonly Expression _oldValue;
-        private readonly Expression _newValue;
-
-        public ReplaceExpressionVisitor(Expression oldValue, Expression newValue)
-        {
-            _oldValue = oldValue;
-            _newValue = newValue;
-        }
+        private readonly Expression _oldValue = oldValue;
+        private readonly Expression _newValue = newValue;
 
         public override Expression? Visit(Expression? node)
         {
@@ -78,7 +72,7 @@ public static class ExpressionExtension
     {
         Guard.NotNull(expression);
 
-        if (!(expression.Body is MethodCallExpression methodCallExpression))
+        if (expression.Body is not MethodCallExpression methodCallExpression)
         {
             throw new InvalidCastException("Cannot be converted to MethodCallExpression");
         }
@@ -136,11 +130,7 @@ public static class ExpressionExtension
 
         var lambda = (LambdaExpression)expression;
 
-        var memberExpression = ExtractMemberExpression(lambda.Body);
-        if (memberExpression == null)
-        {
-            throw new ArgumentException(string.Format(Resource.propertyExpression_must_be_lambda_expression, nameof(expression)), nameof(expression));
-        }
+        var memberExpression = ExtractMemberExpression(lambda.Body) ?? throw new ArgumentException(string.Format(Resource.propertyExpression_must_be_lambda_expression, nameof(expression)), nameof(expression));
         return memberExpression.Member;
     }
 

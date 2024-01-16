@@ -28,14 +28,9 @@ internal sealed class DefaultConsoleLogFormatter : IConsoleLogFormatter
     }
 }
 
-internal sealed class DelegateConsoleLogFormatter : IConsoleLogFormatter
+internal sealed class DelegateConsoleLogFormatter(Func<LogHelperLoggingEvent, string> formatter) : IConsoleLogFormatter
 {
-    private readonly Func<LogHelperLoggingEvent, string> _formatter;
-
-    public DelegateConsoleLogFormatter(Func<LogHelperLoggingEvent, string> formatter)
-    {
-        _formatter = Guard.NotNull(formatter);
-    }
+    private readonly Func<LogHelperLoggingEvent, string> _formatter = Guard.NotNull(formatter);
 
     public string FormatAsString(LogHelperLoggingEvent loggingEvent) => _formatter(loggingEvent);
 }
@@ -44,7 +39,7 @@ internal sealed class ConsoleLoggingProvider : ILogHelperProvider
 {
     private readonly IConsoleLogFormatter _formatter;
 
-    private readonly BlockingCollection<LogHelperLoggingEvent> _messageQueue = new();
+    private readonly BlockingCollection<LogHelperLoggingEvent> _messageQueue = [];
     private readonly Thread _outputThread;
 
     public ConsoleLoggingProvider(IConsoleLogFormatter formatter)

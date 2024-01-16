@@ -32,9 +32,9 @@ public interface ILogHelperLoggingBuilder
 
 internal class LogHelperLoggingBuilder : ILogHelperLoggingBuilder
 {
-    internal readonly Dictionary<Type, ILogHelperProvider> _logHelperProviders = new();
-    internal readonly List<ILogHelperLoggingEnricher> _logHelperEnrichers = new();
-    internal readonly List<Func<Type, LogHelperLoggingEvent, bool>> _logFilters = new();
+    internal readonly Dictionary<Type, ILogHelperProvider> _logHelperProviders = [];
+    internal readonly List<ILogHelperLoggingEnricher> _logHelperEnrichers = [];
+    internal readonly List<Func<Type, LogHelperLoggingEvent, bool>> _logFilters = [];
 
     public bool AddProvider(ILogHelperProvider provider)
     {

@@ -7,7 +7,7 @@ using WeihanLi.Common.Template;
 
 namespace DotNetCoreSample;
 
-public class TemplatingSample
+public static class TemplatingSample
 {
     public static async Task MainTest()
     {
@@ -37,7 +37,7 @@ public class TemplatingSample
                 .AddInMemoryCollection([new("UserName1", "Test1234")])
                 .Build();
             services.AddSingleton(configuration);
-            services.AddTemplating();
+            services.AddTemplateEngine();
             await using var provider = services.BuildServiceProvider();
             var result = await provider.GetRequiredService<ITemplateEngine>()
                 .RenderAsync("Hello {{$config UserName1}}");
