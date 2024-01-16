@@ -4,7 +4,6 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
-using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 
 // ReSharper disable once CheckNamespace
@@ -16,10 +15,9 @@ public static class ProcessExtension
 #else
     public static Task WaitForExitAsync(this Process process, CancellationToken cancellationToken = default)
     {
-        Guard.NotNull(process);
+        Common.Guard.NotNull(process);
         process.EnableRaisingEvents = true;
         var tcs = new TaskCompletionSource<object?>(TaskCreationOptions.RunContinuationsAsynchronously);
-        void EventHandler(object o, EventArgs eventArgs) => tcs.TrySetResult(null);
         try
         {
             process.Exited += EventHandler;
@@ -34,6 +32,7 @@ public static class ProcessExtension
         catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
         {
             tcs.TrySetCanceled();
+            process.Try(p => p.Kill());
         }
         catch (Exception ex)
         {
@@ -45,6 +44,8 @@ public static class ProcessExtension
         }
 
         return tcs.Task;
+
+        void EventHandler(object o, EventArgs eventArgs) => tcs.TrySetResult(null);
     }
 #endif
 
@@ -55,10 +56,8 @@ public static class ProcessExtension
     /// <returns>process exit code</returns>
     public static int Execute(this ProcessStartInfo processStartInfo)
     {
-        using var process = new Process()
-        {
-            StartInfo = processStartInfo
-        };
+        using var process = new Process();
+        process.StartInfo = processStartInfo;
         process.Start();
         process.WaitForExit();
         return process.ExitCode;
@@ -72,12 +71,12 @@ public static class ProcessExtension
     /// <returns>process exit code</returns>
     public static async Task<int> ExecuteAsync(this ProcessStartInfo processStartInfo, CancellationToken cancellationToken = default)
     {
-        using var process = new Process()
-        {
-            StartInfo = processStartInfo
-        };
+        using var process = new Process();
+        process.StartInfo = processStartInfo;
         process.Start();
-        await process.WaitForExitAsync(cancellationToken);
+        using var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, ApplicationHelper.ExitToken);
+        cts.Token.Register((p) => ((Process)p).TryKill(), process);
+        await process.WaitForExitAsync(cts.Token);
         return process.ExitCode;
     }
 
@@ -105,8 +104,14 @@ public static class ProcessExtension
     public static async Task<CommandResult> GetResultAsync(this ProcessStartInfo psi, CancellationToken cancellationToken = default)
     {
         var stdOutStringBuilder = new StringBuilder();
+#if NETSTANDARD2_1 || NET6_0_OR_GREATER
+        await 
+#endif
         using var stdOut = new StringWriter(stdOutStringBuilder);
         var stdErrStringBuilder = new StringBuilder();
+#if NETSTANDARD2_1 || NET6_0_OR_GREATER
+        await 
+#endif
         using var stdErr = new StringWriter(stdErrStringBuilder);
         var exitCode = await GetExitCodeAsync(psi, stdOut, stdErr, cancellationToken);
         return new(exitCode, stdOutStringBuilder.ToString(), stdErrStringBuilder.ToString());
@@ -125,7 +130,8 @@ public static class ProcessExtension
         psi.RedirectStandardOutput = stdOut != null;
         psi.RedirectStandardError = stdErr != null;
         psi.UseShellExecute = false;
-        using var process = new Process { StartInfo = psi };
+        using var process = new Process();
+        process.StartInfo = psi;
         process.OutputDataReceived += (_, e) =>
         {
             if (e.Data != null)
@@ -167,7 +173,8 @@ public static class ProcessExtension
         psi.RedirectStandardOutput = stdOut != null;
         psi.RedirectStandardError = stdErr != null;
         psi.UseShellExecute = false;
-        using var process = new Process { StartInfo = psi };
+        using var process = new Process();
+        process.StartInfo = psi;
         var stdOutComplete = new TaskCompletionSource<object?>();
         var stdErrComplete = new TaskCompletionSource<object?>();
         process.OutputDataReceived += (_, e) =>
@@ -195,8 +202,26 @@ public static class ProcessExtension
 
         process.BeginOutputReadLine();
         process.BeginErrorReadLine();
-        await Task.WhenAll(process.WaitForExitAsync(cancellationToken), stdOutComplete.Task, stdErrComplete.Task);
-
+        using var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, ApplicationHelper.ExitToken);
+        cts.Token.Register((p) => ((Process)p).TryKill(), process);
+        await Task.WhenAll(process.WaitForExitAsync(cts.Token), stdOutComplete.Task, stdErrComplete.Task);
         return process.ExitCode;
+    }
+
+    /// <summary>
+    /// Try kill process
+    /// </summary>
+    /// <param name="process"></param>
+    /// <param name="entireProcessTree"></param>
+    /// <returns></returns>
+    public static bool TryKill(this Process process, bool entireProcessTree = true)
+    {
+        return
+#if NET6_0_OR_GREATER
+        process.Try(x => x.Kill(entireProcessTree))
+#else
+        process.Try(x => x.Kill())
+#endif
+            ;
     }
 }
