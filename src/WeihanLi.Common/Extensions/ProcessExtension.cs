@@ -29,18 +29,12 @@ public static class ProcessExtension
         try
         {
             process.Exited += EventHandler;
-
-            if (process.StartTime == DateTime.MinValue)
-            {
-                process.Start();
-            }
-
             tcs.Task.Wait(cancellationToken);
         }
         catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
         {
+            process.TryKill();
             tcs.TrySetCanceled();
-            process.Try(p => p.Kill());
         }
         catch (Exception ex)
         {
