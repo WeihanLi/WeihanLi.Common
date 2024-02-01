@@ -5,12 +5,9 @@ using System.Text;
 
 namespace WeihanLi.Common.Helpers;
 
-public static class LineParser
+public static class CommandLineParser
 {
-    [Obsolete("Please use Parse instead", true)]
-    public static IEnumerable<string> ParseLine(string line, LineParseOptions? options = null) => Parse(line, options);
-
-    public static IEnumerable<string> Parse(string line, LineParseOptions? options = null)
+    public static IEnumerable<string> ParseLine(string line, LineParseOptions? options = null)
     {
         if (string.IsNullOrEmpty(line))
         {
@@ -88,6 +85,47 @@ public static class LineParser
             yield return tokenBuilder.ToString();
             tokenBuilder.Clear();
         }
+    }
+    
+    public static bool GetBoolArgumentValue(string[] args, string argumentName, bool defaultValue = default)
+    {
+        var value = ArgumentInternal(args, argumentName);
+        return value switch
+        {
+            null => defaultValue,
+            "" or "1" => true,
+            "0" => false,
+            _ => bool.Parse(value)
+        };
+    }
+    
+    public static string? GetArgumentValue(string[] args, string argumentName, string? defaultValue = default)
+    {
+        return ArgumentInternal(args, argumentName) ?? defaultValue;
+    }
+
+    private static string? ArgumentInternal(string[] args, string argumentName)
+    {
+        for (var i = 0; i < args.Length; i++)
+        {
+            if (args[i] == $"--{argumentName}" || args[i] == $"-{argumentName}")
+            {
+                if (i + 1 == args.Length || args[i + 1].StartsWith('-'))
+                    return string.Empty;
+
+                return args[i + 1];
+            }
+
+            if (args[i].StartsWith($"-{argumentName}=", StringComparison.Ordinal) 
+                || args[i].StartsWith($"-{argumentName}:", StringComparison.Ordinal))
+                return args[i][$"-{argumentName}=".Length..];
+
+            if (args[i].StartsWith($"--{argumentName}=", StringComparison.Ordinal)
+                || args[i].StartsWith($"--{argumentName}:", StringComparison.Ordinal))
+                return args[i][$"--{argumentName}=".Length..];
+        }
+
+        return null;
     }
 }
 

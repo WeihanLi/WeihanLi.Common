@@ -285,6 +285,6 @@ public static class StringHelper
 
     public static bool EndsWith(this string source, char value)
     {
-        return !string.IsNullOrEmpty(source) && source![^1] == value;
+        return !string.IsNullOrEmpty(source) && source[^1] == value;
     }
 }
