@@ -34,13 +34,9 @@ internal class ServiceDecoratorTest
         }
     }
 
-    private sealed class JobDecorator : IJob
+    private sealed class JobDecorator(IJob job) : IJob
     {
-        private readonly IJob _job;
-        public JobDecorator(IJob job)
-        {
-            _job = job;
-        }
+        private readonly IJob _job = job;
 
         public string Name => $"??? {_job.Name}";
 

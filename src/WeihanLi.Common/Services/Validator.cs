@@ -32,8 +32,8 @@ public sealed class DataAnnotationValidator : IValidator
         if (value is null)
         {
             validationResult.Valid = false;
-            validationResult.Errors ??= new Dictionary<string, string[]>();
-            validationResult.Errors[string.Empty] = new[] { "Value is null" };
+            validationResult.Errors ??= [];
+            validationResult.Errors[string.Empty] = ["Value is null"];
         }
         else
         {
@@ -48,14 +48,9 @@ public sealed class DataAnnotationValidator : IValidator
     }
 }
 
-public sealed class DelegateValidator : IValidator
+public sealed class DelegateValidator(Func<object?, ValidationResult> validateFunc) : IValidator
 {
-    private readonly Func<object?, ValidationResult> _validateFunc;
-
-    public DelegateValidator(Func<object?, ValidationResult> validateFunc)
-    {
-        _validateFunc = Guard.NotNull(validateFunc);
-    }
+    private readonly Func<object?, ValidationResult> _validateFunc = Guard.NotNull(validateFunc);
 
     public ValidationResult Validate(object? value)
     {

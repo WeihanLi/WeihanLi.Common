@@ -28,24 +28,15 @@ public interface ILogHelperLogger<TCategory> : ILogHelperLogger
 {
 }
 
-internal sealed class LogHelperGenericLogger<TCategory> : LogHelper, ILogHelperLogger<TCategory>
+internal sealed class LogHelperGenericLogger<TCategory>(LogHelperFactory logHelperFactory) : LogHelper(logHelperFactory, typeof(TCategory).FullName ?? typeof(TCategory).Name), ILogHelperLogger<TCategory>
 {
-    public LogHelperGenericLogger(LogHelperFactory logHelperFactory) : base(logHelperFactory, typeof(TCategory).FullName ?? typeof(TCategory).Name)
-    {
-    }
 }
 
-internal class LogHelper : ILogHelperLogger
+internal class LogHelper(LogHelperFactory logHelperFactory, string categoryName) : ILogHelperLogger
 {
-    private readonly LogHelperFactory _logHelperFactory;
+    private readonly LogHelperFactory _logHelperFactory = logHelperFactory;
 
-    public string CategoryName { get; }
-
-    public LogHelper(LogHelperFactory logHelperFactory, string categoryName)
-    {
-        _logHelperFactory = logHelperFactory;
-        CategoryName = categoryName;
-    }
+    public string CategoryName { get; } = categoryName;
 
     public void Log(LogHelperLogLevel logLevel, Exception? exception, string? messageTemplate, params object?[] parameters)
     {

@@ -13,7 +13,7 @@ public interface IServiceContainerBuilder : IEnumerable<ServiceDefinition>
 
 public sealed class ServiceContainerBuilder : IServiceContainerBuilder
 {
-    private readonly List<ServiceDefinition> _services = new();
+    private readonly List<ServiceDefinition> _services = [];
 
     public IServiceContainerBuilder Add(ServiceDefinition item)
     {

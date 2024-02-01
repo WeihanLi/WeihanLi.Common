@@ -37,10 +37,7 @@ public class XmlDataSerializer : IDataSerializer
         {
             throw new ArgumentException(Resource.TaskCanNotBeSerialized);
         }
-        if (obj is null)
-        {
-            throw new ArgumentNullException(nameof(obj));
-        }
+        Guard.NotNull(obj);
         using var ms = new MemoryStream();
         var serializer = new XmlSerializer(typeof(T));
         serializer.Serialize(ms, obj);
@@ -54,7 +51,7 @@ public class XmlDataSerializer : IDataSerializer
         {
             throw new ArgumentException(Resource.TaskCanNotBeSerialized);
         }
-
+        Guard.NotNull(bytes);
         using var ms = new MemoryStream(bytes);
         var serializer = new XmlSerializer(typeof(T));
         return (T)serializer.Deserialize(ms)!;
@@ -71,6 +68,7 @@ public class JsonDataSerializer : IDataSerializer
         {
             throw new ArgumentException(Resource.TaskCanNotBeSerialized);
         }
+        Guard.NotNull(obj);
         return obj.ToJson().GetBytes();
     }
 
@@ -81,31 +79,27 @@ public class JsonDataSerializer : IDataSerializer
         {
             throw new ArgumentException(Resource.TaskCanNotBeSerialized);
         }
-
-        return bytes.GetString().JsonToObject<T>() ?? throw new ArgumentNullException(nameof(bytes));
+        Guard.NotNull(bytes);
+        return bytes.GetString().JsonToObject<T>();
     }
 }
 
-public sealed class CompressDataSerializer : IDataSerializer
+public sealed class CompressDataSerializer(IDataSerializer serializer, IDataCompressor compressor) : IDataSerializer
 {
-    private readonly IDataSerializer _serializer;
-    private readonly IDataCompressor _compressor;
-
-    public CompressDataSerializer(IDataSerializer serializer, IDataCompressor compressor)
-    {
-        _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
-        _compressor = compressor ?? throw new ArgumentNullException(nameof(compressor));
-    }
+    private readonly IDataSerializer _serializer = Guard.NotNull(serializer);
+    private readonly IDataCompressor _compressor = Guard.NotNull(compressor);
 
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public byte[] Serialize<T>(T obj)
     {
+        Guard.NotNull(obj);
         return _compressor.Compress(_serializer.Serialize(obj));
     }
 
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public T Deserialize<T>(byte[] bytes)
     {
+        Guard.NotNull(bytes);
         return _serializer.Deserialize<T>(_compressor.Decompress(bytes));
     }
 }

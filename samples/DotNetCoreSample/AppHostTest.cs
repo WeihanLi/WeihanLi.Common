@@ -45,12 +45,8 @@ file sealed class TimerService : TimerBaseBackgroundService
     }
 }
 
-file sealed class DiagnosticBackgroundService : CronBasedBackgroundServiceWithDiagnostic
+file sealed class DiagnosticBackgroundService(IServiceProvider serviceProvider) : CronBasedBackgroundServiceWithDiagnostic(serviceProvider)
 {
-    public DiagnosticBackgroundService(IServiceProvider serviceProvider) : base(serviceProvider)
-    {
-    }
-
     protected override string CronExpression => CronHelper.Secondly;
 
     protected override Task ExecuteTaskInternalAsync(IServiceProvider serviceProvider, CancellationToken stoppingToken)
@@ -83,15 +79,10 @@ file interface IWebServer
     Task StopAsync(CancellationToken cancellationToken);
 }
 
-file sealed class HttpListenerWebServer : IWebServer
+file sealed class HttpListenerWebServer(IServiceProvider serviceProvider) : IWebServer
 {
-    private readonly IServiceProvider _serviceProvider;
+    private readonly IServiceProvider _serviceProvider = serviceProvider;
     private readonly HttpListener _listener = new();
-
-    public HttpListenerWebServer(IServiceProvider serviceProvider)
-    {
-        _serviceProvider = serviceProvider;
-    }
 
     public async Task StartAsync(CancellationToken cancellationToken)
     {
@@ -127,14 +118,9 @@ file sealed class HttpListenerWebServer : IWebServer
     }
 }
 
-file sealed class WebServerHostedService : BackgroundService
+file sealed class WebServerHostedService(IWebServer server) : BackgroundService
 {
-    private readonly IWebServer _server;
-
-    public WebServerHostedService(IWebServer server)
-    {
-        _server = server;
-    }
+    private readonly IWebServer _server = server;
 
     public override async Task StopAsync(CancellationToken cancellationToken)
     {

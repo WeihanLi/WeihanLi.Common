@@ -8,15 +8,10 @@ using WeihanLi.Common.Services;
 namespace Microsoft.Extensions.Logging;
 
 [ProviderAlias("Delegate")]
-public sealed class DelegateLoggerProvider : ILoggerProvider
+public sealed class DelegateLoggerProvider(Action<string, LogLevel, Exception?, string> logAction) : ILoggerProvider
 {
-    private readonly Action<string, LogLevel, Exception?, string> _logAction;
+    private readonly Action<string, LogLevel, Exception?, string> _logAction = logAction;
     private readonly ConcurrentDictionary<string, DelegateLogger> _loggers = new();
-
-    public DelegateLoggerProvider(Action<string, LogLevel, Exception?, string> logAction)
-    {
-        _logAction = logAction;
-    }
 
     public void Dispose()
     {
@@ -28,16 +23,10 @@ public sealed class DelegateLoggerProvider : ILoggerProvider
         return _loggers.GetOrAdd(categoryName, category => new DelegateLogger(category, _logAction));
     }
 
-    private class DelegateLogger : ILogger
+    private class DelegateLogger(string categoryName, Action<string, LogLevel, Exception?, string> logAction) : ILogger
     {
-        private readonly string _categoryName;
-        private readonly Action<string, LogLevel, Exception?, string> _logAction;
-
-        public DelegateLogger(string categoryName, Action<string, LogLevel, Exception?, string> logAction)
-        {
-            _categoryName = categoryName;
-            _logAction = logAction;
-        }
+        private readonly string _categoryName = categoryName;
+        private readonly Action<string, LogLevel, Exception?, string> _logAction = logAction;
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
         {

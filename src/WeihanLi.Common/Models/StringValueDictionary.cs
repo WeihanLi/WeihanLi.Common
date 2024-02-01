@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Models;
 
 public sealed class StringValueDictionary : IEquatable<StringValueDictionary>
 {
-    private readonly Dictionary<string, string?> _dictionary = new();
+    private readonly Dictionary<string, string?> _dictionary = [];
 
     private StringValueDictionary(IDictionary<string, string?> dictionary)
     {

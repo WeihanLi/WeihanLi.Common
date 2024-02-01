@@ -24,14 +24,9 @@ public sealed class GuidIdGenerator : IIdGenerator
     public string NewId() => Guid.NewGuid().ToString("N");
 }
 
-public sealed class SequentialGuidIdGenerator : IIdGenerator
+public sealed class SequentialGuidIdGenerator(SequentialGuidType sequentialGuidType) : IIdGenerator
 {
-    private readonly SequentialGuidType _sequentialGuidType;
-
-    public SequentialGuidIdGenerator(SequentialGuidType sequentialGuidType)
-    {
-        _sequentialGuidType = sequentialGuidType;
-    }
+    private readonly SequentialGuidType _sequentialGuidType = sequentialGuidType;
 
     public string NewId() => SequentialGuidGenerator.Create(_sequentialGuidType).ToString("N");
 }

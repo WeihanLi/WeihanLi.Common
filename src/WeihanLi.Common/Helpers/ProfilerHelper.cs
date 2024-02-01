@@ -3,16 +3,10 @@ using WeihanLi.Common.Services;
 
 namespace WeihanLi.Common.Helpers;
 
-public sealed class ProfilerStopper : IDisposable
+public sealed class ProfilerStopper(IProfiler profiler, Action<TimeSpan> profileAction) : IDisposable
 {
-    private readonly IProfiler _profiler;
-    private readonly Action<TimeSpan> _profileAction;
-
-    public ProfilerStopper(IProfiler profiler, Action<TimeSpan> profileAction)
-    {
-        _profiler = profiler ?? throw new ArgumentNullException(nameof(profiler));
-        _profileAction = profileAction ?? throw new ArgumentNullException(nameof(profileAction));
-    }
+    private readonly IProfiler _profiler = Guard.NotNull(profiler);
+    private readonly Action<TimeSpan> _profileAction = Guard.NotNull(profileAction);
 
     public void Dispose()
     {
@@ -21,16 +15,10 @@ public sealed class ProfilerStopper : IDisposable
     }
 }
 
-public sealed class StopwatchStopper : IDisposable
+public sealed class StopwatchStopper(Stopwatch stopwatch, Action<TimeSpan> profileAction) : IDisposable
 {
-    private readonly Stopwatch _stopwatch;
-    private readonly Action<TimeSpan> _profileAction;
-
-    public StopwatchStopper(Stopwatch stopwatch, Action<TimeSpan> profileAction)
-    {
-        _stopwatch = stopwatch ?? throw new ArgumentNullException(nameof(stopwatch));
-        _profileAction = profileAction ?? throw new ArgumentNullException(nameof(profileAction));
-    }
+    private readonly Stopwatch _stopwatch = Guard.NotNull(stopwatch);
+    private readonly Action<TimeSpan> _profileAction = Guard.NotNull(profileAction);
 
     public void Dispose()
     {
@@ -43,13 +31,13 @@ public static class ProfilerHelper
 {
     public static StopwatchStopper Profile(this Stopwatch watch, Action<TimeSpan> profilerAction)
     {
-        Guard.NotNull(watch, nameof(watch)).Restart();
+        Guard.NotNull(watch).Restart();
         return new StopwatchStopper(watch, profilerAction);
     }
 
     public static ProfilerStopper StartNew(this IProfiler profiler, Action<TimeSpan> profilerAction)
     {
-        Guard.NotNull(profiler, nameof(profiler)).Restart();
+        Guard.NotNull(profiler).Restart();
         return new ProfilerStopper(profiler, profilerAction);
     }
 
@@ -59,7 +47,7 @@ public static class ProfilerHelper
     /// GetElapsedTime
     /// </summary>
     /// <param name="startTimestamp">startTimestamp, get by Stopwatch.GetTimestamp()</param>
-    /// <returns>elapsed timespan</returns>
+    /// <returns>elapsed time</returns>
     public static TimeSpan GetElapsedTime(long startTimestamp) =>
 #if NET7_0_OR_GREATER
         Stopwatch.GetElapsedTime(startTimestamp)
@@ -73,7 +61,7 @@ public static class ProfilerHelper
     /// </summary>
     /// <param name="startTimestamp">startTimestamp, get by Stopwatch.GetTimestamp()</param>
     /// <param name="endTimestamp">endTimestamp, get by Stopwatch.GetTimestamp</param>
-    /// <returns>elapsed timespan</returns>
+    /// <returns>elapsed time</returns>
     public static TimeSpan GetElapsedTime(long startTimestamp, long endTimestamp)
     {
 #if NET7_0_OR_GREATER

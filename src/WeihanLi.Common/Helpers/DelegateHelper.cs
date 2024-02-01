@@ -55,11 +55,7 @@ public static class DelegateHelper
     [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     public static Delegate FromMethod(MethodInfo method, object? target = null)
     {
-        if (null == method)
-        {
-            throw new ArgumentNullException(nameof(method));
-        }
-
+        Guard.NotNull(method);
         var delegateType = GetDelegateType(method);
         return method.CreateDelegate(delegateType, target);
     }
@@ -68,10 +64,7 @@ public static class DelegateHelper
     [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     public static Type GetDelegateType(MethodInfo method)
     {
-        if (null == method)
-        {
-            throw new ArgumentNullException(nameof(method));
-        }
+        Guard.NotNull(method);
         var isVoidMethod = method.ReturnType == typeof(void);
         var parameterTypes = method.GetParameters()
             .Select(p => p.ParameterType)

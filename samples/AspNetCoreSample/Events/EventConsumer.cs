@@ -3,16 +3,12 @@ using WeihanLi.Extensions;
 
 namespace AspNetCoreSample.Events;
 
-public class EventConsumer : BackgroundService
+public class EventConsumer
+  (IEventQueue eventQueue, IEventHandlerFactory eventHandlerFactory)
+  : BackgroundService
 {
-    private readonly IEventQueue _eventQueue;
-    private readonly IEventHandlerFactory _eventHandlerFactory;
-
-    public EventConsumer(IEventQueue eventQueue, IEventHandlerFactory eventHandlerFactory)
-    {
-        _eventQueue = eventQueue;
-        _eventHandlerFactory = eventHandlerFactory;
-    }
+    private readonly IEventQueue _eventQueue = eventQueue;
+    private readonly IEventHandlerFactory _eventHandlerFactory = eventHandlerFactory;
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {

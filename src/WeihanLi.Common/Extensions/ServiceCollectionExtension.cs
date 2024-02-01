@@ -284,13 +284,8 @@ public static class ServiceCollectionExtension
     public static IServiceCollection Decorate(this IServiceCollection services, Type serviceType,
         [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] Type decoratorType)
     {
-        var service = services.LastOrDefault(x => x.ServiceType == serviceType);
-        if (service == null)
-        {
-            throw new InvalidOperationException("The service is not registered, service need to be registered before decorating");
-        }
-
-        var objectFactory = ActivatorUtilities.CreateFactory(decoratorType, new[] { serviceType });
+        var service = services.LastOrDefault(x => x.ServiceType == serviceType) ?? throw new InvalidOperationException("The service is not registered, service need to be registered before decorating");
+        var objectFactory = ActivatorUtilities.CreateFactory(decoratorType, [serviceType]);
         var decoratorService = new ServiceDescriptor(serviceType, sp => objectFactory(sp, new[]
         {
             sp.CreateInstance(service)

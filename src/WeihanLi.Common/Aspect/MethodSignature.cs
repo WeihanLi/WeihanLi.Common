@@ -2,19 +2,13 @@
 
 namespace WeihanLi.Common.Aspect;
 
-internal sealed class MethodSignature
+internal sealed class MethodSignature(string methodName, IReadOnlyList<Type> parameters)
 {
-    public IReadOnlyList<Type> Parameters { get; }
-    public string MethodName { get; }
+    public IReadOnlyList<Type> Parameters { get; } = parameters;
+    public string MethodName { get; } = methodName;
 
     public MethodSignature(MethodBase method) : this(method.Name, method.GetParameters().Select(p => p.ParameterType).ToArray())
     {
-    }
-
-    public MethodSignature(string methodName, IReadOnlyList<Type> parameters)
-    {
-        Parameters = parameters;
-        MethodName = methodName;
     }
 
     public override bool Equals(object? obj)

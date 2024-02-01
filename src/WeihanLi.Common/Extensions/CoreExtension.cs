@@ -1758,6 +1758,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="defaultValueFactory">The default value factory.</param>
     /// <returns>The given data converted to a T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T ToOrDefault<T>(this object? @this, Func<object?, T> defaultValueFactory)
     {
         try
@@ -1777,6 +1778,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="defaultValueFactory">The default value factory.</param>
     /// <returns>The given data converted to a T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T ToOrDefault<T>(this object? @this, Func<T> defaultValueFactory)
     {
         return @this.ToOrDefault(_ => defaultValueFactory());
@@ -1788,6 +1790,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="type">type</param>
     /// <returns>The given data converted to</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static object? ToOrDefault(this object? @this, Type type)
     {
         Guard.NotNull(type, nameof(type));
@@ -1807,6 +1810,7 @@ public static class CoreExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">this.</param>
     /// <returns>The given data converted to a T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T? ToOrDefault<T>(this object? @this)
     {
         return @this.ToOrDefault(_ => default(T));
@@ -1819,6 +1823,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="defaultValue">The default value.</param>
     /// <returns>The given data converted to a T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T ToOrDefault<T>(this object? @this, T defaultValue)
     {
         return @this.ToOrDefault(_ => defaultValue);
@@ -2212,7 +2217,7 @@ public static class CoreExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="value">The value.</param>
     /// <returns>true if the value is in the string, false if not.</returns>
-    public static bool Contains(this string @this, string value) => Guard.NotNull(@this, nameof(@this)).IndexOf(value, StringComparison.Ordinal) != -1;
+    public static bool Contains(this string @this, string value) => Guard.NotNull(@this).IndexOf(value, StringComparison.Ordinal) != -1;
 
     /// <summary>
     ///     A string extension method that query if this object contains the given value.
@@ -2221,7 +2226,7 @@ public static class CoreExtension
     /// <param name="value">The value.</param>
     /// <param name="comparisonType">Type of the comparison.</param>
     /// <returns>true if the value is in the string, false if not.</returns>
-    public static bool Contains(this string @this, string value, StringComparison comparisonType) => Guard.NotNull(@this, nameof(@this)).IndexOf(value, comparisonType) != -1;
+    public static bool Contains(this string @this, string value, StringComparison comparisonType) => Guard.NotNull(@this).IndexOf(value, comparisonType) != -1;
 
     /// <summary>
     ///     A string extension method that extracts this object.
@@ -2229,7 +2234,7 @@ public static class CoreExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="predicate">The predicate.</param>
     /// <returns>A string.</returns>
-    public static string Extract(this string @this, Func<char, bool> predicate) => new(Guard.NotNull(@this, nameof(@this)).ToCharArray().Where(predicate).ToArray());
+    public static string Extract(this string @this, Func<char, bool> predicate) => new(Guard.NotNull(@this).ToCharArray().Where(predicate).ToArray());
 
     /// <summary>
     ///     A string extension method that removes the letter.
@@ -2237,7 +2242,7 @@ public static class CoreExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="predicate">The predicate.</param>
     /// <returns>A string.</returns>
-    public static string RemoveWhere(this string @this, Func<char, bool> predicate) => new(Guard.NotNull(@this, nameof(@this)).ToCharArray().Where(x => !predicate(x)).ToArray());
+    public static string RemoveWhere(this string @this, Func<char, bool> predicate) => new(Guard.NotNull(@this).ToCharArray().Where(x => !predicate(x)).ToArray());
 
     /// <summary>
     ///     Replaces the format item in a specified String with the text equivalent of the value of a corresponding
@@ -2249,17 +2254,17 @@ public static class CoreExtension
     ///     A copy of format in which the format items have been replaced by the String equivalent of the corresponding
     ///     instances of Object in args.
     /// </returns>
-    public static string FormatWith(this string @this, params object[] values) => string.Format(Guard.NotNull(@this, nameof(@this)), values);
+    public static string FormatWith(this string @this, params object?[] values) => string.Format(Guard.NotNull(@this), values);
 
     /// <summary>
-    ///     A string extension method that query if '@this' satisfy the specified pattern.
+    ///     A string extension method that query if '@this' satisfies the specified pattern.
     /// </summary>
     /// <param name="this">The @this to act on.</param>
-    /// <param name="pattern">The pattern to use. Use '*' as wildcard string.</param>
-    /// <returns>true if '@this' satisfy the specified pattern, false if not.</returns>
+    /// <param name="pattern">The pattern to use. Use '*' as a wildcard string.</param>
+    /// <returns>true if '@this' satisfies the specified pattern, false if not.</returns>
     public static bool IsLike(this string @this, string pattern)
     {
-        // Turn the pattern into regex pattern, and match the whole string with ^$
+        // Turn the pattern into a regex pattern, and match the whole string with ^$
         var regexPattern = "^" + Regex.Escape(pattern) + "$";
 
         // Escape special character ?, #, *, [], and [!]
@@ -2270,7 +2275,7 @@ public static class CoreExtension
             .Replace(@"\*", ".*")
             .Replace(@"\#", @"\d");
 
-        return Regex.IsMatch(Guard.NotNull(@this, nameof(@this)), regexPattern);
+        return Regex.IsMatch(Guard.NotNull(@this), regexPattern);
     }
 
     /// <summary>
@@ -2313,7 +2318,7 @@ public static class CoreExtension
     /// <returns>substring</returns>
     public static string Sub(this string @this, int startIndex)
     {
-        Guard.NotNull(@this, nameof(@this));
+        Guard.NotNull(@this);
         if (startIndex >= 0)
         {
             return @this.SafeSubstring(startIndex);
@@ -2333,7 +2338,7 @@ public static class CoreExtension
     /// <returns>The repeated string.</returns>
     public static string Repeat(this string @this, int repeatCount)
     {
-        Guard.NotNull(@this, nameof(@this));
+        Guard.NotNull(@this);
         if (@this.Length == 1)
         {
             return new string(@this[0], repeatCount);
@@ -2378,14 +2383,14 @@ public static class CoreExtension
     /// <returns>
     ///     An array whose elements contain the substrings in this string that are delimited by the separator.
     /// </returns>
-    public static string[] Split(this string @this, string separator, StringSplitOptions option = StringSplitOptions.None) => Guard.NotNull(@this, nameof(@this)).Split(new[] { separator }, option);
+    public static string[] Split(this string @this, string separator, StringSplitOptions option = StringSplitOptions.None) => Guard.NotNull(@this).Split(new[] { separator }, option);
 
     /// <summary>
     ///     A string extension method that converts the @this to a byte array.
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as a byte[].</returns>
-    public static byte[] ToByteArray(this string @this) => Encoding.UTF8.GetBytes(Guard.NotNull(@this, nameof(@this)));
+    public static byte[] ToByteArray(this string @this) => Encoding.UTF8.GetBytes(Guard.NotNull(@this));
 
     /// <summary>
     ///     A string extension method that converts the @this to a byte array.
@@ -2393,7 +2398,7 @@ public static class CoreExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="encoding">encoding</param>
     /// <returns>@this as a byte[].</returns>
-    public static byte[] ToByteArray(this string @this, Encoding encoding) => encoding.GetBytes(Guard.NotNull(@this, nameof(@this)));
+    public static byte[] ToByteArray(this string @this, Encoding encoding) => encoding.GetBytes(Guard.NotNull(@this));
 
     public static byte[] GetBytes(this string str) => Guard.NotNull(str, nameof(str)).GetBytes(null);
 
@@ -2405,14 +2410,14 @@ public static class CoreExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as a T.</returns>
-    public static T ToEnum<T>(this string @this) => (T)Enum.Parse(typeof(T), Guard.NotNull(@this, nameof(@this)));
+    public static T ToEnum<T>(this string @this) => (T)Enum.Parse(typeof(T), Guard.NotNull(@this));
 
     /// <summary>
     ///     A string extension method that converts the @this to a title case.
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as a string.</returns>
-    public static string ToTitleCase(this string @this) => new CultureInfo("en-US").TextInfo.ToTitleCase(Guard.NotNull(@this, nameof(@this)));
+    public static string ToTitleCase(this string @this) => new CultureInfo("en-US").TextInfo.ToTitleCase(Guard.NotNull(@this));
 
     /// <summary>
     ///     A string extension method that converts the @this to a title case.
@@ -2420,7 +2425,7 @@ public static class CoreExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="cultureInfo">Information describing the culture.</param>
     /// <returns>@this as a string.</returns>
-    public static string ToTitleCase(this string @this, CultureInfo cultureInfo) => cultureInfo.TextInfo.ToTitleCase(Guard.NotNull(@this, nameof(@this)));
+    public static string ToTitleCase(this string @this, CultureInfo cultureInfo) => cultureInfo.TextInfo.ToTitleCase(Guard.NotNull(@this));
 
     /// <summary>
     ///     A string extension method that truncates.
@@ -2428,7 +2433,7 @@ public static class CoreExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="maxLength">The maximum length.</param>
     /// <returns>A string.</returns>
-    public static string Truncate(this string @this, int maxLength) => Guard.NotNull(@this, nameof(@this)).Truncate(maxLength, "...");
+    public static string Truncate(this string @this, int maxLength) => Guard.NotNull(@this).Truncate(maxLength, "...");
 
     /// <summary>
     ///     A string extension method that truncates.

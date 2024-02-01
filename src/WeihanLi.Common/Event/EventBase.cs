@@ -61,21 +61,13 @@ public static class EventBaseExtensions
 
     public static string ToEventMsg<TEvent>(this TEvent @event) where TEvent : class, IEventBase
     {
-        if (null == @event)
-        {
-            throw new ArgumentNullException(nameof(@event));
-        }
-
+        Guard.NotNull(@event);
         return @event.ToJson(EventSerializerSettings);
     }
 
     public static IEventBase ToEvent(this string eventMsg)
     {
-        if (null == eventMsg)
-        {
-            throw new ArgumentNullException(nameof(eventMsg));
-        }
-
+        Guard.NotNull(eventMsg);
         return eventMsg.JsonToObject<IEventBase>(EventSerializerSettings);
     }
 }

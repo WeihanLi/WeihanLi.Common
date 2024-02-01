@@ -9,18 +9,12 @@ namespace WeihanLi.Common.Event;
 /// <summary>
 /// EventBus in process
 /// </summary>
-public sealed class EventBus : IEventBus
+public sealed class EventBus(IEventSubscriptionManager subscriptionManager, IEventHandlerFactory eventHandlerFactory) : IEventBus
 {
     private static readonly ILogHelperLogger Logger = Helpers.LogHelper.GetLogger<EventBus>();
 
-    private readonly IEventSubscriptionManager _subscriptionManager;
-    private readonly IEventHandlerFactory _eventHandlerFactory;
-
-    public EventBus(IEventSubscriptionManager subscriptionManager, IEventHandlerFactory eventHandlerFactory)
-    {
-        _subscriptionManager = subscriptionManager;
-        _eventHandlerFactory = eventHandlerFactory;
-    }
+    private readonly IEventSubscriptionManager _subscriptionManager = subscriptionManager;
+    private readonly IEventHandlerFactory _eventHandlerFactory = eventHandlerFactory;
 
     public bool Publish<TEvent>(TEvent @event) where TEvent : class, IEventBase
     {

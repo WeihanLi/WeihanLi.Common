@@ -52,16 +52,16 @@ public sealed class CronExpression : IEquatable<CronExpression>
     internal static readonly CronExpression Secondly = Parse("* * * * * *", CronFormat.IncludeSeconds);
 
     private static readonly int[] DeBruijnPositions =
-    {
-            0, 1, 2, 53, 3, 7, 54, 27,
-            4, 38, 41, 8, 34, 55, 48, 28,
-            62, 5, 39, 46, 44, 42, 22, 9,
-            24, 35, 59, 56, 49, 18, 29, 11,
-            63, 52, 6, 26, 37, 40, 33, 47,
-            61, 45, 43, 21, 23, 58, 17, 10,
-            51, 25, 36, 32, 60, 20, 57, 16,
-            50, 31, 19, 15, 30, 14, 13, 12
-        };
+    [
+        0, 1, 2, 53, 3, 7, 54, 27,
+        4, 38, 41, 8, 34, 55, 48, 28,
+        62, 5, 39, 46, 44, 42, 22, 9,
+        24, 35, 59, 56, 49, 18, 29, 11,
+        63, 52, 6, 26, 37, 40, 33, 47,
+        61, 45, 43, 21, 23, 58, 17, 10,
+        51, 25, 36, 32, 60, 20, 57, 16,
+        50, 31, 19, 15, 30, 14, 13, 12
+    ];
 
     private long _second;     // 60 bits -> from 0 bit to 59 bit
     private long _minute;     // 60 bits -> from 0 bit to 59 bit
@@ -74,6 +74,7 @@ public sealed class CronExpression : IEquatable<CronExpression>
     private byte _lastMonthOffset;
 
     private CronExpressionFlag _flags;
+    private static readonly char[] separator = [ ' ' ];
 
     private CronExpression()
     {
@@ -88,7 +89,7 @@ public sealed class CronExpression : IEquatable<CronExpression>
     /// </summary>
     public static CronExpression Parse(string expression)
     {
-        return expression.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length == 5
+        return expression.Split(separator, StringSplitOptions.RemoveEmptyEntries).Length == 5
              ? Parse(expression, CronFormat.Standard)
              : Parse(expression, CronFormat.IncludeSeconds);
     }
@@ -102,7 +103,7 @@ public sealed class CronExpression : IEquatable<CronExpression>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static unsafe CronExpression Parse(string expression, CronFormat format)
     {
-        if (string.IsNullOrEmpty(expression)) throw new ArgumentNullException(nameof(expression));
+        Guard.NotNullOrEmpty(expression);
 
         fixed (char* value = expression)
         {
@@ -215,11 +216,11 @@ public sealed class CronExpression : IEquatable<CronExpression>
     }
 
     /// <summary>
-    /// Determines whether the specified <see cref="Object"/> is equal to the current <see cref="Object"/>.
+    /// Determines whether the specified <see cref="object"/> is equal to the current <see cref="object"/>.
     /// </summary>
-    /// <param name="other">The <see cref="Object"/> to compare with the current <see cref="Object"/>.</param>
+    /// <param name="other">The <see cref="object"/> to compare with the current <see cref="object"/>.</param>
     /// <returns>
-    /// <c>true</c> if the specified <see cref="Object"/> is equal to the current <see cref="Object"/>; otherwise, <c>false</c>.
+    /// <c>true</c> if the specified <see cref="object"/> is equal to the current <see cref="object"/>; otherwise, <c>false</c>.
     /// </returns>
     public bool Equals(CronExpression other)
     {
@@ -237,11 +238,11 @@ public sealed class CronExpression : IEquatable<CronExpression>
     }
 
     /// <summary>
-    /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
+    /// Determines whether the specified <see cref="object" /> is equal to this instance.
     /// </summary>
-    /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
+    /// <param name="obj">The <see cref="object" /> to compare with this instance.</param>
     /// <returns>
-    /// <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance;
+    /// <c>true</c> if the specified <see cref="object" /> is equal to this instance;
     /// otherwise, <c>false</c>.
     /// </returns>
     public override bool Equals(object obj) => Equals(obj as CronExpression);
@@ -885,13 +886,13 @@ public sealed class CronExpression : IEquatable<CronExpression>
     [MethodImpl(MethodImplOptions.NoInlining)]
     private static void ThrowFormatException(CronField field, string format, params object[] args)
     {
-        throw new CronFormatException(field, String.Format(format, args));
+        throw new CronFormatException(field, string.Format(format, args));
     }
 
     [MethodImpl(MethodImplOptions.NoInlining)]
     private static void ThrowFormatException(string format, params object[] args)
     {
-        throw new CronFormatException(String.Format(format, args));
+        throw new CronFormatException(string.Format(format, args));
     }
 
     [MethodImpl(MethodImplOptions.NoInlining)]

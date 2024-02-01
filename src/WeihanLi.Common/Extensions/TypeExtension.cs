@@ -10,37 +10,37 @@ namespace WeihanLi.Extensions;
 public static class TypeExtension
 {
     private static readonly Type[] BasicTypes =
-    {
-            typeof(bool),
+    [
+        typeof(bool),
 
-            typeof(sbyte),
-            typeof(byte),
-            typeof(int),
-            typeof(uint),
-            typeof(short),
-            typeof(ushort),
-            typeof(long),
-            typeof(ulong),
-            typeof(float),
-            typeof(double),
-            typeof(decimal),
+        typeof(sbyte),
+        typeof(byte),
+        typeof(int),
+        typeof(uint),
+        typeof(short),
+        typeof(ushort),
+        typeof(long),
+        typeof(ulong),
+        typeof(float),
+        typeof(double),
+        typeof(decimal),
 
-            typeof(Guid),
+        typeof(Guid),
 
-            typeof(DateTime),// IsPrimitive:False
-            typeof(TimeSpan),// IsPrimitive:False
-            typeof(DateTimeOffset),
+        typeof(DateTime),// IsPrimitive:False
+        typeof(TimeSpan),// IsPrimitive:False
+        typeof(DateTimeOffset),
 
-            typeof(char),
-            typeof(string),// IsPrimitive:False
+        typeof(char),
+        typeof(string),// IsPrimitive:False
 
 #if NET6_0_OR_GREATER
-            typeof(DateOnly),
-            typeof(TimeOnly),
+        typeof(DateOnly),
+        typeof(TimeOnly),
 #endif
 
-            //typeof(object),// IsPrimitive:False
-        };
+        //typeof(object),// IsPrimitive:False
+    ];
 
     public static TypeCode GetTypeCode(this Type type) => Type.GetTypeCode(type);
 

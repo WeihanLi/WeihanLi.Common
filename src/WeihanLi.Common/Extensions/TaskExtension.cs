@@ -8,7 +8,7 @@ public static class TaskExtension
 {
     public static Task<T> WrapTask<T>(this T t) => Task.FromResult(t);
 
-    public static ValueTask<T> WrapValueTask<T>(this T t) => new ValueTask<T>(t);
+    public static ValueTask<T> WrapValueTask<T>(this T t) => new(t);
 
     public static Task AsTask(this CancellationToken cancellationToken)
     {

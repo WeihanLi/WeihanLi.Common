@@ -21,7 +21,7 @@ public static class ExpressionHelper
     {
         var arg = Expression.Parameter(typeof(T), "x");
         var property = Expression.Property(arg, propertyName);
-        var exp = Expression.Lambda<Func<T, TProperty>>(property, new ParameterExpression[] { arg });
+        var exp = Expression.Lambda<Func<T, TProperty>>(property, [arg]);
         return exp;
     }
 

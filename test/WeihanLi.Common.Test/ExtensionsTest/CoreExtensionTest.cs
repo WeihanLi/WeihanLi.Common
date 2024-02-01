@@ -87,7 +87,7 @@ public class CoreExtensionTest
         Assert.Equal("bcdefg", str.SafeSubstring(1, 20));
         Assert.Equal("", str.SafeSubstring(10, 20));
 
-        Assert.Equal(str.Substring(str.Length), str.SafeSubstring(str.Length));
+        Assert.Equal(str[str.Length..], str.SafeSubstring(str.Length));
         Assert.Equal("", str.SafeSubstring(10));
     }
 

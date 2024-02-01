@@ -235,7 +235,7 @@ public static class LogHelperExtensions
     {
         Guard.NotNull(loggingEvent, nameof(loggingEvent));
 
-        loggingEvent.Properties ??= new Dictionary<string, object?>();
+        loggingEvent.Properties ??= [];
         if (loggingEvent.Properties.ContainsKey(propertyName) && !overwrite)
         {
             return;
@@ -250,7 +250,7 @@ public static class LogHelperExtensions
         Guard.NotNull(loggingEvent, nameof(loggingEvent));
         Guard.NotNull(propertyValueFactory, nameof(propertyValueFactory));
 
-        loggingEvent.Properties ??= new Dictionary<string, object?>();
+        loggingEvent.Properties ??= [];
 
         if (loggingEvent.Properties.ContainsKey(propertyName) && !overwrite)
         {

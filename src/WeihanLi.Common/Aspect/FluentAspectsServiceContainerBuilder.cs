@@ -7,12 +7,7 @@ public interface IFluentAspectsServiceContainerBuilder
     IServiceContainerBuilder Services { get; }
 }
 
-internal sealed class FluentAspectsServiceContainerBuilder : IFluentAspectsServiceContainerBuilder
+internal sealed class FluentAspectsServiceContainerBuilder(IServiceContainerBuilder serviceCollection) : IFluentAspectsServiceContainerBuilder
 {
-    public FluentAspectsServiceContainerBuilder(IServiceContainerBuilder serviceCollection)
-    {
-        Services = serviceCollection;
-    }
-
-    public IServiceContainerBuilder Services { get; }
+    public IServiceContainerBuilder Services { get; } = serviceCollection;
 }

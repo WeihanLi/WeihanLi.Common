@@ -19,14 +19,13 @@ public sealed class DelegateEventHandler<TEvent> : EventHandlerBase<TEvent>
 
     public DelegateEventHandler(Action<TEvent> action)
     {
-        if (null == action) throw new ArgumentNullException(nameof(action));
-
+        Guard.NotNull(action);
         _func = action.WrapTask();
     }
 
     public DelegateEventHandler(Func<TEvent, Task> func)
     {
-        _func = func ?? throw new ArgumentNullException(nameof(func));
+        _func = Guard.NotNull(func);
     }
 
     public override Task Handle(TEvent @event)

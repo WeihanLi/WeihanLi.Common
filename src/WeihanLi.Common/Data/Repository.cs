@@ -11,7 +11,7 @@ using WeihanLi.Extensions;
 namespace WeihanLi.Common.Data;
 
 [CLSCompliant(false)]
-public class Repository<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.PublicProperties)] TEntity> : IRepository<TEntity> where TEntity : new()
+public class Repository<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.PublicProperties)] TEntity>(Func<DbConnection> dbConnectionFunc) : IRepository<TEntity> where TEntity : new()
 {
     #region TODO: Cache External
 
@@ -50,12 +50,7 @@ public class Repository<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTyp
 
     #endregion TODO: Cache External
 
-    protected readonly Lazy<DbConnection> _dbConnection;
-
-    public Repository(Func<DbConnection> dbConnectionFunc)
-    {
-        _dbConnection = new Lazy<DbConnection>(dbConnectionFunc, true);
-    }
+    protected readonly Lazy<DbConnection> _dbConnection = new(dbConnectionFunc, true);
 
     public virtual int Count(Expression<Func<TEntity, bool>> whereExpression)
     {
@@ -553,7 +548,7 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
             return -1;
         }
         //...
-        var updateWithoutCols = propertyNames ?? Array.Empty<string>();
+        var updateWithoutCols = propertyNames ?? [];
         var updateCols = ColumnMappings.Keys
             .Where(c => !updateWithoutCols.Contains(c) && !keyEntries.ContainsKey(c))
             .ToArray();

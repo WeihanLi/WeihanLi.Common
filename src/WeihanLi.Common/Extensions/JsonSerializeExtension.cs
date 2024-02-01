@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Diagnostics.CodeAnalysis;
 using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
@@ -120,6 +121,7 @@ public static class JsonSerializeExtension
     /// <typeparam name="T">Type</typeparam>
     /// <param name="jsonString">字符串</param>
     /// <returns></returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T StringToType<T>(this string jsonString)
     {
         if (typeof(T) == typeof(string))
@@ -140,6 +142,7 @@ public static class JsonSerializeExtension
     /// <param name="jsonString">json string</param>
     /// <param name="defaultValue">defaultValue</param>
     /// <returns></returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T StringToType<T>(this string jsonString, T defaultValue)
     {
         if (typeof(T) == typeof(string))

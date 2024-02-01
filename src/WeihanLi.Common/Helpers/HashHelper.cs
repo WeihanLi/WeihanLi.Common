@@ -132,7 +132,7 @@ public static class HashHelper
         Guard.NotNull(str, nameof(str));
         if (str == string.Empty)
         {
-            return Array.Empty<byte>();
+            return [];
         }
         var bytes = encoding.GetBytes(str);
         return GetHashedBytes(type, bytes);

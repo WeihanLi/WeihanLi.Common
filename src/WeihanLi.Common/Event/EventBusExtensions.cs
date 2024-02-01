@@ -13,14 +13,9 @@ public interface IEventBuilder
     IServiceCollection Services { get; }
 }
 
-internal sealed class EventBuilder : IEventBuilder
+internal sealed class EventBuilder(IServiceCollection services) : IEventBuilder
 {
-    public IServiceCollection Services { get; }
-
-    public EventBuilder(IServiceCollection services)
-    {
-        Services = services;
-    }
+    public IServiceCollection Services { get; } = services;
 }
 
 public static class EventBusExtensions

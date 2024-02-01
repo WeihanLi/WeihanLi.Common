@@ -312,7 +312,7 @@ InvokeHelper.OnInvokeException = ex => ConsoleHelper.ErrorWriteWithColor(ex.ToSt
 //TotpTest.MainTest();
 
 // exit test
-// var exitToken = InvokeHelper.GetExitToken();
+// var exitToken = ApplicationHelper.ExitToken;
 // exitToken.Register(() =>
 // {
 //     Console.WriteLine(@"Exiting");
@@ -336,6 +336,16 @@ InvokeHelper.OnInvokeException = ex => ConsoleHelper.ErrorWriteWithColor(ex.ToSt
 //
 // GC.Collect();
 // GC.WaitForPendingFinalizers();
+
+// await CommandExecutor.ExecuteCommandAndOutputAsync(
+//     "dotnet build \"C:\\projects\\sources\\dotnet-exec\\src\\dotnet-exec\\dotnet-exec.csproj\"");
+
+{
+    var cts = CancellationTokenSource.CreateLinkedTokenSource(ApplicationHelper.ExitToken, default);
+    var registration = cts.Token.Register(() => Console.WriteLine(@"Exited"));
+    cts.Dispose();
+    // registration would be disposed when cts dispose
+}
 
 await InvokeHelper.TryInvokeAsync(TemplatingSample.MainTest);
 

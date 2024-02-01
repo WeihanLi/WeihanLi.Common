@@ -97,8 +97,7 @@ public static class ValidateHelper
     /// </summary>
     private static bool CheckIDCard18(string? id)
     {
-        long n;
-        if (long.TryParse(id!.Remove(17), out n) == false || n < Math.Pow(10, 16) || long.TryParse(id.Replace('x', '0').Replace('X', '0'), out n) == false)
+        if (long.TryParse(id!.Remove(17), out var n) == false || n < Math.Pow(10, 16) || long.TryParse(id.Replace('x', '0').Replace('X', '0'), out n) == false)
         {
             return false;//数字验证
         }
@@ -123,7 +122,7 @@ public static class ValidateHelper
         }
 
         var y = sum % 11;
-        if (arrVarifyCode[y] != id.Substring(17, 1).ToLower())
+        if (!arrVarifyCode[y].Equals(id.Substring(17, 1), StringComparison.CurrentCultureIgnoreCase))
         {
             return false;//校验码验证
         }

@@ -14,14 +14,9 @@ namespace WeihanLi.Extensions;
 
 public static partial class DataExtension
 {
-    private sealed class DbParameterReadOnlyCollection : IReadOnlyCollection<DbParameter>
+    private sealed class DbParameterReadOnlyCollection(DbParameterCollection parameterCollection) : IReadOnlyCollection<DbParameter>
     {
-        private readonly DbParameterCollection _paramCollection;
-
-        public DbParameterReadOnlyCollection(DbParameterCollection parameterCollection)
-        {
-            _paramCollection = parameterCollection;
-        }
+        private readonly DbParameterCollection _paramCollection = parameterCollection;
 
         public int Count => _paramCollection.Count;
 
@@ -47,10 +42,7 @@ public static partial class DataExtension
 
     public static DataTable ToDataTable<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] T>(this IEnumerable<T> entities)
     {
-        if (null == entities)
-        {
-            throw new ArgumentNullException(nameof(entities));
-        }
+        Guard.NotNull(entities);
         var properties = CacheUtil.GetTypeProperties(typeof(T))
             .Where(_ => _.CanRead)
             .ToArray();
@@ -83,6 +75,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static IEnumerable<T> ToEntities<T>(this DataTable @this)
     {
         if (@this.Columns.Count > 0)
@@ -132,6 +125,7 @@ public static partial class DataExtension
     /// <param name="dataTable">The dataTable to act on.</param>
     /// <param name="index">column index</param>
     /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static IEnumerable<T?> ColumnToList<T>(this DataTable dataTable, int index)
     {
         Guard.NotNull(dataTable, nameof(dataTable));
@@ -154,7 +148,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="dr">The @this to act on.</param>
     /// <returns>@this as a T.</returns>
-    public static T ToEntity<T>(this DataRow dr)
+    public static T ToEntity<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] T>(this DataRow dr)
     {
         var type = typeof(T);
         var properties = CacheUtil.GetTypeProperties(type).Where(p => p.CanWrite).ToArray();
@@ -226,6 +220,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static IEnumerable<T> ToEntities<T>(this IDataReader @this)
     {
         var type = typeof(T);
@@ -252,6 +247,7 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="hadRead">whether the DataReader had read</param>
     /// <returns>@this as a T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T? ToEntity<T>(this IDataReader @this, bool hadRead = false)
     {
         if (!hadRead)
@@ -465,6 +461,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>A T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T ExecuteScalarTo<T>(this DbCommand @this) => @this.ExecuteScalar().To<T>();
 
     /// <summary>
@@ -474,6 +471,7 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="cancellationToken"></param>
     /// <returns>A T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static async Task<T> ExecuteScalarToAsync<T>(this DbCommand @this, CancellationToken cancellationToken = default) => (await @this.ExecuteScalarAsync(cancellationToken)).To<T>();
 
     /// <summary>
@@ -482,6 +480,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>A T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T? ExecuteScalarToOrDefault<T>(this DbCommand @this) => @this.ExecuteScalar().ToOrDefault<T>();
 
     /// <summary>
@@ -491,6 +490,7 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="cancellationToken"></param>
     /// <returns>A T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static async Task<T?> ExecuteScalarToOrDefaultAsync<T>(this DbCommand @this, CancellationToken cancellationToken = default) => (await @this.ExecuteScalarAsync(cancellationToken)).ToOrDefault<T>();
 
     /// <summary>
@@ -500,6 +500,7 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="func">The default value factory.</param>
     /// <returns>A T.</returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T? ExecuteScalarTo<T>(this DbCommand @this, Func<object?, T> func)
     {
         return func(@this.ExecuteScalar());
@@ -543,7 +544,7 @@ public static partial class DataExtension
         if (paramInfo != null)
         {
             var paramType = paramInfo.GetType();
-            if (!(paramInfo is IDictionary<string, object?> parameters))
+            if (paramInfo is not IDictionary<string, object?> parameters)
             {
                 if (paramType.IsValueTuple()) // Tuple
                 {
@@ -582,7 +583,7 @@ public static partial class DataExtension
                 case '@':
                 case ':':
                 case '?':
-                    return originName.Substring(1);
+                    return originName[1..];
             }
         }
         return originName;

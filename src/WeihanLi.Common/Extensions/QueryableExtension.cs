@@ -107,10 +107,7 @@ public static class QueryableExtension
     public static IQueryable<T> OrderBy<T>(this IQueryable<T> source, string propertyName, bool isAsc = false)
     {
         Guard.NotNull(source);
-        if (string.IsNullOrWhiteSpace(propertyName))
-        {
-            throw new ArgumentException(nameof(propertyName));
-        }
+        Guard.NotNullOrWhiteSpace(propertyName);
 
         var type = typeof(T);
         var arg = Expression.Parameter(type, "x");

@@ -20,7 +20,7 @@ public interface IValidationResult
 
 public sealed class ValidationResult : IValidationResult
 {
-    private Dictionary<string, string[]> _errors = new();
+    private Dictionary<string, string[]> _errors = [];
 
     /// <inheritdoc cref="IValidationResult"/>
     public bool Valid { get; set; }

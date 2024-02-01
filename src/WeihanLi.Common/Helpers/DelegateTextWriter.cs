@@ -2,19 +2,12 @@
 
 namespace WeihanLi.Common.Helpers;
 
-public sealed class DelegateTextWriter : TextWriter
+public sealed class DelegateTextWriter(Action<string> onLineWritten) : TextWriter
 {
     public override Encoding Encoding => Encoding.UTF8;
 
-    private readonly Action<string> _onLineWritten;
-    private readonly StringBuilder _builder;
-
-    public DelegateTextWriter(Action<string> onLineWritten)
-    {
-        _onLineWritten = onLineWritten ?? throw new ArgumentNullException(nameof(onLineWritten));
-
-        _builder = new StringBuilder();
-    }
+    private readonly Action<string> _onLineWritten = Guard.NotNull(onLineWritten);
+    private readonly StringBuilder _builder = new();
 
     public override void Flush()
     {

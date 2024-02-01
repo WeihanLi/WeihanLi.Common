@@ -59,13 +59,9 @@ public sealed class AppHostBuilder : IAppHostBuilder
         return new AppHost(services, Configuration);
     }
 
-    private sealed class LoggingBuilder : ILoggingBuilder
+    private sealed class LoggingBuilder(IServiceCollection services) : ILoggingBuilder
     {
-        public LoggingBuilder(IServiceCollection services)
-        {
-            Services = services;
-        }
-        public IServiceCollection Services { get; }
+        public IServiceCollection Services { get; } = services;
     }
 }
 

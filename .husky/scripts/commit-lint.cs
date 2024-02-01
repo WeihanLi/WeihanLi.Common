@@ -9,7 +9,10 @@ const string pattern = @"^(?=.{1,90}$)(?:build|feat|ci|chore|docs|fix|perf|refac
 var msg = File.ReadAllLines(args[0])[0];
 Console.WriteLine("Your commit headline message is:\n> {0}", msg);
 if (System.Text.RegularExpressions.Regex.IsMatch(msg, pattern))
-   return 0;
+    return 0;
+
+if (msg.StartsWith("Merge branch "))
+    return 0;
 
 Console.ForegroundColor = ConsoleColor.Red;
 Console.WriteLine("Invalid commit message");

@@ -11,11 +11,8 @@ internal sealed class IPNetwork
 {
     public IPNetwork(string cidr)
     {
-        if (string.IsNullOrWhiteSpace(cidr))
-        {
-            throw new ArgumentNullException(nameof(cidr));
-        }
-        var arr = cidr.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+        Guard.NotNullOrWhiteSpace(cidr);
+        var arr = cidr.Split(separator, StringSplitOptions.RemoveEmptyEntries);
         if (arr.Length == 0 || arr.Length > 2)
         {
             throw new ArgumentException("invalid cidr format", nameof(cidr));
@@ -62,6 +59,8 @@ internal sealed class IPNetwork
     public int PrefixLength { get; }
 
     private byte[] Mask { get; }
+
+    internal static readonly char[] separator = ['/'];
 
     public bool Contains(IPAddress address)
     {

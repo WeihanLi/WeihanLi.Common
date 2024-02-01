@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.Common;
 using System.Text;
+using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions;
@@ -109,11 +110,12 @@ public static class DictionaryExtension
     /// </returns>
     public static TValue GetOrAdd<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey key, TValue value)
     {
-        if (!@this.ContainsKey(key))
+        if (!@this.TryGetValue(key, out var val))
         {
             @this.Add(key, value);
+            val = value;
         }
-        return @this[key];
+        return val;
     }
 
     /// <summary>
@@ -184,13 +186,13 @@ public static class DictionaryExtension
     /// </returns>
     public static TValue AddOrUpdate<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey key, TValue addValue, Func<TKey, TValue, TValue> updateValueFactory)
     {
-        if (!@this.ContainsKey(key))
+        if (!@this.TryGetValue(key, out var value))
         {
             @this.Add(new KeyValuePair<TKey, TValue>(key, addValue));
         }
         else
         {
-            @this[key] = updateValueFactory(key, @this[key]);
+            @this[key] = updateValueFactory(key, value);
         }
 
         return @this[key];
@@ -216,13 +218,13 @@ public static class DictionaryExtension
     /// </returns>
     public static TValue AddOrUpdate<TKey, TValue>(this IDictionary<TKey, TValue> @this, TKey key, Func<TKey, TValue> addValueFactory, Func<TKey, TValue, TValue> updateValueFactory)
     {
-        if (!@this.ContainsKey(key))
+        if (!@this.TryGetValue(key, out var value))
         {
             @this.Add(new KeyValuePair<TKey, TValue>(key, addValueFactory(key)));
         }
         else
         {
-            @this[key] = updateValueFactory(key, @this[key]);
+            @this[key] = updateValueFactory(key, value);
         }
 
         return @this[key];
@@ -319,7 +321,7 @@ public static class DictionaryExtension
     {
         if (@this == null)
         {
-            return new NameValueCollection();
+            return [];
         }
         var col = new NameValueCollection();
         foreach (var item in @this)
@@ -333,7 +335,7 @@ public static class DictionaryExtension
     {
         if (source == null)
         {
-            return new NameValueCollection();
+            return [];
         }
 
         var collection = new NameValueCollection();
@@ -393,10 +395,7 @@ public static class DictionaryExtension
     /// <returns></returns>
     public static DataTable ToDataTable(this IDictionary<string, object> dictionary)
     {
-        if (null == dictionary)
-        {
-            throw new ArgumentNullException(nameof(dictionary));
-        }
+        Guard.NotNull(dictionary);
         var dataTable = new DataTable();
         if (dictionary.Keys.Count == 0)
         {
@@ -447,9 +446,9 @@ public static class DictionaryExtension
             {
                 continue;
             }
-            sb.Append("&");
+            sb.Append('&');
             sb.Append(item.Key.UrlEncode());
-            sb.Append("=");
+            sb.Append('=');
             if (item.Value.IsNotNullOrEmpty())
                 sb.Append(item.Value.UrlEncode());
         }

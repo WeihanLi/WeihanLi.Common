@@ -3,15 +3,10 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Data;
 
-public class SqlExpressionVisitor : ExpressionVisitor
+public class SqlExpressionVisitor(IDictionary<string, string>? columnMappings) : ExpressionVisitor
 {
     private readonly Stack<string> _leaves = new();
-    private readonly IDictionary<string, string>? _columnMappings;
-
-    public SqlExpressionVisitor(IDictionary<string, string>? columnMappings)
-    {
-        _columnMappings = columnMappings;
-    }
+    private readonly IDictionary<string, string>? _columnMappings = columnMappings;
 
     public string GetCondition() => _leaves.StringJoin(" ");
 

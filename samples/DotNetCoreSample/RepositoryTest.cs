@@ -60,14 +60,9 @@ public static class RepositoryTest
         }
     }
 
-    public class DbConnectionPoolPolicy : IPooledObjectPolicy<DbConnection>
+    public class DbConnectionPoolPolicy(string connString) : IPooledObjectPolicy<DbConnection>
     {
-        private readonly string _connString;
-
-        public DbConnectionPoolPolicy(string connString)
-        {
-            _connString = connString;
-        }
+        private readonly string _connString = connString;
 
         public DbConnection Create()
         {

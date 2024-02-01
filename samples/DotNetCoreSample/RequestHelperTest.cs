@@ -23,7 +23,7 @@ internal class RequestHelperTest
         Debug.Assert(param.HasKeys());
 
         param = GetParamInfo("https://www.baidu.com/?tn=");
-        Debug.Assert(param["tn"] == String.Empty);
+        Debug.Assert(param["tn"] == string.Empty);
     }
 
     private static NameValueCollection GetParamInfo(string url)

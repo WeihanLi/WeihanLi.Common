@@ -71,7 +71,7 @@ public sealed class Permutations<T> : IEnumerable<IReadOnlyList<T>>
     /// <param name="comparer">Comparer used for defining the lexicographic order.</param>
     public Permutations(IEnumerable<T> values, GenerateOption type, IComparer<T>? comparer)
     {
-        _ = values ?? throw new ArgumentNullException(nameof(values));
+        Guard.NotNull(values);
 
         // Copy information provided and then create a parallel int array of lexicographic
         // orders that will be used for the actual permutation algorithm.
@@ -147,8 +147,7 @@ public sealed class Permutations<T> : IEnumerable<IReadOnlyList<T>>
         /// <param name="source">The source Permutations object.</param>
         public Enumerator(Permutations<T> source)
         {
-            _ = source ?? throw new ArgumentNullException(nameof(source));
-            _myParent = source;
+            _myParent = Guard.NotNull(source);
             _myLexicographicalOrders = new int[source._myLexicographicOrders.Length];
             _myValues = new List<T>(source._myValues.Length);
             source._myLexicographicOrders.CopyTo(_myLexicographicalOrders, 0);
@@ -269,9 +268,7 @@ public sealed class Permutations<T> : IEnumerable<IReadOnlyList<T>>
         /// </summary>
         private void Swap(int i, int j)
         {
-            var temp = _myValues[i];
-            _myValues[i] = _myValues[j];
-            _myValues[j] = temp;
+            (_myValues[j], _myValues[i]) = (_myValues[i], _myValues[j]);
             _myKviTemp = _myLexicographicalOrders[i];
             _myLexicographicalOrders[i] = _myLexicographicalOrders[j];
             _myLexicographicalOrders[j] = _myKviTemp;

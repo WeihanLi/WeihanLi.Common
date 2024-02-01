@@ -7,10 +7,7 @@ public static class MapHelper
 {
     public static TTarget Map<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TSource, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TTarget>(TSource source) where TTarget : new()
     {
-        if (source is null)
-        {
-            throw new ArgumentNullException(nameof(source));
-        }
+        Guard.NotNull(source);
         var sourceType = typeof(TSource);
         var destinationType = typeof(TTarget);
 
@@ -43,10 +40,7 @@ public static class MapHelper
 
     public static TTarget MapWith<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TSource, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TTarget>(TSource source, params string[] propertiesToMap) where TTarget : new()
     {
-        if (source is null)
-        {
-            throw new ArgumentNullException(nameof(source));
-        }
+        Guard.NotNull(source);
         var sourceType = typeof(TSource);
         var destinationType = typeof(TTarget);
         var result = new TTarget();
@@ -80,10 +74,7 @@ public static class MapHelper
 
     public static TTarget MapWithout<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TSource, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TTarget>(TSource source, params string[] propertiesNoMap) where TTarget : new()
     {
-        if (source is null)
-        {
-            throw new ArgumentNullException(nameof(source));
-        }
+        Guard.NotNull(source);
         var sourceType = typeof(TSource);
         var destinationType = typeof(TTarget);
 

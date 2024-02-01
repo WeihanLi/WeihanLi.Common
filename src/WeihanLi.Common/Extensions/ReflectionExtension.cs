@@ -71,20 +71,14 @@ public static class ReflectionExtension
 
     public static bool IsVisibleAndVirtual(this PropertyInfo property)
     {
-        if (property == null)
-        {
-            throw new ArgumentNullException(nameof(property));
-        }
+        Guard.NotNull(property);
         return (property.CanRead && property.GetMethod!.IsVisibleAndVirtual()) ||
                (property.CanWrite && property.SetMethod!.IsVisibleAndVirtual());
     }
 
     public static bool IsVisibleAndVirtual(this MethodInfo method)
     {
-        if (method == null)
-        {
-            throw new ArgumentNullException(nameof(method));
-        }
+        Guard.NotNull(method);
         if (method.IsStatic || method.IsFinal)
         {
             return false;
@@ -95,10 +89,7 @@ public static class ReflectionExtension
 
     public static bool IsVisible(this MethodBase method)
     {
-        if (method == null)
-        {
-            throw new ArgumentNullException(nameof(method));
-        }
+        Guard.NotNull(method);
         return method.IsPublic || method.IsFamily || method.IsFamilyOrAssembly;
     }
 
@@ -108,22 +99,23 @@ public static class ReflectionExtension
     /// <param name="this">The @this to act on.</param>
     /// <returns>The custom attribute.</returns>
     public static string GetDisplayName(this MemberInfo @this)
-        => @this.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? @this.GetCustomAttribute<DisplayAttribute>()?.Name ?? @this.Name;
+        => Guard.NotNull(@this).GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? @this.GetCustomAttribute<DisplayAttribute>()?.Name ?? @this.Name;
 
     /// <summary>
     /// GetColumnName
     /// </summary>
     /// <returns></returns>
-    public static string GetColumnName(this PropertyInfo propertyInfo) => propertyInfo.GetCustomAttribute<ColumnAttribute>()?.Name ?? propertyInfo.Name;
+    public static string GetColumnName(this PropertyInfo propertyInfo) => Guard.NotNull(propertyInfo).GetCustomAttribute<ColumnAttribute>()?.Name ?? propertyInfo.Name;
 
     /// <summary>
     /// GetDescription
     /// </summary>
     /// <returns></returns>
-    public static string GetDescription(this MemberInfo @this) => @this.GetCustomAttribute<DescriptionAttribute>()?.Description ?? @this.Name;
+    public static string GetDescription(this MemberInfo @this) => Guard.NotNull(@this).GetCustomAttribute<DescriptionAttribute>()?.Description ?? @this.Name;
 
     public static Func<T, object?>? GetValueGetter<T>(this PropertyInfo propertyInfo)
     {
+        Guard.NotNull(propertyInfo);
         return StrongTypedCache<T>.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
         {
             if (!prop.CanRead)
@@ -138,6 +130,7 @@ public static class ReflectionExtension
 
     public static Func<object, object?>? GetValueGetter(this PropertyInfo propertyInfo)
     {
+        Guard.NotNull(propertyInfo);
         return CacheUtil.PropertyValueGetters.GetOrAdd(propertyInfo, prop =>
         {
             if (!prop.CanRead)
@@ -156,6 +149,7 @@ public static class ReflectionExtension
 
     public static Action<T, object?>? GetValueSetter<T>(this PropertyInfo propertyInfo) where T : class
     {
+        Guard.NotNull(propertyInfo);
         return StrongTypedCache<T>.PropertyValueSetters.GetOrAdd(propertyInfo, prop =>
         {
             if (!prop.CanWrite)
@@ -205,6 +199,7 @@ public static class ReflectionExtension
     /// </returns>
     public static Attribute? GetCustomAttribute(this Assembly element, Type attributeType)
     {
+        Guard.NotNull(element);
         return Attribute.GetCustomAttribute(element, attributeType);
     }
 
@@ -221,6 +216,7 @@ public static class ReflectionExtension
     /// </returns>
     public static Attribute? GetCustomAttribute(this Assembly element, Type attributeType, bool inherit)
     {
+        Guard.NotNull(element);
         return Attribute.GetCustomAttribute(element, attributeType, inherit);
     }
 
@@ -236,6 +232,7 @@ public static class ReflectionExtension
     /// </returns>
     public static Attribute[] GetCustomAttributes(this Assembly element, Type attributeType)
     {
+        Guard.NotNull(element);
         return Attribute.GetCustomAttributes(element, attributeType);
     }
 
@@ -252,6 +249,7 @@ public static class ReflectionExtension
     /// </returns>
     public static Attribute[] GetCustomAttributes(this Assembly element, Type attributeType, bool inherit)
     {
+        Guard.NotNull(element);
         return Attribute.GetCustomAttributes(element, attributeType, inherit);
     }
 
@@ -265,6 +263,7 @@ public static class ReflectionExtension
     /// </returns>
     public static Attribute[] GetCustomAttributes(this Assembly element)
     {
+        Guard.NotNull(element);
         return Attribute.GetCustomAttributes(element);
     }
 
@@ -280,6 +279,7 @@ public static class ReflectionExtension
     /// </returns>
     public static Attribute[] GetCustomAttributes(this Assembly element, bool inherit)
     {
+        Guard.NotNull(element);
         return Attribute.GetCustomAttributes(element, inherit);
     }
 
@@ -292,6 +292,7 @@ public static class ReflectionExtension
     /// <returns>true if a custom attribute of type  is applied to ; otherwise, false.</returns>
     public static bool IsDefined(this Assembly element, Type attributeType)
     {
+        Guard.NotNull(element);
         return Attribute.IsDefined(element, attributeType);
     }
 
@@ -305,6 +306,7 @@ public static class ReflectionExtension
     /// <returns>true if a custom attribute of type  is applied to ; otherwise, false.</returns>
     public static bool IsDefined(this Assembly element, Type attributeType, bool inherit)
     {
+        Guard.NotNull(element);
         return Attribute.IsDefined(element, attributeType, inherit);
     }
 }

@@ -107,7 +107,7 @@ public static class Base62Encoder
         {
             bytes.AddRange(Enumerable.Repeat((byte)0, 8 - bytes.Count));
         }
-        return BitConverter.ToInt64(bytes.ToArray(), 0);
+        return BitConverter.ToInt64([.. bytes], 0);
     }
 
     private static byte[] Decode(string codedStr)
@@ -175,7 +175,7 @@ public static class Base36Encoder
         do
         {
             result = Charset[(int)(bi % 36)] + result;
-            bi = bi / 36;
+            bi /= 36;
         } while (bi > 0);
 
         return result;
@@ -235,14 +235,14 @@ public static class Base36Encoder
         {
             bytes.AddRange(Enumerable.Repeat((byte)0, 8 - bytes.Count));
         }
-        return BitConverter.ToInt64(bytes.ToArray(), 0);
+        return BitConverter.ToInt64([.. bytes], 0);
     }
 
     private static byte[] Decode(string codedStr)
     {
         if (string.IsNullOrEmpty(codedStr))
         {
-            return Array.Empty<byte>();
+            return [];
         }
 
         var result = new BigInteger(0);

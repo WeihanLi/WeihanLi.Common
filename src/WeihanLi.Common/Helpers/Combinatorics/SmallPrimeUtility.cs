@@ -58,9 +58,8 @@ internal static class SmallPrimeUtility
     /// <returns>Resultant, expressed as list of prime factors.</returns>
     public static List<int> DividePrimeFactors(IEnumerable<int> numerator, IEnumerable<int> denominator)
     {
-        _ = numerator ?? throw new ArgumentNullException(nameof(numerator));
-        _ = denominator ?? throw new ArgumentNullException(nameof(denominator));
-        var product = numerator.ToList();
+        Guard.NotNull(denominator);
+        var product = Guard.NotNull(numerator).ToList();
         foreach (var prime in denominator)
             product.Remove(prime);
         return product;
@@ -73,7 +72,7 @@ internal static class SmallPrimeUtility
     /// <returns>Standard long representation.</returns>
     public static BigInteger EvaluatePrimeFactors(IEnumerable<int> value)
     {
-        _ = value ?? throw new ArgumentNullException(nameof(value));
+        Guard.NotNull(value);
         BigInteger result = 1;
         foreach (var prime in value)
             result *= prime;
