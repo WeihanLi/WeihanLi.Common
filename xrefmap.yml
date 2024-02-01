@@ -7323,6 +7323,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.ApplicationHelper.ApplicationName
   nameWithType: ApplicationHelper.ApplicationName
+- uid: WeihanLi.Common.Helpers.ApplicationHelper.ExitToken
+  name: ExitToken
+  href: api/WeihanLi.Common.Helpers.ApplicationHelper.html#WeihanLi_Common_Helpers_ApplicationHelper_ExitToken
+  commentId: P:WeihanLi.Common.Helpers.ApplicationHelper.ExitToken
+  fullName: WeihanLi.Common.Helpers.ApplicationHelper.ExitToken
+  nameWithType: ApplicationHelper.ExitToken
+- uid: WeihanLi.Common.Helpers.ApplicationHelper.ExitToken*
+  name: ExitToken
+  href: api/WeihanLi.Common.Helpers.ApplicationHelper.html#WeihanLi_Common_Helpers_ApplicationHelper_ExitToken_
+  commentId: Overload:WeihanLi.Common.Helpers.ApplicationHelper.ExitToken
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ApplicationHelper.ExitToken
+  nameWithType: ApplicationHelper.ExitToken
 - uid: WeihanLi.Common.Helpers.ApplicationHelper.GetDotnetDirectory
   name: GetDotnetDirectory()
   href: api/WeihanLi.Common.Helpers.ApplicationHelper.html#WeihanLi_Common_Helpers_ApplicationHelper_GetDotnetDirectory
@@ -8600,6 +8613,60 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.CommandExecutor.ExecuteCommandAsync
   nameWithType: CommandExecutor.ExecuteCommandAsync
+- uid: WeihanLi.Common.Helpers.CommandLineParser
+  name: CommandLineParser
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html
+  commentId: T:WeihanLi.Common.Helpers.CommandLineParser
+  fullName: WeihanLi.Common.Helpers.CommandLineParser
+  nameWithType: CommandLineParser
+- uid: WeihanLi.Common.Helpers.CommandLineParser.GetArgumentValue(System.String[],System.String,System.String)
+  name: GetArgumentValue(string[], string, string?)
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_GetArgumentValue_System_String___System_String_System_String_
+  commentId: M:WeihanLi.Common.Helpers.CommandLineParser.GetArgumentValue(System.String[],System.String,System.String)
+  name.vb: GetArgumentValue(String(), String, String)
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.GetArgumentValue(string[], string, string?)
+  fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.GetArgumentValue(String(), String, String)
+  nameWithType: CommandLineParser.GetArgumentValue(string[], string, string?)
+  nameWithType.vb: CommandLineParser.GetArgumentValue(String(), String, String)
+- uid: WeihanLi.Common.Helpers.CommandLineParser.GetArgumentValue*
+  name: GetArgumentValue
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_GetArgumentValue_
+  commentId: Overload:WeihanLi.Common.Helpers.CommandLineParser.GetArgumentValue
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.GetArgumentValue
+  nameWithType: CommandLineParser.GetArgumentValue
+- uid: WeihanLi.Common.Helpers.CommandLineParser.GetBoolArgumentValue(System.String[],System.String,System.Boolean)
+  name: GetBoolArgumentValue(string[], string, bool)
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_GetBoolArgumentValue_System_String___System_String_System_Boolean_
+  commentId: M:WeihanLi.Common.Helpers.CommandLineParser.GetBoolArgumentValue(System.String[],System.String,System.Boolean)
+  name.vb: GetBoolArgumentValue(String(), String, Boolean)
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.GetBoolArgumentValue(string[], string, bool)
+  fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.GetBoolArgumentValue(String(), String, Boolean)
+  nameWithType: CommandLineParser.GetBoolArgumentValue(string[], string, bool)
+  nameWithType.vb: CommandLineParser.GetBoolArgumentValue(String(), String, Boolean)
+- uid: WeihanLi.Common.Helpers.CommandLineParser.GetBoolArgumentValue*
+  name: GetBoolArgumentValue
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_GetBoolArgumentValue_
+  commentId: Overload:WeihanLi.Common.Helpers.CommandLineParser.GetBoolArgumentValue
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.GetBoolArgumentValue
+  nameWithType: CommandLineParser.GetBoolArgumentValue
+- uid: WeihanLi.Common.Helpers.CommandLineParser.ParseLine(System.String,WeihanLi.Common.Helpers.LineParseOptions)
+  name: ParseLine(string, LineParseOptions?)
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_ParseLine_System_String_WeihanLi_Common_Helpers_LineParseOptions_
+  commentId: M:WeihanLi.Common.Helpers.CommandLineParser.ParseLine(System.String,WeihanLi.Common.Helpers.LineParseOptions)
+  name.vb: ParseLine(String, LineParseOptions)
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.ParseLine(string, WeihanLi.Common.Helpers.LineParseOptions?)
+  fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.ParseLine(String, WeihanLi.Common.Helpers.LineParseOptions)
+  nameWithType: CommandLineParser.ParseLine(string, LineParseOptions?)
+  nameWithType.vb: CommandLineParser.ParseLine(String, LineParseOptions)
+- uid: WeihanLi.Common.Helpers.CommandLineParser.ParseLine*
+  name: ParseLine
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_ParseLine_
+  commentId: Overload:WeihanLi.Common.Helpers.CommandLineParser.ParseLine
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.ParseLine
+  nameWithType: CommandLineParser.ParseLine
 - uid: WeihanLi.Common.Helpers.CommandResult
   name: CommandResult
   href: api/WeihanLi.Common.Helpers.CommandResult.html
@@ -12324,44 +12391,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.LineParseOptions.Separator
   nameWithType: LineParseOptions.Separator
-- uid: WeihanLi.Common.Helpers.LineParser
-  name: LineParser
-  href: api/WeihanLi.Common.Helpers.LineParser.html
-  commentId: T:WeihanLi.Common.Helpers.LineParser
-  fullName: WeihanLi.Common.Helpers.LineParser
-  nameWithType: LineParser
-- uid: WeihanLi.Common.Helpers.LineParser.Parse(System.String,WeihanLi.Common.Helpers.LineParseOptions)
-  name: Parse(string, LineParseOptions?)
-  href: api/WeihanLi.Common.Helpers.LineParser.html#WeihanLi_Common_Helpers_LineParser_Parse_System_String_WeihanLi_Common_Helpers_LineParseOptions_
-  commentId: M:WeihanLi.Common.Helpers.LineParser.Parse(System.String,WeihanLi.Common.Helpers.LineParseOptions)
-  name.vb: Parse(String, LineParseOptions)
-  fullName: WeihanLi.Common.Helpers.LineParser.Parse(string, WeihanLi.Common.Helpers.LineParseOptions?)
-  fullName.vb: WeihanLi.Common.Helpers.LineParser.Parse(String, WeihanLi.Common.Helpers.LineParseOptions)
-  nameWithType: LineParser.Parse(string, LineParseOptions?)
-  nameWithType.vb: LineParser.Parse(String, LineParseOptions)
-- uid: WeihanLi.Common.Helpers.LineParser.Parse*
-  name: Parse
-  href: api/WeihanLi.Common.Helpers.LineParser.html#WeihanLi_Common_Helpers_LineParser_Parse_
-  commentId: Overload:WeihanLi.Common.Helpers.LineParser.Parse
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.LineParser.Parse
-  nameWithType: LineParser.Parse
-- uid: WeihanLi.Common.Helpers.LineParser.ParseLine(System.String,WeihanLi.Common.Helpers.LineParseOptions)
-  name: ParseLine(string, LineParseOptions?)
-  href: api/WeihanLi.Common.Helpers.LineParser.html#WeihanLi_Common_Helpers_LineParser_ParseLine_System_String_WeihanLi_Common_Helpers_LineParseOptions_
-  commentId: M:WeihanLi.Common.Helpers.LineParser.ParseLine(System.String,WeihanLi.Common.Helpers.LineParseOptions)
-  name.vb: ParseLine(String, LineParseOptions)
-  fullName: WeihanLi.Common.Helpers.LineParser.ParseLine(string, WeihanLi.Common.Helpers.LineParseOptions?)
-  fullName.vb: WeihanLi.Common.Helpers.LineParser.ParseLine(String, WeihanLi.Common.Helpers.LineParseOptions)
-  nameWithType: LineParser.ParseLine(string, LineParseOptions?)
-  nameWithType.vb: LineParser.ParseLine(String, LineParseOptions)
-- uid: WeihanLi.Common.Helpers.LineParser.ParseLine*
-  name: ParseLine
-  href: api/WeihanLi.Common.Helpers.LineParser.html#WeihanLi_Common_Helpers_LineParser_ParseLine_
-  commentId: Overload:WeihanLi.Common.Helpers.LineParser.ParseLine
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.LineParser.ParseLine
-  nameWithType: LineParser.ParseLine
 - uid: WeihanLi.Common.Helpers.LogHelper
   name: LogHelper
   href: api/WeihanLi.Common.Helpers.LogHelper.html
@@ -19908,22 +19937,22 @@ references:
   commentId: T:WeihanLi.Common.Template.DependencyInjectionExtensions
   fullName: WeihanLi.Common.Template.DependencyInjectionExtensions
   nameWithType: DependencyInjectionExtensions
-- uid: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplating(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{WeihanLi.Common.Template.TemplateEngineOptions})
-  name: AddTemplating(IServiceCollection, Action<TemplateEngineOptions>?)
-  href: api/WeihanLi.Common.Template.DependencyInjectionExtensions.html#WeihanLi_Common_Template_DependencyInjectionExtensions_AddTemplating_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_WeihanLi_Common_Template_TemplateEngineOptions__
-  commentId: M:WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplating(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{WeihanLi.Common.Template.TemplateEngineOptions})
-  name.vb: AddTemplating(IServiceCollection, Action(Of TemplateEngineOptions))
-  fullName: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplating(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<WeihanLi.Common.Template.TemplateEngineOptions>?)
-  fullName.vb: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplating(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of WeihanLi.Common.Template.TemplateEngineOptions))
-  nameWithType: DependencyInjectionExtensions.AddTemplating(IServiceCollection, Action<TemplateEngineOptions>?)
-  nameWithType.vb: DependencyInjectionExtensions.AddTemplating(IServiceCollection, Action(Of TemplateEngineOptions))
-- uid: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplating*
-  name: AddTemplating
-  href: api/WeihanLi.Common.Template.DependencyInjectionExtensions.html#WeihanLi_Common_Template_DependencyInjectionExtensions_AddTemplating_
-  commentId: Overload:WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplating
+- uid: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplateEngine(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{WeihanLi.Common.Template.TemplateEngineOptions})
+  name: AddTemplateEngine(IServiceCollection, Action<TemplateEngineOptions>?)
+  href: api/WeihanLi.Common.Template.DependencyInjectionExtensions.html#WeihanLi_Common_Template_DependencyInjectionExtensions_AddTemplateEngine_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_WeihanLi_Common_Template_TemplateEngineOptions__
+  commentId: M:WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplateEngine(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{WeihanLi.Common.Template.TemplateEngineOptions})
+  name.vb: AddTemplateEngine(IServiceCollection, Action(Of TemplateEngineOptions))
+  fullName: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplateEngine(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action<WeihanLi.Common.Template.TemplateEngineOptions>?)
+  fullName.vb: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplateEngine(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Action(Of WeihanLi.Common.Template.TemplateEngineOptions))
+  nameWithType: DependencyInjectionExtensions.AddTemplateEngine(IServiceCollection, Action<TemplateEngineOptions>?)
+  nameWithType.vb: DependencyInjectionExtensions.AddTemplateEngine(IServiceCollection, Action(Of TemplateEngineOptions))
+- uid: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplateEngine*
+  name: AddTemplateEngine
+  href: api/WeihanLi.Common.Template.DependencyInjectionExtensions.html#WeihanLi_Common_Template_DependencyInjectionExtensions_AddTemplateEngine_
+  commentId: Overload:WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplateEngine
   isSpec: "True"
-  fullName: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplating
-  nameWithType: DependencyInjectionExtensions.AddTemplating
+  fullName: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplateEngine
+  nameWithType: DependencyInjectionExtensions.AddTemplateEngine
 - uid: WeihanLi.Common.Template.IRenderMiddleware
   name: IRenderMiddleware
   href: api/WeihanLi.Common.Template.IRenderMiddleware.html
@@ -21455,13 +21484,13 @@ references:
   fullName: WeihanLi.Extensions.CoreExtension.Floor
   nameWithType: CoreExtension.Floor
 - uid: WeihanLi.Extensions.CoreExtension.FormatWith(System.String,System.Object[])
-  name: FormatWith(string, params object[])
+  name: FormatWith(string, params object?[])
   href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_FormatWith_System_String_System_Object___
   commentId: M:WeihanLi.Extensions.CoreExtension.FormatWith(System.String,System.Object[])
   name.vb: FormatWith(String, ParamArray Object())
-  fullName: WeihanLi.Extensions.CoreExtension.FormatWith(string, params object[])
+  fullName: WeihanLi.Extensions.CoreExtension.FormatWith(string, params object?[])
   fullName.vb: WeihanLi.Extensions.CoreExtension.FormatWith(String, ParamArray Object())
-  nameWithType: CoreExtension.FormatWith(string, params object[])
+  nameWithType: CoreExtension.FormatWith(string, params object?[])
   nameWithType.vb: CoreExtension.FormatWith(String, ParamArray Object())
 - uid: WeihanLi.Extensions.CoreExtension.FormatWith*
   name: FormatWith
@@ -28024,6 +28053,22 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.ProcessExtension.GetResultAsync
   nameWithType: ProcessExtension.GetResultAsync
+- uid: WeihanLi.Extensions.ProcessExtension.TryKill(System.Diagnostics.Process,System.Boolean)
+  name: TryKill(Process, bool)
+  href: api/WeihanLi.Extensions.ProcessExtension.html#WeihanLi_Extensions_ProcessExtension_TryKill_System_Diagnostics_Process_System_Boolean_
+  commentId: M:WeihanLi.Extensions.ProcessExtension.TryKill(System.Diagnostics.Process,System.Boolean)
+  name.vb: TryKill(Process, Boolean)
+  fullName: WeihanLi.Extensions.ProcessExtension.TryKill(System.Diagnostics.Process, bool)
+  fullName.vb: WeihanLi.Extensions.ProcessExtension.TryKill(System.Diagnostics.Process, Boolean)
+  nameWithType: ProcessExtension.TryKill(Process, bool)
+  nameWithType.vb: ProcessExtension.TryKill(Process, Boolean)
+- uid: WeihanLi.Extensions.ProcessExtension.TryKill*
+  name: TryKill
+  href: api/WeihanLi.Extensions.ProcessExtension.html#WeihanLi_Extensions_ProcessExtension_TryKill_
+  commentId: Overload:WeihanLi.Extensions.ProcessExtension.TryKill
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.ProcessExtension.TryKill
+  nameWithType: ProcessExtension.TryKill
 - uid: WeihanLi.Extensions.ProcessExtension.WaitForExitAsync(System.Diagnostics.Process,System.Threading.CancellationToken)
   name: WaitForExitAsync(Process, CancellationToken)
   href: api/WeihanLi.Extensions.ProcessExtension.html#WeihanLi_Extensions_ProcessExtension_WaitForExitAsync_System_Diagnostics_Process_System_Threading_CancellationToken_
@@ -28037,6 +28082,22 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.ProcessExtension.WaitForExitAsync
   nameWithType: ProcessExtension.WaitForExitAsync
+- uid: WeihanLi.Extensions.ProcessExtension.WithEnv(System.Diagnostics.ProcessStartInfo,System.String,System.String)
+  name: WithEnv(ProcessStartInfo, string, string)
+  href: api/WeihanLi.Extensions.ProcessExtension.html#WeihanLi_Extensions_ProcessExtension_WithEnv_System_Diagnostics_ProcessStartInfo_System_String_System_String_
+  commentId: M:WeihanLi.Extensions.ProcessExtension.WithEnv(System.Diagnostics.ProcessStartInfo,System.String,System.String)
+  name.vb: WithEnv(ProcessStartInfo, String, String)
+  fullName: WeihanLi.Extensions.ProcessExtension.WithEnv(System.Diagnostics.ProcessStartInfo, string, string)
+  fullName.vb: WeihanLi.Extensions.ProcessExtension.WithEnv(System.Diagnostics.ProcessStartInfo, String, String)
+  nameWithType: ProcessExtension.WithEnv(ProcessStartInfo, string, string)
+  nameWithType.vb: ProcessExtension.WithEnv(ProcessStartInfo, String, String)
+- uid: WeihanLi.Extensions.ProcessExtension.WithEnv*
+  name: WithEnv
+  href: api/WeihanLi.Extensions.ProcessExtension.html#WeihanLi_Extensions_ProcessExtension_WithEnv_
+  commentId: Overload:WeihanLi.Extensions.ProcessExtension.WithEnv
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.ProcessExtension.WithEnv
+  nameWithType: ProcessExtension.WithEnv
 - uid: WeihanLi.Extensions.QueryableExtension
   name: QueryableExtension
   href: api/WeihanLi.Extensions.QueryableExtension.html
