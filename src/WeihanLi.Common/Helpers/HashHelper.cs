@@ -94,6 +94,11 @@ public static class HashHelper
             return string.Empty;
         }
         var hashedBytes = GetHashedBytes(type, source, key);
+#if NET9_0_OR_GREATER
+        return isLower ? Convert.ToHexStringLower(hashedBytes) : Convert.ToHexString(hashedBytes);
+#elif NET5_0_OR_GREATER
+        return isLower ? Convert.ToHexString(hashedBytes).ToLowerInvariant() : Convert.ToHexString(hashedBytes);
+#else
         var sbText = new StringBuilder();
         if (isLower)
         {
@@ -110,6 +115,7 @@ public static class HashHelper
             }
         }
         return sbText.ToString();
+#endif
     }
 
     /// <summary>
