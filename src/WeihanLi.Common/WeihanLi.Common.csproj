@@ -2,7 +2,7 @@
   <PropertyGroup>            
     <PackageId>WeihanLi.Common</PackageId>
     <Title>WeihanLi.Common</Title>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
     <Description>common libarary,extensions helpers and useful utilities</Description>
     <PackageTags>$(PackageTags);common;utility;lib;libarary;extensions;helpers</PackageTags>
     <PackageSummary>common libarary,extensions helpers and useful utilities</PackageSummary>

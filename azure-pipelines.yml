@@ -1,12 +1,17 @@
 trigger:
   branches:
     include:
-    - '*' # must quote since "*" is a YAML reserved character; we want a string
+    - 'master' # must quote since "*" is a YAML reserved character; we want a string
+    - 'main'
+    - 'preview'
+    - 'dev'
   paths:
     exclude:
     - '*.md'
     - 'docs'
     - '.github'
+    - '.husky'
+    - '.devcontainer'
 
 pool:
   vmImage: 'windows-latest'
@@ -27,6 +32,11 @@ steps:
   inputs:
     packageType: sdk
     version: 8.0.x
+- task: UseDotNet@2
+  displayName: 'Use .NET 9 sdk'
+  inputs:
+    packageType: sdk
+    version: 9.0.x
     includePreviewVersions: true # Required for preview versions
 
 - script: dotnet --info
