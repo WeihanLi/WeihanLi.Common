@@ -5,48 +5,51 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
-public sealed class BuildProcess
+public sealed class BuildProcess(IReadOnlyCollection<BuildTask> tasks, 
+    Func<Task>? setup = null, Func<Task>? cleanup = null, Func<Task>? cancelled = null,
+    Func<IBuildTaskDescriptor, Task>? taskExecuting = null, Func<IBuildTaskDescriptor, Task>? taskExecuted = null)
 {
-    public IReadOnlyCollection<BuildTask> Tasks { get; init; } = [];
-    public Func<Task>? Setup { private get; init; }
-    public Func<Task>? Cleanup { private get; init; }
-    public Func<Task>? Cancelled { private get; init; }
+    private readonly IReadOnlyCollection<BuildTask> _tasks = tasks;
+    private readonly Func<Task>? _setup = setup, _cleanup = cleanup, _cancelled = cancelled;
+    private readonly Func<IBuildTaskDescriptor, Task>? _taskExecuting = taskExecuting, _taskExecuted = taskExecuted;
 
-    public async Task ExecuteAsync(string target, CancellationToken cancellationToken)
+    public async Task ExecuteAsync(string target, CancellationToken cancellationToken = default)
     {
-        var task = Tasks.FirstOrDefault(x => x.Name == target);
+        var task = _tasks.FirstOrDefault(x => x.Name == target);
         if (task is null)
             throw new InvalidOperationException("Invalid target to execute");
 
         try
         {
-            if (Setup != null)
-                await Setup.Invoke();
+            if (_setup != null)
+                await _setup.Invoke();
 
             await ExecuteTask(task, cancellationToken);
         }
         catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
         {
-            if (Cancelled != null)
-                await Cancelled.Invoke();
+            if (_cancelled != null)
+                await _cancelled.Invoke();
         }
         finally
         {
-            if (Cleanup != null)
-                await Cleanup.Invoke();
+            if (_cleanup != null)
+                await _cleanup.Invoke();
         }
     }
 
-    private static async Task ExecuteTask(BuildTask task, CancellationToken cancellationToken)
+    private async Task ExecuteTask(BuildTask task, CancellationToken cancellationToken)
     {
         foreach (var dependencyTask in task.Dependencies)
         {
             await ExecuteTask(dependencyTask, cancellationToken);
         }
 
-        Console.WriteLine($@"===== Task {task.Name} {task.Description} executing ======");
+        if (_taskExecuting != null)
+            await _taskExecuting.Invoke(task);
         await task.ExecuteAsync(cancellationToken);
-        Console.WriteLine($@"===== Task {task.Name} {task.Description} executed ======");
+        if (_taskExecuted != null)
+            await _taskExecuted.Invoke(task);
     }
 }
 
@@ -54,6 +57,7 @@ public sealed class BuildProcessBuilder
 {
     private readonly List<BuildTask> _tasks = [];
     private Func<Task>? _setup, _cleanup, _cancelled;
+    private Func<IBuildTaskDescriptor, Task>? _taskExecuting, _taskExecuted;
 
     public BuildProcessBuilder WithTask(string name, Action<BuildTaskBuilder> buildTaskConfigure)
     {
@@ -102,23 +106,46 @@ public sealed class BuildProcessBuilder
         return this;
     }
 
+    public BuildProcessBuilder WithTaskExecuting(Action<IBuildTaskDescriptor> taskExecutingAction)
+    {
+        _taskExecuting = taskExecutingAction.WrapTask();
+        return this;
+    }
+
+    public BuildProcessBuilder WithTaskExecuting(Func<IBuildTaskDescriptor, Task> taskExecutingAction)
+    {
+        _taskExecuting = taskExecutingAction;
+        return this;
+    }
+
+    public BuildProcessBuilder WithTaskExecuted(Action<IBuildTaskDescriptor> taskExecutedAction)
+    {
+        _taskExecuted = taskExecutedAction.WrapTask();
+        return this;
+    }
+
+    public BuildProcessBuilder WithTaskExecuted(Func<IBuildTaskDescriptor, Task> taskExecutedAction)
+    {
+        _taskExecuted = taskExecutedAction;
+        return this;
+    }
+
     public BuildProcess Build()
     {
-        return new BuildProcess
-        {
-            Tasks = _tasks, 
-            Setup = _setup, 
-            Cleanup = _cleanup, 
-            Cancelled = _cancelled
-        };
+        return new BuildProcess(_tasks, _setup, _cleanup, _cancelled, _taskExecuting, _taskExecuted);
     }
 }
 
-public sealed class BuildTask(string name, string? description, Func<CancellationToken, Task>? execution = null)
+public interface IBuildTaskDescriptor
+{
+    string Name { get; }
+    string Description { get; }
+}
+
+public sealed class BuildTask(string name, string? description, Func<CancellationToken, Task>? execution = null) : IBuildTaskDescriptor
 {
     public string Name => name;
     public string Description => description ?? name;
-
     public IReadOnlyCollection<BuildTask> Dependencies { get; init; } = [];
 
     public Task ExecuteAsync(CancellationToken cancellationToken) =>
@@ -173,7 +200,7 @@ public sealed class BuildTaskBuilder(string name)
         return this;
     }
 
-    public BuildTask Build()
+    internal BuildTask Build()
     {
         var buildTask = new BuildTask(_name, _description, _execution) { Dependencies = _dependencies };
         return buildTask;
