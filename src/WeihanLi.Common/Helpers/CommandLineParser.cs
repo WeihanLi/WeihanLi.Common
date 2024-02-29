@@ -1,7 +1,9 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
@@ -86,25 +88,21 @@ public static class CommandLineParser
             tokenBuilder.Clear();
         }
     }
-    
-    public static bool GetBoolArgumentValue(string[] args, string argumentName, bool defaultValue = default)
+
+    /// <summary>
+    /// Get argument value from arguments
+    /// </summary>
+    /// <param name="args">arguments</param>
+    /// <param name="argumentName">argument name to get value</param>
+    /// <param name="defaultValue">default argument value when not found</param>
+    /// <returns>argument value</returns>
+    [return: NotNullIfNotNull(nameof(defaultValue))]
+    public static string? ArgValue(string[] args, string argumentName, string? defaultValue = default)
     {
-        var value = ArgumentInternal(args, argumentName);
-        return value switch
-        {
-            null => defaultValue,
-            "" or "1" => true,
-            "0" => false,
-            _ => bool.Parse(value)
-        };
-    }
-    
-    public static string? GetArgumentValue(string[] args, string argumentName, string? defaultValue = default)
-    {
-        return ArgumentInternal(args, argumentName) ?? defaultValue;
+        return GetArgumentValueInternal(args, argumentName) ?? defaultValue;
     }
 
-    private static string? ArgumentInternal(string[] args, string argumentName)
+    private static string? GetArgumentValueInternal(string[] args, string argumentName)
     {
         for (var i = 0; i < args.Length; i++)
         {
