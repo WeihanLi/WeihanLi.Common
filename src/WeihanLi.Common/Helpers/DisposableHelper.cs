@@ -59,11 +59,6 @@ public sealed class DisposableAction(Action? disposeAction) : IDisposable, IAsyn
 /// </summary>
 public abstract class DisposableBase : IDisposable, IAsyncDisposable
 {
-    /// <summary>
-    /// Set to <c>true</c> when the inherits place dispose logics in <c>Dispose</c> method other than <c>DisposeAsync</c>
-    /// </summary>
-    protected virtual bool UseDispose { get; }
-
     // To detect redundant calls
     private int _disposedStatus;
 
@@ -82,17 +77,11 @@ public abstract class DisposableBase : IDisposable, IAsyncDisposable
         // Perform async cleanup.
         await DisposeAsyncCore().ConfigureAwait(false);
 
-        if (UseDispose)
-        {
-            Dispose();
-        }
-        else
-        {
-            // Dispose of unmanaged resources.
-            Dispose(disposing: false);
-        }
+        // managed resources disposed in Dispose()
+        // unmanaged resources dispose
+        Dispose();
 
-        // Suppress finalization.
+        // Suppress finalization
         GC.SuppressFinalize(this);
     }
 
@@ -119,5 +108,9 @@ public abstract class DisposableBase : IDisposable, IAsyncDisposable
             ;
     }
 
-    ~DisposableBase() => Dispose(false);
+    ~DisposableBase()
+    {
+        // dispose unmanaged resources
+        Dispose(false);
+    }
 }
