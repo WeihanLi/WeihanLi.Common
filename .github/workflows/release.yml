@@ -21,7 +21,7 @@ jobs:
       run: .\build.ps1 --stable=true
     - name: Get Release Version
       shell: pwsh
-      run: .\build\getReleaseVersion.ps1
+      run: dotnet-exec ./build/exportReleaseVersion.cs
     - name: create release
       shell: pwsh
       env:

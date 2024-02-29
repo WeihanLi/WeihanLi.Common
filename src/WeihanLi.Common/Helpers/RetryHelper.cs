@@ -249,7 +249,7 @@ public static class RetryHelper
         return result;
     }
 
-    public static async Task<TResult?> TryInvokeAsync<TResult>(Func<Task<TResult?>> func, Func<TResult?, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan>? delayFunc = null)
+    public static async Task<TResult?> TryInvokeAsync<TResult>(Func<Task<TResult?>> func, Func<TResult?, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan>? delayFunc = null, CancellationToken cancellationToken = default)
     {
         var result = default(TResult);
         var time = 0;
@@ -257,7 +257,7 @@ public static class RetryHelper
         {
             if (delayFunc != null && time > 0)
             {
-                await Task.Delay(delayFunc(time));
+                await Task.Delay(delayFunc(time), cancellationToken);
             }
 
             try
@@ -270,11 +270,11 @@ public static class RetryHelper
             }
 
             time++;
-        } while (!validFunc(result) && time <= maxRetryTimes);
+        } while (!validFunc(result) && time <= maxRetryTimes && !cancellationToken.IsCancellationRequested);
         return result;
     }
 
-    public static async Task<TResult?> TryInvokeAsync<T1, TResult>(Func<T1, Task<TResult?>> func, T1 t1, Func<TResult?, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan>? delayFunc = null)
+    public static async Task<TResult?> TryInvokeAsync<T1, TResult>(Func<T1, Task<TResult?>> func, T1 t1, Func<TResult?, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan>? delayFunc = null, CancellationToken cancellationToken = default)
     {
         var result = default(TResult);
         var time = 0;
@@ -282,7 +282,7 @@ public static class RetryHelper
         {
             if (delayFunc != null && time > 0)
             {
-                await Task.Delay(delayFunc(time));
+                await Task.Delay(delayFunc(time), cancellationToken);
             }
             try
             {
@@ -294,11 +294,11 @@ public static class RetryHelper
             }
 
             time++;
-        } while (!validFunc(result) && time <= maxRetryTimes);
+        } while (!validFunc(result) && time <= maxRetryTimes && !cancellationToken.IsCancellationRequested);
         return result;
     }
 
-    public static async Task<TResult?> TryInvokeAsync<T1, T2, TResult>(Func<T1, T2, Task<TResult?>> func, T1 t1, T2 t2, Func<TResult?, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan>? delayFunc = null)
+    public static async Task<TResult?> TryInvokeAsync<T1, T2, TResult>(Func<T1, T2, Task<TResult?>> func, T1 t1, T2 t2, Func<TResult?, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan>? delayFunc = null, CancellationToken cancellationToken = default)
     {
         var result = default(TResult);
         var time = 0;
@@ -306,7 +306,7 @@ public static class RetryHelper
         {
             if (delayFunc != null && time > 0)
             {
-                await Task.Delay(delayFunc(time));
+                await Task.Delay(delayFunc(time), cancellationToken);
             }
             try
             {
@@ -318,11 +318,11 @@ public static class RetryHelper
             }
 
             time++;
-        } while (!validFunc(result) && time <= maxRetryTimes);
+        } while (!validFunc(result) && time <= maxRetryTimes && !cancellationToken.IsCancellationRequested);
         return result;
     }
 
-    public static async Task<TResult?> TryInvokeAsync<T1, T2, T3, TResult>(Func<T1, T2, T3, Task<TResult?>> func, T1 t1, T2 t2, T3 t3, Func<TResult?, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan>? delayFunc = null)
+    public static async Task<TResult?> TryInvokeAsync<T1, T2, T3, TResult>(Func<T1, T2, T3, Task<TResult?>> func, T1 t1, T2 t2, T3 t3, Func<TResult?, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan>? delayFunc = null, CancellationToken cancellationToken = default)
     {
         var result = default(TResult);
         var time = 0;
@@ -330,7 +330,7 @@ public static class RetryHelper
         {
             if (delayFunc != null && time > 0)
             {
-                await Task.Delay(delayFunc(time));
+                await Task.Delay(delayFunc(time), cancellationToken);
             }
             try
             {
@@ -342,11 +342,11 @@ public static class RetryHelper
             }
 
             time++;
-        } while (!validFunc(result) && time <= maxRetryTimes);
+        } while (!validFunc(result) && time <= maxRetryTimes && !cancellationToken.IsCancellationRequested);
         return result;
     }
 
-    public static async Task<TResult?> TryInvokeAsync<T1, T2, T3, T4, TResult>(Func<T1, T2, T3, T4, Task<TResult>> func, T1 t1, T2 t2, T3 t3, T4 t4, Func<TResult?, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan>? delayFunc = null)
+    public static async Task<TResult?> TryInvokeAsync<T1, T2, T3, T4, TResult>(Func<T1, T2, T3, T4, Task<TResult>> func, T1 t1, T2 t2, T3 t3, T4 t4, Func<TResult?, bool> validFunc, int maxRetryTimes = 3, Func<int, TimeSpan>? delayFunc = null, CancellationToken cancellationToken = default)
     {
         var result = default(TResult);
         var time = 0;
@@ -354,7 +354,7 @@ public static class RetryHelper
         {
             if (delayFunc != null && time > 0)
             {
-                await Task.Delay(delayFunc(time));
+                await Task.Delay(delayFunc(time), cancellationToken);
             }
             try
             {
@@ -366,7 +366,7 @@ public static class RetryHelper
             }
 
             time++;
-        } while (!validFunc(result) && time <= maxRetryTimes);
+        } while (!validFunc(result) && time <= maxRetryTimes && !cancellationToken.IsCancellationRequested);
         return result;
     }
 

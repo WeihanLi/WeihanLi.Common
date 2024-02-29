@@ -1,10 +1,12 @@
+# https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/pr?view=azure-pipelines
+pr: none
+
 trigger:
   branches:
     include:
     - 'master' # must quote since "*" is a YAML reserved character; we want a string
     - 'main'
     - 'preview'
-    - 'dev'
   paths:
     exclude:
     - '*.md'
