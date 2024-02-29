@@ -1,12 +1,19 @@
+# https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/pr?view=azure-pipelines
+pr: none
+
 trigger:
   branches:
     include:
-    - '*' # must quote since "*" is a YAML reserved character; we want a string
+    - 'master' # must quote since "*" is a YAML reserved character; we want a string
+    - 'main'
+    - 'preview'
   paths:
     exclude:
     - '*.md'
     - 'docs'
     - '.github'
+    - '.husky'
+    - '.devcontainer'
 
 pool:
   vmImage: 'windows-latest'
@@ -27,6 +34,11 @@ steps:
   inputs:
     packageType: sdk
     version: 8.0.x
+- task: UseDotNet@2
+  displayName: 'Use .NET 9 sdk'
+  inputs:
+    packageType: sdk
+    version: 9.0.x
     includePreviewVersions: true # Required for preview versions
 
 - script: dotnet --info

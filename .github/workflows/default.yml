@@ -4,11 +4,13 @@ on:
   push:
     branches:
       - "main"
+      - "master"
       - "dev"
   pull_request:
     # The branches below must be a subset of the branches above
     branches:
       - "main"
+      - "master"
       - "dev"
 
 jobs:
@@ -16,33 +18,20 @@ jobs:
     name: Running tests on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
+      # max-parallel: 1
       matrix:
-        os: [ubuntu-latest, macOS-latest]
+        os: [ubuntu-latest, macOS-latest, windows-latest]
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: |
           6.x
           7.x
           8.x
+          9.0.100-preview.1.24101.2
     - name: dotnet info
       run: dotnet --info
     - name: build
-      run: bash build.sh --target=test
-  
-  windows-build:
-    runs-on: windows-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: |
-          6.0.x
-          7.0.x
-          8.0.x
-    - name: build
-      shell: pwsh
-      run: .\build.ps1
+      run: bash build.sh

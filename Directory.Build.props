@@ -1,16 +1,14 @@
 <Project>
   <Import Project="./build/version.props" />
-
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RepositoryType>git</RepositoryType>    
+    <RepositoryType>git</RepositoryType>
     <Authors>WeihanLi</Authors>
     <Copyright>Copyright 2017-$([System.DateTime]::Now.Year) (c) WeihanLi</Copyright>
     <NoWarn>$(NoWarn);NU5048;CS1591;NETSDK1057</NoWarn>
     <ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>
-    <ContinuousIntegrationBuild Condition="'$(TF_BUILD)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true' or '$(TF_BUILD)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
   </PropertyGroup>
-
 </Project>

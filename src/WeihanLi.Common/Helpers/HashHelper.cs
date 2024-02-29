@@ -2,7 +2,6 @@
 using System.Text;
 using WeihanLi.Extensions;
 
-// ReSharper disable InconsistentNaming
 namespace WeihanLi.Common.Helpers;
 
 /// <summary>
@@ -94,22 +93,46 @@ public static class HashHelper
             return string.Empty;
         }
         var hashedBytes = GetHashedBytes(type, source, key);
+#if NET9_0_OR_GREATER
+        return isLower ? Convert.ToHexStringLower(hashedBytes) : Convert.ToHexString(hashedBytes);
+#elif NET5_0_OR_GREATER
+        var hexString = Convert.ToHexString(hashedBytes);
+        return isLower ? hexString.ToLowerInvariant() : hexString;
+#else
         var sbText = new StringBuilder();
-        if (isLower)
+        var format = isLower ? "x2" : "X2";
+        foreach (var b in hashedBytes)
         {
-            foreach (var b in hashedBytes)
-            {
-                sbText.Append(b.ToString("x2"));
-            }
-        }
-        else
-        {
-            foreach (var b in hashedBytes)
-            {
-                sbText.Append(b.ToString("X2"));
-            }
+            sbText.Append(b.ToString(format));
         }
         return sbText.ToString();
+#endif
+    }
+    
+    public static string GetHashedString(HashAlgorithmName hashAlgorithm, byte[] source, byte[]? key, bool isLower = false)
+    {
+        Guard.NotNull(source, nameof(source));
+        if (source.Length == 0) return string.Empty;
+        
+#if NET9_0_OR_GREATER
+        return key is { Length: > 0 } 
+            ? GetHashedString(hashAlgorithm, new ReadOnlySpan<byte>(key), new ReadOnlySpan<byte>(source), isLower) 
+            : GetHashedString(hashAlgorithm, new ReadOnlySpan<byte>(source), isLower);
+#else
+        var hashedBytes = GetHashedBytes(hashAlgorithm, source, key);
+#if NET5_0_OR_GREATER
+        var hexString = Convert.ToHexString(hashedBytes);
+        return isLower ? hexString.ToLowerInvariant() : hexString;
+#else
+        var sbText = new StringBuilder();
+        var format = isLower ? "x2" : "X2";
+        foreach (var b in hashedBytes)
+        {
+            sbText.Append(b.ToString(format));
+        }
+        return sbText.ToString();
+#endif
+#endif
     }
 
     /// <summary>
@@ -193,6 +216,29 @@ public static class HashHelper
             algorithm?.Dispose();
         }
     }
+    
+    public static byte[] GetHashedBytes(HashAlgorithmName hashAlgorithm, byte[] bytes, byte[]? key)
+    {
+        Guard.NotNull(bytes, nameof(bytes));
+        if (Enum.TryParse(hashAlgorithm.Name, true, out HashType hashType))
+            return GetHashedBytes(hashType, bytes, key);
+
+        throw new ArgumentOutOfRangeException(nameof(hashAlgorithm), @$"Unsupported hash algorithm {hashAlgorithm.Name}");
+    }
+    
+#if NET9_0_OR_GREATER    
+    public static string GetHashedString(HashAlgorithmName hashAlgorithm, ReadOnlySpan<byte> bytes, bool isLower = false)
+    {
+        var hashedBytes = CryptographicOperations.HashData(hashAlgorithm, bytes);
+        return isLower ? Convert.ToHexStringLower(hashedBytes) : Convert.ToHexString(hashedBytes);
+    }
+    
+    public static string GetHashedString(HashAlgorithmName hashAlgorithm, ReadOnlySpan<byte> keys, ReadOnlySpan<byte> bytes, bool isLower = false)
+    {
+        var hashedBytes = CryptographicOperations.HmacData(hashAlgorithm, keys, bytes);
+        return isLower ? Convert.ToHexStringLower(hashedBytes) : Convert.ToHexString(hashedBytes);
+    }
+#endif
 }
 
 /// <summary>

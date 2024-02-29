@@ -77,7 +77,7 @@ public static class ProcessExtension
         process.StartInfo = processStartInfo;
         process.Start();
         using var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, ApplicationHelper.ExitToken);
-        cts.Token.Register((p) => ((Process)p).TryKill(), process);
+        cts.Token.Register((p) => ((Process)p!).TryKill(), process);
         await process.WaitForExitAsync(cts.Token);
         return process.ExitCode;
     }
@@ -205,7 +205,7 @@ public static class ProcessExtension
         process.BeginOutputReadLine();
         process.BeginErrorReadLine();
         using var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, ApplicationHelper.ExitToken);
-        cts.Token.Register((p) => ((Process)p).TryKill(), process);
+        cts.Token.Register((p) => ((Process)p!).TryKill(), process);
         await Task.WhenAll(process.WaitForExitAsync(cts.Token), stdOutComplete.Task, stdErrComplete.Task);
         return process.ExitCode;
     }
