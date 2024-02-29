@@ -4,7 +4,6 @@ trigger:
     - 'master' # must quote since "*" is a YAML reserved character; we want a string
     - 'main'
     - 'preview'
-    - 'dev'
   paths:
     exclude:
     - '*.md'
