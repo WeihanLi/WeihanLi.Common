@@ -102,7 +102,7 @@ public sealed class BuildProcessBuilder
         return this;
     }
 
-    internal BuildProcess Build()
+    public BuildProcess Build()
     {
         return new BuildProcess
         {
