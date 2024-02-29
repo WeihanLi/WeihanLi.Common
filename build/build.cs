@@ -1,14 +1,11 @@
 // Copyright (c) 2022-2023 Weihan Li. All rights reserved.
 // Licensed under the Apache license version 2.0 http://www.apache.org/licenses/LICENSE-2.0
 
-using Newtonsoft.Json;
-
-//
-var target = Guard.NotNull(Argument("target", "Default"));
-var apiKey = Argument("apiKey", "");
-var stable = ArgumentBool("stable", false);
-var noPush = ArgumentBool("noPush", false);
-var branchName = Environment.GetEnvironmentVariable("BUILD_SOURCEBRANCHNAME") ?? "local";
+var target = CommandLineParser.ArgValue(args, "target", "Default");
+var apiKey = CommandLineParser.ArgValue(args, "apiKey", "");
+var stable = CommandLineParser.ArgValue(args, "stable").ToBoolean();
+var noPush = CommandLineParser.ArgValue(args, "noPush").ToBoolean();
+var branchName = EnvHelper.Val("BUILD_SOURCEBRANCHNAME", "local");
 
 var solutionPath = "./WeihanLi.Common.sln";
 string[] srcProjects = [ 
@@ -18,7 +15,7 @@ string[] srcProjects = [
 ];
 string[] testProjects = [ "./test/WeihanLi.Common.Test/WeihanLi.Common.Test.csproj" ];
 
-await BuildProcess.CreateBuilder()
+await new BuildProcessBuilder()
     .WithSetup(() =>
     {
         // cleanup artifacts
@@ -28,14 +25,9 @@ await BuildProcess.CreateBuilder()
         // args
         Console.WriteLine("Arguments");
         Console.WriteLine($"    {args.StringJoin(" ")}");
-
-        // dump runtime info
-        Console.WriteLine("RuntimeInfo:");
-        Console.WriteLine(ApplicationHelper.RuntimeInfo.ToJson(new JsonSerializerSettings()
-        {
-            Formatting = Formatting.Indented
-        }));
     })
+    .WithTaskExecuting(task => Console.WriteLine($@"===== Task {task.Name} {task.Description} executing ======"))
+    .WithTaskExecuted(task => Console.WriteLine($@"===== Task {task.Name} {task.Description} executed ======"))
     .WithTask("hello", b => b.WithExecution(() => Console.WriteLine("Hello dotnet-exec build")))
     .WithTask("build", b =>
     {
@@ -108,43 +100,7 @@ await BuildProcess.CreateBuilder()
         }))
     .WithTask("Default", b => b.WithDependency("hello").WithDependency("pack"))
     .Build()
-    .ExecuteAsync(target);
-
-
-bool ArgumentBool(string argumentName, bool defaultValue = default)
-{
-    var value = ArgumentInternal(argumentName);
-    if (value is null) return defaultValue;
-    if (value == string.Empty || value == "1") return true;
-    return  value is "0" ? false : bool.Parse(value);
-}
-
-string? Argument(string argumentName, string? defaultValue = default)
-{
-    return ArgumentInternal(argumentName) ?? defaultValue;
-}
-
-string? ArgumentInternal(string argumentName)
-{
-    for (var i = 0; i < args.Length; i++)
-    {
-        if (args[i] == $"--{argumentName}" || args[i] == $"-{argumentName}")
-        {
-            if (((i + 1) == args.Length || args[i + 1].StartsWith('-')))
-                return string.Empty;
-
-            return args[i + 1];
-        }
-
-        if (args[i].StartsWith($"-{argumentName}="))
-            return args[i].Substring($"-{argumentName}=".Length);
-        
-        if (args[i].StartsWith($"--{argumentName}="))
-            return args[i].Substring($"--{argumentName}=".Length);
-    }
-
-    return null;
-}
+    .ExecuteAsync(target, ApplicationHelper.ExitToken);
 
 async Task ExecuteCommandAsync(string commandText, KeyValuePair<string, string>[]? replacements = null)
 {
@@ -161,158 +117,4 @@ async Task ExecuteCommandAsync(string commandText, KeyValuePair<string, string>[
     var result = await CommandExecutor.ExecuteCommandAndOutputAsync(commandText);
     result.EnsureSuccessExitCode();
     Console.WriteLine();
-}
-
-file sealed class BuildProcess
-{
-    public IReadOnlyCollection<BuildTask> Tasks { get; init; } = [];
-    public Func<Task>? Setup { private get; init; }
-    public Func<Task>? Cleanup { private get; init; }
-
-    public async Task ExecuteAsync(string target)
-    {
-        var task = Tasks.FirstOrDefault(x => x.Name == target);
-        if (task is null)
-            throw new InvalidOperationException("Invalid target to execute");
-        
-        try
-        {
-            if (Setup != null)
-                await Setup.Invoke();
-            
-            await ExecuteTask(task);
-        }
-        finally
-        {
-            if (Cleanup != null)
-                await Cleanup.Invoke();
-        }                
-    }
-
-    private static async Task ExecuteTask(BuildTask task)
-    {
-        foreach (var dependencyTask in task.Dependencies)
-        {
-            await ExecuteTask(dependencyTask);
-        }
-
-        Console.WriteLine($"===== Task {task.Name} {task.Description} executing ======");
-        await task.ExecuteAsync();
-        Console.WriteLine($"===== Task {task.Name} {task.Description} executed ======");
-    }
-
-    public static BuildProcessBuilder CreateBuilder()
-    {
-        return new BuildProcessBuilder();
-    }
-}
-
-file sealed class BuildProcessBuilder
-{
-    private readonly List<BuildTask> _tasks = [];
-    private Func<Task>? _setup, _cleanup;
-
-    public BuildProcessBuilder WithTask(string name, Action<BuildTaskBuilder> buildTaskConfigure)
-    {
-        var buildTaskBuilder = new BuildTaskBuilder(name);
-        buildTaskBuilder.WithTaskFinder(s => _tasks.Find(t => t.Name == s) ?? throw new InvalidOperationException($"No task found with name {s}"));
-        buildTaskConfigure.Invoke(buildTaskBuilder);
-        var task = buildTaskBuilder.Build();
-        _tasks.Add(task);
-        return this;
-    }
-    
-    public BuildProcessBuilder WithSetup(Action setupFunc)
-    {
-        _setup = setupFunc.WrapTask();
-        return this;
-    }
-    
-    public BuildProcessBuilder WithSetup(Func<Task> setupFunc)
-    {
-        _setup = setupFunc;
-        return this;
-    }
-    
-    public BuildProcessBuilder WithCleanup(Action cleanupFunc)
-    {
-        _cleanup = cleanupFunc.WrapTask();
-        return this;
-    }
-
-    public BuildProcessBuilder WithCleanup(Func<Task> cleanupFunc)
-    {
-        _cleanup = cleanupFunc;
-        return this;
-    }
-
-    internal BuildProcess Build()
-    {
-        return new BuildProcess()
-        {
-            Tasks = _tasks,
-            Setup = _setup,
-            Cleanup = _cleanup
-        };
-    }
-}
-
-file sealed class BuildTask(string name, string? description, Func<Task>? execution = null)
-{
-    public string Name => name;
-    public string Description => description ?? name;
-
-    public IReadOnlyCollection<BuildTask> Dependencies { get; init; } = [];
-
-    public Task ExecuteAsync() => execution?.Invoke() ?? Task.CompletedTask;
-}
-
-file sealed class BuildTaskBuilder(string name)
-{
-    private readonly string _name = name;
-
-    private string? _description;
-    private Func<Task>? _execution;
-    private readonly List<BuildTask> _dependencies = [];
-
-    public BuildTaskBuilder WithDescription(string description)
-    {
-        _description = description;
-        return this;
-    }
-    
-    public BuildTaskBuilder WithExecution(Action execution)
-    {
-        _execution = execution.WrapTask();
-        return this;
-    }
-    public BuildTaskBuilder WithExecution(Func<Task> execution)
-    {
-        _execution = execution;
-        return this;
-    }
-    
-    public BuildTaskBuilder WithDependency(string dependencyTaskName)
-    {
-        if (_taskFinder is null) throw new InvalidOperationException("Dependency task name is not supported");
-        
-        _dependencies.Add(_taskFinder.Invoke(dependencyTaskName));
-        return this;
-    }
-
-    private Func<string, BuildTask>? _taskFinder;
-    internal BuildTaskBuilder WithTaskFinder(Func<string, BuildTask> taskFinder)
-    {
-        _taskFinder = taskFinder;
-        return this;
-    }
-    
-    public BuildTask Build()
-    {
-        var buildTask = new BuildTask(_name, _description, _execution)
-        {
-            Dependencies = _dependencies
-        };
-        return buildTask;
-    }
 }
