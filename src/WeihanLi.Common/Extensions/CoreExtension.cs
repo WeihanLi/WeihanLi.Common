@@ -2146,22 +2146,6 @@ public static class CoreExtension
     public static bool IsNotNullOrWhiteSpace([NotNullWhen(true)] this string? @this) => !string.IsNullOrWhiteSpace(@this);
 
     /// <summary>
-    ///     Retrieves the system&#39;s reference to the specified .
-    /// </summary>
-    /// <param name="str">A string to search for in the intern pool.</param>
-    /// <returns>
-    ///     The system&#39;s reference to , if it is interned; otherwise, a new reference to a string with the value of .
-    /// </returns>
-    public static string Intern(this string str) => string.Intern(str);
-
-    /// <summary>
-    ///     Retrieves a reference to a specified .
-    /// </summary>
-    /// <param name="str">The string to search for in the intern pool.</param>
-    /// <returns>A reference to  if it is in the common language runtime intern pool; otherwise, null.</returns>
-    public static string? IsInterned(this string str) => string.IsInterned(str);
-
-    /// <summary>
     ///     Concatenates the elements of an object array, using the specified separator between each element.
     /// </summary>
     /// <param name="separator">
@@ -2314,7 +2298,7 @@ public static class CoreExtension
     /// Sub, not only substring but support for negative numbers
     /// </summary>
     /// <param name="this">string to be handled</param>
-    /// <param name="startIndex">startIndex to substract</param>
+    /// <param name="startIndex">startIndex to sub-stract</param>
     /// <returns>substring</returns>
     public static string Sub(this string @this, int startIndex)
     {
@@ -2383,7 +2367,8 @@ public static class CoreExtension
     /// <returns>
     ///     An array whose elements contain the substrings in this string that are delimited by the separator.
     /// </returns>
-    public static string[] Split(this string @this, string separator, StringSplitOptions option = StringSplitOptions.None) => Guard.NotNull(@this).Split(new[] { separator }, option);
+    public static string[] Split(this string @this, string separator, StringSplitOptions option = StringSplitOptions.None) 
+        => Guard.NotNull(@this).Split(new[] { separator }, option);
 
     /// <summary>
     ///     A string extension method that converts the @this to a byte array.
@@ -2404,6 +2389,17 @@ public static class CoreExtension
 
     public static byte[] GetBytes(this string str, Encoding? encoding) => (encoding ?? Encoding.UTF8).GetBytes(Guard.NotNull(str, nameof(str)));
 
+    public static bool ToBoolean(this string? value, bool defaultValue = false)
+    {
+        return value switch
+        {
+            null => defaultValue,
+            "" or "1" => true,
+            "0" => false,
+            _ => bool.TryParse(value, out var val) ? val : defaultValue
+        };
+    }
+    
     /// <summary>
     ///     A string extension method that converts the @this to an enum.
     /// </summary>
