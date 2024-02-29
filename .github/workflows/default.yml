@@ -18,7 +18,7 @@ jobs:
     name: Running tests on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
-      max-parallel: 1
+      # max-parallel: 1
       matrix:
         os: [ubuntu-latest, macOS-latest, windows-latest]
     steps:
