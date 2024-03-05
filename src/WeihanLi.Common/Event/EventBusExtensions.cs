@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Event;
 
@@ -36,7 +37,7 @@ public static class EventBusExtensions
     }
 
     public static IEventBuilder AddEventHandler<TEvent, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TEventHandler>(this IEventBuilder eventBuilder, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
-      where TEvent : class, IEventBase
+      where TEvent : class
       where TEventHandler : class, IEventHandler<TEvent>
     {
         eventBuilder.Services.TryAddEnumerable(new ServiceDescriptor(typeof(IEventHandler<TEvent>), typeof(TEventHandler), serviceLifetime));
@@ -44,7 +45,7 @@ public static class EventBusExtensions
     }
 
     public static IEventBuilder AddEventHandler<TEvent>(this IEventBuilder eventBuilder, IEventHandler<TEvent> eventHandler)
-        where TEvent : class, IEventBase
+        where TEvent : class
     {
         eventBuilder.Services.TryAddEnumerable(new ServiceDescriptor(typeof(IEventHandler<TEvent>), eventHandler));
         return eventBuilder;
@@ -53,8 +54,7 @@ public static class EventBusExtensions
     [RequiresUnreferencedCode("Assembly.GetTypes() requires unreferenced code")]
     public static IEventBuilder RegisterEventHandlers(this IEventBuilder builder, Func<Type, bool>? filter = null, ServiceLifetime serviceLifetime = ServiceLifetime.Singleton, params Assembly[] assemblies)
     {
-        Guard.NotNull(assemblies, nameof(assemblies));
-        if (assemblies.Length == 0)
+        if (assemblies.IsNullOrEmpty())
         {
             assemblies = Helpers.ReflectHelper.GetAssemblies();
         }
@@ -67,12 +67,12 @@ public static class EventBusExtensions
         {
             handlerTypes = handlerTypes.Where(filter);
         }
-
+        
         foreach (var handlerType in handlerTypes)
         {
             foreach (var implementedInterface in handlerType.GetTypeInfo().ImplementedInterfaces)
             {
-                if (implementedInterface.IsGenericType && typeof(IEventBase).IsAssignableFrom(implementedInterface.GenericTypeArguments[0]))
+                if (implementedInterface.IsGenericType && typeof(IEventHandler<>) == implementedInterface.GetGenericTypeDefinition())
                 {
                     builder.Services.TryAddEnumerable(new ServiceDescriptor(implementedInterface, handlerType, serviceLifetime));
                 }

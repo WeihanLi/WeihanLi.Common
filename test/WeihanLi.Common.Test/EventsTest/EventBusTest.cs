@@ -45,7 +45,7 @@ public class EventBusTest
 
     public class TestEventHandler1 : EventHandlerBase<TestEvent>
     {
-        public override Task Handle(TestEvent @event)
+        public override Task Handle(TestEvent @event, EventProperties eventProperties)
         {
             Interlocked.Increment(ref _counter);
             return Task.CompletedTask;
@@ -54,7 +54,7 @@ public class EventBusTest
 
     public class TestEventHandler2 : EventHandlerBase<TestEvent>
     {
-        public override Task Handle(TestEvent @event)
+        public override Task Handle(TestEvent @event, EventProperties eventProperties)
         {
             Interlocked.Increment(ref _counter);
             return Task.CompletedTask;
@@ -64,7 +64,7 @@ public class EventBusTest
     public class TestEventHandler3<TEvent> : EventHandlerBase<TEvent>
         where TEvent : class, IEventBase
     {
-        public override Task Handle(TEvent @event)
+        public override Task Handle(TEvent @event, EventProperties eventProperties)
         {
             if (@event.GetType() == typeof(TestEvent))
             {

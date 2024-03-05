@@ -11,7 +11,7 @@ public interface IEventHandlerFactory
 public static class EventHandlerFactoryExtensions
 {
     public static ICollection<IEventHandler<TEvent>> GetHandlers<TEvent>(this IEventHandlerFactory eventHandlerFactory)
-        where TEvent : class, IEventBase
+        where TEvent : class
     {
         return eventHandlerFactory.GetHandlers(typeof(TEvent))
             .Cast<IEventHandler<TEvent>>()

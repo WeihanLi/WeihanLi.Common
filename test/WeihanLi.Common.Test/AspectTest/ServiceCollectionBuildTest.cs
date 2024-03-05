@@ -12,7 +12,7 @@ public class ServiceCollectionBuildTest
 {
     public class TestGenericEventHandler<TEvent> : EventHandlerBase<TEvent> where TEvent : class, IEventBase
     {
-        public override Task Handle(TEvent @event) => Task.CompletedTask;
+        public override Task Handle(TEvent @event, EventProperties eventProperties) => Task.CompletedTask;
     }
 
     private readonly IServiceProvider _serviceProvider;
@@ -103,15 +103,14 @@ public class ServiceCollectionBuildTest
     }
 
     [Fact]
-    public async void GenericMethodTest()
+    public async Task GenericMethodTest()
     {
         var publisher = _serviceProvider.GetRequiredService<IEventPublisher>();
         Assert.NotNull(publisher);
         var publisherType = publisher.GetType();
         Assert.True(publisherType.IsSealed);
         Assert.True(publisherType.Assembly.IsDynamic);
-        publisher.Publish(new TestEvent());
-
+        
         await publisher.PublishAsync(new TestEvent());
     }
 

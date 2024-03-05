@@ -11,17 +11,8 @@ public class EventQueuePublisher(IEventQueue eventQueue, IOptions<EventQueuePubl
 
     private readonly EventQueuePublisherOptions _options = options.Value;
 
-    public virtual bool Publish<TEvent>(TEvent @event)
-        where TEvent : class, IEventBase
-    {
-        var queueName = _options.EventQueueNameResolver.Invoke(@event.GetType()) ?? "events";
-
-        return _eventQueue.EnqueueAsync(queueName, @event).ConfigureAwait(false)
-            .GetAwaiter().GetResult();
-    }
-
     public virtual Task<bool> PublishAsync<TEvent>(TEvent @event)
-        where TEvent : class, IEventBase
+        where TEvent : class
     {
         var queueName = _options.EventQueueNameResolver.Invoke(@event.GetType()) ?? "events";
         return _eventQueue.EnqueueAsync(queueName, @event);

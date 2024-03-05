@@ -16,7 +16,7 @@ public sealed class EventBus(IEventSubscriptionManager subscriptionManager, IEve
     private readonly IEventSubscriptionManager _subscriptionManager = subscriptionManager;
     private readonly IEventHandlerFactory _eventHandlerFactory = eventHandlerFactory;
 
-    public bool Publish<TEvent>(TEvent @event) where TEvent : class, IEventBase
+    public bool Publish<TEvent>(TEvent @event) where TEvent : class
     {
         var handlers = _eventHandlerFactory.GetHandlers<TEvent>();
         if (handlers.Count > 0)
@@ -39,7 +39,7 @@ public sealed class EventBus(IEventSubscriptionManager subscriptionManager, IEve
         return false;
     }
 
-    public async Task<bool> PublishAsync<TEvent>(TEvent @event) where TEvent : class, IEventBase
+    public async Task<bool> PublishAsync<TEvent>(TEvent @event) where TEvent : class
     {
         var handlers = _eventHandlerFactory.GetHandlers<TEvent>();
         if (handlers.Count > 0)

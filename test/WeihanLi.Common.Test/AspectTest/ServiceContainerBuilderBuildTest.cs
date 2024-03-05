@@ -107,7 +107,6 @@ public class ServiceContainerBuilderBuildTest
         var publisherType = publisher.GetType();
         Assert.True(publisherType.IsSealed);
         Assert.True(publisherType.Assembly.IsDynamic);
-        publisher.Publish(new TestEvent());
 
         await publisher.PublishAsync(new TestEvent());
     }

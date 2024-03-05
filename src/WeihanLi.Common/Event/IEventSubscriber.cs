@@ -48,7 +48,7 @@ public static class EventSubscriberExtensions
     /// <returns>whether the operation success</returns>
     public static bool Subscribe<TEvent, TEventHandler>(this IEventSubscriber subscriber)
         where TEventHandler : class, IEventHandler<TEvent>
-        where TEvent : class, IEventBase
+        where TEvent : class
     {
         return subscriber.Subscribe(typeof(TEvent), typeof(TEventHandler));
     }

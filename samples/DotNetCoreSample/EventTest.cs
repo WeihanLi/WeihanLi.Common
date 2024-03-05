@@ -8,7 +8,7 @@ namespace DotNetCoreSample;
 
 internal class EventTest
 {
-    public static void MainTest()
+    public static async Task MainTest()
     {
         var eventBus = DependencyResolver.ResolveRequiredService<IEventBus>();
 
@@ -18,11 +18,11 @@ internal class EventTest
         eventBus.Subscribe<CounterEvent, CounterEventHandler2>();
         eventBus.Subscribe<CounterEvent, DelegateEventHandler<CounterEvent>>(); // could be used for eventLogging
 
-        eventBus.Publish(new CounterEvent { Counter = 1 });
+        await eventBus.PublishAsync(new CounterEvent { Counter = 1 });
 
         eventBus.UnSubscribe<CounterEvent, CounterEventHandler1>();
         // eventBus.Unsubscribe<CounterEvent, DelegateEventHandler<CounterEvent>>();
-        eventBus.Publish(new CounterEvent { Counter = 2 });
+        await eventBus.PublishAsync(new CounterEvent { Counter = 2 });
     }
 }
 
@@ -33,7 +33,7 @@ public class CounterEvent : EventBase
 
 internal class CounterEventHandler1 : EventHandlerBase<CounterEvent>
 {
-    public override Task Handle(CounterEvent @event)
+    public override Task Handle(CounterEvent @event, EventProperties eventProperties)
     {
         LogHelper.GetLogger<CounterEventHandler1>().Info($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
         return Task.CompletedTask;
@@ -42,7 +42,7 @@ internal class CounterEventHandler1 : EventHandlerBase<CounterEvent>
 
 internal class CounterEventHandler2 : EventHandlerBase<CounterEvent>
 {
-    public override Task Handle(CounterEvent @event)
+    public override Task Handle(CounterEvent @event, EventProperties eventProperties)
     {
         LogHelper.GetLogger<CounterEventHandler2>().Info($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
         return Task.CompletedTask;

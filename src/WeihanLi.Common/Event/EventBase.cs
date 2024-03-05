@@ -52,6 +52,14 @@ public abstract class EventBase : IEventBase
     }
 }
 
+internal sealed class EventWrapper<T> : IEventBase
+{
+    public required T Data { get; init; }
+    public EventProperties Properties { get; set; }
+    public DateTimeOffset EventAt => Properties.EventAt;
+    public string EventId => Properties.EventId;
+}
+
 public static class EventBaseExtensions
 {
     private static readonly JsonSerializerSettings EventSerializerSettings = JsonSerializeExtension.SerializerSettingsWith(s =>

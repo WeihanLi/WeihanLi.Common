@@ -7,13 +7,13 @@ namespace WeihanLi.Common.Event;
 
 public static class DelegateEventHandler
 {
-    public static DelegateEventHandler<TEvent> FromAction<TEvent>(Action<TEvent> action) where TEvent : class, IEventBase => new(action);
+    public static DelegateEventHandler<TEvent> FromAction<TEvent>(Action<TEvent> action) where TEvent : class => new(action);
 
-    public static DelegateEventHandler<TEvent> FromFunc<TEvent>(Func<TEvent, Task> func) where TEvent : class, IEventBase => new(func);
+    public static DelegateEventHandler<TEvent> FromFunc<TEvent>(Func<TEvent, Task> func) where TEvent : class => new(func);
 }
 
 public sealed class DelegateEventHandler<TEvent> : EventHandlerBase<TEvent>
-    where TEvent : class, IEventBase
+    where TEvent : class
 {
     private readonly Func<TEvent, Task> _func;
 
@@ -28,7 +28,7 @@ public sealed class DelegateEventHandler<TEvent> : EventHandlerBase<TEvent>
         _func = Guard.NotNull(func);
     }
 
-    public override Task Handle(TEvent @event)
+    public override Task Handle(TEvent @event, EventProperties eventProperties)
     {
         return _func.Invoke(@event);
     }

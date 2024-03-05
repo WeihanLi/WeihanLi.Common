@@ -13,14 +13,35 @@ public sealed class EventQueueInMemory : IEventQueue
 
     public Task<ICollection<string>> GetQueuesAsync() => Task.FromResult(GetQueues());
 
-    public bool Enqueue<TEvent>(string queueName, TEvent @event) where TEvent : class, IEventBase
+    public bool Enqueue<TEvent>(string queueName, TEvent @event) where TEvent : class
     {
+        var internalEvent = @event switch
+        {
+            IEventBase eventBase => new EventWrapper<TEvent>()
+            {
+                Data = @event,
+                Properties = new EventProperties
+                {
+                    EventId = eventBase.EventId, 
+                    EventAt = eventBase.EventAt
+                }
+            },
+            _ => new EventWrapper<TEvent>()
+            {
+                Data = @event,
+                Properties = new EventProperties
+                {
+                    EventId = Guid.NewGuid().ToString(), 
+                    EventAt = DateTimeOffset.UtcNow
+                }
+            }
+        };
         var queue = _eventQueues.GetOrAdd(queueName, _ => new ConcurrentQueue<IEventBase>());
-        queue.Enqueue(@event);
+        queue.Enqueue(internalEvent);
         return true;
     }
 
-    public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event) where TEvent : class, IEventBase => Task.FromResult(Enqueue(queueName, @event));
+    public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event) where TEvent : class => Task.FromResult(Enqueue(queueName, @event));
 
     public IEventBase? Dequeue(string queueName)
     {
