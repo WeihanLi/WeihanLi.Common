@@ -1562,6 +1562,7 @@ public static class CoreExtension
     /// <param name="successCode">successCode</param>
     /// <returns></returns>
     /// <exception cref="InvalidOperationException">Exception when exitCode not match the successCode</exception>
+    [System.Diagnostics.DebuggerStepThrough]
     public static int EnsureSuccessExitCode(this int exitCode, int successCode = 0)
     {
         if (exitCode != 0)
