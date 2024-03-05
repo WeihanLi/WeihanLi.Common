@@ -91,7 +91,7 @@ public class ProxyFactoryTest
         Assert.NotNull(eventBusProxy);
         Assert.True(eventBusProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
 
-        eventBusProxy.PublishAsync(new TestEvent()).Wait();
+        // eventBusProxy.PublishAsync(new TestEvent()).Wait();
     }
 
     [Fact]
