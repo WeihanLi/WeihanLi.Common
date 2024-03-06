@@ -5,6 +5,7 @@ namespace WeihanLi.Common.Event;
 
 public sealed class EventProperties: Dictionary<string, object?>, IEventBase
 {
-    public DateTimeOffset EventAt { get; init; }
-    public string EventId { get; init; }
+    public DateTimeOffset EventAt { get; set; }
+    public string? EventId { get; set; }
+    public string? TraceId { get; set; }
 }

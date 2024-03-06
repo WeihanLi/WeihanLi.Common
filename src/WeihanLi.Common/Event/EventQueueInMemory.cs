@@ -2,46 +2,48 @@
 // Licensed under the Apache license.
 
 using System.Collections.Concurrent;
+using System.Diagnostics;
 
 namespace WeihanLi.Common.Event;
 
 public sealed class EventQueueInMemory : IEventQueue
 {
-    private readonly ConcurrentDictionary<string, ConcurrentQueue<IEventBase>> _eventQueues = new();
+    private readonly ConcurrentDictionary<string, ConcurrentQueue<IEventWrapper>> _eventQueues = new();
 
     public ICollection<string> GetQueues() => _eventQueues.Keys;
 
     public Task<ICollection<string>> GetQueuesAsync() => Task.FromResult(GetQueues());
 
-    public bool Enqueue<TEvent>(string queueName, TEvent @event) where TEvent : class
+    public bool Enqueue<TEvent>(string queueName, TEvent @event, EventProperties? properties = null) where TEvent : class
     {
-        var internalEvent = @event switch
+        properties ??= new();
+        if (string.IsNullOrEmpty(properties.EventId))
         {
-            IEventBase eventBase => new EventWrapper<TEvent>()
-            {
-                Data = @event,
-                Properties = new EventProperties
-                {
-                    EventId = eventBase.EventId, 
-                    EventAt = eventBase.EventAt
-                }
-            },
-            _ => new EventWrapper<TEvent>()
-            {
-                Data = @event,
-                Properties = new EventProperties
-                {
-                    EventId = Guid.NewGuid().ToString(), 
-                    EventAt = DateTimeOffset.UtcNow
-                }
-            }
+            properties.EventId = Guid.NewGuid().ToString();
+        }
+        if (properties.EventAt == default)
+        {
+            properties.EventAt = DateTimeOffset.Now;
+        }
+        if (string.IsNullOrEmpty(properties.TraceId) && Activity.Current != null)
+        {
+            properties.TraceId = Activity.Current.TraceId.ToString();
+        }
+        var internalEvent = new EventWrapper<TEvent>
+        {
+            Data = @event,
+            Properties = properties
         };
-        var queue = _eventQueues.GetOrAdd(queueName, _ => new ConcurrentQueue<IEventBase>());
+        var queue = _eventQueues.GetOrAdd(queueName, _ => new ConcurrentQueue<IEventWrapper>());
         queue.Enqueue(internalEvent);
         return true;
     }
 
-    public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event) where TEvent : class => Task.FromResult(Enqueue(queueName, @event));
+    public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event, EventProperties? properties = null) where TEvent : class => Task.FromResult(Enqueue(queueName, @event, properties));
+    public Task<bool> TryDequeueAsync(string queueName, out object @event, out EventProperties properties)
+    {
+        throw new NotImplementedException();
+    }
 
     public IEventBase? Dequeue(string queueName)
     {
@@ -52,11 +54,6 @@ public sealed class EventQueueInMemory : IEventQueue
         }
 
         return null;
-    }
-
-    public Task<IEventBase?> DequeueAsync(string queueName)
-    {
-        return Task.FromResult(Dequeue(queueName));
     }
 
     public bool TryRemoveQueue(string queueName)

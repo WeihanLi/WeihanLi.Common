@@ -97,7 +97,7 @@ public class ServiceCollectionBuildTest
         Assert.True(eventHandlerType.IsSealed);
         Assert.True(eventHandlerType.Assembly.IsDynamic);
 
-        var handTask = eventHandler.Handle(new TestEvent());
+        var handTask = eventHandler.Handle(new TestEvent(), new());
         Assert.NotNull(handTask);
         await handTask;
     }

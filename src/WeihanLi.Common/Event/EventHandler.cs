@@ -8,7 +8,7 @@ namespace WeihanLi.Common.Event;
 
 public interface IEventHandler
 {
-    Task Handle(object eventData);
+    Task Handle(object eventData, EventProperties properties);
 }
 
 public interface IEventHandler<in TEvent> : IEventHandler where TEvent : class
@@ -17,57 +17,35 @@ public interface IEventHandler<in TEvent> : IEventHandler where TEvent : class
     /// Handler event
     /// </summary>
     /// <param name="event">event</param>
-    /// <param name="eventProperties">eventProperties</param>
-    Task Handle(TEvent @event, EventProperties eventProperties);
+    /// <param name="properties">eventProperties</param>
+    Task Handle(TEvent @event, EventProperties properties);
 }
 
 public abstract class EventHandlerBase<TEvent> : IEventHandler<TEvent> where TEvent : class
 {
     public abstract Task Handle(TEvent @event, EventProperties eventProperties);
-    
-    private Task Handle(TEvent @event)
-    {
-        return Handle(@event, @event is IEventBase eventBase ? 
-            new EventProperties
-            {
-                EventId = eventBase.EventId,
-                EventAt = eventBase.EventAt,
-            }:
-            new EventProperties
-            {
-                EventId = Guid.NewGuid().ToString(),
-                EventAt = DateTimeOffset.UtcNow
-            });
-    }
 
-    public virtual Task Handle(object eventData)
+    public virtual Task Handle(object eventData, EventProperties properties)
     {
         Guard.NotNull(eventData);
 
         switch (eventData)
         {
             case TEvent data:
-                return Handle(data);
+                return Handle(data, properties);
             
             case JObject jObject:
                 {
-                    var eventWrapper = jObject.ToObject<EventWrapper<TEvent>>();
-                    if (eventWrapper != null)
-                        return Handle(eventWrapper.Data, eventWrapper.Properties);
-                    
                     var @event = jObject.ToObject<TEvent>();
                     if (@event != null)
-                        return Handle(@event);
+                        return Handle(@event, properties);
                     
                     break;
                 }
             case string eventDataJson:
-                return Handle(eventDataJson.JsonToObject<TEvent>());
+                return Handle(eventDataJson.JsonToObject<TEvent>(), properties);
         }
 
         throw new ArgumentException(@$"Unsupported event DataType:{eventData.GetType()}", nameof(eventData));
-        
-        
-        
     }
 }

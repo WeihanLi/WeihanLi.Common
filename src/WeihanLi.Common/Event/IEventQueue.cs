@@ -1,30 +1,27 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace WeihanLi.Common.Event;
 
 public interface IEventQueue
 {
     Task<ICollection<string>> GetQueuesAsync();
 
-    Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event)
+    Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event, EventProperties? properties = null)
         where TEvent : class;
 
-    Task<IEventBase?> DequeueAsync(string queueName);
+    Task<bool> TryDequeueAsync(string queueName, [MaybeNullWhen(false)]out object @event, [MaybeNullWhen(false)]out EventProperties properties);
 }
 
 public static class EventQueueExtensions
 {
     private const string DefaultQueueName = "events";
 
-    public static Task<bool> EnqueueAsync<TEvent>(this IEventQueue eventQueue, TEvent @event)
+    public static Task<bool> EnqueueAsync<TEvent>(this IEventQueue eventQueue, TEvent @event, EventProperties? properties = null)
         where TEvent : class
     {
         return eventQueue.EnqueueAsync(DefaultQueueName, @event);
-    }
-
-    public static Task<IEventBase?> DequeueAsync(this IEventQueue eventQueue)
-    {
-        return eventQueue.DequeueAsync(DefaultQueueName);
     }
 }

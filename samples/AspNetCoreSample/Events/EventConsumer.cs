@@ -19,14 +19,13 @@ public class EventConsumer
             {
                 await queues.Select(async q =>
                         {
-                            var @event = await _eventQueue.DequeueAsync(q);
-                            if (null != @event)
+                            if (await _eventQueue.TryDequeueAsync(q, out var @event, out var properties))
                             {
                                 var handlers = _eventHandlerFactory.GetHandlers(@event.GetType());
                                 if (handlers.Count > 0)
                                 {
                                     await handlers
-                                            .Select(h => h.Handle(@event))
+                                            .Select(h => h.Handle(@event, properties))
                                             .WhenAll()
                                         ;
                                 }

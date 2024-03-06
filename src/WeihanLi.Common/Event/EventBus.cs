@@ -1,6 +1,8 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
+using System.Diagnostics;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
 using WeihanLi.Extensions;
 
@@ -16,38 +18,29 @@ public sealed class EventBus(IEventSubscriptionManager subscriptionManager, IEve
     private readonly IEventSubscriptionManager _subscriptionManager = subscriptionManager;
     private readonly IEventHandlerFactory _eventHandlerFactory = eventHandlerFactory;
 
-    public bool Publish<TEvent>(TEvent @event) where TEvent : class
+    public async Task<bool> PublishAsync<TEvent>(TEvent @event, EventProperties? properties) where TEvent : class
     {
-        var handlers = _eventHandlerFactory.GetHandlers<TEvent>();
-        if (handlers.Count > 0)
+        properties ??= new();
+        if (string.IsNullOrEmpty(properties.EventId))
         {
-            var handlerTasks = new Task[handlers.Count];
-
-            handlers.ForEach((handler, index) =>
-            {
-                handlerTasks[index] = handler.Handle(@event).ContinueWith(r =>
-                {
-                    Logger.Error(r.Exception?.Unwrap(),
-                        $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handler.GetType().FullName}");
-                }, TaskContinuationOptions.OnlyOnFaulted);
-            });
-
-            _ = handlerTasks.WhenAllSafely().ConfigureAwait(false);
-
-            return true;
+            properties.EventId = Guid.NewGuid().ToString();
         }
-        return false;
-    }
-
-    public async Task<bool> PublishAsync<TEvent>(TEvent @event) where TEvent : class
-    {
+        if (properties.EventAt == default)
+        {
+            properties.EventAt = DateTimeOffset.Now;
+        }
+        using var activity = DiagnosticHelper.ActivitySource.StartActivity();
+        if (string.IsNullOrEmpty(properties.TraceId) && Activity.Current != null)
+        {
+            properties.TraceId = Activity.Current.TraceId.ToString();
+        }
         var handlers = _eventHandlerFactory.GetHandlers<TEvent>();
         if (handlers.Count > 0)
         {
             var handlerTasks = new Task[handlers.Count];
             handlers.ForEach((handler, index) =>
             {
-                handlerTasks[index] = handler.Handle(@event).ContinueWith(r =>
+                handlerTasks[index] = handler.Handle(@event, properties).ContinueWith(r =>
                 {
                     Logger.Error(r.Exception?.Unwrap(),
                         $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handler.GetType().FullName}");

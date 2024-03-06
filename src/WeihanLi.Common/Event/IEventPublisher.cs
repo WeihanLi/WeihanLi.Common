@@ -10,6 +10,7 @@ public interface IEventPublisher
     /// </summary>
     /// <typeparam name="TEvent">event type</typeparam>
     /// <param name="event">event data</param>
+    /// <param name="properties">properties</param>
     /// <returns>whether the operation succeed</returns>
-    Task<bool> PublishAsync<TEvent>(TEvent @event) where TEvent : class;
+    Task<bool> PublishAsync<TEvent>(TEvent @event, EventProperties? properties = null) where TEvent : class;
 }

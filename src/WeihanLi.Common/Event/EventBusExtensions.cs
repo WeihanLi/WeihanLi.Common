@@ -81,4 +81,7 @@ public static class EventBusExtensions
 
         return builder;
     }
+
+    public static Task<bool> PublishAsync<TEvent>(this IEventPublisher eventPublisher, TEvent @event) where TEvent : class
+        => eventPublisher.PublishAsync(@event, null);
 }

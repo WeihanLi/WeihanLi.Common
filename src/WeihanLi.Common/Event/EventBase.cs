@@ -52,12 +52,18 @@ public abstract class EventBase : IEventBase
     }
 }
 
-internal sealed class EventWrapper<T> : IEventBase
+internal interface IEventWrapper : IEventBase
+{
+    object Data { get; }
+}
+
+internal sealed class EventWrapper<T> : IEventWrapper
 {
     public required T Data { get; init; }
-    public EventProperties Properties { get; set; }
+    object IEventWrapper.Data => Data!;
+    public required EventProperties Properties { get; init; }
     public DateTimeOffset EventAt => Properties.EventAt;
-    public string EventId => Properties.EventId;
+    public string EventId => Properties.EventId!;
 }
 
 public static class EventBaseExtensions

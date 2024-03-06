@@ -105,7 +105,7 @@ public class ProxyFactoryTest
         var eventHandlerProxy = _proxyFactory.CreateProxy<EventHandlerBase<TestEvent>>();
         Assert.NotNull(eventHandlerProxy);
         Assert.True(eventHandlerProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
-        eventHandlerProxy.Handle(new TestEvent());
+        eventHandlerProxy.Handle(new TestEvent(), new());
     }
 
     [Fact]
@@ -152,6 +152,6 @@ public class ProxyFactoryTest
         var eventHandlerProxy = _proxyFactory.CreateProxy<EventHandlerBase<TestEvent>>();
         Assert.NotNull(eventHandlerProxy);
         Assert.True(eventHandlerProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
-        eventHandlerProxy.Handle(new TestEvent());
+        eventHandlerProxy.Handle(new TestEvent(), new());
     }
 }
