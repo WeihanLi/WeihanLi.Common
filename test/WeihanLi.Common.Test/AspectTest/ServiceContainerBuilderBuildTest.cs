@@ -26,7 +26,7 @@ public class ServiceContainerBuilderBuildTest
             new OptionsWrapper<EventQueuePublisherOptions>(new EventQueuePublisherOptions()));
         services.AddSingleton<IEventQueue, EventQueueInMemory>();
 
-        services.AddSingleton<EventHandlerBase<TestEvent>>(DelegateEventHandler.FromAction<TestEvent>(_ => { }));
+        services.AddSingleton<EventHandlerBase<TestEvent>>(new DelegateEventHandler<TestEvent>(_ => { }));
 
         services.AddSingleton(typeof(IEventHandler<>), typeof(ServiceCollectionBuildTest.TestGenericEventHandler<>));
 

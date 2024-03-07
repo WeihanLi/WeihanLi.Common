@@ -29,7 +29,7 @@ public class ServiceCollectionBuildTest
         services.AddSingleton<IEventQueue, EventQueueInMemory>();
         services.AddOptions();
 
-        services.AddSingleton<EventHandlerBase<TestEvent>>(DelegateEventHandler.FromAction<TestEvent>(_ => { }));
+        services.AddSingleton<EventHandlerBase<TestEvent>>(new DelegateEventHandler<TestEvent>(_ => { }));
 
         services.AddSingleton(typeof(IEventHandler<>), typeof(TestGenericEventHandler<>));
 

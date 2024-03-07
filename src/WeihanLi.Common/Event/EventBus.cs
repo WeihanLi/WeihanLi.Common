@@ -18,7 +18,7 @@ public sealed class EventBus(IEventSubscriptionManager subscriptionManager, IEve
     private readonly IEventSubscriptionManager _subscriptionManager = subscriptionManager;
     private readonly IEventHandlerFactory _eventHandlerFactory = eventHandlerFactory;
 
-    public async Task<bool> PublishAsync<TEvent>(TEvent @event, EventProperties? properties) where TEvent : class
+    public async Task<bool> PublishAsync<TEvent>(TEvent @event, EventProperties? properties)
     {
         properties ??= new();
         if (string.IsNullOrEmpty(properties.EventId))
@@ -56,6 +56,7 @@ public sealed class EventBus(IEventSubscriptionManager subscriptionManager, IEve
     public bool Subscribe(Type eventType, Type eventHandlerType) => _subscriptionManager.Subscribe(eventType, eventHandlerType);
 
     public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => _subscriptionManager.SubscribeAsync(eventType, eventHandlerType);
+    public Task<bool> SubscribeAsync<TEvent>(IEventHandler<TEvent> eventHandler) => _subscriptionManager.SubscribeAsync(eventHandler);
 
     public bool UnSubscribe(Type eventType, Type eventHandlerType) => _subscriptionManager.UnSubscribe(eventType, eventHandlerType);
 

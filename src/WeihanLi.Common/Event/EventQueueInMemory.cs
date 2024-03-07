@@ -3,6 +3,7 @@
 
 using System.Collections.Concurrent;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WeihanLi.Common.Event;
 
@@ -14,7 +15,7 @@ public sealed class EventQueueInMemory : IEventQueue
 
     public Task<ICollection<string>> GetQueuesAsync() => Task.FromResult(GetQueues());
 
-    public bool Enqueue<TEvent>(string queueName, TEvent @event, EventProperties? properties = null) where TEvent : class
+    public bool Enqueue<TEvent>(string queueName, TEvent @event, EventProperties? properties = null)
     {
         properties ??= new();
         if (string.IsNullOrEmpty(properties.EventId))
@@ -39,21 +40,24 @@ public sealed class EventQueueInMemory : IEventQueue
         return true;
     }
 
-    public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event, EventProperties? properties = null) where TEvent : class => Task.FromResult(Enqueue(queueName, @event, properties));
-    public Task<bool> TryDequeueAsync(string queueName, out object @event, out EventProperties properties)
-    {
-        throw new NotImplementedException();
-    }
+    public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event, EventProperties? properties = null) => Task.FromResult(Enqueue(queueName, @event, properties));
 
-    public IEventBase? Dequeue(string queueName)
+    public Task<bool> TryDequeueAsync(string queueName, [MaybeNullWhen(false)]out object @event, [MaybeNullWhen(false)]out EventProperties properties)
     {
+        @event = default;
+        properties = default;
+        
         if (_eventQueues.TryGetValue(queueName, out var queue))
         {
-            queue.TryDequeue(out var @event);
-            return @event;
+            if (queue.TryDequeue(out var eventWrapper))
+            {
+                @event = eventWrapper.Data;
+                properties = eventWrapper.Properties;
+                return Task.FromResult(true);
+            }
         }
 
-        return null;
+        return Task.FromResult(false);
     }
 
     public bool TryRemoveQueue(string queueName)

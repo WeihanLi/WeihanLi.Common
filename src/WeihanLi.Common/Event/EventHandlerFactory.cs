@@ -18,10 +18,7 @@ public sealed class DefaultEventHandlerFactory(IEventSubscriptionManager subscri
     {
         var eventHandlers = _eventHandlers.GetOrAdd(eventType, type =>
         {
-            var handlerTypes = _subscriptionManager.GetEventHandlerTypes(type);
-            var handlers = handlerTypes
-                .Select(t => (IEventHandler)_serviceProvider.GetServiceOrCreateInstance(t))
-                .ToArray();
+            var handlers = _subscriptionManager.GetEventHandlers(type);
             return handlers;
         });
         return eventHandlers;

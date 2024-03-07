@@ -5,31 +5,43 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Event;
 
-public static class DelegateEventHandler
-{
-    public static DelegateEventHandler<TEvent> FromAction<TEvent>(Action<TEvent> action) where TEvent : class => new(action);
-
-    public static DelegateEventHandler<TEvent> FromFunc<TEvent>(Func<TEvent, Task> func) where TEvent : class => new(func);
-}
-
 public sealed class DelegateEventHandler<TEvent> : EventHandlerBase<TEvent>
-    where TEvent : class
 {
-    private readonly Func<TEvent, Task> _func;
+    private readonly Func<TEvent, EventProperties, Task> _func;
 
     public DelegateEventHandler(Action<TEvent> action)
     {
         Guard.NotNull(action);
-        _func = action.WrapTask();
+        _func = (e, _) =>
+        {
+            action(e);
+            return Task.CompletedTask;
+        };
+    }
+    
+    public DelegateEventHandler(Action<TEvent, EventProperties> action)
+    {
+        Guard.NotNull(action);
+        _func = (e, properties) =>
+        {
+            action(e, properties);
+            return Task.CompletedTask;
+        };
     }
 
     public DelegateEventHandler(Func<TEvent, Task> func)
     {
+        Guard.NotNull(func);
+        _func = (e, _) => func(e);
+    }
+    
+    public DelegateEventHandler(Func<TEvent, EventProperties, Task> func)
+    {
         _func = Guard.NotNull(func);
     }
 
-    public override Task Handle(TEvent @event, EventProperties eventProperties)
+    public override Task Handle(TEvent @event, EventProperties properties)
     {
-        return _func.Invoke(@event);
+        return _func.Invoke(@event, properties);
     }
 }

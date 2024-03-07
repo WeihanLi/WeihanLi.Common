@@ -13,8 +13,9 @@ public class EventQueuePublisher(IEventQueue eventQueue, IOptions<EventQueuePubl
     private readonly EventQueuePublisherOptions _options = options.Value;
 
     public virtual Task<bool> PublishAsync<TEvent>(TEvent @event, EventProperties? properties)
-        where TEvent : class
     {
+        Guard.NotNull(@event);
+        
         properties ??= new();
         if (string.IsNullOrEmpty(properties.EventId))
         {

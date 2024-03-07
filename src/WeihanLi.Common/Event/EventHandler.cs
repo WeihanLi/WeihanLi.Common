@@ -11,7 +11,7 @@ public interface IEventHandler
     Task Handle(object eventData, EventProperties properties);
 }
 
-public interface IEventHandler<in TEvent> : IEventHandler where TEvent : class
+public interface IEventHandler<in TEvent> : IEventHandler
 {
     /// <summary>
     /// Handler event
@@ -21,7 +21,7 @@ public interface IEventHandler<in TEvent> : IEventHandler where TEvent : class
     Task Handle(TEvent @event, EventProperties properties);
 }
 
-public abstract class EventHandlerBase<TEvent> : IEventHandler<TEvent> where TEvent : class
+public abstract class EventHandlerBase<TEvent> : IEventHandler<TEvent>
 {
     public abstract Task Handle(TEvent @event, EventProperties eventProperties);
 
@@ -35,13 +35,11 @@ public abstract class EventHandlerBase<TEvent> : IEventHandler<TEvent> where TEv
                 return Handle(data, properties);
             
             case JObject jObject:
-                {
-                    var @event = jObject.ToObject<TEvent>();
-                    if (@event != null)
-                        return Handle(@event, properties);
-                    
-                    break;
-                }
+                var @event = jObject.ToObject<TEvent>();
+                if (@event != null)
+                    return Handle(@event, properties);
+                break;
+            
             case string eventDataJson:
                 return Handle(eventDataJson.JsonToObject<TEvent>(), properties);
         }

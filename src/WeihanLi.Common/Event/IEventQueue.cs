@@ -9,8 +9,7 @@ public interface IEventQueue
 {
     Task<ICollection<string>> GetQueuesAsync();
 
-    Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event, EventProperties? properties = null)
-        where TEvent : class;
+    Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event, EventProperties? properties = null);
 
     Task<bool> TryDequeueAsync(string queueName, [MaybeNullWhen(false)]out object @event, [MaybeNullWhen(false)]out EventProperties properties);
 }
