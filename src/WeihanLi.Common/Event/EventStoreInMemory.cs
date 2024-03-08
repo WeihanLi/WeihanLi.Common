@@ -24,7 +24,7 @@ public sealed class EventStoreInMemory : IEventStore
     {
         if (eventIds.IsNullOrEmpty())
             return 0;
-
+        
         return eventIds.Count(eventId => _events.TryRemove(eventId, out _));
     }
 

@@ -52,6 +52,19 @@ public abstract class EventBase : IEventBase
     }
 }
 
+internal interface IEventWrapper
+{
+    EventProperties Properties { get; }
+    object Data { get; }
+}
+
+internal sealed class EventWrapper<T> : IEventWrapper
+{
+    public required T Data { get; init; }
+    object IEventWrapper.Data => Data!;
+    public required EventProperties Properties { get; init; }
+}
+
 public static class EventBaseExtensions
 {
     private static readonly JsonSerializerSettings EventSerializerSettings = JsonSerializeExtension.SerializerSettingsWith(s =>

@@ -13,7 +13,7 @@ public class TestEventHandler : EventHandlerBase<TestEvent>
 {
     public static int Count;
 
-    public override Task Handle(TestEvent @event)
+    public override Task Handle(TestEvent @event, EventProperties eventProperties)
     {
         Count++;
         return Task.CompletedTask;
@@ -49,7 +49,7 @@ public class EventBaseTest
 
         var deserializedEvent = eventFromMsg as TestEvent;
         Assert.NotNull(deserializedEvent);
-        Assert.Equal(testEvent.EventId, deserializedEvent!.EventId);
+        Assert.Equal(testEvent.EventId, deserializedEvent.EventId);
         Assert.Equal(testEvent.EventAt, deserializedEvent.EventAt);
         Assert.Equal(testEvent.Name, deserializedEvent.Name);
     }

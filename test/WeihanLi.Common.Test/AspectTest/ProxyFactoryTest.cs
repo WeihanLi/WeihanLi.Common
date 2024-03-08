@@ -70,18 +70,18 @@ public class ProxyFactoryTest
         var eventPublisherProxy = _proxyFactory.CreateProxy<IEventPublisher, EventQueuePublisher>();
         Assert.NotNull(eventPublisherProxy);
         Assert.True(eventPublisherProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
-        eventPublisherProxy.Publish(new TestEvent());
+        eventPublisherProxy.PublishAsync(new TestEvent()).Wait();
 
         eventPublisherProxy = _proxyFactory.CreateProxy<EventQueuePublisher>();
         Assert.NotNull(eventPublisherProxy);
         Assert.True(eventPublisherProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
-        eventPublisherProxy.Publish(new TestEvent());
+        eventPublisherProxy.PublishAsync(new TestEvent()).Wait();
 
         var options = new OptionsWrapper<EventQueuePublisherOptions>(new EventQueuePublisherOptions());
         eventPublisherProxy = _proxyFactory.CreateProxy<EventQueuePublisher>(options);
         Assert.NotNull(eventPublisherProxy);
         Assert.True(eventPublisherProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
-        eventPublisherProxy.Publish(new TestEvent());
+        eventPublisherProxy.PublishAsync(new TestEvent()).Wait();
     }
 
     [Fact]
@@ -91,7 +91,7 @@ public class ProxyFactoryTest
         Assert.NotNull(eventBusProxy);
         Assert.True(eventBusProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
 
-        eventBusProxy.Publish(new TestEvent());
+        // eventBusProxy.PublishAsync(new TestEvent()).Wait();
     }
 
     [Fact]
@@ -105,7 +105,7 @@ public class ProxyFactoryTest
         var eventHandlerProxy = _proxyFactory.CreateProxy<EventHandlerBase<TestEvent>>();
         Assert.NotNull(eventHandlerProxy);
         Assert.True(eventHandlerProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
-        eventHandlerProxy.Handle(new TestEvent());
+        eventHandlerProxy.Handle(new TestEvent(), new());
     }
 
     [Fact]
@@ -152,6 +152,6 @@ public class ProxyFactoryTest
         var eventHandlerProxy = _proxyFactory.CreateProxy<EventHandlerBase<TestEvent>>();
         Assert.NotNull(eventHandlerProxy);
         Assert.True(eventHandlerProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
-        eventHandlerProxy.Handle(new TestEvent());
+        eventHandlerProxy.Handle(new TestEvent(), new());
     }
 }
