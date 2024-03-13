@@ -582,8 +582,8 @@ public static class CoreExtension
     /// ToDateString("yyyy-MM-dd")
     /// </summary>
     /// <param name="this">dateTime</param>
-    /// <param name="">date format, using `yyyy-MM-dd` by default</param>
-    /// <returns></returns>
+    /// <param name="format">date format, using `yyyy-MM-dd` by default</param>
+    /// <returns>The formatted date string</returns>
     public static string ToDateString(this DateTime @this, string format = "yyyy-MM-dd")
     {
         return @this.ToString(Guard.NotNull(format));
@@ -593,8 +593,8 @@ public static class CoreExtension
     /// ToTimeString("yyyy-MM-dd HH:mm:ss")
     /// </summary>
     /// <param name="this">dateTime</param>
-    /// <param name="">date format, using `yyyy-MM-dd` by default</param>
-    /// <returns></returns>
+    /// <param name="format">dateTime format, using `yyyy-MM-dd HH:mm:ss` by default</param>
+    /// <returns>The formatted time string</returns>
     public static string ToTimeString(this DateTime @this, string format = "yyyy-MM-dd HH:mm:ss")
     {
         return @this.ToString(Guard.NotNull(format));
