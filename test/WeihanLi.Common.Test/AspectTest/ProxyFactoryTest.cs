@@ -65,23 +65,23 @@ public class ProxyFactoryTest
     }
 
     [Fact]
-    public void CreateInstanceWithArguments()
+    public async Task CreateInstanceWithArguments()
     {
         var eventPublisherProxy = _proxyFactory.CreateProxy<IEventPublisher, EventQueuePublisher>();
         Assert.NotNull(eventPublisherProxy);
         Assert.True(eventPublisherProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
-        eventPublisherProxy.PublishAsync(new TestEvent()).Wait();
+        await eventPublisherProxy.PublishAsync(new TestEvent());
 
         eventPublisherProxy = _proxyFactory.CreateProxy<EventQueuePublisher>();
         Assert.NotNull(eventPublisherProxy);
         Assert.True(eventPublisherProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
-        eventPublisherProxy.PublishAsync(new TestEvent()).Wait();
+        await eventPublisherProxy.PublishAsync(new TestEvent());
 
         var options = new OptionsWrapper<EventQueuePublisherOptions>(new EventQueuePublisherOptions());
         eventPublisherProxy = _proxyFactory.CreateProxy<EventQueuePublisher>(options);
         Assert.NotNull(eventPublisherProxy);
         Assert.True(eventPublisherProxy.GetType().Namespace?.StartsWith(NamespacePrefix));
-        eventPublisherProxy.PublishAsync(new TestEvent()).Wait();
+        await eventPublisherProxy.PublishAsync(new TestEvent());
     }
 
     [Fact]
