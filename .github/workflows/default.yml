@@ -30,7 +30,7 @@ jobs:
           6.x
           7.x
           8.x
-          9.0.100-preview.1.24101.2
+          9.x
     - name: dotnet info
       run: dotnet --info
     - name: build
