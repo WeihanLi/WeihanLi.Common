@@ -42,7 +42,7 @@ public sealed class EventQueueInMemory : IEventQueue
 
     public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event, EventProperties? properties = null) => Task.FromResult(Enqueue(queueName, @event, properties));
 
-    public Task<bool> TryDequeueAsync(string queueName, [MaybeNullWhen(false)]out object @event, [MaybeNullWhen(false)]out EventProperties properties)
+    public Task<bool> TryDequeueAsync(string queueName, [NotNullWhen(true)]out object? @event, [NotNullWhen(true)]out EventProperties? properties)
     {
         @event = default;
         properties = default;
