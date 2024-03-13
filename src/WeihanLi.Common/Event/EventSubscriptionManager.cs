@@ -23,7 +23,7 @@ public sealed class EventSubscriptionManagerInMemory : IEventSubscriptionManager
     public bool Subscribe(Type eventType, Type eventHandlerType)
     {
         var handlers = _eventHandlers.GetOrAdd(eventType, []);
-        return handlers.TryAdd((IEventHandler)DependencyResolver.Current.GetService(eventHandlerType));
+        return handlers.TryAdd((IEventHandler)Guard.NotNull(DependencyResolver.Current.GetService(eventHandlerType)));
     }
 
     public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType)
