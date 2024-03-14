@@ -52,7 +52,7 @@ public abstract class EventBase : IEventBase
     }
 }
 
-internal interface IEvent
+public interface IEvent
 {
     EventProperties Properties { get; }
     object? Data { get; }
