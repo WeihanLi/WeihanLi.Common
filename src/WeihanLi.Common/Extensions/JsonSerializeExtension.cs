@@ -21,7 +21,7 @@ public static class JsonSerializeExtension
 
     public static JsonSerializerSettings SerializerSettingsWith(Action<JsonSerializerSettings>? action)
     {
-        if (null == action)
+        if (action is null)
             return DefaultSerializerSettings;
 
         var serializerSettings = GetDefaultSerializerSettings();
