@@ -52,16 +52,22 @@ public abstract class EventBase : IEventBase
     }
 }
 
-internal interface IEventWrapper
+internal interface IEvent
 {
     EventProperties Properties { get; }
-    object Data { get; }
+    object? Data { get; }
 }
 
-internal sealed class EventWrapper<T> : IEventWrapper
+public interface IEvent<out T>
+{
+    EventProperties Properties { get; }
+    T Data { get; }
+}
+
+internal sealed class EventWrapper<T> : IEvent, IEvent<T>
 {
     public required T Data { get; init; }
-    object IEventWrapper.Data => Data!;
+    object? IEvent.Data => (object?)Data;
     public required EventProperties Properties { get; init; }
 }
 

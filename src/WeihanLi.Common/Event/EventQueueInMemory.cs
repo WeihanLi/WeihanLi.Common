@@ -9,7 +9,7 @@ namespace WeihanLi.Common.Event;
 
 public sealed class EventQueueInMemory : IEventQueue
 {
-    private readonly ConcurrentDictionary<string, ConcurrentQueue<IEventWrapper>> _eventQueues = new();
+    private readonly ConcurrentDictionary<string, ConcurrentQueue<IEvent>> _eventQueues = new();
 
     public ICollection<string> GetQueues() => _eventQueues.Keys;
 
@@ -35,7 +35,7 @@ public sealed class EventQueueInMemory : IEventQueue
             Data = @event,
             Properties = properties
         };
-        var queue = _eventQueues.GetOrAdd(queueName, _ => new ConcurrentQueue<IEventWrapper>());
+        var queue = _eventQueues.GetOrAdd(queueName, _ => new ConcurrentQueue<IEvent>());
         queue.Enqueue(internalEvent);
         return true;
     }

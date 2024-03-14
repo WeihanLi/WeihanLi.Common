@@ -8,24 +8,19 @@ namespace WeihanLi.Common.Event;
 
 public sealed class EventStoreInMemory : IEventStore
 {
-    private readonly ConcurrentDictionary<string, IEventBase> _events = new();
+    private readonly ConcurrentDictionary<string, IEvent> _events = new();
 
-    public int SaveEvents(ICollection<IEventBase> events)
+    public Task<int> SaveEventsAsync(ICollection<IEvent> events)
     {
         if (events.IsNullOrEmpty())
-            return 0;
+            return Task.FromResult(0);
 
-        return events.Count(@event => _events.TryAdd(@event.EventId, @event));
+        return Task.FromResult(events.Count(@event => _events.TryAdd(@event.Properties.EventId, @event)));
     }
 
-    public Task<int> SaveEventsAsync(ICollection<IEventBase> events) => Task.FromResult(SaveEvents(events));
-
-    public int DeleteEvents(ICollection<string> eventIds)
+    private int DeleteEvents(ICollection<string> eventIds)
     {
-        if (eventIds.IsNullOrEmpty())
-            return 0;
-        
-        return eventIds.Count(eventId => _events.TryRemove(eventId, out _));
+        return eventIds.IsNullOrEmpty() ? 0 : eventIds.Count(eventId => _events.TryRemove(eventId, out _));
     }
 
     public Task<int> DeleteEventsAsync(ICollection<string> eventIds) => Task.FromResult(DeleteEvents(eventIds));
