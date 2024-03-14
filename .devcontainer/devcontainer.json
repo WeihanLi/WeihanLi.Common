@@ -1,9 +1,19 @@
 {
     "name": "CodeSpace",
-    "dockerFile": "Dockerfile",
-    // Install needed extensions
-    "extensions": [
-        "ms-dotnettools.csharp",
-        "davidanson.vscode-markdownlint"
-    ]
+    "image": "mcr.microsoft.com/devcontainers/base:debian",
+    "postCreateCommand": "bash -i ${containerWorkspaceFolder}/.devcontainer/scripts/post-creation.sh",
+    // features list: https://containers.dev/features
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/dotnet:2": {}
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "EditorConfig.EditorConfig",
+          "DavidAnson.vscode-markdownlint"
+        ]
+      }
+    }
 }
