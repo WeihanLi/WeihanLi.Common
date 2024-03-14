@@ -24,6 +24,7 @@ public static class TaskHelper
             Task<T> t => t,
             ValueTask vt0 => vt0.AsTask().ContinueWith(_ => defaultValue),
             Task t0 => t0.ContinueWith(_ => defaultValue),
+            T v => Task.FromResult(v),
             _ => Task.FromResult(defaultValue)
         };
         return task;
