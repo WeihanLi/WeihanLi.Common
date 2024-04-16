@@ -15,7 +15,8 @@ public sealed class EventQueueInMemory : IEventQueue
 
     public Task<ICollection<string>> GetQueuesAsync() => Task.FromResult(GetQueues());
 
-    public bool Enqueue<TEvent>(string queueName, TEvent @event, EventProperties? properties = null)
+
+    public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event, EventProperties? properties = null)
     {
         properties ??= new();
         if (string.IsNullOrEmpty(properties.EventId))
@@ -37,10 +38,8 @@ public sealed class EventQueueInMemory : IEventQueue
         };
         var queue = _eventQueues.GetOrAdd(queueName, _ => new ConcurrentQueue<IEvent>());
         queue.Enqueue(internalEvent);
-        return true;
+        return Task.FromResult(true);
     }
-
-    public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event, EventProperties? properties = null) => Task.FromResult(Enqueue(queueName, @event, properties));
 
     public Task<bool> TryDequeueAsync(string queueName, [NotNullWhen(true)]out object? @event, [NotNullWhen(true)]out EventProperties? properties)
     {
@@ -58,6 +57,20 @@ public sealed class EventQueueInMemory : IEventQueue
         }
 
         return Task.FromResult(false);
+    }
+
+    public async IAsyncEnumerable<(TEvent Event, EventProperties Properties)> ReadAllAsync<TEvent>(string queueName, CancellationToken cancellationToken = default)
+    {
+        var tcs = new TaskCompletionSource();
+        cancellationToken.Register(() => tcs.TrySetResult());
+        if (_eventQueues.TryGetValue(queueName, out var queue))
+        {
+            if (queue.TryDequeue(out var eventWrapper))
+            {
+                yield return (eventWrapper.Data, eventWrapper.Properties);
+            }
+        }
+        await tcs.Task;
     }
 
     public bool TryRemoveQueue(string queueName)
