@@ -86,13 +86,7 @@ namespace System.Threading.Tasks
         /// <see cref="TaskStatus.Faulted"/>, or
         /// <see cref="TaskStatus.Canceled"/>.
         /// </exception>
-        public void SetException(Exception exception)
-        {
-            if (!TrySetException(exception))
-            {
-                ThrowHelper.ThrowInvalidOperationException(ExceptionResource.TaskT_TransitionToFinal_AlreadyCompleted);
-            }
-        }
+        public void SetException(Exception exception) => _taskCompletionSource.SetException(exception);
  
         /// <summary>Transitions the underlying <see cref="Tasks.Task"/> into the <see cref="TaskStatus.Faulted"/> state.</summary>
         /// <param name="exceptions">The collection of exceptions to bind to this <see cref="Tasks.Task"/>.</param>
@@ -104,13 +98,7 @@ namespace System.Threading.Tasks
         /// <see cref="TaskStatus.Faulted"/>, or
         /// <see cref="TaskStatus.Canceled"/>.
         /// </exception>
-        public void SetException(IEnumerable<Exception> exceptions)
-        {
-            if (!TrySetException(exceptions))
-            {
-                ThrowHelper.ThrowInvalidOperationException(ExceptionResource.TaskT_TransitionToFinal_AlreadyCompleted);
-            }
-        }
+        public void SetException(IEnumerable<Exception> exceptions) => _taskCompletionSource.SetException(exceptions);
  
         /// <summary>
         /// Attempts to transition the underlying <see cref="Tasks.Task"/> into the <see cref="TaskStatus.Faulted"/> state.
@@ -124,10 +112,7 @@ namespace System.Threading.Tasks
         /// <see cref="TaskStatus.Canceled"/>.
         /// </remarks>
         /// <exception cref="ArgumentNullException">The <paramref name="exception"/> argument is null.</exception>
-        public bool TrySetException(Exception exception)
-        {
-            return _taskCompletionSource.TrySetException(exception);
-        }
+        public bool TrySetException(Exception exception) => _taskCompletionSource.TrySetException(exception);
  
         /// <summary>
         /// Attempts to transition the underlying <see cref="Tasks.Task"/> into the <see cref="TaskStatus.Faulted"/> state.
@@ -143,10 +128,7 @@ namespace System.Threading.Tasks
         /// <exception cref="ArgumentNullException">The <paramref name="exceptions"/> argument is null.</exception>
         /// <exception cref="ArgumentException">There are one or more null elements in <paramref name="exceptions"/>.</exception>
         /// <exception cref="ArgumentException">The <paramref name="exceptions"/> collection is empty.</exception>
-        public bool TrySetException(IEnumerable<Exception> exceptions)
-        {
-            return _taskCompletionSource.TrySetException(exceptions);
-        }
+        public bool TrySetException(IEnumerable<Exception> exceptions) => _taskCompletionSource.TrySetException(exceptions);
  
         /// <summary>
         /// Transitions the underlying <see cref="Tasks.Task"/> into the <see cref="TaskStatus.RanToCompletion"/> state.
@@ -157,13 +139,7 @@ namespace System.Threading.Tasks
         /// <see cref="TaskStatus.Faulted"/>, or
         /// <see cref="TaskStatus.Canceled"/>.
         /// </exception>
-        public void SetResult()
-        {
-            if (!TrySetResult())
-            {
-                ThrowHelper.ThrowInvalidOperationException(ExceptionResource.TaskT_TransitionToFinal_AlreadyCompleted);
-            }
-        }
+        public void SetResult() => _taskCompletionSource.SetResult(null);
  
         /// <summary>
         /// Attempts to transition the underlying <see cref="Tasks.Task"/> into the <see cref="TaskStatus.RanToCompletion"/> state.
@@ -175,10 +151,7 @@ namespace System.Threading.Tasks
         /// <see cref="TaskStatus.Faulted"/>, or
         /// <see cref="TaskStatus.Canceled"/>.
         /// </remarks>
-        public bool TrySetResult()
-        {
-            return _taskCompletionSource.TrySetResult(null);
-        }
+        public bool TrySetResult() => _taskCompletionSource.TrySetResult(null);
  
         /// <summary>
         /// Transitions the underlying <see cref="Tasks.Task"/> into the <see cref="TaskStatus.Canceled"/> state.
@@ -202,13 +175,7 @@ namespace System.Threading.Tasks
         /// <see cref="TaskStatus.Faulted"/>, or
         /// <see cref="TaskStatus.Canceled"/>.
         /// </exception>
-        public void SetCanceled(CancellationToken cancellationToken)
-        {
-            if (!TrySetCanceled(cancellationToken))
-            {
-                ThrowHelper.ThrowInvalidOperationException(ExceptionResource.TaskT_TransitionToFinal_AlreadyCompleted);
-            }
-        }
+        public void SetCanceled(CancellationToken cancellationToken) => _taskCompletionSource.SetCanceled(cancellationToken);
  
         /// <summary>
         /// Attempts to transition the underlying <see cref="Tasks.Task"/> into the <see cref="TaskStatus.Canceled"/> state.
@@ -233,10 +200,7 @@ namespace System.Threading.Tasks
         /// <see cref="TaskStatus.Faulted"/>, or
         /// <see cref="TaskStatus.Canceled"/>.
         /// </remarks>
-        public bool TrySetCanceled(CancellationToken cancellationToken)
-        {
-            return _taskCompletionSource.TrySetCanceled(cancellationToken);
-        }
+        public bool TrySetCanceled(CancellationToken cancellationToken) => _taskCompletionSource.TrySetCanceled(cancellationToken);
     }
 }
 #endif
