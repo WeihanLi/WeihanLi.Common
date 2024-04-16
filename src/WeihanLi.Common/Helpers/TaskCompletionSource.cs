@@ -162,7 +162,7 @@ namespace System.Threading.Tasks
         /// <see cref="TaskStatus.Faulted"/>, or
         /// <see cref="TaskStatus.Canceled"/>.
         /// </exception>
-        public void SetCanceled() => SetCanceled(default);
+        public void SetCanceled() => _taskCompletionSource.SetCanceled(null);
  
         /// <summary>
         /// Attempts to transition the underlying <see cref="Tasks.Task"/> into the <see cref="TaskStatus.Canceled"/> state.
