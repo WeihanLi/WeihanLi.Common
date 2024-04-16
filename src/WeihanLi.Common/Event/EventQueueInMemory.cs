@@ -4,6 +4,7 @@
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 
 namespace WeihanLi.Common.Event;
 
@@ -59,7 +60,7 @@ public sealed class EventQueueInMemory : IEventQueue
         return Task.FromResult(false);
     }
 
-    internal async IAsyncEnumerable<(TEvent Event, EventProperties Properties)> ReadAllAsync<TEvent>(string queueName, CancellationToken cancellationToken = default)
+    internal async IAsyncEnumerable<(TEvent Event, EventProperties Properties)> ReadAllAsync<TEvent>(string queueName, [EnumeratorCancellation]CancellationToken cancellationToken = default)
     {        
         while (!cancellationToken.IsCancellationRequested)
         {
@@ -67,7 +68,7 @@ public sealed class EventQueueInMemory : IEventQueue
             {
                 while (queue.TryDequeue(out var eventWrapper))
                 {
-                    yield return ((TEvent)eventWrapper.Data, eventWrapper.Properties);
+                    yield return ((TEvent)eventWrapper!.Data!, eventWrapper!.Properties);
                 }
             }
             await Task.Delay(100);
