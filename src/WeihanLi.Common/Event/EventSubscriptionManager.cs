@@ -14,16 +14,20 @@ public interface IEventSubscriptionManager : IEventSubscriber
     /// <param name="eventType">event</param>
     /// <returns>event handlers types</returns>
     ICollection<IEventHandler> GetEventHandlers(Type eventType);
+    
+    ICollection<IEventHandler<TEvent>> GetEventHandlers<TEvent>();
 }
 
-public sealed class EventSubscriptionManagerInMemory : IEventSubscriptionManager
+public sealed class InMemoryEventSubscriptionManager(IServiceProvider? serviceProvider = null)
+    : IEventSubscriptionManager
 {
+    private readonly IServiceProvider _serviceProvider = serviceProvider ?? DependencyResolver.Current;
     private readonly ConcurrentDictionary<Type, ConcurrentSet<IEventHandler>> _eventHandlers = new();
 
-    public bool Subscribe(Type eventType, Type eventHandlerType)
+    private bool Subscribe(Type eventType, Type eventHandlerType)
     {
         var handlers = _eventHandlers.GetOrAdd(eventType, []);
-        return handlers.TryAdd((IEventHandler)Guard.NotNull(DependencyResolver.Current.GetService(eventHandlerType)));
+        return handlers.TryAdd((IEventHandler)Guard.NotNull(_serviceProvider.GetServiceOrCreateInstance(eventHandlerType)));
     }
 
     public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType)
@@ -57,16 +61,19 @@ public sealed class EventSubscriptionManagerInMemory : IEventSubscriptionManager
     {
         return _eventHandlers[eventType];
     }
+
+    public ICollection<IEventHandler<TEvent>> GetEventHandlers<TEvent>()
+    {
+        return _eventHandlers[typeof(TEvent)].Cast<IEventHandler<TEvent>>().ToArray();
+    }
 }
 
-public sealed class NullEventSubscriptionManager : IEventSubscriptionManager
+public sealed class DependencyInjectionEventSubscriptionManager(IEventHandlerFactory eventHandlerFactory)
+    : IEventSubscriptionManager
 {
-    public static readonly IEventSubscriptionManager Instance = new NullEventSubscriptionManager();
-
-    public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => Task.FromResult(false);
-    public Task<bool> SubscribeAsync<TEvent>(IEventHandler<TEvent> eventHandler) => Task.FromResult(false);
-
-    public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => Task.FromResult(false);
-
-    public ICollection<IEventHandler> GetEventHandlers(Type eventType) => Array.Empty<IEventHandler>();
+    public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => throw new NotSupportedException();
+    public Task<bool> SubscribeAsync<TEvent>(IEventHandler<TEvent> eventHandler) => throw new NotSupportedException();
+    public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => throw new NotSupportedException();
+    public ICollection<IEventHandler> GetEventHandlers(Type eventType) => eventHandlerFactory.GetHandlers(eventType);
+    public ICollection<IEventHandler<TEvent>> GetEventHandlers<TEvent>() => eventHandlerFactory.GetHandlers<TEvent>();
 }

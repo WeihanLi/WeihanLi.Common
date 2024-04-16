@@ -37,6 +37,7 @@ public static class EventSubscriberExtensions
     /// </summary>
     /// <typeparam name="TEvent">TEvent</typeparam>
     /// <returns>whether the operation success</returns>
+    [Obsolete("Use SubscribeAsync instead", true)]
     public static bool Subscribe<TEvent>(this IEventSubscriber subscriber, Func<TEvent, Task> handler)
     {
         return subscriber.SubscribeAsync(new DelegateEventHandler<TEvent>(handler))
@@ -49,6 +50,7 @@ public static class EventSubscriberExtensions
     /// <typeparam name="TEvent">TEvent</typeparam>
     /// <typeparam name="TEventHandler">TEventHandler</typeparam>
     /// <returns>whether the operation success</returns>
+    [Obsolete("Use SubscribeAsync instead", true)]
     public static bool Subscribe<TEvent, TEventHandler>(this IEventSubscriber subscriber)
         where TEventHandler : class, IEventHandler<TEvent>
     {
@@ -62,6 +64,7 @@ public static class EventSubscriberExtensions
     /// <param name="eventType">event type</param>
     /// <param name="eventHandlerType">eventHandler type</param>
     /// <returns>whether the operation success</returns>
+    [Obsolete("Use SubscribeAsync instead", true)]
     public static bool Subscribe(this IEventSubscriber subscriber, Type eventType, Type eventHandlerType)
     {
         return subscriber.SubscribeAsync(eventType, eventHandlerType).GetAwaiter().GetResult();
@@ -85,6 +88,7 @@ public static class EventSubscriberExtensions
     /// <typeparam name="TEvent">TEvent</typeparam>
     /// <typeparam name="TEventHandler">TEventHandler</typeparam>
     /// <returns>whether the operation success</returns>
+    [Obsolete("Use UnSubscribeAsync instead", true)]
     public static bool UnSubscribe<TEvent, TEventHandler>(this IEventSubscriber subscriber)
         where TEventHandler : class, IEventHandler<TEvent>
     {
@@ -98,6 +102,7 @@ public static class EventSubscriberExtensions
     /// <param name="eventType">event type</param>
     /// <param name="eventHandlerType">eventHandler type</param>
     /// <returns>whether the operation success</returns>
+    [Obsolete("Use UnSubscribeAsync instead", true)]
     public static bool UnSubscribe(this IEventSubscriber subscriber, Type eventType, Type eventHandlerType)
     {
         return subscriber.UnSubscribeAsync(eventType, eventHandlerType).GetAwaiter().GetResult();

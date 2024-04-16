@@ -26,13 +26,12 @@ public static class EventBusExtensions
         services.AddOptions();
 
         services.TryAddSingleton<IEventHandlerFactory, DependencyInjectionEventHandlerFactory>();
+        services.TryAddSingleton<IEventSubscriptionManager, DependencyInjectionEventSubscriptionManager>();
         services.TryAddSingleton<IEventBus, EventBus>();
-
         services.TryAddSingleton<IEventQueue, EventQueueInMemory>();
         services.TryAddSingleton<IEventStore, EventStoreInMemory>();
         services.TryAddSingleton<IEventPublisher, EventQueuePublisher>();
-        services.TryAddSingleton<IEventSubscriptionManager, NullEventSubscriptionManager>();
-
+        
         return new EventBuilder(services);
     }
 
@@ -62,7 +61,10 @@ public static class EventBusExtensions
         var handlerTypes = assemblies
             .Select(ass => ass.GetTypes())
             .SelectMany(t => t)
-            .Where(t => !t.IsAbstract && typeof(IEventHandler).IsAssignableFrom(t));
+            .Where(t => !t.IsAbstract 
+                        && typeof(IEventHandler).IsAssignableFrom(t)
+                        && !(t.IsGenericType && t.GetGenericTypeDefinition() == typeof(DelegateEventHandler<>))
+                        );
         if (filter != null)
         {
             handlerTypes = handlerTypes.Where(filter);
@@ -72,7 +74,9 @@ public static class EventBusExtensions
         {
             foreach (var implementedInterface in handlerType.GetTypeInfo().ImplementedInterfaces)
             {
-                if (implementedInterface.IsGenericType && typeof(IEventHandler<>) == implementedInterface.GetGenericTypeDefinition())
+                if (implementedInterface.IsGenericType 
+                    && typeof(IEventHandler<>) == implementedInterface.GetGenericTypeDefinition()
+                    )
                 {
                     builder.Services.TryAddEnumerable(new ServiceDescriptor(implementedInterface, handlerType, serviceLifetime));
                 }

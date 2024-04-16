@@ -11,14 +11,13 @@ namespace WeihanLi.Common.Event;
 /// <summary>
 /// EventBus in process
 /// </summary>
-public sealed class EventBus(IEventSubscriptionManager subscriptionManager, IEventHandlerFactory eventHandlerFactory) : IEventBus
+public sealed class EventBus(IEventSubscriptionManager? subscriptionManager = null) : IEventBus
 {
     private static readonly ILogHelperLogger Logger = Helpers.LogHelper.GetLogger<EventBus>();
 
-    private readonly IEventSubscriptionManager _subscriptionManager = subscriptionManager;
-    private readonly IEventHandlerFactory _eventHandlerFactory = eventHandlerFactory;
+    private readonly IEventSubscriptionManager _subscriptionManager = subscriptionManager ?? new InMemoryEventSubscriptionManager();
 
-    public async Task<bool> PublishAsync<TEvent>(TEvent @event, EventProperties? properties)
+    public async Task<bool> PublishAsync<TEvent>(TEvent @event, EventProperties? properties = null)
     {
         properties ??= new();
         if (string.IsNullOrEmpty(properties.EventId))
@@ -34,7 +33,7 @@ public sealed class EventBus(IEventSubscriptionManager subscriptionManager, IEve
         {
             properties.TraceId = Activity.Current.TraceId.ToString();
         }
-        var handlers = _eventHandlerFactory.GetHandlers<TEvent>();
+        var handlers = _subscriptionManager.GetEventHandlers<TEvent>();
         if (handlers.Count > 0)
         {
             var handlerTasks = new Task[handlers.Count];
@@ -42,7 +41,7 @@ public sealed class EventBus(IEventSubscriptionManager subscriptionManager, IEve
             {
                 handlerTasks[index] = handler.Handle(@event, properties).ContinueWith(r =>
                 {
-                    Logger.Error(r.Exception?.Unwrap(),
+                    Logger.Error(r.Exception,
                         $"handle event [{typeof(TEvent).FullName}] error, eventHandlerType:{handler.GetType().FullName}");
                 }, TaskContinuationOptions.OnlyOnFaulted);
             });
@@ -53,11 +52,13 @@ public sealed class EventBus(IEventSubscriptionManager subscriptionManager, IEve
         return false;
     }
 
+    [Obsolete("Use SubscribeAsync instead", true)]
     public bool Subscribe(Type eventType, Type eventHandlerType) => _subscriptionManager.Subscribe(eventType, eventHandlerType);
 
     public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => _subscriptionManager.SubscribeAsync(eventType, eventHandlerType);
     public Task<bool> SubscribeAsync<TEvent>(IEventHandler<TEvent> eventHandler) => _subscriptionManager.SubscribeAsync(eventHandler);
 
+    [Obsolete("Use UnSubscribeAsync instead", true)]
     public bool UnSubscribe(Type eventType, Type eventHandlerType) => _subscriptionManager.UnSubscribe(eventType, eventHandlerType);
 
     public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => _subscriptionManager.UnSubscribeAsync(eventType, eventHandlerType);

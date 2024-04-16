@@ -22,6 +22,7 @@ public sealed class DependencyInjectionEventHandlerFactory(IServiceProvider? ser
     private readonly IServiceProvider _serviceProvider = serviceProvider ?? DependencyResolver.Current;
 
     [RequiresUnreferencedCode("Unreferenced code may be used")]
+    [RequiresDynamicCode("Requires dynamic code")]
     public ICollection<IEventHandler> GetHandlers(Type eventType)
     {
         var eventHandlerType = typeof(IEventHandler<>).MakeGenericType(eventType);
