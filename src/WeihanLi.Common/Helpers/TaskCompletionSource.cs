@@ -29,11 +29,12 @@ namespace System.Threading.Tasks
     /// </remarks>
     public class TaskCompletionSource
     {
-        private readonly Task _task;
- 
+        private readonly TaskCompletionSource<object?> _taskCompletionSource;
+
         /// <summary>Creates a <see cref="TaskCompletionSource"/>.</summary>
-        public TaskCompletionSource() => _task = new Task();
- 
+        public TaskCompletionSource() => _taskCompletionSource = new();
+
+
         /// <summary>Creates a <see cref="TaskCompletionSource"/> with the specified options.</summary>
         /// <remarks>
         /// The <see cref="Tasks.Task"/> created by this instance and accessible through its <see cref="Task"/> property
@@ -62,7 +63,7 @@ namespace System.Threading.Tasks
         /// <param name="state">The state to use as the underlying <see cref="Tasks.Task"/>'s AsyncState.</param>
         /// <exception cref="ArgumentOutOfRangeException">The <paramref name="creationOptions"/> represent options invalid for use with a <see cref="TaskCompletionSource"/>.</exception>
         public TaskCompletionSource(object? state, TaskCreationOptions creationOptions) =>
-            _task = new Task(state, creationOptions, promiseStyle: true);
+            _taskCompletionSource = new(state, creationOptions);
  
         /// <summary>
         /// Gets the <see cref="Tasks.Task"/> created
@@ -74,7 +75,7 @@ namespace System.Threading.Tasks
         /// and <see cref="SetCanceled"/> methods (and their "Try" variants) on this instance all result in the relevant state
         /// transitions on this underlying Task.
         /// </remarks>
-        public Task Task => _task;
+        public Task Task => _taskCompletionSource.Task;
  
         /// <summary>Transitions the underlying <see cref="Tasks.Task"/> into the <see cref="TaskStatus.Faulted"/> state.</summary>
         /// <param name="exception">The exception to bind to this <see cref="Tasks.Task"/>.</param>
@@ -125,18 +126,7 @@ namespace System.Threading.Tasks
         /// <exception cref="ArgumentNullException">The <paramref name="exception"/> argument is null.</exception>
         public bool TrySetException(Exception exception)
         {
-            if (exception is null)
-            {
-                ThrowHelper.ThrowArgumentNullException(ExceptionArgument.exception);
-            }
- 
-            bool rval = _task.TrySetException(exception);
-            if (!rval && !_task.IsCompleted)
-            {
-                _task.SpinUntilCompleted();
-            }
- 
-            return rval;
+            return _taskCompletionSource.TrySetException(exception);
         }
  
         /// <summary>
@@ -155,34 +145,7 @@ namespace System.Threading.Tasks
         /// <exception cref="ArgumentException">The <paramref name="exceptions"/> collection is empty.</exception>
         public bool TrySetException(IEnumerable<Exception> exceptions)
         {
-            if (exceptions is null)
-            {
-                ThrowHelper.ThrowArgumentNullException(ExceptionArgument.exceptions);
-            }
- 
-            var defensiveCopy = new List<Exception>();
-            foreach (Exception e in exceptions)
-            {
-                if (e is null)
-                {
-                    ThrowHelper.ThrowArgumentException(ExceptionResource.TaskCompletionSourceT_TrySetException_NullException, ExceptionArgument.exceptions);
-                }
- 
-                defensiveCopy.Add(e);
-            }
- 
-            if (defensiveCopy.Count == 0)
-            {
-                ThrowHelper.ThrowArgumentException(ExceptionResource.TaskCompletionSourceT_TrySetException_NoExceptions, ExceptionArgument.exceptions);
-            }
- 
-            bool rval = _task.TrySetException(defensiveCopy);
-            if (!rval && !_task.IsCompleted)
-            {
-                _task.SpinUntilCompleted();
-            }
- 
-            return rval;
+            return _taskCompletionSource.TrySetException(exceptions);
         }
  
         /// <summary>
@@ -214,13 +177,7 @@ namespace System.Threading.Tasks
         /// </remarks>
         public bool TrySetResult()
         {
-            bool rval = _task.TrySetResult();
-            if (!rval)
-            {
-                _task.SpinUntilCompleted();
-            }
- 
-            return rval;
+            return _taskCompletionSource.TrySetResult(null);
         }
  
         /// <summary>
@@ -278,83 +235,7 @@ namespace System.Threading.Tasks
         /// </remarks>
         public bool TrySetCanceled(CancellationToken cancellationToken)
         {
-            bool rval = _task.TrySetCanceled(cancellationToken);
-            if (!rval && !_task.IsCompleted)
-            {
-                _task.SpinUntilCompleted();
-            }
- 
-            return rval;
-        }
- 
-        /// <summary>
-        /// Transition the underlying <see cref="Task{TResult}"/> into the same completion state as the specified <paramref name="completedTask"/>.
-        /// </summary>
-        /// <param name="completedTask">The completed task whose completion status (including exception or cancellation information) should be copied to the underlying task.</param>
-        /// <exception cref="ArgumentNullException"><paramref name="completedTask"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="completedTask"/> is not completed.</exception>
-        /// <exception cref="InvalidOperationException">
-        /// The underlying <see cref="Task{TResult}"/> is already in one of the three final states:
-        /// <see cref="TaskStatus.RanToCompletion"/>, <see cref="TaskStatus.Faulted"/>, or <see cref="TaskStatus.Canceled"/>.
-        /// </exception>
-        /// <remarks>
-        /// This operation will return false if the <see cref="Task{TResult}"/> is already in one of the three final states:
-        /// <see cref="TaskStatus.RanToCompletion"/>, <see cref="TaskStatus.Faulted"/>, or <see cref="TaskStatus.Canceled"/>.
-        /// </remarks>
-        public void SetFromTask(Task completedTask)
-        {
-            if (!TrySetFromTask(completedTask))
-            {
-                ThrowHelper.ThrowInvalidOperationException(ExceptionResource.TaskT_TransitionToFinal_AlreadyCompleted);
-            }
-        }
- 
-        /// <summary>
-        /// Attempts to transition the underlying <see cref="Task{TResult}"/> into the same completion state as the specified <paramref name="completedTask"/>.
-        /// </summary>
-        /// <param name="completedTask">The completed task whose completion status (including exception or cancellation information) should be copied to the underlying task.</param>
-        /// <returns><see langword="true"/> if the operation was successful; otherwise, <see langword="false"/>.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="completedTask"/> is <see langword="null"/>.</exception>
-        /// <exception cref="ArgumentException"><paramref name="completedTask"/> is not completed.</exception>
-        /// <remarks>
-        /// This operation will return false if the <see cref="Task{TResult}"/> is already in one of the three final states:
-        /// <see cref="TaskStatus.RanToCompletion"/>, <see cref="TaskStatus.Faulted"/>, or <see cref="TaskStatus.Canceled"/>.
-        /// </remarks>
-        public bool TrySetFromTask(Task completedTask)
-        {
-            ArgumentNullException.ThrowIfNull(completedTask);
-            if (!completedTask.IsCompleted)
-            {
-                throw new ArgumentException(SR.Task_MustBeCompleted, nameof(completedTask));
-            }
- 
-            // Try to transition to the appropriate final state based on the state of completedTask.
-            bool result = false;
-            switch (completedTask.Status)
-            {
-                case TaskStatus.RanToCompletion:
-                    result = _task.TrySetResult();
-                    break;
- 
-                case TaskStatus.Canceled:
-                    result = _task.TrySetCanceled(completedTask.CancellationToken, completedTask.GetCancellationExceptionDispatchInfo());
-                    break;
- 
-                case TaskStatus.Faulted:
-                    result = _task.TrySetException(completedTask.GetExceptionDispatchInfos());
-                    break;
-            }
- 
-            // If we successfully transitioned to a final state, we're done. If we didn't, it's possible a concurrent operation
-            // is still in the process of completing the task, and callers of this method expect the task to already be fully
-            // completed when this method returns. As such, we spin until the task is completed, and then return whether this
-            // call successfully did the transition.
-            if (!result && !_task.IsCompleted)
-            {
-                _task.SpinUntilCompleted();
-            }
- 
-            return result;
+            return _taskCompletionSource.TrySetCanceled(cancellationToken);
         }
     }
 }
