@@ -59,18 +59,19 @@ public sealed class EventQueueInMemory : IEventQueue
         return Task.FromResult(false);
     }
 
-    public async IAsyncEnumerable<(TEvent Event, EventProperties Properties)> ReadAllAsync<TEvent>(string queueName, CancellationToken cancellationToken = default)
-    {
-        var tcs = new TaskCompletionSource();
-        cancellationToken.Register(() => tcs.TrySetResult());
-        if (_eventQueues.TryGetValue(queueName, out var queue))
+    internal async IAsyncEnumerable<(TEvent Event, EventProperties Properties)> ReadAllAsync<TEvent>(string queueName, CancellationToken cancellationToken = default)
+    {        
+        while (!cancellationToken.IsCancellationRequested)
         {
-            if (queue.TryDequeue(out var eventWrapper))
+            if (_eventQueues.TryGetValue(queueName, out var queue))
             {
-                yield return (eventWrapper.Data, eventWrapper.Properties);
+                while (queue.TryDequeue(out var eventWrapper))
+                {
+                    yield return (eventWrapper.Data, eventWrapper.Properties);
+                }
             }
-        }
-        await tcs.Task;
+            await Task.Delay(100);
+        }    
     }
 
     public bool TryRemoveQueue(string queueName)
