@@ -67,11 +67,11 @@ public sealed class EventQueueInMemory : IEventQueue
             {
                 while (queue.TryDequeue(out var eventWrapper))
                 {
-                    yield return (eventWrapper.Data, eventWrapper.Properties);
+                    yield return ((TEvent)eventWrapper.Data, eventWrapper.Properties);
                 }
             }
             await Task.Delay(100);
-        }    
+        }
     }
 
     public bool TryRemoveQueue(string queueName)
