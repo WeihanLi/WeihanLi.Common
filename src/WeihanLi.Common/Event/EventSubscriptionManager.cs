@@ -2,6 +2,7 @@
 // Licensed under the Apache license.
 
 using System.Collections.Concurrent;
+using System.Diagnostics.CodeAnalysis;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Event;
