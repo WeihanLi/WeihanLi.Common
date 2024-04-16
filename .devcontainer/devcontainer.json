@@ -8,7 +8,7 @@
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/devcontainers/features/dotnet:2": {
           "version": "latest",
-          "additionalVersions": "lts, 9.0.x"
+          "additionalVersions": "9.0.0-preview.3.24172.9"
         }
     },
     "customizations": {
