@@ -14,8 +14,6 @@ public interface IEventSubscriptionManager : IEventSubscriber
     /// <param name="eventType">event</param>
     /// <returns>event handlers types</returns>
     ICollection<IEventHandler> GetEventHandlers(Type eventType);
-    
-    ICollection<IEventHandler<TEvent>> GetEventHandlers<TEvent>();
 }
 
 public sealed class InMemoryEventSubscriptionManager(IServiceProvider? serviceProvider = null)
@@ -61,19 +59,19 @@ public sealed class InMemoryEventSubscriptionManager(IServiceProvider? servicePr
     {
         return _eventHandlers[eventType];
     }
-
-    public ICollection<IEventHandler<TEvent>> GetEventHandlers<TEvent>()
-    {
-        return _eventHandlers[typeof(TEvent)].Cast<IEventHandler<TEvent>>().ToArray();
-    }
 }
 
-public sealed class DependencyInjectionEventSubscriptionManager(IEventHandlerFactory eventHandlerFactory)
+public sealed class DependencyInjectionEventSubscriptionManager(IServiceProvider serviceProvider)
     : IEventSubscriptionManager
 {
     public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => throw new NotSupportedException();
     public Task<bool> SubscribeAsync<TEvent>(IEventHandler<TEvent> eventHandler) => throw new NotSupportedException();
     public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => throw new NotSupportedException();
-    public ICollection<IEventHandler> GetEventHandlers(Type eventType) => eventHandlerFactory.GetHandlers(eventType);
-    public ICollection<IEventHandler<TEvent>> GetEventHandlers<TEvent>() => eventHandlerFactory.GetHandlers<TEvent>();
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
+    [RequiresDynamicCode("Requires dynamic code")]
+    public ICollection<IEventHandler> GetEventHandlers(Type eventType)
+    {
+        var eventHandlerType = typeof(IEventHandler<>).MakeGenericType(eventType);
+        return serviceProvider.GetServices(eventHandlerType).Cast<IEventHandler>().ToArray();
+    }
 }

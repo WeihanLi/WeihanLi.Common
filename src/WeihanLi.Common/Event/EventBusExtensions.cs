@@ -24,9 +24,8 @@ public static class EventBusExtensions
     public static IEventBuilder AddEvents(this IServiceCollection services)
     {
         services.AddOptions();
-
-        services.TryAddSingleton<IEventHandlerFactory, DependencyInjectionEventHandlerFactory>();
         services.TryAddSingleton<IEventSubscriptionManager, DependencyInjectionEventSubscriptionManager>();
+        services.TryAddSingleton<IEventHandlerFactory, DefaultEventHandlerFactory>();
         services.TryAddSingleton<IEventBus, EventBus>();
         services.TryAddSingleton<IEventQueue, EventQueueInMemory>();
         services.TryAddSingleton<IEventStore, EventStoreInMemory>();
@@ -84,5 +83,12 @@ public static class EventBusExtensions
         }
 
         return builder;
+    }
+
+    public static ICollection<IEventHandler<TEvent>> GetEventHandlers<TEvent>(this IEventSubscriptionManager eventSubscriptionManager)
+    {
+        return eventSubscriptionManager.GetEventHandlers(typeof(TEvent))
+            .Cast<IEventHandler<TEvent>>()
+            .ToArray();
     }
 }
