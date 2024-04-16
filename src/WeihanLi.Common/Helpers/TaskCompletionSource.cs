@@ -165,19 +165,6 @@ namespace System.Threading.Tasks
         public void SetCanceled() => SetCanceled(default);
  
         /// <summary>
-        /// Transitions the underlying <see cref="Tasks.Task"/> into the <see cref="TaskStatus.Canceled"/> state
-        /// using the specified token.
-        /// </summary>
-        /// <param name="cancellationToken">The cancellation token with which to cancel the <see cref="Tasks.Task"/>.</param>
-        /// <exception cref="InvalidOperationException">
-        /// The underlying <see cref="Tasks.Task"/> is already in one of the three final states:
-        /// <see cref="TaskStatus.RanToCompletion"/>,
-        /// <see cref="TaskStatus.Faulted"/>, or
-        /// <see cref="TaskStatus.Canceled"/>.
-        /// </exception>
-        public void SetCanceled(CancellationToken cancellationToken) => _taskCompletionSource.SetCanceled(cancellationToken);
- 
-        /// <summary>
         /// Attempts to transition the underlying <see cref="Tasks.Task"/> into the <see cref="TaskStatus.Canceled"/> state.
         /// </summary>
         /// <returns>True if the operation was successful; otherwise, false.</returns>
