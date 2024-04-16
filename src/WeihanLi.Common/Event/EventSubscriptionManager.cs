@@ -2,6 +2,7 @@
 // Licensed under the Apache license.
 
 using System.Collections.Concurrent;
+using System.Diagnostics.CodeAnalysis;
 using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Event;
@@ -16,14 +17,16 @@ public interface IEventSubscriptionManager : IEventSubscriber
     ICollection<IEventHandler> GetEventHandlers(Type eventType);
 }
 
-public sealed class EventSubscriptionManagerInMemory : IEventSubscriptionManager
+public sealed class InMemoryEventSubscriptionManager(IServiceProvider? serviceProvider = null)
+    : IEventSubscriptionManager
 {
+    private readonly IServiceProvider _serviceProvider = serviceProvider ?? DependencyResolver.Current;
     private readonly ConcurrentDictionary<Type, ConcurrentSet<IEventHandler>> _eventHandlers = new();
 
-    public bool Subscribe(Type eventType, Type eventHandlerType)
+    private bool Subscribe(Type eventType, Type eventHandlerType)
     {
         var handlers = _eventHandlers.GetOrAdd(eventType, []);
-        return handlers.TryAdd((IEventHandler)Guard.NotNull(DependencyResolver.Current.GetService(eventHandlerType)));
+        return handlers.TryAdd((IEventHandler)Guard.NotNull(_serviceProvider.GetServiceOrCreateInstance(eventHandlerType)));
     }
 
     public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType)
@@ -59,14 +62,17 @@ public sealed class EventSubscriptionManagerInMemory : IEventSubscriptionManager
     }
 }
 
-public sealed class NullEventSubscriptionManager : IEventSubscriptionManager
+public sealed class DependencyInjectionEventSubscriptionManager(IServiceProvider serviceProvider)
+    : IEventSubscriptionManager
 {
-    public static readonly IEventSubscriptionManager Instance = new NullEventSubscriptionManager();
-
-    public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => Task.FromResult(false);
-    public Task<bool> SubscribeAsync<TEvent>(IEventHandler<TEvent> eventHandler) => Task.FromResult(false);
-
-    public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => Task.FromResult(false);
-
-    public ICollection<IEventHandler> GetEventHandlers(Type eventType) => Array.Empty<IEventHandler>();
+    public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => throw new NotSupportedException();
+    public Task<bool> SubscribeAsync<TEvent>(IEventHandler<TEvent> eventHandler) => throw new NotSupportedException();
+    public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => throw new NotSupportedException();
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
+    [RequiresDynamicCode("Requires dynamic code")]
+    public ICollection<IEventHandler> GetEventHandlers(Type eventType)
+    {
+        var eventHandlerType = typeof(IEventHandler<>).MakeGenericType(eventType);
+        return serviceProvider.GetServices(eventHandlerType).Cast<IEventHandler>().ToArray();
+    }
 }

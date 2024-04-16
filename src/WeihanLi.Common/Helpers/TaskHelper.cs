@@ -16,7 +16,7 @@ public static class TaskHelper
         return task;
     }
 
-    public static Task<T> ToTask<T>(object? obj, T defaultValue = default)
+    public static Task<T> ToTask<T>(object? obj, T defaultValue = default!)
     {
         var task = obj switch
         {

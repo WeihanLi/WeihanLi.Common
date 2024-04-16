@@ -3,11 +3,13 @@
 
 namespace WeihanLi.Common.Event;
 
-public sealed class EventProperties: Dictionary<string, object?>, IEventBase
+public sealed class EventProperties: IEventBase
 {
     public DateTimeOffset EventAt { get; set; }
     public string EventId { get; set; } = Guid.NewGuid().ToString();
     public string? TraceId { get; set; }
     public string? EventSource { get; set; }
     public string? EventType { get; set; }
+
+    public Dictionary<string, object?> Headers { get; set; } = new();
 }

@@ -12,6 +12,8 @@ public interface IEventQueue
     Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event, EventProperties? properties = null);
 
     Task<bool> TryDequeueAsync(string queueName, [MaybeNullWhen(false)]out object @event, [MaybeNullWhen(false)]out EventProperties properties);
+
+    // IAsyncEnumerable<(TEvent Event, EventProperties Properties)> ReadAllEvents<TEvent>(string queueName, CancellationToken cancellationToken = default);
 }
 
 public static class EventQueueExtensions

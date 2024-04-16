@@ -21,7 +21,7 @@ public interface IEventHandler<in TEvent> : IEventHandler
     Task Handle(TEvent @event, EventProperties properties);
 }
 
-public abstract class EventHandlerBase<TEvent> : IEventHandler<TEvent>
+public abstract class EventHandlerBase<TEvent> : IEventHandler<TEvent>, IEventHandler
 {
     public abstract Task Handle(TEvent @event, EventProperties eventProperties);
 

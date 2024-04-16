@@ -4,6 +4,7 @@
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 
 namespace WeihanLi.Common.Event;
 
@@ -15,7 +16,8 @@ public sealed class EventQueueInMemory : IEventQueue
 
     public Task<ICollection<string>> GetQueuesAsync() => Task.FromResult(GetQueues());
 
-    public bool Enqueue<TEvent>(string queueName, TEvent @event, EventProperties? properties = null)
+
+    public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event, EventProperties? properties = null)
     {
         properties ??= new();
         if (string.IsNullOrEmpty(properties.EventId))
@@ -37,10 +39,8 @@ public sealed class EventQueueInMemory : IEventQueue
         };
         var queue = _eventQueues.GetOrAdd(queueName, _ => new ConcurrentQueue<IEvent>());
         queue.Enqueue(internalEvent);
-        return true;
+        return Task.FromResult(true);
     }
-
-    public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event, EventProperties? properties = null) => Task.FromResult(Enqueue(queueName, @event, properties));
 
     public Task<bool> TryDequeueAsync(string queueName, [NotNullWhen(true)]out object? @event, [NotNullWhen(true)]out EventProperties? properties)
     {
@@ -58,6 +58,21 @@ public sealed class EventQueueInMemory : IEventQueue
         }
 
         return Task.FromResult(false);
+    }
+
+    internal async IAsyncEnumerable<(TEvent Event, EventProperties Properties)> ReadAllAsync<TEvent>(string queueName, [EnumeratorCancellation]CancellationToken cancellationToken = default)
+    {        
+        while (!cancellationToken.IsCancellationRequested)
+        {
+            if (_eventQueues.TryGetValue(queueName, out var queue))
+            {
+                while (queue.TryDequeue(out var eventWrapper))
+                {
+                    yield return ((TEvent)eventWrapper!.Data!, eventWrapper!.Properties);
+                }
+            }
+            await Task.Delay(100);
+        }
     }
 
     public bool TryRemoveQueue(string queueName)

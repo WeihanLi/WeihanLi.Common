@@ -54,13 +54,8 @@ public sealed class AppHost : IAppHost
     {
         LogAppHostMessage(AppHostStartingMessage);
         using var hostStopTokenSource = CancellationTokenSource.CreateLinkedTokenSource(ApplicationHelper.ExitToken, cancellationToken);
-#if NET6_0_OR_GREATER
         var waitForStopTask = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
         hostStopTokenSource.Token.Register(() => waitForStopTask.TrySetResult());
-#else
-        var waitForStopTask = new TaskCompletionSource<object?>(TaskCreationOptions.RunContinuationsAsynchronously);
-        hostStopTokenSource.Token.Register(() => waitForStopTask.TrySetResult(null));
-#endif
         var exceptions = new List<Exception>();
 
         var startTimeoutCts = new CancellationTokenSource(_appHostOptions.StartupTimeout);
