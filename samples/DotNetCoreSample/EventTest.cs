@@ -1,4 +1,6 @@
-﻿using WeihanLi.Common;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System.Text.Json;
+using WeihanLi.Common;
 using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
@@ -8,43 +10,65 @@ namespace DotNetCoreSample;
 
 internal class EventTest
 {
-    public static void MainTest()
+    public static async Task MainTest()
     {
-        var eventBus = DependencyResolver.ResolveRequiredService<IEventBus>();
+        {
+            Console.WriteLine(@"EventBus dependency injection sample");
+            var services = new ServiceCollection();
+            services.AddEvents()
+                .RegisterEventHandlers()
+                .AddEventHandler(new DelegateEventHandler<CounterEvent>(e => Console.WriteLine(@$"Delegate event handler handling: {e.ToJson()}")))
+                ;
+            await using var sp = services.BuildServiceProvider();
+            var eventBus = sp.GetRequiredService<IEventBus>();
+            await eventBus.PublishAsync(new CounterEvent { Counter = 1 });
+            await eventBus.PublishAsync(new CounterEvent { Counter = 2 });
+            await eventBus.PublishAsync(new CounterEvent() { Counter = 3 }, new EventProperties()
+            {
+                TraceId = Guid.NewGuid().ToString()
+            });
+        }
 
-        eventBus.Subscribe<CounterEvent, CounterEventHandler1>();
-        eventBus.Subscribe<CounterEvent, CounterEventHandler1>();
+        {
+            // none dependencyInjection sample
+            Console.WriteLine(@"EventBus sample without dependency injection");
+            var eventBus = new EventBus();
+            await eventBus.SubscribeAsync<CounterEvent, CounterEventHandler1>();
+            await eventBus.SubscribeAsync<CounterEvent, CounterEventHandler2>();
+            var delegateEventHandler = new DelegateEventHandler<CounterEvent>(e =>
+                Console.WriteLine(@$"Delegate event handler handling: {e.ToJson()}"));
+            await eventBus.SubscribeAsync(delegateEventHandler);
 
-        eventBus.Subscribe<CounterEvent, CounterEventHandler2>();
-        eventBus.Subscribe<CounterEvent, DelegateEventHandler<CounterEvent>>(); // could be used for eventLogging
-
-        eventBus.Publish(new CounterEvent { Counter = 1 });
-
-        eventBus.UnSubscribe<CounterEvent, CounterEventHandler1>();
-        // eventBus.Unsubscribe<CounterEvent, DelegateEventHandler<CounterEvent>>();
-        eventBus.Publish(new CounterEvent { Counter = 2 });
+            await eventBus.PublishAsync(new CounterEvent() { Counter = 1 });
+            await eventBus.PublishAsync(new CounterEvent() { Counter = 2 });
+            
+            await eventBus.PublishAsync(new CounterEvent() { Counter = 3 }, new EventProperties()
+            {
+                TraceId = Guid.NewGuid().ToString()
+            });
+        }
     }
 }
 
-public class CounterEvent : EventBase
+public class CounterEvent
 {
     public int Counter { get; set; }
 }
 
 internal class CounterEventHandler1 : EventHandlerBase<CounterEvent>
 {
-    public override Task Handle(CounterEvent @event)
+    public override Task Handle(CounterEvent @event, EventProperties eventProperties)
     {
-        LogHelper.GetLogger<CounterEventHandler1>().Info($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
+        Console.WriteLine($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}, eventProperties: {JsonSerializer.Serialize(eventProperties)}");
         return Task.CompletedTask;
     }
 }
 
 internal class CounterEventHandler2 : EventHandlerBase<CounterEvent>
 {
-    public override Task Handle(CounterEvent @event)
+    public override Task Handle(CounterEvent @event, EventProperties eventProperties)
     {
-        LogHelper.GetLogger<CounterEventHandler2>().Info($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}");
+        Console.WriteLine($"Event Info: {@event.ToJson()}, Handler Type:{GetType().FullName}, eventProperties: {eventProperties.ToJson()}");
         return Task.CompletedTask;
     }
 }

@@ -15,7 +15,7 @@ jobs:
           6.0.x
           7.0.x
           8.0.x
-          9.0.100-preview.1.24101.2
+          9.0.x
     - name: Build
       shell: pwsh
       run: .\build.ps1 --stable=true
@@ -27,4 +27,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        gh release create --generate-notes ${{ env.ReleaseVersion }}
+        gh release create ${{ env.ReleaseVersion }} --generate-notes --target ${{ env.GITHUB_SHA }} ./artifacts/packages/*.nupkg

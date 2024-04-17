@@ -4,7 +4,6 @@ on:
     branches:
       - main
       - master
-    #  - dev
 jobs:
   build:
     name: Build
@@ -12,23 +11,21 @@ jobs:
     steps:
       # Check out the branch that triggered this workflow to the 'source' subdirectory
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
             6.0.x
             7.0.x
             8.0.x
-            9.0.100-preview.1.24101.2
+            9.0.x
       - name: install DocFX
         run: "dotnet tool install -g docfx"
-      # - name: output current dir
-      #   run: "dir"
       - name: Build docs
         run: "docfx ./docs/docfx.json"
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: docs/_site
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/_site

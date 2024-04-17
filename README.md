@@ -6,7 +6,7 @@
 
 [![WeihanLi.Common Latest](https://img.shields.io/nuget/vpre/WeihanLi.Common)](https://www.nuget.org/packages/WeihanLi.Common/absoluteLatest)
 
-[![Azure Pipelines Build Status](https://weihanli.visualstudio.com/Pipelines/_apis/build/status/WeihanLi.WeihanLi.Common?branchName=dev)](https://weihanli.visualstudio.com/Pipelines/_build/latest?definitionId=16&branchName=dev)
+[![Azure Pipelines Build Status](https://weihanli.visualstudio.com/Pipelines/_apis/build/status/WeihanLi.WeihanLi.Common?branchName=master)](https://weihanli.visualstudio.com/Pipelines/_build/latest?definitionId=16&branchName=master)
 
 [![Github Actions Build Status](https://github.com/WeihanLi/WeihanLi.Common/actions/workflows/default.yml/badge.svg)](https://github.com/WeihanLi/WeihanLi.Common/actions/workflows/default.yml)
 

@@ -28,6 +28,9 @@ public static class TaskExtension
 
     public static Task WhenAllSafely(this IEnumerable<Task> tasks, Action<Exception>? onException = null) => Task.WhenAll(tasks.Select(async t =>
     {
+#if NET8_0_OR_GREATER
+        await t.ConfigureAwait(ConfigureAwaitOptions.SuppressThrowing);
+#else
         try
         {
             await t;
@@ -36,6 +39,7 @@ public static class TaskExtension
         {
             onException?.Invoke(ex);
         }
+#endif
     }));
 
     public static Task<TResult[]> WhenAll<TResult>(this IEnumerable<Task<TResult>> tasks) => Task.WhenAll(tasks);

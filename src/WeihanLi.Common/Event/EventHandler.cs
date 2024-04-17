@@ -8,41 +8,40 @@ namespace WeihanLi.Common.Event;
 
 public interface IEventHandler
 {
-    Task Handle(object eventData);
+    Task Handle(object eventData, EventProperties properties);
 }
 
-public interface IEventHandler<in TEvent> : IEventHandler where TEvent : class, IEventBase
+public interface IEventHandler<in TEvent> : IEventHandler
 {
     /// <summary>
     /// Handler event
     /// </summary>
     /// <param name="event">event</param>
-    Task Handle(TEvent @event);
+    /// <param name="properties">eventProperties</param>
+    Task Handle(TEvent @event, EventProperties properties);
 }
 
-public abstract class EventHandlerBase<TEvent> : IEventHandler<TEvent> where TEvent : class, IEventBase
+public abstract class EventHandlerBase<TEvent> : IEventHandler<TEvent>, IEventHandler
 {
-    public abstract Task Handle(TEvent @event);
+    public abstract Task Handle(TEvent @event, EventProperties eventProperties);
 
-    public virtual Task Handle(object eventData)
+    public virtual Task Handle(object eventData, EventProperties properties)
     {
         Guard.NotNull(eventData);
 
         switch (eventData)
         {
             case TEvent data:
-                return Handle(data);
+                return Handle(data, properties);
+            
             case JObject jObject:
-                {
-                    var @event = jObject.ToObject<TEvent>();
-                    if (@event != null)
-                    {
-                        return Handle(@event);
-                    }
-                    break;
-                }
+                var @event = jObject.ToObject<TEvent>();
+                if (@event != null)
+                    return Handle(@event, properties);
+                break;
+            
             case string eventDataJson:
-                return Handle(eventDataJson.JsonToObject<TEvent>());
+                return Handle(eventDataJson.JsonToObject<TEvent>(), properties);
         }
 
         throw new ArgumentException(@$"Unsupported event DataType:{eventData.GetType()}", nameof(eventData));

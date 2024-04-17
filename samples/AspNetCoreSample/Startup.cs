@@ -42,16 +42,16 @@ public class Startup(IConfiguration configuration)
         }
 
         // pageView middleware
-        app.Use((context, next) =>
+        app.Use(async (context, next) =>
         {
             var eventPublisher = context.RequestServices
                 .GetRequiredService<IEventPublisher>();
-            eventPublisher.Publish(new PageViewEvent()
+            await eventPublisher.PublishAsync(new PageViewEvent()
             {
                 Path = context.Request.Path.Value ?? "",
             });
 
-            return next();
+            await next();
         });
         app.UseHttpLogging();
         app.UseRouting();

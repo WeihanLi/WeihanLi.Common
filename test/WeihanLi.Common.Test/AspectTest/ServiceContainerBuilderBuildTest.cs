@@ -26,7 +26,7 @@ public class ServiceContainerBuilderBuildTest
             new OptionsWrapper<EventQueuePublisherOptions>(new EventQueuePublisherOptions()));
         services.AddSingleton<IEventQueue, EventQueueInMemory>();
 
-        services.AddSingleton<EventHandlerBase<TestEvent>>(DelegateEventHandler.FromAction<TestEvent>(_ => { }));
+        services.AddSingleton<EventHandlerBase<TestEvent>>(new DelegateEventHandler<TestEvent>(_ => { }));
 
         services.AddSingleton(typeof(IEventHandler<>), typeof(ServiceCollectionBuildTest.TestGenericEventHandler<>));
 
@@ -94,7 +94,7 @@ public class ServiceContainerBuilderBuildTest
         Assert.True(eventHandlerType.IsSealed);
         Assert.True(eventHandlerType.Assembly.IsDynamic);
 
-        var handTask = eventHandler.Handle(new TestEvent());
+        var handTask = eventHandler.Handle(new TestEvent(), new());
         Assert.NotNull(handTask);
         await handTask;
     }
@@ -107,7 +107,6 @@ public class ServiceContainerBuilderBuildTest
         var publisherType = publisher.GetType();
         Assert.True(publisherType.IsSealed);
         Assert.True(publisherType.Assembly.IsDynamic);
-        publisher.Publish(new TestEvent());
 
         await publisher.PublishAsync(new TestEvent());
     }
