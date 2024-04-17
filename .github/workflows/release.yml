@@ -27,4 +27,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        gh release create ${{ env.ReleaseVersion }} --generate-notes --target ${{ env.GITHUB_SHA }} ./artifacts/packages/*.nupkg
+        gh release create ${{ env.ReleaseVersion }} --generate-notes --target master ./artifacts/packages/*.nupkg
