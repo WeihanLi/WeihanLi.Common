@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -322,8 +322,8 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
 
   <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Func___0_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Func{``0,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
-  TryInvokeAsync&lt;TResult&gt;(Func&lt;Task&lt;TResult?&gt;&gt;, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Func___0_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Func{``0,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan},System.Threading.CancellationToken)">
+  TryInvokeAsync&lt;TResult&gt;(Func&lt;Task&lt;TResult?&gt;&gt;, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?, CancellationToken)
   <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L252"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -331,7 +331,7 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;TResult&gt;(Func&lt;Task&lt;TResult?&gt;&gt; func, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;TResult&gt;(Func&lt;Task&lt;TResult?&gt;&gt; func, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -343,6 +343,8 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
     <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
     <dd></dd>
   </dl>
 
@@ -369,8 +371,8 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
 
   <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__2_System_Func___0_System_Threading_Tasks_Task___1_____0_System_Func___1_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``2(System.Func{``0,System.Threading.Tasks.Task{``1}},``0,System.Func{``1,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
-  TryInvokeAsync&lt;T1, TResult&gt;(Func&lt;T1, Task&lt;TResult?&gt;&gt;, T1, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__2_System_Func___0_System_Threading_Tasks_Task___1_____0_System_Func___1_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``2(System.Func{``0,System.Threading.Tasks.Task{``1}},``0,System.Func{``1,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan},System.Threading.CancellationToken)">
+  TryInvokeAsync&lt;T1, TResult&gt;(Func&lt;T1, Task&lt;TResult?&gt;&gt;, T1, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?, CancellationToken)
   <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L277"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -378,7 +380,7 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;T1, TResult&gt;(Func&lt;T1, Task&lt;TResult?&gt;&gt; func, T1 t1, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;T1, TResult&gt;(Func&lt;T1, Task&lt;TResult?&gt;&gt; func, T1 t1, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -392,6 +394,8 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
     <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
     <dd></dd>
   </dl>
 
@@ -420,8 +424,8 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
 
   <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__3_System_Func___0___1_System_Threading_Tasks_Task___2_____0___1_System_Func___2_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``3(System.Func{``0,``1,System.Threading.Tasks.Task{``2}},``0,``1,System.Func{``2,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
-  TryInvokeAsync&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, Task&lt;TResult?&gt;&gt;, T1, T2, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__3_System_Func___0___1_System_Threading_Tasks_Task___2_____0___1_System_Func___2_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``3(System.Func{``0,``1,System.Threading.Tasks.Task{``2}},``0,``1,System.Func{``2,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan},System.Threading.CancellationToken)">
+  TryInvokeAsync&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, Task&lt;TResult?&gt;&gt;, T1, T2, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?, CancellationToken)
   <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L301"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -429,7 +433,7 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, Task&lt;TResult?&gt;&gt; func, T1 t1, T2 t2, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;T1, T2, TResult&gt;(Func&lt;T1, T2, Task&lt;TResult?&gt;&gt; func, T1 t1, T2 t2, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -445,6 +449,8 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
     <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
     <dd></dd>
   </dl>
 
@@ -475,8 +481,8 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
 
   <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__4_System_Func___0___1___2_System_Threading_Tasks_Task___3_____0___1___2_System_Func___3_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``4(System.Func{``0,``1,``2,System.Threading.Tasks.Task{``3}},``0,``1,``2,System.Func{``3,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
-  TryInvokeAsync&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, Task&lt;TResult?&gt;&gt;, T1, T2, T3, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__4_System_Func___0___1___2_System_Threading_Tasks_Task___3_____0___1___2_System_Func___3_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``4(System.Func{``0,``1,``2,System.Threading.Tasks.Task{``3}},``0,``1,``2,System.Func{``3,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan},System.Threading.CancellationToken)">
+  TryInvokeAsync&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, Task&lt;TResult?&gt;&gt;, T1, T2, T3, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?, CancellationToken)
   <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L325"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -484,7 +490,7 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, Task&lt;TResult?&gt;&gt; func, T1 t1, T2 t2, T3 t3, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;T1, T2, T3, TResult&gt;(Func&lt;T1, T2, T3, Task&lt;TResult?&gt;&gt; func, T1 t1, T2 t2, T3 t3, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -502,6 +508,8 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
     <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
     <dd></dd>
   </dl>
 
@@ -534,8 +542,8 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
 
   <a id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__5_System_Func___0___1___2___3_System_Threading_Tasks_Task___4_____0___1___2___3_System_Func___4_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``5(System.Func{``0,``1,``2,``3,System.Threading.Tasks.Task{``4}},``0,``1,``2,``3,System.Func{``4,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan})">
-  TryInvokeAsync&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, Task&lt;TResult&gt;&gt;, T1, T2, T3, T4, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?)
+  <h3 id="WeihanLi_Common_Helpers_RetryHelper_TryInvokeAsync__5_System_Func___0___1___2___3_System_Threading_Tasks_Task___4_____0___1___2___3_System_Func___4_System_Boolean__System_Int32_System_Func_System_Int32_System_TimeSpan__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.RetryHelper.TryInvokeAsync``5(System.Func{``0,``1,``2,``3,System.Threading.Tasks.Task{``4}},``0,``1,``2,``3,System.Func{``4,System.Boolean},System.Int32,System.Func{System.Int32,System.TimeSpan},System.Threading.CancellationToken)">
+  TryInvokeAsync&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, Task&lt;TResult&gt;&gt;, T1, T2, T3, T4, Func&lt;TResult?, bool&gt;, int, Func&lt;int, TimeSpan&gt;?, CancellationToken)
   <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/RetryHelper.cs/#L349"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -543,7 +551,7 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, Task&lt;TResult&gt;&gt; func, T1 t1, T2 t2, T3 t3, T4 t4, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;TResult?&gt; TryInvokeAsync&lt;T1, T2, T3, T4, TResult&gt;(Func&lt;T1, T2, T3, T4, Task&lt;TResult&gt;&gt; func, T1 t1, T2 t2, T3 t3, T4 t4, Func&lt;TResult?, bool&gt; validFunc, int maxRetryTimes = 3, Func&lt;int, TimeSpan&gt;? delayFunc = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -563,6 +571,8 @@ Class RetryHelper  <a class="header-action link-secondary" title="View source" h
     <dt><code>maxRetryTimes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>delayFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
     <dd></dd>
   </dl>
 

@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -95,15 +95,11 @@ Classes
       <dd></dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="WeihanLi.Common.Event.DelegateEventHandler.html">DelegateEventHandler</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Event.DelegateEventHandler-1.html">DelegateEventHandler&lt;TEvent&gt;</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="WeihanLi.Common.Event.DependencyInjectionEventHandlerFactory.html">DependencyInjectionEventHandlerFactory</a></dt>
+      <dt><a class="xref" href="WeihanLi.Common.Event.DependencyInjectionEventSubscriptionManager.html">DependencyInjectionEventSubscriptionManager</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">
@@ -132,6 +128,10 @@ Classes
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="WeihanLi.Common.Event.EventProperties.html">EventProperties</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Event.EventQueueExtensions.html">EventQueueExtensions</a></dt>
       <dd></dd>
     </dl>
@@ -156,20 +156,16 @@ Classes
       <dd></dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="WeihanLi.Common.Event.EventSubscriptionManagerExtensions.html">EventSubscriptionManagerExtensions</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="WeihanLi.Common.Event.EventSubscriptionManagerInMemory.html">EventSubscriptionManagerInMemory</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="WeihanLi.Common.Event.NullEventSubscriptionManager.html">NullEventSubscriptionManager</a></dt>
+      <dt><a class="xref" href="WeihanLi.Common.Event.InMemoryEventSubscriptionManager.html">InMemoryEventSubscriptionManager</a></dt>
       <dd></dd>
     </dl>
     <h3 id="interfaces">
 Interfaces
 </h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="WeihanLi.Common.Event.IEvent.html">IEvent</a></dt>
+      <dd></dd>
+    </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Event.IEventBase.html">IEventBase</a></dt>
       <dd></dd>
@@ -212,6 +208,10 @@ Interfaces
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Event.IEventSubscriptionManager.html">IEventSubscriptionManager</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="WeihanLi.Common.Event.IEvent-1.html">IEvent&lt;T&gt;</a></dt>
       <dd></dd>
     </dl>
 

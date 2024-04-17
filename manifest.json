@@ -94,6 +94,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/System.Threading.Tasks.TaskCompletionSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/System.Threading.Tasks.TaskCompletionSource.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/System.Threading.Tasks.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/System.Threading.Tasks.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Abstractions.IProperties.yml",
       "output": {
         ".html": {
@@ -714,20 +734,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Event.DelegateEventHandler.yml",
+      "source_relative_path": "api/WeihanLi.Common.Event.DependencyInjectionEventSubscriptionManager.yml",
       "output": {
         ".html": {
-          "relative_path": "api/WeihanLi.Common.Event.DelegateEventHandler.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Event.DependencyInjectionEventHandlerFactory.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Common.Event.DependencyInjectionEventHandlerFactory.html"
+          "relative_path": "api/WeihanLi.Common.Event.DependencyInjectionEventSubscriptionManager.html"
         }
       },
       "version": ""
@@ -794,6 +804,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventProperties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventProperties.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Event.EventQueueExtensions.yml",
       "output": {
         ".html": {
@@ -854,20 +874,20 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Event.EventSubscriptionManagerExtensions.yml",
+      "source_relative_path": "api/WeihanLi.Common.Event.IEvent-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/WeihanLi.Common.Event.EventSubscriptionManagerExtensions.html"
+          "relative_path": "api/WeihanLi.Common.Event.IEvent-1.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Event.EventSubscriptionManagerInMemory.yml",
+      "source_relative_path": "api/WeihanLi.Common.Event.IEvent.yml",
       "output": {
         ".html": {
-          "relative_path": "api/WeihanLi.Common.Event.EventSubscriptionManagerInMemory.html"
+          "relative_path": "api/WeihanLi.Common.Event.IEvent.html"
         }
       },
       "version": ""
@@ -984,10 +1004,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Event.NullEventSubscriptionManager.yml",
+      "source_relative_path": "api/WeihanLi.Common.Event.InMemoryEventSubscriptionManager.yml",
       "output": {
         ".html": {
-          "relative_path": "api/WeihanLi.Common.Event.NullEventSubscriptionManager.html"
+          "relative_path": "api/WeihanLi.Common.Event.InMemoryEventSubscriptionManager.html"
         }
       },
       "version": ""
@@ -1138,6 +1158,46 @@
       "output": {
         ".html": {
           "relative_path": "api/WeihanLi.Common.Helpers.BoundedQueueFullMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.BuildProcess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.BuildProcess.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.BuildProcessBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.BuildProcessBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.BuildTask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.BuildTask.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.BuildTaskBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.BuildTaskBuilder.html"
         }
       },
       "version": ""
@@ -1384,6 +1444,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.EnvHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.EnvHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Helpers.ExpressionHelper.yml",
       "output": {
         ".html": {
@@ -1588,6 +1658,16 @@
       "output": {
         ".html": {
           "relative_path": "api/WeihanLi.Common.Helpers.IAsyncPipelineMiddleware-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.IBuildTaskDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.IBuildTaskDescriptor.html"
         }
       },
       "version": ""

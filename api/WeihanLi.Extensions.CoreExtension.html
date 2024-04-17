@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -148,163 +148,6 @@ Class CoreExtension  <a class="header-action link-secondary" title="View source"
 </h2>
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_Abs_" data-uid="WeihanLi.Extensions.CoreExtension.Abs*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Abs_System_Decimal_" data-uid="WeihanLi.Extensions.CoreExtension.Abs(System.Decimal)">
-  Abs(decimal)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L622"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the absolute value of a  number.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static decimal Abs(this decimal value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>A number that is greater than or equal to , but less than or equal to .</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>A decimal number, x, such that 0 ? x ?.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Abs_" data-uid="WeihanLi.Extensions.CoreExtension.Abs*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Abs_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Abs(System.Double)">
-  Abs(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L837"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the absolute value of a double-precision floating-point number.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Abs(this double value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A number that is greater than or equal to , but less than or equal to .</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A double-precision floating-point number, x, such that 0 ? x ?.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Abs_" data-uid="WeihanLi.Extensions.CoreExtension.Abs*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Abs_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.Abs(System.Int32)">
-  Abs(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1495"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the absolute value of a 32-bit signed integer.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Abs(this int value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>A number that is greater than , but less than or equal to .</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>A 32-bit signed integer, x, such that 0 ? x ?.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Acos_" data-uid="WeihanLi.Extensions.CoreExtension.Acos*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Acos_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Acos(System.Double)">
-  Acos(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L850"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the angle whose cosine is the specified number.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Acos(this double d)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A number representing a cosine, where  must be greater than or equal to -1, but less than or
-equal to 1.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>An angle, ?, measured in radians, such that 0 ????-or-  if  &lt; -1 or  &gt; 1 or  equals .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_Age_" data-uid="WeihanLi.Extensions.CoreExtension.Age*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Age_System_DateTime_" data-uid="WeihanLi.Extensions.CoreExtension.Age(System.DateTime)">
@@ -348,7 +191,7 @@ equal to 1.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Ago_System_TimeSpan_" data-uid="WeihanLi.Extensions.CoreExtension.Ago(System.TimeSpan)">
   Ago(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2589"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1787"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A TimeSpan extension method that substract the specified TimeSpan to the current DateTime.</p>
@@ -387,7 +230,7 @@ equal to 1.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_AppendIf_System_Text_StringBuilder_System_Func_System_String__System_Boolean_" data-uid="WeihanLi.Extensions.CoreExtension.AppendIf(System.Text.StringBuilder,System.Func{System.String},System.Boolean)">
   AppendIf(StringBuilder, Func&lt;string&gt;, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2534"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1732"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Append text when condition is true</p>
@@ -432,7 +275,7 @@ equal to 1.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_AppendIf_System_Text_StringBuilder_System_String_System_Boolean_" data-uid="WeihanLi.Extensions.CoreExtension.AppendIf(System.Text.StringBuilder,System.String,System.Boolean)">
   AppendIf(StringBuilder, string, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2517"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1715"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Append text when condition is true</p>
@@ -477,7 +320,7 @@ equal to 1.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_AppendJoin__1_System_Text_StringBuilder_System_String_System_Collections_Generic_IEnumerable___0__" data-uid="WeihanLi.Extensions.CoreExtension.AppendJoin``1(System.Text.StringBuilder,System.String,System.Collections.Generic.IEnumerable{``0})">
   AppendJoin&lt;T&gt;(StringBuilder, string, IEnumerable&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2491"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1689"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A StringBuilder extension method that appends a join.</p>
@@ -527,7 +370,7 @@ equal to 1.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_AppendLineIf_System_Text_StringBuilder_System_Func_System_String__System_Boolean_" data-uid="WeihanLi.Extensions.CoreExtension.AppendLineIf(System.Text.StringBuilder,System.Func{System.String},System.Boolean)">
   AppendLineIf(StringBuilder, Func&lt;string&gt;, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2569"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1767"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Append text when condition is true</p>
@@ -572,7 +415,7 @@ equal to 1.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_AppendLineIf_System_Text_StringBuilder_System_String_System_Boolean_" data-uid="WeihanLi.Extensions.CoreExtension.AppendLineIf(System.Text.StringBuilder,System.String,System.Boolean)">
   AppendLineIf(StringBuilder, string, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2551"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1749"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Append text when condition is true</p>
@@ -617,7 +460,7 @@ equal to 1.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_AppendLineJoin__1_System_Text_StringBuilder_System_String_System_Collections_Generic_IEnumerable___0__" data-uid="WeihanLi.Extensions.CoreExtension.AppendLineJoin``1(System.Text.StringBuilder,System.String,System.Collections.Generic.IEnumerable{``0})">
   AppendLineJoin&lt;T&gt;(StringBuilder, string, IEnumerable&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2503"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1701"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A StringBuilder extension method that appends a line join.</p>
@@ -667,7 +510,7 @@ equal to 1.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object_" data-uid="WeihanLi.Extensions.CoreExtension.AsOrDefault``1(System.Object)">
   AsOrDefault&lt;T&gt;(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1617"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L819"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An object extension method that converts the @this to an or default.</p>
@@ -712,7 +555,7 @@ equal to 1.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object_System_Func___0__" data-uid="WeihanLi.Extensions.CoreExtension.AsOrDefault``1(System.Object,System.Func{``0})">
   AsOrDefault&lt;T&gt;(object?, Func&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1663"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L865"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An object extension method that converts the @this to an or default.</p>
@@ -760,7 +603,7 @@ equal to 1.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object___0_" data-uid="WeihanLi.Extensions.CoreExtension.AsOrDefault``1(System.Object,``0)">
   AsOrDefault&lt;T&gt;(object?, T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1640"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L842"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An object extension method that converts the @this to an or default.</p>
@@ -804,220 +647,11 @@ equal to 1.</p>
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_Asin_" data-uid="WeihanLi.Extensions.CoreExtension.Asin*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Asin_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Asin(System.Double)">
-  Asin(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L865"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the angle whose sine is the specified number.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Asin(this double d)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A number representing a sine, where  must be greater than or equal to -1, but less than or equal
-to 1.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>An angle, ?, measured in radians, such that -?/2 ????/2 -or-  if  &lt; -1 or  &gt; 1 or  equals .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Atan_" data-uid="WeihanLi.Extensions.CoreExtension.Atan*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Atan_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Atan(System.Double)">
-  Atan(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L878"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the angle whose tangent is the specified number.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Atan(this double d)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A number representing a tangent.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>An angle, ?, measured in radians, such that -?/2 ????/2.-or-  if  equals , -?/2 rounded to double precision (-
-1.5707963267949) if  equals , or ?/2 rounded to double precision (1.5707963267949) if  equals .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Atan2_" data-uid="WeihanLi.Extensions.CoreExtension.Atan2*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Atan2_System_Double_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Atan2(System.Double,System.Double)">
-  Atan2(double, double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L896"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the angle whose tangent is the quotient of two specified numbers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Atan2(this double y, double x)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The y coordinate of a point.</p>
-</dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The x coordinate of a point.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>An angle, ?, measured in radians, such that -?????, and tan(?) =  / , where (, ) is a point in the Cartesian
-plane. Observe the following: For (, ) in quadrant 1, 0 &lt; ? &lt; ?/2.For (, ) in quadrant 2, ?/2 &lt;
-???.For (, ) in quadrant 3, -? &lt; ? &lt; -?/2.For (, ) in quadrant 4, -?/2 &lt; ? &lt; 0.For points on the
-boundaries of the quadrants, the return value is the following:If y is 0 and x is not negative, ? = 0.If y is
-0 and x is negative, ? = ?.If y is positive and x is 0, ? = ?/2.If y is negative and x is 0, ? = -?/2.If  or
-is , or if  and  are either  or , the method returns .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_BigMul_" data-uid="WeihanLi.Extensions.CoreExtension.BigMul*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_BigMul_System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.BigMul(System.Int32,System.Int32)">
-  BigMul(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1506"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Produces the full product of two 32-bit numbers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static long BigMul(this int a, int b)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The first number to multiply.</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The second number to multiply.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
-    <dd><p>The number containing the product of the specified numbers.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Ceiling_" data-uid="WeihanLi.Extensions.CoreExtension.Ceiling*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Ceiling_System_Decimal_" data-uid="WeihanLi.Extensions.CoreExtension.Ceiling(System.Decimal)">
-  Ceiling(decimal)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L635"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the smallest integral value that is greater than or equal to the specified decimal number.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static decimal Ceiling(this decimal d)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>A decimal number.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The smallest integral value that is greater than or equal to . Note that this method returns a  instead of an
-integral type.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_Ceiling_" data-uid="WeihanLi.Extensions.CoreExtension.Ceiling*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Ceiling_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Ceiling(System.Double)">
   Ceiling(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L910"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L616"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the smallest integral value that is greater than or equal to the specified double-precision floating-
@@ -1058,7 +692,7 @@ returned. Note that this method returns a  instead of an integral type.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Chain__1___0_System_Action___0__" data-uid="WeihanLi.Extensions.CoreExtension.Chain``1(``0,System.Action{``0})">
   Chain&lt;T&gt;(T, Action&lt;T&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1839"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1041"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A T extension method that chains actions.</p>
@@ -1106,7 +740,7 @@ returned. Note that this method returns a  instead of an integral type.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_CoinToss_System_Random_" data-uid="WeihanLi.Extensions.CoreExtension.CoinToss(System.Random)">
   CoinToss(Random)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1313"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A Random extension method that flip a coin toss.</p>
@@ -1141,54 +775,11 @@ returned. Note that this method returns a  instead of an integral type.</p>
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_Combine_" data-uid="WeihanLi.Extensions.CoreExtension.Combine*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Combine_System_Delegate_System_Delegate_" data-uid="WeihanLi.Extensions.CoreExtension.Combine(System.Delegate,System.Delegate)">
-  Combine(Delegate, Delegate)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L778"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Concatenates the invocation lists of two delegates.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Delegate Combine(this Delegate a, Delegate b)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a></dt>
-    <dd><p>The delegate whose invocation list comes first.</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a></dt>
-    <dd><p>The delegate whose invocation list comes last.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a></dt>
-    <dd><p>A new delegate with an invocation list that concatenates the invocation lists of  and  in that order. Returns
-if  is null, returns  if  is a null reference, and returns a null reference if both  and  are null references.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_Concatenate_" data-uid="WeihanLi.Extensions.CoreExtension.Concatenate*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Concatenate_System_Collections_Generic_IEnumerable_System_String__" data-uid="WeihanLi.Extensions.CoreExtension.Concatenate(System.Collections.Generic.IEnumerable{System.String})">
   Concatenate(IEnumerable&lt;string&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2199"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1385"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An IEnumerable&lt;string&gt; extension method that concatenates the given this.</p>
@@ -1227,7 +818,7 @@ if  is null, returns  if  is a null reference, and returns a null reference if b
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Concatenate__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_String__" data-uid="WeihanLi.Extensions.CoreExtension.Concatenate``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})">
   Concatenate&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, string&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2209"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1395"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An IEnumerable&lt;T&gt; extension method that concatenates.</p>
@@ -1275,7 +866,7 @@ if  is null, returns  if  is a null reference, and returns a null reference if b
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Contains_System_String_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.Contains(System.String,System.String)">
   Contains(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2220"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1406"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that query if this object contains the given value.</p>
@@ -1317,7 +908,7 @@ if  is null, returns  if  is a null reference, and returns a null reference if b
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Contains_System_String_System_String_System_StringComparison_" data-uid="WeihanLi.Extensions.CoreExtension.Contains(System.String,System.String,System.StringComparison)">
   Contains(string, string, StringComparison)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2229"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1415"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that query if this object contains the given value.</p>
@@ -1345,46 +936,6 @@ if  is null, returns  if  is a null reference, and returns a null reference if b
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>true if the value is in the string, false if not.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_ConvertFromUtf32_" data-uid="WeihanLi.Extensions.CoreExtension.ConvertFromUtf32*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_ConvertFromUtf32_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.ConvertFromUtf32(System.Int32)">
-  ConvertFromUtf32(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1461"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Converts the specified Unicode code point into a UTF-16 encoded string.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string ConvertFromUtf32(this int utf32)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>utf32</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>A 21-bit Unicode code point.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>A string consisting of one  object or a surrogate pair of  objects equivalent to the code point specified by
-the  parameter.</p>
 </dd>
   </dl>
 
@@ -1610,89 +1161,11 @@ always set to .</p>
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_Cos_" data-uid="WeihanLi.Extensions.CoreExtension.Cos*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Cos_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Cos(System.Double)">
-  Cos(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L918"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the cosine of the specified angle.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Cos(this double d)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>An angle, measured in radians.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The cosine of . If  is equal to , , or , this method returns .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Cosh_" data-uid="WeihanLi.Extensions.CoreExtension.Cosh*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Cosh_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Cosh(System.Double)">
-  Cosh(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L928"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the hyperbolic cosine of the specified angle.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Cosh(this double value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>An angle, measured in radians.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The hyperbolic cosine of . If  is equal to  or ,  is returned. If  is equal to ,  is returned.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_CreateInstance_" data-uid="WeihanLi.Extensions.CoreExtension.CreateInstance*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_CreateInstance__1_System_Type_System_Object___" data-uid="WeihanLi.Extensions.CoreExtension.CreateInstance``1(System.Type,System.Object[])">
   CreateInstance&lt;T&gt;(Type, params object?[]?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2624"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1822"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A Type extension method that creates an instance.</p>
@@ -1736,99 +1209,11 @@ always set to .</p>
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_DaysInMonth_" data-uid="WeihanLi.Extensions.CoreExtension.DaysInMonth*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_DaysInMonth_System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.DaysInMonth(System.Int32,System.Int32)">
-  DaysInMonth(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1475"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the number of days in the specified month and year.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int DaysInMonth(this int year, int month)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>year</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The year.</p>
-</dd>
-    <dt><code>month</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The month (a number ranging from 1 to 12).</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The number of days in  for the specified .For example, if  equals 2 for February, the return value is 28 or
-29 depending upon whether  is a leap year.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_DivRem_" data-uid="WeihanLi.Extensions.CoreExtension.DivRem*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_DivRem_System_Int32_System_Int32_System_Int32__" data-uid="WeihanLi.Extensions.CoreExtension.DivRem(System.Int32,System.Int32,System.Int32@)">
-  DivRem(int, int, out int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1518"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>An Int32 extension method that div rem.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int DivRem(this int a, int b, out int result)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>a to act on.</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The Int32 to process.</p>
-</dd>
-    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>[out] The result.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>An Int32.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_EnsureSuccessExitCode_" data-uid="WeihanLi.Extensions.CoreExtension.EnsureSuccessExitCode*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_EnsureSuccessExitCode_System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.EnsureSuccessExitCode(System.Int32,System.Int32)">
   EnsureSuccessExitCode(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1565"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L800"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Ensures the exitCode success</p>
@@ -1875,7 +1260,7 @@ always set to .</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_EqualsIgnoreCase_System_String_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.EqualsIgnoreCase(System.String,System.String)">
   EqualsIgnoreCase(string?, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2460"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1658"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>EqualsIgnoreCase</p>
@@ -1912,50 +1297,11 @@ always set to .</p>
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_Exp_" data-uid="WeihanLi.Extensions.CoreExtension.Exp*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Exp_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Exp(System.Double)">
-  Exp(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L940"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns e raised to the specified power.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Exp(this double d)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A number specifying a power.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The number e raised to the power . If  equals  or , that value is returned. If  equals , 0 is returned.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_Extract_" data-uid="WeihanLi.Extensions.CoreExtension.Extract*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Extract_System_String_System_Func_System_Char_System_Boolean__" data-uid="WeihanLi.Extensions.CoreExtension.Extract(System.String,System.Func{System.Char,System.Boolean})">
   Extract(string, Func&lt;char, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2237"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1423"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that extracts this object.</p>
@@ -1995,51 +1341,9 @@ always set to .</p>
 
   <a id="WeihanLi_Extensions_CoreExtension_FactorOf_" data-uid="WeihanLi.Extensions.CoreExtension.FactorOf*"></a>
 
-  <h3 id="WeihanLi_Extensions_CoreExtension_FactorOf_System_Int16_System_Int16_" data-uid="WeihanLi.Extensions.CoreExtension.FactorOf(System.Int16,System.Int16)">
-  FactorOf(short, short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1237"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>An Int16 extension method that factor of.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool FactorOf(this short @this, short factorNumber)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>this</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The @this to act on.</p>
-</dd>
-    <dt><code>factorNumber</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The factor number.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>true if it succeeds, false if it fails.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_FactorOf_" data-uid="WeihanLi.Extensions.CoreExtension.FactorOf*"></a>
-
   <h3 id="WeihanLi_Extensions_CoreExtension_FactorOf_System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.FactorOf(System.Int32,System.Int32)">
   FactorOf(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1378"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L718"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An Int32 extension method that factor of.</p>
@@ -2077,89 +1381,11 @@ always set to .</p>
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_Floor_" data-uid="WeihanLi.Extensions.CoreExtension.Floor*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Floor_System_Decimal_" data-uid="WeihanLi.Extensions.CoreExtension.Floor(System.Decimal)">
-  Floor(decimal)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L647"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the largest integer less than or equal to the specified decimal number.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static decimal Floor(this decimal d)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>A decimal number.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The largest integer less than or equal to .  Note that the method returns an integral value of type .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Floor_" data-uid="WeihanLi.Extensions.CoreExtension.Floor*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Floor_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Floor(System.Double)">
-  Floor(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L950"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the largest integer less than or equal to the specified double-precision floating-point number.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Floor(this double d)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A double-precision floating-point number.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The largest integer less than or equal to . If  is equal to , , or , that value is returned.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_FormatWith_" data-uid="WeihanLi.Extensions.CoreExtension.FormatWith*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_FormatWith_System_String_System_Object___" data-uid="WeihanLi.Extensions.CoreExtension.FormatWith(System.String,System.Object[])">
   FormatWith(string, params object?[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2257"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1443"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Replaces the format item in a specified String with the text equivalent of the value of a corresponding
@@ -2203,7 +1429,7 @@ instances of Object in args.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_FromNow_System_TimeSpan_" data-uid="WeihanLi.Extensions.CoreExtension.FromNow(System.TimeSpan)">
   FromNow(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2596"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1794"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A TimeSpan extension method that add the specified TimeSpan to the current DateTime.</p>
@@ -2238,89 +1464,11 @@ instances of Object in args.</p>
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_FromTicks_" data-uid="WeihanLi.Extensions.CoreExtension.FromTicks*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_FromTicks_System_Int64_" data-uid="WeihanLi.Extensions.CoreExtension.FromTicks(System.Int64)">
-  FromTicks(long)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1582"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns a  that represents a specified time, where the specification is in units of ticks.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TimeSpan FromTicks(this long value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
-    <dd><p>A number of ticks that represent a time.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd><p>An object that represents .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_GetBytes_" data-uid="WeihanLi.Extensions.CoreExtension.GetBytes*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_GetBytes_System_Int16_" data-uid="WeihanLi.Extensions.CoreExtension.GetBytes(System.Int16)">
-  GetBytes(short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1296"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the specified 16-bit signed integer value as an array of bytes.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(this short value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The number to convert.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
-    <dd><p>An array of bytes with length 2.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_GetBytes_" data-uid="WeihanLi.Extensions.CoreExtension.GetBytes*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_GetBytes_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.GetBytes(System.Int32)">
   GetBytes(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1448"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L788"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the specified 32-bit signed integer value as an array of bytes.</p>
@@ -2357,48 +1505,9 @@ instances of Object in args.</p>
 
   <a id="WeihanLi_Extensions_CoreExtension_GetBytes_" data-uid="WeihanLi.Extensions.CoreExtension.GetBytes*"></a>
 
-  <h3 id="WeihanLi_Extensions_CoreExtension_GetBytes_System_Int64_" data-uid="WeihanLi.Extensions.CoreExtension.GetBytes(System.Int64)">
-  GetBytes(long)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1592"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the specified 64-bit signed integer value as an array of bytes.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static byte[] GetBytes(this long value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
-    <dd><p>The number to convert.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
-    <dd><p>An array of bytes with length 8.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_GetBytes_" data-uid="WeihanLi.Extensions.CoreExtension.GetBytes*"></a>
-
   <h3 id="WeihanLi_Extensions_CoreExtension_GetBytes_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.GetBytes(System.String)">
   GetBytes(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2403"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1590"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -2434,7 +1543,7 @@ instances of Object in args.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_GetBytes_System_String_System_Text_Encoding_" data-uid="WeihanLi.Extensions.CoreExtension.GetBytes(System.String,System.Text.Encoding)">
   GetBytes(string, Encoding?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2405"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1592"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -2472,7 +1581,7 @@ instances of Object in args.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_GetDefaultValue_System_Type_" data-uid="WeihanLi.Extensions.CoreExtension.GetDefaultValue(System.Type)">
   GetDefaultValue(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2648"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1845"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>get default value by type, default(T)</p>
@@ -2511,7 +1620,7 @@ instances of Object in args.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_GetDescription_System_Enum_" data-uid="WeihanLi.Extensions.CoreExtension.GetDescription(System.Enum)">
   GetDescription(Enum)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1171"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L664"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An object extension method that gets description attribute.</p>
@@ -2663,7 +1772,7 @@ instances of Object in args.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_GetUnderlyingType_System_Type_" data-uid="WeihanLi.Extensions.CoreExtension.GetUnderlyingType(System.Type)">
   GetUnderlyingType(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2669"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1866"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>GetUnderlyingType</p>
@@ -2740,7 +1849,7 @@ instances of Object in args.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_GetValueOrDefault__2___0_System_Func___0___1__" data-uid="WeihanLi.Extensions.CoreExtension.GetValueOrDefault``2(``0,System.Func{``0,``1})">
   GetValueOrDefault&lt;T, TResult&gt;(T, Func&lt;T, TResult&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1854"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1056"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A T extension method that gets value or default.</p>
@@ -2791,7 +1900,7 @@ instances of Object in args.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_GetValueOrDefault__2___0_System_Func___0___1____1_" data-uid="WeihanLi.Extensions.CoreExtension.GetValueOrDefault``2(``0,System.Func{``0,``1},``1)">
   GetValueOrDefault&lt;T, TResult&gt;(T, Func&lt;T, TResult&gt;, TResult)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1875"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1077"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A T extension method that gets value or default.</p>
@@ -2845,7 +1954,7 @@ instances of Object in args.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_HasEmptyConstructor_System_Type_" data-uid="WeihanLi.Extensions.CoreExtension.HasEmptyConstructor(System.Type)">
   HasEmptyConstructor(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2631"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1829"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>if a type has empty constructor</p>
@@ -2867,45 +1976,6 @@ instances of Object in args.</p>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_HostToNetworkOrder_" data-uid="WeihanLi.Extensions.CoreExtension.HostToNetworkOrder*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_HostToNetworkOrder_System_Int16_" data-uid="WeihanLi.Extensions.CoreExtension.HostToNetworkOrder(System.Int16)">
-  HostToNetworkOrder(short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1341"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Converts a short value from host byte order to network byte order.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static short HostToNetworkOrder(this short host)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>host</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The number to convert, expressed in host byte order.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>A short value, expressed in network byte order.</p>
-</dd>
   </dl>
 
 
@@ -2994,7 +2064,7 @@ instances of Object in args.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_In_System_Enum_System_Enum___" data-uid="WeihanLi.Extensions.CoreExtension.In(System.Enum,System.Enum[])">
   In(Enum, params Enum[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1161"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L654"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A T extension method to determines whether the object is equal to any of the provided values.</p>
@@ -3079,189 +2149,9 @@ instances of Object in args.</p>
 
   <a id="WeihanLi_Extensions_CoreExtension_InRange_" data-uid="WeihanLi.Extensions.CoreExtension.InRange*"></a>
 
-  <h3 id="WeihanLi_Extensions_CoreExtension_InRange_System_Decimal_System_Decimal_System_Decimal_" data-uid="WeihanLi.Extensions.CoreExtension.InRange(System.Decimal,System.Decimal,System.Decimal)">
-  InRange(decimal, decimal, decimal)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L612"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>A T extension method that check if the value is between inclusively the minValue and maxValue.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool InRange(this decimal @this, decimal minValue, decimal maxValue)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>this</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The @this to act on.</p>
-</dd>
-    <dt><code>minValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The minimum value.</p>
-</dd>
-    <dt><code>maxValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The maximum value.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>true if the value is between inclusively the minValue and maxValue, otherwise false.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_InRange_" data-uid="WeihanLi.Extensions.CoreExtension.InRange*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_InRange_System_Double_System_Double_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.InRange(System.Double,System.Double,System.Double)">
-  InRange(double, double, double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L827"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>A T extension method that check if the value is between inclusively the minValue and maxValue.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool InRange(this double @this, double minValue, double maxValue)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>this</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The @this to act on.</p>
-</dd>
-    <dt><code>minValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The minimum value.</p>
-</dd>
-    <dt><code>maxValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The maximum value.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>true if the value is between inclusively the minValue and maxValue, otherwise false.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_InRange_" data-uid="WeihanLi.Extensions.CoreExtension.InRange*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_InRange_System_Int16_System_Int16_System_Int16_" data-uid="WeihanLi.Extensions.CoreExtension.InRange(System.Int16,System.Int16,System.Int16)">
-  InRange(short, short, short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1226"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>A T extension method that check if the value is between inclusively the minValue and maxValue.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool InRange(this short @this, short minValue, short maxValue)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>this</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The @this to act on.</p>
-</dd>
-    <dt><code>minValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The minimum value.</p>
-</dd>
-    <dt><code>maxValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The maximum value.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>true if the value is between inclusively the minValue and maxValue, otherwise false.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_InRange_" data-uid="WeihanLi.Extensions.CoreExtension.InRange*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_InRange_System_Int32_System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.InRange(System.Int32,System.Int32,System.Int32)">
-  InRange(int, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1367"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>A T extension method that check if the value is between inclusively the minValue and maxValue.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool InRange(this int @this, int minValue, int maxValue)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>this</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The @this to act on.</p>
-</dd>
-    <dt><code>minValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The minimum value.</p>
-</dd>
-    <dt><code>maxValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The maximum value.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>true if the value is between inclusively the minValue and maxValue, otherwise false.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_InRange_" data-uid="WeihanLi.Extensions.CoreExtension.InRange*"></a>
-
   <h3 id="WeihanLi_Extensions_CoreExtension_InRange__1___0___0___0_" data-uid="WeihanLi.Extensions.CoreExtension.InRange``1(``0,``0,``0)">
   InRange&lt;T&gt;(T, T, T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2036"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1238"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A T extension method that check if the value is between inclusively the minValue and maxValue.</p>
@@ -3298,84 +2188,6 @@ instances of Object in args.</p>
     <dd><p>Generic type parameter.</p>
 </dd>
   </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Int64BitsToDouble_" data-uid="WeihanLi.Extensions.CoreExtension.Int64BitsToDouble*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Int64BitsToDouble_System_Int64_" data-uid="WeihanLi.Extensions.CoreExtension.Int64BitsToDouble(System.Int64)">
-  Int64BitsToDouble(long)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1602"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Converts the specified 64-bit signed integer to a double-precision floating point number.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Int64BitsToDouble(this long value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
-    <dd><p>The number to convert.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A double-precision floating point number whose value is equivalent to .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Intern_" data-uid="WeihanLi.Extensions.CoreExtension.Intern*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Intern_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.Intern(System.String)">
-  Intern(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2155"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Retrieves the system's reference to the specified .</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string Intern(this string str)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>A string to search for in the intern pool.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The system's reference to , if it is interned; otherwise, a new reference to a string with the value of .</p>
-</dd>
-  </dl>
-
 
 
 
@@ -3471,7 +2283,7 @@ instances of Object in args.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_IsDefault__1___0_" data-uid="WeihanLi.Extensions.CoreExtension.IsDefault``1(``0)">
   IsDefault&lt;T&gt;(T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2047"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1249"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A T extension method that query if 'source' is the default value.</p>
@@ -3555,7 +2367,7 @@ instances of Object in args.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_IsEmpty_System_Guid_" data-uid="WeihanLi.Extensions.CoreExtension.IsEmpty(System.Guid)">
   IsEmpty(Guid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1202"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L695"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A GUID extension method that query if '@this' is empty.</p>
@@ -3592,48 +2404,9 @@ instances of Object in args.</p>
 
   <a id="WeihanLi_Extensions_CoreExtension_IsEven_" data-uid="WeihanLi.Extensions.CoreExtension.IsEven*"></a>
 
-  <h3 id="WeihanLi_Extensions_CoreExtension_IsEven_System_Int16_" data-uid="WeihanLi.Extensions.CoreExtension.IsEven(System.Int16)">
-  IsEven(short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1247"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>An Int16 extension method that query if '@this' is even.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool IsEven(this short @this)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>this</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The @this to act on.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>true if even, false if not.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_IsEven_" data-uid="WeihanLi.Extensions.CoreExtension.IsEven*"></a>
-
   <h3 id="WeihanLi_Extensions_CoreExtension_IsEven_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.IsEven(System.Int32)">
   IsEven(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1388"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L728"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An Int32 extension method that query if '@this' is even.</p>
@@ -3655,84 +2428,6 @@ instances of Object in args.</p>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>true if even, false if not.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_IsInterned_" data-uid="WeihanLi.Extensions.CoreExtension.IsInterned*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_IsInterned_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.IsInterned(System.String)">
-  IsInterned(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2162"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Retrieves a reference to a specified .</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string? IsInterned(this string str)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>str</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The string to search for in the intern pool.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>A reference to  if it is in the common language runtime intern pool; otherwise, null.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_IsLeapYear_" data-uid="WeihanLi.Extensions.CoreExtension.IsLeapYear*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_IsLeapYear_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.IsLeapYear(System.Int32)">
-  IsLeapYear(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1485"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns an indication whether the specified year is a leap year.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool IsLeapYear(this int year)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>year</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>A 4-digit year.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>true if  is a leap year; otherwise, false.</p>
 </dd>
   </dl>
 
@@ -3828,7 +2523,7 @@ instances of Object in args.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_IsLike_System_String_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.IsLike(System.String,System.String)">
   IsLike(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2265"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1451"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that query if '@this' satisfies the specified pattern.</p>
@@ -3909,7 +2604,7 @@ instances of Object in args.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_IsMatch_System_String_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.IsMatch(System.String,System.String)">
   IsMatch(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2184"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1370"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates whether the specified regular expression finds a match in the specified input string.</p>
@@ -3951,7 +2646,7 @@ instances of Object in args.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_IsMatch_System_String_System_String_System_Text_RegularExpressions_RegexOptions_" data-uid="WeihanLi.Extensions.CoreExtension.IsMatch(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
   IsMatch(string, string, RegexOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2194"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1380"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Indicates whether the specified regular expression finds a match in the specified input string, using the
@@ -3997,7 +2692,7 @@ specified matching options.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_IsMultipleOf_System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.IsMultipleOf(System.Int32,System.Int32)">
   IsMultipleOf(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1409"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L749"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An Int32 extension method that query if '@this' is multiple of.</p>
@@ -4039,7 +2734,7 @@ specified matching options.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_IsNotEmpty_System_Guid_" data-uid="WeihanLi.Extensions.CoreExtension.IsNotEmpty(System.Guid)">
   IsNotEmpty(Guid)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1210"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L703"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A GUID extension method that queries if a not is empty.</p>
@@ -4078,7 +2773,7 @@ specified matching options.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_IsNotNullOrEmpty_System_Nullable_System_Guid__" data-uid="WeihanLi.Extensions.CoreExtension.IsNotNullOrEmpty(System.Nullable{System.Guid})">
   IsNotNullOrEmpty(Guid?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1194"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L687"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A GUID extension method that query if '@this' is not null or empty.</p>
@@ -4117,7 +2812,7 @@ specified matching options.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_IsNotNullOrEmpty_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.IsNotNullOrEmpty(System.String)">
   IsNotNullOrEmpty(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2132"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1334"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that query if '@this' is not null and not empty.</p>
@@ -4156,7 +2851,7 @@ specified matching options.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_IsNotNullOrWhiteSpace_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.IsNotNullOrWhiteSpace(System.String)">
   IsNotNullOrWhiteSpace(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2146"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1348"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that query if '@this' is not null and not whiteSpace.</p>
@@ -4195,7 +2890,7 @@ specified matching options.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_IsNullOrEmpty_System_Nullable_System_Guid__" data-uid="WeihanLi.Extensions.CoreExtension.IsNullOrEmpty(System.Nullable{System.Guid})">
   IsNullOrEmpty(Guid?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1186"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L679"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A GUID extension method that query if '@this' is empty.</p>
@@ -4234,7 +2929,7 @@ specified matching options.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_IsNullOrEmpty_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.IsNullOrEmpty(System.String)">
   IsNullOrEmpty(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2125"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1327"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that query if '@this' is null or empty.</p>
@@ -4273,7 +2968,7 @@ specified matching options.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_IsNullOrWhiteSpace_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.IsNullOrWhiteSpace(System.String)">
   IsNullOrWhiteSpace(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2139"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1341"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that query if '@this' is null or whiteSpace.</p>
@@ -4312,7 +3007,7 @@ specified matching options.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_IsNullableType_System_Type_" data-uid="WeihanLi.Extensions.CoreExtension.IsNullableType(System.Type)">
   IsNullableType(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2634"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1832"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -4385,48 +3080,9 @@ specified matching options.</p>
 
   <a id="WeihanLi_Extensions_CoreExtension_IsOdd_" data-uid="WeihanLi.Extensions.CoreExtension.IsOdd*"></a>
 
-  <h3 id="WeihanLi_Extensions_CoreExtension_IsOdd_System_Int16_" data-uid="WeihanLi.Extensions.CoreExtension.IsOdd(System.Int16)">
-  IsOdd(short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1257"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>An Int16 extension method that query if '@this' is odd.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool IsOdd(this short @this)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>this</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The @this to act on.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>true if odd, false if not.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_IsOdd_" data-uid="WeihanLi.Extensions.CoreExtension.IsOdd*"></a>
-
   <h3 id="WeihanLi_Extensions_CoreExtension_IsOdd_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.IsOdd(System.Int32)">
   IsOdd(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1398"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L738"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An Int32 extension method that query if '@this' is odd.</p>
@@ -4463,48 +3119,9 @@ specified matching options.</p>
 
   <a id="WeihanLi_Extensions_CoreExtension_IsPrime_" data-uid="WeihanLi.Extensions.CoreExtension.IsPrime*"></a>
 
-  <h3 id="WeihanLi_Extensions_CoreExtension_IsPrime_System_Int16_" data-uid="WeihanLi.Extensions.CoreExtension.IsPrime(System.Int16)">
-  IsPrime(short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1267"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>An Int16 extension method that query if '@this' is prime.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool IsPrime(this short @this)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>this</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The @this to act on.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>true if prime, false if not.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_IsPrime_" data-uid="WeihanLi.Extensions.CoreExtension.IsPrime*"></a>
-
   <h3 id="WeihanLi_Extensions_CoreExtension_IsPrime_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.IsPrime(System.Int32)">
   IsPrime(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1419"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L759"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An Int32 extension method that query if '@this' is prime.</p>
@@ -4816,7 +3433,7 @@ specified matching options.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Join__1_System_String_System_Collections_Generic_IEnumerable___0__" data-uid="WeihanLi.Extensions.CoreExtension.Join``1(System.String,System.Collections.Generic.IEnumerable{``0})">
   Join&lt;T&gt;(string, IEnumerable&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2176"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1362"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Concatenates the elements of an object array, using the specified separator between each element.</p>
@@ -4865,7 +3482,7 @@ returns .</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Log_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Log(System.Double)">
   Log(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L963"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L626"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the natural (base e) logarithm of a specified number.</p>
@@ -4901,56 +3518,11 @@ ln , or log eZero Negative Equal to Equal to.</p>
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_Log_" data-uid="WeihanLi.Extensions.CoreExtension.Log*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Log_System_Double_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Log(System.Double,System.Double)">
-  Log(double, double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L979"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the logarithm of a specified number in a specified base.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Log(this double d, double newBase)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The number whose logarithm is to be found.</p>
-</dd>
-    <dt><code>newBase</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The base of the logarithm.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>One of the values in the following table. (+Infinity denotes , -Infinity denotes , and NaN denotes .)Return
-value&gt; 0(0 &lt;&lt; 1) -or-(&gt; 1)lognewBase(a)&lt; 0(any value)NaN(any value)&lt; 0NaN != 1 = 0NaN != 1
-= +InfinityNaN = NaN(any value)NaN(any value) = NaNNaN(any value) = 1NaN = 00 &lt;&lt; 1 +Infinity = 0&gt; 1-
-Infinity =  +Infinity0 &lt;&lt; 1-Infinity =  +Infinity&gt; 1+Infinity = 1 = 00 = 1 = +Infinity0.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_Log10_" data-uid="WeihanLi.Extensions.CoreExtension.Log10*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Log10_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Log10(System.Double)">
   Log10(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L992"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L639"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the base 10 logarithm of a specified number.</p>
@@ -5028,174 +3600,6 @@ Infinity =  +Infinity0 &lt;&lt; 1-Infinity =  +Infinity&gt; 1+Infinity = 1 = 00 
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_Max_" data-uid="WeihanLi.Extensions.CoreExtension.Max*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Max_System_Decimal_System_Decimal_" data-uid="WeihanLi.Extensions.CoreExtension.Max(System.Decimal,System.Decimal)">
-  Max(decimal, decimal)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L658"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the larger of two decimal numbers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static decimal Max(this decimal val1, decimal val2)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>val1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The first of two decimal numbers to compare.</p>
-</dd>
-    <dt><code>val2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The second of two decimal numbers to compare.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>Parameter  or , whichever is larger.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Max_" data-uid="WeihanLi.Extensions.CoreExtension.Max*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Max_System_Double_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Max(System.Double,System.Double)">
-  Max(double, double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1003"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the larger of two double-precision floating-point numbers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Max(this double val1, double val2)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>val1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The first of two double-precision floating-point numbers to compare.</p>
-</dd>
-    <dt><code>val2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The second of two double-precision floating-point numbers to compare.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>Parameter  or , whichever is larger. If , , or both  and  are equal to ,  is returned.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Max_" data-uid="WeihanLi.Extensions.CoreExtension.Max*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Max_System_Int16_System_Int16_" data-uid="WeihanLi.Extensions.CoreExtension.Max(System.Int16,System.Int16)">
-  Max(short, short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1307"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the larger of two 16-bit signed integers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static short Max(this short val1, short val2)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>val1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The first of two 16-bit signed integers to compare.</p>
-</dd>
-    <dt><code>val2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The second of two 16-bit signed integers to compare.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>Parameter  or , whichever is larger.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Max_" data-uid="WeihanLi.Extensions.CoreExtension.Max*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Max_System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.Max(System.Int32,System.Int32)">
-  Max(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1529"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the larger of two 32-bit signed integers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Max(this int val1, int val2)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>val1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The first of two 32-bit signed integers to compare.</p>
-</dd>
-    <dt><code>val2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The second of two 32-bit signed integers to compare.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>Parameter  or , whichever is larger.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_Min_" data-uid="WeihanLi.Extensions.CoreExtension.Min*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Min_System_Byte_System_Byte_" data-uid="WeihanLi.Extensions.CoreExtension.Min(System.Byte,System.Byte)">
@@ -5238,218 +3642,11 @@ Infinity =  +Infinity0 &lt;&lt; 1-Infinity =  +Infinity&gt; 1+Infinity = 1 = 00 
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_Min_" data-uid="WeihanLi.Extensions.CoreExtension.Min*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Min_System_Decimal_System_Decimal_" data-uid="WeihanLi.Extensions.CoreExtension.Min(System.Decimal,System.Decimal)">
-  Min(decimal, decimal)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L669"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the smaller of two decimal numbers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static decimal Min(this decimal val1, decimal val2)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>val1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The first of two decimal numbers to compare.</p>
-</dd>
-    <dt><code>val2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The second of two decimal numbers to compare.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>Parameter  or , whichever is smaller.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Min_" data-uid="WeihanLi.Extensions.CoreExtension.Min*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Min_System_Double_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Min(System.Double,System.Double)">
-  Min(double, double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1014"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the smaller of two double-precision floating-point numbers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Min(this double val1, double val2)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>val1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The first of two double-precision floating-point numbers to compare.</p>
-</dd>
-    <dt><code>val2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The second of two double-precision floating-point numbers to compare.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>Parameter  or , whichever is smaller. If , , or both  and  are equal to ,  is returned.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Min_" data-uid="WeihanLi.Extensions.CoreExtension.Min*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Min_System_Int16_System_Int16_" data-uid="WeihanLi.Extensions.CoreExtension.Min(System.Int16,System.Int16)">
-  Min(short, short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1318"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the smaller of two 16-bit signed integers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static short Min(this short val1, short val2)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>val1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The first of two 16-bit signed integers to compare.</p>
-</dd>
-    <dt><code>val2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The second of two 16-bit signed integers to compare.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>Parameter  or , whichever is smaller.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Min_" data-uid="WeihanLi.Extensions.CoreExtension.Min*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Min_System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.Min(System.Int32,System.Int32)">
-  Min(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1540"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the smaller of two 32-bit signed integers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Min(this int val1, int val2)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>val1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The first of two 32-bit signed integers to compare.</p>
-</dd>
-    <dt><code>val2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The second of two 32-bit signed integers to compare.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>Parameter  or , whichever is smaller.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_NetworkToHostOrder_" data-uid="WeihanLi.Extensions.CoreExtension.NetworkToHostOrder*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_NetworkToHostOrder_System_Int16_" data-uid="WeihanLi.Extensions.CoreExtension.NetworkToHostOrder(System.Int16)">
-  NetworkToHostOrder(short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1351"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Converts a short value from network byte order to host byte order.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static short NetworkToHostOrder(this short network)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>network</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The number to convert, expressed in network byte order.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>A short value, expressed in host byte order.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_OneOf_" data-uid="WeihanLi.Extensions.CoreExtension.OneOf*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_OneOf__1_System_Random___0___" data-uid="WeihanLi.Extensions.CoreExtension.OneOf``1(System.Random,``0[])">
   OneOf&lt;T&gt;(Random, params T[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2101"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1303"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A Random extension method that return a random value from the specified values.</p>
@@ -5497,7 +3694,7 @@ Infinity =  +Infinity0 &lt;&lt; 1-Infinity =  +Infinity&gt; 1+Infinity = 1 = 00 
 
   <h3 id="WeihanLi_Extensions_CoreExtension_ParseParamDictionary_System_Object_" data-uid="WeihanLi.Extensions.CoreExtension.ParseParamDictionary(System.Object)">
   ParseParamDictionary(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2055"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1257"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get param dictionary</p>
@@ -5530,144 +3727,11 @@ Infinity =  +Infinity0 &lt;&lt; 1-Infinity =  +Infinity&gt; 1+Infinity = 1 = 00 
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_Pow_" data-uid="WeihanLi.Extensions.CoreExtension.Pow*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Pow_System_Double_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Pow(System.Double,System.Double)">
-  Pow(double, double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1022"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns a specified number raised to the specified power.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Pow(this double x, double y)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A double-precision floating-point number to be raised to a power.</p>
-</dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A double-precision floating-point number that specifies a power.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The number  raised to the power .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Remove_" data-uid="WeihanLi.Extensions.CoreExtension.Remove*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Remove_System_Delegate_System_Delegate_" data-uid="WeihanLi.Extensions.CoreExtension.Remove(System.Delegate,System.Delegate)">
-  Remove(Delegate, Delegate)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L794"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Removes the last occurrence of the invocation list of a delegate from the invocation list of another delegate.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Delegate? Remove(this Delegate source, Delegate value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a></dt>
-    <dd><p>The delegate from which to remove the invocation list of .</p>
-</dd>
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a></dt>
-    <dd><p>The delegate that supplies the invocation list to remove from the invocation list of .</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a></dt>
-    <dd><p>A new delegate with an invocation list formed by taking the invocation list of  and removing the last
-occurrence of the invocation list of , if the invocation list of  is found within the invocation list of .
-Returns  if  is null or if the invocation list of  is not found within the invocation list of . Returns a
-null reference if the invocation list of  is equal to the invocation list of  or if  is a null reference.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_RemoveAll_" data-uid="WeihanLi.Extensions.CoreExtension.RemoveAll*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_RemoveAll_System_Delegate_System_Delegate_" data-uid="WeihanLi.Extensions.CoreExtension.RemoveAll(System.Delegate,System.Delegate)">
-  RemoveAll(Delegate, Delegate)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L811"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Removes all occurrences of the invocation list of a delegate from the invocation list of another delegate.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Delegate? RemoveAll(this Delegate source, Delegate value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a></dt>
-    <dd><p>The delegate from which to remove the invocation list of .</p>
-</dd>
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a></dt>
-    <dd><p>The delegate that supplies the invocation list to remove from the invocation list of .</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.delegate">Delegate</a></dt>
-    <dd><p>A new delegate with an invocation list formed by taking the invocation list of  and removing all occurrences
-of the invocation list of , if the invocation list of  is found within the invocation list of . Returns  if
-is null or if the invocation list of  is not found within the invocation list of . Returns a null reference
-if the invocation list of  is equal to the invocation list of , if  contains only a series of invocation
-lists that are equal to the invocation list of , or if  is a null reference.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_RemoveWhere_" data-uid="WeihanLi.Extensions.CoreExtension.RemoveWhere*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_RemoveWhere_System_String_System_Func_System_Char_System_Boolean__" data-uid="WeihanLi.Extensions.CoreExtension.RemoveWhere(System.String,System.Func{System.Char,System.Boolean})">
   RemoveWhere(string, Func&lt;char, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2245"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1431"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that removes the letter.</p>
@@ -5751,7 +3815,7 @@ lists that are equal to the invocation list of , or if  is a null reference.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Repeat_System_String_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.Repeat(System.String,System.Int32)">
   Repeat(string, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2339"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1525"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that repeats the string a specified number of times.</p>
@@ -5835,7 +3899,7 @@ lists that are equal to the invocation list of , or if  is a null reference.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Reverse_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.Reverse(System.String)">
   Reverse(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2361"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1547"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that reverses the given string.</p>
@@ -5870,359 +3934,11 @@ lists that are equal to the invocation list of , or if  is a null reference.</p>
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_Round_" data-uid="WeihanLi.Extensions.CoreExtension.Round*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Round_System_Decimal_" data-uid="WeihanLi.Extensions.CoreExtension.Round(System.Decimal)">
-  Round(decimal)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L683"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Rounds a decimal value to the nearest integral value.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static decimal Round(this decimal d)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>A decimal number to be rounded.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The integer nearest parameter . If the fractional component of  is halfway between two integers, one of which
-is even and the other odd, the even number is returned. Note that this method returns a  instead of an
-integral type.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Round_" data-uid="WeihanLi.Extensions.CoreExtension.Round*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Round_System_Decimal_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.Round(System.Decimal,System.Int32)">
-  Round(decimal, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L694"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Rounds a decimal value to a specified number of fractional digits.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static decimal Round(this decimal d, int decimals)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>A decimal number to be rounded.</p>
-</dd>
-    <dt><code>decimals</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The number of decimal places in the return value.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The number nearest to  that contains a number of fractional digits equal to .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Round_" data-uid="WeihanLi.Extensions.CoreExtension.Round*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Round_System_Decimal_System_Int32_System_MidpointRounding_" data-uid="WeihanLi.Extensions.CoreExtension.Round(System.Decimal,System.Int32,System.MidpointRounding)">
-  Round(decimal, int, MidpointRounding)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L725"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Rounds a decimal value to a specified number of fractional digits. A parameter specifies how to round the
-value if it is midway between two numbers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static decimal Round(this decimal d, int decimals, MidpointRounding mode)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>A decimal number to be rounded.</p>
-</dd>
-    <dt><code>decimals</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The number of decimal places in the return value.</p>
-</dd>
-    <dt><code>mode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.midpointrounding">MidpointRounding</a></dt>
-    <dd><p>Specification for how to round  if it is midway between two other numbers.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The number nearest to  that contains a number of fractional digits equal to . If  has fewer fractional digits
-than ,  is returned unchanged.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Round_" data-uid="WeihanLi.Extensions.CoreExtension.Round*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Round_System_Decimal_System_MidpointRounding_" data-uid="WeihanLi.Extensions.CoreExtension.Round(System.Decimal,System.MidpointRounding)">
-  Round(decimal, MidpointRounding)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L709"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Rounds a decimal value to the nearest integer. A parameter specifies how to round the value if it is midway
-between two numbers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static decimal Round(this decimal d, MidpointRounding mode)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>A decimal number to be rounded.</p>
-</dd>
-    <dt><code>mode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.midpointrounding">MidpointRounding</a></dt>
-    <dd><p>Specification for how to round  if it is midway between two other numbers.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The integer nearest . If  is halfway between two numbers, one of which is even and the other odd, then
-determines which of the two is returned.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Round_" data-uid="WeihanLi.Extensions.CoreExtension.Round*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Round_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Round(System.Double)">
-  Round(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1033"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Rounds a double-precision floating-point value to the nearest integral value.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Round(this double a)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A double-precision floating-point number to be rounded.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The integer nearest . If the fractional component of  is halfway between two integers, one of which is even
-and the other odd, then the even number is returned. Note that this method returns a  instead of an integral
-type.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Round_" data-uid="WeihanLi.Extensions.CoreExtension.Round*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Round_System_Double_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.Round(System.Double,System.Int32)">
-  Round(double, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1041"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Rounds a double-precision floating-point value to a specified number of fractional digits.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Round(this double a, int digits)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A double-precision floating-point number to be rounded.</p>
-</dd>
-    <dt><code>digits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The number of fractional digits in the return value.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The number nearest to  that contains a number of fractional digits equal to .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Round_" data-uid="WeihanLi.Extensions.CoreExtension.Round*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Round_System_Double_System_Int32_System_MidpointRounding_" data-uid="WeihanLi.Extensions.CoreExtension.Round(System.Double,System.Int32,System.MidpointRounding)">
-  Round(double, int, MidpointRounding)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1066"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Rounds a double-precision floating-point value to a specified number of fractional digits. A parameter
-specifies how to round the value if it is midway between two numbers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Round(this double value, int digits, MidpointRounding mode)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A double-precision floating-point number to be rounded.</p>
-</dd>
-    <dt><code>digits</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The number of fractional digits in the return value.</p>
-</dd>
-    <dt><code>mode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.midpointrounding">MidpointRounding</a></dt>
-    <dd><p>Specification for how to round  if it is midway between two other numbers.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The number nearest to  that has a number of fractional digits equal to . If  has fewer fractional digits than
-,  is returned unchanged.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Round_" data-uid="WeihanLi.Extensions.CoreExtension.Round*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Round_System_Double_System_MidpointRounding_" data-uid="WeihanLi.Extensions.CoreExtension.Round(System.Double,System.MidpointRounding)">
-  Round(double, MidpointRounding)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1053"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Rounds a double-precision floating-point value to the nearest integer. A parameter specifies how to round the
-value if it is midway between two numbers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Round(this double a, MidpointRounding mode)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A double-precision floating-point number to be rounded.</p>
-</dd>
-    <dt><code>mode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.midpointrounding">MidpointRounding</a></dt>
-    <dd><p>Specification for how to round  if it is midway between two other numbers.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The integer nearest . If  is halfway between two integers, one of which is even and the other odd, then
-determines which of the two is returned.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_SafeSubstring_" data-uid="WeihanLi.Extensions.CoreExtension.SafeSubstring*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_SafeSubstring_System_String_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.SafeSubstring(System.String,System.Int32)">
   SafeSubstring(string, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2287"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1473"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>SafeSubstring</p>
@@ -6261,7 +3977,7 @@ determines which of the two is returned.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_SafeSubstring_System_String_System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.SafeSubstring(System.String,System.Int32,System.Int32)">
   SafeSubstring(string, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2303"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1489"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>SafeSubstring</p>
@@ -6298,249 +4014,11 @@ determines which of the two is returned.</p>
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_Sign_" data-uid="WeihanLi.Extensions.CoreExtension.Sign*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Sign_System_Decimal_" data-uid="WeihanLi.Extensions.CoreExtension.Sign(System.Decimal)">
-  Sign(decimal)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L738"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns a value indicating the sign of a decimal number.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Sign(this decimal value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>A signed decimal number.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>A number that indicates the sign of , as shown in the following table.Return value Meaning -1  is less than
-zero. 0  is equal to zero. 1  is greater than zero.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Sign_" data-uid="WeihanLi.Extensions.CoreExtension.Sign*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Sign_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Sign(System.Double)">
-  Sign(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1076"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns a value indicating the sign of a double-precision floating-point number.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Sign(this double value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A signed number.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>A number that indicates the sign of , as shown in the following table.Return value Meaning -1  is less than
-zero. 0  is equal to zero. 1  is greater than zero.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Sign_" data-uid="WeihanLi.Extensions.CoreExtension.Sign*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Sign_System_Int16_" data-uid="WeihanLi.Extensions.CoreExtension.Sign(System.Int16)">
-  Sign(short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1331"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns a value indicating the sign of a 16-bit signed integer.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Sign(this short value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>A signed number.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>A number that indicates the sign of , as shown in the following table.Return value Meaning -1  is less than
-zero. 0  is equal to zero. 1  is greater than zero.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Sign_" data-uid="WeihanLi.Extensions.CoreExtension.Sign*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Sign_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.Sign(System.Int32)">
-  Sign(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1553"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns a value indicating the sign of a 32-bit signed integer.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Sign(this int value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>A signed number.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>A number that indicates the sign of , as shown in the following table.Return value Meaning -1  is less than
-zero. 0  is equal to zero. 1  is greater than zero.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Sin_" data-uid="WeihanLi.Extensions.CoreExtension.Sin*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Sin_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Sin(System.Double)">
-  Sin(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1083"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the sine of the specified angle.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Sin(this double a)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>An angle, measured in radians.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The sine of . If  is equal to , , or , this method returns .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Sinh_" data-uid="WeihanLi.Extensions.CoreExtension.Sinh*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Sinh_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Sinh(System.Double)">
-  Sinh(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1093"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the hyperbolic sine of the specified angle.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Sinh(this double value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>An angle, measured in radians.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The hyperbolic sine of . If  is equal to , , or , this method returns a  equal to .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_Split_" data-uid="WeihanLi.Extensions.CoreExtension.Split*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Split_System_String_System_String_System_StringSplitOptions_" data-uid="WeihanLi.Extensions.CoreExtension.Split(System.String,System.String,System.StringSplitOptions)">
   Split(string, string, StringSplitOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2386"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1572"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns a String array containing the substrings in this string that are delimited by elements of a specified
@@ -6570,46 +4048,6 @@ or None to include empty array elements in the array returned.</p>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
     <dd><p>An array whose elements contain the substrings in this string that are delimited by the separator.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Sqrt_" data-uid="WeihanLi.Extensions.CoreExtension.Sqrt*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Sqrt_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Sqrt(System.Double)">
-  Sqrt(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1106"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the square root of a specified number.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Sqrt(this double d)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The number whose square root is to be found.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>One of the values in the following table.  parameter Return value Zero or positive The positive square root
-of . Negative Equals Equals.</p>
 </dd>
   </dl>
 
@@ -6789,7 +4227,7 @@ the day.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Sub_System_String_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.Sub(System.String,System.Int32)">
   Sub(string, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2319"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1505"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sub, not only substring but support for negative numbers</p>
@@ -6806,7 +4244,7 @@ the day.</p>
     <dd><p>string to be handled</p>
 </dd>
     <dt><code>startIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>startIndex to substract</p>
+    <dd><p>startIndex to sub-stract</p>
 </dd>
   </dl>
 
@@ -6831,7 +4269,7 @@ the day.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Substring_System_Text_StringBuilder_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.Substring(System.Text.StringBuilder,System.Int32)">
   Substring(StringBuilder, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2471"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1669"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A StringBuilder extension method that substrings.</p>
@@ -6873,7 +4311,7 @@ the day.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Substring_System_Text_StringBuilder_System_Int32_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.Substring(System.Text.StringBuilder,System.Int32,System.Int32)">
   Substring(StringBuilder, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2481"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1679"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A StringBuilder extension method that substrings.</p>
@@ -6914,90 +4352,11 @@ the day.</p>
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_Tan_" data-uid="WeihanLi.Extensions.CoreExtension.Tan*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Tan_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Tan(System.Double)">
-  Tan(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1116"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the tangent of the specified angle.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Tan(this double a)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>An angle, measured in radians.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The tangent of . If  is equal to , , or , this method returns .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Tanh_" data-uid="WeihanLi.Extensions.CoreExtension.Tanh*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Tanh_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Tanh(System.Double)">
-  Tanh(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1129"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the hyperbolic tangent of the specified angle.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Tanh(this double value)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>An angle, measured in radians.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The hyperbolic tangent of . If  is equal to , this method returns -1. If value is equal to , this method
-returns 1. If  is equal to , this method returns .</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_To_" data-uid="WeihanLi.Extensions.CoreExtension.To*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_To_System_Object_System_Type_" data-uid="WeihanLi.Extensions.CoreExtension.To(System.Object,System.Type)">
   To(object?, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1723"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L925"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A System.Object extension method that toes the given this.</p>
@@ -7215,11 +4574,49 @@ elements in the array to convert, and whether to insert line breaks in the retur
 
 
 
+  <a id="WeihanLi_Extensions_CoreExtension_ToBoolean_" data-uid="WeihanLi.Extensions.CoreExtension.ToBoolean*"></a>
+
+  <h3 id="WeihanLi_Extensions_CoreExtension_ToBoolean_System_String_System_Boolean_" data-uid="WeihanLi.Extensions.CoreExtension.ToBoolean(System.String,System.Boolean)">
+  ToBoolean(string?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1594"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ToBoolean(this string? value, bool defaultValue = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>defaultValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Extensions_CoreExtension_ToByteArray_" data-uid="WeihanLi.Extensions.CoreExtension.ToByteArray*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_ToByteArray_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.ToByteArray(System.String)">
   ToByteArray(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2393"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1580"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that converts the @this to a byte array.</p>
@@ -7258,7 +4655,7 @@ elements in the array to convert, and whether to insert line breaks in the retur
 
   <h3 id="WeihanLi_Extensions_CoreExtension_ToByteArray_System_String_System_Text_Encoding_" data-uid="WeihanLi.Extensions.CoreExtension.ToByteArray(System.String,System.Text.Encoding)">
   ToByteArray(string, Encoding)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2401"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1588"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that converts the @this to a byte array.</p>
@@ -7296,11 +4693,53 @@ elements in the array to convert, and whether to insert line breaks in the retur
 
 
 
+  <a id="WeihanLi_Extensions_CoreExtension_ToDateString_" data-uid="WeihanLi.Extensions.CoreExtension.ToDateString*"></a>
+
+  <h3 id="WeihanLi_Extensions_CoreExtension_ToDateString_System_DateTime_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.ToDateString(System.DateTime,System.String)">
+  ToDateString(DateTime, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L587"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>ToDateString(&quot;yyyy-MM-dd&quot;)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToDateString(this DateTime @this, string format = &quot;yyyy-MM-dd&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>dateTime</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>date format, using <code>yyyy-MM-dd</code> by default</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The formatted date string</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Extensions_CoreExtension_ToEnum_" data-uid="WeihanLi.Extensions.CoreExtension.ToEnum*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_ToEnum__1_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.ToEnum``1(System.String)">
   ToEnum&lt;T&gt;(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2413"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1611"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that converts the @this to an enum.</p>
@@ -7543,89 +4982,11 @@ alphabetic.</p>
 
 
 
-  <a id="WeihanLi_Extensions_CoreExtension_ToMoney_" data-uid="WeihanLi.Extensions.CoreExtension.ToMoney*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_ToMoney_System_Decimal_" data-uid="WeihanLi.Extensions.CoreExtension.ToMoney(System.Decimal)">
-  ToMoney(decimal)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L760"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>A Decimal extension method that converts the @this to a money.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static decimal ToMoney(this decimal @this)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>this</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The @this to act on.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>@this as a Decimal.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_ToMoney_" data-uid="WeihanLi.Extensions.CoreExtension.ToMoney*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_ToMoney_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.ToMoney(System.Double)">
-  ToMoney(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1149"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>A Double extension method that converts the @this to a moneyFormat.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double ToMoney(this double @this)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>this</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The @this to act on.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>@this as a Double.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_CoreExtension_ToOrDefault_" data-uid="WeihanLi.Extensions.CoreExtension.ToOrDefault*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_ToOrDefault_System_Object_System_Type_" data-uid="WeihanLi.Extensions.CoreExtension.ToOrDefault(System.Object,System.Type)">
   ToOrDefault(object?, Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1793"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L995"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A System.Object extension method that converts this object to an or default.</p>
@@ -7667,7 +5028,7 @@ alphabetic.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_" data-uid="WeihanLi.Extensions.CoreExtension.ToOrDefault``1(System.Object)">
   ToOrDefault&lt;T&gt;(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1813"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1015"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A System.Object extension method that converts this object to an or default.</p>
@@ -7712,7 +5073,7 @@ alphabetic.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func_System_Object___0__" data-uid="WeihanLi.Extensions.CoreExtension.ToOrDefault``1(System.Object,System.Func{System.Object,``0})">
   ToOrDefault&lt;T&gt;(object?, Func&lt;object?, T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1761"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L963"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A System.Object extension method that converts this object to an or default.</p>
@@ -7760,7 +5121,7 @@ alphabetic.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func___0__" data-uid="WeihanLi.Extensions.CoreExtension.ToOrDefault``1(System.Object,System.Func{``0})">
   ToOrDefault&lt;T&gt;(object?, Func&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1781"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L983"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A System.Object extension method that converts this object to an or default.</p>
@@ -7808,7 +5169,7 @@ alphabetic.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object___0_" data-uid="WeihanLi.Extensions.CoreExtension.ToOrDefault``1(System.Object,``0)">
   ToOrDefault&lt;T&gt;(object?, T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1826"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1028"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A System.Object extension method that converts this object to an or default.</p>
@@ -7842,82 +5203,6 @@ alphabetic.</p>
     <dd><p>Generic type parameter.</p>
 </dd>
   </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_ToStandardDateString_" data-uid="WeihanLi.Extensions.CoreExtension.ToStandardDateString*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_ToStandardDateString_System_DateTime_" data-uid="WeihanLi.Extensions.CoreExtension.ToStandardDateString(System.DateTime)">
-  ToStandardDateString(DateTime)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L586"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>ToDateString(&quot;yyyy-MM-dd&quot;)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string ToStandardDateString(this DateTime @this)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>this</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
-    <dd><p>dateTime</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_ToStandardTimeString_" data-uid="WeihanLi.Extensions.CoreExtension.ToStandardTimeString*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_ToStandardTimeString_System_DateTime_" data-uid="WeihanLi.Extensions.CoreExtension.ToStandardTimeString(System.DateTime)">
-  ToStandardTimeString(DateTime)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L596"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>ToTimeString(&quot;yyyy-MM-dd HH:mm:ss&quot;)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string ToStandardTimeString(this DateTime @this)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>this</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
-    <dd><p>datetime</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
 
 
 
@@ -7973,11 +5258,53 @@ alphabetic.</p>
 
 
 
+  <a id="WeihanLi_Extensions_CoreExtension_ToTimeString_" data-uid="WeihanLi.Extensions.CoreExtension.ToTimeString*"></a>
+
+  <h3 id="WeihanLi_Extensions_CoreExtension_ToTimeString_System_DateTime_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.ToTimeString(System.DateTime,System.String)">
+  ToTimeString(DateTime, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L598"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>ToTimeString(&quot;yyyy-MM-dd HH:mm:ss&quot;)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToTimeString(this DateTime @this, string format = &quot;yyyy-MM-dd HH:mm:ss&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>this</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>dateTime</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>dateTime format, using <code>yyyy-MM-dd HH:mm:ss</code> by default</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The formatted time string</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Extensions_CoreExtension_ToTitleCase_" data-uid="WeihanLi.Extensions.CoreExtension.ToTitleCase*"></a>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_ToTitleCase_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.ToTitleCase(System.String)">
   ToTitleCase(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2420"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1618"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that converts the @this to a title case.</p>
@@ -8016,7 +5343,7 @@ alphabetic.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_ToTitleCase_System_String_System_Globalization_CultureInfo_" data-uid="WeihanLi.Extensions.CoreExtension.ToTitleCase(System.String,System.Globalization.CultureInfo)">
   ToTitleCase(string, CultureInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2428"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1626"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that converts the @this to a title case.</p>
@@ -8183,7 +5510,7 @@ alphabetic.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_To__1_System_Object_" data-uid="WeihanLi.Extensions.CoreExtension.To``1(System.Object)">
   To&lt;T&gt;(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1685"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L887"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A System.Object extension method that toes the given this.</p>
@@ -8226,88 +5553,9 @@ alphabetic.</p>
 
   <a id="WeihanLi_Extensions_CoreExtension_Truncate_" data-uid="WeihanLi.Extensions.CoreExtension.Truncate*"></a>
 
-  <h3 id="WeihanLi_Extensions_CoreExtension_Truncate_System_Decimal_" data-uid="WeihanLi.Extensions.CoreExtension.Truncate(System.Decimal)">
-  Truncate(decimal)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L750"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Calculates the integral part of a specified decimal number.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static decimal Truncate(this decimal d)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>A number to truncate.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></dt>
-    <dd><p>The integral part of ; that is, the number that remains after any fractional digits have been discarded.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Truncate_" data-uid="WeihanLi.Extensions.CoreExtension.Truncate*"></a>
-
-  <h3 id="WeihanLi_Extensions_CoreExtension_Truncate_System_Double_" data-uid="WeihanLi.Extensions.CoreExtension.Truncate(System.Double)">
-  Truncate(double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1142"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Calculates the integral part of a specified double-precision floating-point number.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static double Truncate(this double d)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>A number to truncate.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd><p>The integral part of ; that is, the number that remains after any fractional digits have been discarded, or
-one of the values listed in the following table. Return value.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_CoreExtension_Truncate_" data-uid="WeihanLi.Extensions.CoreExtension.Truncate*"></a>
-
   <h3 id="WeihanLi_Extensions_CoreExtension_Truncate_System_String_System_Int32_" data-uid="WeihanLi.Extensions.CoreExtension.Truncate(System.String,System.Int32)">
   Truncate(string, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2436"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1634"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that truncates.</p>
@@ -8349,7 +5597,7 @@ one of the values listed in the following table. Return value.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Truncate_System_String_System_Int32_System_String_" data-uid="WeihanLi.Extensions.CoreExtension.Truncate(System.String,System.Int32,System.String)">
   Truncate(string, int, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2445"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1643"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A string extension method that truncates.</p>
@@ -8394,7 +5642,7 @@ one of the values listed in the following table. Return value.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Try__1___0_System_Action___0__" data-uid="WeihanLi.Extensions.CoreExtension.Try``1(``0,System.Action{``0})">
   Try&lt;TType&gt;(TType, Action&lt;TType&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1995"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1197"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A TType extension method that attempts to action from the given data.</p>
@@ -8442,7 +5690,7 @@ one of the values listed in the following table. Return value.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Try__1___0_System_Action___0__System_Action___0__" data-uid="WeihanLi.Extensions.CoreExtension.Try``1(``0,System.Action{``0},System.Action{``0})">
   Try&lt;TType&gt;(TType, Action&lt;TType&gt;, Action&lt;TType&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2014"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1216"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A TType extension method that attempts to action from the given data.</p>
@@ -8493,7 +5741,7 @@ one of the values listed in the following table. Return value.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1__System_Func___0___1__" data-uid="WeihanLi.Extensions.CoreExtension.Try``2(``0,System.Func{``0,``1},System.Func{``0,``1})">
   Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, Func&lt;TType, TResult&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1913"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1115"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A TType extension method that tries.</p>
@@ -8547,7 +5795,7 @@ one of the values listed in the following table. Return value.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1__System_Func___0___1____1__" data-uid="WeihanLi.Extensions.CoreExtension.Try``2(``0,System.Func{``0,``1},System.Func{``0,``1},``1@)">
   Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, Func&lt;TType, TResult&gt;, out TResult)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1976"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1178"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A TType extension method that tries.</p>
@@ -8604,7 +5852,7 @@ one of the values listed in the following table. Return value.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1_" data-uid="WeihanLi.Extensions.CoreExtension.Try``2(``0,System.Func{``0,``1},``1)">
   Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, TResult)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1894"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1096"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A TType extension method that tries.</p>
@@ -8658,7 +5906,7 @@ one of the values listed in the following table. Return value.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1___1__" data-uid="WeihanLi.Extensions.CoreExtension.Try``2(``0,System.Func{``0,``1},``1,``1@)">
   Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, TResult, out TResult)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1954"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1156"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A TType extension method that tries.</p>
@@ -8715,7 +5963,7 @@ one of the values listed in the following table. Return value.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1__" data-uid="WeihanLi.Extensions.CoreExtension.Try``2(``0,System.Func{``0,``1},``1@)">
   Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, out TResult?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1932"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1134"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A TType extension method that tries.</p>
@@ -8769,7 +6017,7 @@ one of the values listed in the following table. Return value.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_Unwrap_System_Type_" data-uid="WeihanLi.Extensions.CoreExtension.Unwrap(System.Type)">
   Unwrap(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2661"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1858"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>GetUnderlyingType if nullable else return self</p>
@@ -8807,7 +6055,7 @@ one of the values listed in the following table. Return value.</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_UtcAgo_System_TimeSpan_" data-uid="WeihanLi.Extensions.CoreExtension.UtcAgo(System.TimeSpan)">
   UtcAgo(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2604"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1802"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A TimeSpan extension method that substract the specified TimeSpan to the current UTC (Coordinated Universal
@@ -8847,7 +6095,7 @@ Time)</p>
 
   <h3 id="WeihanLi_Extensions_CoreExtension_UtcFromNow_System_TimeSpan_" data-uid="WeihanLi.Extensions.CoreExtension.UtcFromNow(System.TimeSpan)">
   UtcFromNow(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L2611"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/CoreExtension.cs/#L1809"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A TimeSpan extension method that add the specified TimeSpan to the current UTC (Coordinated Universal Time)</p>

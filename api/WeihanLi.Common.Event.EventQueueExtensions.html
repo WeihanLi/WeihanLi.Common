@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Event_EventQueueExtensions" data-uid="WeihanLi.Common.Event.EventQueueExtensions" class="text-break">
-Class EventQueueExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventQueue.cs/#L16"><i class="bi bi-code-slash"></i></a>
+Class EventQueueExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventQueue.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -148,54 +148,18 @@ Class EventQueueExtensions  <a class="header-action link-secondary" title="View 
 </h2>
 
 
-  <a id="WeihanLi_Common_Event_EventQueueExtensions_DequeueAsync_" data-uid="WeihanLi.Common.Event.EventQueueExtensions.DequeueAsync*"></a>
-
-  <h3 id="WeihanLi_Common_Event_EventQueueExtensions_DequeueAsync_WeihanLi_Common_Event_IEventQueue_" data-uid="WeihanLi.Common.Event.EventQueueExtensions.DequeueAsync(WeihanLi.Common.Event.IEventQueue)">
-  DequeueAsync(IEventQueue)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventQueue.cs/#L26"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;IEventBase?&gt; DequeueAsync(this IEventQueue eventQueue)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>eventQueue</code> <a class="xref" href="WeihanLi.Common.Event.IEventQueue.html">IEventQueue</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="WeihanLi.Common.Event.IEventBase.html">IEventBase</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Common_Event_EventQueueExtensions_EnqueueAsync_" data-uid="WeihanLi.Common.Event.EventQueueExtensions.EnqueueAsync*"></a>
 
-  <h3 id="WeihanLi_Common_Event_EventQueueExtensions_EnqueueAsync__1_WeihanLi_Common_Event_IEventQueue___0_" data-uid="WeihanLi.Common.Event.EventQueueExtensions.EnqueueAsync``1(WeihanLi.Common.Event.IEventQueue,``0)">
-  EnqueueAsync&lt;TEvent&gt;(IEventQueue, TEvent)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventQueue.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Event_EventQueueExtensions_EnqueueAsync__1_WeihanLi_Common_Event_IEventQueue___0_WeihanLi_Common_Event_EventProperties_" data-uid="WeihanLi.Common.Event.EventQueueExtensions.EnqueueAsync``1(WeihanLi.Common.Event.IEventQueue,``0,WeihanLi.Common.Event.EventProperties)">
+  EnqueueAsync&lt;TEvent&gt;(IEventQueue, TEvent, EventProperties?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventQueue.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; EnqueueAsync&lt;TEvent&gt;(this IEventQueue eventQueue, TEvent @event) where TEvent : class, IEventBase</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; EnqueueAsync&lt;TEvent&gt;(this IEventQueue eventQueue, TEvent @event, EventProperties? properties = null) where TEvent : class</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -203,6 +167,8 @@ Class EventQueueExtensions  <a class="header-action link-secondary" title="View 
     <dt><code>eventQueue</code> <a class="xref" href="WeihanLi.Common.Event.IEventQueue.html">IEventQueue</a></dt>
     <dd></dd>
     <dt><code>event</code> <span class="xref">TEvent</span></dt>
+    <dd></dd>
+    <dt><code>properties</code> <a class="xref" href="WeihanLi.Common.Event.EventProperties.html">EventProperties</a></dt>
     <dd></dd>
   </dl>
 
@@ -231,7 +197,7 @@ Class EventQueueExtensions  <a class="header-action link-secondary" title="View 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventQueue.cs/#L16" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventQueue.cs/#L19" class="edit-link">Edit this page</a>
         </div>
 
 

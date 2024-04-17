@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -233,9 +233,9 @@ Interface IEventPublisher  <a class="header-action link-secondary" title="View s
 
   <a id="WeihanLi_Common_Event_IEventPublisher_PublishAsync_" data-uid="WeihanLi.Common.Event.IEventPublisher.PublishAsync*"></a>
 
-  <h3 id="WeihanLi_Common_Event_IEventPublisher_PublishAsync__1___0_" data-uid="WeihanLi.Common.Event.IEventPublisher.PublishAsync``1(``0)">
-  PublishAsync&lt;TEvent&gt;(TEvent)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventPublisher.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Event_IEventPublisher_PublishAsync__1___0_WeihanLi_Common_Event_EventProperties_" data-uid="WeihanLi.Common.Event.IEventPublisher.PublishAsync``1(``0,WeihanLi.Common.Event.EventProperties)">
+  PublishAsync&lt;TEvent&gt;(TEvent, EventProperties?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventPublisher.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>publish an event async</p>
@@ -243,64 +243,22 @@ Interface IEventPublisher  <a class="header-action link-secondary" title="View s
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;bool&gt; PublishAsync&lt;TEvent&gt;(TEvent @event) where TEvent : class, IEventBase</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;bool&gt; PublishAsync&lt;TEvent&gt;(TEvent @event, EventProperties? properties = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>event</code> <span class="xref">TEvent</span></dt>
     <dd><p>event data</p>
+</dd>
+    <dt><code>properties</code> <a class="xref" href="WeihanLi.Common.Event.EventProperties.html">EventProperties</a></dt>
+    <dd><p>properties</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
-    <dd><p>whether the operation succeed</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TEvent</code></dt>
-    <dd><p>event type</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Common_Event_IEventPublisher_Publish_" data-uid="WeihanLi.Common.Event.IEventPublisher.Publish*"></a>
-
-  <h3 id="WeihanLi_Common_Event_IEventPublisher_Publish__1___0_" data-uid="WeihanLi.Common.Event.IEventPublisher.Publish``1(``0)">
-  Publish&lt;TEvent&gt;(TEvent)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventPublisher.cs/#L14"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>publish an event</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool Publish&lt;TEvent&gt;(TEvent @event) where TEvent : class, IEventBase</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>event</code> <span class="xref">TEvent</span></dt>
-    <dd><p>event data</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>whether the operation succeed</p>
 </dd>
   </dl>

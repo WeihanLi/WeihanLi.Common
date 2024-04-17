@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -1800,8 +1800,7 @@ get latest from <a href="https://github.com/dotnet/corefx/blob/master/src/System
   </h3>
 
   <div class="markdown level1 summary"><p>PostFile
-<a href="https://stackoverflow.com/questions/566462/upload-files-with-httpwebrequest-multipart-form-data">https://stackoverflow.com/questions/566462/upload-files-with-httpwebrequest-multipart-form-data</a>
-<a href="http://www.cnblogs.com/greenerycn/archive/2010/05/15/csharp_http_post.html">http://www.cnblogs.com/greenerycn/archive/2010/05/15/csharp_http_post.html</a></p>
+<a href="https://stackoverflow.com/questions/566462/upload-files-with-httpwebrequest-multipart-form-data">https://stackoverflow.com/questions/566462/upload-files-with-httpwebrequest-multipart-form-data</a><a href="http://www.cnblogs.com/greenerycn/archive/2010/05/15/csharp_http_post.html">http://www.cnblogs.com/greenerycn/archive/2010/05/15/csharp_http_post.html</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

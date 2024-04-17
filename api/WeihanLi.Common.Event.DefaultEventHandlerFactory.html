@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Event_DefaultEventHandlerFactory" data-uid="WeihanLi.Common.Event.DefaultEventHandlerFactory" class="text-break">
-Class DefaultEventHandlerFactory  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventHandlerFactory.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Class DefaultEventHandlerFactory  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventHandlerFactory.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -271,23 +271,21 @@ Class DefaultEventHandlerFactory  <a class="header-action link-secondary" title=
 
   <a id="WeihanLi_Common_Event_DefaultEventHandlerFactory__ctor_" data-uid="WeihanLi.Common.Event.DefaultEventHandlerFactory.#ctor*"></a>
 
-  <h3 id="WeihanLi_Common_Event_DefaultEventHandlerFactory__ctor_WeihanLi_Common_Event_IEventSubscriptionManager_System_IServiceProvider_" data-uid="WeihanLi.Common.Event.DefaultEventHandlerFactory.#ctor(WeihanLi.Common.Event.IEventSubscriptionManager,System.IServiceProvider)">
-  DefaultEventHandlerFactory(IEventSubscriptionManager, IServiceProvider)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventHandlerFactory.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Event_DefaultEventHandlerFactory__ctor_WeihanLi_Common_Event_IEventSubscriptionManager_" data-uid="WeihanLi.Common.Event.DefaultEventHandlerFactory.#ctor(WeihanLi.Common.Event.IEventSubscriptionManager)">
+  DefaultEventHandlerFactory(IEventSubscriptionManager)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventHandlerFactory.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DefaultEventHandlerFactory(IEventSubscriptionManager subscriptionManager, IServiceProvider serviceProvider)</code></pre>
+    <pre><code class="lang-csharp hljs">public DefaultEventHandlerFactory(IEventSubscriptionManager subscriptionManager)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>subscriptionManager</code> <a class="xref" href="WeihanLi.Common.Event.IEventSubscriptionManager.html">IEventSubscriptionManager</a></dt>
-    <dd></dd>
-    <dt><code>serviceProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
     <dd></dd>
   </dl>
 
@@ -310,7 +308,7 @@ Class DefaultEventHandlerFactory  <a class="header-action link-secondary" title=
 
   <h3 id="WeihanLi_Common_Event_DefaultEventHandlerFactory_GetHandlers_System_Type_" data-uid="WeihanLi.Common.Event.DefaultEventHandlerFactory.GetHandlers(System.Type)">
   GetHandlers(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventHandlerFactory.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventHandlerFactory.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -346,7 +344,7 @@ Class DefaultEventHandlerFactory  <a class="header-action link-secondary" title=
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventHandlerFactory.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventHandlerFactory.cs/#L8" class="edit-link">Edit this page</a>
         </div>
 
 

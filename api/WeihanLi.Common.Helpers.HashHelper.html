@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Helpers_HashHelper" data-uid="WeihanLi.Common.Helpers.HashHelper" class="text-break">
-Class HashHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L11"><i class="bi bi-code-slash"></i></a>
+Class HashHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -151,9 +151,49 @@ Class HashHelper  <a class="header-action link-secondary" title="View source" hr
 
   <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes*"></a>
 
+  <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_System_Security_Cryptography_HashAlgorithmName_System_Byte___System_Byte___" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes(System.Security.Cryptography.HashAlgorithmName,System.Byte[],System.Byte[])">
+  GetHashedBytes(HashAlgorithmName, byte[], byte[]?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L220"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] GetHashedBytes(HashAlgorithmName hashAlgorithm, byte[] bytes, byte[]? key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hashAlgorithm</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.hashalgorithmname">HashAlgorithmName</a></dt>
+    <dd></dd>
+    <dt><code>bytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes*"></a>
+
   <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_WeihanLi_Common_Helpers_HashType_System_Byte___" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes(WeihanLi.Common.Helpers.HashType,System.Byte[])">
   GetHashedBytes(HashType, byte[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L170"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>获取Hash后的字节数组</p>
@@ -194,7 +234,7 @@ Class HashHelper  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_WeihanLi_Common_Helpers_HashType_System_Byte___System_Byte___" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes(WeihanLi.Common.Helpers.HashType,System.Byte[],System.Byte[])">
   GetHashedBytes(HashType, byte[], byte[]?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L179"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>获取Hash后的字节数组</p>
@@ -238,7 +278,7 @@ Class HashHelper  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_WeihanLi_Common_Helpers_HashType_System_String_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes(WeihanLi.Common.Helpers.HashType,System.String)">
   GetHashedBytes(HashType, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L144"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>计算字符串Hash值</p>
@@ -280,7 +320,7 @@ Class HashHelper  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedBytes_WeihanLi_Common_Helpers_HashType_System_String_System_Text_Encoding_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedBytes(WeihanLi.Common.Helpers.HashType,System.String,System.Text.Encoding)">
   GetHashedBytes(HashType, string, Encoding)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L153"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>计算字符串Hash值</p>
@@ -323,9 +363,51 @@ Class HashHelper  <a class="header-action link-secondary" title="View source" hr
 
   <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString*"></a>
 
+  <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_System_Security_Cryptography_HashAlgorithmName_System_Byte___System_Byte___System_Boolean_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(System.Security.Cryptography.HashAlgorithmName,System.Byte[],System.Byte[],System.Boolean)">
+  GetHashedString(HashAlgorithmName, byte[], byte[]?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetHashedString(HashAlgorithmName hashAlgorithm, byte[] source, byte[]? key, bool isLower = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hashAlgorithm</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.hashalgorithmname">HashAlgorithmName</a></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>isLower</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString*"></a>
+
   <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_Byte___" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.Byte[])">
   GetHashedString(HashType, byte[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>计算字符串Hash值</p>
@@ -367,7 +449,7 @@ Class HashHelper  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_Byte___System_Boolean_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.Byte[],System.Boolean)">
   GetHashedString(HashType, byte[], bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L78"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>计算字符串Hash值</p>
@@ -412,7 +494,7 @@ Class HashHelper  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_Byte___System_Byte___System_Boolean_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.Byte[],System.Byte[],System.Boolean)">
   GetHashedString(HashType, byte[], byte[]?, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L88"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>获取哈希之后的字符串</p>
@@ -460,7 +542,7 @@ Class HashHelper  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_String_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.String)">
   GetHashedString(HashType, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>获取哈希之后的字符串</p>
@@ -502,7 +584,7 @@ Class HashHelper  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.String,System.Boolean)">
   GetHashedString(HashType, string, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>获取哈希之后的字符串</p>
@@ -547,7 +629,7 @@ Class HashHelper  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_String_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.String,System.String,System.Boolean)">
   GetHashedString(HashType, string, string?, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>获取哈希之后的字符串</p>
@@ -595,7 +677,7 @@ Class HashHelper  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_String_System_String_System_Text_Encoding_System_Boolean_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.String,System.String,System.Text.Encoding,System.Boolean)">
   GetHashedString(HashType, string, string?, Encoding, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>获取哈希之后的字符串</p>
@@ -646,7 +728,7 @@ Class HashHelper  <a class="header-action link-secondary" title="View source" hr
 
   <h3 id="WeihanLi_Common_Helpers_HashHelper_GetHashedString_WeihanLi_Common_Helpers_HashType_System_String_System_Text_Encoding_System_Boolean_" data-uid="WeihanLi.Common.Helpers.HashHelper.GetHashedString(WeihanLi.Common.Helpers.HashType,System.String,System.Text.Encoding,System.Boolean)">
   GetHashedString(HashType, string, Encoding, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>获取哈希之后的字符串</p>
@@ -694,7 +776,7 @@ Class HashHelper  <a class="header-action link-secondary" title="View source" hr
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/HashHelper.cs/#L10" class="edit-link">Edit this page</a>
         </div>
 
 

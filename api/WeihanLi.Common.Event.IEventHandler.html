@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -233,8 +233,8 @@ Interface IEventHandler  <a class="header-action link-secondary" title="View sou
 
   <a id="WeihanLi_Common_Event_IEventHandler_Handle_" data-uid="WeihanLi.Common.Event.IEventHandler.Handle*"></a>
 
-  <h3 id="WeihanLi_Common_Event_IEventHandler_Handle_System_Object_" data-uid="WeihanLi.Common.Event.IEventHandler.Handle(System.Object)">
-  Handle(object)
+  <h3 id="WeihanLi_Common_Event_IEventHandler_Handle_System_Object_WeihanLi_Common_Event_EventProperties_" data-uid="WeihanLi.Common.Event.IEventHandler.Handle(System.Object,WeihanLi.Common.Event.EventProperties)">
+  Handle(object, EventProperties)
   <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventHandler.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -242,12 +242,14 @@ Interface IEventHandler  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task Handle(object eventData)</code></pre>
+    <pre><code class="lang-csharp hljs">Task Handle(object eventData, EventProperties properties)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>eventData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>properties</code> <a class="xref" href="WeihanLi.Common.Event.EventProperties.html">EventProperties</a></dt>
     <dd></dd>
   </dl>
 

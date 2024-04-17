@@ -1,0 +1,558 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class InMemoryEventSubscriptionManager </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class InMemoryEventSubscriptionManager ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Event_InMemoryEventSubscriptionManager.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Event.InMemoryEventSubscriptionManager%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="WeihanLi.Common.Event.InMemoryEventSubscriptionManager">
+
+
+
+  <h1 id="WeihanLi_Common_Event_InMemoryEventSubscriptionManager" data-uid="WeihanLi.Common.Event.InMemoryEventSubscriptionManager" class="text-break">
+Class InMemoryEventSubscriptionManager  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Event.html">Event</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class InMemoryEventSubscriptionManager : IEventSubscriptionManager, IEventSubscriber</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">InMemoryEventSubscriptionManager</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="WeihanLi.Common.Event.IEventSubscriptionManager.html">IEventSubscriptionManager</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Event.IEventSubscriber.html">IEventSubscriber</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object_">CoreExtension.AsOrDefault&lt;T&gt;(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object_System_Func___0__">CoreExtension.AsOrDefault&lt;T&gt;(object?, Func&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object___0_">CoreExtension.AsOrDefault&lt;T&gt;(object?, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ParseParamDictionary_System_Object_">CoreExtension.ParseParamDictionary(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_To_System_Object_System_Type_">CoreExtension.To(object?, Type)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault_System_Object_System_Type_">CoreExtension.ToOrDefault(object?, Type)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_">CoreExtension.ToOrDefault&lt;T&gt;(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func_System_Object___0__">CoreExtension.ToOrDefault&lt;T&gt;(object?, Func&lt;object?, T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func___0__">CoreExtension.ToOrDefault&lt;T&gt;(object?, Func&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object___0_">CoreExtension.ToOrDefault&lt;T&gt;(object?, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_To__1_System_Object_">CoreExtension.To&lt;T&gt;(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_">JsonSerializeExtension.ToJson(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_Newtonsoft_Json_JsonSerializerSettings_">JsonSerializeExtension.ToJson(object, JsonSerializerSettings?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_">JsonSerializeExtension.ToJson(object?, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_Newtonsoft_Json_JsonSerializerSettings_">JsonSerializeExtension.ToJson(object?, bool, JsonSerializerSettings?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJsonOrString_System_Object_">JsonSerializeExtension.ToJsonOrString(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_Subscribe_WeihanLi_Common_Event_IEventSubscriber_System_Type_System_Type_">EventSubscriberExtensions.Subscribe(IEventSubscriber, Type, Type)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_SubscribeAsync__2_WeihanLi_Common_Event_IEventSubscriber_">EventSubscriberExtensions.SubscribeAsync&lt;TEvent, TEventHandler&gt;(IEventSubscriber)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_Subscribe__1_WeihanLi_Common_Event_IEventSubscriber_System_Func___0_System_Threading_Tasks_Task__">EventSubscriberExtensions.Subscribe&lt;TEvent&gt;(IEventSubscriber, Func&lt;TEvent, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_Subscribe__2_WeihanLi_Common_Event_IEventSubscriber_">EventSubscriberExtensions.Subscribe&lt;TEvent, TEventHandler&gt;(IEventSubscriber)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_UnSubscribe_WeihanLi_Common_Event_IEventSubscriber_System_Type_System_Type_">EventSubscriberExtensions.UnSubscribe(IEventSubscriber, Type, Type)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_UnSubscribeAsync__2_WeihanLi_Common_Event_IEventSubscriber_">EventSubscriberExtensions.UnSubscribeAsync&lt;TEvent, TEventHandler&gt;(IEventSubscriber)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_UnSubscribe__2_WeihanLi_Common_Event_IEventSubscriber_">EventSubscriberExtensions.UnSubscribe&lt;TEvent, TEventHandler&gt;(IEventSubscriber)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Event.EventBusExtensions.html#WeihanLi_Common_Event_EventBusExtensions_GetEventHandlers__1_WeihanLi_Common_Event_IEventSubscriptionManager_">EventBusExtensions.GetEventHandlers&lt;TEvent&gt;(IEventSubscriptionManager)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Models.ResultExtensions.html#WeihanLi_Common_Models_ResultExtensions_WrapResult__1___0_WeihanLi_Common_Models_ResultStatus_System_String_">ResultExtensions.WrapResult&lt;T&gt;(T, ResultStatus, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Chain__1___0_System_Action___0__">CoreExtension.Chain&lt;T&gt;(T, Action&lt;T&gt;?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_GetValueOrDefault__2___0_System_Func___0___1__">CoreExtension.GetValueOrDefault&lt;T, TResult&gt;(T, Func&lt;T, TResult&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_GetValueOrDefault__2___0_System_Func___0___1____1_">CoreExtension.GetValueOrDefault&lt;T, TResult&gt;(T, Func&lt;T, TResult&gt;, TResult)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_IsDefault__1___0_">CoreExtension.IsDefault&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__1___0_System_Action___0__">CoreExtension.Try&lt;TType&gt;(TType, Action&lt;TType&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__1___0_System_Action___0__System_Action___0__">CoreExtension.Try&lt;TType&gt;(TType, Action&lt;TType&gt;, Action&lt;TType&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1__System_Func___0___1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, Func&lt;TType, TResult&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1__System_Func___0___1____1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, Func&lt;TType, TResult&gt;, out TResult)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1_">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, TResult)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1___1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, TResult, out TResult)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, out TResult?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_Task__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_Task__System_Func___0_System_String__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, Task&gt;, Func&lt;T, string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_ValueTask__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, ValueTask&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_ValueTask__System_Func___0_System_String__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, ValueTask&gt;, Func&lt;T, string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_">DumpExtension.Dump&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_System_Action_System_String__">DumpExtension.Dump&lt;T&gt;(T, Action&lt;string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_System_Action_System_String__System_Func___0_System_String__">DumpExtension.Dump&lt;T&gt;(T, Action&lt;string&gt;, Func&lt;T, string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.TaskExtension.html#WeihanLi_Extensions_TaskExtension_WrapTask__1___0_">TaskExtension.WrapTask&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.TaskExtension.html#WeihanLi_Extensions_TaskExtension_WrapValueTask__1___0_">TaskExtension.WrapValueTask&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="WeihanLi_Common_Event_InMemoryEventSubscriptionManager__ctor_" data-uid="WeihanLi.Common.Event.InMemoryEventSubscriptionManager.#ctor*"></a>
+
+  <h3 id="WeihanLi_Common_Event_InMemoryEventSubscriptionManager__ctor_System_IServiceProvider_" data-uid="WeihanLi.Common.Event.InMemoryEventSubscriptionManager.#ctor(System.IServiceProvider)">
+  InMemoryEventSubscriptionManager(IServiceProvider?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InMemoryEventSubscriptionManager(IServiceProvider? serviceProvider = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="WeihanLi_Common_Event_InMemoryEventSubscriptionManager_GetEventHandlers_" data-uid="WeihanLi.Common.Event.InMemoryEventSubscriptionManager.GetEventHandlers*"></a>
+
+  <h3 id="WeihanLi_Common_Event_InMemoryEventSubscriptionManager_GetEventHandlers_System_Type_" data-uid="WeihanLi.Common.Event.InMemoryEventSubscriptionManager.GetEventHandlers(System.Type)">
+  GetEventHandlers(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get EventHandlers for event</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;IEventHandler&gt; GetEventHandlers(Type eventType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>event</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="WeihanLi.Common.Event.IEventHandler.html">IEventHandler</a>&gt;</dt>
+    <dd><p>event handlers types</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Event_InMemoryEventSubscriptionManager_SubscribeAsync_" data-uid="WeihanLi.Common.Event.InMemoryEventSubscriptionManager.SubscribeAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Event_InMemoryEventSubscriptionManager_SubscribeAsync_System_Type_System_Type_" data-uid="WeihanLi.Common.Event.InMemoryEventSubscriptionManager.SubscribeAsync(System.Type,System.Type)">
+  SubscribeAsync(Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>add event handler for event</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; SubscribeAsync(Type eventType, Type eventHandlerType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>event type</p>
+</dd>
+    <dt><code>eventHandlerType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>eventHandler type</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>whether the operation success</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Event_InMemoryEventSubscriptionManager_SubscribeAsync_" data-uid="WeihanLi.Common.Event.InMemoryEventSubscriptionManager.SubscribeAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Event_InMemoryEventSubscriptionManager_SubscribeAsync__1_WeihanLi_Common_Event_IEventHandler___0__" data-uid="WeihanLi.Common.Event.InMemoryEventSubscriptionManager.SubscribeAsync``1(WeihanLi.Common.Event.IEventHandler{``0})">
+  SubscribeAsync&lt;TEvent&gt;(IEventHandler&lt;TEvent&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>add event handler instance for event</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; SubscribeAsync&lt;TEvent&gt;(IEventHandler&lt;TEvent&gt; eventHandler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventHandler</code> <a class="xref" href="WeihanLi.Common.Event.IEventHandler-1.html">IEventHandler</a>&lt;TEvent&gt;</dt>
+    <dd><p>event handler</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TEvent</code></dt>
+    <dd><p>event type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Event_InMemoryEventSubscriptionManager_UnSubscribe_" data-uid="WeihanLi.Common.Event.InMemoryEventSubscriptionManager.UnSubscribe*"></a>
+
+  <h3 id="WeihanLi_Common_Event_InMemoryEventSubscriptionManager_UnSubscribe_System_Type_System_Type_" data-uid="WeihanLi.Common.Event.InMemoryEventSubscriptionManager.UnSubscribe(System.Type,System.Type)">
+  UnSubscribe(Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UnSubscribe(Type eventType, Type eventHandlerType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+    <dt><code>eventHandlerType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Event_InMemoryEventSubscriptionManager_UnSubscribeAsync_" data-uid="WeihanLi.Common.Event.InMemoryEventSubscriptionManager.UnSubscribeAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Event_InMemoryEventSubscriptionManager_UnSubscribeAsync_System_Type_System_Type_" data-uid="WeihanLi.Common.Event.InMemoryEventSubscriptionManager.UnSubscribeAsync(System.Type,System.Type)">
+  UnSubscribeAsync(Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>remove event handler for event</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; UnSubscribeAsync(Type eventType, Type eventHandlerType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>event type</p>
+</dd>
+    <dt><code>eventHandlerType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>eventHandler type</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>whether the operation success</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L20" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

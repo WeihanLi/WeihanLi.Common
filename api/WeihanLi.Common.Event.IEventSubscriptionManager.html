@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Event_IEventSubscriptionManager" data-uid="WeihanLi.Common.Event.IEventSubscriptionManager" class="text-break">
-Interface IEventSubscriptionManager  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Interface IEventSubscriptionManager  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -110,13 +110,10 @@ Interface IEventSubscriptionManager  <a class="header-action link-secondary" tit
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="WeihanLi.Common.Event.IEventSubscriber.html#WeihanLi_Common_Event_IEventSubscriber_Subscribe_System_Type_System_Type_">IEventSubscriber.Subscribe(Type, Type)</a>
-    </div>
-    <div>
       <a class="xref" href="WeihanLi.Common.Event.IEventSubscriber.html#WeihanLi_Common_Event_IEventSubscriber_SubscribeAsync_System_Type_System_Type_">IEventSubscriber.SubscribeAsync(Type, Type)</a>
     </div>
     <div>
-      <a class="xref" href="WeihanLi.Common.Event.IEventSubscriber.html#WeihanLi_Common_Event_IEventSubscriber_UnSubscribe_System_Type_System_Type_">IEventSubscriber.UnSubscribe(Type, Type)</a>
+      <a class="xref" href="WeihanLi.Common.Event.IEventSubscriber.html#WeihanLi_Common_Event_IEventSubscriber_SubscribeAsync__1_WeihanLi_Common_Event_IEventHandler___0__">IEventSubscriber.SubscribeAsync&lt;TEvent&gt;(IEventHandler&lt;TEvent&gt;)</a>
     </div>
     <div>
       <a class="xref" href="WeihanLi.Common.Event.IEventSubscriber.html#WeihanLi_Common_Event_IEventSubscriber_UnSubscribeAsync_System_Type_System_Type_">IEventSubscriber.UnSubscribeAsync(Type, Type)</a>
@@ -175,10 +172,19 @@ Interface IEventSubscriptionManager  <a class="header-action link-secondary" tit
       <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJsonOrString_System_Object_">JsonSerializeExtension.ToJsonOrString(object?)</a>
   </div>
   <div>
+      <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_Subscribe_WeihanLi_Common_Event_IEventSubscriber_System_Type_System_Type_">EventSubscriberExtensions.Subscribe(IEventSubscriber, Type, Type)</a>
+  </div>
+  <div>
       <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_SubscribeAsync__2_WeihanLi_Common_Event_IEventSubscriber_">EventSubscriberExtensions.SubscribeAsync&lt;TEvent, TEventHandler&gt;(IEventSubscriber)</a>
   </div>
   <div>
+      <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_Subscribe__1_WeihanLi_Common_Event_IEventSubscriber_System_Func___0_System_Threading_Tasks_Task__">EventSubscriberExtensions.Subscribe&lt;TEvent&gt;(IEventSubscriber, Func&lt;TEvent, Task&gt;)</a>
+  </div>
+  <div>
       <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_Subscribe__2_WeihanLi_Common_Event_IEventSubscriber_">EventSubscriberExtensions.Subscribe&lt;TEvent, TEventHandler&gt;(IEventSubscriber)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_UnSubscribe_WeihanLi_Common_Event_IEventSubscriber_System_Type_System_Type_">EventSubscriberExtensions.UnSubscribe(IEventSubscriber, Type, Type)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_UnSubscribeAsync__2_WeihanLi_Common_Event_IEventSubscriber_">EventSubscriberExtensions.UnSubscribeAsync&lt;TEvent, TEventHandler&gt;(IEventSubscriber)</a>
@@ -187,7 +193,7 @@ Interface IEventSubscriptionManager  <a class="header-action link-secondary" tit
       <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_UnSubscribe__2_WeihanLi_Common_Event_IEventSubscriber_">EventSubscriberExtensions.UnSubscribe&lt;TEvent, TEventHandler&gt;(IEventSubscriber)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Common.Event.EventSubscriptionManagerExtensions.html#WeihanLi_Common_Event_EventSubscriptionManagerExtensions_GetEventHandlerTypes__1_WeihanLi_Common_Event_IEventSubscriptionManager_">EventSubscriptionManagerExtensions.GetEventHandlerTypes&lt;TEvent&gt;(IEventSubscriptionManager)</a>
+      <a class="xref" href="WeihanLi.Common.Event.EventBusExtensions.html#WeihanLi_Common_Event_EventBusExtensions_GetEventHandlers__1_WeihanLi_Common_Event_IEventSubscriptionManager_">EventBusExtensions.GetEventHandlers&lt;TEvent&gt;(IEventSubscriptionManager)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Common.Models.ResultExtensions.html#WeihanLi_Common_Models_ResultExtensions_WrapResult__1___0_WeihanLi_Common_Models_ResultStatus_System_String_">ResultExtensions.WrapResult&lt;T&gt;(T, ResultStatus, string?)</a>
@@ -262,11 +268,11 @@ Interface IEventSubscriptionManager  <a class="header-action link-secondary" tit
 </h2>
 
 
-  <a id="WeihanLi_Common_Event_IEventSubscriptionManager_GetEventHandlerTypes_" data-uid="WeihanLi.Common.Event.IEventSubscriptionManager.GetEventHandlerTypes*"></a>
+  <a id="WeihanLi_Common_Event_IEventSubscriptionManager_GetEventHandlers_" data-uid="WeihanLi.Common.Event.IEventSubscriptionManager.GetEventHandlers*"></a>
 
-  <h3 id="WeihanLi_Common_Event_IEventSubscriptionManager_GetEventHandlerTypes_System_Type_" data-uid="WeihanLi.Common.Event.IEventSubscriptionManager.GetEventHandlerTypes(System.Type)">
-  GetEventHandlerTypes(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Event_IEventSubscriptionManager_GetEventHandlers_System_Type_" data-uid="WeihanLi.Common.Event.IEventSubscriptionManager.GetEventHandlers(System.Type)">
+  GetEventHandlers(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get EventHandlers for event</p>
@@ -274,7 +280,7 @@ Interface IEventSubscriptionManager  <a class="header-action link-secondary" tit
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ICollection&lt;Type&gt; GetEventHandlerTypes(Type eventType)</code></pre>
+    <pre><code class="lang-csharp hljs">ICollection&lt;IEventHandler&gt; GetEventHandlers(Type eventType)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -286,7 +292,7 @@ Interface IEventSubscriptionManager  <a class="header-action link-secondary" tit
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="WeihanLi.Common.Event.IEventHandler.html">IEventHandler</a>&gt;</dt>
     <dd><p>event handlers types</p>
 </dd>
   </dl>
@@ -305,7 +311,7 @@ Interface IEventSubscriptionManager  <a class="header-action link-secondary" tit
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L10" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -29,15 +29,15 @@
       <meta name="loc:changeTheme" content="Change theme">
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-
-  <script type="module" src="./../public/docfx.min.js"></script>
-
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
@@ -188,7 +188,7 @@ Class TaskExtension  <a class="header-action link-secondary" title="View source"
 
   <h3 id="WeihanLi_Extensions_TaskExtension_Run_System_Threading_Tasks_TaskScheduler_System_Action_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.TaskExtension.Run(System.Threading.Tasks.TaskScheduler,System.Action,System.Threading.CancellationToken)">
   Run(TaskScheduler, Action, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L56"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Runs an action on the current scheduler instead of the default scheduler.</p>
@@ -233,7 +233,7 @@ Class TaskExtension  <a class="header-action link-secondary" title="View source"
 
   <h3 id="WeihanLi_Extensions_TaskExtension_Run_System_Threading_Tasks_TaskScheduler_System_Func_System_Threading_Tasks_Task__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.TaskExtension.Run(System.Threading.Tasks.TaskScheduler,System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)">
   Run(TaskScheduler, Func&lt;Task&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L83"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Runs a function on the current scheduler instead of the default scheduler.</p>
@@ -278,7 +278,7 @@ Class TaskExtension  <a class="header-action link-secondary" title="View source"
 
   <h3 id="WeihanLi_Extensions_TaskExtension_Run__1_System_Threading_Tasks_TaskScheduler_System_Func_System_Threading_Tasks_Task___0___System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.TaskExtension.Run``1(System.Threading.Tasks.TaskScheduler,System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)">
   Run&lt;T&gt;(TaskScheduler, Func&lt;Task&lt;T&gt;&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L98"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Runs a function on the current scheduler instead of the default scheduler.</p>
@@ -329,7 +329,7 @@ Class TaskExtension  <a class="header-action link-secondary" title="View source"
 
   <h3 id="WeihanLi_Extensions_TaskExtension_Run__1_System_Threading_Tasks_TaskScheduler_System_Func___0__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.TaskExtension.Run``1(System.Threading.Tasks.TaskScheduler,System.Func{``0},System.Threading.CancellationToken)">
   Run&lt;T&gt;(TaskScheduler, Func&lt;T&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Runs a function on the current scheduler instead of the default scheduler.</p>
@@ -380,7 +380,7 @@ Class TaskExtension  <a class="header-action link-secondary" title="View source"
 
   <h3 id="WeihanLi_Extensions_TaskExtension_TimeoutAfter_System_Threading_Tasks_Task_System_TimeSpan_System_String_System_Int32_" data-uid="WeihanLi.Extensions.TaskExtension.TimeoutAfter(System.Threading.Tasks.Task,System.TimeSpan,System.String,System.Int32)">
   TimeoutAfter(Task, TimeSpan, string?, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L126"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -422,7 +422,7 @@ Class TaskExtension  <a class="header-action link-secondary" title="View source"
 
   <h3 id="WeihanLi_Extensions_TaskExtension_TimeoutAfter__1_System_Threading_Tasks_Task___0__System_TimeSpan_System_String_System_Int32_" data-uid="WeihanLi.Extensions.TaskExtension.TimeoutAfter``1(System.Threading.Tasks.Task{``0},System.TimeSpan,System.String,System.Int32)">
   TimeoutAfter&lt;T&gt;(Task&lt;T&gt;, TimeSpan, string?, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L107"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -543,7 +543,7 @@ Class TaskExtension  <a class="header-action link-secondary" title="View source"
 
   <h3 id="WeihanLi_Extensions_TaskExtension_WhenAll__1_System_Collections_Generic_IEnumerable_System_Threading_Tasks_Task___0___" data-uid="WeihanLi.Extensions.TaskExtension.WhenAll``1(System.Collections.Generic.IEnumerable{System.Threading.Tasks.Task{``0}})">
   WhenAll&lt;TResult&gt;(IEnumerable&lt;Task&lt;TResult&gt;&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/TaskExtension.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
