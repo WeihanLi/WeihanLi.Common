@@ -1,7 +1,8 @@
 name: Release
 on:
+  workflow_dispatch:
   push:
-    branches: [ master, main ]
+    branches: [ master ]
 jobs:
   build:
     name: Release
