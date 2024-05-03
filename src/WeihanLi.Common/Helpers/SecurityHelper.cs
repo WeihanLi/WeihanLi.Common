@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.Security.Cryptography;
+using System.Text;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
@@ -137,5 +139,36 @@ public static class SecurityHelper
     public static string SHA512(string sourceString, bool isLower = false)
     {
         return string.IsNullOrEmpty(sourceString) ? string.Empty : HashHelper.GetHashedString(HashType.SHA512, sourceString, isLower);
+    }
+
+    public static string Aes(
+        string plainText, 
+        string key, 
+        bool isLower = false, 
+        Action<Aes>? aesConfigure = null
+        )
+    {
+        using var aesAlg = System.Security.Cryptography.Aes.Create();
+        aesAlg.Key = key.GetBytes();
+        aesAlg.Mode = CipherMode.ECB;
+        aesAlg.Padding = PaddingMode.PKCS7;
+        aesConfigure?.Invoke(aesAlg);
+        
+        var encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+        using var ms = new MemoryStream();
+        using (var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+        {
+            var plainBytes = Encoding.UTF8.GetBytes(plainText);
+            cs.Write(plainBytes);
+        }
+        var bytes = ms.ToArray();
+#if NET9_0_OR_GREATER
+        return isLower ? Convert.ToHexStringLower(bytes) : Convert.ToHexString(bytes);
+#elif NET5_0_OR_GREATER
+        return isLower ? Convert.ToHexString(bytes).ToLowerInvariant() : Convert.ToHexString(bytes);
+#else
+        var bitString = BitConverter.ToString(bytes).Replace("-","");
+        return isLower ? bitString.ToLowerInvariant() : bitString;
+#endif
     }
 }
