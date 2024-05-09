@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Cryptography;
+using System.Text;
 using WeihanLi.Common.Helpers;
 using Xunit;
 
@@ -60,4 +61,19 @@ public class SecurityHelperTest
     }
 
     #endregion Hash
+
+    [Theory]
+    [InlineData("Hello World")]
+    [InlineData("Amazing .NET")]
+    public void AesEncrypt(string input)
+    {
+        var key = "1234567890ABCDEF";
+        
+        var encrypted = SecurityHelper.AesEncrypt(input, key);
+        Assert.NotNull(encrypted);
+        Assert.NotEmpty(encrypted);
+
+        var decrypted = SecurityHelper.AesDecrypt(encrypted, key);
+        Assert.Equal(input, decrypted);
+    }
 }

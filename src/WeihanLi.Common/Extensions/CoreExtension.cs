@@ -135,6 +135,29 @@ public static class CoreExtension
         return Convert.ToBase64String(inArray, offset, length, options);
     }
 
+#if NET5_0_OR_GREATER
+    public static string ToHexString(this ReadOnlySpan<byte> bytes, bool isLowerCase = false)
+    {
+#if NET9_0_OR_GREATER
+        return isLowerCase ? Convert.ToHexStringLower(bytes) : Convert.ToHexString(bytes);
+#else
+        return isLowerCase ? Convert.ToHexString(bytes).ToLowerInvariant() : Convert.ToHexString(bytes);
+#endif
+    }
+#endif
+
+    public static string ToHexString(this byte[] bytes, bool isLowerCase = false)
+    {
+#if NET9_0_OR_GREATER
+        return isLowerCase ? Convert.ToHexStringLower(bytes) : Convert.ToHexString(bytes);
+#elif NET5_0_OR_GREATER
+        return isLowerCase ? Convert.ToHexString(bytes).ToLowerInvariant() : Convert.ToHexString(bytes);
+#else
+        var bitString = BitConverter.ToString(bytes).Replace("-", "");
+        return isLowerCase ? bitString.ToLowerInvariant() : bitString;
+#endif
+    }
+
     /// <summary>
     ///     A byte[] extension method that resizes the byte[].
     /// </summary>
@@ -1577,7 +1600,7 @@ public static class CoreExtension
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as a byte[].</returns>
-    public static byte[] ToByteArray(this string @this) => Encoding.UTF8.GetBytes(Guard.NotNull(@this));
+    public static byte[] ToBytes(this string @this) => Encoding.UTF8.GetBytes(Guard.NotNull(@this));
 
     /// <summary>
     ///     A string extension method that converts the @this to a byte array.
@@ -1585,8 +1608,27 @@ public static class CoreExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="encoding">encoding</param>
     /// <returns>@this as a byte[].</returns>
-    public static byte[] ToByteArray(this string @this, Encoding encoding) => encoding.GetBytes(Guard.NotNull(@this));
-
+    public static byte[] ToBytes(this string @this, Encoding encoding) => encoding.GetBytes(Guard.NotNull(@this));
+    
+    public static byte[] HexStringToBytes(this string hexString)
+    {
+        if (string.IsNullOrEmpty(hexString))
+            return [];
+        
+#if NET6_0_OR_GREATER
+        return Convert.FromHexString(hexString);
+#else
+        var charArray = hexString.ToCharArray();
+        var bytes = new byte[charArray.Length/2];
+        for (var i = 0; i < bytes.Length; i++)
+        {
+            var n = Convert.ToInt32(new string([charArray[i * 2], charArray[i*2+1]]), 16);
+            bytes[i] = (byte)n;
+        }
+        return bytes;
+#endif
+    }
+    
     public static byte[] GetBytes(this string str) => Guard.NotNull(str, nameof(str)).GetBytes(null);
 
     public static byte[] GetBytes(this string str, Encoding? encoding) => (encoding ?? Encoding.UTF8).GetBytes(Guard.NotNull(str, nameof(str)));

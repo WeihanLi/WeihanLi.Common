@@ -23,7 +23,7 @@ public static class HttpClientExtension
         private static string EncodeCredential(string userName, string password)
         {
             Guard.NotNullOrWhiteSpace(userName);
-            return Convert.ToBase64String($"{UrlEncode(userName)}:{UrlEncode(password)}".ToByteArray());
+            return Convert.ToBase64String($"{UrlEncode(userName)}:{UrlEncode(password)}".GetBytes());
         }
 
         private static string UrlEncode(string value)

@@ -93,20 +93,7 @@ public static class HashHelper
             return string.Empty;
         }
         var hashedBytes = GetHashedBytes(type, source, key);
-#if NET9_0_OR_GREATER
-        return isLower ? Convert.ToHexStringLower(hashedBytes) : Convert.ToHexString(hashedBytes);
-#elif NET5_0_OR_GREATER
-        var hexString = Convert.ToHexString(hashedBytes);
-        return isLower ? hexString.ToLowerInvariant() : hexString;
-#else
-        var sbText = new StringBuilder();
-        var format = isLower ? "x2" : "X2";
-        foreach (var b in hashedBytes)
-        {
-            sbText.Append(b.ToString(format));
-        }
-        return sbText.ToString();
-#endif
+        return hashedBytes.ToHexString(isLower);
     }
     
     public static string GetHashedString(HashAlgorithmName hashAlgorithm, byte[] source, byte[]? key, bool isLower = false)
@@ -120,18 +107,7 @@ public static class HashHelper
             : GetHashedString(hashAlgorithm, new ReadOnlySpan<byte>(source), isLower);
 #else
         var hashedBytes = GetHashedBytes(hashAlgorithm, source, key);
-#if NET5_0_OR_GREATER
-        var hexString = Convert.ToHexString(hashedBytes);
-        return isLower ? hexString.ToLowerInvariant() : hexString;
-#else
-        var sbText = new StringBuilder();
-        var format = isLower ? "x2" : "X2";
-        foreach (var b in hashedBytes)
-        {
-            sbText.Append(b.ToString(format));
-        }
-        return sbText.ToString();
-#endif
+        return hashedBytes.ToHexString(isLower);
 #endif
     }
 
@@ -230,13 +206,13 @@ public static class HashHelper
     public static string GetHashedString(HashAlgorithmName hashAlgorithm, ReadOnlySpan<byte> bytes, bool isLower = false)
     {
         var hashedBytes = CryptographicOperations.HashData(hashAlgorithm, bytes);
-        return isLower ? Convert.ToHexStringLower(hashedBytes) : Convert.ToHexString(hashedBytes);
+        return hashedBytes.ToHexString(isLower);
     }
     
     public static string GetHashedString(HashAlgorithmName hashAlgorithm, ReadOnlySpan<byte> keys, ReadOnlySpan<byte> bytes, bool isLower = false)
     {
         var hashedBytes = CryptographicOperations.HmacData(hashAlgorithm, keys, bytes);
-        return isLower ? Convert.ToHexStringLower(hashedBytes) : Convert.ToHexString(hashedBytes);
+        return hashedBytes.ToHexString(isLower);
     }
 #endif
 }

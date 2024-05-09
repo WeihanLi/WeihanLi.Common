@@ -92,21 +92,13 @@ public static class SecurityHelper
     /// <returns></returns>
     public static string GenerateRandomCode(int length, bool isNumberOnly = false)
     {
-        char[] array;
-        if (isNumberOnly)
-        {
-            array = _constantNumber;
-        }
-        else
-        {
-            array = _constantCharacters;
-        }
-        var stringBuilder = new StringBuilder(length);
+        var array = isNumberOnly ? _constantNumber : _constantCharacters;
+        var charArray = new char[length];
         for (var i = 0; i < length; i++)
         {
-            stringBuilder.Append(array[Random.Next(array.Length)]);
+            charArray[i] = array[Random.Next(array.Length)];
         }
-        return stringBuilder.ToString();
+        return new string(charArray);
     }
 
     /// <summary>
@@ -141,34 +133,80 @@ public static class SecurityHelper
         return string.IsNullOrEmpty(sourceString) ? string.Empty : HashHelper.GetHashedString(HashType.SHA512, sourceString, isLower);
     }
 
-    public static string Aes(
-        string plainText, 
+    public static string AesEncrypt(
+        string source, 
         string key, 
         bool isLower = false, 
         Action<Aes>? aesConfigure = null
         )
     {
-        using var aesAlg = System.Security.Cryptography.Aes.Create();
-        aesAlg.Key = key.GetBytes();
+        using var aesAlg = Aes.Create();
         aesAlg.Mode = CipherMode.ECB;
         aesAlg.Padding = PaddingMode.PKCS7;
-        aesConfigure?.Invoke(aesAlg);
-        
-        var encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+        return aesAlg.Encrypt(source, key, isLower, aesConfigure);
+    }
+
+    public static string AesDecrypt(
+        string encryptedText, 
+        string key,
+        Action<Aes>? aesConfigure = null
+    )
+    {
+        using var aesAlg = Aes.Create();
+        aesAlg.Mode = CipherMode.ECB;
+        aesAlg.Padding = PaddingMode.PKCS7;
+        return aesAlg.Decrypt(encryptedText, key, aesConfigure);
+    }
+
+    public static string Encrypt<TAlgorithm>(this TAlgorithm algorithm, 
+        string source, string key, 
+        bool isLowerCase = false,
+        Action<TAlgorithm>? algorithmConfigure = null
+        ) where TAlgorithm : SymmetricAlgorithm
+    {
+        Guard.NotNull(algorithm);
+        var encryptedBytes = Encrypt(algorithm, source.GetBytes(), key.GetBytes(), algorithmConfigure);
+        return encryptedBytes.ToHexString(isLowerCase);
+    }
+
+    public static byte[] Encrypt<TAlgorithm>(this TAlgorithm algorithm, 
+        byte[] source, byte[] key, Action<TAlgorithm>? algorithmConfigure = null
+    ) where TAlgorithm : SymmetricAlgorithm
+    {
+        Guard.NotNull(algorithm);
+        algorithm.Key = key;
+        algorithmConfigure?.Invoke(algorithm);
+        var encryptor = algorithm.CreateEncryptor(algorithm.Key, algorithm.IV);
         using var ms = new MemoryStream();
         using (var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
         {
-            var plainBytes = Encoding.UTF8.GetBytes(plainText);
-            cs.Write(plainBytes);
+            cs.Write(source);
         }
-        var bytes = ms.ToArray();
-#if NET9_0_OR_GREATER
-        return isLower ? Convert.ToHexStringLower(bytes) : Convert.ToHexString(bytes);
-#elif NET5_0_OR_GREATER
-        return isLower ? Convert.ToHexString(bytes).ToLowerInvariant() : Convert.ToHexString(bytes);
-#else
-        var bitString = BitConverter.ToString(bytes).Replace("-","");
-        return isLower ? bitString.ToLowerInvariant() : bitString;
-#endif
+        return ms.ToArray();
+    }
+
+    public static string Decrypt<TAlgorithm>(this TAlgorithm algorithm, 
+        string encryptedHexString, string key, 
+        Action<TAlgorithm>? algorithmConfigure = null
+    ) where TAlgorithm : SymmetricAlgorithm
+    {
+        var encryptedBytes = Decrypt(algorithm, encryptedHexString.HexStringToBytes(), key.GetBytes(), algorithmConfigure);
+        return encryptedBytes.GetString();
+    }
+
+    public static byte[] Decrypt<TAlgorithm>(this TAlgorithm algorithm, 
+        byte[] encrypted, byte[] key, Action<TAlgorithm>? algorithmConfigure = null
+    ) where TAlgorithm : SymmetricAlgorithm
+    {
+        Guard.NotNull(algorithm);
+        algorithm.Key = key;
+        algorithmConfigure?.Invoke(algorithm);
+        var transform = algorithm.CreateDecryptor(algorithm.Key, algorithm.IV);
+        using var ms = new MemoryStream();
+        using(var cs = new CryptoStream(ms, transform, CryptoStreamMode.Write))
+        {
+            cs.Write(encrypted);   
+        }
+        return ms.ToArray();
     }
 }
