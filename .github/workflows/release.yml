@@ -1,7 +1,8 @@
 name: Release
 on:
+  workflow_dispatch:
   push:
-    branches: [ master, main ]
+    branches: [ master ]
 jobs:
   build:
     name: Release
@@ -27,4 +28,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        gh release create ${{ env.ReleaseVersion }} --generate-notes --target ${{ env.GITHUB_SHA }} ./artifacts/packages/*.nupkg
+        gh release create ${{ env.ReleaseVersion }} --generate-notes --target master (Get-Item ./artifacts/packages/*.nupkg)

@@ -99,5 +99,19 @@ public class CoreExtensionTest
         Assert.Equal("def", str.Sub(3));
     }
 
+    [Theory]
+    [InlineData("ASD0123")]
+    [InlineData("Hello World")]
+    public void HexStringConvert(string input)
+    {
+        var inputBytes = input.GetBytes();
+        var hexString = Convert.ToHexString(inputBytes);
+        var bytes = hexString.HexStringToBytes();
+        Assert.NotNull(bytes);
+        Assert.NotEmpty(bytes);
+        Assert.True(inputBytes.SequenceEqual(bytes));
+        Assert.Equal(hexString, bytes.ToHexString());
+    }
+    
     #endregion StringExtensionTest
 }
