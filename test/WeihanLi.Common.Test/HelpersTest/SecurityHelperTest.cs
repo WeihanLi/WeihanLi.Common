@@ -20,7 +20,7 @@ public class SecurityHelperTest
     public void GenerateRandomCodeContentTest()
     {
         Assert.Matches("^([0-9]*)$", SecurityHelper.GenerateRandomCode(4, true));
-        Assert.Matches("^([0-9a-z]*)$", SecurityHelper.GenerateRandomCode(4));
+        Assert.Matches("^([0-9A-Z]*)$", SecurityHelper.GenerateRandomCode(4));
     }
 
     #endregion GenerateRandomCode
