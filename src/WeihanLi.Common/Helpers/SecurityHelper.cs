@@ -4,23 +4,10 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
-/// <summary>
-/// 安全助手
-/// </summary>
 public static class SecurityHelper
 {
-    private static readonly char[] _constantCharacters = 
+    private static readonly char[] _constantLetterCharacters = 
     [
-        '0',
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        '6',
-        '7',
-        '8',
-        '9',
         'a',
         'b',
         'c',
@@ -62,6 +49,26 @@ public static class SecurityHelper
         '8',
         '9'
     ];
+    
+    private static readonly char[] _constantHexNumber = 
+    [
+        '0',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F'
+    ];
 
 #if NET6_0_OR_GREATER
         public static Random Random => Random.Shared;
@@ -92,7 +99,40 @@ public static class SecurityHelper
     /// <returns></returns>
     public static string GenerateRandomCode(int length, bool isNumberOnly = false)
     {
-        var array = isNumberOnly ? _constantNumber : _constantCharacters;
+        if (isNumberOnly)
+        {
+            return GenerateRandomCode(length, RandomCodeType.Number);
+        }
+
+        var charArray = new char[length];
+        var maxLength = _constantNumber.Length + _constantLetterCharacters.Length;
+        for (var i = 0; i < length; i++)
+        {
+            var idx = Random.Next(maxLength);
+            if (idx < _constantNumber.Length)
+            {
+                charArray[i] = _constantNumber[idx];    
+            }
+            else
+            {
+                charArray[i] = _constantLetterCharacters[idx - _constantNumber.Length];
+            }
+        }
+
+        return new string(charArray);
+    }
+    
+    public static string GenerateRandomCode(int length, RandomCodeType type)
+    {
+        if (type == RandomCodeType.LetterOrNumber) return GenerateRandomCode(length, false);
+
+        var array = type switch
+        {
+            RandomCodeType.Number => _constantNumber,
+            RandomCodeType.Letter => _constantLetterCharacters,
+            RandomCodeType.HexNumber => _constantHexNumber,
+            _ => throw new NotSupportedException($"Type {type} is not supported")
+        };
         var charArray = new char[length];
         for (var i = 0; i < length; i++)
         {
@@ -142,11 +182,10 @@ public static class SecurityHelper
         )
     {
         using var aesAlg = Aes.Create();
-        
+        aesAlg.Padding = PaddingMode.PKCS7;
         if (string.IsNullOrEmpty(iv))
         {
             aesAlg.Mode = CipherMode.ECB;
-            aesAlg.Padding = PaddingMode.PKCS7;
         }
         else
         {
@@ -165,11 +204,10 @@ public static class SecurityHelper
     )
     {
         using var aesAlg = Aes.Create();
-        
+        aesAlg.Padding = PaddingMode.PKCS7;
         if (string.IsNullOrEmpty(iv))
         {
             aesAlg.Mode = CipherMode.ECB;
-            aesAlg.Padding = PaddingMode.PKCS7;
         }
         else
         {
@@ -221,4 +259,13 @@ public static class SecurityHelper
         using var transform = algorithm.CreateDecryptor();
         return transform.TransformFinalBlock(encrypted, 0, encrypted.Length);
     }
+}
+
+
+public enum RandomCodeType
+{
+    Number = 0,
+    Letter = 1,
+    LetterOrNumber = 2,
+    HexNumber = 3
 }

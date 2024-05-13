@@ -76,4 +76,20 @@ public class SecurityHelperTest
         var decrypted = SecurityHelper.AesDecrypt(encrypted, key);
         Assert.Equal(input, decrypted);
     }
+    
+    [Theory]
+    [InlineData("Hello World")]
+    [InlineData("Amazing .NET")]
+    public void AesEncryptWithIV(string input)
+    {
+        var key = "1234567890ABCDEF";
+        var iv = SecurityHelper.GenerateRandomCode(16, true);
+        
+        var encrypted = SecurityHelper.AesEncrypt(input, key, iv);
+        Assert.NotNull(encrypted);
+        Assert.NotEmpty(encrypted);
+
+        var decrypted = SecurityHelper.AesDecrypt(encrypted, key, iv);
+        Assert.Equal(input, decrypted);
+    }
 }
