@@ -1,5 +1,4 @@
 ﻿using System.Security.Cryptography;
-using System.Text;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
