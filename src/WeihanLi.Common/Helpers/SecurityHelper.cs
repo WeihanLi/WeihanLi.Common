@@ -136,25 +136,47 @@ public static class SecurityHelper
     public static string AesEncrypt(
         string source, 
         string key, 
+        string? iv = null,
         bool isLower = false, 
         Action<Aes>? aesConfigure = null
         )
     {
         using var aesAlg = Aes.Create();
-        aesAlg.Mode = CipherMode.ECB;
-        aesAlg.Padding = PaddingMode.PKCS7;
+        
+        if (string.IsNullOrEmpty(iv))
+        {
+            aesAlg.Mode = CipherMode.ECB;
+            aesAlg.Padding = PaddingMode.PKCS7;
+        }
+        else
+        {
+            aesAlg.Mode = CipherMode.CBC;
+            aesAlg.IV = iv!.GetBytes();
+        }
+        
         return aesAlg.Encrypt(source, key, isLower, aesConfigure);
     }
 
     public static string AesDecrypt(
         string encryptedText, 
         string key,
+        string? iv = null,
         Action<Aes>? aesConfigure = null
     )
     {
         using var aesAlg = Aes.Create();
-        aesAlg.Mode = CipherMode.ECB;
-        aesAlg.Padding = PaddingMode.PKCS7;
+        
+        if (string.IsNullOrEmpty(iv))
+        {
+            aesAlg.Mode = CipherMode.ECB;
+            aesAlg.Padding = PaddingMode.PKCS7;
+        }
+        else
+        {
+            aesAlg.Mode = CipherMode.CBC;
+            aesAlg.IV = iv!.GetBytes();
+        }
+        
         return aesAlg.Decrypt(encryptedText, key, aesConfigure);
     }
 
@@ -176,13 +198,8 @@ public static class SecurityHelper
         Guard.NotNull(algorithm);
         algorithm.Key = key;
         algorithmConfigure?.Invoke(algorithm);
-        var encryptor = algorithm.CreateEncryptor(algorithm.Key, algorithm.IV);
-        using var ms = new MemoryStream();
-        using (var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
-        {
-            cs.Write(source);
-        }
-        return ms.ToArray();
+        using var encryptor = algorithm.CreateEncryptor();
+        return encryptor.TransformFinalBlock(source, 0, source.Length);
     }
 
     public static string Decrypt<TAlgorithm>(this TAlgorithm algorithm, 
@@ -201,12 +218,7 @@ public static class SecurityHelper
         Guard.NotNull(algorithm);
         algorithm.Key = key;
         algorithmConfigure?.Invoke(algorithm);
-        var transform = algorithm.CreateDecryptor(algorithm.Key, algorithm.IV);
-        using var ms = new MemoryStream();
-        using(var cs = new CryptoStream(ms, transform, CryptoStreamMode.Write))
-        {
-            cs.Write(encrypted);   
-        }
-        return ms.ToArray();
+        using var transform = algorithm.CreateDecryptor();
+        return transform.TransformFinalBlock(encrypted, 0, encrypted.Length);
     }
 }
