@@ -92,4 +92,34 @@ public class SecurityHelperTest
         var decrypted = SecurityHelper.AesDecrypt(encrypted, key, iv);
         Assert.Equal(input, decrypted);
     }
+    
+    [Theory]
+    [InlineData("Test1234", "287E494548B152837EC742DDE76F0A4F")]
+    public void AesEncryptExpect(string input, string expectedEncrypted)
+    {
+        var key = "1234567890ABCDEF";
+        
+        var encrypted = SecurityHelper.AesEncrypt(input, key);
+        Assert.NotNull(encrypted);
+        Assert.NotEmpty(encrypted);
+        Assert.Equal(expectedEncrypted, encrypted);
+
+        var decrypted = SecurityHelper.AesDecrypt(encrypted, key);
+        Assert.Equal(input, decrypted);
+    }
+    
+    [Theory]
+    [InlineData("Test1234", "119CBC45E61827B448D704070EDA0A81")]
+    public void AesEncryptWithIVExpect(string input, string expectedEncrypted)
+    {
+        var key = "1234567890ABCDEF";
+        
+        var encrypted = SecurityHelper.AesEncrypt(input, key, key);
+        Assert.NotNull(encrypted);
+        Assert.NotEmpty(encrypted);
+        Assert.Equal(expectedEncrypted, encrypted);
+
+        var decrypted = SecurityHelper.AesDecrypt(encrypted, key, key);
+        Assert.Equal(input, decrypted);
+    }
 }
