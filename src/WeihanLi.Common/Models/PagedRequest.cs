@@ -5,7 +5,7 @@ namespace WeihanLi.Common.Models;
 
 public class PagedRequest
 {
-    private int _pageNum = 1;
+    private int _pageNumber = 1;
     private int _pageSize = 10;
 
     /// <summary>
@@ -14,12 +14,12 @@ public class PagedRequest
     /// </summary>
     public int PageNum
     {
-        get => _pageNum;
+        get => _pageNumber;
         set
         {
             if (value > 0)
             {
-                _pageNum = value;
+                _pageNumber = value;
             }
         }
     }
