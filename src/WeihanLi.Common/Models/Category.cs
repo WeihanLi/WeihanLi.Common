@@ -12,9 +12,7 @@ public record Category<TKey>
     public TKey ParentId { get; set; } = default!;
 }
 
-public record Category : Category<int>
-{
-}
+public record Category : Category<int>;
 
 public record CategoryWithDesc : Category<int>
 {

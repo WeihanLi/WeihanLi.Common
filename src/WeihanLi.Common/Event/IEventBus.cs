@@ -3,6 +3,4 @@
 
 namespace WeihanLi.Common.Event;
 
-public interface IEventBus : IEventPublisher, IEventSubscriber
-{
-}
+public interface IEventBus : IEventPublisher, IEventSubscriber;

@@ -9,9 +9,7 @@ public abstract class AbstractInterceptor : Attribute, IInterceptor
     public abstract Task Invoke(IInvocation invocation, Func<Task> next);
 }
 
-public sealed class NoIntercept : Attribute
-{
-}
+public sealed class NoIntercept : Attribute;
 
 public class AttributeInterceptorResolver : IInterceptorResolver
 {
