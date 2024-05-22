@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Models_BaseEntityWithReviewState" data-uid="WeihanLi.Common.Models.BaseEntityWithReviewState" class="text-break">
-Class BaseEntityWithReviewState  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L34"><i class="bi bi-code-slash"></i></a>
+Class BaseEntityWithReviewState  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L134"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class BaseEntityWithReviewState  <a class="header-action link-secondary" title="
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BaseEntityWithReviewState : BaseEntityWithReviewState&lt;int&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class BaseEntityWithReviewState : BaseEntityWithReviewState&lt;int&gt;, IEntity&lt;int&gt;, IEntityWithReviewState</code></pre>
   </div>
 
 
@@ -113,6 +113,13 @@ Class BaseEntityWithReviewState  <a class="header-action link-secondary" title="
     </dd>
   </dl>
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="WeihanLi.Common.Models.IEntity-1.html">IEntity</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
+      <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithReviewState.html">IEntityWithReviewState</a></div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
@@ -271,7 +278,7 @@ Class BaseEntityWithReviewState  <a class="header-action link-secondary" title="
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L34" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L134" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SecurityHelper ">
       
-      <meta name="description" content="安全助手">
+      
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Helpers_SecurityHelper" data-uid="WeihanLi.Common.Helpers.SecurityHelper" class="text-break">
-Class SecurityHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L8"><i class="bi bi-code-slash"></i></a>
+Class SecurityHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -93,8 +93,7 @@ Class SecurityHelper  <a class="header-action link-secondary" title="View source
   <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>安全助手</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -153,7 +152,7 @@ Class SecurityHelper  <a class="header-action link-secondary" title="View source
 
   <h3 id="WeihanLi_Common_Helpers_SecurityHelper_Random" data-uid="WeihanLi.Common.Helpers.SecurityHelper.Random">
   Random
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L83"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Thread-safe Random instance</p>
@@ -185,11 +184,287 @@ Class SecurityHelper  <a class="header-action link-secondary" title="View source
 </h2>
 
 
+  <a id="WeihanLi_Common_Helpers_SecurityHelper_AesDecrypt_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.AesDecrypt*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_SecurityHelper_AesDecrypt_System_String_System_String_System_String_System_Action_System_Security_Cryptography_Aes__" data-uid="WeihanLi.Common.Helpers.SecurityHelper.AesDecrypt(System.String,System.String,System.String,System.Action{System.Security.Cryptography.Aes})">
+  AesDecrypt(string, string, string?, Action&lt;Aes&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L199"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string AesDecrypt(string encryptedText, string key, string? iv = null, Action&lt;Aes&gt;? aesConfigure = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>encryptedText</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>iv</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>aesConfigure</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.aes">Aes</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_SecurityHelper_AesEncrypt_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.AesEncrypt*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_SecurityHelper_AesEncrypt_System_String_System_String_System_String_System_Boolean_System_Action_System_Security_Cryptography_Aes__" data-uid="WeihanLi.Common.Helpers.SecurityHelper.AesEncrypt(System.String,System.String,System.String,System.Boolean,System.Action{System.Security.Cryptography.Aes})">
+  AesEncrypt(string, string, string?, bool, Action&lt;Aes&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string AesEncrypt(string source, string key, string? iv = null, bool isLower = false, Action&lt;Aes&gt;? aesConfigure = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>iv</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>isLower</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>aesConfigure</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.aes">Aes</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_SecurityHelper_Decrypt_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.Decrypt*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_SecurityHelper_Decrypt__1___0_System_Byte___System_Byte___System_Action___0__" data-uid="WeihanLi.Common.Helpers.SecurityHelper.Decrypt``1(``0,System.Byte[],System.Byte[],System.Action{``0})">
+  Decrypt&lt;TAlgorithm&gt;(TAlgorithm, byte[], byte[], Action&lt;TAlgorithm&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] Decrypt&lt;TAlgorithm&gt;(this TAlgorithm algorithm, byte[] encrypted, byte[] key, Action&lt;TAlgorithm&gt;? algorithmConfigure = null) where TAlgorithm : SymmetricAlgorithm</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>algorithm</code> <span class="xref">TAlgorithm</span></dt>
+    <dd></dd>
+    <dt><code>encrypted</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>algorithmConfigure</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TAlgorithm&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TAlgorithm</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_SecurityHelper_Decrypt_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.Decrypt*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_SecurityHelper_Decrypt__1___0_System_String_System_String_System_Action___0__" data-uid="WeihanLi.Common.Helpers.SecurityHelper.Decrypt``1(``0,System.String,System.String,System.Action{``0})">
+  Decrypt&lt;TAlgorithm&gt;(TAlgorithm, string, string, Action&lt;TAlgorithm&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Decrypt&lt;TAlgorithm&gt;(this TAlgorithm algorithm, string encryptedHexString, string key, Action&lt;TAlgorithm&gt;? algorithmConfigure = null) where TAlgorithm : SymmetricAlgorithm</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>algorithm</code> <span class="xref">TAlgorithm</span></dt>
+    <dd></dd>
+    <dt><code>encryptedHexString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>algorithmConfigure</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TAlgorithm&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TAlgorithm</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_SecurityHelper_Encrypt_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.Encrypt*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_SecurityHelper_Encrypt__1___0_System_Byte___System_Byte___System_Action___0__" data-uid="WeihanLi.Common.Helpers.SecurityHelper.Encrypt``1(``0,System.Byte[],System.Byte[],System.Action{``0})">
+  Encrypt&lt;TAlgorithm&gt;(TAlgorithm, byte[], byte[], Action&lt;TAlgorithm&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L232"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] Encrypt&lt;TAlgorithm&gt;(this TAlgorithm algorithm, byte[] source, byte[] key, Action&lt;TAlgorithm&gt;? algorithmConfigure = null) where TAlgorithm : SymmetricAlgorithm</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>algorithm</code> <span class="xref">TAlgorithm</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>algorithmConfigure</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TAlgorithm&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TAlgorithm</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_SecurityHelper_Encrypt_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.Encrypt*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_SecurityHelper_Encrypt__1___0_System_String_System_String_System_Boolean_System_Action___0__" data-uid="WeihanLi.Common.Helpers.SecurityHelper.Encrypt``1(``0,System.String,System.String,System.Boolean,System.Action{``0})">
+  Encrypt&lt;TAlgorithm&gt;(TAlgorithm, string, string, bool, Action&lt;TAlgorithm&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Encrypt&lt;TAlgorithm&gt;(this TAlgorithm algorithm, string source, string key, bool isLowerCase = false, Action&lt;TAlgorithm&gt;? algorithmConfigure = null) where TAlgorithm : SymmetricAlgorithm</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>algorithm</code> <span class="xref">TAlgorithm</span></dt>
+    <dd></dd>
+    <dt><code>source</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>isLowerCase</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>algorithmConfigure</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TAlgorithm&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TAlgorithm</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Common_Helpers_SecurityHelper_GenerateRandomCode_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.GenerateRandomCode*"></a>
 
   <h3 id="WeihanLi_Common_Helpers_SecurityHelper_GenerateRandomCode_System_Int32_System_Boolean_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.GenerateRandomCode(System.Int32,System.Boolean)">
   GenerateRandomCode(int, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L100"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>生成随机验证码</p>
@@ -226,11 +501,49 @@ Class SecurityHelper  <a class="header-action link-secondary" title="View source
 
 
 
+  <a id="WeihanLi_Common_Helpers_SecurityHelper_GenerateRandomCode_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.GenerateRandomCode*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_SecurityHelper_GenerateRandomCode_System_Int32_WeihanLi_Common_Helpers_RandomCodeType_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.GenerateRandomCode(System.Int32,WeihanLi.Common.Helpers.RandomCodeType)">
+  GenerateRandomCode(int, RandomCodeType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GenerateRandomCode(int length, RandomCodeType type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>type</code> <a class="xref" href="WeihanLi.Common.Helpers.RandomCodeType.html">RandomCodeType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Common_Helpers_SecurityHelper_MD5_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.MD5*"></a>
 
   <h3 id="WeihanLi_Common_Helpers_SecurityHelper_MD5_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.MD5(System.String,System.Boolean)">
   MD5(string, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L147"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>get MD5 hashed string</p>
@@ -269,7 +582,7 @@ Class SecurityHelper  <a class="header-action link-secondary" title="View source
 
   <h3 id="WeihanLi_Common_Helpers_SecurityHelper_SHA1_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.SHA1(System.String,System.Boolean)">
   SHA1(string, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L155"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>get SHA1 hashed string</p>
@@ -308,7 +621,7 @@ Class SecurityHelper  <a class="header-action link-secondary" title="View source
 
   <h3 id="WeihanLi_Common_Helpers_SecurityHelper_SHA256_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.SHA256(System.String,System.Boolean)">
   SHA256(string, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L163"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>get SHA256 hashed string</p>
@@ -347,7 +660,7 @@ Class SecurityHelper  <a class="header-action link-secondary" title="View source
 
   <h3 id="WeihanLi_Common_Helpers_SecurityHelper_SHA512_System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.SecurityHelper.SHA512(System.String,System.Boolean)">
   SHA512(string, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L171"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>get SHA512 hashed string</p>
@@ -386,7 +699,7 @@ Class SecurityHelper  <a class="header-action link-secondary" title="View source
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L8" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/SecurityHelper.cs/#L6" class="edit-link">Edit this page</a>
         </div>
 
 

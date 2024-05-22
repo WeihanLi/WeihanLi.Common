@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class BaseEntity&lt;TKey&gt; </title>
+      <title>Class BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class BaseEntity&lt;TKey&gt; ">
+      <meta name="title" content="Class BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Models_BaseEntity_1.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Models.BaseEntity%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -80,12 +80,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="WeihanLi.Common.Models.BaseEntity`1">
+        <article data-uid="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState">
 
 
 
-  <h1 id="WeihanLi_Common_Models_BaseEntity_1" data-uid="WeihanLi.Common.Models.BaseEntity`1" class="text-break">
-Class BaseEntity&lt;TKey&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <h1 id="WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState" data-uid="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState" class="text-break">
+Class BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L150"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,45 +97,54 @@ Class BaseEntity&lt;TKey&gt;  <a class="header-action link-secondary" title="Vie
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BaseEntity&lt;TKey&gt; : IEntity&lt;TKey&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState : BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState&lt;int&gt;, IEntity&lt;int&gt;, IEntityWithCreatedUpdatedAt, ISoftDeleteEntityWithDeleted, ISoftDeleteEntity, IEntityWithReviewState</code></pre>
   </div>
 
 
 
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TKey</code></dt>
-    <dd></dd>
-  </dl>
 
   <dl class="typelist inheritance">
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">BaseEntity&lt;TKey&gt;</span></div>
+      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntity-1.html">BaseEntity</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
+      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html">BaseEntityWithCreatedUpdatedAt</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
+      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted-1.html">BaseEntityWithCreatedUpdatedAtAndDeleted</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
+      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState-1.html">BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
+      <div><span class="xref">BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState</span></div>
     </dd>
   </dl>
 
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="WeihanLi.Common.Models.IEntity-1.html">IEntity</a>&lt;TKey&gt;</div>
+      <div><a class="xref" href="WeihanLi.Common.Models.IEntity-1.html">IEntity</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
+      <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.html">IEntityWithCreatedUpdatedAt</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Models.ISoftDeleteEntityWithDeleted.html">ISoftDeleteEntityWithDeleted</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Models.ISoftDeleteEntity.html">ISoftDeleteEntity</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithReviewState.html">IEntityWithReviewState</a></div>
     </dd>
   </dl>
 
-  <dl class="typelist derived">
-    <dt>Derived</dt>
-    <dd>
-      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntity.html">BaseEntity</a></div>
-      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html">BaseEntityWithCreatedUpdatedAt&lt;TKey&gt;</a></div>
-      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithDeleted-1.html">BaseEntityWithDeleted&lt;TKey&gt;</a></div>
-      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithReviewState-1.html">BaseEntityWithReviewState&lt;TKey&gt;</a></div>
-    </dd>
-  </dl>
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState_1_State">BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState&lt;int&gt;.State</a>
+    </div>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeleted_1_IsDeleted">BaseEntityWithCreatedUpdatedAtAndDeleted&lt;int&gt;.IsDeleted</a>
+    </div>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_CreatedAt">BaseEntityWithCreatedUpdatedAt&lt;int&gt;.CreatedAt</a>
+    </div>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_UpdatedAt">BaseEntityWithCreatedUpdatedAt&lt;int&gt;.UpdatedAt</a>
+    </div>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Models.BaseEntity-1.html#WeihanLi_Common_Models_BaseEntity_1_Id">BaseEntity&lt;int&gt;.Id</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -279,46 +288,11 @@ Class BaseEntity&lt;TKey&gt;  <a class="header-action link-secondary" title="Vie
 
 
 
-  <h2 class="section" id="properties">Properties
-</h2>
-
-
-  <a id="WeihanLi_Common_Models_BaseEntity_1_Id_" data-uid="WeihanLi.Common.Models.BaseEntity`1.Id*"></a>
-
-  <h3 id="WeihanLi_Common_Models_BaseEntity_1_Id" data-uid="WeihanLi.Common.Models.BaseEntity`1.Id">
-  Id
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L15"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TKey Id { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><span class="xref">TKey</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L150" class="edit-link">Edit this page</a>
         </div>
 
 

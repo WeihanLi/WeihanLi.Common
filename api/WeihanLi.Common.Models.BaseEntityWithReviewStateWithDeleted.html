@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Models_BaseEntityWithReviewStateWithDeleted" data-uid="WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted" class="text-break">
-Class BaseEntityWithReviewStateWithDeleted  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L38"><i class="bi bi-code-slash"></i></a>
+Class BaseEntityWithReviewStateWithDeleted  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L138"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class BaseEntityWithReviewStateWithDeleted  <a class="header-action link-seconda
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BaseEntityWithReviewStateWithDeleted : BaseEntityWithReviewStateWithDeleted&lt;int&gt;, ISoftDeleteEntityWithDeleted, ISoftDeleteEntity</code></pre>
+    <pre><code class="lang-csharp hljs">public class BaseEntityWithReviewStateWithDeleted : BaseEntityWithReviewStateWithDeleted&lt;int&gt;, IEntity&lt;int&gt;, ISoftDeleteEntityWithDeleted, ISoftDeleteEntity, IEntityWithReviewState</code></pre>
   </div>
 
 
@@ -117,8 +117,10 @@ Class BaseEntityWithReviewStateWithDeleted  <a class="header-action link-seconda
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
+      <div><a class="xref" href="WeihanLi.Common.Models.IEntity-1.html">IEntity</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
       <div><a class="xref" href="WeihanLi.Common.Models.ISoftDeleteEntityWithDeleted.html">ISoftDeleteEntityWithDeleted</a></div>
       <div><a class="xref" href="WeihanLi.Common.Models.ISoftDeleteEntity.html">ISoftDeleteEntity</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithReviewState.html">IEntityWithReviewState</a></div>
     </dd>
   </dl>
 
@@ -282,7 +284,7 @@ Class BaseEntityWithReviewStateWithDeleted  <a class="header-action link-seconda
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L38" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L138" class="edit-link">Edit this page</a>
         </div>
 
 

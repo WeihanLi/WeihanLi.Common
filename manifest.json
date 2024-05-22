@@ -1924,6 +1924,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.RandomCodeType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.RandomCodeType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Helpers.ReflectHelper.yml",
       "output": {
         ".html": {
@@ -2414,6 +2424,186 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithDeleted-1.yml",
       "output": {
         ".html": {
@@ -2448,6 +2638,26 @@
       "output": {
         ".html": {
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark.html"
         }
       },
       "version": ""
@@ -2518,6 +2728,76 @@
       "output": {
         ".html": {
           "relative_path": "api/WeihanLi.Common.Models.EnumerableExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IEntity-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IEntity-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAtAndBy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAtAndBy.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IEntityWithRemark.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IEntityWithRemark.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IEntityWithReviewState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IEntityWithReviewState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IEntityWithReviewStateAndRemark.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IEntityWithReviewStateAndRemark.html"
         }
       },
       "version": ""

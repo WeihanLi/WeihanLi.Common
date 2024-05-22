@@ -13971,6 +13971,36 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.PropertyEnricher(Of TContext).EnrichAction
   nameWithType: PropertyEnricher<TContext>.EnrichAction
   nameWithType.vb: PropertyEnricher(Of TContext).EnrichAction
+- uid: WeihanLi.Common.Helpers.RandomCodeType
+  name: RandomCodeType
+  href: api/WeihanLi.Common.Helpers.RandomCodeType.html
+  commentId: T:WeihanLi.Common.Helpers.RandomCodeType
+  fullName: WeihanLi.Common.Helpers.RandomCodeType
+  nameWithType: RandomCodeType
+- uid: WeihanLi.Common.Helpers.RandomCodeType.HexNumber
+  name: HexNumber
+  href: api/WeihanLi.Common.Helpers.RandomCodeType.html#WeihanLi_Common_Helpers_RandomCodeType_HexNumber
+  commentId: F:WeihanLi.Common.Helpers.RandomCodeType.HexNumber
+  fullName: WeihanLi.Common.Helpers.RandomCodeType.HexNumber
+  nameWithType: RandomCodeType.HexNumber
+- uid: WeihanLi.Common.Helpers.RandomCodeType.Letter
+  name: Letter
+  href: api/WeihanLi.Common.Helpers.RandomCodeType.html#WeihanLi_Common_Helpers_RandomCodeType_Letter
+  commentId: F:WeihanLi.Common.Helpers.RandomCodeType.Letter
+  fullName: WeihanLi.Common.Helpers.RandomCodeType.Letter
+  nameWithType: RandomCodeType.Letter
+- uid: WeihanLi.Common.Helpers.RandomCodeType.LetterOrNumber
+  name: LetterOrNumber
+  href: api/WeihanLi.Common.Helpers.RandomCodeType.html#WeihanLi_Common_Helpers_RandomCodeType_LetterOrNumber
+  commentId: F:WeihanLi.Common.Helpers.RandomCodeType.LetterOrNumber
+  fullName: WeihanLi.Common.Helpers.RandomCodeType.LetterOrNumber
+  nameWithType: RandomCodeType.LetterOrNumber
+- uid: WeihanLi.Common.Helpers.RandomCodeType.Number
+  name: Number
+  href: api/WeihanLi.Common.Helpers.RandomCodeType.html#WeihanLi_Common_Helpers_RandomCodeType_Number
+  commentId: F:WeihanLi.Common.Helpers.RandomCodeType.Number
+  fullName: WeihanLi.Common.Helpers.RandomCodeType.Number
+  nameWithType: RandomCodeType.Number
 - uid: WeihanLi.Common.Helpers.ReflectHelper
   name: ReflectHelper
   href: api/WeihanLi.Common.Helpers.ReflectHelper.html
@@ -14339,6 +14369,88 @@ references:
   commentId: T:WeihanLi.Common.Helpers.SecurityHelper
   fullName: WeihanLi.Common.Helpers.SecurityHelper
   nameWithType: SecurityHelper
+- uid: WeihanLi.Common.Helpers.SecurityHelper.AesDecrypt(System.String,System.String,System.String,System.Action{System.Security.Cryptography.Aes})
+  name: AesDecrypt(string, string, string?, Action<Aes>?)
+  href: api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_AesDecrypt_System_String_System_String_System_String_System_Action_System_Security_Cryptography_Aes__
+  commentId: M:WeihanLi.Common.Helpers.SecurityHelper.AesDecrypt(System.String,System.String,System.String,System.Action{System.Security.Cryptography.Aes})
+  name.vb: AesDecrypt(String, String, String, Action(Of Aes))
+  fullName: WeihanLi.Common.Helpers.SecurityHelper.AesDecrypt(string, string, string?, System.Action<System.Security.Cryptography.Aes>?)
+  fullName.vb: WeihanLi.Common.Helpers.SecurityHelper.AesDecrypt(String, String, String, System.Action(Of System.Security.Cryptography.Aes))
+  nameWithType: SecurityHelper.AesDecrypt(string, string, string?, Action<Aes>?)
+  nameWithType.vb: SecurityHelper.AesDecrypt(String, String, String, Action(Of Aes))
+- uid: WeihanLi.Common.Helpers.SecurityHelper.AesDecrypt*
+  name: AesDecrypt
+  href: api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_AesDecrypt_
+  commentId: Overload:WeihanLi.Common.Helpers.SecurityHelper.AesDecrypt
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.SecurityHelper.AesDecrypt
+  nameWithType: SecurityHelper.AesDecrypt
+- uid: WeihanLi.Common.Helpers.SecurityHelper.AesEncrypt(System.String,System.String,System.String,System.Boolean,System.Action{System.Security.Cryptography.Aes})
+  name: AesEncrypt(string, string, string?, bool, Action<Aes>?)
+  href: api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_AesEncrypt_System_String_System_String_System_String_System_Boolean_System_Action_System_Security_Cryptography_Aes__
+  commentId: M:WeihanLi.Common.Helpers.SecurityHelper.AesEncrypt(System.String,System.String,System.String,System.Boolean,System.Action{System.Security.Cryptography.Aes})
+  name.vb: AesEncrypt(String, String, String, Boolean, Action(Of Aes))
+  fullName: WeihanLi.Common.Helpers.SecurityHelper.AesEncrypt(string, string, string?, bool, System.Action<System.Security.Cryptography.Aes>?)
+  fullName.vb: WeihanLi.Common.Helpers.SecurityHelper.AesEncrypt(String, String, String, Boolean, System.Action(Of System.Security.Cryptography.Aes))
+  nameWithType: SecurityHelper.AesEncrypt(string, string, string?, bool, Action<Aes>?)
+  nameWithType.vb: SecurityHelper.AesEncrypt(String, String, String, Boolean, Action(Of Aes))
+- uid: WeihanLi.Common.Helpers.SecurityHelper.AesEncrypt*
+  name: AesEncrypt
+  href: api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_AesEncrypt_
+  commentId: Overload:WeihanLi.Common.Helpers.SecurityHelper.AesEncrypt
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.SecurityHelper.AesEncrypt
+  nameWithType: SecurityHelper.AesEncrypt
+- uid: WeihanLi.Common.Helpers.SecurityHelper.Decrypt*
+  name: Decrypt
+  href: api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_Decrypt_
+  commentId: Overload:WeihanLi.Common.Helpers.SecurityHelper.Decrypt
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.SecurityHelper.Decrypt
+  nameWithType: SecurityHelper.Decrypt
+- uid: WeihanLi.Common.Helpers.SecurityHelper.Decrypt``1(``0,System.Byte[],System.Byte[],System.Action{``0})
+  name: Decrypt<TAlgorithm>(TAlgorithm, byte[], byte[], Action<TAlgorithm>?)
+  href: api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_Decrypt__1___0_System_Byte___System_Byte___System_Action___0__
+  commentId: M:WeihanLi.Common.Helpers.SecurityHelper.Decrypt``1(``0,System.Byte[],System.Byte[],System.Action{``0})
+  name.vb: Decrypt(Of TAlgorithm)(TAlgorithm, Byte(), Byte(), Action(Of TAlgorithm))
+  fullName: WeihanLi.Common.Helpers.SecurityHelper.Decrypt<TAlgorithm>(TAlgorithm, byte[], byte[], System.Action<TAlgorithm>?)
+  fullName.vb: WeihanLi.Common.Helpers.SecurityHelper.Decrypt(Of TAlgorithm)(TAlgorithm, Byte(), Byte(), System.Action(Of TAlgorithm))
+  nameWithType: SecurityHelper.Decrypt<TAlgorithm>(TAlgorithm, byte[], byte[], Action<TAlgorithm>?)
+  nameWithType.vb: SecurityHelper.Decrypt(Of TAlgorithm)(TAlgorithm, Byte(), Byte(), Action(Of TAlgorithm))
+- uid: WeihanLi.Common.Helpers.SecurityHelper.Decrypt``1(``0,System.String,System.String,System.Action{``0})
+  name: Decrypt<TAlgorithm>(TAlgorithm, string, string, Action<TAlgorithm>?)
+  href: api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_Decrypt__1___0_System_String_System_String_System_Action___0__
+  commentId: M:WeihanLi.Common.Helpers.SecurityHelper.Decrypt``1(``0,System.String,System.String,System.Action{``0})
+  name.vb: Decrypt(Of TAlgorithm)(TAlgorithm, String, String, Action(Of TAlgorithm))
+  fullName: WeihanLi.Common.Helpers.SecurityHelper.Decrypt<TAlgorithm>(TAlgorithm, string, string, System.Action<TAlgorithm>?)
+  fullName.vb: WeihanLi.Common.Helpers.SecurityHelper.Decrypt(Of TAlgorithm)(TAlgorithm, String, String, System.Action(Of TAlgorithm))
+  nameWithType: SecurityHelper.Decrypt<TAlgorithm>(TAlgorithm, string, string, Action<TAlgorithm>?)
+  nameWithType.vb: SecurityHelper.Decrypt(Of TAlgorithm)(TAlgorithm, String, String, Action(Of TAlgorithm))
+- uid: WeihanLi.Common.Helpers.SecurityHelper.Encrypt*
+  name: Encrypt
+  href: api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_Encrypt_
+  commentId: Overload:WeihanLi.Common.Helpers.SecurityHelper.Encrypt
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.SecurityHelper.Encrypt
+  nameWithType: SecurityHelper.Encrypt
+- uid: WeihanLi.Common.Helpers.SecurityHelper.Encrypt``1(``0,System.Byte[],System.Byte[],System.Action{``0})
+  name: Encrypt<TAlgorithm>(TAlgorithm, byte[], byte[], Action<TAlgorithm>?)
+  href: api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_Encrypt__1___0_System_Byte___System_Byte___System_Action___0__
+  commentId: M:WeihanLi.Common.Helpers.SecurityHelper.Encrypt``1(``0,System.Byte[],System.Byte[],System.Action{``0})
+  name.vb: Encrypt(Of TAlgorithm)(TAlgorithm, Byte(), Byte(), Action(Of TAlgorithm))
+  fullName: WeihanLi.Common.Helpers.SecurityHelper.Encrypt<TAlgorithm>(TAlgorithm, byte[], byte[], System.Action<TAlgorithm>?)
+  fullName.vb: WeihanLi.Common.Helpers.SecurityHelper.Encrypt(Of TAlgorithm)(TAlgorithm, Byte(), Byte(), System.Action(Of TAlgorithm))
+  nameWithType: SecurityHelper.Encrypt<TAlgorithm>(TAlgorithm, byte[], byte[], Action<TAlgorithm>?)
+  nameWithType.vb: SecurityHelper.Encrypt(Of TAlgorithm)(TAlgorithm, Byte(), Byte(), Action(Of TAlgorithm))
+- uid: WeihanLi.Common.Helpers.SecurityHelper.Encrypt``1(``0,System.String,System.String,System.Boolean,System.Action{``0})
+  name: Encrypt<TAlgorithm>(TAlgorithm, string, string, bool, Action<TAlgorithm>?)
+  href: api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_Encrypt__1___0_System_String_System_String_System_Boolean_System_Action___0__
+  commentId: M:WeihanLi.Common.Helpers.SecurityHelper.Encrypt``1(``0,System.String,System.String,System.Boolean,System.Action{``0})
+  name.vb: Encrypt(Of TAlgorithm)(TAlgorithm, String, String, Boolean, Action(Of TAlgorithm))
+  fullName: WeihanLi.Common.Helpers.SecurityHelper.Encrypt<TAlgorithm>(TAlgorithm, string, string, bool, System.Action<TAlgorithm>?)
+  fullName.vb: WeihanLi.Common.Helpers.SecurityHelper.Encrypt(Of TAlgorithm)(TAlgorithm, String, String, Boolean, System.Action(Of TAlgorithm))
+  nameWithType: SecurityHelper.Encrypt<TAlgorithm>(TAlgorithm, string, string, bool, Action<TAlgorithm>?)
+  nameWithType.vb: SecurityHelper.Encrypt(Of TAlgorithm)(TAlgorithm, String, String, Boolean, Action(Of TAlgorithm))
 - uid: WeihanLi.Common.Helpers.SecurityHelper.GenerateRandomCode(System.Int32,System.Boolean)
   name: GenerateRandomCode(int, bool)
   href: api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_GenerateRandomCode_System_Int32_System_Boolean_
@@ -14348,6 +14460,15 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.SecurityHelper.GenerateRandomCode(Integer, Boolean)
   nameWithType: SecurityHelper.GenerateRandomCode(int, bool)
   nameWithType.vb: SecurityHelper.GenerateRandomCode(Integer, Boolean)
+- uid: WeihanLi.Common.Helpers.SecurityHelper.GenerateRandomCode(System.Int32,WeihanLi.Common.Helpers.RandomCodeType)
+  name: GenerateRandomCode(int, RandomCodeType)
+  href: api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_GenerateRandomCode_System_Int32_WeihanLi_Common_Helpers_RandomCodeType_
+  commentId: M:WeihanLi.Common.Helpers.SecurityHelper.GenerateRandomCode(System.Int32,WeihanLi.Common.Helpers.RandomCodeType)
+  name.vb: GenerateRandomCode(Integer, RandomCodeType)
+  fullName: WeihanLi.Common.Helpers.SecurityHelper.GenerateRandomCode(int, WeihanLi.Common.Helpers.RandomCodeType)
+  fullName.vb: WeihanLi.Common.Helpers.SecurityHelper.GenerateRandomCode(Integer, WeihanLi.Common.Helpers.RandomCodeType)
+  nameWithType: SecurityHelper.GenerateRandomCode(int, RandomCodeType)
+  nameWithType.vb: SecurityHelper.GenerateRandomCode(Integer, RandomCodeType)
 - uid: WeihanLi.Common.Helpers.SecurityHelper.GenerateRandomCode*
   name: GenerateRandomCode
   href: api/WeihanLi.Common.Helpers.SecurityHelper.html#WeihanLi_Common_Helpers_SecurityHelper_GenerateRandomCode_
@@ -17809,6 +17930,328 @@ references:
   commentId: T:WeihanLi.Common.Models.BaseEntity
   fullName: WeihanLi.Common.Models.BaseEntity
   nameWithType: BaseEntity
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt
+  name: BaseEntityWithCreatedUpdatedAt
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt
+  nameWithType: BaseEntityWithCreatedUpdatedAt
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy
+  name: BaseEntityWithCreatedUpdatedAtAndBy
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndBy
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted
+  name: BaseEntityWithCreatedUpdatedAtAndByAndDeleted
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndByAndDeleted
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState
+  name: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark
+  name: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark`1
+  name: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark<TKey>
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark-1.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark`1
+  name.vb: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark(Of TKey)
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark<TKey>
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark(Of TKey)
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark<TKey>
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark(Of TKey)
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark`1.Remark
+  name: Remark
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark_1_Remark
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark`1.Remark
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark<TKey>.Remark
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark(Of TKey).Remark
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark<TKey>.Remark
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark(Of TKey).Remark
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark`1.Remark*
+  name: Remark
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark_1_Remark_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark`1.Remark
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark<TKey>.Remark
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark(Of TKey).Remark
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark<TKey>.Remark
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark(Of TKey).Remark
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState`1
+  name: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState<TKey>
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState-1.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState`1
+  name.vb: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState(Of TKey)
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState<TKey>
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState(Of TKey)
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState<TKey>
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState(Of TKey)
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState`1.State
+  name: State
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState_1_State
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState`1.State
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState<TKey>.State
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState(Of TKey).State
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState<TKey>.State
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState(Of TKey).State
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState`1.State*
+  name: State
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState_1_State_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState`1.State
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState<TKey>.State
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState(Of TKey).State
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState<TKey>.State
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState(Of TKey).State
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted`1
+  name: BaseEntityWithCreatedUpdatedAtAndByAndDeleted<TKey>
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted-1.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted`1
+  name.vb: BaseEntityWithCreatedUpdatedAtAndByAndDeleted(Of TKey)
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted<TKey>
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted(Of TKey)
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndByAndDeleted<TKey>
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndByAndDeleted(Of TKey)
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted`1.IsDeleted
+  name: IsDeleted
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndByAndDeleted_1_IsDeleted
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted`1.IsDeleted
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted<TKey>.IsDeleted
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted(Of TKey).IsDeleted
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndByAndDeleted<TKey>.IsDeleted
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndByAndDeleted(Of TKey).IsDeleted
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted`1.IsDeleted*
+  name: IsDeleted
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndByAndDeleted_1_IsDeleted_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted`1.IsDeleted
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted<TKey>.IsDeleted
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted(Of TKey).IsDeleted
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndByAndDeleted<TKey>.IsDeleted
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndByAndDeleted(Of TKey).IsDeleted
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy`1
+  name: BaseEntityWithCreatedUpdatedAtAndBy<TKey>
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy-1.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy`1
+  name.vb: BaseEntityWithCreatedUpdatedAtAndBy(Of TKey)
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy<TKey>
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy(Of TKey)
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndBy<TKey>
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndBy(Of TKey)
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy`1.CreatedBy
+  name: CreatedBy
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndBy_1_CreatedBy
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy`1.CreatedBy
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy<TKey>.CreatedBy
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy(Of TKey).CreatedBy
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndBy<TKey>.CreatedBy
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndBy(Of TKey).CreatedBy
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy`1.CreatedBy*
+  name: CreatedBy
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndBy_1_CreatedBy_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy`1.CreatedBy
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy<TKey>.CreatedBy
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy(Of TKey).CreatedBy
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndBy<TKey>.CreatedBy
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndBy(Of TKey).CreatedBy
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy`1.UpdatedBy
+  name: UpdatedBy
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndBy_1_UpdatedBy
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy`1.UpdatedBy
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy<TKey>.UpdatedBy
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy(Of TKey).UpdatedBy
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndBy<TKey>.UpdatedBy
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndBy(Of TKey).UpdatedBy
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy`1.UpdatedBy*
+  name: UpdatedBy
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndBy_1_UpdatedBy_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy`1.UpdatedBy
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy<TKey>.UpdatedBy
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy(Of TKey).UpdatedBy
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndBy<TKey>.UpdatedBy
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndBy(Of TKey).UpdatedBy
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted
+  name: BaseEntityWithCreatedUpdatedAtAndDeleted
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeleted
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark
+  name: BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark`1
+  name: BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey>
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark-1.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark`1
+  name.vb: BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark(Of TKey)
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey>
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark(Of TKey)
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey>
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark(Of TKey)
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark`1.Remark
+  name: Remark
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark_1_Remark
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark`1.Remark
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey>.Remark
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark(Of TKey).Remark
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey>.Remark
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark(Of TKey).Remark
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark`1.Remark*
+  name: Remark
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark_1_Remark_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark`1.Remark
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey>.Remark
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark(Of TKey).Remark
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey>.Remark
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark(Of TKey).Remark
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState
+  name: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark
+  name: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark`1
+  name: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark<TKey>
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark-1.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark`1
+  name.vb: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark(Of TKey)
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark<TKey>
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark(Of TKey)
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark<TKey>
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark(Of TKey)
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark`1.Remark
+  name: Remark
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark_1_Remark
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark`1.Remark
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark<TKey>.Remark
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark(Of TKey).Remark
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark<TKey>.Remark
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark(Of TKey).Remark
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark`1.Remark*
+  name: Remark
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark_1_Remark_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark`1.Remark
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark<TKey>.Remark
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark(Of TKey).Remark
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark<TKey>.Remark
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark(Of TKey).Remark
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState`1
+  name: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState<TKey>
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState-1.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState`1
+  name.vb: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState(Of TKey)
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState<TKey>
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState(Of TKey)
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState<TKey>
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState(Of TKey)
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState`1.State
+  name: State
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState_1_State
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState`1.State
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState<TKey>.State
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState(Of TKey).State
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState<TKey>.State
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState(Of TKey).State
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState`1.State*
+  name: State
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState_1_State_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState`1.State
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState<TKey>.State
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState(Of TKey).State
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState<TKey>.State
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState(Of TKey).State
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted`1
+  name: BaseEntityWithCreatedUpdatedAtAndDeleted<TKey>
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted-1.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted`1
+  name.vb: BaseEntityWithCreatedUpdatedAtAndDeleted(Of TKey)
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted<TKey>
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted(Of TKey)
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeleted<TKey>
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndDeleted(Of TKey)
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted`1.IsDeleted
+  name: IsDeleted
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeleted_1_IsDeleted
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted`1.IsDeleted
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted<TKey>.IsDeleted
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted(Of TKey).IsDeleted
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeleted<TKey>.IsDeleted
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndDeleted(Of TKey).IsDeleted
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted`1.IsDeleted*
+  name: IsDeleted
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeleted_1_IsDeleted_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted`1.IsDeleted
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted<TKey>.IsDeleted
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted(Of TKey).IsDeleted
+  nameWithType: BaseEntityWithCreatedUpdatedAtAndDeleted<TKey>.IsDeleted
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAtAndDeleted(Of TKey).IsDeleted
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1
+  name: BaseEntityWithCreatedUpdatedAt<TKey>
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1
+  name.vb: BaseEntityWithCreatedUpdatedAt(Of TKey)
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt<TKey>
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt(Of TKey)
+  nameWithType: BaseEntityWithCreatedUpdatedAt<TKey>
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAt(Of TKey)
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.CreatedAt
+  name: CreatedAt
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_CreatedAt
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.CreatedAt
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt<TKey>.CreatedAt
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt(Of TKey).CreatedAt
+  nameWithType: BaseEntityWithCreatedUpdatedAt<TKey>.CreatedAt
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAt(Of TKey).CreatedAt
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.CreatedAt*
+  name: CreatedAt
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_CreatedAt_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.CreatedAt
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt<TKey>.CreatedAt
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt(Of TKey).CreatedAt
+  nameWithType: BaseEntityWithCreatedUpdatedAt<TKey>.CreatedAt
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAt(Of TKey).CreatedAt
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.UpdatedAt
+  name: UpdatedAt
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_UpdatedAt
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.UpdatedAt
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt<TKey>.UpdatedAt
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt(Of TKey).UpdatedAt
+  nameWithType: BaseEntityWithCreatedUpdatedAt<TKey>.UpdatedAt
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAt(Of TKey).UpdatedAt
+- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.UpdatedAt*
+  name: UpdatedAt
+  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_UpdatedAt_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.UpdatedAt
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt<TKey>.UpdatedAt
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt(Of TKey).UpdatedAt
+  nameWithType: BaseEntityWithCreatedUpdatedAt<TKey>.UpdatedAt
+  nameWithType.vb: BaseEntityWithCreatedUpdatedAt(Of TKey).UpdatedAt
 - uid: WeihanLi.Common.Models.BaseEntityWithDeleted
   name: BaseEntityWithDeleted
   href: api/WeihanLi.Common.Models.BaseEntityWithDeleted.html
@@ -17847,6 +18290,38 @@ references:
   commentId: T:WeihanLi.Common.Models.BaseEntityWithReviewState
   fullName: WeihanLi.Common.Models.BaseEntityWithReviewState
   nameWithType: BaseEntityWithReviewState
+- uid: WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark
+  name: BaseEntityWithReviewStateAndRemark
+  href: api/WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark
+  fullName: WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark
+  nameWithType: BaseEntityWithReviewStateAndRemark
+- uid: WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark`1
+  name: BaseEntityWithReviewStateAndRemark<TKey>
+  href: api/WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark-1.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark`1
+  name.vb: BaseEntityWithReviewStateAndRemark(Of TKey)
+  fullName: WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark<TKey>
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark(Of TKey)
+  nameWithType: BaseEntityWithReviewStateAndRemark<TKey>
+  nameWithType.vb: BaseEntityWithReviewStateAndRemark(Of TKey)
+- uid: WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark`1.Remark
+  name: Remark
+  href: api/WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark-1.html#WeihanLi_Common_Models_BaseEntityWithReviewStateAndRemark_1_Remark
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark`1.Remark
+  fullName: WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark<TKey>.Remark
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark(Of TKey).Remark
+  nameWithType: BaseEntityWithReviewStateAndRemark<TKey>.Remark
+  nameWithType.vb: BaseEntityWithReviewStateAndRemark(Of TKey).Remark
+- uid: WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark`1.Remark*
+  name: Remark
+  href: api/WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark-1.html#WeihanLi_Common_Models_BaseEntityWithReviewStateAndRemark_1_Remark_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark`1.Remark
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark<TKey>.Remark
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark(Of TKey).Remark
+  nameWithType: BaseEntityWithReviewStateAndRemark<TKey>.Remark
+  nameWithType.vb: BaseEntityWithReviewStateAndRemark(Of TKey).Remark
 - uid: WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted
   name: BaseEntityWithReviewStateWithDeleted
   href: api/WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted.html
@@ -18068,6 +18543,146 @@ references:
   fullName.vb: WeihanLi.Common.Models.EnumerableExtensions.GetEnumerator(Of T)(WeihanLi.Common.Models.IListResultWithTotal(Of T))
   nameWithType: EnumerableExtensions.GetEnumerator<T>(IListResultWithTotal<T>)
   nameWithType.vb: EnumerableExtensions.GetEnumerator(Of T)(IListResultWithTotal(Of T))
+- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt
+  name: IEntityWithCreatedUpdatedAt
+  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.html
+  commentId: T:WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt
+  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt
+  nameWithType: IEntityWithCreatedUpdatedAt
+- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.CreatedAt
+  name: CreatedAt
+  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.html#WeihanLi_Common_Models_IEntityWithCreatedUpdatedAt_CreatedAt
+  commentId: P:WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.CreatedAt
+  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.CreatedAt
+  nameWithType: IEntityWithCreatedUpdatedAt.CreatedAt
+- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.CreatedAt*
+  name: CreatedAt
+  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.html#WeihanLi_Common_Models_IEntityWithCreatedUpdatedAt_CreatedAt_
+  commentId: Overload:WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.CreatedAt
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.CreatedAt
+  nameWithType: IEntityWithCreatedUpdatedAt.CreatedAt
+- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.UpdatedAt
+  name: UpdatedAt
+  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.html#WeihanLi_Common_Models_IEntityWithCreatedUpdatedAt_UpdatedAt
+  commentId: P:WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.UpdatedAt
+  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.UpdatedAt
+  nameWithType: IEntityWithCreatedUpdatedAt.UpdatedAt
+- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.UpdatedAt*
+  name: UpdatedAt
+  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.html#WeihanLi_Common_Models_IEntityWithCreatedUpdatedAt_UpdatedAt_
+  commentId: Overload:WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.UpdatedAt
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.UpdatedAt
+  nameWithType: IEntityWithCreatedUpdatedAt.UpdatedAt
+- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAtAndBy
+  name: IEntityWithCreatedUpdatedAtAndBy
+  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAtAndBy.html
+  commentId: T:WeihanLi.Common.Models.IEntityWithCreatedUpdatedAtAndBy
+  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAtAndBy
+  nameWithType: IEntityWithCreatedUpdatedAtAndBy
+- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy
+  name: IEntityWithCreatedUpdatedBy
+  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.html
+  commentId: T:WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy
+  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy
+  nameWithType: IEntityWithCreatedUpdatedBy
+- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.CreatedBy
+  name: CreatedBy
+  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.html#WeihanLi_Common_Models_IEntityWithCreatedUpdatedBy_CreatedBy
+  commentId: P:WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.CreatedBy
+  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.CreatedBy
+  nameWithType: IEntityWithCreatedUpdatedBy.CreatedBy
+- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.CreatedBy*
+  name: CreatedBy
+  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.html#WeihanLi_Common_Models_IEntityWithCreatedUpdatedBy_CreatedBy_
+  commentId: Overload:WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.CreatedBy
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.CreatedBy
+  nameWithType: IEntityWithCreatedUpdatedBy.CreatedBy
+- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.UpdatedBy
+  name: UpdatedBy
+  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.html#WeihanLi_Common_Models_IEntityWithCreatedUpdatedBy_UpdatedBy
+  commentId: P:WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.UpdatedBy
+  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.UpdatedBy
+  nameWithType: IEntityWithCreatedUpdatedBy.UpdatedBy
+- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.UpdatedBy*
+  name: UpdatedBy
+  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.html#WeihanLi_Common_Models_IEntityWithCreatedUpdatedBy_UpdatedBy_
+  commentId: Overload:WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.UpdatedBy
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.UpdatedBy
+  nameWithType: IEntityWithCreatedUpdatedBy.UpdatedBy
+- uid: WeihanLi.Common.Models.IEntityWithRemark
+  name: IEntityWithRemark
+  href: api/WeihanLi.Common.Models.IEntityWithRemark.html
+  commentId: T:WeihanLi.Common.Models.IEntityWithRemark
+  fullName: WeihanLi.Common.Models.IEntityWithRemark
+  nameWithType: IEntityWithRemark
+- uid: WeihanLi.Common.Models.IEntityWithRemark.Remark
+  name: Remark
+  href: api/WeihanLi.Common.Models.IEntityWithRemark.html#WeihanLi_Common_Models_IEntityWithRemark_Remark
+  commentId: P:WeihanLi.Common.Models.IEntityWithRemark.Remark
+  fullName: WeihanLi.Common.Models.IEntityWithRemark.Remark
+  nameWithType: IEntityWithRemark.Remark
+- uid: WeihanLi.Common.Models.IEntityWithRemark.Remark*
+  name: Remark
+  href: api/WeihanLi.Common.Models.IEntityWithRemark.html#WeihanLi_Common_Models_IEntityWithRemark_Remark_
+  commentId: Overload:WeihanLi.Common.Models.IEntityWithRemark.Remark
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.IEntityWithRemark.Remark
+  nameWithType: IEntityWithRemark.Remark
+- uid: WeihanLi.Common.Models.IEntityWithReviewState
+  name: IEntityWithReviewState
+  href: api/WeihanLi.Common.Models.IEntityWithReviewState.html
+  commentId: T:WeihanLi.Common.Models.IEntityWithReviewState
+  fullName: WeihanLi.Common.Models.IEntityWithReviewState
+  nameWithType: IEntityWithReviewState
+- uid: WeihanLi.Common.Models.IEntityWithReviewState.State
+  name: State
+  href: api/WeihanLi.Common.Models.IEntityWithReviewState.html#WeihanLi_Common_Models_IEntityWithReviewState_State
+  commentId: P:WeihanLi.Common.Models.IEntityWithReviewState.State
+  fullName: WeihanLi.Common.Models.IEntityWithReviewState.State
+  nameWithType: IEntityWithReviewState.State
+- uid: WeihanLi.Common.Models.IEntityWithReviewState.State*
+  name: State
+  href: api/WeihanLi.Common.Models.IEntityWithReviewState.html#WeihanLi_Common_Models_IEntityWithReviewState_State_
+  commentId: Overload:WeihanLi.Common.Models.IEntityWithReviewState.State
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.IEntityWithReviewState.State
+  nameWithType: IEntityWithReviewState.State
+- uid: WeihanLi.Common.Models.IEntityWithReviewStateAndRemark
+  name: IEntityWithReviewStateAndRemark
+  href: api/WeihanLi.Common.Models.IEntityWithReviewStateAndRemark.html
+  commentId: T:WeihanLi.Common.Models.IEntityWithReviewStateAndRemark
+  fullName: WeihanLi.Common.Models.IEntityWithReviewStateAndRemark
+  nameWithType: IEntityWithReviewStateAndRemark
+- uid: WeihanLi.Common.Models.IEntity`1
+  name: IEntity<TKey>
+  href: api/WeihanLi.Common.Models.IEntity-1.html
+  commentId: T:WeihanLi.Common.Models.IEntity`1
+  name.vb: IEntity(Of TKey)
+  fullName: WeihanLi.Common.Models.IEntity<TKey>
+  fullName.vb: WeihanLi.Common.Models.IEntity(Of TKey)
+  nameWithType: IEntity<TKey>
+  nameWithType.vb: IEntity(Of TKey)
+- uid: WeihanLi.Common.Models.IEntity`1.Id
+  name: Id
+  href: api/WeihanLi.Common.Models.IEntity-1.html#WeihanLi_Common_Models_IEntity_1_Id
+  commentId: P:WeihanLi.Common.Models.IEntity`1.Id
+  fullName: WeihanLi.Common.Models.IEntity<TKey>.Id
+  fullName.vb: WeihanLi.Common.Models.IEntity(Of TKey).Id
+  nameWithType: IEntity<TKey>.Id
+  nameWithType.vb: IEntity(Of TKey).Id
+- uid: WeihanLi.Common.Models.IEntity`1.Id*
+  name: Id
+  href: api/WeihanLi.Common.Models.IEntity-1.html#WeihanLi_Common_Models_IEntity_1_Id_
+  commentId: Overload:WeihanLi.Common.Models.IEntity`1.Id
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.IEntity<TKey>.Id
+  fullName.vb: WeihanLi.Common.Models.IEntity(Of TKey).Id
+  nameWithType: IEntity<TKey>.Id
+  nameWithType.vb: IEntity(Of TKey).Id
 - uid: WeihanLi.Common.Models.IListResultWithTotal`1
   name: IListResultWithTotal<T>
   href: api/WeihanLi.Common.Models.IListResultWithTotal-1.html
@@ -21958,6 +22573,22 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.HasEmptyConstructor
   nameWithType: CoreExtension.HasEmptyConstructor
+- uid: WeihanLi.Extensions.CoreExtension.HexStringToBytes(System.String)
+  name: HexStringToBytes(string)
+  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_HexStringToBytes_System_String_
+  commentId: M:WeihanLi.Extensions.CoreExtension.HexStringToBytes(System.String)
+  name.vb: HexStringToBytes(String)
+  fullName: WeihanLi.Extensions.CoreExtension.HexStringToBytes(string)
+  fullName.vb: WeihanLi.Extensions.CoreExtension.HexStringToBytes(String)
+  nameWithType: CoreExtension.HexStringToBytes(string)
+  nameWithType.vb: CoreExtension.HexStringToBytes(String)
+- uid: WeihanLi.Extensions.CoreExtension.HexStringToBytes*
+  name: HexStringToBytes
+  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_HexStringToBytes_
+  commentId: Overload:WeihanLi.Extensions.CoreExtension.HexStringToBytes
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.CoreExtension.HexStringToBytes
+  nameWithType: CoreExtension.HexStringToBytes
 - uid: WeihanLi.Extensions.CoreExtension.IfFalse(System.Boolean,System.Action)
   name: IfFalse(bool, Action?)
   href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_IfFalse_System_Boolean_System_Action_
@@ -22897,31 +23528,31 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.ToBoolean
   nameWithType: CoreExtension.ToBoolean
-- uid: WeihanLi.Extensions.CoreExtension.ToByteArray(System.String)
-  name: ToByteArray(string)
-  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToByteArray_System_String_
-  commentId: M:WeihanLi.Extensions.CoreExtension.ToByteArray(System.String)
-  name.vb: ToByteArray(String)
-  fullName: WeihanLi.Extensions.CoreExtension.ToByteArray(string)
-  fullName.vb: WeihanLi.Extensions.CoreExtension.ToByteArray(String)
-  nameWithType: CoreExtension.ToByteArray(string)
-  nameWithType.vb: CoreExtension.ToByteArray(String)
-- uid: WeihanLi.Extensions.CoreExtension.ToByteArray(System.String,System.Text.Encoding)
-  name: ToByteArray(string, Encoding)
-  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToByteArray_System_String_System_Text_Encoding_
-  commentId: M:WeihanLi.Extensions.CoreExtension.ToByteArray(System.String,System.Text.Encoding)
-  name.vb: ToByteArray(String, Encoding)
-  fullName: WeihanLi.Extensions.CoreExtension.ToByteArray(string, System.Text.Encoding)
-  fullName.vb: WeihanLi.Extensions.CoreExtension.ToByteArray(String, System.Text.Encoding)
-  nameWithType: CoreExtension.ToByteArray(string, Encoding)
-  nameWithType.vb: CoreExtension.ToByteArray(String, Encoding)
-- uid: WeihanLi.Extensions.CoreExtension.ToByteArray*
-  name: ToByteArray
-  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToByteArray_
-  commentId: Overload:WeihanLi.Extensions.CoreExtension.ToByteArray
+- uid: WeihanLi.Extensions.CoreExtension.ToBytes(System.String)
+  name: ToBytes(string)
+  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToBytes_System_String_
+  commentId: M:WeihanLi.Extensions.CoreExtension.ToBytes(System.String)
+  name.vb: ToBytes(String)
+  fullName: WeihanLi.Extensions.CoreExtension.ToBytes(string)
+  fullName.vb: WeihanLi.Extensions.CoreExtension.ToBytes(String)
+  nameWithType: CoreExtension.ToBytes(string)
+  nameWithType.vb: CoreExtension.ToBytes(String)
+- uid: WeihanLi.Extensions.CoreExtension.ToBytes(System.String,System.Text.Encoding)
+  name: ToBytes(string, Encoding)
+  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToBytes_System_String_System_Text_Encoding_
+  commentId: M:WeihanLi.Extensions.CoreExtension.ToBytes(System.String,System.Text.Encoding)
+  name.vb: ToBytes(String, Encoding)
+  fullName: WeihanLi.Extensions.CoreExtension.ToBytes(string, System.Text.Encoding)
+  fullName.vb: WeihanLi.Extensions.CoreExtension.ToBytes(String, System.Text.Encoding)
+  nameWithType: CoreExtension.ToBytes(string, Encoding)
+  nameWithType.vb: CoreExtension.ToBytes(String, Encoding)
+- uid: WeihanLi.Extensions.CoreExtension.ToBytes*
+  name: ToBytes
+  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToBytes_
+  commentId: Overload:WeihanLi.Extensions.CoreExtension.ToBytes
   isSpec: "True"
-  fullName: WeihanLi.Extensions.CoreExtension.ToByteArray
-  nameWithType: CoreExtension.ToByteArray
+  fullName: WeihanLi.Extensions.CoreExtension.ToBytes
+  nameWithType: CoreExtension.ToBytes
 - uid: WeihanLi.Extensions.CoreExtension.ToDateString(System.DateTime,System.String)
   name: ToDateString(DateTime, string)
   href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToDateString_System_DateTime_System_String_
@@ -22970,6 +23601,22 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.ToEpochTimeSpan
   nameWithType: CoreExtension.ToEpochTimeSpan
+- uid: WeihanLi.Extensions.CoreExtension.ToHexString(System.Byte[],System.Boolean)
+  name: ToHexString(byte[], bool)
+  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToHexString_System_Byte___System_Boolean_
+  commentId: M:WeihanLi.Extensions.CoreExtension.ToHexString(System.Byte[],System.Boolean)
+  name.vb: ToHexString(Byte(), Boolean)
+  fullName: WeihanLi.Extensions.CoreExtension.ToHexString(byte[], bool)
+  fullName.vb: WeihanLi.Extensions.CoreExtension.ToHexString(Byte(), Boolean)
+  nameWithType: CoreExtension.ToHexString(byte[], bool)
+  nameWithType.vb: CoreExtension.ToHexString(Byte(), Boolean)
+- uid: WeihanLi.Extensions.CoreExtension.ToHexString*
+  name: ToHexString
+  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToHexString_
+  commentId: Overload:WeihanLi.Extensions.CoreExtension.ToHexString
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.CoreExtension.ToHexString
+  nameWithType: CoreExtension.ToHexString
 - uid: WeihanLi.Extensions.CoreExtension.ToLower(System.Char)
   name: ToLower(char)
   href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToLower_System_Char_

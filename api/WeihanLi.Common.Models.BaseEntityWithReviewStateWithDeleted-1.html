@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Models_BaseEntityWithReviewStateWithDeleted_1" data-uid="WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted`1" class="text-break">
-Class BaseEntityWithReviewStateWithDeleted&lt;TKey&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L21"><i class="bi bi-code-slash"></i></a>
+Class BaseEntityWithReviewStateWithDeleted&lt;TKey&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L98"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class BaseEntityWithReviewStateWithDeleted&lt;TKey&gt;  <a class="header-action 
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BaseEntityWithReviewStateWithDeleted&lt;TKey&gt; : BaseEntityWithDeleted&lt;TKey&gt;, ISoftDeleteEntityWithDeleted, ISoftDeleteEntity</code></pre>
+    <pre><code class="lang-csharp hljs">public class BaseEntityWithReviewStateWithDeleted&lt;TKey&gt; : BaseEntityWithDeleted&lt;TKey&gt;, IEntity&lt;TKey&gt;, ISoftDeleteEntityWithDeleted, ISoftDeleteEntity, IEntityWithReviewState</code></pre>
   </div>
 
 
@@ -121,8 +121,10 @@ Class BaseEntityWithReviewStateWithDeleted&lt;TKey&gt;  <a class="header-action 
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
+      <div><a class="xref" href="WeihanLi.Common.Models.IEntity-1.html">IEntity</a>&lt;TKey&gt;</div>
       <div><a class="xref" href="WeihanLi.Common.Models.ISoftDeleteEntityWithDeleted.html">ISoftDeleteEntityWithDeleted</a></div>
       <div><a class="xref" href="WeihanLi.Common.Models.ISoftDeleteEntity.html">ISoftDeleteEntity</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithReviewState.html">IEntityWithReviewState</a></div>
     </dd>
   </dl>
 
@@ -293,7 +295,7 @@ Class BaseEntityWithReviewStateWithDeleted&lt;TKey&gt;  <a class="header-action 
 
   <h3 id="WeihanLi_Common_Models_BaseEntityWithReviewStateWithDeleted_1_State" data-uid="WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted`1.State">
   State
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -324,7 +326,7 @@ Class BaseEntityWithReviewStateWithDeleted&lt;TKey&gt;  <a class="header-action 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L21" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L98" class="edit-link">Edit this page</a>
         </div>
 
 
