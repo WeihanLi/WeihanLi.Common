@@ -27,6 +27,6 @@ public record IdNameDescModel<TKey> : IdNameModel<TKey>
     }
 }
 
-public record IdNameModel : IdNameModel<int> { }
+public record IdNameModel : IdNameModel<int>;
 
-public record IdNameDescModel : IdNameDescModel<int> { }
+public record IdNameDescModel : IdNameDescModel<int>;

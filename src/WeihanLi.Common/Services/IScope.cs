@@ -1,8 +1,6 @@
 ﻿namespace WeihanLi.Common.Services;
 
-public interface IScope : IDisposable
-{
-}
+public interface IScope : IDisposable;
 
 public sealed class NullScope : IScope
 {

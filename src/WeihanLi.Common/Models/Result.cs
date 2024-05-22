@@ -34,7 +34,7 @@ public record Result
         };
     }
 
-    public static Result Fail(string? msg, ResultStatus status = ResultStatus.RequestError)
+    public static Result Fail(string? msg, ResultStatus status = ResultStatus.BadRequest)
     {
         return new()
         {
@@ -43,7 +43,7 @@ public record Result
         };
     }
 
-    public static Result<T> Fail<T>(string? msg, ResultStatus status = ResultStatus.RequestError, T? result = default)
+    public static Result<T> Fail<T>(string? msg, ResultStatus status = ResultStatus.BadRequest, T? result = default)
     {
         return new()
         {

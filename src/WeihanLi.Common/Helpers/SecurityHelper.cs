@@ -1,50 +1,39 @@
-﻿using System.Text;
+﻿using System.Security.Cryptography;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
-/// <summary>
-/// 安全助手
-/// </summary>
 public static class SecurityHelper
 {
-    private static readonly char[] _constantCharacters = 
+    private static readonly char[] _constantLetterCharacters = 
     [
-        '0',
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        '6',
-        '7',
-        '8',
-        '9',
-        'a',
-        'b',
-        'c',
-        'd',
-        'e',
-        'f',
-        'g',
-        'h',
-        'i',
-        'j',
-        'k',
-        'l',
-        'm',
-        'n',
-        'o',
-        'p',
-        'q',
-        'r',
-        's',
-        't',
-        'u',
-        'v',
-        'w',
-        'x',
-        'y',
-        'z'
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F',
+        'G',
+        
+        'H',
+        'I',
+        'J',
+        'K',
+        'L',
+        'M',
+        'N',
+        'O',
+        'P',
+        'Q',
+        'R',
+        'S',
+        'T',
+        'U',
+        'V',
+        'W',
+        'X',
+        'Y',
+        'Z'
     ];
 
     private static readonly char[] _constantNumber = 
@@ -59,6 +48,26 @@ public static class SecurityHelper
         '7',
         '8',
         '9'
+    ];
+    
+    private static readonly char[] _constantHexNumber = 
+    [
+        '0',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F'
     ];
 
 #if NET6_0_OR_GREATER
@@ -90,21 +99,46 @@ public static class SecurityHelper
     /// <returns></returns>
     public static string GenerateRandomCode(int length, bool isNumberOnly = false)
     {
-        char[] array;
         if (isNumberOnly)
         {
-            array = _constantNumber;
+            return GenerateRandomCode(length, RandomCodeType.Number);
         }
-        else
-        {
-            array = _constantCharacters;
-        }
-        var stringBuilder = new StringBuilder(length);
+
+        var charArray = new char[length];
+        var maxLength = _constantNumber.Length + _constantLetterCharacters.Length;
         for (var i = 0; i < length; i++)
         {
-            stringBuilder.Append(array[Random.Next(array.Length)]);
+            var idx = Random.Next(maxLength);
+            if (idx < _constantNumber.Length)
+            {
+                charArray[i] = _constantNumber[idx];    
+            }
+            else
+            {
+                charArray[i] = _constantLetterCharacters[idx - _constantNumber.Length];
+            }
         }
-        return stringBuilder.ToString();
+
+        return new string(charArray);
+    }
+    
+    public static string GenerateRandomCode(int length, RandomCodeType type)
+    {
+        if (type == RandomCodeType.LetterOrNumber) return GenerateRandomCode(length, false);
+
+        var array = type switch
+        {
+            RandomCodeType.Number => _constantNumber,
+            RandomCodeType.Letter => _constantLetterCharacters,
+            RandomCodeType.HexNumber => _constantHexNumber,
+            _ => throw new NotSupportedException($"Type {type} is not supported")
+        };
+        var charArray = new char[length];
+        for (var i = 0; i < length; i++)
+        {
+            charArray[i] = array[Random.Next(array.Length)];
+        }
+        return new string(charArray);
     }
 
     /// <summary>
@@ -138,4 +172,100 @@ public static class SecurityHelper
     {
         return string.IsNullOrEmpty(sourceString) ? string.Empty : HashHelper.GetHashedString(HashType.SHA512, sourceString, isLower);
     }
+
+    public static string AesEncrypt(
+        string source, 
+        string key, 
+        string? iv = null,
+        bool isLower = false, 
+        Action<Aes>? aesConfigure = null
+        )
+    {
+        using var aesAlg = Aes.Create();
+        aesAlg.Padding = PaddingMode.PKCS7;
+        if (string.IsNullOrEmpty(iv))
+        {
+            aesAlg.Mode = CipherMode.ECB;
+        }
+        else
+        {
+            aesAlg.Mode = CipherMode.CBC;
+            aesAlg.IV = iv!.GetBytes();
+        }
+        
+        return aesAlg.Encrypt(source, key, isLower, aesConfigure);
+    }
+
+    public static string AesDecrypt(
+        string encryptedText, 
+        string key,
+        string? iv = null,
+        Action<Aes>? aesConfigure = null
+    )
+    {
+        using var aesAlg = Aes.Create();
+        aesAlg.Padding = PaddingMode.PKCS7;
+        if (string.IsNullOrEmpty(iv))
+        {
+            aesAlg.Mode = CipherMode.ECB;
+        }
+        else
+        {
+            aesAlg.Mode = CipherMode.CBC;
+            aesAlg.IV = iv!.GetBytes();
+        }
+        
+        return aesAlg.Decrypt(encryptedText, key, aesConfigure);
+    }
+
+    public static string Encrypt<TAlgorithm>(this TAlgorithm algorithm, 
+        string source, string key, 
+        bool isLowerCase = false,
+        Action<TAlgorithm>? algorithmConfigure = null
+        ) where TAlgorithm : SymmetricAlgorithm
+    {
+        Guard.NotNull(algorithm);
+        var encryptedBytes = Encrypt(algorithm, source.GetBytes(), key.GetBytes(), algorithmConfigure);
+        return encryptedBytes.ToHexString(isLowerCase);
+    }
+
+    public static byte[] Encrypt<TAlgorithm>(this TAlgorithm algorithm, 
+        byte[] source, byte[] key, Action<TAlgorithm>? algorithmConfigure = null
+    ) where TAlgorithm : SymmetricAlgorithm
+    {
+        Guard.NotNull(algorithm);
+        algorithm.Key = key;
+        algorithmConfigure?.Invoke(algorithm);
+        using var encryptor = algorithm.CreateEncryptor();
+        return encryptor.TransformFinalBlock(source, 0, source.Length);
+    }
+
+    public static string Decrypt<TAlgorithm>(this TAlgorithm algorithm, 
+        string encryptedHexString, string key, 
+        Action<TAlgorithm>? algorithmConfigure = null
+    ) where TAlgorithm : SymmetricAlgorithm
+    {
+        var encryptedBytes = Decrypt(algorithm, encryptedHexString.HexStringToBytes(), key.GetBytes(), algorithmConfigure);
+        return encryptedBytes.GetString();
+    }
+
+    public static byte[] Decrypt<TAlgorithm>(this TAlgorithm algorithm, 
+        byte[] encrypted, byte[] key, Action<TAlgorithm>? algorithmConfigure = null
+    ) where TAlgorithm : SymmetricAlgorithm
+    {
+        Guard.NotNull(algorithm);
+        algorithm.Key = key;
+        algorithmConfigure?.Invoke(algorithm);
+        using var transform = algorithm.CreateDecryptor();
+        return transform.TransformFinalBlock(encrypted, 0, encrypted.Length);
+    }
+}
+
+
+public enum RandomCodeType
+{
+    Number = 0,
+    Letter = 1,
+    LetterOrNumber = 2,
+    HexNumber = 3
 }

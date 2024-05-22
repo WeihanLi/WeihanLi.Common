@@ -2,9 +2,7 @@
 
 namespace WeihanLi.Common.Aspect;
 
-public interface IInvocationEnricher : IEnricher<IInvocation>
-{
-}
+public interface IInvocationEnricher : IEnricher<IInvocation>;
 
 public sealed class PropertyInvocationEnricher : PropertyEnricher<IInvocation>, IInvocationEnricher
 {

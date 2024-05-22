@@ -15,10 +15,10 @@ public class ResultTest
 
     [Theory]
     [InlineData(ResultStatus.Unauthorized)]
-    [InlineData(ResultStatus.NoPermission)]
-    [InlineData(ResultStatus.RequestError)]
+    [InlineData(ResultStatus.Forbidden)]
+    [InlineData(ResultStatus.BadRequest)]
     [InlineData(ResultStatus.NotImplemented)]
-    [InlineData(ResultStatus.ResourceNotFound)]
+    [InlineData(ResultStatus.NotFound)]
     [InlineData(ResultStatus.RequestTimeout)]
     public void FailTest(ResultStatus resultStatus)
     {
