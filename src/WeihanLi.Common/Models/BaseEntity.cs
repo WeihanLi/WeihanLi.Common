@@ -15,20 +15,31 @@ public class BaseEntity<TKey> : IEntity<TKey>
     public TKey Id { get; set; } = default!;
 }
 
-public interface IEntityWithCreatedUpdatedAt
+public interface IEntityWithUpdatedAt
 {
-    DateTimeOffset CreatedAt { get; set; }
     DateTimeOffset UpdatedAt { get; set; }
 }
 
-public interface IEntityWithCreatedUpdatedBy
+public interface IEntityWithCreatedUpdatedAt : IEntityWithUpdatedAt
 {
-    string CreatedBy { get; set; }
+    DateTimeOffset CreatedAt { get; set; }
+}
+
+public interface IEntityWithUpdatedBy
+{
     string UpdatedBy { get; set; }
 }
 
+public interface IEntityWithCreatedUpdatedBy : IEntityWithUpdatedBy
+{
+    string CreatedBy { get; set; }    
+}
+
+public interface IEntityWithUpdatedAtAndBy
+    : IEntityWithUpdatedAt, IEntityWithUpdatedBy;
+
 public interface IEntityWithCreatedUpdatedAtAndBy
-    : IEntityWithCreatedUpdatedAt, IEntityWithCreatedUpdatedBy;
+    : IEntityWithCreatedUpdatedAt, IEntityWithCreatedUpdatedBy, IEntityWithUpdatedAtAndBy;
 
 public interface IEntityWithReviewState
 {
@@ -48,10 +59,14 @@ public class BaseEntityWithDeleted<TKey> : BaseEntity<TKey>, ISoftDeleteEntityWi
     public bool IsDeleted { get; set; }
 }
 
-public class BaseEntityWithCreatedUpdatedAt<TKey> : BaseEntity<TKey>, IEntityWithCreatedUpdatedAt
+public class BaseEntityWithUpdatedAt<TKey> : BaseEntity<TKey>, IEntityWithUpdatedAt
+{
+    public DateTimeOffset UpdatedAt { get; set; }
+}
+
+public class BaseEntityWithCreatedUpdatedAt<TKey> : BaseEntityWithUpdatedAt<TKey>, IEntityWithCreatedUpdatedAt
 {
     public DateTimeOffset CreatedAt { get; set; }
-    public DateTimeOffset UpdatedAt { get; set; }
 }
 
 public class BaseEntityWithCreatedUpdatedAtAndDeleted<TKey> : BaseEntityWithCreatedUpdatedAt<TKey>,
@@ -68,6 +83,13 @@ public class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey>
     public string? Remark { get; set; }
 }
 
+public class BaseEntityWithUpdatedAtAndBy<TKey> 
+    : BaseEntityWithUpdatedAt<TKey>, IEntityWithUpdatedAtAndBy
+{
+    [StringLength(256)]
+    public string UpdatedBy { get; set; } = default!;
+}
+
 public class BaseEntityWithCreatedUpdatedAtAndBy<TKey> 
     : BaseEntityWithCreatedUpdatedAt<TKey>, IEntityWithCreatedUpdatedAtAndBy
 {
@@ -75,6 +97,12 @@ public class BaseEntityWithCreatedUpdatedAtAndBy<TKey>
     public string CreatedBy { get; set; } = default!;
     [StringLength(256)]
     public string UpdatedBy { get; set; } = default!;
+}
+
+public class BaseEntityWithUpdatedAtAndByAndDeleted<TKey> : BaseEntityWithUpdatedAtAndBy<TKey>,
+    ISoftDeleteEntityWithDeleted
+{
+    public bool IsDeleted { get; set; }
 }
 
 public class BaseEntityWithCreatedUpdatedAtAndByAndDeleted<TKey> : BaseEntityWithCreatedUpdatedAtAndBy<TKey>,
