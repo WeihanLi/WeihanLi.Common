@@ -10,7 +10,7 @@ namespace Microsoft.Extensions.Logging;
 [ProviderAlias("Delegate")]
 public sealed class DelegateLoggerProvider(Action<string, LogLevel, Exception?, string> logAction) : ILoggerProvider
 {
-    public static ILoggerProvider Default { get; } = new DelegateLoggerProvider((category, level, exception, msg) =>
+    internal static ILoggerProvider Default { get; } = new DelegateLoggerProvider((category, level, exception, msg) =>
     {
         Console.WriteLine(@$"[{level}][{category}] {msg}\n{exception}");
     });
@@ -27,7 +27,7 @@ public sealed class DelegateLoggerProvider(Action<string, LogLevel, Exception?, 
         return _loggers.GetOrAdd(categoryName, category => new DelegateLogger(category, logAction));
     }
 
-    private class DelegateLogger(string categoryName, Action<string, LogLevel, Exception?, string> logAction) : ILogger
+    private sealed class DelegateLogger(string categoryName, Action<string, LogLevel, Exception?, string> logAction) : ILogger
     {
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
         {
