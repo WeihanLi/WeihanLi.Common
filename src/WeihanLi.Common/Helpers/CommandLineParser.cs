@@ -96,7 +96,7 @@ public static class CommandLineParser
     /// <param name="defaultValue">default argument value when not found</param>
     /// <returns>argument value</returns>
     [return: NotNullIfNotNull(nameof(defaultValue))]
-    [Obsolete("Please use Value instead")]
+    [Obsolete("Please use Val instead")]
     public static string? ArgValue(string[] args, string argumentName, string? defaultValue = default)
     {
         return GetOptionValueInternal(args, argumentName) ?? defaultValue;
@@ -110,7 +110,7 @@ public static class CommandLineParser
     /// <param name="args">arguments</param>
     /// <returns>argument value</returns>
     [return: NotNullIfNotNull(nameof(defaultValue))]
-    public static string? Value(string optionName, string? defaultValue = default, string[]? args = null)
+    public static string? Val(string optionName, string? defaultValue = default, string[]? args = null)
     {
         return GetOptionValueInternal(args ?? Environment.GetCommandLineArgs(), optionName) ?? defaultValue;
     }
