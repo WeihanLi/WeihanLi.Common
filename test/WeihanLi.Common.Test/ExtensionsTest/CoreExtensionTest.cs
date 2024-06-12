@@ -112,6 +112,6 @@ public class CoreExtensionTest
         Assert.True(inputBytes.SequenceEqual(bytes));
         Assert.Equal(hexString, bytes.ToHexString());
     }
-    
+
     #endregion StringExtensionTest
 }

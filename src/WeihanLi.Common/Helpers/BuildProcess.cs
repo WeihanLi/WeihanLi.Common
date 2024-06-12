@@ -5,7 +5,7 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
-public sealed class BuildProcess(IReadOnlyCollection<BuildTask> tasks, 
+public sealed class BuildProcess(IReadOnlyCollection<BuildTask> tasks,
     Func<Task>? setup = null, Func<Task>? cleanup = null, Func<Task>? cancelled = null,
     Func<IBuildTaskDescriptor, Task>? taskExecuting = null, Func<IBuildTaskDescriptor, Task>? taskExecuted = null)
 {

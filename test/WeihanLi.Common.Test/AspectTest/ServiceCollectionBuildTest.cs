@@ -110,7 +110,7 @@ public class ServiceCollectionBuildTest
         var publisherType = publisher.GetType();
         Assert.True(publisherType.IsSealed);
         Assert.True(publisherType.Assembly.IsDynamic);
-        
+
         await publisher.PublishAsync(new TestEvent());
     }
 

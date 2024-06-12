@@ -43,7 +43,7 @@ public static class EventSubscriberExtensions
         return subscriber.SubscribeAsync(new DelegateEventHandler<TEvent>(handler))
             .GetAwaiter().GetResult();
     }
-    
+
     /// <summary>
     /// add event handler for event
     /// </summary>

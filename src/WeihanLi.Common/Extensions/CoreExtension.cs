@@ -1592,7 +1592,7 @@ public static class CoreExtension
     /// <returns>
     ///     An array whose elements contain the substrings in this string that are delimited by the separator.
     /// </returns>
-    public static string[] Split(this string @this, string separator, StringSplitOptions option = StringSplitOptions.None) 
+    public static string[] Split(this string @this, string separator, StringSplitOptions option = StringSplitOptions.None)
         => Guard.NotNull(@this).Split(new[] { separator }, option);
 
     /// <summary>
@@ -1609,26 +1609,26 @@ public static class CoreExtension
     /// <param name="encoding">encoding</param>
     /// <returns>@this as a byte[].</returns>
     public static byte[] ToBytes(this string @this, Encoding encoding) => encoding.GetBytes(Guard.NotNull(@this));
-    
+
     public static byte[] HexStringToBytes(this string hexString)
     {
         if (string.IsNullOrEmpty(hexString))
             return [];
-        
+
 #if NET6_0_OR_GREATER
         return Convert.FromHexString(hexString);
 #else
         var charArray = hexString.ToCharArray();
-        var bytes = new byte[charArray.Length/2];
+        var bytes = new byte[charArray.Length / 2];
         for (var i = 0; i < bytes.Length; i++)
         {
-            var n = Convert.ToInt32(new string([charArray[i * 2], charArray[i*2+1]]), 16);
+            var n = Convert.ToInt32(new string([charArray[i * 2], charArray[i * 2 + 1]]), 16);
             bytes[i] = (byte)n;
         }
         return bytes;
 #endif
     }
-    
+
     public static byte[] GetBytes(this string str) => Guard.NotNull(str, nameof(str)).GetBytes(null);
 
     public static byte[] GetBytes(this string str, Encoding? encoding) => (encoding ?? Encoding.UTF8).GetBytes(Guard.NotNull(str, nameof(str)));
@@ -1643,7 +1643,7 @@ public static class CoreExtension
             _ => bool.TryParse(value, out var val) ? val : defaultValue
         };
     }
-    
+
     /// <summary>
     ///     A string extension method that converts the @this to an enum.
     /// </summary>

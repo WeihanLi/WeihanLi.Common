@@ -127,7 +127,7 @@ public static class CommandLineParser
                 return args[i + 1];
             }
 
-            if (args[i].StartsWith($"-{argumentName}=", StringComparison.Ordinal) 
+            if (args[i].StartsWith($"-{argumentName}=", StringComparison.Ordinal)
                 || args[i].StartsWith($"-{argumentName}:", StringComparison.Ordinal))
                 return args[i][$"-{argumentName}=".Length..];
 
