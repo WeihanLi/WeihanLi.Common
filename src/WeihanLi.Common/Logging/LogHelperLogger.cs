@@ -24,13 +24,9 @@ internal sealed class NullLogHelperLogger : ILogHelperLogger
 }
 
 // ReSharper disable once UnusedTypeParameter
-public interface ILogHelperLogger<TCategory> : ILogHelperLogger
-{
-}
+public interface ILogHelperLogger<TCategory> : ILogHelperLogger;
 
-internal sealed class LogHelperGenericLogger<TCategory>(LogHelperFactory logHelperFactory) : LogHelper(logHelperFactory, typeof(TCategory).FullName ?? typeof(TCategory).Name), ILogHelperLogger<TCategory>
-{
-}
+internal sealed class LogHelperGenericLogger<TCategory>(LogHelperFactory logHelperFactory) : LogHelper(logHelperFactory, typeof(TCategory).FullName ?? typeof(TCategory).Name), ILogHelperLogger<TCategory>;
 
 internal class LogHelper(LogHelperFactory logHelperFactory, string categoryName) : ILogHelperLogger
 {

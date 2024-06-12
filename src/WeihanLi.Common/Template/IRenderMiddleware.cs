@@ -5,6 +5,4 @@ using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Template;
 
-public interface IRenderMiddleware : IAsyncPipelineMiddleware<TemplateRenderContext>
-{
-}
+public interface IRenderMiddleware : IAsyncPipelineMiddleware<TemplateRenderContext>;

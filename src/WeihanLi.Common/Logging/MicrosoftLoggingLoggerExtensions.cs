@@ -10,7 +10,11 @@ namespace Microsoft.Extensions.Logging;
 [ProviderAlias("Delegate")]
 public sealed class DelegateLoggerProvider(Action<string, LogLevel, Exception?, string> logAction) : ILoggerProvider
 {
-    private readonly Action<string, LogLevel, Exception?, string> _logAction = logAction;
+    internal static ILoggerProvider Default { get; } = new DelegateLoggerProvider((category, level, exception, msg) =>
+    {
+        Console.WriteLine(@$"[{level}][{category}] {msg}\n{exception}");
+    });
+
     private readonly ConcurrentDictionary<string, DelegateLogger> _loggers = new();
 
     public void Dispose()
@@ -20,21 +24,15 @@ public sealed class DelegateLoggerProvider(Action<string, LogLevel, Exception?, 
 
     public ILogger CreateLogger(string categoryName)
     {
-        return _loggers.GetOrAdd(categoryName, category => new DelegateLogger(category, _logAction));
+        return _loggers.GetOrAdd(categoryName, category => new DelegateLogger(category, logAction));
     }
 
-    private class DelegateLogger(string categoryName, Action<string, LogLevel, Exception?, string> logAction) : ILogger
+    private sealed class DelegateLogger(string categoryName, Action<string, LogLevel, Exception?, string> logAction) : ILogger
     {
-        private readonly string _categoryName = categoryName;
-        private readonly Action<string, LogLevel, Exception?, string> _logAction = logAction;
-
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
         {
-            if (null != _logAction)
-            {
-                var msg = formatter(state, exception);
-                _logAction.Invoke(_categoryName, logLevel, exception, msg);
-            }
+            var msg = formatter(state, exception);
+            logAction.Invoke(categoryName, logLevel, exception, msg);
         }
 
         public bool IsEnabled(LogLevel logLevel)
@@ -131,6 +129,11 @@ public static class LoggerExtensions
     #endregion LoggerFactory
 
     #region ILoggingBuilder
+
+    public static ILoggingBuilder AddDefaultDelegateLogger(this ILoggingBuilder loggingBuilder)
+    {
+        return loggingBuilder.AddProvider(DelegateLoggerProvider.Default);
+    }
 
     public static ILoggingBuilder AddDelegateLogger(this ILoggingBuilder loggingBuilder,
         Action<string, LogLevel, Exception?, string> logAction)

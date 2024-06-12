@@ -1,7 +1,6 @@
 ﻿namespace WeihanLi.Common.Models;
 
-public interface ISoftDeleteEntity
-{ }
+public interface ISoftDeleteEntity;
 
 public interface ISoftDeleteEntityWithDeleted : ISoftDeleteEntity
 {

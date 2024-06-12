@@ -26,18 +26,27 @@ public enum ResultStatus
     Accepted = 202,
 
     [Description("BadRequest, Request Parameter Error")]
+    [Obsolete("Please use BadRequest instead")]
     RequestError = 400,
+    
+    [Description("BadRequest")]
     BadRequest = 400,
 
     [Description("Unauthorized")]
     Unauthorized = 401,
 
     [Description("NoPermission")]
+    [Obsolete("Please use Forbidden instead")]
     NoPermission = 403,
+    
+    [Description("Forbidden")]
     Forbidden = 403,
 
     [Description("ResourceNotFound")]
+    [Obsolete("Please use NotFound instead")]
     ResourceNotFound = 404,
+    
+    [Description("NotFound")]
     NotFound = 404,
 
     [Description("MethodNotAllowed")]
@@ -50,7 +59,10 @@ public enum ResultStatus
     TooManyRequests = 429,
 
     [Description("Process failed, Server Internal Error")]
+    [Obsolete("Please use InternalError instead")]
     ProcessFail = 500,
+    
+    [Description("InternalError")]
     InternalError = 500,
 
     [Description("Not Implemented")]

@@ -2,9 +2,7 @@
 
 namespace WeihanLi.Common.Logging;
 
-public interface ILogHelperLoggingEnricher : IEnricher<LogHelperLoggingEvent>
-{
-}
+public interface ILogHelperLoggingEnricher : IEnricher<LogHelperLoggingEvent>;
 
 internal sealed class PropertyLoggingEnricher : PropertyEnricher<LogHelperLoggingEvent>, ILogHelperLoggingEnricher
 {
