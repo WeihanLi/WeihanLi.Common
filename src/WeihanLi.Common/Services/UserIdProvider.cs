@@ -10,13 +10,15 @@ public interface IUserIdProvider
 
 public static class UserIdProviderExtensions
 {
-    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
+    [RequiresUnreferencedCode(
+        "Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T? GetUserId<T>(this IUserIdProvider userIdProvider, T? defaultValue = default)
     {
         return userIdProvider.GetUserId().ToOrDefault(defaultValue);
     }
 
-    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
+    [RequiresUnreferencedCode(
+        "Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static bool TryGetUserId<T>(this IUserIdProvider userIdProvider, out T? value, T? defaultValue = default)
     {
         try
@@ -38,9 +40,18 @@ public static class UserIdProviderExtensions
     }
 }
 
-public class EnvironmentUserIdProvider : IUserIdProvider
+public sealed class EnvironmentUserIdProvider : IUserIdProvider
 {
     public static readonly Lazy<EnvironmentUserIdProvider> Instance = new(() => new EnvironmentUserIdProvider());
 
-    public virtual string GetUserId() => Environment.UserName;
+    public string GetUserId() => Environment.UserName;
+}
+
+public sealed class DelegateUserIdProvider(Func<string?> userIdFactory) : IUserIdProvider
+{
+    public DelegateUserIdProvider(string userId) : this(() => userId)
+    {
+    }
+
+    public string? GetUserId() => userIdFactory();
 }
