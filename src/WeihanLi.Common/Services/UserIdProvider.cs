@@ -40,11 +40,11 @@ public static class UserIdProviderExtensions
     }
 }
 
-public sealed class EnvironmentUserIdProvider : IUserIdProvider
+public class EnvironmentUserIdProvider : IUserIdProvider
 {
-    public static readonly Lazy<EnvironmentUserIdProvider> Instance = new(() => new EnvironmentUserIdProvider());
+    public static EnvironmentUserIdProvider Instance { get; } = new();
 
-    public string GetUserId() => Environment.UserName;
+    public virtual string GetUserId() => Environment.UserName;
 }
 
 public sealed class DelegateUserIdProvider(Func<string?> userIdFactory) : IUserIdProvider
