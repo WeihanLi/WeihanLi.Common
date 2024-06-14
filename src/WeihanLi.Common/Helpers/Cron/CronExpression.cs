@@ -74,7 +74,7 @@ public sealed class CronExpression : IEquatable<CronExpression>
     private byte _lastMonthOffset;
 
     private CronExpressionFlag _flags;
-    private static readonly char[] separator = [ ' ' ];
+    private static readonly char[] separator = [' '];
 
     private CronExpression()
     {

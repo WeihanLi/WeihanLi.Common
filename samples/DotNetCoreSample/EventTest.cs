@@ -41,7 +41,7 @@ internal class EventTest
 
             await eventBus.PublishAsync(new CounterEvent() { Counter = 1 });
             await eventBus.PublishAsync(new CounterEvent() { Counter = 2 });
-            
+
             await eventBus.PublishAsync(new CounterEvent() { Counter = 3 }, new EventProperties()
             {
                 TraceId = Guid.NewGuid().ToString()

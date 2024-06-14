@@ -42,11 +42,11 @@ public sealed class EventQueueInMemory : IEventQueue
         return Task.FromResult(true);
     }
 
-    public Task<bool> TryDequeueAsync(string queueName, [NotNullWhen(true)]out object? @event, [NotNullWhen(true)]out EventProperties? properties)
+    public Task<bool> TryDequeueAsync(string queueName, [NotNullWhen(true)] out object? @event, [NotNullWhen(true)] out EventProperties? properties)
     {
         @event = default;
         properties = default;
-        
+
         if (_eventQueues.TryGetValue(queueName, out var queue))
         {
             if (queue.TryDequeue(out var eventWrapper))
@@ -60,8 +60,8 @@ public sealed class EventQueueInMemory : IEventQueue
         return Task.FromResult(false);
     }
 
-    internal async IAsyncEnumerable<(TEvent Event, EventProperties Properties)> ReadAllAsync<TEvent>(string queueName, [EnumeratorCancellation]CancellationToken cancellationToken = default)
-    {        
+    internal async IAsyncEnumerable<(TEvent Event, EventProperties Properties)> ReadAllAsync<TEvent>(string queueName, [EnumeratorCancellation] CancellationToken cancellationToken = default)
+    {
         while (!cancellationToken.IsCancellationRequested)
         {
             if (_eventQueues.TryGetValue(queueName, out var queue))

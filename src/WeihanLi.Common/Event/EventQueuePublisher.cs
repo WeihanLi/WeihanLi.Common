@@ -15,7 +15,7 @@ public class EventQueuePublisher(IEventQueue eventQueue, IOptions<EventQueuePubl
     public virtual Task<bool> PublishAsync<TEvent>(TEvent @event, EventProperties? properties)
     {
         Guard.NotNull(@event);
-        
+
         properties ??= new();
         if (string.IsNullOrEmpty(properties.EventId))
         {
@@ -30,7 +30,7 @@ public class EventQueuePublisher(IEventQueue eventQueue, IOptions<EventQueuePubl
         {
             properties.TraceId = Activity.Current.TraceId.ToString();
         }
-        
+
         var queueName = _options.EventQueueNameResolver.Invoke(@event.GetType()) ?? "events";
         return _eventQueue.EnqueueAsync(queueName, @event, properties);
     }

@@ -23,6 +23,7 @@ public sealed class InMemoryEventSubscriptionManager(IServiceProvider? servicePr
     private readonly IServiceProvider _serviceProvider = serviceProvider ?? DependencyResolver.Current;
     private readonly ConcurrentDictionary<Type, ConcurrentSet<IEventHandler>> _eventHandlers = new();
 
+    [RequiresUnreferencedCode("Calls WeihanLi.Common.Helpers.ActivatorHelper.GetServiceOrCreateInstance(Type)")]
     private bool Subscribe(Type eventType, Type eventHandlerType)
     {
         var handlers = _eventHandlers.GetOrAdd(eventType, []);

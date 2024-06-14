@@ -95,12 +95,12 @@ public static class HashHelper
         var hashedBytes = GetHashedBytes(type, source, key);
         return hashedBytes.ToHexString(isLower);
     }
-    
+
     public static string GetHashedString(HashAlgorithmName hashAlgorithm, byte[] source, byte[]? key, bool isLower = false)
     {
         Guard.NotNull(source, nameof(source));
         if (source.Length == 0) return string.Empty;
-        
+
 #if NET9_0_OR_GREATER
         return key is { Length: > 0 } 
             ? GetHashedString(hashAlgorithm, new ReadOnlySpan<byte>(key), new ReadOnlySpan<byte>(source), isLower) 
@@ -192,7 +192,7 @@ public static class HashHelper
             algorithm?.Dispose();
         }
     }
-    
+
     public static byte[] GetHashedBytes(HashAlgorithmName hashAlgorithm, byte[] bytes, byte[]? key)
     {
         Guard.NotNull(bytes, nameof(bytes));
@@ -201,8 +201,8 @@ public static class HashHelper
 
         throw new ArgumentOutOfRangeException(nameof(hashAlgorithm), @$"Unsupported hash algorithm {hashAlgorithm.Name}");
     }
-    
-#if NET9_0_OR_GREATER    
+
+#if NET9_0_OR_GREATER
     public static string GetHashedString(HashAlgorithmName hashAlgorithm, ReadOnlySpan<byte> bytes, bool isLower = false)
     {
         var hashedBytes = CryptographicOperations.HashData(hashAlgorithm, bytes);

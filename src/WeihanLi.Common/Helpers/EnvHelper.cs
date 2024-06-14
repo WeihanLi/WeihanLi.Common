@@ -7,7 +7,7 @@ namespace WeihanLi.Common.Helpers;
 
 public static class EnvHelper
 {
-    [return:NotNullIfNotNull(nameof(defaultValue))]
+    [return: NotNullIfNotNull(nameof(defaultValue))]
     public static string? Val(string envName, string? defaultValue = null)
     {
         return Environment.GetEnvironmentVariable(envName) ?? defaultValue;

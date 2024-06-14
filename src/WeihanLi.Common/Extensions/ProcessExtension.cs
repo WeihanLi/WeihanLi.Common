@@ -18,7 +18,7 @@ public static class ProcessExtension
         processStartInfo.Environment[name] = value;
         return processStartInfo;
     }
-    
+
 #if NET6_0_OR_GREATER
 #else
     public static Task WaitForExitAsync(this Process process, CancellationToken cancellationToken = default)

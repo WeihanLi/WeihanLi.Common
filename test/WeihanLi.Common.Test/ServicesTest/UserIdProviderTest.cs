@@ -8,7 +8,7 @@ public class UserIdProviderTest
     [Fact]
     public void EnvironmentUserIdProviderTest()
     {
-        IUserIdProvider userIdProvider = EnvironmentUserIdProvider.Instance.Value;
+        IUserIdProvider userIdProvider = EnvironmentUserIdProvider.Instance;
         var userId = userIdProvider.GetUserId();
         Assert.Equal(Environment.UserName, userId);
         Assert.True(userIdProvider.TryGetUserId<string>(out var _));
