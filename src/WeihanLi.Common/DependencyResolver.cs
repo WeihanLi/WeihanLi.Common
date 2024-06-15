@@ -50,23 +50,21 @@ public static class DependencyResolver
 
     private sealed class ServiceProviderDependencyResolver(ServiceProvider serviceProvider) : IDependencyResolver
     {
-        private readonly ServiceProvider _serviceProvider = serviceProvider;
-
         public object? GetService(Type serviceType)
         {
-            return _serviceProvider.GetService(serviceType);
+            return serviceProvider.GetService(serviceType);
         }
 
         [RequiresUnreferencedCode("Calls WeihanLi.Common.DependencyInjectionExtensions.GetServices(Type)")]
         public IEnumerable<object> GetServices(Type serviceType)
         {
-            return _serviceProvider.GetServices(serviceType);
+            return serviceProvider.GetServices(serviceType);
         }
 
         public bool TryInvokeService<TService>(Action<TService> action)
         {
             Guard.NotNull(action, nameof(action));
-            using var scope = _serviceProvider.CreateScope();
+            using var scope = serviceProvider.CreateScope();
             var service = scope.ServiceProvider.GetService<TService>();
             if (service is null)
                 return false;
@@ -77,7 +75,7 @@ public static class DependencyResolver
         public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
         {
             Guard.NotNull(action, nameof(action));
-            using var scope = _serviceProvider.CreateScope();
+            await using var scope = serviceProvider.CreateAsyncScope();
             var service = scope.ServiceProvider.GetService<TService>();
             if (service is null)
                 return false;
@@ -167,23 +165,21 @@ public static class DependencyResolver
 
     private sealed class ServiceContainerDependencyResolver(IServiceContainer serviceContainer) : IDependencyResolver
     {
-        private readonly IServiceContainer _rootContainer = serviceContainer;
-
         public object? GetService(Type serviceType)
         {
-            return _rootContainer.GetService(serviceType);
+            return serviceContainer.GetService(serviceType);
         }
 
         public IEnumerable<object> GetServices(Type serviceType)
         {
-            return (IEnumerable<object>)Guard.NotNull(_rootContainer.GetService(typeof(IEnumerable<>).MakeGenericType(serviceType)));
+            return (IEnumerable<object>)Guard.NotNull(serviceContainer.GetService(typeof(IEnumerable<>).MakeGenericType(serviceType)));
         }
 
         public bool TryInvokeService<TService>(Action<TService> action)
         {
             Guard.NotNull(action, nameof(action));
 
-            using var scope = _rootContainer.CreateScope();
+            using var scope = serviceContainer.CreateScope();
             var svc = scope.GetService(typeof(TService));
             if (svc is TService service)
             {
@@ -196,7 +192,7 @@ public static class DependencyResolver
         public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
         {
             Guard.NotNull(action, nameof(action));
-            using var scope = _rootContainer.CreateScope();
+            using var scope = serviceContainer.CreateScope();
             var svc = scope.GetService(typeof(TService));
             if (svc is TService service)
             {
