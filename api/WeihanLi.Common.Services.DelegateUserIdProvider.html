@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class BaseEntityWithCreatedUpdatedAtAndDeleted </title>
+      <title>Class DelegateUserIdProvider </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class BaseEntityWithCreatedUpdatedAtAndDeleted ">
+      <meta name="title" content="Class DelegateUserIdProvider ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeleted.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Services_DelegateUserIdProvider.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Services.DelegateUserIdProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -80,16 +80,16 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted">
+        <article data-uid="WeihanLi.Common.Services.DelegateUserIdProvider">
 
 
 
-  <h1 id="WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeleted" data-uid="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted" class="text-break">
-Class BaseEntityWithCreatedUpdatedAtAndDeleted  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  <h1 id="WeihanLi_Common_Services_DelegateUserIdProvider" data-uid="WeihanLi.Common.Services.DelegateUserIdProvider" class="text-break">
+Class DelegateUserIdProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Services/UserIdProvider.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Models.html">Models</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Services.html">Services</a></dd></dl>
   <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
@@ -97,7 +97,7 @@ Class BaseEntityWithCreatedUpdatedAtAndDeleted  <a class="header-action link-sec
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BaseEntityWithCreatedUpdatedAtAndDeleted : BaseEntityWithCreatedUpdatedAtAndDeleted&lt;int&gt;, IEntity&lt;int&gt;, IEntityWithCreatedUpdatedAt, IEntityWithUpdatedAt, ISoftDeleteEntityWithDeleted, ISoftDeleteEntity</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class DelegateUserIdProvider : IUserIdProvider</code></pre>
   </div>
 
 
@@ -107,22 +107,14 @@ Class BaseEntityWithCreatedUpdatedAtAndDeleted  <a class="header-action link-sec
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntity-1.html">BaseEntity</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
-      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.html">BaseEntityWithUpdatedAt</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
-      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html">BaseEntityWithCreatedUpdatedAt</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
-      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted-1.html">BaseEntityWithCreatedUpdatedAtAndDeleted</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
-      <div><span class="xref">BaseEntityWithCreatedUpdatedAtAndDeleted</span></div>
+      <div><span class="xref">DelegateUserIdProvider</span></div>
     </dd>
   </dl>
 
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="WeihanLi.Common.Models.IEntity-1.html">IEntity</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</div>
-      <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.html">IEntityWithCreatedUpdatedAt</a></div>
-      <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithUpdatedAt.html">IEntityWithUpdatedAt</a></div>
-      <div><a class="xref" href="WeihanLi.Common.Models.ISoftDeleteEntityWithDeleted.html">ISoftDeleteEntityWithDeleted</a></div>
-      <div><a class="xref" href="WeihanLi.Common.Models.ISoftDeleteEntity.html">ISoftDeleteEntity</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Services.IUserIdProvider.html">IUserIdProvider</a></div>
     </dd>
   </dl>
 
@@ -130,18 +122,6 @@ Class BaseEntityWithCreatedUpdatedAtAndDeleted  <a class="header-action link-sec
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeleted_1_IsDeleted">BaseEntityWithCreatedUpdatedAtAndDeleted&lt;int&gt;.IsDeleted</a>
-    </div>
-    <div>
-      <a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_CreatedAt">BaseEntityWithCreatedUpdatedAt&lt;int&gt;.CreatedAt</a>
-    </div>
-    <div>
-      <a class="xref" href="WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithUpdatedAt_1_UpdatedAt">BaseEntityWithUpdatedAt&lt;int&gt;.UpdatedAt</a>
-    </div>
-    <div>
-      <a class="xref" href="WeihanLi.Common.Models.BaseEntity-1.html#WeihanLi_Common_Models_BaseEntity_1_Id">BaseEntity&lt;int&gt;.Id</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -153,9 +133,6 @@ Class BaseEntityWithCreatedUpdatedAtAndDeleted  <a class="header-action link-sec
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
@@ -279,7 +256,114 @@ Class BaseEntityWithCreatedUpdatedAtAndDeleted  <a class="header-action link-sec
   <div>
       <a class="xref" href="WeihanLi.Extensions.TaskExtension.html#WeihanLi_Extensions_TaskExtension_WrapValueTask__1___0_">TaskExtension.WrapValueTask&lt;T&gt;(T)</a>
   </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Services.UserIdProviderExtensions.html#WeihanLi_Common_Services_UserIdProviderExtensions_GetUserId__1_WeihanLi_Common_Services_IUserIdProvider___0_">UserIdProviderExtensions.GetUserId&lt;T&gt;(IUserIdProvider, T?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Services.UserIdProviderExtensions.html#WeihanLi_Common_Services_UserIdProviderExtensions_TryGetUserId__1_WeihanLi_Common_Services_IUserIdProvider___0____0_">UserIdProviderExtensions.TryGetUserId&lt;T&gt;(IUserIdProvider, out T?, T?)</a>
+  </div>
   </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="WeihanLi_Common_Services_DelegateUserIdProvider__ctor_" data-uid="WeihanLi.Common.Services.DelegateUserIdProvider.#ctor*"></a>
+
+  <h3 id="WeihanLi_Common_Services_DelegateUserIdProvider__ctor_System_Func_System_String__" data-uid="WeihanLi.Common.Services.DelegateUserIdProvider.#ctor(System.Func{System.String})">
+  DelegateUserIdProvider(Func&lt;string?&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Services/UserIdProvider.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DelegateUserIdProvider(Func&lt;string?&gt; userIdFactory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>userIdFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Services_DelegateUserIdProvider__ctor_" data-uid="WeihanLi.Common.Services.DelegateUserIdProvider.#ctor*"></a>
+
+  <h3 id="WeihanLi_Common_Services_DelegateUserIdProvider__ctor_System_String_" data-uid="WeihanLi.Common.Services.DelegateUserIdProvider.#ctor(System.String)">
+  DelegateUserIdProvider(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Services/UserIdProvider.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DelegateUserIdProvider(string userId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>userId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="WeihanLi_Common_Services_DelegateUserIdProvider_GetUserId_" data-uid="WeihanLi.Common.Services.DelegateUserIdProvider.GetUserId*"></a>
+
+  <h3 id="WeihanLi_Common_Services_DelegateUserIdProvider_GetUserId" data-uid="WeihanLi.Common.Services.DelegateUserIdProvider.GetUserId">
+  GetUserId()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Services/UserIdProvider.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetUserId()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
 
@@ -289,7 +373,7 @@ Class BaseEntityWithCreatedUpdatedAtAndDeleted  <a class="header-action link-sec
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L172" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Services/UserIdProvider.cs/#L50" class="edit-link">Edit this page</a>
         </div>
 
 

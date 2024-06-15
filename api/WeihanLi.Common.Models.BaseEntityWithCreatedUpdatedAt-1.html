@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1" data-uid="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1" class="text-break">
-Class BaseEntityWithCreatedUpdatedAt&lt;TKey&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L51"><i class="bi bi-code-slash"></i></a>
+Class BaseEntityWithCreatedUpdatedAt&lt;TKey&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class BaseEntityWithCreatedUpdatedAt&lt;TKey&gt;  <a class="header-action link-s
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BaseEntityWithCreatedUpdatedAt&lt;TKey&gt; : BaseEntity&lt;TKey&gt;, IEntity&lt;TKey&gt;, IEntityWithCreatedUpdatedAt</code></pre>
+    <pre><code class="lang-csharp hljs">public class BaseEntityWithCreatedUpdatedAt&lt;TKey&gt; : BaseEntityWithUpdatedAt&lt;TKey&gt;, IEntity&lt;TKey&gt;, IEntityWithCreatedUpdatedAt, IEntityWithUpdatedAt</code></pre>
   </div>
 
 
@@ -113,6 +113,7 @@ Class BaseEntityWithCreatedUpdatedAt&lt;TKey&gt;  <a class="header-action link-s
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
       <div><a class="xref" href="WeihanLi.Common.Models.BaseEntity-1.html">BaseEntity</a>&lt;TKey&gt;</div>
+      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.html">BaseEntityWithUpdatedAt</a>&lt;TKey&gt;</div>
       <div><span class="xref">BaseEntityWithCreatedUpdatedAt&lt;TKey&gt;</span></div>
     </dd>
   </dl>
@@ -122,6 +123,7 @@ Class BaseEntityWithCreatedUpdatedAt&lt;TKey&gt;  <a class="header-action link-s
     <dd>
       <div><a class="xref" href="WeihanLi.Common.Models.IEntity-1.html">IEntity</a>&lt;TKey&gt;</div>
       <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.html">IEntityWithCreatedUpdatedAt</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithUpdatedAt.html">IEntityWithUpdatedAt</a></div>
     </dd>
   </dl>
 
@@ -137,6 +139,9 @@ Class BaseEntityWithCreatedUpdatedAt&lt;TKey&gt;  <a class="header-action link-s
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithUpdatedAt_1_UpdatedAt">BaseEntityWithUpdatedAt&lt;TKey&gt;.UpdatedAt</a>
+    </div>
     <div>
       <a class="xref" href="WeihanLi.Common.Models.BaseEntity-1.html#WeihanLi_Common_Models_BaseEntity_1_Id">BaseEntity&lt;TKey&gt;.Id</a>
     </div>
@@ -291,7 +296,7 @@ Class BaseEntityWithCreatedUpdatedAt&lt;TKey&gt;  <a class="header-action link-s
 
   <h3 id="WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_CreatedAt" data-uid="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.CreatedAt">
   CreatedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -318,42 +323,11 @@ Class BaseEntityWithCreatedUpdatedAt&lt;TKey&gt;  <a class="header-action link-s
 
 
 
-  <a id="WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_UpdatedAt_" data-uid="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.UpdatedAt*"></a>
-
-  <h3 id="WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_UpdatedAt" data-uid="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.UpdatedAt">
-  UpdatedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L54"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTimeOffset UpdatedAt { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L51" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L67" class="edit-link">Edit this page</a>
         </div>
 
 

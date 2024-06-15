@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState_1" data-uid="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState`1" class="text-break">
-Class BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState&lt;TKey&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L117"><i class="bi bi-code-slash"></i></a>
+Class BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState&lt;TKey&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L145"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState&lt;TKey&gt;  <
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState&lt;TKey&gt; : BaseEntityWithCreatedUpdatedAtAndByAndDeleted&lt;TKey&gt;, IEntity&lt;TKey&gt;, IEntityWithCreatedUpdatedAtAndBy, IEntityWithCreatedUpdatedAt, IEntityWithCreatedUpdatedBy, ISoftDeleteEntityWithDeleted, ISoftDeleteEntity, IEntityWithReviewState</code></pre>
+    <pre><code class="lang-csharp hljs">public class BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState&lt;TKey&gt; : BaseEntityWithCreatedUpdatedAtAndByAndDeleted&lt;TKey&gt;, IEntity&lt;TKey&gt;, IEntityWithCreatedUpdatedAtAndBy, IEntityWithCreatedUpdatedAt, IEntityWithCreatedUpdatedBy, IEntityWithUpdatedAtAndBy, IEntityWithUpdatedAt, IEntityWithUpdatedBy, ISoftDeleteEntityWithDeleted, ISoftDeleteEntity, IEntityWithReviewState</code></pre>
   </div>
 
 
@@ -113,6 +113,7 @@ Class BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState&lt;TKey&gt;  <
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
       <div><a class="xref" href="WeihanLi.Common.Models.BaseEntity-1.html">BaseEntity</a>&lt;TKey&gt;</div>
+      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.html">BaseEntityWithUpdatedAt</a>&lt;TKey&gt;</div>
       <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html">BaseEntityWithCreatedUpdatedAt</a>&lt;TKey&gt;</div>
       <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy-1.html">BaseEntityWithCreatedUpdatedAtAndBy</a>&lt;TKey&gt;</div>
       <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted-1.html">BaseEntityWithCreatedUpdatedAtAndByAndDeleted</a>&lt;TKey&gt;</div>
@@ -127,6 +128,9 @@ Class BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState&lt;TKey&gt;  <
       <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithCreatedUpdatedAtAndBy.html">IEntityWithCreatedUpdatedAtAndBy</a></div>
       <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.html">IEntityWithCreatedUpdatedAt</a></div>
       <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.html">IEntityWithCreatedUpdatedBy</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithUpdatedAtAndBy.html">IEntityWithUpdatedAtAndBy</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithUpdatedAt.html">IEntityWithUpdatedAt</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithUpdatedBy.html">IEntityWithUpdatedBy</a></div>
       <div><a class="xref" href="WeihanLi.Common.Models.ISoftDeleteEntityWithDeleted.html">ISoftDeleteEntityWithDeleted</a></div>
       <div><a class="xref" href="WeihanLi.Common.Models.ISoftDeleteEntity.html">ISoftDeleteEntity</a></div>
       <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithReviewState.html">IEntityWithReviewState</a></div>
@@ -157,7 +161,7 @@ Class BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState&lt;TKey&gt;  <
       <a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_CreatedAt">BaseEntityWithCreatedUpdatedAt&lt;TKey&gt;.CreatedAt</a>
     </div>
     <div>
-      <a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_UpdatedAt">BaseEntityWithCreatedUpdatedAt&lt;TKey&gt;.UpdatedAt</a>
+      <a class="xref" href="WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithUpdatedAt_1_UpdatedAt">BaseEntityWithUpdatedAt&lt;TKey&gt;.UpdatedAt</a>
     </div>
     <div>
       <a class="xref" href="WeihanLi.Common.Models.BaseEntity-1.html#WeihanLi_Common_Models_BaseEntity_1_Id">BaseEntity&lt;TKey&gt;.Id</a>
@@ -313,7 +317,7 @@ Class BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState&lt;TKey&gt;  <
 
   <h3 id="WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState_1_State" data-uid="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState`1.State">
   State
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L148"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -344,7 +348,7 @@ Class BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState&lt;TKey&gt;  <
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L117" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L145" class="edit-link">Edit this page</a>
         </div>
 
 

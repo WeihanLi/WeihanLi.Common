@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark_1" data-uid="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark`1" class="text-break">
-Class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark&lt;TKey&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L63"><i class="bi bi-code-slash"></i></a>
+Class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark&lt;TKey&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L78"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark&lt;TKey&gt;  <a class="h
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark&lt;TKey&gt; : BaseEntityWithCreatedUpdatedAtAndDeleted&lt;TKey&gt;, IEntity&lt;TKey&gt;, IEntityWithCreatedUpdatedAt, ISoftDeleteEntityWithDeleted, ISoftDeleteEntity, IEntityWithRemark</code></pre>
+    <pre><code class="lang-csharp hljs">public class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark&lt;TKey&gt; : BaseEntityWithCreatedUpdatedAtAndDeleted&lt;TKey&gt;, IEntity&lt;TKey&gt;, IEntityWithCreatedUpdatedAt, IEntityWithUpdatedAt, ISoftDeleteEntityWithDeleted, ISoftDeleteEntity, IEntityWithRemark</code></pre>
   </div>
 
 
@@ -113,6 +113,7 @@ Class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark&lt;TKey&gt;  <a class="h
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
       <div><a class="xref" href="WeihanLi.Common.Models.BaseEntity-1.html">BaseEntity</a>&lt;TKey&gt;</div>
+      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.html">BaseEntityWithUpdatedAt</a>&lt;TKey&gt;</div>
       <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html">BaseEntityWithCreatedUpdatedAt</a>&lt;TKey&gt;</div>
       <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted-1.html">BaseEntityWithCreatedUpdatedAtAndDeleted</a>&lt;TKey&gt;</div>
       <div><span class="xref">BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark&lt;TKey&gt;</span></div>
@@ -124,6 +125,7 @@ Class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark&lt;TKey&gt;  <a class="h
     <dd>
       <div><a class="xref" href="WeihanLi.Common.Models.IEntity-1.html">IEntity</a>&lt;TKey&gt;</div>
       <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.html">IEntityWithCreatedUpdatedAt</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithUpdatedAt.html">IEntityWithUpdatedAt</a></div>
       <div><a class="xref" href="WeihanLi.Common.Models.ISoftDeleteEntityWithDeleted.html">ISoftDeleteEntityWithDeleted</a></div>
       <div><a class="xref" href="WeihanLi.Common.Models.ISoftDeleteEntity.html">ISoftDeleteEntity</a></div>
       <div><a class="xref" href="WeihanLi.Common.Models.IEntityWithRemark.html">IEntityWithRemark</a></div>
@@ -147,7 +149,7 @@ Class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark&lt;TKey&gt;  <a class="h
       <a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_CreatedAt">BaseEntityWithCreatedUpdatedAt&lt;TKey&gt;.CreatedAt</a>
     </div>
     <div>
-      <a class="xref" href="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_UpdatedAt">BaseEntityWithCreatedUpdatedAt&lt;TKey&gt;.UpdatedAt</a>
+      <a class="xref" href="WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithUpdatedAt_1_UpdatedAt">BaseEntityWithUpdatedAt&lt;TKey&gt;.UpdatedAt</a>
     </div>
     <div>
       <a class="xref" href="WeihanLi.Common.Models.BaseEntity-1.html#WeihanLi_Common_Models_BaseEntity_1_Id">BaseEntity&lt;TKey&gt;.Id</a>
@@ -303,7 +305,7 @@ Class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark&lt;TKey&gt;  <a class="h
 
   <h3 id="WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark_1_Remark" data-uid="WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark`1.Remark">
   Remark
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L82"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -335,7 +337,7 @@ public string? Remark { get; set; }</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L63" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L78" class="edit-link">Edit this page</a>
         </div>
 
 

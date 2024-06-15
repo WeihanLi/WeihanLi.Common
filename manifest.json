@@ -94,26 +94,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/System.Threading.Tasks.TaskCompletionSource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/System.Threading.Tasks.TaskCompletionSource.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/System.Threading.Tasks.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/System.Threading.Tasks.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Abstractions.IProperties.yml",
       "output": {
         ".html": {
@@ -2684,6 +2664,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Models.Category-1.yml",
       "output": {
         ".html": {
@@ -2798,6 +2808,36 @@
       "output": {
         ".html": {
           "relative_path": "api/WeihanLi.Common.Models.IEntityWithReviewStateAndRemark.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IEntityWithUpdatedAt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IEntityWithUpdatedAt.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IEntityWithUpdatedAtAndBy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IEntityWithUpdatedAtAndBy.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.IEntityWithUpdatedBy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.IEntityWithUpdatedBy.html"
         }
       },
       "version": ""
@@ -3104,6 +3144,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.DelegateUserIdProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.DelegateUserIdProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Services.DelegateValidator-1.yml",
       "output": {
         ".html": {
@@ -3254,6 +3304,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.IWrapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.IWrapper-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Services.NullCancellationTokenProvider.yml",
       "output": {
         ".html": {
@@ -3338,6 +3398,16 @@
       "output": {
         ".html": {
           "relative_path": "api/WeihanLi.Common.Services.UserIdProviderExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Services.Wrapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Services.Wrapper-1.html"
         }
       },
       "version": ""

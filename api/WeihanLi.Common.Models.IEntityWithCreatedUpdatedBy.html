@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Models_IEntityWithCreatedUpdatedBy" data-uid="WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy" class="text-break">
-Interface IEntityWithCreatedUpdatedBy  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L24"><i class="bi bi-code-slash"></i></a>
+Interface IEntityWithCreatedUpdatedBy  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Interface IEntityWithCreatedUpdatedBy  <a class="header-action link-secondary" t
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IEntityWithCreatedUpdatedBy</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IEntityWithCreatedUpdatedBy : IEntityWithUpdatedBy</code></pre>
   </div>
 
 
@@ -106,6 +106,13 @@ Interface IEntityWithCreatedUpdatedBy  <a class="header-action link-secondary" t
 
 
 
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Models.IEntityWithUpdatedBy.html#WeihanLi_Common_Models_IEntityWithUpdatedBy_UpdatedBy">IEntityWithUpdatedBy.UpdatedBy</a>
+    </div>
+  </dd></dl>
 
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
@@ -235,7 +242,7 @@ Interface IEntityWithCreatedUpdatedBy  <a class="header-action link-secondary" t
 
   <h3 id="WeihanLi_Common_Models_IEntityWithCreatedUpdatedBy_CreatedBy" data-uid="WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.CreatedBy">
   CreatedBy
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -262,42 +269,11 @@ Interface IEntityWithCreatedUpdatedBy  <a class="header-action link-secondary" t
 
 
 
-  <a id="WeihanLi_Common_Models_IEntityWithCreatedUpdatedBy_UpdatedBy_" data-uid="WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.UpdatedBy*"></a>
-
-  <h3 id="WeihanLi_Common_Models_IEntityWithCreatedUpdatedBy_UpdatedBy" data-uid="WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.UpdatedBy">
-  UpdatedBy
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L27"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string UpdatedBy { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L24" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L33" class="edit-link">Edit this page</a>
         </div>
 
 

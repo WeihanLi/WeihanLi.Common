@@ -416,6 +416,19 @@ references:
   commentId: T:Microsoft.Extensions.Logging.LoggerExtensions
   fullName: Microsoft.Extensions.Logging.LoggerExtensions
   nameWithType: LoggerExtensions
+- uid: Microsoft.Extensions.Logging.LoggerExtensions.AddDefaultDelegateLogger(Microsoft.Extensions.Logging.ILoggingBuilder)
+  name: AddDefaultDelegateLogger(ILoggingBuilder)
+  href: api/Microsoft.Extensions.Logging.LoggerExtensions.html#Microsoft_Extensions_Logging_LoggerExtensions_AddDefaultDelegateLogger_Microsoft_Extensions_Logging_ILoggingBuilder_
+  commentId: M:Microsoft.Extensions.Logging.LoggerExtensions.AddDefaultDelegateLogger(Microsoft.Extensions.Logging.ILoggingBuilder)
+  fullName: Microsoft.Extensions.Logging.LoggerExtensions.AddDefaultDelegateLogger(Microsoft.Extensions.Logging.ILoggingBuilder)
+  nameWithType: LoggerExtensions.AddDefaultDelegateLogger(ILoggingBuilder)
+- uid: Microsoft.Extensions.Logging.LoggerExtensions.AddDefaultDelegateLogger*
+  name: AddDefaultDelegateLogger
+  href: api/Microsoft.Extensions.Logging.LoggerExtensions.html#Microsoft_Extensions_Logging_LoggerExtensions_AddDefaultDelegateLogger_
+  commentId: Overload:Microsoft.Extensions.Logging.LoggerExtensions.AddDefaultDelegateLogger
+  isSpec: "True"
+  fullName: Microsoft.Extensions.Logging.LoggerExtensions.AddDefaultDelegateLogger
+  nameWithType: LoggerExtensions.AddDefaultDelegateLogger
 - uid: Microsoft.Extensions.Logging.LoggerExtensions.AddDelegateLogger(Microsoft.Extensions.Logging.ILoggerFactory,System.Action{System.String,Microsoft.Extensions.Logging.LogLevel,System.Exception,System.String})
   name: AddDelegateLogger(ILoggerFactory, Action<string, LogLevel, Exception?, string>)
   href: api/Microsoft.Extensions.Logging.LoggerExtensions.html#Microsoft_Extensions_Logging_LoggerExtensions_AddDelegateLogger_Microsoft_Extensions_Logging_ILoggerFactory_System_Action_System_String_Microsoft_Extensions_Logging_LogLevel_System_Exception_System_String__
@@ -637,179 +650,6 @@ references:
   isSpec: "True"
   fullName: Microsoft.Extensions.Logging.LoggerExtensions.Warn
   nameWithType: LoggerExtensions.Warn
-- uid: System.Threading.Tasks
-  name: System.Threading.Tasks
-  href: api/System.Threading.Tasks.html
-  commentId: N:System.Threading.Tasks
-  fullName: System.Threading.Tasks
-  nameWithType: System.Threading.Tasks
-- uid: System.Threading.Tasks.TaskCompletionSource
-  name: TaskCompletionSource
-  href: api/System.Threading.Tasks.TaskCompletionSource.html
-  commentId: T:System.Threading.Tasks.TaskCompletionSource
-  fullName: System.Threading.Tasks.TaskCompletionSource
-  nameWithType: TaskCompletionSource
-- uid: System.Threading.Tasks.TaskCompletionSource.#ctor
-  name: TaskCompletionSource()
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource__ctor
-  commentId: M:System.Threading.Tasks.TaskCompletionSource.#ctor
-  name.vb: New()
-  fullName: System.Threading.Tasks.TaskCompletionSource.TaskCompletionSource()
-  fullName.vb: System.Threading.Tasks.TaskCompletionSource.New()
-  nameWithType: TaskCompletionSource.TaskCompletionSource()
-  nameWithType.vb: TaskCompletionSource.New()
-- uid: System.Threading.Tasks.TaskCompletionSource.#ctor(System.Object)
-  name: TaskCompletionSource(object?)
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource__ctor_System_Object_
-  commentId: M:System.Threading.Tasks.TaskCompletionSource.#ctor(System.Object)
-  name.vb: New(Object)
-  fullName: System.Threading.Tasks.TaskCompletionSource.TaskCompletionSource(object?)
-  fullName.vb: System.Threading.Tasks.TaskCompletionSource.New(Object)
-  nameWithType: TaskCompletionSource.TaskCompletionSource(object?)
-  nameWithType.vb: TaskCompletionSource.New(Object)
-- uid: System.Threading.Tasks.TaskCompletionSource.#ctor(System.Object,System.Threading.Tasks.TaskCreationOptions)
-  name: TaskCompletionSource(object?, TaskCreationOptions)
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource__ctor_System_Object_System_Threading_Tasks_TaskCreationOptions_
-  commentId: M:System.Threading.Tasks.TaskCompletionSource.#ctor(System.Object,System.Threading.Tasks.TaskCreationOptions)
-  name.vb: New(Object, TaskCreationOptions)
-  fullName: System.Threading.Tasks.TaskCompletionSource.TaskCompletionSource(object?, System.Threading.Tasks.TaskCreationOptions)
-  fullName.vb: System.Threading.Tasks.TaskCompletionSource.New(Object, System.Threading.Tasks.TaskCreationOptions)
-  nameWithType: TaskCompletionSource.TaskCompletionSource(object?, TaskCreationOptions)
-  nameWithType.vb: TaskCompletionSource.New(Object, TaskCreationOptions)
-- uid: System.Threading.Tasks.TaskCompletionSource.#ctor(System.Threading.Tasks.TaskCreationOptions)
-  name: TaskCompletionSource(TaskCreationOptions)
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource__ctor_System_Threading_Tasks_TaskCreationOptions_
-  commentId: M:System.Threading.Tasks.TaskCompletionSource.#ctor(System.Threading.Tasks.TaskCreationOptions)
-  name.vb: New(TaskCreationOptions)
-  fullName: System.Threading.Tasks.TaskCompletionSource.TaskCompletionSource(System.Threading.Tasks.TaskCreationOptions)
-  fullName.vb: System.Threading.Tasks.TaskCompletionSource.New(System.Threading.Tasks.TaskCreationOptions)
-  nameWithType: TaskCompletionSource.TaskCompletionSource(TaskCreationOptions)
-  nameWithType.vb: TaskCompletionSource.New(TaskCreationOptions)
-- uid: System.Threading.Tasks.TaskCompletionSource.#ctor*
-  name: TaskCompletionSource
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource__ctor_
-  commentId: Overload:System.Threading.Tasks.TaskCompletionSource.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: System.Threading.Tasks.TaskCompletionSource.TaskCompletionSource
-  fullName.vb: System.Threading.Tasks.TaskCompletionSource.New
-  nameWithType: TaskCompletionSource.TaskCompletionSource
-  nameWithType.vb: TaskCompletionSource.New
-- uid: System.Threading.Tasks.TaskCompletionSource.SetCanceled
-  name: SetCanceled()
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_SetCanceled
-  commentId: M:System.Threading.Tasks.TaskCompletionSource.SetCanceled
-  fullName: System.Threading.Tasks.TaskCompletionSource.SetCanceled()
-  nameWithType: TaskCompletionSource.SetCanceled()
-- uid: System.Threading.Tasks.TaskCompletionSource.SetCanceled*
-  name: SetCanceled
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_SetCanceled_
-  commentId: Overload:System.Threading.Tasks.TaskCompletionSource.SetCanceled
-  isSpec: "True"
-  fullName: System.Threading.Tasks.TaskCompletionSource.SetCanceled
-  nameWithType: TaskCompletionSource.SetCanceled
-- uid: System.Threading.Tasks.TaskCompletionSource.SetException(System.Collections.Generic.IEnumerable{System.Exception})
-  name: SetException(IEnumerable<Exception>)
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_SetException_System_Collections_Generic_IEnumerable_System_Exception__
-  commentId: M:System.Threading.Tasks.TaskCompletionSource.SetException(System.Collections.Generic.IEnumerable{System.Exception})
-  name.vb: SetException(IEnumerable(Of Exception))
-  fullName: System.Threading.Tasks.TaskCompletionSource.SetException(System.Collections.Generic.IEnumerable<System.Exception>)
-  fullName.vb: System.Threading.Tasks.TaskCompletionSource.SetException(System.Collections.Generic.IEnumerable(Of System.Exception))
-  nameWithType: TaskCompletionSource.SetException(IEnumerable<Exception>)
-  nameWithType.vb: TaskCompletionSource.SetException(IEnumerable(Of Exception))
-- uid: System.Threading.Tasks.TaskCompletionSource.SetException(System.Exception)
-  name: SetException(Exception)
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_SetException_System_Exception_
-  commentId: M:System.Threading.Tasks.TaskCompletionSource.SetException(System.Exception)
-  fullName: System.Threading.Tasks.TaskCompletionSource.SetException(System.Exception)
-  nameWithType: TaskCompletionSource.SetException(Exception)
-- uid: System.Threading.Tasks.TaskCompletionSource.SetException*
-  name: SetException
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_SetException_
-  commentId: Overload:System.Threading.Tasks.TaskCompletionSource.SetException
-  isSpec: "True"
-  fullName: System.Threading.Tasks.TaskCompletionSource.SetException
-  nameWithType: TaskCompletionSource.SetException
-- uid: System.Threading.Tasks.TaskCompletionSource.SetResult
-  name: SetResult()
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_SetResult
-  commentId: M:System.Threading.Tasks.TaskCompletionSource.SetResult
-  fullName: System.Threading.Tasks.TaskCompletionSource.SetResult()
-  nameWithType: TaskCompletionSource.SetResult()
-- uid: System.Threading.Tasks.TaskCompletionSource.SetResult*
-  name: SetResult
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_SetResult_
-  commentId: Overload:System.Threading.Tasks.TaskCompletionSource.SetResult
-  isSpec: "True"
-  fullName: System.Threading.Tasks.TaskCompletionSource.SetResult
-  nameWithType: TaskCompletionSource.SetResult
-- uid: System.Threading.Tasks.TaskCompletionSource.Task
-  name: Task
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_Task
-  commentId: P:System.Threading.Tasks.TaskCompletionSource.Task
-  fullName: System.Threading.Tasks.TaskCompletionSource.Task
-  nameWithType: TaskCompletionSource.Task
-- uid: System.Threading.Tasks.TaskCompletionSource.Task*
-  name: Task
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_Task_
-  commentId: Overload:System.Threading.Tasks.TaskCompletionSource.Task
-  isSpec: "True"
-  fullName: System.Threading.Tasks.TaskCompletionSource.Task
-  nameWithType: TaskCompletionSource.Task
-- uid: System.Threading.Tasks.TaskCompletionSource.TrySetCanceled
-  name: TrySetCanceled()
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_TrySetCanceled
-  commentId: M:System.Threading.Tasks.TaskCompletionSource.TrySetCanceled
-  fullName: System.Threading.Tasks.TaskCompletionSource.TrySetCanceled()
-  nameWithType: TaskCompletionSource.TrySetCanceled()
-- uid: System.Threading.Tasks.TaskCompletionSource.TrySetCanceled(System.Threading.CancellationToken)
-  name: TrySetCanceled(CancellationToken)
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_TrySetCanceled_System_Threading_CancellationToken_
-  commentId: M:System.Threading.Tasks.TaskCompletionSource.TrySetCanceled(System.Threading.CancellationToken)
-  fullName: System.Threading.Tasks.TaskCompletionSource.TrySetCanceled(System.Threading.CancellationToken)
-  nameWithType: TaskCompletionSource.TrySetCanceled(CancellationToken)
-- uid: System.Threading.Tasks.TaskCompletionSource.TrySetCanceled*
-  name: TrySetCanceled
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_TrySetCanceled_
-  commentId: Overload:System.Threading.Tasks.TaskCompletionSource.TrySetCanceled
-  isSpec: "True"
-  fullName: System.Threading.Tasks.TaskCompletionSource.TrySetCanceled
-  nameWithType: TaskCompletionSource.TrySetCanceled
-- uid: System.Threading.Tasks.TaskCompletionSource.TrySetException(System.Collections.Generic.IEnumerable{System.Exception})
-  name: TrySetException(IEnumerable<Exception>)
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_TrySetException_System_Collections_Generic_IEnumerable_System_Exception__
-  commentId: M:System.Threading.Tasks.TaskCompletionSource.TrySetException(System.Collections.Generic.IEnumerable{System.Exception})
-  name.vb: TrySetException(IEnumerable(Of Exception))
-  fullName: System.Threading.Tasks.TaskCompletionSource.TrySetException(System.Collections.Generic.IEnumerable<System.Exception>)
-  fullName.vb: System.Threading.Tasks.TaskCompletionSource.TrySetException(System.Collections.Generic.IEnumerable(Of System.Exception))
-  nameWithType: TaskCompletionSource.TrySetException(IEnumerable<Exception>)
-  nameWithType.vb: TaskCompletionSource.TrySetException(IEnumerable(Of Exception))
-- uid: System.Threading.Tasks.TaskCompletionSource.TrySetException(System.Exception)
-  name: TrySetException(Exception)
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_TrySetException_System_Exception_
-  commentId: M:System.Threading.Tasks.TaskCompletionSource.TrySetException(System.Exception)
-  fullName: System.Threading.Tasks.TaskCompletionSource.TrySetException(System.Exception)
-  nameWithType: TaskCompletionSource.TrySetException(Exception)
-- uid: System.Threading.Tasks.TaskCompletionSource.TrySetException*
-  name: TrySetException
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_TrySetException_
-  commentId: Overload:System.Threading.Tasks.TaskCompletionSource.TrySetException
-  isSpec: "True"
-  fullName: System.Threading.Tasks.TaskCompletionSource.TrySetException
-  nameWithType: TaskCompletionSource.TrySetException
-- uid: System.Threading.Tasks.TaskCompletionSource.TrySetResult
-  name: TrySetResult()
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_TrySetResult
-  commentId: M:System.Threading.Tasks.TaskCompletionSource.TrySetResult
-  fullName: System.Threading.Tasks.TaskCompletionSource.TrySetResult()
-  nameWithType: TaskCompletionSource.TrySetResult()
-- uid: System.Threading.Tasks.TaskCompletionSource.TrySetResult*
-  name: TrySetResult
-  href: api/System.Threading.Tasks.TaskCompletionSource.html#System_Threading_Tasks_TaskCompletionSource_TrySetResult_
-  commentId: Overload:System.Threading.Tasks.TaskCompletionSource.TrySetResult
-  isSpec: "True"
-  fullName: System.Threading.Tasks.TaskCompletionSource.TrySetResult
-  nameWithType: TaskCompletionSource.TrySetResult
 - uid: WeihanLi.Common
   name: WeihanLi.Common
   href: api/WeihanLi.Common.html
@@ -9143,6 +8983,22 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.CommandLineParser.ParseLine
   nameWithType: CommandLineParser.ParseLine
+- uid: WeihanLi.Common.Helpers.CommandLineParser.Val(System.String,System.String,System.String[])
+  name: Val(string, string?, string[]?)
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_Val_System_String_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.CommandLineParser.Val(System.String,System.String,System.String[])
+  name.vb: Val(String, String, String())
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.Val(string, string?, string[]?)
+  fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.Val(String, String, String())
+  nameWithType: CommandLineParser.Val(string, string?, string[]?)
+  nameWithType.vb: CommandLineParser.Val(String, String, String())
+- uid: WeihanLi.Common.Helpers.CommandLineParser.Val*
+  name: Val
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_Val_
+  commentId: Overload:WeihanLi.Common.Helpers.CommandLineParser.Val
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.Val
+  nameWithType: CommandLineParser.Val
 - uid: WeihanLi.Common.Helpers.CommandResult
   name: CommandResult
   href: api/WeihanLi.Common.Helpers.CommandResult.html
@@ -18235,23 +18091,6 @@ references:
   fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt(Of TKey).CreatedAt
   nameWithType: BaseEntityWithCreatedUpdatedAt<TKey>.CreatedAt
   nameWithType.vb: BaseEntityWithCreatedUpdatedAt(Of TKey).CreatedAt
-- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.UpdatedAt
-  name: UpdatedAt
-  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_UpdatedAt
-  commentId: P:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.UpdatedAt
-  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt<TKey>.UpdatedAt
-  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt(Of TKey).UpdatedAt
-  nameWithType: BaseEntityWithCreatedUpdatedAt<TKey>.UpdatedAt
-  nameWithType.vb: BaseEntityWithCreatedUpdatedAt(Of TKey).UpdatedAt
-- uid: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.UpdatedAt*
-  name: UpdatedAt
-  href: api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithCreatedUpdatedAt_1_UpdatedAt_
-  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt`1.UpdatedAt
-  isSpec: "True"
-  fullName: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt<TKey>.UpdatedAt
-  fullName.vb: WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt(Of TKey).UpdatedAt
-  nameWithType: BaseEntityWithCreatedUpdatedAt<TKey>.UpdatedAt
-  nameWithType.vb: BaseEntityWithCreatedUpdatedAt(Of TKey).UpdatedAt
 - uid: WeihanLi.Common.Models.BaseEntityWithDeleted
   name: BaseEntityWithDeleted
   href: api/WeihanLi.Common.Models.BaseEntityWithDeleted.html
@@ -18380,6 +18219,84 @@ references:
   fullName.vb: WeihanLi.Common.Models.BaseEntityWithReviewState(Of TKey).State
   nameWithType: BaseEntityWithReviewState<TKey>.State
   nameWithType.vb: BaseEntityWithReviewState(Of TKey).State
+- uid: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted`1
+  name: BaseEntityWithUpdatedAtAndByAndDeleted<TKey>
+  href: api/WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted-1.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted`1
+  name.vb: BaseEntityWithUpdatedAtAndByAndDeleted(Of TKey)
+  fullName: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted<TKey>
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted(Of TKey)
+  nameWithType: BaseEntityWithUpdatedAtAndByAndDeleted<TKey>
+  nameWithType.vb: BaseEntityWithUpdatedAtAndByAndDeleted(Of TKey)
+- uid: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted`1.IsDeleted
+  name: IsDeleted
+  href: api/WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted-1.html#WeihanLi_Common_Models_BaseEntityWithUpdatedAtAndByAndDeleted_1_IsDeleted
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted`1.IsDeleted
+  fullName: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted<TKey>.IsDeleted
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted(Of TKey).IsDeleted
+  nameWithType: BaseEntityWithUpdatedAtAndByAndDeleted<TKey>.IsDeleted
+  nameWithType.vb: BaseEntityWithUpdatedAtAndByAndDeleted(Of TKey).IsDeleted
+- uid: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted`1.IsDeleted*
+  name: IsDeleted
+  href: api/WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted-1.html#WeihanLi_Common_Models_BaseEntityWithUpdatedAtAndByAndDeleted_1_IsDeleted_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted`1.IsDeleted
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted<TKey>.IsDeleted
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted(Of TKey).IsDeleted
+  nameWithType: BaseEntityWithUpdatedAtAndByAndDeleted<TKey>.IsDeleted
+  nameWithType.vb: BaseEntityWithUpdatedAtAndByAndDeleted(Of TKey).IsDeleted
+- uid: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy`1
+  name: BaseEntityWithUpdatedAtAndBy<TKey>
+  href: api/WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy-1.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy`1
+  name.vb: BaseEntityWithUpdatedAtAndBy(Of TKey)
+  fullName: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy<TKey>
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy(Of TKey)
+  nameWithType: BaseEntityWithUpdatedAtAndBy<TKey>
+  nameWithType.vb: BaseEntityWithUpdatedAtAndBy(Of TKey)
+- uid: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy`1.UpdatedBy
+  name: UpdatedBy
+  href: api/WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy-1.html#WeihanLi_Common_Models_BaseEntityWithUpdatedAtAndBy_1_UpdatedBy
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy`1.UpdatedBy
+  fullName: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy<TKey>.UpdatedBy
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy(Of TKey).UpdatedBy
+  nameWithType: BaseEntityWithUpdatedAtAndBy<TKey>.UpdatedBy
+  nameWithType.vb: BaseEntityWithUpdatedAtAndBy(Of TKey).UpdatedBy
+- uid: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy`1.UpdatedBy*
+  name: UpdatedBy
+  href: api/WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy-1.html#WeihanLi_Common_Models_BaseEntityWithUpdatedAtAndBy_1_UpdatedBy_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy`1.UpdatedBy
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy<TKey>.UpdatedBy
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy(Of TKey).UpdatedBy
+  nameWithType: BaseEntityWithUpdatedAtAndBy<TKey>.UpdatedBy
+  nameWithType.vb: BaseEntityWithUpdatedAtAndBy(Of TKey).UpdatedBy
+- uid: WeihanLi.Common.Models.BaseEntityWithUpdatedAt`1
+  name: BaseEntityWithUpdatedAt<TKey>
+  href: api/WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.html
+  commentId: T:WeihanLi.Common.Models.BaseEntityWithUpdatedAt`1
+  name.vb: BaseEntityWithUpdatedAt(Of TKey)
+  fullName: WeihanLi.Common.Models.BaseEntityWithUpdatedAt<TKey>
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithUpdatedAt(Of TKey)
+  nameWithType: BaseEntityWithUpdatedAt<TKey>
+  nameWithType.vb: BaseEntityWithUpdatedAt(Of TKey)
+- uid: WeihanLi.Common.Models.BaseEntityWithUpdatedAt`1.UpdatedAt
+  name: UpdatedAt
+  href: api/WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithUpdatedAt_1_UpdatedAt
+  commentId: P:WeihanLi.Common.Models.BaseEntityWithUpdatedAt`1.UpdatedAt
+  fullName: WeihanLi.Common.Models.BaseEntityWithUpdatedAt<TKey>.UpdatedAt
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithUpdatedAt(Of TKey).UpdatedAt
+  nameWithType: BaseEntityWithUpdatedAt<TKey>.UpdatedAt
+  nameWithType.vb: BaseEntityWithUpdatedAt(Of TKey).UpdatedAt
+- uid: WeihanLi.Common.Models.BaseEntityWithUpdatedAt`1.UpdatedAt*
+  name: UpdatedAt
+  href: api/WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.html#WeihanLi_Common_Models_BaseEntityWithUpdatedAt_1_UpdatedAt_
+  commentId: Overload:WeihanLi.Common.Models.BaseEntityWithUpdatedAt`1.UpdatedAt
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.BaseEntityWithUpdatedAt<TKey>.UpdatedAt
+  fullName.vb: WeihanLi.Common.Models.BaseEntityWithUpdatedAt(Of TKey).UpdatedAt
+  nameWithType: BaseEntityWithUpdatedAt<TKey>.UpdatedAt
+  nameWithType.vb: BaseEntityWithUpdatedAt(Of TKey).UpdatedAt
 - uid: WeihanLi.Common.Models.BaseEntity`1
   name: BaseEntity<TKey>
   href: api/WeihanLi.Common.Models.BaseEntity-1.html
@@ -18562,19 +18479,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.CreatedAt
   nameWithType: IEntityWithCreatedUpdatedAt.CreatedAt
-- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.UpdatedAt
-  name: UpdatedAt
-  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.html#WeihanLi_Common_Models_IEntityWithCreatedUpdatedAt_UpdatedAt
-  commentId: P:WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.UpdatedAt
-  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.UpdatedAt
-  nameWithType: IEntityWithCreatedUpdatedAt.UpdatedAt
-- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.UpdatedAt*
-  name: UpdatedAt
-  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.html#WeihanLi_Common_Models_IEntityWithCreatedUpdatedAt_UpdatedAt_
-  commentId: Overload:WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.UpdatedAt
-  isSpec: "True"
-  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.UpdatedAt
-  nameWithType: IEntityWithCreatedUpdatedAt.UpdatedAt
 - uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedAtAndBy
   name: IEntityWithCreatedUpdatedAtAndBy
   href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAtAndBy.html
@@ -18600,19 +18504,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.CreatedBy
   nameWithType: IEntityWithCreatedUpdatedBy.CreatedBy
-- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.UpdatedBy
-  name: UpdatedBy
-  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.html#WeihanLi_Common_Models_IEntityWithCreatedUpdatedBy_UpdatedBy
-  commentId: P:WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.UpdatedBy
-  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.UpdatedBy
-  nameWithType: IEntityWithCreatedUpdatedBy.UpdatedBy
-- uid: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.UpdatedBy*
-  name: UpdatedBy
-  href: api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.html#WeihanLi_Common_Models_IEntityWithCreatedUpdatedBy_UpdatedBy_
-  commentId: Overload:WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.UpdatedBy
-  isSpec: "True"
-  fullName: WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.UpdatedBy
-  nameWithType: IEntityWithCreatedUpdatedBy.UpdatedBy
 - uid: WeihanLi.Common.Models.IEntityWithRemark
   name: IEntityWithRemark
   href: api/WeihanLi.Common.Models.IEntityWithRemark.html
@@ -18657,6 +18548,50 @@ references:
   commentId: T:WeihanLi.Common.Models.IEntityWithReviewStateAndRemark
   fullName: WeihanLi.Common.Models.IEntityWithReviewStateAndRemark
   nameWithType: IEntityWithReviewStateAndRemark
+- uid: WeihanLi.Common.Models.IEntityWithUpdatedAt
+  name: IEntityWithUpdatedAt
+  href: api/WeihanLi.Common.Models.IEntityWithUpdatedAt.html
+  commentId: T:WeihanLi.Common.Models.IEntityWithUpdatedAt
+  fullName: WeihanLi.Common.Models.IEntityWithUpdatedAt
+  nameWithType: IEntityWithUpdatedAt
+- uid: WeihanLi.Common.Models.IEntityWithUpdatedAt.UpdatedAt
+  name: UpdatedAt
+  href: api/WeihanLi.Common.Models.IEntityWithUpdatedAt.html#WeihanLi_Common_Models_IEntityWithUpdatedAt_UpdatedAt
+  commentId: P:WeihanLi.Common.Models.IEntityWithUpdatedAt.UpdatedAt
+  fullName: WeihanLi.Common.Models.IEntityWithUpdatedAt.UpdatedAt
+  nameWithType: IEntityWithUpdatedAt.UpdatedAt
+- uid: WeihanLi.Common.Models.IEntityWithUpdatedAt.UpdatedAt*
+  name: UpdatedAt
+  href: api/WeihanLi.Common.Models.IEntityWithUpdatedAt.html#WeihanLi_Common_Models_IEntityWithUpdatedAt_UpdatedAt_
+  commentId: Overload:WeihanLi.Common.Models.IEntityWithUpdatedAt.UpdatedAt
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.IEntityWithUpdatedAt.UpdatedAt
+  nameWithType: IEntityWithUpdatedAt.UpdatedAt
+- uid: WeihanLi.Common.Models.IEntityWithUpdatedAtAndBy
+  name: IEntityWithUpdatedAtAndBy
+  href: api/WeihanLi.Common.Models.IEntityWithUpdatedAtAndBy.html
+  commentId: T:WeihanLi.Common.Models.IEntityWithUpdatedAtAndBy
+  fullName: WeihanLi.Common.Models.IEntityWithUpdatedAtAndBy
+  nameWithType: IEntityWithUpdatedAtAndBy
+- uid: WeihanLi.Common.Models.IEntityWithUpdatedBy
+  name: IEntityWithUpdatedBy
+  href: api/WeihanLi.Common.Models.IEntityWithUpdatedBy.html
+  commentId: T:WeihanLi.Common.Models.IEntityWithUpdatedBy
+  fullName: WeihanLi.Common.Models.IEntityWithUpdatedBy
+  nameWithType: IEntityWithUpdatedBy
+- uid: WeihanLi.Common.Models.IEntityWithUpdatedBy.UpdatedBy
+  name: UpdatedBy
+  href: api/WeihanLi.Common.Models.IEntityWithUpdatedBy.html#WeihanLi_Common_Models_IEntityWithUpdatedBy_UpdatedBy
+  commentId: P:WeihanLi.Common.Models.IEntityWithUpdatedBy.UpdatedBy
+  fullName: WeihanLi.Common.Models.IEntityWithUpdatedBy.UpdatedBy
+  nameWithType: IEntityWithUpdatedBy.UpdatedBy
+- uid: WeihanLi.Common.Models.IEntityWithUpdatedBy.UpdatedBy*
+  name: UpdatedBy
+  href: api/WeihanLi.Common.Models.IEntityWithUpdatedBy.html#WeihanLi_Common_Models_IEntityWithUpdatedBy_UpdatedBy_
+  commentId: Overload:WeihanLi.Common.Models.IEntityWithUpdatedBy.UpdatedBy
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.IEntityWithUpdatedBy.UpdatedBy
+  nameWithType: IEntityWithUpdatedBy.UpdatedBy
 - uid: WeihanLi.Common.Models.IEntity`1
   name: IEntity<TKey>
   href: api/WeihanLi.Common.Models.IEntity-1.html
@@ -20221,6 +20156,53 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Services.DataAnnotationValidator.Validate
   nameWithType: DataAnnotationValidator.Validate
+- uid: WeihanLi.Common.Services.DelegateUserIdProvider
+  name: DelegateUserIdProvider
+  href: api/WeihanLi.Common.Services.DelegateUserIdProvider.html
+  commentId: T:WeihanLi.Common.Services.DelegateUserIdProvider
+  fullName: WeihanLi.Common.Services.DelegateUserIdProvider
+  nameWithType: DelegateUserIdProvider
+- uid: WeihanLi.Common.Services.DelegateUserIdProvider.#ctor(System.Func{System.String})
+  name: DelegateUserIdProvider(Func<string?>)
+  href: api/WeihanLi.Common.Services.DelegateUserIdProvider.html#WeihanLi_Common_Services_DelegateUserIdProvider__ctor_System_Func_System_String__
+  commentId: M:WeihanLi.Common.Services.DelegateUserIdProvider.#ctor(System.Func{System.String})
+  name.vb: New(Func(Of String))
+  fullName: WeihanLi.Common.Services.DelegateUserIdProvider.DelegateUserIdProvider(System.Func<string?>)
+  fullName.vb: WeihanLi.Common.Services.DelegateUserIdProvider.New(System.Func(Of String))
+  nameWithType: DelegateUserIdProvider.DelegateUserIdProvider(Func<string?>)
+  nameWithType.vb: DelegateUserIdProvider.New(Func(Of String))
+- uid: WeihanLi.Common.Services.DelegateUserIdProvider.#ctor(System.String)
+  name: DelegateUserIdProvider(string)
+  href: api/WeihanLi.Common.Services.DelegateUserIdProvider.html#WeihanLi_Common_Services_DelegateUserIdProvider__ctor_System_String_
+  commentId: M:WeihanLi.Common.Services.DelegateUserIdProvider.#ctor(System.String)
+  name.vb: New(String)
+  fullName: WeihanLi.Common.Services.DelegateUserIdProvider.DelegateUserIdProvider(string)
+  fullName.vb: WeihanLi.Common.Services.DelegateUserIdProvider.New(String)
+  nameWithType: DelegateUserIdProvider.DelegateUserIdProvider(string)
+  nameWithType.vb: DelegateUserIdProvider.New(String)
+- uid: WeihanLi.Common.Services.DelegateUserIdProvider.#ctor*
+  name: DelegateUserIdProvider
+  href: api/WeihanLi.Common.Services.DelegateUserIdProvider.html#WeihanLi_Common_Services_DelegateUserIdProvider__ctor_
+  commentId: Overload:WeihanLi.Common.Services.DelegateUserIdProvider.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: WeihanLi.Common.Services.DelegateUserIdProvider.DelegateUserIdProvider
+  fullName.vb: WeihanLi.Common.Services.DelegateUserIdProvider.New
+  nameWithType: DelegateUserIdProvider.DelegateUserIdProvider
+  nameWithType.vb: DelegateUserIdProvider.New
+- uid: WeihanLi.Common.Services.DelegateUserIdProvider.GetUserId
+  name: GetUserId()
+  href: api/WeihanLi.Common.Services.DelegateUserIdProvider.html#WeihanLi_Common_Services_DelegateUserIdProvider_GetUserId
+  commentId: M:WeihanLi.Common.Services.DelegateUserIdProvider.GetUserId
+  fullName: WeihanLi.Common.Services.DelegateUserIdProvider.GetUserId()
+  nameWithType: DelegateUserIdProvider.GetUserId()
+- uid: WeihanLi.Common.Services.DelegateUserIdProvider.GetUserId*
+  name: GetUserId
+  href: api/WeihanLi.Common.Services.DelegateUserIdProvider.html#WeihanLi_Common_Services_DelegateUserIdProvider_GetUserId_
+  commentId: Overload:WeihanLi.Common.Services.DelegateUserIdProvider.GetUserId
+  isSpec: "True"
+  fullName: WeihanLi.Common.Services.DelegateUserIdProvider.GetUserId
+  nameWithType: DelegateUserIdProvider.GetUserId
 - uid: WeihanLi.Common.Services.DelegateValidator
   name: DelegateValidator
   href: api/WeihanLi.Common.Services.DelegateValidator.html
@@ -20355,7 +20337,14 @@ references:
 - uid: WeihanLi.Common.Services.EnvironmentUserIdProvider.Instance
   name: Instance
   href: api/WeihanLi.Common.Services.EnvironmentUserIdProvider.html#WeihanLi_Common_Services_EnvironmentUserIdProvider_Instance
-  commentId: F:WeihanLi.Common.Services.EnvironmentUserIdProvider.Instance
+  commentId: P:WeihanLi.Common.Services.EnvironmentUserIdProvider.Instance
+  fullName: WeihanLi.Common.Services.EnvironmentUserIdProvider.Instance
+  nameWithType: EnvironmentUserIdProvider.Instance
+- uid: WeihanLi.Common.Services.EnvironmentUserIdProvider.Instance*
+  name: Instance
+  href: api/WeihanLi.Common.Services.EnvironmentUserIdProvider.html#WeihanLi_Common_Services_EnvironmentUserIdProvider_Instance_
+  commentId: Overload:WeihanLi.Common.Services.EnvironmentUserIdProvider.Instance
+  isSpec: "True"
   fullName: WeihanLi.Common.Services.EnvironmentUserIdProvider.Instance
   nameWithType: EnvironmentUserIdProvider.Instance
 - uid: WeihanLi.Common.Services.GuidIdGenerator
@@ -20693,6 +20682,32 @@ references:
   fullName.vb: WeihanLi.Common.Services.IValidator(Of T).Validate
   nameWithType: IValidator<T>.Validate
   nameWithType.vb: IValidator(Of T).Validate
+- uid: WeihanLi.Common.Services.IWrapper`1
+  name: IWrapper<T>
+  href: api/WeihanLi.Common.Services.IWrapper-1.html
+  commentId: T:WeihanLi.Common.Services.IWrapper`1
+  name.vb: IWrapper(Of T)
+  fullName: WeihanLi.Common.Services.IWrapper<T>
+  fullName.vb: WeihanLi.Common.Services.IWrapper(Of T)
+  nameWithType: IWrapper<T>
+  nameWithType.vb: IWrapper(Of T)
+- uid: WeihanLi.Common.Services.IWrapper`1.Value
+  name: Value
+  href: api/WeihanLi.Common.Services.IWrapper-1.html#WeihanLi_Common_Services_IWrapper_1_Value
+  commentId: P:WeihanLi.Common.Services.IWrapper`1.Value
+  fullName: WeihanLi.Common.Services.IWrapper<T>.Value
+  fullName.vb: WeihanLi.Common.Services.IWrapper(Of T).Value
+  nameWithType: IWrapper<T>.Value
+  nameWithType.vb: IWrapper(Of T).Value
+- uid: WeihanLi.Common.Services.IWrapper`1.Value*
+  name: Value
+  href: api/WeihanLi.Common.Services.IWrapper-1.html#WeihanLi_Common_Services_IWrapper_1_Value_
+  commentId: Overload:WeihanLi.Common.Services.IWrapper`1.Value
+  isSpec: "True"
+  fullName: WeihanLi.Common.Services.IWrapper<T>.Value
+  fullName.vb: WeihanLi.Common.Services.IWrapper(Of T).Value
+  nameWithType: IWrapper<T>.Value
+  nameWithType.vb: IWrapper(Of T).Value
 - uid: WeihanLi.Common.Services.NullCancellationTokenProvider
   name: NullCancellationTokenProvider
   href: api/WeihanLi.Common.Services.NullCancellationTokenProvider.html
@@ -21084,6 +21099,51 @@ references:
   fullName.vb: WeihanLi.Common.Services.UserIdProviderExtensions.TryGetUserId(Of T)(WeihanLi.Common.Services.IUserIdProvider, T, T)
   nameWithType: UserIdProviderExtensions.TryGetUserId<T>(IUserIdProvider, out T?, T?)
   nameWithType.vb: UserIdProviderExtensions.TryGetUserId(Of T)(IUserIdProvider, T, T)
+- uid: WeihanLi.Common.Services.Wrapper`1
+  name: Wrapper<T>
+  href: api/WeihanLi.Common.Services.Wrapper-1.html
+  commentId: T:WeihanLi.Common.Services.Wrapper`1
+  name.vb: Wrapper(Of T)
+  fullName: WeihanLi.Common.Services.Wrapper<T>
+  fullName.vb: WeihanLi.Common.Services.Wrapper(Of T)
+  nameWithType: Wrapper<T>
+  nameWithType.vb: Wrapper(Of T)
+- uid: WeihanLi.Common.Services.Wrapper`1.#ctor(`0)
+  name: Wrapper(T)
+  href: api/WeihanLi.Common.Services.Wrapper-1.html#WeihanLi_Common_Services_Wrapper_1__ctor__0_
+  commentId: M:WeihanLi.Common.Services.Wrapper`1.#ctor(`0)
+  name.vb: New(T)
+  fullName: WeihanLi.Common.Services.Wrapper<T>.Wrapper(T)
+  fullName.vb: WeihanLi.Common.Services.Wrapper(Of T).New(T)
+  nameWithType: Wrapper<T>.Wrapper(T)
+  nameWithType.vb: Wrapper(Of T).New(T)
+- uid: WeihanLi.Common.Services.Wrapper`1.#ctor*
+  name: Wrapper
+  href: api/WeihanLi.Common.Services.Wrapper-1.html#WeihanLi_Common_Services_Wrapper_1__ctor_
+  commentId: Overload:WeihanLi.Common.Services.Wrapper`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: WeihanLi.Common.Services.Wrapper<T>.Wrapper
+  fullName.vb: WeihanLi.Common.Services.Wrapper(Of T).New
+  nameWithType: Wrapper<T>.Wrapper
+  nameWithType.vb: Wrapper(Of T).New
+- uid: WeihanLi.Common.Services.Wrapper`1.Value
+  name: Value
+  href: api/WeihanLi.Common.Services.Wrapper-1.html#WeihanLi_Common_Services_Wrapper_1_Value
+  commentId: P:WeihanLi.Common.Services.Wrapper`1.Value
+  fullName: WeihanLi.Common.Services.Wrapper<T>.Value
+  fullName.vb: WeihanLi.Common.Services.Wrapper(Of T).Value
+  nameWithType: Wrapper<T>.Value
+  nameWithType.vb: Wrapper(Of T).Value
+- uid: WeihanLi.Common.Services.Wrapper`1.Value*
+  name: Value
+  href: api/WeihanLi.Common.Services.Wrapper-1.html#WeihanLi_Common_Services_Wrapper_1_Value_
+  commentId: Overload:WeihanLi.Common.Services.Wrapper`1.Value
+  isSpec: "True"
+  fullName: WeihanLi.Common.Services.Wrapper<T>.Value
+  fullName.vb: WeihanLi.Common.Services.Wrapper(Of T).Value
+  nameWithType: Wrapper<T>.Value
+  nameWithType.vb: Wrapper(Of T).Value
 - uid: WeihanLi.Common.Template
   name: WeihanLi.Common.Template
   href: api/WeihanLi.Common.Template.html
