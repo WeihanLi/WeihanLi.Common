@@ -15,20 +15,31 @@ public class BaseEntity<TKey> : IEntity<TKey>
     public TKey Id { get; set; } = default!;
 }
 
-public interface IEntityWithCreatedUpdatedAt
+public interface IEntityWithUpdatedAt
 {
-    DateTimeOffset CreatedAt { get; set; }
     DateTimeOffset UpdatedAt { get; set; }
 }
 
-public interface IEntityWithCreatedUpdatedBy
+public interface IEntityWithCreatedUpdatedAt : IEntityWithUpdatedAt
 {
-    string CreatedBy { get; set; }
+    DateTimeOffset CreatedAt { get; set; }
+}
+
+public interface IEntityWithUpdatedBy
+{
     string UpdatedBy { get; set; }
 }
 
+public interface IEntityWithCreatedUpdatedBy : IEntityWithUpdatedBy
+{
+    string CreatedBy { get; set; }
+}
+
+public interface IEntityWithUpdatedAtAndBy
+    : IEntityWithUpdatedAt, IEntityWithUpdatedBy;
+
 public interface IEntityWithCreatedUpdatedAtAndBy
-    : IEntityWithCreatedUpdatedAt, IEntityWithCreatedUpdatedBy;
+    : IEntityWithCreatedUpdatedAt, IEntityWithCreatedUpdatedBy, IEntityWithUpdatedAtAndBy;
 
 public interface IEntityWithReviewState
 {
@@ -48,10 +59,14 @@ public class BaseEntityWithDeleted<TKey> : BaseEntity<TKey>, ISoftDeleteEntityWi
     public bool IsDeleted { get; set; }
 }
 
-public class BaseEntityWithCreatedUpdatedAt<TKey> : BaseEntity<TKey>, IEntityWithCreatedUpdatedAt
+public class BaseEntityWithUpdatedAt<TKey> : BaseEntity<TKey>, IEntityWithUpdatedAt
+{
+    public DateTimeOffset UpdatedAt { get; set; }
+}
+
+public class BaseEntityWithCreatedUpdatedAt<TKey> : BaseEntityWithUpdatedAt<TKey>, IEntityWithCreatedUpdatedAt
 {
     public DateTimeOffset CreatedAt { get; set; }
-    public DateTimeOffset UpdatedAt { get; set; }
 }
 
 public class BaseEntityWithCreatedUpdatedAtAndDeleted<TKey> : BaseEntityWithCreatedUpdatedAt<TKey>,
@@ -60,7 +75,7 @@ public class BaseEntityWithCreatedUpdatedAtAndDeleted<TKey> : BaseEntityWithCrea
     public bool IsDeleted { get; set; }
 }
 
-public class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey> 
+public class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey>
     : BaseEntityWithCreatedUpdatedAtAndDeleted<TKey>,
     IEntityWithRemark
 {
@@ -68,13 +83,26 @@ public class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey>
     public string? Remark { get; set; }
 }
 
-public class BaseEntityWithCreatedUpdatedAtAndBy<TKey> 
+public class BaseEntityWithUpdatedAtAndBy<TKey>
+    : BaseEntityWithUpdatedAt<TKey>, IEntityWithUpdatedAtAndBy
+{
+    [StringLength(256)]
+    public string UpdatedBy { get; set; } = default!;
+}
+
+public class BaseEntityWithCreatedUpdatedAtAndBy<TKey>
     : BaseEntityWithCreatedUpdatedAt<TKey>, IEntityWithCreatedUpdatedAtAndBy
 {
     [StringLength(256)]
     public string CreatedBy { get; set; } = default!;
     [StringLength(256)]
     public string UpdatedBy { get; set; } = default!;
+}
+
+public class BaseEntityWithUpdatedAtAndByAndDeleted<TKey> : BaseEntityWithUpdatedAtAndBy<TKey>,
+    ISoftDeleteEntityWithDeleted
+{
+    public bool IsDeleted { get; set; }
 }
 
 public class BaseEntityWithCreatedUpdatedAtAndByAndDeleted<TKey> : BaseEntityWithCreatedUpdatedAtAndBy<TKey>,
@@ -88,14 +116,14 @@ public class BaseEntityWithReviewState<TKey> : BaseEntity<TKey>, IEntityWithRevi
     public ReviewState State { get; set; }
 }
 
-public class BaseEntityWithReviewStateAndRemark<TKey> 
+public class BaseEntityWithReviewStateAndRemark<TKey>
     : BaseEntityWithReviewState<TKey>, IEntityWithReviewStateAndRemark
 {
     [StringLength(2048)]
     public string? Remark { get; set; }
 }
 
-public class BaseEntityWithReviewStateWithDeleted<TKey> 
+public class BaseEntityWithReviewStateWithDeleted<TKey>
     : BaseEntityWithDeleted<TKey>, IEntityWithReviewState
 {
     public ReviewState State { get; set; }
@@ -153,10 +181,10 @@ public class BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState
 public class BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark
     : BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark<int>;
 
-public class BaseEntityWithCreatedUpdatedAtAndBy 
+public class BaseEntityWithCreatedUpdatedAtAndBy
     : BaseEntityWithCreatedUpdatedAtAndBy<int>;
 
-public class BaseEntityWithCreatedUpdatedAtAndByAndDeleted 
+public class BaseEntityWithCreatedUpdatedAtAndByAndDeleted
     : BaseEntityWithCreatedUpdatedAtAndByAndDeleted<int>;
 
 public class BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState

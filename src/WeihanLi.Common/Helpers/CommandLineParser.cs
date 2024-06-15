@@ -3,7 +3,6 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
-using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
@@ -97,12 +96,26 @@ public static class CommandLineParser
     /// <param name="defaultValue">default argument value when not found</param>
     /// <returns>argument value</returns>
     [return: NotNullIfNotNull(nameof(defaultValue))]
+    [Obsolete("Please use Val instead")]
     public static string? ArgValue(string[] args, string argumentName, string? defaultValue = default)
     {
-        return GetArgumentValueInternal(args, argumentName) ?? defaultValue;
+        return GetOptionValueInternal(args, argumentName) ?? defaultValue;
     }
 
-    private static string? GetArgumentValueInternal(string[] args, string argumentName)
+    /// <summary>
+    /// Get argument value from arguments
+    /// </summary>
+    /// <param name="optionName">argument name to get value</param>
+    /// <param name="defaultValue">default argument value when not found</param>
+    /// <param name="args">arguments</param>
+    /// <returns>argument value</returns>
+    [return: NotNullIfNotNull(nameof(defaultValue))]
+    public static string? Val(string optionName, string? defaultValue = default, string[]? args = null)
+    {
+        return GetOptionValueInternal(args ?? Environment.GetCommandLineArgs(), optionName) ?? defaultValue;
+    }
+
+    private static string? GetOptionValueInternal(string[] args, string argumentName)
     {
         for (var i = 0; i < args.Length; i++)
         {
@@ -114,7 +127,7 @@ public static class CommandLineParser
                 return args[i + 1];
             }
 
-            if (args[i].StartsWith($"-{argumentName}=", StringComparison.Ordinal) 
+            if (args[i].StartsWith($"-{argumentName}=", StringComparison.Ordinal)
                 || args[i].StartsWith($"-{argumentName}:", StringComparison.Ordinal))
                 return args[i][$"-{argumentName}=".Length..];
 

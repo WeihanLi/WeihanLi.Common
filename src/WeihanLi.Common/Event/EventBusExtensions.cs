@@ -30,7 +30,7 @@ public static class EventBusExtensions
         services.TryAddSingleton<IEventQueue, EventQueueInMemory>();
         services.TryAddSingleton<IEventStore, EventStoreInMemory>();
         services.TryAddSingleton<IEventPublisher, EventQueuePublisher>();
-        
+
         return new EventBuilder(services);
     }
 
@@ -60,7 +60,7 @@ public static class EventBusExtensions
         var handlerTypes = assemblies
             .Select(ass => ass.GetTypes())
             .SelectMany(t => t)
-            .Where(t => !t.IsAbstract 
+            .Where(t => !t.IsAbstract
                         && typeof(IEventHandler).IsAssignableFrom(t)
                         && !(t.IsGenericType && t.GetGenericTypeDefinition() == typeof(DelegateEventHandler<>))
                         );
@@ -68,12 +68,12 @@ public static class EventBusExtensions
         {
             handlerTypes = handlerTypes.Where(filter);
         }
-        
+
         foreach (var handlerType in handlerTypes)
         {
             foreach (var implementedInterface in handlerType.GetTypeInfo().ImplementedInterfaces)
             {
-                if (implementedInterface.IsGenericType 
+                if (implementedInterface.IsGenericType
                     && typeof(IEventHandler<>) == implementedInterface.GetGenericTypeDefinition()
                     )
                 {

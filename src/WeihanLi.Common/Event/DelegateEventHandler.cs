@@ -18,7 +18,7 @@ public sealed class DelegateEventHandler<TEvent> : EventHandlerBase<TEvent>
             return Task.CompletedTask;
         };
     }
-    
+
     public DelegateEventHandler(Action<TEvent, EventProperties> action)
     {
         Guard.NotNull(action);
@@ -34,7 +34,7 @@ public sealed class DelegateEventHandler<TEvent> : EventHandlerBase<TEvent>
         Guard.NotNull(func);
         _func = (e, _) => func(e);
     }
-    
+
     public DelegateEventHandler(Func<TEvent, EventProperties, Task> func)
     {
         _func = Guard.NotNull(func);

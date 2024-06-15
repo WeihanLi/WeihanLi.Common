@@ -5,7 +5,7 @@ namespace WeihanLi.Common.Helpers;
 
 public static class SecurityHelper
 {
-    private static readonly char[] _constantLetterCharacters = 
+    private static readonly char[] _constantLetterCharacters =
     [
         'A',
         'B',
@@ -14,7 +14,7 @@ public static class SecurityHelper
         'E',
         'F',
         'G',
-        
+
         'H',
         'I',
         'J',
@@ -36,7 +36,7 @@ public static class SecurityHelper
         'Z'
     ];
 
-    private static readonly char[] _constantNumber = 
+    private static readonly char[] _constantNumber =
     [
         '0',
         '1',
@@ -49,8 +49,8 @@ public static class SecurityHelper
         '8',
         '9'
     ];
-    
-    private static readonly char[] _constantHexNumber = 
+
+    private static readonly char[] _constantHexNumber =
     [
         '0',
         '1',
@@ -111,7 +111,7 @@ public static class SecurityHelper
             var idx = Random.Next(maxLength);
             if (idx < _constantNumber.Length)
             {
-                charArray[i] = _constantNumber[idx];    
+                charArray[i] = _constantNumber[idx];
             }
             else
             {
@@ -121,7 +121,7 @@ public static class SecurityHelper
 
         return new string(charArray);
     }
-    
+
     public static string GenerateRandomCode(int length, RandomCodeType type)
     {
         if (type == RandomCodeType.LetterOrNumber) return GenerateRandomCode(length, false);
@@ -174,10 +174,10 @@ public static class SecurityHelper
     }
 
     public static string AesEncrypt(
-        string source, 
-        string key, 
+        string source,
+        string key,
         string? iv = null,
-        bool isLower = false, 
+        bool isLower = false,
         Action<Aes>? aesConfigure = null
         )
     {
@@ -192,12 +192,12 @@ public static class SecurityHelper
             aesAlg.Mode = CipherMode.CBC;
             aesAlg.IV = iv!.GetBytes();
         }
-        
+
         return aesAlg.Encrypt(source, key, isLower, aesConfigure);
     }
 
     public static string AesDecrypt(
-        string encryptedText, 
+        string encryptedText,
         string key,
         string? iv = null,
         Action<Aes>? aesConfigure = null
@@ -214,12 +214,12 @@ public static class SecurityHelper
             aesAlg.Mode = CipherMode.CBC;
             aesAlg.IV = iv!.GetBytes();
         }
-        
+
         return aesAlg.Decrypt(encryptedText, key, aesConfigure);
     }
 
-    public static string Encrypt<TAlgorithm>(this TAlgorithm algorithm, 
-        string source, string key, 
+    public static string Encrypt<TAlgorithm>(this TAlgorithm algorithm,
+        string source, string key,
         bool isLowerCase = false,
         Action<TAlgorithm>? algorithmConfigure = null
         ) where TAlgorithm : SymmetricAlgorithm
@@ -229,7 +229,7 @@ public static class SecurityHelper
         return encryptedBytes.ToHexString(isLowerCase);
     }
 
-    public static byte[] Encrypt<TAlgorithm>(this TAlgorithm algorithm, 
+    public static byte[] Encrypt<TAlgorithm>(this TAlgorithm algorithm,
         byte[] source, byte[] key, Action<TAlgorithm>? algorithmConfigure = null
     ) where TAlgorithm : SymmetricAlgorithm
     {
@@ -240,8 +240,8 @@ public static class SecurityHelper
         return encryptor.TransformFinalBlock(source, 0, source.Length);
     }
 
-    public static string Decrypt<TAlgorithm>(this TAlgorithm algorithm, 
-        string encryptedHexString, string key, 
+    public static string Decrypt<TAlgorithm>(this TAlgorithm algorithm,
+        string encryptedHexString, string key,
         Action<TAlgorithm>? algorithmConfigure = null
     ) where TAlgorithm : SymmetricAlgorithm
     {
@@ -249,7 +249,7 @@ public static class SecurityHelper
         return encryptedBytes.GetString();
     }
 
-    public static byte[] Decrypt<TAlgorithm>(this TAlgorithm algorithm, 
+    public static byte[] Decrypt<TAlgorithm>(this TAlgorithm algorithm,
         byte[] encrypted, byte[] key, Action<TAlgorithm>? algorithmConfigure = null
     ) where TAlgorithm : SymmetricAlgorithm
     {
