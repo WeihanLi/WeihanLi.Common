@@ -91,20 +91,6 @@ public static class CommandLineParser
     /// <summary>
     /// Get argument value from arguments
     /// </summary>
-    /// <param name="args">arguments</param>
-    /// <param name="argumentName">argument name to get value</param>
-    /// <param name="defaultValue">default argument value when not found</param>
-    /// <returns>argument value</returns>
-    [return: NotNullIfNotNull(nameof(defaultValue))]
-    [Obsolete("Please use Val instead")]
-    public static string? ArgValue(string[] args, string argumentName, string? defaultValue = default)
-    {
-        return GetOptionValueInternal(args, argumentName) ?? defaultValue;
-    }
-
-    /// <summary>
-    /// Get argument value from arguments
-    /// </summary>
     /// <param name="optionName">argument name to get value</param>
     /// <param name="defaultValue">default argument value when not found</param>
     /// <param name="args">arguments</param>
@@ -113,6 +99,18 @@ public static class CommandLineParser
     public static string? Val(string optionName, string? defaultValue = default, string[]? args = null)
     {
         return GetOptionValueInternal(args ?? Environment.GetCommandLineArgs(), optionName) ?? defaultValue;
+    }
+
+    /// <summary>
+    /// Get boolean argument value from arguments
+    /// </summary>
+    /// <param name="optionName">argument name to get value</param>
+    /// <param name="defaultValue">default argument value when not found</param>
+    /// <param name="args">arguments</param>
+    /// <returns>argument value</returns>
+    public static string? BooleanVal(string optionName, bool defaultValue = default, string[]? args = null)
+    {
+        return GetOptionValueInternal(args ?? Environment.GetCommandLineArgs(), optionName).ToBoolean(defaultValue);
     }
 
     private static string? GetOptionValueInternal(string[] args, string argumentName)
