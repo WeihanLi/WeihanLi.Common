@@ -109,7 +109,7 @@ public static class CommandLineParser
     /// <param name="defaultValue">default argument value when not found</param>
     /// <param name="args">arguments</param>
     /// <returns>argument value</returns>
-    public static string? BooleanVal(string optionName, bool defaultValue = default, string[]? args = null)
+    public static bool BooleanVal(string optionName, bool defaultValue = default, string[]? args = null)
     {
         return GetOptionValueInternal(args ?? Environment.GetCommandLineArgs(), optionName).ToBoolean(defaultValue);
     }
