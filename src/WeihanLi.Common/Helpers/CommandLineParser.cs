@@ -3,6 +3,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
+using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
