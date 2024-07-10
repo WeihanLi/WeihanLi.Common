@@ -8951,22 +8951,22 @@ references:
   commentId: T:WeihanLi.Common.Helpers.CommandLineParser
   fullName: WeihanLi.Common.Helpers.CommandLineParser
   nameWithType: CommandLineParser
-- uid: WeihanLi.Common.Helpers.CommandLineParser.ArgValue(System.String[],System.String,System.String)
-  name: ArgValue(string[], string, string?)
-  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_ArgValue_System_String___System_String_System_String_
-  commentId: M:WeihanLi.Common.Helpers.CommandLineParser.ArgValue(System.String[],System.String,System.String)
-  name.vb: ArgValue(String(), String, String)
-  fullName: WeihanLi.Common.Helpers.CommandLineParser.ArgValue(string[], string, string?)
-  fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.ArgValue(String(), String, String)
-  nameWithType: CommandLineParser.ArgValue(string[], string, string?)
-  nameWithType.vb: CommandLineParser.ArgValue(String(), String, String)
-- uid: WeihanLi.Common.Helpers.CommandLineParser.ArgValue*
-  name: ArgValue
-  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_ArgValue_
-  commentId: Overload:WeihanLi.Common.Helpers.CommandLineParser.ArgValue
+- uid: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(System.String,System.Boolean,System.String[])
+  name: BooleanVal(string, bool, string[]?)
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_BooleanVal_System_String_System_Boolean_System_String___
+  commentId: M:WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(System.String,System.Boolean,System.String[])
+  name.vb: BooleanVal(String, Boolean, String())
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(string, bool, string[]?)
+  fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(String, Boolean, String())
+  nameWithType: CommandLineParser.BooleanVal(string, bool, string[]?)
+  nameWithType.vb: CommandLineParser.BooleanVal(String, Boolean, String())
+- uid: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal*
+  name: BooleanVal
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_BooleanVal_
+  commentId: Overload:WeihanLi.Common.Helpers.CommandLineParser.BooleanVal
   isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.CommandLineParser.ArgValue
-  nameWithType: CommandLineParser.ArgValue
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal
+  nameWithType: CommandLineParser.BooleanVal
 - uid: WeihanLi.Common.Helpers.CommandLineParser.ParseLine(System.String,WeihanLi.Common.Helpers.LineParseOptions)
   name: ParseLine(string, LineParseOptions?)
   href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_ParseLine_System_String_WeihanLi_Common_Helpers_LineParseOptions_

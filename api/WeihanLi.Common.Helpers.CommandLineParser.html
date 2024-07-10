@@ -73,7 +73,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Helpers_CommandLineParser" data-uid="WeihanLi.Common.Helpers.CommandLineParser" class="text-break">
-Class CommandLineParser  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandLineParser.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class CommandLineParser  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandLineParser.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -148,38 +148,37 @@ Class CommandLineParser  <a class="header-action link-secondary" title="View sou
 </h2>
 
 
-  <a id="WeihanLi_Common_Helpers_CommandLineParser_ArgValue_" data-uid="WeihanLi.Common.Helpers.CommandLineParser.ArgValue*"></a>
+  <a id="WeihanLi_Common_Helpers_CommandLineParser_BooleanVal_" data-uid="WeihanLi.Common.Helpers.CommandLineParser.BooleanVal*"></a>
 
-  <h3 id="WeihanLi_Common_Helpers_CommandLineParser_ArgValue_System_String___System_String_System_String_" data-uid="WeihanLi.Common.Helpers.CommandLineParser.ArgValue(System.String[],System.String,System.String)">
-  ArgValue(string[], string, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandLineParser.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Helpers_CommandLineParser_BooleanVal_System_String_System_Boolean_System_String___" data-uid="WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(System.String,System.Boolean,System.String[])">
+  BooleanVal(string, bool, string[]?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandLineParser.cs/#L112"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Get argument value from arguments</p>
+  <div class="markdown level1 summary"><p>Get boolean argument value from arguments</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Please use Val instead&quot;)]
-public static string? ArgValue(string[] args, string argumentName, string? defaultValue = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool BooleanVal(string optionName, bool defaultValue = false, string[]? args = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
-    <dd><p>arguments</p>
-</dd>
-    <dt><code>argumentName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dt><code>optionName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>argument name to get value</p>
 </dd>
-    <dt><code>defaultValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dt><code>defaultValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>default argument value when not found</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>arguments</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>argument value</p>
 </dd>
   </dl>
@@ -198,7 +197,7 @@ public static string? ArgValue(string[] args, string argumentName, string? defau
 
   <h3 id="WeihanLi_Common_Helpers_CommandLineParser_ParseLine_System_String_WeihanLi_Common_Helpers_LineParseOptions_" data-uid="WeihanLi.Common.Helpers.CommandLineParser.ParseLine(System.String,WeihanLi.Common.Helpers.LineParseOptions)">
   ParseLine(string, LineParseOptions?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandLineParser.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandLineParser.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -236,7 +235,7 @@ public static string? ArgValue(string[] args, string argumentName, string? defau
 
   <h3 id="WeihanLi_Common_Helpers_CommandLineParser_Val_System_String_System_String_System_String___" data-uid="WeihanLi.Common.Helpers.CommandLineParser.Val(System.String,System.String,System.String[])">
   Val(string, string?, string[]?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandLineParser.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandLineParser.cs/#L99"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get argument value from arguments</p>
@@ -281,7 +280,7 @@ public static string? ArgValue(string[] args, string argumentName, string? defau
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandLineParser.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandLineParser.cs/#L10" class="edit-link">Edit this page</a>
         </div>
 
 
