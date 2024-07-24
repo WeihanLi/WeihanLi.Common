@@ -26,6 +26,8 @@ public static class ServiceCollectionExtensions
         return new FluentAspectsBuilder(serviceCollection);
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection AddProxyService<TService, TImplement>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
         where TImplement : TService
         where TService : class
@@ -38,6 +40,8 @@ public static class ServiceCollectionExtensions
         return serviceCollection;
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection AddSingletonProxy<TService, TImplement>(this IServiceCollection serviceCollection)
         where TImplement : TService
         where TService : class
@@ -45,6 +49,8 @@ public static class ServiceCollectionExtensions
         return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Singleton);
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection AddScopedProxy<TService, TImplement>(this IServiceCollection serviceCollection)
         where TImplement : TService
         where TService : class
@@ -52,6 +58,8 @@ public static class ServiceCollectionExtensions
         return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Scoped);
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection AddTransientProxy<TService, TImplement>(this IServiceCollection serviceCollection)
         where TImplement : TService
         where TService : class
@@ -59,6 +67,8 @@ public static class ServiceCollectionExtensions
         return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Transient);
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection AddProxyService<TService>(this IServiceCollection serviceCollection, ServiceLifetime serviceLifetime)
         where TService : class
     {
@@ -71,18 +81,26 @@ public static class ServiceCollectionExtensions
         return serviceCollection;
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection AddSingletonProxy<TService>(this IServiceCollection serviceCollection)
         where TService : class =>
         serviceCollection.AddProxyService<TService>(ServiceLifetime.Singleton);
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection AddScopedProxy<TService>(this IServiceCollection serviceCollection)
         where TService : class =>
         serviceCollection.AddProxyService<TService>(ServiceLifetime.Scoped);
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceCollection AddTransientProxy<TService>(this IServiceCollection serviceCollection)
         where TService : class =>
         serviceCollection.AddProxyService<TService>(ServiceLifetime.Transient);
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceProvider BuildFluentAspectsProvider(this IServiceCollection serviceCollection,
         Action<FluentAspectOptions>? optionsAction,
         Action<IFluentAspectsBuilder>? aspectBuildAction = null,
