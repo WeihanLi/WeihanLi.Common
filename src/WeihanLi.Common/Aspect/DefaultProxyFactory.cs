@@ -7,8 +7,6 @@ public sealed class DefaultProxyFactory
     (IProxyTypeFactory proxyTypeFactory, IServiceProvider? serviceProvider = null) : IProxyFactory
 {
     public static readonly IProxyFactory Instance = new DefaultProxyFactory(DefaultProxyTypeFactory.Instance);
-
-    private readonly IProxyTypeFactory _proxyTypeFactory = proxyTypeFactory;
     private readonly IServiceProvider _serviceProvider = serviceProvider ?? DependencyResolver.Current;
 
     [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
@@ -17,7 +15,7 @@ public sealed class DefaultProxyFactory
     {
         Guard.NotNull(serviceType);
 
-        var proxyType = _proxyTypeFactory.CreateProxyType(serviceType);
+        var proxyType = proxyTypeFactory.CreateProxyType(serviceType);
         var proxy = _serviceProvider.CreateInstance(proxyType, arguments);
         return proxy;
     }
@@ -29,7 +27,7 @@ public sealed class DefaultProxyFactory
         Guard.NotNull(serviceType);
         Guard.NotNull(implementType);
 
-        var proxyType = _proxyTypeFactory.CreateProxyType(serviceType, implementType);
+        var proxyType = proxyTypeFactory.CreateProxyType(serviceType, implementType);
         if (serviceType.IsInterface)
         {
             var implement = _serviceProvider.CreateInstance(implementType, arguments);
@@ -51,8 +49,8 @@ public sealed class DefaultProxyFactory
         var implementType = implement.GetType();
 
         var proxyType = serviceType.IsClass
-                ? _proxyTypeFactory.CreateProxyType(serviceType)
-                : _proxyTypeFactory.CreateProxyType(serviceType, implementType)
+                ? proxyTypeFactory.CreateProxyType(serviceType)
+                : proxyTypeFactory.CreateProxyType(serviceType, implementType)
             ;
         var proxy = _serviceProvider.CreateInstance(proxyType, arguments);
         ProxyUtils.SetProxyTarget(proxy, implement);

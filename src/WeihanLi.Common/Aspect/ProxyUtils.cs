@@ -426,6 +426,8 @@ internal static class ProxyUtils
         }
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static void SetProxyTarget(object? proxyService, object? target)
     {
         if (null != proxyService && null != target)
