@@ -3,8 +3,8 @@
 
 var target = CommandLineParser.Val("target", "Default", args);
 var apiKey = CommandLineParser.Val("apiKey", "", args);
-var stable = CommandLineParser.Val("stable", null, args).ToBoolean();
-var noPush = CommandLineParser.Val("noPush", null, args).ToBoolean();
+var stable = CommandLineParser.BooleanVal("stable", false, args);
+var noPush = CommandLineParser.BooleanVal("noPush", false, args);
 var branchName = EnvHelper.Val("BUILD_SOURCEBRANCHNAME", "local");
 
 var solutionPath = "./WeihanLi.Common.sln";
