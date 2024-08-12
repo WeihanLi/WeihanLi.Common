@@ -8,7 +8,6 @@
     <PackageSummary>common libarary,extensions helpers and useful utilities</PackageSummary>
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
     <NoWarn>$(NoWarn);1591;DE0003;SYSLIB0014;</NoWarn>
-    <LangVersion>Preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

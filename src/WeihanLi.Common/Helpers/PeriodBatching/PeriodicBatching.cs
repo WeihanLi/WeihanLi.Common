@@ -32,7 +32,7 @@ public abstract class PeriodicBatching<TEvent> : IDisposable where TEvent : clas
     private readonly BoundedConcurrentQueue<TEvent> _queue;
     private readonly BatchedConnectionStatus _status;
     private readonly Queue<TEvent> _waitingBatch = new();
-    private readonly Lock _stateLock = new();
+    private readonly object _stateLock = new();
     private readonly PortableTimer _timer;
     private bool _unloading;
     private bool _started;

@@ -10,7 +10,6 @@
     <PackageReleaseNotes>
       https://github.com/WeihanLi/WeihanLi.Common/blob/dev/docs/ReleaseNotes.md
     </PackageReleaseNotes>
-    <LangVersion>Preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Serilog" />
