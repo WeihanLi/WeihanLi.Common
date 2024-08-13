@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System.Diagnostics.CodeAnalysis;
 using WeihanLi.Common.DependencyInjection;
 
 namespace WeihanLi.Common;
@@ -10,7 +9,7 @@ namespace WeihanLi.Common;
 /// </summary>
 public static class DependencyResolver
 {
-    private static readonly Lock _lock = new();
+    private static readonly object _lock = new();
     public static IDependencyResolver Current { get; private set; } = new DefaultDependencyResolver();
 
     public static TService? ResolveService<TService>() => Current.ResolveService<TService>();

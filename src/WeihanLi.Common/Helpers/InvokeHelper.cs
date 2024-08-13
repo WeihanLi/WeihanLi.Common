@@ -96,7 +96,7 @@ public static class InvokeHelper
 
     public static Action<Exception>? OnInvokeException { get; set; }
 
-    private static readonly Lock _exitLock = new();
+    private static readonly object _exitLock = new();
     private static volatile bool _exited;
     private static readonly Lazy<CancellationTokenSource> LazyCancellationTokenSource = new();
     private static void InvokeExitHandler(object? sender, EventArgs? args)
