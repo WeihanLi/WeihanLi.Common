@@ -23,7 +23,7 @@
     <PackageReference Include="System.ComponentModel.Annotations" />
     <PackageReference Include="Microsoft.CSharp" PrivateAssets="All" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard2.1' OR '$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net7.0' OR '$(TargetFramework)' == 'net8.0'">
+  <ItemGroup Condition="!$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net9.0'))">
     <PackageReference Include="Backport.System.Threading.Lock" />
   </ItemGroup>
   <ItemGroup>
