@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace WeihanLi.Common.Helpers;
 
 // https://github.dev/dotnet/sdk/blob/5c99629b15ef721440e61007b88088d0cc1d3c49/src/Resolvers/Microsoft.DotNet.NativeWrapper/Interop.cs#L182
-internal static class Interop
+internal static class InteropHelper
 {
     public static readonly bool RunningOnWindows = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
 
