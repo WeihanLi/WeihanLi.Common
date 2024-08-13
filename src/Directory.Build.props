@@ -26,6 +26,7 @@
     <LangVersion>Preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Using Include="System.Object" Alias="Lock" Condition="!$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net9.0'))" />
     <None Include="README.md" Pack="true" PackagePath="\" />
     <None Include="$([MSBuild]::GetPathOfFileAbove('icon.jpg', '$(MSBuildThisFileDirectory)../'))" Pack="true" Visible="false" PackagePath=""/>
   </ItemGroup>
