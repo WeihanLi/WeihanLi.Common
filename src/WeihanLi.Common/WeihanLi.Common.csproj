@@ -12,7 +12,7 @@
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <!-- https://learn.microsoft.com/en-us/visualstudio/msbuild/property-functions?view=vs-2022#msbuild-targetframework-and-targetplatform-functions -->
-    <IsAotCompatible>$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))</IsAotCompatible>
+    <IsAotCompatible>$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net9.0'))</IsAotCompatible>
     <!-- DynamicallyAccessedMembers not included by default https://github.com/Sergio0694/PolySharp/issues/84#issuecomment-1751772472 -->
     <PolySharpIncludeRuntimeSupportedAttributes>true</PolySharpIncludeRuntimeSupportedAttributes>
   </PropertyGroup>  
@@ -34,6 +34,7 @@
     <AssemblyAttribute Include="System.CLSCompliantAttribute">
       <_Parameter1>true</_Parameter1>
     </AssemblyAttribute>
+    <Using Include="System.Diagnostics.CodeAnalysis" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />

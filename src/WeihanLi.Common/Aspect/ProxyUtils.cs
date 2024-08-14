@@ -17,7 +17,7 @@ internal static class ProxyUtils
     private static readonly Dictionary<string, Type> _proxyTypes = [];
 
     private const string TargetFieldName = "__target";
-    private static readonly object _typeLock = new();
+    private static readonly Lock _typeLock = new();
 
     private static readonly Func<Type, Type?, string> _proxyTypeNameResolver;
 
@@ -426,6 +426,8 @@ internal static class ProxyUtils
         }
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static void SetProxyTarget(object? proxyService, object? target)
     {
         if (null != proxyService && null != target)

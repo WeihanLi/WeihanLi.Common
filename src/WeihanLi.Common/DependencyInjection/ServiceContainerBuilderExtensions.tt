@@ -10,6 +10,12 @@ namespace WeihanLi.Common.DependencyInjection;
 
 public static partial class ServiceContainerBuilderExtensions
 {
+#region warning disable
+#pragma warning disable IL2026
+#pragma warning disable IL2067
+#pragma warning disable IL2091
+#endregion
+
 <#
             var lifetimes= new []{ "Singleton", "Scoped", "Transient" };
             var prefixes= new [] {"", "Try"};

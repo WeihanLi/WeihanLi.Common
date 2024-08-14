@@ -27,37 +27,37 @@ public static partial class ServiceContainerBuilderExtensions
         return serviceContainerBuilder;
     }
 
-    public static IServiceContainerBuilder AddSingleton<TService, TServiceImplement>(this IServiceContainerBuilder serviceContainerBuilder) where TServiceImplement : TService
+    public static IServiceContainerBuilder AddSingleton<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TServiceImplement>(this IServiceContainerBuilder serviceContainerBuilder) where TServiceImplement : TService
     {
         serviceContainerBuilder.Add(ServiceDefinition.Singleton<TService, TServiceImplement>());
         return serviceContainerBuilder;
     }
 
-    public static IServiceContainerBuilder AddScoped(this IServiceContainerBuilder serviceContainerBuilder, Type serviceType)
+    public static IServiceContainerBuilder AddScoped(this IServiceContainerBuilder serviceContainerBuilder, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]Type serviceType)
     {
         serviceContainerBuilder.Add(new ServiceDefinition(serviceType, ServiceLifetime.Scoped));
         return serviceContainerBuilder;
     }
 
-    public static IServiceContainerBuilder AddScoped(this IServiceContainerBuilder serviceContainerBuilder, Type serviceType, Type implementType)
+    public static IServiceContainerBuilder AddScoped(this IServiceContainerBuilder serviceContainerBuilder, Type serviceType, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]Type implementType)
     {
         serviceContainerBuilder.Add(new ServiceDefinition(serviceType, implementType, ServiceLifetime.Scoped));
         return serviceContainerBuilder;
     }
 
-    public static IServiceContainerBuilder AddScoped<TService>(this IServiceContainerBuilder serviceContainerBuilder, Func<IServiceProvider, object> func)
+    public static IServiceContainerBuilder AddScoped<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TService>(this IServiceContainerBuilder serviceContainerBuilder, Func<IServiceProvider, object> func)
     {
         serviceContainerBuilder.Add(ServiceDefinition.Scoped<TService>(func));
         return serviceContainerBuilder;
     }
 
-    public static IServiceContainerBuilder AddScoped<TService>(this IServiceContainerBuilder serviceContainerBuilder)
+    public static IServiceContainerBuilder AddScoped<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TService>(this IServiceContainerBuilder serviceContainerBuilder)
     {
         serviceContainerBuilder.Add(ServiceDefinition.Scoped<TService>());
         return serviceContainerBuilder;
     }
 
-    public static IServiceContainerBuilder AddScoped<TService, TServiceImplement>(this IServiceContainerBuilder serviceContainerBuilder) where TServiceImplement : TService
+    public static IServiceContainerBuilder AddScoped<TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TServiceImplement>(this IServiceContainerBuilder serviceContainerBuilder) where TServiceImplement : TService
     {
         serviceContainerBuilder.Add(ServiceDefinition.Scoped<TService, TServiceImplement>());
         return serviceContainerBuilder;

@@ -73,11 +73,11 @@ public static class ApplicationHelper
 
         var dotnetExe = GetDotnetPath();
 
-        if (dotnetExe.IsNotNullOrEmpty() && !Interop.RunningOnWindows)
+        if (dotnetExe.IsNotNullOrEmpty() && !InteropHelper.RunningOnWindows)
         {
             // e.g. on Linux the 'dotnet' command from PATH is a symlink so we need to
             // resolve it to get the actual path to the binary
-            dotnetExe = Interop.Unix.RealPath(dotnetExe) ?? dotnetExe;
+            dotnetExe = InteropHelper.Unix.RealPath(dotnetExe) ?? dotnetExe;
         }
 
         if (string.IsNullOrWhiteSpace(dotnetExe))
