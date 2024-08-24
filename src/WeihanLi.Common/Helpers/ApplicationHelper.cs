@@ -63,6 +63,24 @@ public static class ApplicationHelper
     /// </summary>
     public static string? GetDotnetPath()
     {
+        var environmentOverride = Environment.GetEnvironmentVariable("DOTNET_ROOT");
+        if (!string.IsNullOrEmpty(environmentOverride) && Directory.Exists(environmentOverride))
+        {
+            var execFileName =
+#if NET6_0_OR_GREATER
+                OperatingSystem.IsWindows()
+#else
+                RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
+#endif
+                ? "dotnet.exe"
+                : "dotnet"
+                ;
+            var dotnetExePath = Path.Combine(environmentOverride, execFileName);
+            if (File.Exists(dotnetExePath))
+                return dotnetExePath;
+
+            throw new InvalidOperationException($"dotnet executable file not found under specified DOTNET_ROOT {environmentOverride}");
+        }
         return ResolvePath("dotnet");
     }
 
@@ -78,7 +96,7 @@ public static class ApplicationHelper
 
         if (dotnetExe.IsNotNullOrEmpty() && !InteropHelper.RunningOnWindows)
         {
-            // e.g. on Linux the 'dotnet' command from PATH is a symlink so we need to
+            // e.g. on Linux the 'dotnet' command from PATH is a symbol link so we need to
             // resolve it to get the actual path to the binary
             dotnetExe = InteropHelper.Unix.RealPath(dotnetExe) ?? dotnetExe;
         }
@@ -97,15 +115,15 @@ public static class ApplicationHelper
 
     public static string? ResolvePath(string execName) => ResolvePath(execName, ".exe");
 
-    public static string? ResolvePath(string execName, string? ext)
+    public static string? ResolvePath(string execName, string? windowsExt)
     {
         var executableName = execName;
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
             && !Path.HasExtension(execName)
-            && string.IsNullOrEmpty(ext)
+            && !string.IsNullOrEmpty(windowsExt)
             )
         {
-            executableName += ext;
+            executableName = $"{executableName}{windowsExt}";
         }
         var searchPaths = Guard.NotNull(Environment.GetEnvironmentVariable("PATH"))
             .Split(new[] { Path.PathSeparator }, options: StringSplitOptions.RemoveEmptyEntries)
