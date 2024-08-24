@@ -229,11 +229,110 @@ Class ProcessExtension  <a class="header-action link-secondary" title="View sour
 
 
 
+  <a id="WeihanLi_Extensions_ProcessExtension_ExecuteProcess_" data-uid="WeihanLi.Extensions.ProcessExtension.ExecuteProcess*"></a>
+
+  <h3 id="WeihanLi_Extensions_ProcessExtension_ExecuteProcess_System_Diagnostics_ProcessStartInfo_System_IO_TextWriter_System_IO_TextWriter_System_Action_System_Diagnostics_Process__" data-uid="WeihanLi.Extensions.ProcessExtension.ExecuteProcess(System.Diagnostics.ProcessStartInfo,System.IO.TextWriter,System.IO.TextWriter,System.Action{System.Diagnostics.Process})">
+  ExecuteProcess(ProcessStartInfo, TextWriter?, TextWriter?, Action&lt;Process&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ProcessExtension.cs/#L202"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Execute process</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Process ExecuteProcess(this ProcessStartInfo psi, TextWriter? stdOut = null, TextWriter? stdErr = null, Action&lt;Process&gt;? processStartAction = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>psi</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.processstartinfo">ProcessStartInfo</a></dt>
+    <dd><p>Process is started from this information</p>
+</dd>
+    <dt><code>stdOut</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></dt>
+    <dd><p>Defaults to Console.Out</p>
+</dd>
+    <dt><code>stdErr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></dt>
+    <dd><p>Defaults to Console.Error</p>
+</dd>
+    <dt><code>processStartAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.process">Process</a>&gt;</dt>
+    <dd><p>Action to execute when process start</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.process">Process</a></dt>
+    <dd><p>Process executed</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Extensions_ProcessExtension_ExecuteProcessAsync_" data-uid="WeihanLi.Extensions.ProcessExtension.ExecuteProcessAsync*"></a>
+
+  <h3 id="WeihanLi_Extensions_ProcessExtension_ExecuteProcessAsync_System_Diagnostics_ProcessStartInfo_System_IO_TextWriter_System_IO_TextWriter_System_Func_System_Diagnostics_Process_System_Threading_Tasks_Task__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.ProcessExtension.ExecuteProcessAsync(System.Diagnostics.ProcessStartInfo,System.IO.TextWriter,System.IO.TextWriter,System.Func{System.Diagnostics.Process,System.Threading.Tasks.Task},System.Threading.CancellationToken)">
+  ExecuteProcessAsync(ProcessStartInfo, TextWriter?, TextWriter?, Func&lt;Process, Task&gt;?, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ProcessExtension.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Execute process</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;Process&gt; ExecuteProcessAsync(this ProcessStartInfo psi, TextWriter? stdOut = null, TextWriter? stdErr = null, Func&lt;Process, Task&gt;? processStartAction = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>psi</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.processstartinfo">ProcessStartInfo</a></dt>
+    <dd><p>Process is started from this information</p>
+</dd>
+    <dt><code>stdOut</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></dt>
+    <dd><p>Defaults to Console.Out</p>
+</dd>
+    <dt><code>stdErr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.textwriter">TextWriter</a></dt>
+    <dd><p>Defaults to Console.Error</p>
+</dd>
+    <dt><code>processStartAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.process">Process</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</dt>
+    <dd><p>Action to execute when process start</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>cancellationToken</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.process">Process</a>&gt;</dt>
+    <dd><p>Process exit code</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Extensions_ProcessExtension_GetExitCode_" data-uid="WeihanLi.Extensions.ProcessExtension.GetExitCode*"></a>
 
   <h3 id="WeihanLi_Extensions_ProcessExtension_GetExitCode_System_Diagnostics_ProcessStartInfo_System_IO_TextWriter_System_IO_TextWriter_" data-uid="WeihanLi.Extensions.ProcessExtension.GetExitCode(System.Diagnostics.ProcessStartInfo,System.IO.TextWriter,System.IO.TextWriter)">
   GetExitCode(ProcessStartInfo, TextWriter?, TextWriter?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ProcessExtension.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ProcessExtension.cs/#L158"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Wait for process exit and get exit code</p>
@@ -278,7 +377,7 @@ Class ProcessExtension  <a class="header-action link-secondary" title="View sour
 
   <h3 id="WeihanLi_Extensions_ProcessExtension_GetExitCodeAsync_System_Diagnostics_ProcessStartInfo_System_IO_TextWriter_System_IO_TextWriter_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.ProcessExtension.GetExitCodeAsync(System.Diagnostics.ProcessStartInfo,System.IO.TextWriter,System.IO.TextWriter,System.Threading.CancellationToken)">
   GetExitCodeAsync(ProcessStartInfo, TextWriter?, TextWriter?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ProcessExtension.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ProcessExtension.cs/#L180"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Wait for process exit and get exit code</p>
@@ -365,7 +464,7 @@ Class ProcessExtension  <a class="header-action link-secondary" title="View sour
 
   <h3 id="WeihanLi_Extensions_ProcessExtension_GetResultAsync_System_Diagnostics_ProcessStartInfo_System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.ProcessExtension.GetResultAsync(System.Diagnostics.ProcessStartInfo,System.Threading.CancellationToken)">
   GetResultAsync(ProcessStartInfo, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ProcessExtension.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ProcessExtension.cs/#L121"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get process execute result</p>
@@ -407,7 +506,7 @@ Class ProcessExtension  <a class="header-action link-secondary" title="View sour
 
   <h3 id="WeihanLi_Extensions_ProcessExtension_TryKill_System_Diagnostics_Process_System_Boolean_" data-uid="WeihanLi.Extensions.ProcessExtension.TryKill(System.Diagnostics.Process,System.Boolean)">
   TryKill(Process, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ProcessExtension.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/ProcessExtension.cs/#L285"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Try kill process</p>

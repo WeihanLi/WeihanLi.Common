@@ -5943,19 +5943,6 @@ references:
   fullName.vb: WeihanLi.Common.Event.EventBus.PublishAsync(Of TEvent)(TEvent, WeihanLi.Common.Event.EventProperties)
   nameWithType: EventBus.PublishAsync<TEvent>(TEvent, EventProperties?)
   nameWithType.vb: EventBus.PublishAsync(Of TEvent)(TEvent, EventProperties)
-- uid: WeihanLi.Common.Event.EventBus.Subscribe(System.Type,System.Type)
-  name: Subscribe(Type, Type)
-  href: api/WeihanLi.Common.Event.EventBus.html#WeihanLi_Common_Event_EventBus_Subscribe_System_Type_System_Type_
-  commentId: M:WeihanLi.Common.Event.EventBus.Subscribe(System.Type,System.Type)
-  fullName: WeihanLi.Common.Event.EventBus.Subscribe(System.Type, System.Type)
-  nameWithType: EventBus.Subscribe(Type, Type)
-- uid: WeihanLi.Common.Event.EventBus.Subscribe*
-  name: Subscribe
-  href: api/WeihanLi.Common.Event.EventBus.html#WeihanLi_Common_Event_EventBus_Subscribe_
-  commentId: Overload:WeihanLi.Common.Event.EventBus.Subscribe
-  isSpec: "True"
-  fullName: WeihanLi.Common.Event.EventBus.Subscribe
-  nameWithType: EventBus.Subscribe
 - uid: WeihanLi.Common.Event.EventBus.SubscribeAsync(System.Type,System.Type)
   name: SubscribeAsync(Type, Type)
   href: api/WeihanLi.Common.Event.EventBus.html#WeihanLi_Common_Event_EventBus_SubscribeAsync_System_Type_System_Type_
@@ -5978,19 +5965,6 @@ references:
   fullName.vb: WeihanLi.Common.Event.EventBus.SubscribeAsync(Of TEvent)(WeihanLi.Common.Event.IEventHandler(Of TEvent))
   nameWithType: EventBus.SubscribeAsync<TEvent>(IEventHandler<TEvent>)
   nameWithType.vb: EventBus.SubscribeAsync(Of TEvent)(IEventHandler(Of TEvent))
-- uid: WeihanLi.Common.Event.EventBus.UnSubscribe(System.Type,System.Type)
-  name: UnSubscribe(Type, Type)
-  href: api/WeihanLi.Common.Event.EventBus.html#WeihanLi_Common_Event_EventBus_UnSubscribe_System_Type_System_Type_
-  commentId: M:WeihanLi.Common.Event.EventBus.UnSubscribe(System.Type,System.Type)
-  fullName: WeihanLi.Common.Event.EventBus.UnSubscribe(System.Type, System.Type)
-  nameWithType: EventBus.UnSubscribe(Type, Type)
-- uid: WeihanLi.Common.Event.EventBus.UnSubscribe*
-  name: UnSubscribe
-  href: api/WeihanLi.Common.Event.EventBus.html#WeihanLi_Common_Event_EventBus_UnSubscribe_
-  commentId: Overload:WeihanLi.Common.Event.EventBus.UnSubscribe
-  isSpec: "True"
-  fullName: WeihanLi.Common.Event.EventBus.UnSubscribe
-  nameWithType: EventBus.UnSubscribe
 - uid: WeihanLi.Common.Event.EventBus.UnSubscribeAsync(System.Type,System.Type)
   name: UnSubscribeAsync(Type, Type)
   href: api/WeihanLi.Common.Event.EventBus.html#WeihanLi_Common_Event_EventBus_UnSubscribeAsync_System_Type_System_Type_
@@ -6427,19 +6401,6 @@ references:
   commentId: T:WeihanLi.Common.Event.EventSubscriberExtensions
   fullName: WeihanLi.Common.Event.EventSubscriberExtensions
   nameWithType: EventSubscriberExtensions
-- uid: WeihanLi.Common.Event.EventSubscriberExtensions.Subscribe(WeihanLi.Common.Event.IEventSubscriber,System.Type,System.Type)
-  name: Subscribe(IEventSubscriber, Type, Type)
-  href: api/WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_Subscribe_WeihanLi_Common_Event_IEventSubscriber_System_Type_System_Type_
-  commentId: M:WeihanLi.Common.Event.EventSubscriberExtensions.Subscribe(WeihanLi.Common.Event.IEventSubscriber,System.Type,System.Type)
-  fullName: WeihanLi.Common.Event.EventSubscriberExtensions.Subscribe(WeihanLi.Common.Event.IEventSubscriber, System.Type, System.Type)
-  nameWithType: EventSubscriberExtensions.Subscribe(IEventSubscriber, Type, Type)
-- uid: WeihanLi.Common.Event.EventSubscriberExtensions.Subscribe*
-  name: Subscribe
-  href: api/WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_Subscribe_
-  commentId: Overload:WeihanLi.Common.Event.EventSubscriberExtensions.Subscribe
-  isSpec: "True"
-  fullName: WeihanLi.Common.Event.EventSubscriberExtensions.Subscribe
-  nameWithType: EventSubscriberExtensions.Subscribe
 - uid: WeihanLi.Common.Event.EventSubscriberExtensions.SubscribeAsync*
   name: SubscribeAsync
   href: api/WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_SubscribeAsync_
@@ -6456,37 +6417,6 @@ references:
   fullName.vb: WeihanLi.Common.Event.EventSubscriberExtensions.SubscribeAsync(Of TEvent, TEventHandler)(WeihanLi.Common.Event.IEventSubscriber)
   nameWithType: EventSubscriberExtensions.SubscribeAsync<TEvent, TEventHandler>(IEventSubscriber)
   nameWithType.vb: EventSubscriberExtensions.SubscribeAsync(Of TEvent, TEventHandler)(IEventSubscriber)
-- uid: WeihanLi.Common.Event.EventSubscriberExtensions.Subscribe``1(WeihanLi.Common.Event.IEventSubscriber,System.Func{``0,System.Threading.Tasks.Task})
-  name: Subscribe<TEvent>(IEventSubscriber, Func<TEvent, Task>)
-  href: api/WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_Subscribe__1_WeihanLi_Common_Event_IEventSubscriber_System_Func___0_System_Threading_Tasks_Task__
-  commentId: M:WeihanLi.Common.Event.EventSubscriberExtensions.Subscribe``1(WeihanLi.Common.Event.IEventSubscriber,System.Func{``0,System.Threading.Tasks.Task})
-  name.vb: Subscribe(Of TEvent)(IEventSubscriber, Func(Of TEvent, Task))
-  fullName: WeihanLi.Common.Event.EventSubscriberExtensions.Subscribe<TEvent>(WeihanLi.Common.Event.IEventSubscriber, System.Func<TEvent, System.Threading.Tasks.Task>)
-  fullName.vb: WeihanLi.Common.Event.EventSubscriberExtensions.Subscribe(Of TEvent)(WeihanLi.Common.Event.IEventSubscriber, System.Func(Of TEvent, System.Threading.Tasks.Task))
-  nameWithType: EventSubscriberExtensions.Subscribe<TEvent>(IEventSubscriber, Func<TEvent, Task>)
-  nameWithType.vb: EventSubscriberExtensions.Subscribe(Of TEvent)(IEventSubscriber, Func(Of TEvent, Task))
-- uid: WeihanLi.Common.Event.EventSubscriberExtensions.Subscribe``2(WeihanLi.Common.Event.IEventSubscriber)
-  name: Subscribe<TEvent, TEventHandler>(IEventSubscriber)
-  href: api/WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_Subscribe__2_WeihanLi_Common_Event_IEventSubscriber_
-  commentId: M:WeihanLi.Common.Event.EventSubscriberExtensions.Subscribe``2(WeihanLi.Common.Event.IEventSubscriber)
-  name.vb: Subscribe(Of TEvent, TEventHandler)(IEventSubscriber)
-  fullName: WeihanLi.Common.Event.EventSubscriberExtensions.Subscribe<TEvent, TEventHandler>(WeihanLi.Common.Event.IEventSubscriber)
-  fullName.vb: WeihanLi.Common.Event.EventSubscriberExtensions.Subscribe(Of TEvent, TEventHandler)(WeihanLi.Common.Event.IEventSubscriber)
-  nameWithType: EventSubscriberExtensions.Subscribe<TEvent, TEventHandler>(IEventSubscriber)
-  nameWithType.vb: EventSubscriberExtensions.Subscribe(Of TEvent, TEventHandler)(IEventSubscriber)
-- uid: WeihanLi.Common.Event.EventSubscriberExtensions.UnSubscribe(WeihanLi.Common.Event.IEventSubscriber,System.Type,System.Type)
-  name: UnSubscribe(IEventSubscriber, Type, Type)
-  href: api/WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_UnSubscribe_WeihanLi_Common_Event_IEventSubscriber_System_Type_System_Type_
-  commentId: M:WeihanLi.Common.Event.EventSubscriberExtensions.UnSubscribe(WeihanLi.Common.Event.IEventSubscriber,System.Type,System.Type)
-  fullName: WeihanLi.Common.Event.EventSubscriberExtensions.UnSubscribe(WeihanLi.Common.Event.IEventSubscriber, System.Type, System.Type)
-  nameWithType: EventSubscriberExtensions.UnSubscribe(IEventSubscriber, Type, Type)
-- uid: WeihanLi.Common.Event.EventSubscriberExtensions.UnSubscribe*
-  name: UnSubscribe
-  href: api/WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_UnSubscribe_
-  commentId: Overload:WeihanLi.Common.Event.EventSubscriberExtensions.UnSubscribe
-  isSpec: "True"
-  fullName: WeihanLi.Common.Event.EventSubscriberExtensions.UnSubscribe
-  nameWithType: EventSubscriberExtensions.UnSubscribe
 - uid: WeihanLi.Common.Event.EventSubscriberExtensions.UnSubscribeAsync*
   name: UnSubscribeAsync
   href: api/WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_UnSubscribeAsync_
@@ -6503,15 +6433,6 @@ references:
   fullName.vb: WeihanLi.Common.Event.EventSubscriberExtensions.UnSubscribeAsync(Of TEvent, TEventHandler)(WeihanLi.Common.Event.IEventSubscriber)
   nameWithType: EventSubscriberExtensions.UnSubscribeAsync<TEvent, TEventHandler>(IEventSubscriber)
   nameWithType.vb: EventSubscriberExtensions.UnSubscribeAsync(Of TEvent, TEventHandler)(IEventSubscriber)
-- uid: WeihanLi.Common.Event.EventSubscriberExtensions.UnSubscribe``2(WeihanLi.Common.Event.IEventSubscriber)
-  name: UnSubscribe<TEvent, TEventHandler>(IEventSubscriber)
-  href: api/WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_UnSubscribe__2_WeihanLi_Common_Event_IEventSubscriber_
-  commentId: M:WeihanLi.Common.Event.EventSubscriberExtensions.UnSubscribe``2(WeihanLi.Common.Event.IEventSubscriber)
-  name.vb: UnSubscribe(Of TEvent, TEventHandler)(IEventSubscriber)
-  fullName: WeihanLi.Common.Event.EventSubscriberExtensions.UnSubscribe<TEvent, TEventHandler>(WeihanLi.Common.Event.IEventSubscriber)
-  fullName.vb: WeihanLi.Common.Event.EventSubscriberExtensions.UnSubscribe(Of TEvent, TEventHandler)(WeihanLi.Common.Event.IEventSubscriber)
-  nameWithType: EventSubscriberExtensions.UnSubscribe<TEvent, TEventHandler>(IEventSubscriber)
-  nameWithType.vb: EventSubscriberExtensions.UnSubscribe(Of TEvent, TEventHandler)(IEventSubscriber)
 - uid: WeihanLi.Common.Event.IEvent
   name: IEvent
   href: api/WeihanLi.Common.Event.IEvent.html
@@ -7381,6 +7302,15 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.ApplicationHelper.ResolvePath(String)
   nameWithType: ApplicationHelper.ResolvePath(string)
   nameWithType.vb: ApplicationHelper.ResolvePath(String)
+- uid: WeihanLi.Common.Helpers.ApplicationHelper.ResolvePath(System.String,System.String)
+  name: ResolvePath(string, string?)
+  href: api/WeihanLi.Common.Helpers.ApplicationHelper.html#WeihanLi_Common_Helpers_ApplicationHelper_ResolvePath_System_String_System_String_
+  commentId: M:WeihanLi.Common.Helpers.ApplicationHelper.ResolvePath(System.String,System.String)
+  name.vb: ResolvePath(String, String)
+  fullName: WeihanLi.Common.Helpers.ApplicationHelper.ResolvePath(string, string?)
+  fullName.vb: WeihanLi.Common.Helpers.ApplicationHelper.ResolvePath(String, String)
+  nameWithType: ApplicationHelper.ResolvePath(string, string?)
+  nameWithType.vb: ApplicationHelper.ResolvePath(String, String)
 - uid: WeihanLi.Common.Helpers.ApplicationHelper.ResolvePath*
   name: ResolvePath
   href: api/WeihanLi.Common.Helpers.ApplicationHelper.html#WeihanLi_Common_Helpers_ApplicationHelper_ResolvePath_
@@ -8951,15 +8881,15 @@ references:
   commentId: T:WeihanLi.Common.Helpers.CommandLineParser
   fullName: WeihanLi.Common.Helpers.CommandLineParser
   nameWithType: CommandLineParser
-- uid: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(System.String,System.Boolean,System.String[])
-  name: BooleanVal(string, bool, string[]?)
-  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_BooleanVal_System_String_System_Boolean_System_String___
-  commentId: M:WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(System.String,System.Boolean,System.String[])
-  name.vb: BooleanVal(String, Boolean, String())
-  fullName: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(string, bool, string[]?)
-  fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(String, Boolean, String())
-  nameWithType: CommandLineParser.BooleanVal(string, bool, string[]?)
-  nameWithType.vb: CommandLineParser.BooleanVal(String, Boolean, String())
+- uid: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(System.String,System.String[],System.Boolean)
+  name: BooleanVal(string, string[]?, bool)
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_BooleanVal_System_String_System_String___System_Boolean_
+  commentId: M:WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(System.String,System.String[],System.Boolean)
+  name.vb: BooleanVal(String, String(), Boolean)
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(string, string[]?, bool)
+  fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(String, String(), Boolean)
+  nameWithType: CommandLineParser.BooleanVal(string, string[]?, bool)
+  nameWithType.vb: CommandLineParser.BooleanVal(String, String(), Boolean)
 - uid: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal*
   name: BooleanVal
   href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_BooleanVal_
@@ -8983,15 +8913,15 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.CommandLineParser.ParseLine
   nameWithType: CommandLineParser.ParseLine
-- uid: WeihanLi.Common.Helpers.CommandLineParser.Val(System.String,System.String,System.String[])
-  name: Val(string, string?, string[]?)
-  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_Val_System_String_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.CommandLineParser.Val(System.String,System.String,System.String[])
-  name.vb: Val(String, String, String())
-  fullName: WeihanLi.Common.Helpers.CommandLineParser.Val(string, string?, string[]?)
-  fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.Val(String, String, String())
-  nameWithType: CommandLineParser.Val(string, string?, string[]?)
-  nameWithType.vb: CommandLineParser.Val(String, String, String())
+- uid: WeihanLi.Common.Helpers.CommandLineParser.Val(System.String,System.String[],System.String)
+  name: Val(string, string[]?, string?)
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_Val_System_String_System_String___System_String_
+  commentId: M:WeihanLi.Common.Helpers.CommandLineParser.Val(System.String,System.String[],System.String)
+  name.vb: Val(String, String(), String)
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.Val(string, string[]?, string?)
+  fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.Val(String, String(), String)
+  nameWithType: CommandLineParser.Val(string, string[]?, string?)
+  nameWithType.vb: CommandLineParser.Val(String, String(), String)
 - uid: WeihanLi.Common.Helpers.CommandLineParser.Val*
   name: Val
   href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_Val_
@@ -9040,22 +8970,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.CommandResult.EnsureSuccessExitCode
   nameWithType: CommandResult.EnsureSuccessExitCode
-- uid: WeihanLi.Common.Helpers.CommandResult.EnsureSuccessfulExitCode(System.Int32)
-  name: EnsureSuccessfulExitCode(int)
-  href: api/WeihanLi.Common.Helpers.CommandResult.html#WeihanLi_Common_Helpers_CommandResult_EnsureSuccessfulExitCode_System_Int32_
-  commentId: M:WeihanLi.Common.Helpers.CommandResult.EnsureSuccessfulExitCode(System.Int32)
-  name.vb: EnsureSuccessfulExitCode(Integer)
-  fullName: WeihanLi.Common.Helpers.CommandResult.EnsureSuccessfulExitCode(int)
-  fullName.vb: WeihanLi.Common.Helpers.CommandResult.EnsureSuccessfulExitCode(Integer)
-  nameWithType: CommandResult.EnsureSuccessfulExitCode(int)
-  nameWithType.vb: CommandResult.EnsureSuccessfulExitCode(Integer)
-- uid: WeihanLi.Common.Helpers.CommandResult.EnsureSuccessfulExitCode*
-  name: EnsureSuccessfulExitCode
-  href: api/WeihanLi.Common.Helpers.CommandResult.html#WeihanLi_Common_Helpers_CommandResult_EnsureSuccessfulExitCode_
-  commentId: Overload:WeihanLi.Common.Helpers.CommandResult.EnsureSuccessfulExitCode
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.CommandResult.EnsureSuccessfulExitCode
-  nameWithType: CommandResult.EnsureSuccessfulExitCode
 - uid: WeihanLi.Common.Helpers.CommandResult.ExitCode
   name: ExitCode
   href: api/WeihanLi.Common.Helpers.CommandResult.html#WeihanLi_Common_Helpers_CommandResult_ExitCode
@@ -9069,6 +8983,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.CommandResult.ExitCode
   nameWithType: CommandResult.ExitCode
+- uid: WeihanLi.Common.Helpers.CommandResult.ProcessId
+  name: ProcessId
+  href: api/WeihanLi.Common.Helpers.CommandResult.html#WeihanLi_Common_Helpers_CommandResult_ProcessId
+  commentId: P:WeihanLi.Common.Helpers.CommandResult.ProcessId
+  fullName: WeihanLi.Common.Helpers.CommandResult.ProcessId
+  nameWithType: CommandResult.ProcessId
+- uid: WeihanLi.Common.Helpers.CommandResult.ProcessId*
+  name: ProcessId
+  href: api/WeihanLi.Common.Helpers.CommandResult.html#WeihanLi_Common_Helpers_CommandResult_ProcessId_
+  commentId: Overload:WeihanLi.Common.Helpers.CommandResult.ProcessId
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.CommandResult.ProcessId
+  nameWithType: CommandResult.ProcessId
 - uid: WeihanLi.Common.Helpers.CommandResult.StandardError
   name: StandardError
   href: api/WeihanLi.Common.Helpers.CommandResult.html#WeihanLi_Common_Helpers_CommandResult_StandardError
@@ -14832,22 +14759,6 @@ references:
   commentId: T:WeihanLi.Common.Helpers.ValidateHelper
   fullName: WeihanLi.Common.Helpers.ValidateHelper
   nameWithType: ValidateHelper
-- uid: WeihanLi.Common.Helpers.ValidateHelper.IsDate(System.String)
-  name: IsDate(string?)
-  href: api/WeihanLi.Common.Helpers.ValidateHelper.html#WeihanLi_Common_Helpers_ValidateHelper_IsDate_System_String_
-  commentId: M:WeihanLi.Common.Helpers.ValidateHelper.IsDate(System.String)
-  name.vb: IsDate(String)
-  fullName: WeihanLi.Common.Helpers.ValidateHelper.IsDate(string?)
-  fullName.vb: WeihanLi.Common.Helpers.ValidateHelper.IsDate(String)
-  nameWithType: ValidateHelper.IsDate(string?)
-  nameWithType.vb: ValidateHelper.IsDate(String)
-- uid: WeihanLi.Common.Helpers.ValidateHelper.IsDate*
-  name: IsDate
-  href: api/WeihanLi.Common.Helpers.ValidateHelper.html#WeihanLi_Common_Helpers_ValidateHelper_IsDate_
-  commentId: Overload:WeihanLi.Common.Helpers.ValidateHelper.IsDate
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.ValidateHelper.IsDate
-  nameWithType: ValidateHelper.IsDate
 - uid: WeihanLi.Common.Helpers.ValidateHelper.IsEmail(System.String)
   name: IsEmail(string?)
   href: api/WeihanLi.Common.Helpers.ValidateHelper.html#WeihanLi_Common_Helpers_ValidateHelper_IsEmail_System_String_
@@ -14912,38 +14823,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.ValidateHelper.IsMobile
   nameWithType: ValidateHelper.IsMobile
-- uid: WeihanLi.Common.Helpers.ValidateHelper.IsNumeric(System.String)
-  name: IsNumeric(string?)
-  href: api/WeihanLi.Common.Helpers.ValidateHelper.html#WeihanLi_Common_Helpers_ValidateHelper_IsNumeric_System_String_
-  commentId: M:WeihanLi.Common.Helpers.ValidateHelper.IsNumeric(System.String)
-  name.vb: IsNumeric(String)
-  fullName: WeihanLi.Common.Helpers.ValidateHelper.IsNumeric(string?)
-  fullName.vb: WeihanLi.Common.Helpers.ValidateHelper.IsNumeric(String)
-  nameWithType: ValidateHelper.IsNumeric(string?)
-  nameWithType.vb: ValidateHelper.IsNumeric(String)
-- uid: WeihanLi.Common.Helpers.ValidateHelper.IsNumeric*
-  name: IsNumeric
-  href: api/WeihanLi.Common.Helpers.ValidateHelper.html#WeihanLi_Common_Helpers_ValidateHelper_IsNumeric_
-  commentId: Overload:WeihanLi.Common.Helpers.ValidateHelper.IsNumeric
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.ValidateHelper.IsNumeric
-  nameWithType: ValidateHelper.IsNumeric
-- uid: WeihanLi.Common.Helpers.ValidateHelper.IsPhone(System.String)
-  name: IsPhone(string?)
-  href: api/WeihanLi.Common.Helpers.ValidateHelper.html#WeihanLi_Common_Helpers_ValidateHelper_IsPhone_System_String_
-  commentId: M:WeihanLi.Common.Helpers.ValidateHelper.IsPhone(System.String)
-  name.vb: IsPhone(String)
-  fullName: WeihanLi.Common.Helpers.ValidateHelper.IsPhone(string?)
-  fullName.vb: WeihanLi.Common.Helpers.ValidateHelper.IsPhone(String)
-  nameWithType: ValidateHelper.IsPhone(string?)
-  nameWithType.vb: ValidateHelper.IsPhone(String)
-- uid: WeihanLi.Common.Helpers.ValidateHelper.IsPhone*
-  name: IsPhone
-  href: api/WeihanLi.Common.Helpers.ValidateHelper.html#WeihanLi_Common_Helpers_ValidateHelper_IsPhone_
-  commentId: Overload:WeihanLi.Common.Helpers.ValidateHelper.IsPhone
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.ValidateHelper.IsPhone
-  nameWithType: ValidateHelper.IsPhone
 - uid: WeihanLi.Common.Helpers.ValidateHelper.IsZipCode(System.String)
   name: IsZipCode(string?)
   href: api/WeihanLi.Common.Helpers.ValidateHelper.html#WeihanLi_Common_Helpers_ValidateHelper_IsZipCode_System_String_
@@ -28435,6 +28314,38 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.ProcessExtension.ExecuteAsync
   nameWithType: ProcessExtension.ExecuteAsync
+- uid: WeihanLi.Extensions.ProcessExtension.ExecuteProcess(System.Diagnostics.ProcessStartInfo,System.IO.TextWriter,System.IO.TextWriter,System.Action{System.Diagnostics.Process})
+  name: ExecuteProcess(ProcessStartInfo, TextWriter?, TextWriter?, Action<Process>?)
+  href: api/WeihanLi.Extensions.ProcessExtension.html#WeihanLi_Extensions_ProcessExtension_ExecuteProcess_System_Diagnostics_ProcessStartInfo_System_IO_TextWriter_System_IO_TextWriter_System_Action_System_Diagnostics_Process__
+  commentId: M:WeihanLi.Extensions.ProcessExtension.ExecuteProcess(System.Diagnostics.ProcessStartInfo,System.IO.TextWriter,System.IO.TextWriter,System.Action{System.Diagnostics.Process})
+  name.vb: ExecuteProcess(ProcessStartInfo, TextWriter, TextWriter, Action(Of Process))
+  fullName: WeihanLi.Extensions.ProcessExtension.ExecuteProcess(System.Diagnostics.ProcessStartInfo, System.IO.TextWriter?, System.IO.TextWriter?, System.Action<System.Diagnostics.Process>?)
+  fullName.vb: WeihanLi.Extensions.ProcessExtension.ExecuteProcess(System.Diagnostics.ProcessStartInfo, System.IO.TextWriter, System.IO.TextWriter, System.Action(Of System.Diagnostics.Process))
+  nameWithType: ProcessExtension.ExecuteProcess(ProcessStartInfo, TextWriter?, TextWriter?, Action<Process>?)
+  nameWithType.vb: ProcessExtension.ExecuteProcess(ProcessStartInfo, TextWriter, TextWriter, Action(Of Process))
+- uid: WeihanLi.Extensions.ProcessExtension.ExecuteProcess*
+  name: ExecuteProcess
+  href: api/WeihanLi.Extensions.ProcessExtension.html#WeihanLi_Extensions_ProcessExtension_ExecuteProcess_
+  commentId: Overload:WeihanLi.Extensions.ProcessExtension.ExecuteProcess
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.ProcessExtension.ExecuteProcess
+  nameWithType: ProcessExtension.ExecuteProcess
+- uid: WeihanLi.Extensions.ProcessExtension.ExecuteProcessAsync(System.Diagnostics.ProcessStartInfo,System.IO.TextWriter,System.IO.TextWriter,System.Func{System.Diagnostics.Process,System.Threading.Tasks.Task},System.Threading.CancellationToken)
+  name: ExecuteProcessAsync(ProcessStartInfo, TextWriter?, TextWriter?, Func<Process, Task>?, CancellationToken)
+  href: api/WeihanLi.Extensions.ProcessExtension.html#WeihanLi_Extensions_ProcessExtension_ExecuteProcessAsync_System_Diagnostics_ProcessStartInfo_System_IO_TextWriter_System_IO_TextWriter_System_Func_System_Diagnostics_Process_System_Threading_Tasks_Task__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.ProcessExtension.ExecuteProcessAsync(System.Diagnostics.ProcessStartInfo,System.IO.TextWriter,System.IO.TextWriter,System.Func{System.Diagnostics.Process,System.Threading.Tasks.Task},System.Threading.CancellationToken)
+  name.vb: ExecuteProcessAsync(ProcessStartInfo, TextWriter, TextWriter, Func(Of Process, Task), CancellationToken)
+  fullName: WeihanLi.Extensions.ProcessExtension.ExecuteProcessAsync(System.Diagnostics.ProcessStartInfo, System.IO.TextWriter?, System.IO.TextWriter?, System.Func<System.Diagnostics.Process, System.Threading.Tasks.Task>?, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.ProcessExtension.ExecuteProcessAsync(System.Diagnostics.ProcessStartInfo, System.IO.TextWriter, System.IO.TextWriter, System.Func(Of System.Diagnostics.Process, System.Threading.Tasks.Task), System.Threading.CancellationToken)
+  nameWithType: ProcessExtension.ExecuteProcessAsync(ProcessStartInfo, TextWriter?, TextWriter?, Func<Process, Task>?, CancellationToken)
+  nameWithType.vb: ProcessExtension.ExecuteProcessAsync(ProcessStartInfo, TextWriter, TextWriter, Func(Of Process, Task), CancellationToken)
+- uid: WeihanLi.Extensions.ProcessExtension.ExecuteProcessAsync*
+  name: ExecuteProcessAsync
+  href: api/WeihanLi.Extensions.ProcessExtension.html#WeihanLi_Extensions_ProcessExtension_ExecuteProcessAsync_
+  commentId: Overload:WeihanLi.Extensions.ProcessExtension.ExecuteProcessAsync
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.ProcessExtension.ExecuteProcessAsync
+  nameWithType: ProcessExtension.ExecuteProcessAsync
 - uid: WeihanLi.Extensions.ProcessExtension.GetExitCode(System.Diagnostics.ProcessStartInfo,System.IO.TextWriter,System.IO.TextWriter)
   name: GetExitCode(ProcessStartInfo, TextWriter?, TextWriter?)
   href: api/WeihanLi.Extensions.ProcessExtension.html#WeihanLi_Extensions_ProcessExtension_GetExitCode_System_Diagnostics_ProcessStartInfo_System_IO_TextWriter_System_IO_TextWriter_
