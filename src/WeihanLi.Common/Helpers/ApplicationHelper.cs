@@ -63,17 +63,30 @@ public static class ApplicationHelper
     /// </summary>
     public static string? GetDotnetPath()
     {
+        var environmentOverride = Environment.GetEnvironmentVariable("DOTNET_ROOT");
+        if (!string.IsNullOrEmpty(environmentOverride) && Directory.Exists(environmentOverride))
+        {
+            var execFileName =
+#if NET6_0_OR_GREATER
+                OperatingSystem.IsWindows()
+#else
+                RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
+#endif
+                ? "dotnet.exe"
+                : "dotnet"
+                ;
+            var dotnetExePath = Path.Combine(environmentOverride, execFileName);
+            if (File.Exists(dotnetExePath))
+                return dotnetExePath;
+
+            throw new InvalidOperationException($"dotnet executable file not found under specified DOTNET_ROOT {environmentOverride}");
+        }
         return ResolvePath("dotnet");
     }
 
     public static string GetDotnetDirectory()
     {
         var environmentOverride = Environment.GetEnvironmentVariable("DOTNET_MSBUILD_SDK_RESOLVER_CLI_DIR");
-        if (!string.IsNullOrEmpty(environmentOverride))
-        {
-            return environmentOverride;
-        }
-        environmentOverride = Environment.GetEnvironmentVariable("DOTNET_ROOT");
         if (!string.IsNullOrEmpty(environmentOverride))
         {
             return environmentOverride;
