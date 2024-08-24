@@ -73,12 +73,17 @@ public static class ApplicationHelper
         {
             return environmentOverride;
         }
+        environmentOverride = Environment.GetEnvironmentVariable("DOTNET_ROOT");
+        if (!string.IsNullOrEmpty(environmentOverride))
+        {
+            return environmentOverride;
+        }
 
         var dotnetExe = GetDotnetPath();
 
         if (dotnetExe.IsNotNullOrEmpty() && !InteropHelper.RunningOnWindows)
         {
-            // e.g. on Linux the 'dotnet' command from PATH is a symlink so we need to
+            // e.g. on Linux the 'dotnet' command from PATH is a symbol link so we need to
             // resolve it to get the actual path to the binary
             dotnetExe = InteropHelper.Unix.RealPath(dotnetExe) ?? dotnetExe;
         }
@@ -97,15 +102,15 @@ public static class ApplicationHelper
 
     public static string? ResolvePath(string execName) => ResolvePath(execName, ".exe");
 
-    public static string? ResolvePath(string execName, string? ext)
+    public static string? ResolvePath(string execName, string? windowsExt)
     {
         var executableName = execName;
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
             && !Path.HasExtension(execName)
-            && string.IsNullOrEmpty(ext)
+            && !string.IsNullOrEmpty(windowsExt)
             )
         {
-            executableName += ext;
+            executableName = $"{executableName}{windowsExt}";
         }
         var searchPaths = Guard.NotNull(Environment.GetEnvironmentVariable("PATH"))
             .Split(new[] { Path.PathSeparator }, options: StringSplitOptions.RemoveEmptyEntries)
