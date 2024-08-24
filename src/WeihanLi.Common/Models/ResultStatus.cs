@@ -26,7 +26,7 @@ public enum ResultStatus
     Accepted = 202,
 
     [Description("BadRequest, Request Parameter Error")]
-    [Obsolete("Please use BadRequest instead")]
+    [Obsolete("Please use BadRequest instead", true)]
     RequestError = 400,
 
     [Description("BadRequest")]
@@ -43,7 +43,7 @@ public enum ResultStatus
     Forbidden = 403,
 
     [Description("ResourceNotFound")]
-    [Obsolete("Please use NotFound instead")]
+    [Obsolete("Please use NotFound instead", true)]
     ResourceNotFound = 404,
 
     [Description("NotFound")]
@@ -59,7 +59,7 @@ public enum ResultStatus
     TooManyRequests = 429,
 
     [Description("Process failed, Server Internal Error")]
-    [Obsolete("Please use InternalError instead")]
+    [Obsolete("Please use InternalError instead", true)]
     ProcessFail = 500,
 
     [Description("InternalError")]
