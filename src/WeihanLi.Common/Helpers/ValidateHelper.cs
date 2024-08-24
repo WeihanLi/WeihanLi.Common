@@ -1,4 +1,7 @@
-﻿using System.Text.RegularExpressions;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using System.Text.RegularExpressions;
 
 namespace WeihanLi.Common.Helpers;
 
@@ -8,25 +11,10 @@ namespace WeihanLi.Common.Helpers;
 public static class ValidateHelper
 {
     //邮件正则表达式
-    private static readonly Regex _emailregex = new(@"^[a-z0-9]([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$", RegexOptions.IgnoreCase);
+    private static readonly Regex EmailRegex = new(@"^[a-z0-9]([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$", RegexOptions.IgnoreCase);
 
     //手机号正则表达式
-    private static readonly Regex _mobileregex = new("^1[3-9][0-9]{9}$", RegexOptions.Compiled);
-
-    //固话号正则表达式
-    private static readonly Regex _phoneregex = new(@"^(\d{3,4}-?)?\d{7,8}$");
-
-    //IP正则表达式
-    private static readonly Regex _ipregex = new(@"^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$");
-
-    //日期正则表达式
-    private static readonly Regex _dateregex = new(@"(\d{4})[-,/](\d{1,2})[-,/](\d{1,2})");
-
-    //数值(包括整数和小数)正则表达式
-    private static readonly Regex _numericregex = new(@"^[-]?[0-9]+(\.[0-9]+)?$");
-
-    //邮政编码正则表达式
-    private static readonly Regex _zipcoderegex = new(@"^\d{6}$");
+    private static readonly Regex MobileRegex = new("^1[2-9][0-9]{9}$", RegexOptions.Compiled);
 
     /// <summary>
     /// 是否为邮箱名
@@ -37,7 +25,7 @@ public static class ValidateHelper
         {
             return false;
         }
-        return _emailregex.IsMatch(s!);
+        return EmailRegex.IsMatch(s!);
     }
 
     /// <summary>
@@ -49,27 +37,22 @@ public static class ValidateHelper
         {
             return false;
         }
-        return _mobileregex.IsMatch(s!);
+        return MobileRegex.IsMatch(s!);
     }
 
     /// <summary>
-    /// 是否为固话号
-    /// </summary>
-    public static bool IsPhone(string? str)
-    {
-        if (string.IsNullOrEmpty(str))
-        {
-            return false;
-        }
-        return _phoneregex.IsMatch(str!);
-    }
-
-    /// <summary>
-    /// 是否为IP
+    /// 是否为 IP v4 地址
     /// </summary>
     public static bool IsIP(string s)
     {
-        return _ipregex.IsMatch(s);
+        if (string.IsNullOrEmpty(s))
+            return false;
+
+        var splits = s.Split('.');
+        if (splits.Length is not 4)
+            return false;
+
+        return splits.All(s => byte.TryParse(s, out _));
     }
 
     /// <summary>
@@ -156,38 +139,14 @@ public static class ValidateHelper
     }
 
     /// <summary>
-    /// 是否为日期
-    /// </summary>
-    public static bool IsDate(string? str)
-    {
-        if (string.IsNullOrEmpty(str))
-        {
-            return false;
-        }
-        return _dateregex.IsMatch(str!);
-    }
-
-    /// <summary>
-    /// 是否是数值(包括整数和小数)
-    /// </summary>
-    public static bool IsNumeric(string? numericStr)
-    {
-        if (string.IsNullOrEmpty(numericStr))
-        {
-            return false;
-        }
-        return _numericregex.IsMatch(numericStr!);
-    }
-
-    /// <summary>
     /// 是否为邮政编码
     /// </summary>
     public static bool IsZipCode(string? s)
     {
-        if (!string.IsNullOrEmpty(s))
+        if (string.IsNullOrEmpty(s))
         {
-            return _zipcoderegex.IsMatch(s!);
+            return false;
         }
-        return false;
+        return s!.Length is 6 && int.TryParse(s, out _);
     }
 }

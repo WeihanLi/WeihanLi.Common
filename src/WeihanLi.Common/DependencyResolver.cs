@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using Microsoft.Extensions.DependencyInjection;
 using WeihanLi.Common.DependencyInjection;
 
 namespace WeihanLi.Common;
@@ -54,7 +57,8 @@ public static class DependencyResolver
             return serviceProvider.GetService(serviceType);
         }
 
-        [RequiresUnreferencedCode("Calls WeihanLi.Common.DependencyInjectionExtensions.GetServices(Type)")]
+        [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+        [RequiresUnreferencedCode("Unreferenced code may be used")]
         public IEnumerable<object> GetServices(Type serviceType)
         {
             return serviceProvider.GetServices(serviceType);
