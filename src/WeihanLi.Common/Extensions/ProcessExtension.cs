@@ -175,7 +175,6 @@ public static class ProcessExtension
     /// <param name="psi">Process is started from this information</param>
     /// <param name="stdOut">Defaults to Console.Out</param>
     /// <param name="stdErr">Defaults to Console.Error</param>
-    /// <param name="processStartAction"></param>
     /// <param name="cancellationToken">cancellationToken</param>
     /// <returns>Process exit code</returns>
     public static async Task<int> GetExitCodeAsync(this ProcessStartInfo psi, TextWriter? stdOut = null,
@@ -192,6 +191,14 @@ public static class ProcessExtension
         }
     }
 
+    /// <summary>
+    /// Execute process
+    /// </summary>
+    /// <param name="psi">Process is started from this information</param>
+    /// <param name="stdOut">Defaults to Console.Out</param>
+    /// <param name="stdErr">Defaults to Console.Error</param>
+    /// <param name="processStartAction">Action to execute when process start</param>
+    /// <returns>Process executed</returns>
     public static Process ExecuteProcess(this ProcessStartInfo psi, TextWriter? stdOut = null,
         TextWriter? stdErr = null, Action<Process>? processStartAction = null)
     {
