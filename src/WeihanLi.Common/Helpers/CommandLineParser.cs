@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
-using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using WeihanLi.Extensions;
 
@@ -99,15 +98,15 @@ public static class CommandLineParser
     [return: NotNullIfNotNull(nameof(defaultValue))]
     public static string? Val(string optionName, string[]? args = null, string? defaultValue = default)
     {
-        return GetOptionValueInternal(args ?? Environment.GetCommandLineArgs(), optionName) ?? defaultValue;
+        return GetValueInternal(args ?? Environment.GetCommandLineArgs(), optionName) ?? defaultValue;
     }
 
     public static bool BooleanVal(string optionName, string[]? args = null, bool defaultValue = default)
     {
-        return GetOptionValueInternal(args ?? Environment.GetCommandLineArgs(), optionName).ToBoolean(defaultValue);
+        return GetValueInternal(args ?? Environment.GetCommandLineArgs(), optionName).ToBoolean(defaultValue);
     }
 
-    private static string? GetOptionValueInternal(string[] args, string argumentName)
+    private static string? GetValueInternal(string[] args, string argumentName)
     {
         for (var i = 0; i < args.Length; i++)
         {
