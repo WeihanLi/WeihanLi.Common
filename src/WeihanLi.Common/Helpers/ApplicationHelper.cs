@@ -235,7 +235,7 @@ public class LibraryInfo
     public required string RepositoryUrl { get; init; }
 }
 
-public sealed class RuntimeInfo : LibraryInfo
+public class RuntimeInfo : LibraryInfo
 {
     public required string Version { get; init; }
     public required string FrameworkDescription { get; init; }
