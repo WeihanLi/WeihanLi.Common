@@ -86,12 +86,6 @@ public static class ApplicationHelper
 
     public static string GetDotnetDirectory()
     {
-        var environmentOverride = Environment.GetEnvironmentVariable("DOTNET_MSBUILD_SDK_RESOLVER_CLI_DIR");
-        if (!string.IsNullOrEmpty(environmentOverride))
-        {
-            return environmentOverride;
-        }
-
         var dotnetExe = GetDotnetPath();
 
         if (dotnetExe.IsNotNullOrEmpty() && !InteropHelper.RunningOnWindows)
@@ -162,6 +156,7 @@ public static class ApplicationHelper
             OSDescription = RuntimeInformation.OSDescription,
             OSVersion = Environment.OSVersion.ToString(),
             MachineName = Environment.MachineName,
+            UserName = Environment.UserName,
 
             IsInContainer = IsInContainer(),
             IsInKubernetes = IsInKubernetesCluster(),
@@ -229,6 +224,7 @@ public sealed class RuntimeInfo : LibraryInfo
     public required string OSDescription { get; init; }
     public required string OSVersion { get; init; }
     public required string MachineName { get; init; }
+    public required string UserName { get; init; }
 
 #if NET6_0_OR_GREATER
     public required string RuntimeIdentifier { get; init; }
