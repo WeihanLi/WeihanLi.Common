@@ -14029,6 +14029,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.RuntimeInfo.IsInKubernetes
   nameWithType: RuntimeInfo.IsInKubernetes
+- uid: WeihanLi.Common.Helpers.RuntimeInfo.KubernetesNamespace
+  name: KubernetesNamespace
+  href: api/WeihanLi.Common.Helpers.RuntimeInfo.html#WeihanLi_Common_Helpers_RuntimeInfo_KubernetesNamespace
+  commentId: P:WeihanLi.Common.Helpers.RuntimeInfo.KubernetesNamespace
+  fullName: WeihanLi.Common.Helpers.RuntimeInfo.KubernetesNamespace
+  nameWithType: RuntimeInfo.KubernetesNamespace
+- uid: WeihanLi.Common.Helpers.RuntimeInfo.KubernetesNamespace*
+  name: KubernetesNamespace
+  href: api/WeihanLi.Common.Helpers.RuntimeInfo.html#WeihanLi_Common_Helpers_RuntimeInfo_KubernetesNamespace_
+  commentId: Overload:WeihanLi.Common.Helpers.RuntimeInfo.KubernetesNamespace
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.RuntimeInfo.KubernetesNamespace
+  nameWithType: RuntimeInfo.KubernetesNamespace
 - uid: WeihanLi.Common.Helpers.RuntimeInfo.MachineName
   name: MachineName
   href: api/WeihanLi.Common.Helpers.RuntimeInfo.html#WeihanLi_Common_Helpers_RuntimeInfo_MachineName
@@ -14120,6 +14133,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.RuntimeInfo.ProcessorCount
   nameWithType: RuntimeInfo.ProcessorCount
+- uid: WeihanLi.Common.Helpers.RuntimeInfo.UserName
+  name: UserName
+  href: api/WeihanLi.Common.Helpers.RuntimeInfo.html#WeihanLi_Common_Helpers_RuntimeInfo_UserName
+  commentId: P:WeihanLi.Common.Helpers.RuntimeInfo.UserName
+  fullName: WeihanLi.Common.Helpers.RuntimeInfo.UserName
+  nameWithType: RuntimeInfo.UserName
+- uid: WeihanLi.Common.Helpers.RuntimeInfo.UserName*
+  name: UserName
+  href: api/WeihanLi.Common.Helpers.RuntimeInfo.html#WeihanLi_Common_Helpers_RuntimeInfo_UserName_
+  commentId: Overload:WeihanLi.Common.Helpers.RuntimeInfo.UserName
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.RuntimeInfo.UserName
+  nameWithType: RuntimeInfo.UserName
 - uid: WeihanLi.Common.Helpers.RuntimeInfo.Version
   name: Version
   href: api/WeihanLi.Common.Helpers.RuntimeInfo.html#WeihanLi_Common_Helpers_RuntimeInfo_Version
