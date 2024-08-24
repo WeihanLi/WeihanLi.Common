@@ -26,6 +26,8 @@ public static class ServiceContainerBuilderExtensions
         return new FluentAspectsServiceContainerBuilder(serviceCollection);
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder AddProxyService<TService, TImplement>(this IServiceContainerBuilder serviceCollection, ServiceLifetime serviceLifetime)
         where TImplement : TService
         where TService : class
@@ -40,6 +42,8 @@ public static class ServiceContainerBuilderExtensions
         return serviceCollection;
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder AddSingletonProxy<TService, TImplement>(this IServiceContainerBuilder serviceCollection)
         where TImplement : TService
         where TService : class
@@ -48,6 +52,8 @@ public static class ServiceContainerBuilderExtensions
         return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Singleton);
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder AddScopedProxy<TService, TImplement>(this IServiceContainerBuilder serviceCollection)
         where TImplement : TService
         where TService : class
@@ -56,6 +62,8 @@ public static class ServiceContainerBuilderExtensions
         return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Scoped);
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder AddTransientProxy<TService, TImplement>(this IServiceContainerBuilder serviceCollection)
         where TImplement : TService
         where TService : class
@@ -64,6 +72,8 @@ public static class ServiceContainerBuilderExtensions
         return serviceCollection.AddProxyService<TService, TImplement>(ServiceLifetime.Transient);
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder AddProxyService<TService>(this IServiceContainerBuilder serviceCollection, ServiceLifetime serviceLifetime)
         where TService : class
     {
@@ -77,18 +87,26 @@ public static class ServiceContainerBuilderExtensions
         return serviceCollection;
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder AddSingletonProxy<TService>(this IServiceContainerBuilder serviceCollection)
         where TService : class =>
         serviceCollection.AddProxyService<TService>(ServiceLifetime.Singleton);
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder AddScopedProxy<TService>(this IServiceContainerBuilder serviceCollection)
         where TService : class =>
         serviceCollection.AddProxyService<TService>(ServiceLifetime.Scoped);
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder AddTransientProxy<TService>(this IServiceContainerBuilder serviceCollection)
         where TService : class =>
         serviceCollection.AddProxyService<TService>(ServiceLifetime.Transient);
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainer BuildFluentAspectsContainer(this IServiceContainerBuilder serviceCollection,
         Action<FluentAspectOptions>? optionsAction,
         Action<IFluentAspectsServiceContainerBuilder>? aspectBuildAction = null,

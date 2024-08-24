@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using WeihanLi.Common.Helpers;
+﻿using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Aspect;
@@ -24,7 +23,8 @@ public static class AspectDelegate
         InvokeInternal(invocation, null, completeFunc);
     }
 
-    [RequiresUnreferencedCode("Unreferenced code may be used.")]
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static void InvokeInternal(IInvocation invocation, IReadOnlyList<IInterceptor>? interceptors, Func<IInvocation, Task>? completeFunc)
     {
         // enrich
@@ -87,7 +87,8 @@ public static class AspectDelegate
         }
     }
 
-    [RequiresUnreferencedCode("Unreferenced code may be used.")]
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     private static Func<IInvocation, Task> GetAspectDelegate(IInvocation invocation, IReadOnlyList<IInterceptor>? interceptors, Func<IInvocation, Task>? completeFunc)
     {
         // ReSharper disable once ConvertToLocalFunction

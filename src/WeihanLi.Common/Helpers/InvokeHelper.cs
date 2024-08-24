@@ -1,4 +1,7 @@
-﻿using System.Diagnostics;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace WeihanLi.Common.Helpers;
@@ -96,7 +99,7 @@ public static class InvokeHelper
 
     public static Action<Exception>? OnInvokeException { get; set; }
 
-    private static readonly object _exitLock = new();
+    private static readonly Lock _exitLock = new();
     private static volatile bool _exited;
     private static readonly Lazy<CancellationTokenSource> LazyCancellationTokenSource = new();
     private static void InvokeExitHandler(object? sender, EventArgs? args)
@@ -127,7 +130,7 @@ public static class InvokeHelper
         }
     }
 
-    [Obsolete("Please use ApplicationHelper.ExitToken instead")]
+    [Obsolete("Please use ApplicationHelper.ExitToken instead", true)]
     public static CancellationToken GetExitToken() => GetExitTokenInternal();
 
     internal static CancellationToken GetExitTokenInternal() => LazyCancellationTokenSource.Value.Token;

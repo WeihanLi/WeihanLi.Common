@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
-using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using WeihanLi.Extensions;
 
@@ -92,29 +91,22 @@ public static class CommandLineParser
     /// <summary>
     /// Get argument value from arguments
     /// </summary>
-    /// <param name="optionName">argument name to get value</param>
     /// <param name="defaultValue">default argument value when not found</param>
+    /// <param name="optionName">argument name to get value</param>
     /// <param name="args">arguments</param>
     /// <returns>argument value</returns>
     [return: NotNullIfNotNull(nameof(defaultValue))]
-    public static string? Val(string optionName, string? defaultValue = default, string[]? args = null)
+    public static string? Val(string optionName, string[]? args = null, string? defaultValue = default)
     {
-        return GetOptionValueInternal(args ?? Environment.GetCommandLineArgs(), optionName) ?? defaultValue;
+        return GetValueInternal(args ?? Environment.GetCommandLineArgs(), optionName) ?? defaultValue;
     }
 
-    /// <summary>
-    /// Get boolean argument value from arguments
-    /// </summary>
-    /// <param name="optionName">argument name to get value</param>
-    /// <param name="defaultValue">default argument value when not found</param>
-    /// <param name="args">arguments</param>
-    /// <returns>argument value</returns>
-    public static bool BooleanVal(string optionName, bool defaultValue = default, string[]? args = null)
+    public static bool BooleanVal(string optionName, string[]? args = null, bool defaultValue = default)
     {
-        return GetOptionValueInternal(args ?? Environment.GetCommandLineArgs(), optionName).ToBoolean(defaultValue);
+        return GetValueInternal(args ?? Environment.GetCommandLineArgs(), optionName).ToBoolean(defaultValue);
     }
 
-    private static string? GetOptionValueInternal(string[] args, string argumentName)
+    private static string? GetValueInternal(string[] args, string argumentName)
     {
         for (var i = 0; i < args.Length; i++)
         {

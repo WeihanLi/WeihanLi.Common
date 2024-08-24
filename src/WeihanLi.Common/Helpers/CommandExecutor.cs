@@ -264,9 +264,7 @@ public sealed class CommandResult(int exitCode, string standardOut, string stand
     public string StandardOut { get; } = standardOut;
     public string StandardError { get; } = standardError;
     public int ExitCode { get; } = exitCode;
-
-    [Obsolete("Please use EnsureSuccessExitCode() instead", true)]
-    public CommandResult EnsureSuccessfulExitCode(int successCode = 0) => EnsureSuccessExitCode(successCode);
+    public int? ProcessId { get; set; }
 
     public CommandResult EnsureSuccessExitCode(int successCode = 0)
     {

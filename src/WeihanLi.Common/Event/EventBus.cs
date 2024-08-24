@@ -52,14 +52,7 @@ public sealed class EventBus(IEventSubscriptionManager? subscriptionManager = nu
         return false;
     }
 
-    [Obsolete("Use SubscribeAsync instead", true)]
-    public bool Subscribe(Type eventType, Type eventHandlerType) => _subscriptionManager.Subscribe(eventType, eventHandlerType);
-
     public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => _subscriptionManager.SubscribeAsync(eventType, eventHandlerType);
     public Task<bool> SubscribeAsync<TEvent>(IEventHandler<TEvent> eventHandler) => _subscriptionManager.SubscribeAsync(eventHandler);
-
-    [Obsolete("Use UnSubscribeAsync instead", true)]
-    public bool UnSubscribe(Type eventType, Type eventHandlerType) => _subscriptionManager.UnSubscribe(eventType, eventHandlerType);
-
     public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => _subscriptionManager.UnSubscribeAsync(eventType, eventHandlerType);
 }

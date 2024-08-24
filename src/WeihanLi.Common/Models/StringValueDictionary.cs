@@ -25,6 +25,7 @@ public sealed class StringValueDictionary : IEquatable<StringValueDictionary>
         }
     }
 
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static StringValueDictionary FromObject(object obj)
     {
         Guard.NotNull(obj);

@@ -2,14 +2,7 @@
 // Licensed under the Apache license.
 
 using DotNetCoreSample;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using System.Net.Mime;
-using WeihanLi.Common.Event;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Extensions;
-using WeihanLi.Extensions.Dump;
 
 Console.WriteLine("----------DotNetCoreSample----------");
 
@@ -348,7 +341,9 @@ InvokeHelper.OnInvokeException = ex => ConsoleHelper.ErrorWriteWithColor(ex.ToSt
 //     // registration would be disposed when cts dispose
 // }
 
-await InvokeHelper.TryInvokeAsync(EventTest.MainTest);
+// await InvokeHelper.TryInvokeAsync(EventTest.MainTest);
+
+InvokeHelper.TryInvoke(CommandExecutorTest.MainTest);
 
 ConsoleHelper.ReadKeyWithPrompt("Press any key to exit");
 

@@ -1,4 +1,7 @@
-﻿using System.Reflection;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using System.Reflection;
 using System.Runtime.InteropServices;
 using WeihanLi.Extensions;
 
@@ -14,7 +17,7 @@ public static class ApplicationHelper
     private static CancellationToken? _exitToken;
     public static CancellationToken ExitToken => _exitToken ??= InvokeHelper.GetExitTokenInternal();
 
-    public static string MapPath(string virtualPath) => AppRoot + virtualPath.TrimStart('~');
+    public static string MapPath(string virtualPath) => Path.Combine(AppRoot, virtualPath.TrimStart('~'));
 
     /// <summary>
     /// Get the library info from the assembly info
@@ -73,11 +76,11 @@ public static class ApplicationHelper
 
         var dotnetExe = GetDotnetPath();
 
-        if (dotnetExe.IsNotNullOrEmpty() && !Interop.RunningOnWindows)
+        if (dotnetExe.IsNotNullOrEmpty() && !InteropHelper.RunningOnWindows)
         {
             // e.g. on Linux the 'dotnet' command from PATH is a symlink so we need to
             // resolve it to get the actual path to the binary
-            dotnetExe = Interop.Unix.RealPath(dotnetExe) ?? dotnetExe;
+            dotnetExe = InteropHelper.Unix.RealPath(dotnetExe) ?? dotnetExe;
         }
 
         if (string.IsNullOrWhiteSpace(dotnetExe))
@@ -92,13 +95,17 @@ public static class ApplicationHelper
         return Guard.NotNull(Path.GetDirectoryName(dotnetExe));
     }
 
-    public static string? ResolvePath(string execName)
+    public static string? ResolvePath(string execName) => ResolvePath(execName, ".exe");
+
+    public static string? ResolvePath(string execName, string? ext)
     {
         var executableName = execName;
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
-            && !Path.HasExtension(execName))
+            && !Path.HasExtension(execName)
+            && string.IsNullOrEmpty(ext)
+            )
         {
-            executableName += ".exe";
+            executableName += ext;
         }
         var searchPaths = Guard.NotNull(Environment.GetEnvironmentVariable("PATH"))
             .Split(new[] { Path.PathSeparator }, options: StringSplitOptions.RemoveEmptyEntries)
@@ -219,7 +226,7 @@ public sealed class RuntimeInfo : LibraryInfo
     public required bool IsInContainer { get; init; }
 
     /// <summary>
-    /// Is running in a kubernetes cluster
+    /// Is running in a Kubernetes cluster
     /// </summary>
     public required bool IsInKubernetes { get; init; }
 }
