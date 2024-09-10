@@ -2,6 +2,7 @@
 // Licensed under the Apache license.
 
 using System.Reflection;
+using System.Runtime;
 using System.Runtime.InteropServices;
 using WeihanLi.Extensions;
 
@@ -158,6 +159,8 @@ public static class ApplicationHelper
             MachineName = Environment.MachineName,
             UserName = Environment.UserName,
 
+            IsServerGC = GCSettings.IsServerGC,
+
             IsInContainer = IsInContainer(),
             IsInKubernetes = IsInKubernetesCluster(),
             KubernetesNamespace = GetKubernetesNamespace(),
@@ -249,6 +252,12 @@ public class RuntimeInfo : LibraryInfo
 #if NET6_0_OR_GREATER
     public required string RuntimeIdentifier { get; init; }
 #endif
+
+    // GC
+    /// <summary>Gets a value that indicates whether server garbage collection is enabled.</summary>
+    /// <returns>
+    /// <see langword="true" /> if server garbage collection is enabled; otherwise, <see langword="false" />.</returns>
+    public required bool IsServerGC { get; init; }
 
     public required string WorkingDirectory { get; init; }
     public required int ProcessId { get; init; }
