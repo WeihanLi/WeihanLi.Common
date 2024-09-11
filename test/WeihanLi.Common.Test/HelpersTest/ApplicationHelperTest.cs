@@ -13,5 +13,6 @@ public class ApplicationHelperTest
         var dotnetPath = ApplicationHelper.GetDotnetPath();
         Assert.NotNull(dotnetPath);
         Assert.NotEmpty(dotnetPath);
+        Assert.True(File.Exists(dotnetPath));
     }
 }

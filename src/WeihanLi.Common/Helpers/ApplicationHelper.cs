@@ -2,6 +2,7 @@
 // Licensed under the Apache license.
 
 using System.Reflection;
+using System.Runtime;
 using System.Runtime.InteropServices;
 using WeihanLi.Extensions;
 
@@ -86,12 +87,6 @@ public static class ApplicationHelper
 
     public static string GetDotnetDirectory()
     {
-        var environmentOverride = Environment.GetEnvironmentVariable("DOTNET_MSBUILD_SDK_RESOLVER_CLI_DIR");
-        if (!string.IsNullOrEmpty(environmentOverride))
-        {
-            return environmentOverride;
-        }
-
         var dotnetExe = GetDotnetPath();
 
         if (dotnetExe.IsNotNullOrEmpty() && !InteropHelper.RunningOnWindows)
@@ -143,7 +138,7 @@ public static class ApplicationHelper
 #else
         var currentProcess = System.Diagnostics.Process.GetCurrentProcess();
 #endif
-        return new RuntimeInfo()
+        var runtimeInfo = new RuntimeInfo()
         {
             Version = Environment.Version.ToString(),
             ProcessorCount = Environment.ProcessorCount,
@@ -162,24 +157,36 @@ public static class ApplicationHelper
             OSDescription = RuntimeInformation.OSDescription,
             OSVersion = Environment.OSVersion.ToString(),
             MachineName = Environment.MachineName,
+            UserName = Environment.UserName,
+
+            IsServerGC = GCSettings.IsServerGC,
 
             IsInContainer = IsInContainer(),
             IsInKubernetes = IsInKubernetesCluster(),
+            KubernetesNamespace = GetKubernetesNamespace(),
 
             LibraryVersion = libInfo.LibraryVersion,
             LibraryHash = libInfo.LibraryHash,
             RepositoryUrl = libInfo.RepositoryUrl,
         };
+        return runtimeInfo;
     }
 
     #region ContainerEnvironment
+    // container environment
+    // https://github.com/dotnet/dotnet-docker/blob/d90d458deada9057d7889f76d58fc0a7194a0c06/src/runtime-deps/6.0/alpine3.20/amd64/Dockerfile#L7
+
+    /// <summary>
+    /// Whether running inside a container
+    /// </summary>
     private static bool IsInContainer()
     {
-        // https://github.com/dotnet/dotnet-docker/blob/9b731e901dd4a343fc30da7b8b3ab7d305a4aff9/src/runtime-deps/7.0/cbl-mariner2.0/amd64/Dockerfile#L18
         return "true".Equals(Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER"),
             StringComparison.OrdinalIgnoreCase);
     }
 
+    // Kubernetes environment
+    // https://github.com/kubernetes-client/csharp/blob/36a02046439d01f1256aed4e5071cb7f1b57d6eb/src/KubernetesClient/KubernetesClientConfiguration.InCluster.cs#L41
     private static readonly string ServiceAccountPath =
         Path.Combine(
         [
@@ -187,8 +194,10 @@ public static class ApplicationHelper
         ]);
     private const string ServiceAccountTokenKeyFileName = "token";
     private const string ServiceAccountRootCAKeyFileName = "ca.crt";
+    private const string ServiceAccountNamespaceFileName = "namespace";
+
     /// <summary>
-    /// Whether running in k8s cluster
+    /// Whether running inside a k8s cluster
     /// </summary>
     /// <returns></returns>
     private static bool IsInKubernetesCluster()
@@ -209,8 +218,17 @@ public static class ApplicationHelper
         var certPath = Path.Combine(ServiceAccountPath, ServiceAccountRootCAKeyFileName);
         return File.Exists(certPath);
     }
-    #endregion ContainerEnvironment
 
+    /// <summary>
+    /// Get Kubernetes namespace
+    /// </summary>
+    /// <returns>The namespace current workload in</returns>
+    private static string? GetKubernetesNamespace()
+    {
+        var namespaceFilePath = Path.Combine(ServiceAccountPath, ServiceAccountNamespaceFileName);
+        return File.Exists(namespaceFilePath) ? File.ReadAllText(namespaceFilePath).Trim() : null;
+    }
+    #endregion ContainerEnvironment
 }
 
 public class LibraryInfo
@@ -220,7 +238,7 @@ public class LibraryInfo
     public required string RepositoryUrl { get; init; }
 }
 
-public sealed class RuntimeInfo : LibraryInfo
+public class RuntimeInfo : LibraryInfo
 {
     public required string Version { get; init; }
     public required string FrameworkDescription { get; init; }
@@ -229,10 +247,17 @@ public sealed class RuntimeInfo : LibraryInfo
     public required string OSDescription { get; init; }
     public required string OSVersion { get; init; }
     public required string MachineName { get; init; }
+    public required string UserName { get; init; }
 
 #if NET6_0_OR_GREATER
     public required string RuntimeIdentifier { get; init; }
 #endif
+
+    // GC
+    /// <summary>Gets a value that indicates whether server garbage collection is enabled.</summary>
+    /// <returns>
+    /// <see langword="true" /> if server garbage collection is enabled; otherwise, <see langword="false" />.</returns>
+    public required bool IsServerGC { get; init; }
 
     public required string WorkingDirectory { get; init; }
     public required int ProcessId { get; init; }
@@ -247,4 +272,9 @@ public sealed class RuntimeInfo : LibraryInfo
     /// Is running in a Kubernetes cluster
     /// </summary>
     public required bool IsInKubernetes { get; init; }
+
+    /// <summary>
+    /// Kubernetes namespace when running in a Kubernetes cluster
+    /// </summary>
+    public string? KubernetesNamespace { get; init; }
 }
