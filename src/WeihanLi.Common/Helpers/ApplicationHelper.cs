@@ -56,8 +56,8 @@ public static class ApplicationHelper
         };
     }
 
-    private static readonly Lazy<RuntimeInfo> _runtimeInfoLazy = new(GetRuntimeInfo);
-    public static RuntimeInfo RuntimeInfo => _runtimeInfoLazy.Value;
+    private static readonly Lazy<RuntimeInfo> LazyRuntimeInfo = new(GetRuntimeInfo);
+    public static RuntimeInfo RuntimeInfo => LazyRuntimeInfo.Value;
 
     /// <summary>
     /// Get dotnet executable path
