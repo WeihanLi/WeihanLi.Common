@@ -21,6 +21,7 @@ public class TemplateRendererTest
                 ])
                 .Build();
         });
+        builder.UseTemplatePipe(new SubstringTemplatePipe());
     });
     
     [Fact]
@@ -46,5 +47,36 @@ public class TemplateRendererTest
         var text = "Hello {{$env hostname}}";
         var renderedText = await _templateEngine.RenderAsync(text);
         Assert.Equal($"Hello {Environment.GetEnvironmentVariable("hostname")}", renderedText);
+    }
+    
+    [Fact]
+    public async Task CustomPipeRenderTest()
+    {
+        var name = "mike";
+        var text = "Hello {{ Name | substr:2 | toTitle }}";
+        var renderedText = await _templateEngine.RenderAsync(text, new { Name = name });
+        Assert.Equal($"Hello {name[2..].ToTitleCase()}", renderedText);
+    }
+}
+
+file sealed class SubstringTemplatePipe : TemplatePipeBase
+{
+    protected override int? ParameterCount => null;
+    public override string Name => "substr";
+    protected override string? ConvertInternal(object? value, params ReadOnlySpan<string> args)
+    {
+        if (args.Length is not 1 or 2)
+        {
+            throw new InvalidOperationException("Arguments count must be 1 or 2");
+        }
+        
+        var str = value as string ?? value?.ToString() ?? string.Empty;
+        var start = int.Parse(args[0]);
+        if (args.Length is 1)
+        {
+            return str[start..];
+        }
+        var len = int.Parse(args[1]);
+        return str[start..len];
     }
 }
