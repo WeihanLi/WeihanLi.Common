@@ -343,7 +343,9 @@ InvokeHelper.OnInvokeException = ex => ConsoleHelper.ErrorWriteWithColor(ex.ToSt
 
 // await InvokeHelper.TryInvokeAsync(EventTest.MainTest);
 
-InvokeHelper.TryInvoke(CommandExecutorTest.MainTest);
+// InvokeHelper.TryInvoke(CommandExecutorTest.MainTest);
+
+await InvokeHelper.TryInvokeAsync(TemplatingSample.MainTest);
 
 ConsoleHelper.ReadKeyWithPrompt("Press any key to exit");
 

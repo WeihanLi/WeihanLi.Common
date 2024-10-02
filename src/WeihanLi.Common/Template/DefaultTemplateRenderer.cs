@@ -5,21 +5,26 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Template;
 
-internal sealed class DefaultTemplateRenderer(Func<TemplateRenderContext, Task> renderFunc) : ITemplateRenderer
+internal sealed class DefaultTemplateRenderer(Func<TemplateRenderContext, Task> renderFunc)
+    : ITemplateRenderer
 {
     public async Task<string> RenderAsync(TemplateRenderContext context, object? globals)
     {
-        if (context.Text.IsNullOrWhiteSpace() || context.Variables.IsNullOrEmpty())
+        if (context.Text.IsNullOrWhiteSpace() || context.Inputs.IsNullOrEmpty())
             return context.Text;
-
-        context.Parameters = globals.ParseParamDictionary();
-        await renderFunc.Invoke(context).ConfigureAwait(false);
-        foreach (var parameter in context.Parameters)
+        
+        var parameters = globals.ParseParamDictionary();
+        if (parameters is { Count: > 0 })
         {
-            context.RenderedText = context.RenderedText.Replace(
-                    $"{{{{{parameter.Key}}}}}", parameter.Value?.ToString()
-                    );
+            foreach (var input in context.Inputs.Keys.Where(x => x.Prefix is null))
+            {
+                if (parameters.TryGetValue(input.VariableName, out var value))
+                {
+                    context.Inputs[input] = value;
+                }
+            }   
         }
+        await renderFunc.Invoke(context).ConfigureAwait(false);
         return context.RenderedText;
     }
 }

@@ -5,16 +5,20 @@ using Microsoft.Extensions.Configuration;
 
 namespace WeihanLi.Common.Template;
 
-internal sealed class ConfigurationRenderMiddleware(IConfiguration? configuration = null) : IRenderMiddleware
+internal sealed class ConfigurationRenderMiddleware(IConfiguration? configuration = null)
+    : IRenderMiddleware
 {
-    private const string Prefix = "$config ";
+    private const string Prefix = "$config";
     public Task InvokeAsync(TemplateRenderContext context, Func<TemplateRenderContext, Task> next)
     {
-        if (configuration != null)
+        if (configuration is not null)
         {
-            foreach (var variable in context.Variables.Where(x => x.StartsWith(Prefix) && !context.Parameters.ContainsKey(x)))
+            foreach (var pair in context.Inputs
+                         .Where(x => x.Key.Prefix is Prefix
+                                     && x.Value is null)
+                    )
             {
-                context.Parameters[variable] = configuration[variable[Prefix.Length..]];
+                context.Inputs[pair.Key] = configuration[pair.Key.VariableName];
             }
         }
 

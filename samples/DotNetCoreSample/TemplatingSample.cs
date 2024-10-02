@@ -15,6 +15,8 @@ public static class TemplatingSample
             var engine = TemplateEngine.CreateDefault();
             var result = await engine.RenderAsync("Hello {{Name}}", new { Name = ".NET" });
             Console.WriteLine(result);
+            Console.WriteLine(await engine.RenderAsync("Hello {{Name | toTitle }}", new { Name = "mike" }));
+            Console.WriteLine(await engine.RenderAsync("Today is {{ date | format:yyyy-MM-dd }}", new { date = DateTime.Today }));
         }
 
         {

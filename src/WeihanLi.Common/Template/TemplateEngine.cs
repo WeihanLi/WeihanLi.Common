@@ -27,6 +27,10 @@ public sealed class TemplateEngine(ITemplateParser templateParser, ITemplateRend
     public static TemplateEngine CreateDefault(Action<ITemplateEngineBuilder>? builderConfigure = null)
     {
         var builder = new TemplateEngineBuilder();
+        builder.UseTemplatePipe(new TextFormatTemplatePipe());
+        builder.UseTemplatePipe(new UpperCaseTemplatePipe());
+        builder.UseTemplatePipe(new LowerCaseTemplatePipe());
+        builder.UseTemplatePipe(new TitleCaseTemplatePipe());
         builderConfigure?.Invoke(builder);
         return new TemplateEngine(builder.BuildParser(), builder.BuildRenderer());
     }
