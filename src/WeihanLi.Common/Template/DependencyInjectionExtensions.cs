@@ -35,7 +35,11 @@ public static class DependencyInjectionExtensions
             .AddPipe<TitleCaseTemplatePipe>()
             ;
 
-        serviceBuilder.AddRenderMiddleware<DefaultRenderMiddleware>()
+        serviceBuilder.AddRenderMiddleware(sp =>
+            {
+                var pipes = sp.GetServices<ITemplatePipe>().ToDictionary(p => p.Name, p => p);
+                return new DefaultRenderMiddleware(pipes);
+            })
             .AddRenderMiddleware<EnvRenderMiddleware>()
             .AddRenderMiddleware(sp =>
             {
@@ -45,7 +49,7 @@ public static class DependencyInjectionExtensions
             })
             ;
 
-        services.TryAddSingleton(sp =>
+        services.AddSingleton(sp =>
         {
             var pipelineBuilder = PipelineBuilder.CreateAsync<TemplateRenderContext>();
             foreach (var middleware in sp.GetServices<IRenderMiddleware>())
@@ -65,9 +69,9 @@ public static class DependencyInjectionExtensions
     {
         var serviceDescriptor = middlewareFactory is null
                 ? ServiceDescriptor.Singleton<IRenderMiddleware, TMiddleware>()
-                : ServiceDescriptor.Singleton(middlewareFactory)
+                : ServiceDescriptor.Singleton<IRenderMiddleware>(middlewareFactory)
             ;
-        serviceBuilder.Services.TryAddEnumerable(serviceDescriptor);
+        serviceBuilder.Services.Add(serviceDescriptor);
         return serviceBuilder;
     }
     

@@ -5,14 +5,16 @@ namespace WeihanLi.Common.Template;
 
 internal sealed class EnvRenderMiddleware : IRenderMiddleware
 {
-    private const string Prefix = "$env ";
+    private const string Prefix = "$env";
     public Task InvokeAsync(TemplateRenderContext context, Func<TemplateRenderContext, Task> next)
     {
-        foreach (var variable in context.Inputs
-                     .Where(x => x.StartsWith(Prefix) && !context.Parameters.ContainsKey(x))
+        foreach (var pair in context.Inputs
+                     .Where(x => x.Key.Prefix is Prefix
+                         && x.Value is null)
                  )
         {
-            context.Parameters[variable] = Environment.GetEnvironmentVariable(variable[Prefix.Length..]);
+            var variable = pair.Key.VariableName;
+            context.Inputs[pair.Key] = Environment.GetEnvironmentVariable(variable);
         }
         return next(context);
     }
