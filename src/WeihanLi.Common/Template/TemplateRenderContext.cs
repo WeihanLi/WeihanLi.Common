@@ -16,6 +16,7 @@ public sealed class TemplateRenderContext(string text, IReadOnlyCollection<Templ
     public IDictionary<string, object?> Properties { get; } = new Dictionary<string, object?>();
 }
 
+[DebuggerDisplay("{Input,nq}")]
 public sealed class TemplateInput : IEquatable<TemplateInput>
 {
     public required string Input { get; init; }
@@ -27,7 +28,7 @@ public sealed class TemplateInput : IEquatable<TemplateInput>
     public override int GetHashCode() => Input.GetHashCode();
 }
 
-[DebuggerDisplay("{PipeName:nq}")]
+[DebuggerDisplay("{PipeName,nq}")]
 public sealed class TemplatePipeInput
 {
     public required string PipeName { get; init; }

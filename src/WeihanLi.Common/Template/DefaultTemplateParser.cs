@@ -7,8 +7,8 @@ namespace WeihanLi.Common.Template;
 
 internal sealed class DefaultTemplateParser : ITemplateParser
 {
-    private const string VariableRegexExp = @"\{\{(?<Variable>[\w\$\s:\.\|]+)\}\}";
-    private static readonly Regex VariableRegex = new(VariableRegexExp, RegexOptions.Compiled);
+    private const string VariableGroupRegexExp = @"\{\{(?<Variable>[\w\$\s:\.]+)(?<Pipe>|[^\{\}]*)\}\}";
+    private static readonly Regex VariableRegex = new(VariableGroupRegexExp, RegexOptions.Compiled);
     public Task<TemplateRenderContext> ParseAsync(string text)
     {
         List<TemplateInput> inputs = [];
@@ -28,13 +28,11 @@ internal sealed class DefaultTemplateParser : ITemplateParser
                 variableName = variableName[nameIndex..].Trim();
             }
             
-            var pipeIndex = variableName.IndexOf('|');
-            if (pipeIndex >= 0)
+            var pipeValue = match.Groups["Pipe"]?.Value.Trim().TrimStart('|').Trim();
+            if (!string.IsNullOrEmpty(pipeValue))
             {
                 // exact pipes
-                var pipeInputs = variableName[(pipeIndex + 1)..]
-                    .Split(['|'], StringSplitOptions.RemoveEmptyEntries);
-                variableName = variableName[..pipeIndex].Trim();
+                var pipeInputs = pipeValue!.Split(['|'], StringSplitOptions.RemoveEmptyEntries);
                 pipes = pipeInputs.Select(p =>
                 {
                     var pipeName = p.Trim();
@@ -42,7 +40,6 @@ internal sealed class DefaultTemplateParser : ITemplateParser
                     var sep = pipeName.IndexOf(':');
                     if (sep >= 0)
                     {
-                        pipeName = pipeName[..sep].Trim();
                         if (sep + 1 < pipeName.Length)
                         {
                             var argumentsText = pipeName[(sep + 1)..].Trim();
@@ -54,6 +51,7 @@ internal sealed class DefaultTemplateParser : ITemplateParser
                                     .Select(x=> x.Trim()).ToArray();
 #endif                      
                         }
+                        pipeName = pipeName[..sep].Trim();
                     }
                     return new TemplatePipeInput()
                     {
