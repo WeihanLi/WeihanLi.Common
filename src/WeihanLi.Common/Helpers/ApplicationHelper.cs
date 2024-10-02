@@ -43,6 +43,7 @@ public static class ApplicationHelper
             var informationalVersionSplit = assemblyInformation.InformationalVersion.Split('+');
             return new LibraryInfo()
             {
+                VersionWithHash = assemblyInformation.InformationalVersion,
                 LibraryVersion = informationalVersionSplit[0],
                 LibraryHash = informationalVersionSplit.Length > 1 ? informationalVersionSplit[1] : string.Empty,
                 RepositoryUrl = repositoryUrl
@@ -141,9 +142,6 @@ public static class ApplicationHelper
         var runtimeInfo = new RuntimeInfo()
         {
             Version = Environment.Version.ToString(),
-            ProcessorCount = Environment.ProcessorCount,
-            FrameworkDescription = RuntimeInformation.FrameworkDescription,
-            WorkingDirectory = Environment.CurrentDirectory,
 
 #if NET6_0_OR_GREATER
             ProcessId = Environment.ProcessId,
@@ -153,6 +151,10 @@ public static class ApplicationHelper
             ProcessId = currentProcess.Id,
             ProcessPath = currentProcess.MainModule?.FileName ?? string.Empty,
 #endif
+
+            ProcessorCount = Environment.ProcessorCount,
+            FrameworkDescription = RuntimeInformation.FrameworkDescription,
+            WorkingDirectory = Environment.CurrentDirectory,
             OSArchitecture = RuntimeInformation.OSArchitecture.ToString(),
             OSDescription = RuntimeInformation.OSDescription,
             OSVersion = Environment.OSVersion.ToString(),
@@ -167,6 +169,7 @@ public static class ApplicationHelper
 
             LibraryVersion = libInfo.LibraryVersion,
             LibraryHash = libInfo.LibraryHash,
+            VersionWithHash = libInfo.VersionWithHash,
             RepositoryUrl = libInfo.RepositoryUrl,
         };
         return runtimeInfo;
@@ -233,9 +236,11 @@ public static class ApplicationHelper
 
 public class LibraryInfo
 {
+    private string? _versionWithHash;
     public required string LibraryVersion { get; init; }
     public required string LibraryHash { get; init; }
     public required string RepositoryUrl { get; init; }
+    public string VersionWithHash { get => _versionWithHash ?? LibraryVersion; init => _versionWithHash = value; }
 }
 
 public class RuntimeInfo : LibraryInfo
