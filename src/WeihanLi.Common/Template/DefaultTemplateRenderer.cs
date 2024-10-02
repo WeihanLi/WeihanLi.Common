@@ -9,7 +9,7 @@ internal sealed class DefaultTemplateRenderer(Func<TemplateRenderContext, Task> 
 {
     public async Task<string> RenderAsync(TemplateRenderContext context, object? globals)
     {
-        if (context.Text.IsNullOrWhiteSpace() || context.Variables.IsNullOrEmpty())
+        if (context.Text.IsNullOrWhiteSpace() || context.Inputs.IsNullOrEmpty())
             return context.Text;
 
         context.Parameters = globals.ParseParamDictionary();

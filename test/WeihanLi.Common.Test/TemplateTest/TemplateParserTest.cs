@@ -21,12 +21,12 @@ public class TemplateParserTest
                 """;
         var result = await new DefaultTemplateParser()
             .ParseAsync(template);
-        Assert.Equal(6, result.Variables.Count);
-        Assert.Contains("Status", result.Variables);
-        Assert.Contains("$env CHART_NAME", result.Variables);
-        Assert.Contains("$env VERSION", result.Variables);
-        Assert.Contains("$env APP_VERSION", result.Variables);
-        Assert.Contains("$config AppSettings:Host", result.Variables);
-        Assert.Contains("$config AppSettings__Host", result.Variables);
+        Assert.Equal(6, result.Inputs.Count);
+        Assert.Contains("Status", result.Inputs);
+        Assert.Contains("$env CHART_NAME", result.Inputs);
+        Assert.Contains("$env VERSION", result.Inputs);
+        Assert.Contains("$env APP_VERSION", result.Inputs);
+        Assert.Contains("$config AppSettings:Host", result.Inputs);
+        Assert.Contains("$config AppSettings__Host", result.Inputs);
     }
 }

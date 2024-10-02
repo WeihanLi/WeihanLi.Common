@@ -8,7 +8,9 @@ internal sealed class EnvRenderMiddleware : IRenderMiddleware
     private const string Prefix = "$env ";
     public Task InvokeAsync(TemplateRenderContext context, Func<TemplateRenderContext, Task> next)
     {
-        foreach (var variable in context.Variables.Where(x => x.StartsWith(Prefix) && !context.Parameters.ContainsKey(x)))
+        foreach (var variable in context.Inputs
+                     .Where(x => x.StartsWith(Prefix) && !context.Parameters.ContainsKey(x))
+                 )
         {
             context.Parameters[variable] = Environment.GetEnvironmentVariable(variable[Prefix.Length..]);
         }

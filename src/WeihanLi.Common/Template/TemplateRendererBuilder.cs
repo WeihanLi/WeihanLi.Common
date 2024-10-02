@@ -10,6 +10,13 @@ internal sealed class TemplateEngineBuilder : ITemplateEngineBuilder
     private readonly IAsyncPipelineBuilder<TemplateRenderContext> _pipelineBuilder =
         PipelineBuilder.CreateAsync<TemplateRenderContext>();
     private Action<TemplateEngineOptions>? _optionsConfigure;
+    private readonly Dictionary<string, ITemplatePipe> _pipes = new();
+
+    public ITemplateRendererBuilder UseTemplatePipe<TPipe>(TPipe pipe) where TPipe : class, ITemplatePipe
+    {
+        _pipes[pipe.Name] = pipe;
+        return this;
+    }
 
     public ITemplateRendererBuilder UseRenderMiddleware<TMiddleware>(TMiddleware middleware) where TMiddleware : class, IRenderMiddleware
     {
@@ -27,8 +34,12 @@ internal sealed class TemplateEngineBuilder : ITemplateEngineBuilder
 
     public ITemplateRenderer BuildRenderer()
     {
-        var options = new TemplateEngineOptions();
+        var options = new TemplateEngineOptions
+        {
+            Pipes = _pipes
+        };
         _optionsConfigure?.Invoke(options);
+        
         _pipelineBuilder
             .UseMiddleware(new DefaultRenderMiddleware())
             .UseMiddleware(new EnvRenderMiddleware())
