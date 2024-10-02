@@ -16,7 +16,7 @@ internal sealed class DefaultTemplateRenderer(Func<TemplateRenderContext, Task> 
         var parameters = globals.ParseParamDictionary();
         if (parameters is { Count: > 0 })
         {
-            foreach (var input in context.Inputs.Keys)
+            foreach (var input in context.Inputs.Keys.Where(x => x.Prefix is null))
             {
                 if (parameters.TryGetValue(input.VariableName, out var value))
                 {
