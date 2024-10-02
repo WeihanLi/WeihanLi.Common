@@ -28,37 +28,44 @@ internal sealed class DefaultTemplateParser : ITemplateParser
                 variableName = variableName[nameIndex..].Trim();
             }
             
-            var pipeValue = match.Groups["Pipe"]?.Value.Trim().TrimStart('|').Trim();
+            var pipeValue = match.Groups["Pipe"]?.Value.Trim();
             if (!string.IsNullOrEmpty(pipeValue))
             {
+                var pipeIndex = pipeValue.IndexOf('|');
+                if (pipeIndex < 0)
+                {
+                    match = match.NextMatch();
+                    continue;
+                }
+                
                 // exact pipes
+                pipeValue = pipeValue[pipeIndex..].Trim();
                 var pipeInputs = pipeValue!.Split(['|'], StringSplitOptions.RemoveEmptyEntries);
                 pipes = pipeInputs.Select(p =>
-                {
-                    var pipeName = p.Trim();
-                    var arguments = Array.Empty<string>();
-                    var sep = pipeName.IndexOf(':');
-                    if (sep >= 0)
                     {
-                        if (sep + 1 < pipeName.Length)
+                        var pipeName = p.Trim();
+                        var arguments = Array.Empty<string>();
+                        var sep = pipeName.IndexOf(':');
+                        if (sep >= 0)
                         {
-                            var argumentsText = pipeName[(sep + 1)..].Trim();
-                            arguments =
+                            if (sep + 1 < pipeName.Length)
+                            {
+                                var argumentsText = pipeName[(sep + 1)..].Trim();
+                                arguments =
 #if NET
-                            argumentsText.Split([':'],StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries );
+                                    argumentsText.Split([':'],
+                                        StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 #else
                                 argumentsText.Split([':'], StringSplitOptions.RemoveEmptyEntries)
                                     .Select(x=> x.Trim()).ToArray();
-#endif                      
+#endif
+                            }
+
+                            pipeName = pipeName[..sep].Trim();
                         }
-                        pipeName = pipeName[..sep].Trim();
-                    }
-                    return new TemplatePipeInput()
-                    {
-                        PipeName = pipeName,
-                        Arguments = arguments
-                    };
-                }).ToArray();
+
+                        return new TemplatePipeInput() { PipeName = pipeName, Arguments = arguments };
+                    }).ToArray();
             }
             
             var input = new TemplateInput

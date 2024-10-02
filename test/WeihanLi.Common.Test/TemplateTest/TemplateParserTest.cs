@@ -9,6 +9,23 @@ namespace WeihanLi.Common.Test.TemplateTest;
 public class TemplateParserTest
 {
     [Fact]
+    public async Task PipeParseTest()
+    {
+        var text = "Hello {{Name | upper}}";
+        var parser = new DefaultTemplateParser();
+        var context = await parser.ParseAsync(text);
+        Assert.Single(context.Inputs);
+        Assert.Single(context.Inputs.Keys.First().Pipes);
+        Assert.Single(context.Inputs.Keys.First().Pipes);
+        var input = context.Inputs.Keys.First().Input;
+        var pipe = context.Inputs.Keys.First().Pipes.First();
+        Assert.Equal("{{Name | upper}}", input);
+        Assert.Equal("upper", pipe.PipeName);
+        Assert.NotNull(pipe.Arguments);
+        Assert.Empty(pipe.Arguments);
+    }
+    
+    [Fact]
     public async Task ParseTest()
     {
         var template = """
@@ -25,13 +42,13 @@ public class TemplateParserTest
         var inputs = result.Inputs.Select(x => x.Key.Input)
             .ToHashSet();
         Assert.Equal(7, result.Inputs.Count);
-        Assert.Contains("Status", inputs);
-        Assert.Contains("$env CHART_NAME", inputs);
-        Assert.Contains("$env VERSION", inputs);
-        Assert.Contains("$env APP_VERSION", inputs);
-        Assert.Contains("$env HOST | toUpper", inputs);
-        Assert.Contains("$config AppSettings:Host", inputs);
-        Assert.Contains("$config AppSettings__Host", inputs);
+        Assert.Contains("{{Status}}", inputs);
+        Assert.Contains("{{$env CHART_NAME}}", inputs);
+        Assert.Contains("{{$env VERSION}}", inputs);
+        Assert.Contains("{{$env APP_VERSION}}", inputs);
+        Assert.Contains("{{$env HOST | toUpper }}", inputs);
+        Assert.Contains("{{$config AppSettings:Host}}", inputs);
+        Assert.Contains("{{$config AppSettings__Host}}", inputs);
 
         var variableNames = result.Inputs.Select(x => x.Key.VariableName).ToHashSet();
         Assert.Contains("Status", variableNames);

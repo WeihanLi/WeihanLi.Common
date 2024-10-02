@@ -23,7 +23,7 @@ public sealed class TemplateInput : IEquatable<TemplateInput>
     public required string? Prefix { get; init; }
     public required string VariableName { get; init; }
     public required TemplatePipeInput[] Pipes { get; init; }
-    public bool Equals(TemplateInput other) => other.Input == Input;
+    public bool Equals(TemplateInput? other) => other is not null && other.Input == Input;
     public override bool Equals(object? obj) => obj is TemplateInput input && Equals(input);
     public override int GetHashCode() => Input.GetHashCode();
 }
@@ -32,5 +32,5 @@ public sealed class TemplateInput : IEquatable<TemplateInput>
 public sealed class TemplatePipeInput
 {
     public required string PipeName { get; init; }
-    public required string[]? Arguments { get; set; }
+    public required string[] Arguments { get; init; }
 }
