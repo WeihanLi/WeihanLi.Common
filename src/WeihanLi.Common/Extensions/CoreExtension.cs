@@ -3,9 +3,7 @@
 
 using System.Collections.Concurrent;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -1641,8 +1639,8 @@ public static class CoreExtension
         return value switch
         {
             null => defaultValue,
-            "" or "1" or "yes" or "y" => true,
-            "0" or "no" or "n" => false,
+            "" or "1" or "y" or "yes" => true,
+            "0" or "n" or "no" => false,
             _ => bool.TryParse(value, out var val) ? val : defaultValue
         };
     }
