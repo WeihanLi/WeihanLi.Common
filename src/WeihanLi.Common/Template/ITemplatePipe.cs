@@ -6,5 +6,5 @@ namespace WeihanLi.Common.Template;
 public interface ITemplatePipe
 {
     string Name { get; }
-    string? Convert(object? value, params ReadOnlySpan<string> args);
+    object? Convert(object? value, params ReadOnlySpan<string> args);
 }
