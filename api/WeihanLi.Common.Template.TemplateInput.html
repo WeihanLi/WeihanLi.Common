@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Interface ITemplateRendererBuilder </title>
+      <title>Class TemplateInput </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Interface ITemplateRendererBuilder ">
+      <meta name="title" content="Class TemplateInput ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Template_ITemplateRendererBuilder.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Template.ITemplateRendererBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Template_TemplateInput.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Template.TemplateInput%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -80,12 +80,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder">
+        <article data-uid="WeihanLi.Common.Template.TemplateInput">
 
 
 
-  <h1 id="WeihanLi_Common_Template_ITemplateRendererBuilder" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder" class="text-break">
-Interface ITemplateRendererBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/ITemplateRendererBuilder.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  <h1 id="WeihanLi_Common_Template_TemplateInput" data-uid="WeihanLi.Common.Template.TemplateInput" class="text-break">
+Class TemplateInput  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplateRenderContext.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,15 +97,44 @@ Interface ITemplateRendererBuilder  <a class="header-action link-secondary" titl
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ITemplateRendererBuilder</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class TemplateInput : IEquatable&lt;TemplateInput&gt;</code></pre>
   </div>
 
 
 
 
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">TemplateInput</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="WeihanLi.Common.Template.TemplateInput.html">TemplateInput</a>&gt;</div>
+    </dd>
+  </dl>
 
 
-
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
 
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
@@ -227,39 +256,161 @@ Interface ITemplateRendererBuilder  <a class="header-action link-secondary" titl
 
 
 
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="WeihanLi_Common_Template_TemplateInput_Input_" data-uid="WeihanLi.Common.Template.TemplateInput.Input*"></a>
+
+  <h3 id="WeihanLi_Common_Template_TemplateInput_Input" data-uid="WeihanLi.Common.Template.TemplateInput.Input">
+  Input
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplateRenderContext.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required string Input { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Template_TemplateInput_Pipes_" data-uid="WeihanLi.Common.Template.TemplateInput.Pipes*"></a>
+
+  <h3 id="WeihanLi_Common_Template_TemplateInput_Pipes" data-uid="WeihanLi.Common.Template.TemplateInput.Pipes">
+  Pipes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplateRenderContext.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required TemplatePipeInput[] Pipes { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Template.TemplatePipeInput.html">TemplatePipeInput</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Template_TemplateInput_Prefix_" data-uid="WeihanLi.Common.Template.TemplateInput.Prefix*"></a>
+
+  <h3 id="WeihanLi_Common_Template_TemplateInput_Prefix" data-uid="WeihanLi.Common.Template.TemplateInput.Prefix">
+  Prefix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplateRenderContext.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required string? Prefix { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Template_TemplateInput_VariableName_" data-uid="WeihanLi.Common.Template.TemplateInput.VariableName*"></a>
+
+  <h3 id="WeihanLi_Common_Template_TemplateInput_VariableName" data-uid="WeihanLi.Common.Template.TemplateInput.VariableName">
+  VariableName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplateRenderContext.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required string VariableName { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
 
-  <a id="WeihanLi_Common_Template_ITemplateRendererBuilder_UseRenderMiddleware_" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder.UseRenderMiddleware*"></a>
+  <a id="WeihanLi_Common_Template_TemplateInput_Equals_" data-uid="WeihanLi.Common.Template.TemplateInput.Equals*"></a>
 
-  <h3 id="WeihanLi_Common_Template_ITemplateRendererBuilder_UseRenderMiddleware__1___0_" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder.UseRenderMiddleware``1(``0)">
-  UseRenderMiddleware&lt;TMiddleware&gt;(TMiddleware)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/ITemplateRendererBuilder.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Template_TemplateInput_Equals_System_Object_" data-uid="WeihanLi.Common.Template.TemplateInput.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplateRenderContext.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ITemplateRendererBuilder UseRenderMiddleware&lt;TMiddleware&gt;(TMiddleware middleware) where TMiddleware : class, IRenderMiddleware</code></pre>
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>middleware</code> <span class="xref">TMiddleware</span></dt>
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
     <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="WeihanLi.Common.Template.ITemplateRendererBuilder.html">ITemplateRendererBuilder</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TMiddleware</code></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -272,37 +423,64 @@ Interface ITemplateRendererBuilder  <a class="header-action link-secondary" titl
 
 
 
-  <a id="WeihanLi_Common_Template_ITemplateRendererBuilder_UseTemplatePipe_" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder.UseTemplatePipe*"></a>
 
-  <h3 id="WeihanLi_Common_Template_ITemplateRendererBuilder_UseTemplatePipe__1___0_" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder.UseTemplatePipe``1(``0)">
-  UseTemplatePipe&lt;TPipe&gt;(TPipe)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/ITemplateRendererBuilder.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <a id="WeihanLi_Common_Template_TemplateInput_Equals_" data-uid="WeihanLi.Common.Template.TemplateInput.Equals*"></a>
+
+  <h3 id="WeihanLi_Common_Template_TemplateInput_Equals_WeihanLi_Common_Template_TemplateInput_" data-uid="WeihanLi.Common.Template.TemplateInput.Equals(WeihanLi.Common.Template.TemplateInput)">
+  Equals(TemplateInput?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplateRenderContext.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ITemplateRendererBuilder UseTemplatePipe&lt;TPipe&gt;(TPipe pipe) where TPipe : class, ITemplatePipe</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Equals(TemplateInput? other)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>pipe</code> <span class="xref">TPipe</span></dt>
+    <dt><code>other</code> <a class="xref" href="WeihanLi.Common.Template.TemplateInput.html">TemplateInput</a></dt>
     <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="WeihanLi.Common.Template.ITemplateRendererBuilder.html">ITemplateRendererBuilder</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
-  <h4 class="section">Type Parameters</h4>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Template_TemplateInput_GetHashCode_" data-uid="WeihanLi.Common.Template.TemplateInput.GetHashCode*"></a>
+
+  <h3 id="WeihanLi_Common_Template_TemplateInput_GetHashCode" data-uid="WeihanLi.Common.Template.TemplateInput.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplateRenderContext.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><code>TPipe</code></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
+
 
 
 
@@ -317,7 +495,7 @@ Interface ITemplateRendererBuilder  <a class="header-action link-secondary" titl
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/ITemplateRendererBuilder.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplateRenderContext.cs/#L19" class="edit-link">Edit this page</a>
         </div>
 
 

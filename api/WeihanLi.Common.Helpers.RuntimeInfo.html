@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Helpers_RuntimeInfo" data-uid="WeihanLi.Common.Helpers.RuntimeInfo" class="text-break">
-Class RuntimeInfo  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L238"><i class="bi bi-code-slash"></i></a>
+Class RuntimeInfo  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L246"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -125,6 +125,9 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
     </div>
     <div>
       <a class="xref" href="WeihanLi.Common.Helpers.LibraryInfo.html#WeihanLi_Common_Helpers_LibraryInfo_RepositoryUrl">LibraryInfo.RepositoryUrl</a>
+    </div>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Helpers.LibraryInfo.html#WeihanLi_Common_Helpers_LibraryInfo_VersionWithHash">LibraryInfo.VersionWithHash</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -277,7 +280,7 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_FrameworkDescription" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.FrameworkDescription">
   FrameworkDescription
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L249"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -308,7 +311,7 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_IsInContainer" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.IsInContainer">
   IsInContainer
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L260"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L274"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Is running in a container</p>
@@ -340,7 +343,7 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_IsInKubernetes" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.IsInKubernetes">
   IsInKubernetes
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L265"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L279"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Is running in a Kubernetes cluster</p>
@@ -368,11 +371,44 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <a id="WeihanLi_Common_Helpers_RuntimeInfo_IsServerGC_" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.IsServerGC*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_IsServerGC" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.IsServerGC">
+  IsServerGC
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L265"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value that indicates whether server garbage collection is enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required bool IsServerGC { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if server garbage collection is enabled; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Common_Helpers_RuntimeInfo_KubernetesNamespace_" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.KubernetesNamespace*"></a>
 
   <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_KubernetesNamespace" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.KubernetesNamespace">
   KubernetesNamespace
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L284"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Kubernetes namespace when running in a Kubernetes cluster</p>
@@ -404,7 +440,7 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_MachineName" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.MachineName">
   MachineName
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L254"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -435,7 +471,7 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_OSArchitecture" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.OSArchitecture">
   OSArchitecture
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L251"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -466,7 +502,7 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_OSDescription" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.OSDescription">
   OSDescription
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L244"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L252"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -497,7 +533,7 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_OSVersion" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.OSVersion">
   OSVersion
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L253"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -528,7 +564,7 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_ProcessId" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.ProcessId">
   ProcessId
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L268"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -559,7 +595,7 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_ProcessPath" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.ProcessPath">
   ProcessPath
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L255"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L269"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -590,7 +626,7 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_ProcessorCount" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.ProcessorCount">
   ProcessorCount
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L242"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L250"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -621,7 +657,7 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_UserName" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.UserName">
   UserName
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L247"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L255"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -652,7 +688,7 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_Version" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.Version">
   Version
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L248"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -683,7 +719,7 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="WeihanLi_Common_Helpers_RuntimeInfo_WorkingDirectory" data-uid="WeihanLi.Common.Helpers.RuntimeInfo.WorkingDirectory">
   WorkingDirectory
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L253"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L267"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -714,7 +750,7 @@ Class RuntimeInfo  <a class="header-action link-secondary" title="View source" h
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L238" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/ApplicationHelper.cs/#L246" class="edit-link">Edit this page</a>
         </div>
 
 

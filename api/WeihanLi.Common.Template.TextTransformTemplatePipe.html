@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Interface ITemplateRendererBuilder </title>
+      <title>Class TextTransformTemplatePipe </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Interface ITemplateRendererBuilder ">
+      <meta name="title" content="Class TextTransformTemplatePipe ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Template_ITemplateRendererBuilder.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Template.ITemplateRendererBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Template_TextTransformTemplatePipe.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Template.TextTransformTemplatePipe%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -80,12 +80,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder">
+        <article data-uid="WeihanLi.Common.Template.TextTransformTemplatePipe">
 
 
 
-  <h1 id="WeihanLi_Common_Template_ITemplateRendererBuilder" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder" class="text-break">
-Interface ITemplateRendererBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/ITemplateRendererBuilder.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  <h1 id="WeihanLi_Common_Template_TextTransformTemplatePipe" data-uid="WeihanLi.Common.Template.TextTransformTemplatePipe" class="text-break">
+Class TextTransformTemplatePipe  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplatePipes.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,15 +97,68 @@ Interface ITemplateRendererBuilder  <a class="header-action link-secondary" titl
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ITemplateRendererBuilder</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class TextTransformTemplatePipe : TemplatePipeBase, ITemplatePipe</code></pre>
   </div>
 
 
 
 
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Template.TemplatePipeBase.html">TemplatePipeBase</a></div>
+      <div><span class="xref">TextTransformTemplatePipe</span></div>
+    </dd>
+  </dl>
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="WeihanLi.Common.Template.ITemplatePipe.html">ITemplatePipe</a></div>
+    </dd>
+  </dl>
 
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="WeihanLi.Common.Template.LowerCaseTemplatePipe.html">LowerCaseTemplatePipe</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Template.TitleCaseTemplatePipe.html">TitleCaseTemplatePipe</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Template.UpperCaseTemplatePipe.html">UpperCaseTemplatePipe</a></div>
+    </dd>
+  </dl>
 
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Template.TemplatePipeBase.html#WeihanLi_Common_Template_TemplatePipeBase_Name">TemplatePipeBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Template.TemplatePipeBase.html#WeihanLi_Common_Template_TemplatePipeBase_Convert_System_Object_System_ReadOnlySpan_System_String__">TemplatePipeBase.Convert(object, params ReadOnlySpan&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
 
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
@@ -227,39 +280,70 @@ Interface ITemplateRendererBuilder  <a class="header-action link-secondary" titl
 
 
 
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="WeihanLi_Common_Template_TextTransformTemplatePipe_ParameterCount_" data-uid="WeihanLi.Common.Template.TextTransformTemplatePipe.ParameterCount*"></a>
+
+  <h3 id="WeihanLi_Common_Template_TextTransformTemplatePipe_ParameterCount" data-uid="WeihanLi.Common.Template.TextTransformTemplatePipe.ParameterCount">
+  ParameterCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplatePipes.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override int? ParameterCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
 
-  <a id="WeihanLi_Common_Template_ITemplateRendererBuilder_UseRenderMiddleware_" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder.UseRenderMiddleware*"></a>
+  <a id="WeihanLi_Common_Template_TextTransformTemplatePipe_ConvertInternal_" data-uid="WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertInternal*"></a>
 
-  <h3 id="WeihanLi_Common_Template_ITemplateRendererBuilder_UseRenderMiddleware__1___0_" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder.UseRenderMiddleware``1(``0)">
-  UseRenderMiddleware&lt;TMiddleware&gt;(TMiddleware)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/ITemplateRendererBuilder.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Template_TextTransformTemplatePipe_ConvertInternal_System_Object_System_ReadOnlySpan_System_String__" data-uid="WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertInternal(System.Object,System.ReadOnlySpan{System.String})">
+  ConvertInternal(object?, params ReadOnlySpan&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplatePipes.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ITemplateRendererBuilder UseRenderMiddleware&lt;TMiddleware&gt;(TMiddleware middleware) where TMiddleware : class, IRenderMiddleware</code></pre>
+    <pre><code class="lang-csharp hljs">protected override object? ConvertInternal(object? value, params ReadOnlySpan&lt;string&gt; args)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>middleware</code> <span class="xref">TMiddleware</span></dt>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
     <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="WeihanLi.Common.Template.ITemplateRendererBuilder.html">ITemplateRendererBuilder</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TMiddleware</code></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
     <dd></dd>
   </dl>
 
@@ -272,37 +356,33 @@ Interface ITemplateRendererBuilder  <a class="header-action link-secondary" titl
 
 
 
-  <a id="WeihanLi_Common_Template_ITemplateRendererBuilder_UseTemplatePipe_" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder.UseTemplatePipe*"></a>
 
-  <h3 id="WeihanLi_Common_Template_ITemplateRendererBuilder_UseTemplatePipe__1___0_" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder.UseTemplatePipe``1(``0)">
-  UseTemplatePipe&lt;TPipe&gt;(TPipe)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/ITemplateRendererBuilder.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <a id="WeihanLi_Common_Template_TextTransformTemplatePipe_ConvertText_" data-uid="WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertText*"></a>
+
+  <h3 id="WeihanLi_Common_Template_TextTransformTemplatePipe_ConvertText_System_String_" data-uid="WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertText(System.String)">
+  ConvertText(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplatePipes.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ITemplateRendererBuilder UseTemplatePipe&lt;TPipe&gt;(TPipe pipe) where TPipe : class, ITemplatePipe</code></pre>
+    <pre><code class="lang-csharp hljs">protected abstract string? ConvertText(string value)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>pipe</code> <span class="xref">TPipe</span></dt>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="WeihanLi.Common.Template.ITemplateRendererBuilder.html">ITemplateRendererBuilder</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TPipe</code></dt>
-    <dd></dd>
-  </dl>
 
 
 
@@ -317,7 +397,7 @@ Interface ITemplateRendererBuilder  <a class="header-action link-secondary" titl
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/ITemplateRendererBuilder.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplatePipes.cs/#L44" class="edit-link">Edit this page</a>
         </div>
 
 

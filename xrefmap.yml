@@ -10343,6 +10343,22 @@ references:
   commentId: T:WeihanLi.Common.Helpers.EnvHelper
   fullName: WeihanLi.Common.Helpers.EnvHelper
   nameWithType: EnvHelper
+- uid: WeihanLi.Common.Helpers.EnvHelper.BooleanVal(System.String,System.Boolean)
+  name: BooleanVal(string, bool)
+  href: api/WeihanLi.Common.Helpers.EnvHelper.html#WeihanLi_Common_Helpers_EnvHelper_BooleanVal_System_String_System_Boolean_
+  commentId: M:WeihanLi.Common.Helpers.EnvHelper.BooleanVal(System.String,System.Boolean)
+  name.vb: BooleanVal(String, Boolean)
+  fullName: WeihanLi.Common.Helpers.EnvHelper.BooleanVal(string, bool)
+  fullName.vb: WeihanLi.Common.Helpers.EnvHelper.BooleanVal(String, Boolean)
+  nameWithType: EnvHelper.BooleanVal(string, bool)
+  nameWithType.vb: EnvHelper.BooleanVal(String, Boolean)
+- uid: WeihanLi.Common.Helpers.EnvHelper.BooleanVal*
+  name: BooleanVal
+  href: api/WeihanLi.Common.Helpers.EnvHelper.html#WeihanLi_Common_Helpers_EnvHelper_BooleanVal_
+  commentId: Overload:WeihanLi.Common.Helpers.EnvHelper.BooleanVal
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.EnvHelper.BooleanVal
+  nameWithType: EnvHelper.BooleanVal
 - uid: WeihanLi.Common.Helpers.EnvHelper.Val(System.String,System.String)
   name: Val(string, string?)
   href: api/WeihanLi.Common.Helpers.EnvHelper.html#WeihanLi_Common_Helpers_EnvHelper_Val_System_String_System_String_
@@ -12664,6 +12680,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.LibraryInfo.RepositoryUrl
   nameWithType: LibraryInfo.RepositoryUrl
+- uid: WeihanLi.Common.Helpers.LibraryInfo.VersionWithHash
+  name: VersionWithHash
+  href: api/WeihanLi.Common.Helpers.LibraryInfo.html#WeihanLi_Common_Helpers_LibraryInfo_VersionWithHash
+  commentId: P:WeihanLi.Common.Helpers.LibraryInfo.VersionWithHash
+  fullName: WeihanLi.Common.Helpers.LibraryInfo.VersionWithHash
+  nameWithType: LibraryInfo.VersionWithHash
+- uid: WeihanLi.Common.Helpers.LibraryInfo.VersionWithHash*
+  name: VersionWithHash
+  href: api/WeihanLi.Common.Helpers.LibraryInfo.html#WeihanLi_Common_Helpers_LibraryInfo_VersionWithHash_
+  commentId: Overload:WeihanLi.Common.Helpers.LibraryInfo.VersionWithHash
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.LibraryInfo.VersionWithHash
+  nameWithType: LibraryInfo.VersionWithHash
 - uid: WeihanLi.Common.Helpers.LineParseOptions
   name: LineParseOptions
   href: api/WeihanLi.Common.Helpers.LineParseOptions.html
@@ -14029,6 +14058,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.RuntimeInfo.IsInKubernetes
   nameWithType: RuntimeInfo.IsInKubernetes
+- uid: WeihanLi.Common.Helpers.RuntimeInfo.IsServerGC
+  name: IsServerGC
+  href: api/WeihanLi.Common.Helpers.RuntimeInfo.html#WeihanLi_Common_Helpers_RuntimeInfo_IsServerGC
+  commentId: P:WeihanLi.Common.Helpers.RuntimeInfo.IsServerGC
+  fullName: WeihanLi.Common.Helpers.RuntimeInfo.IsServerGC
+  nameWithType: RuntimeInfo.IsServerGC
+- uid: WeihanLi.Common.Helpers.RuntimeInfo.IsServerGC*
+  name: IsServerGC
+  href: api/WeihanLi.Common.Helpers.RuntimeInfo.html#WeihanLi_Common_Helpers_RuntimeInfo_IsServerGC_
+  commentId: Overload:WeihanLi.Common.Helpers.RuntimeInfo.IsServerGC
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.RuntimeInfo.IsServerGC
+  nameWithType: RuntimeInfo.IsServerGC
 - uid: WeihanLi.Common.Helpers.RuntimeInfo.KubernetesNamespace
   name: KubernetesNamespace
   href: api/WeihanLi.Common.Helpers.RuntimeInfo.html#WeihanLi_Common_Helpers_RuntimeInfo_KubernetesNamespace
@@ -21061,6 +21103,38 @@ references:
   commentId: T:WeihanLi.Common.Template.DependencyInjectionExtensions
   fullName: WeihanLi.Common.Template.DependencyInjectionExtensions
   nameWithType: DependencyInjectionExtensions
+- uid: WeihanLi.Common.Template.DependencyInjectionExtensions.AddPipe*
+  name: AddPipe
+  href: api/WeihanLi.Common.Template.DependencyInjectionExtensions.html#WeihanLi_Common_Template_DependencyInjectionExtensions_AddPipe_
+  commentId: Overload:WeihanLi.Common.Template.DependencyInjectionExtensions.AddPipe
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.DependencyInjectionExtensions.AddPipe
+  nameWithType: DependencyInjectionExtensions.AddPipe
+- uid: WeihanLi.Common.Template.DependencyInjectionExtensions.AddPipe``1(WeihanLi.Common.Template.ITemplateEngineServiceBuilder)
+  name: AddPipe<TPipe>(ITemplateEngineServiceBuilder)
+  href: api/WeihanLi.Common.Template.DependencyInjectionExtensions.html#WeihanLi_Common_Template_DependencyInjectionExtensions_AddPipe__1_WeihanLi_Common_Template_ITemplateEngineServiceBuilder_
+  commentId: M:WeihanLi.Common.Template.DependencyInjectionExtensions.AddPipe``1(WeihanLi.Common.Template.ITemplateEngineServiceBuilder)
+  name.vb: AddPipe(Of TPipe)(ITemplateEngineServiceBuilder)
+  fullName: WeihanLi.Common.Template.DependencyInjectionExtensions.AddPipe<TPipe>(WeihanLi.Common.Template.ITemplateEngineServiceBuilder)
+  fullName.vb: WeihanLi.Common.Template.DependencyInjectionExtensions.AddPipe(Of TPipe)(WeihanLi.Common.Template.ITemplateEngineServiceBuilder)
+  nameWithType: DependencyInjectionExtensions.AddPipe<TPipe>(ITemplateEngineServiceBuilder)
+  nameWithType.vb: DependencyInjectionExtensions.AddPipe(Of TPipe)(ITemplateEngineServiceBuilder)
+- uid: WeihanLi.Common.Template.DependencyInjectionExtensions.AddRenderMiddleware*
+  name: AddRenderMiddleware
+  href: api/WeihanLi.Common.Template.DependencyInjectionExtensions.html#WeihanLi_Common_Template_DependencyInjectionExtensions_AddRenderMiddleware_
+  commentId: Overload:WeihanLi.Common.Template.DependencyInjectionExtensions.AddRenderMiddleware
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.DependencyInjectionExtensions.AddRenderMiddleware
+  nameWithType: DependencyInjectionExtensions.AddRenderMiddleware
+- uid: WeihanLi.Common.Template.DependencyInjectionExtensions.AddRenderMiddleware``1(WeihanLi.Common.Template.ITemplateEngineServiceBuilder,System.Func{System.IServiceProvider,``0})
+  name: AddRenderMiddleware<TMiddleware>(ITemplateEngineServiceBuilder, Func<IServiceProvider, TMiddleware>?)
+  href: api/WeihanLi.Common.Template.DependencyInjectionExtensions.html#WeihanLi_Common_Template_DependencyInjectionExtensions_AddRenderMiddleware__1_WeihanLi_Common_Template_ITemplateEngineServiceBuilder_System_Func_System_IServiceProvider___0__
+  commentId: M:WeihanLi.Common.Template.DependencyInjectionExtensions.AddRenderMiddleware``1(WeihanLi.Common.Template.ITemplateEngineServiceBuilder,System.Func{System.IServiceProvider,``0})
+  name.vb: AddRenderMiddleware(Of TMiddleware)(ITemplateEngineServiceBuilder, Func(Of IServiceProvider, TMiddleware))
+  fullName: WeihanLi.Common.Template.DependencyInjectionExtensions.AddRenderMiddleware<TMiddleware>(WeihanLi.Common.Template.ITemplateEngineServiceBuilder, System.Func<System.IServiceProvider, TMiddleware>?)
+  fullName.vb: WeihanLi.Common.Template.DependencyInjectionExtensions.AddRenderMiddleware(Of TMiddleware)(WeihanLi.Common.Template.ITemplateEngineServiceBuilder, System.Func(Of System.IServiceProvider, TMiddleware))
+  nameWithType: DependencyInjectionExtensions.AddRenderMiddleware<TMiddleware>(ITemplateEngineServiceBuilder, Func<IServiceProvider, TMiddleware>?)
+  nameWithType.vb: DependencyInjectionExtensions.AddRenderMiddleware(Of TMiddleware)(ITemplateEngineServiceBuilder, Func(Of IServiceProvider, TMiddleware))
 - uid: WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplateEngine(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{WeihanLi.Common.Template.TemplateEngineOptions})
   name: AddTemplateEngine(IServiceCollection, Action<TemplateEngineOptions>?)
   href: api/WeihanLi.Common.Template.DependencyInjectionExtensions.html#WeihanLi_Common_Template_DependencyInjectionExtensions_AddTemplateEngine_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_WeihanLi_Common_Template_TemplateEngineOptions__
@@ -21127,6 +21201,25 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Template.ITemplateEngineBuilder.ConfigureOptions
   nameWithType: ITemplateEngineBuilder.ConfigureOptions
+- uid: WeihanLi.Common.Template.ITemplateEngineServiceBuilder
+  name: ITemplateEngineServiceBuilder
+  href: api/WeihanLi.Common.Template.ITemplateEngineServiceBuilder.html
+  commentId: T:WeihanLi.Common.Template.ITemplateEngineServiceBuilder
+  fullName: WeihanLi.Common.Template.ITemplateEngineServiceBuilder
+  nameWithType: ITemplateEngineServiceBuilder
+- uid: WeihanLi.Common.Template.ITemplateEngineServiceBuilder.Services
+  name: Services
+  href: api/WeihanLi.Common.Template.ITemplateEngineServiceBuilder.html#WeihanLi_Common_Template_ITemplateEngineServiceBuilder_Services
+  commentId: P:WeihanLi.Common.Template.ITemplateEngineServiceBuilder.Services
+  fullName: WeihanLi.Common.Template.ITemplateEngineServiceBuilder.Services
+  nameWithType: ITemplateEngineServiceBuilder.Services
+- uid: WeihanLi.Common.Template.ITemplateEngineServiceBuilder.Services*
+  name: Services
+  href: api/WeihanLi.Common.Template.ITemplateEngineServiceBuilder.html#WeihanLi_Common_Template_ITemplateEngineServiceBuilder_Services_
+  commentId: Overload:WeihanLi.Common.Template.ITemplateEngineServiceBuilder.Services
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.ITemplateEngineServiceBuilder.Services
+  nameWithType: ITemplateEngineServiceBuilder.Services
 - uid: WeihanLi.Common.Template.ITemplateParser
   name: ITemplateParser
   href: api/WeihanLi.Common.Template.ITemplateParser.html
@@ -21149,6 +21242,41 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Template.ITemplateParser.ParseAsync
   nameWithType: ITemplateParser.ParseAsync
+- uid: WeihanLi.Common.Template.ITemplatePipe
+  name: ITemplatePipe
+  href: api/WeihanLi.Common.Template.ITemplatePipe.html
+  commentId: T:WeihanLi.Common.Template.ITemplatePipe
+  fullName: WeihanLi.Common.Template.ITemplatePipe
+  nameWithType: ITemplatePipe
+- uid: WeihanLi.Common.Template.ITemplatePipe.Convert(System.Object,System.ReadOnlySpan{System.String})
+  name: Convert(object?, params ReadOnlySpan<string>)
+  href: api/WeihanLi.Common.Template.ITemplatePipe.html#WeihanLi_Common_Template_ITemplatePipe_Convert_System_Object_System_ReadOnlySpan_System_String__
+  commentId: M:WeihanLi.Common.Template.ITemplatePipe.Convert(System.Object,System.ReadOnlySpan{System.String})
+  name.vb: Convert(Object, ReadOnlySpan(Of String))
+  fullName: WeihanLi.Common.Template.ITemplatePipe.Convert(object?, params System.ReadOnlySpan<string>)
+  fullName.vb: WeihanLi.Common.Template.ITemplatePipe.Convert(Object, System.ReadOnlySpan(Of String))
+  nameWithType: ITemplatePipe.Convert(object?, params ReadOnlySpan<string>)
+  nameWithType.vb: ITemplatePipe.Convert(Object, ReadOnlySpan(Of String))
+- uid: WeihanLi.Common.Template.ITemplatePipe.Convert*
+  name: Convert
+  href: api/WeihanLi.Common.Template.ITemplatePipe.html#WeihanLi_Common_Template_ITemplatePipe_Convert_
+  commentId: Overload:WeihanLi.Common.Template.ITemplatePipe.Convert
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.ITemplatePipe.Convert
+  nameWithType: ITemplatePipe.Convert
+- uid: WeihanLi.Common.Template.ITemplatePipe.Name
+  name: Name
+  href: api/WeihanLi.Common.Template.ITemplatePipe.html#WeihanLi_Common_Template_ITemplatePipe_Name
+  commentId: P:WeihanLi.Common.Template.ITemplatePipe.Name
+  fullName: WeihanLi.Common.Template.ITemplatePipe.Name
+  nameWithType: ITemplatePipe.Name
+- uid: WeihanLi.Common.Template.ITemplatePipe.Name*
+  name: Name
+  href: api/WeihanLi.Common.Template.ITemplatePipe.html#WeihanLi_Common_Template_ITemplatePipe_Name_
+  commentId: Overload:WeihanLi.Common.Template.ITemplatePipe.Name
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.ITemplatePipe.Name
+  nameWithType: ITemplatePipe.Name
 - uid: WeihanLi.Common.Template.ITemplateRenderer
   name: ITemplateRenderer
   href: api/WeihanLi.Common.Template.ITemplateRenderer.html
@@ -21193,6 +21321,57 @@ references:
   fullName.vb: WeihanLi.Common.Template.ITemplateRendererBuilder.UseRenderMiddleware(Of TMiddleware)(TMiddleware)
   nameWithType: ITemplateRendererBuilder.UseRenderMiddleware<TMiddleware>(TMiddleware)
   nameWithType.vb: ITemplateRendererBuilder.UseRenderMiddleware(Of TMiddleware)(TMiddleware)
+- uid: WeihanLi.Common.Template.ITemplateRendererBuilder.UseTemplatePipe*
+  name: UseTemplatePipe
+  href: api/WeihanLi.Common.Template.ITemplateRendererBuilder.html#WeihanLi_Common_Template_ITemplateRendererBuilder_UseTemplatePipe_
+  commentId: Overload:WeihanLi.Common.Template.ITemplateRendererBuilder.UseTemplatePipe
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.ITemplateRendererBuilder.UseTemplatePipe
+  nameWithType: ITemplateRendererBuilder.UseTemplatePipe
+- uid: WeihanLi.Common.Template.ITemplateRendererBuilder.UseTemplatePipe``1(``0)
+  name: UseTemplatePipe<TPipe>(TPipe)
+  href: api/WeihanLi.Common.Template.ITemplateRendererBuilder.html#WeihanLi_Common_Template_ITemplateRendererBuilder_UseTemplatePipe__1___0_
+  commentId: M:WeihanLi.Common.Template.ITemplateRendererBuilder.UseTemplatePipe``1(``0)
+  name.vb: UseTemplatePipe(Of TPipe)(TPipe)
+  fullName: WeihanLi.Common.Template.ITemplateRendererBuilder.UseTemplatePipe<TPipe>(TPipe)
+  fullName.vb: WeihanLi.Common.Template.ITemplateRendererBuilder.UseTemplatePipe(Of TPipe)(TPipe)
+  nameWithType: ITemplateRendererBuilder.UseTemplatePipe<TPipe>(TPipe)
+  nameWithType.vb: ITemplateRendererBuilder.UseTemplatePipe(Of TPipe)(TPipe)
+- uid: WeihanLi.Common.Template.LowerCaseTemplatePipe
+  name: LowerCaseTemplatePipe
+  href: api/WeihanLi.Common.Template.LowerCaseTemplatePipe.html
+  commentId: T:WeihanLi.Common.Template.LowerCaseTemplatePipe
+  fullName: WeihanLi.Common.Template.LowerCaseTemplatePipe
+  nameWithType: LowerCaseTemplatePipe
+- uid: WeihanLi.Common.Template.LowerCaseTemplatePipe.ConvertText(System.String)
+  name: ConvertText(string)
+  href: api/WeihanLi.Common.Template.LowerCaseTemplatePipe.html#WeihanLi_Common_Template_LowerCaseTemplatePipe_ConvertText_System_String_
+  commentId: M:WeihanLi.Common.Template.LowerCaseTemplatePipe.ConvertText(System.String)
+  name.vb: ConvertText(String)
+  fullName: WeihanLi.Common.Template.LowerCaseTemplatePipe.ConvertText(string)
+  fullName.vb: WeihanLi.Common.Template.LowerCaseTemplatePipe.ConvertText(String)
+  nameWithType: LowerCaseTemplatePipe.ConvertText(string)
+  nameWithType.vb: LowerCaseTemplatePipe.ConvertText(String)
+- uid: WeihanLi.Common.Template.LowerCaseTemplatePipe.ConvertText*
+  name: ConvertText
+  href: api/WeihanLi.Common.Template.LowerCaseTemplatePipe.html#WeihanLi_Common_Template_LowerCaseTemplatePipe_ConvertText_
+  commentId: Overload:WeihanLi.Common.Template.LowerCaseTemplatePipe.ConvertText
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.LowerCaseTemplatePipe.ConvertText
+  nameWithType: LowerCaseTemplatePipe.ConvertText
+- uid: WeihanLi.Common.Template.LowerCaseTemplatePipe.Name
+  name: Name
+  href: api/WeihanLi.Common.Template.LowerCaseTemplatePipe.html#WeihanLi_Common_Template_LowerCaseTemplatePipe_Name
+  commentId: P:WeihanLi.Common.Template.LowerCaseTemplatePipe.Name
+  fullName: WeihanLi.Common.Template.LowerCaseTemplatePipe.Name
+  nameWithType: LowerCaseTemplatePipe.Name
+- uid: WeihanLi.Common.Template.LowerCaseTemplatePipe.Name*
+  name: Name
+  href: api/WeihanLi.Common.Template.LowerCaseTemplatePipe.html#WeihanLi_Common_Template_LowerCaseTemplatePipe_Name_
+  commentId: Overload:WeihanLi.Common.Template.LowerCaseTemplatePipe.Name
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.LowerCaseTemplatePipe.Name
+  nameWithType: LowerCaseTemplatePipe.Name
 - uid: WeihanLi.Common.Template.TemplateEngine
   name: TemplateEngine
   href: api/WeihanLi.Common.Template.TemplateEngine.html
@@ -21294,21 +21473,213 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Template.TemplateEngineOptions.Configuration
   nameWithType: TemplateEngineOptions.Configuration
+- uid: WeihanLi.Common.Template.TemplateInput
+  name: TemplateInput
+  href: api/WeihanLi.Common.Template.TemplateInput.html
+  commentId: T:WeihanLi.Common.Template.TemplateInput
+  fullName: WeihanLi.Common.Template.TemplateInput
+  nameWithType: TemplateInput
+- uid: WeihanLi.Common.Template.TemplateInput.Equals(System.Object)
+  name: Equals(object?)
+  href: api/WeihanLi.Common.Template.TemplateInput.html#WeihanLi_Common_Template_TemplateInput_Equals_System_Object_
+  commentId: M:WeihanLi.Common.Template.TemplateInput.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: WeihanLi.Common.Template.TemplateInput.Equals(object?)
+  fullName.vb: WeihanLi.Common.Template.TemplateInput.Equals(Object)
+  nameWithType: TemplateInput.Equals(object?)
+  nameWithType.vb: TemplateInput.Equals(Object)
+- uid: WeihanLi.Common.Template.TemplateInput.Equals(WeihanLi.Common.Template.TemplateInput)
+  name: Equals(TemplateInput?)
+  href: api/WeihanLi.Common.Template.TemplateInput.html#WeihanLi_Common_Template_TemplateInput_Equals_WeihanLi_Common_Template_TemplateInput_
+  commentId: M:WeihanLi.Common.Template.TemplateInput.Equals(WeihanLi.Common.Template.TemplateInput)
+  name.vb: Equals(TemplateInput)
+  fullName: WeihanLi.Common.Template.TemplateInput.Equals(WeihanLi.Common.Template.TemplateInput?)
+  fullName.vb: WeihanLi.Common.Template.TemplateInput.Equals(WeihanLi.Common.Template.TemplateInput)
+  nameWithType: TemplateInput.Equals(TemplateInput?)
+  nameWithType.vb: TemplateInput.Equals(TemplateInput)
+- uid: WeihanLi.Common.Template.TemplateInput.Equals*
+  name: Equals
+  href: api/WeihanLi.Common.Template.TemplateInput.html#WeihanLi_Common_Template_TemplateInput_Equals_
+  commentId: Overload:WeihanLi.Common.Template.TemplateInput.Equals
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TemplateInput.Equals
+  nameWithType: TemplateInput.Equals
+- uid: WeihanLi.Common.Template.TemplateInput.GetHashCode
+  name: GetHashCode()
+  href: api/WeihanLi.Common.Template.TemplateInput.html#WeihanLi_Common_Template_TemplateInput_GetHashCode
+  commentId: M:WeihanLi.Common.Template.TemplateInput.GetHashCode
+  fullName: WeihanLi.Common.Template.TemplateInput.GetHashCode()
+  nameWithType: TemplateInput.GetHashCode()
+- uid: WeihanLi.Common.Template.TemplateInput.GetHashCode*
+  name: GetHashCode
+  href: api/WeihanLi.Common.Template.TemplateInput.html#WeihanLi_Common_Template_TemplateInput_GetHashCode_
+  commentId: Overload:WeihanLi.Common.Template.TemplateInput.GetHashCode
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TemplateInput.GetHashCode
+  nameWithType: TemplateInput.GetHashCode
+- uid: WeihanLi.Common.Template.TemplateInput.Input
+  name: Input
+  href: api/WeihanLi.Common.Template.TemplateInput.html#WeihanLi_Common_Template_TemplateInput_Input
+  commentId: P:WeihanLi.Common.Template.TemplateInput.Input
+  fullName: WeihanLi.Common.Template.TemplateInput.Input
+  nameWithType: TemplateInput.Input
+- uid: WeihanLi.Common.Template.TemplateInput.Input*
+  name: Input
+  href: api/WeihanLi.Common.Template.TemplateInput.html#WeihanLi_Common_Template_TemplateInput_Input_
+  commentId: Overload:WeihanLi.Common.Template.TemplateInput.Input
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TemplateInput.Input
+  nameWithType: TemplateInput.Input
+- uid: WeihanLi.Common.Template.TemplateInput.Pipes
+  name: Pipes
+  href: api/WeihanLi.Common.Template.TemplateInput.html#WeihanLi_Common_Template_TemplateInput_Pipes
+  commentId: P:WeihanLi.Common.Template.TemplateInput.Pipes
+  fullName: WeihanLi.Common.Template.TemplateInput.Pipes
+  nameWithType: TemplateInput.Pipes
+- uid: WeihanLi.Common.Template.TemplateInput.Pipes*
+  name: Pipes
+  href: api/WeihanLi.Common.Template.TemplateInput.html#WeihanLi_Common_Template_TemplateInput_Pipes_
+  commentId: Overload:WeihanLi.Common.Template.TemplateInput.Pipes
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TemplateInput.Pipes
+  nameWithType: TemplateInput.Pipes
+- uid: WeihanLi.Common.Template.TemplateInput.Prefix
+  name: Prefix
+  href: api/WeihanLi.Common.Template.TemplateInput.html#WeihanLi_Common_Template_TemplateInput_Prefix
+  commentId: P:WeihanLi.Common.Template.TemplateInput.Prefix
+  fullName: WeihanLi.Common.Template.TemplateInput.Prefix
+  nameWithType: TemplateInput.Prefix
+- uid: WeihanLi.Common.Template.TemplateInput.Prefix*
+  name: Prefix
+  href: api/WeihanLi.Common.Template.TemplateInput.html#WeihanLi_Common_Template_TemplateInput_Prefix_
+  commentId: Overload:WeihanLi.Common.Template.TemplateInput.Prefix
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TemplateInput.Prefix
+  nameWithType: TemplateInput.Prefix
+- uid: WeihanLi.Common.Template.TemplateInput.VariableName
+  name: VariableName
+  href: api/WeihanLi.Common.Template.TemplateInput.html#WeihanLi_Common_Template_TemplateInput_VariableName
+  commentId: P:WeihanLi.Common.Template.TemplateInput.VariableName
+  fullName: WeihanLi.Common.Template.TemplateInput.VariableName
+  nameWithType: TemplateInput.VariableName
+- uid: WeihanLi.Common.Template.TemplateInput.VariableName*
+  name: VariableName
+  href: api/WeihanLi.Common.Template.TemplateInput.html#WeihanLi_Common_Template_TemplateInput_VariableName_
+  commentId: Overload:WeihanLi.Common.Template.TemplateInput.VariableName
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TemplateInput.VariableName
+  nameWithType: TemplateInput.VariableName
+- uid: WeihanLi.Common.Template.TemplatePipeBase
+  name: TemplatePipeBase
+  href: api/WeihanLi.Common.Template.TemplatePipeBase.html
+  commentId: T:WeihanLi.Common.Template.TemplatePipeBase
+  fullName: WeihanLi.Common.Template.TemplatePipeBase
+  nameWithType: TemplatePipeBase
+- uid: WeihanLi.Common.Template.TemplatePipeBase.Convert(System.Object,System.ReadOnlySpan{System.String})
+  name: Convert(object?, params ReadOnlySpan<string>)
+  href: api/WeihanLi.Common.Template.TemplatePipeBase.html#WeihanLi_Common_Template_TemplatePipeBase_Convert_System_Object_System_ReadOnlySpan_System_String__
+  commentId: M:WeihanLi.Common.Template.TemplatePipeBase.Convert(System.Object,System.ReadOnlySpan{System.String})
+  name.vb: Convert(Object, ReadOnlySpan(Of String))
+  fullName: WeihanLi.Common.Template.TemplatePipeBase.Convert(object?, params System.ReadOnlySpan<string>)
+  fullName.vb: WeihanLi.Common.Template.TemplatePipeBase.Convert(Object, System.ReadOnlySpan(Of String))
+  nameWithType: TemplatePipeBase.Convert(object?, params ReadOnlySpan<string>)
+  nameWithType.vb: TemplatePipeBase.Convert(Object, ReadOnlySpan(Of String))
+- uid: WeihanLi.Common.Template.TemplatePipeBase.Convert*
+  name: Convert
+  href: api/WeihanLi.Common.Template.TemplatePipeBase.html#WeihanLi_Common_Template_TemplatePipeBase_Convert_
+  commentId: Overload:WeihanLi.Common.Template.TemplatePipeBase.Convert
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TemplatePipeBase.Convert
+  nameWithType: TemplatePipeBase.Convert
+- uid: WeihanLi.Common.Template.TemplatePipeBase.ConvertInternal(System.Object,System.ReadOnlySpan{System.String})
+  name: ConvertInternal(object?, params ReadOnlySpan<string>)
+  href: api/WeihanLi.Common.Template.TemplatePipeBase.html#WeihanLi_Common_Template_TemplatePipeBase_ConvertInternal_System_Object_System_ReadOnlySpan_System_String__
+  commentId: M:WeihanLi.Common.Template.TemplatePipeBase.ConvertInternal(System.Object,System.ReadOnlySpan{System.String})
+  name.vb: ConvertInternal(Object, ReadOnlySpan(Of String))
+  fullName: WeihanLi.Common.Template.TemplatePipeBase.ConvertInternal(object?, params System.ReadOnlySpan<string>)
+  fullName.vb: WeihanLi.Common.Template.TemplatePipeBase.ConvertInternal(Object, System.ReadOnlySpan(Of String))
+  nameWithType: TemplatePipeBase.ConvertInternal(object?, params ReadOnlySpan<string>)
+  nameWithType.vb: TemplatePipeBase.ConvertInternal(Object, ReadOnlySpan(Of String))
+- uid: WeihanLi.Common.Template.TemplatePipeBase.ConvertInternal*
+  name: ConvertInternal
+  href: api/WeihanLi.Common.Template.TemplatePipeBase.html#WeihanLi_Common_Template_TemplatePipeBase_ConvertInternal_
+  commentId: Overload:WeihanLi.Common.Template.TemplatePipeBase.ConvertInternal
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TemplatePipeBase.ConvertInternal
+  nameWithType: TemplatePipeBase.ConvertInternal
+- uid: WeihanLi.Common.Template.TemplatePipeBase.Name
+  name: Name
+  href: api/WeihanLi.Common.Template.TemplatePipeBase.html#WeihanLi_Common_Template_TemplatePipeBase_Name
+  commentId: P:WeihanLi.Common.Template.TemplatePipeBase.Name
+  fullName: WeihanLi.Common.Template.TemplatePipeBase.Name
+  nameWithType: TemplatePipeBase.Name
+- uid: WeihanLi.Common.Template.TemplatePipeBase.Name*
+  name: Name
+  href: api/WeihanLi.Common.Template.TemplatePipeBase.html#WeihanLi_Common_Template_TemplatePipeBase_Name_
+  commentId: Overload:WeihanLi.Common.Template.TemplatePipeBase.Name
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TemplatePipeBase.Name
+  nameWithType: TemplatePipeBase.Name
+- uid: WeihanLi.Common.Template.TemplatePipeBase.ParameterCount
+  name: ParameterCount
+  href: api/WeihanLi.Common.Template.TemplatePipeBase.html#WeihanLi_Common_Template_TemplatePipeBase_ParameterCount
+  commentId: P:WeihanLi.Common.Template.TemplatePipeBase.ParameterCount
+  fullName: WeihanLi.Common.Template.TemplatePipeBase.ParameterCount
+  nameWithType: TemplatePipeBase.ParameterCount
+- uid: WeihanLi.Common.Template.TemplatePipeBase.ParameterCount*
+  name: ParameterCount
+  href: api/WeihanLi.Common.Template.TemplatePipeBase.html#WeihanLi_Common_Template_TemplatePipeBase_ParameterCount_
+  commentId: Overload:WeihanLi.Common.Template.TemplatePipeBase.ParameterCount
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TemplatePipeBase.ParameterCount
+  nameWithType: TemplatePipeBase.ParameterCount
+- uid: WeihanLi.Common.Template.TemplatePipeInput
+  name: TemplatePipeInput
+  href: api/WeihanLi.Common.Template.TemplatePipeInput.html
+  commentId: T:WeihanLi.Common.Template.TemplatePipeInput
+  fullName: WeihanLi.Common.Template.TemplatePipeInput
+  nameWithType: TemplatePipeInput
+- uid: WeihanLi.Common.Template.TemplatePipeInput.Arguments
+  name: Arguments
+  href: api/WeihanLi.Common.Template.TemplatePipeInput.html#WeihanLi_Common_Template_TemplatePipeInput_Arguments
+  commentId: P:WeihanLi.Common.Template.TemplatePipeInput.Arguments
+  fullName: WeihanLi.Common.Template.TemplatePipeInput.Arguments
+  nameWithType: TemplatePipeInput.Arguments
+- uid: WeihanLi.Common.Template.TemplatePipeInput.Arguments*
+  name: Arguments
+  href: api/WeihanLi.Common.Template.TemplatePipeInput.html#WeihanLi_Common_Template_TemplatePipeInput_Arguments_
+  commentId: Overload:WeihanLi.Common.Template.TemplatePipeInput.Arguments
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TemplatePipeInput.Arguments
+  nameWithType: TemplatePipeInput.Arguments
+- uid: WeihanLi.Common.Template.TemplatePipeInput.PipeName
+  name: PipeName
+  href: api/WeihanLi.Common.Template.TemplatePipeInput.html#WeihanLi_Common_Template_TemplatePipeInput_PipeName
+  commentId: P:WeihanLi.Common.Template.TemplatePipeInput.PipeName
+  fullName: WeihanLi.Common.Template.TemplatePipeInput.PipeName
+  nameWithType: TemplatePipeInput.PipeName
+- uid: WeihanLi.Common.Template.TemplatePipeInput.PipeName*
+  name: PipeName
+  href: api/WeihanLi.Common.Template.TemplatePipeInput.html#WeihanLi_Common_Template_TemplatePipeInput_PipeName_
+  commentId: Overload:WeihanLi.Common.Template.TemplatePipeInput.PipeName
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TemplatePipeInput.PipeName
+  nameWithType: TemplatePipeInput.PipeName
 - uid: WeihanLi.Common.Template.TemplateRenderContext
   name: TemplateRenderContext
   href: api/WeihanLi.Common.Template.TemplateRenderContext.html
   commentId: T:WeihanLi.Common.Template.TemplateRenderContext
   fullName: WeihanLi.Common.Template.TemplateRenderContext
   nameWithType: TemplateRenderContext
-- uid: WeihanLi.Common.Template.TemplateRenderContext.#ctor(System.String,System.Collections.Generic.HashSet{System.String})
-  name: TemplateRenderContext(string, HashSet<string>)
-  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext__ctor_System_String_System_Collections_Generic_HashSet_System_String__
-  commentId: M:WeihanLi.Common.Template.TemplateRenderContext.#ctor(System.String,System.Collections.Generic.HashSet{System.String})
-  name.vb: New(String, HashSet(Of String))
-  fullName: WeihanLi.Common.Template.TemplateRenderContext.TemplateRenderContext(string, System.Collections.Generic.HashSet<string>)
-  fullName.vb: WeihanLi.Common.Template.TemplateRenderContext.New(String, System.Collections.Generic.HashSet(Of String))
-  nameWithType: TemplateRenderContext.TemplateRenderContext(string, HashSet<string>)
-  nameWithType.vb: TemplateRenderContext.New(String, HashSet(Of String))
+- uid: WeihanLi.Common.Template.TemplateRenderContext.#ctor(System.String,System.Collections.Generic.IReadOnlyCollection{WeihanLi.Common.Template.TemplateInput})
+  name: TemplateRenderContext(string, IReadOnlyCollection<TemplateInput>)
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext__ctor_System_String_System_Collections_Generic_IReadOnlyCollection_WeihanLi_Common_Template_TemplateInput__
+  commentId: M:WeihanLi.Common.Template.TemplateRenderContext.#ctor(System.String,System.Collections.Generic.IReadOnlyCollection{WeihanLi.Common.Template.TemplateInput})
+  name.vb: New(String, IReadOnlyCollection(Of TemplateInput))
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.TemplateRenderContext(string, System.Collections.Generic.IReadOnlyCollection<WeihanLi.Common.Template.TemplateInput>)
+  fullName.vb: WeihanLi.Common.Template.TemplateRenderContext.New(String, System.Collections.Generic.IReadOnlyCollection(Of WeihanLi.Common.Template.TemplateInput))
+  nameWithType: TemplateRenderContext.TemplateRenderContext(string, IReadOnlyCollection<TemplateInput>)
+  nameWithType.vb: TemplateRenderContext.New(String, IReadOnlyCollection(Of TemplateInput))
 - uid: WeihanLi.Common.Template.TemplateRenderContext.#ctor*
   name: TemplateRenderContext
   href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext__ctor_
@@ -21319,19 +21690,19 @@ references:
   fullName.vb: WeihanLi.Common.Template.TemplateRenderContext.New
   nameWithType: TemplateRenderContext.TemplateRenderContext
   nameWithType.vb: TemplateRenderContext.New
-- uid: WeihanLi.Common.Template.TemplateRenderContext.Parameters
-  name: Parameters
-  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Parameters
-  commentId: P:WeihanLi.Common.Template.TemplateRenderContext.Parameters
-  fullName: WeihanLi.Common.Template.TemplateRenderContext.Parameters
-  nameWithType: TemplateRenderContext.Parameters
-- uid: WeihanLi.Common.Template.TemplateRenderContext.Parameters*
-  name: Parameters
-  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Parameters_
-  commentId: Overload:WeihanLi.Common.Template.TemplateRenderContext.Parameters
+- uid: WeihanLi.Common.Template.TemplateRenderContext.Inputs
+  name: Inputs
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Inputs
+  commentId: P:WeihanLi.Common.Template.TemplateRenderContext.Inputs
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.Inputs
+  nameWithType: TemplateRenderContext.Inputs
+- uid: WeihanLi.Common.Template.TemplateRenderContext.Inputs*
+  name: Inputs
+  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Inputs_
+  commentId: Overload:WeihanLi.Common.Template.TemplateRenderContext.Inputs
   isSpec: "True"
-  fullName: WeihanLi.Common.Template.TemplateRenderContext.Parameters
-  nameWithType: TemplateRenderContext.Parameters
+  fullName: WeihanLi.Common.Template.TemplateRenderContext.Inputs
+  nameWithType: TemplateRenderContext.Inputs
 - uid: WeihanLi.Common.Template.TemplateRenderContext.Properties
   name: Properties
   href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Properties
@@ -21371,19 +21742,162 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Template.TemplateRenderContext.Text
   nameWithType: TemplateRenderContext.Text
-- uid: WeihanLi.Common.Template.TemplateRenderContext.Variables
-  name: Variables
-  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Variables
-  commentId: P:WeihanLi.Common.Template.TemplateRenderContext.Variables
-  fullName: WeihanLi.Common.Template.TemplateRenderContext.Variables
-  nameWithType: TemplateRenderContext.Variables
-- uid: WeihanLi.Common.Template.TemplateRenderContext.Variables*
-  name: Variables
-  href: api/WeihanLi.Common.Template.TemplateRenderContext.html#WeihanLi_Common_Template_TemplateRenderContext_Variables_
-  commentId: Overload:WeihanLi.Common.Template.TemplateRenderContext.Variables
+- uid: WeihanLi.Common.Template.TextFormatTemplatePipe
+  name: TextFormatTemplatePipe
+  href: api/WeihanLi.Common.Template.TextFormatTemplatePipe.html
+  commentId: T:WeihanLi.Common.Template.TextFormatTemplatePipe
+  fullName: WeihanLi.Common.Template.TextFormatTemplatePipe
+  nameWithType: TextFormatTemplatePipe
+- uid: WeihanLi.Common.Template.TextFormatTemplatePipe.ConvertInternal(System.Object,System.ReadOnlySpan{System.String})
+  name: ConvertInternal(object?, params ReadOnlySpan<string>)
+  href: api/WeihanLi.Common.Template.TextFormatTemplatePipe.html#WeihanLi_Common_Template_TextFormatTemplatePipe_ConvertInternal_System_Object_System_ReadOnlySpan_System_String__
+  commentId: M:WeihanLi.Common.Template.TextFormatTemplatePipe.ConvertInternal(System.Object,System.ReadOnlySpan{System.String})
+  name.vb: ConvertInternal(Object, ReadOnlySpan(Of String))
+  fullName: WeihanLi.Common.Template.TextFormatTemplatePipe.ConvertInternal(object?, params System.ReadOnlySpan<string>)
+  fullName.vb: WeihanLi.Common.Template.TextFormatTemplatePipe.ConvertInternal(Object, System.ReadOnlySpan(Of String))
+  nameWithType: TextFormatTemplatePipe.ConvertInternal(object?, params ReadOnlySpan<string>)
+  nameWithType.vb: TextFormatTemplatePipe.ConvertInternal(Object, ReadOnlySpan(Of String))
+- uid: WeihanLi.Common.Template.TextFormatTemplatePipe.ConvertInternal*
+  name: ConvertInternal
+  href: api/WeihanLi.Common.Template.TextFormatTemplatePipe.html#WeihanLi_Common_Template_TextFormatTemplatePipe_ConvertInternal_
+  commentId: Overload:WeihanLi.Common.Template.TextFormatTemplatePipe.ConvertInternal
   isSpec: "True"
-  fullName: WeihanLi.Common.Template.TemplateRenderContext.Variables
-  nameWithType: TemplateRenderContext.Variables
+  fullName: WeihanLi.Common.Template.TextFormatTemplatePipe.ConvertInternal
+  nameWithType: TextFormatTemplatePipe.ConvertInternal
+- uid: WeihanLi.Common.Template.TextFormatTemplatePipe.Name
+  name: Name
+  href: api/WeihanLi.Common.Template.TextFormatTemplatePipe.html#WeihanLi_Common_Template_TextFormatTemplatePipe_Name
+  commentId: P:WeihanLi.Common.Template.TextFormatTemplatePipe.Name
+  fullName: WeihanLi.Common.Template.TextFormatTemplatePipe.Name
+  nameWithType: TextFormatTemplatePipe.Name
+- uid: WeihanLi.Common.Template.TextFormatTemplatePipe.Name*
+  name: Name
+  href: api/WeihanLi.Common.Template.TextFormatTemplatePipe.html#WeihanLi_Common_Template_TextFormatTemplatePipe_Name_
+  commentId: Overload:WeihanLi.Common.Template.TextFormatTemplatePipe.Name
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TextFormatTemplatePipe.Name
+  nameWithType: TextFormatTemplatePipe.Name
+- uid: WeihanLi.Common.Template.TextTransformTemplatePipe
+  name: TextTransformTemplatePipe
+  href: api/WeihanLi.Common.Template.TextTransformTemplatePipe.html
+  commentId: T:WeihanLi.Common.Template.TextTransformTemplatePipe
+  fullName: WeihanLi.Common.Template.TextTransformTemplatePipe
+  nameWithType: TextTransformTemplatePipe
+- uid: WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertInternal(System.Object,System.ReadOnlySpan{System.String})
+  name: ConvertInternal(object?, params ReadOnlySpan<string>)
+  href: api/WeihanLi.Common.Template.TextTransformTemplatePipe.html#WeihanLi_Common_Template_TextTransformTemplatePipe_ConvertInternal_System_Object_System_ReadOnlySpan_System_String__
+  commentId: M:WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertInternal(System.Object,System.ReadOnlySpan{System.String})
+  name.vb: ConvertInternal(Object, ReadOnlySpan(Of String))
+  fullName: WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertInternal(object?, params System.ReadOnlySpan<string>)
+  fullName.vb: WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertInternal(Object, System.ReadOnlySpan(Of String))
+  nameWithType: TextTransformTemplatePipe.ConvertInternal(object?, params ReadOnlySpan<string>)
+  nameWithType.vb: TextTransformTemplatePipe.ConvertInternal(Object, ReadOnlySpan(Of String))
+- uid: WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertInternal*
+  name: ConvertInternal
+  href: api/WeihanLi.Common.Template.TextTransformTemplatePipe.html#WeihanLi_Common_Template_TextTransformTemplatePipe_ConvertInternal_
+  commentId: Overload:WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertInternal
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertInternal
+  nameWithType: TextTransformTemplatePipe.ConvertInternal
+- uid: WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertText(System.String)
+  name: ConvertText(string)
+  href: api/WeihanLi.Common.Template.TextTransformTemplatePipe.html#WeihanLi_Common_Template_TextTransformTemplatePipe_ConvertText_System_String_
+  commentId: M:WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertText(System.String)
+  name.vb: ConvertText(String)
+  fullName: WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertText(string)
+  fullName.vb: WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertText(String)
+  nameWithType: TextTransformTemplatePipe.ConvertText(string)
+  nameWithType.vb: TextTransformTemplatePipe.ConvertText(String)
+- uid: WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertText*
+  name: ConvertText
+  href: api/WeihanLi.Common.Template.TextTransformTemplatePipe.html#WeihanLi_Common_Template_TextTransformTemplatePipe_ConvertText_
+  commentId: Overload:WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertText
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TextTransformTemplatePipe.ConvertText
+  nameWithType: TextTransformTemplatePipe.ConvertText
+- uid: WeihanLi.Common.Template.TextTransformTemplatePipe.ParameterCount
+  name: ParameterCount
+  href: api/WeihanLi.Common.Template.TextTransformTemplatePipe.html#WeihanLi_Common_Template_TextTransformTemplatePipe_ParameterCount
+  commentId: P:WeihanLi.Common.Template.TextTransformTemplatePipe.ParameterCount
+  fullName: WeihanLi.Common.Template.TextTransformTemplatePipe.ParameterCount
+  nameWithType: TextTransformTemplatePipe.ParameterCount
+- uid: WeihanLi.Common.Template.TextTransformTemplatePipe.ParameterCount*
+  name: ParameterCount
+  href: api/WeihanLi.Common.Template.TextTransformTemplatePipe.html#WeihanLi_Common_Template_TextTransformTemplatePipe_ParameterCount_
+  commentId: Overload:WeihanLi.Common.Template.TextTransformTemplatePipe.ParameterCount
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TextTransformTemplatePipe.ParameterCount
+  nameWithType: TextTransformTemplatePipe.ParameterCount
+- uid: WeihanLi.Common.Template.TitleCaseTemplatePipe
+  name: TitleCaseTemplatePipe
+  href: api/WeihanLi.Common.Template.TitleCaseTemplatePipe.html
+  commentId: T:WeihanLi.Common.Template.TitleCaseTemplatePipe
+  fullName: WeihanLi.Common.Template.TitleCaseTemplatePipe
+  nameWithType: TitleCaseTemplatePipe
+- uid: WeihanLi.Common.Template.TitleCaseTemplatePipe.ConvertText(System.String)
+  name: ConvertText(string)
+  href: api/WeihanLi.Common.Template.TitleCaseTemplatePipe.html#WeihanLi_Common_Template_TitleCaseTemplatePipe_ConvertText_System_String_
+  commentId: M:WeihanLi.Common.Template.TitleCaseTemplatePipe.ConvertText(System.String)
+  name.vb: ConvertText(String)
+  fullName: WeihanLi.Common.Template.TitleCaseTemplatePipe.ConvertText(string)
+  fullName.vb: WeihanLi.Common.Template.TitleCaseTemplatePipe.ConvertText(String)
+  nameWithType: TitleCaseTemplatePipe.ConvertText(string)
+  nameWithType.vb: TitleCaseTemplatePipe.ConvertText(String)
+- uid: WeihanLi.Common.Template.TitleCaseTemplatePipe.ConvertText*
+  name: ConvertText
+  href: api/WeihanLi.Common.Template.TitleCaseTemplatePipe.html#WeihanLi_Common_Template_TitleCaseTemplatePipe_ConvertText_
+  commentId: Overload:WeihanLi.Common.Template.TitleCaseTemplatePipe.ConvertText
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TitleCaseTemplatePipe.ConvertText
+  nameWithType: TitleCaseTemplatePipe.ConvertText
+- uid: WeihanLi.Common.Template.TitleCaseTemplatePipe.Name
+  name: Name
+  href: api/WeihanLi.Common.Template.TitleCaseTemplatePipe.html#WeihanLi_Common_Template_TitleCaseTemplatePipe_Name
+  commentId: P:WeihanLi.Common.Template.TitleCaseTemplatePipe.Name
+  fullName: WeihanLi.Common.Template.TitleCaseTemplatePipe.Name
+  nameWithType: TitleCaseTemplatePipe.Name
+- uid: WeihanLi.Common.Template.TitleCaseTemplatePipe.Name*
+  name: Name
+  href: api/WeihanLi.Common.Template.TitleCaseTemplatePipe.html#WeihanLi_Common_Template_TitleCaseTemplatePipe_Name_
+  commentId: Overload:WeihanLi.Common.Template.TitleCaseTemplatePipe.Name
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.TitleCaseTemplatePipe.Name
+  nameWithType: TitleCaseTemplatePipe.Name
+- uid: WeihanLi.Common.Template.UpperCaseTemplatePipe
+  name: UpperCaseTemplatePipe
+  href: api/WeihanLi.Common.Template.UpperCaseTemplatePipe.html
+  commentId: T:WeihanLi.Common.Template.UpperCaseTemplatePipe
+  fullName: WeihanLi.Common.Template.UpperCaseTemplatePipe
+  nameWithType: UpperCaseTemplatePipe
+- uid: WeihanLi.Common.Template.UpperCaseTemplatePipe.ConvertText(System.String)
+  name: ConvertText(string)
+  href: api/WeihanLi.Common.Template.UpperCaseTemplatePipe.html#WeihanLi_Common_Template_UpperCaseTemplatePipe_ConvertText_System_String_
+  commentId: M:WeihanLi.Common.Template.UpperCaseTemplatePipe.ConvertText(System.String)
+  name.vb: ConvertText(String)
+  fullName: WeihanLi.Common.Template.UpperCaseTemplatePipe.ConvertText(string)
+  fullName.vb: WeihanLi.Common.Template.UpperCaseTemplatePipe.ConvertText(String)
+  nameWithType: UpperCaseTemplatePipe.ConvertText(string)
+  nameWithType.vb: UpperCaseTemplatePipe.ConvertText(String)
+- uid: WeihanLi.Common.Template.UpperCaseTemplatePipe.ConvertText*
+  name: ConvertText
+  href: api/WeihanLi.Common.Template.UpperCaseTemplatePipe.html#WeihanLi_Common_Template_UpperCaseTemplatePipe_ConvertText_
+  commentId: Overload:WeihanLi.Common.Template.UpperCaseTemplatePipe.ConvertText
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.UpperCaseTemplatePipe.ConvertText
+  nameWithType: UpperCaseTemplatePipe.ConvertText
+- uid: WeihanLi.Common.Template.UpperCaseTemplatePipe.Name
+  name: Name
+  href: api/WeihanLi.Common.Template.UpperCaseTemplatePipe.html#WeihanLi_Common_Template_UpperCaseTemplatePipe_Name
+  commentId: P:WeihanLi.Common.Template.UpperCaseTemplatePipe.Name
+  fullName: WeihanLi.Common.Template.UpperCaseTemplatePipe.Name
+  nameWithType: UpperCaseTemplatePipe.Name
+- uid: WeihanLi.Common.Template.UpperCaseTemplatePipe.Name*
+  name: Name
+  href: api/WeihanLi.Common.Template.UpperCaseTemplatePipe.html#WeihanLi_Common_Template_UpperCaseTemplatePipe_Name_
+  commentId: Overload:WeihanLi.Common.Template.UpperCaseTemplatePipe.Name
+  isSpec: "True"
+  fullName: WeihanLi.Common.Template.UpperCaseTemplatePipe.Name
+  nameWithType: UpperCaseTemplatePipe.Name
 - uid: WeihanLi.Extensions
   name: WeihanLi.Extensions
   href: api/WeihanLi.Extensions.html

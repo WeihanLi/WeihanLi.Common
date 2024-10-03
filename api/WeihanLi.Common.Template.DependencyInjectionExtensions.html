@@ -148,6 +148,90 @@ Class DependencyInjectionExtensions  <a class="header-action link-secondary" tit
 </h2>
 
 
+  <a id="WeihanLi_Common_Template_DependencyInjectionExtensions_AddPipe_" data-uid="WeihanLi.Common.Template.DependencyInjectionExtensions.AddPipe*"></a>
+
+  <h3 id="WeihanLi_Common_Template_DependencyInjectionExtensions_AddPipe__1_WeihanLi_Common_Template_ITemplateEngineServiceBuilder_" data-uid="WeihanLi.Common.Template.DependencyInjectionExtensions.AddPipe``1(WeihanLi.Common.Template.ITemplateEngineServiceBuilder)">
+  AddPipe&lt;TPipe&gt;(ITemplateEngineServiceBuilder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/DependencyInjectionExtensions.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ITemplateEngineServiceBuilder AddPipe&lt;TPipe&gt;(this ITemplateEngineServiceBuilder serviceBuilder) where TPipe : class, ITemplatePipe</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceBuilder</code> <a class="xref" href="WeihanLi.Common.Template.ITemplateEngineServiceBuilder.html">ITemplateEngineServiceBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Template.ITemplateEngineServiceBuilder.html">ITemplateEngineServiceBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TPipe</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Template_DependencyInjectionExtensions_AddRenderMiddleware_" data-uid="WeihanLi.Common.Template.DependencyInjectionExtensions.AddRenderMiddleware*"></a>
+
+  <h3 id="WeihanLi_Common_Template_DependencyInjectionExtensions_AddRenderMiddleware__1_WeihanLi_Common_Template_ITemplateEngineServiceBuilder_System_Func_System_IServiceProvider___0__" data-uid="WeihanLi.Common.Template.DependencyInjectionExtensions.AddRenderMiddleware``1(WeihanLi.Common.Template.ITemplateEngineServiceBuilder,System.Func{System.IServiceProvider,``0})">
+  AddRenderMiddleware&lt;TMiddleware&gt;(ITemplateEngineServiceBuilder, Func&lt;IServiceProvider, TMiddleware&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/DependencyInjectionExtensions.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ITemplateEngineServiceBuilder AddRenderMiddleware&lt;TMiddleware&gt;(this ITemplateEngineServiceBuilder serviceBuilder, Func&lt;IServiceProvider, TMiddleware&gt;? middlewareFactory = null) where TMiddleware : class, IRenderMiddleware</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serviceBuilder</code> <a class="xref" href="WeihanLi.Common.Template.ITemplateEngineServiceBuilder.html">ITemplateEngineServiceBuilder</a></dt>
+    <dd></dd>
+    <dt><code>middlewareFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a>, TMiddleware&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Template.ITemplateEngineServiceBuilder.html">ITemplateEngineServiceBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TMiddleware</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Common_Template_DependencyInjectionExtensions_AddTemplateEngine_" data-uid="WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplateEngine*"></a>
 
   <h3 id="WeihanLi_Common_Template_DependencyInjectionExtensions_AddTemplateEngine_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_WeihanLi_Common_Template_TemplateEngineOptions__" data-uid="WeihanLi.Common.Template.DependencyInjectionExtensions.AddTemplateEngine(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{WeihanLi.Common.Template.TemplateEngineOptions})">
@@ -159,7 +243,7 @@ Class DependencyInjectionExtensions  <a class="header-action link-secondary" tit
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IServiceCollection AddTemplateEngine(this IServiceCollection services, Action&lt;TemplateEngineOptions&gt;? optionsConfigure = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ITemplateEngineServiceBuilder AddTemplateEngine(this IServiceCollection services, Action&lt;TemplateEngineOptions&gt;? optionsConfigure = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -172,7 +256,7 @@ Class DependencyInjectionExtensions  <a class="header-action link-secondary" tit
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dt><a class="xref" href="WeihanLi.Common.Template.ITemplateEngineServiceBuilder.html">ITemplateEngineServiceBuilder</a></dt>
     <dd></dd>
   </dl>
 

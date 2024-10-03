@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Interface ITemplateRendererBuilder </title>
+      <title>Interface ITemplateEngineServiceBuilder </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Interface ITemplateRendererBuilder ">
+      <meta name="title" content="Interface ITemplateEngineServiceBuilder ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Template_ITemplateRendererBuilder.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Template.ITemplateRendererBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Template_ITemplateEngineServiceBuilder.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Template.ITemplateEngineServiceBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -80,12 +80,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder">
+        <article data-uid="WeihanLi.Common.Template.ITemplateEngineServiceBuilder">
 
 
 
-  <h1 id="WeihanLi_Common_Template_ITemplateRendererBuilder" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder" class="text-break">
-Interface ITemplateRendererBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/ITemplateRendererBuilder.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  <h1 id="WeihanLi_Common_Template_ITemplateEngineServiceBuilder" data-uid="WeihanLi.Common.Template.ITemplateEngineServiceBuilder" class="text-break">
+Interface ITemplateEngineServiceBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplateEngineServiceBuilder.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Interface ITemplateRendererBuilder  <a class="header-action link-secondary" titl
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ITemplateRendererBuilder</code></pre>
+    <pre><code class="lang-csharp hljs">public interface ITemplateEngineServiceBuilder</code></pre>
   </div>
 
 
@@ -160,6 +160,12 @@ Interface ITemplateRendererBuilder  <a class="header-action link-secondary" titl
   </div>
   <div>
       <a class="xref" href="WeihanLi.Common.Models.ResultExtensions.html#WeihanLi_Common_Models_ResultExtensions_WrapResult__1___0_WeihanLi_Common_Models_ResultStatus_System_String_">ResultExtensions.WrapResult&lt;T&gt;(T, ResultStatus, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Template.DependencyInjectionExtensions.html#WeihanLi_Common_Template_DependencyInjectionExtensions_AddPipe__1_WeihanLi_Common_Template_ITemplateEngineServiceBuilder_">DependencyInjectionExtensions.AddPipe&lt;TPipe&gt;(ITemplateEngineServiceBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Template.DependencyInjectionExtensions.html#WeihanLi_Common_Template_DependencyInjectionExtensions_AddRenderMiddleware__1_WeihanLi_Common_Template_ITemplateEngineServiceBuilder_System_Func_System_IServiceProvider___0__">DependencyInjectionExtensions.AddRenderMiddleware&lt;TMiddleware&gt;(ITemplateEngineServiceBuilder, Func&lt;IServiceProvider, TMiddleware&gt;?)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Chain__1___0_System_Action___0__">CoreExtension.Chain&lt;T&gt;(T, Action&lt;T&gt;?)</a>
@@ -227,84 +233,33 @@ Interface ITemplateRendererBuilder  <a class="header-action link-secondary" titl
 
 
 
-  <h2 class="section" id="methods">Methods
+  <h2 class="section" id="properties">Properties
 </h2>
 
 
-  <a id="WeihanLi_Common_Template_ITemplateRendererBuilder_UseRenderMiddleware_" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder.UseRenderMiddleware*"></a>
+  <a id="WeihanLi_Common_Template_ITemplateEngineServiceBuilder_Services_" data-uid="WeihanLi.Common.Template.ITemplateEngineServiceBuilder.Services*"></a>
 
-  <h3 id="WeihanLi_Common_Template_ITemplateRendererBuilder_UseRenderMiddleware__1___0_" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder.UseRenderMiddleware``1(``0)">
-  UseRenderMiddleware&lt;TMiddleware&gt;(TMiddleware)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/ITemplateRendererBuilder.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Template_ITemplateEngineServiceBuilder_Services" data-uid="WeihanLi.Common.Template.ITemplateEngineServiceBuilder.Services">
+  Services
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplateEngineServiceBuilder.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ITemplateRendererBuilder UseRenderMiddleware&lt;TMiddleware&gt;(TMiddleware middleware) where TMiddleware : class, IRenderMiddleware</code></pre>
+    <pre><code class="lang-csharp hljs">IServiceCollection Services { get; }</code></pre>
   </div>
 
-  <h4 class="section">Parameters</h4>
+
+
+
+
+  <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><code>middleware</code> <span class="xref">TMiddleware</span></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
     <dd></dd>
   </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="WeihanLi.Common.Template.ITemplateRendererBuilder.html">ITemplateRendererBuilder</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TMiddleware</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Common_Template_ITemplateRendererBuilder_UseTemplatePipe_" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder.UseTemplatePipe*"></a>
-
-  <h3 id="WeihanLi_Common_Template_ITemplateRendererBuilder_UseTemplatePipe__1___0_" data-uid="WeihanLi.Common.Template.ITemplateRendererBuilder.UseTemplatePipe``1(``0)">
-  UseTemplatePipe&lt;TPipe&gt;(TPipe)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/ITemplateRendererBuilder.cs/#L8"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ITemplateRendererBuilder UseTemplatePipe&lt;TPipe&gt;(TPipe pipe) where TPipe : class, ITemplatePipe</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>pipe</code> <span class="xref">TPipe</span></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="WeihanLi.Common.Template.ITemplateRendererBuilder.html">ITemplateRendererBuilder</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TPipe</code></dt>
-    <dd></dd>
-  </dl>
-
-
 
 
 
@@ -317,7 +272,7 @@ Interface ITemplateRendererBuilder  <a class="header-action link-secondary" titl
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/ITemplateRendererBuilder.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Template/TemplateEngineServiceBuilder.cs/#L8" class="edit-link">Edit this page</a>
         </div>
 
 

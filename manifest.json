@@ -3464,10 +3464,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Template.ITemplateEngineServiceBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Template.ITemplateEngineServiceBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Template.ITemplateParser.yml",
       "output": {
         ".html": {
           "relative_path": "api/WeihanLi.Common.Template.ITemplateParser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Template.ITemplatePipe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Template.ITemplatePipe.html"
         }
       },
       "version": ""
@@ -3494,6 +3514,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Template.LowerCaseTemplatePipe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Template.LowerCaseTemplatePipe.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Template.TemplateEngine.yml",
       "output": {
         ".html": {
@@ -3514,10 +3544,80 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Template.TemplateInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Template.TemplateInput.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Template.TemplatePipeBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Template.TemplatePipeBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Template.TemplatePipeInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Template.TemplatePipeInput.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Template.TemplateRenderContext.yml",
       "output": {
         ".html": {
           "relative_path": "api/WeihanLi.Common.Template.TemplateRenderContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Template.TextFormatTemplatePipe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Template.TextFormatTemplatePipe.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Template.TextTransformTemplatePipe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Template.TextTransformTemplatePipe.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Template.TitleCaseTemplatePipe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Template.TitleCaseTemplatePipe.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Template.UpperCaseTemplatePipe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Template.UpperCaseTemplatePipe.html"
         }
       },
       "version": ""
