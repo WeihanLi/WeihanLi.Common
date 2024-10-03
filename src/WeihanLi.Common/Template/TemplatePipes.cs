@@ -11,7 +11,7 @@ public abstract class TemplatePipeBase : ITemplatePipe
     protected virtual int? ParameterCount => 1;
 
     public abstract string Name { get; }
-    public string? Convert(object? value, params ReadOnlySpan<string> args)
+    public object? Convert(object? value, params ReadOnlySpan<string> args)
     {
         if (ParameterCount.HasValue && ParameterCount.Value != args.Length)
         {
@@ -20,13 +20,13 @@ public abstract class TemplatePipeBase : ITemplatePipe
 
         return ConvertInternal(value, args);
     }
-    
-    protected abstract string? ConvertInternal(object? value, params ReadOnlySpan<string> args);
+
+    protected abstract object? ConvertInternal(object? value, params ReadOnlySpan<string> args);
 }
 
 public sealed class TextFormatTemplatePipe : TemplatePipeBase
 {
-    protected override string? ConvertInternal(object? value, params ReadOnlySpan<string> args)
+    protected override object? ConvertInternal(object? value, params ReadOnlySpan<string> args)
         => FormatText(value, args[0]);
 
     public override string Name => "format";
@@ -45,12 +45,12 @@ public abstract class TextTransformTemplatePipe : TemplatePipeBase
 {
     protected override int? ParameterCount => 0;
 
-    protected override string? ConvertInternal(object? value, params ReadOnlySpan<string> args)
+    protected override object? ConvertInternal(object? value, params ReadOnlySpan<string> args)
     {
         var str = value as string ?? value?.ToString();
         return str is null ? null : ConvertText(str);
     }
-    
+
     protected abstract string? ConvertText(string value);
 }
 
