@@ -1,4 +1,7 @@
-﻿using System.Collections.Concurrent;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using System.Collections.Concurrent;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -1638,8 +1641,8 @@ public static class CoreExtension
         return value switch
         {
             null => defaultValue,
-            "" or "1" => true,
-            "0" => false,
+            "" or "1" or "yes" or "y" => true,
+            "0" or "no" or "n" => false,
             _ => bool.TryParse(value, out var val) ? val : defaultValue
         };
     }
