@@ -40,7 +40,7 @@ public static class ApplicationHelper
             .FirstOrDefault(x => nameof(LibraryInfo.RepositoryUrl).Equals(x.Key))?.Value ?? string.Empty;
         if (assemblyInformation is not null)
         {
-            var informationalVersionSplit = assemblyInformation.InformationalVersion.Split('+');
+            var informationalVersionSplit = assemblyInformation.InformationalVersion.Split('+', 2);
             return new LibraryInfo()
             {
                 FullVersion = assemblyInformation.InformationalVersion,
