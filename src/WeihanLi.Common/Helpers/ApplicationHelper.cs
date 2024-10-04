@@ -167,10 +167,7 @@ public static class ApplicationHelper
             IsInKubernetes = IsInKubernetesCluster(),
             KubernetesNamespace = GetKubernetesNamespace(),
 
-            LibraryVersion = libInfo.LibraryVersion,
-            LibraryHash = libInfo.LibraryHash,
-            VersionWithHash = libInfo.VersionWithHash,
-            RepositoryUrl = libInfo.RepositoryUrl,
+            LibraryInfo = libInfo,
         };
         return runtimeInfo;
     }
@@ -243,7 +240,7 @@ public class LibraryInfo
     public string VersionWithHash { get => _versionWithHash ?? LibraryVersion; init => _versionWithHash = value; }
 }
 
-public class RuntimeInfo : LibraryInfo
+public class RuntimeInfo
 {
     public required string Version { get; init; }
     public required string FrameworkDescription { get; init; }
@@ -282,4 +279,9 @@ public class RuntimeInfo : LibraryInfo
     /// Kubernetes namespace when running in a Kubernetes cluster
     /// </summary>
     public string? KubernetesNamespace { get; init; }
+
+    /// <summary>
+    /// Runtime library info
+    /// </summary>
+    public required LibraryInfo LibraryInfo { get; init; }
 }
