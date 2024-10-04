@@ -43,7 +43,7 @@ public static class ApplicationHelper
             var informationalVersionSplit = assemblyInformation.InformationalVersion.Split('+');
             return new LibraryInfo()
             {
-                VersionWithHash = assemblyInformation.InformationalVersion,
+                FullVersion = assemblyInformation.InformationalVersion,
                 LibraryVersion = informationalVersionSplit[0],
                 LibraryHash = informationalVersionSplit.Length > 1 ? informationalVersionSplit[1] : string.Empty,
                 RepositoryUrl = repositoryUrl
@@ -233,11 +233,11 @@ public static class ApplicationHelper
 
 public class LibraryInfo
 {
-    private string? _versionWithHash;
+    private readonly string? _fullVersion;
     public required string LibraryVersion { get; init; }
     public required string LibraryHash { get; init; }
     public required string RepositoryUrl { get; init; }
-    public string VersionWithHash { get => _versionWithHash ?? LibraryVersion; init => _versionWithHash = value; }
+    public string FullVersion { get => _fullVersion ?? LibraryVersion; init => _fullVersion = value; }
 }
 
 public class RuntimeInfo
