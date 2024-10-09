@@ -40,9 +40,16 @@ public static class ApplicationHelper
             .FirstOrDefault(x => nameof(LibraryInfo.RepositoryUrl).Equals(x.Key))?.Value ?? string.Empty;
         if (assemblyInformation is not null)
         {
-            var informationalVersionSplit = assemblyInformation.InformationalVersion.Split('+');
+            var informationalVersionSplit = assemblyInformation.InformationalVersion
+#if NET
+                .Split('+', 2)
+#else
+                .Split('+')
+#endif
+                ;
             return new LibraryInfo()
             {
+                LibraryFullVersion = assemblyInformation.InformationalVersion,
                 LibraryVersion = informationalVersionSplit[0],
                 LibraryHash = informationalVersionSplit.Length > 1 ? informationalVersionSplit[1] : string.Empty,
                 RepositoryUrl = repositoryUrl
@@ -141,9 +148,6 @@ public static class ApplicationHelper
         var runtimeInfo = new RuntimeInfo()
         {
             Version = Environment.Version.ToString(),
-            ProcessorCount = Environment.ProcessorCount,
-            FrameworkDescription = RuntimeInformation.FrameworkDescription,
-            WorkingDirectory = Environment.CurrentDirectory,
 
 #if NET6_0_OR_GREATER
             ProcessId = Environment.ProcessId,
@@ -153,6 +157,10 @@ public static class ApplicationHelper
             ProcessId = currentProcess.Id,
             ProcessPath = currentProcess.MainModule?.FileName ?? string.Empty,
 #endif
+
+            ProcessorCount = Environment.ProcessorCount,
+            FrameworkDescription = RuntimeInformation.FrameworkDescription,
+            WorkingDirectory = Environment.CurrentDirectory,
             OSArchitecture = RuntimeInformation.OSArchitecture.ToString(),
             OSDescription = RuntimeInformation.OSDescription,
             OSVersion = Environment.OSVersion.ToString(),
@@ -165,9 +173,7 @@ public static class ApplicationHelper
             IsInKubernetes = IsInKubernetesCluster(),
             KubernetesNamespace = GetKubernetesNamespace(),
 
-            LibraryVersion = libInfo.LibraryVersion,
-            LibraryHash = libInfo.LibraryHash,
-            RepositoryUrl = libInfo.RepositoryUrl,
+            LibraryInfo = libInfo,
         };
         return runtimeInfo;
     }
@@ -233,12 +239,14 @@ public static class ApplicationHelper
 
 public class LibraryInfo
 {
+    private readonly string? _fullVersion;
     public required string LibraryVersion { get; init; }
     public required string LibraryHash { get; init; }
     public required string RepositoryUrl { get; init; }
+    public string LibraryFullVersion { get => _fullVersion ?? LibraryVersion; init => _fullVersion = value; }
 }
 
-public class RuntimeInfo : LibraryInfo
+public class RuntimeInfo
 {
     public required string Version { get; init; }
     public required string FrameworkDescription { get; init; }
@@ -277,4 +285,9 @@ public class RuntimeInfo : LibraryInfo
     /// Kubernetes namespace when running in a Kubernetes cluster
     /// </summary>
     public string? KubernetesNamespace { get; init; }
+
+    /// <summary>
+    /// Runtime library info
+    /// </summary>
+    public required LibraryInfo LibraryInfo { get; init; }
 }

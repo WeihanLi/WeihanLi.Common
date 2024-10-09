@@ -8,5 +8,5 @@ public sealed class TemplateEngineOptions
 {
     public IConfiguration? Configuration { get; set; }
 
-    internal Dictionary<string, ITemplatePipe> Pipes { get; init; }
+    internal Dictionary<string, ITemplatePipe> Pipes { get; init; } = new();
 }

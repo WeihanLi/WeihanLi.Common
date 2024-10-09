@@ -5,12 +5,12 @@
     <ExtensionPackageVersion Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard2.1' OR '$(TargetFramework)' == 'net6.0'">6.0.0</ExtensionPackageVersion>
     <ExtensionPackageVersion Condition="'$(TargetFramework)' == 'net7.0'">7.0.0</ExtensionPackageVersion>
     <ExtensionPackageVersion Condition="'$(TargetFramework)' == 'net8.0'">8.0.0</ExtensionPackageVersion>
-    <ExtensionPackageVersion Condition="'$(TargetFramework)' == 'net9.0'">9.0.0-rc.1.24431.7</ExtensionPackageVersion>
+    <ExtensionPackageVersion Condition="'$(TargetFramework)' == 'net9.0'">9.0.0-rc.2.24473.5</ExtensionPackageVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Microsoft.Extensions.Configuration" Version="$(ExtensionPackageVersion)" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="$(ExtensionPackageVersion)" />
-    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
   </ItemGroup>
   <ItemGroup>
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
@@ -25,15 +25,15 @@
     <PackageVersion Include="Moq" Version="4.20.72" />
     <PackageVersion Include="xunit" Version="2.9.2" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.2" />
-    <PackageVersion Include="Xunit.DependencyInjection" Version="8.7.1" />
-    <PackageVersion Include="Xunit.DependencyInjection.Logging" Version="8.1.0" />
+    <PackageVersion Include="Xunit.DependencyInjection" Version="9.3.0" />
+    <PackageVersion Include="Xunit.DependencyInjection.Logging" Version="9.0.0" />
     <PackageVersion Include="coverlet.collector" Version="6.0.2" />
     <PackageVersion Include="BenchmarkDotNet" Version="0.14.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.8" />
-    <PackageVersion Include="Microsoft.Extensions.ObjectPool" Version="8.0.8" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.10" />
+    <PackageVersion Include="Microsoft.Extensions.ObjectPool" Version="8.0.10" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
     <PackageVersion Include="System.Data.SqlClient" Version="4.8.6" />
     <PackageVersion Include="Dapper" Version="2.1.44" />
