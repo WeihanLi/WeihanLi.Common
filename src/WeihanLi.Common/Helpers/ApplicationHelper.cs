@@ -242,8 +242,8 @@ public class LibraryInfo
     private readonly string? _fullVersion;
     public required string LibraryVersion { get; init; }
     public required string LibraryHash { get; init; }
-    public required string RepositoryUrl { get; init; }
     public string LibraryFullVersion { get => _fullVersion ?? LibraryVersion; init => _fullVersion = value; }
+    public required string RepositoryUrl { get; init; }
 }
 
 public class RuntimeInfo
