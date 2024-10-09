@@ -9,5 +9,8 @@
     <NoWarn>$(NoWarn);NU5048;CS1591;NETSDK1057</NoWarn>
     <ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>
     <ContinuousIntegrationBuild Condition="'$(CI)' == 'true' or '$(TF_BUILD)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+    <!-- NuGet Audit https://learn.microsoft.com/en-us/nuget/concepts/auditing-packages -->
+    <NuGetAudit>true</NuGetAudit>
+    <NuGetAuditMode>direct</NuGetAuditMode>
   </PropertyGroup>
 </Project>
