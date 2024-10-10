@@ -6,7 +6,7 @@ using WeihanLi.Common.Helpers;
 
 Console.WriteLine("----------DotNetCoreSample----------");
 
-InvokeHelper.OnInvokeException = ex => ConsoleHelper.ErrorWriteWithColor(ex.ToString(), ConsoleColor.DarkRed);
+InvokeHelper.OnInvokeException = ex => ConsoleHelper.ErrorWriteLineWithColor(ex.ToString(), ConsoleColor.DarkRed);
 
 // ServiceDecoratorTest.MainTest();
 
@@ -344,6 +344,8 @@ InvokeHelper.OnInvokeException = ex => ConsoleHelper.ErrorWriteWithColor(ex.ToSt
 // await InvokeHelper.TryInvokeAsync(EventTest.MainTest);
 
 // InvokeHelper.TryInvoke(CommandExecutorTest.MainTest);
+
+// InvokeHelper.TryInvoke(() => throw null, 3);
 
 await InvokeHelper.TryInvokeAsync(TemplatingSample.MainTest);
 

@@ -40,10 +40,16 @@ public static class ApplicationHelper
             .FirstOrDefault(x => nameof(LibraryInfo.RepositoryUrl).Equals(x.Key))?.Value ?? string.Empty;
         if (assemblyInformation is not null)
         {
-            var informationalVersionSplit = assemblyInformation.InformationalVersion.Split('+');
+            var informationalVersionSplit = assemblyInformation.InformationalVersion
+#if NET
+                .Split('+', 2)
+#else
+                .Split('+')
+#endif
+                ;
             return new LibraryInfo()
             {
-                VersionWithHash = assemblyInformation.InformationalVersion,
+                LibraryFullVersion = assemblyInformation.InformationalVersion,
                 LibraryVersion = informationalVersionSplit[0],
                 LibraryHash = informationalVersionSplit.Length > 1 ? informationalVersionSplit[1] : string.Empty,
                 RepositoryUrl = repositoryUrl
@@ -167,10 +173,7 @@ public static class ApplicationHelper
             IsInKubernetes = IsInKubernetesCluster(),
             KubernetesNamespace = GetKubernetesNamespace(),
 
-            LibraryVersion = libInfo.LibraryVersion,
-            LibraryHash = libInfo.LibraryHash,
-            VersionWithHash = libInfo.VersionWithHash,
-            RepositoryUrl = libInfo.RepositoryUrl,
+            LibraryInfo = libInfo,
         };
         return runtimeInfo;
     }
@@ -236,14 +239,14 @@ public static class ApplicationHelper
 
 public class LibraryInfo
 {
-    private string? _versionWithHash;
+    private readonly string? _fullVersion;
     public required string LibraryVersion { get; init; }
     public required string LibraryHash { get; init; }
+    public string LibraryFullVersion { get => _fullVersion ?? LibraryVersion; init => _fullVersion = value; }
     public required string RepositoryUrl { get; init; }
-    public string VersionWithHash { get => _versionWithHash ?? LibraryVersion; init => _versionWithHash = value; }
 }
 
-public class RuntimeInfo : LibraryInfo
+public class RuntimeInfo
 {
     public required string Version { get; init; }
     public required string FrameworkDescription { get; init; }
@@ -282,4 +285,9 @@ public class RuntimeInfo : LibraryInfo
     /// Kubernetes namespace when running in a Kubernetes cluster
     /// </summary>
     public string? KubernetesNamespace { get; init; }
+
+    /// <summary>
+    /// Runtime library info
+    /// </summary>
+    public required LibraryInfo LibraryInfo { get; init; }
 }

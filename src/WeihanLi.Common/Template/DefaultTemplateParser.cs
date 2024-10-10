@@ -31,7 +31,7 @@ internal sealed class DefaultTemplateParser : ITemplateParser
             var pipeValue = match.Groups["Pipe"]?.Value.Trim();
             if (!string.IsNullOrEmpty(pipeValue))
             {
-                var pipeIndex = pipeValue.IndexOf('|');
+                var pipeIndex = pipeValue!.IndexOf('|');
                 if (pipeIndex < 0)
                 {
                     match = match.NextMatch();
@@ -40,7 +40,7 @@ internal sealed class DefaultTemplateParser : ITemplateParser
                 
                 // exact pipes
                 pipeValue = pipeValue[pipeIndex..].Trim();
-                var pipeInputs = pipeValue!.Split(['|'], StringSplitOptions.RemoveEmptyEntries);
+                var pipeInputs = pipeValue.Split(['|'], StringSplitOptions.RemoveEmptyEntries);
                 pipes = pipeInputs.Select(p =>
                     {
                         var pipeName = p.Trim();

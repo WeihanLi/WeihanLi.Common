@@ -4,7 +4,7 @@
 
 [![WeihanLi.Common Latest Stable](https://img.shields.io/nuget/v/WeihanLi.Common.svg)](https://www.nuget.org/packages/WeihanLi.Common/)
 
-[![WeihanLi.Common Latest](https://img.shields.io/nuget/vpre/WeihanLi.Common)](https://www.nuget.org/packages/WeihanLi.Common/absoluteLatest)
+[![WeihanLi.Common Latest Preview](https://img.shields.io/nuget/vpre/WeihanLi.Common)](https://www.nuget.org/packages/WeihanLi.Common/absoluteLatest)
 
 [![Azure Pipelines Build Status](https://weihanli.visualstudio.com/Pipelines/_apis/build/status/WeihanLi.WeihanLi.Common?branchName=master)](https://weihanli.visualstudio.com/Pipelines/_build/latest?definitionId=16&branchName=master)
 
