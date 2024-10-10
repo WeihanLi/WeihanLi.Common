@@ -8890,6 +8890,15 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(String, String(), Boolean)
   nameWithType: CommandLineParser.BooleanVal(string, string[]?, bool)
   nameWithType.vb: CommandLineParser.BooleanVal(String, String(), Boolean)
+- uid: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(System.String[],System.String,System.Boolean)
+  name: BooleanVal(string[], string, bool)
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_BooleanVal_System_String___System_String_System_Boolean_
+  commentId: M:WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(System.String[],System.String,System.Boolean)
+  name.vb: BooleanVal(String(), String, Boolean)
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(string[], string, bool)
+  fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(String(), String, Boolean)
+  nameWithType: CommandLineParser.BooleanVal(string[], string, bool)
+  nameWithType.vb: CommandLineParser.BooleanVal(String(), String, Boolean)
 - uid: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal*
   name: BooleanVal
   href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_BooleanVal_
@@ -8922,6 +8931,15 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.Val(String, String(), String)
   nameWithType: CommandLineParser.Val(string, string[]?, string?)
   nameWithType.vb: CommandLineParser.Val(String, String(), String)
+- uid: WeihanLi.Common.Helpers.CommandLineParser.Val(System.String[],System.String,System.String)
+  name: Val(string[], string, string?)
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_Val_System_String___System_String_System_String_
+  commentId: M:WeihanLi.Common.Helpers.CommandLineParser.Val(System.String[],System.String,System.String)
+  name.vb: Val(String(), String, String)
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.Val(string[], string, string?)
+  fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.Val(String(), String, String)
+  nameWithType: CommandLineParser.Val(string[], string, string?)
+  nameWithType.vb: CommandLineParser.Val(String(), String, String)
 - uid: WeihanLi.Common.Helpers.CommandLineParser.Val*
   name: Val
   href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_Val_
@@ -12405,19 +12423,6 @@ references:
   commentId: T:WeihanLi.Common.Helpers.InvokeHelper
   fullName: WeihanLi.Common.Helpers.InvokeHelper
   nameWithType: InvokeHelper
-- uid: WeihanLi.Common.Helpers.InvokeHelper.GetExitToken
-  name: GetExitToken()
-  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_GetExitToken
-  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.GetExitToken
-  fullName: WeihanLi.Common.Helpers.InvokeHelper.GetExitToken()
-  nameWithType: InvokeHelper.GetExitToken()
-- uid: WeihanLi.Common.Helpers.InvokeHelper.GetExitToken*
-  name: GetExitToken
-  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_GetExitToken_
-  commentId: Overload:WeihanLi.Common.Helpers.InvokeHelper.GetExitToken
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.InvokeHelper.GetExitToken
-  nameWithType: InvokeHelper.GetExitToken
 - uid: WeihanLi.Common.Helpers.InvokeHelper.OnInvokeException
   name: OnInvokeException
   href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_OnInvokeException
@@ -12514,12 +12519,15 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.Profile(Of T1, T2, T3)(System.Action(Of T1, T2, T3), T1, T2, T3)
   nameWithType: InvokeHelper.Profile<T1, T2, T3>(Action<T1, T2, T3>, T1, T2, T3)
   nameWithType.vb: InvokeHelper.Profile(Of T1, T2, T3)(Action(Of T1, T2, T3), T1, T2, T3)
-- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke(System.Action)
-  name: TryInvoke(Action)
-  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvoke_System_Action_
-  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvoke(System.Action)
-  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke(System.Action)
-  nameWithType: InvokeHelper.TryInvoke(Action)
+- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke(System.Action,System.Nullable{System.Int32})
+  name: TryInvoke(Action, int?)
+  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvoke_System_Action_System_Nullable_System_Int32__
+  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvoke(System.Action,System.Nullable{System.Int32})
+  name.vb: TryInvoke(Action, Integer?)
+  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke(System.Action, int?)
+  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke(System.Action, Integer?)
+  nameWithType: InvokeHelper.TryInvoke(Action, int?)
+  nameWithType.vb: InvokeHelper.TryInvoke(Action, Integer?)
 - uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke*
   name: TryInvoke
   href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvoke_
@@ -12527,15 +12535,15 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke
   nameWithType: InvokeHelper.TryInvoke
-- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(System.Func{System.Threading.Tasks.Task})
-  name: TryInvokeAsync(Func<Task>)
-  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync_System_Func_System_Threading_Tasks_Task__
-  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(System.Func{System.Threading.Tasks.Task})
-  name.vb: TryInvokeAsync(Func(Of Task))
-  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(System.Func<System.Threading.Tasks.Task>)
-  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(System.Func(Of System.Threading.Tasks.Task))
-  nameWithType: InvokeHelper.TryInvokeAsync(Func<Task>)
-  nameWithType.vb: InvokeHelper.TryInvokeAsync(Func(Of Task))
+- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(System.Func{System.Threading.Tasks.Task},System.Nullable{System.Int32})
+  name: TryInvokeAsync(Func<Task>, int?)
+  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync_System_Func_System_Threading_Tasks_Task__System_Nullable_System_Int32__
+  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(System.Func{System.Threading.Tasks.Task},System.Nullable{System.Int32})
+  name.vb: TryInvokeAsync(Func(Of Task), Integer?)
+  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(System.Func<System.Threading.Tasks.Task>, int?)
+  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(System.Func(Of System.Threading.Tasks.Task), Integer?)
+  nameWithType: InvokeHelper.TryInvokeAsync(Func<Task>, int?)
+  nameWithType.vb: InvokeHelper.TryInvokeAsync(Func(Of Task), Integer?)
 - uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync*
   name: TryInvokeAsync
   href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync_
@@ -12543,60 +12551,60 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync
   nameWithType: InvokeHelper.TryInvokeAsync
-- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``1(System.Func{``0,System.Threading.Tasks.Task},``0)
-  name: TryInvokeAsync<T>(Func<T, Task>, T)
-  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync__1_System_Func___0_System_Threading_Tasks_Task____0_
-  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``1(System.Func{``0,System.Threading.Tasks.Task},``0)
-  name.vb: TryInvokeAsync(Of T)(Func(Of T, Task), T)
-  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync<T>(System.Func<T, System.Threading.Tasks.Task>, T)
-  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(Of T)(System.Func(Of T, System.Threading.Tasks.Task), T)
-  nameWithType: InvokeHelper.TryInvokeAsync<T>(Func<T, Task>, T)
-  nameWithType.vb: InvokeHelper.TryInvokeAsync(Of T)(Func(Of T, Task), T)
-- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``2(System.Func{``0,``1,System.Threading.Tasks.Task},``0,``1)
-  name: TryInvokeAsync<T1, T2>(Func<T1, T2, Task>, T1, T2)
-  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync__2_System_Func___0___1_System_Threading_Tasks_Task____0___1_
-  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``2(System.Func{``0,``1,System.Threading.Tasks.Task},``0,``1)
-  name.vb: TryInvokeAsync(Of T1, T2)(Func(Of T1, T2, Task), T1, T2)
-  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync<T1, T2>(System.Func<T1, T2, System.Threading.Tasks.Task>, T1, T2)
-  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(Of T1, T2)(System.Func(Of T1, T2, System.Threading.Tasks.Task), T1, T2)
-  nameWithType: InvokeHelper.TryInvokeAsync<T1, T2>(Func<T1, T2, Task>, T1, T2)
-  nameWithType.vb: InvokeHelper.TryInvokeAsync(Of T1, T2)(Func(Of T1, T2, Task), T1, T2)
-- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``3(System.Func{``0,``1,``2,System.Threading.Tasks.Task},``0,``1,``2)
-  name: TryInvokeAsync<T1, T2, T3>(Func<T1, T2, T3, Task>, T1, T2, T3)
-  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync__3_System_Func___0___1___2_System_Threading_Tasks_Task____0___1___2_
-  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``3(System.Func{``0,``1,``2,System.Threading.Tasks.Task},``0,``1,``2)
-  name.vb: TryInvokeAsync(Of T1, T2, T3)(Func(Of T1, T2, T3, Task), T1, T2, T3)
-  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync<T1, T2, T3>(System.Func<T1, T2, T3, System.Threading.Tasks.Task>, T1, T2, T3)
-  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(Of T1, T2, T3)(System.Func(Of T1, T2, T3, System.Threading.Tasks.Task), T1, T2, T3)
-  nameWithType: InvokeHelper.TryInvokeAsync<T1, T2, T3>(Func<T1, T2, T3, Task>, T1, T2, T3)
-  nameWithType.vb: InvokeHelper.TryInvokeAsync(Of T1, T2, T3)(Func(Of T1, T2, T3, Task), T1, T2, T3)
-- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``1(System.Action{``0},``0)
-  name: TryInvoke<T>(Action<T>, T)
-  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvoke__1_System_Action___0____0_
-  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``1(System.Action{``0},``0)
-  name.vb: TryInvoke(Of T)(Action(Of T), T)
-  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke<T>(System.Action<T>, T)
-  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke(Of T)(System.Action(Of T), T)
-  nameWithType: InvokeHelper.TryInvoke<T>(Action<T>, T)
-  nameWithType.vb: InvokeHelper.TryInvoke(Of T)(Action(Of T), T)
-- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``2(System.Action{``0,``1},``0,``1)
-  name: TryInvoke<T1, T2>(Action<T1, T2>, T1, T2)
-  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvoke__2_System_Action___0___1____0___1_
-  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``2(System.Action{``0,``1},``0,``1)
-  name.vb: TryInvoke(Of T1, T2)(Action(Of T1, T2), T1, T2)
-  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke<T1, T2>(System.Action<T1, T2>, T1, T2)
-  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke(Of T1, T2)(System.Action(Of T1, T2), T1, T2)
-  nameWithType: InvokeHelper.TryInvoke<T1, T2>(Action<T1, T2>, T1, T2)
-  nameWithType.vb: InvokeHelper.TryInvoke(Of T1, T2)(Action(Of T1, T2), T1, T2)
-- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``3(System.Action{``0,``1,``2},``0,``1,``2)
-  name: TryInvoke<T1, T2, T3>(Action<T1, T2, T3>, T1, T2, T3)
-  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvoke__3_System_Action___0___1___2____0___1___2_
-  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``3(System.Action{``0,``1,``2},``0,``1,``2)
-  name.vb: TryInvoke(Of T1, T2, T3)(Action(Of T1, T2, T3), T1, T2, T3)
-  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke<T1, T2, T3>(System.Action<T1, T2, T3>, T1, T2, T3)
-  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke(Of T1, T2, T3)(System.Action(Of T1, T2, T3), T1, T2, T3)
-  nameWithType: InvokeHelper.TryInvoke<T1, T2, T3>(Action<T1, T2, T3>, T1, T2, T3)
-  nameWithType.vb: InvokeHelper.TryInvoke(Of T1, T2, T3)(Action(Of T1, T2, T3), T1, T2, T3)
+- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``1(System.Func{``0,System.Threading.Tasks.Task},``0,System.Nullable{System.Int32})
+  name: TryInvokeAsync<T>(Func<T, Task>, T, int?)
+  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync__1_System_Func___0_System_Threading_Tasks_Task____0_System_Nullable_System_Int32__
+  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``1(System.Func{``0,System.Threading.Tasks.Task},``0,System.Nullable{System.Int32})
+  name.vb: TryInvokeAsync(Of T)(Func(Of T, Task), T, Integer?)
+  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync<T>(System.Func<T, System.Threading.Tasks.Task>, T, int?)
+  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(Of T)(System.Func(Of T, System.Threading.Tasks.Task), T, Integer?)
+  nameWithType: InvokeHelper.TryInvokeAsync<T>(Func<T, Task>, T, int?)
+  nameWithType.vb: InvokeHelper.TryInvokeAsync(Of T)(Func(Of T, Task), T, Integer?)
+- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``2(System.Func{``0,``1,System.Threading.Tasks.Task},``0,``1,System.Nullable{System.Int32})
+  name: TryInvokeAsync<T1, T2>(Func<T1, T2, Task>, T1, T2, int?)
+  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync__2_System_Func___0___1_System_Threading_Tasks_Task____0___1_System_Nullable_System_Int32__
+  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``2(System.Func{``0,``1,System.Threading.Tasks.Task},``0,``1,System.Nullable{System.Int32})
+  name.vb: TryInvokeAsync(Of T1, T2)(Func(Of T1, T2, Task), T1, T2, Integer?)
+  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync<T1, T2>(System.Func<T1, T2, System.Threading.Tasks.Task>, T1, T2, int?)
+  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(Of T1, T2)(System.Func(Of T1, T2, System.Threading.Tasks.Task), T1, T2, Integer?)
+  nameWithType: InvokeHelper.TryInvokeAsync<T1, T2>(Func<T1, T2, Task>, T1, T2, int?)
+  nameWithType.vb: InvokeHelper.TryInvokeAsync(Of T1, T2)(Func(Of T1, T2, Task), T1, T2, Integer?)
+- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``3(System.Func{``0,``1,``2,System.Threading.Tasks.Task},``0,``1,``2,System.Nullable{System.Int32})
+  name: TryInvokeAsync<T1, T2, T3>(Func<T1, T2, T3, Task>, T1, T2, T3, int?)
+  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvokeAsync__3_System_Func___0___1___2_System_Threading_Tasks_Task____0___1___2_System_Nullable_System_Int32__
+  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync``3(System.Func{``0,``1,``2,System.Threading.Tasks.Task},``0,``1,``2,System.Nullable{System.Int32})
+  name.vb: TryInvokeAsync(Of T1, T2, T3)(Func(Of T1, T2, T3, Task), T1, T2, T3, Integer?)
+  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync<T1, T2, T3>(System.Func<T1, T2, T3, System.Threading.Tasks.Task>, T1, T2, T3, int?)
+  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvokeAsync(Of T1, T2, T3)(System.Func(Of T1, T2, T3, System.Threading.Tasks.Task), T1, T2, T3, Integer?)
+  nameWithType: InvokeHelper.TryInvokeAsync<T1, T2, T3>(Func<T1, T2, T3, Task>, T1, T2, T3, int?)
+  nameWithType.vb: InvokeHelper.TryInvokeAsync(Of T1, T2, T3)(Func(Of T1, T2, T3, Task), T1, T2, T3, Integer?)
+- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``1(System.Action{``0},``0,System.Nullable{System.Int32})
+  name: TryInvoke<T>(Action<T>, T, int?)
+  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvoke__1_System_Action___0____0_System_Nullable_System_Int32__
+  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``1(System.Action{``0},``0,System.Nullable{System.Int32})
+  name.vb: TryInvoke(Of T)(Action(Of T), T, Integer?)
+  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke<T>(System.Action<T>, T, int?)
+  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke(Of T)(System.Action(Of T), T, Integer?)
+  nameWithType: InvokeHelper.TryInvoke<T>(Action<T>, T, int?)
+  nameWithType.vb: InvokeHelper.TryInvoke(Of T)(Action(Of T), T, Integer?)
+- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``2(System.Action{``0,``1},``0,``1,System.Nullable{System.Int32})
+  name: TryInvoke<T1, T2>(Action<T1, T2>, T1, T2, int?)
+  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvoke__2_System_Action___0___1____0___1_System_Nullable_System_Int32__
+  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``2(System.Action{``0,``1},``0,``1,System.Nullable{System.Int32})
+  name.vb: TryInvoke(Of T1, T2)(Action(Of T1, T2), T1, T2, Integer?)
+  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke<T1, T2>(System.Action<T1, T2>, T1, T2, int?)
+  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke(Of T1, T2)(System.Action(Of T1, T2), T1, T2, Integer?)
+  nameWithType: InvokeHelper.TryInvoke<T1, T2>(Action<T1, T2>, T1, T2, int?)
+  nameWithType.vb: InvokeHelper.TryInvoke(Of T1, T2)(Action(Of T1, T2), T1, T2, Integer?)
+- uid: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``3(System.Action{``0,``1,``2},``0,``1,``2,System.Nullable{System.Int32})
+  name: TryInvoke<T1, T2, T3>(Action<T1, T2, T3>, T1, T2, T3, int?)
+  href: api/WeihanLi.Common.Helpers.InvokeHelper.html#WeihanLi_Common_Helpers_InvokeHelper_TryInvoke__3_System_Action___0___1___2____0___1___2_System_Nullable_System_Int32__
+  commentId: M:WeihanLi.Common.Helpers.InvokeHelper.TryInvoke``3(System.Action{``0,``1,``2},``0,``1,``2,System.Nullable{System.Int32})
+  name.vb: TryInvoke(Of T1, T2, T3)(Action(Of T1, T2, T3), T1, T2, T3, Integer?)
+  fullName: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke<T1, T2, T3>(System.Action<T1, T2, T3>, T1, T2, T3, int?)
+  fullName.vb: WeihanLi.Common.Helpers.InvokeHelper.TryInvoke(Of T1, T2, T3)(System.Action(Of T1, T2, T3), T1, T2, T3, Integer?)
+  nameWithType: InvokeHelper.TryInvoke<T1, T2, T3>(Action<T1, T2, T3>, T1, T2, T3, int?)
+  nameWithType.vb: InvokeHelper.TryInvoke(Of T1, T2, T3)(Action(Of T1, T2, T3), T1, T2, T3, Integer?)
 - uid: WeihanLi.Common.Helpers.JsonDataSerializer
   name: JsonDataSerializer
   href: api/WeihanLi.Common.Helpers.JsonDataSerializer.html
@@ -12641,6 +12649,19 @@ references:
   commentId: T:WeihanLi.Common.Helpers.LibraryInfo
   fullName: WeihanLi.Common.Helpers.LibraryInfo
   nameWithType: LibraryInfo
+- uid: WeihanLi.Common.Helpers.LibraryInfo.LibraryFullVersion
+  name: LibraryFullVersion
+  href: api/WeihanLi.Common.Helpers.LibraryInfo.html#WeihanLi_Common_Helpers_LibraryInfo_LibraryFullVersion
+  commentId: P:WeihanLi.Common.Helpers.LibraryInfo.LibraryFullVersion
+  fullName: WeihanLi.Common.Helpers.LibraryInfo.LibraryFullVersion
+  nameWithType: LibraryInfo.LibraryFullVersion
+- uid: WeihanLi.Common.Helpers.LibraryInfo.LibraryFullVersion*
+  name: LibraryFullVersion
+  href: api/WeihanLi.Common.Helpers.LibraryInfo.html#WeihanLi_Common_Helpers_LibraryInfo_LibraryFullVersion_
+  commentId: Overload:WeihanLi.Common.Helpers.LibraryInfo.LibraryFullVersion
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.LibraryInfo.LibraryFullVersion
+  nameWithType: LibraryInfo.LibraryFullVersion
 - uid: WeihanLi.Common.Helpers.LibraryInfo.LibraryHash
   name: LibraryHash
   href: api/WeihanLi.Common.Helpers.LibraryInfo.html#WeihanLi_Common_Helpers_LibraryInfo_LibraryHash
@@ -12680,19 +12701,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.LibraryInfo.RepositoryUrl
   nameWithType: LibraryInfo.RepositoryUrl
-- uid: WeihanLi.Common.Helpers.LibraryInfo.VersionWithHash
-  name: VersionWithHash
-  href: api/WeihanLi.Common.Helpers.LibraryInfo.html#WeihanLi_Common_Helpers_LibraryInfo_VersionWithHash
-  commentId: P:WeihanLi.Common.Helpers.LibraryInfo.VersionWithHash
-  fullName: WeihanLi.Common.Helpers.LibraryInfo.VersionWithHash
-  nameWithType: LibraryInfo.VersionWithHash
-- uid: WeihanLi.Common.Helpers.LibraryInfo.VersionWithHash*
-  name: VersionWithHash
-  href: api/WeihanLi.Common.Helpers.LibraryInfo.html#WeihanLi_Common_Helpers_LibraryInfo_VersionWithHash_
-  commentId: Overload:WeihanLi.Common.Helpers.LibraryInfo.VersionWithHash
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.LibraryInfo.VersionWithHash
-  nameWithType: LibraryInfo.VersionWithHash
 - uid: WeihanLi.Common.Helpers.LineParseOptions
   name: LineParseOptions
   href: api/WeihanLi.Common.Helpers.LineParseOptions.html
@@ -14084,6 +14092,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.RuntimeInfo.KubernetesNamespace
   nameWithType: RuntimeInfo.KubernetesNamespace
+- uid: WeihanLi.Common.Helpers.RuntimeInfo.LibraryInfo
+  name: LibraryInfo
+  href: api/WeihanLi.Common.Helpers.RuntimeInfo.html#WeihanLi_Common_Helpers_RuntimeInfo_LibraryInfo
+  commentId: P:WeihanLi.Common.Helpers.RuntimeInfo.LibraryInfo
+  fullName: WeihanLi.Common.Helpers.RuntimeInfo.LibraryInfo
+  nameWithType: RuntimeInfo.LibraryInfo
+- uid: WeihanLi.Common.Helpers.RuntimeInfo.LibraryInfo*
+  name: LibraryInfo
+  href: api/WeihanLi.Common.Helpers.RuntimeInfo.html#WeihanLi_Common_Helpers_RuntimeInfo_LibraryInfo_
+  commentId: Overload:WeihanLi.Common.Helpers.RuntimeInfo.LibraryInfo
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.RuntimeInfo.LibraryInfo
+  nameWithType: RuntimeInfo.LibraryInfo
 - uid: WeihanLi.Common.Helpers.RuntimeInfo.MachineName
   name: MachineName
   href: api/WeihanLi.Common.Helpers.RuntimeInfo.html#WeihanLi_Common_Helpers_RuntimeInfo_MachineName

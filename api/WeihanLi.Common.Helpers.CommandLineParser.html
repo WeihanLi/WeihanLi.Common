@@ -152,7 +152,7 @@ Class CommandLineParser  <a class="header-action link-secondary" title="View sou
 
   <h3 id="WeihanLi_Common_Helpers_CommandLineParser_BooleanVal_System_String_System_String___System_Boolean_" data-uid="WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(System.String,System.String[],System.Boolean)">
   BooleanVal(string, string[]?, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandLineParser.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandLineParser.cs/#L116"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -167,6 +167,46 @@ Class CommandLineParser  <a class="header-action link-secondary" title="View sou
     <dt><code>optionName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
     <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+    <dt><code>defaultValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_CommandLineParser_BooleanVal_" data-uid="WeihanLi.Common.Helpers.CommandLineParser.BooleanVal*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_CommandLineParser_BooleanVal_System_String___System_String_System_Boolean_" data-uid="WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(System.String[],System.String,System.Boolean)">
+  BooleanVal(string[], string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandLineParser.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool BooleanVal(string[] args, string optionName, bool defaultValue = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+    <dt><code>optionName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
     <dt><code>defaultValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
@@ -248,6 +288,51 @@ Class CommandLineParser  <a class="header-action link-secondary" title="View sou
 </dd>
     <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
     <dd><p>arguments</p>
+</dd>
+    <dt><code>defaultValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>default argument value when not found</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>argument value</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_CommandLineParser_Val_" data-uid="WeihanLi.Common.Helpers.CommandLineParser.Val*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_CommandLineParser_Val_System_String___System_String_System_String_" data-uid="WeihanLi.Common.Helpers.CommandLineParser.Val(System.String[],System.String,System.String)">
+  Val(string[], string, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/CommandLineParser.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get argument value from arguments</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? Val(string[] args, string optionName, string? defaultValue = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>arguments</p>
+</dd>
+    <dt><code>optionName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>argument name to get value</p>
 </dd>
     <dt><code>defaultValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>default argument value when not found</p>
