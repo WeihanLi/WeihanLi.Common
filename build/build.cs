@@ -28,7 +28,11 @@ await new BuildProcessBuilder()
     })
     .WithTaskExecuting(task => Console.WriteLine($@"===== Task {task.Name} {task.Description} executing ======"))
     .WithTaskExecuted(task => Console.WriteLine($@"===== Task {task.Name} {task.Description} executed ======"))
-    .WithTask("hello", b => b.WithExecution(() => Console.WriteLine("Hello dotnet-exec build")))
+    .WithTask("hello", b => b.WithExecution(async () =>
+    {
+        Console.WriteLine("Hello dotnet-exec build");
+        await ExecuteCommandAsync("dotnet-exec info");
+    }))
     .WithTask("build", b =>
     {
         b.WithDescription("dotnet build")
