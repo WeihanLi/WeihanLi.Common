@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <Optimize>true</Optimize>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Benchmark>True</Benchmark>
     <Nullable>disable</Nullable>
   </PropertyGroup>
@@ -15,12 +15,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\WeihanLi.Common\WeihanLi.Common.csproj" />
-    <ProjectReference Include="..\..\src\WeihanLi.Extensions.Hosting\WeihanLi.Extensions.Hosting.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="appsettings.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 </Project>
