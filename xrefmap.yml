@@ -8881,6 +8881,15 @@ references:
   commentId: T:WeihanLi.Common.Helpers.CommandLineParser
   fullName: WeihanLi.Common.Helpers.CommandLineParser
   nameWithType: CommandLineParser
+- uid: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(System.String,System.Boolean,System.String[])
+  name: BooleanVal(string, bool, string[]?)
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_BooleanVal_System_String_System_Boolean_System_String___
+  commentId: M:WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(System.String,System.Boolean,System.String[])
+  name.vb: BooleanVal(String, Boolean, String())
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(string, bool, string[]?)
+  fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(String, Boolean, String())
+  nameWithType: CommandLineParser.BooleanVal(string, bool, string[]?)
+  nameWithType.vb: CommandLineParser.BooleanVal(String, Boolean, String())
 - uid: WeihanLi.Common.Helpers.CommandLineParser.BooleanVal(System.String,System.String[],System.Boolean)
   name: BooleanVal(string, string[]?, bool)
   href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_BooleanVal_System_String_System_String___System_Boolean_
@@ -8922,6 +8931,15 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.CommandLineParser.ParseLine
   nameWithType: CommandLineParser.ParseLine
+- uid: WeihanLi.Common.Helpers.CommandLineParser.Val(System.String,System.String,System.String[])
+  name: Val(string, string?, string[]?)
+  href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_Val_System_String_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.CommandLineParser.Val(System.String,System.String,System.String[])
+  name.vb: Val(String, String, String())
+  fullName: WeihanLi.Common.Helpers.CommandLineParser.Val(string, string?, string[]?)
+  fullName.vb: WeihanLi.Common.Helpers.CommandLineParser.Val(String, String, String())
+  nameWithType: CommandLineParser.Val(string, string?, string[]?)
+  nameWithType.vb: CommandLineParser.Val(String, String, String())
 - uid: WeihanLi.Common.Helpers.CommandLineParser.Val(System.String,System.String[],System.String)
   name: Val(string, string[]?, string?)
   href: api/WeihanLi.Common.Helpers.CommandLineParser.html#WeihanLi_Common_Helpers_CommandLineParser_Val_System_String_System_String___System_String_
