@@ -6,9 +6,9 @@ namespace WeihanLi.Common.Services;
 
 public interface ITenantProvider
 {
-    string GetTenantId();
+    string? GetTenantId();
 
-    TenantInfo GetTenantInfo();
+    TenantInfo? GetTenantInfo();
 }
 
 public static class TenantIdProviderExtensions
