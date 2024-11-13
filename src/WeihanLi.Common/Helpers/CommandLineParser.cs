@@ -14,6 +14,7 @@ public static class CommandLineParser
         {
             yield break;
         }
+
         options ??= new();
         var tokenBuilder = new StringBuilder();
 
@@ -91,9 +92,9 @@ public static class CommandLineParser
     /// <summary>
     /// Get argument value from arguments
     /// </summary>
-    /// <param name="defaultValue">default argument value when not found</param>
     /// <param name="optionName">argument name to get value</param>
     /// <param name="args">arguments</param>
+    /// <param name="defaultValue">default argument value when not found</param>
     /// <returns>argument value</returns>
     [return: NotNullIfNotNull(nameof(defaultValue))]
     public static string? Val(string optionName, string[]? args = null, string? defaultValue = default)
@@ -101,13 +102,51 @@ public static class CommandLineParser
         return GetValueInternal(args ?? Environment.GetCommandLineArgs(), optionName) ?? defaultValue;
     }
 
+    /// <summary>
+    /// Get argument value from arguments
+    /// </summary>
+    /// <param name="optionName">argument name to get value</param>
+    /// <param name="defaultValue">default argument value when not found</param>
+    /// <param name="args">arguments</param>
+    /// <returns>argument value</returns>
+    [return: NotNullIfNotNull(nameof(defaultValue))]
+    public static string? Val(string optionName, string? defaultValue, string[]? args = null)
+    {
+        return GetValueInternal(args ?? Environment.GetCommandLineArgs(), optionName) ?? defaultValue;
+    }
+
+     /// <summary>
+    /// Get argument value from arguments
+    /// </summary>
+    /// <param name="args">arguments</param>
+    /// <param name="defaultValue">default argument value when not found</param>
+    /// <param name="optionName">argument name to get value</param>
+    /// <returns>argument value</returns>
+    [return: NotNullIfNotNull(nameof(defaultValue))]
+    public static string? Val(string[] args, string optionName, string? defaultValue = null)
+    {
+        return GetValueInternal(args, optionName) ?? defaultValue;
+    }
+
     public static bool BooleanVal(string optionName, string[]? args = null, bool defaultValue = default)
     {
         return GetValueInternal(args ?? Environment.GetCommandLineArgs(), optionName).ToBoolean(defaultValue);
     }
+    
+    public static bool BooleanVal(string optionName, bool defaultValue = default, string[]? args = null)
+    {
+        return GetValueInternal(args ?? Environment.GetCommandLineArgs(), optionName).ToBoolean(defaultValue);
+    }
+
+    public static bool BooleanVal(string[] args, string optionName, bool defaultValue = default)
+    {
+        return GetValueInternal(args, optionName).ToBoolean(defaultValue);
+    }
 
     private static string? GetValueInternal(string[] args, string argumentName)
     {
+        Guard.NotNull(args);
+        Guard.NotNullOrEmpty(argumentName);
         for (var i = 0; i < args.Length; i++)
         {
             if (args[i] == $"--{argumentName}" || args[i] == $"-{argumentName}")

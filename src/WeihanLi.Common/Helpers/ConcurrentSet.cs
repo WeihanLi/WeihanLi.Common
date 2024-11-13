@@ -5,7 +5,8 @@ namespace WeihanLi.Common.Helpers;
 
 public sealed class ConcurrentSet<T> : IReadOnlyCollection<T>, ICollection<T> where T : notnull
 {
-    private readonly ConcurrentDictionary<T, object?> _dictionary = new();
+    // https://github.com/dotnet/runtime/issues/39919#issuecomment-954774092
+    private readonly ConcurrentDictionary<T, byte> _dictionary = new();
 
     public bool IsEmpty => _dictionary.IsEmpty;
 
@@ -15,7 +16,7 @@ public sealed class ConcurrentSet<T> : IReadOnlyCollection<T>, ICollection<T> wh
 
     public bool Contains(T item) => _dictionary.ContainsKey(item);
 
-    public bool TryAdd(T t) => _dictionary.TryAdd(t, null);
+    public bool TryAdd(T t) => _dictionary.TryAdd(t, default);
 
     public bool TryRemove(T t) => _dictionary.TryRemove(t, out _);
 
