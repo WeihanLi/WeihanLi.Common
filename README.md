@@ -28,7 +28,3 @@
 ## Release Notes
 
 See pull requests list for changes <https://github.com/WeihanLi/WeihanLi.Common/pulls?q=is%3Apr+is%3Amerged+base%3Amaster>
-
-## Contact
-
-Contact me if you need: <weihanli@outlook.com>
