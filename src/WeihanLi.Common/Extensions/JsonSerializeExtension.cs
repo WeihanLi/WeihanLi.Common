@@ -10,7 +10,7 @@ public static class JsonSerializeExtension
     /// <summary>
     /// DefaultSerializerSettings
     /// </summary>
-    private static readonly JsonSerializerSettings DefaultSerializerSettings = GetDefaultSerializerSettings();
+    internal static readonly JsonSerializerSettings DefaultSerializerSettings = GetDefaultSerializerSettings();
 
     private static JsonSerializerSettings GetDefaultSerializerSettings() => new()
     {

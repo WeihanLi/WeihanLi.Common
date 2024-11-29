@@ -6,7 +6,7 @@ namespace WeihanLi.Common.Logging;
 
 public sealed class GenericLoggerOptions
 {
-    public Func<Type, bool>? FullNamePredict { get; set; }
+    public Func<Type, bool>? FullNamePredict { get; set; } = _ => true;
 }
 
 internal sealed class GenericLogger<T> : ILogger<T>
