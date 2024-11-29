@@ -12,7 +12,7 @@ namespace WeihanLi.Common.Logging;
 internal sealed class FileLoggingProcessor : DisposableBase
 {
     private readonly FileLoggingOptions _options;
-    private readonly BlockingCollection<(string log, LogLevel logLevel, DateTimeOffset timestamp)> _messageQueue = [];
+    private readonly BlockingCollection<(string log, DateTimeOffset timestamp)> _messageQueue = [];
     private readonly Thread _outputThread;
     
     private FileStream? _fileStream;
@@ -42,13 +42,13 @@ internal sealed class FileLoggingProcessor : DisposableBase
         _outputThread.Start();
     }
 
-    public void EnqueueLog(string log, LogLevel logLevel, DateTimeOffset dateTimeOffset)
+    public void EnqueueLog(string log, DateTimeOffset dateTimeOffset)
     {
         if (_messageQueue.IsAddingCompleted) return;
         
         try
         {
-            _messageQueue.Add((log, logLevel, dateTimeOffset));
+            _messageQueue.Add((log, dateTimeOffset));
         }
         catch (InvalidOperationException) { }
     }
@@ -69,7 +69,7 @@ internal sealed class FileLoggingProcessor : DisposableBase
         {
             foreach (var message in _messageQueue.GetConsumingEnumerable())
             {
-                WriteLoggingEvent(message.log, message.logLevel, message.timestamp);
+                WriteLoggingEvent(message.log, message.timestamp);
             }
         }
         catch
@@ -85,7 +85,7 @@ internal sealed class FileLoggingProcessor : DisposableBase
         }
     }
 
-    private void WriteLoggingEvent(string log, LogLevel logLevel, DateTimeOffset timestamp)
+    private void WriteLoggingEvent(string log, DateTimeOffset timestamp)
     {
         var fileName = _options.FileFormat.Replace("{date}", timestamp.ToString("yyyyMMdd"));
         var fileInfo = new FileInfo(Path.Combine(_options.LogsDirectory, fileName));

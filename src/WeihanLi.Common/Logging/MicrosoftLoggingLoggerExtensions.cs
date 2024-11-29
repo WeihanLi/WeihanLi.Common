@@ -135,7 +135,7 @@ internal sealed class FileLogger(string categoryName, FileLoggingOptions options
         var log = options.LogFormatter!.Invoke(categoryName, logLevel, exception, msg, timestamp);
         if (log is not null)
         {
-            processor.EnqueueLog(log, logLevel, timestamp);
+            processor.EnqueueLog(log, timestamp);
         }
     }
 
