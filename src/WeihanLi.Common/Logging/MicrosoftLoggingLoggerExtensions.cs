@@ -1,16 +1,19 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Newtonsoft.Json;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Logging;
 using WeihanLi.Common.Services;
+using WeihanLi.Extensions;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.Logging;
 
 [ProviderAlias("Delegate")]
-public sealed class DelegateLoggerProvider(Action<string, LogLevel, Exception?, string> logAction) : ILoggerProvider
+internal sealed class DelegateLoggerProvider(Action<string, LogLevel, Exception?, string> logAction) : ILoggerProvider
 {
     internal static ILoggerProvider Default { get; } = new DelegateLoggerProvider((category, level, exception, msg) =>
     {
@@ -77,13 +80,68 @@ public sealed class DelegateLoggerProvider(Action<string, LogLevel, Exception?, 
 
         public bool IsEnabled(LogLevel logLevel) => true;
 
-#if NET7_0_OR_GREATER
-        IDisposable?
-#else
-        IDisposable
-#endif
-                ILogger.BeginScope<TState>(TState state) => NullScope.Instance;
+
+        IDisposable ILogger.BeginScope<TState>(TState state) => NullScope.Instance;
     }
+}
+
+public sealed class FileLoggingOptions
+{
+    public string LogsDirectory { get; set; } = "Logs";
+    public string FileFormat { get; set; } = "app-logs-{date}.log";
+    // public int FileSizeLimitBytes { get; set; } = 256 * 1024 * 1024;
+    // public int? FilesCountLimit { get; set; } = 100;
+    public LogLevel MinimumLevel { get; set; } = LogLevel.Information;
+    public Func<string, LogLevel, Exception?, string, DateTimeOffset, string?>? LogFormatter { get; set; }
+}
+
+[ProviderAlias("File")]
+internal sealed class FileLoggerProvider : ILoggerProvider
+{
+    private readonly FileLoggingOptions _options;
+    private readonly FileLoggingProcessor _loggingProcessor;
+    private readonly ConcurrentDictionary<string, FileLogger> _loggers = new();
+    public FileLoggerProvider(FileLoggingOptions options)
+    {
+        _options = options;
+        _options.LogFormatter ??= (category, level, exception, msg, timestamp) => JsonConvert.SerializeObject(new
+        {
+            level,
+            timestamp = timestamp.ToString("yyyy-MM-dd HH:mm:ss.fff"),
+            category,
+            msg,
+            exception = exception?.ToString()
+        }, JsonSerializeExtension.DefaultSerializerSettings);
+        _loggingProcessor = new FileLoggingProcessor(options);
+    }
+    
+    public void Dispose() => _loggingProcessor.Dispose();
+
+    public ILogger CreateLogger(string categoryName)
+    {
+        return _loggers.GetOrAdd(categoryName, category => new FileLogger(category, _options, _loggingProcessor));
+    }
+}
+
+internal sealed class FileLogger(string categoryName, FileLoggingOptions options, FileLoggingProcessor processor) : ILogger
+{
+    public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
+    {
+        if (logLevel < options.MinimumLevel)
+            return;
+
+        var timestamp = DateTimeOffset.Now;
+        var msg = formatter(state, exception);
+        var log = options.LogFormatter!.Invoke(categoryName, logLevel, exception, msg, timestamp);
+        if (log is not null)
+        {
+            processor.EnqueueLog(log, timestamp);
+        }
+    }
+
+    public bool IsEnabled(LogLevel logLevel) => logLevel >= options.MinimumLevel;
+
+    IDisposable ILogger.BeginScope<TState>(TState state) => NullScope.Instance;
 }
 
 public static class LoggerExtensions
@@ -175,12 +233,21 @@ public static class LoggerExtensions
         return loggingBuilder.AddProvider(new DelegateLoggerProvider(logAction));
     }
 
-    public static ILoggingBuilder UseCustomGenericLogger(this ILoggingBuilder loggingBuilder, Action<GenericLoggerOptions> genericLoggerConfig)
+    public static ILoggingBuilder AddFile(this ILoggingBuilder loggingBuilder, Action<FileLoggingOptions>? optionsConfigure = null)
     {
-        Guard.NotNull(loggingBuilder, nameof(loggingBuilder));
-        Guard.NotNull(genericLoggerConfig, nameof(genericLoggerConfig));
-        loggingBuilder.Services.Configure(genericLoggerConfig);
-        loggingBuilder.Services.AddSingleton(typeof(ILogger<>), typeof(GenericLogger<>));
+        var options = new FileLoggingOptions();
+        optionsConfigure?.Invoke(options);
+        return loggingBuilder.AddProvider(new FileLoggerProvider(options));
+    }
+
+    public static ILoggingBuilder UseCustomGenericLogger(this ILoggingBuilder loggingBuilder, Action<GenericLoggerOptions>? genericLoggerConfig = null)
+    {
+        Guard.NotNull(loggingBuilder);
+        if (genericLoggerConfig is not null)
+        {
+            loggingBuilder.Services.Configure(genericLoggerConfig);
+        }
+        loggingBuilder.Services.Replace(new ServiceDescriptor(typeof(ILogger<>), typeof(GenericLogger<>), ServiceLifetime.Singleton));
         return loggingBuilder;
     }
 

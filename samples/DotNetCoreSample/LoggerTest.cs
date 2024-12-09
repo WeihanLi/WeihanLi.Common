@@ -35,7 +35,10 @@ internal class LoggerTest
     public static void MicrosoftLoggingTest()
     {
         var services = new ServiceCollection()
-            .AddLogging(builder => builder.AddConsole())
+            .AddLogging(builder => 
+                // builder.AddConsole()
+                builder.AddFile()
+                )
             .AddSingleton(typeof(GenericTest<>))
             .BuildServiceProvider();
         services.GetRequiredService<GenericTest<int>>()
@@ -46,7 +49,7 @@ internal class LoggerTest
         Console.WriteLine();
 
         services = new ServiceCollection()
-            .AddLogging(builder => builder.AddConsole().UseCustomGenericLogger(options => options.FullNamePredict = _ => true))
+            .AddLogging(builder => builder.AddConsole().UseCustomGenericLogger())
             .AddSingleton(typeof(GenericTest<>))
             .BuildServiceProvider();
         services.GetRequiredService<GenericTest<int>>()

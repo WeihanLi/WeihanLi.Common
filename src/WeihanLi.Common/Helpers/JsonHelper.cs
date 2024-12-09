@@ -1,6 +1,6 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
-#if NET6_0_OR_GREATER
+#if NET
 
 using System.Text.Encodings.Web;
 using System.Text.Json;
