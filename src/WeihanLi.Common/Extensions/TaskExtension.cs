@@ -28,7 +28,7 @@ public static class TaskExtension
 
     public static Task WhenAllSafely(this IEnumerable<Task> tasks, Action<Exception>? onException = null) => Task.WhenAll(tasks.Select(async t =>
     {
-#if NET8_0_OR_GREATER
+#if NET
         await t.ConfigureAwait(ConfigureAwaitOptions.SuppressThrowing);
 #else
         try

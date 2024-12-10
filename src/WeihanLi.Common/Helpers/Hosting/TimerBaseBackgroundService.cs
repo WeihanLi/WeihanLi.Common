@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Diagnostics.Metrics;
 
-#if NET6_0_OR_GREATER
+#if NET
 
 namespace WeihanLi.Common.Helpers.Hosting;
 

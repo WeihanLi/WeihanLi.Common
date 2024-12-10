@@ -19,8 +19,7 @@ public static class ProcessExtension
         return processStartInfo;
     }
 
-#if NET6_0_OR_GREATER
-#else
+#if NETSTANDARD
     public static Task WaitForExitAsync(this Process process, CancellationToken cancellationToken = default)
     {
         Guard.NotNull(process);
@@ -285,7 +284,7 @@ public static class ProcessExtension
     public static bool TryKill(this Process process, bool entireProcessTree = true)
     {
         return
-#if NET6_0_OR_GREATER
+#if NET
         process.Try(x => x.Kill(entireProcessTree))
 #else
         process.Try(x => x.Kill())

@@ -28,7 +28,7 @@ public static class PipelineBuilder
     public static IValueAsyncPipelineBuilder<TContext> CreateValueAsync<TContext>()
     {
         return new ValueAsyncPipelineBuilder<TContext>(c =>
-#if NET6_0_OR_GREATER
+#if NET
             ValueTask.CompletedTask
 #else
             default
