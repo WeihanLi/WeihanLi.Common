@@ -2,8 +2,7 @@
   <PropertyGroup>
     <!-- Enable central package management -->
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <ExtensionPackageVersion Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netstandard2.1' OR '$(TargetFramework)' == 'net6.0'">6.0.0</ExtensionPackageVersion>
-    <ExtensionPackageVersion Condition="'$(TargetFramework)' == 'net7.0'">7.0.0</ExtensionPackageVersion>
+    <ExtensionPackageVersion Condition="'$(TargetFramework)' == 'netstandard2.0'">8.0.0</ExtensionPackageVersion>
     <ExtensionPackageVersion Condition="'$(TargetFramework)' == 'net8.0'">8.0.0</ExtensionPackageVersion>
     <ExtensionPackageVersion Condition="'$(TargetFramework)' == 'net9.0'">9.0.0</ExtensionPackageVersion>
   </PropertyGroup>
@@ -39,6 +38,6 @@
     <PackageVersion Include="Dapper" Version="2.1.44" />
   </ItemGroup>
   <ItemGroup>
-    <GlobalPackageReference Include="PolySharp" Version="1.14.1" />
+    <GlobalPackageReference Include="PolySharp" Version="1.15.0" />
   </ItemGroup>
 </Project>

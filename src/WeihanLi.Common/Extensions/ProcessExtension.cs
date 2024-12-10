@@ -121,12 +121,12 @@ public static class ProcessExtension
     public static async Task<CommandResult> GetResultAsync(this ProcessStartInfo psi, CancellationToken cancellationToken = default)
     {
         var stdOutStringBuilder = new StringBuilder();
-#if NETSTANDARD2_1 || NET6_0_OR_GREATER
+#if NET
         await
 #endif
         using var stdOut = new StringWriter(stdOutStringBuilder);
         var stdErrStringBuilder = new StringBuilder();
-#if NETSTANDARD2_1 || NET6_0_OR_GREATER
+#if NET
         await
 #endif
         using var stdErr = new StringWriter(stdErrStringBuilder);
