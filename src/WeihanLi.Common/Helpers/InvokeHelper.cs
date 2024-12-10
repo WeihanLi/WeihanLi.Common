@@ -22,7 +22,7 @@ public static class InvokeHelper
 #if NETCOREAPP
         System.Runtime.Loader.AssemblyLoadContext.Default.Unloading += ctx => InvokeExitHandler(ctx, null);
 #endif
-#if NET6_0_OR_GREATER
+#if NET
         // https://github.com/dotnet/runtime/blob/940b332ad04e58862febe019788a5b21e266ea10/src/libraries/Microsoft.Extensions.Hosting/src/Internal/ConsoleLifetime.netcoreapp.cs
         PosixSignalRegistration.Create(PosixSignal.SIGINT, ctx => InvokeExitHandler(ctx, null));
         PosixSignalRegistration.Create(PosixSignal.SIGQUIT, ctx => InvokeExitHandler(ctx, null));
@@ -110,7 +110,7 @@ public static class InvokeHelper
         //         {
         //             consoleCancelEventArgs.Cancel = true;
         //         }
-        // #if NET6_0_OR_GREATER
+        // #if NET
         //         if (sender is PosixSignalContext posixSignalContext)
         //         {
         //             posixSignalContext.Cancel = true;

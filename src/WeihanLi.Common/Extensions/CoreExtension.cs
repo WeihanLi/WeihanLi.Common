@@ -136,7 +136,7 @@ public static class CoreExtension
         return Convert.ToBase64String(inArray, offset, length, options);
     }
 
-#if NET5_0_OR_GREATER
+#if NET
     public static string ToHexString(this ReadOnlySpan<byte> bytes, bool isLowerCase = false)
     {
 #if NET9_0_OR_GREATER
@@ -1616,7 +1616,7 @@ public static class CoreExtension
         if (string.IsNullOrEmpty(hexString))
             return [];
 
-#if NET6_0_OR_GREATER
+#if NET
         return Convert.FromHexString(hexString);
 #else
         var charArray = hexString.ToCharArray();

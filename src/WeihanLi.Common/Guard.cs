@@ -10,7 +10,7 @@ public static class Guard
            [CallerArgumentExpression(nameof(t))]
             string? paramName = default)
     {
-#if NET6_0_OR_GREATER
+#if NET
         ArgumentNullException.ThrowIfNull(t, paramName);
 #else
         if (t is null)
@@ -26,7 +26,7 @@ public static class Guard
         [CallerArgumentExpression(nameof(str))]
             string? paramName = null)
     {
-#if NET7_0_OR_GREATER
+#if NET
         ArgumentException.ThrowIfNullOrEmpty(str, paramName);
 #else
         NotNull(str, paramName);
@@ -42,7 +42,7 @@ public static class Guard
     public static string NotNullOrWhiteSpace([NotNull] string? str,
         [CallerArgumentExpression(nameof(str))] string? paramName = null)
     {
-#if NET8_0_OR_GREATER
+#if NET
         ArgumentException.ThrowIfNullOrWhiteSpace(str, paramName);
 #else
         NotNull(str, paramName);

@@ -39,7 +39,7 @@ internal sealed class SerilogLogger : FrameworkLogger
         return _logger.IsEnabled(ConvertLevel(logLevel));
     }
 
-    public IDisposable BeginScope<TState>(TState state)
+    public IDisposable? BeginScope<TState>(TState state) where TState : notnull
     {
         return _provider.BeginScope(state);
     }

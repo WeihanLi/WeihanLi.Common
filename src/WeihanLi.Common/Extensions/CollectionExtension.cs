@@ -234,7 +234,7 @@ public static class CollectionExtension
             ;
     }
 
-#if NET6_0_OR_GREATER
+#if NET
     // https://github.com/more-itertools/more-itertools/blob/master/more_itertools/more.py#L3149
     //def set_partitions_helper(L, k):
     //n = len(L)

@@ -89,7 +89,7 @@ public static class HttpClientExtension
     {
         Guard.NotNull(response);
         responseAction?.Invoke(response);
-#if NET6_0_OR_GREATER
+#if NET
         var responseText = await response.Content.ReadAsStringAsync(cancellationToken);
 #else
         var responseText = await response.Content.ReadAsStringAsync();
@@ -109,7 +109,7 @@ public static class HttpClientExtension
         requestAction?.Invoke(requestMessage);
         using var response = await httpClient.SendAsync(requestMessage, cancellationToken);
         responseAction?.Invoke(response);
-#if NET6_0_OR_GREATER
+#if NET
         var responseText = await response.Content.ReadAsStringAsync(cancellationToken);
 #else
         var responseText = await response.Content.ReadAsStringAsync();
@@ -117,7 +117,7 @@ public static class HttpClientExtension
         return JsonConvert.DeserializeObject<TResponse>(responseText);
     }
 
-#if NET6_0_OR_GREATER
+#if NET
     /// <summary>
     /// PatchAsJsonAsync
     /// </summary>

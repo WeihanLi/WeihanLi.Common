@@ -42,7 +42,7 @@ public abstract class EventBase : IEventBase
 
     // https://www.newtonsoft.com/json/help/html/JsonConstructorAttribute.htm
     [JsonConstructor]
-#if NET6_0_OR_GREATER
+#if NET
     [System.Text.Json.Serialization.JsonConstructor]
 #endif
     protected EventBase(string eventId, DateTimeOffset eventAt)
