@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using WeihanLi.Common.Event;
+using WeihanLi.Common.Helpers;
 using Xunit;
 
 namespace WeihanLi.Common.Test.EventTest

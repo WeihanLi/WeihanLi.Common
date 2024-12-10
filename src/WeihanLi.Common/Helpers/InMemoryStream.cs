@@ -1,7 +1,21 @@
-using System.Collections.Concurrent;
-using System.Diagnostics.CodeAnalysis;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
 
-namespace WeihanLi.Common.Event;
+using System.Collections.Concurrent;
+using System.Runtime.CompilerServices;
+using WeihanLi.Common.Abstractions;
+
+namespace WeihanLi.Common.Helpers;
+
+public interface IStream
+{
+    Task AddMessageAsync(string streamName, StreamMessage message);
+    Task AcknowledgeMessageAsync(string streamName, string messageId);
+    Task<int> CountAsync(string streamName, string? start = null, string? end = null);
+    Task TrimAsync(string streamName, int maxSize);
+    Task TrimAsync(string streamName, string maxId);
+    IAsyncEnumerable<StreamMessage> ReadMessagesAsync(string streamName, int count, string? start = null, string? end = null, CancellationToken cancellationToken = default);
+}
 
 public class InMemoryStream : IStream
 {
@@ -14,22 +28,7 @@ public class InMemoryStream : IStream
         return Task.CompletedTask;
     }
 
-    public Task AcknowledgeMessageAsync(string streamName, string messageId)
-    {
-        if (_streams.TryGetValue(streamName, out var stream))
-        {
-            var messages = stream.ToArray();
-            stream.Clear();
-            foreach (var message in messages)
-            {
-                if (message.Id != messageId)
-                {
-                    stream.Enqueue(message);
-                }
-            }
-        }
-        return Task.CompletedTask;
-    }
+    public Task AcknowledgeMessageAsync(string streamName, string messageId) => Task.CompletedTask;
 
     public Task<int> CountAsync(string streamName, string? start = null, string? end = null)
     {
@@ -39,6 +38,7 @@ public class InMemoryStream : IStream
                 (start == null || string.Compare(message.Id, start) >= 0) &&
                 (end == null || string.Compare(message.Id, end) <= 0)));
         }
+
         return Task.FromResult(0);
     }
 
@@ -54,16 +54,15 @@ public class InMemoryStream : IStream
         return Task.CompletedTask;
     }
 
-    public Task TrimAsync(string streamName, TimeSpan maxAge)
+    public Task TrimAsync(string streamName, string maxId)
     {
         if (_streams.TryGetValue(streamName, out var stream))
         {
-            var cutoffTime = DateTimeOffset.Now - maxAge;
             var messages = stream.ToArray();
             stream.Clear();
             foreach (var message in messages)
             {
-                if (message.Timestamp >= cutoffTime)
+                if (string.Compare(message.Id, maxId) > 0)
                 {
                     stream.Enqueue(message);
                 }
@@ -88,10 +87,10 @@ public class InMemoryStream : IStream
     }
 }
 
-public class StreamMessage
+public class StreamMessage : IProperties
 {
-    public string Id { get; set; }
+    public required string Id { get; set; }
     public string Data { get; set; }
     public DateTimeOffset Timestamp { get; set; }
-    public Dictionary<string, object?> Properties { get; set; } = new();
+    public IDictionary<string, object?> Properties { get; set; } = new Dictionary<string, object?>();
 }
