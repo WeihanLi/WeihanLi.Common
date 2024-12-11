@@ -20,6 +20,7 @@
     <PackageReference Include="System.Reflection.Emit" />
     <PackageReference Include="System.ComponentModel.Annotations" />
     <PackageReference Include="Microsoft.CSharp" PrivateAssets="All" />
+    <Compile Remove="Helpers\InMemoryStream.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" />
