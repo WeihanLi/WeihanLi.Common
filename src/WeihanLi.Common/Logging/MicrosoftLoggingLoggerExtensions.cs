@@ -31,7 +31,7 @@ internal sealed class DelegateLoggerProvider(Action<string, LogLevel, Exception?
         {
             Trace.WriteLine(message);
         }
-        
+
         return;
 
         static (ConsoleColor? ForegroundColor, ConsoleColor? BackgroundColor) GetConsoleColorForLogLevel(LogLevel logLevel)
@@ -114,7 +114,7 @@ internal sealed class FileLoggerProvider : ILoggerProvider
         }, JsonSerializeExtension.DefaultSerializerSettings);
         _loggingProcessor = new FileLoggingProcessor(options);
     }
-    
+
     public void Dispose() => _loggingProcessor.Dispose();
 
     public ILogger CreateLogger(string categoryName)

@@ -35,7 +35,7 @@ internal class LoggerTest
     public static void MicrosoftLoggingTest()
     {
         var services = new ServiceCollection()
-            .AddLogging(builder => 
+            .AddLogging(builder =>
                 // builder.AddConsole()
                 builder.AddFile()
                 )

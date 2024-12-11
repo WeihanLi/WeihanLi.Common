@@ -14,7 +14,7 @@ internal sealed class FileLoggingProcessor : DisposableBase
     private readonly FileLoggingOptions _options;
     private readonly BlockingCollection<(string log, DateTimeOffset timestamp)> _messageQueue = [];
     private readonly Thread _outputThread;
-    
+
     private FileStream? _fileStream;
     private string? _logFileName;
 
@@ -29,9 +29,9 @@ internal sealed class FileLoggingProcessor : DisposableBase
             catch (Exception e)
             {
                 throw new InvalidOperationException("Failed to create log directory", e);
-            }   
+            }
         }
-        
+
         _options = options;
         _outputThread = new Thread(ProcessLogQueue)
         {
@@ -45,7 +45,7 @@ internal sealed class FileLoggingProcessor : DisposableBase
     public void EnqueueLog(string log, DateTimeOffset dateTimeOffset)
     {
         if (_messageQueue.IsAddingCompleted) return;
-        
+
         try
         {
             _messageQueue.Add((log, dateTimeOffset));
@@ -56,13 +56,13 @@ internal sealed class FileLoggingProcessor : DisposableBase
     protected override void Dispose(bool disposing)
     {
         if (!disposing) return;
-        
+
         _messageQueue.CompleteAdding();
         _fileStream?.Flush();
         _fileStream?.Dispose();
         _messageQueue.Dispose();
     }
-    
+
     private void ProcessLogQueue()
     {
         try
@@ -113,7 +113,7 @@ internal sealed class FileLoggingProcessor : DisposableBase
                 _fileStream.Flush();
             }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Console.WriteLine($@"Error when trying to log to file({fileInfo.FullName}) \n" + log + Environment.NewLine + ex);
         }

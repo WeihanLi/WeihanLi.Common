@@ -10,8 +10,8 @@ public sealed class TemplateRenderContext(string text, IReadOnlyCollection<Templ
     : IProperties
 {
     public string Text { get; } = text;
-    public Dictionary<TemplateInput, object?> Inputs { get; } = 
-        inputs.ToDictionary(x=> x, _ => (object?)null);
+    public Dictionary<TemplateInput, object?> Inputs { get; } =
+        inputs.ToDictionary(x => x, _ => (object?)null);
     public string RenderedText { get; set; } = text;
     public IDictionary<string, object?> Properties { get; } = new Dictionary<string, object?>();
 }
