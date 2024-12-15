@@ -1,4 +1,4 @@
-﻿// Copyright (c) Weihan Li. All rights reserved.
+// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
 using System.Collections.Concurrent;
@@ -83,7 +83,7 @@ public sealed class InMemoryStream<T>(string name, IComparer<T>? comparer = null
     {
         if (_groups.ContainsKey(groupName))
         {
-            throw new InvalidOperationException($"Group [{groupName}] not exists");
+            throw new InvalidOperationException($"Group [{groupName}] already exists");
         }
 
         _groups[groupName] = new StreamGroupInfo<T>()
@@ -96,13 +96,43 @@ public sealed class InMemoryStream<T>(string name, IComparer<T>? comparer = null
 
     public Task<int> CountAsync(T? min = default, T? max = default, RangeInclusion inclusion = default, CancellationToken cancellationToken = default)
     {
-        // TODO: support min/max filter
-        return _messages.Count.WrapTask();
+        var count = _messages.Count;
+        if (min != null || max != null)
+        {
+            count = _messages.UnorderedItems.Count(item =>
+            {
+                var id = item.Element.Id;
+                var isInRange = true;
+                if (min != null)
+                {
+                    isInRange = inclusion.HasFlag(RangeInclusion.IncludeLowerBound) ? comparer.Compare(id, min) >= 0 : comparer.Compare(id, min) > 0;
+                }
+                if (max != null)
+                {
+                    isInRange = inclusion.HasFlag(RangeInclusion.IncludeUpperBound) ? comparer.Compare(id, max) <= 0 : comparer.Compare(id, max) < 0;
+                }
+                return isInRange;
+            });
+        }
+        return Task.FromResult(count);
     }
 
-    public IAsyncEnumerable<StreamMessage<T>> FetchAsync(T lastId, int count, Ordering order = Ordering.Ascending, CancellationToken cancellationToken = default)
+    public async IAsyncEnumerable<StreamMessage<T>> FetchAsync(T lastId, int count, Ordering order = Ordering.Ascending, [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var messages = order == Ordering.Ascending ? _messages.UnorderedItems.OrderBy(item => item.Priority) : _messages.UnorderedItems.OrderByDescending(item => item.Priority);
+        var fetchedCount = 0;
+        foreach (var message in messages)
+        {
+            if (fetchedCount >= count)
+            {
+                yield break;
+            }
+            if (comparer.Compare(message.Priority, lastId) > 0)
+            {
+                yield return message.Element;
+                fetchedCount++;
+            }
+        }
     }
 
     public Task<StreamGroupInfo<T>?> GroupInfoAsync(string groupName, CancellationToken cancellationToken = default)
@@ -122,11 +152,14 @@ public sealed class InMemoryStream<T>(string name, IComparer<T>? comparer = null
 
     public Task<StreamInfo<T>> InfoAsync(CancellationToken cancellationToken = default)
     {
+        var minMessage = _messages.UnorderedItems.MinBy(item => item.Priority);
+        var maxMessage = _messages.UnorderedItems.MaxBy(item => item.Priority);
         var streamInfo = new StreamInfo<T>
         {
-            // TODO: update min/max from messages
-            MinId = default,
-            MaxId = default,
+            MinId = minMessage?.Element.Id ?? default,
+            MinTimestamp = minMessage?.Element.Timestamp ?? default,
+            MaxId = maxMessage?.Element.Id ?? default,
+            MaxTimestamp = maxMessage?.Element.Timestamp ?? default,
             Count = _messages.Count
         };
         return streamInfo.WrapTask();
