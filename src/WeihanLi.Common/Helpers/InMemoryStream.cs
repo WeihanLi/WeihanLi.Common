@@ -129,6 +129,7 @@ public sealed class InMemoryStream<T>(string name, IComparer<T>? comparer = null
             {
                 yield break;
             }
+            await Task.CompletedTask;
             if (_comparer.Compare(message.Id, lastId) > 0)
             {
                 yield return message;
@@ -156,9 +157,9 @@ public sealed class InMemoryStream<T>(string name, IComparer<T>? comparer = null
     {
         var streamInfo = new StreamInfo<T>
         {
-            MinId = default,
+            MinId = default!,
             MinTimestamp = default,
-            MaxId = default,
+            MaxId = default!,
             MaxTimestamp = default,
             Count = _messages.Count
         };
