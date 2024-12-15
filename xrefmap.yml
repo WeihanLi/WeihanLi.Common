@@ -356,60 +356,64 @@ references:
   commentId: N:Microsoft.Extensions.Logging
   fullName: Microsoft.Extensions.Logging
   nameWithType: Microsoft.Extensions.Logging
-- uid: Microsoft.Extensions.Logging.DelegateLoggerProvider
-  name: DelegateLoggerProvider
-  href: api/Microsoft.Extensions.Logging.DelegateLoggerProvider.html
-  commentId: T:Microsoft.Extensions.Logging.DelegateLoggerProvider
-  fullName: Microsoft.Extensions.Logging.DelegateLoggerProvider
-  nameWithType: DelegateLoggerProvider
-- uid: Microsoft.Extensions.Logging.DelegateLoggerProvider.#ctor(System.Action{System.String,Microsoft.Extensions.Logging.LogLevel,System.Exception,System.String})
-  name: DelegateLoggerProvider(Action<string, LogLevel, Exception?, string>)
-  href: api/Microsoft.Extensions.Logging.DelegateLoggerProvider.html#Microsoft_Extensions_Logging_DelegateLoggerProvider__ctor_System_Action_System_String_Microsoft_Extensions_Logging_LogLevel_System_Exception_System_String__
-  commentId: M:Microsoft.Extensions.Logging.DelegateLoggerProvider.#ctor(System.Action{System.String,Microsoft.Extensions.Logging.LogLevel,System.Exception,System.String})
-  name.vb: New(Action(Of String, LogLevel, Exception, String))
-  fullName: Microsoft.Extensions.Logging.DelegateLoggerProvider.DelegateLoggerProvider(System.Action<string, Microsoft.Extensions.Logging.LogLevel, System.Exception?, string>)
-  fullName.vb: Microsoft.Extensions.Logging.DelegateLoggerProvider.New(System.Action(Of String, Microsoft.Extensions.Logging.LogLevel, System.Exception, String))
-  nameWithType: DelegateLoggerProvider.DelegateLoggerProvider(Action<string, LogLevel, Exception?, string>)
-  nameWithType.vb: DelegateLoggerProvider.New(Action(Of String, LogLevel, Exception, String))
-- uid: Microsoft.Extensions.Logging.DelegateLoggerProvider.#ctor*
-  name: DelegateLoggerProvider
-  href: api/Microsoft.Extensions.Logging.DelegateLoggerProvider.html#Microsoft_Extensions_Logging_DelegateLoggerProvider__ctor_
-  commentId: Overload:Microsoft.Extensions.Logging.DelegateLoggerProvider.#ctor
+- uid: Microsoft.Extensions.Logging.FileLoggingOptions
+  name: FileLoggingOptions
+  href: api/Microsoft.Extensions.Logging.FileLoggingOptions.html
+  commentId: T:Microsoft.Extensions.Logging.FileLoggingOptions
+  fullName: Microsoft.Extensions.Logging.FileLoggingOptions
+  nameWithType: FileLoggingOptions
+- uid: Microsoft.Extensions.Logging.FileLoggingOptions.FileFormat
+  name: FileFormat
+  href: api/Microsoft.Extensions.Logging.FileLoggingOptions.html#Microsoft_Extensions_Logging_FileLoggingOptions_FileFormat
+  commentId: P:Microsoft.Extensions.Logging.FileLoggingOptions.FileFormat
+  fullName: Microsoft.Extensions.Logging.FileLoggingOptions.FileFormat
+  nameWithType: FileLoggingOptions.FileFormat
+- uid: Microsoft.Extensions.Logging.FileLoggingOptions.FileFormat*
+  name: FileFormat
+  href: api/Microsoft.Extensions.Logging.FileLoggingOptions.html#Microsoft_Extensions_Logging_FileLoggingOptions_FileFormat_
+  commentId: Overload:Microsoft.Extensions.Logging.FileLoggingOptions.FileFormat
   isSpec: "True"
-  name.vb: New
-  fullName: Microsoft.Extensions.Logging.DelegateLoggerProvider.DelegateLoggerProvider
-  fullName.vb: Microsoft.Extensions.Logging.DelegateLoggerProvider.New
-  nameWithType: DelegateLoggerProvider.DelegateLoggerProvider
-  nameWithType.vb: DelegateLoggerProvider.New
-- uid: Microsoft.Extensions.Logging.DelegateLoggerProvider.CreateLogger(System.String)
-  name: CreateLogger(string)
-  href: api/Microsoft.Extensions.Logging.DelegateLoggerProvider.html#Microsoft_Extensions_Logging_DelegateLoggerProvider_CreateLogger_System_String_
-  commentId: M:Microsoft.Extensions.Logging.DelegateLoggerProvider.CreateLogger(System.String)
-  name.vb: CreateLogger(String)
-  fullName: Microsoft.Extensions.Logging.DelegateLoggerProvider.CreateLogger(string)
-  fullName.vb: Microsoft.Extensions.Logging.DelegateLoggerProvider.CreateLogger(String)
-  nameWithType: DelegateLoggerProvider.CreateLogger(string)
-  nameWithType.vb: DelegateLoggerProvider.CreateLogger(String)
-- uid: Microsoft.Extensions.Logging.DelegateLoggerProvider.CreateLogger*
-  name: CreateLogger
-  href: api/Microsoft.Extensions.Logging.DelegateLoggerProvider.html#Microsoft_Extensions_Logging_DelegateLoggerProvider_CreateLogger_
-  commentId: Overload:Microsoft.Extensions.Logging.DelegateLoggerProvider.CreateLogger
+  fullName: Microsoft.Extensions.Logging.FileLoggingOptions.FileFormat
+  nameWithType: FileLoggingOptions.FileFormat
+- uid: Microsoft.Extensions.Logging.FileLoggingOptions.LogFormatter
+  name: LogFormatter
+  href: api/Microsoft.Extensions.Logging.FileLoggingOptions.html#Microsoft_Extensions_Logging_FileLoggingOptions_LogFormatter
+  commentId: P:Microsoft.Extensions.Logging.FileLoggingOptions.LogFormatter
+  fullName: Microsoft.Extensions.Logging.FileLoggingOptions.LogFormatter
+  nameWithType: FileLoggingOptions.LogFormatter
+- uid: Microsoft.Extensions.Logging.FileLoggingOptions.LogFormatter*
+  name: LogFormatter
+  href: api/Microsoft.Extensions.Logging.FileLoggingOptions.html#Microsoft_Extensions_Logging_FileLoggingOptions_LogFormatter_
+  commentId: Overload:Microsoft.Extensions.Logging.FileLoggingOptions.LogFormatter
   isSpec: "True"
-  fullName: Microsoft.Extensions.Logging.DelegateLoggerProvider.CreateLogger
-  nameWithType: DelegateLoggerProvider.CreateLogger
-- uid: Microsoft.Extensions.Logging.DelegateLoggerProvider.Dispose
-  name: Dispose()
-  href: api/Microsoft.Extensions.Logging.DelegateLoggerProvider.html#Microsoft_Extensions_Logging_DelegateLoggerProvider_Dispose
-  commentId: M:Microsoft.Extensions.Logging.DelegateLoggerProvider.Dispose
-  fullName: Microsoft.Extensions.Logging.DelegateLoggerProvider.Dispose()
-  nameWithType: DelegateLoggerProvider.Dispose()
-- uid: Microsoft.Extensions.Logging.DelegateLoggerProvider.Dispose*
-  name: Dispose
-  href: api/Microsoft.Extensions.Logging.DelegateLoggerProvider.html#Microsoft_Extensions_Logging_DelegateLoggerProvider_Dispose_
-  commentId: Overload:Microsoft.Extensions.Logging.DelegateLoggerProvider.Dispose
+  fullName: Microsoft.Extensions.Logging.FileLoggingOptions.LogFormatter
+  nameWithType: FileLoggingOptions.LogFormatter
+- uid: Microsoft.Extensions.Logging.FileLoggingOptions.LogsDirectory
+  name: LogsDirectory
+  href: api/Microsoft.Extensions.Logging.FileLoggingOptions.html#Microsoft_Extensions_Logging_FileLoggingOptions_LogsDirectory
+  commentId: P:Microsoft.Extensions.Logging.FileLoggingOptions.LogsDirectory
+  fullName: Microsoft.Extensions.Logging.FileLoggingOptions.LogsDirectory
+  nameWithType: FileLoggingOptions.LogsDirectory
+- uid: Microsoft.Extensions.Logging.FileLoggingOptions.LogsDirectory*
+  name: LogsDirectory
+  href: api/Microsoft.Extensions.Logging.FileLoggingOptions.html#Microsoft_Extensions_Logging_FileLoggingOptions_LogsDirectory_
+  commentId: Overload:Microsoft.Extensions.Logging.FileLoggingOptions.LogsDirectory
   isSpec: "True"
-  fullName: Microsoft.Extensions.Logging.DelegateLoggerProvider.Dispose
-  nameWithType: DelegateLoggerProvider.Dispose
+  fullName: Microsoft.Extensions.Logging.FileLoggingOptions.LogsDirectory
+  nameWithType: FileLoggingOptions.LogsDirectory
+- uid: Microsoft.Extensions.Logging.FileLoggingOptions.MinimumLevel
+  name: MinimumLevel
+  href: api/Microsoft.Extensions.Logging.FileLoggingOptions.html#Microsoft_Extensions_Logging_FileLoggingOptions_MinimumLevel
+  commentId: P:Microsoft.Extensions.Logging.FileLoggingOptions.MinimumLevel
+  fullName: Microsoft.Extensions.Logging.FileLoggingOptions.MinimumLevel
+  nameWithType: FileLoggingOptions.MinimumLevel
+- uid: Microsoft.Extensions.Logging.FileLoggingOptions.MinimumLevel*
+  name: MinimumLevel
+  href: api/Microsoft.Extensions.Logging.FileLoggingOptions.html#Microsoft_Extensions_Logging_FileLoggingOptions_MinimumLevel_
+  commentId: Overload:Microsoft.Extensions.Logging.FileLoggingOptions.MinimumLevel
+  isSpec: "True"
+  fullName: Microsoft.Extensions.Logging.FileLoggingOptions.MinimumLevel
+  nameWithType: FileLoggingOptions.MinimumLevel
 - uid: Microsoft.Extensions.Logging.LoggerExtensions
   name: LoggerExtensions
   href: api/Microsoft.Extensions.Logging.LoggerExtensions.html
@@ -454,6 +458,22 @@ references:
   isSpec: "True"
   fullName: Microsoft.Extensions.Logging.LoggerExtensions.AddDelegateLogger
   nameWithType: LoggerExtensions.AddDelegateLogger
+- uid: Microsoft.Extensions.Logging.LoggerExtensions.AddFile(Microsoft.Extensions.Logging.ILoggingBuilder,System.Action{Microsoft.Extensions.Logging.FileLoggingOptions})
+  name: AddFile(ILoggingBuilder, Action<FileLoggingOptions>?)
+  href: api/Microsoft.Extensions.Logging.LoggerExtensions.html#Microsoft_Extensions_Logging_LoggerExtensions_AddFile_Microsoft_Extensions_Logging_ILoggingBuilder_System_Action_Microsoft_Extensions_Logging_FileLoggingOptions__
+  commentId: M:Microsoft.Extensions.Logging.LoggerExtensions.AddFile(Microsoft.Extensions.Logging.ILoggingBuilder,System.Action{Microsoft.Extensions.Logging.FileLoggingOptions})
+  name.vb: AddFile(ILoggingBuilder, Action(Of FileLoggingOptions))
+  fullName: Microsoft.Extensions.Logging.LoggerExtensions.AddFile(Microsoft.Extensions.Logging.ILoggingBuilder, System.Action<Microsoft.Extensions.Logging.FileLoggingOptions>?)
+  fullName.vb: Microsoft.Extensions.Logging.LoggerExtensions.AddFile(Microsoft.Extensions.Logging.ILoggingBuilder, System.Action(Of Microsoft.Extensions.Logging.FileLoggingOptions))
+  nameWithType: LoggerExtensions.AddFile(ILoggingBuilder, Action<FileLoggingOptions>?)
+  nameWithType.vb: LoggerExtensions.AddFile(ILoggingBuilder, Action(Of FileLoggingOptions))
+- uid: Microsoft.Extensions.Logging.LoggerExtensions.AddFile*
+  name: AddFile
+  href: api/Microsoft.Extensions.Logging.LoggerExtensions.html#Microsoft_Extensions_Logging_LoggerExtensions_AddFile_
+  commentId: Overload:Microsoft.Extensions.Logging.LoggerExtensions.AddFile
+  isSpec: "True"
+  fullName: Microsoft.Extensions.Logging.LoggerExtensions.AddFile
+  nameWithType: LoggerExtensions.AddFile
 - uid: Microsoft.Extensions.Logging.LoggerExtensions.Debug(Microsoft.Extensions.Logging.ILogger,System.Exception)
   name: Debug(ILogger, Exception)
   href: api/Microsoft.Extensions.Logging.LoggerExtensions.html#Microsoft_Extensions_Logging_LoggerExtensions_Debug_Microsoft_Extensions_Logging_ILogger_System_Exception_
@@ -604,13 +624,13 @@ references:
   fullName: Microsoft.Extensions.Logging.LoggerExtensions.Trace
   nameWithType: LoggerExtensions.Trace
 - uid: Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger(Microsoft.Extensions.Logging.ILoggingBuilder,System.Action{WeihanLi.Common.Logging.GenericLoggerOptions})
-  name: UseCustomGenericLogger(ILoggingBuilder, Action<GenericLoggerOptions>)
+  name: UseCustomGenericLogger(ILoggingBuilder, Action<GenericLoggerOptions>?)
   href: api/Microsoft.Extensions.Logging.LoggerExtensions.html#Microsoft_Extensions_Logging_LoggerExtensions_UseCustomGenericLogger_Microsoft_Extensions_Logging_ILoggingBuilder_System_Action_WeihanLi_Common_Logging_GenericLoggerOptions__
   commentId: M:Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger(Microsoft.Extensions.Logging.ILoggingBuilder,System.Action{WeihanLi.Common.Logging.GenericLoggerOptions})
   name.vb: UseCustomGenericLogger(ILoggingBuilder, Action(Of GenericLoggerOptions))
-  fullName: Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger(Microsoft.Extensions.Logging.ILoggingBuilder, System.Action<WeihanLi.Common.Logging.GenericLoggerOptions>)
+  fullName: Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger(Microsoft.Extensions.Logging.ILoggingBuilder, System.Action<WeihanLi.Common.Logging.GenericLoggerOptions>?)
   fullName.vb: Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger(Microsoft.Extensions.Logging.ILoggingBuilder, System.Action(Of WeihanLi.Common.Logging.GenericLoggerOptions))
-  nameWithType: LoggerExtensions.UseCustomGenericLogger(ILoggingBuilder, Action<GenericLoggerOptions>)
+  nameWithType: LoggerExtensions.UseCustomGenericLogger(ILoggingBuilder, Action<GenericLoggerOptions>?)
   nameWithType.vb: LoggerExtensions.UseCustomGenericLogger(ILoggingBuilder, Action(Of GenericLoggerOptions))
 - uid: Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger*
   name: UseCustomGenericLogger
@@ -19025,6 +19045,24 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Models.ModelValidator.TryValidate
   nameWithType: ModelValidator.TryValidate
+- uid: WeihanLi.Common.Models.Ordering
+  name: Ordering
+  href: api/WeihanLi.Common.Models.Ordering.html
+  commentId: T:WeihanLi.Common.Models.Ordering
+  fullName: WeihanLi.Common.Models.Ordering
+  nameWithType: Ordering
+- uid: WeihanLi.Common.Models.Ordering.Ascending
+  name: Ascending
+  href: api/WeihanLi.Common.Models.Ordering.html#WeihanLi_Common_Models_Ordering_Ascending
+  commentId: F:WeihanLi.Common.Models.Ordering.Ascending
+  fullName: WeihanLi.Common.Models.Ordering.Ascending
+  nameWithType: Ordering.Ascending
+- uid: WeihanLi.Common.Models.Ordering.Descending
+  name: Descending
+  href: api/WeihanLi.Common.Models.Ordering.html#WeihanLi_Common_Models_Ordering_Descending
+  commentId: F:WeihanLi.Common.Models.Ordering.Descending
+  fullName: WeihanLi.Common.Models.Ordering.Descending
+  nameWithType: Ordering.Descending
 - uid: WeihanLi.Common.Models.PagedListResult`1
   name: PagedListResult<T>
   href: api/WeihanLi.Common.Models.PagedListResult-1.html
@@ -19195,6 +19233,30 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Models.PagedRequest.PageSize
   nameWithType: PagedRequest.PageSize
+- uid: WeihanLi.Common.Models.RangeInclusion
+  name: RangeInclusion
+  href: api/WeihanLi.Common.Models.RangeInclusion.html
+  commentId: T:WeihanLi.Common.Models.RangeInclusion
+  fullName: WeihanLi.Common.Models.RangeInclusion
+  nameWithType: RangeInclusion
+- uid: WeihanLi.Common.Models.RangeInclusion.IncludeLowerBound
+  name: IncludeLowerBound
+  href: api/WeihanLi.Common.Models.RangeInclusion.html#WeihanLi_Common_Models_RangeInclusion_IncludeLowerBound
+  commentId: F:WeihanLi.Common.Models.RangeInclusion.IncludeLowerBound
+  fullName: WeihanLi.Common.Models.RangeInclusion.IncludeLowerBound
+  nameWithType: RangeInclusion.IncludeLowerBound
+- uid: WeihanLi.Common.Models.RangeInclusion.IncludeUpperBound
+  name: IncludeUpperBound
+  href: api/WeihanLi.Common.Models.RangeInclusion.html#WeihanLi_Common_Models_RangeInclusion_IncludeUpperBound
+  commentId: F:WeihanLi.Common.Models.RangeInclusion.IncludeUpperBound
+  fullName: WeihanLi.Common.Models.RangeInclusion.IncludeUpperBound
+  nameWithType: RangeInclusion.IncludeUpperBound
+- uid: WeihanLi.Common.Models.RangeInclusion.None
+  name: None
+  href: api/WeihanLi.Common.Models.RangeInclusion.html#WeihanLi_Common_Models_RangeInclusion_None
+  commentId: F:WeihanLi.Common.Models.RangeInclusion.None
+  fullName: WeihanLi.Common.Models.RangeInclusion.None
+  nameWithType: RangeInclusion.None
 - uid: WeihanLi.Common.Models.Result
   name: Result
   href: api/WeihanLi.Common.Models.Result.html
@@ -28614,6 +28676,22 @@ references:
   fullName.vb: WeihanLi.Extensions.JsonSerializeExtension.StringToType(Of T)(String, T)
   nameWithType: JsonSerializeExtension.StringToType<T>(string, T)
   nameWithType.vb: JsonSerializeExtension.StringToType(Of T)(String, T)
+- uid: WeihanLi.Extensions.JsonSerializeExtension.ToIndentedJson(System.Object)
+  name: ToIndentedJson(object)
+  href: api/WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToIndentedJson_System_Object_
+  commentId: M:WeihanLi.Extensions.JsonSerializeExtension.ToIndentedJson(System.Object)
+  name.vb: ToIndentedJson(Object)
+  fullName: WeihanLi.Extensions.JsonSerializeExtension.ToIndentedJson(object)
+  fullName.vb: WeihanLi.Extensions.JsonSerializeExtension.ToIndentedJson(Object)
+  nameWithType: JsonSerializeExtension.ToIndentedJson(object)
+  nameWithType.vb: JsonSerializeExtension.ToIndentedJson(Object)
+- uid: WeihanLi.Extensions.JsonSerializeExtension.ToIndentedJson*
+  name: ToIndentedJson
+  href: api/WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToIndentedJson_
+  commentId: Overload:WeihanLi.Extensions.JsonSerializeExtension.ToIndentedJson
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.JsonSerializeExtension.ToIndentedJson
+  nameWithType: JsonSerializeExtension.ToIndentedJson
 - uid: WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object)
   name: ToJson(object?)
   href: api/WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_

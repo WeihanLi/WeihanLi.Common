@@ -64,10 +64,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Microsoft.Extensions.Logging.DelegateLoggerProvider.yml",
+      "source_relative_path": "api/Microsoft.Extensions.Logging.FileLoggingOptions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Microsoft.Extensions.Logging.DelegateLoggerProvider.html"
+          "relative_path": "api/Microsoft.Extensions.Logging.FileLoggingOptions.html"
         }
       },
       "version": ""
@@ -2964,6 +2964,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.Ordering.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.Ordering.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Models.PagedListResult-1.yml",
       "output": {
         ".html": {
@@ -2978,6 +2988,16 @@
       "output": {
         ".html": {
           "relative_path": "api/WeihanLi.Common.Models.PagedRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.RangeInclusion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.RangeInclusion.html"
         }
       },
       "version": ""

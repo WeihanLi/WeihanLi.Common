@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -85,7 +85,7 @@
 
 
   <h1 id="Microsoft_Extensions_Logging_LoggerExtensions" data-uid="Microsoft.Extensions.Logging.LoggerExtensions" class="text-break">
-Class LoggerExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L89"><i class="bi bi-code-slash"></i></a>
+Class LoggerExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L147"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -152,7 +152,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_AddDefaultDelegateLogger_Microsoft_Extensions_Logging_ILoggingBuilder_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.AddDefaultDelegateLogger(Microsoft.Extensions.Logging.ILoggingBuilder)">
   AddDefaultDelegateLogger(ILoggingBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L225"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -188,7 +188,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_AddDelegateLogger_Microsoft_Extensions_Logging_ILoggerFactory_System_Action_System_String_Microsoft_Extensions_Logging_LogLevel_System_Exception_System_String__" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.AddDelegateLogger(Microsoft.Extensions.Logging.ILoggerFactory,System.Action{System.String,Microsoft.Extensions.Logging.LogLevel,System.Exception,System.String})">
   AddDelegateLogger(ILoggerFactory, Action&lt;string, LogLevel, Exception?, string&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L215"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>AddDelegateLoggerProvider</p>
@@ -230,7 +230,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_AddDelegateLogger_Microsoft_Extensions_Logging_ILoggingBuilder_System_Action_System_String_Microsoft_Extensions_Logging_LogLevel_System_Exception_System_String__" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.AddDelegateLogger(Microsoft.Extensions.Logging.ILoggingBuilder,System.Action{System.String,Microsoft.Extensions.Logging.LogLevel,System.Exception,System.String})">
   AddDelegateLogger(ILoggingBuilder, Action&lt;string, LogLevel, Exception?, string&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L230"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -264,11 +264,49 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
 
 
+  <a id="Microsoft_Extensions_Logging_LoggerExtensions_AddFile_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.AddFile*"></a>
+
+  <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_AddFile_Microsoft_Extensions_Logging_ILoggingBuilder_System_Action_Microsoft_Extensions_Logging_FileLoggingOptions__" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.AddFile(Microsoft.Extensions.Logging.ILoggingBuilder,System.Action{Microsoft.Extensions.Logging.FileLoggingOptions})">
+  AddFile(ILoggingBuilder, Action&lt;FileLoggingOptions&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ILoggingBuilder AddFile(this ILoggingBuilder loggingBuilder, Action&lt;FileLoggingOptions&gt;? optionsConfigure = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>loggingBuilder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggingbuilder">ILoggingBuilder</a></dt>
+    <dd></dd>
+    <dt><code>optionsConfigure</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Microsoft.Extensions.Logging.FileLoggingOptions.html">FileLoggingOptions</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggingbuilder">ILoggingBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Microsoft_Extensions_Logging_LoggerExtensions_Debug_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Debug*"></a>
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Debug_Microsoft_Extensions_Logging_ILogger_System_Exception_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Debug(Microsoft.Extensions.Logging.ILogger,System.Exception)">
   Debug(ILogger, Exception)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L173"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -301,7 +339,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Debug_Microsoft_Extensions_Logging_ILogger_System_Exception_System_String_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Debug(Microsoft.Extensions.Logging.ILogger,System.Exception,System.String)">
   Debug(ILogger, Exception, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L171"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -336,7 +374,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Debug_Microsoft_Extensions_Logging_ILogger_System_String_System_Object___" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Debug(Microsoft.Extensions.Logging.ILogger,System.String,System.Object[])">
   Debug(ILogger, string, params object[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L169"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -371,7 +409,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Error_Microsoft_Extensions_Logging_ILogger_System_Exception_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Error(Microsoft.Extensions.Logging.ILogger,System.Exception)">
   Error(ILogger, Exception)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L193"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -404,7 +442,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Error_Microsoft_Extensions_Logging_ILogger_System_Exception_System_String_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Error(Microsoft.Extensions.Logging.ILogger,System.Exception,System.String)">
   Error(ILogger, Exception, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L191"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -439,7 +477,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Error_Microsoft_Extensions_Logging_ILogger_System_String_System_Object___" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Error(Microsoft.Extensions.Logging.ILogger,System.String,System.Object[])">
   Error(ILogger, string, params object[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L189"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -474,7 +512,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Fatal_Microsoft_Extensions_Logging_ILogger_System_Exception_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Fatal(Microsoft.Extensions.Logging.ILogger,System.Exception)">
   Fatal(ILogger, Exception)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L203"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -507,7 +545,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Fatal_Microsoft_Extensions_Logging_ILogger_System_Exception_System_String_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Fatal(Microsoft.Extensions.Logging.ILogger,System.Exception,System.String)">
   Fatal(ILogger, Exception, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L201"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -542,7 +580,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Fatal_Microsoft_Extensions_Logging_ILogger_System_String_System_Object___" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Fatal(Microsoft.Extensions.Logging.ILogger,System.String,System.Object[])">
   Fatal(ILogger, string, params object[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L199"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -577,7 +615,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Info_Microsoft_Extensions_Logging_ILogger_System_Exception_System_String_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Info(Microsoft.Extensions.Logging.ILogger,System.Exception,System.String)">
   Info(ILogger, Exception, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L153"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -612,7 +650,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Info_Microsoft_Extensions_Logging_ILogger_System_String_System_Object___" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Info(Microsoft.Extensions.Logging.ILogger,System.String,System.Object[])">
   Info(ILogger, string, params object[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L151"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -647,7 +685,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Trace_Microsoft_Extensions_Logging_ILogger_System_Exception_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Trace(Microsoft.Extensions.Logging.ILogger,System.Exception)">
   Trace(ILogger, Exception)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L163"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -680,7 +718,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Trace_Microsoft_Extensions_Logging_ILogger_System_Exception_System_String_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Trace(Microsoft.Extensions.Logging.ILogger,System.Exception,System.String)">
   Trace(ILogger, Exception, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L161"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -715,7 +753,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Trace_Microsoft_Extensions_Logging_ILogger_System_String_System_Object___" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Trace(Microsoft.Extensions.Logging.ILogger,System.String,System.Object[])">
   Trace(ILogger, string, params object[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L159"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -749,15 +787,15 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
   <a id="Microsoft_Extensions_Logging_LoggerExtensions_UseCustomGenericLogger_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger*"></a>
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_UseCustomGenericLogger_Microsoft_Extensions_Logging_ILoggingBuilder_System_Action_WeihanLi_Common_Logging_GenericLoggerOptions__" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.UseCustomGenericLogger(Microsoft.Extensions.Logging.ILoggingBuilder,System.Action{WeihanLi.Common.Logging.GenericLoggerOptions})">
-  UseCustomGenericLogger(ILoggingBuilder, Action&lt;GenericLoggerOptions&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  UseCustomGenericLogger(ILoggingBuilder, Action&lt;GenericLoggerOptions&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L243"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ILoggingBuilder UseCustomGenericLogger(this ILoggingBuilder loggingBuilder, Action&lt;GenericLoggerOptions&gt; genericLoggerConfig)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ILoggingBuilder UseCustomGenericLogger(this ILoggingBuilder loggingBuilder, Action&lt;GenericLoggerOptions&gt;? genericLoggerConfig = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -788,7 +826,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Warn_Microsoft_Extensions_Logging_ILogger_System_Exception_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Warn(Microsoft.Extensions.Logging.ILogger,System.Exception)">
   Warn(ILogger, Exception)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L183"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -821,7 +859,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Warn_Microsoft_Extensions_Logging_ILogger_System_Exception_System_String_" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Warn(Microsoft.Extensions.Logging.ILogger,System.Exception,System.String)">
   Warn(ILogger, Exception, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L181"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -856,7 +894,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="Microsoft_Extensions_Logging_LoggerExtensions_Warn_Microsoft_Extensions_Logging_ILogger_System_String_System_Object___" data-uid="Microsoft.Extensions.Logging.LoggerExtensions.Warn(Microsoft.Extensions.Logging.ILogger,System.String,System.Object[])">
   Warn(ILogger, string, params object[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L179"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -891,7 +929,7 @@ Class LoggerExtensions  <a class="header-action link-secondary" title="View sour
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L89" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Logging/MicrosoftLoggingLoggerExtensions.cs/#L147" class="edit-link">Edit this page</a>
         </div>
 
 

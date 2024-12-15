@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -152,7 +152,7 @@ Class JsonSerializeExtension  <a class="header-action link-secondary" title="Vie
 
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_JsonToObject__1_System_String_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.JsonToObject``1(System.String)">
   JsonToObject&lt;T&gt;(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L91"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>将Json对象转换为T对象</p>
@@ -197,7 +197,7 @@ Class JsonSerializeExtension  <a class="header-action link-secondary" title="Vie
 
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_JsonToObject__1_System_String_Newtonsoft_Json_JsonSerializerSettings_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.JsonToObject``1(System.String,Newtonsoft.Json.JsonSerializerSettings)">
   JsonToObject&lt;T&gt;(string, JsonSerializerSettings?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>将Json对象转换为T对象</p>
@@ -245,7 +245,7 @@ Class JsonSerializeExtension  <a class="header-action link-secondary" title="Vie
 
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_SerializerSettingsWith_System_Action_Newtonsoft_Json_JsonSerializerSettings__" data-uid="WeihanLi.Extensions.JsonSerializeExtension.SerializerSettingsWith(System.Action{Newtonsoft.Json.JsonSerializerSettings})">
   SerializerSettingsWith(Action&lt;JsonSerializerSettings&gt;?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -281,7 +281,7 @@ Class JsonSerializeExtension  <a class="header-action link-secondary" title="Vie
 
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_StringToType__1_System_String_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.StringToType``1(System.String)">
   StringToType&lt;T&gt;(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L132"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>字符串数据转换为相应类型的对象，如果是基本数据类型则转换类型，是Entity则Json反序列化</p>
@@ -325,7 +325,7 @@ Class JsonSerializeExtension  <a class="header-action link-secondary" title="Vie
 
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_StringToType__1_System_String___0_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.StringToType``1(System.String,``0)">
   StringToType&lt;T&gt;(string, T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L153"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>字符串数据转换为相应类型的对象，如果是基元类型则转换类型，是Entity则Json反序列化</p>
@@ -368,11 +368,50 @@ Class JsonSerializeExtension  <a class="header-action link-secondary" title="Vie
 
 
 
+  <a id="WeihanLi_Extensions_JsonSerializeExtension_ToIndentedJson_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToIndentedJson*"></a>
+
+  <h3 id="WeihanLi_Extensions_JsonSerializeExtension_ToIndentedJson_System_Object_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToIndentedJson(System.Object)">
+  ToIndentedJson(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serialize to Indented Json</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToIndentedJson(this object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>To Indented Json</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson*"></a>
 
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object)">
   ToJson(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>将object对象转换为Json数据</p>
@@ -411,7 +450,7 @@ Class JsonSerializeExtension  <a class="header-action link-secondary" title="Vie
 
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_Newtonsoft_Json_JsonSerializerSettings_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object,Newtonsoft.Json.JsonSerializerSettings)">
   ToJson(object, JsonSerializerSettings?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>将object对象转换为Json数据</p>
@@ -453,7 +492,7 @@ Class JsonSerializeExtension  <a class="header-action link-secondary" title="Vie
 
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object,System.Boolean)">
   ToJson(object?, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L63"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>将object对象转换为Json数据</p>
@@ -494,7 +533,7 @@ Class JsonSerializeExtension  <a class="header-action link-secondary" title="Vie
 
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_Newtonsoft_Json_JsonSerializerSettings_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJson(System.Object,System.Boolean,Newtonsoft.Json.JsonSerializerSettings)">
   ToJson(object?, bool, JsonSerializerSettings?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>将object对象转换为Json数据</p>
@@ -538,7 +577,7 @@ Class JsonSerializeExtension  <a class="header-action link-secondary" title="Vie
 
   <h3 id="WeihanLi_Extensions_JsonSerializeExtension_ToJsonOrString_System_Object_" data-uid="WeihanLi.Extensions.JsonSerializeExtension.ToJsonOrString(System.Object)">
   ToJsonOrString(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/JsonSerializeExtension.cs/#L109"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>对象转换为string，如果是基元类型直接ToString(),如果是Entity则Json序列化</p>
