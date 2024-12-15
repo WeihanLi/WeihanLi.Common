@@ -73,9 +73,17 @@ public sealed class InMemoryStream<T>(string name, IComparer<T>? comparer = null
         {
             Id = id,
             Fields = fields,
-            Timestamp = timestamp ?? DateTimeOffset.Now,
-            Properties = properties ?? new()
+            Timestamp = timestamp ?? DateTimeOffset.Now
         };
+
+        if (properties is { Count: > 0 })
+        {
+            foreach (var item in properties)
+            {
+                message.Properties[item.Key] = item.Value;
+            }
+        }
+
         _messages.Add(message);
 
         return Task.CompletedTask;
