@@ -1,3 +1,6 @@
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
 using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 using WeihanLi.Common.Models;
@@ -151,16 +154,28 @@ public sealed class InMemoryStream<T>(string name, IComparer<T>? comparer = null
 
     public Task<StreamInfo<T>> InfoAsync(CancellationToken cancellationToken = default)
     {
-        var minMessage = _messages.MinBy(item => item.Id);
-        var maxMessage = _messages.MaxBy(item => item.Id);
         var streamInfo = new StreamInfo<T>
         {
-            MinId = minMessage?.Id ?? default,
-            MinTimestamp = minMessage?.Timestamp ?? default,
-            MaxId = maxMessage?.Id ?? default,
-            MaxTimestamp = maxMessage?.Timestamp ?? default,
+            MinId = default,
+            MinTimestamp = default,
+            MaxId = default,
+            MaxTimestamp = default,
             Count = _messages.Count
         };
+
+        if (_messages.Count > 0)
+        {
+            var minMessage = _messages.MinBy(item => item.Id, _comparer);
+            var maxMessage = _messages.MaxBy(item => item.Id, _comparer);
+            ArgumentNullException.ThrowIfNull(minMessage);
+            ArgumentNullException.ThrowIfNull(maxMessage);
+
+            streamInfo.MinId = minMessage.Id;
+            streamInfo.MinTimestamp = minMessage.Timestamp;
+            streamInfo.MaxId = maxMessage.Id;
+            streamInfo.MaxTimestamp = maxMessage.Timestamp;
+        }
+
         return streamInfo.WrapTask();
     }
 
