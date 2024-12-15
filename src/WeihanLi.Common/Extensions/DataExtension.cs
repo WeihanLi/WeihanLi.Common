@@ -611,7 +611,7 @@ public static partial class DataExtension
         [typeof(TimeSpan)] = DbType.Time,
         [typeof(byte[])] = DbType.Binary,
         [typeof(object)] = DbType.Object,
-#if NET6_0_OR_GREATER
+#if NET
         [typeof(DateOnly)] = DbType.Date,
         [typeof(TimeOnly)] = DbType.Time,
 #endif

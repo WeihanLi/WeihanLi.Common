@@ -34,7 +34,7 @@ public static class TypeExtension
         typeof(char),
         typeof(string),// IsPrimitive:False
 
-#if NET6_0_OR_GREATER
+#if NET
         typeof(DateOnly),
         typeof(TimeOnly),
 #endif

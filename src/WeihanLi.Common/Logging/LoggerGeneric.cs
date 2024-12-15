@@ -6,7 +6,7 @@ namespace WeihanLi.Common.Logging;
 
 public sealed class GenericLoggerOptions
 {
-    public Func<Type, bool>? FullNamePredict { get; set; }
+    public Func<Type, bool>? FullNamePredict { get; set; } = _ => true;
 }
 
 internal sealed class GenericLogger<T> : ILogger<T>
@@ -26,12 +26,7 @@ internal sealed class GenericLogger<T> : ILogger<T>
     }
 
     /// <inheritdoc />
-#if NET7_0_OR_GREATER
-    IDisposable?
-#else
-    IDisposable
-#endif
-        ILogger.BeginScope<TState>(TState state)
+    IDisposable? ILogger.BeginScope<TState>(TState state)
     {
         return _logger.BeginScope(state);
     }

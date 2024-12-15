@@ -7,7 +7,7 @@ public interface ITemplateRendererBuilder
 {
     ITemplateRendererBuilder UseTemplatePipe<TPipe>(TPipe pipe)
         where TPipe : class, ITemplatePipe;
-    
+
     ITemplateRendererBuilder UseRenderMiddleware<TMiddleware>(TMiddleware middleware)
         where TMiddleware : class, IRenderMiddleware;
 }

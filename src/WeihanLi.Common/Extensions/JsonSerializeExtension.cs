@@ -10,7 +10,9 @@ public static class JsonSerializeExtension
     /// <summary>
     /// DefaultSerializerSettings
     /// </summary>
-    private static readonly JsonSerializerSettings DefaultSerializerSettings = GetDefaultSerializerSettings();
+    internal static readonly JsonSerializerSettings DefaultSerializerSettings = GetDefaultSerializerSettings();
+    internal static readonly JsonSerializerSettings WriteIndentedSerializerSettings =
+        SerializerSettingsWith(s => s.Formatting = Formatting.Indented);
 
     private static JsonSerializerSettings GetDefaultSerializerSettings() => new()
     {
@@ -47,12 +49,18 @@ public static class JsonSerializeExtension
         => obj.ToJson(false, serializerSettings);
 
     /// <summary>
+    /// Serialize to Indented Json
+    /// </summary>
+    /// <param name="obj">object</param>
+    /// <returns>To Indented Json</returns>
+    public static string ToIndentedJson(this object obj) => obj.ToJson(false, WriteIndentedSerializerSettings);
+
+    /// <summary>
     /// 将object对象转换为Json数据
     /// </summary>
     /// <param name="obj">目标对象</param>
     /// <param name="isConvertToSingleQuotes">是否将双引号转成单引号</param>
-    public static string ToJson(this object? obj, bool isConvertToSingleQuotes)
-        => obj.ToJson(isConvertToSingleQuotes, null);
+    public static string ToJson(this object? obj, bool isConvertToSingleQuotes) => obj.ToJson(isConvertToSingleQuotes, null);
 
     /// <summary>
     /// 将object对象转换为Json数据
@@ -62,7 +70,7 @@ public static class JsonSerializeExtension
     /// <param name="settings">serializerSettings</param>
     public static string ToJson(this object? obj, bool isConvertToSingleQuotes, JsonSerializerSettings? settings)
     {
-        if (obj == null)
+        if (obj is null)
         {
             return string.Empty;
         }

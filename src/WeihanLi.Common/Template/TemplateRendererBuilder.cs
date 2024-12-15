@@ -39,7 +39,7 @@ internal sealed class TemplateEngineBuilder : ITemplateEngineBuilder
             Pipes = _pipes
         };
         _optionsConfigure?.Invoke(options);
-        
+
         _pipelineBuilder
             .UseMiddleware(new DefaultRenderMiddleware(options.Pipes))
             .UseMiddleware(new EnvRenderMiddleware())

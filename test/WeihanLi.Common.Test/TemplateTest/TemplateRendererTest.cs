@@ -23,7 +23,7 @@ public class TemplateRendererTest
         });
         builder.UseTemplatePipe(new SubstringTemplatePipe());
     });
-    
+
     [Fact]
     public async Task VariableRenderTest()
     {
@@ -32,7 +32,7 @@ public class TemplateRendererTest
         var renderedText = await _templateEngine.RenderAsync(text, new { Name = name });
         Assert.Equal($"Hello {name.ToTitleCase()}", renderedText);
     }
-    
+
     [Fact]
     public async Task ConfigRenderTest()
     {
@@ -40,7 +40,7 @@ public class TemplateRendererTest
         var renderedText = await _templateEngine.RenderAsync(text, new { Name = "mike" });
         Assert.Equal($"Hello {"test".ToTitleCase()}", renderedText);
     }
-    
+
     [Fact]
     public async Task EnvRenderTest()
     {
@@ -48,7 +48,7 @@ public class TemplateRendererTest
         var renderedText = await _templateEngine.RenderAsync(text);
         Assert.Equal($"Hello {Environment.GetEnvironmentVariable("hostname")}", renderedText);
     }
-    
+
     [Fact]
     public async Task CustomPipeRenderTest()
     {
@@ -69,7 +69,7 @@ file sealed class SubstringTemplatePipe : TemplatePipeBase
         {
             throw new InvalidOperationException("Arguments count must be 1 or 2");
         }
-        
+
         var str = value as string ?? value?.ToString() ?? string.Empty;
         var start = int.Parse(args[0]);
         if (args.Length is 1)

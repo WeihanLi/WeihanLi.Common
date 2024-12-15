@@ -14,7 +14,7 @@ public sealed class NullDisposable : IDisposable, IAsyncDisposable
     }
 
     public ValueTask DisposeAsync() =>
-#if NET6_0_OR_GREATER
+#if NET
         ValueTask.CompletedTask
 #else
         default
@@ -33,16 +33,18 @@ public sealed class NullDisposable : IDisposable, IAsyncDisposable
 /// <param name="disposeAction">dispose delegate</param>
 public sealed class DisposableAction(Action? disposeAction) : IDisposable, IAsyncDisposable
 {
+    private Action? _disposeAction = disposeAction;
+
     public void Dispose()
     {
-        Interlocked.Exchange(ref disposeAction, null)?.Invoke();
+        Interlocked.Exchange(ref _disposeAction, null)?.Invoke();
     }
 
     public ValueTask DisposeAsync()
     {
         Dispose();
         return
-#if NET6_0_OR_GREATER
+#if NET
             ValueTask.CompletedTask
 #else
             default
@@ -100,7 +102,7 @@ public abstract class DisposableBase : IDisposable, IAsyncDisposable
     {
         // dispose managed state in async way (managed objects)
         return
-#if NET6_0_OR_GREATER
+#if NET
             ValueTask.CompletedTask
 #else
             default

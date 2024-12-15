@@ -70,7 +70,7 @@ public static class SecurityHelper
         'F'
     ];
 
-#if NET6_0_OR_GREATER
+#if NET
         public static Random Random => Random.Shared;
 #else
 

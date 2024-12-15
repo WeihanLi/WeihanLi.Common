@@ -12,7 +12,7 @@ namespace WeihanLi.Common.Template;
 public static class DependencyInjectionExtensions
 {
     public static ITemplateEngineServiceBuilder AddTemplateEngine(
-        this IServiceCollection services, 
+        this IServiceCollection services,
         Action<TemplateEngineOptions>? optionsConfigure = null
         )
     {
@@ -26,9 +26,9 @@ public static class DependencyInjectionExtensions
         services.TryAddSingleton<ITemplateEngine, TemplateEngine>();
         services.TryAddSingleton<ITemplateParser, DefaultTemplateParser>();
         services.TryAddSingleton<ITemplateRenderer, DefaultTemplateRenderer>();
-        
+
         var serviceBuilder = new TemplateEngineServiceBuilder(services);
-        
+
         serviceBuilder.AddPipe<TextFormatTemplatePipe>()
             .AddPipe<UpperCaseTemplatePipe>()
             .AddPipe<LowerCaseTemplatePipe>()
@@ -63,7 +63,7 @@ public static class DependencyInjectionExtensions
     }
 
     public static ITemplateEngineServiceBuilder AddRenderMiddleware<TMiddleware>(
-        this ITemplateEngineServiceBuilder serviceBuilder, 
+        this ITemplateEngineServiceBuilder serviceBuilder,
         Func<IServiceProvider, TMiddleware>? middlewareFactory = null
         ) where TMiddleware : class, IRenderMiddleware
     {
@@ -74,9 +74,9 @@ public static class DependencyInjectionExtensions
         serviceBuilder.Services.Add(serviceDescriptor);
         return serviceBuilder;
     }
-    
+
     public static ITemplateEngineServiceBuilder AddPipe<TPipe>
-        (this ITemplateEngineServiceBuilder serviceBuilder) 
+        (this ITemplateEngineServiceBuilder serviceBuilder)
         where TPipe : class, ITemplatePipe
     {
         serviceBuilder.Services.TryAddEnumerable(ServiceDescriptor.Singleton<ITemplatePipe, TPipe>());
