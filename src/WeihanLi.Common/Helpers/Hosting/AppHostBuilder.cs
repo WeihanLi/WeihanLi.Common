@@ -52,7 +52,7 @@ public sealed class AppHostBuilder : IAppHostBuilder
             throw new InvalidOperationException("The AppHost had been created");
         }
         _hostBuilt = true;
-#if NET7_0_OR_GREATER
+#if NET
         _serviceCollection.MakeReadOnly();
 #endif
         var services = Services.BuildServiceProvider();

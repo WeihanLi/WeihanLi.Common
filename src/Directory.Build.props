@@ -23,7 +23,8 @@
     <PackageIcon>icon.jpg</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <LangVersion>Preview</LangVersion>
+    <LangVersion>preview</LangVersion>
+    <NoWarn>$(NoWarn);CS9216;</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Using Include="System.Object" Alias="Lock" Condition="!$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net9.0'))" />

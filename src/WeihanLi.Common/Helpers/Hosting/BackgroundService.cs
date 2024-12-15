@@ -36,7 +36,7 @@ public abstract class BackgroundService : IHostedService, IDisposable
         try
         {
             // Signal cancellation to the executing method
-#if NET8_0_OR_GREATER
+#if NET
             await _stoppingCts!.CancelAsync();
 #else
             _stoppingCts!.Cancel();

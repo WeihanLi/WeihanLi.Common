@@ -75,7 +75,7 @@ public static class ApplicationHelper
         if (!string.IsNullOrEmpty(environmentOverride) && Directory.Exists(environmentOverride))
         {
             var execFileName =
-#if NET6_0_OR_GREATER
+#if NET
                 OperatingSystem.IsWindows()
 #else
                 RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
@@ -105,7 +105,7 @@ public static class ApplicationHelper
 
         if (string.IsNullOrWhiteSpace(dotnetExe))
         {
-#if NET6_0_OR_GREATER
+#if NET
             dotnetExe = Environment.ProcessPath;
 #else
             dotnetExe = System.Diagnostics.Process.GetCurrentProcess().MainModule?.FileName;
@@ -141,7 +141,7 @@ public static class ApplicationHelper
     private static RuntimeInfo GetRuntimeInfo()
     {
         var libInfo = GetLibraryInfo(typeof(object).Assembly);
-#if NET6_0_OR_GREATER
+#if NET
 #else
         var currentProcess = System.Diagnostics.Process.GetCurrentProcess();
 #endif
@@ -149,7 +149,7 @@ public static class ApplicationHelper
         {
             Version = Environment.Version.ToString(),
 
-#if NET6_0_OR_GREATER
+#if NET
             ProcessId = Environment.ProcessId,
             ProcessPath = Environment.ProcessPath ?? string.Empty,
             RuntimeIdentifier = RuntimeInformation.RuntimeIdentifier,
@@ -257,7 +257,7 @@ public class RuntimeInfo
     public required string MachineName { get; init; }
     public required string UserName { get; init; }
 
-#if NET6_0_OR_GREATER
+#if NET
     public required string RuntimeIdentifier { get; init; }
 #endif
 

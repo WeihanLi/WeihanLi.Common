@@ -22,7 +22,7 @@ public static class InvokeHelper
 #if NETCOREAPP
         System.Runtime.Loader.AssemblyLoadContext.Default.Unloading += ctx => InvokeExitHandler(ctx, null);
 #endif
-#if NET6_0_OR_GREATER
+#if NET
         // https://github.com/dotnet/runtime/blob/940b332ad04e58862febe019788a5b21e266ea10/src/libraries/Microsoft.Extensions.Hosting/src/Internal/ConsoleLifetime.netcoreapp.cs
         PosixSignalRegistration.Create(PosixSignal.SIGINT, ctx => InvokeExitHandler(ctx, null));
         PosixSignalRegistration.Create(PosixSignal.SIGQUIT, ctx => InvokeExitHandler(ctx, null));
@@ -110,7 +110,7 @@ public static class InvokeHelper
         //         {
         //             consoleCancelEventArgs.Cancel = true;
         //         }
-        // #if NET6_0_OR_GREATER
+        // #if NET
         //         if (sender is PosixSignalContext posixSignalContext)
         //         {
         //             posixSignalContext.Cancel = true;
@@ -135,10 +135,10 @@ public static class InvokeHelper
     public static void TryInvoke(Action action, int? maxRetryCount = null)
     {
         Guard.NotNull(action);
-        
+
         var maxRetry = maxRetryCount.GetValueOrDefault();
-        invoke:
-        
+    invoke:
+
         try
         {
             action();
@@ -156,7 +156,7 @@ public static class InvokeHelper
         Guard.NotNull(action);
 
         var maxRetry = maxRetryCount.GetValueOrDefault();
-        invoke:
+    invoke:
 
         try
         {
@@ -173,9 +173,9 @@ public static class InvokeHelper
     public static void TryInvoke<T1, T2>(Action<T1, T2> action, T1 t1, T2 t2, int? maxRetryCount = null)
     {
         Guard.NotNull(action);
-        
+
         var maxRetry = maxRetryCount.GetValueOrDefault();
-        invoke:
+    invoke:
 
         try
         {
@@ -184,7 +184,7 @@ public static class InvokeHelper
         catch (Exception ex)
         {
             OnInvokeException?.Invoke(ex);
-            if (maxRetry -- > 0)
+            if (maxRetry-- > 0)
                 goto invoke;
         }
     }
@@ -194,7 +194,7 @@ public static class InvokeHelper
         Guard.NotNull(func);
 
         var maxRetry = maxRetryCount.GetValueOrDefault();
-        invoke:
+    invoke:
 
         try
         {
@@ -203,7 +203,7 @@ public static class InvokeHelper
         catch (Exception ex)
         {
             OnInvokeException?.Invoke(ex);
-            if (maxRetry -- > 0)
+            if (maxRetry-- > 0)
                 goto invoke;
         }
     }
@@ -211,10 +211,10 @@ public static class InvokeHelper
     public static void TryInvoke<T1, T2, T3>(Action<T1, T2, T3> action, T1 t1, T2 t2, T3 t3, int? maxRetryCount = null)
     {
         Guard.NotNull(action);
-        
+
         var maxRetry = maxRetryCount.GetValueOrDefault();
-        invoke:
-        
+    invoke:
+
         try
         {
             action(t1, t2, t3);
@@ -222,7 +222,7 @@ public static class InvokeHelper
         catch (Exception ex)
         {
             OnInvokeException?.Invoke(ex);
-            if (maxRetry -- > 0)
+            if (maxRetry-- > 0)
                 goto invoke;
         }
     }
@@ -230,11 +230,11 @@ public static class InvokeHelper
     public static async Task TryInvokeAsync(Func<Task> func, int? maxRetryCount = null)
     {
         Guard.NotNull(func);
-        
-        var maxRetry = maxRetryCount.GetValueOrDefault();
-        invoke:
 
-        
+        var maxRetry = maxRetryCount.GetValueOrDefault();
+    invoke:
+
+
         try
         {
             await func();
@@ -242,7 +242,7 @@ public static class InvokeHelper
         catch (Exception ex)
         {
             OnInvokeException?.Invoke(ex);
-            if (maxRetry -- > 0)
+            if (maxRetry-- > 0)
                 goto invoke;
         }
     }
@@ -250,10 +250,10 @@ public static class InvokeHelper
     public static async Task TryInvokeAsync<T>(Func<T, Task> func, T t, int? maxRetryCount = null)
     {
         Guard.NotNull(func);
-        
+
         var maxRetry = maxRetryCount.GetValueOrDefault();
-        invoke:
-        
+    invoke:
+
         try
         {
             await func(t);
@@ -261,7 +261,7 @@ public static class InvokeHelper
         catch (Exception ex)
         {
             OnInvokeException?.Invoke(ex);
-            if (maxRetry -- > 0)
+            if (maxRetry-- > 0)
                 goto invoke;
         }
     }
@@ -269,9 +269,9 @@ public static class InvokeHelper
     public static async Task TryInvokeAsync<T1, T2, T3>(Func<T1, T2, T3, Task> func, T1 t1, T2 t2, T3 t3, int? maxRetryCount = null)
     {
         Guard.NotNull(func);
-        
+
         var maxRetry = maxRetryCount.GetValueOrDefault();
-        invoke:
+    invoke:
 
         try
         {
@@ -280,8 +280,8 @@ public static class InvokeHelper
         catch (Exception ex)
         {
             OnInvokeException?.Invoke(ex);
-            
-            if (maxRetry -- > 0)
+
+            if (maxRetry-- > 0)
                 goto invoke;
         }
     }

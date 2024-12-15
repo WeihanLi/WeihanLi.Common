@@ -24,7 +24,7 @@ public class TemplateParserTest
         Assert.NotNull(pipe.Arguments);
         Assert.Empty(pipe.Arguments);
     }
-    
+
     [Fact]
     public async Task ParseTest()
     {
@@ -60,7 +60,7 @@ public class TemplateParserTest
         Assert.Contains("HOST", variableNames);
 
         var pipes = result.Inputs.SelectMany(x => x.Key.Pipes)
-            .Select(x=> x.PipeName)
+            .Select(x => x.PipeName)
             .ToArray();
         Assert.Contains("toUpper", pipes);
     }

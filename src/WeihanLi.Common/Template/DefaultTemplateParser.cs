@@ -19,7 +19,7 @@ internal sealed class DefaultTemplateParser : ITemplateParser
             var variableInput = match.Groups["Variable"].Value;
             var variableName = variableInput.Trim();
             string? prefix = null;
-            
+
             var prefixIndex = variableName.IndexOf('$'); // prefix start
             if (prefixIndex >= 0)
             {
@@ -27,7 +27,7 @@ internal sealed class DefaultTemplateParser : ITemplateParser
                 prefix = variableName[..nameIndex].Trim();
                 variableName = variableName[nameIndex..].Trim();
             }
-            
+
             var pipeValue = match.Groups["Pipe"]?.Value.Trim();
             if (!string.IsNullOrEmpty(pipeValue))
             {
@@ -37,7 +37,7 @@ internal sealed class DefaultTemplateParser : ITemplateParser
                     match = match.NextMatch();
                     continue;
                 }
-                
+
                 // exact pipes
                 pipeValue = pipeValue[pipeIndex..].Trim();
                 var pipeInputs = pipeValue.Split(['|'], StringSplitOptions.RemoveEmptyEntries);
@@ -57,7 +57,7 @@ internal sealed class DefaultTemplateParser : ITemplateParser
                                         StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 #else
                                 argumentsText.Split([':'], StringSplitOptions.RemoveEmptyEntries)
-                                    .Select(x=> x.Trim()).ToArray();
+                                    .Select(x => x.Trim()).ToArray();
 #endif
                             }
 
@@ -67,7 +67,7 @@ internal sealed class DefaultTemplateParser : ITemplateParser
                         return new TemplatePipeInput() { PipeName = pipeName, Arguments = arguments };
                     }).ToArray();
             }
-            
+
             var input = new TemplateInput
             {
                 Input = match.Value,
@@ -76,7 +76,7 @@ internal sealed class DefaultTemplateParser : ITemplateParser
                 Pipes = pipes
             };
             inputs.Add(input);
-            
+
             match = match.NextMatch();
         }
         var context = new TemplateRenderContext(text, inputs);

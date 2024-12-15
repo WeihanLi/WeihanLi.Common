@@ -12,7 +12,7 @@ internal sealed class DefaultTemplateRenderer(Func<TemplateRenderContext, Task> 
     {
         if (context.Text.IsNullOrWhiteSpace() || context.Inputs.IsNullOrEmpty())
             return context.Text;
-        
+
         var parameters = globals.ParseParamDictionary();
         if (parameters is { Count: > 0 })
         {
@@ -22,7 +22,7 @@ internal sealed class DefaultTemplateRenderer(Func<TemplateRenderContext, Task> 
                 {
                     context.Inputs[input] = value;
                 }
-            }   
+            }
         }
         await renderFunc.Invoke(context).ConfigureAwait(false);
         return context.RenderedText;

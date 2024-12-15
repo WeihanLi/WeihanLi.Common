@@ -115,7 +115,7 @@ public static class CommandLineParser
         return GetValueInternal(args ?? Environment.GetCommandLineArgs(), optionName) ?? defaultValue;
     }
 
-     /// <summary>
+    /// <summary>
     /// Get argument value from arguments
     /// </summary>
     /// <param name="args">arguments</param>
@@ -132,7 +132,7 @@ public static class CommandLineParser
     {
         return GetValueInternal(args ?? Environment.GetCommandLineArgs(), optionName).ToBoolean(defaultValue);
     }
-    
+
     public static bool BooleanVal(string optionName, bool defaultValue = default, string[]? args = null)
     {
         return GetValueInternal(args ?? Environment.GetCommandLineArgs(), optionName).ToBoolean(defaultValue);

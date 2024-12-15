@@ -10,7 +10,7 @@ public interface ITemplateEngineServiceBuilder
     IServiceCollection Services { get; }
 }
 
-internal sealed class TemplateEngineServiceBuilder(IServiceCollection services) 
+internal sealed class TemplateEngineServiceBuilder(IServiceCollection services)
     : ITemplateEngineServiceBuilder
 {
     public IServiceCollection Services { get; } = services;
