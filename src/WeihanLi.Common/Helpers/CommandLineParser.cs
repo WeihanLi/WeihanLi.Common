@@ -128,16 +128,37 @@ public static class CommandLineParser
         return GetValueInternal(args, optionName) ?? defaultValue;
     }
 
+    /// <summary>
+    /// Get boolean argument value from arguments
+    /// </summary>
+    /// <param name="optionName">argument name to get value</param>
+    /// <param name="args">arguments</param>
+    /// <param name="defaultValue">default argument value when not found</param>    
+    /// <returns>Boolean value</returns>
     public static bool BooleanVal(string optionName, string[]? args = null, bool defaultValue = default)
     {
         return GetValueInternal(args ?? Environment.GetCommandLineArgs(), optionName).ToBoolean(defaultValue);
     }
 
-    public static bool BooleanVal(string optionName, bool defaultValue = default, string[]? args = null)
+    /// <summary>
+    /// Get boolean argument value from arguments
+    /// </summary>    
+    /// <param name="optionName">argument name to get value</param>
+    /// <param name="defaultValue">default argument value when not found</param>
+    /// <param name="args">arguments</param>
+    /// <returns>Boolean value</returns>
+    public static bool BooleanVal(string optionName, bool defaultValue, string[]? args = null)
     {
         return GetValueInternal(args ?? Environment.GetCommandLineArgs(), optionName).ToBoolean(defaultValue);
     }
 
+    /// <summary>
+    /// Get boolean argument value from arguments
+    /// </summary>    
+    /// <param name="args">arguments</param>
+    /// <param name="optionName">argument name to get value</param>
+    /// <param name="defaultValue">default argument value when not found</param>    
+    /// <returns>Boolean value</returns>
     public static bool BooleanVal(string[] args, string optionName, bool defaultValue = default)
     {
         return GetValueInternal(args, optionName).ToBoolean(defaultValue);
