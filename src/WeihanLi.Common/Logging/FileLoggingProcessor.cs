@@ -15,7 +15,7 @@ internal sealed class FileLoggingProcessor : DisposableBase
     private readonly BlockingCollection<(string log, DateTimeOffset timestamp)> _messageQueue = [];
     private readonly Thread _outputThread;
 
-    private FileStream? _fileStream;
+    private StreamWriter? _fileStream;
     private string? _logFileName;
 
     public FileLoggingProcessor(FileLoggingOptions options)
@@ -96,7 +96,7 @@ internal sealed class FileLoggingProcessor : DisposableBase
             if (_logFileName != previousFileName)
             {
                 // file name changed
-                var fs = File.OpenWrite(fileInfo.FullName);
+                var fs = File.CreateText(fileInfo.FullName);
                 var originalWriter = Interlocked.Exchange(ref _fileStream, fs);
                 if (originalWriter is not null)
                 {
@@ -106,12 +106,8 @@ internal sealed class FileLoggingProcessor : DisposableBase
             }
 
             Guard.NotNull(_fileStream);
-            var bytes = Encoding.UTF8.GetBytes(log);
-            _fileStream.Write(bytes, 0, bytes.Length);
-            if (SecurityHelper.Random.CoinToss())
-            {
-                _fileStream.Flush();
-            }
+            _fileStream.Write(log);
+            _fileStream.Flush();
         }
         catch (Exception ex)
         {
