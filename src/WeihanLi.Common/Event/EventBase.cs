@@ -78,7 +78,7 @@ public static class EventBaseExtensions
                     s.TypeNameHandling = TypeNameHandling.Objects;
                 });
 
-    public static string ToEventMsg<TEvent>(this TEvent @event) where TEvent : class, IEventBase
+    public static string ToEventMsg<TEvent>(this TEvent @event)
     {
         Guard.NotNull(@event);
         return @event.ToJson(EventSerializerSettings);
