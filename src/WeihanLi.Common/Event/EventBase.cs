@@ -112,15 +112,11 @@ public static class EventExtensions
         };
     }
 
-    public static IEventBase ToEventBase(this string eventMsg)
+    public static TEvent ToEvent<TEvent>(this string eventMsg)
     {
         Guard.NotNull(eventMsg);
-        return eventMsg.JsonToObject<IEventBase>(EventSerializerSettings);
+        return eventMsg.JsonToObject<TEvent>(EventSerializerSettings);
     }
     
-    public static IEvent ToEvent(this string eventMsg)
-    {
-        Guard.NotNull(eventMsg);
-        return eventMsg.JsonToObject<IEvent>(EventSerializerSettings);
-    }
+    public static IEvent ToEvent(this string eventMsg) => ToEvent<IEvent>(eventMsg);
 }
