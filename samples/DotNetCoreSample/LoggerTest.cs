@@ -37,10 +37,24 @@ internal class LoggerTest
         var services = new ServiceCollection()
             .AddLogging(builder =>
                 // builder.AddConsole()
-                builder.AddFile()
+                builder.AddFile(options => options.LogFormatter = (category, level, exception, msg, timestamp) => 
+                    $"{timestamp} - [{category}] {level} - {msg}\n{exception}")
                 )
             .AddSingleton(typeof(GenericTest<>))
             .BuildServiceProvider();
+
+        var logger = services.GetRequiredService<ILoggerFactory>()
+            .CreateLogger("test");
+        while (!ApplicationHelper.ExitToken.IsCancellationRequested)
+        {
+            logger.LogInformation("Echo time: {Time}", DateTimeOffset.Now);
+            Thread.Sleep(500);
+        }
+
+        ConsoleHelper.ReadKeyWithPrompt();
+        services.GetRequiredService<ILoggerFactory>()
+            .CreateLogger("test")
+            .LogInformation("test 123");
         services.GetRequiredService<GenericTest<int>>()
             .Test();
         services.GetRequiredService<GenericTest<string>>()
@@ -60,8 +74,6 @@ internal class LoggerTest
 
     private class GenericTest<T>(ILogger<GenericTest<T>> logger)
     {
-        private readonly ILogger<GenericTest<T>> _logger = logger;
-
-        public void Test() => _logger.LogInformation("test");
+        public void Test() => logger.LogInformation("test");
     }
 }

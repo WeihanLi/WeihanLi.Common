@@ -2,6 +2,13 @@
   <PropertyGroup>
     <!-- Enable central package management -->
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <!-- Enable Transitive Package Pinning -->
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+    <!-- https://learn.microsoft.com/en-us/nuget/concepts/auditing-packages -->    
+    <NuGetAudit>true</NuGetAudit>    
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <!-- https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1901-nu1904 -->
+    <WarningsAsErrors>NU1901;NU1902;NU1903;NU1904</WarningsAsErrors>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'net8.0'">
     <PackageVersion Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
