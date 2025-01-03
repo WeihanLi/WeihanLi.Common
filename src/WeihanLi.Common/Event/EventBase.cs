@@ -64,7 +64,7 @@ public interface IEvent<out T>
     T Data { get; }
 }
 
-internal sealed class EventWrapper<T> : IEvent, IEvent<T>
+public sealed class EventWrapper<T> : IEvent, IEvent<T>
 {
     public required T Data { get; init; }
     object? IEvent.Data => (object?)Data;
