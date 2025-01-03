@@ -55,7 +55,7 @@ public sealed class EventQueueInMemory : IEventQueue
         return Task.FromResult<IEvent<TEvent>?>(null);
     }
 
-    public async IAsyncEnumerable<IEvent> ReadAllEvents(string queueName,
+    public async IAsyncEnumerable<IEvent> ReadAll(string queueName,
         [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         while (!cancellationToken.IsCancellationRequested)
@@ -71,7 +71,7 @@ public sealed class EventQueueInMemory : IEventQueue
         }
     }
     
-    public async IAsyncEnumerable<IEvent<TEvent>> ReadAllEvents<TEvent>(string queueName, 
+    public async IAsyncEnumerable<IEvent<TEvent>> ReadEvents<TEvent>(string queueName, 
         [EnumeratorCancellation]CancellationToken cancellationToken = default)
     {
         while (!cancellationToken.IsCancellationRequested)

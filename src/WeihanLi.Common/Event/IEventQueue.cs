@@ -8,8 +8,8 @@ public interface IEventQueue
     Task<ICollection<string>> GetQueuesAsync();
     Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event, EventProperties? properties = null);
     Task<IEvent<TEvent>?> DequeueAsync<TEvent>(string queueName);
-    IAsyncEnumerable<IEvent<TEvent>> ReadAllEvents<TEvent>(string queueName, CancellationToken cancellationToken = default);
-    IAsyncEnumerable<IEvent> ReadAllEvents(string queueName, CancellationToken cancellationToken = default);
+    IAsyncEnumerable<IEvent> ReadAll(string queueName, CancellationToken cancellationToken = default);
+    IAsyncEnumerable<IEvent<TEvent>> ReadEvents<TEvent>(string queueName, CancellationToken cancellationToken = default);
 }
 
 public static class EventQueueExtensions

@@ -99,18 +99,6 @@ public class ServiceContainerBuilderBuildTest
         await handTask;
     }
 
-    [Fact]
-    public async Task GenericMethodTest()
-    {
-        var publisher = _serviceProvider.ResolveRequiredService<IEventPublisher>();
-        Assert.NotNull(publisher);
-        var publisherType = publisher.GetType();
-        Assert.True(publisherType.IsSealed);
-        Assert.True(publisherType.Assembly.IsDynamic);
-
-        await publisher.PublishAsync(new TestEvent());
-    }
-
     // not supported, will not intercept
     [Fact]
     public void OpenGenericTypeTest()

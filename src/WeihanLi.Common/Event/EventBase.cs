@@ -85,6 +85,12 @@ public static class EventExtensions
         Guard.NotNull(@event);
         return GetEvent(@event).ToJson(EventSerializerSettings);
     }
+    
+    public static string ToEventRawMsg<TEvent>(this TEvent @event)
+    {
+        Guard.NotNull(@event);
+        return @event.ToJson(EventSerializerSettings);
+    }
 
     private static IEvent GetEvent<TEvent>(this TEvent @event)
     {
