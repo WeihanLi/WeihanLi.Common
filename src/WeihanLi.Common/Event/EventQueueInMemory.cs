@@ -42,25 +42,21 @@ public sealed class EventQueueInMemory : IEventQueue
         return Task.FromResult(true);
     }
 
-    public Task<bool> TryDequeueAsync(string queueName, [NotNullWhen(true)] out object? @event, [NotNullWhen(true)] out EventProperties? properties)
+    public Task<IEvent<TEvent>?> DequeueAsync<TEvent>(string queueName)
     {
-        @event = default;
-        properties = default;
-
         if (_eventQueues.TryGetValue(queueName, out var queue))
         {
             if (queue.TryDequeue(out var eventWrapper))
             {
-                @event = eventWrapper.Data;
-                properties = eventWrapper.Properties;
-                return Task.FromResult(true);
+                return Task.FromResult((IEvent<TEvent>?)eventWrapper);
             }
         }
 
-        return Task.FromResult(false);
+        return Task.FromResult<IEvent<TEvent>?>(null);
     }
 
-    internal async IAsyncEnumerable<(TEvent Event, EventProperties Properties)> ReadAllAsync<TEvent>(string queueName, [EnumeratorCancellation] CancellationToken cancellationToken = default)
+    public async IAsyncEnumerable<IEvent> ReadAllEvents(string queueName,
+        [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         while (!cancellationToken.IsCancellationRequested)
         {
@@ -68,15 +64,26 @@ public sealed class EventQueueInMemory : IEventQueue
             {
                 while (queue.TryDequeue(out var eventWrapper))
                 {
-                    yield return ((TEvent)eventWrapper!.Data!, eventWrapper!.Properties);
+                    yield return eventWrapper;
                 }
             }
-            await Task.Delay(100);
+            await Task.Delay(100, cancellationToken);
         }
     }
-
-    public bool TryRemoveQueue(string queueName)
+    
+    public async IAsyncEnumerable<IEvent<TEvent>> ReadAllEvents<TEvent>(string queueName, 
+        [EnumeratorCancellation]CancellationToken cancellationToken = default)
     {
-        return _eventQueues.TryRemove(queueName, out _);
+        while (!cancellationToken.IsCancellationRequested)
+        {
+            if (_eventQueues.TryGetValue(queueName, out var queue))
+            {
+                while (queue.TryDequeue(out var eventWrapper) && eventWrapper is IEvent<TEvent> @event)
+                {
+                    yield return @event;
+                }
+            }
+            await Task.Delay(100, cancellationToken);
+        }
     }
 }
