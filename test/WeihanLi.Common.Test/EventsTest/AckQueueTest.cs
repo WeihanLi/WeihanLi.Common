@@ -78,7 +78,7 @@ namespace WeihanLi.Common.Test.EventsTest
         public async Task AutoRequeueUnAckedMessagesAsync_ShouldRequeueUnAckedMessagesAfterTimeout()
         {
             var testEvent = new TestEvent { Message = "Test Message" };
-            var ackQueue = new AckQueue(new()
+            await using var ackQueue = new AckQueue(new()
             {
                 AutoRequeue = true,
                 AckTimeout = TimeSpan.FromSeconds(3),
