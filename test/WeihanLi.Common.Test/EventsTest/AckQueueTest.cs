@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using WeihanLi.Common.Event;
 using Xunit;
 
@@ -6,12 +5,7 @@ namespace WeihanLi.Common.Test.EventsTest
 {
     public class AckQueueTest
     {
-        private readonly AckQueue _ackQueue;
-
-        public AckQueueTest()
-        {
-            _ackQueue = new AckQueue();
-        }
+        private readonly AckQueue _ackQueue = new();
 
         [Fact]
         public async Task EnqueueAsync_ShouldAddMessageToQueue()
@@ -54,7 +48,7 @@ namespace WeihanLi.Common.Test.EventsTest
         }
 
         [Fact]
-        public async Task RequeueUnackedMessagesAsync_ShouldRequeueUnackedMessagesAfterTimeout()
+        public async Task RequeueUnAckedMessagesAsync_ShouldRequeueUnAckedMessagesAfterTimeout()
         {
             var testEvent = new TestEvent { Message = "Test Message" };
             await _ackQueue.EnqueueAsync(testEvent);
@@ -65,7 +59,7 @@ namespace WeihanLi.Common.Test.EventsTest
             // Simulate timeout
             await Task.Delay(TimeSpan.FromMinutes(2));
 
-            await _ackQueue.RequeueUnackedMessagesAsync();
+            _ackQueue.RequeueUnAckedMessages();
 
             var requeuedEvent = await _ackQueue.DequeueAsync<TestEvent>();
             Assert.NotNull(requeuedEvent);

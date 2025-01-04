@@ -1,13 +1,35 @@
 using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
+using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Event;
 
-public sealed class AckQueue
+public sealed class AckQueueOptions
 {
+    public TimeSpan AckTimeout { get; set; } = TimeSpan.FromMinutes(1);
+
+    public bool AutoRequeue { get; set; }
+
+    public TimeSpan Requeue { get; set; }
+}
+
+public sealed class AckQueue : DisposableBase
+{
+    private readonly AckQueueOptions _options;
     private readonly ConcurrentQueue<IEvent> _queue = new();
-    private readonly ConcurrentDictionary<string, IEvent> _unackedMessages = new();
-    private readonly TimeSpan _ackTimeout = TimeSpan.FromMinutes(1);
+    private readonly ConcurrentDictionary<string, IEvent> _unAckedMessages = new();
+    private readonly Timer? _timer;
+
+    public AckQueue() : this(new()) { }
+
+    public AckQueue(AckQueueOptions options)
+    {
+        _options = options;
+        if (options.AutoRequeue)
+        {
+            _timer = new Timer(_ => RequeueUnAckedMessages(), null, options.Requeue, options.Requeue);
+        }
+    }
 
     public Task EnqueueAsync<TEvent>(TEvent @event, EventProperties? properties = null)
     {
@@ -16,6 +38,7 @@ public sealed class AckQueue
         {
             properties.EventId = Guid.NewGuid().ToString();
         }
+
         if (properties.EventAt == default)
         {
             properties.EventAt = DateTimeOffset.Now;
@@ -35,7 +58,7 @@ public sealed class AckQueue
     {
         if (_queue.TryDequeue(out var eventWrapper))
         {
-            _unackedMessages.TryAdd(eventWrapper.Properties.EventId, eventWrapper);
+            _unAckedMessages.TryAdd(eventWrapper.Properties.EventId, eventWrapper);
             return Task.FromResult((IEvent<TEvent>?)eventWrapper);
         }
 
@@ -44,38 +67,43 @@ public sealed class AckQueue
 
     public Task AckMessageAsync(string eventId)
     {
-        _unackedMessages.TryRemove(eventId, out _);
+        _unAckedMessages.TryRemove(eventId, out _);
         return Task.CompletedTask;
     }
 
-    public async Task RequeueUnackedMessagesAsync()
+    public void RequeueUnAckedMessages()
     {
-        foreach (var unackedMessage in _unackedMessages)
+        foreach (var message in _unAckedMessages)
         {
-            if (DateTimeOffset.Now - unackedMessage.Value.Properties.EventAt > _ackTimeout)
+            if (DateTimeOffset.Now - message.Value.Properties.EventAt > _options.AckTimeout)
             {
-                _unackedMessages.TryRemove(unackedMessage.Key, out var eventWrapper);
-                if (eventWrapper != null)
+                if (_unAckedMessages.TryRemove(message.Key, out var eventWrapper)
+                    && eventWrapper != null)
                 {
                     _queue.Enqueue(eventWrapper);
                 }
             }
         }
-
-        await Task.CompletedTask;
     }
 
-    public async IAsyncEnumerable<IEvent> ReadAllAsync([EnumeratorCancellation] CancellationToken cancellationToken = default)
+    public async IAsyncEnumerable<IEvent> ReadAllAsync(
+        [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         while (!cancellationToken.IsCancellationRequested)
         {
             while (_queue.TryDequeue(out var eventWrapper))
             {
-                _unackedMessages.TryAdd(eventWrapper.Properties.EventId, eventWrapper);
+                _unAckedMessages.TryAdd(eventWrapper.Properties.EventId, eventWrapper);
                 yield return eventWrapper;
             }
 
             await Task.Delay(200, cancellationToken);
         }
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        _timer?.Dispose();
+        base.Dispose(disposing);
     }
 }
