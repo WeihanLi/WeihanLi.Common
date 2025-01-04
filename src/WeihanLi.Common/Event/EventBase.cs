@@ -67,26 +67,62 @@ public interface IEvent<out T>
 public class EventWrapper<T> : IEvent, IEvent<T>
 {
     public required T Data { get; init; }
-    object? IEvent.Data => (object?)Data;
+    object? IEvent.Data => Data;
     public required EventProperties Properties { get; init; }
 }
 
-public static class EventBaseExtensions
+public static class EventExtensions
 {
-    private static readonly JsonSerializerSettings EventSerializerSettings = JsonSerializeExtension.SerializerSettingsWith(s =>
-                {
-                    s.TypeNameHandling = TypeNameHandling.Objects;
-                });
+    private static readonly JsonSerializerSettings EventSerializerSettings = JsonSerializeExtension
+        .SerializerSettingsWith(s => 
+        {
+            s.NullValueHandling = NullValueHandling.Ignore;
+            s.TypeNameHandling = TypeNameHandling.Objects;
+        });
 
     public static string ToEventMsg<TEvent>(this TEvent @event)
+    {
+        Guard.NotNull(@event);
+        return GetEvent(@event).ToJson(EventSerializerSettings);
+    }
+    
+    public static string ToEventRawMsg<TEvent>(this TEvent @event)
     {
         Guard.NotNull(@event);
         return @event.ToJson(EventSerializerSettings);
     }
 
-    public static IEventBase ToEvent(this string eventMsg)
+    private static IEvent GetEvent<TEvent>(this TEvent @event)
+    {
+        if (@event is IEvent eventEvent)
+            return eventEvent;
+        
+        if (@event is IEventBase eventBase)
+            return new EventWrapper<TEvent>()
+            {
+                Data = @event, 
+                Properties = new()
+                {
+                    EventAt = eventBase.EventAt, 
+                    EventId = eventBase.EventId
+                }
+            };
+        
+        return new EventWrapper<TEvent> 
+        {
+            Data = @event,
+            Properties = new EventProperties
+            {
+                EventAt = DateTimeOffset.Now
+            }
+        };
+    }
+
+    public static TEvent ToEvent<TEvent>(this string eventMsg)
     {
         Guard.NotNull(eventMsg);
-        return eventMsg.JsonToObject<IEventBase>(EventSerializerSettings);
+        return eventMsg.JsonToObject<TEvent>(EventSerializerSettings);
     }
+    
+    public static IEvent ToEvent(this string eventMsg) => ToEvent<IEvent>(eventMsg);
 }
