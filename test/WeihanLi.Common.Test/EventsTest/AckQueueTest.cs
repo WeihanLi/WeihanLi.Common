@@ -18,7 +18,7 @@ namespace WeihanLi.Common.Test.EventsTest
 
             var dequeuedEvent = await _ackQueue.DequeueAsync<TestEvent>();
             Assert.NotNull(dequeuedEvent);
-            Assert.Equal(testEvent.Message, dequeuedEvent?.Data.Message);
+            Assert.Equal(testEvent.Message, dequeuedEvent.Data.Message);
         }
 
         [Fact]
@@ -31,7 +31,7 @@ namespace WeihanLi.Common.Test.EventsTest
             var dequeuedEvent2 = await _ackQueue.DequeueAsync<TestEvent>();
 
             Assert.NotNull(dequeuedEvent1);
-            Assert.Equal(testEvent.Message, dequeuedEvent1?.Data.Message);
+            Assert.Equal(testEvent.Message, dequeuedEvent1.Data.Message);
             Assert.Null(dequeuedEvent2);
         }
 
@@ -44,7 +44,7 @@ namespace WeihanLi.Common.Test.EventsTest
             var dequeuedEvent = await _ackQueue.DequeueAsync<TestEvent>();
             Assert.NotNull(dequeuedEvent);
 
-            await _ackQueue.AckMessageAsync(dequeuedEvent!.Properties.EventId);
+            await _ackQueue.AckMessageAsync(dequeuedEvent.Properties.EventId);
 
             var dequeuedEventAfterAck = await _ackQueue.DequeueAsync<TestEvent>();
             Assert.Null(dequeuedEventAfterAck);
@@ -66,7 +66,7 @@ namespace WeihanLi.Common.Test.EventsTest
 
             var requeuedEvent = await _ackQueue.DequeueAsync<TestEvent>();
             Assert.NotNull(requeuedEvent);
-            Assert.Equal(testEvent.Message, requeuedEvent?.Data.Message);
+            Assert.Equal(testEvent.Message, requeuedEvent.Data.Message);
         }
 
         private class TestEvent
