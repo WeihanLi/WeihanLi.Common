@@ -16,7 +16,6 @@ public sealed class EventQueueInMemory : IEventQueue
 
     public Task<ICollection<string>> GetQueuesAsync() => Task.FromResult(GetQueues());
 
-
     public Task<bool> EnqueueAsync<TEvent>(string queueName, TEvent @event, EventProperties? properties = null)
     {
         properties ??= new();
@@ -55,7 +54,7 @@ public sealed class EventQueueInMemory : IEventQueue
         return Task.FromResult<IEvent<TEvent>?>(null);
     }
 
-    public async IAsyncEnumerable<IEvent> ReadAll(string queueName,
+    public async IAsyncEnumerable<IEvent> ReadAllAsync(string queueName,
         [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         while (!cancellationToken.IsCancellationRequested)
@@ -65,22 +64,6 @@ public sealed class EventQueueInMemory : IEventQueue
                 while (queue.TryDequeue(out var eventWrapper))
                 {
                     yield return eventWrapper;
-                }
-            }
-            await Task.Delay(100, cancellationToken);
-        }
-    }
-    
-    public async IAsyncEnumerable<IEvent<TEvent>> ReadEvents<TEvent>(string queueName, 
-        [EnumeratorCancellation]CancellationToken cancellationToken = default)
-    {
-        while (!cancellationToken.IsCancellationRequested)
-        {
-            if (_eventQueues.TryGetValue(queueName, out var queue))
-            {
-                while (queue.TryDequeue(out var eventWrapper) && eventWrapper is IEvent<TEvent> @event)
-                {
-                    yield return @event;
                 }
             }
             await Task.Delay(100, cancellationToken);
