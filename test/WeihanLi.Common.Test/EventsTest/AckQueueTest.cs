@@ -5,7 +5,10 @@ namespace WeihanLi.Common.Test.EventsTest
 {
     public class AckQueueTest
     {
-        private readonly AckQueue _ackQueue = new();
+        private readonly AckQueue _ackQueue = new(new()
+        {
+            AutoRequeue = false
+        });
 
         [Fact]
         public async Task EnqueueAsync_ShouldAddMessageToQueue()

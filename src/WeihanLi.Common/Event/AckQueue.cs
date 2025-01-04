@@ -8,9 +8,9 @@ public sealed class AckQueueOptions
 {
     public TimeSpan AckTimeout { get; set; } = TimeSpan.FromMinutes(1);
 
-    public bool AutoRequeue { get; set; }
+    public bool AutoRequeue { get; set; } = true;
 
-    public TimeSpan Requeue { get; set; }
+    public TimeSpan Requeue { get; set; } = TimeSpan.FromMinutes(1);
 }
 
 public sealed class AckQueue : DisposableBase
