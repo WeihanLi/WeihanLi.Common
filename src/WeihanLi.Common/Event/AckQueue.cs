@@ -10,7 +10,7 @@ public sealed class AckQueueOptions
 
     public bool AutoRequeue { get; set; } = true;
 
-    public TimeSpan Requeue { get; set; } = TimeSpan.FromMinutes(1);
+    public TimeSpan RequeuePeriod { get; set; } = TimeSpan.FromMinutes(1);
 }
 
 public sealed class AckQueue : DisposableBase
@@ -27,7 +27,7 @@ public sealed class AckQueue : DisposableBase
         _options = options;
         if (options.AutoRequeue)
         {
-            _timer = new Timer(_ => RequeueUnAckedMessages(), null, options.Requeue, options.Requeue);
+            _timer = new Timer(_ => RequeueUnAckedMessages(), null, options.RequeuePeriod, options.RequeuePeriod);
         }
     }
 

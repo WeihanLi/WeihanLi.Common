@@ -54,17 +54,45 @@ namespace WeihanLi.Common.Test.EventsTest
         public async Task RequeueUnAckedMessagesAsync_ShouldRequeueUnAckedMessagesAfterTimeout()
         {
             var testEvent = new TestEvent { Message = "Test Message" };
-            await _ackQueue.EnqueueAsync(testEvent);
+            var ackQueue = new AckQueue(new()
+            {
+                AutoRequeue = false,
+                AckTimeout = TimeSpan.FromSeconds(3)
+            });
+            await ackQueue.EnqueueAsync(testEvent);
 
-            var dequeuedEvent = await _ackQueue.DequeueAsync<TestEvent>();
+            var dequeuedEvent = await ackQueue.DequeueAsync<TestEvent>();
             Assert.NotNull(dequeuedEvent);
 
             // Simulate timeout
-            await Task.Delay(TimeSpan.FromMinutes(2));
+            await Task.Delay(TimeSpan.FromSeconds(5));
 
-            _ackQueue.RequeueUnAckedMessages();
+            ackQueue.RequeueUnAckedMessages();
 
-            var requeuedEvent = await _ackQueue.DequeueAsync<TestEvent>();
+            var requeuedEvent = await ackQueue.DequeueAsync<TestEvent>();
+            Assert.NotNull(requeuedEvent);
+            Assert.Equal(testEvent.Message, requeuedEvent.Data.Message);
+        }
+        
+        [Fact]
+        public async Task AutoRequeueUnAckedMessagesAsync_ShouldRequeueUnAckedMessagesAfterTimeout()
+        {
+            var testEvent = new TestEvent { Message = "Test Message" };
+            var ackQueue = new AckQueue(new()
+            {
+                AutoRequeue = true,
+                AckTimeout = TimeSpan.FromSeconds(3),
+                RequeuePeriod = TimeSpan.FromSeconds(2)
+            });
+            await ackQueue.EnqueueAsync(testEvent);
+
+            var dequeuedEvent = await ackQueue.DequeueAsync<TestEvent>();
+            Assert.NotNull(dequeuedEvent);
+
+            // Simulate timeout
+            await Task.Delay(TimeSpan.FromSeconds(5));
+
+            var requeuedEvent = await ackQueue.DequeueAsync<TestEvent>();
             Assert.NotNull(requeuedEvent);
             Assert.Equal(testEvent.Message, requeuedEvent.Data.Message);
         }
