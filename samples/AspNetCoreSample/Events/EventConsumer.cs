@@ -17,7 +17,7 @@ public class EventConsumer
             {
                 await queues.Select(async q =>
                         {
-                            await foreach (var e in eventQueue.ReadAll(q, stoppingToken))
+                            await foreach (var e in eventQueue.ReadAllAsync(q, stoppingToken))
                             {
                                 var @event = e.Data;
                                 Guard.NotNull(@event);
