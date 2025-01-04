@@ -8,7 +8,7 @@ public sealed class AckQueueOptions
 {
     public TimeSpan AckTimeout { get; set; } = TimeSpan.FromMinutes(1);
 
-    public bool AutoRequeue { get; set; } = true;
+    public bool AutoRequeue { get; set; }
 
     public TimeSpan RequeuePeriod { get; set; } = TimeSpan.FromMinutes(1);
 }
