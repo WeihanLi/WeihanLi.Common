@@ -43,8 +43,8 @@ public class EventBaseTest
         {
             Name = "1213"
         };
-        var eventMsg = testEvent.ToEventMsg();
-        var eventFromMsg = eventMsg.ToEvent();
+        var eventMsg = testEvent.ToEventRawMsg();
+        var eventFromMsg = eventMsg.ToEvent<TestEvent>();
         Assert.Equal(typeof(TestEvent), eventFromMsg.GetType());
 
         var deserializedEvent = eventFromMsg as TestEvent;
@@ -52,5 +52,25 @@ public class EventBaseTest
         Assert.Equal(testEvent.EventId, deserializedEvent.EventId);
         Assert.Equal(testEvent.EventAt, deserializedEvent.EventAt);
         Assert.Equal(testEvent.Name, deserializedEvent.Name);
+    }
+    
+    [Fact]
+    public void EventMessageExtensions2Test()
+    {
+        var testEvent = new TestEvent()
+        {
+            Name = "1213"
+        };
+        var eventMsg = testEvent.ToEventMsg();
+        var eventFromMsg = eventMsg.ToEvent<EventWrapper<TestEvent>>();
+        Assert.Equal(typeof(EventWrapper<TestEvent>), eventFromMsg.GetType());
+
+        var deserializedEvent = eventFromMsg.Data;
+        Assert.NotNull(deserializedEvent);
+        Assert.Equal(testEvent.EventId, deserializedEvent.EventId);
+        Assert.Equal(testEvent.EventAt, deserializedEvent.EventAt);
+        Assert.Equal(testEvent.Name, deserializedEvent.Name);
+        Assert.Equal(testEvent.EventId, eventFromMsg.Properties.EventId);
+        Assert.Equal(testEvent.EventAt, eventFromMsg.Properties.EventAt);
     }
 }

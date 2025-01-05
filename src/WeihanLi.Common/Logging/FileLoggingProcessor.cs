@@ -108,10 +108,7 @@ internal sealed class FileLoggingProcessor : DisposableBase
             Guard.NotNull(_fileStream);
             var bytes = Encoding.UTF8.GetBytes(log);
             _fileStream.Write(bytes, 0, bytes.Length);
-            if (SecurityHelper.Random.CoinToss())
-            {
-                _fileStream.Flush();
-            }
+            _fileStream.Flush();
         }
         catch (Exception ex)
         {
