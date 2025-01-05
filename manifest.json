@@ -694,6 +694,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.AckQueue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.AckQueue.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.AckQueueOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.AckQueueOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Event.DefaultEventHandlerFactory.yml",
       "output": {
         ".html": {
@@ -734,16 +754,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Event.EventBaseExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Common.Event.EventBaseExtensions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Event.EventBus.yml",
       "output": {
         ".html": {
@@ -758,6 +768,16 @@
       "output": {
         ".html": {
           "relative_path": "api/WeihanLi.Common.Event.EventBusExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventExtensions.html"
         }
       },
       "version": ""
@@ -848,6 +868,16 @@
       "output": {
         ".html": {
           "relative_path": "api/WeihanLi.Common.Event.EventSubscriberExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Event.EventWrapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Event.EventWrapper-1.html"
         }
       },
       "version": ""

@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Event_EventQueueExtensions" data-uid="WeihanLi.Common.Event.EventQueueExtensions" class="text-break">
-Class EventQueueExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventQueue.cs/#L19"><i class="bi bi-code-slash"></i></a>
+Class EventQueueExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventQueue.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -152,7 +152,7 @@ Class EventQueueExtensions  <a class="header-action link-secondary" title="View 
 
   <h3 id="WeihanLi_Common_Event_EventQueueExtensions_EnqueueAsync__1_WeihanLi_Common_Event_IEventQueue___0_WeihanLi_Common_Event_EventProperties_" data-uid="WeihanLi.Common.Event.EventQueueExtensions.EnqueueAsync``1(WeihanLi.Common.Event.IEventQueue,``0,WeihanLi.Common.Event.EventProperties)">
   EnqueueAsync&lt;TEvent&gt;(IEventQueue, TEvent, EventProperties?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventQueue.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventQueue.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -193,11 +193,56 @@ Class EventQueueExtensions  <a class="header-action link-secondary" title="View 
 
 
 
+  <a id="WeihanLi_Common_Event_EventQueueExtensions_ReadEventsAsync_" data-uid="WeihanLi.Common.Event.EventQueueExtensions.ReadEventsAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Event_EventQueueExtensions_ReadEventsAsync__1_WeihanLi_Common_Event_IEventQueue_System_String_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Event.EventQueueExtensions.ReadEventsAsync``1(WeihanLi.Common.Event.IEventQueue,System.String,System.Threading.CancellationToken)">
+  ReadEventsAsync&lt;TEvent&gt;(IEventQueue, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventQueue.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IAsyncEnumerable&lt;IEvent&lt;TEvent&gt;&gt; ReadEventsAsync&lt;TEvent&gt;(this IEventQueue eventQueue, string queueName, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>eventQueue</code> <a class="xref" href="WeihanLi.Common.Event.IEventQueue.html">IEventQueue</a></dt>
+    <dd></dd>
+    <dt><code>queueName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;<a class="xref" href="WeihanLi.Common.Event.IEvent-1.html">IEvent</a>&lt;TEvent&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TEvent</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventQueue.cs/#L19" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/IEventQueue.cs/#L16" class="edit-link">Edit this page</a>
         </div>
 
 

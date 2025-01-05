@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class BaseEntityWithDeleted&lt;TKey&gt; </title>
+      <title>Class EventWrapper&lt;T&gt; </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class BaseEntityWithDeleted&lt;TKey&gt; ">
+      <meta name="title" content="Class EventWrapper&lt;T&gt; ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       
       
       
-      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Models_BaseEntityWithDeleted_1.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Models.BaseEntityWithDeleted%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Event_EventWrapper_1.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Event.EventWrapper%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -80,16 +80,16 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="WeihanLi.Common.Models.BaseEntityWithDeleted`1">
+        <article data-uid="WeihanLi.Common.Event.EventWrapper`1">
 
 
 
-  <h1 id="WeihanLi_Common_Models_BaseEntityWithDeleted_1" data-uid="WeihanLi.Common.Models.BaseEntityWithDeleted`1" class="text-break">
-Class BaseEntityWithDeleted&lt;TKey&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <h1 id="WeihanLi_Common_Event_EventWrapper_1" data-uid="WeihanLi.Common.Event.EventWrapper`1" class="text-break">
+Class EventWrapper&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventBase.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Models.html">Models</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Event.html">Event</a></dd></dl>
   <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
@@ -97,14 +97,14 @@ Class BaseEntityWithDeleted&lt;TKey&gt;  <a class="header-action link-secondary"
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BaseEntityWithDeleted&lt;TKey&gt; : BaseEntity&lt;TKey&gt;, IEntity&lt;TKey&gt;, ISoftDeleteEntityWithDeleted, ISoftDeleteEntity</code></pre>
+    <pre><code class="lang-csharp hljs">public class EventWrapper&lt;T&gt; : IEvent, IEvent&lt;T&gt;</code></pre>
   </div>
 
 
 
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
-    <dt><code>TKey</code></dt>
+    <dt><code>T</code></dt>
     <dd></dd>
   </dl>
 
@@ -112,34 +112,22 @@ Class BaseEntityWithDeleted&lt;TKey&gt;  <a class="header-action link-secondary"
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntity-1.html">BaseEntity</a>&lt;TKey&gt;</div>
-      <div><span class="xref">BaseEntityWithDeleted&lt;TKey&gt;</span></div>
+      <div><span class="xref">EventWrapper&lt;T&gt;</span></div>
     </dd>
   </dl>
 
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="WeihanLi.Common.Models.IEntity-1.html">IEntity</a>&lt;TKey&gt;</div>
-      <div><a class="xref" href="WeihanLi.Common.Models.ISoftDeleteEntityWithDeleted.html">ISoftDeleteEntityWithDeleted</a></div>
-      <div><a class="xref" href="WeihanLi.Common.Models.ISoftDeleteEntity.html">ISoftDeleteEntity</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Event.IEvent.html">IEvent</a></div>
+      <div><a class="xref" href="WeihanLi.Common.Event.IEvent-1.html">IEvent</a>&lt;T&gt;</div>
     </dd>
   </dl>
 
-  <dl class="typelist derived">
-    <dt>Derived</dt>
-    <dd>
-      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithDeleted.html">BaseEntityWithDeleted</a></div>
-      <div><a class="xref" href="WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted-1.html">BaseEntityWithReviewStateWithDeleted&lt;TKey&gt;</a></div>
-    </dd>
-  </dl>
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="WeihanLi.Common.Models.BaseEntity-1.html#WeihanLi_Common_Models_BaseEntity_1_Id">BaseEntity&lt;TKey&gt;.Id</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -296,18 +284,18 @@ Class BaseEntityWithDeleted&lt;TKey&gt;  <a class="header-action link-secondary"
 </h2>
 
 
-  <a id="WeihanLi_Common_Models_BaseEntityWithDeleted_1_IsDeleted_" data-uid="WeihanLi.Common.Models.BaseEntityWithDeleted`1.IsDeleted*"></a>
+  <a id="WeihanLi_Common_Event_EventWrapper_1_Data_" data-uid="WeihanLi.Common.Event.EventWrapper`1.Data*"></a>
 
-  <h3 id="WeihanLi_Common_Models_BaseEntityWithDeleted_1_IsDeleted" data-uid="WeihanLi.Common.Models.BaseEntityWithDeleted`1.IsDeleted">
-  IsDeleted
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <h3 id="WeihanLi_Common_Event_EventWrapper_1_Data" data-uid="WeihanLi.Common.Event.EventWrapper`1.Data">
+  Data
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventBase.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsDeleted { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public required T Data { get; init; }</code></pre>
   </div>
 
 
@@ -316,7 +304,38 @@ Class BaseEntityWithDeleted&lt;TKey&gt;  <a class="header-action link-secondary"
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Event_EventWrapper_1_Properties_" data-uid="WeihanLi.Common.Event.EventWrapper`1.Properties*"></a>
+
+  <h3 id="WeihanLi_Common_Event_EventWrapper_1_Properties" data-uid="WeihanLi.Common.Event.EventWrapper`1.Properties">
+  Properties
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventBase.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required EventProperties Properties { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="WeihanLi.Common.Event.EventProperties.html">EventProperties</a></dt>
     <dd></dd>
   </dl>
 
@@ -331,7 +350,7 @@ Class BaseEntityWithDeleted&lt;TKey&gt;  <a class="header-action link-secondary"
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Models/BaseEntity.cs/#L57" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventBase.cs/#L67" class="edit-link">Edit this page</a>
         </div>
 
 

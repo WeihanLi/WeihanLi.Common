@@ -5632,6 +5632,175 @@ references:
   commentId: N:WeihanLi.Common.Event
   fullName: WeihanLi.Common.Event
   nameWithType: WeihanLi.Common.Event
+- uid: WeihanLi.Common.Event.AckQueue
+  name: AckQueue
+  href: api/WeihanLi.Common.Event.AckQueue.html
+  commentId: T:WeihanLi.Common.Event.AckQueue
+  fullName: WeihanLi.Common.Event.AckQueue
+  nameWithType: AckQueue
+- uid: WeihanLi.Common.Event.AckQueue.#ctor
+  name: AckQueue()
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue__ctor
+  commentId: M:WeihanLi.Common.Event.AckQueue.#ctor
+  name.vb: New()
+  fullName: WeihanLi.Common.Event.AckQueue.AckQueue()
+  fullName.vb: WeihanLi.Common.Event.AckQueue.New()
+  nameWithType: AckQueue.AckQueue()
+  nameWithType.vb: AckQueue.New()
+- uid: WeihanLi.Common.Event.AckQueue.#ctor(WeihanLi.Common.Event.AckQueueOptions)
+  name: AckQueue(AckQueueOptions)
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue__ctor_WeihanLi_Common_Event_AckQueueOptions_
+  commentId: M:WeihanLi.Common.Event.AckQueue.#ctor(WeihanLi.Common.Event.AckQueueOptions)
+  name.vb: New(AckQueueOptions)
+  fullName: WeihanLi.Common.Event.AckQueue.AckQueue(WeihanLi.Common.Event.AckQueueOptions)
+  fullName.vb: WeihanLi.Common.Event.AckQueue.New(WeihanLi.Common.Event.AckQueueOptions)
+  nameWithType: AckQueue.AckQueue(AckQueueOptions)
+  nameWithType.vb: AckQueue.New(AckQueueOptions)
+- uid: WeihanLi.Common.Event.AckQueue.#ctor*
+  name: AckQueue
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue__ctor_
+  commentId: Overload:WeihanLi.Common.Event.AckQueue.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: WeihanLi.Common.Event.AckQueue.AckQueue
+  fullName.vb: WeihanLi.Common.Event.AckQueue.New
+  nameWithType: AckQueue.AckQueue
+  nameWithType.vb: AckQueue.New
+- uid: WeihanLi.Common.Event.AckQueue.AckMessageAsync(System.String)
+  name: AckMessageAsync(string)
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue_AckMessageAsync_System_String_
+  commentId: M:WeihanLi.Common.Event.AckQueue.AckMessageAsync(System.String)
+  name.vb: AckMessageAsync(String)
+  fullName: WeihanLi.Common.Event.AckQueue.AckMessageAsync(string)
+  fullName.vb: WeihanLi.Common.Event.AckQueue.AckMessageAsync(String)
+  nameWithType: AckQueue.AckMessageAsync(string)
+  nameWithType.vb: AckQueue.AckMessageAsync(String)
+- uid: WeihanLi.Common.Event.AckQueue.AckMessageAsync*
+  name: AckMessageAsync
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue_AckMessageAsync_
+  commentId: Overload:WeihanLi.Common.Event.AckQueue.AckMessageAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.AckQueue.AckMessageAsync
+  nameWithType: AckQueue.AckMessageAsync
+- uid: WeihanLi.Common.Event.AckQueue.DequeueAsync*
+  name: DequeueAsync
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue_DequeueAsync_
+  commentId: Overload:WeihanLi.Common.Event.AckQueue.DequeueAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.AckQueue.DequeueAsync
+  nameWithType: AckQueue.DequeueAsync
+- uid: WeihanLi.Common.Event.AckQueue.DequeueAsync``1
+  name: DequeueAsync<TEvent>()
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue_DequeueAsync__1
+  commentId: M:WeihanLi.Common.Event.AckQueue.DequeueAsync``1
+  name.vb: DequeueAsync(Of TEvent)()
+  fullName: WeihanLi.Common.Event.AckQueue.DequeueAsync<TEvent>()
+  fullName.vb: WeihanLi.Common.Event.AckQueue.DequeueAsync(Of TEvent)()
+  nameWithType: AckQueue.DequeueAsync<TEvent>()
+  nameWithType.vb: AckQueue.DequeueAsync(Of TEvent)()
+- uid: WeihanLi.Common.Event.AckQueue.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue_Dispose_System_Boolean_
+  commentId: M:WeihanLi.Common.Event.AckQueue.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: WeihanLi.Common.Event.AckQueue.Dispose(bool)
+  fullName.vb: WeihanLi.Common.Event.AckQueue.Dispose(Boolean)
+  nameWithType: AckQueue.Dispose(bool)
+  nameWithType.vb: AckQueue.Dispose(Boolean)
+- uid: WeihanLi.Common.Event.AckQueue.Dispose*
+  name: Dispose
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue_Dispose_
+  commentId: Overload:WeihanLi.Common.Event.AckQueue.Dispose
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.AckQueue.Dispose
+  nameWithType: AckQueue.Dispose
+- uid: WeihanLi.Common.Event.AckQueue.EnqueueAsync*
+  name: EnqueueAsync
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue_EnqueueAsync_
+  commentId: Overload:WeihanLi.Common.Event.AckQueue.EnqueueAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.AckQueue.EnqueueAsync
+  nameWithType: AckQueue.EnqueueAsync
+- uid: WeihanLi.Common.Event.AckQueue.EnqueueAsync``1(``0,WeihanLi.Common.Event.EventProperties)
+  name: EnqueueAsync<TEvent>(TEvent, EventProperties?)
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue_EnqueueAsync__1___0_WeihanLi_Common_Event_EventProperties_
+  commentId: M:WeihanLi.Common.Event.AckQueue.EnqueueAsync``1(``0,WeihanLi.Common.Event.EventProperties)
+  name.vb: EnqueueAsync(Of TEvent)(TEvent, EventProperties)
+  fullName: WeihanLi.Common.Event.AckQueue.EnqueueAsync<TEvent>(TEvent, WeihanLi.Common.Event.EventProperties?)
+  fullName.vb: WeihanLi.Common.Event.AckQueue.EnqueueAsync(Of TEvent)(TEvent, WeihanLi.Common.Event.EventProperties)
+  nameWithType: AckQueue.EnqueueAsync<TEvent>(TEvent, EventProperties?)
+  nameWithType.vb: AckQueue.EnqueueAsync(Of TEvent)(TEvent, EventProperties)
+- uid: WeihanLi.Common.Event.AckQueue.ReadAllAsync(System.Threading.CancellationToken)
+  name: ReadAllAsync(CancellationToken)
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue_ReadAllAsync_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Event.AckQueue.ReadAllAsync(System.Threading.CancellationToken)
+  fullName: WeihanLi.Common.Event.AckQueue.ReadAllAsync(System.Threading.CancellationToken)
+  nameWithType: AckQueue.ReadAllAsync(CancellationToken)
+- uid: WeihanLi.Common.Event.AckQueue.ReadAllAsync*
+  name: ReadAllAsync
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue_ReadAllAsync_
+  commentId: Overload:WeihanLi.Common.Event.AckQueue.ReadAllAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.AckQueue.ReadAllAsync
+  nameWithType: AckQueue.ReadAllAsync
+- uid: WeihanLi.Common.Event.AckQueue.RequeueUnAckedMessages
+  name: RequeueUnAckedMessages()
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue_RequeueUnAckedMessages
+  commentId: M:WeihanLi.Common.Event.AckQueue.RequeueUnAckedMessages
+  fullName: WeihanLi.Common.Event.AckQueue.RequeueUnAckedMessages()
+  nameWithType: AckQueue.RequeueUnAckedMessages()
+- uid: WeihanLi.Common.Event.AckQueue.RequeueUnAckedMessages*
+  name: RequeueUnAckedMessages
+  href: api/WeihanLi.Common.Event.AckQueue.html#WeihanLi_Common_Event_AckQueue_RequeueUnAckedMessages_
+  commentId: Overload:WeihanLi.Common.Event.AckQueue.RequeueUnAckedMessages
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.AckQueue.RequeueUnAckedMessages
+  nameWithType: AckQueue.RequeueUnAckedMessages
+- uid: WeihanLi.Common.Event.AckQueueOptions
+  name: AckQueueOptions
+  href: api/WeihanLi.Common.Event.AckQueueOptions.html
+  commentId: T:WeihanLi.Common.Event.AckQueueOptions
+  fullName: WeihanLi.Common.Event.AckQueueOptions
+  nameWithType: AckQueueOptions
+- uid: WeihanLi.Common.Event.AckQueueOptions.AckTimeout
+  name: AckTimeout
+  href: api/WeihanLi.Common.Event.AckQueueOptions.html#WeihanLi_Common_Event_AckQueueOptions_AckTimeout
+  commentId: P:WeihanLi.Common.Event.AckQueueOptions.AckTimeout
+  fullName: WeihanLi.Common.Event.AckQueueOptions.AckTimeout
+  nameWithType: AckQueueOptions.AckTimeout
+- uid: WeihanLi.Common.Event.AckQueueOptions.AckTimeout*
+  name: AckTimeout
+  href: api/WeihanLi.Common.Event.AckQueueOptions.html#WeihanLi_Common_Event_AckQueueOptions_AckTimeout_
+  commentId: Overload:WeihanLi.Common.Event.AckQueueOptions.AckTimeout
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.AckQueueOptions.AckTimeout
+  nameWithType: AckQueueOptions.AckTimeout
+- uid: WeihanLi.Common.Event.AckQueueOptions.AutoRequeue
+  name: AutoRequeue
+  href: api/WeihanLi.Common.Event.AckQueueOptions.html#WeihanLi_Common_Event_AckQueueOptions_AutoRequeue
+  commentId: P:WeihanLi.Common.Event.AckQueueOptions.AutoRequeue
+  fullName: WeihanLi.Common.Event.AckQueueOptions.AutoRequeue
+  nameWithType: AckQueueOptions.AutoRequeue
+- uid: WeihanLi.Common.Event.AckQueueOptions.AutoRequeue*
+  name: AutoRequeue
+  href: api/WeihanLi.Common.Event.AckQueueOptions.html#WeihanLi_Common_Event_AckQueueOptions_AutoRequeue_
+  commentId: Overload:WeihanLi.Common.Event.AckQueueOptions.AutoRequeue
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.AckQueueOptions.AutoRequeue
+  nameWithType: AckQueueOptions.AutoRequeue
+- uid: WeihanLi.Common.Event.AckQueueOptions.RequeuePeriod
+  name: RequeuePeriod
+  href: api/WeihanLi.Common.Event.AckQueueOptions.html#WeihanLi_Common_Event_AckQueueOptions_RequeuePeriod
+  commentId: P:WeihanLi.Common.Event.AckQueueOptions.RequeuePeriod
+  fullName: WeihanLi.Common.Event.AckQueueOptions.RequeuePeriod
+  nameWithType: AckQueueOptions.RequeuePeriod
+- uid: WeihanLi.Common.Event.AckQueueOptions.RequeuePeriod*
+  name: RequeuePeriod
+  href: api/WeihanLi.Common.Event.AckQueueOptions.html#WeihanLi_Common_Event_AckQueueOptions_RequeuePeriod_
+  commentId: Overload:WeihanLi.Common.Event.AckQueueOptions.RequeuePeriod
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.AckQueueOptions.RequeuePeriod
+  nameWithType: AckQueueOptions.RequeuePeriod
 - uid: WeihanLi.Common.Event.DefaultEventHandlerFactory
   name: DefaultEventHandlerFactory
   href: api/WeihanLi.Common.Event.DefaultEventHandlerFactory.html
@@ -5884,44 +6053,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Event.EventBase.EventId
   nameWithType: EventBase.EventId
-- uid: WeihanLi.Common.Event.EventBaseExtensions
-  name: EventBaseExtensions
-  href: api/WeihanLi.Common.Event.EventBaseExtensions.html
-  commentId: T:WeihanLi.Common.Event.EventBaseExtensions
-  fullName: WeihanLi.Common.Event.EventBaseExtensions
-  nameWithType: EventBaseExtensions
-- uid: WeihanLi.Common.Event.EventBaseExtensions.ToEvent(System.String)
-  name: ToEvent(string)
-  href: api/WeihanLi.Common.Event.EventBaseExtensions.html#WeihanLi_Common_Event_EventBaseExtensions_ToEvent_System_String_
-  commentId: M:WeihanLi.Common.Event.EventBaseExtensions.ToEvent(System.String)
-  name.vb: ToEvent(String)
-  fullName: WeihanLi.Common.Event.EventBaseExtensions.ToEvent(string)
-  fullName.vb: WeihanLi.Common.Event.EventBaseExtensions.ToEvent(String)
-  nameWithType: EventBaseExtensions.ToEvent(string)
-  nameWithType.vb: EventBaseExtensions.ToEvent(String)
-- uid: WeihanLi.Common.Event.EventBaseExtensions.ToEvent*
-  name: ToEvent
-  href: api/WeihanLi.Common.Event.EventBaseExtensions.html#WeihanLi_Common_Event_EventBaseExtensions_ToEvent_
-  commentId: Overload:WeihanLi.Common.Event.EventBaseExtensions.ToEvent
-  isSpec: "True"
-  fullName: WeihanLi.Common.Event.EventBaseExtensions.ToEvent
-  nameWithType: EventBaseExtensions.ToEvent
-- uid: WeihanLi.Common.Event.EventBaseExtensions.ToEventMsg*
-  name: ToEventMsg
-  href: api/WeihanLi.Common.Event.EventBaseExtensions.html#WeihanLi_Common_Event_EventBaseExtensions_ToEventMsg_
-  commentId: Overload:WeihanLi.Common.Event.EventBaseExtensions.ToEventMsg
-  isSpec: "True"
-  fullName: WeihanLi.Common.Event.EventBaseExtensions.ToEventMsg
-  nameWithType: EventBaseExtensions.ToEventMsg
-- uid: WeihanLi.Common.Event.EventBaseExtensions.ToEventMsg``1(``0)
-  name: ToEventMsg<TEvent>(TEvent)
-  href: api/WeihanLi.Common.Event.EventBaseExtensions.html#WeihanLi_Common_Event_EventBaseExtensions_ToEventMsg__1___0_
-  commentId: M:WeihanLi.Common.Event.EventBaseExtensions.ToEventMsg``1(``0)
-  name.vb: ToEventMsg(Of TEvent)(TEvent)
-  fullName: WeihanLi.Common.Event.EventBaseExtensions.ToEventMsg<TEvent>(TEvent)
-  fullName.vb: WeihanLi.Common.Event.EventBaseExtensions.ToEventMsg(Of TEvent)(TEvent)
-  nameWithType: EventBaseExtensions.ToEventMsg<TEvent>(TEvent)
-  nameWithType.vb: EventBaseExtensions.ToEventMsg(Of TEvent)(TEvent)
 - uid: WeihanLi.Common.Event.EventBus
   name: EventBus
   href: api/WeihanLi.Common.Event.EventBus.html
@@ -6074,6 +6205,69 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Event.EventBusExtensions.RegisterEventHandlers
   nameWithType: EventBusExtensions.RegisterEventHandlers
+- uid: WeihanLi.Common.Event.EventExtensions
+  name: EventExtensions
+  href: api/WeihanLi.Common.Event.EventExtensions.html
+  commentId: T:WeihanLi.Common.Event.EventExtensions
+  fullName: WeihanLi.Common.Event.EventExtensions
+  nameWithType: EventExtensions
+- uid: WeihanLi.Common.Event.EventExtensions.ToEvent(System.String)
+  name: ToEvent(string)
+  href: api/WeihanLi.Common.Event.EventExtensions.html#WeihanLi_Common_Event_EventExtensions_ToEvent_System_String_
+  commentId: M:WeihanLi.Common.Event.EventExtensions.ToEvent(System.String)
+  name.vb: ToEvent(String)
+  fullName: WeihanLi.Common.Event.EventExtensions.ToEvent(string)
+  fullName.vb: WeihanLi.Common.Event.EventExtensions.ToEvent(String)
+  nameWithType: EventExtensions.ToEvent(string)
+  nameWithType.vb: EventExtensions.ToEvent(String)
+- uid: WeihanLi.Common.Event.EventExtensions.ToEvent*
+  name: ToEvent
+  href: api/WeihanLi.Common.Event.EventExtensions.html#WeihanLi_Common_Event_EventExtensions_ToEvent_
+  commentId: Overload:WeihanLi.Common.Event.EventExtensions.ToEvent
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.EventExtensions.ToEvent
+  nameWithType: EventExtensions.ToEvent
+- uid: WeihanLi.Common.Event.EventExtensions.ToEventMsg*
+  name: ToEventMsg
+  href: api/WeihanLi.Common.Event.EventExtensions.html#WeihanLi_Common_Event_EventExtensions_ToEventMsg_
+  commentId: Overload:WeihanLi.Common.Event.EventExtensions.ToEventMsg
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.EventExtensions.ToEventMsg
+  nameWithType: EventExtensions.ToEventMsg
+- uid: WeihanLi.Common.Event.EventExtensions.ToEventMsg``1(``0)
+  name: ToEventMsg<TEvent>(TEvent)
+  href: api/WeihanLi.Common.Event.EventExtensions.html#WeihanLi_Common_Event_EventExtensions_ToEventMsg__1___0_
+  commentId: M:WeihanLi.Common.Event.EventExtensions.ToEventMsg``1(``0)
+  name.vb: ToEventMsg(Of TEvent)(TEvent)
+  fullName: WeihanLi.Common.Event.EventExtensions.ToEventMsg<TEvent>(TEvent)
+  fullName.vb: WeihanLi.Common.Event.EventExtensions.ToEventMsg(Of TEvent)(TEvent)
+  nameWithType: EventExtensions.ToEventMsg<TEvent>(TEvent)
+  nameWithType.vb: EventExtensions.ToEventMsg(Of TEvent)(TEvent)
+- uid: WeihanLi.Common.Event.EventExtensions.ToEventRawMsg*
+  name: ToEventRawMsg
+  href: api/WeihanLi.Common.Event.EventExtensions.html#WeihanLi_Common_Event_EventExtensions_ToEventRawMsg_
+  commentId: Overload:WeihanLi.Common.Event.EventExtensions.ToEventRawMsg
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.EventExtensions.ToEventRawMsg
+  nameWithType: EventExtensions.ToEventRawMsg
+- uid: WeihanLi.Common.Event.EventExtensions.ToEventRawMsg``1(``0)
+  name: ToEventRawMsg<TEvent>(TEvent)
+  href: api/WeihanLi.Common.Event.EventExtensions.html#WeihanLi_Common_Event_EventExtensions_ToEventRawMsg__1___0_
+  commentId: M:WeihanLi.Common.Event.EventExtensions.ToEventRawMsg``1(``0)
+  name.vb: ToEventRawMsg(Of TEvent)(TEvent)
+  fullName: WeihanLi.Common.Event.EventExtensions.ToEventRawMsg<TEvent>(TEvent)
+  fullName.vb: WeihanLi.Common.Event.EventExtensions.ToEventRawMsg(Of TEvent)(TEvent)
+  nameWithType: EventExtensions.ToEventRawMsg<TEvent>(TEvent)
+  nameWithType.vb: EventExtensions.ToEventRawMsg(Of TEvent)(TEvent)
+- uid: WeihanLi.Common.Event.EventExtensions.ToEvent``1(System.String)
+  name: ToEvent<TEvent>(string)
+  href: api/WeihanLi.Common.Event.EventExtensions.html#WeihanLi_Common_Event_EventExtensions_ToEvent__1_System_String_
+  commentId: M:WeihanLi.Common.Event.EventExtensions.ToEvent``1(System.String)
+  name.vb: ToEvent(Of TEvent)(String)
+  fullName: WeihanLi.Common.Event.EventExtensions.ToEvent<TEvent>(string)
+  fullName.vb: WeihanLi.Common.Event.EventExtensions.ToEvent(Of TEvent)(String)
+  nameWithType: EventExtensions.ToEvent<TEvent>(string)
+  nameWithType.vb: EventExtensions.ToEvent(Of TEvent)(String)
 - uid: WeihanLi.Common.Event.EventHandlerBase`1
   name: EventHandlerBase<TEvent>
   href: api/WeihanLi.Common.Event.EventHandlerBase-1.html
@@ -6237,12 +6431,44 @@ references:
   fullName.vb: WeihanLi.Common.Event.EventQueueExtensions.EnqueueAsync(Of TEvent)(WeihanLi.Common.Event.IEventQueue, TEvent, WeihanLi.Common.Event.EventProperties)
   nameWithType: EventQueueExtensions.EnqueueAsync<TEvent>(IEventQueue, TEvent, EventProperties?)
   nameWithType.vb: EventQueueExtensions.EnqueueAsync(Of TEvent)(IEventQueue, TEvent, EventProperties)
+- uid: WeihanLi.Common.Event.EventQueueExtensions.ReadEventsAsync*
+  name: ReadEventsAsync
+  href: api/WeihanLi.Common.Event.EventQueueExtensions.html#WeihanLi_Common_Event_EventQueueExtensions_ReadEventsAsync_
+  commentId: Overload:WeihanLi.Common.Event.EventQueueExtensions.ReadEventsAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.EventQueueExtensions.ReadEventsAsync
+  nameWithType: EventQueueExtensions.ReadEventsAsync
+- uid: WeihanLi.Common.Event.EventQueueExtensions.ReadEventsAsync``1(WeihanLi.Common.Event.IEventQueue,System.String,System.Threading.CancellationToken)
+  name: ReadEventsAsync<TEvent>(IEventQueue, string, CancellationToken)
+  href: api/WeihanLi.Common.Event.EventQueueExtensions.html#WeihanLi_Common_Event_EventQueueExtensions_ReadEventsAsync__1_WeihanLi_Common_Event_IEventQueue_System_String_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Event.EventQueueExtensions.ReadEventsAsync``1(WeihanLi.Common.Event.IEventQueue,System.String,System.Threading.CancellationToken)
+  name.vb: ReadEventsAsync(Of TEvent)(IEventQueue, String, CancellationToken)
+  fullName: WeihanLi.Common.Event.EventQueueExtensions.ReadEventsAsync<TEvent>(WeihanLi.Common.Event.IEventQueue, string, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Event.EventQueueExtensions.ReadEventsAsync(Of TEvent)(WeihanLi.Common.Event.IEventQueue, String, System.Threading.CancellationToken)
+  nameWithType: EventQueueExtensions.ReadEventsAsync<TEvent>(IEventQueue, string, CancellationToken)
+  nameWithType.vb: EventQueueExtensions.ReadEventsAsync(Of TEvent)(IEventQueue, String, CancellationToken)
 - uid: WeihanLi.Common.Event.EventQueueInMemory
   name: EventQueueInMemory
   href: api/WeihanLi.Common.Event.EventQueueInMemory.html
   commentId: T:WeihanLi.Common.Event.EventQueueInMemory
   fullName: WeihanLi.Common.Event.EventQueueInMemory
   nameWithType: EventQueueInMemory
+- uid: WeihanLi.Common.Event.EventQueueInMemory.DequeueAsync*
+  name: DequeueAsync
+  href: api/WeihanLi.Common.Event.EventQueueInMemory.html#WeihanLi_Common_Event_EventQueueInMemory_DequeueAsync_
+  commentId: Overload:WeihanLi.Common.Event.EventQueueInMemory.DequeueAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.EventQueueInMemory.DequeueAsync
+  nameWithType: EventQueueInMemory.DequeueAsync
+- uid: WeihanLi.Common.Event.EventQueueInMemory.DequeueAsync``1(System.String)
+  name: DequeueAsync<TEvent>(string)
+  href: api/WeihanLi.Common.Event.EventQueueInMemory.html#WeihanLi_Common_Event_EventQueueInMemory_DequeueAsync__1_System_String_
+  commentId: M:WeihanLi.Common.Event.EventQueueInMemory.DequeueAsync``1(System.String)
+  name.vb: DequeueAsync(Of TEvent)(String)
+  fullName: WeihanLi.Common.Event.EventQueueInMemory.DequeueAsync<TEvent>(string)
+  fullName.vb: WeihanLi.Common.Event.EventQueueInMemory.DequeueAsync(Of TEvent)(String)
+  nameWithType: EventQueueInMemory.DequeueAsync<TEvent>(string)
+  nameWithType.vb: EventQueueInMemory.DequeueAsync(Of TEvent)(String)
 - uid: WeihanLi.Common.Event.EventQueueInMemory.EnqueueAsync*
   name: EnqueueAsync
   href: api/WeihanLi.Common.Event.EventQueueInMemory.html#WeihanLi_Common_Event_EventQueueInMemory_EnqueueAsync_
@@ -6285,38 +6511,22 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Event.EventQueueInMemory.GetQueuesAsync
   nameWithType: EventQueueInMemory.GetQueuesAsync
-- uid: WeihanLi.Common.Event.EventQueueInMemory.TryDequeueAsync(System.String,System.Object@,WeihanLi.Common.Event.EventProperties@)
-  name: TryDequeueAsync(string, out object?, out EventProperties?)
-  href: api/WeihanLi.Common.Event.EventQueueInMemory.html#WeihanLi_Common_Event_EventQueueInMemory_TryDequeueAsync_System_String_System_Object__WeihanLi_Common_Event_EventProperties__
-  commentId: M:WeihanLi.Common.Event.EventQueueInMemory.TryDequeueAsync(System.String,System.Object@,WeihanLi.Common.Event.EventProperties@)
-  name.vb: TryDequeueAsync(String, Object, EventProperties)
-  fullName: WeihanLi.Common.Event.EventQueueInMemory.TryDequeueAsync(string, out object?, out WeihanLi.Common.Event.EventProperties?)
-  fullName.vb: WeihanLi.Common.Event.EventQueueInMemory.TryDequeueAsync(String, Object, WeihanLi.Common.Event.EventProperties)
-  nameWithType: EventQueueInMemory.TryDequeueAsync(string, out object?, out EventProperties?)
-  nameWithType.vb: EventQueueInMemory.TryDequeueAsync(String, Object, EventProperties)
-- uid: WeihanLi.Common.Event.EventQueueInMemory.TryDequeueAsync*
-  name: TryDequeueAsync
-  href: api/WeihanLi.Common.Event.EventQueueInMemory.html#WeihanLi_Common_Event_EventQueueInMemory_TryDequeueAsync_
-  commentId: Overload:WeihanLi.Common.Event.EventQueueInMemory.TryDequeueAsync
+- uid: WeihanLi.Common.Event.EventQueueInMemory.ReadAllAsync(System.String,System.Threading.CancellationToken)
+  name: ReadAllAsync(string, CancellationToken)
+  href: api/WeihanLi.Common.Event.EventQueueInMemory.html#WeihanLi_Common_Event_EventQueueInMemory_ReadAllAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Event.EventQueueInMemory.ReadAllAsync(System.String,System.Threading.CancellationToken)
+  name.vb: ReadAllAsync(String, CancellationToken)
+  fullName: WeihanLi.Common.Event.EventQueueInMemory.ReadAllAsync(string, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Event.EventQueueInMemory.ReadAllAsync(String, System.Threading.CancellationToken)
+  nameWithType: EventQueueInMemory.ReadAllAsync(string, CancellationToken)
+  nameWithType.vb: EventQueueInMemory.ReadAllAsync(String, CancellationToken)
+- uid: WeihanLi.Common.Event.EventQueueInMemory.ReadAllAsync*
+  name: ReadAllAsync
+  href: api/WeihanLi.Common.Event.EventQueueInMemory.html#WeihanLi_Common_Event_EventQueueInMemory_ReadAllAsync_
+  commentId: Overload:WeihanLi.Common.Event.EventQueueInMemory.ReadAllAsync
   isSpec: "True"
-  fullName: WeihanLi.Common.Event.EventQueueInMemory.TryDequeueAsync
-  nameWithType: EventQueueInMemory.TryDequeueAsync
-- uid: WeihanLi.Common.Event.EventQueueInMemory.TryRemoveQueue(System.String)
-  name: TryRemoveQueue(string)
-  href: api/WeihanLi.Common.Event.EventQueueInMemory.html#WeihanLi_Common_Event_EventQueueInMemory_TryRemoveQueue_System_String_
-  commentId: M:WeihanLi.Common.Event.EventQueueInMemory.TryRemoveQueue(System.String)
-  name.vb: TryRemoveQueue(String)
-  fullName: WeihanLi.Common.Event.EventQueueInMemory.TryRemoveQueue(string)
-  fullName.vb: WeihanLi.Common.Event.EventQueueInMemory.TryRemoveQueue(String)
-  nameWithType: EventQueueInMemory.TryRemoveQueue(string)
-  nameWithType.vb: EventQueueInMemory.TryRemoveQueue(String)
-- uid: WeihanLi.Common.Event.EventQueueInMemory.TryRemoveQueue*
-  name: TryRemoveQueue
-  href: api/WeihanLi.Common.Event.EventQueueInMemory.html#WeihanLi_Common_Event_EventQueueInMemory_TryRemoveQueue_
-  commentId: Overload:WeihanLi.Common.Event.EventQueueInMemory.TryRemoveQueue
-  isSpec: "True"
-  fullName: WeihanLi.Common.Event.EventQueueInMemory.TryRemoveQueue
-  nameWithType: EventQueueInMemory.TryRemoveQueue
+  fullName: WeihanLi.Common.Event.EventQueueInMemory.ReadAllAsync
+  nameWithType: EventQueueInMemory.ReadAllAsync
 - uid: WeihanLi.Common.Event.EventQueuePublisher
   name: EventQueuePublisher
   href: api/WeihanLi.Common.Event.EventQueuePublisher.html
@@ -6453,6 +6663,49 @@ references:
   fullName.vb: WeihanLi.Common.Event.EventSubscriberExtensions.UnSubscribeAsync(Of TEvent, TEventHandler)(WeihanLi.Common.Event.IEventSubscriber)
   nameWithType: EventSubscriberExtensions.UnSubscribeAsync<TEvent, TEventHandler>(IEventSubscriber)
   nameWithType.vb: EventSubscriberExtensions.UnSubscribeAsync(Of TEvent, TEventHandler)(IEventSubscriber)
+- uid: WeihanLi.Common.Event.EventWrapper`1
+  name: EventWrapper<T>
+  href: api/WeihanLi.Common.Event.EventWrapper-1.html
+  commentId: T:WeihanLi.Common.Event.EventWrapper`1
+  name.vb: EventWrapper(Of T)
+  fullName: WeihanLi.Common.Event.EventWrapper<T>
+  fullName.vb: WeihanLi.Common.Event.EventWrapper(Of T)
+  nameWithType: EventWrapper<T>
+  nameWithType.vb: EventWrapper(Of T)
+- uid: WeihanLi.Common.Event.EventWrapper`1.Data
+  name: Data
+  href: api/WeihanLi.Common.Event.EventWrapper-1.html#WeihanLi_Common_Event_EventWrapper_1_Data
+  commentId: P:WeihanLi.Common.Event.EventWrapper`1.Data
+  fullName: WeihanLi.Common.Event.EventWrapper<T>.Data
+  fullName.vb: WeihanLi.Common.Event.EventWrapper(Of T).Data
+  nameWithType: EventWrapper<T>.Data
+  nameWithType.vb: EventWrapper(Of T).Data
+- uid: WeihanLi.Common.Event.EventWrapper`1.Data*
+  name: Data
+  href: api/WeihanLi.Common.Event.EventWrapper-1.html#WeihanLi_Common_Event_EventWrapper_1_Data_
+  commentId: Overload:WeihanLi.Common.Event.EventWrapper`1.Data
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.EventWrapper<T>.Data
+  fullName.vb: WeihanLi.Common.Event.EventWrapper(Of T).Data
+  nameWithType: EventWrapper<T>.Data
+  nameWithType.vb: EventWrapper(Of T).Data
+- uid: WeihanLi.Common.Event.EventWrapper`1.Properties
+  name: Properties
+  href: api/WeihanLi.Common.Event.EventWrapper-1.html#WeihanLi_Common_Event_EventWrapper_1_Properties
+  commentId: P:WeihanLi.Common.Event.EventWrapper`1.Properties
+  fullName: WeihanLi.Common.Event.EventWrapper<T>.Properties
+  fullName.vb: WeihanLi.Common.Event.EventWrapper(Of T).Properties
+  nameWithType: EventWrapper<T>.Properties
+  nameWithType.vb: EventWrapper(Of T).Properties
+- uid: WeihanLi.Common.Event.EventWrapper`1.Properties*
+  name: Properties
+  href: api/WeihanLi.Common.Event.EventWrapper-1.html#WeihanLi_Common_Event_EventWrapper_1_Properties_
+  commentId: Overload:WeihanLi.Common.Event.EventWrapper`1.Properties
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.EventWrapper<T>.Properties
+  fullName.vb: WeihanLi.Common.Event.EventWrapper(Of T).Properties
+  nameWithType: EventWrapper<T>.Properties
+  nameWithType.vb: EventWrapper(Of T).Properties
 - uid: WeihanLi.Common.Event.IEvent
   name: IEvent
   href: api/WeihanLi.Common.Event.IEvent.html
@@ -6637,6 +6890,22 @@ references:
   commentId: T:WeihanLi.Common.Event.IEventQueue
   fullName: WeihanLi.Common.Event.IEventQueue
   nameWithType: IEventQueue
+- uid: WeihanLi.Common.Event.IEventQueue.DequeueAsync*
+  name: DequeueAsync
+  href: api/WeihanLi.Common.Event.IEventQueue.html#WeihanLi_Common_Event_IEventQueue_DequeueAsync_
+  commentId: Overload:WeihanLi.Common.Event.IEventQueue.DequeueAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Event.IEventQueue.DequeueAsync
+  nameWithType: IEventQueue.DequeueAsync
+- uid: WeihanLi.Common.Event.IEventQueue.DequeueAsync``1(System.String)
+  name: DequeueAsync<TEvent>(string)
+  href: api/WeihanLi.Common.Event.IEventQueue.html#WeihanLi_Common_Event_IEventQueue_DequeueAsync__1_System_String_
+  commentId: M:WeihanLi.Common.Event.IEventQueue.DequeueAsync``1(System.String)
+  name.vb: DequeueAsync(Of TEvent)(String)
+  fullName: WeihanLi.Common.Event.IEventQueue.DequeueAsync<TEvent>(string)
+  fullName.vb: WeihanLi.Common.Event.IEventQueue.DequeueAsync(Of TEvent)(String)
+  nameWithType: IEventQueue.DequeueAsync<TEvent>(string)
+  nameWithType.vb: IEventQueue.DequeueAsync(Of TEvent)(String)
 - uid: WeihanLi.Common.Event.IEventQueue.EnqueueAsync*
   name: EnqueueAsync
   href: api/WeihanLi.Common.Event.IEventQueue.html#WeihanLi_Common_Event_IEventQueue_EnqueueAsync_
@@ -6666,22 +6935,22 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Event.IEventQueue.GetQueuesAsync
   nameWithType: IEventQueue.GetQueuesAsync
-- uid: WeihanLi.Common.Event.IEventQueue.TryDequeueAsync(System.String,System.Object@,WeihanLi.Common.Event.EventProperties@)
-  name: TryDequeueAsync(string, out object, out EventProperties)
-  href: api/WeihanLi.Common.Event.IEventQueue.html#WeihanLi_Common_Event_IEventQueue_TryDequeueAsync_System_String_System_Object__WeihanLi_Common_Event_EventProperties__
-  commentId: M:WeihanLi.Common.Event.IEventQueue.TryDequeueAsync(System.String,System.Object@,WeihanLi.Common.Event.EventProperties@)
-  name.vb: TryDequeueAsync(String, Object, EventProperties)
-  fullName: WeihanLi.Common.Event.IEventQueue.TryDequeueAsync(string, out object, out WeihanLi.Common.Event.EventProperties)
-  fullName.vb: WeihanLi.Common.Event.IEventQueue.TryDequeueAsync(String, Object, WeihanLi.Common.Event.EventProperties)
-  nameWithType: IEventQueue.TryDequeueAsync(string, out object, out EventProperties)
-  nameWithType.vb: IEventQueue.TryDequeueAsync(String, Object, EventProperties)
-- uid: WeihanLi.Common.Event.IEventQueue.TryDequeueAsync*
-  name: TryDequeueAsync
-  href: api/WeihanLi.Common.Event.IEventQueue.html#WeihanLi_Common_Event_IEventQueue_TryDequeueAsync_
-  commentId: Overload:WeihanLi.Common.Event.IEventQueue.TryDequeueAsync
+- uid: WeihanLi.Common.Event.IEventQueue.ReadAllAsync(System.String,System.Threading.CancellationToken)
+  name: ReadAllAsync(string, CancellationToken)
+  href: api/WeihanLi.Common.Event.IEventQueue.html#WeihanLi_Common_Event_IEventQueue_ReadAllAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Event.IEventQueue.ReadAllAsync(System.String,System.Threading.CancellationToken)
+  name.vb: ReadAllAsync(String, CancellationToken)
+  fullName: WeihanLi.Common.Event.IEventQueue.ReadAllAsync(string, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Event.IEventQueue.ReadAllAsync(String, System.Threading.CancellationToken)
+  nameWithType: IEventQueue.ReadAllAsync(string, CancellationToken)
+  nameWithType.vb: IEventQueue.ReadAllAsync(String, CancellationToken)
+- uid: WeihanLi.Common.Event.IEventQueue.ReadAllAsync*
+  name: ReadAllAsync
+  href: api/WeihanLi.Common.Event.IEventQueue.html#WeihanLi_Common_Event_IEventQueue_ReadAllAsync_
+  commentId: Overload:WeihanLi.Common.Event.IEventQueue.ReadAllAsync
   isSpec: "True"
-  fullName: WeihanLi.Common.Event.IEventQueue.TryDequeueAsync
-  nameWithType: IEventQueue.TryDequeueAsync
+  fullName: WeihanLi.Common.Event.IEventQueue.ReadAllAsync
+  nameWithType: IEventQueue.ReadAllAsync
 - uid: WeihanLi.Common.Event.IEventStore
   name: IEventStore
   href: api/WeihanLi.Common.Event.IEventStore.html
