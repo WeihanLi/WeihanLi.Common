@@ -48,6 +48,36 @@ internal class EventTest
             });
         }
     }
+
+    public static async Task AckQueueTest()
+    {
+        var ackQueue = new AckQueue(new AckQueueOptions()
+        {
+            AckTimeout = TimeSpan.FromSeconds(1)
+        });
+        await ackQueue.EnqueueAsync(new CounterEvent { Counter = 1 });
+        await ackQueue.EnqueueAsync(new CounterEvent { Counter = 2 });
+        
+        var event1 = await ackQueue.DequeueAsync<CounterEvent>();
+        ArgumentNullException.ThrowIfNull(event1);
+        Console.WriteLine(@$"event1: {event1.ToJson()}");
+        
+        var event2 = await ackQueue.DequeueAsync<CounterEvent>();
+        ArgumentNullException.ThrowIfNull(event2);
+        Console.WriteLine(@$"event2: {event2.ToJson()}");
+        
+        await ackQueue.AckMessageAsync(event2.Properties.EventId);
+        var event3 = await ackQueue.DequeueAsync<CounterEvent>();
+        Console.WriteLine(@$"event3: {event3.ToJson()}");
+
+        await Task.Delay(2000);
+        ackQueue.RequeueUnAckedMessages();
+        
+        var event4 = await ackQueue.DequeueAsync<CounterEvent>();
+        Console.WriteLine(@$"event4: {event4.ToJson()}");
+        ArgumentNullException.ThrowIfNull(event4);
+        await ackQueue.AckMessageAsync(event4.Properties.EventId);
+    }
 }
 
 public class CounterEvent
