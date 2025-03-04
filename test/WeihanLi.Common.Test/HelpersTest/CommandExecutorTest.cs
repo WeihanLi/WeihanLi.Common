@@ -30,7 +30,7 @@ public class CommandExecutorTest
             return;
         }
 
-        var result = await CommandExecutor.ExecuteAndCaptureAsync("hostname");
+        var result = await CommandExecutor.ExecuteAndCaptureAsync("hostname", cancellationToken: TestContext.Current.CancellationToken);
 
         var hostName = Dns.GetHostName();
         Assert.Equal(hostName, result.StandardOut.TrimEnd());

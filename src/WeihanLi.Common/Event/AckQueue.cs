@@ -6,7 +6,7 @@ namespace WeihanLi.Common.Event;
 
 public sealed class AckQueueOptions
 {
-    public TimeSpan AckTimeout { get; set; } = TimeSpan.FromMinutes(1);
+    public TimeSpan AckTimeout { get; set; } = TimeSpan.FromMinutes(10);
 
     public bool AutoRequeue { get; set; }
 

@@ -1,6 +1,7 @@
 <Project>
   <Import Project="./build/version.props" />
   <PropertyGroup>
+    <LatestTargetFramework>net10.0</LatestTargetFramework>
     <LangVersion>preview</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
