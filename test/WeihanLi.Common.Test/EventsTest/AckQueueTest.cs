@@ -99,7 +99,7 @@ namespace WeihanLi.Common.Test.EventsTest
 
         private class TestEvent
         {
-            public string Message { get; set; }
+            public string Message { get; set; } = string.Empty;
         }
     }
 }
