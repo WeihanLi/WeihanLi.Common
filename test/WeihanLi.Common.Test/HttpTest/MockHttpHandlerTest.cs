@@ -20,7 +20,7 @@ public class MockHttpHandlerTest
     {
         using var httpHandler = new MockHttpHandler(_ => new HttpResponseMessage(httpStatusCode));
         using var httpClient = new HttpClient(httpHandler);
-        using var response = await httpClient.GetAsync("http://localhost:32123/api/values");
+        using var response = await httpClient.GetAsync("http://localhost:32123/api/values", TestContext.Current.CancellationToken);
         Assert.Equal(httpStatusCode, response.StatusCode);
     }
 
@@ -29,11 +29,11 @@ public class MockHttpHandlerTest
     {
         using var httpHandler = new MockHttpHandler();
         using var httpClient = new HttpClient(httpHandler);
-        using var response = await httpClient.GetAsync("http://localhost:32123/api/values");
+        using var response = await httpClient.GetAsync("http://localhost:32123/api/values", TestContext.Current.CancellationToken);
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         httpHandler.SetResponseFactory(_ => new HttpResponseMessage(HttpStatusCode.BadRequest));
-        using var response1 = await httpClient.GetAsync("http://localhost:32123/api/values");
+        using var response1 = await httpClient.GetAsync("http://localhost:32123/api/values", TestContext.Current.CancellationToken);
         Assert.Equal(HttpStatusCode.BadRequest, response1.StatusCode);
     }
 
@@ -45,11 +45,11 @@ public class MockHttpHandlerTest
             Content = new StringContent(req.Method.Method)
         });
         using var httpClient = new HttpClient(httpHandler);
-        var response = await httpClient.GetStringAsync("http://localhost:32123/api/values");
+        var response = await httpClient.GetStringAsync("http://localhost:32123/api/values", TestContext.Current.CancellationToken);
         Assert.Equal(HttpMethod.Get.Method, response);
 
-        using var httpResponse = await httpClient.PostAsync("http://localhost:32123/api/values", new StringContent(""));
-        response = await httpResponse.Content.ReadAsStringAsync();
+        using var httpResponse = await httpClient.PostAsync("http://localhost:32123/api/values", new StringContent(""), TestContext.Current.CancellationToken);
+        response = await httpResponse.Content.ReadAsStringAsync(TestContext.Current.CancellationToken);
         Assert.Equal(HttpMethod.Post.Method, response);
     }
 }
