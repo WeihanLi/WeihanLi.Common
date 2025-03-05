@@ -7,5 +7,5 @@ public interface ICancellationTokenProvider
 
 public sealed class NullCancellationTokenProvider : ICancellationTokenProvider
 {
-    public CancellationToken GetCancellationToken() => default;
+    public CancellationToken GetCancellationToken() => CancellationToken.None;
 }

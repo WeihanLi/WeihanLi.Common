@@ -5,7 +5,6 @@ using WeihanLi.Common.Event;
 using WeihanLi.Common.Services;
 using WeihanLi.Common.Test.EventsTest;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace WeihanLi.Common.Test.AspectTest;
 

@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <TargetFramework>$(LatestTargetFramework)</TargetFramework>
     <OutputType>Exe</OutputType>
     <Optimize>true</Optimize>
-    <TargetFramework>net9.0</TargetFramework>
     <Benchmark>True</Benchmark>
     <Nullable>disable</Nullable>
   </PropertyGroup>

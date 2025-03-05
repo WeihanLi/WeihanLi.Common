@@ -65,7 +65,7 @@ namespace WeihanLi.Common.Test.EventsTest
             Assert.NotNull(dequeuedEvent);
 
             // Simulate timeout
-            await Task.Delay(TimeSpan.FromSeconds(5));
+            await Task.Delay(TimeSpan.FromSeconds(5), TestContext.Current.CancellationToken);
 
             ackQueue.RequeueUnAckedMessages();
 
@@ -90,7 +90,7 @@ namespace WeihanLi.Common.Test.EventsTest
             Assert.NotNull(dequeuedEvent);
 
             // Simulate timeout
-            await Task.Delay(TimeSpan.FromSeconds(5));
+            await Task.Delay(TimeSpan.FromSeconds(5), TestContext.Current.CancellationToken);
 
             var requeuedEvent = await ackQueue.DequeueAsync<TestEvent>();
             Assert.NotNull(requeuedEvent);
@@ -99,7 +99,7 @@ namespace WeihanLi.Common.Test.EventsTest
 
         private class TestEvent
         {
-            public string Message { get; set; }
+            public string Message { get; set; } = string.Empty;
         }
     }
 }
