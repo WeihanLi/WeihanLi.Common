@@ -20,7 +20,11 @@
           "relative_path": "api/Microsoft.Extensions.Configuration.ConfigurationExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Extensions.Configuration.ConfigurationExtension",
+      "Summary": "<p sourcefile=\"api/Microsoft.Extensions.Configuration.ConfigurationExtension.yml\" sourcestartlinenumber=\"1\">Provides extensions for <xref href=\"Microsoft.Extensions.Configuration.IConfiguration\" data-throw-if-not-resolved=\"false\"></xref> instances.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -30,7 +34,11 @@
           "relative_path": "api/Microsoft.Extensions.Configuration.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Extensions.Configuration",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -40,7 +48,11 @@
           "relative_path": "api/Microsoft.Extensions.DependencyInjection.IServiceModule.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Extensions.DependencyInjection.IServiceModule",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -50,7 +62,11 @@
           "relative_path": "api/Microsoft.Extensions.DependencyInjection.ServiceCollectionExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Extensions.DependencyInjection.ServiceCollectionExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -60,7 +76,11 @@
           "relative_path": "api/Microsoft.Extensions.DependencyInjection.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Extensions.DependencyInjection",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -70,7 +90,11 @@
           "relative_path": "api/Microsoft.Extensions.Logging.FileLoggingOptions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Extensions.Logging.FileLoggingOptions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -80,7 +104,11 @@
           "relative_path": "api/Microsoft.Extensions.Logging.LoggerExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Extensions.Logging.LoggerExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -90,7 +118,11 @@
           "relative_path": "api/Microsoft.Extensions.Logging.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Microsoft.Extensions.Logging",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -100,7 +132,11 @@
           "relative_path": "api/WeihanLi.Common.Abstractions.IProperties.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Abstractions.IProperties",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -110,7 +146,11 @@
           "relative_path": "api/WeihanLi.Common.Abstractions.IStringProperties.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Abstractions.IStringProperties",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -120,7 +160,11 @@
           "relative_path": "api/WeihanLi.Common.Abstractions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Abstractions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -130,7 +174,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.AbstractInterceptor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.AbstractInterceptor",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -140,7 +188,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.AspectDelegate.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.AspectDelegate",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -150,7 +202,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.AspectInvocation.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.AspectInvocation",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -160,7 +216,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.AspectInvokeException.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.AspectInvokeException",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -170,7 +230,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.AttributeInterceptorResolver.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.AttributeInterceptorResolver",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -180,7 +244,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.DefaultProxyFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.DefaultProxyFactory",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -190,7 +258,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.DefaultProxyTypeFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.DefaultProxyTypeFactory",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -200,7 +272,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.DelegateInterceptor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.DelegateInterceptor",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -210,7 +286,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.FluentAspectOptions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.FluentAspectOptions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -220,7 +300,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.FluentAspectOptionsExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.FluentAspectOptionsExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -230,7 +314,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.FluentAspects.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.FluentAspects",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -240,7 +328,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.FluentConfigInterceptorResolver.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.FluentConfigInterceptorResolver",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -250,7 +342,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.IFluentAspectsBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.IFluentAspectsBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -260,7 +356,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.IFluentAspectsServiceContainerBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.IFluentAspectsServiceContainerBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -270,7 +370,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.IInterceptionConfiguration.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.IInterceptionConfiguration",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -280,7 +384,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.IInterceptor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.IInterceptor",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -290,7 +398,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.IInterceptorResolver.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.IInterceptorResolver",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -300,7 +412,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.IInvocation.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.IInvocation",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -310,7 +426,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.IInvocationEnricher.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.IInvocationEnricher",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -320,7 +440,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.IProxyFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.IProxyFactory",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -330,7 +454,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.IProxyTypeFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.IProxyTypeFactory",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -340,7 +468,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.InterceptionConfigurationExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.InterceptionConfigurationExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -350,7 +482,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.InvocationEnricherExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.InvocationEnricherExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -360,7 +496,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.NoIntercept.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.NoIntercept",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -370,7 +510,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.PropertyInvocationEnricher.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.PropertyInvocationEnricher",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -380,7 +524,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.ProxyFactoryExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.ProxyFactoryExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -390,7 +538,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.ServiceCollectionExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.ServiceCollectionExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -400,7 +552,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.ServiceContainerBuilderExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -410,7 +566,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.TryInvokeInterceptor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect.TryInvokeInterceptor",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -420,7 +580,11 @@
           "relative_path": "api/WeihanLi.Common.Aspect.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Aspect",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -430,7 +594,11 @@
           "relative_path": "api/WeihanLi.Common.CacheUtil.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.CacheUtil",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -440,7 +608,11 @@
           "relative_path": "api/WeihanLi.Common.Compressor.GZipDataCompressor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Compressor.GZipDataCompressor",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Compressor.GZipDataCompressor.yml\" sourcestartlinenumber=\"1\">GZipDataCompressor</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -450,7 +622,11 @@
           "relative_path": "api/WeihanLi.Common.Compressor.IDataCompressor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Compressor.IDataCompressor",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Compressor.IDataCompressor.yml\" sourcestartlinenumber=\"1\">DataCompressor</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -460,7 +636,11 @@
           "relative_path": "api/WeihanLi.Common.Compressor.NullDataCompressor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Compressor.NullDataCompressor",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Compressor.NullDataCompressor.yml\" sourcestartlinenumber=\"1\">NullDataCompressor\ndo nothing compress</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -470,7 +650,11 @@
           "relative_path": "api/WeihanLi.Common.Compressor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Compressor",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -480,7 +664,11 @@
           "relative_path": "api/WeihanLi.Common.Data.IReadOnlyRepository-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Data.IReadOnlyRepository<TEntity>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -490,7 +678,11 @@
           "relative_path": "api/WeihanLi.Common.Data.IRepository-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Data.IRepository<TEntity>",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Data.IRepository-1.yml\" sourcestartlinenumber=\"1\">Represents an entity repository</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -500,7 +692,11 @@
           "relative_path": "api/WeihanLi.Common.Data.IUnitOfWork.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Data.IUnitOfWork",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -510,7 +706,11 @@
           "relative_path": "api/WeihanLi.Common.Data.Repository-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Data.Repository<TEntity>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -520,7 +720,11 @@
           "relative_path": "api/WeihanLi.Common.Data.RepositoryExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Data.RepositoryExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -530,7 +734,11 @@
           "relative_path": "api/WeihanLi.Common.Data.SqlExpressionVisitor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Data.SqlExpressionVisitor",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -540,7 +748,11 @@
           "relative_path": "api/WeihanLi.Common.Data.UnitOfWork.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Data.UnitOfWork",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -550,7 +762,11 @@
           "relative_path": "api/WeihanLi.Common.Data.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Data",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -560,7 +776,11 @@
           "relative_path": "api/WeihanLi.Common.DependencyInjection.FromServiceAttribute.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.DependencyInjection.FromServiceAttribute",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -570,7 +790,11 @@
           "relative_path": "api/WeihanLi.Common.DependencyInjection.IServiceContainer.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.DependencyInjection.IServiceContainer",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -580,7 +804,11 @@
           "relative_path": "api/WeihanLi.Common.DependencyInjection.IServiceContainerBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.DependencyInjection.IServiceContainerBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -590,7 +818,11 @@
           "relative_path": "api/WeihanLi.Common.DependencyInjection.IServiceContainerModule.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.DependencyInjection.IServiceContainerModule",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -600,7 +832,11 @@
           "relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceConstructorAttribute.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.DependencyInjection.ServiceConstructorAttribute",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -610,7 +846,11 @@
           "relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceContainerBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.DependencyInjection.ServiceContainerBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -620,7 +860,11 @@
           "relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceContainerBuilderExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.DependencyInjection.ServiceContainerBuilderExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -630,7 +874,11 @@
           "relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceContainerModule.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.DependencyInjection.ServiceContainerModule",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -640,7 +888,11 @@
           "relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceDefinition.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.DependencyInjection.ServiceDefinition",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -650,7 +902,11 @@
           "relative_path": "api/WeihanLi.Common.DependencyInjection.ServiceLifetime.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.DependencyInjection.ServiceLifetime",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -660,7 +916,11 @@
           "relative_path": "api/WeihanLi.Common.DependencyInjection.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.DependencyInjection",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -670,7 +930,11 @@
           "relative_path": "api/WeihanLi.Common.DependencyInjectionExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.DependencyInjectionExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -680,7 +944,11 @@
           "relative_path": "api/WeihanLi.Common.DependencyResolver.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.DependencyResolver",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.DependencyResolver.yml\" sourcestartlinenumber=\"1\">DependencyResolver\nService locator pattern</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -690,7 +958,11 @@
           "relative_path": "api/WeihanLi.Common.DependencyResolverExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.DependencyResolverExtensions",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.DependencyResolverExtensions.yml\" sourcestartlinenumber=\"1\">DependencyResolverExtensions</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -700,7 +972,11 @@
           "relative_path": "api/WeihanLi.Common.Event.AckQueue.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.AckQueue",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -710,7 +986,11 @@
           "relative_path": "api/WeihanLi.Common.Event.AckQueueOptions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.AckQueueOptions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -720,7 +1000,11 @@
           "relative_path": "api/WeihanLi.Common.Event.DefaultEventHandlerFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.DefaultEventHandlerFactory",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -730,7 +1014,11 @@
           "relative_path": "api/WeihanLi.Common.Event.DelegateEventHandler-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.DelegateEventHandler<TEvent>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -740,7 +1028,11 @@
           "relative_path": "api/WeihanLi.Common.Event.DependencyInjectionEventSubscriptionManager.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.DependencyInjectionEventSubscriptionManager",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -750,7 +1042,11 @@
           "relative_path": "api/WeihanLi.Common.Event.EventBase.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.EventBase",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -760,7 +1056,11 @@
           "relative_path": "api/WeihanLi.Common.Event.EventBus.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.EventBus",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Event.EventBus.yml\" sourcestartlinenumber=\"1\">EventBus in process</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -770,7 +1070,11 @@
           "relative_path": "api/WeihanLi.Common.Event.EventBusExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.EventBusExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -780,7 +1084,11 @@
           "relative_path": "api/WeihanLi.Common.Event.EventExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.EventExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -790,7 +1098,11 @@
           "relative_path": "api/WeihanLi.Common.Event.EventHandlerBase-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.EventHandlerBase<TEvent>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -800,7 +1112,11 @@
           "relative_path": "api/WeihanLi.Common.Event.EventHandlerFactoryExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.EventHandlerFactoryExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -810,7 +1126,11 @@
           "relative_path": "api/WeihanLi.Common.Event.EventProperties.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.EventProperties",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -820,7 +1140,11 @@
           "relative_path": "api/WeihanLi.Common.Event.EventQueueExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.EventQueueExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -830,7 +1154,11 @@
           "relative_path": "api/WeihanLi.Common.Event.EventQueueInMemory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.EventQueueInMemory",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -840,7 +1168,11 @@
           "relative_path": "api/WeihanLi.Common.Event.EventQueuePublisher.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.EventQueuePublisher",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -850,7 +1182,11 @@
           "relative_path": "api/WeihanLi.Common.Event.EventQueuePublisherOptions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.EventQueuePublisherOptions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -860,7 +1196,11 @@
           "relative_path": "api/WeihanLi.Common.Event.EventStoreInMemory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.EventStoreInMemory",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -870,7 +1210,11 @@
           "relative_path": "api/WeihanLi.Common.Event.EventSubscriberExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.EventSubscriberExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -880,7 +1224,11 @@
           "relative_path": "api/WeihanLi.Common.Event.EventWrapper-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.EventWrapper<T>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -890,7 +1238,11 @@
           "relative_path": "api/WeihanLi.Common.Event.IEvent-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.IEvent<T>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -900,7 +1252,11 @@
           "relative_path": "api/WeihanLi.Common.Event.IEvent.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.IEvent",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -910,7 +1266,11 @@
           "relative_path": "api/WeihanLi.Common.Event.IEventBase.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.IEventBase",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -920,7 +1280,11 @@
           "relative_path": "api/WeihanLi.Common.Event.IEventBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.IEventBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -930,7 +1294,11 @@
           "relative_path": "api/WeihanLi.Common.Event.IEventBus.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.IEventBus",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -940,7 +1308,11 @@
           "relative_path": "api/WeihanLi.Common.Event.IEventHandler-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.IEventHandler<TEvent>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -950,7 +1322,11 @@
           "relative_path": "api/WeihanLi.Common.Event.IEventHandler.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.IEventHandler",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -960,7 +1336,11 @@
           "relative_path": "api/WeihanLi.Common.Event.IEventHandlerFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.IEventHandlerFactory",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -970,7 +1350,11 @@
           "relative_path": "api/WeihanLi.Common.Event.IEventPublisher.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.IEventPublisher",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -980,7 +1364,11 @@
           "relative_path": "api/WeihanLi.Common.Event.IEventQueue.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.IEventQueue",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -990,7 +1378,11 @@
           "relative_path": "api/WeihanLi.Common.Event.IEventStore.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.IEventStore",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1000,7 +1392,11 @@
           "relative_path": "api/WeihanLi.Common.Event.IEventSubscriber.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.IEventSubscriber",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1010,7 +1406,11 @@
           "relative_path": "api/WeihanLi.Common.Event.IEventSubscriptionManager.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.IEventSubscriptionManager",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1020,7 +1420,11 @@
           "relative_path": "api/WeihanLi.Common.Event.InMemoryEventSubscriptionManager.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event.InMemoryEventSubscriptionManager",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1030,7 +1434,11 @@
           "relative_path": "api/WeihanLi.Common.Event.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Event",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1040,7 +1448,11 @@
           "relative_path": "api/WeihanLi.Common.Extensions.PropertiesExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Extensions.PropertiesExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1050,7 +1462,11 @@
           "relative_path": "api/WeihanLi.Common.Extensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Extensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1060,7 +1476,11 @@
           "relative_path": "api/WeihanLi.Common.Guard.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Guard",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1070,7 +1490,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ActivatorHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ActivatorHelper",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.ActivatorHelper.yml\" sourcestartlinenumber=\"1\">Helper code for the various activator services.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1080,7 +1504,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ApplicationHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ApplicationHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1090,7 +1518,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ArrayHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ArrayHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1100,7 +1532,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.AsyncLock.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.AsyncLock",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.AsyncLock.yml\" sourcestartlinenumber=\"1\">AsyncLock basedOn SemaphoreSlim</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1110,7 +1546,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.AsyncPropertyEnricher-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.AsyncPropertyEnricher<TContext>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1120,7 +1560,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Base32EncodeHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Base32EncodeHelper",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.Base32EncodeHelper.yml\" sourcestartlinenumber=\"1\">Base32Encode\n<a href=\"https://stackoverflow.com/questions/641361/base32-decoding/7135008#7135008\" sourcefile=\"api/WeihanLi.Common.Helpers.Base32EncodeHelper.yml\" sourcestartlinenumber=\"2\">https://stackoverflow.com/questions/641361/base32-decoding/7135008#7135008</a></p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1130,7 +1574,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Base36Encoder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Base36Encoder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1140,7 +1588,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Base62Encoder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Base62Encoder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1150,7 +1602,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Base64UrlEncodeHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Base64UrlEncodeHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1160,7 +1616,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.BoundedConcurrentQueue-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.BoundedConcurrentQueue<T>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1170,7 +1630,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.BoundedQueueFullMode.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.BoundedQueueFullMode",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1180,7 +1644,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.BuildProcess.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.BuildProcess",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1190,7 +1658,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.BuildProcessBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.BuildProcessBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1200,7 +1672,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.BuildTask.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.BuildTask",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1210,7 +1686,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.BuildTaskBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.BuildTaskBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1220,7 +1700,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.Combinations-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Combinatorics.Combinations<T>",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.Combinatorics.Combinations-1.yml\" sourcestartlinenumber=\"1\">Combinations defines a sequence of all possible subsets of a particular size from the set of values.\nWithin the returned set, there is no prescribed order.\nThis follows the mathematical concept of choose.\nFor example, put <code>10</code> dominoes in a hat and pick <code>5</code>.\nThe number of possible combinations is defined as &quot;10 choose 5&quot;, which is calculated as <code>(10!) / ((10 - 5)! * 5!)</code>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1230,7 +1714,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.GenerateOption.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Combinatorics.GenerateOption",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.Combinatorics.GenerateOption.yml\" sourcestartlinenumber=\"1\">Indicates whether a permutation, combination or variation generates equivalent result sets.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1240,7 +1728,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.Permutations-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Combinatorics.Permutations<T>",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.Combinatorics.Permutations-1.yml\" sourcestartlinenumber=\"1\">Permutations defines a sequence of all possible orderings of a set of values.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1250,7 +1742,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.Variations-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Combinatorics.Variations<T>",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.Combinatorics.Variations-1.yml\" sourcestartlinenumber=\"1\">Variations defines a sequence of all possible ordered subsets of a particular size from the set of values.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1260,7 +1756,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Combinatorics.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Combinatorics",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1270,7 +1770,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.CommandExecutor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.CommandExecutor",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1280,7 +1784,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.CommandLineParser.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.CommandLineParser",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1290,7 +1798,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.CommandResult.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.CommandResult",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1300,7 +1812,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.CompressDataSerializer.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.CompressDataSerializer",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1310,7 +1826,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ConcurrentSet-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ConcurrentSet<T>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1320,7 +1840,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ConsoleHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ConsoleHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1330,7 +1854,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ConsoleOutput.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ConsoleOutput",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1340,7 +1868,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ContextAccessor-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ContextAccessor<TContext>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1350,7 +1882,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ConvertHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ConvertHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1360,7 +1896,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Cron.CronExpression.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Cron.CronExpression",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.Cron.CronExpression.yml\" sourcestartlinenumber=\"1\">Provides a parser and scheduler for cron expressions.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1370,7 +1910,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Cron.CronFormat.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Cron.CronFormat",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.Cron.CronFormat.yml\" sourcestartlinenumber=\"1\">Defines the cron format options that customize string parsing for <xref href=\"WeihanLi.Common.Helpers.Cron.CronExpression.Parse(System.String%2cWeihanLi.Common.Helpers.Cron.CronFormat)\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1380,7 +1924,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Cron.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Cron",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1390,7 +1938,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.CronHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.CronHelper",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.CronHelper.yml\" sourcestartlinenumber=\"1\">CronExpression Helper\nCron Expression : <a href=\"http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html\" sourcefile=\"api/WeihanLi.Common.Helpers.CronHelper.yml\" sourcestartlinenumber=\"2\">http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html</a></p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1400,7 +1952,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.DelegateHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.DelegateHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1410,7 +1966,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.DelegateTextWriter.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.DelegateTextWriter",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1420,7 +1980,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.DiagnosticHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.DiagnosticHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1430,7 +1994,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.DisposableAction.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.DisposableAction",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.DisposableAction.yml\" sourcestartlinenumber=\"1\">Delegate-based Disposable implement</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1440,7 +2008,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.DisposableBase.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.DisposableBase",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.DisposableBase.yml\" sourcestartlinenumber=\"1\">Disposable base class\n<a href=\"https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose\" sourcefile=\"api/WeihanLi.Common.Helpers.DisposableBase.yml\" sourcestartlinenumber=\"2\">https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose</a>\n<a href=\"https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync\" sourcefile=\"api/WeihanLi.Common.Helpers.DisposableBase.yml\" sourcestartlinenumber=\"3\">https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync</a>\n<a href=\"https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync#implement-both-dispose-and-async-dispose-patterns\" sourcefile=\"api/WeihanLi.Common.Helpers.DisposableBase.yml\" sourcestartlinenumber=\"4\">https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-disposeasync#implement-both-dispose-and-async-dispose-patterns</a></p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1450,7 +2022,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.EnumHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.EnumHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1460,7 +2036,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.EnvHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.EnvHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1470,7 +2050,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ExpressionHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ExpressionHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1480,7 +2064,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.HashHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.HashHelper",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.HashHelper.yml\" sourcestartlinenumber=\"1\">HashHelper</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1490,7 +2078,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.HashType.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.HashType",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.HashType.yml\" sourcestartlinenumber=\"1\">Hash 类型</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1500,7 +2092,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Hosting.AppHost.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Hosting.AppHost",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1510,7 +2106,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Hosting.AppHostBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Hosting.AppHostBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1520,7 +2120,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Hosting.AppHostBuilderExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Hosting.AppHostBuilderExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1530,7 +2134,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Hosting.AppHostBuilderSettings.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Hosting.AppHostBuilderSettings",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1540,7 +2148,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Hosting.AppHostOptions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Hosting.AppHostOptions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1550,7 +2162,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Hosting.BackgroundService.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Hosting.BackgroundService",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1560,7 +2176,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1570,7 +2190,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Hosting.CronBasedBackgroundService.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Hosting.CronBasedBackgroundService",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1580,7 +2204,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Hosting.CronBasedBackgroundServiceWithDiagnostic.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Hosting.CronBasedBackgroundServiceWithDiagnostic",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1590,7 +2218,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Hosting.IAppHost.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Hosting.IAppHost",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1600,7 +2232,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Hosting.IAppHostBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Hosting.IAppHostBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1610,7 +2246,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Hosting.IHostedLifecycleService.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Hosting.IHostedLifecycleService",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1620,7 +2260,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Hosting.IHostedService.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Hosting.IHostedService",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1630,7 +2274,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.Hosting.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.Hosting",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1640,7 +2288,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.HttpHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.HttpHelper",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.HttpHelper.yml\" sourcestartlinenumber=\"1\">Http request helper</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1650,7 +2302,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.IAsyncEnricher-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.IAsyncEnricher<TContext>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1660,7 +2316,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.IAsyncPipelineBuilder-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.IAsyncPipelineBuilder<TContext>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1670,7 +2330,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.IAsyncPipelineMiddleware-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.IAsyncPipelineMiddleware<TContext>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1680,7 +2344,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.IBuildTaskDescriptor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.IBuildTaskDescriptor",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1690,7 +2358,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.IDataSerializer.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.IDataSerializer",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1700,7 +2372,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.IEnricher-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.IEnricher<TContext>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1710,7 +2386,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.IPipelineBuilder-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.IPipelineBuilder<TContext>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1720,7 +2400,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.IPipelineMiddleware-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.IPipelineMiddleware<TContext>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1730,7 +2414,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder<TContext>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1740,7 +2428,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.IValueAsyncPipelineMiddleware-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.IValueAsyncPipelineMiddleware<TContext>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1750,7 +2442,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.InterlockedHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.InterlockedHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1760,7 +2456,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.InvokeHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.InvokeHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1770,7 +2470,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.JsonDataSerializer.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.JsonDataSerializer",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1780,7 +2484,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.LibraryInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.LibraryInfo",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1790,7 +2498,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.LineParseOptions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.LineParseOptions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1800,7 +2512,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.LogHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.LogHelper",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.LogHelper.yml\" sourcestartlinenumber=\"1\">LogHelper\nLogging</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1810,7 +2526,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.MapHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.MapHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1820,7 +2540,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.NetHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.NetHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1830,7 +2554,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.NewFuncHelper-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.NewFuncHelper<T>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1840,7 +2568,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.NullDisposable.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.NullDisposable",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.NullDisposable.yml\" sourcestartlinenumber=\"1\">A singleton disposable that does nothing when disposed.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1850,7 +2582,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ObjectFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ObjectFactory",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1860,7 +2596,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching<TEvent>",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.PeriodBatching.PeriodicBatching-1.yml\" sourcestartlinenumber=\"1\">Base class for sinks that log events in batches. Batching is\ntriggered asynchronously on a timer.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1870,7 +2610,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.PeriodBatching.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.PeriodBatching",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1880,7 +2624,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.PipelineBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.PipelineBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1890,7 +2638,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.PipelineBuilderExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.PipelineBuilderExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1900,7 +2652,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ProcessExecutor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ProcessExecutor",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1910,7 +2666,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ProfilerHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ProfilerHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1920,7 +2680,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ProfilerStopper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ProfilerStopper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1930,7 +2694,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.PropertyEnricher-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.PropertyEnricher<TContext>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1940,7 +2708,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.RandomCodeType.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.RandomCodeType",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1950,7 +2722,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ReflectHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ReflectHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1960,7 +2736,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.RequestHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.RequestHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1970,7 +2750,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.RetryHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.RetryHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1980,7 +2764,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.RuntimeInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.RuntimeInfo",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1990,7 +2778,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.SecurityHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.SecurityHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2000,7 +2792,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.SequentialGuidGenerator.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.SequentialGuidGenerator",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.SequentialGuidGenerator.yml\" sourcestartlinenumber=\"1\">Create Sequential Guid\nbetter performance for use guid as database primary key</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2010,7 +2806,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.SequentialGuidType.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.SequentialGuidType",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.SequentialGuidType.yml\" sourcestartlinenumber=\"1\">Describes the type of a sequential GUID value.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2020,7 +2820,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.StopwatchStopper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.StopwatchStopper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2030,7 +2834,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.StringHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.StringHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2040,7 +2848,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.TaskHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.TaskHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2050,7 +2862,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.TotpHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.TotpHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2060,7 +2876,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.TypeHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.TypeHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2070,7 +2890,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ValidateHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ValidateHelper",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.ValidateHelper.yml\" sourcestartlinenumber=\"1\">常用验证帮助类</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2080,7 +2904,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.ValueStopwatch.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.ValueStopwatch",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.ValueStopwatch.yml\" sourcestartlinenumber=\"1\">Value-type replacement for <xref href=\"System.Diagnostics.Stopwatch\" data-throw-if-not-resolved=\"false\"></xref> which avoids allocations.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2090,7 +2918,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.XmlDataSerializer.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.XmlDataSerializer",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2100,7 +2932,11 @@
           "relative_path": "api/WeihanLi.Common.Helpers.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2110,7 +2946,11 @@
           "relative_path": "api/WeihanLi.Common.Http.HttpClientHttpRequester.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Http.HttpClientHttpRequester",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2120,7 +2960,11 @@
           "relative_path": "api/WeihanLi.Common.Http.HttpHeaderNames.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Http.HttpHeaderNames",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Http.HttpHeaderNames.yml\" sourcestartlinenumber=\"1\">HttpHeaderNames\nget latest from\n<a href=\"https://github.com/dotnet/aspnetcore/blob/main/src/Http/Headers/src/HeaderNames.cs\" sourcefile=\"api/WeihanLi.Common.Http.HttpHeaderNames.yml\" sourcestartlinenumber=\"3\">https://github.com/dotnet/aspnetcore/blob/main/src/Http/Headers/src/HeaderNames.cs</a></p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2130,7 +2974,11 @@
           "relative_path": "api/WeihanLi.Common.Http.HttpResponse.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Http.HttpResponse",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2140,7 +2988,11 @@
           "relative_path": "api/WeihanLi.Common.Http.IHttpRequester.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Http.IHttpRequester",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2150,7 +3002,11 @@
           "relative_path": "api/WeihanLi.Common.Http.JsonHttpContent.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Http.JsonHttpContent",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2160,7 +3016,11 @@
           "relative_path": "api/WeihanLi.Common.Http.MockHttpHandler.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Http.MockHttpHandler",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2170,7 +3030,11 @@
           "relative_path": "api/WeihanLi.Common.Http.NoProxyHttpClientHandler.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Http.NoProxyHttpClientHandler",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2180,7 +3044,11 @@
           "relative_path": "api/WeihanLi.Common.Http.WebRequestHttpRequester.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Http.WebRequestHttpRequester",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2190,7 +3058,11 @@
           "relative_path": "api/WeihanLi.Common.Http.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Http",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2200,7 +3072,11 @@
           "relative_path": "api/WeihanLi.Common.IDependencyResolver.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.IDependencyResolver",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.IDependencyResolver.yml\" sourcestartlinenumber=\"1\">IDependencyResolver</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2210,7 +3086,11 @@
           "relative_path": "api/WeihanLi.Common.Json.DateTimeFormatConverter.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Json.DateTimeFormatConverter",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2220,7 +3100,11 @@
           "relative_path": "api/WeihanLi.Common.Json.IPAddressConverter.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Json.IPAddressConverter",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Json.IPAddressConverter.yml\" sourcestartlinenumber=\"1\">IPAddress JsonConverter</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2230,7 +3114,11 @@
           "relative_path": "api/WeihanLi.Common.Json.IPEndPointConverter.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Json.IPEndPointConverter",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Json.IPEndPointConverter.yml\" sourcestartlinenumber=\"1\">IpEndPoint JsonConverter</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2240,7 +3128,11 @@
           "relative_path": "api/WeihanLi.Common.Json.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Json",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2250,7 +3142,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.ConsoleLoggingProviderExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2260,7 +3156,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.GenericLoggerOptions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.GenericLoggerOptions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2270,7 +3170,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.IConsoleLogFormatter.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.IConsoleLogFormatter",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2280,7 +3184,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.ILogHelperFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.ILogHelperFactory",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2290,7 +3198,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.ILogHelperLogger-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.ILogHelperLogger<TCategory>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2300,7 +3212,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.ILogHelperLogger.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.ILogHelperLogger",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2310,7 +3226,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.ILogHelperLoggingBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.ILogHelperLoggingBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2320,7 +3240,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.ILogHelperLoggingEnricher.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.ILogHelperLoggingEnricher",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2330,7 +3254,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.ILogHelperProvider.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.ILogHelperProvider",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2340,7 +3268,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.LogHelperExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.LogHelperExtensions",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Logging.LogHelperExtensions.yml\" sourcestartlinenumber=\"1\">LogHelperExtensions</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2350,7 +3282,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.LogHelperLogLevel.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.LogHelperLogLevel",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Logging.LogHelperLogLevel.yml\" sourcestartlinenumber=\"1\">LogLevel</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2360,7 +3296,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.LogHelperLoggingEvent.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.LogHelperLoggingEvent",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2370,7 +3310,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.Serilog.LogHelperFactoryExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.Serilog.LogHelperFactoryExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2380,7 +3324,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.Serilog.SerilogHelper.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.Serilog.SerilogHelper",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2390,7 +3338,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.Serilog.SerilogLoggerExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2400,7 +3352,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.Serilog.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging.Serilog",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2410,7 +3366,11 @@
           "relative_path": "api/WeihanLi.Common.Logging.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Logging",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2420,7 +3380,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntity-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntity<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2430,7 +3394,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntity.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntity",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2440,7 +3408,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2450,7 +3422,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2460,7 +3436,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2470,7 +3450,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2480,7 +3464,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2490,7 +3478,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2500,7 +3492,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2510,7 +3506,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2520,7 +3520,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2530,7 +3534,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2540,7 +3548,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2550,7 +3562,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2560,7 +3576,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2570,7 +3590,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2580,7 +3604,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2590,7 +3618,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2600,7 +3632,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2610,7 +3646,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2620,7 +3660,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithDeleted-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithDeleted<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2630,7 +3674,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithDeleted.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithDeleted",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2640,7 +3688,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewState-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithReviewState<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2650,7 +3702,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewState.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithReviewState",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2660,7 +3716,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2670,7 +3730,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2680,7 +3744,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2690,7 +3758,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2700,7 +3772,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithUpdatedAt<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2710,7 +3786,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2720,7 +3800,11 @@
           "relative_path": "api/WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2730,7 +3814,11 @@
           "relative_path": "api/WeihanLi.Common.Models.Category-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.Category<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2740,7 +3828,11 @@
           "relative_path": "api/WeihanLi.Common.Models.Category.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.Category",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2750,7 +3842,11 @@
           "relative_path": "api/WeihanLi.Common.Models.CategoryWithDesc.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.CategoryWithDesc",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2760,7 +3856,11 @@
           "relative_path": "api/WeihanLi.Common.Models.DataOperationType.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.DataOperationType",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.DataOperationType.yml\" sourcestartlinenumber=\"1\">DataOperationType</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2770,7 +3870,11 @@
           "relative_path": "api/WeihanLi.Common.Models.EnumerableExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.EnumerableExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2780,7 +3884,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IEntity-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IEntity<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2790,7 +3898,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2800,7 +3912,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAtAndBy.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IEntityWithCreatedUpdatedAtAndBy",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2810,7 +3926,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2820,7 +3940,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IEntityWithRemark.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IEntityWithRemark",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2830,7 +3954,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IEntityWithReviewState.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IEntityWithReviewState",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2840,7 +3968,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IEntityWithReviewStateAndRemark.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IEntityWithReviewStateAndRemark",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2850,7 +3982,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IEntityWithUpdatedAt.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IEntityWithUpdatedAt",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2860,7 +3996,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IEntityWithUpdatedAtAndBy.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IEntityWithUpdatedAtAndBy",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2870,7 +4010,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IEntityWithUpdatedBy.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IEntityWithUpdatedBy",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2880,7 +4024,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IListResultWithTotal-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IListResultWithTotal<T>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2890,7 +4038,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IPagedListResult-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IPagedListResult<T>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2900,7 +4052,11 @@
           "relative_path": "api/WeihanLi.Common.Models.ISoftDeleteEntity.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.ISoftDeleteEntity",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2910,7 +4066,11 @@
           "relative_path": "api/WeihanLi.Common.Models.ISoftDeleteEntityWithDeleted.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.ISoftDeleteEntityWithDeleted",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2920,7 +4080,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IValidationResult.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IValidationResult",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2930,7 +4094,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IdNameDescModel-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IdNameDescModel<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2940,7 +4108,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IdNameDescModel.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IdNameDescModel",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2950,7 +4122,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IdNameModel-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IdNameModel<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2960,7 +4136,11 @@
           "relative_path": "api/WeihanLi.Common.Models.IdNameModel.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.IdNameModel",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2970,7 +4150,11 @@
           "relative_path": "api/WeihanLi.Common.Models.KeyEntry.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.KeyEntry",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2980,7 +4164,11 @@
           "relative_path": "api/WeihanLi.Common.Models.ListResultWithTotal-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.ListResultWithTotal<T>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2990,7 +4178,11 @@
           "relative_path": "api/WeihanLi.Common.Models.ModelValidator.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.ModelValidator",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3000,7 +4192,11 @@
           "relative_path": "api/WeihanLi.Common.Models.Ordering.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.Ordering",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3010,7 +4206,11 @@
           "relative_path": "api/WeihanLi.Common.Models.PagedListResult-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.PagedListResult<T>",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.PagedListResult-1.yml\" sourcestartlinenumber=\"1\">分页Model</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3020,7 +4220,11 @@
           "relative_path": "api/WeihanLi.Common.Models.PagedRequest.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.PagedRequest",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3030,7 +4234,11 @@
           "relative_path": "api/WeihanLi.Common.Models.RangeInclusion.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.RangeInclusion",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3040,7 +4248,11 @@
           "relative_path": "api/WeihanLi.Common.Models.Result-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.Result<T>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3050,7 +4262,11 @@
           "relative_path": "api/WeihanLi.Common.Models.Result.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.Result",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3060,7 +4276,11 @@
           "relative_path": "api/WeihanLi.Common.Models.ResultExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.ResultExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3070,7 +4290,11 @@
           "relative_path": "api/WeihanLi.Common.Models.ResultStatus.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.ResultStatus",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3080,7 +4304,11 @@
           "relative_path": "api/WeihanLi.Common.Models.ReviewRequest.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.ReviewRequest",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3090,7 +4318,11 @@
           "relative_path": "api/WeihanLi.Common.Models.ReviewState.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.ReviewState",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.ReviewState.yml\" sourcestartlinenumber=\"1\">ReviewState\n审核状态</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3100,7 +4332,11 @@
           "relative_path": "api/WeihanLi.Common.Models.StringValueDictionary.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.StringValueDictionary",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3110,7 +4346,11 @@
           "relative_path": "api/WeihanLi.Common.Models.TenantInfo-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.TenantInfo<TKey>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3120,7 +4360,11 @@
           "relative_path": "api/WeihanLi.Common.Models.TenantInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.TenantInfo",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3130,7 +4374,11 @@
           "relative_path": "api/WeihanLi.Common.Models.ValidationResult.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.ValidationResult",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3140,7 +4388,11 @@
           "relative_path": "api/WeihanLi.Common.Models.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3150,7 +4402,11 @@
           "relative_path": "api/WeihanLi.Common.Otp.OtpHashAlgorithm.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Otp.OtpHashAlgorithm",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3160,7 +4416,11 @@
           "relative_path": "api/WeihanLi.Common.Otp.Totp.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Otp.Totp",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Otp.Totp.yml\" sourcestartlinenumber=\"1\">Time-Based One-Time Password\n<a href=\"https://datatracker.ietf.org/doc/html/rfc6238\" sourcefile=\"api/WeihanLi.Common.Otp.Totp.yml\" sourcestartlinenumber=\"2\">https://datatracker.ietf.org/doc/html/rfc6238</a></p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3170,7 +4430,11 @@
           "relative_path": "api/WeihanLi.Common.Otp.TotpOptions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Otp.TotpOptions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3180,7 +4444,11 @@
           "relative_path": "api/WeihanLi.Common.Otp.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Otp",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3190,7 +4458,11 @@
           "relative_path": "api/WeihanLi.Common.Services.DataAnnotationValidator.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.DataAnnotationValidator",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3200,7 +4472,11 @@
           "relative_path": "api/WeihanLi.Common.Services.DelegateUserIdProvider.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.DelegateUserIdProvider",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3210,7 +4486,11 @@
           "relative_path": "api/WeihanLi.Common.Services.DelegateValidator-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.DelegateValidator<T>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3220,7 +4500,11 @@
           "relative_path": "api/WeihanLi.Common.Services.DelegateValidator.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.DelegateValidator",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3230,7 +4514,11 @@
           "relative_path": "api/WeihanLi.Common.Services.EnvironmentUserIdProvider.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.EnvironmentUserIdProvider",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3240,7 +4528,11 @@
           "relative_path": "api/WeihanLi.Common.Services.GuidIdGenerator.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.GuidIdGenerator",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.GuidIdGenerator.yml\" sourcestartlinenumber=\"1\">IdGenerator based on Guid</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3250,7 +4542,11 @@
           "relative_path": "api/WeihanLi.Common.Services.IAsyncValidator-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.IAsyncValidator<T>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3260,7 +4556,11 @@
           "relative_path": "api/WeihanLi.Common.Services.ICancellationTokenProvider.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.ICancellationTokenProvider",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3270,7 +4570,11 @@
           "relative_path": "api/WeihanLi.Common.Services.IIdGenerator.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.IIdGenerator",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.IIdGenerator.yml\" sourcestartlinenumber=\"1\">IdGenerator</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3280,7 +4584,11 @@
           "relative_path": "api/WeihanLi.Common.Services.IProfiler.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.IProfiler",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3290,7 +4598,11 @@
           "relative_path": "api/WeihanLi.Common.Services.IScope.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.IScope",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3300,7 +4612,11 @@
           "relative_path": "api/WeihanLi.Common.Services.ITenantProvider.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.ITenantProvider",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3310,7 +4626,11 @@
           "relative_path": "api/WeihanLi.Common.Services.ITotpService.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.ITotpService",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.ITotpService.yml\" sourcestartlinenumber=\"1\">Time-based one-time password service</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3320,7 +4640,11 @@
           "relative_path": "api/WeihanLi.Common.Services.ITotpServiceFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.ITotpServiceFactory",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3330,7 +4654,11 @@
           "relative_path": "api/WeihanLi.Common.Services.IUserIdProvider.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.IUserIdProvider",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3340,7 +4668,11 @@
           "relative_path": "api/WeihanLi.Common.Services.IValidator-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.IValidator<T>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3350,7 +4682,11 @@
           "relative_path": "api/WeihanLi.Common.Services.IValidator.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.IValidator",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3360,7 +4696,11 @@
           "relative_path": "api/WeihanLi.Common.Services.IWrapper-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.IWrapper<T>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3370,7 +4710,11 @@
           "relative_path": "api/WeihanLi.Common.Services.NullCancellationTokenProvider.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.NullCancellationTokenProvider",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3380,7 +4724,11 @@
           "relative_path": "api/WeihanLi.Common.Services.NullScope.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.NullScope",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3390,7 +4738,11 @@
           "relative_path": "api/WeihanLi.Common.Services.SequentialGuidIdGenerator.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.SequentialGuidIdGenerator",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3400,7 +4752,11 @@
           "relative_path": "api/WeihanLi.Common.Services.StopwatchProfiler.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.StopwatchProfiler",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3410,7 +4766,11 @@
           "relative_path": "api/WeihanLi.Common.Services.TenantIdProviderExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.TenantIdProviderExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3420,7 +4780,11 @@
           "relative_path": "api/WeihanLi.Common.Services.TotpService.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.TotpService",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3430,7 +4794,11 @@
           "relative_path": "api/WeihanLi.Common.Services.TotpServiceExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.TotpServiceExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3440,7 +4808,11 @@
           "relative_path": "api/WeihanLi.Common.Services.TotpServiceFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.TotpServiceFactory",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3450,7 +4822,11 @@
           "relative_path": "api/WeihanLi.Common.Services.UserIdProviderExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.UserIdProviderExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3460,7 +4836,11 @@
           "relative_path": "api/WeihanLi.Common.Services.Wrapper-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services.Wrapper<T>",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3470,7 +4850,11 @@
           "relative_path": "api/WeihanLi.Common.Services.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Services",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3480,7 +4864,11 @@
           "relative_path": "api/WeihanLi.Common.Template.DependencyInjectionExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.DependencyInjectionExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3490,7 +4878,11 @@
           "relative_path": "api/WeihanLi.Common.Template.IRenderMiddleware.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.IRenderMiddleware",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3500,7 +4892,11 @@
           "relative_path": "api/WeihanLi.Common.Template.ITemplateEngine.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.ITemplateEngine",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3510,7 +4906,11 @@
           "relative_path": "api/WeihanLi.Common.Template.ITemplateEngineBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.ITemplateEngineBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3520,7 +4920,11 @@
           "relative_path": "api/WeihanLi.Common.Template.ITemplateEngineServiceBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.ITemplateEngineServiceBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3530,7 +4934,11 @@
           "relative_path": "api/WeihanLi.Common.Template.ITemplateParser.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.ITemplateParser",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3540,7 +4948,11 @@
           "relative_path": "api/WeihanLi.Common.Template.ITemplatePipe.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.ITemplatePipe",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3550,7 +4962,11 @@
           "relative_path": "api/WeihanLi.Common.Template.ITemplateRenderer.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.ITemplateRenderer",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3560,7 +4976,11 @@
           "relative_path": "api/WeihanLi.Common.Template.ITemplateRendererBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.ITemplateRendererBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3570,7 +4990,11 @@
           "relative_path": "api/WeihanLi.Common.Template.LowerCaseTemplatePipe.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.LowerCaseTemplatePipe",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3580,7 +5004,11 @@
           "relative_path": "api/WeihanLi.Common.Template.TemplateEngine.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.TemplateEngine",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3590,7 +5018,11 @@
           "relative_path": "api/WeihanLi.Common.Template.TemplateEngineOptions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.TemplateEngineOptions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3600,7 +5032,11 @@
           "relative_path": "api/WeihanLi.Common.Template.TemplateInput.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.TemplateInput",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3610,7 +5046,11 @@
           "relative_path": "api/WeihanLi.Common.Template.TemplatePipeBase.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.TemplatePipeBase",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3620,7 +5060,11 @@
           "relative_path": "api/WeihanLi.Common.Template.TemplatePipeInput.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.TemplatePipeInput",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3630,7 +5074,11 @@
           "relative_path": "api/WeihanLi.Common.Template.TemplateRenderContext.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.TemplateRenderContext",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3640,7 +5088,11 @@
           "relative_path": "api/WeihanLi.Common.Template.TextFormatTemplatePipe.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.TextFormatTemplatePipe",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3650,7 +5102,11 @@
           "relative_path": "api/WeihanLi.Common.Template.TextTransformTemplatePipe.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.TextTransformTemplatePipe",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3660,7 +5116,11 @@
           "relative_path": "api/WeihanLi.Common.Template.TitleCaseTemplatePipe.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.TitleCaseTemplatePipe",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3670,7 +5130,11 @@
           "relative_path": "api/WeihanLi.Common.Template.UpperCaseTemplatePipe.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template.UpperCaseTemplatePipe",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3680,7 +5144,11 @@
           "relative_path": "api/WeihanLi.Common.Template.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Template",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3690,7 +5158,11 @@
           "relative_path": "api/WeihanLi.Common.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3700,7 +5172,11 @@
           "relative_path": "api/WeihanLi.Extensions.CollectionExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.CollectionExtension",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Extensions.CollectionExtension.yml\" sourcestartlinenumber=\"1\">CollectionExtension</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3710,7 +5186,11 @@
           "relative_path": "api/WeihanLi.Extensions.CompressionExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.CompressionExtension",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Extensions.CompressionExtension.yml\" sourcestartlinenumber=\"1\">CompressionExtension</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3720,7 +5200,11 @@
           "relative_path": "api/WeihanLi.Extensions.CoreExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.CoreExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3730,7 +5214,11 @@
           "relative_path": "api/WeihanLi.Extensions.CronExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.CronExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3740,7 +5228,11 @@
           "relative_path": "api/WeihanLi.Extensions.DataExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.DataExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3750,7 +5242,11 @@
           "relative_path": "api/WeihanLi.Extensions.DictionaryExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.DictionaryExtension",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Extensions.DictionaryExtension.yml\" sourcestartlinenumber=\"1\">DictionaryExtension</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3760,7 +5256,11 @@
           "relative_path": "api/WeihanLi.Extensions.Dump.DumpExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.Dump.DumpExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3770,7 +5270,11 @@
           "relative_path": "api/WeihanLi.Extensions.Dump.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.Dump",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3780,7 +5284,11 @@
           "relative_path": "api/WeihanLi.Extensions.EnumerableExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.EnumerableExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3790,7 +5298,11 @@
           "relative_path": "api/WeihanLi.Extensions.ExceptionExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.ExceptionExtension",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Extensions.ExceptionExtension.yml\" sourcestartlinenumber=\"1\">ExceptionExtension</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3800,7 +5312,11 @@
           "relative_path": "api/WeihanLi.Extensions.ExpressionExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.ExpressionExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3810,7 +5326,11 @@
           "relative_path": "api/WeihanLi.Extensions.FuncExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.FuncExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3820,7 +5340,11 @@
           "relative_path": "api/WeihanLi.Extensions.Hosting.CronBasedBackgroundService.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.Hosting.CronBasedBackgroundService",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3830,7 +5354,11 @@
           "relative_path": "api/WeihanLi.Extensions.Hosting.CronBasedBackgroundServiceWithDiagnostic.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.Hosting.CronBasedBackgroundServiceWithDiagnostic",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3840,7 +5368,11 @@
           "relative_path": "api/WeihanLi.Extensions.Hosting.HostingExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.Hosting.HostingExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3850,7 +5382,11 @@
           "relative_path": "api/WeihanLi.Extensions.Hosting.TimerBaseBackgroundService.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.Hosting.TimerBaseBackgroundService",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3860,7 +5396,11 @@
           "relative_path": "api/WeihanLi.Extensions.Hosting.TimerBaseBackgroundServiceWithDiagnostic.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.Hosting.TimerBaseBackgroundServiceWithDiagnostic",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3870,7 +5410,11 @@
           "relative_path": "api/WeihanLi.Extensions.Hosting.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.Hosting",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3880,7 +5424,11 @@
           "relative_path": "api/WeihanLi.Extensions.HttpClientExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.HttpClientExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3890,7 +5438,11 @@
           "relative_path": "api/WeihanLi.Extensions.HttpRequesterExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.HttpRequesterExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3900,7 +5452,11 @@
           "relative_path": "api/WeihanLi.Extensions.ILGeneratorExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.ILGeneratorExtensions",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3910,7 +5466,11 @@
           "relative_path": "api/WeihanLi.Extensions.IOExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.IOExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3920,7 +5480,11 @@
           "relative_path": "api/WeihanLi.Extensions.JsonSerializeExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.JsonSerializeExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3930,7 +5494,11 @@
           "relative_path": "api/WeihanLi.Extensions.NetExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.NetExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3940,7 +5508,11 @@
           "relative_path": "api/WeihanLi.Extensions.ProcessExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.ProcessExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3950,7 +5522,11 @@
           "relative_path": "api/WeihanLi.Extensions.QueryableExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.QueryableExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3960,7 +5536,11 @@
           "relative_path": "api/WeihanLi.Extensions.ReflectionExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.ReflectionExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3970,7 +5550,11 @@
           "relative_path": "api/WeihanLi.Extensions.StringExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.StringExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3980,7 +5564,11 @@
           "relative_path": "api/WeihanLi.Extensions.TaskExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.TaskExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -3990,7 +5578,11 @@
           "relative_path": "api/WeihanLi.Extensions.TypeExtension.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.TypeExtension",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -4000,7 +5592,11 @@
           "relative_path": "api/WeihanLi.Extensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions",
+      "Summary": null
     },
     {
       "type": "Conceptual",

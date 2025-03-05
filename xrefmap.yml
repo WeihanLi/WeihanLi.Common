@@ -29574,6 +29574,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.ReflectionExtension.GetDisplayName
   nameWithType: ReflectionExtension.GetDisplayName
+- uid: WeihanLi.Extensions.ReflectionExtension.GetDisplayVersion(System.Reflection.Assembly)
+  name: GetDisplayVersion(Assembly)
+  href: api/WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetDisplayVersion_System_Reflection_Assembly_
+  commentId: M:WeihanLi.Extensions.ReflectionExtension.GetDisplayVersion(System.Reflection.Assembly)
+  fullName: WeihanLi.Extensions.ReflectionExtension.GetDisplayVersion(System.Reflection.Assembly)
+  nameWithType: ReflectionExtension.GetDisplayVersion(Assembly)
+- uid: WeihanLi.Extensions.ReflectionExtension.GetDisplayVersion*
+  name: GetDisplayVersion
+  href: api/WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetDisplayVersion_
+  commentId: Overload:WeihanLi.Extensions.ReflectionExtension.GetDisplayVersion
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.ReflectionExtension.GetDisplayVersion
+  nameWithType: ReflectionExtension.GetDisplayVersion
 - uid: WeihanLi.Extensions.ReflectionExtension.GetMethodBySignature(System.Type,System.Reflection.MethodInfo)
   name: GetMethodBySignature(Type, MethodInfo)
   href: api/WeihanLi.Extensions.ReflectionExtension.html#WeihanLi_Extensions_ReflectionExtension_GetMethodBySignature_System_Type_System_Reflection_MethodInfo_
