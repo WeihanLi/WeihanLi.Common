@@ -168,6 +168,7 @@ public static class EnumerableExtension
 
     #region Linq
 
+#if !NET10_OR_GREATER
     /// <summary>
     /// LeftJoin extension
     /// </summary>
@@ -190,6 +191,7 @@ public static class EnumerableExtension
                 (outerObj, inners) => new { outerObj, inners = inners.DefaultIfEmpty() })
             .SelectMany(a => a.inners.Select(innerObj => resultSelector(a.outerObj, innerObj)));
     }
+#endif
 
     #endregion Linq
 
