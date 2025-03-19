@@ -10,6 +10,6 @@ public class CancellationTokenProviderTest
     {
         var provider = new NullCancellationTokenProvider();
         var cancellationToken = provider.GetCancellationToken();
-        Assert.Equal(default, cancellationToken);
+        Assert.Equal(CancellationToken.None, cancellationToken);
     }
 }

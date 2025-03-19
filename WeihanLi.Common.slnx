@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/perf/">
+    <Project Path="perf/WeihanLi.Common.Benchmark/WeihanLi.Common.Benchmark.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/AspNetCoreSample/AspNetCoreSample.csproj" />
+    <Project Path="samples/DotNetCoreSample/DotNetCoreSample.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/WeihanLi.Common.Logging.Serilog/WeihanLi.Common.Logging.Serilog.csproj" />
+    <Project Path="src/WeihanLi.Common/WeihanLi.Common.csproj" />
+    <Project Path="src/WeihanLi.Extensions.Hosting/WeihanLi.Extensions.Hosting.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/WeihanLi.Common.Test/WeihanLi.Common.Test.csproj" />
+  </Folder>
+</Solution>
