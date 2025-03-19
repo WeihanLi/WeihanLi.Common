@@ -33,7 +33,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
-    <PackageVersion Include="FluentAssertions" Version="6.6.0" />
     <PackageVersion Include="Moq" Version="4.20.72" />
     <PackageVersion Include="xunit.v3" Version="2.0.0" />
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
