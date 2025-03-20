@@ -92,7 +92,7 @@ public static class HttpHelper
     }));
 
     /// <summary>
-    /// Shared HttpClient(no proxy, disable cookie, enable auto decompression)
+    /// Shared HttpClient(disable cookie container, enable auto decompression)
     /// </summary>
     public static HttpClient HttpClient => SharedHttpClient.Value;
 

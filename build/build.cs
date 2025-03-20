@@ -7,7 +7,7 @@ var stable = CommandLineParser.BooleanVal(args, "stable");
 var noPush = CommandLineParser.BooleanVal(args, "noPush");
 var branchName = EnvHelper.Val("BUILD_SOURCEBRANCHNAME", "local");
 
-var solutionPath = "./WeihanLi.Common.sln";
+var solutionPath = "./WeihanLi.Common.slnx";
 string[] srcProjects = [ 
     "./src/WeihanLi.Common/WeihanLi.Common.csproj",
     "./src/WeihanLi.Common.Logging.Serilog/WeihanLi.Common.Logging.Serilog.csproj",
