@@ -6,5 +6,6 @@ public sealed class NoProxyHttpClientHandler : HttpClientHandler
     {
         Proxy = null;
         UseProxy = false;
+        UseCookies = false;
     }
 }
