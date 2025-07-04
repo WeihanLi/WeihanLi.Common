@@ -201,4 +201,21 @@ public static class ConsoleHelper
 
         return commandResult;
     }
+
+    public static bool HasStandardInput()
+    {
+        return Console.IsInputRedirected && Console.In.Peek() != -1;
+    }
+    
+    public static bool TryGetStandardInput([MaybeNullWhen(false)]out string input)
+    {
+        if (HasStandardInput())
+        {
+            input = Console.In.ReadToEnd();
+            return true;
+        }
+        
+        input = null;
+        return false;
+    }
 }
