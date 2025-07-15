@@ -97,7 +97,7 @@ Class BackgroundService  <a class="header-action link-secondary" title="View sou
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class BackgroundService : IHostedService, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class BackgroundService : IHostedLifecycleService, IHostedService, IDisposable</code></pre>
   </div>
 
 
@@ -114,6 +114,7 @@ Class BackgroundService  <a class="header-action link-secondary" title="View sou
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
+      <div><a class="xref" href="WeihanLi.Common.Helpers.Hosting.IHostedLifecycleService.html">IHostedLifecycleService</a></div>
       <div><a class="xref" href="WeihanLi.Common.Helpers.Hosting.IHostedService.html">IHostedService</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
@@ -122,7 +123,6 @@ Class BackgroundService  <a class="header-action link-secondary" title="View sou
   <dl class="typelist derived">
     <dt>Derived</dt>
     <dd>
-      <div><a class="xref" href="WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.html">BackgroundServiceWithLifecycle</a></div>
       <div><a class="xref" href="WeihanLi.Common.Helpers.Hosting.CronBasedBackgroundService.html">CronBasedBackgroundService</a></div>
     </dd>
   </dl>
@@ -290,7 +290,7 @@ Class BackgroundService  <a class="header-action link-secondary" title="View sou
 
   <h3 id="WeihanLi_Common_Helpers_Hosting_BackgroundService_Dispose" data-uid="WeihanLi.Common.Helpers.Hosting.BackgroundService.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Hosting/BackgroundService.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Hosting/BackgroundService.cs/#L64"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -316,7 +316,7 @@ Class BackgroundService  <a class="header-action link-secondary" title="View sou
 
   <h3 id="WeihanLi_Common_Helpers_Hosting_BackgroundService_ExecuteAsync_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.Hosting.BackgroundService.ExecuteAsync(System.Threading.CancellationToken)">
   ExecuteAsync(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Hosting/BackgroundService.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Hosting/BackgroundService.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -384,6 +384,78 @@ Class BackgroundService  <a class="header-action link-secondary" title="View sou
 
 
 
+  <a id="WeihanLi_Common_Helpers_Hosting_BackgroundService_StartedAsync_" data-uid="WeihanLi.Common.Helpers.Hosting.BackgroundService.StartedAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_Hosting_BackgroundService_StartedAsync_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.Hosting.BackgroundService.StartedAsync(System.Threading.CancellationToken)">
+  StartedAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Hosting/BackgroundService.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task StartedAsync(CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_Hosting_BackgroundService_StartingAsync_" data-uid="WeihanLi.Common.Helpers.Hosting.BackgroundService.StartingAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_Hosting_BackgroundService_StartingAsync_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.Hosting.BackgroundService.StartingAsync(System.Threading.CancellationToken)">
+  StartingAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Hosting/BackgroundService.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task StartingAsync(CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="WeihanLi_Common_Helpers_Hosting_BackgroundService_StopAsync_" data-uid="WeihanLi.Common.Helpers.Hosting.BackgroundService.StopAsync*"></a>
 
   <h3 id="WeihanLi_Common_Helpers_Hosting_BackgroundService_StopAsync_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.Hosting.BackgroundService.StopAsync(System.Threading.CancellationToken)">
@@ -396,6 +468,78 @@ Class BackgroundService  <a class="header-action link-secondary" title="View sou
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual Task StopAsync(CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_Hosting_BackgroundService_StoppedAsync_" data-uid="WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppedAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_Hosting_BackgroundService_StoppedAsync_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppedAsync(System.Threading.CancellationToken)">
+  StoppedAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Hosting/BackgroundService.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task StoppedAsync(CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_Hosting_BackgroundService_StoppingAsync_" data-uid="WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppingAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_Hosting_BackgroundService_StoppingAsync_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppingAsync(System.Threading.CancellationToken)">
+  StoppingAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Helpers/Hosting/BackgroundService.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task StoppingAsync(CancellationToken cancellationToken)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>

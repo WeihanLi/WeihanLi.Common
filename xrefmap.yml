@@ -9754,6 +9754,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.ConsoleHelper.HandleInputLoopAsync
   nameWithType: ConsoleHelper.HandleInputLoopAsync
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.HasStandardInput
+  name: HasStandardInput()
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_HasStandardInput
+  commentId: M:WeihanLi.Common.Helpers.ConsoleHelper.HasStandardInput
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.HasStandardInput()
+  nameWithType: ConsoleHelper.HasStandardInput()
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.HasStandardInput*
+  name: HasStandardInput
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_HasStandardInput_
+  commentId: Overload:WeihanLi.Common.Helpers.ConsoleHelper.HasStandardInput
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.HasStandardInput
+  nameWithType: ConsoleHelper.HasStandardInput
 - uid: WeihanLi.Common.Helpers.ConsoleHelper.InvokeWithConsoleColor(System.Action,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
   name: InvokeWithConsoleColor(Action, ConsoleColor?, ConsoleColor?)
   href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_InvokeWithConsoleColor_System_Action_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
@@ -9821,6 +9834,22 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.ConsoleHelper.ReadLineWithPrompt
   nameWithType: ConsoleHelper.ReadLineWithPrompt
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.TryGetStandardInput(System.String@)
+  name: TryGetStandardInput(out string)
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_TryGetStandardInput_System_String__
+  commentId: M:WeihanLi.Common.Helpers.ConsoleHelper.TryGetStandardInput(System.String@)
+  name.vb: TryGetStandardInput(String)
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.TryGetStandardInput(out string)
+  fullName.vb: WeihanLi.Common.Helpers.ConsoleHelper.TryGetStandardInput(String)
+  nameWithType: ConsoleHelper.TryGetStandardInput(out string)
+  nameWithType.vb: ConsoleHelper.TryGetStandardInput(String)
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.TryGetStandardInput*
+  name: TryGetStandardInput
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_TryGetStandardInput_
+  commentId: Overload:WeihanLi.Common.Helpers.ConsoleHelper.TryGetStandardInput
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.TryGetStandardInput
+  nameWithType: ConsoleHelper.TryGetStandardInput
 - uid: WeihanLi.Common.Helpers.ConsoleHelper.WriteIf(System.String,System.Boolean)
   name: WriteIf(string?, bool)
   href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_WriteIf_System_String_System_Boolean_
@@ -11262,6 +11291,32 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.Hosting.BackgroundService.StartAsync
   nameWithType: BackgroundService.StartAsync
+- uid: WeihanLi.Common.Helpers.Hosting.BackgroundService.StartedAsync(System.Threading.CancellationToken)
+  name: StartedAsync(CancellationToken)
+  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_StartedAsync_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.Hosting.BackgroundService.StartedAsync(System.Threading.CancellationToken)
+  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundService.StartedAsync(System.Threading.CancellationToken)
+  nameWithType: BackgroundService.StartedAsync(CancellationToken)
+- uid: WeihanLi.Common.Helpers.Hosting.BackgroundService.StartedAsync*
+  name: StartedAsync
+  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_StartedAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.Hosting.BackgroundService.StartedAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundService.StartedAsync
+  nameWithType: BackgroundService.StartedAsync
+- uid: WeihanLi.Common.Helpers.Hosting.BackgroundService.StartingAsync(System.Threading.CancellationToken)
+  name: StartingAsync(CancellationToken)
+  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_StartingAsync_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.Hosting.BackgroundService.StartingAsync(System.Threading.CancellationToken)
+  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundService.StartingAsync(System.Threading.CancellationToken)
+  nameWithType: BackgroundService.StartingAsync(CancellationToken)
+- uid: WeihanLi.Common.Helpers.Hosting.BackgroundService.StartingAsync*
+  name: StartingAsync
+  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_StartingAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.Hosting.BackgroundService.StartingAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundService.StartingAsync
+  nameWithType: BackgroundService.StartingAsync
 - uid: WeihanLi.Common.Helpers.Hosting.BackgroundService.StopAsync(System.Threading.CancellationToken)
   name: StopAsync(CancellationToken)
   href: api/WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_StopAsync_System_Threading_CancellationToken_
@@ -11275,64 +11330,32 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.Hosting.BackgroundService.StopAsync
   nameWithType: BackgroundService.StopAsync
-- uid: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle
-  name: BackgroundServiceWithLifecycle
-  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.html
-  commentId: T:WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle
-  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle
-  nameWithType: BackgroundServiceWithLifecycle
-- uid: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StartedAsync(System.Threading.CancellationToken)
-  name: StartedAsync(CancellationToken)
-  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.html#WeihanLi_Common_Helpers_Hosting_BackgroundServiceWithLifecycle_StartedAsync_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StartedAsync(System.Threading.CancellationToken)
-  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StartedAsync(System.Threading.CancellationToken)
-  nameWithType: BackgroundServiceWithLifecycle.StartedAsync(CancellationToken)
-- uid: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StartedAsync*
-  name: StartedAsync
-  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.html#WeihanLi_Common_Helpers_Hosting_BackgroundServiceWithLifecycle_StartedAsync_
-  commentId: Overload:WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StartedAsync
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StartedAsync
-  nameWithType: BackgroundServiceWithLifecycle.StartedAsync
-- uid: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StartingAsync(System.Threading.CancellationToken)
-  name: StartingAsync(CancellationToken)
-  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.html#WeihanLi_Common_Helpers_Hosting_BackgroundServiceWithLifecycle_StartingAsync_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StartingAsync(System.Threading.CancellationToken)
-  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StartingAsync(System.Threading.CancellationToken)
-  nameWithType: BackgroundServiceWithLifecycle.StartingAsync(CancellationToken)
-- uid: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StartingAsync*
-  name: StartingAsync
-  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.html#WeihanLi_Common_Helpers_Hosting_BackgroundServiceWithLifecycle_StartingAsync_
-  commentId: Overload:WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StartingAsync
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StartingAsync
-  nameWithType: BackgroundServiceWithLifecycle.StartingAsync
-- uid: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StoppedAsync(System.Threading.CancellationToken)
+- uid: WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppedAsync(System.Threading.CancellationToken)
   name: StoppedAsync(CancellationToken)
-  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.html#WeihanLi_Common_Helpers_Hosting_BackgroundServiceWithLifecycle_StoppedAsync_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StoppedAsync(System.Threading.CancellationToken)
-  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StoppedAsync(System.Threading.CancellationToken)
-  nameWithType: BackgroundServiceWithLifecycle.StoppedAsync(CancellationToken)
-- uid: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StoppedAsync*
+  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_StoppedAsync_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppedAsync(System.Threading.CancellationToken)
+  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppedAsync(System.Threading.CancellationToken)
+  nameWithType: BackgroundService.StoppedAsync(CancellationToken)
+- uid: WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppedAsync*
   name: StoppedAsync
-  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.html#WeihanLi_Common_Helpers_Hosting_BackgroundServiceWithLifecycle_StoppedAsync_
-  commentId: Overload:WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StoppedAsync
+  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_StoppedAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppedAsync
   isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StoppedAsync
-  nameWithType: BackgroundServiceWithLifecycle.StoppedAsync
-- uid: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StoppingAsync(System.Threading.CancellationToken)
+  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppedAsync
+  nameWithType: BackgroundService.StoppedAsync
+- uid: WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppingAsync(System.Threading.CancellationToken)
   name: StoppingAsync(CancellationToken)
-  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.html#WeihanLi_Common_Helpers_Hosting_BackgroundServiceWithLifecycle_StoppingAsync_System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StoppingAsync(System.Threading.CancellationToken)
-  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StoppingAsync(System.Threading.CancellationToken)
-  nameWithType: BackgroundServiceWithLifecycle.StoppingAsync(CancellationToken)
-- uid: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StoppingAsync*
+  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_StoppingAsync_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppingAsync(System.Threading.CancellationToken)
+  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppingAsync(System.Threading.CancellationToken)
+  nameWithType: BackgroundService.StoppingAsync(CancellationToken)
+- uid: WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppingAsync*
   name: StoppingAsync
-  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.html#WeihanLi_Common_Helpers_Hosting_BackgroundServiceWithLifecycle_StoppingAsync_
-  commentId: Overload:WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StoppingAsync
+  href: api/WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_StoppingAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppingAsync
   isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundServiceWithLifecycle.StoppingAsync
-  nameWithType: BackgroundServiceWithLifecycle.StoppingAsync
+  fullName: WeihanLi.Common.Helpers.Hosting.BackgroundService.StoppingAsync
+  nameWithType: BackgroundService.StoppingAsync
 - uid: WeihanLi.Common.Helpers.Hosting.CronBasedBackgroundService
   name: CronBasedBackgroundService
   href: api/WeihanLi.Common.Helpers.Hosting.CronBasedBackgroundService.html

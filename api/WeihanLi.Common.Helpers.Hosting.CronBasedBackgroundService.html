@@ -97,7 +97,7 @@ Class CronBasedBackgroundService  <a class="header-action link-secondary" title=
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class CronBasedBackgroundService : BackgroundService, IHostedService, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class CronBasedBackgroundService : BackgroundService, IHostedLifecycleService, IHostedService, IDisposable</code></pre>
   </div>
 
 
@@ -115,6 +115,7 @@ Class CronBasedBackgroundService  <a class="header-action link-secondary" title=
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
+      <div><a class="xref" href="WeihanLi.Common.Helpers.Hosting.IHostedLifecycleService.html">IHostedLifecycleService</a></div>
       <div><a class="xref" href="WeihanLi.Common.Helpers.Hosting.IHostedService.html">IHostedService</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
@@ -135,6 +136,18 @@ Class CronBasedBackgroundService  <a class="header-action link-secondary" title=
     </div>
     <div>
       <a class="xref" href="WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_StopAsync_System_Threading_CancellationToken_">BackgroundService.StopAsync(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_StartingAsync_System_Threading_CancellationToken_">BackgroundService.StartingAsync(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_StartedAsync_System_Threading_CancellationToken_">BackgroundService.StartedAsync(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_StoppingAsync_System_Threading_CancellationToken_">BackgroundService.StoppingAsync(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_StoppedAsync_System_Threading_CancellationToken_">BackgroundService.StoppedAsync(CancellationToken)</a>
     </div>
     <div>
       <a class="xref" href="WeihanLi.Common.Helpers.Hosting.BackgroundService.html#WeihanLi_Common_Helpers_Hosting_BackgroundService_Dispose">BackgroundService.Dispose()</a>
