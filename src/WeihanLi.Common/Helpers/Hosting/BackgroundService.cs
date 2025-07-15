@@ -3,7 +3,7 @@
 
 namespace WeihanLi.Common.Helpers.Hosting;
 
-public abstract class BackgroundService : IHostedService, IDisposable
+public abstract class BackgroundService : IHostedLifecycleService, IDisposable
 {
     private Task? _executeTask;
     private CancellationTokenSource? _stoppingCts;
@@ -51,17 +51,6 @@ public abstract class BackgroundService : IHostedService, IDisposable
             await Task.WhenAny(_executeTask, tcs.Task).ConfigureAwait(false);
         }
     }
-
-    protected abstract Task ExecuteAsync(CancellationToken stoppingToken);
-
-    public virtual void Dispose()
-    {
-        _stoppingCts?.Cancel(false);
-    }
-}
-
-public abstract class BackgroundServiceWithLifecycle : BackgroundService, IHostedLifecycleService
-{
     public virtual Task StartingAsync(CancellationToken cancellationToken) => Task.CompletedTask;
 
     public virtual Task StartedAsync(CancellationToken cancellationToken) => Task.CompletedTask;
@@ -69,4 +58,11 @@ public abstract class BackgroundServiceWithLifecycle : BackgroundService, IHoste
     public virtual Task StoppingAsync(CancellationToken cancellationToken) => Task.CompletedTask;
 
     public virtual Task StoppedAsync(CancellationToken cancellationToken) => Task.CompletedTask;
+
+    protected abstract Task ExecuteAsync(CancellationToken stoppingToken);
+
+    public virtual void Dispose()
+    {
+        _stoppingCts?.Cancel(false);
+    }
 }
