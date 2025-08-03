@@ -84,6 +84,7 @@ public static class HttpHelper
     private static readonly Lazy<HttpClient> SharedHttpClient = new(() => new(new NoProxyHttpClientHandler()
     {
         UseCookies = false,
+        CheckCertificateRevocationList = false,
 #if NET
         AutomaticDecompression = DecompressionMethods.All
 #else
