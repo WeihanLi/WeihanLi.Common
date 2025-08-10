@@ -8,5 +8,6 @@ public sealed class NoProxyHttpClientHandler : HttpClientHandler
         UseProxy = false;
         UseCookies = false;
         AllowAutoRedirect = false;
+        CheckCertificateRevocationList = false;
     }
 }
