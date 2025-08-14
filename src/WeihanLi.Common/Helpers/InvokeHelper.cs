@@ -10,7 +10,7 @@ public static class InvokeHelper
 {
     static InvokeHelper()
     {
-        OnInvokeException = ex => Debug.WriteLine(ex);
+        OnInvokeException = ex => ConsoleHelper.WriteLineWithColor(ex.ToString(), ConsoleColor.DarkRed);
 
         #region Exit event register
 
