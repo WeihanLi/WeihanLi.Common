@@ -10635,6 +10635,141 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.DisposableBase.~DisposableBase
   nameWithType: DisposableBase.~DisposableBase
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions
+  name: DotNetBuildProcessOptions
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html
+  commentId: T:WeihanLi.Common.Helpers.DotNetBuildProcessOptions
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions
+  nameWithType: DotNetBuildProcessOptions
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.AllowLocalPush
+  name: AllowLocalPush
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_AllowLocalPush
+  commentId: P:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.AllowLocalPush
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.AllowLocalPush
+  nameWithType: DotNetBuildProcessOptions.AllowLocalPush
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.AllowLocalPush*
+  name: AllowLocalPush
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_AllowLocalPush_
+  commentId: Overload:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.AllowLocalPush
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.AllowLocalPush
+  nameWithType: DotNetBuildProcessOptions.AllowLocalPush
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.ArtifactsPath
+  name: ArtifactsPath
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_ArtifactsPath
+  commentId: P:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.ArtifactsPath
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.ArtifactsPath
+  nameWithType: DotNetBuildProcessOptions.ArtifactsPath
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.ArtifactsPath*
+  name: ArtifactsPath
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_ArtifactsPath_
+  commentId: Overload:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.ArtifactsPath
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.ArtifactsPath
+  nameWithType: DotNetBuildProcessOptions.ArtifactsPath
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.BranchFunc
+  name: BranchFunc
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_BranchFunc
+  commentId: P:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.BranchFunc
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.BranchFunc
+  nameWithType: DotNetBuildProcessOptions.BranchFunc
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.BranchFunc*
+  name: BranchFunc
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_BranchFunc_
+  commentId: Overload:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.BranchFunc
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.BranchFunc
+  nameWithType: DotNetBuildProcessOptions.BranchFunc
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.FallbackNuGetApiKeyFunc
+  name: FallbackNuGetApiKeyFunc
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_FallbackNuGetApiKeyFunc
+  commentId: P:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.FallbackNuGetApiKeyFunc
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.FallbackNuGetApiKeyFunc
+  nameWithType: DotNetBuildProcessOptions.FallbackNuGetApiKeyFunc
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.FallbackNuGetApiKeyFunc*
+  name: FallbackNuGetApiKeyFunc
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_FallbackNuGetApiKeyFunc_
+  commentId: Overload:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.FallbackNuGetApiKeyFunc
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.FallbackNuGetApiKeyFunc
+  nameWithType: DotNetBuildProcessOptions.FallbackNuGetApiKeyFunc
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.SolutionPath
+  name: SolutionPath
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_SolutionPath
+  commentId: P:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.SolutionPath
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.SolutionPath
+  nameWithType: DotNetBuildProcessOptions.SolutionPath
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.SolutionPath*
+  name: SolutionPath
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_SolutionPath_
+  commentId: Overload:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.SolutionPath
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.SolutionPath
+  nameWithType: DotNetBuildProcessOptions.SolutionPath
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.SrcProjects
+  name: SrcProjects
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_SrcProjects
+  commentId: P:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.SrcProjects
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.SrcProjects
+  nameWithType: DotNetBuildProcessOptions.SrcProjects
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.SrcProjects*
+  name: SrcProjects
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_SrcProjects_
+  commentId: Overload:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.SrcProjects
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.SrcProjects
+  nameWithType: DotNetBuildProcessOptions.SrcProjects
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.TestProjects
+  name: TestProjects
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_TestProjects
+  commentId: P:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.TestProjects
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.TestProjects
+  nameWithType: DotNetBuildProcessOptions.TestProjects
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.TestProjects*
+  name: TestProjects
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_TestProjects_
+  commentId: Overload:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.TestProjects
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.TestProjects
+  nameWithType: DotNetBuildProcessOptions.TestProjects
+- uid: WeihanLi.Common.Helpers.DotNetPackageBuildProcess
+  name: DotNetPackageBuildProcess
+  href: api/WeihanLi.Common.Helpers.DotNetPackageBuildProcess.html
+  commentId: T:WeihanLi.Common.Helpers.DotNetPackageBuildProcess
+  fullName: WeihanLi.Common.Helpers.DotNetPackageBuildProcess
+  nameWithType: DotNetPackageBuildProcess
+- uid: WeihanLi.Common.Helpers.DotNetPackageBuildProcess.Create(System.Action{WeihanLi.Common.Helpers.DotNetBuildProcessOptions})
+  name: Create(Action<DotNetBuildProcessOptions>)
+  href: api/WeihanLi.Common.Helpers.DotNetPackageBuildProcess.html#WeihanLi_Common_Helpers_DotNetPackageBuildProcess_Create_System_Action_WeihanLi_Common_Helpers_DotNetBuildProcessOptions__
+  commentId: M:WeihanLi.Common.Helpers.DotNetPackageBuildProcess.Create(System.Action{WeihanLi.Common.Helpers.DotNetBuildProcessOptions})
+  name.vb: Create(Action(Of DotNetBuildProcessOptions))
+  fullName: WeihanLi.Common.Helpers.DotNetPackageBuildProcess.Create(System.Action<WeihanLi.Common.Helpers.DotNetBuildProcessOptions>)
+  fullName.vb: WeihanLi.Common.Helpers.DotNetPackageBuildProcess.Create(System.Action(Of WeihanLi.Common.Helpers.DotNetBuildProcessOptions))
+  nameWithType: DotNetPackageBuildProcess.Create(Action<DotNetBuildProcessOptions>)
+  nameWithType.vb: DotNetPackageBuildProcess.Create(Action(Of DotNetBuildProcessOptions))
+- uid: WeihanLi.Common.Helpers.DotNetPackageBuildProcess.Create*
+  name: Create
+  href: api/WeihanLi.Common.Helpers.DotNetPackageBuildProcess.html#WeihanLi_Common_Helpers_DotNetPackageBuildProcess_Create_
+  commentId: Overload:WeihanLi.Common.Helpers.DotNetPackageBuildProcess.Create
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotNetPackageBuildProcess.Create
+  nameWithType: DotNetPackageBuildProcess.Create
+- uid: WeihanLi.Common.Helpers.DotNetPackageBuildProcess.ExecuteAsync(System.String[],System.Threading.CancellationToken)
+  name: ExecuteAsync(string[], CancellationToken)
+  href: api/WeihanLi.Common.Helpers.DotNetPackageBuildProcess.html#WeihanLi_Common_Helpers_DotNetPackageBuildProcess_ExecuteAsync_System_String___System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.DotNetPackageBuildProcess.ExecuteAsync(System.String[],System.Threading.CancellationToken)
+  name.vb: ExecuteAsync(String(), CancellationToken)
+  fullName: WeihanLi.Common.Helpers.DotNetPackageBuildProcess.ExecuteAsync(string[], System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.DotNetPackageBuildProcess.ExecuteAsync(String(), System.Threading.CancellationToken)
+  nameWithType: DotNetPackageBuildProcess.ExecuteAsync(string[], CancellationToken)
+  nameWithType.vb: DotNetPackageBuildProcess.ExecuteAsync(String(), CancellationToken)
+- uid: WeihanLi.Common.Helpers.DotNetPackageBuildProcess.ExecuteAsync*
+  name: ExecuteAsync
+  href: api/WeihanLi.Common.Helpers.DotNetPackageBuildProcess.html#WeihanLi_Common_Helpers_DotNetPackageBuildProcess_ExecuteAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.DotNetPackageBuildProcess.ExecuteAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotNetPackageBuildProcess.ExecuteAsync
+  nameWithType: DotNetPackageBuildProcess.ExecuteAsync
 - uid: WeihanLi.Common.Helpers.EnumHelper
   name: EnumHelper
   href: api/WeihanLi.Common.Helpers.EnumHelper.html

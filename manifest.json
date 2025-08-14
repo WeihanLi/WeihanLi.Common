@@ -2016,6 +2016,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.DotNetBuildProcessOptions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.DotNetPackageBuildProcess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.DotNetPackageBuildProcess.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.DotNetPackageBuildProcess",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Helpers.EnumHelper.yml",
       "output": {
         ".html": {
