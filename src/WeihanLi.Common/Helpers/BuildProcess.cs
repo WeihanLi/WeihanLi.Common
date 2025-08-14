@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
+using System.Diagnostics;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
@@ -204,5 +205,150 @@ public sealed class BuildTaskBuilder(string name)
     {
         var buildTask = new BuildTask(_name, _description, _execution) { Dependencies = _dependencies };
         return buildTask;
+    }
+}
+
+public sealed class DotNetBuildProcessOptions
+{
+    public string? SolutionPath { get; set; }
+    public string[]? SrcProjects { get; set; }
+    public string[]? TestProjects { get; set; }
+    public Func<string?> FallbackNuGetApiKeyFunc { get; set; } = () => EnvHelper.Val("NuGet__ApiKey");
+    public string ArtifactsPath { get; set; } = "./artifacts/dist";
+    public Func<string?> BranchFunc { get; set; } = () => EnvHelper.Val("BUILD_SOURCEBRANCHNAME", EnvHelper.Val("GITHUB_REF_NAME"));
+    public bool AllowLocalPush { get; set; }
+}
+
+public sealed class DotNetPackageBuildProcess
+{
+    private readonly BuildProcess _buildProcess;
+    private string? _apiKey, _branch;
+    private bool _stable, _noPush;
+    private DotNetPackageBuildProcess(DotNetBuildProcessOptions options)
+    {
+        _branch = options.BranchFunc();
+        _buildProcess = new BuildProcessBuilder()
+            .WithSetup(() =>
+            {
+                // cleanup artifacts
+                if (Directory.Exists(options.ArtifactsPath))
+                    Directory.Delete(options.ArtifactsPath, true);
+
+                // args
+                Console.WriteLine(@"Executing command line:");
+                Console.WriteLine($@"  {Environment.CommandLine}");
+            })
+            .WithTaskExecuting(task => Console.WriteLine($@"===== Task {task.Name} {task.Description} executing ======"))
+            .WithTaskExecuted(task => Console.WriteLine($@"===== Task {task.Name} {task.Description} executed ======"))
+            .WithTask("build", b =>
+            {
+                b.WithDescription("dotnet build").WithExecution(() => 
+                        CommandExecutor.ExecuteCommandAndOutput($"dotnet build {options.SolutionPath}")
+                        .EnsureSuccessExitCode()
+                        );
+            })
+            .WithTask("test", b =>
+            {
+                b.WithDescription("dotnet test")
+                    .WithDependency("build")
+                    .WithExecution(() =>
+                    {
+                        foreach (var project in options.TestProjects ?? [])
+                        {
+                            CommandExecutor.ExecuteCommandAndOutput(
+                                $"dotnet test --collect:\"XPlat Code Coverage;Format=cobertura,opencover;ExcludeByAttribute=ExcludeFromCodeCoverage,Obsolete,GeneratedCode,CompilerGeneratedAttribute\" {project}"
+                                ).EnsureSuccessExitCode();
+                        }
+                    })
+                    ;
+            })
+            .WithTask("pack", b => b.WithDescription("dotnet pack")
+                .WithDependency("test")
+                .WithExecution(() =>
+                {
+                    if (options.SrcProjects is not { Length: > 0})
+                        return;
+                    
+                    if (_stable)
+                    {
+                        foreach (var project in options.SrcProjects ?? [])
+                        {
+                            CommandExecutor.ExecuteCommandAndOutput(
+                                    $"dotnet pack {project} -o {options.ArtifactsPath}"
+                                    )
+                                .EnsureSuccessExitCode();
+                        }
+                    }
+                    else
+                    {
+                        var suffix = $"preview-{DateTime.UtcNow:yyyyMMdd-HHmmss}";
+                        foreach (var project in options.SrcProjects ?? [])
+                        {
+                            CommandExecutor.ExecuteCommandAndOutput(
+                                $"dotnet pack {project} -o {options.ArtifactsPath} --version-suffix {suffix}"
+                                ).EnsureSuccessExitCode();
+                        }
+                    }
+
+                    if (_noPush)
+                    {
+                        Console.WriteLine(@"Skip push there's noPush specified");
+                        return;
+                    }
+                    
+                    if (!_stable && _branch != "preview" && (!options.AllowLocalPush && _branch is "local"))
+                    {
+                        Console.WriteLine($@"Skip push since branch [{_branch}] not supported to push packages");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(_apiKey))
+                    {
+                        // try to get apiKey from environment variable
+                        _apiKey = options.FallbackNuGetApiKeyFunc();
+
+                        if (string.IsNullOrEmpty(_apiKey))
+                        {
+                            Console.WriteLine(@"Skip push since there's no apiKey found");
+                            return;
+                        }
+                    }
+
+
+                    // push nuget packages
+                    foreach (var file in Directory.GetFiles(options.ArtifactsPath, "*.nupkg"))
+                    {
+                        var commandText = $"dotnet nuget push {file} -k {_apiKey} --skip-duplicate";
+                        CommandExecutor.ExecuteCommandAndOutput(commandText).EnsureSuccessExitCode();
+                    }
+                }))
+            .WithTask("Default", b => b.WithDependency("pack"))
+            .Build();
+    }
+
+    public async Task ExecuteAsync(string[] args, CancellationToken cancellation = default)
+    {
+        _apiKey = CommandLineParser.Val(args, "apiKey");
+        _stable = CommandLineParser.BooleanVal(args, "stable");
+        _noPush = CommandLineParser.BooleanVal(args, "noPush");
+        if (string.IsNullOrEmpty(_branch))
+        {
+            _branch = CommandLineParser.Val(args, "branch", "local");
+        }
+        Debug.Assert(_branch is not null);
+        if (!_stable)
+        {
+            _stable = _branch is "main" or "master" || 
+                      _branch?.StartsWith("release/", StringComparison.OrdinalIgnoreCase) == true;
+        }
+        var target = CommandLineParser.Val(args, "target", "Default");
+        await _buildProcess.ExecuteAsync(target, cancellation);
+    }
+    
+    public static DotNetPackageBuildProcess Create(Action<DotNetBuildProcessOptions> configure)
+    {
+        var options = new DotNetBuildProcessOptions();
+        configure(options);
+        return new DotNetPackageBuildProcess(options);
     }
 }
