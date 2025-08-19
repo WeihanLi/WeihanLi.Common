@@ -238,7 +238,7 @@ public sealed class DotNetPackageBuildProcess
                 // args
                 Console.WriteLine(@"Executing command line:");
                 Console.WriteLine($@"  {Environment.CommandLine}");
-                Console.WriteLine($"Branch: {_branch}")
+                Console.WriteLine($"Branch: {_branch}, stable: {_stable}");
             })
             .WithTaskExecuting(task => Console.WriteLine($@"===== Task {task.Name} {task.Description} executing ======"))
             .WithTaskExecuted(task => Console.WriteLine($@"===== Task {task.Name} {task.Description} executed ======"))
