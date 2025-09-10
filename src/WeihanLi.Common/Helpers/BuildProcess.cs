@@ -224,6 +224,7 @@ public sealed class DotNetPackageBuildProcess
     private readonly BuildProcess _buildProcess;
     private string? _apiKey, _branch;
     private bool _stable, _noPush;
+
     private DotNetPackageBuildProcess(DotNetBuildProcessOptions options)
     {
         _branch = options.BranchFunc();
@@ -237,15 +238,17 @@ public sealed class DotNetPackageBuildProcess
                 // args
                 Console.WriteLine(@"Executing command line:");
                 Console.WriteLine($@"  {Environment.CommandLine}");
+                Console.WriteLine($@"Branch: {_branch}, stable: {_stable}");
             })
             .WithTaskExecuting(task => Console.WriteLine($@"===== Task {task.Name} {task.Description} executing ======"))
             .WithTaskExecuted(task => Console.WriteLine($@"===== Task {task.Name} {task.Description} executed ======"))
             .WithTask("build", b =>
             {
-                b.WithDescription("dotnet build").WithExecution(() => 
-                        CommandExecutor.ExecuteCommandAndOutput($"dotnet build {options.SolutionPath}")
-                        .EnsureSuccessExitCode()
-                        );
+                b.WithDescription("dotnet build")
+                  .WithExecution(() => 
+                    CommandExecutor.ExecuteCommandAndOutput($"dotnet build {options.SolutionPath}")
+                      .EnsureSuccessExitCode()
+                  );
             })
             .WithTask("test", b =>
             {
@@ -266,7 +269,7 @@ public sealed class DotNetPackageBuildProcess
                 .WithDependency("test")
                 .WithExecution(() =>
                 {
-                    if (options.SrcProjects is not { Length: > 0})
+                    if (options.SrcProjects is not { Length: > 0 })
                         return;
                     
                     if (_stable)
@@ -275,8 +278,7 @@ public sealed class DotNetPackageBuildProcess
                         {
                             CommandExecutor.ExecuteCommandAndOutput(
                                     $"dotnet pack {project} -o {options.ArtifactsPath}"
-                                    )
-                                .EnsureSuccessExitCode();
+                                ).EnsureSuccessExitCode();
                         }
                     }
                     else
@@ -295,11 +297,23 @@ public sealed class DotNetPackageBuildProcess
                         Console.WriteLine(@"Skip push there's noPush specified");
                         return;
                     }
-                    
-                    if (!_stable && _branch != "preview" && (!options.AllowLocalPush && _branch is "local"))
+
+                    if (_branch == "local")
                     {
-                        Console.WriteLine($@"Skip push since branch [{_branch}] not supported to push packages");
-                        return;
+                        if (!options.AllowLocalPush)
+                        {
+                            Console.WriteLine(@"Skip push since local branch is not allowed to push packages");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        // check preview branch
+                        if (!_stable && _branch is not "preview")
+                        {
+                            Console.WriteLine($@"Skip push since branch [{_branch}] not supported to push packages");
+                            return;
+                        }
                     }
 
                     if (string.IsNullOrEmpty(_apiKey))
@@ -340,6 +354,11 @@ public sealed class DotNetPackageBuildProcess
         {
             _stable = _branch is "main" or "master" || 
                       _branch?.StartsWith("release/", StringComparison.OrdinalIgnoreCase) == true;
+        }
+        else
+        {
+            // only specify `stable` locally
+            _stable = _branch == "local";
         }
         var target = CommandLineParser.Val(args, "target", "Default");
         await _buildProcess.ExecuteAsync(target, cancellation);
