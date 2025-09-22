@@ -539,6 +539,7 @@ public static partial class DataExtension
                || @this.Contains("?" + originName);
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to access object properties and fields which may be trimmed.")]
     public static void AttachDbParameters(this DbCommand command, object? paramInfo)
     {
         if (paramInfo != null)

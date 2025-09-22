@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.Common;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WeihanLi.Extensions;
 
@@ -8,6 +9,7 @@ namespace WeihanLi.Extensions;
 public static partial class DataExtension
 {
           
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static IEnumerable<dynamic> Select(this DbCommand command) 
     {
         using (var reader = command.ExecuteReader())
@@ -16,6 +18,7 @@ public static partial class DataExtension
         }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static async Task<IEnumerable<dynamic>> SelectAsync(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
@@ -29,6 +32,7 @@ public static partial class DataExtension
         }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static IEnumerable<T> Select<T>(this DbCommand command) 
     {
         using (var reader = command.ExecuteReader())
@@ -42,6 +46,7 @@ public static partial class DataExtension
         }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static async Task<IEnumerable<T>> SelectAsync<T>(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken))
@@ -56,6 +61,7 @@ public static partial class DataExtension
     }
 
       
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static dynamic Fetch(this DbCommand command)
     {
         using (var reader = command.ExecuteReader())
@@ -64,6 +70,7 @@ public static partial class DataExtension
         }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static async Task<dynamic> FetchAsync(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
@@ -73,6 +80,7 @@ public static partial class DataExtension
         }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static T? Fetch<T>(this DbCommand command)
     {
         using (var reader = command.ExecuteReader())
@@ -81,6 +89,7 @@ public static partial class DataExtension
         }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static async Task<T?> FetchAsync<T>(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
@@ -90,6 +99,7 @@ public static partial class DataExtension
     }
 
       
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static DataTable ExecuteDataTable(this DbCommand command)
     {
         using (var reader = command.ExecuteReader())
@@ -98,6 +108,7 @@ public static partial class DataExtension
         }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static async Task<DataTable> ExecuteDataTableAsync(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))

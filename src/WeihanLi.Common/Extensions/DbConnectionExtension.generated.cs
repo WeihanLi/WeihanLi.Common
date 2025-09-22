@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.Common;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WeihanLi.Extensions;
 #nullable enable
@@ -369,14 +370,19 @@ conn.Close();
 }
     }
 
-      public static T ExecuteScalarTo<T>(this DbConnection conn, string cmdText) => conn.ExecuteScalarTo<T>(cmdText,null, null);
+      [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
+    public static T ExecuteScalarTo<T>(this DbConnection conn, string cmdText) => conn.ExecuteScalarTo<T>(cmdText,null, null);
         
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static T ExecuteScalarTo<T>(this DbConnection conn, string cmdText, object? paramInfo) => conn.ExecuteScalarTo<T>(cmdText, CommandType.Text, paramInfo,null, null);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static T ExecuteScalarTo<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo) => conn.ExecuteScalarTo<T>(cmdText, commandType, paramInfo, null, null);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static T ExecuteScalarTo<T>(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.ExecuteScalarTo<T>(cmdText, CommandType.Text, paramInfo , parameters, null);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static T ExecuteScalarTo<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout=60)
     {
         conn.EnsureOpen();
@@ -392,16 +398,22 @@ conn.Close();
 }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<T> ExecuteScalarToAsync<T>(this DbConnection conn, string cmdText, CancellationToken cancellationToken = default) => conn.ExecuteScalarToAsync<T>(cmdText, null, cancellationToken: cancellationToken);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<T> ExecuteScalarToAsync<T>(this DbConnection conn, string cmdText, object? paramInfo, CancellationToken cancellationToken = default) => conn.ExecuteScalarToAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, cancellationToken: cancellationToken);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<T> ExecuteScalarToAsync<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, CancellationToken cancellationToken = default) => conn.ExecuteScalarToAsync<T>(cmdText, commandType, paramInfo, null, null, cancellationToken: cancellationToken);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<T> ExecuteScalarToAsync<T>(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.ExecuteScalarToAsync<T>(cmdText, CommandType.Text, paramInfo, parameters, null);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<T> ExecuteScalarToAsync<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, CancellationToken cancellationToken = default)=> conn.ExecuteScalarToAsync<T>(cmdText, commandType, paramInfo, parameters, null, cancellationToken: cancellationToken);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static async Task<T> ExecuteScalarToAsync<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout=60, CancellationToken cancellationToken = default)
     {
         await conn.EnsureOpenAsync().ConfigureAwait(false);
@@ -415,14 +427,19 @@ finally{
 conn.Close();
 }
     }
-      public static T? ExecuteScalarToOrDefault<T>(this DbConnection conn, string cmdText) => conn.ExecuteScalarToOrDefault<T>(cmdText,null, null);
+      [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
+    public static T? ExecuteScalarToOrDefault<T>(this DbConnection conn, string cmdText) => conn.ExecuteScalarToOrDefault<T>(cmdText,null, null);
         
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static T? ExecuteScalarToOrDefault<T>(this DbConnection conn, string cmdText, object? paramInfo) => conn.ExecuteScalarToOrDefault<T>(cmdText, CommandType.Text, paramInfo,null, null);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static T? ExecuteScalarToOrDefault<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo) => conn.ExecuteScalarToOrDefault<T>(cmdText, commandType, paramInfo, null, null);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static T? ExecuteScalarToOrDefault<T>(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.ExecuteScalarToOrDefault<T>(cmdText, CommandType.Text, paramInfo , parameters, null);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static T? ExecuteScalarToOrDefault<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout=60)
     {
         conn.EnsureOpen();

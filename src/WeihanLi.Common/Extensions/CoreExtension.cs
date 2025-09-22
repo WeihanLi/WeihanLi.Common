@@ -1278,6 +1278,7 @@ public static class CoreExtension
     /// <summary>
     /// Get param dictionary
     /// </summary>
+    [RequiresUnreferencedCode("This method uses reflection to access object properties and fields which may be trimmed.")]
     public static IDictionary<string, object?> ParseParamDictionary(this object? paramInfo)
     {
         var paramDic = new Dictionary<string, object?>();
@@ -1885,7 +1886,8 @@ public static class CoreExtension
     /// </summary>
     /// <param name="type">type</param>
     /// <returns>default value</returns>
-    public static object? GetDefaultValue(this Type type)
+    [RequiresUnreferencedCode("This method may create instances using Activator.CreateInstance which can break when trimmed.")]
+    public static object? GetDefaultValue([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] this Type type)
     {
         Guard.NotNull(type, nameof(type));
         return type.IsValueType && type != typeof(void)

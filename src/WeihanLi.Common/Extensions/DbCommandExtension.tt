@@ -6,6 +6,7 @@
 <#@ output extension=".generated.cs" #>
 using System.Data;
 using System.Data.Common;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WeihanLi.Extensions;
 
@@ -20,6 +21,7 @@ var commandNames = new string[]{
 foreach(var cmd in commandNames)
 { 
 #>      
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static IEnumerable<dynamic> <#=            cmd #>(this DbCommand command) 
     {
         using (var reader = command.ExecuteReader())
@@ -28,6 +30,7 @@ foreach(var cmd in commandNames)
         }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static async Task<IEnumerable<dynamic>> <#=            cmd #>Async(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
@@ -41,6 +44,7 @@ foreach(var cmd in commandNames)
         }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static IEnumerable<T> <#=            cmd #><T>(this DbCommand command) 
     {
         using (var reader = command.ExecuteReader())
@@ -54,6 +58,7 @@ foreach(var cmd in commandNames)
         }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static async Task<IEnumerable<T>> <#=            cmd #>Async<T>(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken))
@@ -75,6 +80,7 @@ var commandNames1 = new string[]{
 foreach(var cmd in commandNames1)
 { 
 #>      
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static dynamic <#=            cmd #>(this DbCommand command)
     {
         using (var reader = command.ExecuteReader())
@@ -83,6 +89,7 @@ foreach(var cmd in commandNames1)
         }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static async Task<dynamic> <#=            cmd #>Async(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
@@ -92,6 +99,7 @@ foreach(var cmd in commandNames1)
         }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static T? <#=            cmd #><T>(this DbCommand command)
     {
         using (var reader = command.ExecuteReader())
@@ -100,6 +108,7 @@ foreach(var cmd in commandNames1)
         }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static async Task<T?> <#=            cmd #>Async<T>(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
@@ -116,6 +125,7 @@ var commandNames2 = new string[]{
 foreach(var cmd in commandNames2)
 { 
 #>      
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static DataTable <#=            cmd #>(this DbCommand command)
     {
         using (var reader = command.ExecuteReader())
@@ -124,6 +134,7 @@ foreach(var cmd in commandNames2)
         }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection to convert data which may be trimmed.")]
     public static async Task<DataTable> <#=            cmd #>Async(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))

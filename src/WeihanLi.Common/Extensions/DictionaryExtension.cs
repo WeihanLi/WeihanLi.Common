@@ -393,6 +393,7 @@ public static class DictionaryExtension
     /// </summary>
     /// <param name="dictionary">IDictionary</param>
     /// <returns></returns>
+    [RequiresUnreferencedCode("This method creates DataColumns with types that may be trimmed.")]
     public static DataTable ToDataTable(this IDictionary<string, object> dictionary)
     {
         Guard.NotNull(dictionary);
