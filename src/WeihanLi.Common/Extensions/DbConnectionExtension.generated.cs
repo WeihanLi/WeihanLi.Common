@@ -455,16 +455,22 @@ conn.Close();
 }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<T?> ExecuteScalarToOrDefaultAsync<T>(this DbConnection conn, string cmdText, CancellationToken cancellationToken = default) => conn.ExecuteScalarToOrDefaultAsync<T>(cmdText, null, cancellationToken: cancellationToken);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<T?> ExecuteScalarToOrDefaultAsync<T>(this DbConnection conn, string cmdText, object? paramInfo, CancellationToken cancellationToken = default) => conn.ExecuteScalarToOrDefaultAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, cancellationToken: cancellationToken);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<T?> ExecuteScalarToOrDefaultAsync<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, CancellationToken cancellationToken = default) => conn.ExecuteScalarToOrDefaultAsync<T>(cmdText, commandType, paramInfo, null, null, cancellationToken: cancellationToken);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<T?> ExecuteScalarToOrDefaultAsync<T>(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.ExecuteScalarToOrDefaultAsync<T>(cmdText, CommandType.Text, paramInfo, parameters, null);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<T?> ExecuteScalarToOrDefaultAsync<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, CancellationToken cancellationToken = default)=> conn.ExecuteScalarToOrDefaultAsync<T>(cmdText, commandType, paramInfo, parameters, null, cancellationToken: cancellationToken);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static async Task<T?> ExecuteScalarToOrDefaultAsync<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout=60, CancellationToken cancellationToken = default)
     {
         await conn.EnsureOpenAsync().ConfigureAwait(false);
@@ -479,16 +485,22 @@ conn.Close();
 }
     }
 
-      public static IEnumerable<T> QueryColumn<T>(this DbConnection conn, string cmdText, int columnIndex = 0) => conn.QueryColumn<T>(cmdText, null, columnIndex);
+      [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
+    public static IEnumerable<T> QueryColumn<T>(this DbConnection conn, string cmdText, int columnIndex = 0) => conn.QueryColumn<T>(cmdText, null, columnIndex);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static IEnumerable<T> QueryColumn<T>(this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0) => conn.QueryColumn<T>(cmdText, CommandType.Text, paramInfo, null, null, columnIndex);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static IEnumerable<T> QueryColumn<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int columnIndex = 0) => conn.QueryColumn<T>(cmdText, commandType, paramInfo, null, null, columnIndex);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static IEnumerable<T> QueryColumn<T>(this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0, params DbParameter[]? parameters) => conn.QueryColumn<T>(cmdText, CommandType.Text, paramInfo, parameters, null, columnIndex);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static IEnumerable<T> QueryColumn<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int columnIndex = 0) => conn.QueryColumn<T>(cmdText, commandType, paramInfo, parameters, null, columnIndex);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static IEnumerable<T> QueryColumn<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, DbTransaction? transaction, int columnIndex = 0, int commandTimeout = 60)
     {
 try
@@ -512,17 +524,23 @@ conn.Close();
 }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<IEnumerable<T>> QueryColumnAsync<T>(this DbConnection conn, string cmdText, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.QueryColumnAsync<T>(cmdText, null, columnIndex);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<IEnumerable<T>> QueryColumnAsync<T>(this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.QueryColumnAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, columnIndex);
 
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<IEnumerable<T>> QueryColumnAsync<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.QueryColumnAsync<T>(cmdText, commandType, paramInfo, null, null, columnIndex, cancellationToken: cancellationToken);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<IEnumerable<T>> QueryColumnAsync<T>(this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0, params DbParameter[]? parameters)=> conn.QueryColumnAsync<T>(cmdText, CommandType.Text, paramInfo, parameters, null, columnIndex);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<IEnumerable<T>> QueryColumnAsync<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int columnIndex = 0, CancellationToken cancellationToken = default) => conn.QueryColumnAsync<T>(cmdText, commandType, paramInfo, parameters, null, columnIndex, cancellationToken: cancellationToken);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static async Task<IEnumerable<T>> QueryColumnAsync<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, DbTransaction? transaction, int columnIndex = 0, int commandTimeout=60, CancellationToken cancellationToken = default)
     {
         await conn.EnsureOpenAsync().ConfigureAwait(false);
@@ -546,16 +564,22 @@ finally{
 conn.Close();
 }
     }
-      public static IEnumerable<T> SelectColumn<T>(this DbConnection conn, string cmdText, int columnIndex = 0) => conn.SelectColumn<T>(cmdText, null, columnIndex);
+      [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
+    public static IEnumerable<T> SelectColumn<T>(this DbConnection conn, string cmdText, int columnIndex = 0) => conn.SelectColumn<T>(cmdText, null, columnIndex);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static IEnumerable<T> SelectColumn<T>(this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0) => conn.SelectColumn<T>(cmdText, CommandType.Text, paramInfo, null, null, columnIndex);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static IEnumerable<T> SelectColumn<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int columnIndex = 0) => conn.SelectColumn<T>(cmdText, commandType, paramInfo, null, null, columnIndex);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static IEnumerable<T> SelectColumn<T>(this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0, params DbParameter[]? parameters) => conn.SelectColumn<T>(cmdText, CommandType.Text, paramInfo, parameters, null, columnIndex);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static IEnumerable<T> SelectColumn<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int columnIndex = 0) => conn.SelectColumn<T>(cmdText, commandType, paramInfo, parameters, null, columnIndex);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static IEnumerable<T> SelectColumn<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, DbTransaction? transaction, int columnIndex = 0, int commandTimeout = 60)
     {
 try
@@ -579,17 +603,23 @@ conn.Close();
 }
     }
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<IEnumerable<T>> SelectColumnAsync<T>(this DbConnection conn, string cmdText, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.SelectColumnAsync<T>(cmdText, null, columnIndex);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<IEnumerable<T>> SelectColumnAsync<T>(this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.SelectColumnAsync<T>(cmdText, CommandType.Text, paramInfo, null, null, columnIndex);
 
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<IEnumerable<T>> SelectColumnAsync<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int columnIndex = 0, CancellationToken cancellationToken = default)=> conn.SelectColumnAsync<T>(cmdText, commandType, paramInfo, null, null, columnIndex, cancellationToken: cancellationToken);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<IEnumerable<T>> SelectColumnAsync<T>(this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0, params DbParameter[]? parameters)=> conn.SelectColumnAsync<T>(cmdText, CommandType.Text, paramInfo, parameters, null, columnIndex);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static Task<IEnumerable<T>> SelectColumnAsync<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int columnIndex = 0, CancellationToken cancellationToken = default) => conn.SelectColumnAsync<T>(cmdText, commandType, paramInfo, parameters, null, columnIndex, cancellationToken: cancellationToken);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public static async Task<IEnumerable<T>> SelectColumnAsync<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, DbTransaction? transaction, int columnIndex = 0, int commandTimeout=60, CancellationToken cancellationToken = default)
     {
         await conn.EnsureOpenAsync().ConfigureAwait(false);
