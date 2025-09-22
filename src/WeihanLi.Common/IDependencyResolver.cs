@@ -12,6 +12,8 @@ public interface IDependencyResolver : IServiceProvider
     /// GetServices
     /// </summary>
     /// <returns></returns>
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     IEnumerable<object> GetServices(Type serviceType);
 
     /// <summary>

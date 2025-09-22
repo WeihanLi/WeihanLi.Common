@@ -2,7 +2,7 @@
 
 namespace WeihanLi.Common.Helpers;
 
-public static class NewFuncHelper<T>
+public static class NewFuncHelper<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] T>
 {
     /// <summary>
     /// CreateNewInstance func

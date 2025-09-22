@@ -8,6 +8,7 @@ namespace WeihanLi.Common.Services;
 
 public interface IValidator
 {
+    [RequiresUnreferencedCode("Unreferenced code may be used.")]
     ValidationResult Validate(object? value);
 }
 

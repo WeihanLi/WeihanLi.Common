@@ -8,6 +8,7 @@ public sealed class FluentConfigInterceptorResolver : IInterceptorResolver
     {
     }
 
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public IReadOnlyList<IInterceptor> ResolveInterceptors(IInvocation invocation)
     {
         foreach (var func in FluentAspects.AspectOptions.NoInterceptionConfigurations)

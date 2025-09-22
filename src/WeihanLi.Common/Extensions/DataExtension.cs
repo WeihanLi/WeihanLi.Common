@@ -40,6 +40,7 @@ public static partial class DataExtension
 
     #region DataTable
 
+    [RequiresUnreferencedCode("This method creates DataColumns with types that may be trimmed.")]
     public static DataTable ToDataTable<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] T>(this IEnumerable<T> entities)
     {
         Guard.NotNull(entities);

@@ -5,6 +5,7 @@ namespace WeihanLi.Common.Event;
 
 public interface IEventHandlerFactory
 {
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     ICollection<IEventHandler> GetHandlers(Type eventType);
 }
 

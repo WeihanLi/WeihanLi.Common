@@ -14,6 +14,8 @@ public interface IEventSubscriptionManager : IEventSubscriber
     /// </summary>
     /// <param name="eventType">event</param>
     /// <returns>event handlers types</returns>
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
+    [RequiresDynamicCode("Requires dynamic code")]
     ICollection<IEventHandler> GetEventHandlers(Type eventType);
 }
 
