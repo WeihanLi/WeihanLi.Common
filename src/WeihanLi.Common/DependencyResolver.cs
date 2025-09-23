@@ -44,6 +44,7 @@ public static class DependencyResolver
             SetDependencyResolver(serviceProvider.GetService);
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
     public static void SetDependencyResolver(Func<Type, object?> getServiceFunc) => SetDependencyResolver(getServiceFunc, serviceType => (IEnumerable<object>)Guard.NotNull(getServiceFunc(typeof(IEnumerable<>).MakeGenericType(serviceType))));
 
     public static void SetDependencyResolver(Func<Type, object?> getServiceFunc, Func<Type, IEnumerable<object>> getServicesFunc) => SetDependencyResolver(new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc));
@@ -89,7 +90,7 @@ public static class DependencyResolver
 
     private sealed class DefaultDependencyResolver : IDependencyResolver
     {
-        public object? GetService(Type serviceType)
+        public object? GetService([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] Type serviceType)
         {
             // Since attempting to create an instance of an interface or an abstract type results in an exception, immediately return null
             // to improve performance and the debugging experience with first-chance exceptions enabled.
@@ -173,6 +174,7 @@ public static class DependencyResolver
             return serviceContainer.GetService(serviceType);
         }
 
+        [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
         public IEnumerable<object> GetServices(Type serviceType)
         {
             return (IEnumerable<object>)Guard.NotNull(serviceContainer.GetService(typeof(IEnumerable<>).MakeGenericType(serviceType)));

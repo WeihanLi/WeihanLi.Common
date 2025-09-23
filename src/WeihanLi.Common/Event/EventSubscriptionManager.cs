@@ -59,6 +59,8 @@ public sealed class InMemoryEventSubscriptionManager(IServiceProvider? servicePr
         return Task.FromResult(UnSubscribe(eventType, eventHandlerType));
     }
 
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
+    [RequiresDynamicCode("Requires dynamic code")]
     public ICollection<IEventHandler> GetEventHandlers(Type eventType)
     {
         return _eventHandlers[eventType];
