@@ -85,6 +85,7 @@ public static class EventBusExtensions
         return builder;
     }
 
+    [RequiresDynamicCode("Requires dynamic code")]
     public static ICollection<IEventHandler<TEvent>> GetEventHandlers<TEvent>(this IEventSubscriptionManager eventSubscriptionManager)
     {
         return eventSubscriptionManager.GetEventHandlers(typeof(TEvent))

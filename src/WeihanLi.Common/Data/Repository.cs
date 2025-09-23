@@ -52,6 +52,7 @@ public class Repository<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTyp
 
     protected readonly Lazy<DbConnection> _dbConnection = new(dbConnectionFunc, true);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public virtual int Count(Expression<Func<TEntity, bool>> whereExpression)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -63,6 +64,7 @@ SELECT COUNT(1) FROM {_tableName}
         return _dbConnection.Value.ExecuteScalarTo<int>(sql, whereSql.Parameters);
     }
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public virtual Task<int> CountAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -74,6 +76,7 @@ SELECT COUNT(1) FROM {_tableName}
         return _dbConnection.Value.ExecuteScalarToAsync<int>(sql, whereSql.Parameters, cancellationToken: cancellationToken);
     }
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public virtual long LongCount(Expression<Func<TEntity, bool>> whereExpression)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -85,6 +88,7 @@ SELECT COUNT(1) FROM {_tableName}
         return _dbConnection.Value.ExecuteScalarTo<long>(sql, whereSql.Parameters);
     }
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public virtual Task<long> LongCountAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -96,6 +100,7 @@ SELECT COUNT(1) FROM {_tableName}
         return _dbConnection.Value.ExecuteScalarToAsync<long>(sql, whereSql.Parameters, cancellationToken: cancellationToken);
     }
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public virtual bool Exist(Expression<Func<TEntity, bool>> whereExpression)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -103,6 +108,7 @@ SELECT COUNT(1) FROM {_tableName}
         return _dbConnection.Value.ExecuteScalarTo<bool>(sql, whereSql.Parameters);
     }
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public virtual Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -194,6 +200,7 @@ ORDER BY {GetColumnName(orderByExpression.GetMemberName())} {(ascending ? "" : "
         return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters, cancellationToken: cancellationToken).ContinueWith(_ => _.Result.ToList(), cancellationToken);
     }
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public virtual IPagedListResult<TEntity> Paged<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -228,6 +235,7 @@ FETCH NEXT {pageSize} ROWS ONLY
         return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToPagedList(pageNumber, pageSize, total);
     }
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public virtual async Task<IPagedListResult<TEntity>> PagedAsync<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -822,10 +830,12 @@ WHERE {keyEntries.Select(x => $"{x.Value.ColumnName} = @{x.Key}").StringJoin(" A
     public virtual Task<int> ExecuteAsync(string sqlStr, object? param = null, CancellationToken cancellationToken = default)
     => _dbConnection.Value.ExecuteAsync(sqlStr, paramInfo: param, cancellationToken: cancellationToken);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public virtual TResult ExecuteScalar<TResult>(string sqlStr, object? param = null)
 
     => _dbConnection.Value.ExecuteScalarTo<TResult>(sqlStr, paramInfo: param);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     public virtual Task<TResult> ExecuteScalarAsync<TResult>(string sqlStr, object? param = null, CancellationToken cancellationToken = default)
 
     => _dbConnection.Value.ExecuteScalarToAsync<TResult>(sqlStr, paramInfo: param, cancellationToken: cancellationToken);

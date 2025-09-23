@@ -249,6 +249,7 @@ public static class StringExtension
     /// <param name="separators">separators</param>
     /// <param name="splitOptions">splitOptions</param>
     /// <returns></returns>
+    [RequiresUnreferencedCode("This method uses reflection for type conversion which may be trimmed.")]
     public static T[] SplitArray<T>(this string? str, char[] separators, StringSplitOptions splitOptions = StringSplitOptions.None)
     {
         if (string.IsNullOrWhiteSpace(str))
