@@ -8,22 +8,28 @@ public interface IReadOnlyRepository<TEntity>
     /// <summary>
     /// Count
     /// </summary>
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     int Count(Expression<Func<TEntity, bool>> whereExpression);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     Task<int> CountAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// LongCount
     /// </summary>
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     long LongCount(Expression<Func<TEntity, bool>> whereExpression);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     Task<long> LongCountAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Exist
     /// </summary>
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     bool Exist(Expression<Func<TEntity, bool>> whereExpression);
 
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -83,6 +89,7 @@ public interface IReadOnlyRepository<TEntity>
     /// <param name="orderByExpression">orderByExpression</param>
     /// <param name="ascending">is ascending</param>
     /// <returns></returns>
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     IPagedListResult<TEntity> Paged<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false);
 
     /// <summary>
@@ -96,6 +103,7 @@ public interface IReadOnlyRepository<TEntity>
     /// <param name="ascending">is ascending</param>
     /// <param name="cancellationToken">cancellationToken</param>
     /// <returns></returns>
+    [RequiresUnreferencedCode("This method uses reflection which may be trimmed.")]
     Task<IPagedListResult<TEntity>> PagedAsync<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default);
 }
 

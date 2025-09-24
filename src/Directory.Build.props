@@ -24,7 +24,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <LangVersion>preview</LangVersion>
-    <NoWarn>$(NoWarn);CS9216;IL2026;IL3050;</NoWarn>
+    <NoWarn>$(NoWarn);CS9216;</NoWarn>
     <NuGetAuditMode>direct</NuGetAuditMode>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>

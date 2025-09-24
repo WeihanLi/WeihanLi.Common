@@ -53,6 +53,7 @@ public sealed class DelegateValidator(Func<object?, ValidationResult> validateFu
 {
     private readonly Func<object?, ValidationResult> _validateFunc = Guard.NotNull(validateFunc);
 
+    [RequiresUnreferencedCode("Unreferenced code may be used.")]
     public ValidationResult Validate(object? value)
     {
         return _validateFunc.Invoke(value);

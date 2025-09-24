@@ -108,6 +108,8 @@ public static class DependencyResolver
             }
         }
 
+        [RequiresUnreferencedCode("Unreferenced code may be used")]
+        [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
         public IEnumerable<object> GetServices(Type serviceType) => Enumerable.Empty<object>();
 
         public bool TryInvokeService<TService>(Action<TService>? action)
@@ -141,6 +143,8 @@ public static class DependencyResolver
         public object? GetService(Type serviceType)
         => _getService(serviceType);
 
+        [RequiresUnreferencedCode("Unreferenced code may be used")]
+        [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
         public IEnumerable<object> GetServices(Type serviceType)
             => _getServices(serviceType);
 
@@ -174,6 +178,7 @@ public static class DependencyResolver
             return serviceContainer.GetService(serviceType);
         }
 
+        [RequiresUnreferencedCode("Unreferenced code may be used")]
         [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
         public IEnumerable<object> GetServices(Type serviceType)
         {
