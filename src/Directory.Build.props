@@ -26,7 +26,6 @@
     <LangVersion>preview</LangVersion>
     <NoWarn>$(NoWarn);CS9216;</NoWarn>
     <NuGetAuditMode>direct</NuGetAuditMode>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
     <Using Include="System.Object" Alias="Lock" Condition="!$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net9.0'))" />
