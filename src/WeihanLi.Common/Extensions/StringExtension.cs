@@ -249,6 +249,7 @@ public static class StringExtension
     /// <param name="separators">separators</param>
     /// <param name="splitOptions">splitOptions</param>
     /// <returns></returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T[] SplitArray<T>(this string? str, char[] separators, StringSplitOptions splitOptions = StringSplitOptions.None)
     {
         if (string.IsNullOrWhiteSpace(str))

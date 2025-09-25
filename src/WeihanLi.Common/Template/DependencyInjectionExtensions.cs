@@ -62,7 +62,7 @@ public static class DependencyInjectionExtensions
         return serviceBuilder;
     }
 
-    public static ITemplateEngineServiceBuilder AddRenderMiddleware<TMiddleware>(
+    public static ITemplateEngineServiceBuilder AddRenderMiddleware<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TMiddleware>(
         this ITemplateEngineServiceBuilder serviceBuilder,
         Func<IServiceProvider, TMiddleware>? middlewareFactory = null
         ) where TMiddleware : class, IRenderMiddleware

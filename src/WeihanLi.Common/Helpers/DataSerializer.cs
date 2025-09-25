@@ -22,6 +22,7 @@ public interface IDataSerializer
     /// <typeparam name="T">Type</typeparam>
     /// <param name="bytes">bytes</param>
     /// <returns>obj</returns>
+    [RequiresDynamicCode("XML serializer relies on dynamic code generation which is not available with Ahead of Time compilation.")]
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     T Deserialize<T>(byte[] bytes);
 }
@@ -73,6 +74,7 @@ public class JsonDataSerializer : IDataSerializer
         return obj.ToJson().GetBytes();
     }
 
+    [RequiresDynamicCode("XML serializer relies on dynamic code generation which is not available with Ahead of Time compilation.")]
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public virtual T Deserialize<T>(byte[] bytes)
     {
@@ -97,6 +99,7 @@ public sealed class CompressDataSerializer(IDataSerializer serializer, IDataComp
         return _compressor.Compress(_serializer.Serialize(obj));
     }
 
+    [RequiresDynamicCode("XML serializer relies on dynamic code generation which is not available with Ahead of Time compilation.")]
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public T Deserialize<T>(byte[] bytes)
     {

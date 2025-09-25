@@ -13,6 +13,7 @@ public interface IEventHandlerFactory
 
 public static class EventHandlerFactoryExtensions
 {
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static ICollection<IEventHandler<TEvent>> GetHandlers<TEvent>(this IEventHandlerFactory eventHandlerFactory)
     {
         return eventHandlerFactory.GetHandlers(typeof(TEvent))

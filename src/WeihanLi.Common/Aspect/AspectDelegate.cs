@@ -5,18 +5,21 @@ namespace WeihanLi.Common.Aspect;
 
 public static class AspectDelegate
 {
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
     [RequiresUnreferencedCode("Unreferenced code may be used.")]
     public static void Invoke(IInvocation context)
     {
         InvokeInternal(context, null, null);
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
     [RequiresUnreferencedCode("Unreferenced code may be used.")]
     public static void InvokeWithInterceptors(IInvocation invocation, IReadOnlyList<IInterceptor>? interceptors)
     {
         InvokeInternal(invocation, interceptors, null);
     }
 
+    [RequiresDynamicCode("Defining a dynamic assembly requires dynamic code.")]
     [RequiresUnreferencedCode("Unreferenced code may be used.")]
     public static void InvokeWithCompleteFunc(IInvocation invocation, Func<IInvocation, Task>? completeFunc)
     {

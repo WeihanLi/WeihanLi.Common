@@ -44,6 +44,7 @@ public static class DependencyResolver
             SetDependencyResolver(serviceProvider.GetService);
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
     public static void SetDependencyResolver(Func<Type, object?> getServiceFunc) => SetDependencyResolver(getServiceFunc, serviceType => (IEnumerable<object>)Guard.NotNull(getServiceFunc(typeof(IEnumerable<>).MakeGenericType(serviceType))));
 
     public static void SetDependencyResolver(Func<Type, object?> getServiceFunc, Func<Type, IEnumerable<object>> getServicesFunc) => SetDependencyResolver(new DelegateBasedDependencyResolver(getServiceFunc, getServicesFunc));
@@ -89,9 +90,7 @@ public static class DependencyResolver
 
     private sealed class DefaultDependencyResolver : IDependencyResolver
     {
-        [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
-        [RequiresUnreferencedCode("Unreferenced code may be used")]
-        public object? GetService([DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes.PublicParameterlessConstructor))] Type serviceType)
+        public object? GetService(Type serviceType)
         {
             // Since attempting to create an instance of an interface or an abstract type results in an exception, immediately return null
             // to improve performance and the debugging experience with first-chance exceptions enabled.
@@ -109,6 +108,8 @@ public static class DependencyResolver
             }
         }
 
+        [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+        [RequiresUnreferencedCode("Unreferenced code may be used")]
         public IEnumerable<object> GetServices(Type serviceType) => Enumerable.Empty<object>();
 
         public bool TryInvokeService<TService>(Action<TService>? action)
@@ -142,6 +143,8 @@ public static class DependencyResolver
         public object? GetService(Type serviceType)
         => _getService(serviceType);
 
+        [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+        [RequiresUnreferencedCode("Unreferenced code may be used")]
         public IEnumerable<object> GetServices(Type serviceType)
             => _getServices(serviceType);
 
@@ -175,6 +178,8 @@ public static class DependencyResolver
             return serviceContainer.GetService(serviceType);
         }
 
+        [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+        [RequiresUnreferencedCode("Unreferenced code may be used")]
         public IEnumerable<object> GetServices(Type serviceType)
         {
             return (IEnumerable<object>)Guard.NotNull(serviceContainer.GetService(typeof(IEnumerable<>).MakeGenericType(serviceType)));
