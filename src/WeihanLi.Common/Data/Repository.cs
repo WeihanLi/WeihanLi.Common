@@ -262,6 +262,8 @@ FETCH NEXT {pageSize} ROWS ONLY
         return (await _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters, cancellationToken: cancellationToken)).ToPagedList(pageNumber, pageSize, total);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual int Insert(TEntity entity)
     {
         var paramDictionary = new Dictionary<string, object?>();
@@ -302,6 +304,8 @@ FETCH NEXT {pageSize} ROWS ONLY
         return _dbConnection.Value.ExecuteAsync(sqlBuilder.ToString(), paramDictionary, cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual int Insert(IEnumerable<TEntity> entities)
     {
         var count = entities.Count();
@@ -375,6 +379,8 @@ FETCH NEXT {pageSize} ROWS ONLY
         return _dbConnection.Value.ExecuteAsync(sqlBuilder.ToString(), paramDictionary, cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual int Update<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object? value)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -401,6 +407,8 @@ SET {GetColumnName(propertyName)} = @set_{propertyName}
         return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters, cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object?> propertyValues)
     {
         if (propertyValues.IsNullOrEmpty())
@@ -420,6 +428,8 @@ SET {propertyValues.Keys.Select(p => $"{GetColumnName(p)}=@set_{p}").StringJoin(
         return _dbConnection.Value.Execute(sql, whereSql.Parameters);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual int Update(TEntity entity, params Expression<Func<TEntity, object?>>[] propertyExpressions)
     {
         if (propertyExpressions.IsNullOrEmpty())
@@ -457,6 +467,8 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
         return _dbConnection.Value.Execute(sql, parameters);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual int UpdateWithout(TEntity entity, params Expression<Func<TEntity, object?>>[] propertyExpressions)
     {
         Guard.NotNull(propertyExpressions, nameof(propertyExpressions));
@@ -497,6 +509,8 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
         return _dbConnection.Value.Execute(sql, parameters);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual int Update(TEntity entity, params string[] propertyNames)
     {
         if (propertyNames.IsNullOrEmpty())
@@ -534,6 +548,8 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
         return _dbConnection.Value.Execute(sql, parameters);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual int UpdateWithout(TEntity entity, params string[]? propertyNames)
     {
         var keyEntries = PrimaryKeyColumns.Value
@@ -748,6 +764,8 @@ SET {propertyValues.Keys.Select(p => $"{GetColumnName(p)}=@set_{p}").StringJoin(
         return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters, cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual int Delete(Expression<Func<TEntity, bool>> whereExpression)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -758,6 +776,8 @@ DELETE FROM {_tableName}
         return _dbConnection.Value.Execute(sql, whereSql.Parameters);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual int Delete(TEntity entity)
     {
         var keyEntries = PrimaryKeyColumns.Value
@@ -816,6 +836,8 @@ WHERE {keyEntries.Select(x => $"{x.Value.ColumnName} = @{x.Key}").StringJoin(" A
                 x => x.Value.Value), cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual int Execute(string sqlStr, object? param = null)
     => _dbConnection.Value.Execute(sqlStr, paramInfo: param);
 

@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq.Expressions;
 using WeihanLi.Common.Models;
 
 namespace WeihanLi.Common.Data;
@@ -109,6 +110,8 @@ public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
     /// Insert a entity
     /// </summary>
     /// <param name="entity">Entity</param>
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     int Insert(TEntity entity);
 
     /// <summary>
@@ -122,6 +125,8 @@ public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
     /// Insert entities
     /// </summary>
     /// <param name="entities">Entities</param>
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     int Insert(IEnumerable<TEntity> entities);
 
     /// <summary>
@@ -140,6 +145,8 @@ public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
     /// <param name="propertyExpression">property</param>
     /// <param name="value">new property value</param>
     /// <returns></returns>
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     int Update<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object? value);
 
     /// <summary>
@@ -159,6 +166,8 @@ public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
     /// <param name="whereExpression">whereExpression</param>
     /// <param name="propertyValues">propertyValues to update</param>
     /// <returns>updated rows count</returns>
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     int Update(Expression<Func<TEntity, bool>> whereExpression, IDictionary<string, object?> propertyValues);
 
     /// <summary>
@@ -167,6 +176,8 @@ public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
     /// <param name="entity">entity</param>
     /// <param name="propertyExpressions">propertyExpressions</param>
     /// <returns>rows affected</returns>
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     int Update(TEntity entity, params Expression<Func<TEntity, object?>>[] propertyExpressions);
 
     /// <summary>
@@ -175,6 +186,8 @@ public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
     /// <param name="entity">entity</param>
     /// <param name="propertyExpressions">properties not to update</param>
     /// <returns>affected rows</returns>
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     int UpdateWithout(TEntity entity, params Expression<Func<TEntity, object?>>[] propertyExpressions);
 
     /// <summary>
@@ -183,6 +196,8 @@ public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
     /// <param name="entity">entity</param>
     /// <param name="propertyNames">propertyNames</param>
     /// <returns>rows affected</returns>
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     int Update(TEntity entity, params string[] propertyNames);
 
     /// <summary>
@@ -191,6 +206,8 @@ public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
     /// <param name="entity">entity</param>
     /// <param name="propertyNames">properties not to update</param>
     /// <returns>affected rows</returns>
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     int UpdateWithout(TEntity entity, params string[] propertyNames);
 
     /// <summary>
@@ -242,6 +259,8 @@ public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
     /// Delete entities by where
     /// </summary>
     /// <param name="whereExpression">whereExpression</param>
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     int Delete(Expression<Func<TEntity, bool>> whereExpression);
 
     /// <summary>
@@ -249,6 +268,8 @@ public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
     /// </summary>
     /// <param name="entity">entity</param>
     /// <returns>rows affected</returns>
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     int Delete(TEntity entity);
 
     /// <summary>
