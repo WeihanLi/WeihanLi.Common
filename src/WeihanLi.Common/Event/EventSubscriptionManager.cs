@@ -32,6 +32,7 @@ public sealed class InMemoryEventSubscriptionManager(IServiceProvider? servicePr
         return handlers.TryAdd((IEventHandler)Guard.NotNull(_serviceProvider.GetServiceOrCreateInstance(eventHandlerType)));
     }
 
+    [RequiresUnreferencedCode("Calls WeihanLi.Common.Helpers.ActivatorHelper.GetServiceOrCreateInstance(Type)")]
     public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType)
     {
         return Task.FromResult(Subscribe(eventType, eventHandlerType));

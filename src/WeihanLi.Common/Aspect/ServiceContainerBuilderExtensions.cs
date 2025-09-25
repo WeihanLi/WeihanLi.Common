@@ -7,6 +7,8 @@ namespace WeihanLi.Common.Aspect;
 
 public static class ServiceContainerBuilderExtensions
 {
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IFluentAspectsServiceContainerBuilder AddFluentAspects(this IServiceContainerBuilder serviceCollection, Action<FluentAspectOptions> optionsAction)
     {
         Guard.NotNull(serviceCollection);
@@ -15,6 +17,8 @@ public static class ServiceContainerBuilderExtensions
         return AddFluentAspects(serviceCollection);
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IFluentAspectsServiceContainerBuilder AddFluentAspects(this IServiceContainerBuilder serviceCollection)
     {
         Guard.NotNull(serviceCollection);

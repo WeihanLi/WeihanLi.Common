@@ -35,6 +35,7 @@ public static class DependencyResolver
 
     public static void SetDependencyResolver(IServiceContainer serviceContainer) => SetDependencyResolver(new ServiceContainerDependencyResolver(serviceContainer));
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
     public static void SetDependencyResolver(IServiceProvider serviceProvider)
     {
         Guard.NotNull(serviceProvider);

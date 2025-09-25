@@ -40,6 +40,8 @@ public static partial class DataExtension
 
     #region DataTable
 
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static DataTable ToDataTable<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] T>(this IEnumerable<T> entities)
     {
         Guard.NotNull(entities);
@@ -148,6 +150,8 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="dr">The @this to act on.</param>
     /// <returns>@this as a T.</returns>
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static T ToEntity<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] T>(this DataRow dr)
     {
         var type = typeof(T);
@@ -247,6 +251,7 @@ public static partial class DataExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="hadRead">whether the DataReader had read</param>
     /// <returns>@this as a T.</returns>
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
     [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T? ToEntity<T>(this IDataReader @this, bool hadRead = false)
     {

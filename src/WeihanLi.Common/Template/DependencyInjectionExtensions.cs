@@ -75,7 +75,7 @@ public static class DependencyInjectionExtensions
         return serviceBuilder;
     }
 
-    public static ITemplateEngineServiceBuilder AddPipe<TPipe>
+    public static ITemplateEngineServiceBuilder AddPipe<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TPipe>
         (this ITemplateEngineServiceBuilder serviceBuilder)
         where TPipe : class, ITemplatePipe
     {

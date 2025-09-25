@@ -1,6 +1,8 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace WeihanLi.Common.Event;
 
 public interface IEventSubscriber
@@ -11,6 +13,7 @@ public interface IEventSubscriber
     /// <param name="eventType">event type</param>
     /// <param name="eventHandlerType">eventHandler type</param>
     /// <returns>whether the operation success</returns>
+    [RequiresUnreferencedCode("Calls WeihanLi.Common.Helpers.ActivatorHelper.GetServiceOrCreateInstance(Type)")]
     Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType);
 
     /// <summary>

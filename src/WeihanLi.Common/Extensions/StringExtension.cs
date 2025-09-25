@@ -239,6 +239,7 @@ public static class StringExtension
     /// <param name="str">str</param>
     /// <param name="splitOptions"></param>
     /// <returns></returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T[] SplitArray<T>(this string? str, StringSplitOptions splitOptions = StringSplitOptions.None) => SplitArray<T>(str, [','], splitOptions);
 
     /// <summary>

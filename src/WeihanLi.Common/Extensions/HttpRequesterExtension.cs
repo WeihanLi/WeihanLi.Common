@@ -107,12 +107,14 @@ public static class HttpRequesterExtension
         return httpRequester.ExecuteAsync().ContinueWith(r => r.Result.JsonToObject<TEntity>());
     }
 
+    [RequiresDynamicCode("XML serializer relies on dynamic code generation which is not available with Ahead of Time compilation.")]
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public static TEntity ExecuteForXml<TEntity>(this IHttpRequester httpRequester)
     {
         return XmlDataSerializer.Instance.Value.Deserialize<TEntity>(httpRequester.ExecuteBytes());
     }
 
+    [RequiresDynamicCode("XML serializer relies on dynamic code generation which is not available with Ahead of Time compilation.")]
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public static Task<TEntity> ExecuteForXmlAsync<TEntity>(this IHttpRequester httpRequester)
     {

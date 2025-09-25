@@ -1278,6 +1278,8 @@ public static class CoreExtension
     /// <summary>
     /// Get param dictionary
     /// </summary>
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IDictionary<string, object?> ParseParamDictionary(this object? paramInfo)
     {
         var paramDic = new Dictionary<string, object?>();
