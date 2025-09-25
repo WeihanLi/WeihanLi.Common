@@ -40,8 +40,10 @@ public class XmlDataSerializer : IDataSerializer
         }
         Guard.NotNull(obj);
         using var ms = new MemoryStream();
+#pragma warning disable IL3050 // XmlSerializer inherently requires dynamic code
         var serializer = new XmlSerializer(typeof(T));
         serializer.Serialize(ms, obj);
+#pragma warning restore IL3050
         return ms.ToArray();
     }
 
@@ -55,8 +57,10 @@ public class XmlDataSerializer : IDataSerializer
         }
         Guard.NotNull(bytes);
         using var ms = new MemoryStream(bytes);
+#pragma warning disable IL3050 // XmlSerializer inherently requires dynamic code
         var serializer = new XmlSerializer(typeof(T));
         return (T)serializer.Deserialize(ms)!;
+#pragma warning restore IL3050
     }
 
 }

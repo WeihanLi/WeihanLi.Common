@@ -271,6 +271,8 @@ internal sealed class ServiceContainer : IServiceContainer
 
     public object? GetService(Type serviceType)
     {
+#pragma warning disable IL3050 // AOT compatibility - constrained by IServiceProvider interface
+#pragma warning disable IL2026 // AOT compatibility - constrained by IServiceProvider interface
         if (_disposed)
         {
             throw new InvalidOperationException($"can not get scope service from a disposed scope, serviceType: {serviceType.FullName}");
@@ -369,5 +371,7 @@ internal sealed class ServiceContainer : IServiceContainer
             _transientDisposables.Add(svc1);
         }
         return svc1;
+#pragma warning restore IL2026
+#pragma warning restore IL3050
     }
 }
