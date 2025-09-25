@@ -101,9 +101,7 @@ public static class DependencyResolver
             }
             try
             {
-#pragma warning disable IL2067 // Cannot annotate parameter due to IServiceProvider interface constraint
                 return Activator.CreateInstance(serviceType);
-#pragma warning restore IL2067
             }
             catch
             {

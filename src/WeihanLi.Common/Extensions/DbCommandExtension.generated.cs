@@ -2,9 +2,6 @@
 using System.Data.Common;
 using System.Diagnostics.CodeAnalysis;
 
-#pragma warning disable IL2026
-#pragma warning disable IL3050
-
 namespace WeihanLi.Extensions;
 
 #nullable enable

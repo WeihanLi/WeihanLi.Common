@@ -8,8 +8,6 @@ using System.Data;
 using System.Data.Common;
 using System.Diagnostics.CodeAnalysis;
 
-#pragma warning disable IL2026
-
 namespace WeihanLi.Extensions;
 #nullable enable
 public static partial class DataExtension
@@ -41,14 +39,24 @@ var queryScalarCommand= new Tuple<string,string, string>[]{
 var queryColumnCommand = new string[]{ "QueryColumn", "SelectColumn" };
 foreach(var cmd in commandNames)
 { 
-#>public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>(this DbConnection conn, string cmdText, int commandTimeout = 60) => conn.<#=            cmd.Item1 #>(cmdText, null, commandTimeout);
+#>    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
+    public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>(this DbConnection conn, string cmdText, int commandTimeout = 60) => conn.<#=            cmd.Item1 #>(cmdText, null, commandTimeout);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>(this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout = 60) => conn.<#=            cmd.Item1 #>(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.<#=            cmd.Item1 #>(cmdText, CommandType.Text, paramInfo, parameters, null);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int commandTimeout = 60)=> conn.<#=            cmd.Item1 #>(cmdText, commandType, paramInfo, parameters, null, commandTimeout);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static <#=            cmd.Item2 #> <#=            cmd.Item1 #>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60)
     {
       conn.EnsureOpen();
@@ -63,12 +71,20 @@ foreach(var cmd in commandNames)
       }
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async(this DbConnection conn, string cmdText, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async(cmdText, null, commandTimeout, cancellationToken: cancellationToken);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async(this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int commandTimeout = 60, CancellationToken cancellationToken = default) => conn.<#=            cmd.Item1 #>Async(cmdText, commandType, paramInfo, null, null, commandTimeout, cancellationToken: cancellationToken);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.<#=            cmd.Item1 #>Async(cmdText, CommandType.Text, paramInfo, parameters, null);
 
     public static async Task<<#=            cmd.Item2 #>> <#=            cmd.Item1 #>Async(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60, CancellationToken cancellationToken = default)

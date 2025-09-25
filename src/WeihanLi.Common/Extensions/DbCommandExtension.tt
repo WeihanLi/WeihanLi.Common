@@ -8,8 +8,6 @@ using System.Data;
 using System.Data.Common;
 using System.Diagnostics.CodeAnalysis;
 
-#pragma warning disable IL2026
-
 namespace WeihanLi.Extensions;
 
 #nullable enable
@@ -23,6 +21,8 @@ var commandNames = new string[]{
 foreach(var cmd in commandNames)
 { 
 #>      
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static IEnumerable<dynamic> <#=            cmd #>(this DbCommand command) 
     {
         using (var reader = command.ExecuteReader())
@@ -31,6 +31,8 @@ foreach(var cmd in commandNames)
         }
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static async Task<IEnumerable<dynamic>> <#=            cmd #>Async(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
@@ -44,6 +46,8 @@ foreach(var cmd in commandNames)
         }
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static IEnumerable<T> <#=            cmd #><T>(this DbCommand command) 
     {
         using (var reader = command.ExecuteReader())

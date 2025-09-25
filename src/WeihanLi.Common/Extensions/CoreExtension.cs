@@ -1016,6 +1016,7 @@ public static class CoreExtension
     /// <param name="this">this.</param>
     /// <param name="type">type</param>
     /// <returns>The given data converted to</returns>
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
     [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static object? ToOrDefault(this object? @this, Type type)
     {
@@ -1887,13 +1888,13 @@ public static class CoreExtension
     /// </summary>
     /// <param name="type">type</param>
     /// <returns>default value</returns>
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static object? GetDefaultValue(this Type type)
     {
         Guard.NotNull(type, nameof(type));
         return type.IsValueType && type != typeof(void)
-#pragma warning disable IL2111 // Activator.CreateInstance accessed via reflection in dictionary
             ? DefaultValues.GetOrAdd(type, Activator.CreateInstance)
-#pragma warning restore IL2111
             : null;
     }
 

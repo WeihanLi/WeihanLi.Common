@@ -2,21 +2,28 @@
 using System.Data.Common;
 using System.Diagnostics.CodeAnalysis;
 
-#pragma warning disable IL2026
-#pragma warning disable IL3050
-
 namespace WeihanLi.Extensions;
 #nullable enable
 public static partial class DataExtension
 {
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static int Execute(this DbConnection conn, string cmdText, int commandTimeout = 60) => conn.Execute(cmdText, null, commandTimeout);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static int Execute(this DbConnection conn, string cmdText, object? paramInfo, int commandTimeout = 60) => conn.Execute(cmdText, CommandType.Text, paramInfo, null, null, commandTimeout);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static int Execute(this DbConnection conn, string cmdText, object? paramInfo, params DbParameter[]? parameters)=> conn.Execute(cmdText, CommandType.Text, paramInfo, parameters, null);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static int Execute(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int commandTimeout = 60)=> conn.Execute(cmdText, commandType, paramInfo, parameters, null, commandTimeout);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static int Execute(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters,DbTransaction? transaction, int commandTimeout = 60)
     {
       conn.EnsureOpen();
