@@ -513,6 +513,8 @@ public static partial class DataExtension
         return func(@this.ExecuteScalar());
     }
 
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     private static DbCommand GetDbCommand(this DbConnection conn, string cmdText, CommandType commandType = CommandType.Text, object? paramInfo = null, DbParameter[]? parameters = null, DbTransaction? transaction = null, int commandTimeout = 60)
     {
         conn.EnsureOpen();

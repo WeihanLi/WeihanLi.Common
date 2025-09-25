@@ -17,6 +17,8 @@ public sealed class EventBus(IEventSubscriptionManager? subscriptionManager = nu
 
     private readonly IEventSubscriptionManager _subscriptionManager = subscriptionManager ?? new InMemoryEventSubscriptionManager();
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public async Task<bool> PublishAsync<TEvent>(TEvent @event, EventProperties? properties = null)
     {
         properties ??= new();

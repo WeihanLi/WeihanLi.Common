@@ -85,6 +85,8 @@ public static class EventBusExtensions
         return builder;
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static ICollection<IEventHandler<TEvent>> GetEventHandlers<TEvent>(this IEventSubscriptionManager eventSubscriptionManager)
     {
         return eventSubscriptionManager.GetEventHandlers(typeof(TEvent))

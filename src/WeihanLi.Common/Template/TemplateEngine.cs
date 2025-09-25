@@ -12,11 +12,15 @@ public sealed class TemplateEngine(ITemplateParser templateParser, ITemplateRend
     {
         return _templateParser.ParseAsync(text);
     }
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public async Task<string> RenderAsync(TemplateRenderContext context, object? globals)
     {
         return await _templateRenderer.RenderAsync(context, globals);
     }
 
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public async Task<string> RenderAsync(string text, object? parameters = null)
     {
         var context = await _templateParser.ParseAsync(text);
