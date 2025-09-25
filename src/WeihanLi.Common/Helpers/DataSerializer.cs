@@ -44,6 +44,7 @@ public class XmlDataSerializer : IDataSerializer
         return ms.ToArray();
     }
 
+    [RequiresDynamicCode("XML serializer relies on dynamic code generation which is not available with Ahead of Time compilation.")]
     [RequiresUnreferencedCode("If some of the generic arguments are annotated (either with DynamicallyAccessedMembersAttribute, or generic constraints), trimming can't validate that the requirements of those annotations are met.")]
     public virtual T Deserialize<T>(byte[] bytes)
     {

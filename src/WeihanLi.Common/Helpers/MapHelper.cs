@@ -5,6 +5,8 @@ namespace WeihanLi.Common.Helpers;
 
 public static class MapHelper
 {
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static TTarget Map<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TSource, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TTarget>(TSource source) where TTarget : new()
     {
         Guard.NotNull(source);
@@ -38,6 +40,8 @@ public static class MapHelper
         return result;
     }
 
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static TTarget MapWith<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TSource, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TTarget>(TSource source, params string[] propertiesToMap) where TTarget : new()
     {
         Guard.NotNull(source);
@@ -72,6 +76,8 @@ public static class MapHelper
         return result;
     }
 
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static TTarget MapWithout<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TSource, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] TTarget>(TSource source, params string[] propertiesNoMap) where TTarget : new()
     {
         Guard.NotNull(source);

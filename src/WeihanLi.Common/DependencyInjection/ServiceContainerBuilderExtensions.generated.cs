@@ -1,4 +1,9 @@
-﻿
+﻿using System.Diagnostics.CodeAnalysis;
+
+#pragma warning disable IL2026
+#pragma warning disable IL2067
+#pragma warning disable IL2091
+
 namespace WeihanLi.Common.DependencyInjection;
 
 public static partial class ServiceContainerBuilderExtensions

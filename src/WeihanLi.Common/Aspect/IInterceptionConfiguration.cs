@@ -40,6 +40,8 @@ public static class InterceptionConfigurationExtensions
         return interceptionConfiguration;
     }
 
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IInterceptionConfiguration With<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TInterceptor>(this IInterceptionConfiguration interceptionConfiguration, params object?[] parameters) where TInterceptor : IInterceptor
     {
         if (Guard.NotNull(parameters, nameof(parameters)).Length == 0)

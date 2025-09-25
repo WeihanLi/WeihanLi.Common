@@ -6,6 +6,9 @@
 <#@ output extension=".generated.cs" #>
 using System.Data;
 using System.Data.Common;
+using System.Diagnostics.CodeAnalysis;
+
+#pragma warning disable IL2026
 
 namespace WeihanLi.Extensions;
 #nullable enable

@@ -1,10 +1,13 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace WeihanLi.Common.Event;
 
 public interface IEventHandlerFactory
 {
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     ICollection<IEventHandler> GetHandlers(Type eventType);
 }
 

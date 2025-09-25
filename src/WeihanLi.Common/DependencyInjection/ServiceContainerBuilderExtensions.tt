@@ -3,18 +3,18 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#@ import namespace="System.Diagnostic.CodeAnalysis" #>
+<#@ import namespace="System.Diagnostics.CodeAnalysis" #>
 <#@ output extension=".generated.cs" #>
+using System.Diagnostics.CodeAnalysis;
+
+#pragma warning disable IL2026
+#pragma warning disable IL2067
+#pragma warning disable IL2091
 
 namespace WeihanLi.Common.DependencyInjection;
 
 public static partial class ServiceContainerBuilderExtensions
 {
-#region warning disable
-#pragma warning disable IL2026
-#pragma warning disable IL2067
-#pragma warning disable IL2091
-#endregion
 
 <#
             var lifetimes= new []{ "Singleton", "Scoped", "Transient" };
