@@ -7,10 +7,6 @@
 <#@ output extension=".generated.cs" #>
 using System.Diagnostics.CodeAnalysis;
 
-#pragma warning disable IL2026
-#pragma warning disable IL2067
-#pragma warning disable IL2091
-
 namespace WeihanLi.Common.DependencyInjection;
 
 public static partial class ServiceContainerBuilderExtensions
@@ -23,30 +19,40 @@ foreach(var prefix in prefixes)
 foreach(var lifetime in lifetimes)
             {
 #>
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #>(this IServiceContainerBuilder serviceContainerBuilder, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]Type serviceType)
     {
         serviceContainerBuilder.<#= prefix#>Add(new ServiceDefinition(serviceType, ServiceLifetime.<#=lifetime #>));
         return serviceContainerBuilder;
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #>(this IServiceContainerBuilder serviceContainerBuilder, Type serviceType, Type implementType)
     {
         serviceContainerBuilder.<#= prefix#>Add(new ServiceDefinition(serviceType, implementType, ServiceLifetime.<#=lifetime #>));
         return serviceContainerBuilder;
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #><[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TService>(this IServiceContainerBuilder serviceContainerBuilder, Func<IServiceProvider, object> func)
     {
         serviceContainerBuilder.<#= prefix#>Add(ServiceDefinition.<#=lifetime #><TService>(func));
         return serviceContainerBuilder;
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #><[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TService>(this IServiceContainerBuilder serviceContainerBuilder)
     {
         serviceContainerBuilder.<#= prefix#>Add(ServiceDefinition.<#=lifetime #><TService>());
         return serviceContainerBuilder;
     }
 
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static IServiceContainerBuilder <#= prefix#>Add<#=lifetime #><TService, [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)]TServiceImplement>(this IServiceContainerBuilder serviceContainerBuilder) where TServiceImplement : TService
     {
         serviceContainerBuilder.<#= prefix#>Add(ServiceDefinition.<#=lifetime #><TService, TServiceImplement>());
