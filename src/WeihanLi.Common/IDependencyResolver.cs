@@ -22,9 +22,9 @@ public interface IDependencyResolver : IServiceProvider
     /// </summary>
     /// <typeparam name="TService">service type</typeparam>
     /// <param name="action">action</param>
-    bool TryInvokeService<TService>(Action<TService> action);
+    bool TryInvokeService<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] TService>(Action<TService> action);
 
-    Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action);
+    Task<bool> TryInvokeServiceAsync<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] TService>(Func<TService, Task> action);
 }
 
 /// <summary>

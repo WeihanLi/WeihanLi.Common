@@ -1891,7 +1891,9 @@ public static class CoreExtension
     {
         Guard.NotNull(type, nameof(type));
         return type.IsValueType && type != typeof(void)
+#pragma warning disable IL2111 // Activator.CreateInstance accessed via reflection in dictionary
             ? DefaultValues.GetOrAdd(type, Activator.CreateInstance)
+#pragma warning restore IL2111
             : null;
     }
 

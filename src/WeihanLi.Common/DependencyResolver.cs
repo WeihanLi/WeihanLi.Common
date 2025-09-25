@@ -21,9 +21,9 @@ public static class DependencyResolver
 
     public static IEnumerable<TService> ResolveServices<TService>() => Current.ResolveServices<TService>();
 
-    public static bool TryInvoke<TService>(Action<TService> action) => Current.TryInvokeService(action);
+    public static bool TryInvoke<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] TService>(Action<TService> action) => Current.TryInvokeService(action);
 
-    public static Task<bool> TryInvokeAsync<TService>(Func<TService, Task> action) => Current.TryInvokeServiceAsync(action);
+    public static Task<bool> TryInvokeAsync<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] TService>(Func<TService, Task> action) => Current.TryInvokeServiceAsync(action);
 
     public static void SetDependencyResolver(IDependencyResolver dependencyResolver)
     {
@@ -66,7 +66,7 @@ public static class DependencyResolver
             return serviceProvider.GetServices(serviceType);
         }
 
-        public bool TryInvokeService<TService>(Action<TService> action)
+        public bool TryInvokeService<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] TService>(Action<TService> action)
         {
             Guard.NotNull(action, nameof(action));
             using var scope = serviceProvider.CreateScope();
@@ -77,7 +77,7 @@ public static class DependencyResolver
             return true;
         }
 
-        public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
+        public async Task<bool> TryInvokeServiceAsync<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] TService>(Func<TService, Task> action)
         {
             Guard.NotNull(action, nameof(action));
             await using var scope = serviceProvider.CreateAsyncScope();
@@ -101,7 +101,9 @@ public static class DependencyResolver
             }
             try
             {
+#pragma warning disable IL2067 // Cannot annotate parameter due to IServiceProvider interface constraint
                 return Activator.CreateInstance(serviceType);
+#pragma warning restore IL2067
             }
             catch
             {
@@ -113,7 +115,7 @@ public static class DependencyResolver
         [RequiresUnreferencedCode("Unreferenced code may be used")]
         public IEnumerable<object> GetServices(Type serviceType) => Enumerable.Empty<object>();
 
-        public bool TryInvokeService<TService>(Action<TService>? action)
+        public bool TryInvokeService<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] TService>(Action<TService>? action)
         {
             var service = GetService(typeof(TService));
             if (null == service || action == null)
@@ -124,7 +126,7 @@ public static class DependencyResolver
             return true;
         }
 
-        public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task>? action)
+        public async Task<bool> TryInvokeServiceAsync<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] TService>(Func<TService, Task>? action)
         {
             var service = GetService(typeof(TService));
             if (null == service || action == null)
@@ -149,7 +151,7 @@ public static class DependencyResolver
         public IEnumerable<object> GetServices(Type serviceType)
             => _getServices(serviceType);
 
-        public bool TryInvokeService<TService>(Action<TService>? action)
+        public bool TryInvokeService<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] TService>(Action<TService>? action)
         {
             var svc = GetService(typeof(TService));
             if (action != null && svc is TService service)
@@ -160,7 +162,7 @@ public static class DependencyResolver
             return false;
         }
 
-        public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task>? action)
+        public async Task<bool> TryInvokeServiceAsync<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] TService>(Func<TService, Task>? action)
         {
             var svc = GetService(typeof(TService));
             if (action != null && svc is TService service)
@@ -186,7 +188,7 @@ public static class DependencyResolver
             return (IEnumerable<object>)Guard.NotNull(serviceContainer.GetService(typeof(IEnumerable<>).MakeGenericType(serviceType)));
         }
 
-        public bool TryInvokeService<TService>(Action<TService> action)
+        public bool TryInvokeService<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] TService>(Action<TService> action)
         {
             Guard.NotNull(action, nameof(action));
 
@@ -200,7 +202,7 @@ public static class DependencyResolver
             return false;
         }
 
-        public async Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action)
+        public async Task<bool> TryInvokeServiceAsync<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] TService>(Func<TService, Task> action)
         {
             Guard.NotNull(action, nameof(action));
             using var scope = serviceContainer.CreateScope();

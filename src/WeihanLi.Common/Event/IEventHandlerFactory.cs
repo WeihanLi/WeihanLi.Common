@@ -14,6 +14,7 @@ public interface IEventHandlerFactory
 
 public static class EventHandlerFactoryExtensions
 {
+    [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
     [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static ICollection<IEventHandler<TEvent>> GetHandlers<TEvent>(this IEventHandlerFactory eventHandlerFactory)
     {

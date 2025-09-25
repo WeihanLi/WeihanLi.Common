@@ -401,7 +401,9 @@ public static class DictionaryExtension
         {
             return dataTable;
         }
+#pragma warning disable IL2072 // GetType() return value doesn't have required annotations
         dataTable.Columns.AddRange(dictionary.Keys.Select(key => new DataColumn(key, dictionary[key].GetType())).ToArray());
+#pragma warning restore IL2072
         foreach (var key in dictionary.Keys)
         {
             var row = dataTable.NewRow();
