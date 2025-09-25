@@ -13,6 +13,7 @@ public interface IDataSerializer
     /// <typeparam name="T">Type</typeparam>
     /// <param name="obj">object</param>
     /// <returns>bytes</returns>
+    [RequiresDynamicCode("Serialization may require dynamic code generation which is not available with Ahead of Time compilation.")]
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     byte[] Serialize<T>(T obj);
 
@@ -31,6 +32,7 @@ public class XmlDataSerializer : IDataSerializer
 {
     internal static readonly Lazy<XmlDataSerializer> Instance = new();
 
+    [RequiresDynamicCode("XML serializer relies on dynamic code generation which is not available with Ahead of Time compilation.")]
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public virtual byte[] Serialize<T>(T obj)
     {
@@ -40,10 +42,8 @@ public class XmlDataSerializer : IDataSerializer
         }
         Guard.NotNull(obj);
         using var ms = new MemoryStream();
-#pragma warning disable IL3050 // XmlSerializer inherently requires dynamic code
         var serializer = new XmlSerializer(typeof(T));
         serializer.Serialize(ms, obj);
-#pragma warning restore IL3050
         return ms.ToArray();
     }
 
@@ -57,16 +57,15 @@ public class XmlDataSerializer : IDataSerializer
         }
         Guard.NotNull(bytes);
         using var ms = new MemoryStream(bytes);
-#pragma warning disable IL3050 // XmlSerializer inherently requires dynamic code
         var serializer = new XmlSerializer(typeof(T));
         return (T)serializer.Deserialize(ms)!;
-#pragma warning restore IL3050
     }
 
 }
 
 public class JsonDataSerializer : IDataSerializer
 {
+    [RequiresDynamicCode("Serialization may require dynamic code generation which is not available with Ahead of Time compilation.")]
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public virtual byte[] Serialize<T>(T obj)
     {
@@ -96,6 +95,7 @@ public sealed class CompressDataSerializer(IDataSerializer serializer, IDataComp
     private readonly IDataSerializer _serializer = Guard.NotNull(serializer);
     private readonly IDataCompressor _compressor = Guard.NotNull(compressor);
 
+    [RequiresDynamicCode("Serialization may require dynamic code generation which is not available with Ahead of Time compilation.")]
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public byte[] Serialize<T>(T obj)
     {

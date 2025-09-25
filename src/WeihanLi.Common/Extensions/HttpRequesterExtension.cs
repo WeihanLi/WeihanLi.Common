@@ -52,6 +52,7 @@ public static class HttpRequesterExtension
         });
     }
 
+    [RequiresDynamicCode("XML serialization requires dynamic code generation which is not available with Ahead of Time compilation.")]
     [RequiresUnreferencedCode("Members from serialized types may be trimmed if not referenced directly")]
     public static IHttpRequester WithXmlParameter<TEntity>(this IHttpRequester httpRequester, TEntity entity)
     {
