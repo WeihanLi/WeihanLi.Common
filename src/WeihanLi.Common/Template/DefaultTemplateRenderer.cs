@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
+using System.Diagnostics.CodeAnalysis;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Template;
@@ -8,6 +9,8 @@ namespace WeihanLi.Common.Template;
 internal sealed class DefaultTemplateRenderer(Func<TemplateRenderContext, Task> renderFunc)
     : ITemplateRenderer
 {
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public async Task<string> RenderAsync(TemplateRenderContext context, object? globals)
     {
         if (context.Text.IsNullOrWhiteSpace() || context.Inputs.IsNullOrEmpty())

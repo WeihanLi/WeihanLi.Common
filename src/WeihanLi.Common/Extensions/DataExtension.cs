@@ -77,6 +77,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
     [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static IEnumerable<T> ToEntities<T>(this DataTable @this)
     {
@@ -224,6 +225,7 @@ public static partial class DataExtension
     /// <typeparam name="T">Generic type parameter.</typeparam>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as an IEnumerable&lt;T&gt;</returns>
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
     [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static IEnumerable<T> ToEntities<T>(this IDataReader @this)
     {
@@ -544,6 +546,8 @@ public static partial class DataExtension
                || @this.Contains("?" + originName);
     }
 
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static void AttachDbParameters(this DbCommand command, object? paramInfo)
     {
         if (paramInfo != null)

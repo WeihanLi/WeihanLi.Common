@@ -41,6 +41,7 @@ public static class EventSubscriberExtensions
     /// <typeparam name="TEvent">TEvent</typeparam>
     /// <typeparam name="TEventHandler">TEventHandler</typeparam>
     /// <returns>whether the operation success</returns>
+    [RequiresUnreferencedCode("Calls WeihanLi.Common.Helpers.ActivatorHelper.GetServiceOrCreateInstance(Type)")]
     public static Task<bool> SubscribeAsync<TEvent, TEventHandler>(this IEventSubscriber subscriber)
         where TEventHandler : class, IEventHandler<TEvent>
     {

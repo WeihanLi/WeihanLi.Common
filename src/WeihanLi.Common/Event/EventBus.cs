@@ -52,6 +52,7 @@ public sealed class EventBus(IEventSubscriptionManager? subscriptionManager = nu
         return false;
     }
 
+    [RequiresUnreferencedCode("Calls WeihanLi.Common.Helpers.ActivatorHelper.GetServiceOrCreateInstance(Type)")]
     public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => _subscriptionManager.SubscribeAsync(eventType, eventHandlerType);
     public Task<bool> SubscribeAsync<TEvent>(IEventHandler<TEvent> eventHandler) => _subscriptionManager.SubscribeAsync(eventHandler);
     public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => _subscriptionManager.UnSubscribeAsync(eventType, eventHandlerType);

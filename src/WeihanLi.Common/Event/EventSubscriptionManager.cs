@@ -71,6 +71,7 @@ public sealed class InMemoryEventSubscriptionManager(IServiceProvider? servicePr
 public sealed class DependencyInjectionEventSubscriptionManager(IServiceProvider serviceProvider)
     : IEventSubscriptionManager
 {
+    [RequiresUnreferencedCode("Calls WeihanLi.Common.Helpers.ActivatorHelper.GetServiceOrCreateInstance(Type)")]
     public Task<bool> SubscribeAsync(Type eventType, Type eventHandlerType) => throw new NotSupportedException();
     public Task<bool> SubscribeAsync<TEvent>(IEventHandler<TEvent> eventHandler) => throw new NotSupportedException();
     public Task<bool> UnSubscribeAsync(Type eventType, Type eventHandlerType) => throw new NotSupportedException();
