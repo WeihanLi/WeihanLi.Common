@@ -89,6 +89,8 @@ public static class DependencyResolver
 
     private sealed class DefaultDependencyResolver : IDependencyResolver
     {
+        [RequiresDynamicCode("The native code for this instantiation might not be available at runtime.")]
+        [RequiresUnreferencedCode("Unreferenced code may be used")]
         public object? GetService([DynamicallyAccessedMembers((DynamicallyAccessedMemberTypes.PublicParameterlessConstructor))] Type serviceType)
         {
             // Since attempting to create an instance of an interface or an abstract type results in an exception, immediately return null

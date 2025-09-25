@@ -174,6 +174,7 @@ public static class ActivatorHelper
     /// A factory that will instantiate instanceType using an <see cref="IServiceProvider"/>
     /// and an argument array containing objects matching the types defined in argumentTypes
     /// </returns>
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
     [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static ObjectFactory CreateFactory(Type instanceType, Type[] argumentTypes)
     {

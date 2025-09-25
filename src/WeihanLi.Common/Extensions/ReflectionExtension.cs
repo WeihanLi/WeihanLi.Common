@@ -113,6 +113,8 @@ public static class ReflectionExtension
     /// <returns></returns>
     public static string GetDescription(this MemberInfo @this) => Guard.NotNull(@this).GetCustomAttribute<DescriptionAttribute>()?.Description ?? @this.Name;
 
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static Func<T, object?>? GetValueGetter<T>(this PropertyInfo propertyInfo)
     {
         Guard.NotNull(propertyInfo);
@@ -128,6 +130,8 @@ public static class ReflectionExtension
         });
     }
 
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static Func<object, object?>? GetValueGetter(this PropertyInfo propertyInfo)
     {
         Guard.NotNull(propertyInfo);
@@ -147,6 +151,8 @@ public static class ReflectionExtension
         });
     }
 
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static Action<T, object?>? GetValueSetter<T>(this PropertyInfo propertyInfo) where T : class
     {
         Guard.NotNull(propertyInfo);
@@ -162,6 +168,8 @@ public static class ReflectionExtension
         });
     }
 
+    [RequiresDynamicCode("Expression compilation requires dynamic code generation.")]
+    [RequiresUnreferencedCode("Unreferenced code may be used")]
     public static Action<object, object?>? GetValueSetter(this PropertyInfo propertyInfo)
     {
         Guard.NotNull(propertyInfo, nameof(propertyInfo));

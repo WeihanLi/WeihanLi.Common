@@ -6,9 +6,10 @@ namespace WeihanLi.Common.Helpers;
 
 public static class TotpHelper
 {
-    private static readonly Lazy<ITotpService> _totp = new(() => new TotpService(_defaultOptions!));
-
+    private static readonly Lazy<ITotpService> _totp = new(CreateTotpService);
     private static readonly TotpOptions _defaultOptions = new();
+
+    private static ITotpService CreateTotpService() => new TotpService(_defaultOptions);
 
     /// <summary>
     /// Configure the default <see cref="TotpOptions"/> for <see cref="TotpHelper"/>
