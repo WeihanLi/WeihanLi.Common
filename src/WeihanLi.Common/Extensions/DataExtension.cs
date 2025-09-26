@@ -445,6 +445,8 @@ public static partial class DataExtension
     /// <param name="this">db command</param>
     /// <param name="func">function</param>
     /// <returns></returns>
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static T ExecuteDataTable<T>(this DbCommand @this, Func<DataTable, T> func) => func(@this.ExecuteDataTable());
 
     /// <summary>
@@ -455,6 +457,8 @@ public static partial class DataExtension
     /// <param name="func">function</param>
     /// <param name="cancellationToken">cancellationToken</param>
     /// <returns></returns>
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static async Task<T> ExecuteDataTableAsync<T>(this DbCommand @this, Func<DataTable, Task<T>> func, CancellationToken cancellationToken = default)
     {
         var dataTable = await @this.ExecuteDataTableAsync(cancellationToken);
