@@ -9,6 +9,8 @@ namespace WeihanLi.Extensions;
 public static partial class DataExtension
 {
           
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static IEnumerable<dynamic> Select(this DbCommand command) 
     {
         using (var reader = command.ExecuteReader())
@@ -17,6 +19,8 @@ public static partial class DataExtension
         }
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static async Task<IEnumerable<dynamic>> SelectAsync(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
@@ -61,6 +65,8 @@ public static partial class DataExtension
     }
 
       
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static dynamic Fetch(this DbCommand command)
     {
         using (var reader = command.ExecuteReader())
@@ -69,6 +75,8 @@ public static partial class DataExtension
         }
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static async Task<dynamic> FetchAsync(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
@@ -78,6 +86,8 @@ public static partial class DataExtension
         }
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static T? Fetch<T>(this DbCommand command)
     {
         using (var reader = command.ExecuteReader())
@@ -86,6 +96,8 @@ public static partial class DataExtension
         }
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static async Task<T?> FetchAsync<T>(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
@@ -95,6 +107,8 @@ public static partial class DataExtension
     }
 
       
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static DataTable ExecuteDataTable(this DbCommand command)
     {
         using (var reader = command.ExecuteReader())
@@ -103,6 +117,8 @@ public static partial class DataExtension
         }
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static async Task<DataTable> ExecuteDataTableAsync(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false))
