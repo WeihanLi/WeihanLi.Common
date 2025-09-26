@@ -30,6 +30,8 @@ public static partial class DataExtension
         }
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static IEnumerable<T> Select<T>(this DbCommand command) 
     {
         using (var reader = command.ExecuteReader())
@@ -43,6 +45,8 @@ public static partial class DataExtension
         }
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static async Task<IEnumerable<T>> SelectAsync<T>(this DbCommand command, CancellationToken cancellationToken = default)
     {
         using (var reader = await command.ExecuteReaderAsync(cancellationToken))

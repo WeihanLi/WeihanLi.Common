@@ -546,10 +546,16 @@ conn.Close();
 
     public static IEnumerable<T> SelectColumn<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, int columnIndex = 0) => conn.SelectColumn<T>(cmdText, commandType, paramInfo, null, null, columnIndex);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static IEnumerable<T> SelectColumn<T>(this DbConnection conn, string cmdText, object? paramInfo, int columnIndex = 0, params DbParameter[]? parameters) => conn.SelectColumn<T>(cmdText, CommandType.Text, paramInfo, parameters, null, columnIndex);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static IEnumerable<T> SelectColumn<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, int columnIndex = 0) => conn.SelectColumn<T>(cmdText, commandType, paramInfo, parameters, null, columnIndex);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public static IEnumerable<T> SelectColumn<T>(this DbConnection conn, string cmdText, CommandType commandType, object? paramInfo, DbParameter[]? parameters, DbTransaction? transaction, int columnIndex = 0, int commandTimeout = 60)
     {
 try
