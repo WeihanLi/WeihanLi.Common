@@ -52,6 +52,8 @@ public class Repository<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTyp
 
     protected readonly Lazy<DbConnection> _dbConnection = new(dbConnectionFunc, true);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual int Count(Expression<Func<TEntity, bool>> whereExpression)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -63,6 +65,8 @@ SELECT COUNT(1) FROM {_tableName}
         return _dbConnection.Value.ExecuteScalarTo<int>(sql, whereSql.Parameters);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<int> CountAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -74,6 +78,8 @@ SELECT COUNT(1) FROM {_tableName}
         return _dbConnection.Value.ExecuteScalarToAsync<int>(sql, whereSql.Parameters, cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual long LongCount(Expression<Func<TEntity, bool>> whereExpression)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -85,6 +91,8 @@ SELECT COUNT(1) FROM {_tableName}
         return _dbConnection.Value.ExecuteScalarTo<long>(sql, whereSql.Parameters);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<long> LongCountAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -96,6 +104,8 @@ SELECT COUNT(1) FROM {_tableName}
         return _dbConnection.Value.ExecuteScalarToAsync<long>(sql, whereSql.Parameters, cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual bool Exist(Expression<Func<TEntity, bool>> whereExpression)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -103,6 +113,8 @@ SELECT COUNT(1) FROM {_tableName}
         return _dbConnection.Value.ExecuteScalarTo<bool>(sql, whereSql.Parameters);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<bool> ExistAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -110,6 +122,8 @@ SELECT COUNT(1) FROM {_tableName}
         return _dbConnection.Value.ExecuteScalarToAsync<bool>(sql, whereSql.Parameters, cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual TEntity? Fetch(Expression<Func<TEntity, bool>> whereExpression)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -120,6 +134,8 @@ SELECT TOP(1) {SelectColumnsString} FROM {_tableName}
         return _dbConnection.Value.Fetch<TEntity>(sql, whereSql.Parameters);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<TEntity?> FetchAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -130,6 +146,8 @@ SELECT TOP 1 {SelectColumnsString} FROM {_tableName}
         return _dbConnection.Value.FetchAsync<TEntity>(sql, whereSql.Parameters, cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual TEntity? Fetch<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -141,6 +159,8 @@ ORDER BY {GetColumnName(orderByExpression.GetMemberName())}  {(ascending ? "" : 
         return _dbConnection.Value.Fetch<TEntity>(sql, whereSql.Parameters);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<TEntity?> FetchAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -152,6 +172,8 @@ ORDER BY {GetColumnName(orderByExpression.GetMemberName())}  {(ascending ? "" : 
         return _dbConnection.Value.FetchAsync<TEntity>(sql, whereSql.Parameters, cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual List<TEntity> Select(Expression<Func<TEntity, bool>> whereExpression)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -162,6 +184,8 @@ SELECT {SelectColumnsString} FROM {_tableName}
         return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToList();
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<List<TEntity>> SelectAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -172,6 +196,8 @@ SELECT {SelectColumnsString} FROM {_tableName}
         return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters, cancellationToken: cancellationToken).ContinueWith(r => r.Result.ToList(), cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual List<TEntity> Select<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -183,6 +209,8 @@ ORDER BY {GetColumnName(orderByExpression.GetMemberName())} {(ascending ? "" : "
         return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToList();
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<List<TEntity>> SelectAsync<TProperty>(int count, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -194,6 +222,8 @@ ORDER BY {GetColumnName(orderByExpression.GetMemberName())} {(ascending ? "" : "
         return _dbConnection.Value.SelectAsync<TEntity>(sql, whereSql.Parameters, cancellationToken: cancellationToken).ContinueWith(_ => _.Result.ToList(), cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual IPagedListResult<TEntity> Paged<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -228,6 +258,8 @@ FETCH NEXT {pageSize} ROWS ONLY
         return _dbConnection.Value.Select<TEntity>(sql, whereSql.Parameters).ToPagedList(pageNumber, pageSize, total);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual async Task<IPagedListResult<TEntity>> PagedAsync<TProperty>(int pageNumber, int pageSize, Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> orderByExpression, bool ascending = false, CancellationToken cancellationToken = default)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -285,6 +317,8 @@ FETCH NEXT {pageSize} ROWS ONLY
         return _dbConnection.Value.Execute(sql, paramDictionary);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<int> InsertAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
         var paramDictionary = new Dictionary<string, object?>();
@@ -342,6 +376,8 @@ FETCH NEXT {pageSize} ROWS ONLY
         return _dbConnection.Value.Execute(sqlBuilder.ToString(), paramDictionary);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<int> InsertAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
     {
         var count = entities.Count();
@@ -394,6 +430,8 @@ SET {GetColumnName(propertyName)} = @set_{propertyName}
         return _dbConnection.Value.Execute(sql, whereSql.Parameters);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<int> UpdateAsync<TProperty>(Expression<Func<TEntity, bool>> whereExpression, Expression<Func<TEntity, TProperty>> propertyExpression, object? value, CancellationToken cancellationToken = default)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -588,6 +626,8 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
         return _dbConnection.Value.Execute(sql, parameters);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<int> UpdateWithoutAsync(TEntity entity, string[] propertyNames, CancellationToken cancellationToken = default)
     {
         var keyEntries = PrimaryKeyColumns.Value
@@ -627,6 +667,8 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
         return _dbConnection.Value.ExecuteAsync(sql, paramInfo: parameters, cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<int> UpdateAsync(TEntity entity, Expression<Func<TEntity, object?>>[] propertyExpressions, CancellationToken cancellationToken = default)
     {
         Guard.NotNull(propertyExpressions, nameof(propertyExpressions));
@@ -666,6 +708,8 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
         return _dbConnection.Value.ExecuteAsync(sql, parameters, cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<int> UpdateWithoutAsync(TEntity entity, Expression<Func<TEntity, object?>>[] propertyExpressions,
         CancellationToken cancellationToken = default)
     {
@@ -705,6 +749,8 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
         return _dbConnection.Value.ExecuteAsync(sql, paramInfo: parameters, cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<int> UpdateAsync(TEntity entity, string[] propertyNames, CancellationToken cancellationToken = default)
     {
         Guard.NotNull(propertyNames, nameof(propertyNames));
@@ -744,6 +790,8 @@ WHERE {keyEntries.Select(k => $"{k.Value.ColumnName} = @key_{k.Key}")}
         return _dbConnection.Value.ExecuteAsync(sql, parameters, cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<int> UpdateAsync(Expression<Func<TEntity, bool>> whereExpression,
         IDictionary<string, object?>? propertyValues, CancellationToken cancellationToken = default)
     {
@@ -802,6 +850,8 @@ WHERE {keyEntries.Select(x => $"{x.Value.ColumnName} = @{x.Key}").StringJoin(" A
                     x => x.Value.Value));
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<int> DeleteAsync(Expression<Func<TEntity, bool>> whereExpression, CancellationToken cancellationToken = default)
     {
         var whereSql = SqlExpressionParser.ParseWhereExpression(whereExpression, ColumnMappings);
@@ -812,6 +862,8 @@ DELETE FROM {_tableName}
         return _dbConnection.Value.ExecuteAsync(sql, whereSql.Parameters, cancellationToken: cancellationToken);
     }
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual async Task<int> DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
         var keyEntries = PrimaryKeyColumns.Value
@@ -844,10 +896,14 @@ WHERE {keyEntries.Select(x => $"{x.Value.ColumnName} = @{x.Key}").StringJoin(" A
     public virtual Task<int> ExecuteAsync(string sqlStr, object? param = null, CancellationToken cancellationToken = default)
     => _dbConnection.Value.ExecuteAsync(sqlStr, paramInfo: param, cancellationToken: cancellationToken);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual TResult ExecuteScalar<TResult>(string sqlStr, object? param = null)
 
     => _dbConnection.Value.ExecuteScalarTo<TResult>(sqlStr, paramInfo: param);
 
+    [RequiresDynamicCode("Database operations may require dynamic code generation which is not available with Ahead of Time compilation.")]
+    [RequiresUnreferencedCode("Database operations may use reflection which requires unreferenced code.")]
     public virtual Task<TResult> ExecuteScalarAsync<TResult>(string sqlStr, object? param = null, CancellationToken cancellationToken = default)
 
     => _dbConnection.Value.ExecuteScalarToAsync<TResult>(sqlStr, paramInfo: param, cancellationToken: cancellationToken);
