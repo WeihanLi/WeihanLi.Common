@@ -1,6 +1,13 @@
 // Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license version 2.0 http://www.apache.org/licenses/LICENSE-2.0
 
+#:project ./src/WeihanLi.Common/WeihanLi.Common.csproj
+#:property PublishAot=false
+
+using WeihanLi.Common;
+using WeihanLi.Common.Helpers;
+using WeihanLi.Extensions;
+
 var solutionPath = "./WeihanLi.Common.slnx";
 string[] srcProjects = [ 
     "./src/WeihanLi.Common/WeihanLi.Common.csproj",

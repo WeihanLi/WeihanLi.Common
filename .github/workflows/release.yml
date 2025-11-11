@@ -18,10 +18,10 @@ jobs:
           10.0.x
     - name: Build
       shell: pwsh
-      run: .\build.ps1 --stable=true
+      run: dotnet build.cs --stable=true
     - name: Get Release Version
       shell: pwsh
-      run: dotnet-exec ./build/exportReleaseVersion.cs
+      run: dotnet ./build/exportReleaseVersion.cs
     - name: create release
       shell: pwsh
       env:
