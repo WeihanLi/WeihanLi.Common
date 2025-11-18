@@ -39,7 +39,7 @@ public interface IEntityWithUpdatedAtAndBy
     : IEntityWithUpdatedAt, IEntityWithUpdatedBy;
 
 public interface IEntityWithCreatedUpdatedAtAndBy
-    : IEntityWithCreatedUpdatedAt, IEntityWithCreatedUpdatedBy;
+    : IEntityWithCreatedUpdatedAt, IEntityWithCreatedUpdatedBy, IEntityWithUpdatedAtAndBy;
 
 public interface IEntityWithReviewState
 {
