@@ -3,9 +3,9 @@
     <PackageId>WeihanLi.Common</PackageId>
     <Title>WeihanLi.Common</Title>
     <TargetFrameworks>netstandard2.0;net8.0;net9.0;net10.0</TargetFrameworks>
-    <Description>common libarary,extensions helpers and useful utilities</Description>
-    <PackageTags>$(PackageTags);common;utility;lib;libarary;extensions;helpers</PackageTags>
-    <PackageSummary>common libarary,extensions helpers and useful utilities</PackageSummary>
+    <Description>common library,extensions helpers and useful utilities</Description>
+    <PackageTags>$(PackageTags);common;utility;lib;library;extensions;helpers</PackageTags>
+    <PackageSummary>common library,extensions helpers and useful utilities</PackageSummary>
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
     <NoWarn>$(NoWarn);1591;DE0003;SYSLIB0014;</NoWarn>
   </PropertyGroup>
