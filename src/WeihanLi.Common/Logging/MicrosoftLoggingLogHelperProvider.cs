@@ -4,9 +4,11 @@ namespace WeihanLi.Common.Logging;
 
 internal class MicrosoftLoggingLogHelperProvider(ILoggerFactory loggerFactory) : ILogHelperProvider
 {
+    private readonly ILoggerFactory _loggerFactory = loggerFactory;
+
     public void Log(LogHelperLoggingEvent loggingEvent)
     {
-        var logger = loggerFactory.CreateLogger(loggingEvent.CategoryName);
+        var logger = _loggerFactory.CreateLogger(loggingEvent.CategoryName);
         _ = LogInternal(logger, loggingEvent);
     }
 
