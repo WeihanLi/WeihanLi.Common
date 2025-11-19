@@ -31,7 +31,7 @@ internal sealed class LogHelperGenericLogger<TCategory>(LogHelperFactory logHelp
 internal class LogHelper(LogHelperFactory logHelperFactory, string categoryName) : ILogHelperLogger
 {
     private readonly LogHelperFactory _logHelperFactory = logHelperFactory;
-    
+
     public string CategoryName { get; } = categoryName;
 
     public void Log(LogHelperLogLevel logLevel, Exception? exception, string? messageTemplate, params object?[] parameters)
