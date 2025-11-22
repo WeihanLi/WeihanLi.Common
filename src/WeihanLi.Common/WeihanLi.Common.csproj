@@ -12,7 +12,7 @@
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <!-- https://learn.microsoft.com/en-us/visualstudio/msbuild/property-functions?view=vs-2022#msbuild-targetframework-and-targetplatform-functions -->
-    <IsAotCompatible>$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))</IsAotCompatible>
+    <!-- <IsAotCompatible>$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))</IsAotCompatible> -->
     <!-- DynamicallyAccessedMembers not included by default https://github.com/Sergio0694/PolySharp/issues/84#issuecomment-1751772472 -->
     <PolySharpIncludeRuntimeSupportedAttributes>true</PolySharpIncludeRuntimeSupportedAttributes>
   </PropertyGroup>  
