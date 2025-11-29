@@ -1,4 +1,7 @@
-﻿using System.Diagnostics;
+// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using System.Diagnostics;
 
 namespace WeihanLi.Common.Services;
 

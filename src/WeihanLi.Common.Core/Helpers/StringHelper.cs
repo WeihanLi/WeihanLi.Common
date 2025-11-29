@@ -1,7 +1,9 @@
-﻿using System.Globalization;
+// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
-using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
@@ -74,7 +76,7 @@ public static class StringHelper
             return string.Empty;
         }
 
-        if (email!.IsMatch(@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"))//如果是邮件地址
+        if (Regex.IsMatch(email!, @"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"))//如果是邮件地址
         {
             var suffixLen = email!.Length - email.LastIndexOf('@');
             return HideSensitiveInfo(email, left, suffixLen, basedOnLeft: false);

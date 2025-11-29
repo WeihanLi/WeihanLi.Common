@@ -1,5 +1,7 @@
-﻿using System.Text;
-using WeihanLi.Extensions;
+// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using System.Text;
 
 namespace WeihanLi.Common.Helpers;
 
@@ -22,7 +24,7 @@ public static class Base64UrlEncodeHelper
     /// <returns>Base64Url encoding of the UTF8 bytes.</returns>
     public static string Encode(string arg)
     {
-        return Encode(Guard.NotNull(arg).GetBytes());
+        return Encode(Encoding.UTF8.GetBytes(Guard.NotNull(arg)));
     }
 
     /// <summary>

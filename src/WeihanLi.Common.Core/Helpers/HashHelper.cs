@@ -1,6 +1,8 @@
-﻿using System.Security.Cryptography;
+// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using System.Security.Cryptography;
 using System.Text;
-using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
@@ -57,7 +59,7 @@ public static class HashHelper
     /// <returns>哈希算法处理之后的字符串</returns>
     public static string GetHashedString(HashType type, string str, string? key, Encoding encoding, bool isLower = false)
     {
-        return string.IsNullOrEmpty(str) ? string.Empty : GetHashedString(type, str.GetBytes(encoding), string.IsNullOrEmpty(key) ? null : encoding.GetBytes(key!), isLower);
+        return string.IsNullOrEmpty(str) ? string.Empty : GetHashedString(type, encoding.GetBytes(str), string.IsNullOrEmpty(key) ? null : encoding.GetBytes(key!), isLower);
     }
 
     /// <summary>
@@ -93,7 +95,7 @@ public static class HashHelper
             return string.Empty;
         }
         var hashedBytes = GetHashedBytes(type, source, key);
-        return hashedBytes.ToHexString(isLower);
+        return ToHexString(hashedBytes, isLower);
     }
 
     public static string GetHashedString(HashAlgorithmName hashAlgorithm, byte[] source, byte[]? key, bool isLower = false)
@@ -107,7 +109,7 @@ public static class HashHelper
             : GetHashedString(hashAlgorithm, new ReadOnlySpan<byte>(source), isLower);
 #else
         var hashedBytes = GetHashedBytes(hashAlgorithm, source, key);
-        return hashedBytes.ToHexString(isLower);
+        return ToHexString(hashedBytes, isLower);
 #endif
     }
 
@@ -206,13 +208,36 @@ public static class HashHelper
     public static string GetHashedString(HashAlgorithmName hashAlgorithm, ReadOnlySpan<byte> bytes, bool isLower = false)
     {
         var hashedBytes = CryptographicOperations.HashData(hashAlgorithm, bytes);
-        return hashedBytes.ToHexString(isLower);
+        return ToHexString(hashedBytes, isLower);
     }
     
     public static string GetHashedString(HashAlgorithmName hashAlgorithm, ReadOnlySpan<byte> keys, ReadOnlySpan<byte> bytes, bool isLower = false)
     {
         var hashedBytes = CryptographicOperations.HmacData(hashAlgorithm, keys, bytes);
-        return hashedBytes.ToHexString(isLower);
+        return ToHexString(hashedBytes, isLower);
+    }
+#endif
+
+    private static string ToHexString(byte[] bytes, bool isLowerCase)
+    {
+#if NET9_0_OR_GREATER
+        return isLowerCase ? Convert.ToHexStringLower(bytes) : Convert.ToHexString(bytes);
+#elif NET5_0_OR_GREATER
+        return isLowerCase ? Convert.ToHexString(bytes).ToLowerInvariant() : Convert.ToHexString(bytes);
+#else
+        var bitString = BitConverter.ToString(bytes).Replace("-", "");
+        return isLowerCase ? bitString.ToLowerInvariant() : bitString;
+#endif
+    }
+
+#if NET
+    private static string ToHexString(ReadOnlySpan<byte> bytes, bool isLowerCase)
+    {
+#if NET9_0_OR_GREATER
+        return isLowerCase ? Convert.ToHexStringLower(bytes) : Convert.ToHexString(bytes);
+#else
+        return isLowerCase ? Convert.ToHexString(bytes).ToLowerInvariant() : Convert.ToHexString(bytes);
+#endif
     }
 #endif
 }

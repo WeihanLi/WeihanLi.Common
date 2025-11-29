@@ -9,6 +9,9 @@
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common</PackageProjectUrl>
     <NoWarn>$(NoWarn);1591;DE0003;SYSLIB0014;</NoWarn>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WeihanLi.Common.Core\WeihanLi.Common.Core.csproj" />
+  </ItemGroup>
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <!-- https://learn.microsoft.com/en-us/visualstudio/msbuild/property-functions?view=vs-2022#msbuild-targetframework-and-targetplatform-functions -->

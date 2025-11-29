@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>            
+    <PackageId>WeihanLi.Common.Core</PackageId>
+    <Title>WeihanLi.Common.Core</Title>
+    <TargetFrameworks>netstandard2.0;net8.0;net9.0;net10.0</TargetFrameworks>
+    <Description>AOT-compatible core library with extensions, helpers, and utilities</Description>
+    <PackageTags>$(PackageTags);core;utility;lib;library;extensions;helpers;aot</PackageTags>
+    <PackageSummary>AOT-compatible core library with extensions, helpers, and utilities</PackageSummary>
+    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Common.Core</PackageProjectUrl>
+    <NoWarn>$(NoWarn);1591;</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!-- https://learn.microsoft.com/en-us/visualstudio/msbuild/property-functions?view=vs-2022#msbuild-targetframework-and-targetplatform-functions -->
+    <IsAotCompatible>$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))</IsAotCompatible>
+    <IsTrimmable>$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))</IsTrimmable>
+    <!-- DynamicallyAccessedMembers not included by default https://github.com/Sergio0694/PolySharp/issues/84#issuecomment-1751772472 -->
+    <PolySharpIncludeRuntimeSupportedAttributes>true</PolySharpIncludeRuntimeSupportedAttributes>
+  </PropertyGroup>  
+  <ItemGroup>
+    <AssemblyAttribute Include="System.CLSCompliantAttribute">
+      <_Parameter1>true</_Parameter1>
+    </AssemblyAttribute>
+    <Using Include="System.Diagnostics.CodeAnalysis" />
+  </ItemGroup>
+</Project>

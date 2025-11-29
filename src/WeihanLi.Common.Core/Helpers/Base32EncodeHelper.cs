@@ -1,4 +1,5 @@
-﻿using WeihanLi.Extensions;
+// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
 
 namespace WeihanLi.Common.Helpers;
 
@@ -54,7 +55,7 @@ public static class Base32EncodeHelper
 
     public static string FromBytes(byte[] base32Bytes, char paddingChar = '=')
     {
-        if (base32Bytes.IsNullOrEmpty())
+        if (base32Bytes == null || base32Bytes.Length == 0)
         {
             return string.Empty;
         }

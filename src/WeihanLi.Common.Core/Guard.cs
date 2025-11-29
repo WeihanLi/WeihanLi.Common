@@ -1,4 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
+
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
 namespace WeihanLi.Common;
@@ -85,6 +88,7 @@ public static class Guard
         return t;
     }
 
+#if !NETSTANDARD2_0
     public static async Task<T> EnsureAsync<T>(Func<T, ValueTask<bool>> condition, T t, [CallerArgumentExpression(nameof(t))] string? paramName = null)
     {
         NotNull(condition);
@@ -94,4 +98,5 @@ public static class Guard
         }
         return t;
     }
+#endif
 }
