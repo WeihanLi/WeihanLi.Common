@@ -798,7 +798,7 @@ public static class CoreExtension
     [System.Diagnostics.DebuggerStepThrough]
     public static int EnsureSuccessExitCode(this int exitCode, int successCode = 0)
     {
-        if (exitCode != 0)
+        if (exitCode != successCode)
             throw new InvalidOperationException($"Unexpected exit code:{exitCode}");
 
         return exitCode;

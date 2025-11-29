@@ -109,7 +109,7 @@ public static class StringHelper
         str = str.Replace("&nbsp;", " ");
         if (removeWhiteSpace)
         {
-            str = htmlStr.Replace(" ", "");//去除空格
+            str = str.Replace(" ", "");//去除空格
         }
         return str.Trim();
     }
