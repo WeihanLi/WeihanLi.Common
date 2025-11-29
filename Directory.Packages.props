@@ -28,6 +28,7 @@
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageVersion Include="System.Reflection.Emit" Version="4.7.0" />
     <PackageVersion Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageVersion Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageVersion Include="Serilog" Version="4.3.0" />
   </ItemGroup>
