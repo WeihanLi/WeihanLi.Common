@@ -1055,6 +1055,37 @@ public static class CoreExtension
         return @this.ToOrDefault(_ => defaultValue);
     }
 
+#if NET    
+    /// <summary>
+    /// Parse ReadOnlySpan to specific type instance
+    /// </summary>
+    /// <param name="this">span text</param>
+    /// <param name="formatProvider">format</param>
+    /// <typeparam name="T">The destination type</typeparam>
+    /// <returns></returns>
+    public static T To<T>(this ReadOnlySpan<char> @this, IFormatProvider? formatProvider = null) 
+        where T: ISpanParsable<T>
+    {
+        return T.Parse(@this, formatProvider);
+    }
+
+    /// <summary>
+    /// Parse ReadOnlySpan to specific type instance
+    /// </summary>
+    /// <param name="this">span text</param>
+    /// <param name="formatProvider">format</param>
+    /// <param name="defaultValue">default value</param>
+    /// <typeparam name="T">The destination type</typeparam>
+    /// <returns></returns>
+    public static T? ToOrDefault<T>(this ReadOnlySpan<char> @this, 
+        IFormatProvider? formatProvider = null, 
+        T? defaultValue = default) 
+        where T: ISpanParsable<T>
+    {
+        return T.TryParse(@this, formatProvider, out var result) ? result : defaultValue;
+    }
+#endif
+
     /// <summary>
     ///     A T extension method that chains actions.
     /// </summary>
