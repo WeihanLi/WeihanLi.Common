@@ -39,8 +39,8 @@ steps:
 - script: dotnet --info
   displayName: 'dotnet info'
 
-- powershell: ./build.ps1
-  displayName: 'Powershell Script'
+- script: dotnet build.cs
+  displayName: 'Build Script'
   env:
     Nuget__ApiKey: $(nugetApiKey)
 

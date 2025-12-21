@@ -214,6 +214,7 @@ public sealed class DotNetBuildProcessOptions
     public string[]? SrcProjects { get; set; }
     public string[]? TestProjects { get; set; }
     public Func<string?> FallbackNuGetApiKeyFunc { get; set; } = () => EnvHelper.Val("NuGet__ApiKey");
+    public Func<string?> FallbackNuGetSourceFunc { get; set; } = () => EnvHelper.Val("NuGet__Source");
     public string ArtifactsPath { get; set; } = "./artifacts/dist";
     public Func<string?> BranchFunc { get; set; } = () => EnvHelper.Val("BUILD_SOURCEBRANCHNAME", EnvHelper.Val("GITHUB_REF_NAME"));
     public bool AllowLocalPush { get; set; }
@@ -222,7 +223,7 @@ public sealed class DotNetBuildProcessOptions
 public sealed class DotNetPackageBuildProcess
 {
     private readonly BuildProcess _buildProcess;
-    private string? _apiKey, _branch;
+    private string? _apiKey, _source, _branch;
     private bool _stable, _noPush;
 
     private DotNetPackageBuildProcess(DotNetBuildProcessOptions options)
@@ -330,9 +331,12 @@ public sealed class DotNetPackageBuildProcess
 
 
                     // push nuget packages
+                    var nugetSource =  string.IsNullOrEmpty(_source) ? options.FallbackNuGetSourceFunc() : _source;
+                    nugetSource = string.IsNullOrEmpty(nugetSource) ? string.Empty : $"--source {nugetSource}";
+                    var pushArgumenst = $" -k {_apiKey} --skip-duplicate {nugetSource}";
                     foreach (var file in Directory.GetFiles(options.ArtifactsPath, "*.nupkg"))
                     {
-                        var commandText = $"dotnet nuget push {file} -k {_apiKey} --skip-duplicate";
+                        var commandText = $"dotnet nuget push {file} {pushArgumenst}";
                         CommandExecutor.ExecuteCommandAndOutput(commandText).EnsureSuccessExitCode();
                     }
                 }))
@@ -343,6 +347,7 @@ public sealed class DotNetPackageBuildProcess
     public async Task ExecuteAsync(string[] args, CancellationToken cancellation = default)
     {
         _apiKey = CommandLineParser.Val(args, "apiKey");
+        _source = CommandLineParser.Val(args, "source");
         _stable = CommandLineParser.BooleanVal(args, "stable");
         _noPush = CommandLineParser.BooleanVal(args, "noPush");
         if (string.IsNullOrEmpty(_branch))

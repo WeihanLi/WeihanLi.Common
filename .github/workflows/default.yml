@@ -33,4 +33,4 @@ jobs:
     - name: dotnet info
       run: dotnet --info
     - name: build
-      run: bash build.sh
+      run: dotnet build.cs
