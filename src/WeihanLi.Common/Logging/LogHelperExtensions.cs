@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using WeihanLi.Common.Helpers;
+﻿using WeihanLi.Common.Helpers;
 
 namespace WeihanLi.Common.Logging;
 

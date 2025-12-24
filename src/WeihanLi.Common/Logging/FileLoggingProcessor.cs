@@ -5,7 +5,6 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Concurrent;
 using System.Text;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Logging;
 

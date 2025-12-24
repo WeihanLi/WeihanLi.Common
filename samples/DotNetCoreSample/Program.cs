@@ -2,11 +2,20 @@
 // Licensed under the Apache license.
 
 using DotNetCoreSample;
+using System.Net;
 using WeihanLi.Common.Helpers;
+using WeihanLi.Extensions;
 
 Console.WriteLine("----------DotNetCoreSample----------");
 
-InvokeHelper.OnInvokeException = ex => ConsoleHelper.ErrorWriteLineWithColor(ex.ToString(), ConsoleColor.DarkRed);
+{
+    var text = "127.0.0.1";
+    var ip = text.To<IPAddress>();
+    Console.WriteLine(ip);
+}
+
+
+// InvokeHelper.OnInvokeException = ex => ConsoleHelper.ErrorWriteLineWithColor(ex.ToString(), ConsoleColor.DarkRed);
 
 // ServiceDecoratorTest.MainTest();
 
@@ -348,7 +357,7 @@ InvokeHelper.OnInvokeException = ex => ConsoleHelper.ErrorWriteLineWithColor(ex.
 // InvokeHelper.TryInvoke(() => throw null, 3);
 
 // InvokeHelper.TryInvoke(LoggerTest.MicrosoftLoggingTest);
-await InvokeHelper.TryInvokeAsync(EventTest.AckQueueTest);
+// await InvokeHelper.TryInvokeAsync(EventTest.AckQueueTest);
 
 ConsoleHelper.ReadKeyWithPrompt("Press any key to exit");
 
