@@ -10693,6 +10693,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.FallbackNuGetApiKeyFunc
   nameWithType: DotNetBuildProcessOptions.FallbackNuGetApiKeyFunc
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.FallbackNuGetSourceFunc
+  name: FallbackNuGetSourceFunc
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_FallbackNuGetSourceFunc
+  commentId: P:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.FallbackNuGetSourceFunc
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.FallbackNuGetSourceFunc
+  nameWithType: DotNetBuildProcessOptions.FallbackNuGetSourceFunc
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.FallbackNuGetSourceFunc*
+  name: FallbackNuGetSourceFunc
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_FallbackNuGetSourceFunc_
+  commentId: Overload:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.FallbackNuGetSourceFunc
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.FallbackNuGetSourceFunc
+  nameWithType: DotNetBuildProcessOptions.FallbackNuGetSourceFunc
 - uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.SolutionPath
   name: SolutionPath
   href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_SolutionPath
