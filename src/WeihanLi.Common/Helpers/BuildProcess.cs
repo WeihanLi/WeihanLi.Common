@@ -333,10 +333,10 @@ public sealed class DotNetPackageBuildProcess
                     // push nuget packages
                     var nugetSource =  string.IsNullOrEmpty(_source) ? options.FallbackNuGetSourceFunc() : _source;
                     nugetSource = string.IsNullOrEmpty(nugetSource) ? string.Empty : $"--source {nugetSource}";
-                    var pushArgumenst = $" -k {_apiKey} --skip-duplicate {nugetSource}";
+                    var pushArguments = $" -k {_apiKey} --skip-duplicate {nugetSource}";
                     foreach (var file in Directory.GetFiles(options.ArtifactsPath, "*.nupkg"))
                     {
-                        var commandText = $"dotnet nuget push {file} {pushArgumenst}";
+                        var commandText = $"dotnet nuget push {file} {pushArguments}";
                         CommandExecutor.ExecuteCommandAndOutput(commandText).EnsureSuccessExitCode();
                     }
                 }))
