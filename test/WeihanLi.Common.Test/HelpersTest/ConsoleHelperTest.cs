@@ -133,4 +133,66 @@ public class ConsoleHelperTest
         // Should contain both foreground and background color codes
         Assert.Matches(@"\x1b\[[0-9;]+m", output);
     }
+
+    [Fact]
+    public void ErrorWriteWithColorProducesOutput()
+    {
+        // Arrange
+        using var consoleOutput = ConsoleOutput.Capture();
+        var testMessage = "Test error message";
+        
+        // Act
+        ConsoleHelper.ErrorWriteWithColor(testMessage, ConsoleColor.Red);
+        
+        // Assert
+        var output = consoleOutput.StandardError;
+        Assert.Contains(testMessage, output);
+        Assert.Contains("\x1b[", output); // Should contain ANSI escape sequence
+        Assert.Contains("m", output); // ANSI escape sequence ends with 'm'
+    }
+
+    [Fact]
+    public void ErrorWriteLineWithColorProducesOutput()
+    {
+        // Arrange
+        using var consoleOutput = ConsoleOutput.Capture();
+        var testMessage = "Test error message";
+        
+        // Act
+        ConsoleHelper.ErrorWriteLineWithColor(testMessage, ConsoleColor.DarkRed);
+        
+        // Assert
+        var output = consoleOutput.StandardError;
+        Assert.Contains(testMessage, output);
+        Assert.Contains("\x1b[", output); // Should contain ANSI escape sequence
+        Assert.Contains("m", output); // ANSI escape sequence ends with 'm'
+    }
+
+    [Fact]
+    public void ErrorWriteWithColorHandlesNullOutput()
+    {
+        // Arrange
+        using var consoleOutput = ConsoleOutput.Capture();
+        
+        // Act
+        ConsoleHelper.ErrorWriteWithColor(null, ConsoleColor.Red);
+        
+        // Assert
+        var output = consoleOutput.StandardError;
+        Assert.Empty(output);
+    }
+
+    [Fact]
+    public void ErrorWriteLineWithColorHandlesNullOutput()
+    {
+        // Arrange
+        using var consoleOutput = ConsoleOutput.Capture();
+        
+        // Act
+        ConsoleHelper.ErrorWriteLineWithColor(null, ConsoleColor.Red);
+        
+        // Assert
+        var output = consoleOutput.StandardError;
+        Assert.Equal(Environment.NewLine, output);
+    }
 }

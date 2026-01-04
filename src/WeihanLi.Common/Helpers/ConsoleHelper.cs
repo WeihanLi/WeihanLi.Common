@@ -82,15 +82,21 @@ public static class ConsoleHelper
     public static void ErrorWriteWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
     {
         if (!string.IsNullOrEmpty(output))
-            InvokeWithConsoleColor(() => Console.Error.Write(output), foregroundColor, backgroundColor);
+        {
+            var coloredOutput = ApplyAnsiColor(output!, foregroundColor, backgroundColor);
+            Console.Error.Write(coloredOutput);
+        }
     }
 
-    public static void ErrorWriteLineWithColor(string error, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
+    public static void ErrorWriteLineWithColor(string? error, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
     {
         if (string.IsNullOrEmpty(error))
             Console.Error.WriteLine();
         else
-            InvokeWithConsoleColor(() => Console.Error.WriteLine(error), foregroundColor, backgroundColor);
+        {
+            var coloredOutput = ApplyAnsiColor(error!, foregroundColor, backgroundColor);
+            Console.Error.WriteLine(coloredOutput);
+        }
     }
 
     public static string? GetInput(string? inputPrompt = null, bool insertNewLine = true)
