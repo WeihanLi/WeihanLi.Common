@@ -256,27 +256,27 @@ public static class ConsoleHelper
 
     private static int GetAnsiColorCode(ConsoleColor color, bool isForeground)
     {
-        var baseCode = isForeground ? 30 : 40;
-        
         return color switch
         {
-            ConsoleColor.Black => baseCode + 0,
-            ConsoleColor.DarkRed => baseCode + 1,
-            ConsoleColor.DarkGreen => baseCode + 2,
-            ConsoleColor.DarkYellow => baseCode + 3,
-            ConsoleColor.DarkBlue => baseCode + 4,
-            ConsoleColor.DarkMagenta => baseCode + 5,
-            ConsoleColor.DarkCyan => baseCode + 6,
-            ConsoleColor.Gray => baseCode + 7,
-            ConsoleColor.DarkGray => baseCode + 60, // Bright black
-            ConsoleColor.Red => baseCode + 61,      // Bright red
-            ConsoleColor.Green => baseCode + 62,    // Bright green
-            ConsoleColor.Yellow => baseCode + 63,   // Bright yellow
-            ConsoleColor.Blue => baseCode + 64,     // Bright blue
-            ConsoleColor.Magenta => baseCode + 65,  // Bright magenta
-            ConsoleColor.Cyan => baseCode + 66,     // Bright cyan
-            ConsoleColor.White => baseCode + 67,    // Bright white
-            _ => baseCode + 7 // Default to gray
+            // Standard colors (30-37 for foreground, 40-47 for background)
+            ConsoleColor.Black => isForeground ? 30 : 40,
+            ConsoleColor.DarkRed => isForeground ? 31 : 41,
+            ConsoleColor.DarkGreen => isForeground ? 32 : 42,
+            ConsoleColor.DarkYellow => isForeground ? 33 : 43,
+            ConsoleColor.DarkBlue => isForeground ? 34 : 44,
+            ConsoleColor.DarkMagenta => isForeground ? 35 : 45,
+            ConsoleColor.DarkCyan => isForeground ? 36 : 46,
+            ConsoleColor.Gray => isForeground ? 37 : 47,
+            // Bright colors (90-97 for foreground, 100-107 for background)
+            ConsoleColor.DarkGray => isForeground ? 90 : 100,
+            ConsoleColor.Red => isForeground ? 91 : 101,
+            ConsoleColor.Green => isForeground ? 92 : 102,
+            ConsoleColor.Yellow => isForeground ? 93 : 103,
+            ConsoleColor.Blue => isForeground ? 94 : 104,
+            ConsoleColor.Magenta => isForeground ? 95 : 105,
+            ConsoleColor.Cyan => isForeground ? 96 : 106,
+            ConsoleColor.White => isForeground ? 97 : 107,
+            _ => isForeground ? 37 : 47 // Default to gray
         };
     }
 }
