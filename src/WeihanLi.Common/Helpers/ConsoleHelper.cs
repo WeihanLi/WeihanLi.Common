@@ -62,7 +62,10 @@ public static class ConsoleHelper
     public static void WriteWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
     {
         if (!string.IsNullOrEmpty(output))
-            InvokeWithConsoleColor(() => Console.Write(output), foregroundColor, backgroundColor);
+        {
+            var coloredOutput = ApplyAnsiColor(output!, foregroundColor, backgroundColor);
+            Console.Write(coloredOutput);
+        }
     }
 
     public static void WriteLineWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
@@ -70,7 +73,10 @@ public static class ConsoleHelper
         if (string.IsNullOrEmpty(output))
             Console.WriteLine();
         else
-            InvokeWithConsoleColor(() => Console.WriteLine(output), foregroundColor, backgroundColor);
+        {
+            var coloredOutput = ApplyAnsiColor(output!, foregroundColor, backgroundColor);
+            Console.WriteLine(coloredOutput);
+        }
     }
 
     public static void ErrorWriteWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
@@ -217,5 +223,54 @@ public static class ConsoleHelper
         
         input = null;
         return false;
+    }
+
+    private static string ApplyAnsiColor(string text, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)
+    {
+        if (!foregroundColor.HasValue && !backgroundColor.HasValue)
+            return text;
+
+        var codes = new List<int>();
+        
+        if (foregroundColor.HasValue)
+        {
+            codes.Add(GetAnsiColorCode(foregroundColor.Value, isForeground: true));
+        }
+        
+        if (backgroundColor.HasValue)
+        {
+            codes.Add(GetAnsiColorCode(backgroundColor.Value, isForeground: false));
+        }
+
+        var ansiStart = $"\x1b[{string.Join(";", codes)}m";
+        var ansiReset = "\x1b[0m";
+        
+        return $"{ansiStart}{text}{ansiReset}";
+    }
+
+    private static int GetAnsiColorCode(ConsoleColor color, bool isForeground)
+    {
+        var baseCode = isForeground ? 30 : 40;
+        
+        return color switch
+        {
+            ConsoleColor.Black => baseCode + 0,
+            ConsoleColor.DarkRed => baseCode + 1,
+            ConsoleColor.DarkGreen => baseCode + 2,
+            ConsoleColor.DarkYellow => baseCode + 3,
+            ConsoleColor.DarkBlue => baseCode + 4,
+            ConsoleColor.DarkMagenta => baseCode + 5,
+            ConsoleColor.DarkCyan => baseCode + 6,
+            ConsoleColor.Gray => baseCode + 7,
+            ConsoleColor.DarkGray => baseCode + 60, // Bright black
+            ConsoleColor.Red => baseCode + 61,      // Bright red
+            ConsoleColor.Green => baseCode + 62,    // Bright green
+            ConsoleColor.Yellow => baseCode + 63,   // Bright yellow
+            ConsoleColor.Blue => baseCode + 64,     // Bright blue
+            ConsoleColor.Magenta => baseCode + 65,  // Bright magenta
+            ConsoleColor.Cyan => baseCode + 66,     // Bright cyan
+            ConsoleColor.White => baseCode + 67,    // Bright white
+            _ => baseCode + 7 // Default to gray
+        };
     }
 }
