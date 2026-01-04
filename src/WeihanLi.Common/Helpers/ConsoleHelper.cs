@@ -62,7 +62,10 @@ public static class ConsoleHelper
     public static void WriteWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
     {
         if (!string.IsNullOrEmpty(output))
-            InvokeWithConsoleColor(() => Console.Write(output), foregroundColor, backgroundColor);
+        {
+            var coloredOutput = ApplyAnsiColor(output!, foregroundColor, backgroundColor);
+            Console.Write(coloredOutput);
+        }
     }
 
     public static void WriteLineWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
@@ -70,21 +73,30 @@ public static class ConsoleHelper
         if (string.IsNullOrEmpty(output))
             Console.WriteLine();
         else
-            InvokeWithConsoleColor(() => Console.WriteLine(output), foregroundColor, backgroundColor);
+        {
+            var coloredOutput = ApplyAnsiColor(output!, foregroundColor, backgroundColor);
+            Console.WriteLine(coloredOutput);
+        }
     }
 
     public static void ErrorWriteWithColor(string? output, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
     {
         if (!string.IsNullOrEmpty(output))
-            InvokeWithConsoleColor(() => Console.Error.Write(output), foregroundColor, backgroundColor);
+        {
+            var coloredOutput = ApplyAnsiColor(output!, foregroundColor, backgroundColor);
+            Console.Error.Write(coloredOutput);
+        }
     }
 
-    public static void ErrorWriteLineWithColor(string error, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
+    public static void ErrorWriteLineWithColor(string? error, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
     {
         if (string.IsNullOrEmpty(error))
             Console.Error.WriteLine();
         else
-            InvokeWithConsoleColor(() => Console.Error.WriteLine(error), foregroundColor, backgroundColor);
+        {
+            var coloredOutput = ApplyAnsiColor(error!, foregroundColor, backgroundColor);
+            Console.Error.WriteLine(coloredOutput);
+        }
     }
 
     public static string? GetInput(string? inputPrompt = null, bool insertNewLine = true)
@@ -217,5 +229,54 @@ public static class ConsoleHelper
         
         input = null;
         return false;
+    }
+
+    private static string ApplyAnsiColor(string text, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)
+    {
+        if (!foregroundColor.HasValue && !backgroundColor.HasValue)
+            return text;
+
+        var codes = new List<int>();
+        
+        if (foregroundColor.HasValue)
+        {
+            codes.Add(GetAnsiColorCode(foregroundColor.Value, isForeground: true));
+        }
+        
+        if (backgroundColor.HasValue)
+        {
+            codes.Add(GetAnsiColorCode(backgroundColor.Value, isForeground: false));
+        }
+
+        var ansiStart = $"\x1b[{string.Join(";", codes)}m";
+        var ansiReset = "\x1b[0m";
+        
+        return $"{ansiStart}{text}{ansiReset}";
+    }
+
+    private static int GetAnsiColorCode(ConsoleColor color, bool isForeground)
+    {
+        return color switch
+        {
+            // Standard colors (30-37 for foreground, 40-47 for background)
+            ConsoleColor.Black => isForeground ? 30 : 40,
+            ConsoleColor.DarkRed => isForeground ? 31 : 41,
+            ConsoleColor.DarkGreen => isForeground ? 32 : 42,
+            ConsoleColor.DarkYellow => isForeground ? 33 : 43,
+            ConsoleColor.DarkBlue => isForeground ? 34 : 44,
+            ConsoleColor.DarkMagenta => isForeground ? 35 : 45,
+            ConsoleColor.DarkCyan => isForeground ? 36 : 46,
+            ConsoleColor.Gray => isForeground ? 37 : 47,
+            // Bright colors (90-97 for foreground, 100-107 for background)
+            ConsoleColor.DarkGray => isForeground ? 90 : 100,
+            ConsoleColor.Red => isForeground ? 91 : 101,
+            ConsoleColor.Green => isForeground ? 92 : 102,
+            ConsoleColor.Yellow => isForeground ? 93 : 103,
+            ConsoleColor.Blue => isForeground ? 94 : 104,
+            ConsoleColor.Magenta => isForeground ? 95 : 105,
+            ConsoleColor.Cyan => isForeground ? 96 : 106,
+            ConsoleColor.White => isForeground ? 97 : 107,
+            _ => isForeground ? 37 : 47 // Default to gray
+        };
     }
 }
