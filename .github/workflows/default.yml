@@ -33,4 +33,4 @@ jobs:
     - name: dotnet info
       run: dotnet --info
     - name: build
-      run: dotnet build.cs
+      run: dotnet build.cs --target=build

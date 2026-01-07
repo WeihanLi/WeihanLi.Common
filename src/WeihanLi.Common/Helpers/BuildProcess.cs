@@ -238,11 +238,11 @@ public sealed class DotNetPackageBuildProcess
 
                 // args
                 Console.WriteLine(@"Executing command line:");
-                Console.WriteLine($@"  {Environment.CommandLine}");
+                ConsoleHelper.WriteLineWithColor($@"  {Environment.CommandLine}", ConsoleColor.DarkGreen);
                 Console.WriteLine($@"Branch: {_branch}, stable: {_stable}");
             })
-            .WithTaskExecuting(task => Console.WriteLine($@"===== Task {task.Name} {task.Description} executing ======"))
-            .WithTaskExecuted(task => Console.WriteLine($@"===== Task {task.Name} {task.Description} executed ======"))
+            .WithTaskExecuting(task => ConsoleHelper.WriteLineWithColor($@"===== Task {task.Name} {task.Description} executing ======", ConsoleColor.DarkCyan))
+            .WithTaskExecuted(task => ConsoleHelper.WriteLineWithColor($@"===== Task {task.Name} {task.Description} executed ======", ConsoleColor.DarkGreen))
             .WithTask("build", b =>
             {
                 b.WithDescription("dotnet build")
@@ -295,7 +295,7 @@ public sealed class DotNetPackageBuildProcess
 
                     if (_noPush)
                     {
-                        Console.WriteLine(@"Skip push there's noPush specified");
+                        ConsoleHelper.WriteLineWithColor(@"Skip push there's noPush specified", ConsoleColor.Yellow);
                         return;
                     }
 
@@ -324,7 +324,7 @@ public sealed class DotNetPackageBuildProcess
 
                         if (string.IsNullOrEmpty(_apiKey))
                         {
-                            Console.WriteLine(@"Skip push since there's no apiKey found");
+                            ConsoleHelper.WriteLineWithColor(@"Skip push since there's no apiKey found", ConsoleColor.Yellow);
                             return;
                         }
                     }
@@ -333,10 +333,10 @@ public sealed class DotNetPackageBuildProcess
                     // push nuget packages
                     var nugetSource =  string.IsNullOrEmpty(_source) ? options.FallbackNuGetSourceFunc() : _source;
                     nugetSource = string.IsNullOrEmpty(nugetSource) ? string.Empty : $"--source {nugetSource}";
-                    var pushArgumenst = $" -k {_apiKey} --skip-duplicate {nugetSource}";
+                    var pushArguments = $" -k {_apiKey} --skip-duplicate {nugetSource}";
                     foreach (var file in Directory.GetFiles(options.ArtifactsPath, "*.nupkg"))
                     {
-                        var commandText = $"dotnet nuget push {file} {pushArgumenst}";
+                        var commandText = $"dotnet nuget push {file} {pushArguments}";
                         CommandExecutor.ExecuteCommandAndOutput(commandText).EnsureSuccessExitCode();
                     }
                 }))
