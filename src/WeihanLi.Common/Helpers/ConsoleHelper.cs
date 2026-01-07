@@ -281,16 +281,20 @@ public static class ConsoleHelper
                 return true;
 
             // Check Windows version - Windows 10 build 10586 and later support VT
-            // This is a simplified check; in production you might want to verify VT mode is enabled
             try
             {
                 var version = Environment.OSVersion.Version;
                 if (version.Major >= 10 && version.Build >= 10586)
                     return true;
             }
-            catch
+            catch (PlatformNotSupportedException)
             {
-                // If we can't determine the version, assume no support
+                // Platform doesn't support version detection
+                return false;
+            }
+            catch (InvalidOperationException)
+            {
+                // Unable to determine OS version
                 return false;
             }
 
