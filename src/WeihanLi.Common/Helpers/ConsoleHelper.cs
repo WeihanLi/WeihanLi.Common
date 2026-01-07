@@ -231,25 +231,32 @@ public static class ConsoleHelper
         return false;
     }
 
-    private static string ApplyAnsiColor(string text, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)
+    private static string ApplyAnsiColor(string text, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
     {
         if (!foregroundColor.HasValue && !backgroundColor.HasValue)
             return text;
 
-        var codes = new List<int>();
+        var hasForeground = foregroundColor.HasValue;
+        var hasBackground = backgroundColor.HasValue;
         
-        if (foregroundColor.HasValue)
+        var fgCode = 0;
+        var bgCode = 0;
+        if (hasForeground)
         {
-            codes.Add(GetAnsiColorCode(foregroundColor.Value, isForeground: true));
+            fgCode = GetAnsiColorCode(foregroundColor!.Value, isForeground: true);
         }
-        
-        if (backgroundColor.HasValue)
+        if (hasBackground)
         {
-            codes.Add(GetAnsiColorCode(backgroundColor.Value, isForeground: false));
+            bgCode = GetAnsiColorCode(backgroundColor!.Value, isForeground: false);
         }
 
-        var ansiStart = $"\x1b[{string.Join(";", codes)}m";
-        var ansiReset = "\x1b[0m";
+        var ansiStart = (hasForeground, hasBackground) switch
+        {
+            (true, true) => $"\e[{fgCode};{bgCode}m",
+            (true, false) => $"\e[{fgCode}m",
+            _ => $"\e[{bgCode}m"
+        };
+        var ansiReset = "\e[0m";
         
         return $"{ansiStart}{text}{ansiReset}";
     }
