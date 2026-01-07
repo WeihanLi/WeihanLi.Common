@@ -292,11 +292,6 @@ public static class ConsoleHelper
                 // Platform doesn't support version detection
                 return false;
             }
-            catch (InvalidOperationException)
-            {
-                // Unable to determine OS version
-                return false;
-            }
 
             return false;
         }
