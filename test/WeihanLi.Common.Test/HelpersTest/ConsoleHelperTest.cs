@@ -195,4 +195,25 @@ public class ConsoleHelperTest
         var output = consoleOutput.StandardError;
         Assert.Equal(Environment.NewLine, output);
     }
+
+    [Fact]
+    public void SupportsAnsiColorsReturnsSameValueOnMultipleCalls()
+    {
+        // Arrange & Act
+        var firstCall = ConsoleHelper.SupportsAnsiColors();
+        var secondCall = ConsoleHelper.SupportsAnsiColors();
+        
+        // Assert
+        Assert.Equal(firstCall, secondCall);
+    }
+
+    [Fact]
+    public void SupportsAnsiColorsReturnsBooleanValue()
+    {
+        // Act
+        var result = ConsoleHelper.SupportsAnsiColors();
+        
+        // Assert
+        Assert.IsType<bool>(result);
+    }
 }

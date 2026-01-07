@@ -7,6 +7,9 @@ namespace WeihanLi.Common.Helpers;
 
 public static class ConsoleHelper
 {
+    // Cache the result of ANSI color support detection since it doesn't change during execution
+    private static readonly Lazy<bool> _supportsAnsiColors = new Lazy<bool>(DetectAnsiColorSupport);
+
     public static void InvokeWithConsoleColor(Action action, ConsoleColor? foregroundColor,
         ConsoleColor? backgroundColor = null)
     {
@@ -265,7 +268,9 @@ public static class ConsoleHelper
     /// Determines whether the console supports ANSI escape sequences for color output.
     /// </summary>
     /// <returns>true if ANSI colors are supported; otherwise, false.</returns>
-    public static bool SupportsAnsiColors()
+    public static bool SupportsAnsiColors() => _supportsAnsiColors.Value;
+
+    private static bool DetectAnsiColorSupport()
     {
         // Check for explicit environment variable to disable ANSI colors
         var noColor = Environment.GetEnvironmentVariable("NO_COLOR");
@@ -299,11 +304,11 @@ public static class ConsoleHelper
         // On Unix-like systems, check the TERM environment variable
         var term = Environment.GetEnvironmentVariable("TERM");
         
-        // Most modern terminals support ANSI colors
-        // Only explicitly reject "dumb" terminals
-        if (term == "dumb")
+        // Return false if TERM is not set or is "dumb"
+        if (string.IsNullOrEmpty(term) || term == "dumb")
             return false;
 
+        // Common terminal types that support ANSI colors
         return true;
     }
 
