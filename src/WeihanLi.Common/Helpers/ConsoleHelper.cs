@@ -1,6 +1,8 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
+using System.Runtime.InteropServices;
+
 namespace WeihanLi.Common.Helpers;
 
 public static class ConsoleHelper
@@ -63,8 +65,15 @@ public static class ConsoleHelper
     {
         if (!string.IsNullOrEmpty(output))
         {
-            var coloredOutput = ApplyAnsiColor(output!, foregroundColor, backgroundColor);
-            Console.Write(coloredOutput);
+            if (SupportsAnsiColors())
+            {
+                var coloredOutput = ApplyAnsiColor(output!, foregroundColor, backgroundColor);
+                Console.Write(coloredOutput);
+            }
+            else
+            {
+                InvokeWithConsoleColor(() => Console.Write(output), foregroundColor, backgroundColor);
+            }
         }
     }
 
@@ -74,8 +83,15 @@ public static class ConsoleHelper
             Console.WriteLine();
         else
         {
-            var coloredOutput = ApplyAnsiColor(output!, foregroundColor, backgroundColor);
-            Console.WriteLine(coloredOutput);
+            if (SupportsAnsiColors())
+            {
+                var coloredOutput = ApplyAnsiColor(output!, foregroundColor, backgroundColor);
+                Console.WriteLine(coloredOutput);
+            }
+            else
+            {
+                InvokeWithConsoleColor(() => Console.WriteLine(output), foregroundColor, backgroundColor);
+            }
         }
     }
 
@@ -83,8 +99,15 @@ public static class ConsoleHelper
     {
         if (!string.IsNullOrEmpty(output))
         {
-            var coloredOutput = ApplyAnsiColor(output!, foregroundColor, backgroundColor);
-            Console.Error.Write(coloredOutput);
+            if (SupportsAnsiColors())
+            {
+                var coloredOutput = ApplyAnsiColor(output!, foregroundColor, backgroundColor);
+                Console.Error.Write(coloredOutput);
+            }
+            else
+            {
+                InvokeWithConsoleColor(() => Console.Error.Write(output), foregroundColor, backgroundColor);
+            }
         }
     }
 
@@ -94,8 +117,15 @@ public static class ConsoleHelper
             Console.Error.WriteLine();
         else
         {
-            var coloredOutput = ApplyAnsiColor(error!, foregroundColor, backgroundColor);
-            Console.Error.WriteLine(coloredOutput);
+            if (SupportsAnsiColors())
+            {
+                var coloredOutput = ApplyAnsiColor(error!, foregroundColor, backgroundColor);
+                Console.Error.WriteLine(coloredOutput);
+            }
+            else
+            {
+                InvokeWithConsoleColor(() => Console.Error.WriteLine(error), foregroundColor, backgroundColor);
+            }
         }
     }
 
@@ -229,6 +259,53 @@ public static class ConsoleHelper
         
         input = null;
         return false;
+    }
+
+    /// <summary>
+    /// Determines whether the console supports ANSI escape sequences for color output.
+    /// </summary>
+    /// <returns>true if ANSI colors are supported; otherwise, false.</returns>
+    public static bool SupportsAnsiColors()
+    {
+        // Check for explicit environment variable to disable ANSI colors
+        var noColor = Environment.GetEnvironmentVariable("NO_COLOR");
+        if (!string.IsNullOrEmpty(noColor))
+            return false;
+
+        // On Windows, check for Virtual Terminal Processing support
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            // Windows Terminal and newer Windows versions support ANSI
+            var wtSession = Environment.GetEnvironmentVariable("WT_SESSION");
+            if (!string.IsNullOrEmpty(wtSession))
+                return true;
+
+            // Check Windows version - Windows 10 build 10586 and later support VT
+            // This is a simplified check; in production you might want to verify VT mode is enabled
+            try
+            {
+                var version = Environment.OSVersion.Version;
+                if (version.Major >= 10 && version.Build >= 10586)
+                    return true;
+            }
+            catch
+            {
+                // If we can't determine the version, assume no support
+                return false;
+            }
+
+            return false;
+        }
+
+        // On Unix-like systems, check the TERM environment variable
+        var term = Environment.GetEnvironmentVariable("TERM");
+        
+        // Most modern terminals support ANSI colors
+        // Only explicitly reject "dumb" terminals
+        if (term == "dumb")
+            return false;
+
+        return true;
     }
 
     private static string ApplyAnsiColor(string text, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
