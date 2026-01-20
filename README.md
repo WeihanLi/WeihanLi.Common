@@ -74,6 +74,8 @@ dotnet test
 
 CI builds run with both Azure Pipelines (`azure-pipelines.yml`) and GitHub Actions (`.github/workflows/default.yml`), so you can rely on the same commands locally.
 
+> Set the `DISABLE_GITHUB_ACTIONS_TEST_LOGGER` environment variable to `true` if you need to opt out of the GitHub Actions test logger integration (useful for experimenting with other reporters or diagnosing runner differences).
+
 ## Release Notes
 
 Head to the [merged pull requests list](https://github.com/WeihanLi/WeihanLi.Common/pulls?q=is%3Apr+is%3Amerged+base%3Amaster) or the docfx [ReleaseNotes](docs/ReleaseNotes.md) for a chronological view of changes.

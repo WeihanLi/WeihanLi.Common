@@ -257,10 +257,16 @@ public sealed class DotNetPackageBuildProcess
                     .WithDependency("build")
                     .WithExecution(() =>
                     {
+                        var disableGitHubReport = EnvHelper.BooleanVal("DISABLE_GITHUB_ACTIONS_TEST_LOGGER");
+                        var enableGitHubReport =
+                            string.Equals(EnvHelper.Val("GITHUB_ACTIONS"), "true", StringComparison.OrdinalIgnoreCase) &&
+                            !disableGitHubReport;
+                        var reportArguments = enableGitHubReport ? " -- --report-github" : string.Empty;
+
                         foreach (var project in options.TestProjects ?? [])
                         {
                             CommandExecutor.ExecuteCommandAndOutput(
-                                $"dotnet test --collect:\"XPlat Code Coverage;Format=cobertura,opencover;ExcludeByAttribute=ExcludeFromCodeCoverage,Obsolete,GeneratedCode,CompilerGeneratedAttribute\" {project}"
+                                $"dotnet test --collect:\"XPlat Code Coverage;Format=cobertura,opencover;ExcludeByAttribute=ExcludeFromCodeCoverage,Obsolete,GeneratedCode,CompilerGeneratedAttribute\" {project}{reportArguments}"
                                 ).EnsureSuccessExitCode();
                         }
                     })
