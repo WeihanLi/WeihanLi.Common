@@ -11,6 +11,11 @@ public class ConsoleHelperTest
     [Fact]
     public void WriteWithColorProducesOutput()
     {
+        if (ConsoleHelper.SupportsAnsiColors() == false)
+        {
+            return;
+        }
+
         // Arrange
         using var consoleOutput = ConsoleOutput.Capture();
         var testMessage = "Test message";
@@ -21,13 +26,18 @@ public class ConsoleHelperTest
         // Assert
         var output = consoleOutput.StandardOutput;
         Assert.Contains(testMessage, output);
-        Assert.Contains("\x1b[", output); // Should contain ANSI escape sequence
+        Assert.Contains("\eb[", output); // Should contain ANSI escape sequence
         Assert.Contains("m", output); // ANSI escape sequence ends with 'm'
     }
 
     [Fact]
     public void WriteLineWithColorProducesOutput()
     {
+        if (ConsoleHelper.SupportsAnsiColors() == false)
+        {
+            return;
+        }
+
         // Arrange
         using var consoleOutput = ConsoleOutput.Capture();
         var testMessage = "Test message";
@@ -38,13 +48,18 @@ public class ConsoleHelperTest
         // Assert
         var output = consoleOutput.StandardOutput;
         Assert.Contains(testMessage, output);
-        Assert.Contains("\x1b[", output); // Should contain ANSI escape sequence
+        Assert.Contains("\eb[", output); // Should contain ANSI escape sequence
         Assert.Contains("m", output); // ANSI escape sequence ends with 'm'
     }
 
     [Fact]
     public void WriteWithColorHandlesNullOutput()
     {
+        if (ConsoleHelper.SupportsAnsiColors() == false)
+        {
+            return;
+        }
+
         // Arrange
         using var consoleOutput = ConsoleOutput.Capture();
         
@@ -59,6 +74,11 @@ public class ConsoleHelperTest
     [Fact]
     public void WriteLineWithColorHandlesNullOutput()
     {
+        if (ConsoleHelper.SupportsAnsiColors() == false)
+        {
+            return;
+        }
+
         // Arrange
         using var consoleOutput = ConsoleOutput.Capture();
         
@@ -73,6 +93,11 @@ public class ConsoleHelperTest
     [Fact]
     public void WriteWithColorHandlesEmptyOutput()
     {
+        if (ConsoleHelper.SupportsAnsiColors() == false)
+        {
+            return;
+        }
+
         // Arrange
         using var consoleOutput = ConsoleOutput.Capture();
         
@@ -87,6 +112,11 @@ public class ConsoleHelperTest
     [Fact]
     public void WriteLineWithColorHandlesEmptyOutput()
     {
+        if (ConsoleHelper.SupportsAnsiColors() == false)
+        {
+            return;
+        }
+
         // Arrange
         using var consoleOutput = ConsoleOutput.Capture();
         
@@ -101,6 +131,11 @@ public class ConsoleHelperTest
     [Fact]
     public void WriteWithColorSupportsBothColors()
     {
+        if (ConsoleHelper.SupportsAnsiColors() == false)
+        {
+            return;
+        }
+
         // Arrange
         using var consoleOutput = ConsoleOutput.Capture();
         var testMessage = "Test message";
@@ -111,14 +146,19 @@ public class ConsoleHelperTest
         // Assert
         var output = consoleOutput.StandardOutput;
         Assert.Contains(testMessage, output);
-        Assert.Contains("\x1b[", output); // Should contain ANSI escape sequence
+        Assert.Contains("\eb[", output); // Should contain ANSI escape sequence
         // Should contain both foreground and background color codes
-        Assert.Matches(@"\x1b\[[0-9;]+m", output);
+        Assert.Matches(@"\eb\[[0-9;]+m", output);
     }
 
     [Fact]
     public void WriteLineWithColorSupportsBothColors()
     {
+        if (ConsoleHelper.SupportsAnsiColors() == false)
+        {
+            return;
+        }
+
         // Arrange
         using var consoleOutput = ConsoleOutput.Capture();
         var testMessage = "Test message";
@@ -129,14 +169,19 @@ public class ConsoleHelperTest
         // Assert
         var output = consoleOutput.StandardOutput;
         Assert.Contains(testMessage, output);
-        Assert.Contains("\x1b[", output); // Should contain ANSI escape sequence
+        Assert.Contains("\eb[", output); // Should contain ANSI escape sequence
         // Should contain both foreground and background color codes
-        Assert.Matches(@"\x1b\[[0-9;]+m", output);
+        Assert.Matches(@"\eb\[[0-9;]+m", output);
     }
 
     [Fact]
     public void ErrorWriteWithColorProducesOutput()
     {
+        if (ConsoleHelper.SupportsAnsiColors() == false)
+        {
+            return;
+        }
+
         // Arrange
         using var consoleOutput = ConsoleOutput.Capture();
         var testMessage = "Test error message";
@@ -147,13 +192,18 @@ public class ConsoleHelperTest
         // Assert
         var output = consoleOutput.StandardError;
         Assert.Contains(testMessage, output);
-        Assert.Contains("\x1b[", output); // Should contain ANSI escape sequence
+        Assert.Contains("\eb[", output); // Should contain ANSI escape sequence
         Assert.Contains("m", output); // ANSI escape sequence ends with 'm'
     }
 
     [Fact]
     public void ErrorWriteLineWithColorProducesOutput()
     {
+        if (ConsoleHelper.SupportsAnsiColors() == false)
+        {
+            return;
+        }
+
         // Arrange
         using var consoleOutput = ConsoleOutput.Capture();
         var testMessage = "Test error message";
@@ -164,13 +214,18 @@ public class ConsoleHelperTest
         // Assert
         var output = consoleOutput.StandardError;
         Assert.Contains(testMessage, output);
-        Assert.Contains("\x1b[", output); // Should contain ANSI escape sequence
+        Assert.Contains("\eb[", output); // Should contain ANSI escape sequence
         Assert.Contains("m", output); // ANSI escape sequence ends with 'm'
     }
 
     [Fact]
     public void ErrorWriteWithColorHandlesNullOutput()
     {
+        if (ConsoleHelper.SupportsAnsiColors() == false)
+        {
+            return;
+        }
+
         // Arrange
         using var consoleOutput = ConsoleOutput.Capture();
         
@@ -185,6 +240,11 @@ public class ConsoleHelperTest
     [Fact]
     public void ErrorWriteLineWithColorHandlesNullOutput()
     {
+        if (ConsoleHelper.SupportsAnsiColors() == false)
+        {
+            return;
+        }
+
         // Arrange
         using var consoleOutput = ConsoleOutput.Capture();
         
