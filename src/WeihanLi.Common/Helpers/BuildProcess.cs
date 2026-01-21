@@ -64,7 +64,7 @@ public sealed class BuildProcessBuilder
     public BuildProcessBuilder WithTask(string name, Action<BuildTaskBuilder> buildTaskConfigure)
     {
         if (string.IsNullOrWhiteSpace(name))
-            throw new ArgumentException("Task name could not be null or whitespace", nameof(name));
+            throw new ArgumentException(@"Task name could not be null or whitespace", nameof(name));
 
         var buildTaskBuilder = new BuildTaskBuilder(name);
         buildTaskConfigure.Invoke(buildTaskBuilder);
@@ -178,9 +178,10 @@ public interface IBuildTaskDescriptor
     string Description { get; }
 }
 
-public sealed class BuildTask(string name, string? description, Func<CancellationToken, Task>? execution = null) : IBuildTaskDescriptor
+public sealed class BuildTask(string name, string? description, Func<CancellationToken, Task>? execution = null) 
+    : IBuildTaskDescriptor
 {
-    private IReadOnlyCollection<BuildTask> _dependencies = Array.Empty<BuildTask>();
+    private IReadOnlyCollection<BuildTask> _dependencies = [];
 
     public string Name => name;
     public string Description => description ?? name;
@@ -230,7 +231,8 @@ public sealed class BuildTaskBuilder(string name)
     public BuildTaskBuilder WithDependency(string dependencyTaskName)
     {
         if (string.IsNullOrWhiteSpace(dependencyTaskName))
-            throw new ArgumentException("Dependency task name could not be null or whitespace", nameof(dependencyTaskName));
+            throw new ArgumentException(@"Dependency task name could not be null or whitespace", nameof(dependencyTaskName));
+        
         _dependencies.Add(dependencyTaskName);
         return this;
     }
@@ -253,6 +255,7 @@ public sealed class DotNetBuildProcessOptions
     public string ArtifactsPath { get; set; } = "./artifacts/dist";
     public Func<string?> BranchFunc { get; set; } = () => EnvHelper.Val("BUILD_SOURCEBRANCHNAME", EnvHelper.Val("GITHUB_REF_NAME"));
     public bool AllowLocalPush { get; set; }
+    public Action<BuildProcessBuilder>? AdditionalConfigure { get; set; }
 }
 
 public sealed class DotNetPackageBuildProcess
@@ -264,7 +267,7 @@ public sealed class DotNetPackageBuildProcess
     private DotNetPackageBuildProcess(DotNetBuildProcessOptions options)
     {
         _branch = options.BranchFunc();
-        _buildProcess = new BuildProcessBuilder()
+        var builder = new BuildProcessBuilder()
             .WithSetup(() =>
             {
                 // cleanup artifacts
@@ -382,7 +385,9 @@ public sealed class DotNetPackageBuildProcess
                     }
                 }))
             .WithTask("Default", b => b.WithDependency("pack"))
-            .Build();
+            ;
+        options.AdditionalConfigure?.Invoke(builder);
+        _buildProcess = builder.Build();
     }
 
     public async Task ExecuteAsync(string[] args, CancellationToken cancellation = default)
