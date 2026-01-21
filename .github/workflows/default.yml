@@ -22,9 +22,9 @@ jobs:
       matrix:
         os: [ubuntu-latest, macOS-latest, windows-latest]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: |
           8.0.x
@@ -33,4 +33,4 @@ jobs:
     - name: dotnet info
       run: dotnet --info
     - name: build
-      run: dotnet build.cs --target=build
+      run: dotnet build.cs

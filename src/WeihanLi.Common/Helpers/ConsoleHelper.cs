@@ -272,9 +272,13 @@ public static class ConsoleHelper
 
     private static bool DetectAnsiColorSupport()
     {
+        // Only when output is actually a terminal
+        if (Console.IsOutputRedirected)
+            return false;
+        
         // Check for explicit environment variable to disable ANSI colors
         var noColor = Environment.GetEnvironmentVariable("NO_COLOR");
-        if (!string.IsNullOrEmpty(noColor))
+        if (!string.IsNullOrEmpty(noColor) || Environment.GetEnvironmentVariable("CLICOLOR") == "0")
             return false;
 
         // On Windows, check for Virtual Terminal Processing support
