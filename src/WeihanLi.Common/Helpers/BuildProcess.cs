@@ -56,18 +56,25 @@ public sealed class BuildProcess(IReadOnlyCollection<BuildTask> tasks,
 
 public sealed class BuildProcessBuilder
 {
-    private readonly List<BuildTask> _tasks = [];
+    private readonly Dictionary<string, BuildTaskBuilder> _taskBuilders = new(StringComparer.Ordinal);
+    private readonly List<string> _taskOrder = [];
     private Func<Task>? _setup, _cleanup, _cancelled;
     private Func<IBuildTaskDescriptor, Task>? _taskExecuting, _taskExecuted;
 
     public BuildProcessBuilder WithTask(string name, Action<BuildTaskBuilder> buildTaskConfigure)
     {
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("Task name could not be null or whitespace", nameof(name));
+
         var buildTaskBuilder = new BuildTaskBuilder(name);
-        buildTaskBuilder.WithTaskFinder(s =>
-            _tasks.Find(t => t.Name == s) ?? throw new InvalidOperationException($"No task found with name {s}"));
         buildTaskConfigure.Invoke(buildTaskBuilder);
-        var task = buildTaskBuilder.Build();
-        _tasks.Add(task);
+
+        if (!_taskBuilders.ContainsKey(name))
+        {
+            _taskOrder.Add(name);
+        }
+
+        _taskBuilders[name] = buildTaskBuilder;
         return this;
     }
 
@@ -133,7 +140,35 @@ public sealed class BuildProcessBuilder
 
     public BuildProcess Build()
     {
-        return new BuildProcess(_tasks, _setup, _cleanup, _cancelled, _taskExecuting, _taskExecuted);
+        if (_taskBuilders.Count == 0)
+        {
+            throw new InvalidOperationException("No tasks configured");
+        }
+
+        var tasks = new Dictionary<string, BuildTask>(StringComparer.Ordinal);
+        foreach (var taskName in _taskOrder)
+        {
+            tasks[taskName] = _taskBuilders[taskName].Build();
+        }
+
+        foreach (var taskName in _taskOrder)
+        {
+            var builder = _taskBuilders[taskName];
+            var dependencies = builder.DependencyNames.Select(name =>
+            {
+                if (!tasks.TryGetValue(name, out var dependency))
+                {
+                    throw new InvalidOperationException($"No task found with name {name}");
+                }
+
+                return dependency;
+            }).ToArray();
+
+            tasks[taskName].SetDependencies(dependencies);
+        }
+
+        var orderedTasks = _taskOrder.Select(name => tasks[name]).ToArray();
+        return new BuildProcess(orderedTasks, _setup, _cleanup, _cancelled, _taskExecuting, _taskExecuted);
     }
 }
 
@@ -145,9 +180,16 @@ public interface IBuildTaskDescriptor
 
 public sealed class BuildTask(string name, string? description, Func<CancellationToken, Task>? execution = null) : IBuildTaskDescriptor
 {
+    private IReadOnlyCollection<BuildTask> _dependencies = Array.Empty<BuildTask>();
+
     public string Name => name;
     public string Description => description ?? name;
-    public IReadOnlyCollection<BuildTask> Dependencies { get; init; } = [];
+    public IReadOnlyCollection<BuildTask> Dependencies => _dependencies;
+
+    internal void SetDependencies(IReadOnlyCollection<BuildTask> dependencies)
+    {
+        _dependencies = dependencies;
+    }
 
     public Task ExecuteAsync(CancellationToken cancellationToken) =>
         execution?.Invoke(cancellationToken) ?? Task.CompletedTask;
@@ -159,7 +201,7 @@ public sealed class BuildTaskBuilder(string name)
 
     private string? _description;
     private Func<CancellationToken, Task>? _execution;
-    private readonly List<BuildTask> _dependencies = [];
+    private readonly List<string> _dependencies = [];
 
     public BuildTaskBuilder WithDescription(string? description)
     {
@@ -187,24 +229,17 @@ public sealed class BuildTaskBuilder(string name)
 
     public BuildTaskBuilder WithDependency(string dependencyTaskName)
     {
-        if (_taskFinder is null) throw new InvalidOperationException("Dependency task name is not supported");
-
-        _dependencies.Add(_taskFinder.Invoke(dependencyTaskName));
+        if (string.IsNullOrWhiteSpace(dependencyTaskName))
+            throw new ArgumentException("Dependency task name could not be null or whitespace", nameof(dependencyTaskName));
+        _dependencies.Add(dependencyTaskName);
         return this;
     }
 
-    private Func<string, BuildTask>? _taskFinder;
-
-    internal BuildTaskBuilder WithTaskFinder(Func<string, BuildTask> taskFinder)
-    {
-        _taskFinder = taskFinder;
-        return this;
-    }
+    internal IReadOnlyCollection<string> DependencyNames => _dependencies;
 
     internal BuildTask Build()
     {
-        var buildTask = new BuildTask(_name, _description, _execution) { Dependencies = _dependencies };
-        return buildTask;
+        return new BuildTask(_name, _description, _execution);
     }
 }
 
