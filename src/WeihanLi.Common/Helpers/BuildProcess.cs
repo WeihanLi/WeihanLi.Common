@@ -261,12 +261,12 @@ public sealed class DotNetPackageBuildProcess
                         var enableGitHubReport =
                             string.Equals(EnvHelper.Val("GITHUB_ACTIONS"), "true", StringComparison.OrdinalIgnoreCase) &&
                             !disableGitHubReport;
-                        var reportArguments = enableGitHubReport ? " -- --report-github" : string.Empty;
+                        var reportArguments = enableGitHubReport ? " --report-github" : string.Empty;
 
                         foreach (var project in options.TestProjects ?? [])
                         {
                             CommandExecutor.ExecuteCommandAndOutput(
-                                $"dotnet test --collect:\"XPlat Code Coverage;Format=cobertura,opencover;ExcludeByAttribute=ExcludeFromCodeCoverage,Obsolete,GeneratedCode,CompilerGeneratedAttribute\" --project {project}{reportArguments}"
+                                $"dotnet test --project {project}{reportArguments}"
                                 ).EnsureSuccessExitCode();
                         }
                     })
