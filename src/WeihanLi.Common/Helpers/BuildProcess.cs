@@ -58,9 +58,22 @@ public static class BuildProcessExtensions
         public IBuildTaskBuilder WithExecution(Action executionAction) => builder.WithExecution(executionAction.WrapTask());
         public IBuildTaskBuilder WithExecution(Func<Task> executionFunc) => builder.WithExecution(executionFunc.WrapCancellation());
     }
+
+    extension(BuildProcess)
+    {
+        public static IBuildProcessBuilder CreateBuilder() => new BuildProcessBuilder();
+    }
+
+    extension(DotNetBuildProcessOptions options)
+    {
+        public DotNetBuildProcessOptions WithTaskExecution(string name, Action taskExecution)
+            => options.WithTaskExecution(name, taskExecution.WrapTask());
+        public DotNetBuildProcessOptions WithTaskExecution(string name, Func<Task> taskExecution)
+            => options.WithTaskExecution(name, taskExecution.WrapCancellation());
+    }
 }
 
-internal sealed class BuildProcess(IReadOnlyCollection<BuildTask> tasks,
+public sealed class BuildProcess(IReadOnlyCollection<BuildTask> tasks,
     Func<Task>? setup = null, Func<Task>? cleanup = null, Func<Task>? cancelled = null,
     Func<IBuildTaskDescriptor, Task>? taskExecuting = null, Func<IBuildTaskDescriptor, Task>? taskExecuted = null)
 {
@@ -108,7 +121,7 @@ internal sealed class BuildProcess(IReadOnlyCollection<BuildTask> tasks,
     }
 }
 
-internal sealed class BuildTask(string name, string? description, Func<CancellationToken, Task>? execution = null) 
+public sealed class BuildTask(string name, string? description, Func<CancellationToken, Task>? execution = null) 
     : IBuildTaskDescriptor
 {
     private IReadOnlyCollection<BuildTask> _dependencies = [];
@@ -137,18 +150,6 @@ internal sealed class BuildTaskBuilder(string name) : IBuildTaskBuilder
     public IBuildTaskBuilder WithDescription(string? description)
     {
         _description = description;
-        return this;
-    }
-
-    public BuildTaskBuilder WithExecution(Action execution)
-    {
-        _execution = execution.WrapTask().WrapCancellation();
-        return this;
-    }
-
-    public BuildTaskBuilder WithExecution(Func<Task> execution)
-    {
-        _execution = execution.WrapCancellation();
         return this;
     }
 
@@ -278,7 +279,7 @@ public sealed class DotNetBuildProcessOptions
 
     internal readonly Dictionary<string, Action<IBuildTaskBuilder>> TaskOverride = new();
     
-    public DotNetBuildProcessOptions WithTaskOverride(string name, Action<IBuildTaskBuilder> taskConfigure)
+    public DotNetBuildProcessOptions WithTaskConfigure(string name, Action<IBuildTaskBuilder> taskConfigure)
     {
         TaskOverride[name] = taskConfigure;
         return this;
@@ -300,7 +301,7 @@ public sealed class DotNetPackageBuildProcess
     private DotNetPackageBuildProcess(DotNetBuildProcessOptions options)
     {
         _branch = options.BranchFunc();
-        var builder = new BuildProcessBuilder()
+        var builder = BuildProcess.CreateBuilder()
             .WithSetup(() =>
             {
                 // cleanup artifacts
@@ -337,7 +338,7 @@ public sealed class DotNetPackageBuildProcess
                         foreach (var project in options.TestProjects ?? [])
                         {
                             CommandExecutor.ExecuteCommandAndOutput(
-                                $"dotnet test --project {project}{reportArguments}"
+                                $"dotnet run --project {project}{reportArguments}"
                                 ).EnsureSuccessExitCode();
                         }
                     })
