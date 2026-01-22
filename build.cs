@@ -4,9 +4,7 @@
 #:project ./src/WeihanLi.Common/WeihanLi.Common.csproj
 #:property PublishAot=false
 
-using WeihanLi.Common;
 using WeihanLi.Common.Helpers;
-using WeihanLi.Extensions;
 
 var solutionPath = "./WeihanLi.Common.slnx";
 string[] srcProjects = [ 
@@ -24,4 +22,3 @@ await DotNetPackageBuildProcess
         options.TestProjects = testProjects;
     })
     .ExecuteAsync(args);
-
