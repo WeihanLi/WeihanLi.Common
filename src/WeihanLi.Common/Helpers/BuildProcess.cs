@@ -6,6 +6,73 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Helpers;
 
+public interface IBuildProcessBuilder
+{
+    IBuildProcessBuilder WithTask(string name, Action<IBuildTaskBuilder> buildTaskConfigure);
+
+    IBuildProcessBuilder WithSetup(Func<Task> setupFunc);
+
+    IBuildProcessBuilder WithCleanup(Func<Task> cleanupFunc);
+
+    IBuildProcessBuilder WithCancelled(Func<Task> cancelledFunc);
+
+    IBuildProcessBuilder WithTaskExecuting(Func<IBuildTaskDescriptor, Task> taskExecutingAction);
+
+    IBuildProcessBuilder WithTaskExecuted(Func<IBuildTaskDescriptor, Task> taskExecutedAction);
+}
+
+public interface IBuildTaskDescriptor
+{
+    string Name { get; }
+    string Description { get; }
+}
+
+public interface IBuildTaskBuilder
+{
+    IBuildTaskBuilder WithDescription(string? description);
+    IBuildTaskBuilder WithDependency(string dependencyTaskName);
+    IBuildTaskBuilder WithExecution(Func<CancellationToken, Task> execution);
+}
+
+public static class BuildProcessExtensions
+{
+    extension(IBuildProcessBuilder builder)
+    {
+        public IBuildProcessBuilder WithSetup(Action setupAction) => builder.WithSetup(setupAction.WrapTask());
+        public IBuildProcessBuilder WithCleanup(Action cleanupAction) => builder.WithCleanup(cleanupAction.WrapTask());
+        public IBuildProcessBuilder WithCancelled(Action cancelledAction) => builder.WithCancelled(cancelledAction.WrapTask());
+        public IBuildProcessBuilder WithTaskExecuting(Action<IBuildTaskDescriptor> taskExecutingAction) 
+            => builder.WithTaskExecuting(taskExecutingAction.WrapTask());
+        public IBuildProcessBuilder WithTaskExecuted(Action<IBuildTaskDescriptor> taskExecutedAction) 
+            => builder.WithTaskExecuted(taskExecutedAction.WrapTask());
+        public IBuildProcessBuilder WithTaskExecution(string name, Action taskExecution)
+            => builder.WithTask(name, taskBuilder => taskBuilder.WithExecution(taskExecution));
+        public IBuildProcessBuilder WithTaskExecution(string name, Func<Task> taskExecution)
+            => builder.WithTask(name, taskBuilder => taskBuilder.WithExecution(taskExecution));
+        public IBuildProcessBuilder WithTaskExecution(string name, Func<CancellationToken, Task> taskExecution)
+            => builder.WithTask(name, taskBuilder => taskBuilder.WithExecution(taskExecution));
+    }
+
+    extension(IBuildTaskBuilder builder)
+    {
+        public IBuildTaskBuilder WithExecution(Action executionAction) => builder.WithExecution(executionAction.WrapTask());
+        public IBuildTaskBuilder WithExecution(Func<Task> executionFunc) => builder.WithExecution(executionFunc.WrapCancellation());
+    }
+
+    extension(BuildProcess)
+    {
+        public static IBuildProcessBuilder CreateBuilder() => new BuildProcessBuilder();
+    }
+
+    extension(DotNetBuildProcessOptions options)
+    {
+        public DotNetBuildProcessOptions WithTaskExecution(string name, Action taskExecution)
+            => options.WithTaskExecution(name, taskExecution.WrapTask());
+        public DotNetBuildProcessOptions WithTaskExecution(string name, Func<Task> taskExecution)
+            => options.WithTaskExecution(name, taskExecution.WrapCancellation());
+    }
+}
+
 public sealed class BuildProcess(IReadOnlyCollection<BuildTask> tasks,
     Func<Task>? setup = null, Func<Task>? cleanup = null, Func<Task>? cancelled = null,
     Func<IBuildTaskDescriptor, Task>? taskExecuting = null, Func<IBuildTaskDescriptor, Task>? taskExecuted = null)
@@ -54,78 +121,110 @@ public sealed class BuildProcess(IReadOnlyCollection<BuildTask> tasks,
     }
 }
 
-public sealed class BuildProcessBuilder
+public sealed class BuildTask(string name, string? description, Func<CancellationToken, Task>? execution = null) 
+    : IBuildTaskDescriptor
 {
-    private readonly List<BuildTask> _tasks = [];
+    private IReadOnlyCollection<BuildTask> _dependencies = [];
+
+    public string Name => name;
+    public string Description => description ?? name;
+    public IReadOnlyCollection<BuildTask> Dependencies => _dependencies;
+
+    internal void SetDependencies(IReadOnlyCollection<BuildTask> dependencies)
+    {
+        _dependencies = dependencies;
+    }
+
+    public Task ExecuteAsync(CancellationToken cancellationToken) =>
+        execution?.Invoke(cancellationToken) ?? Task.CompletedTask;
+}
+
+internal sealed class BuildTaskBuilder(string name) : IBuildTaskBuilder
+{
+    private readonly string _name = name;
+
+    private string? _description;
+    private Func<CancellationToken, Task>? _execution;
+    private readonly List<string> _dependencies = [];
+
+    public IBuildTaskBuilder WithDescription(string? description)
+    {
+        _description = description;
+        return this;
+    }
+
+    public IBuildTaskBuilder WithExecution(Func<CancellationToken, Task> execution)
+    {
+        _execution = execution;
+        return this;
+    }
+
+    public IBuildTaskBuilder WithDependency(string dependencyTaskName)
+    {
+        if (string.IsNullOrWhiteSpace(dependencyTaskName))
+            throw new ArgumentException(@"Dependency task name could not be null or whitespace", nameof(dependencyTaskName));
+        
+        _dependencies.Add(dependencyTaskName);
+        return this;
+    }
+
+    internal IReadOnlyCollection<string> DependencyNames => _dependencies;
+
+    internal BuildTask Build()
+    {
+        return new BuildTask(_name, _description, _execution);
+    }
+}
+
+internal sealed class BuildProcessBuilder : IBuildProcessBuilder
+{
+    private readonly Dictionary<string, Action<BuildTaskBuilder>> _taskBuilders = new(StringComparer.Ordinal);
     private Func<Task>? _setup, _cleanup, _cancelled;
     private Func<IBuildTaskDescriptor, Task>? _taskExecuting, _taskExecuted;
 
-    public BuildProcessBuilder WithTask(string name, Action<BuildTaskBuilder> buildTaskConfigure)
+    public IBuildProcessBuilder WithTask(string name, Action<IBuildTaskBuilder> buildTaskConfigure)
     {
-        var buildTaskBuilder = new BuildTaskBuilder(name);
-        buildTaskBuilder.WithTaskFinder(s =>
-            _tasks.Find(t => t.Name == s) ?? throw new InvalidOperationException($"No task found with name {s}"));
-        buildTaskConfigure.Invoke(buildTaskBuilder);
-        var task = buildTaskBuilder.Build();
-        _tasks.Add(task);
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException(@"Task name could not be null or whitespace", nameof(name));
+
+        if (_taskBuilders.TryGetValue(name, out var taskBuilder))
+        {
+         
+            _taskBuilders[name] = taskBuilder + buildTaskConfigure;   
+        }
+        else
+        {
+            _taskBuilders[name] = buildTaskConfigure;            
+        }
+
         return this;
     }
 
-    public BuildProcessBuilder WithSetup(Action setupFunc)
-    {
-        _setup = setupFunc.WrapTask();
-        return this;
-    }
-
-    public BuildProcessBuilder WithSetup(Func<Task> setupFunc)
+    public IBuildProcessBuilder WithSetup(Func<Task> setupFunc)
     {
         _setup = setupFunc;
         return this;
     }
 
-    public BuildProcessBuilder WithCleanup(Action cleanupFunc)
-    {
-        _cleanup = cleanupFunc.WrapTask();
-        return this;
-    }
-
-    public BuildProcessBuilder WithCleanup(Func<Task> cleanupFunc)
+    public IBuildProcessBuilder WithCleanup(Func<Task> cleanupFunc)
     {
         _cleanup = cleanupFunc;
         return this;
     }
 
-    public BuildProcessBuilder WithCancelled(Action cancelledFunc)
-    {
-        _cancelled = cancelledFunc.WrapTask();
-        return this;
-    }
-
-    public BuildProcessBuilder WithCancelled(Func<Task> cancelledFunc)
+    public IBuildProcessBuilder WithCancelled(Func<Task> cancelledFunc)
     {
         _cancelled = cancelledFunc;
         return this;
     }
 
-    public BuildProcessBuilder WithTaskExecuting(Action<IBuildTaskDescriptor> taskExecutingAction)
-    {
-        _taskExecuting = taskExecutingAction.WrapTask();
-        return this;
-    }
-
-    public BuildProcessBuilder WithTaskExecuting(Func<IBuildTaskDescriptor, Task> taskExecutingAction)
+    public IBuildProcessBuilder WithTaskExecuting(Func<IBuildTaskDescriptor, Task> taskExecutingAction)
     {
         _taskExecuting = taskExecutingAction;
         return this;
     }
 
-    public BuildProcessBuilder WithTaskExecuted(Action<IBuildTaskDescriptor> taskExecutedAction)
-    {
-        _taskExecuted = taskExecutedAction.WrapTask();
-        return this;
-    }
-
-    public BuildProcessBuilder WithTaskExecuted(Func<IBuildTaskDescriptor, Task> taskExecutedAction)
+    public IBuildProcessBuilder WithTaskExecuted(Func<IBuildTaskDescriptor, Task> taskExecutedAction)
     {
         _taskExecuted = taskExecutedAction;
         return this;
@@ -133,78 +232,37 @@ public sealed class BuildProcessBuilder
 
     public BuildProcess Build()
     {
-        return new BuildProcess(_tasks, _setup, _cleanup, _cancelled, _taskExecuting, _taskExecuted);
-    }
-}
+        if (_taskBuilders.Count == 0)
+        {
+            throw new InvalidOperationException("No tasks configured");
+        }
 
-public interface IBuildTaskDescriptor
-{
-    string Name { get; }
-    string Description { get; }
-}
+        var tasksDictionary = new Dictionary<string, (BuildTaskBuilder TaskBuilder, BuildTask Task)>(StringComparer.Ordinal);
+        foreach (var taskName in _taskBuilders.Keys)
+        {
+            var taskBuilder = new BuildTaskBuilder(taskName);
+            _taskBuilders[taskName].Invoke(taskBuilder);
+            tasksDictionary[taskName] = (taskBuilder, taskBuilder.Build());
+        }
 
-public sealed class BuildTask(string name, string? description, Func<CancellationToken, Task>? execution = null) : IBuildTaskDescriptor
-{
-    public string Name => name;
-    public string Description => description ?? name;
-    public IReadOnlyCollection<BuildTask> Dependencies { get; init; } = [];
+        foreach (var taskName in _taskBuilders.Keys)
+        {
+            var builder = tasksDictionary[taskName];
+            var dependencies = builder.TaskBuilder.DependencyNames.Select(name =>
+            {
+                if (!tasksDictionary.TryGetValue(name, out var dependency))
+                {
+                    throw new InvalidOperationException($"No task found with name {name}");
+                }
 
-    public Task ExecuteAsync(CancellationToken cancellationToken) =>
-        execution?.Invoke(cancellationToken) ?? Task.CompletedTask;
-}
+                return dependency.Task;
+            }).ToArray();
 
-public sealed class BuildTaskBuilder(string name)
-{
-    private readonly string _name = name;
+            tasksDictionary[taskName].Task.SetDependencies(dependencies);
+        }
 
-    private string? _description;
-    private Func<CancellationToken, Task>? _execution;
-    private readonly List<BuildTask> _dependencies = [];
-
-    public BuildTaskBuilder WithDescription(string? description)
-    {
-        _description = description;
-        return this;
-    }
-
-    public BuildTaskBuilder WithExecution(Action execution)
-    {
-        _execution = execution.WrapTask().WrapCancellation();
-        return this;
-    }
-
-    public BuildTaskBuilder WithExecution(Func<Task> execution)
-    {
-        _execution = execution.WrapCancellation();
-        return this;
-    }
-
-    public BuildTaskBuilder WithExecution(Func<CancellationToken, Task> execution)
-    {
-        _execution = execution;
-        return this;
-    }
-
-    public BuildTaskBuilder WithDependency(string dependencyTaskName)
-    {
-        if (_taskFinder is null) throw new InvalidOperationException("Dependency task name is not supported");
-
-        _dependencies.Add(_taskFinder.Invoke(dependencyTaskName));
-        return this;
-    }
-
-    private Func<string, BuildTask>? _taskFinder;
-
-    internal BuildTaskBuilder WithTaskFinder(Func<string, BuildTask> taskFinder)
-    {
-        _taskFinder = taskFinder;
-        return this;
-    }
-
-    internal BuildTask Build()
-    {
-        var buildTask = new BuildTask(_name, _description, _execution) { Dependencies = _dependencies };
-        return buildTask;
+        var tasks = tasksDictionary.Values.Select(t => t.Task).ToArray();
+        return new BuildProcess(tasks, _setup, _cleanup, _cancelled, _taskExecuting, _taskExecuted);
     }
 }
 
@@ -218,6 +276,20 @@ public sealed class DotNetBuildProcessOptions
     public string ArtifactsPath { get; set; } = "./artifacts/dist";
     public Func<string?> BranchFunc { get; set; } = () => EnvHelper.Val("BUILD_SOURCEBRANCHNAME", EnvHelper.Val("GITHUB_REF_NAME"));
     public bool AllowLocalPush { get; set; }
+
+    internal readonly Dictionary<string, Action<IBuildTaskBuilder>> TaskOverride = new();
+    
+    public DotNetBuildProcessOptions WithTaskConfigure(string name, Action<IBuildTaskBuilder> taskConfigure)
+    {
+        TaskOverride[name] = taskConfigure;
+        return this;
+    }
+    
+    public DotNetBuildProcessOptions WithTaskExecution(string name, Func<CancellationToken, Task> taskExecution)
+    {
+        TaskOverride[name] = x => x.WithExecution(taskExecution);
+        return this;
+    }
 }
 
 public sealed class DotNetPackageBuildProcess
@@ -229,7 +301,7 @@ public sealed class DotNetPackageBuildProcess
     private DotNetPackageBuildProcess(DotNetBuildProcessOptions options)
     {
         _branch = options.BranchFunc();
-        _buildProcess = new BuildProcessBuilder()
+        var builder = BuildProcess.CreateBuilder()
             .WithSetup(() =>
             {
                 // cleanup artifacts
@@ -238,11 +310,11 @@ public sealed class DotNetPackageBuildProcess
 
                 // args
                 Console.WriteLine(@"Executing command line:");
-                Console.WriteLine($@"  {Environment.CommandLine}");
+                ConsoleHelper.WriteLineWithColor($@"  {Environment.CommandLine}", ConsoleColor.DarkGreen);
                 Console.WriteLine($@"Branch: {_branch}, stable: {_stable}");
             })
-            .WithTaskExecuting(task => Console.WriteLine($@"===== Task {task.Name} {task.Description} executing ======"))
-            .WithTaskExecuted(task => Console.WriteLine($@"===== Task {task.Name} {task.Description} executed ======"))
+            .WithTaskExecuting(task => ConsoleHelper.WriteLineWithColor($@"===== Task {task.Name} {task.Description} executing ======", ConsoleColor.DarkCyan))
+            .WithTaskExecuted(task => ConsoleHelper.WriteLineWithColor($@"===== Task {task.Name} {task.Description} executed ======", ConsoleColor.DarkGreen))
             .WithTask("build", b =>
             {
                 b.WithDescription("dotnet build")
@@ -257,10 +329,16 @@ public sealed class DotNetPackageBuildProcess
                     .WithDependency("build")
                     .WithExecution(() =>
                     {
+                        var disableGitHubReport = EnvHelper.BooleanVal("DISABLE_GITHUB_ACTIONS_TEST_LOGGER");
+                        var enableGitHubReport =
+                            string.Equals(EnvHelper.Val("GITHUB_ACTIONS"), "true", StringComparison.OrdinalIgnoreCase) &&
+                            !disableGitHubReport;
+                        var reportArguments = enableGitHubReport ? " --report-github" : string.Empty;
+
                         foreach (var project in options.TestProjects ?? [])
                         {
                             CommandExecutor.ExecuteCommandAndOutput(
-                                $"dotnet test --collect:\"XPlat Code Coverage;Format=cobertura,opencover;ExcludeByAttribute=ExcludeFromCodeCoverage,Obsolete,GeneratedCode,CompilerGeneratedAttribute\" {project}"
+                                $"dotnet run --project {project}{reportArguments}"
                                 ).EnsureSuccessExitCode();
                         }
                     })
@@ -295,7 +373,7 @@ public sealed class DotNetPackageBuildProcess
 
                     if (_noPush)
                     {
-                        Console.WriteLine(@"Skip push there's noPush specified");
+                        ConsoleHelper.WriteLineWithColor(@"Skip push there's noPush specified", ConsoleColor.Yellow);
                         return;
                     }
 
@@ -324,7 +402,7 @@ public sealed class DotNetPackageBuildProcess
 
                         if (string.IsNullOrEmpty(_apiKey))
                         {
-                            Console.WriteLine(@"Skip push since there's no apiKey found");
+                            ConsoleHelper.WriteLineWithColor(@"Skip push since there's no apiKey found", ConsoleColor.Yellow);
                             return;
                         }
                     }
@@ -333,15 +411,28 @@ public sealed class DotNetPackageBuildProcess
                     // push nuget packages
                     var nugetSource =  string.IsNullOrEmpty(_source) ? options.FallbackNuGetSourceFunc() : _source;
                     nugetSource = string.IsNullOrEmpty(nugetSource) ? string.Empty : $"--source {nugetSource}";
-                    var pushArgumenst = $" -k {_apiKey} --skip-duplicate {nugetSource}";
+                    var pushArguments = $" -k {_apiKey} --skip-duplicate {nugetSource}";
                     foreach (var file in Directory.GetFiles(options.ArtifactsPath, "*.nupkg"))
                     {
-                        var commandText = $"dotnet nuget push {file} {pushArgumenst}";
+                        var commandText = $"dotnet nuget push {file} {pushArguments}";
                         CommandExecutor.ExecuteCommandAndOutput(commandText).EnsureSuccessExitCode();
                     }
                 }))
             .WithTask("Default", b => b.WithDependency("pack"))
-            .Build();
+            ;
+#if NET
+        foreach (var (task, configure) in options.TaskOverride)
+        {
+#else
+        foreach (var pair in options.TaskOverride)
+        {
+            var task = pair.Key;
+            var configure = pair.Value;
+#endif
+            builder.WithTask(task, configure);
+        }
+
+        _buildProcess = ((BuildProcessBuilder)builder).Build();
     }
 
     public async Task ExecuteAsync(string[] args, CancellationToken cancellation = default)

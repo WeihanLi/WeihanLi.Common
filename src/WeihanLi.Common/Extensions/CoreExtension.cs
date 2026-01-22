@@ -1060,9 +1060,9 @@ public static class CoreExtension
     /// Parse ReadOnlySpan to specific type instance
     /// </summary>
     /// <param name="this">span text</param>
-    /// <param name="formatProvider">format</param>
+    /// <param name="formatProvider">An object that provides culture-specific formatting information</param>
     /// <typeparam name="T">The destination type</typeparam>
-    /// <returns></returns>
+    /// <returns>The parsed value of type T.</returns>
     public static T To<T>(this ReadOnlySpan<char> @this, IFormatProvider? formatProvider = null) 
         where T: ISpanParsable<T>
     {
@@ -1073,10 +1073,10 @@ public static class CoreExtension
     /// Parse ReadOnlySpan to specific type instance
     /// </summary>
     /// <param name="this">span text</param>
-    /// <param name="formatProvider">format</param>
+    /// <param name="formatProvider">An object that provides culture-specific formatting information</param>
     /// <param name="defaultValue">default value</param>
     /// <typeparam name="T">The destination type</typeparam>
-    /// <returns></returns>
+    /// <returns>The parsed value of type T, or the default value if parsing fails.</returns>
     public static T? ToOrDefault<T>(this ReadOnlySpan<char> @this, 
         IFormatProvider? formatProvider = null, 
         T? defaultValue = default) 

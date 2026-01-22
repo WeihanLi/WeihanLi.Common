@@ -6,7 +6,7 @@ using System.Net;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
-Console.WriteLine("----------DotNetCoreSample----------");
+ConsoleHelper.WriteLineWithColor("----------DotNetCoreSample----------", ConsoleColor.DarkGreen);
 
 {
     var text = "127.0.0.1";
