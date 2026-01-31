@@ -271,6 +271,7 @@ public sealed class DotNetBuildProcessOptions
     public string? SolutionPath { get; set; }
     public string[]? SrcProjects { get; set; }
     public string[]? TestProjects { get; set; }
+    public string[]? RunFileSampleFolders { get; set; }
     public Func<string?> FallbackNuGetApiKeyFunc { get; set; } = () => EnvHelper.Val("NuGet__ApiKey");
     public Func<string?> FallbackNuGetSourceFunc { get; set; } = () => EnvHelper.Val("NuGet__Source");
     public string ArtifactsPath { get; set; } = "./artifacts/dist";
@@ -318,10 +319,23 @@ public sealed class DotNetPackageBuildProcess
             .WithTask("build", b =>
             {
                 b.WithDescription("dotnet build")
-                  .WithExecution(() => 
-                    CommandExecutor.ExecuteCommandAndOutput($"dotnet build {options.SolutionPath}")
-                      .EnsureSuccessExitCode()
-                  );
+                  .WithExecution(() =>
+                  {
+                      Console.WriteLine($@"Build solution {options.SolutionPath}");
+                      CommandExecutor.ExecuteCommandAndOutput($"dotnet build {options.SolutionPath}")
+                          .EnsureSuccessExitCode();
+                      
+                      if (options.RunFileSampleFolders is not { Length: > 0 })
+                          return;
+
+                      Parallel.ForEach(options.RunFileSampleFolders, folder =>
+                      {
+                          foreach (var file in Directory.GetFiles(folder, "*.cs"))
+                          {
+                              CommandExecutor.ExecuteAndOutput($"dotnet build {Path.GetFullPath(file)}");
+                          }
+                      });
+                  });
             })
             .WithTask("test", b =>
             {
