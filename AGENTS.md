@@ -97,7 +97,7 @@ Use conditional compilation (`#if NET8_0_OR_GREATER` etc.) for framework-specifi
 ## Code Style and Conventions
 
 - **Language**: C# with nullable reference types enabled (`<Nullable>enable</Nullable>`) and implicit usings
-- **Naming**: PascalCase for public members; camelCase for private fields
+- **Naming**: PascalCase for public members; _camelCase for private fields (private static readonly fields may use PascalCase)
 - **License header**: Apache License 2.0 header in every source file
 - **Formatting**: governed by `.editorconfig` — run `dotnet format` before committing
 
