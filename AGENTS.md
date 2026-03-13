@@ -242,6 +242,68 @@ Package versions are centrally managed in `Directory.Packages.props` — update 
 - Never commit secrets or credentials
 - The `nuget.config` enables NuGet audit; do not suppress audit warnings without justification
 
+## Pull Request Guidelines
+
+### Commit Message Conventions
+
+This project follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification. Every commit message must be structured as:
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+**Common types:**
+
+| Type | When to use |
+|---|---|
+| `feat` | A new feature (correlates with MINOR in SemVer) |
+| `fix` | A bug fix (correlates with PATCH in SemVer) |
+| `docs` | Documentation-only changes |
+| `style` | Formatting, missing semicolons, etc. — no logic change |
+| `refactor` | Code change that is neither a fix nor a feature |
+| `perf` | Performance improvement |
+| `test` | Adding or correcting tests |
+| `build` | Changes to the build system or external dependencies |
+| `ci` | Changes to CI/CD configuration files |
+| `chore` | Maintenance tasks that don't modify src or test files |
+
+**Breaking changes**: append `!` after the type/scope or add a `BREAKING CHANGE:` footer.
+
+**Examples:**
+
+```
+feat(event): add retry support to EventBus
+fix(otp): correct TOTP window boundary calculation
+docs: update AGENTS.md with PR guidelines
+build: bump Newtonsoft.Json to 13.0.4
+feat!: remove obsolete IDependencyResolver overloads
+
+BREAKING CHANGE: IDependencyResolver.GetService<T>() overloads that
+accepted a string key have been removed. Use keyed services instead.
+```
+
+### Required Checks Before Submitting
+
+- `dotnet build` — must compile without errors or warnings
+- `dotnet test` — all tests must pass
+- `dotnet format --verify-no-changes` — no formatting violations
+
+### PR Title Format
+
+Use the same `<type>[optional scope]: <description>` format as the commit message.
+
+## Debugging and Troubleshooting
+
+- **Build failures**: run `dotnet build --verbosity detailed` for full MSBuild output
+- **Test failures on a specific framework**: use `dotnet test -f net8.0` to target one TFM
+- **GitHub Actions test logger noise locally**: set `DISABLE_GITHUB_ACTIONS_TEST_LOGGER=true`
+- **NuGet restore errors**: verify `Directory.Packages.props` contains the version; do not add `<Version>` in individual `.csproj` files
+- **Reflection.Emit issues on netstandard2.0**: the package conditionally references `System.Reflection.Emit` — guard with `#if !NETSTANDARD2_0` or `#if NET8_0_OR_GREATER` as appropriate
+
 ## Documentation
 
 - XML documentation is required on all public APIs
