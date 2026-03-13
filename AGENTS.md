@@ -151,7 +151,8 @@ public sealed class ServiceOptions
 
 ## Testing Guidelines
 
-- **Framework**: xUnit v3 (`xunit.v3`)
+- **Framework**: xUnit v3 on Microsoft Testing Platform (`xunit.v3.mtp-v2`)
+- **Runner**: Microsoft Testing Platform (`UseMicrosoftTestingPlatformRunner=true`)
 - **Location**: `test/WeihanLi.Common.Test/`
 - **File naming**: `{ComponentName}Test.cs`
 - **Namespace**: `WeihanLi.Common.Test`
