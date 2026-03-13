@@ -240,7 +240,7 @@ Package versions are centrally managed in `Directory.Packages.props` — update 
 - Dispose resources properly (use `using` statements)
 - Use `RandomNumberGenerator` (not `Random`) for cryptographic operations
 - Never commit secrets or credentials
-- The `nuget.config` enables NuGet audit; do not suppress audit warnings without justification
+- NuGet audit is enabled via MSBuild properties (see `Directory.Build.props` / `Directory.Packages.props` with `<NuGetAudit>true</NuGetAudit>`); do not suppress audit warnings without justification
 
 ## Pull Request Guidelines
 
