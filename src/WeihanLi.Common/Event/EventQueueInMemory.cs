@@ -89,7 +89,7 @@ public sealed class EventQueueInMemory : IEventQueue
                 }
 #endif
             }
-            
+
             await Task.Delay(200, cancellationToken);
         }
     }

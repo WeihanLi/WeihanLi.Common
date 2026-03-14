@@ -4,6 +4,7 @@
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DotNetCoreSample;
+
 internal class ServiceDecoratorTest
 {
     public static void MainTest()

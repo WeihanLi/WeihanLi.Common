@@ -5,6 +5,7 @@ using WeihanLi.Common.Helpers;
 using Xunit;
 
 namespace WeihanLi.Common.Test.HelpersTest;
+
 public class ApplicationHelperTest
 {
     [Fact]

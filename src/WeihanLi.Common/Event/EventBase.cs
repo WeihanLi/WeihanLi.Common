@@ -74,7 +74,7 @@ public class EventWrapper<T> : IEvent, IEvent<T>
 public static class EventExtensions
 {
     private static readonly JsonSerializerSettings EventSerializerSettings = JsonSerializeExtension
-        .SerializerSettingsWith(s => 
+        .SerializerSettingsWith(s =>
         {
             s.NullValueHandling = NullValueHandling.Ignore;
             s.TypeNameHandling = TypeNameHandling.Objects;
@@ -85,7 +85,7 @@ public static class EventExtensions
         Guard.NotNull(@event);
         return GetEvent(@event).ToJson(EventSerializerSettings);
     }
-    
+
     public static string ToEventRawMsg<TEvent>(this TEvent @event)
     {
         Guard.NotNull(@event);
@@ -96,19 +96,19 @@ public static class EventExtensions
     {
         if (@event is IEvent eventEvent)
             return eventEvent;
-        
+
         if (@event is IEventBase eventBase)
             return new EventWrapper<TEvent>()
             {
-                Data = @event, 
+                Data = @event,
                 Properties = new()
                 {
-                    EventAt = eventBase.EventAt, 
+                    EventAt = eventBase.EventAt,
                     EventId = eventBase.EventId
                 }
             };
-        
-        return new EventWrapper<TEvent> 
+
+        return new EventWrapper<TEvent>
         {
             Data = @event,
             Properties = new EventProperties
@@ -123,6 +123,6 @@ public static class EventExtensions
         Guard.NotNull(eventMsg);
         return eventMsg.JsonToObject<TEvent>(EventSerializerSettings);
     }
-    
+
     public static IEvent ToEvent(this string eventMsg) => ToEvent<IEvent>(eventMsg);
 }

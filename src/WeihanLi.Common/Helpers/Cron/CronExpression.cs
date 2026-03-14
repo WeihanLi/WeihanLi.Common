@@ -378,7 +378,7 @@ public sealed class CronExpression : IEquatable<CronExpression>
         if (!GetBit(_dayOfMonth, day) && !Move(_dayOfMonth, ref day)) goto RetryMonth;
         if (!GetBit(_month, month)) goto RetryMonth;
 
-        Retry:
+    Retry:
 
         if (day > GetLastDayOfMonth(year, month)) goto RetryMonth;
 
@@ -408,7 +408,7 @@ public sealed class CronExpression : IEquatable<CronExpression>
         day = lastCheckedDay;
         if (Move(_dayOfMonth, ref day)) goto Retry;
 
-        RetryMonth:
+    RetryMonth:
 
         if (!Move(_month, ref month) && ++year >= MaxYear) return NotFound;
         day = minMatchedDay;

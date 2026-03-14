@@ -1,4 +1,4 @@
-// Copyright (c) Weihan Li. All rights reserved.
+﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
 using WeihanLi.Common.Helpers;
@@ -12,7 +12,7 @@ public class ConsoleHelperTest
     public void ErrorWriteWithColorHandlesNullOutput()
     {
         using var consoleOutput = ConsoleOutput.Capture();
-        
+
         ConsoleHelper.ErrorWriteWithColor(null, ConsoleColor.Red);
 
         var output = consoleOutput.StandardError;
