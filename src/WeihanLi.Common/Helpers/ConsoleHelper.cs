@@ -251,15 +251,15 @@ public static class ConsoleHelper
     {
         return Console.IsInputRedirected && Console.In.Peek() != -1;
     }
-    
-    public static bool TryGetStandardInput([MaybeNullWhen(false)]out string input)
+
+    public static bool TryGetStandardInput([MaybeNullWhen(false)] out string input)
     {
         if (HasStandardInput())
         {
             input = Console.In.ReadToEnd();
             return true;
         }
-        
+
         input = null;
         return false;
     }
@@ -275,7 +275,7 @@ public static class ConsoleHelper
         // Only when output is actually a terminal
         if (Console.IsOutputRedirected)
             return false;
-        
+
         // Check for explicit environment variable to disable ANSI colors
         var noColor = Environment.GetEnvironmentVariable("NO_COLOR");
         if (!string.IsNullOrEmpty(noColor) || Environment.GetEnvironmentVariable("CLICOLOR") == "0")
@@ -307,7 +307,7 @@ public static class ConsoleHelper
 
         // On Unix-like systems, check the TERM environment variable
         var term = Environment.GetEnvironmentVariable("TERM");
-        
+
         // Return false if TERM is not set or is "dumb"
         if (string.IsNullOrEmpty(term) || term == "dumb")
             return false;
@@ -323,7 +323,7 @@ public static class ConsoleHelper
 
         var hasForeground = foregroundColor.HasValue;
         var hasBackground = backgroundColor.HasValue;
-        
+
         var fgCode = 0;
         var bgCode = 0;
         if (hasForeground)
@@ -342,7 +342,7 @@ public static class ConsoleHelper
             _ => $"\e[{bgCode}m"
         };
         var ansiReset = "\e[0m";
-        
+
         return $"{ansiStart}{text}{ansiReset}";
     }
 
