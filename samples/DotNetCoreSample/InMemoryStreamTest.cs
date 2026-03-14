@@ -5,6 +5,7 @@ using WeihanLi.Common.Helpers;
 using WeihanLi.Extensions;
 
 namespace DotNetCoreSample;
+
 internal static class InMemoryStreamTest
 {
     public static async Task MainTest()

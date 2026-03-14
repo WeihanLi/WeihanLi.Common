@@ -3,8 +3,7 @@ name: dotnet-format
 on:
   push:
     branches:
-      - "main0"
-      # - "dev"
+      - "dev"
 
 jobs:
   build:
@@ -14,7 +13,7 @@ jobs:
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v5
       with:
-        dotnet-version: 10.0.x
+        dotnet-version: 11.0.x
     - name: build
       run: dotnet build
     - name: format

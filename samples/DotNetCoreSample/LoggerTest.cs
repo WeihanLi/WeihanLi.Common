@@ -37,7 +37,7 @@ internal class LoggerTest
         var services = new ServiceCollection()
             .AddLogging(builder =>
                 // builder.AddConsole()
-                builder.AddFile(options => options.LogFormatter = (category, level, exception, msg, timestamp) => 
+                builder.AddFile(options => options.LogFormatter = (category, level, exception, msg, timestamp) =>
                     $"{timestamp} - [{category}] {level} - {msg}\n{exception}")
                 )
             .AddSingleton(typeof(GenericTest<>))

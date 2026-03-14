@@ -2,6 +2,7 @@
 // Licensed under the Apache license.
 
 namespace WeihanLi.Common.Template;
+
 public interface ITemplateParser
 {
     Task<TemplateRenderContext> ParseAsync(string text);

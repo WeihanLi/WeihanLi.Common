@@ -41,9 +41,9 @@ public static class BuildProcessExtensions
         public IBuildProcessBuilder WithSetup(Action setupAction) => builder.WithSetup(setupAction.WrapTask());
         public IBuildProcessBuilder WithCleanup(Action cleanupAction) => builder.WithCleanup(cleanupAction.WrapTask());
         public IBuildProcessBuilder WithCancelled(Action cancelledAction) => builder.WithCancelled(cancelledAction.WrapTask());
-        public IBuildProcessBuilder WithTaskExecuting(Action<IBuildTaskDescriptor> taskExecutingAction) 
+        public IBuildProcessBuilder WithTaskExecuting(Action<IBuildTaskDescriptor> taskExecutingAction)
             => builder.WithTaskExecuting(taskExecutingAction.WrapTask());
-        public IBuildProcessBuilder WithTaskExecuted(Action<IBuildTaskDescriptor> taskExecutedAction) 
+        public IBuildProcessBuilder WithTaskExecuted(Action<IBuildTaskDescriptor> taskExecutedAction)
             => builder.WithTaskExecuted(taskExecutedAction.WrapTask());
         public IBuildProcessBuilder WithTaskExecution(string name, Action taskExecution)
             => builder.WithTask(name, taskBuilder => taskBuilder.WithExecution(taskExecution));
@@ -121,7 +121,7 @@ public sealed class BuildProcess(IReadOnlyCollection<BuildTask> tasks,
     }
 }
 
-public sealed class BuildTask(string name, string? description, Func<CancellationToken, Task>? execution = null) 
+public sealed class BuildTask(string name, string? description, Func<CancellationToken, Task>? execution = null)
     : IBuildTaskDescriptor
 {
     private IReadOnlyCollection<BuildTask> _dependencies = [];
@@ -163,7 +163,7 @@ internal sealed class BuildTaskBuilder(string name) : IBuildTaskBuilder
     {
         if (string.IsNullOrWhiteSpace(dependencyTaskName))
             throw new ArgumentException(@"Dependency task name could not be null or whitespace", nameof(dependencyTaskName));
-        
+
         _dependencies.Add(dependencyTaskName);
         return this;
     }
@@ -189,12 +189,12 @@ internal sealed class BuildProcessBuilder : IBuildProcessBuilder
 
         if (_taskBuilders.TryGetValue(name, out var taskBuilder))
         {
-         
-            _taskBuilders[name] = taskBuilder + buildTaskConfigure;   
+
+            _taskBuilders[name] = taskBuilder + buildTaskConfigure;
         }
         else
         {
-            _taskBuilders[name] = buildTaskConfigure;            
+            _taskBuilders[name] = buildTaskConfigure;
         }
 
         return this;
@@ -271,6 +271,7 @@ public sealed class DotNetBuildProcessOptions
     public string? SolutionPath { get; set; }
     public string[]? SrcProjects { get; set; }
     public string[]? TestProjects { get; set; }
+    public string[]? RunFileSampleFolders { get; set; }
     public Func<string?> FallbackNuGetApiKeyFunc { get; set; } = () => EnvHelper.Val("NuGet__ApiKey");
     public Func<string?> FallbackNuGetSourceFunc { get; set; } = () => EnvHelper.Val("NuGet__Source");
     public string ArtifactsPath { get; set; } = "./artifacts/dist";
@@ -278,13 +279,13 @@ public sealed class DotNetBuildProcessOptions
     public bool AllowLocalPush { get; set; }
 
     internal readonly Dictionary<string, Action<IBuildTaskBuilder>> TaskOverride = new();
-    
+
     public DotNetBuildProcessOptions WithTaskConfigure(string name, Action<IBuildTaskBuilder> taskConfigure)
     {
         TaskOverride[name] = taskConfigure;
         return this;
     }
-    
+
     public DotNetBuildProcessOptions WithTaskExecution(string name, Func<CancellationToken, Task> taskExecution)
     {
         TaskOverride[name] = x => x.WithExecution(taskExecution);
@@ -318,10 +319,23 @@ public sealed class DotNetPackageBuildProcess
             .WithTask("build", b =>
             {
                 b.WithDescription("dotnet build")
-                  .WithExecution(() => 
-                    CommandExecutor.ExecuteCommandAndOutput($"dotnet build {options.SolutionPath}")
-                      .EnsureSuccessExitCode()
-                  );
+                  .WithExecution(() =>
+                  {
+                      Console.WriteLine($@"Build solution {options.SolutionPath}");
+                      CommandExecutor.ExecuteCommandAndOutput($"dotnet build {options.SolutionPath}")
+                          .EnsureSuccessExitCode();
+
+                      if (options.RunFileSampleFolders is not { Length: > 0 })
+                          return;
+
+                      Parallel.ForEach(options.RunFileSampleFolders, folder =>
+                      {
+                          foreach (var file in Directory.GetFiles(folder, "*.cs"))
+                          {
+                              CommandExecutor.ExecuteAndOutput($"dotnet build {Path.GetFullPath(file)}");
+                          }
+                      });
+                  });
             })
             .WithTask("test", b =>
             {
@@ -350,7 +364,7 @@ public sealed class DotNetPackageBuildProcess
                 {
                     if (options.SrcProjects is not { Length: > 0 })
                         return;
-                    
+
                     if (_stable)
                     {
                         foreach (var project in options.SrcProjects ?? [])
@@ -409,7 +423,7 @@ public sealed class DotNetPackageBuildProcess
 
 
                     // push nuget packages
-                    var nugetSource =  string.IsNullOrEmpty(_source) ? options.FallbackNuGetSourceFunc() : _source;
+                    var nugetSource = string.IsNullOrEmpty(_source) ? options.FallbackNuGetSourceFunc() : _source;
                     nugetSource = string.IsNullOrEmpty(nugetSource) ? string.Empty : $"--source {nugetSource}";
                     var pushArguments = $" -k {_apiKey} --skip-duplicate {nugetSource}";
                     foreach (var file in Directory.GetFiles(options.ArtifactsPath, "*.nupkg"))
@@ -448,7 +462,7 @@ public sealed class DotNetPackageBuildProcess
         Debug.Assert(_branch is not null);
         if (!_stable)
         {
-            _stable = _branch is "main" or "master" || 
+            _stable = _branch is "main" or "master" ||
                       _branch?.StartsWith("release/", StringComparison.OrdinalIgnoreCase) == true;
         }
         else
@@ -459,7 +473,7 @@ public sealed class DotNetPackageBuildProcess
         var target = CommandLineParser.Val(args, "target", "Default");
         await _buildProcess.ExecuteAsync(target, cancellation);
     }
-    
+
     public static DotNetPackageBuildProcess Create(Action<DotNetBuildProcessOptions> configure)
     {
         var options = new DotNetBuildProcessOptions();

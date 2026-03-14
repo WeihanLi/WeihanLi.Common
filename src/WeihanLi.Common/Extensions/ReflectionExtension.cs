@@ -309,7 +309,7 @@ public static class ReflectionExtension
         Guard.NotNull(element);
         return Attribute.IsDefined(element, attributeType, inherit);
     }
-    
+
     /// <summary>
     /// Get Assembly Display Version
     /// </summary>

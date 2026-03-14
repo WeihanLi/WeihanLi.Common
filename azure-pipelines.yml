@@ -35,7 +35,13 @@ steps:
   inputs:
     packageType: sdk
     version: 10.0.x
+- task: UseDotNet@2
+  displayName: 'Use .NET 11 sdk'
+  inputs:
+    packageType: sdk
+    version: 11.0.x
     includePreviewVersions: true # Required for preview versions
+
 
 - script: dotnet --info
   displayName: 'dotnet info'
