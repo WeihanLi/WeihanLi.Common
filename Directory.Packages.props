@@ -24,6 +24,10 @@
     <PackageVersion Include="Microsoft.Extensions.Configuration" Version="10.0.5" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.5" />
   </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net11.0'">
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="11.0.0-preview.2.26159.112" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="11.0.0-preview.2.26159.112" />
+  </ItemGroup>
   <ItemGroup>
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageVersion Include="System.Reflection.Emit" Version="4.7.0" />

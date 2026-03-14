@@ -31,7 +31,7 @@ public static class EventQueueExtensions
     {
         await foreach (var @event in eventQueue.ReadAllAsync(queueName, cancellationToken))
         {
-            if(@event is IEvent<TEvent> eventEvent)
+            if (@event is IEvent<TEvent> eventEvent)
                 yield return eventEvent;
         }
     }

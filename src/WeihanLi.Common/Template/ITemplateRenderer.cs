@@ -2,6 +2,7 @@
 // Licensed under the Apache license.
 
 namespace WeihanLi.Common.Template;
+
 public interface ITemplateRenderer
 {
     Task<string> RenderAsync(TemplateRenderContext template, object? globals);

@@ -53,7 +53,7 @@ public class EventBaseTest
         Assert.Equal(testEvent.EventAt, deserializedEvent.EventAt);
         Assert.Equal(testEvent.Name, deserializedEvent.Name);
     }
-    
+
     [Fact]
     public void EventMessageExtensions2Test()
     {

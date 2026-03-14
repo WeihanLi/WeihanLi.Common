@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace WeihanLi.Common.Test.ExtensionsTest;
+
 public class ServiceCollectionExtensionTest
 {
     [Fact]

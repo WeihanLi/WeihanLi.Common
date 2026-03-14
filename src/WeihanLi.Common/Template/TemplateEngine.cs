@@ -2,6 +2,7 @@
 // Licensed under the Apache license.
 
 namespace WeihanLi.Common.Template;
+
 public sealed class TemplateEngine(ITemplateParser templateParser, ITemplateRenderer templateRenderer)
     : ITemplateEngine, ITemplateRenderer, ITemplateParser
 {
