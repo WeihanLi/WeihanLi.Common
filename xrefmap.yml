@@ -8230,157 +8230,12 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.BuildProcess.ExecuteAsync
   nameWithType: BuildProcess.ExecuteAsync
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder
-  name: BuildProcessBuilder
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html
-  commentId: T:WeihanLi.Common.Helpers.BuildProcessBuilder
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder
-  nameWithType: BuildProcessBuilder
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.Build
-  name: Build()
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_Build
-  commentId: M:WeihanLi.Common.Helpers.BuildProcessBuilder.Build
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.Build()
-  nameWithType: BuildProcessBuilder.Build()
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.Build*
-  name: Build
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_Build_
-  commentId: Overload:WeihanLi.Common.Helpers.BuildProcessBuilder.Build
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.Build
-  nameWithType: BuildProcessBuilder.Build
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithCancelled(System.Action)
-  name: WithCancelled(Action)
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithCancelled_System_Action_
-  commentId: M:WeihanLi.Common.Helpers.BuildProcessBuilder.WithCancelled(System.Action)
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithCancelled(System.Action)
-  nameWithType: BuildProcessBuilder.WithCancelled(Action)
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithCancelled(System.Func{System.Threading.Tasks.Task})
-  name: WithCancelled(Func<Task>)
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithCancelled_System_Func_System_Threading_Tasks_Task__
-  commentId: M:WeihanLi.Common.Helpers.BuildProcessBuilder.WithCancelled(System.Func{System.Threading.Tasks.Task})
-  name.vb: WithCancelled(Func(Of Task))
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithCancelled(System.Func<System.Threading.Tasks.Task>)
-  fullName.vb: WeihanLi.Common.Helpers.BuildProcessBuilder.WithCancelled(System.Func(Of System.Threading.Tasks.Task))
-  nameWithType: BuildProcessBuilder.WithCancelled(Func<Task>)
-  nameWithType.vb: BuildProcessBuilder.WithCancelled(Func(Of Task))
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithCancelled*
-  name: WithCancelled
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithCancelled_
-  commentId: Overload:WeihanLi.Common.Helpers.BuildProcessBuilder.WithCancelled
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithCancelled
-  nameWithType: BuildProcessBuilder.WithCancelled
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithCleanup(System.Action)
-  name: WithCleanup(Action)
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithCleanup_System_Action_
-  commentId: M:WeihanLi.Common.Helpers.BuildProcessBuilder.WithCleanup(System.Action)
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithCleanup(System.Action)
-  nameWithType: BuildProcessBuilder.WithCleanup(Action)
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithCleanup(System.Func{System.Threading.Tasks.Task})
-  name: WithCleanup(Func<Task>)
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithCleanup_System_Func_System_Threading_Tasks_Task__
-  commentId: M:WeihanLi.Common.Helpers.BuildProcessBuilder.WithCleanup(System.Func{System.Threading.Tasks.Task})
-  name.vb: WithCleanup(Func(Of Task))
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithCleanup(System.Func<System.Threading.Tasks.Task>)
-  fullName.vb: WeihanLi.Common.Helpers.BuildProcessBuilder.WithCleanup(System.Func(Of System.Threading.Tasks.Task))
-  nameWithType: BuildProcessBuilder.WithCleanup(Func<Task>)
-  nameWithType.vb: BuildProcessBuilder.WithCleanup(Func(Of Task))
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithCleanup*
-  name: WithCleanup
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithCleanup_
-  commentId: Overload:WeihanLi.Common.Helpers.BuildProcessBuilder.WithCleanup
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithCleanup
-  nameWithType: BuildProcessBuilder.WithCleanup
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithSetup(System.Action)
-  name: WithSetup(Action)
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithSetup_System_Action_
-  commentId: M:WeihanLi.Common.Helpers.BuildProcessBuilder.WithSetup(System.Action)
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithSetup(System.Action)
-  nameWithType: BuildProcessBuilder.WithSetup(Action)
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithSetup(System.Func{System.Threading.Tasks.Task})
-  name: WithSetup(Func<Task>)
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithSetup_System_Func_System_Threading_Tasks_Task__
-  commentId: M:WeihanLi.Common.Helpers.BuildProcessBuilder.WithSetup(System.Func{System.Threading.Tasks.Task})
-  name.vb: WithSetup(Func(Of Task))
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithSetup(System.Func<System.Threading.Tasks.Task>)
-  fullName.vb: WeihanLi.Common.Helpers.BuildProcessBuilder.WithSetup(System.Func(Of System.Threading.Tasks.Task))
-  nameWithType: BuildProcessBuilder.WithSetup(Func<Task>)
-  nameWithType.vb: BuildProcessBuilder.WithSetup(Func(Of Task))
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithSetup*
-  name: WithSetup
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithSetup_
-  commentId: Overload:WeihanLi.Common.Helpers.BuildProcessBuilder.WithSetup
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithSetup
-  nameWithType: BuildProcessBuilder.WithSetup
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTask(System.String,System.Action{WeihanLi.Common.Helpers.BuildTaskBuilder})
-  name: WithTask(string, Action<BuildTaskBuilder>)
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithTask_System_String_System_Action_WeihanLi_Common_Helpers_BuildTaskBuilder__
-  commentId: M:WeihanLi.Common.Helpers.BuildProcessBuilder.WithTask(System.String,System.Action{WeihanLi.Common.Helpers.BuildTaskBuilder})
-  name.vb: WithTask(String, Action(Of BuildTaskBuilder))
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTask(string, System.Action<WeihanLi.Common.Helpers.BuildTaskBuilder>)
-  fullName.vb: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTask(String, System.Action(Of WeihanLi.Common.Helpers.BuildTaskBuilder))
-  nameWithType: BuildProcessBuilder.WithTask(string, Action<BuildTaskBuilder>)
-  nameWithType.vb: BuildProcessBuilder.WithTask(String, Action(Of BuildTaskBuilder))
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTask*
-  name: WithTask
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithTask_
-  commentId: Overload:WeihanLi.Common.Helpers.BuildProcessBuilder.WithTask
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTask
-  nameWithType: BuildProcessBuilder.WithTask
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuted(System.Action{WeihanLi.Common.Helpers.IBuildTaskDescriptor})
-  name: WithTaskExecuted(Action<IBuildTaskDescriptor>)
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithTaskExecuted_System_Action_WeihanLi_Common_Helpers_IBuildTaskDescriptor__
-  commentId: M:WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuted(System.Action{WeihanLi.Common.Helpers.IBuildTaskDescriptor})
-  name.vb: WithTaskExecuted(Action(Of IBuildTaskDescriptor))
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuted(System.Action<WeihanLi.Common.Helpers.IBuildTaskDescriptor>)
-  fullName.vb: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuted(System.Action(Of WeihanLi.Common.Helpers.IBuildTaskDescriptor))
-  nameWithType: BuildProcessBuilder.WithTaskExecuted(Action<IBuildTaskDescriptor>)
-  nameWithType.vb: BuildProcessBuilder.WithTaskExecuted(Action(Of IBuildTaskDescriptor))
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuted(System.Func{WeihanLi.Common.Helpers.IBuildTaskDescriptor,System.Threading.Tasks.Task})
-  name: WithTaskExecuted(Func<IBuildTaskDescriptor, Task>)
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithTaskExecuted_System_Func_WeihanLi_Common_Helpers_IBuildTaskDescriptor_System_Threading_Tasks_Task__
-  commentId: M:WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuted(System.Func{WeihanLi.Common.Helpers.IBuildTaskDescriptor,System.Threading.Tasks.Task})
-  name.vb: WithTaskExecuted(Func(Of IBuildTaskDescriptor, Task))
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuted(System.Func<WeihanLi.Common.Helpers.IBuildTaskDescriptor, System.Threading.Tasks.Task>)
-  fullName.vb: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuted(System.Func(Of WeihanLi.Common.Helpers.IBuildTaskDescriptor, System.Threading.Tasks.Task))
-  nameWithType: BuildProcessBuilder.WithTaskExecuted(Func<IBuildTaskDescriptor, Task>)
-  nameWithType.vb: BuildProcessBuilder.WithTaskExecuted(Func(Of IBuildTaskDescriptor, Task))
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuted*
-  name: WithTaskExecuted
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithTaskExecuted_
-  commentId: Overload:WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuted
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuted
-  nameWithType: BuildProcessBuilder.WithTaskExecuted
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuting(System.Action{WeihanLi.Common.Helpers.IBuildTaskDescriptor})
-  name: WithTaskExecuting(Action<IBuildTaskDescriptor>)
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithTaskExecuting_System_Action_WeihanLi_Common_Helpers_IBuildTaskDescriptor__
-  commentId: M:WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuting(System.Action{WeihanLi.Common.Helpers.IBuildTaskDescriptor})
-  name.vb: WithTaskExecuting(Action(Of IBuildTaskDescriptor))
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuting(System.Action<WeihanLi.Common.Helpers.IBuildTaskDescriptor>)
-  fullName.vb: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuting(System.Action(Of WeihanLi.Common.Helpers.IBuildTaskDescriptor))
-  nameWithType: BuildProcessBuilder.WithTaskExecuting(Action<IBuildTaskDescriptor>)
-  nameWithType.vb: BuildProcessBuilder.WithTaskExecuting(Action(Of IBuildTaskDescriptor))
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuting(System.Func{WeihanLi.Common.Helpers.IBuildTaskDescriptor,System.Threading.Tasks.Task})
-  name: WithTaskExecuting(Func<IBuildTaskDescriptor, Task>)
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithTaskExecuting_System_Func_WeihanLi_Common_Helpers_IBuildTaskDescriptor_System_Threading_Tasks_Task__
-  commentId: M:WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuting(System.Func{WeihanLi.Common.Helpers.IBuildTaskDescriptor,System.Threading.Tasks.Task})
-  name.vb: WithTaskExecuting(Func(Of IBuildTaskDescriptor, Task))
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuting(System.Func<WeihanLi.Common.Helpers.IBuildTaskDescriptor, System.Threading.Tasks.Task>)
-  fullName.vb: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuting(System.Func(Of WeihanLi.Common.Helpers.IBuildTaskDescriptor, System.Threading.Tasks.Task))
-  nameWithType: BuildProcessBuilder.WithTaskExecuting(Func<IBuildTaskDescriptor, Task>)
-  nameWithType.vb: BuildProcessBuilder.WithTaskExecuting(Func(Of IBuildTaskDescriptor, Task))
-- uid: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuting*
-  name: WithTaskExecuting
-  href: api/WeihanLi.Common.Helpers.BuildProcessBuilder.html#WeihanLi_Common_Helpers_BuildProcessBuilder_WithTaskExecuting_
-  commentId: Overload:WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuting
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.BuildProcessBuilder.WithTaskExecuting
-  nameWithType: BuildProcessBuilder.WithTaskExecuting
+- uid: WeihanLi.Common.Helpers.BuildProcessExtensions
+  name: BuildProcessExtensions
+  href: api/WeihanLi.Common.Helpers.BuildProcessExtensions.html
+  commentId: T:WeihanLi.Common.Helpers.BuildProcessExtensions
+  fullName: WeihanLi.Common.Helpers.BuildProcessExtensions
+  nameWithType: BuildProcessExtensions
 - uid: WeihanLi.Common.Helpers.BuildTask
   name: BuildTask
   href: api/WeihanLi.Common.Helpers.BuildTask.html
@@ -8458,94 +8313,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.BuildTask.Name
   nameWithType: BuildTask.Name
-- uid: WeihanLi.Common.Helpers.BuildTaskBuilder
-  name: BuildTaskBuilder
-  href: api/WeihanLi.Common.Helpers.BuildTaskBuilder.html
-  commentId: T:WeihanLi.Common.Helpers.BuildTaskBuilder
-  fullName: WeihanLi.Common.Helpers.BuildTaskBuilder
-  nameWithType: BuildTaskBuilder
-- uid: WeihanLi.Common.Helpers.BuildTaskBuilder.#ctor(System.String)
-  name: BuildTaskBuilder(string)
-  href: api/WeihanLi.Common.Helpers.BuildTaskBuilder.html#WeihanLi_Common_Helpers_BuildTaskBuilder__ctor_System_String_
-  commentId: M:WeihanLi.Common.Helpers.BuildTaskBuilder.#ctor(System.String)
-  name.vb: New(String)
-  fullName: WeihanLi.Common.Helpers.BuildTaskBuilder.BuildTaskBuilder(string)
-  fullName.vb: WeihanLi.Common.Helpers.BuildTaskBuilder.New(String)
-  nameWithType: BuildTaskBuilder.BuildTaskBuilder(string)
-  nameWithType.vb: BuildTaskBuilder.New(String)
-- uid: WeihanLi.Common.Helpers.BuildTaskBuilder.#ctor*
-  name: BuildTaskBuilder
-  href: api/WeihanLi.Common.Helpers.BuildTaskBuilder.html#WeihanLi_Common_Helpers_BuildTaskBuilder__ctor_
-  commentId: Overload:WeihanLi.Common.Helpers.BuildTaskBuilder.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: WeihanLi.Common.Helpers.BuildTaskBuilder.BuildTaskBuilder
-  fullName.vb: WeihanLi.Common.Helpers.BuildTaskBuilder.New
-  nameWithType: BuildTaskBuilder.BuildTaskBuilder
-  nameWithType.vb: BuildTaskBuilder.New
-- uid: WeihanLi.Common.Helpers.BuildTaskBuilder.WithDependency(System.String)
-  name: WithDependency(string)
-  href: api/WeihanLi.Common.Helpers.BuildTaskBuilder.html#WeihanLi_Common_Helpers_BuildTaskBuilder_WithDependency_System_String_
-  commentId: M:WeihanLi.Common.Helpers.BuildTaskBuilder.WithDependency(System.String)
-  name.vb: WithDependency(String)
-  fullName: WeihanLi.Common.Helpers.BuildTaskBuilder.WithDependency(string)
-  fullName.vb: WeihanLi.Common.Helpers.BuildTaskBuilder.WithDependency(String)
-  nameWithType: BuildTaskBuilder.WithDependency(string)
-  nameWithType.vb: BuildTaskBuilder.WithDependency(String)
-- uid: WeihanLi.Common.Helpers.BuildTaskBuilder.WithDependency*
-  name: WithDependency
-  href: api/WeihanLi.Common.Helpers.BuildTaskBuilder.html#WeihanLi_Common_Helpers_BuildTaskBuilder_WithDependency_
-  commentId: Overload:WeihanLi.Common.Helpers.BuildTaskBuilder.WithDependency
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.BuildTaskBuilder.WithDependency
-  nameWithType: BuildTaskBuilder.WithDependency
-- uid: WeihanLi.Common.Helpers.BuildTaskBuilder.WithDescription(System.String)
-  name: WithDescription(string?)
-  href: api/WeihanLi.Common.Helpers.BuildTaskBuilder.html#WeihanLi_Common_Helpers_BuildTaskBuilder_WithDescription_System_String_
-  commentId: M:WeihanLi.Common.Helpers.BuildTaskBuilder.WithDescription(System.String)
-  name.vb: WithDescription(String)
-  fullName: WeihanLi.Common.Helpers.BuildTaskBuilder.WithDescription(string?)
-  fullName.vb: WeihanLi.Common.Helpers.BuildTaskBuilder.WithDescription(String)
-  nameWithType: BuildTaskBuilder.WithDescription(string?)
-  nameWithType.vb: BuildTaskBuilder.WithDescription(String)
-- uid: WeihanLi.Common.Helpers.BuildTaskBuilder.WithDescription*
-  name: WithDescription
-  href: api/WeihanLi.Common.Helpers.BuildTaskBuilder.html#WeihanLi_Common_Helpers_BuildTaskBuilder_WithDescription_
-  commentId: Overload:WeihanLi.Common.Helpers.BuildTaskBuilder.WithDescription
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.BuildTaskBuilder.WithDescription
-  nameWithType: BuildTaskBuilder.WithDescription
-- uid: WeihanLi.Common.Helpers.BuildTaskBuilder.WithExecution(System.Action)
-  name: WithExecution(Action)
-  href: api/WeihanLi.Common.Helpers.BuildTaskBuilder.html#WeihanLi_Common_Helpers_BuildTaskBuilder_WithExecution_System_Action_
-  commentId: M:WeihanLi.Common.Helpers.BuildTaskBuilder.WithExecution(System.Action)
-  fullName: WeihanLi.Common.Helpers.BuildTaskBuilder.WithExecution(System.Action)
-  nameWithType: BuildTaskBuilder.WithExecution(Action)
-- uid: WeihanLi.Common.Helpers.BuildTaskBuilder.WithExecution(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
-  name: WithExecution(Func<CancellationToken, Task>)
-  href: api/WeihanLi.Common.Helpers.BuildTaskBuilder.html#WeihanLi_Common_Helpers_BuildTaskBuilder_WithExecution_System_Func_System_Threading_CancellationToken_System_Threading_Tasks_Task__
-  commentId: M:WeihanLi.Common.Helpers.BuildTaskBuilder.WithExecution(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
-  name.vb: WithExecution(Func(Of CancellationToken, Task))
-  fullName: WeihanLi.Common.Helpers.BuildTaskBuilder.WithExecution(System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task>)
-  fullName.vb: WeihanLi.Common.Helpers.BuildTaskBuilder.WithExecution(System.Func(Of System.Threading.CancellationToken, System.Threading.Tasks.Task))
-  nameWithType: BuildTaskBuilder.WithExecution(Func<CancellationToken, Task>)
-  nameWithType.vb: BuildTaskBuilder.WithExecution(Func(Of CancellationToken, Task))
-- uid: WeihanLi.Common.Helpers.BuildTaskBuilder.WithExecution(System.Func{System.Threading.Tasks.Task})
-  name: WithExecution(Func<Task>)
-  href: api/WeihanLi.Common.Helpers.BuildTaskBuilder.html#WeihanLi_Common_Helpers_BuildTaskBuilder_WithExecution_System_Func_System_Threading_Tasks_Task__
-  commentId: M:WeihanLi.Common.Helpers.BuildTaskBuilder.WithExecution(System.Func{System.Threading.Tasks.Task})
-  name.vb: WithExecution(Func(Of Task))
-  fullName: WeihanLi.Common.Helpers.BuildTaskBuilder.WithExecution(System.Func<System.Threading.Tasks.Task>)
-  fullName.vb: WeihanLi.Common.Helpers.BuildTaskBuilder.WithExecution(System.Func(Of System.Threading.Tasks.Task))
-  nameWithType: BuildTaskBuilder.WithExecution(Func<Task>)
-  nameWithType.vb: BuildTaskBuilder.WithExecution(Func(Of Task))
-- uid: WeihanLi.Common.Helpers.BuildTaskBuilder.WithExecution*
-  name: WithExecution
-  href: api/WeihanLi.Common.Helpers.BuildTaskBuilder.html#WeihanLi_Common_Helpers_BuildTaskBuilder_WithExecution_
-  commentId: Overload:WeihanLi.Common.Helpers.BuildTaskBuilder.WithExecution
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.BuildTaskBuilder.WithExecution
-  nameWithType: BuildTaskBuilder.WithExecution
 - uid: WeihanLi.Common.Helpers.Combinatorics
   name: WeihanLi.Common.Helpers.Combinatorics
   href: api/WeihanLi.Common.Helpers.Combinatorics.html
@@ -9657,13 +9424,13 @@ references:
   fullName: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineIf
   nameWithType: ConsoleHelper.ErrorWriteLineIf
 - uid: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineWithColor(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
-  name: ErrorWriteLineWithColor(string, ConsoleColor?, ConsoleColor?)
+  name: ErrorWriteLineWithColor(string?, ConsoleColor?, ConsoleColor?)
   href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_ErrorWriteLineWithColor_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__
   commentId: M:WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineWithColor(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
   name.vb: ErrorWriteLineWithColor(String, ConsoleColor?, ConsoleColor?)
-  fullName: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineWithColor(string, System.ConsoleColor?, System.ConsoleColor?)
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineWithColor(string?, System.ConsoleColor?, System.ConsoleColor?)
   fullName.vb: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineWithColor(String, System.ConsoleColor?, System.ConsoleColor?)
-  nameWithType: ConsoleHelper.ErrorWriteLineWithColor(string, ConsoleColor?, ConsoleColor?)
+  nameWithType: ConsoleHelper.ErrorWriteLineWithColor(string?, ConsoleColor?, ConsoleColor?)
   nameWithType.vb: ConsoleHelper.ErrorWriteLineWithColor(String, ConsoleColor?, ConsoleColor?)
 - uid: WeihanLi.Common.Helpers.ConsoleHelper.ErrorWriteLineWithColor*
   name: ErrorWriteLineWithColor
@@ -9834,6 +9601,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.ConsoleHelper.ReadLineWithPrompt
   nameWithType: ConsoleHelper.ReadLineWithPrompt
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.SupportsAnsiColors
+  name: SupportsAnsiColors()
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_SupportsAnsiColors
+  commentId: M:WeihanLi.Common.Helpers.ConsoleHelper.SupportsAnsiColors
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.SupportsAnsiColors()
+  nameWithType: ConsoleHelper.SupportsAnsiColors()
+- uid: WeihanLi.Common.Helpers.ConsoleHelper.SupportsAnsiColors*
+  name: SupportsAnsiColors
+  href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_SupportsAnsiColors_
+  commentId: Overload:WeihanLi.Common.Helpers.ConsoleHelper.SupportsAnsiColors
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.ConsoleHelper.SupportsAnsiColors
+  nameWithType: ConsoleHelper.SupportsAnsiColors
 - uid: WeihanLi.Common.Helpers.ConsoleHelper.TryGetStandardInput(System.String@)
   name: TryGetStandardInput(out string)
   href: api/WeihanLi.Common.Helpers.ConsoleHelper.html#WeihanLi_Common_Helpers_ConsoleHelper_TryGetStandardInput_System_String__
@@ -10706,6 +10486,19 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.FallbackNuGetSourceFunc
   nameWithType: DotNetBuildProcessOptions.FallbackNuGetSourceFunc
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.RunFileSampleFolders
+  name: RunFileSampleFolders
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_RunFileSampleFolders
+  commentId: P:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.RunFileSampleFolders
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.RunFileSampleFolders
+  nameWithType: DotNetBuildProcessOptions.RunFileSampleFolders
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.RunFileSampleFolders*
+  name: RunFileSampleFolders
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_RunFileSampleFolders_
+  commentId: Overload:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.RunFileSampleFolders
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.RunFileSampleFolders
+  nameWithType: DotNetBuildProcessOptions.RunFileSampleFolders
 - uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.SolutionPath
   name: SolutionPath
   href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_SolutionPath
@@ -10745,6 +10538,38 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.TestProjects
   nameWithType: DotNetBuildProcessOptions.TestProjects
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.WithTaskConfigure(System.String,System.Action{WeihanLi.Common.Helpers.IBuildTaskBuilder})
+  name: WithTaskConfigure(string, Action<IBuildTaskBuilder>)
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_WithTaskConfigure_System_String_System_Action_WeihanLi_Common_Helpers_IBuildTaskBuilder__
+  commentId: M:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.WithTaskConfigure(System.String,System.Action{WeihanLi.Common.Helpers.IBuildTaskBuilder})
+  name.vb: WithTaskConfigure(String, Action(Of IBuildTaskBuilder))
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.WithTaskConfigure(string, System.Action<WeihanLi.Common.Helpers.IBuildTaskBuilder>)
+  fullName.vb: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.WithTaskConfigure(String, System.Action(Of WeihanLi.Common.Helpers.IBuildTaskBuilder))
+  nameWithType: DotNetBuildProcessOptions.WithTaskConfigure(string, Action<IBuildTaskBuilder>)
+  nameWithType.vb: DotNetBuildProcessOptions.WithTaskConfigure(String, Action(Of IBuildTaskBuilder))
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.WithTaskConfigure*
+  name: WithTaskConfigure
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_WithTaskConfigure_
+  commentId: Overload:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.WithTaskConfigure
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.WithTaskConfigure
+  nameWithType: DotNetBuildProcessOptions.WithTaskConfigure
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.WithTaskExecution(System.String,System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
+  name: WithTaskExecution(string, Func<CancellationToken, Task>)
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_WithTaskExecution_System_String_System_Func_System_Threading_CancellationToken_System_Threading_Tasks_Task__
+  commentId: M:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.WithTaskExecution(System.String,System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
+  name.vb: WithTaskExecution(String, Func(Of CancellationToken, Task))
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.WithTaskExecution(string, System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task>)
+  fullName.vb: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.WithTaskExecution(String, System.Func(Of System.Threading.CancellationToken, System.Threading.Tasks.Task))
+  nameWithType: DotNetBuildProcessOptions.WithTaskExecution(string, Func<CancellationToken, Task>)
+  nameWithType.vb: DotNetBuildProcessOptions.WithTaskExecution(String, Func(Of CancellationToken, Task))
+- uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.WithTaskExecution*
+  name: WithTaskExecution
+  href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html#WeihanLi_Common_Helpers_DotNetBuildProcessOptions_WithTaskExecution_
+  commentId: Overload:WeihanLi.Common.Helpers.DotNetBuildProcessOptions.WithTaskExecution
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotNetBuildProcessOptions.WithTaskExecution
+  nameWithType: DotNetBuildProcessOptions.WithTaskExecution
 - uid: WeihanLi.Common.Helpers.DotNetPackageBuildProcess
   name: DotNetPackageBuildProcess
   href: api/WeihanLi.Common.Helpers.DotNetPackageBuildProcess.html
@@ -12592,6 +12417,162 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.IAsyncPipelineMiddleware(Of TContext).InvokeAsync
   nameWithType: IAsyncPipelineMiddleware<TContext>.InvokeAsync
   nameWithType.vb: IAsyncPipelineMiddleware(Of TContext).InvokeAsync
+- uid: WeihanLi.Common.Helpers.IBuildProcessBuilder
+  name: IBuildProcessBuilder
+  href: api/WeihanLi.Common.Helpers.IBuildProcessBuilder.html
+  commentId: T:WeihanLi.Common.Helpers.IBuildProcessBuilder
+  fullName: WeihanLi.Common.Helpers.IBuildProcessBuilder
+  nameWithType: IBuildProcessBuilder
+- uid: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithCancelled(System.Func{System.Threading.Tasks.Task})
+  name: WithCancelled(Func<Task>)
+  href: api/WeihanLi.Common.Helpers.IBuildProcessBuilder.html#WeihanLi_Common_Helpers_IBuildProcessBuilder_WithCancelled_System_Func_System_Threading_Tasks_Task__
+  commentId: M:WeihanLi.Common.Helpers.IBuildProcessBuilder.WithCancelled(System.Func{System.Threading.Tasks.Task})
+  name.vb: WithCancelled(Func(Of Task))
+  fullName: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithCancelled(System.Func<System.Threading.Tasks.Task>)
+  fullName.vb: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithCancelled(System.Func(Of System.Threading.Tasks.Task))
+  nameWithType: IBuildProcessBuilder.WithCancelled(Func<Task>)
+  nameWithType.vb: IBuildProcessBuilder.WithCancelled(Func(Of Task))
+- uid: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithCancelled*
+  name: WithCancelled
+  href: api/WeihanLi.Common.Helpers.IBuildProcessBuilder.html#WeihanLi_Common_Helpers_IBuildProcessBuilder_WithCancelled_
+  commentId: Overload:WeihanLi.Common.Helpers.IBuildProcessBuilder.WithCancelled
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithCancelled
+  nameWithType: IBuildProcessBuilder.WithCancelled
+- uid: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithCleanup(System.Func{System.Threading.Tasks.Task})
+  name: WithCleanup(Func<Task>)
+  href: api/WeihanLi.Common.Helpers.IBuildProcessBuilder.html#WeihanLi_Common_Helpers_IBuildProcessBuilder_WithCleanup_System_Func_System_Threading_Tasks_Task__
+  commentId: M:WeihanLi.Common.Helpers.IBuildProcessBuilder.WithCleanup(System.Func{System.Threading.Tasks.Task})
+  name.vb: WithCleanup(Func(Of Task))
+  fullName: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithCleanup(System.Func<System.Threading.Tasks.Task>)
+  fullName.vb: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithCleanup(System.Func(Of System.Threading.Tasks.Task))
+  nameWithType: IBuildProcessBuilder.WithCleanup(Func<Task>)
+  nameWithType.vb: IBuildProcessBuilder.WithCleanup(Func(Of Task))
+- uid: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithCleanup*
+  name: WithCleanup
+  href: api/WeihanLi.Common.Helpers.IBuildProcessBuilder.html#WeihanLi_Common_Helpers_IBuildProcessBuilder_WithCleanup_
+  commentId: Overload:WeihanLi.Common.Helpers.IBuildProcessBuilder.WithCleanup
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithCleanup
+  nameWithType: IBuildProcessBuilder.WithCleanup
+- uid: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithSetup(System.Func{System.Threading.Tasks.Task})
+  name: WithSetup(Func<Task>)
+  href: api/WeihanLi.Common.Helpers.IBuildProcessBuilder.html#WeihanLi_Common_Helpers_IBuildProcessBuilder_WithSetup_System_Func_System_Threading_Tasks_Task__
+  commentId: M:WeihanLi.Common.Helpers.IBuildProcessBuilder.WithSetup(System.Func{System.Threading.Tasks.Task})
+  name.vb: WithSetup(Func(Of Task))
+  fullName: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithSetup(System.Func<System.Threading.Tasks.Task>)
+  fullName.vb: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithSetup(System.Func(Of System.Threading.Tasks.Task))
+  nameWithType: IBuildProcessBuilder.WithSetup(Func<Task>)
+  nameWithType.vb: IBuildProcessBuilder.WithSetup(Func(Of Task))
+- uid: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithSetup*
+  name: WithSetup
+  href: api/WeihanLi.Common.Helpers.IBuildProcessBuilder.html#WeihanLi_Common_Helpers_IBuildProcessBuilder_WithSetup_
+  commentId: Overload:WeihanLi.Common.Helpers.IBuildProcessBuilder.WithSetup
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithSetup
+  nameWithType: IBuildProcessBuilder.WithSetup
+- uid: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTask(System.String,System.Action{WeihanLi.Common.Helpers.IBuildTaskBuilder})
+  name: WithTask(string, Action<IBuildTaskBuilder>)
+  href: api/WeihanLi.Common.Helpers.IBuildProcessBuilder.html#WeihanLi_Common_Helpers_IBuildProcessBuilder_WithTask_System_String_System_Action_WeihanLi_Common_Helpers_IBuildTaskBuilder__
+  commentId: M:WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTask(System.String,System.Action{WeihanLi.Common.Helpers.IBuildTaskBuilder})
+  name.vb: WithTask(String, Action(Of IBuildTaskBuilder))
+  fullName: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTask(string, System.Action<WeihanLi.Common.Helpers.IBuildTaskBuilder>)
+  fullName.vb: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTask(String, System.Action(Of WeihanLi.Common.Helpers.IBuildTaskBuilder))
+  nameWithType: IBuildProcessBuilder.WithTask(string, Action<IBuildTaskBuilder>)
+  nameWithType.vb: IBuildProcessBuilder.WithTask(String, Action(Of IBuildTaskBuilder))
+- uid: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTask*
+  name: WithTask
+  href: api/WeihanLi.Common.Helpers.IBuildProcessBuilder.html#WeihanLi_Common_Helpers_IBuildProcessBuilder_WithTask_
+  commentId: Overload:WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTask
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTask
+  nameWithType: IBuildProcessBuilder.WithTask
+- uid: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTaskExecuted(System.Func{WeihanLi.Common.Helpers.IBuildTaskDescriptor,System.Threading.Tasks.Task})
+  name: WithTaskExecuted(Func<IBuildTaskDescriptor, Task>)
+  href: api/WeihanLi.Common.Helpers.IBuildProcessBuilder.html#WeihanLi_Common_Helpers_IBuildProcessBuilder_WithTaskExecuted_System_Func_WeihanLi_Common_Helpers_IBuildTaskDescriptor_System_Threading_Tasks_Task__
+  commentId: M:WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTaskExecuted(System.Func{WeihanLi.Common.Helpers.IBuildTaskDescriptor,System.Threading.Tasks.Task})
+  name.vb: WithTaskExecuted(Func(Of IBuildTaskDescriptor, Task))
+  fullName: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTaskExecuted(System.Func<WeihanLi.Common.Helpers.IBuildTaskDescriptor, System.Threading.Tasks.Task>)
+  fullName.vb: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTaskExecuted(System.Func(Of WeihanLi.Common.Helpers.IBuildTaskDescriptor, System.Threading.Tasks.Task))
+  nameWithType: IBuildProcessBuilder.WithTaskExecuted(Func<IBuildTaskDescriptor, Task>)
+  nameWithType.vb: IBuildProcessBuilder.WithTaskExecuted(Func(Of IBuildTaskDescriptor, Task))
+- uid: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTaskExecuted*
+  name: WithTaskExecuted
+  href: api/WeihanLi.Common.Helpers.IBuildProcessBuilder.html#WeihanLi_Common_Helpers_IBuildProcessBuilder_WithTaskExecuted_
+  commentId: Overload:WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTaskExecuted
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTaskExecuted
+  nameWithType: IBuildProcessBuilder.WithTaskExecuted
+- uid: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTaskExecuting(System.Func{WeihanLi.Common.Helpers.IBuildTaskDescriptor,System.Threading.Tasks.Task})
+  name: WithTaskExecuting(Func<IBuildTaskDescriptor, Task>)
+  href: api/WeihanLi.Common.Helpers.IBuildProcessBuilder.html#WeihanLi_Common_Helpers_IBuildProcessBuilder_WithTaskExecuting_System_Func_WeihanLi_Common_Helpers_IBuildTaskDescriptor_System_Threading_Tasks_Task__
+  commentId: M:WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTaskExecuting(System.Func{WeihanLi.Common.Helpers.IBuildTaskDescriptor,System.Threading.Tasks.Task})
+  name.vb: WithTaskExecuting(Func(Of IBuildTaskDescriptor, Task))
+  fullName: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTaskExecuting(System.Func<WeihanLi.Common.Helpers.IBuildTaskDescriptor, System.Threading.Tasks.Task>)
+  fullName.vb: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTaskExecuting(System.Func(Of WeihanLi.Common.Helpers.IBuildTaskDescriptor, System.Threading.Tasks.Task))
+  nameWithType: IBuildProcessBuilder.WithTaskExecuting(Func<IBuildTaskDescriptor, Task>)
+  nameWithType.vb: IBuildProcessBuilder.WithTaskExecuting(Func(Of IBuildTaskDescriptor, Task))
+- uid: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTaskExecuting*
+  name: WithTaskExecuting
+  href: api/WeihanLi.Common.Helpers.IBuildProcessBuilder.html#WeihanLi_Common_Helpers_IBuildProcessBuilder_WithTaskExecuting_
+  commentId: Overload:WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTaskExecuting
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IBuildProcessBuilder.WithTaskExecuting
+  nameWithType: IBuildProcessBuilder.WithTaskExecuting
+- uid: WeihanLi.Common.Helpers.IBuildTaskBuilder
+  name: IBuildTaskBuilder
+  href: api/WeihanLi.Common.Helpers.IBuildTaskBuilder.html
+  commentId: T:WeihanLi.Common.Helpers.IBuildTaskBuilder
+  fullName: WeihanLi.Common.Helpers.IBuildTaskBuilder
+  nameWithType: IBuildTaskBuilder
+- uid: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithDependency(System.String)
+  name: WithDependency(string)
+  href: api/WeihanLi.Common.Helpers.IBuildTaskBuilder.html#WeihanLi_Common_Helpers_IBuildTaskBuilder_WithDependency_System_String_
+  commentId: M:WeihanLi.Common.Helpers.IBuildTaskBuilder.WithDependency(System.String)
+  name.vb: WithDependency(String)
+  fullName: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithDependency(string)
+  fullName.vb: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithDependency(String)
+  nameWithType: IBuildTaskBuilder.WithDependency(string)
+  nameWithType.vb: IBuildTaskBuilder.WithDependency(String)
+- uid: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithDependency*
+  name: WithDependency
+  href: api/WeihanLi.Common.Helpers.IBuildTaskBuilder.html#WeihanLi_Common_Helpers_IBuildTaskBuilder_WithDependency_
+  commentId: Overload:WeihanLi.Common.Helpers.IBuildTaskBuilder.WithDependency
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithDependency
+  nameWithType: IBuildTaskBuilder.WithDependency
+- uid: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithDescription(System.String)
+  name: WithDescription(string?)
+  href: api/WeihanLi.Common.Helpers.IBuildTaskBuilder.html#WeihanLi_Common_Helpers_IBuildTaskBuilder_WithDescription_System_String_
+  commentId: M:WeihanLi.Common.Helpers.IBuildTaskBuilder.WithDescription(System.String)
+  name.vb: WithDescription(String)
+  fullName: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithDescription(string?)
+  fullName.vb: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithDescription(String)
+  nameWithType: IBuildTaskBuilder.WithDescription(string?)
+  nameWithType.vb: IBuildTaskBuilder.WithDescription(String)
+- uid: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithDescription*
+  name: WithDescription
+  href: api/WeihanLi.Common.Helpers.IBuildTaskBuilder.html#WeihanLi_Common_Helpers_IBuildTaskBuilder_WithDescription_
+  commentId: Overload:WeihanLi.Common.Helpers.IBuildTaskBuilder.WithDescription
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithDescription
+  nameWithType: IBuildTaskBuilder.WithDescription
+- uid: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithExecution(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
+  name: WithExecution(Func<CancellationToken, Task>)
+  href: api/WeihanLi.Common.Helpers.IBuildTaskBuilder.html#WeihanLi_Common_Helpers_IBuildTaskBuilder_WithExecution_System_Func_System_Threading_CancellationToken_System_Threading_Tasks_Task__
+  commentId: M:WeihanLi.Common.Helpers.IBuildTaskBuilder.WithExecution(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
+  name.vb: WithExecution(Func(Of CancellationToken, Task))
+  fullName: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithExecution(System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task>)
+  fullName.vb: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithExecution(System.Func(Of System.Threading.CancellationToken, System.Threading.Tasks.Task))
+  nameWithType: IBuildTaskBuilder.WithExecution(Func<CancellationToken, Task>)
+  nameWithType.vb: IBuildTaskBuilder.WithExecution(Func(Of CancellationToken, Task))
+- uid: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithExecution*
+  name: WithExecution
+  href: api/WeihanLi.Common.Helpers.IBuildTaskBuilder.html#WeihanLi_Common_Helpers_IBuildTaskBuilder_WithExecution_
+  commentId: Overload:WeihanLi.Common.Helpers.IBuildTaskBuilder.WithExecution
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IBuildTaskBuilder.WithExecution
+  nameWithType: IBuildTaskBuilder.WithExecution
 - uid: WeihanLi.Common.Helpers.IBuildTaskDescriptor
   name: IBuildTaskDescriptor
   href: api/WeihanLi.Common.Helpers.IBuildTaskDescriptor.html

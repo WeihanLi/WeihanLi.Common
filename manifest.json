@@ -1652,16 +1652,16 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Helpers.BuildProcessBuilder.yml",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.BuildProcessExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/WeihanLi.Common.Helpers.BuildProcessBuilder.html"
+          "relative_path": "api/WeihanLi.Common.Helpers.BuildProcessExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "WeihanLi.Common.Helpers.BuildProcessBuilder",
+      "Title": "WeihanLi.Common.Helpers.BuildProcessExtensions",
       "Summary": null
     },
     {
@@ -1676,20 +1676,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Helpers.BuildTask",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Helpers.BuildTaskBuilder.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Common.Helpers.BuildTaskBuilder.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "WeihanLi.Common.Helpers.BuildTaskBuilder",
       "Summary": null
     },
     {
@@ -2348,6 +2334,34 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Helpers.IAsyncPipelineMiddleware<TContext>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.IBuildProcessBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.IBuildProcessBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.IBuildProcessBuilder",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.IBuildTaskBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.IBuildTaskBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.IBuildTaskBuilder",
       "Summary": null
     },
     {
