@@ -333,7 +333,8 @@ public sealed class DotNetPackageBuildProcess
                       {
                           foreach (var file in Directory.GetFiles(Path.GetFullPath(folder), "*.cs"))
                           {
-                              CommandExecutor.ExecuteAndOutput($"dotnet build {Path.GetFullPath(file)}");
+                              CommandExecutor.ExecuteCommandAndOutput($"dotnet build {Path.GetFullPath(file)}")
+                                  .EnsureSuccessExitCode();
                           }
                       });
                   });
