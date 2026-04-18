@@ -16,17 +16,17 @@
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="8.0.1" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
-    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.14" />
-    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="9.0.14" />
-    <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.14" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.15" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="9.0.15" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.15" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
-    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="10.0.5" />
-    <PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.5" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="10.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.6" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net11.0'">
-    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="11.0.0-preview.2.26159.112" />
-    <PackageVersion Include="Microsoft.Extensions.Logging" Version="11.0.0-preview.2.26159.112" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="11.0.0-preview.3.26207.106" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="11.0.0-preview.3.26207.106" />
   </ItemGroup>
   <ItemGroup>
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
@@ -38,17 +38,17 @@
   <ItemGroup>
     <PackageVersion Include="Moq" Version="4.20.72" />
     <PackageVersion Include="xunit.v3.mtp-v2" Version="3.2.2" />
-    <PackageVersion Include="GitHubActionsTestLogger" Version="3.0.1" />
-    <PackageVersion Include="Microsoft.Testing.Platform" Version="2.1.0" />
-    <PackageVersion Include="coverlet.collector" Version="8.0.0" />
+    <PackageVersion Include="GitHubActionsTestLogger" Version="3.0.3" />
+    <PackageVersion Include="Microsoft.Testing.Platform" Version="2.2.1" />
+    <PackageVersion Include="coverlet.collector" Version="10.0.0" />
     <PackageVersion Include="BenchmarkDotNet" Version="0.15.8" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.5" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.5" />
-    <PackageVersion Include="Microsoft.Extensions.ObjectPool" Version="10.0.5" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.6" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.ObjectPool" Version="10.0.6" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.1.1" />
-    <PackageVersion Include="Microsoft.Data.SqlClient" Version="6.1.4" />
+    <PackageVersion Include="Microsoft.Data.SqlClient" Version="7.0.0" />
     <PackageVersion Include="Dapper" Version="2.1.72" />
   </ItemGroup>
   <ItemGroup>
