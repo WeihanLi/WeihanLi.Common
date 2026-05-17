@@ -1,4 +1,4 @@
-using WeihanLi.Common;
+﻿using WeihanLi.Common;
 
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions;
