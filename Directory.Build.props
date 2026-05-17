@@ -3,6 +3,7 @@
   <PropertyGroup>
     <LatestTargetFramework>net10.0</LatestTargetFramework>
     <LangVersion>preview</LangVersion>
+    <_EnableDefaultWindowsPlatform>false</_EnableDefaultWindowsPlatform>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Authors>WeihanLi</Authors>
