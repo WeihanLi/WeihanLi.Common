@@ -49,7 +49,7 @@
     <PackageVersion Include="Microsoft.Extensions.ObjectPool" Version="10.0.8" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.1.1" />
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="7.0.1" />
-    <PackageVersion Include="Dapper" Version="2.1.72" />
+    <PackageVersion Include="Dapper" Version="2.1.79" />
   </ItemGroup>
   <ItemGroup>
     <GlobalPackageReference Include="PolySharp" Version="1.15.0" />
