@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 
 namespace WeihanLi.Common;
 
@@ -8,7 +7,7 @@ public static class Guard
     [return: NotNull]
     public static T NotNull<T>([NotNull] T? t,
            [CallerArgumentExpression(nameof(t))]
-            string? paramName = default)
+            string paramName = "")
     {
 #if NET
         ArgumentNullException.ThrowIfNull(t, paramName);
