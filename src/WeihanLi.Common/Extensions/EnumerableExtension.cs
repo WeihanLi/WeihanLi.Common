@@ -9,7 +9,7 @@ namespace WeihanLi.Extensions;
 
 public static class EnumerableExtension
 {
-    
+
     #region ToPagedList
 
     /// <summary>
