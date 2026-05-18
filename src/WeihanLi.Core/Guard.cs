@@ -28,7 +28,7 @@ public static class Guard
 #if NET
         ArgumentException.ThrowIfNullOrEmpty(str, paramName);
 #else
-        NotNull(str, paramName);
+        NotNull(str, paramName ?? string.Empty);
         if (str.Length == 0)
         {
             throw new ArgumentException(@"The argument can not be Empty", paramName);
@@ -44,7 +44,7 @@ public static class Guard
 #if NET
         ArgumentException.ThrowIfNullOrWhiteSpace(str, paramName);
 #else
-        NotNull(str, paramName);
+        NotNull(str, paramName ?? string.Empty);
         if (string.IsNullOrWhiteSpace(str))
         {
             throw new ArgumentException(@"The argument can not be WhiteSpace", paramName);
@@ -56,7 +56,7 @@ public static class Guard
     [return: NotNull]
     public static ICollection<T> NotEmpty<T>([NotNull] ICollection<T> collection, [CallerArgumentExpression(nameof(collection))] string? paramName = null)
     {
-        NotNull(collection, paramName);
+        NotNull(collection, paramName ?? string.Empty);
         if (collection.Count == 0)
         {
             throw new ArgumentException(@"The collection could not be empty", paramName);
