@@ -27,7 +27,9 @@ x64/
 x86/
 bld/
 [Bb]in/
+[Bb]in-local/
 [Oo]bj/
+[Oo]bj-local/
 [Ll]og/
 [Oo]ut/
 

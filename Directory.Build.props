@@ -8,6 +8,8 @@
     <Nullable>enable</Nullable>
     <Authors>WeihanLi</Authors>
     <Copyright>Copyright 2017-$([System.DateTime]::Now.Year) (c) WeihanLi</Copyright>
+    <DefaultItemExcludes>$(DefaultItemExcludes);**/bin-local/**;**/Bin-local/**;**/BIN-LOCAL/**;**/obj-local/**;**/Obj-local/**;**/OBJ-LOCAL/**</DefaultItemExcludes>
+    <DefaultItemExcludesInProjectFolder>$(DefaultItemExcludesInProjectFolder);**/bin-local/**;**/Bin-local/**;**/BIN-LOCAL/**;**/obj-local/**;**/Obj-local/**;**/OBJ-LOCAL/**</DefaultItemExcludesInProjectFolder>
     <NoWarn>$(NoWarn);NU5048;CS1591;NETSDK1057</NoWarn>
     <ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>
     <ContinuousIntegrationBuild Condition="'$(CI)' == 'true' or '$(TF_BUILD)' == 'true' or '$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
