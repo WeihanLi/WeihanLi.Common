@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using WeihanLi.Common.Models;
 using WeihanLi.Extensions;
 
@@ -34,7 +36,7 @@ public static class EnumHelper
         {
             Name = name,
             Id = Convert.ToInt32(Enum.Parse(enumType, name)),
-            Description = enumType.GetField(name)?.GetDescription()
+            Description = GetDescription(enumType.GetField(name))
         });
     }
 
@@ -46,7 +48,12 @@ public static class EnumHelper
         {
             Id = Enum.Parse(enumType, name).To<TValue>(),
             Name = name,
-            Description = enumType.GetField(name)?.GetDescription()
+            Description = GetDescription(enumType.GetField(name))
         });
+    }
+
+    private static string? GetDescription(MemberInfo? memberInfo)
+    {
+        return memberInfo?.GetCustomAttribute<DescriptionAttribute>()?.Description ?? memberInfo?.Name;
     }
 }

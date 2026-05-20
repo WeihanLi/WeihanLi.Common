@@ -8,6 +8,7 @@ using WeihanLi.Common.Helpers.Combinatorics;
 using WeihanLi.Common.Helpers.PeriodBatching;
 using WeihanLi.Common.Otp;
 using WeihanLi.Common.Services;
+using WeihanLi.Extensions;
 
 [assembly: TypeForwardedTo(typeof(IDataCompressor))]
 [assembly: TypeForwardedTo(typeof(NullDataCompressor))]
@@ -26,3 +27,17 @@ using WeihanLi.Common.Services;
 [assembly: TypeForwardedTo(typeof(Permutations<>))]
 [assembly: TypeForwardedTo(typeof(Variations<>))]
 [assembly: TypeForwardedTo(typeof(PeriodicBatching<>))]
+[assembly: TypeForwardedTo(typeof(CommandLineParser))]
+[assembly: TypeForwardedTo(typeof(LineParseOptions))]
+[assembly: TypeForwardedTo(typeof(EnvHelper))]
+[assembly: TypeForwardedTo(typeof(EnumHelper))]
+[assembly: TypeForwardedTo(typeof(TypeHelper))]
+[assembly: TypeForwardedTo(typeof(ValidateHelper))]
+[assembly: TypeForwardedTo(typeof(ValueStopwatch))]
+[assembly: TypeForwardedTo(typeof(ProfilerStopper))]
+[assembly: TypeForwardedTo(typeof(StopwatchStopper))]
+[assembly: TypeForwardedTo(typeof(ProfilerHelper))]
+[assembly: TypeForwardedTo(typeof(IProfiler))]
+[assembly: TypeForwardedTo(typeof(StopwatchProfiler))]
+[assembly: TypeForwardedTo(typeof(DictionaryExtension))]
+[assembly: TypeForwardedTo(typeof(EnumerableExtension))]

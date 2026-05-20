@@ -7,7 +7,7 @@ using WeihanLi.Common;
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions;
 
-public static class EnumerableExtension
+public static partial class EnumerableExtension
 {
     public static void ForEach<T>(this IEnumerable<T> ts, Action<T> action)
     {

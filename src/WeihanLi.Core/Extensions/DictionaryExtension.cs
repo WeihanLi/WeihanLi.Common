@@ -393,6 +393,7 @@ public static class DictionaryExtension
     /// </summary>
     /// <param name="dictionary">IDictionary</param>
     /// <returns></returns>
+    [RequiresUnreferencedCode("Dictionary value runtime types may not preserve members required by DataColumn.")]
     public static DataTable ToDataTable(this IDictionary<string, object> dictionary)
     {
         Guard.NotNull(dictionary);

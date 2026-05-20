@@ -7,7 +7,7 @@ using WeihanLi.Common.Models;
 // ReSharper disable once CheckNamespace
 namespace WeihanLi.Extensions;
 
-public static class EnumerableExtension
+public static partial class EnumerableExtension
 {
 
     #region ToPagedList

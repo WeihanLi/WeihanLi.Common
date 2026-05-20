@@ -28,7 +28,7 @@ public struct ValueStopwatch
             {
                 _stopTimestamp = Stopwatch.GetTimestamp();
             }
-            return ProfilerHelper.GetElapsedTime(_startTimestamp, _stopTimestamp);
+            return GetElapsedTime(_startTimestamp, _stopTimestamp);
         }
     }
 
@@ -50,4 +50,14 @@ public struct ValueStopwatch
     /// Creates a new <see cref="ValueStopwatch"/> that is ready to be used.
     /// </summary>
     public static ValueStopwatch StartNew() => new(Stopwatch.GetTimestamp());
+
+    private static TimeSpan GetElapsedTime(long startTimestamp, long endTimestamp)
+    {
+#if NET
+        return Stopwatch.GetElapsedTime(startTimestamp, endTimestamp);
+#else
+        var ticks = (long)((endTimestamp - startTimestamp) * TimeSpan.TicksPerSecond / (double)Stopwatch.Frequency);
+        return new TimeSpan(ticks);
+#endif
+    }
 }
