@@ -30,9 +30,6 @@
     <ProjectReference Include="..\WeihanLi.Core\WeihanLi.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <AssemblyAttribute Include="System.CLSCompliantAttribute">
-      <_Parameter1>true</_Parameter1>
-    </AssemblyAttribute>
     <Using Include="System.Diagnostics.CodeAnalysis" />
   </ItemGroup>
   <ItemGroup>
