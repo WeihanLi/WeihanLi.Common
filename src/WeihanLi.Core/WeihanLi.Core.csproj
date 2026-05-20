@@ -8,6 +8,7 @@
     <PackageSummary>AOT-compatible core helpers, extensions, models, and utility primitives</PackageSummary>
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Core</PackageProjectUrl>
     <NoWarn>$(NoWarn);1591;DE0003;SYSLIB0014;</NoWarn>
+    <RootNamespace>WeihanLi.Common</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -23,5 +24,6 @@
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
+    <PackageReference Include="System.ComponentModel.Annotations" />
   </ItemGroup>
 </Project>
