@@ -174,10 +174,20 @@ public sealed class InMemoryStream<T>(string name, IComparer<T>? comparer = null
 
         if (_messages.Count > 0)
         {
-            var minMessage = _messages.MinBy(item => item.Id, _comparer);
-            var maxMessage = _messages.MaxBy(item => item.Id, _comparer);
-            ArgumentNullException.ThrowIfNull(minMessage);
-            ArgumentNullException.ThrowIfNull(maxMessage);
+            var minMessage = _messages[0];
+            var maxMessage = _messages[0];
+            for (var i = 1; i < _messages.Count; i++)
+            {
+                var message = _messages[i];
+                if (_comparer.Compare(message.Id, minMessage.Id) < 0)
+                {
+                    minMessage = message;
+                }
+                if (_comparer.Compare(message.Id, maxMessage.Id) > 0)
+                {
+                    maxMessage = message;
+                }
+            }
 
             streamInfo.MinId = minMessage.Id;
             streamInfo.MinTimestamp = minMessage.Timestamp;

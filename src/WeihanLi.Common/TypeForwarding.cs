@@ -2,7 +2,9 @@
 // Licensed under the Apache license.
 
 using System.Runtime.CompilerServices;
+using WeihanLi.Common.Abstractions;
 using WeihanLi.Common.Compressor;
+using WeihanLi.Common.Extensions;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Helpers.Combinatorics;
 using WeihanLi.Common.Helpers.PeriodBatching;
@@ -13,6 +15,8 @@ using WeihanLi.Extensions;
 [assembly: TypeForwardedTo(typeof(IDataCompressor))]
 [assembly: TypeForwardedTo(typeof(NullDataCompressor))]
 [assembly: TypeForwardedTo(typeof(GZipDataCompressor))]
+[assembly: TypeForwardedTo(typeof(IProperties))]
+[assembly: TypeForwardedTo(typeof(IStringProperties))]
 [assembly: TypeForwardedTo(typeof(BoundedConcurrentQueue<>))]
 [assembly: TypeForwardedTo(typeof(BoundedQueueFullMode))]
 [assembly: TypeForwardedTo(typeof(TotpHelper))]
@@ -27,6 +31,14 @@ using WeihanLi.Extensions;
 [assembly: TypeForwardedTo(typeof(Permutations<>))]
 [assembly: TypeForwardedTo(typeof(Variations<>))]
 [assembly: TypeForwardedTo(typeof(PeriodicBatching<>))]
+[assembly: TypeForwardedTo(typeof(NullDisposable))]
+[assembly: TypeForwardedTo(typeof(DisposableAction))]
+[assembly: TypeForwardedTo(typeof(DisposableBase))]
+[assembly: TypeForwardedTo(typeof(StreamMessage<>))]
+[assembly: TypeForwardedTo(typeof(StreamInfo<>))]
+[assembly: TypeForwardedTo(typeof(StreamGroupInfo<>))]
+[assembly: TypeForwardedTo(typeof(IStream<>))]
+[assembly: TypeForwardedTo(typeof(InMemoryStream<>))]
 [assembly: TypeForwardedTo(typeof(CommandLineParser))]
 [assembly: TypeForwardedTo(typeof(LineParseOptions))]
 [assembly: TypeForwardedTo(typeof(EnvHelper))]
@@ -39,5 +51,21 @@ using WeihanLi.Extensions;
 [assembly: TypeForwardedTo(typeof(ProfilerHelper))]
 [assembly: TypeForwardedTo(typeof(IProfiler))]
 [assembly: TypeForwardedTo(typeof(StopwatchProfiler))]
+[assembly: TypeForwardedTo(typeof(ICancellationTokenProvider))]
+[assembly: TypeForwardedTo(typeof(NullCancellationTokenProvider))]
+[assembly: TypeForwardedTo(typeof(IIdGenerator))]
+[assembly: TypeForwardedTo(typeof(GuidIdGenerator))]
+[assembly: TypeForwardedTo(typeof(SequentialGuidIdGenerator))]
+[assembly: TypeForwardedTo(typeof(IScope))]
+[assembly: TypeForwardedTo(typeof(NullScope))]
+[assembly: TypeForwardedTo(typeof(ITenantProvider))]
+[assembly: TypeForwardedTo(typeof(TenantIdProviderExtensions))]
+[assembly: TypeForwardedTo(typeof(IUserIdProvider))]
+[assembly: TypeForwardedTo(typeof(UserIdProviderExtensions))]
+[assembly: TypeForwardedTo(typeof(EnvironmentUserIdProvider))]
+[assembly: TypeForwardedTo(typeof(DelegateUserIdProvider))]
+[assembly: TypeForwardedTo(typeof(IWrapper<>))]
+[assembly: TypeForwardedTo(typeof(Wrapper<>))]
 [assembly: TypeForwardedTo(typeof(DictionaryExtension))]
 [assembly: TypeForwardedTo(typeof(EnumerableExtension))]
+[assembly: TypeForwardedTo(typeof(PropertiesExtensions))]
