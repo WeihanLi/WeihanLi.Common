@@ -21,7 +21,7 @@
     </AssemblyAttribute>
     <Using Include="System.Diagnostics.CodeAnalysis" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Threading.Tasks.Extensions" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
   </ItemGroup>
 </Project>
