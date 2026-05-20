@@ -11,7 +11,6 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Data;
 
-[CLSCompliant(false)]
 public class Repository<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.PublicProperties)] TEntity>(Func<DbConnection> dbConnectionFunc) : IRepository<TEntity> where TEntity : new()
 {
     #region TODO: Cache External

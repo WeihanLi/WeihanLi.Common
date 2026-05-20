@@ -1,6 +1,5 @@
 ﻿namespace WeihanLi.Common.Aspect;
 
-[CLSCompliant(false)]
 public sealed class DelegateInterceptor(Func<IInvocation, Func<Task>, Task> interceptFunc) : AbstractInterceptor
 {
     private readonly Func<IInvocation, Func<Task>, Task> _interceptFunc = Guard.NotNull(interceptFunc);
