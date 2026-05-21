@@ -1,8 +1,8 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
-using WeihanLi.Common.Abstractions;
 using WeihanLi.Common;
+using WeihanLi.Common.Abstractions;
 
 namespace WeihanLi.Extensions;
 
