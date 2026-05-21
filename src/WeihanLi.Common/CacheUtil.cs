@@ -1,5 +1,4 @@
 ﻿using System.Collections.Concurrent;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using WeihanLi.Common.DependencyInjection;
 
@@ -21,8 +20,6 @@ public static class CacheUtil
         Guard.NotNull(type);
         return TypeFieldCache.GetOrAdd(type, _ => type.GetFields());
     }
-
-    internal static readonly ConcurrentDictionary<Type, MethodInfo[]> TypeMethodCache = new();
 
     internal static readonly ConcurrentDictionary<Type, Func<ServiceContainer, object>> TypeNewFuncCache = new();
 
