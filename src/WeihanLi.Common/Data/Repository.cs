@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Common;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
@@ -11,7 +10,7 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Data;
 
-public class Repository<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors | DynamicallyAccessedMemberTypes.PublicProperties)] TEntity>(Func<DbConnection> dbConnectionFunc) : IRepository<TEntity> where TEntity : new()
+public class Repository<TEntity>(Func<DbConnection> dbConnectionFunc) : IRepository<TEntity> where TEntity : new()
 {
     #region TODO: Cache External
 

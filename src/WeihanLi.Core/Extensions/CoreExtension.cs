@@ -684,7 +684,6 @@ public static class CoreExtension
     /// </summary>
     /// <param name="value">The value to act on.</param>
     /// <returns>The description attribute.</returns>
-    [RequiresUnreferencedCode("Enum fields or attributes may be removed by trimming.")]
     public static string GetDescription(this Enum value)
     {
         var stringValue = value.ToString();
@@ -1855,7 +1854,6 @@ public static class CoreExtension
     /// <param name="this">The @this to act on.</param>
     /// <param name="args">The arguments.</param>
     /// <returns>The new instance.</returns>
-    [RequiresUnreferencedCode("Activator.CreateInstance may require constructors that are removed by trimming.")]
     public static T? CreateInstance<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] T>([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] this Type @this, params object?[]? args) => (T?)Activator.CreateInstance(@this, args);
 
     /// <summary>
