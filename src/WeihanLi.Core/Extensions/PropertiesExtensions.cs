@@ -2,8 +2,9 @@
 // Licensed under the Apache license.
 
 using WeihanLi.Common.Abstractions;
+using WeihanLi.Common;
 
-namespace WeihanLi.Common.Extensions;
+namespace WeihanLi.Extensions;
 
 public static class PropertiesExtensions
 {

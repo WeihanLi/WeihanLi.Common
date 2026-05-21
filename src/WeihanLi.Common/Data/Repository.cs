@@ -4,7 +4,6 @@ using System.Data.Common;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
-using WeihanLi.Common.Extensions;
 using WeihanLi.Common.Models;
 using WeihanLi.Extensions;
 

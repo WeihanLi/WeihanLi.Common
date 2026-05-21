@@ -4,7 +4,6 @@
 using System.Runtime.CompilerServices;
 using WeihanLi.Common.Abstractions;
 using WeihanLi.Common.Compressor;
-using WeihanLi.Common.Extensions;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Helpers.Combinatorics;
 using WeihanLi.Common.Helpers.PeriodBatching;

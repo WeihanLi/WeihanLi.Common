@@ -85,7 +85,6 @@ Use conditional compilation (`#if NET8_0_OR_GREATER` etc.) for framework-specifi
 | `WeihanLi.Common.Data` | ADO.NET extensions, entity mapping, SQL expression parsers |
 | `WeihanLi.Common.DependencyInjection` | Lightweight DI container, service definitions, module support |
 | `WeihanLi.Common.Event` | `EventBus`, `EventQueue`, `EventStore`, publish/subscribe |
-| `WeihanLi.Common.Extensions` | Extension methods for core .NET types |
 | `WeihanLi.Common.Helpers` | `ApplicationHelper`, `TotpHelper`, `CommandExecutor`, `ConsoleHelper`, etc. |
 | `WeihanLi.Common.Http` | HTTP client utilities, mock handlers |
 | `WeihanLi.Common.Logging` | Logging abstractions and adapters |
