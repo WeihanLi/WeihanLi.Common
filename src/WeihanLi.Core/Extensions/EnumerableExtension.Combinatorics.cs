@@ -13,7 +13,7 @@ public static partial class EnumerableExtension
     #region ToPagedList
 
     /// <summary>
-    /// ToPagedList
+    /// ToListResultWithTotal
     /// </summary>
     /// <typeparam name="T">Type</typeparam>
     /// <param name="data">data</param>
@@ -66,6 +66,14 @@ public static partial class EnumerableExtension
 
     #endregion ToPagedList
 
+    /// <summary>
+    /// Generate combinations from the source sequence.
+    /// </summary>
+    /// <typeparam name="T">Element type.</typeparam>
+    /// <param name="values">Source values.</param>
+    /// <param name="count">Number of items in each combination.</param>
+    /// <param name="withRepetition">Whether combinations may contain repeated elements.</param>
+    /// <returns>A sequence of generated combinations.</returns>
     public static IEnumerable<IReadOnlyList<T>> GetCombinations<T>(this IEnumerable<T> values, int count,
         bool withRepetition = false)
     {
@@ -73,6 +81,14 @@ public static partial class EnumerableExtension
             withRepetition ? GenerateOption.WithRepetition : GenerateOption.WithoutRepetition);
     }
 
+    /// <summary>
+    /// Generate permutations from the source sequence.
+    /// </summary>
+    /// <typeparam name="T">Element type.</typeparam>
+    /// <param name="values">Source values.</param>
+    /// <param name="withRepetition">Whether permutations may contain repeated elements.</param>
+    /// <param name="comparer">Comparer used to order the generated results.</param>
+    /// <returns>A sequence of generated permutations.</returns>
     public static IEnumerable<IReadOnlyList<T>> GetPermutations<T>(this IEnumerable<T> values,
         bool withRepetition = false, IComparer<T>? comparer = null)
     {
