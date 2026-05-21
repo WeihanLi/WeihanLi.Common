@@ -1,13 +1,13 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license version 2.0 http://www.apache.org/licenses/LICENSE-2.0
 
-#:project ./src/WeihanLi.Common/WeihanLi.Common.csproj
-#:property PublishAot=false
+#:project ./src/WeihanLi.Core/WeihanLi.Core.csproj
 
 using WeihanLi.Common.Helpers;
 
 var solutionPath = "./WeihanLi.Common.slnx";
-string[] srcProjects = [ 
+string[] srcProjects = [
+    "./src/WeihanLi.Core/WeihanLi.Core.csproj",
     "./src/WeihanLi.Common/WeihanLi.Common.csproj",
     "./src/WeihanLi.Common.Logging.Serilog/WeihanLi.Common.Logging.Serilog.csproj",
     "./src/WeihanLi.Extensions.Hosting/WeihanLi.Extensions.Hosting.csproj",
