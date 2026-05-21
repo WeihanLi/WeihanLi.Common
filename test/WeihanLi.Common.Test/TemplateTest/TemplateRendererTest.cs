@@ -65,7 +65,7 @@ file sealed class SubstringTemplatePipe : TemplatePipeBase
     public override string Name => "substr";
     protected override string? ConvertInternal(object? value, params ReadOnlySpan<string> args)
     {
-        if (args.Length is not 1 or 2)
+        if (args.Length is not (1 or 2))
         {
             throw new InvalidOperationException("Arguments count must be 1 or 2");
         }

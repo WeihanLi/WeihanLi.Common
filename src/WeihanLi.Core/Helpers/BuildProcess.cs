@@ -328,12 +328,12 @@ public sealed class DotNetPackageBuildProcess
                       if (options.RunFileSampleFolders is not { Length: > 0 })
                           return;
 
-                      Console.WriteLine($"RunFileSamples: {string.Join(", ", options.RunFileSampleFolders)}");
+                      Console.WriteLine(@"RunFileSamples: " + string.Join(", ", options.RunFileSampleFolders));
                       Parallel.ForEach(options.RunFileSampleFolders, folder =>
                       {
                           foreach (var file in Directory.GetFiles(Path.GetFullPath(folder), "*.cs"))
                           {
-                              CommandExecutor.ExecuteCommandAndOutput($"dotnet build {Path.GetFullPath(file)}")
+                              CommandExecutor.ExecuteCommandAndOutput($"dotnet build \"{file}\"")
                                   .EnsureSuccessExitCode();
                           }
                       });

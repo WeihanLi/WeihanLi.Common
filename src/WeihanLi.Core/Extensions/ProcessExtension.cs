@@ -24,7 +24,7 @@ public static class ProcessExtension
     {
         Guard.NotNull(process);
         process.EnableRaisingEvents = true;
-        var tcs = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var tcs = new TaskCompletionSource<object?>(TaskCreationOptions.RunContinuationsAsynchronously);
         try
         {
             process.Exited += EventHandler;
@@ -46,7 +46,7 @@ public static class ProcessExtension
 
         return tcs.Task;
 
-        void EventHandler(object o, EventArgs eventArgs) => tcs.TrySetResult();
+        void EventHandler(object o, EventArgs eventArgs) => tcs.TrySetResult(null);
     }
 #endif
 
@@ -244,21 +244,21 @@ public static class ProcessExtension
 
         var process = new Process();
         process.StartInfo = psi;
-        var stdOutComplete = new TaskCompletionSource();
-        var stdErrComplete = new TaskCompletionSource();
+        var stdOutComplete = new TaskCompletionSource<object?>();
+        var stdErrComplete = new TaskCompletionSource<object?>();
         process.OutputDataReceived += (_, e) =>
         {
             if (e.Data != null)
                 stdOut?.WriteLine(e.Data);
             else
-                stdOutComplete.SetResult();
+                stdOutComplete.SetResult(null);
         };
         process.ErrorDataReceived += (_, e) =>
         {
             if (e.Data != null)
                 stdErr?.WriteLine(e.Data);
             else
-                stdErrComplete.SetResult();
+                stdErrComplete.SetResult(null);
         };
 
         process.Start();

@@ -5,24 +5,21 @@ namespace WeihanLi.Common.Models;
 
 public class PagedRequest
 {
-    private int _pageNumber = 1;
-    private int _pageSize = 10;
-
     /// <summary>
     /// PageNumber
     /// 1 by default, 1 based
     /// </summary>
     public int PageNum
     {
-        get => _pageNumber;
+        get;
         set
         {
             if (value > 0)
             {
-                _pageNumber = value;
+                field = value;
             }
         }
-    }
+    } = 1;
 
     /// <summary>
     /// PageSize
@@ -30,13 +27,40 @@ public class PagedRequest
     /// </summary>
     public int PageSize
     {
-        get => _pageSize;
+        get;
         set
         {
             if (value > 0)
             {
-                _pageSize = value;
+                field = value;
+            }
+        }
+    } = 10;
+}
+
+public class OffsetRequest
+{
+    public int Offset
+    {
+        get => field;
+        set
+        {
+            if (value >= 0)
+            {
+                field = value;
             }
         }
     }
+
+    public int Count
+    {
+        get => field;
+        set
+        {
+            if (value > 0)
+            {
+                field = value;
+            }
+        }
+    } = 10;
 }

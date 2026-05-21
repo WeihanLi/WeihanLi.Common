@@ -14,7 +14,7 @@ public static class ValidateHelper
     private static readonly Regex EmailRegex = new(@"^[a-z0-9]([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$", RegexOptions.IgnoreCase);
 
     //手机号正则表达式
-    private static readonly Regex MobileRegex = new("^1[2-9][0-9]{9}$", RegexOptions.Compiled);
+    private static readonly Regex MobileRegex = new("^1[2-9][0-9]{9}$");
 
     /// <summary>
     /// 是否为邮箱名

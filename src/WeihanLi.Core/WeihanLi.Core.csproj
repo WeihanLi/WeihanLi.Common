@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>WeihanLi.Core</PackageId>
+    <Title>WeihanLi.Core</Title>
+    <TargetFrameworks>netstandard2.0;net10.0;net11.0</TargetFrameworks>
+    <Description>AOT-compatible core helpers, extensions, models, and utility primitives for .NET applications</Description>
+    <PackageTags>$(PackageTags);core;aot;utility;extensions;helpers</PackageTags>
+    <PackageSummary>AOT-compatible core helpers, extensions, models, and utility primitives</PackageSummary>
+    <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Core</PackageProjectUrl>
+    <NoWarn>$(NoWarn);1591;DE0003;SYSLIB0014;</NoWarn>
+    <RootNamespace>WeihanLi.Common</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net7.0'))">true</IsAotCompatible>
+    <!-- DynamicallyAccessedMembers not included by default https://github.com/Sergio0694/PolySharp/issues/84#issuecomment-1751772472 -->
+    <PolySharpIncludeRuntimeSupportedAttributes>true</PolySharpIncludeRuntimeSupportedAttributes>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.CLSCompliantAttribute">
+      <_Parameter1>true</_Parameter1>
+    </AssemblyAttribute>
+    <Using Include="System.Diagnostics.CodeAnalysis" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
+    <PackageReference Include="System.ComponentModel.Annotations" />
+  </ItemGroup>
+</Project>

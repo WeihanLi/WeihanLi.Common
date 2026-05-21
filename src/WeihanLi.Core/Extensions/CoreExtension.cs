@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
-using System.Collections.Concurrent;
 using System.ComponentModel;
 using System.Globalization;
 using System.Reflection;
@@ -1306,44 +1305,6 @@ public static class CoreExtension
         return source is null || source.Equals(default(T));
     }
 
-    /// <summary>
-    /// Get param dictionary
-    /// </summary>
-    public static IDictionary<string, object?> ParseParamDictionary(this object? paramInfo)
-    {
-        var paramDic = new Dictionary<string, object?>();
-        if (paramInfo is null)
-        {
-            return paramDic;
-        }
-
-        var type = paramInfo.GetType();
-        if (type.IsValueTuple()) // Tuple
-        {
-            var fields = CacheUtil.GetTypeFields(type);
-            foreach (var field in fields)
-            {
-                paramDic[field.Name] = field.GetValue(paramInfo);
-            }
-        }
-        else if (paramInfo is IDictionary<string, object?> paramDictionary)
-        {
-            return paramDictionary;
-        }
-        else // get properties
-        {
-            var properties = CacheUtil.GetTypeProperties(type);
-            foreach (var property in properties)
-            {
-                if (property.CanRead)
-                {
-                    paramDic[property.Name] = property.GetValueGetter()?.Invoke(paramInfo);
-                }
-            }
-        }
-
-        return paramDic;
-    }
     #endregion object
 
     #region Random
@@ -1909,18 +1870,16 @@ public static class CoreExtension
         return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
     }
 
-    private static readonly ConcurrentDictionary<Type, object?> DefaultValues = new();
-
     /// <summary>
     /// get default value by type, default(T)
     /// </summary>
     /// <param name="type">type</param>
     /// <returns>default value</returns>
-    public static object? GetDefaultValue(this Type type)
+    public static object? GetDefaultValue([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)] this Type type)
     {
         Guard.NotNull(type, nameof(type));
         return type.IsValueType && type != typeof(void)
-            ? DefaultValues.GetOrAdd(type, Activator.CreateInstance)
+            ? Activator.CreateInstance(type)
             : null;
     }
 

@@ -175,7 +175,7 @@ public static class StringExtension
     public static Type GetTypeByTypeName(this string typeName)
     {
         var type = Guard.NotNullOrEmpty(typeName, nameof(typeName))
-                .ToLower() switch
+                .ToLowerInvariant() switch
         {
             "bool" => Type.GetType("System.Boolean", true, true),
             "byte" => Type.GetType("System.Byte", true, true),
@@ -194,9 +194,30 @@ public static class StringExtension
             "string" => Type.GetType("System.String", true, true),
             "datetime" => Type.GetType("System.DateTime", true, true),
             "guid" => Type.GetType("System.Guid", true, true),
-            _ => Type.GetType(typeName, true, true),
+            _ => GetTypeByName(typeName),
         };
         return Guard.NotNull(type);
+    }
+
+    [RequiresUnreferencedCode("The type might be removed")]
+    private static Type GetTypeByName(string typeName)
+    {
+        var type = Type.GetType(typeName, false, true);
+        if (type != null)
+        {
+            return type;
+        }
+
+        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+        {
+            type = assembly.GetType(typeName, false, true);
+            if (type != null)
+            {
+                return type;
+            }
+        }
+
+        throw new TypeLoadException($"Could not load type '{typeName}'.");
     }
 
     /// <summary>
@@ -239,6 +260,7 @@ public static class StringExtension
     /// <param name="str">str</param>
     /// <param name="splitOptions"></param>
     /// <returns></returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated.")]
     public static T[] SplitArray<T>(this string? str, StringSplitOptions splitOptions = StringSplitOptions.None) => SplitArray<T>(str, [','], splitOptions);
 
     /// <summary>
@@ -249,6 +271,7 @@ public static class StringExtension
     /// <param name="separators">separators</param>
     /// <param name="splitOptions">splitOptions</param>
     /// <returns></returns>
+    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated.")]
     public static T[] SplitArray<T>(this string? str, char[] separators, StringSplitOptions splitOptions = StringSplitOptions.None)
     {
         if (string.IsNullOrWhiteSpace(str))

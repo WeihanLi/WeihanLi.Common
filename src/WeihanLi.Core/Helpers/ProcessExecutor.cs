@@ -2,7 +2,6 @@
 
 namespace WeihanLi.Common.Helpers;
 
-[CLSCompliant(false)]
 public class ProcessExecutor : IDisposable
 {
     public event EventHandler<int>? OnExited;
@@ -11,8 +10,10 @@ public class ProcessExecutor : IDisposable
 
     public event EventHandler<string>? OnErrorDataReceived;
 
+    [CLSCompliant(false)]
     protected readonly Process _process;
 
+    [CLSCompliant(false)]
     protected bool _started;
 
     public ProcessExecutor(string exePath) : this(new ProcessStartInfo(exePath))

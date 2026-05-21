@@ -10,23 +10,25 @@ public interface IUserIdProvider
 
 public static class UserIdProviderExtensions
 {
-    [RequiresUnreferencedCode(
-        "Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
+#if NET
     public static T? GetUserId<T>(this IUserIdProvider userIdProvider, T? defaultValue = default)
+        where T: ISpanParsable<T>
     {
-        return userIdProvider.GetUserId().ToOrDefault(defaultValue);
+        var userId = userIdProvider.GetUserId();
+        return string.IsNullOrEmpty(userId)
+            ? defaultValue
+            : userId.AsSpan().ToOrDefault(defaultValue: defaultValue);
     }
 
-    [RequiresUnreferencedCode(
-        "Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static bool TryGetUserId<T>(this IUserIdProvider userIdProvider, out T? value, T? defaultValue = default)
+        where T: ISpanParsable<T>
     {
         try
         {
             var userId = userIdProvider.GetUserId();
             if (!string.IsNullOrEmpty(userId))
             {
-                value = userId.To<T>();
+                value = userId.AsSpan().To<T>();
                 return true;
             }
         }
@@ -38,6 +40,7 @@ public static class UserIdProviderExtensions
         value = defaultValue;
         return false;
     }
+#endif
 }
 
 public class EnvironmentUserIdProvider : IUserIdProvider

@@ -21,16 +21,6 @@ pool:
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .NET 8 sdk'
-  inputs:
-    packageType: sdk
-    version: 8.0.x
-- task: UseDotNet@2
-  displayName: 'Use .NET 9 sdk'
-  inputs:
-    packageType: sdk
-    version: 9.0.x
-- task: UseDotNet@2
   displayName: 'Use .NET 10 sdk'
   inputs:
     packageType: sdk
@@ -41,7 +31,6 @@ steps:
     packageType: sdk
     version: 11.0.x
     includePreviewVersions: true # Required for preview versions
-
 
 - script: dotnet --info
   displayName: 'dotnet info'

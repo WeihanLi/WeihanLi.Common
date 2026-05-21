@@ -5,6 +5,8 @@
 
 # Cutom files
 localBuild/
+.codex-appdata/
+.codex-artifacts/
 
 # User-specific files
 *.suo
@@ -25,7 +27,9 @@ x64/
 x86/
 bld/
 [Bb]in/
+[Bb]in-local/
 [Oo]bj/
+[Oo]bj-local/
 [Ll]og/
 [Oo]ut/
 
