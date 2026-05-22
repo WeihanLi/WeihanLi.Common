@@ -1,5 +1,4 @@
 ﻿using System.Collections.Specialized;
-using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Web;
 using WeihanLi.Common;
@@ -251,37 +250,6 @@ public static class StringExtension
     public static string GetValueOrDefault(this string? str, Func<string> getDefault)
     {
         return str.IsNullOrWhiteSpace() ? getDefault() : str;
-    }
-
-    /// <summary>
-    /// split comma separated string to T array
-    /// </summary>
-    /// <typeparam name="T">Type</typeparam>
-    /// <param name="str">str</param>
-    /// <param name="splitOptions"></param>
-    /// <returns></returns>
-    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated.")]
-    public static T[] SplitArray<T>(this string? str, StringSplitOptions splitOptions = StringSplitOptions.None) => SplitArray<T>(str, [','], splitOptions);
-
-    /// <summary>
-    /// split specific separator separated string to T array
-    /// </summary>
-    /// <typeparam name="T">Type</typeparam>
-    /// <param name="str">str</param>
-    /// <param name="separators">separators</param>
-    /// <param name="splitOptions">splitOptions</param>
-    /// <returns></returns>
-    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated.")]
-    public static T[] SplitArray<T>(this string? str, char[] separators, StringSplitOptions splitOptions = StringSplitOptions.None)
-    {
-        if (string.IsNullOrWhiteSpace(str))
-        {
-            return [];
-        }
-        return Guard.NotNull(str)
-            .Split(separators, splitOptions)
-            .Select(_ => _.To<T>())
-            .ToArray();
     }
 
     /// <summary>

@@ -1054,7 +1054,7 @@ public static class CoreExtension
         return @this.ToOrDefault(_ => defaultValue);
     }
 
-#if NET    
+#if NET
     /// <summary>
     /// Parse ReadOnlySpan to specific type instance
     /// </summary>
@@ -1067,7 +1067,6 @@ public static class CoreExtension
     {
         return T.Parse(@this, formatProvider);
     }
-
     /// <summary>
     /// Parse ReadOnlySpan to specific type instance
     /// </summary>
