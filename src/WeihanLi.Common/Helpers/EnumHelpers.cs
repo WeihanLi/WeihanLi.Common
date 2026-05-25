@@ -9,7 +9,7 @@ namespace WeihanLi.Common.Helpers;
 public static class EnumHelpers
 {
     [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
-    public static IReadOnlyList<IdNameModel<TValue>> ToIdNameList<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] TEnum, TValue>() 
+    public static IReadOnlyList<IdNameModel<TValue>> ToIdNameList<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] TEnum, TValue>()
         where TEnum : Enum
     {
         var enumType = typeof(TEnum);
