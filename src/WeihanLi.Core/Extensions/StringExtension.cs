@@ -165,61 +165,6 @@ public static class StringExtension
     #endregion Encode/Decode
 
     /// <summary>
-    /// Get type by TypeName
-    /// Support type alias，for example: int => System.Int32
-    /// </summary>
-    /// <param name="typeName">typename</param>
-    /// <returns>Type</returns>
-    [RequiresUnreferencedCode("The type might be removed")]
-    public static Type GetTypeByTypeName(this string typeName)
-    {
-        var type = Guard.NotNullOrEmpty(typeName, nameof(typeName))
-                .ToLowerInvariant() switch
-        {
-            "bool" => Type.GetType("System.Boolean", true, true),
-            "byte" => Type.GetType("System.Byte", true, true),
-            "sbyte" => Type.GetType("System.SByte", true, true),
-            "char" => Type.GetType("System.Char", true, true),
-            "decimal" => Type.GetType("System.Decimal", true, true),
-            "double" => Type.GetType("System.Double", true, true),
-            "float" => Type.GetType("System.Single", true, true),
-            "int" => Type.GetType("System.Int32", true, true),
-            "uint" => Type.GetType("System.UInt32", true, true),
-            "long" => Type.GetType("System.Int64", true, true),
-            "ulong" => Type.GetType("System.UInt64", true, true),
-            "object" => Type.GetType("System.Object", true, true),
-            "short" => Type.GetType("System.Int16", true, true),
-            "ushort" => Type.GetType("System.UInt16", true, true),
-            "string" => Type.GetType("System.String", true, true),
-            "datetime" => Type.GetType("System.DateTime", true, true),
-            "guid" => Type.GetType("System.Guid", true, true),
-            _ => GetTypeByName(typeName),
-        };
-        return Guard.NotNull(type);
-    }
-
-    [RequiresUnreferencedCode("The type might be removed")]
-    private static Type GetTypeByName(string typeName)
-    {
-        var type = Type.GetType(typeName, false, true);
-        if (type != null)
-        {
-            return type;
-        }
-
-        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-        {
-            type = assembly.GetType(typeName, false, true);
-            if (type != null)
-            {
-                return type;
-            }
-        }
-
-        throw new TypeLoadException($"Could not load type '{typeName}'.");
-    }
-
-    /// <summary>
     /// Return value if value IsNotNullOrEmpty else return defaultValue
     /// </summary>
     /// <param name="str">string value</param>

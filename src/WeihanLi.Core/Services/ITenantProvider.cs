@@ -13,14 +13,15 @@ public interface ITenantProvider
 
 public static class TenantIdProviderExtensions
 {
-    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
-    public static T? GetTenantId<T>(this ITenantProvider tenantIdProvider, T? defaultValue = default)
+#if NET
+    public static T? GetTenantId<T>(this ITenantProvider tenantIdProvider, T? defaultValue = default) 
+        where T: IParsable<T>
     {
-        return tenantIdProvider.GetTenantId().ToOrDefault(defaultValue);
+        return tenantIdProvider.GetTenantId().ToOrDefault(defaultValue: defaultValue);
     }
 
-    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static bool TryGetTenantId<T>(this ITenantProvider tenantIdProvider, out T? value, T? defaultValue = default)
+        where T: IParsable<T>
     {
         try
         {
@@ -39,4 +40,5 @@ public static class TenantIdProviderExtensions
         value = defaultValue;
         return false;
     }
+#endif
 }
