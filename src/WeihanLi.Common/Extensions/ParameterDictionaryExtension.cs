@@ -29,7 +29,7 @@ public static class ParameterDictionaryExtension
         }
         return dataTable;
     }
-    
+
     /// <summary>
     /// Get param dictionary
     /// </summary>
