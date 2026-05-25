@@ -1442,34 +1442,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Extensions.PropertiesExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Common.Extensions.PropertiesExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "WeihanLi.Common.Extensions.PropertiesExtensions",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/WeihanLi.Common.Extensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/WeihanLi.Common.Extensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "WeihanLi.Common.Extensions",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Guard.yml",
       "output": {
         ".html": {
@@ -2044,6 +2016,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.EnumHelpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.EnumHelpers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.EnumHelpers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Helpers.EnvHelper.yml",
       "output": {
         ".html": {
@@ -2082,7 +2068,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Helpers.HashHelper",
-      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.HashHelper.yml\" sourcestartlinenumber=\"1\">HashHelper</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2096,7 +2082,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Helpers.HashType",
-      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.HashType.yml\" sourcestartlinenumber=\"1\">Hash 类型</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -2436,6 +2422,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.IStream-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.IStream-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.IStream<T>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.yml",
       "output": {
         ".html": {
@@ -2460,6 +2460,20 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Helpers.IValueAsyncPipelineMiddleware<TContext>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.InMemoryStream-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.InMemoryStream-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.InMemoryStream<T>",
       "Summary": null
     },
     {
@@ -2660,6 +2674,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Helpers.PipelineBuilderExtensions.yml",
       "output": {
         ".html": {
@@ -2852,6 +2880,48 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Helpers.StopwatchStopper",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.StreamGroupInfo-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.StreamGroupInfo-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.StreamGroupInfo<T>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.StreamInfo-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.StreamInfo-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.StreamInfo<T>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.StreamMessage-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.StreamMessage-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.StreamMessage<T>",
       "Summary": null
     },
     {
@@ -4214,6 +4284,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Models.OffsetRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Models.OffsetRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Models.OffsetRequest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Models.Ordering.yml",
       "output": {
         ".html": {
@@ -5236,6 +5320,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.CoreExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.CoreExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.CoreExtensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Extensions.CronExtension.yml",
       "output": {
         ".html": {
@@ -5460,6 +5558,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.HttpJsonClientExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.HttpJsonClientExtension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.HttpJsonClientExtension",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Extensions.HttpRequesterExtension.yml",
       "output": {
         ".html": {
@@ -5530,6 +5642,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.ParameterDictionaryExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.ParameterDictionaryExtension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.ParameterDictionaryExtension",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Extensions.ProcessExtension.yml",
       "output": {
         ".html": {
@@ -5540,6 +5666,20 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Extensions.ProcessExtension",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.PropertiesExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.PropertiesExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.PropertiesExtensions",
       "Summary": null
     },
     {
@@ -5568,6 +5708,20 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Extensions.ReflectionExtension",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Extensions.ServiceExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Extensions.ServiceExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Extensions.ServiceExtensions",
       "Summary": null
     },
     {

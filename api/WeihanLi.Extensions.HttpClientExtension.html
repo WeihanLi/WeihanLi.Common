@@ -85,12 +85,12 @@
 
 
   <h1 id="WeihanLi_Extensions_HttpClientExtension" data-uid="WeihanLi.Extensions.HttpClientExtension" class="text-break">
-Class HttpClientExtension  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Class HttpClientExtension  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
     <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Extensions.html">Extensions</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Core.dll</dd></dl>
   </div>
 
   <div class="markdown summary"></div>
@@ -148,117 +148,11 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 </h2>
 
 
-  <a id="WeihanLi_Extensions_HttpClientExtension_HttpJsonAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.HttpJsonAsync*"></a>
-
-  <h3 id="WeihanLi_Extensions_HttpClientExtension_HttpJsonAsync__2_System_Net_Http_HttpClient_System_Net_Http_HttpMethod_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Action_System_Net_Http_HttpResponseMessage__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.HttpJsonAsync``2(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)">
-  HttpJsonAsync&lt;TRequest, TResponse&gt;(HttpClient, HttpMethod, string, TRequest, Action&lt;HttpRequestMessage&gt;?, Action&lt;HttpResponseMessage&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L100"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;TResponse?&gt; HttpJsonAsync&lt;TRequest, TResponse&gt;(this HttpClient httpClient, HttpMethod httpMethod, string requestUrl, TRequest request, Action&lt;HttpRequestMessage&gt;? requestAction = null, Action&lt;HttpResponseMessage&gt;? responseAction = null, CancellationToken cancellationToken = default)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>httpClient</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a></dt>
-    <dd></dd>
-    <dt><code>httpMethod</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpmethod">HttpMethod</a></dt>
-    <dd></dd>
-    <dt><code>requestUrl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-    <dt><code>request</code> <span class="xref">TRequest</span></dt>
-    <dd></dd>
-    <dt><code>requestAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>responseAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TRequest</code></dt>
-    <dd></dd>
-    <dt><code>TResponse</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_HttpClientExtension_HttpJsonRequestAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.HttpJsonRequestAsync*"></a>
-
-  <h3 id="WeihanLi_Extensions_HttpClientExtension_HttpJsonRequestAsync__1_System_Net_Http_HttpClient_System_Net_Http_HttpMethod_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.HttpJsonRequestAsync``1(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)">
-  HttpJsonRequestAsync&lt;TRequest&gt;(HttpClient, HttpMethod, string, TRequest, Action&lt;HttpRequestMessage&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L74"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; HttpJsonRequestAsync&lt;TRequest&gt;(this HttpClient httpClient, HttpMethod httpMethod, string requestUrl, TRequest request, Action&lt;HttpRequestMessage&gt;? requestAction = null, CancellationToken cancellationToken = default)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>httpClient</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a></dt>
-    <dd></dd>
-    <dt><code>httpMethod</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpmethod">HttpMethod</a></dt>
-    <dd></dd>
-    <dt><code>requestUrl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-    <dt><code>request</code> <span class="xref">TRequest</span></dt>
-    <dd></dd>
-    <dt><code>requestAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TRequest</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_HttpClientExtension_PostAsFormAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostAsFormAsync*"></a>
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_PostAsFormAsync_System_Net_Http_HttpClient_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostAsFormAsync(System.Net.Http.HttpClient,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Threading.CancellationToken)">
   PostAsFormAsync(HttpClient, string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>PostAsFormAsync</p>
@@ -301,7 +195,7 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_PostFileAsync_System_Net_Http_HttpClient_System_String_System_Collections_Generic_ICollection_System_String__System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostFileAsync(System.Net.Http.HttpClient,System.String,System.Collections.Generic.ICollection{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Threading.CancellationToken)">
   PostFileAsync(HttpClient, string, ICollection&lt;string&gt;, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L131"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -345,7 +239,7 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_PostFileAsync_System_Net_Http_HttpClient_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_IO_Stream___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostFileAsync(System.Net.Http.HttpClient,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.IO.Stream}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Threading.CancellationToken)">
   PostFileAsync(HttpClient, string, IEnumerable&lt;KeyValuePair&lt;string, Stream&gt;&gt;?, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L146"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>HttpClient Post files. <a href="https://stackoverflow.com/questions/18059588/httpclient-multipart-form-post-in-c-sharp">See here</a>.</p>
@@ -395,7 +289,7 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_PostFileAsync_System_Net_Http_HttpClient_System_String_System_IO_Stream_System_String_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostFileAsync(System.Net.Http.HttpClient,System.String,System.IO.Stream,System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Threading.CancellationToken)">
   PostFileAsync(HttpClient, string, Stream?, string, string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>HttpClient Post a file</p>
@@ -451,7 +345,7 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_PostFileAsync_System_Net_Http_HttpClient_System_String_System_String_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostFileAsync(System.Net.Http.HttpClient,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Threading.CancellationToken)">
   PostFileAsync(HttpClient, string, string, string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L72"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>HttpClient Post a file</p>
@@ -501,115 +395,11 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 
 
 
-  <a id="WeihanLi_Extensions_HttpClientExtension_PostJsonAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostJsonAsync*"></a>
-
-  <h3 id="WeihanLi_Extensions_HttpClientExtension_PostJsonAsync__2_System_Net_Http_HttpClient_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Action_System_Net_Http_HttpResponseMessage__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostJsonAsync``2(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)">
-  PostJsonAsync&lt;TRequest, TResponse&gt;(HttpClient, string, TRequest, Action&lt;HttpRequestMessage&gt;?, Action&lt;HttpResponseMessage&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L54"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>PostJson request body and get object from json response</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;TResponse?&gt; PostJsonAsync&lt;TRequest, TResponse&gt;(this HttpClient httpClient, string requestUrl, TRequest request, Action&lt;HttpRequestMessage&gt;? requestAction = null, Action&lt;HttpResponseMessage&gt;? responseAction = null, CancellationToken cancellationToken = default)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>httpClient</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a></dt>
-    <dd></dd>
-    <dt><code>requestUrl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-    <dt><code>request</code> <span class="xref">TRequest</span></dt>
-    <dd></dd>
-    <dt><code>requestAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>responseAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TRequest</code></dt>
-    <dd></dd>
-    <dt><code>TResponse</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_HttpClientExtension_PostJsonRequestAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostJsonRequestAsync*"></a>
-
-  <h3 id="WeihanLi_Extensions_HttpClientExtension_PostJsonRequestAsync__1_System_Net_Http_HttpClient_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.PostJsonRequestAsync``1(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)">
-  PostJsonRequestAsync&lt;T&gt;(HttpClient, string, T, Action&lt;HttpRequestMessage&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L40"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Post object as json request body</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; PostJsonRequestAsync&lt;T&gt;(this HttpClient httpClient, string requestUrl, T parameter, Action&lt;HttpRequestMessage&gt;? requestAction = null, CancellationToken cancellationToken = default)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>httpClient</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a></dt>
-    <dd></dd>
-    <dt><code>requestUrl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-    <dt><code>parameter</code> <span class="xref">T</span></dt>
-    <dd></dd>
-    <dt><code>requestAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_HttpClientExtension_PutAsFormAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.PutAsFormAsync*"></a>
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_PutAsFormAsync_System_Net_Http_HttpClient_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.PutAsFormAsync(System.Net.Http.HttpClient,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Threading.CancellationToken)">
   PutAsFormAsync(HttpClient, string, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>PutAsFormAsync</p>
@@ -648,160 +438,11 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 
 
 
-  <a id="WeihanLi_Extensions_HttpClientExtension_PutJsonAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.PutJsonAsync*"></a>
-
-  <h3 id="WeihanLi_Extensions_HttpClientExtension_PutJsonAsync__2_System_Net_Http_HttpClient_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Action_System_Net_Http_HttpResponseMessage__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.PutJsonAsync``2(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)">
-  PutJsonAsync&lt;TRequest, TResponse&gt;(HttpClient, string, TRequest, Action&lt;HttpRequestMessage&gt;?, Action&lt;HttpResponseMessage&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L65"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Put Json request body and get object from json response</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;TResponse?&gt; PutJsonAsync&lt;TRequest, TResponse&gt;(this HttpClient httpClient, string requestUrl, TRequest request, Action&lt;HttpRequestMessage&gt;? requestAction = null, Action&lt;HttpResponseMessage&gt;? responseAction = null, CancellationToken cancellationToken = default)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>httpClient</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a></dt>
-    <dd></dd>
-    <dt><code>requestUrl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-    <dt><code>request</code> <span class="xref">TRequest</span></dt>
-    <dd></dd>
-    <dt><code>requestAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>responseAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TRequest</code></dt>
-    <dd></dd>
-    <dt><code>TResponse</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_HttpClientExtension_PutJsonRequestAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.PutJsonRequestAsync*"></a>
-
-  <h3 id="WeihanLi_Extensions_HttpClientExtension_PutJsonRequestAsync__1_System_Net_Http_HttpClient_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.PutJsonRequestAsync``1(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)">
-  PutJsonRequestAsync&lt;T&gt;(HttpClient, string, T, Action&lt;HttpRequestMessage&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L47"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>PutAsJsonAsync</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;HttpResponseMessage&gt; PutJsonRequestAsync&lt;T&gt;(this HttpClient httpClient, string requestUrl, T parameter, Action&lt;HttpRequestMessage&gt;? requestAction = null, CancellationToken cancellationToken = default)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>httpClient</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a></dt>
-    <dd></dd>
-    <dt><code>requestUrl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-    <dt><code>parameter</code> <span class="xref">T</span></dt>
-    <dd></dd>
-    <dt><code>requestAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <a id="WeihanLi_Extensions_HttpClientExtension_ReadJsonResponseAsync_" data-uid="WeihanLi.Extensions.HttpClientExtension.ReadJsonResponseAsync*"></a>
-
-  <h3 id="WeihanLi_Extensions_HttpClientExtension_ReadJsonResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Action_System_Net_Http_HttpResponseMessage__System_Threading_CancellationToken_" data-uid="WeihanLi.Extensions.HttpClientExtension.ReadJsonResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)">
-  ReadJsonResponseAsync&lt;TResponse&gt;(HttpResponseMessage, Action&lt;HttpResponseMessage&gt;?, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L86"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;TResponse?&gt; ReadJsonResponseAsync&lt;TResponse&gt;(this HttpResponseMessage response, Action&lt;HttpResponseMessage&gt;? responseAction = null, CancellationToken cancellationToken = default)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>response</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a></dt>
-    <dd></dd>
-    <dt><code>responseAction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;</dt>
-    <dd></dd>
-    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>TResponse</code></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <a id="WeihanLi_Extensions_HttpClientExtension_SetBasicAuthentication_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBasicAuthentication*"></a>
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_SetBasicAuthentication_System_Net_Http_HttpClient_System_String_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBasicAuthentication(System.Net.Http.HttpClient,System.String,System.String)">
   SetBasicAuthentication(HttpClient, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L271"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L181"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the basic authentication.</p>
@@ -840,7 +481,7 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_SetBasicAuthentication_System_Net_Http_HttpRequestMessage_System_String_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBasicAuthentication(System.Net.Http.HttpRequestMessage,System.String,System.String)">
   SetBasicAuthentication(HttpRequestMessage, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L280"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L190"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets a basic authentication header.</p>
@@ -879,7 +520,7 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_SetBasicAuthenticationOAuth_System_Net_Http_HttpRequestMessage_System_String_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBasicAuthenticationOAuth(System.Net.Http.HttpRequestMessage,System.String,System.String)">
   SetBasicAuthenticationOAuth(HttpRequestMessage, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L288"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L198"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets a basic authentication header for RFC6749 client authentication.</p>
@@ -918,7 +559,7 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_SetBearerToken_System_Net_Http_HttpClient_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBearerToken(System.Net.Http.HttpClient,System.String)">
   SetBearerToken(HttpClient, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L312"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L222"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the bearer token.</p>
@@ -954,7 +595,7 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_SetBearerToken_System_Net_Http_HttpRequestMessage_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetBearerToken(System.Net.Http.HttpRequestMessage,System.String)">
   SetBearerToken(HttpRequestMessage, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L319"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L229"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets an authorization header with a bearer token.</p>
@@ -990,7 +631,7 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_SetToken_System_Net_Http_HttpClient_System_String_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetToken(System.Net.Http.HttpClient,System.String,System.String)">
   SetToken(HttpClient, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L296"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L206"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the token.</p>
@@ -1029,7 +670,7 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_SetToken_System_Net_Http_HttpRequestMessage_System_String_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.SetToken(System.Net.Http.HttpRequestMessage,System.String,System.String)">
   SetToken(HttpRequestMessage, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L305"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L215"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets an authorization header with a given scheme and value.</p>
@@ -1068,7 +709,7 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_TryAddHeader_System_Net_Http_HttpRequestMessage_System_String_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.TryAddHeader(System.Net.Http.HttpRequestMessage,System.String,System.String)">
   TryAddHeader(HttpRequestMessage, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L328"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L238"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Try to add a header to the request message, would add to content header if the header belongs to content header</p>
@@ -1113,7 +754,7 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 
   <h3 id="WeihanLi_Extensions_HttpClientExtension_TryAddHeaderIfNotExists_System_Net_Http_HttpRequestMessage_System_String_System_String_" data-uid="WeihanLi.Extensions.HttpClientExtension.TryAddHeaderIfNotExists(System.Net.Http.HttpRequestMessage,System.String,System.String)">
   TryAddHeaderIfNotExists(HttpRequestMessage, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L352"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L262"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Try to add a header to the request message when not exists, would add to content header if the header belongs to content header</p>
@@ -1158,7 +799,7 @@ Class HttpClientExtension  <a class="header-action link-secondary" title="View s
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Extensions/HttpClientExtension.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Extensions/HttpClientExtension.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
 

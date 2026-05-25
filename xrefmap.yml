@@ -7178,68 +7178,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Event.InMemoryEventSubscriptionManager.UnSubscribeAsync
   nameWithType: InMemoryEventSubscriptionManager.UnSubscribeAsync
-- uid: WeihanLi.Common.Extensions
-  name: WeihanLi.Common.Extensions
-  href: api/WeihanLi.Common.Extensions.html
-  commentId: N:WeihanLi.Common.Extensions
-  fullName: WeihanLi.Common.Extensions
-  nameWithType: WeihanLi.Common.Extensions
-- uid: WeihanLi.Common.Extensions.PropertiesExtensions
-  name: PropertiesExtensions
-  href: api/WeihanLi.Common.Extensions.PropertiesExtensions.html
-  commentId: T:WeihanLi.Common.Extensions.PropertiesExtensions
-  fullName: WeihanLi.Common.Extensions.PropertiesExtensions
-  nameWithType: PropertiesExtensions
-- uid: WeihanLi.Common.Extensions.PropertiesExtensions.GetProperty*
-  name: GetProperty
-  href: api/WeihanLi.Common.Extensions.PropertiesExtensions.html#WeihanLi_Common_Extensions_PropertiesExtensions_GetProperty_
-  commentId: Overload:WeihanLi.Common.Extensions.PropertiesExtensions.GetProperty
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.PropertiesExtensions.GetProperty
-  nameWithType: PropertiesExtensions.GetProperty
-- uid: WeihanLi.Common.Extensions.PropertiesExtensions.GetProperty``1(System.Collections.Generic.IDictionary{System.String,System.Object},System.String)
-  name: GetProperty<T>(IDictionary<string, object?>, string)
-  href: api/WeihanLi.Common.Extensions.PropertiesExtensions.html#WeihanLi_Common_Extensions_PropertiesExtensions_GetProperty__1_System_Collections_Generic_IDictionary_System_String_System_Object__System_String_
-  commentId: M:WeihanLi.Common.Extensions.PropertiesExtensions.GetProperty``1(System.Collections.Generic.IDictionary{System.String,System.Object},System.String)
-  name.vb: GetProperty(Of T)(IDictionary(Of String, Object), String)
-  fullName: WeihanLi.Common.Extensions.PropertiesExtensions.GetProperty<T>(System.Collections.Generic.IDictionary<string, object?>, string)
-  fullName.vb: WeihanLi.Common.Extensions.PropertiesExtensions.GetProperty(Of T)(System.Collections.Generic.IDictionary(Of String, Object), String)
-  nameWithType: PropertiesExtensions.GetProperty<T>(IDictionary<string, object?>, string)
-  nameWithType.vb: PropertiesExtensions.GetProperty(Of T)(IDictionary(Of String, Object), String)
-- uid: WeihanLi.Common.Extensions.PropertiesExtensions.GetProperty``1(WeihanLi.Common.Abstractions.IProperties,System.String)
-  name: GetProperty<T>(IProperties, string)
-  href: api/WeihanLi.Common.Extensions.PropertiesExtensions.html#WeihanLi_Common_Extensions_PropertiesExtensions_GetProperty__1_WeihanLi_Common_Abstractions_IProperties_System_String_
-  commentId: M:WeihanLi.Common.Extensions.PropertiesExtensions.GetProperty``1(WeihanLi.Common.Abstractions.IProperties,System.String)
-  name.vb: GetProperty(Of T)(IProperties, String)
-  fullName: WeihanLi.Common.Extensions.PropertiesExtensions.GetProperty<T>(WeihanLi.Common.Abstractions.IProperties, string)
-  fullName.vb: WeihanLi.Common.Extensions.PropertiesExtensions.GetProperty(Of T)(WeihanLi.Common.Abstractions.IProperties, String)
-  nameWithType: PropertiesExtensions.GetProperty<T>(IProperties, string)
-  nameWithType.vb: PropertiesExtensions.GetProperty(Of T)(IProperties, String)
-- uid: WeihanLi.Common.Extensions.PropertiesExtensions.SetProperty*
-  name: SetProperty
-  href: api/WeihanLi.Common.Extensions.PropertiesExtensions.html#WeihanLi_Common_Extensions_PropertiesExtensions_SetProperty_
-  commentId: Overload:WeihanLi.Common.Extensions.PropertiesExtensions.SetProperty
-  isSpec: "True"
-  fullName: WeihanLi.Common.Extensions.PropertiesExtensions.SetProperty
-  nameWithType: PropertiesExtensions.SetProperty
-- uid: WeihanLi.Common.Extensions.PropertiesExtensions.SetProperty``1(System.Collections.Generic.IDictionary{System.String,System.Object},System.String,``0)
-  name: SetProperty<T>(IDictionary<string, object?>, string, T)
-  href: api/WeihanLi.Common.Extensions.PropertiesExtensions.html#WeihanLi_Common_Extensions_PropertiesExtensions_SetProperty__1_System_Collections_Generic_IDictionary_System_String_System_Object__System_String___0_
-  commentId: M:WeihanLi.Common.Extensions.PropertiesExtensions.SetProperty``1(System.Collections.Generic.IDictionary{System.String,System.Object},System.String,``0)
-  name.vb: SetProperty(Of T)(IDictionary(Of String, Object), String, T)
-  fullName: WeihanLi.Common.Extensions.PropertiesExtensions.SetProperty<T>(System.Collections.Generic.IDictionary<string, object?>, string, T)
-  fullName.vb: WeihanLi.Common.Extensions.PropertiesExtensions.SetProperty(Of T)(System.Collections.Generic.IDictionary(Of String, Object), String, T)
-  nameWithType: PropertiesExtensions.SetProperty<T>(IDictionary<string, object?>, string, T)
-  nameWithType.vb: PropertiesExtensions.SetProperty(Of T)(IDictionary(Of String, Object), String, T)
-- uid: WeihanLi.Common.Extensions.PropertiesExtensions.SetProperty``1(WeihanLi.Common.Abstractions.IProperties,System.String,``0)
-  name: SetProperty<T>(IProperties, string, T)
-  href: api/WeihanLi.Common.Extensions.PropertiesExtensions.html#WeihanLi_Common_Extensions_PropertiesExtensions_SetProperty__1_WeihanLi_Common_Abstractions_IProperties_System_String___0_
-  commentId: M:WeihanLi.Common.Extensions.PropertiesExtensions.SetProperty``1(WeihanLi.Common.Abstractions.IProperties,System.String,``0)
-  name.vb: SetProperty(Of T)(IProperties, String, T)
-  fullName: WeihanLi.Common.Extensions.PropertiesExtensions.SetProperty<T>(WeihanLi.Common.Abstractions.IProperties, string, T)
-  fullName.vb: WeihanLi.Common.Extensions.PropertiesExtensions.SetProperty(Of T)(WeihanLi.Common.Abstractions.IProperties, String, T)
-  nameWithType: PropertiesExtensions.SetProperty<T>(IProperties, string, T)
-  nameWithType.vb: PropertiesExtensions.SetProperty(Of T)(IProperties, String, T)
 - uid: WeihanLi.Common.Guard
   name: Guard
   href: api/WeihanLi.Common.Guard.html
@@ -7343,13 +7281,13 @@ references:
   fullName: WeihanLi.Common.Guard.NotNullOrWhiteSpace
   nameWithType: Guard.NotNullOrWhiteSpace
 - uid: WeihanLi.Common.Guard.NotNull``1(``0,System.String)
-  name: NotNull<T>(T?, string?)
+  name: NotNull<T>(T?, string)
   href: api/WeihanLi.Common.Guard.html#WeihanLi_Common_Guard_NotNull__1___0_System_String_
   commentId: M:WeihanLi.Common.Guard.NotNull``1(``0,System.String)
   name.vb: NotNull(Of T)(T, String)
-  fullName: WeihanLi.Common.Guard.NotNull<T>(T?, string?)
+  fullName: WeihanLi.Common.Guard.NotNull<T>(T?, string)
   fullName.vb: WeihanLi.Common.Guard.NotNull(Of T)(T, String)
-  nameWithType: Guard.NotNull<T>(T?, string?)
+  nameWithType: Guard.NotNull<T>(T?, string)
   nameWithType.vb: Guard.NotNull(Of T)(T, String)
 - uid: WeihanLi.Common.Helpers
   name: WeihanLi.Common.Helpers
@@ -10630,15 +10568,6 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList(Of TEnum)()
   nameWithType: EnumHelper.ToIdNameDescList<TEnum>()
   nameWithType.vb: EnumHelper.ToIdNameDescList(Of TEnum)()
-- uid: WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList``2
-  name: ToIdNameDescList<TEnum, TValue>()
-  href: api/WeihanLi.Common.Helpers.EnumHelper.html#WeihanLi_Common_Helpers_EnumHelper_ToIdNameDescList__2
-  commentId: M:WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList``2
-  name.vb: ToIdNameDescList(Of TEnum, TValue)()
-  fullName: WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList<TEnum, TValue>()
-  fullName.vb: WeihanLi.Common.Helpers.EnumHelper.ToIdNameDescList(Of TEnum, TValue)()
-  nameWithType: EnumHelper.ToIdNameDescList<TEnum, TValue>()
-  nameWithType.vb: EnumHelper.ToIdNameDescList(Of TEnum, TValue)()
 - uid: WeihanLi.Common.Helpers.EnumHelper.ToIdNameList*
   name: ToIdNameList
   href: api/WeihanLi.Common.Helpers.EnumHelper.html#WeihanLi_Common_Helpers_EnumHelper_ToIdNameList_
@@ -10655,15 +10584,44 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.EnumHelper.ToIdNameList(Of TEnum)()
   nameWithType: EnumHelper.ToIdNameList<TEnum>()
   nameWithType.vb: EnumHelper.ToIdNameList(Of TEnum)()
-- uid: WeihanLi.Common.Helpers.EnumHelper.ToIdNameList``2
+- uid: WeihanLi.Common.Helpers.EnumHelpers
+  name: EnumHelpers
+  href: api/WeihanLi.Common.Helpers.EnumHelpers.html
+  commentId: T:WeihanLi.Common.Helpers.EnumHelpers
+  fullName: WeihanLi.Common.Helpers.EnumHelpers
+  nameWithType: EnumHelpers
+- uid: WeihanLi.Common.Helpers.EnumHelpers.ToIdNameDescList*
+  name: ToIdNameDescList
+  href: api/WeihanLi.Common.Helpers.EnumHelpers.html#WeihanLi_Common_Helpers_EnumHelpers_ToIdNameDescList_
+  commentId: Overload:WeihanLi.Common.Helpers.EnumHelpers.ToIdNameDescList
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.EnumHelpers.ToIdNameDescList
+  nameWithType: EnumHelpers.ToIdNameDescList
+- uid: WeihanLi.Common.Helpers.EnumHelpers.ToIdNameDescList``2
+  name: ToIdNameDescList<TEnum, TValue>()
+  href: api/WeihanLi.Common.Helpers.EnumHelpers.html#WeihanLi_Common_Helpers_EnumHelpers_ToIdNameDescList__2
+  commentId: M:WeihanLi.Common.Helpers.EnumHelpers.ToIdNameDescList``2
+  name.vb: ToIdNameDescList(Of TEnum, TValue)()
+  fullName: WeihanLi.Common.Helpers.EnumHelpers.ToIdNameDescList<TEnum, TValue>()
+  fullName.vb: WeihanLi.Common.Helpers.EnumHelpers.ToIdNameDescList(Of TEnum, TValue)()
+  nameWithType: EnumHelpers.ToIdNameDescList<TEnum, TValue>()
+  nameWithType.vb: EnumHelpers.ToIdNameDescList(Of TEnum, TValue)()
+- uid: WeihanLi.Common.Helpers.EnumHelpers.ToIdNameList*
+  name: ToIdNameList
+  href: api/WeihanLi.Common.Helpers.EnumHelpers.html#WeihanLi_Common_Helpers_EnumHelpers_ToIdNameList_
+  commentId: Overload:WeihanLi.Common.Helpers.EnumHelpers.ToIdNameList
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.EnumHelpers.ToIdNameList
+  nameWithType: EnumHelpers.ToIdNameList
+- uid: WeihanLi.Common.Helpers.EnumHelpers.ToIdNameList``2
   name: ToIdNameList<TEnum, TValue>()
-  href: api/WeihanLi.Common.Helpers.EnumHelper.html#WeihanLi_Common_Helpers_EnumHelper_ToIdNameList__2
-  commentId: M:WeihanLi.Common.Helpers.EnumHelper.ToIdNameList``2
+  href: api/WeihanLi.Common.Helpers.EnumHelpers.html#WeihanLi_Common_Helpers_EnumHelpers_ToIdNameList__2
+  commentId: M:WeihanLi.Common.Helpers.EnumHelpers.ToIdNameList``2
   name.vb: ToIdNameList(Of TEnum, TValue)()
-  fullName: WeihanLi.Common.Helpers.EnumHelper.ToIdNameList<TEnum, TValue>()
-  fullName.vb: WeihanLi.Common.Helpers.EnumHelper.ToIdNameList(Of TEnum, TValue)()
-  nameWithType: EnumHelper.ToIdNameList<TEnum, TValue>()
-  nameWithType.vb: EnumHelper.ToIdNameList(Of TEnum, TValue)()
+  fullName: WeihanLi.Common.Helpers.EnumHelpers.ToIdNameList<TEnum, TValue>()
+  fullName.vb: WeihanLi.Common.Helpers.EnumHelpers.ToIdNameList(Of TEnum, TValue)()
+  nameWithType: EnumHelpers.ToIdNameList<TEnum, TValue>()
+  nameWithType.vb: EnumHelpers.ToIdNameList(Of TEnum, TValue)()
 - uid: WeihanLi.Common.Helpers.EnvHelper
   name: EnvHelper
   href: api/WeihanLi.Common.Helpers.EnvHelper.html
@@ -12757,6 +12715,192 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.IPipelineMiddleware(Of TContext).Invoke
   nameWithType: IPipelineMiddleware<TContext>.Invoke
   nameWithType.vb: IPipelineMiddleware(Of TContext).Invoke
+- uid: WeihanLi.Common.Helpers.IStream`1
+  name: IStream<T>
+  href: api/WeihanLi.Common.Helpers.IStream-1.html
+  commentId: T:WeihanLi.Common.Helpers.IStream`1
+  name.vb: IStream(Of T)
+  fullName: WeihanLi.Common.Helpers.IStream<T>
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T)
+  nameWithType: IStream<T>
+  nameWithType.vb: IStream(Of T)
+- uid: WeihanLi.Common.Helpers.IStream`1.AckAsync(System.String,`0,System.Threading.CancellationToken)
+  name: AckAsync(string, T, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_AckAsync_System_String__0_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.IStream`1.AckAsync(System.String,`0,System.Threading.CancellationToken)
+  name.vb: AckAsync(String, T, CancellationToken)
+  fullName: WeihanLi.Common.Helpers.IStream<T>.AckAsync(string, T, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).AckAsync(String, T, System.Threading.CancellationToken)
+  nameWithType: IStream<T>.AckAsync(string, T, CancellationToken)
+  nameWithType.vb: IStream(Of T).AckAsync(String, T, CancellationToken)
+- uid: WeihanLi.Common.Helpers.IStream`1.AckAsync*
+  name: AckAsync
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_AckAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.IStream`1.AckAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IStream<T>.AckAsync
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).AckAsync
+  nameWithType: IStream<T>.AckAsync
+  nameWithType.vb: IStream(Of T).AckAsync
+- uid: WeihanLi.Common.Helpers.IStream`1.AddAsync(`0,System.Collections.Generic.Dictionary{System.String,System.String},System.Nullable{System.DateTimeOffset},System.Collections.Generic.Dictionary{System.String,System.Object},System.Threading.CancellationToken)
+  name: AddAsync(T, Dictionary<string, string>, DateTimeOffset?, Dictionary<string, object>?, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_AddAsync__0_System_Collections_Generic_Dictionary_System_String_System_String__System_Nullable_System_DateTimeOffset__System_Collections_Generic_Dictionary_System_String_System_Object__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.IStream`1.AddAsync(`0,System.Collections.Generic.Dictionary{System.String,System.String},System.Nullable{System.DateTimeOffset},System.Collections.Generic.Dictionary{System.String,System.Object},System.Threading.CancellationToken)
+  name.vb: AddAsync(T, Dictionary(Of String, String), DateTimeOffset?, Dictionary(Of String, Object), CancellationToken)
+  fullName: WeihanLi.Common.Helpers.IStream<T>.AddAsync(T, System.Collections.Generic.Dictionary<string, string>, System.DateTimeOffset?, System.Collections.Generic.Dictionary<string, object>?, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).AddAsync(T, System.Collections.Generic.Dictionary(Of String, String), System.DateTimeOffset?, System.Collections.Generic.Dictionary(Of String, Object), System.Threading.CancellationToken)
+  nameWithType: IStream<T>.AddAsync(T, Dictionary<string, string>, DateTimeOffset?, Dictionary<string, object>?, CancellationToken)
+  nameWithType.vb: IStream(Of T).AddAsync(T, Dictionary(Of String, String), DateTimeOffset?, Dictionary(Of String, Object), CancellationToken)
+- uid: WeihanLi.Common.Helpers.IStream`1.AddAsync*
+  name: AddAsync
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_AddAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.IStream`1.AddAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IStream<T>.AddAsync
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).AddAsync
+  nameWithType: IStream<T>.AddAsync
+  nameWithType.vb: IStream(Of T).AddAsync
+- uid: WeihanLi.Common.Helpers.IStream`1.AddGroupAsync(System.String,`0,System.Threading.CancellationToken)
+  name: AddGroupAsync(string, T, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_AddGroupAsync_System_String__0_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.IStream`1.AddGroupAsync(System.String,`0,System.Threading.CancellationToken)
+  name.vb: AddGroupAsync(String, T, CancellationToken)
+  fullName: WeihanLi.Common.Helpers.IStream<T>.AddGroupAsync(string, T, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).AddGroupAsync(String, T, System.Threading.CancellationToken)
+  nameWithType: IStream<T>.AddGroupAsync(string, T, CancellationToken)
+  nameWithType.vb: IStream(Of T).AddGroupAsync(String, T, CancellationToken)
+- uid: WeihanLi.Common.Helpers.IStream`1.AddGroupAsync*
+  name: AddGroupAsync
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_AddGroupAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.IStream`1.AddGroupAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IStream<T>.AddGroupAsync
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).AddGroupAsync
+  nameWithType: IStream<T>.AddGroupAsync
+  nameWithType.vb: IStream(Of T).AddGroupAsync
+- uid: WeihanLi.Common.Helpers.IStream`1.CountAsync(`0,`0,WeihanLi.Common.Models.RangeInclusion,System.Threading.CancellationToken)
+  name: CountAsync(T?, T?, RangeInclusion, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_CountAsync__0__0_WeihanLi_Common_Models_RangeInclusion_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.IStream`1.CountAsync(`0,`0,WeihanLi.Common.Models.RangeInclusion,System.Threading.CancellationToken)
+  name.vb: CountAsync(T, T, RangeInclusion, CancellationToken)
+  fullName: WeihanLi.Common.Helpers.IStream<T>.CountAsync(T?, T?, WeihanLi.Common.Models.RangeInclusion, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).CountAsync(T, T, WeihanLi.Common.Models.RangeInclusion, System.Threading.CancellationToken)
+  nameWithType: IStream<T>.CountAsync(T?, T?, RangeInclusion, CancellationToken)
+  nameWithType.vb: IStream(Of T).CountAsync(T, T, RangeInclusion, CancellationToken)
+- uid: WeihanLi.Common.Helpers.IStream`1.CountAsync*
+  name: CountAsync
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_CountAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.IStream`1.CountAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IStream<T>.CountAsync
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).CountAsync
+  nameWithType: IStream<T>.CountAsync
+  nameWithType.vb: IStream(Of T).CountAsync
+- uid: WeihanLi.Common.Helpers.IStream`1.FetchAsync(`0,System.Int32,WeihanLi.Common.Models.Ordering,System.Threading.CancellationToken)
+  name: FetchAsync(T, int, Ordering, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_FetchAsync__0_System_Int32_WeihanLi_Common_Models_Ordering_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.IStream`1.FetchAsync(`0,System.Int32,WeihanLi.Common.Models.Ordering,System.Threading.CancellationToken)
+  name.vb: FetchAsync(T, Integer, Ordering, CancellationToken)
+  fullName: WeihanLi.Common.Helpers.IStream<T>.FetchAsync(T, int, WeihanLi.Common.Models.Ordering, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).FetchAsync(T, Integer, WeihanLi.Common.Models.Ordering, System.Threading.CancellationToken)
+  nameWithType: IStream<T>.FetchAsync(T, int, Ordering, CancellationToken)
+  nameWithType.vb: IStream(Of T).FetchAsync(T, Integer, Ordering, CancellationToken)
+- uid: WeihanLi.Common.Helpers.IStream`1.FetchAsync*
+  name: FetchAsync
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_FetchAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.IStream`1.FetchAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IStream<T>.FetchAsync
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).FetchAsync
+  nameWithType: IStream<T>.FetchAsync
+  nameWithType.vb: IStream(Of T).FetchAsync
+- uid: WeihanLi.Common.Helpers.IStream`1.GroupInfoAsync(System.String,System.Threading.CancellationToken)
+  name: GroupInfoAsync(string, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_GroupInfoAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.IStream`1.GroupInfoAsync(System.String,System.Threading.CancellationToken)
+  name.vb: GroupInfoAsync(String, CancellationToken)
+  fullName: WeihanLi.Common.Helpers.IStream<T>.GroupInfoAsync(string, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).GroupInfoAsync(String, System.Threading.CancellationToken)
+  nameWithType: IStream<T>.GroupInfoAsync(string, CancellationToken)
+  nameWithType.vb: IStream(Of T).GroupInfoAsync(String, CancellationToken)
+- uid: WeihanLi.Common.Helpers.IStream`1.GroupInfoAsync*
+  name: GroupInfoAsync
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_GroupInfoAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.IStream`1.GroupInfoAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IStream<T>.GroupInfoAsync
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).GroupInfoAsync
+  nameWithType: IStream<T>.GroupInfoAsync
+  nameWithType.vb: IStream(Of T).GroupInfoAsync
+- uid: WeihanLi.Common.Helpers.IStream`1.GroupsAsync(System.Threading.CancellationToken)
+  name: GroupsAsync(CancellationToken)
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_GroupsAsync_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.IStream`1.GroupsAsync(System.Threading.CancellationToken)
+  fullName: WeihanLi.Common.Helpers.IStream<T>.GroupsAsync(System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).GroupsAsync(System.Threading.CancellationToken)
+  nameWithType: IStream<T>.GroupsAsync(CancellationToken)
+  nameWithType.vb: IStream(Of T).GroupsAsync(CancellationToken)
+- uid: WeihanLi.Common.Helpers.IStream`1.GroupsAsync*
+  name: GroupsAsync
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_GroupsAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.IStream`1.GroupsAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IStream<T>.GroupsAsync
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).GroupsAsync
+  nameWithType: IStream<T>.GroupsAsync
+  nameWithType.vb: IStream(Of T).GroupsAsync
+- uid: WeihanLi.Common.Helpers.IStream`1.InfoAsync(System.Threading.CancellationToken)
+  name: InfoAsync(CancellationToken)
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_InfoAsync_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.IStream`1.InfoAsync(System.Threading.CancellationToken)
+  fullName: WeihanLi.Common.Helpers.IStream<T>.InfoAsync(System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).InfoAsync(System.Threading.CancellationToken)
+  nameWithType: IStream<T>.InfoAsync(CancellationToken)
+  nameWithType.vb: IStream(Of T).InfoAsync(CancellationToken)
+- uid: WeihanLi.Common.Helpers.IStream`1.InfoAsync*
+  name: InfoAsync
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_InfoAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.IStream`1.InfoAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IStream<T>.InfoAsync
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).InfoAsync
+  nameWithType: IStream<T>.InfoAsync
+  nameWithType.vb: IStream(Of T).InfoAsync
+- uid: WeihanLi.Common.Helpers.IStream`1.RemoveGroupAsync(System.String,System.Threading.CancellationToken)
+  name: RemoveGroupAsync(string, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_RemoveGroupAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.IStream`1.RemoveGroupAsync(System.String,System.Threading.CancellationToken)
+  name.vb: RemoveGroupAsync(String, CancellationToken)
+  fullName: WeihanLi.Common.Helpers.IStream<T>.RemoveGroupAsync(string, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).RemoveGroupAsync(String, System.Threading.CancellationToken)
+  nameWithType: IStream<T>.RemoveGroupAsync(string, CancellationToken)
+  nameWithType.vb: IStream(Of T).RemoveGroupAsync(String, CancellationToken)
+- uid: WeihanLi.Common.Helpers.IStream`1.RemoveGroupAsync*
+  name: RemoveGroupAsync
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_RemoveGroupAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.IStream`1.RemoveGroupAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IStream<T>.RemoveGroupAsync
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).RemoveGroupAsync
+  nameWithType: IStream<T>.RemoveGroupAsync
+  nameWithType.vb: IStream(Of T).RemoveGroupAsync
+- uid: WeihanLi.Common.Helpers.IStream`1.StreamName
+  name: StreamName
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_StreamName
+  commentId: P:WeihanLi.Common.Helpers.IStream`1.StreamName
+  fullName: WeihanLi.Common.Helpers.IStream<T>.StreamName
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).StreamName
+  nameWithType: IStream<T>.StreamName
+  nameWithType.vb: IStream(Of T).StreamName
+- uid: WeihanLi.Common.Helpers.IStream`1.StreamName*
+  name: StreamName
+  href: api/WeihanLi.Common.Helpers.IStream-1.html#WeihanLi_Common_Helpers_IStream_1_StreamName_
+  commentId: Overload:WeihanLi.Common.Helpers.IStream`1.StreamName
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.IStream<T>.StreamName
+  fullName.vb: WeihanLi.Common.Helpers.IStream(Of T).StreamName
+  nameWithType: IStream<T>.StreamName
+  nameWithType.vb: IStream(Of T).StreamName
 - uid: WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder`1
   name: IValueAsyncPipelineBuilder<TContext>
   href: api/WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder-1.html
@@ -12845,6 +12989,211 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.IValueAsyncPipelineMiddleware(Of TContext).InvokeAsync
   nameWithType: IValueAsyncPipelineMiddleware<TContext>.InvokeAsync
   nameWithType.vb: IValueAsyncPipelineMiddleware(Of TContext).InvokeAsync
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1
+  name: InMemoryStream<T>
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html
+  commentId: T:WeihanLi.Common.Helpers.InMemoryStream`1
+  name.vb: InMemoryStream(Of T)
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T)
+  nameWithType: InMemoryStream<T>
+  nameWithType.vb: InMemoryStream(Of T)
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.#ctor(System.String,System.Collections.Generic.IComparer{`0})
+  name: InMemoryStream(string, IComparer<T>?)
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1__ctor_System_String_System_Collections_Generic_IComparer__0__
+  commentId: M:WeihanLi.Common.Helpers.InMemoryStream`1.#ctor(System.String,System.Collections.Generic.IComparer{`0})
+  name.vb: New(String, IComparer(Of T))
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.InMemoryStream(string, System.Collections.Generic.IComparer<T>?)
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).New(String, System.Collections.Generic.IComparer(Of T))
+  nameWithType: InMemoryStream<T>.InMemoryStream(string, IComparer<T>?)
+  nameWithType.vb: InMemoryStream(Of T).New(String, IComparer(Of T))
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.#ctor*
+  name: InMemoryStream
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1__ctor_
+  commentId: Overload:WeihanLi.Common.Helpers.InMemoryStream`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.InMemoryStream
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).New
+  nameWithType: InMemoryStream<T>.InMemoryStream
+  nameWithType.vb: InMemoryStream(Of T).New
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.AckAsync(System.String,`0,System.Threading.CancellationToken)
+  name: AckAsync(string, T, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_AckAsync_System_String__0_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.InMemoryStream`1.AckAsync(System.String,`0,System.Threading.CancellationToken)
+  name.vb: AckAsync(String, T, CancellationToken)
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.AckAsync(string, T, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).AckAsync(String, T, System.Threading.CancellationToken)
+  nameWithType: InMemoryStream<T>.AckAsync(string, T, CancellationToken)
+  nameWithType.vb: InMemoryStream(Of T).AckAsync(String, T, CancellationToken)
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.AckAsync*
+  name: AckAsync
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_AckAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.InMemoryStream`1.AckAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.AckAsync
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).AckAsync
+  nameWithType: InMemoryStream<T>.AckAsync
+  nameWithType.vb: InMemoryStream(Of T).AckAsync
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.AddAsync(`0,System.Collections.Generic.Dictionary{System.String,System.String},System.Nullable{System.DateTimeOffset},System.Collections.Generic.Dictionary{System.String,System.Object},System.Threading.CancellationToken)
+  name: AddAsync(T, Dictionary<string, string>, DateTimeOffset?, Dictionary<string, object>?, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_AddAsync__0_System_Collections_Generic_Dictionary_System_String_System_String__System_Nullable_System_DateTimeOffset__System_Collections_Generic_Dictionary_System_String_System_Object__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.InMemoryStream`1.AddAsync(`0,System.Collections.Generic.Dictionary{System.String,System.String},System.Nullable{System.DateTimeOffset},System.Collections.Generic.Dictionary{System.String,System.Object},System.Threading.CancellationToken)
+  name.vb: AddAsync(T, Dictionary(Of String, String), DateTimeOffset?, Dictionary(Of String, Object), CancellationToken)
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.AddAsync(T, System.Collections.Generic.Dictionary<string, string>, System.DateTimeOffset?, System.Collections.Generic.Dictionary<string, object>?, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).AddAsync(T, System.Collections.Generic.Dictionary(Of String, String), System.DateTimeOffset?, System.Collections.Generic.Dictionary(Of String, Object), System.Threading.CancellationToken)
+  nameWithType: InMemoryStream<T>.AddAsync(T, Dictionary<string, string>, DateTimeOffset?, Dictionary<string, object>?, CancellationToken)
+  nameWithType.vb: InMemoryStream(Of T).AddAsync(T, Dictionary(Of String, String), DateTimeOffset?, Dictionary(Of String, Object), CancellationToken)
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.AddAsync*
+  name: AddAsync
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_AddAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.InMemoryStream`1.AddAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.AddAsync
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).AddAsync
+  nameWithType: InMemoryStream<T>.AddAsync
+  nameWithType.vb: InMemoryStream(Of T).AddAsync
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.AddGroupAsync(System.String,`0,System.Threading.CancellationToken)
+  name: AddGroupAsync(string, T, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_AddGroupAsync_System_String__0_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.InMemoryStream`1.AddGroupAsync(System.String,`0,System.Threading.CancellationToken)
+  name.vb: AddGroupAsync(String, T, CancellationToken)
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.AddGroupAsync(string, T, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).AddGroupAsync(String, T, System.Threading.CancellationToken)
+  nameWithType: InMemoryStream<T>.AddGroupAsync(string, T, CancellationToken)
+  nameWithType.vb: InMemoryStream(Of T).AddGroupAsync(String, T, CancellationToken)
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.AddGroupAsync*
+  name: AddGroupAsync
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_AddGroupAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.InMemoryStream`1.AddGroupAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.AddGroupAsync
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).AddGroupAsync
+  nameWithType: InMemoryStream<T>.AddGroupAsync
+  nameWithType.vb: InMemoryStream(Of T).AddGroupAsync
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.CountAsync(`0,`0,WeihanLi.Common.Models.RangeInclusion,System.Threading.CancellationToken)
+  name: CountAsync(T?, T?, RangeInclusion, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_CountAsync__0__0_WeihanLi_Common_Models_RangeInclusion_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.InMemoryStream`1.CountAsync(`0,`0,WeihanLi.Common.Models.RangeInclusion,System.Threading.CancellationToken)
+  name.vb: CountAsync(T, T, RangeInclusion, CancellationToken)
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.CountAsync(T?, T?, WeihanLi.Common.Models.RangeInclusion, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).CountAsync(T, T, WeihanLi.Common.Models.RangeInclusion, System.Threading.CancellationToken)
+  nameWithType: InMemoryStream<T>.CountAsync(T?, T?, RangeInclusion, CancellationToken)
+  nameWithType.vb: InMemoryStream(Of T).CountAsync(T, T, RangeInclusion, CancellationToken)
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.CountAsync*
+  name: CountAsync
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_CountAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.InMemoryStream`1.CountAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.CountAsync
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).CountAsync
+  nameWithType: InMemoryStream<T>.CountAsync
+  nameWithType.vb: InMemoryStream(Of T).CountAsync
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.FetchAsync(`0,System.Int32,WeihanLi.Common.Models.Ordering,System.Threading.CancellationToken)
+  name: FetchAsync(T, int, Ordering, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_FetchAsync__0_System_Int32_WeihanLi_Common_Models_Ordering_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.InMemoryStream`1.FetchAsync(`0,System.Int32,WeihanLi.Common.Models.Ordering,System.Threading.CancellationToken)
+  name.vb: FetchAsync(T, Integer, Ordering, CancellationToken)
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.FetchAsync(T, int, WeihanLi.Common.Models.Ordering, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).FetchAsync(T, Integer, WeihanLi.Common.Models.Ordering, System.Threading.CancellationToken)
+  nameWithType: InMemoryStream<T>.FetchAsync(T, int, Ordering, CancellationToken)
+  nameWithType.vb: InMemoryStream(Of T).FetchAsync(T, Integer, Ordering, CancellationToken)
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.FetchAsync*
+  name: FetchAsync
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_FetchAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.InMemoryStream`1.FetchAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.FetchAsync
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).FetchAsync
+  nameWithType: InMemoryStream<T>.FetchAsync
+  nameWithType.vb: InMemoryStream(Of T).FetchAsync
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.GroupInfoAsync(System.String,System.Threading.CancellationToken)
+  name: GroupInfoAsync(string, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_GroupInfoAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.InMemoryStream`1.GroupInfoAsync(System.String,System.Threading.CancellationToken)
+  name.vb: GroupInfoAsync(String, CancellationToken)
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.GroupInfoAsync(string, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).GroupInfoAsync(String, System.Threading.CancellationToken)
+  nameWithType: InMemoryStream<T>.GroupInfoAsync(string, CancellationToken)
+  nameWithType.vb: InMemoryStream(Of T).GroupInfoAsync(String, CancellationToken)
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.GroupInfoAsync*
+  name: GroupInfoAsync
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_GroupInfoAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.InMemoryStream`1.GroupInfoAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.GroupInfoAsync
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).GroupInfoAsync
+  nameWithType: InMemoryStream<T>.GroupInfoAsync
+  nameWithType.vb: InMemoryStream(Of T).GroupInfoAsync
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.GroupsAsync(System.Threading.CancellationToken)
+  name: GroupsAsync(CancellationToken)
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_GroupsAsync_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.InMemoryStream`1.GroupsAsync(System.Threading.CancellationToken)
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.GroupsAsync(System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).GroupsAsync(System.Threading.CancellationToken)
+  nameWithType: InMemoryStream<T>.GroupsAsync(CancellationToken)
+  nameWithType.vb: InMemoryStream(Of T).GroupsAsync(CancellationToken)
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.GroupsAsync*
+  name: GroupsAsync
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_GroupsAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.InMemoryStream`1.GroupsAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.GroupsAsync
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).GroupsAsync
+  nameWithType: InMemoryStream<T>.GroupsAsync
+  nameWithType.vb: InMemoryStream(Of T).GroupsAsync
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.InfoAsync(System.Threading.CancellationToken)
+  name: InfoAsync(CancellationToken)
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_InfoAsync_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.InMemoryStream`1.InfoAsync(System.Threading.CancellationToken)
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.InfoAsync(System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).InfoAsync(System.Threading.CancellationToken)
+  nameWithType: InMemoryStream<T>.InfoAsync(CancellationToken)
+  nameWithType.vb: InMemoryStream(Of T).InfoAsync(CancellationToken)
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.InfoAsync*
+  name: InfoAsync
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_InfoAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.InMemoryStream`1.InfoAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.InfoAsync
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).InfoAsync
+  nameWithType: InMemoryStream<T>.InfoAsync
+  nameWithType.vb: InMemoryStream(Of T).InfoAsync
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.RemoveGroupAsync(System.String,System.Threading.CancellationToken)
+  name: RemoveGroupAsync(string, CancellationToken)
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_RemoveGroupAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Common.Helpers.InMemoryStream`1.RemoveGroupAsync(System.String,System.Threading.CancellationToken)
+  name.vb: RemoveGroupAsync(String, CancellationToken)
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.RemoveGroupAsync(string, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).RemoveGroupAsync(String, System.Threading.CancellationToken)
+  nameWithType: InMemoryStream<T>.RemoveGroupAsync(string, CancellationToken)
+  nameWithType.vb: InMemoryStream(Of T).RemoveGroupAsync(String, CancellationToken)
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.RemoveGroupAsync*
+  name: RemoveGroupAsync
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_RemoveGroupAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.InMemoryStream`1.RemoveGroupAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.RemoveGroupAsync
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).RemoveGroupAsync
+  nameWithType: InMemoryStream<T>.RemoveGroupAsync
+  nameWithType.vb: InMemoryStream(Of T).RemoveGroupAsync
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.StreamName
+  name: StreamName
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_StreamName
+  commentId: P:WeihanLi.Common.Helpers.InMemoryStream`1.StreamName
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.StreamName
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).StreamName
+  nameWithType: InMemoryStream<T>.StreamName
+  nameWithType.vb: InMemoryStream(Of T).StreamName
+- uid: WeihanLi.Common.Helpers.InMemoryStream`1.StreamName*
+  name: StreamName
+  href: api/WeihanLi.Common.Helpers.InMemoryStream-1.html#WeihanLi_Common_Helpers_InMemoryStream_1_StreamName_
+  commentId: Overload:WeihanLi.Common.Helpers.InMemoryStream`1.StreamName
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.InMemoryStream<T>.StreamName
+  fullName.vb: WeihanLi.Common.Helpers.InMemoryStream(Of T).StreamName
+  nameWithType: InMemoryStream<T>.StreamName
+  nameWithType.vb: InMemoryStream(Of T).StreamName
 - uid: WeihanLi.Common.Helpers.InterlockedHelper
   name: InterlockedHelper
   href: api/WeihanLi.Common.Helpers.InterlockedHelper.html
@@ -13679,6 +14028,46 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.PipelineBuilder.Create(Of TContext)(System.Action(Of TContext))
   nameWithType: PipelineBuilder.Create<TContext>(Action<TContext>)
   nameWithType.vb: PipelineBuilder.Create(Of TContext)(Action(Of TContext))
+- uid: WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions
+  name: PipelineBuilderDependencyInjectionExtensions
+  href: api/WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.html
+  commentId: T:WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions
+  fullName: WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions
+  nameWithType: PipelineBuilderDependencyInjectionExtensions
+- uid: WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware*
+  name: UseMiddleware
+  href: api/WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.html#WeihanLi_Common_Helpers_PipelineBuilderDependencyInjectionExtensions_UseMiddleware_
+  commentId: Overload:WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware
+  nameWithType: PipelineBuilderDependencyInjectionExtensions.UseMiddleware
+- uid: WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0})
+  name: UseMiddleware<TContext, TMiddleware>(IAsyncPipelineBuilder<TContext>)
+  href: api/WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.html#WeihanLi_Common_Helpers_PipelineBuilderDependencyInjectionExtensions_UseMiddleware__2_WeihanLi_Common_Helpers_IAsyncPipelineBuilder___0__
+  commentId: M:WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0})
+  name.vb: UseMiddleware(Of TContext, TMiddleware)(IAsyncPipelineBuilder(Of TContext))
+  fullName: WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware<TContext, TMiddleware>(WeihanLi.Common.Helpers.IAsyncPipelineBuilder<TContext>)
+  fullName.vb: WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware(Of TContext, TMiddleware)(WeihanLi.Common.Helpers.IAsyncPipelineBuilder(Of TContext))
+  nameWithType: PipelineBuilderDependencyInjectionExtensions.UseMiddleware<TContext, TMiddleware>(IAsyncPipelineBuilder<TContext>)
+  nameWithType.vb: PipelineBuilderDependencyInjectionExtensions.UseMiddleware(Of TContext, TMiddleware)(IAsyncPipelineBuilder(Of TContext))
+- uid: WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IPipelineBuilder{``0})
+  name: UseMiddleware<TContext, TMiddleware>(IPipelineBuilder<TContext>)
+  href: api/WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.html#WeihanLi_Common_Helpers_PipelineBuilderDependencyInjectionExtensions_UseMiddleware__2_WeihanLi_Common_Helpers_IPipelineBuilder___0__
+  commentId: M:WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IPipelineBuilder{``0})
+  name.vb: UseMiddleware(Of TContext, TMiddleware)(IPipelineBuilder(Of TContext))
+  fullName: WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware<TContext, TMiddleware>(WeihanLi.Common.Helpers.IPipelineBuilder<TContext>)
+  fullName.vb: WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware(Of TContext, TMiddleware)(WeihanLi.Common.Helpers.IPipelineBuilder(Of TContext))
+  nameWithType: PipelineBuilderDependencyInjectionExtensions.UseMiddleware<TContext, TMiddleware>(IPipelineBuilder<TContext>)
+  nameWithType.vb: PipelineBuilderDependencyInjectionExtensions.UseMiddleware(Of TContext, TMiddleware)(IPipelineBuilder(Of TContext))
+- uid: WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder{``0})
+  name: UseMiddleware<TContext, TMiddleware>(IValueAsyncPipelineBuilder<TContext>)
+  href: api/WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.html#WeihanLi_Common_Helpers_PipelineBuilderDependencyInjectionExtensions_UseMiddleware__2_WeihanLi_Common_Helpers_IValueAsyncPipelineBuilder___0__
+  commentId: M:WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder{``0})
+  name.vb: UseMiddleware(Of TContext, TMiddleware)(IValueAsyncPipelineBuilder(Of TContext))
+  fullName: WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware<TContext, TMiddleware>(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder<TContext>)
+  fullName.vb: WeihanLi.Common.Helpers.PipelineBuilderDependencyInjectionExtensions.UseMiddleware(Of TContext, TMiddleware)(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder(Of TContext))
+  nameWithType: PipelineBuilderDependencyInjectionExtensions.UseMiddleware<TContext, TMiddleware>(IValueAsyncPipelineBuilder<TContext>)
+  nameWithType.vb: PipelineBuilderDependencyInjectionExtensions.UseMiddleware(Of TContext, TMiddleware)(IValueAsyncPipelineBuilder(Of TContext))
 - uid: WeihanLi.Common.Helpers.PipelineBuilderExtensions
   name: PipelineBuilderExtensions
   href: api/WeihanLi.Common.Helpers.PipelineBuilderExtensions.html
@@ -13751,24 +14140,6 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware(Of TContext)(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder(Of TContext), WeihanLi.Common.Helpers.IValueAsyncPipelineMiddleware(Of TContext))
   nameWithType: PipelineBuilderExtensions.UseMiddleware<TContext>(IValueAsyncPipelineBuilder<TContext>, IValueAsyncPipelineMiddleware<TContext>)
   nameWithType.vb: PipelineBuilderExtensions.UseMiddleware(Of TContext)(IValueAsyncPipelineBuilder(Of TContext), IValueAsyncPipelineMiddleware(Of TContext))
-- uid: WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0})
-  name: UseMiddleware<TContext, TMiddleware>(IAsyncPipelineBuilder<TContext>)
-  href: api/WeihanLi.Common.Helpers.PipelineBuilderExtensions.html#WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware__2_WeihanLi_Common_Helpers_IAsyncPipelineBuilder___0__
-  commentId: M:WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IAsyncPipelineBuilder{``0})
-  name.vb: UseMiddleware(Of TContext, TMiddleware)(IAsyncPipelineBuilder(Of TContext))
-  fullName: WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware<TContext, TMiddleware>(WeihanLi.Common.Helpers.IAsyncPipelineBuilder<TContext>)
-  fullName.vb: WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware(Of TContext, TMiddleware)(WeihanLi.Common.Helpers.IAsyncPipelineBuilder(Of TContext))
-  nameWithType: PipelineBuilderExtensions.UseMiddleware<TContext, TMiddleware>(IAsyncPipelineBuilder<TContext>)
-  nameWithType.vb: PipelineBuilderExtensions.UseMiddleware(Of TContext, TMiddleware)(IAsyncPipelineBuilder(Of TContext))
-- uid: WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IPipelineBuilder{``0})
-  name: UseMiddleware<TContext, TMiddleware>(IPipelineBuilder<TContext>)
-  href: api/WeihanLi.Common.Helpers.PipelineBuilderExtensions.html#WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware__2_WeihanLi_Common_Helpers_IPipelineBuilder___0__
-  commentId: M:WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IPipelineBuilder{``0})
-  name.vb: UseMiddleware(Of TContext, TMiddleware)(IPipelineBuilder(Of TContext))
-  fullName: WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware<TContext, TMiddleware>(WeihanLi.Common.Helpers.IPipelineBuilder<TContext>)
-  fullName.vb: WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware(Of TContext, TMiddleware)(WeihanLi.Common.Helpers.IPipelineBuilder(Of TContext))
-  nameWithType: PipelineBuilderExtensions.UseMiddleware<TContext, TMiddleware>(IPipelineBuilder<TContext>)
-  nameWithType.vb: PipelineBuilderExtensions.UseMiddleware(Of TContext, TMiddleware)(IPipelineBuilder(Of TContext))
 - uid: WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IPipelineBuilder{``0},``1)
   name: UseMiddleware<TContext, TMiddleware>(IPipelineBuilder<TContext>, TMiddleware)
   href: api/WeihanLi.Common.Helpers.PipelineBuilderExtensions.html#WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware__2_WeihanLi_Common_Helpers_IPipelineBuilder___0____1_
@@ -13778,15 +14149,6 @@ references:
   fullName.vb: WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware(Of TContext, TMiddleware)(WeihanLi.Common.Helpers.IPipelineBuilder(Of TContext), TMiddleware)
   nameWithType: PipelineBuilderExtensions.UseMiddleware<TContext, TMiddleware>(IPipelineBuilder<TContext>, TMiddleware)
   nameWithType.vb: PipelineBuilderExtensions.UseMiddleware(Of TContext, TMiddleware)(IPipelineBuilder(Of TContext), TMiddleware)
-- uid: WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder{``0})
-  name: UseMiddleware<TContext, TMiddleware>(IValueAsyncPipelineBuilder<TContext>)
-  href: api/WeihanLi.Common.Helpers.PipelineBuilderExtensions.html#WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseMiddleware__2_WeihanLi_Common_Helpers_IValueAsyncPipelineBuilder___0__
-  commentId: M:WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware``2(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder{``0})
-  name.vb: UseMiddleware(Of TContext, TMiddleware)(IValueAsyncPipelineBuilder(Of TContext))
-  fullName: WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware<TContext, TMiddleware>(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder<TContext>)
-  fullName.vb: WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseMiddleware(Of TContext, TMiddleware)(WeihanLi.Common.Helpers.IValueAsyncPipelineBuilder(Of TContext))
-  nameWithType: PipelineBuilderExtensions.UseMiddleware<TContext, TMiddleware>(IValueAsyncPipelineBuilder<TContext>)
-  nameWithType.vb: PipelineBuilderExtensions.UseMiddleware(Of TContext, TMiddleware)(IValueAsyncPipelineBuilder(Of TContext))
 - uid: WeihanLi.Common.Helpers.PipelineBuilderExtensions.UseWhen*
   name: UseWhen
   href: api/WeihanLi.Common.Helpers.PipelineBuilderExtensions.html#WeihanLi_Common_Helpers_PipelineBuilderExtensions_UseWhen_
@@ -14965,6 +15327,220 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.StopwatchStopper.Dispose
   nameWithType: StopwatchStopper.Dispose
+- uid: WeihanLi.Common.Helpers.StreamGroupInfo`1
+  name: StreamGroupInfo<T>
+  href: api/WeihanLi.Common.Helpers.StreamGroupInfo-1.html
+  commentId: T:WeihanLi.Common.Helpers.StreamGroupInfo`1
+  name.vb: StreamGroupInfo(Of T)
+  fullName: WeihanLi.Common.Helpers.StreamGroupInfo<T>
+  fullName.vb: WeihanLi.Common.Helpers.StreamGroupInfo(Of T)
+  nameWithType: StreamGroupInfo<T>
+  nameWithType.vb: StreamGroupInfo(Of T)
+- uid: WeihanLi.Common.Helpers.StreamGroupInfo`1.GroupName
+  name: GroupName
+  href: api/WeihanLi.Common.Helpers.StreamGroupInfo-1.html#WeihanLi_Common_Helpers_StreamGroupInfo_1_GroupName
+  commentId: P:WeihanLi.Common.Helpers.StreamGroupInfo`1.GroupName
+  fullName: WeihanLi.Common.Helpers.StreamGroupInfo<T>.GroupName
+  fullName.vb: WeihanLi.Common.Helpers.StreamGroupInfo(Of T).GroupName
+  nameWithType: StreamGroupInfo<T>.GroupName
+  nameWithType.vb: StreamGroupInfo(Of T).GroupName
+- uid: WeihanLi.Common.Helpers.StreamGroupInfo`1.GroupName*
+  name: GroupName
+  href: api/WeihanLi.Common.Helpers.StreamGroupInfo-1.html#WeihanLi_Common_Helpers_StreamGroupInfo_1_GroupName_
+  commentId: Overload:WeihanLi.Common.Helpers.StreamGroupInfo`1.GroupName
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.StreamGroupInfo<T>.GroupName
+  fullName.vb: WeihanLi.Common.Helpers.StreamGroupInfo(Of T).GroupName
+  nameWithType: StreamGroupInfo<T>.GroupName
+  nameWithType.vb: StreamGroupInfo(Of T).GroupName
+- uid: WeihanLi.Common.Helpers.StreamGroupInfo`1.Offset
+  name: Offset
+  href: api/WeihanLi.Common.Helpers.StreamGroupInfo-1.html#WeihanLi_Common_Helpers_StreamGroupInfo_1_Offset
+  commentId: P:WeihanLi.Common.Helpers.StreamGroupInfo`1.Offset
+  fullName: WeihanLi.Common.Helpers.StreamGroupInfo<T>.Offset
+  fullName.vb: WeihanLi.Common.Helpers.StreamGroupInfo(Of T).Offset
+  nameWithType: StreamGroupInfo<T>.Offset
+  nameWithType.vb: StreamGroupInfo(Of T).Offset
+- uid: WeihanLi.Common.Helpers.StreamGroupInfo`1.Offset*
+  name: Offset
+  href: api/WeihanLi.Common.Helpers.StreamGroupInfo-1.html#WeihanLi_Common_Helpers_StreamGroupInfo_1_Offset_
+  commentId: Overload:WeihanLi.Common.Helpers.StreamGroupInfo`1.Offset
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.StreamGroupInfo<T>.Offset
+  fullName.vb: WeihanLi.Common.Helpers.StreamGroupInfo(Of T).Offset
+  nameWithType: StreamGroupInfo<T>.Offset
+  nameWithType.vb: StreamGroupInfo(Of T).Offset
+- uid: WeihanLi.Common.Helpers.StreamInfo`1
+  name: StreamInfo<T>
+  href: api/WeihanLi.Common.Helpers.StreamInfo-1.html
+  commentId: T:WeihanLi.Common.Helpers.StreamInfo`1
+  name.vb: StreamInfo(Of T)
+  fullName: WeihanLi.Common.Helpers.StreamInfo<T>
+  fullName.vb: WeihanLi.Common.Helpers.StreamInfo(Of T)
+  nameWithType: StreamInfo<T>
+  nameWithType.vb: StreamInfo(Of T)
+- uid: WeihanLi.Common.Helpers.StreamInfo`1.Count
+  name: Count
+  href: api/WeihanLi.Common.Helpers.StreamInfo-1.html#WeihanLi_Common_Helpers_StreamInfo_1_Count
+  commentId: P:WeihanLi.Common.Helpers.StreamInfo`1.Count
+  fullName: WeihanLi.Common.Helpers.StreamInfo<T>.Count
+  fullName.vb: WeihanLi.Common.Helpers.StreamInfo(Of T).Count
+  nameWithType: StreamInfo<T>.Count
+  nameWithType.vb: StreamInfo(Of T).Count
+- uid: WeihanLi.Common.Helpers.StreamInfo`1.Count*
+  name: Count
+  href: api/WeihanLi.Common.Helpers.StreamInfo-1.html#WeihanLi_Common_Helpers_StreamInfo_1_Count_
+  commentId: Overload:WeihanLi.Common.Helpers.StreamInfo`1.Count
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.StreamInfo<T>.Count
+  fullName.vb: WeihanLi.Common.Helpers.StreamInfo(Of T).Count
+  nameWithType: StreamInfo<T>.Count
+  nameWithType.vb: StreamInfo(Of T).Count
+- uid: WeihanLi.Common.Helpers.StreamInfo`1.MaxId
+  name: MaxId
+  href: api/WeihanLi.Common.Helpers.StreamInfo-1.html#WeihanLi_Common_Helpers_StreamInfo_1_MaxId
+  commentId: P:WeihanLi.Common.Helpers.StreamInfo`1.MaxId
+  fullName: WeihanLi.Common.Helpers.StreamInfo<T>.MaxId
+  fullName.vb: WeihanLi.Common.Helpers.StreamInfo(Of T).MaxId
+  nameWithType: StreamInfo<T>.MaxId
+  nameWithType.vb: StreamInfo(Of T).MaxId
+- uid: WeihanLi.Common.Helpers.StreamInfo`1.MaxId*
+  name: MaxId
+  href: api/WeihanLi.Common.Helpers.StreamInfo-1.html#WeihanLi_Common_Helpers_StreamInfo_1_MaxId_
+  commentId: Overload:WeihanLi.Common.Helpers.StreamInfo`1.MaxId
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.StreamInfo<T>.MaxId
+  fullName.vb: WeihanLi.Common.Helpers.StreamInfo(Of T).MaxId
+  nameWithType: StreamInfo<T>.MaxId
+  nameWithType.vb: StreamInfo(Of T).MaxId
+- uid: WeihanLi.Common.Helpers.StreamInfo`1.MaxTimestamp
+  name: MaxTimestamp
+  href: api/WeihanLi.Common.Helpers.StreamInfo-1.html#WeihanLi_Common_Helpers_StreamInfo_1_MaxTimestamp
+  commentId: P:WeihanLi.Common.Helpers.StreamInfo`1.MaxTimestamp
+  fullName: WeihanLi.Common.Helpers.StreamInfo<T>.MaxTimestamp
+  fullName.vb: WeihanLi.Common.Helpers.StreamInfo(Of T).MaxTimestamp
+  nameWithType: StreamInfo<T>.MaxTimestamp
+  nameWithType.vb: StreamInfo(Of T).MaxTimestamp
+- uid: WeihanLi.Common.Helpers.StreamInfo`1.MaxTimestamp*
+  name: MaxTimestamp
+  href: api/WeihanLi.Common.Helpers.StreamInfo-1.html#WeihanLi_Common_Helpers_StreamInfo_1_MaxTimestamp_
+  commentId: Overload:WeihanLi.Common.Helpers.StreamInfo`1.MaxTimestamp
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.StreamInfo<T>.MaxTimestamp
+  fullName.vb: WeihanLi.Common.Helpers.StreamInfo(Of T).MaxTimestamp
+  nameWithType: StreamInfo<T>.MaxTimestamp
+  nameWithType.vb: StreamInfo(Of T).MaxTimestamp
+- uid: WeihanLi.Common.Helpers.StreamInfo`1.MinId
+  name: MinId
+  href: api/WeihanLi.Common.Helpers.StreamInfo-1.html#WeihanLi_Common_Helpers_StreamInfo_1_MinId
+  commentId: P:WeihanLi.Common.Helpers.StreamInfo`1.MinId
+  fullName: WeihanLi.Common.Helpers.StreamInfo<T>.MinId
+  fullName.vb: WeihanLi.Common.Helpers.StreamInfo(Of T).MinId
+  nameWithType: StreamInfo<T>.MinId
+  nameWithType.vb: StreamInfo(Of T).MinId
+- uid: WeihanLi.Common.Helpers.StreamInfo`1.MinId*
+  name: MinId
+  href: api/WeihanLi.Common.Helpers.StreamInfo-1.html#WeihanLi_Common_Helpers_StreamInfo_1_MinId_
+  commentId: Overload:WeihanLi.Common.Helpers.StreamInfo`1.MinId
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.StreamInfo<T>.MinId
+  fullName.vb: WeihanLi.Common.Helpers.StreamInfo(Of T).MinId
+  nameWithType: StreamInfo<T>.MinId
+  nameWithType.vb: StreamInfo(Of T).MinId
+- uid: WeihanLi.Common.Helpers.StreamInfo`1.MinTimestamp
+  name: MinTimestamp
+  href: api/WeihanLi.Common.Helpers.StreamInfo-1.html#WeihanLi_Common_Helpers_StreamInfo_1_MinTimestamp
+  commentId: P:WeihanLi.Common.Helpers.StreamInfo`1.MinTimestamp
+  fullName: WeihanLi.Common.Helpers.StreamInfo<T>.MinTimestamp
+  fullName.vb: WeihanLi.Common.Helpers.StreamInfo(Of T).MinTimestamp
+  nameWithType: StreamInfo<T>.MinTimestamp
+  nameWithType.vb: StreamInfo(Of T).MinTimestamp
+- uid: WeihanLi.Common.Helpers.StreamInfo`1.MinTimestamp*
+  name: MinTimestamp
+  href: api/WeihanLi.Common.Helpers.StreamInfo-1.html#WeihanLi_Common_Helpers_StreamInfo_1_MinTimestamp_
+  commentId: Overload:WeihanLi.Common.Helpers.StreamInfo`1.MinTimestamp
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.StreamInfo<T>.MinTimestamp
+  fullName.vb: WeihanLi.Common.Helpers.StreamInfo(Of T).MinTimestamp
+  nameWithType: StreamInfo<T>.MinTimestamp
+  nameWithType.vb: StreamInfo(Of T).MinTimestamp
+- uid: WeihanLi.Common.Helpers.StreamMessage`1
+  name: StreamMessage<T>
+  href: api/WeihanLi.Common.Helpers.StreamMessage-1.html
+  commentId: T:WeihanLi.Common.Helpers.StreamMessage`1
+  name.vb: StreamMessage(Of T)
+  fullName: WeihanLi.Common.Helpers.StreamMessage<T>
+  fullName.vb: WeihanLi.Common.Helpers.StreamMessage(Of T)
+  nameWithType: StreamMessage<T>
+  nameWithType.vb: StreamMessage(Of T)
+- uid: WeihanLi.Common.Helpers.StreamMessage`1.Fields
+  name: Fields
+  href: api/WeihanLi.Common.Helpers.StreamMessage-1.html#WeihanLi_Common_Helpers_StreamMessage_1_Fields
+  commentId: P:WeihanLi.Common.Helpers.StreamMessage`1.Fields
+  fullName: WeihanLi.Common.Helpers.StreamMessage<T>.Fields
+  fullName.vb: WeihanLi.Common.Helpers.StreamMessage(Of T).Fields
+  nameWithType: StreamMessage<T>.Fields
+  nameWithType.vb: StreamMessage(Of T).Fields
+- uid: WeihanLi.Common.Helpers.StreamMessage`1.Fields*
+  name: Fields
+  href: api/WeihanLi.Common.Helpers.StreamMessage-1.html#WeihanLi_Common_Helpers_StreamMessage_1_Fields_
+  commentId: Overload:WeihanLi.Common.Helpers.StreamMessage`1.Fields
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.StreamMessage<T>.Fields
+  fullName.vb: WeihanLi.Common.Helpers.StreamMessage(Of T).Fields
+  nameWithType: StreamMessage<T>.Fields
+  nameWithType.vb: StreamMessage(Of T).Fields
+- uid: WeihanLi.Common.Helpers.StreamMessage`1.Id
+  name: Id
+  href: api/WeihanLi.Common.Helpers.StreamMessage-1.html#WeihanLi_Common_Helpers_StreamMessage_1_Id
+  commentId: P:WeihanLi.Common.Helpers.StreamMessage`1.Id
+  fullName: WeihanLi.Common.Helpers.StreamMessage<T>.Id
+  fullName.vb: WeihanLi.Common.Helpers.StreamMessage(Of T).Id
+  nameWithType: StreamMessage<T>.Id
+  nameWithType.vb: StreamMessage(Of T).Id
+- uid: WeihanLi.Common.Helpers.StreamMessage`1.Id*
+  name: Id
+  href: api/WeihanLi.Common.Helpers.StreamMessage-1.html#WeihanLi_Common_Helpers_StreamMessage_1_Id_
+  commentId: Overload:WeihanLi.Common.Helpers.StreamMessage`1.Id
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.StreamMessage<T>.Id
+  fullName.vb: WeihanLi.Common.Helpers.StreamMessage(Of T).Id
+  nameWithType: StreamMessage<T>.Id
+  nameWithType.vb: StreamMessage(Of T).Id
+- uid: WeihanLi.Common.Helpers.StreamMessage`1.Properties
+  name: Properties
+  href: api/WeihanLi.Common.Helpers.StreamMessage-1.html#WeihanLi_Common_Helpers_StreamMessage_1_Properties
+  commentId: P:WeihanLi.Common.Helpers.StreamMessage`1.Properties
+  fullName: WeihanLi.Common.Helpers.StreamMessage<T>.Properties
+  fullName.vb: WeihanLi.Common.Helpers.StreamMessage(Of T).Properties
+  nameWithType: StreamMessage<T>.Properties
+  nameWithType.vb: StreamMessage(Of T).Properties
+- uid: WeihanLi.Common.Helpers.StreamMessage`1.Properties*
+  name: Properties
+  href: api/WeihanLi.Common.Helpers.StreamMessage-1.html#WeihanLi_Common_Helpers_StreamMessage_1_Properties_
+  commentId: Overload:WeihanLi.Common.Helpers.StreamMessage`1.Properties
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.StreamMessage<T>.Properties
+  fullName.vb: WeihanLi.Common.Helpers.StreamMessage(Of T).Properties
+  nameWithType: StreamMessage<T>.Properties
+  nameWithType.vb: StreamMessage(Of T).Properties
+- uid: WeihanLi.Common.Helpers.StreamMessage`1.Timestamp
+  name: Timestamp
+  href: api/WeihanLi.Common.Helpers.StreamMessage-1.html#WeihanLi_Common_Helpers_StreamMessage_1_Timestamp
+  commentId: P:WeihanLi.Common.Helpers.StreamMessage`1.Timestamp
+  fullName: WeihanLi.Common.Helpers.StreamMessage<T>.Timestamp
+  fullName.vb: WeihanLi.Common.Helpers.StreamMessage(Of T).Timestamp
+  nameWithType: StreamMessage<T>.Timestamp
+  nameWithType.vb: StreamMessage(Of T).Timestamp
+- uid: WeihanLi.Common.Helpers.StreamMessage`1.Timestamp*
+  name: Timestamp
+  href: api/WeihanLi.Common.Helpers.StreamMessage-1.html#WeihanLi_Common_Helpers_StreamMessage_1_Timestamp_
+  commentId: Overload:WeihanLi.Common.Helpers.StreamMessage`1.Timestamp
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.StreamMessage<T>.Timestamp
+  fullName.vb: WeihanLi.Common.Helpers.StreamMessage(Of T).Timestamp
+  nameWithType: StreamMessage<T>.Timestamp
+  nameWithType.vb: StreamMessage(Of T).Timestamp
 - uid: WeihanLi.Common.Helpers.StringHelper
   name: StringHelper
   href: api/WeihanLi.Common.Helpers.StringHelper.html
@@ -19466,6 +20042,38 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Models.ModelValidator.TryValidate
   nameWithType: ModelValidator.TryValidate
+- uid: WeihanLi.Common.Models.OffsetRequest
+  name: OffsetRequest
+  href: api/WeihanLi.Common.Models.OffsetRequest.html
+  commentId: T:WeihanLi.Common.Models.OffsetRequest
+  fullName: WeihanLi.Common.Models.OffsetRequest
+  nameWithType: OffsetRequest
+- uid: WeihanLi.Common.Models.OffsetRequest.Count
+  name: Count
+  href: api/WeihanLi.Common.Models.OffsetRequest.html#WeihanLi_Common_Models_OffsetRequest_Count
+  commentId: P:WeihanLi.Common.Models.OffsetRequest.Count
+  fullName: WeihanLi.Common.Models.OffsetRequest.Count
+  nameWithType: OffsetRequest.Count
+- uid: WeihanLi.Common.Models.OffsetRequest.Count*
+  name: Count
+  href: api/WeihanLi.Common.Models.OffsetRequest.html#WeihanLi_Common_Models_OffsetRequest_Count_
+  commentId: Overload:WeihanLi.Common.Models.OffsetRequest.Count
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.OffsetRequest.Count
+  nameWithType: OffsetRequest.Count
+- uid: WeihanLi.Common.Models.OffsetRequest.Offset
+  name: Offset
+  href: api/WeihanLi.Common.Models.OffsetRequest.html#WeihanLi_Common_Models_OffsetRequest_Offset
+  commentId: P:WeihanLi.Common.Models.OffsetRequest.Offset
+  fullName: WeihanLi.Common.Models.OffsetRequest.Offset
+  nameWithType: OffsetRequest.Offset
+- uid: WeihanLi.Common.Models.OffsetRequest.Offset*
+  name: Offset
+  href: api/WeihanLi.Common.Models.OffsetRequest.html#WeihanLi_Common_Models_OffsetRequest_Offset_
+  commentId: Overload:WeihanLi.Common.Models.OffsetRequest.Offset
+  isSpec: "True"
+  fullName: WeihanLi.Common.Models.OffsetRequest.Offset
+  nameWithType: OffsetRequest.Offset
 - uid: WeihanLi.Common.Models.Ordering
   name: Ordering
   href: api/WeihanLi.Common.Models.Ordering.html
@@ -21330,38 +21938,6 @@ references:
   commentId: T:WeihanLi.Common.Services.TenantIdProviderExtensions
   fullName: WeihanLi.Common.Services.TenantIdProviderExtensions
   nameWithType: TenantIdProviderExtensions
-- uid: WeihanLi.Common.Services.TenantIdProviderExtensions.GetTenantId*
-  name: GetTenantId
-  href: api/WeihanLi.Common.Services.TenantIdProviderExtensions.html#WeihanLi_Common_Services_TenantIdProviderExtensions_GetTenantId_
-  commentId: Overload:WeihanLi.Common.Services.TenantIdProviderExtensions.GetTenantId
-  isSpec: "True"
-  fullName: WeihanLi.Common.Services.TenantIdProviderExtensions.GetTenantId
-  nameWithType: TenantIdProviderExtensions.GetTenantId
-- uid: WeihanLi.Common.Services.TenantIdProviderExtensions.GetTenantId``1(WeihanLi.Common.Services.ITenantProvider,``0)
-  name: GetTenantId<T>(ITenantProvider, T?)
-  href: api/WeihanLi.Common.Services.TenantIdProviderExtensions.html#WeihanLi_Common_Services_TenantIdProviderExtensions_GetTenantId__1_WeihanLi_Common_Services_ITenantProvider___0_
-  commentId: M:WeihanLi.Common.Services.TenantIdProviderExtensions.GetTenantId``1(WeihanLi.Common.Services.ITenantProvider,``0)
-  name.vb: GetTenantId(Of T)(ITenantProvider, T)
-  fullName: WeihanLi.Common.Services.TenantIdProviderExtensions.GetTenantId<T>(WeihanLi.Common.Services.ITenantProvider, T?)
-  fullName.vb: WeihanLi.Common.Services.TenantIdProviderExtensions.GetTenantId(Of T)(WeihanLi.Common.Services.ITenantProvider, T)
-  nameWithType: TenantIdProviderExtensions.GetTenantId<T>(ITenantProvider, T?)
-  nameWithType.vb: TenantIdProviderExtensions.GetTenantId(Of T)(ITenantProvider, T)
-- uid: WeihanLi.Common.Services.TenantIdProviderExtensions.TryGetTenantId*
-  name: TryGetTenantId
-  href: api/WeihanLi.Common.Services.TenantIdProviderExtensions.html#WeihanLi_Common_Services_TenantIdProviderExtensions_TryGetTenantId_
-  commentId: Overload:WeihanLi.Common.Services.TenantIdProviderExtensions.TryGetTenantId
-  isSpec: "True"
-  fullName: WeihanLi.Common.Services.TenantIdProviderExtensions.TryGetTenantId
-  nameWithType: TenantIdProviderExtensions.TryGetTenantId
-- uid: WeihanLi.Common.Services.TenantIdProviderExtensions.TryGetTenantId``1(WeihanLi.Common.Services.ITenantProvider,``0@,``0)
-  name: TryGetTenantId<T>(ITenantProvider, out T?, T?)
-  href: api/WeihanLi.Common.Services.TenantIdProviderExtensions.html#WeihanLi_Common_Services_TenantIdProviderExtensions_TryGetTenantId__1_WeihanLi_Common_Services_ITenantProvider___0____0_
-  commentId: M:WeihanLi.Common.Services.TenantIdProviderExtensions.TryGetTenantId``1(WeihanLi.Common.Services.ITenantProvider,``0@,``0)
-  name.vb: TryGetTenantId(Of T)(ITenantProvider, T, T)
-  fullName: WeihanLi.Common.Services.TenantIdProviderExtensions.TryGetTenantId<T>(WeihanLi.Common.Services.ITenantProvider, out T?, T?)
-  fullName.vb: WeihanLi.Common.Services.TenantIdProviderExtensions.TryGetTenantId(Of T)(WeihanLi.Common.Services.ITenantProvider, T, T)
-  nameWithType: TenantIdProviderExtensions.TryGetTenantId<T>(ITenantProvider, out T?, T?)
-  nameWithType.vb: TenantIdProviderExtensions.TryGetTenantId(Of T)(ITenantProvider, T, T)
 - uid: WeihanLi.Common.Services.TotpService
   name: TotpService
   href: api/WeihanLi.Common.Services.TotpService.html
@@ -21536,38 +22112,6 @@ references:
   commentId: T:WeihanLi.Common.Services.UserIdProviderExtensions
   fullName: WeihanLi.Common.Services.UserIdProviderExtensions
   nameWithType: UserIdProviderExtensions
-- uid: WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId*
-  name: GetUserId
-  href: api/WeihanLi.Common.Services.UserIdProviderExtensions.html#WeihanLi_Common_Services_UserIdProviderExtensions_GetUserId_
-  commentId: Overload:WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId
-  isSpec: "True"
-  fullName: WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId
-  nameWithType: UserIdProviderExtensions.GetUserId
-- uid: WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId``1(WeihanLi.Common.Services.IUserIdProvider,``0)
-  name: GetUserId<T>(IUserIdProvider, T?)
-  href: api/WeihanLi.Common.Services.UserIdProviderExtensions.html#WeihanLi_Common_Services_UserIdProviderExtensions_GetUserId__1_WeihanLi_Common_Services_IUserIdProvider___0_
-  commentId: M:WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId``1(WeihanLi.Common.Services.IUserIdProvider,``0)
-  name.vb: GetUserId(Of T)(IUserIdProvider, T)
-  fullName: WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId<T>(WeihanLi.Common.Services.IUserIdProvider, T?)
-  fullName.vb: WeihanLi.Common.Services.UserIdProviderExtensions.GetUserId(Of T)(WeihanLi.Common.Services.IUserIdProvider, T)
-  nameWithType: UserIdProviderExtensions.GetUserId<T>(IUserIdProvider, T?)
-  nameWithType.vb: UserIdProviderExtensions.GetUserId(Of T)(IUserIdProvider, T)
-- uid: WeihanLi.Common.Services.UserIdProviderExtensions.TryGetUserId*
-  name: TryGetUserId
-  href: api/WeihanLi.Common.Services.UserIdProviderExtensions.html#WeihanLi_Common_Services_UserIdProviderExtensions_TryGetUserId_
-  commentId: Overload:WeihanLi.Common.Services.UserIdProviderExtensions.TryGetUserId
-  isSpec: "True"
-  fullName: WeihanLi.Common.Services.UserIdProviderExtensions.TryGetUserId
-  nameWithType: UserIdProviderExtensions.TryGetUserId
-- uid: WeihanLi.Common.Services.UserIdProviderExtensions.TryGetUserId``1(WeihanLi.Common.Services.IUserIdProvider,``0@,``0)
-  name: TryGetUserId<T>(IUserIdProvider, out T?, T?)
-  href: api/WeihanLi.Common.Services.UserIdProviderExtensions.html#WeihanLi_Common_Services_UserIdProviderExtensions_TryGetUserId__1_WeihanLi_Common_Services_IUserIdProvider___0____0_
-  commentId: M:WeihanLi.Common.Services.UserIdProviderExtensions.TryGetUserId``1(WeihanLi.Common.Services.IUserIdProvider,``0@,``0)
-  name.vb: TryGetUserId(Of T)(IUserIdProvider, T, T)
-  fullName: WeihanLi.Common.Services.UserIdProviderExtensions.TryGetUserId<T>(WeihanLi.Common.Services.IUserIdProvider, out T?, T?)
-  fullName.vb: WeihanLi.Common.Services.UserIdProviderExtensions.TryGetUserId(Of T)(WeihanLi.Common.Services.IUserIdProvider, T, T)
-  nameWithType: UserIdProviderExtensions.TryGetUserId<T>(IUserIdProvider, out T?, T?)
-  nameWithType.vb: UserIdProviderExtensions.TryGetUserId(Of T)(IUserIdProvider, T, T)
 - uid: WeihanLi.Common.Services.Wrapper`1
   name: Wrapper<T>
   href: api/WeihanLi.Common.Services.Wrapper-1.html
@@ -24219,22 +24763,6 @@ references:
   fullName.vb: WeihanLi.Extensions.CoreExtension.OneOf(Of T)(System.Random, ParamArray T())
   nameWithType: CoreExtension.OneOf<T>(Random, params T[])
   nameWithType.vb: CoreExtension.OneOf(Of T)(Random, ParamArray T())
-- uid: WeihanLi.Extensions.CoreExtension.ParseParamDictionary(System.Object)
-  name: ParseParamDictionary(object?)
-  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ParseParamDictionary_System_Object_
-  commentId: M:WeihanLi.Extensions.CoreExtension.ParseParamDictionary(System.Object)
-  name.vb: ParseParamDictionary(Object)
-  fullName: WeihanLi.Extensions.CoreExtension.ParseParamDictionary(object?)
-  fullName.vb: WeihanLi.Extensions.CoreExtension.ParseParamDictionary(Object)
-  nameWithType: CoreExtension.ParseParamDictionary(object?)
-  nameWithType.vb: CoreExtension.ParseParamDictionary(Object)
-- uid: WeihanLi.Extensions.CoreExtension.ParseParamDictionary*
-  name: ParseParamDictionary
-  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ParseParamDictionary_
-  commentId: Overload:WeihanLi.Extensions.CoreExtension.ParseParamDictionary
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CoreExtension.ParseParamDictionary
-  nameWithType: CoreExtension.ParseParamDictionary
 - uid: WeihanLi.Extensions.CoreExtension.RemoveWhere(System.String,System.Func{System.Char,System.Boolean})
   name: RemoveWhere(string, Func<char, bool>)
   href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_RemoveWhere_System_String_System_Func_System_Char_System_Boolean__
@@ -24454,22 +24982,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.Substring
   nameWithType: CoreExtension.Substring
-- uid: WeihanLi.Extensions.CoreExtension.To(System.Object,System.Type)
-  name: To(object?, Type)
-  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_To_System_Object_System_Type_
-  commentId: M:WeihanLi.Extensions.CoreExtension.To(System.Object,System.Type)
-  name.vb: To(Object, Type)
-  fullName: WeihanLi.Extensions.CoreExtension.To(object?, System.Type)
-  fullName.vb: WeihanLi.Extensions.CoreExtension.To(Object, System.Type)
-  nameWithType: CoreExtension.To(object?, Type)
-  nameWithType.vb: CoreExtension.To(Object, Type)
-- uid: WeihanLi.Extensions.CoreExtension.To*
-  name: To
-  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_To_
-  commentId: Overload:WeihanLi.Extensions.CoreExtension.To
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CoreExtension.To
-  nameWithType: CoreExtension.To
 - uid: WeihanLi.Extensions.CoreExtension.ToBase64String(System.Byte[])
   name: ToBase64String(byte[])
   href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToBase64String_System_Byte___
@@ -24675,58 +25187,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.ToMemoryStream
   nameWithType: CoreExtension.ToMemoryStream
-- uid: WeihanLi.Extensions.CoreExtension.ToOrDefault(System.Object,System.Type)
-  name: ToOrDefault(object?, Type)
-  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault_System_Object_System_Type_
-  commentId: M:WeihanLi.Extensions.CoreExtension.ToOrDefault(System.Object,System.Type)
-  name.vb: ToOrDefault(Object, Type)
-  fullName: WeihanLi.Extensions.CoreExtension.ToOrDefault(object?, System.Type)
-  fullName.vb: WeihanLi.Extensions.CoreExtension.ToOrDefault(Object, System.Type)
-  nameWithType: CoreExtension.ToOrDefault(object?, Type)
-  nameWithType.vb: CoreExtension.ToOrDefault(Object, Type)
-- uid: WeihanLi.Extensions.CoreExtension.ToOrDefault*
-  name: ToOrDefault
-  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault_
-  commentId: Overload:WeihanLi.Extensions.CoreExtension.ToOrDefault
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.CoreExtension.ToOrDefault
-  nameWithType: CoreExtension.ToOrDefault
-- uid: WeihanLi.Extensions.CoreExtension.ToOrDefault``1(System.Object)
-  name: ToOrDefault<T>(object?)
-  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_
-  commentId: M:WeihanLi.Extensions.CoreExtension.ToOrDefault``1(System.Object)
-  name.vb: ToOrDefault(Of T)(Object)
-  fullName: WeihanLi.Extensions.CoreExtension.ToOrDefault<T>(object?)
-  fullName.vb: WeihanLi.Extensions.CoreExtension.ToOrDefault(Of T)(Object)
-  nameWithType: CoreExtension.ToOrDefault<T>(object?)
-  nameWithType.vb: CoreExtension.ToOrDefault(Of T)(Object)
-- uid: WeihanLi.Extensions.CoreExtension.ToOrDefault``1(System.Object,System.Func{System.Object,``0})
-  name: ToOrDefault<T>(object?, Func<object?, T>)
-  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func_System_Object___0__
-  commentId: M:WeihanLi.Extensions.CoreExtension.ToOrDefault``1(System.Object,System.Func{System.Object,``0})
-  name.vb: ToOrDefault(Of T)(Object, Func(Of Object, T))
-  fullName: WeihanLi.Extensions.CoreExtension.ToOrDefault<T>(object?, System.Func<object?, T>)
-  fullName.vb: WeihanLi.Extensions.CoreExtension.ToOrDefault(Of T)(Object, System.Func(Of Object, T))
-  nameWithType: CoreExtension.ToOrDefault<T>(object?, Func<object?, T>)
-  nameWithType.vb: CoreExtension.ToOrDefault(Of T)(Object, Func(Of Object, T))
-- uid: WeihanLi.Extensions.CoreExtension.ToOrDefault``1(System.Object,System.Func{``0})
-  name: ToOrDefault<T>(object?, Func<T>)
-  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func___0__
-  commentId: M:WeihanLi.Extensions.CoreExtension.ToOrDefault``1(System.Object,System.Func{``0})
-  name.vb: ToOrDefault(Of T)(Object, Func(Of T))
-  fullName: WeihanLi.Extensions.CoreExtension.ToOrDefault<T>(object?, System.Func<T>)
-  fullName.vb: WeihanLi.Extensions.CoreExtension.ToOrDefault(Of T)(Object, System.Func(Of T))
-  nameWithType: CoreExtension.ToOrDefault<T>(object?, Func<T>)
-  nameWithType.vb: CoreExtension.ToOrDefault(Of T)(Object, Func(Of T))
-- uid: WeihanLi.Extensions.CoreExtension.ToOrDefault``1(System.Object,``0)
-  name: ToOrDefault<T>(object?, T)
-  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object___0_
-  commentId: M:WeihanLi.Extensions.CoreExtension.ToOrDefault``1(System.Object,``0)
-  name.vb: ToOrDefault(Of T)(Object, T)
-  fullName: WeihanLi.Extensions.CoreExtension.ToOrDefault<T>(object?, T)
-  fullName.vb: WeihanLi.Extensions.CoreExtension.ToOrDefault(Of T)(Object, T)
-  nameWithType: CoreExtension.ToOrDefault<T>(object?, T)
-  nameWithType.vb: CoreExtension.ToOrDefault(Of T)(Object, T)
 - uid: WeihanLi.Extensions.CoreExtension.ToString(System.Boolean,System.String,System.String)
   name: ToString(bool, string, string)
   href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToString_System_Boolean_System_String_System_String_
@@ -24825,15 +25285,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.ToUpperInvariant
   nameWithType: CoreExtension.ToUpperInvariant
-- uid: WeihanLi.Extensions.CoreExtension.To``1(System.Object)
-  name: To<T>(object?)
-  href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_To__1_System_Object_
-  commentId: M:WeihanLi.Extensions.CoreExtension.To``1(System.Object)
-  name.vb: To(Of T)(Object)
-  fullName: WeihanLi.Extensions.CoreExtension.To<T>(object?)
-  fullName.vb: WeihanLi.Extensions.CoreExtension.To(Of T)(Object)
-  nameWithType: CoreExtension.To<T>(object?)
-  nameWithType.vb: CoreExtension.To(Of T)(Object)
 - uid: WeihanLi.Extensions.CoreExtension.Truncate(System.String,System.Int32)
   name: Truncate(string, int)
   href: api/WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Truncate_System_String_System_Int32_
@@ -24968,6 +25419,89 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.CoreExtension.UtcFromNow
   nameWithType: CoreExtension.UtcFromNow
+- uid: WeihanLi.Extensions.CoreExtensions
+  name: CoreExtensions
+  href: api/WeihanLi.Extensions.CoreExtensions.html
+  commentId: T:WeihanLi.Extensions.CoreExtensions
+  fullName: WeihanLi.Extensions.CoreExtensions
+  nameWithType: CoreExtensions
+- uid: WeihanLi.Extensions.CoreExtensions.To(System.Object,System.Type)
+  name: To(object?, Type)
+  href: api/WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_To_System_Object_System_Type_
+  commentId: M:WeihanLi.Extensions.CoreExtensions.To(System.Object,System.Type)
+  name.vb: To(Object, Type)
+  fullName: WeihanLi.Extensions.CoreExtensions.To(object?, System.Type)
+  fullName.vb: WeihanLi.Extensions.CoreExtensions.To(Object, System.Type)
+  nameWithType: CoreExtensions.To(object?, Type)
+  nameWithType.vb: CoreExtensions.To(Object, Type)
+- uid: WeihanLi.Extensions.CoreExtensions.To*
+  name: To
+  href: api/WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_To_
+  commentId: Overload:WeihanLi.Extensions.CoreExtensions.To
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.CoreExtensions.To
+  nameWithType: CoreExtensions.To
+- uid: WeihanLi.Extensions.CoreExtensions.ToOrDefault(System.Object,System.Type)
+  name: ToOrDefault(object?, Type)
+  href: api/WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault_System_Object_System_Type_
+  commentId: M:WeihanLi.Extensions.CoreExtensions.ToOrDefault(System.Object,System.Type)
+  name.vb: ToOrDefault(Object, Type)
+  fullName: WeihanLi.Extensions.CoreExtensions.ToOrDefault(object?, System.Type)
+  fullName.vb: WeihanLi.Extensions.CoreExtensions.ToOrDefault(Object, System.Type)
+  nameWithType: CoreExtensions.ToOrDefault(object?, Type)
+  nameWithType.vb: CoreExtensions.ToOrDefault(Object, Type)
+- uid: WeihanLi.Extensions.CoreExtensions.ToOrDefault*
+  name: ToOrDefault
+  href: api/WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault_
+  commentId: Overload:WeihanLi.Extensions.CoreExtensions.ToOrDefault
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.CoreExtensions.ToOrDefault
+  nameWithType: CoreExtensions.ToOrDefault
+- uid: WeihanLi.Extensions.CoreExtensions.ToOrDefault``1(System.Object)
+  name: ToOrDefault<T>(object?)
+  href: api/WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object_
+  commentId: M:WeihanLi.Extensions.CoreExtensions.ToOrDefault``1(System.Object)
+  name.vb: ToOrDefault(Of T)(Object)
+  fullName: WeihanLi.Extensions.CoreExtensions.ToOrDefault<T>(object?)
+  fullName.vb: WeihanLi.Extensions.CoreExtensions.ToOrDefault(Of T)(Object)
+  nameWithType: CoreExtensions.ToOrDefault<T>(object?)
+  nameWithType.vb: CoreExtensions.ToOrDefault(Of T)(Object)
+- uid: WeihanLi.Extensions.CoreExtensions.ToOrDefault``1(System.Object,System.Func{System.Object,``0})
+  name: ToOrDefault<T>(object?, Func<object?, T>)
+  href: api/WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object_System_Func_System_Object___0__
+  commentId: M:WeihanLi.Extensions.CoreExtensions.ToOrDefault``1(System.Object,System.Func{System.Object,``0})
+  name.vb: ToOrDefault(Of T)(Object, Func(Of Object, T))
+  fullName: WeihanLi.Extensions.CoreExtensions.ToOrDefault<T>(object?, System.Func<object?, T>)
+  fullName.vb: WeihanLi.Extensions.CoreExtensions.ToOrDefault(Of T)(Object, System.Func(Of Object, T))
+  nameWithType: CoreExtensions.ToOrDefault<T>(object?, Func<object?, T>)
+  nameWithType.vb: CoreExtensions.ToOrDefault(Of T)(Object, Func(Of Object, T))
+- uid: WeihanLi.Extensions.CoreExtensions.ToOrDefault``1(System.Object,System.Func{``0})
+  name: ToOrDefault<T>(object?, Func<T>)
+  href: api/WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object_System_Func___0__
+  commentId: M:WeihanLi.Extensions.CoreExtensions.ToOrDefault``1(System.Object,System.Func{``0})
+  name.vb: ToOrDefault(Of T)(Object, Func(Of T))
+  fullName: WeihanLi.Extensions.CoreExtensions.ToOrDefault<T>(object?, System.Func<T>)
+  fullName.vb: WeihanLi.Extensions.CoreExtensions.ToOrDefault(Of T)(Object, System.Func(Of T))
+  nameWithType: CoreExtensions.ToOrDefault<T>(object?, Func<T>)
+  nameWithType.vb: CoreExtensions.ToOrDefault(Of T)(Object, Func(Of T))
+- uid: WeihanLi.Extensions.CoreExtensions.ToOrDefault``1(System.Object,``0)
+  name: ToOrDefault<T>(object?, T)
+  href: api/WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object___0_
+  commentId: M:WeihanLi.Extensions.CoreExtensions.ToOrDefault``1(System.Object,``0)
+  name.vb: ToOrDefault(Of T)(Object, T)
+  fullName: WeihanLi.Extensions.CoreExtensions.ToOrDefault<T>(object?, T)
+  fullName.vb: WeihanLi.Extensions.CoreExtensions.ToOrDefault(Of T)(Object, T)
+  nameWithType: CoreExtensions.ToOrDefault<T>(object?, T)
+  nameWithType.vb: CoreExtensions.ToOrDefault(Of T)(Object, T)
+- uid: WeihanLi.Extensions.CoreExtensions.To``1(System.Object)
+  name: To<T>(object?)
+  href: api/WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_To__1_System_Object_
+  commentId: M:WeihanLi.Extensions.CoreExtensions.To``1(System.Object)
+  name.vb: To(Of T)(Object)
+  fullName: WeihanLi.Extensions.CoreExtensions.To<T>(object?)
+  fullName.vb: WeihanLi.Extensions.CoreExtensions.To(Of T)(Object)
+  nameWithType: CoreExtensions.To<T>(object?)
+  nameWithType.vb: CoreExtensions.To(Of T)(Object)
 - uid: WeihanLi.Extensions.CronExtension
   name: CronExtension
   href: api/WeihanLi.Extensions.CronExtension.html
@@ -26859,22 +27393,6 @@ references:
   fullName.vb: WeihanLi.Extensions.DictionaryExtension.RemoveIfContainsKey(Of TKey, TValue)(System.Collections.Generic.IDictionary(Of TKey, TValue), TKey)
   nameWithType: DictionaryExtension.RemoveIfContainsKey<TKey, TValue>(IDictionary<TKey, TValue>, TKey)
   nameWithType.vb: DictionaryExtension.RemoveIfContainsKey(Of TKey, TValue)(IDictionary(Of TKey, TValue), TKey)
-- uid: WeihanLi.Extensions.DictionaryExtension.ToDataTable(System.Collections.Generic.IDictionary{System.String,System.Object})
-  name: ToDataTable(IDictionary<string, object>)
-  href: api/WeihanLi.Extensions.DictionaryExtension.html#WeihanLi_Extensions_DictionaryExtension_ToDataTable_System_Collections_Generic_IDictionary_System_String_System_Object__
-  commentId: M:WeihanLi.Extensions.DictionaryExtension.ToDataTable(System.Collections.Generic.IDictionary{System.String,System.Object})
-  name.vb: ToDataTable(IDictionary(Of String, Object))
-  fullName: WeihanLi.Extensions.DictionaryExtension.ToDataTable(System.Collections.Generic.IDictionary<string, object>)
-  fullName.vb: WeihanLi.Extensions.DictionaryExtension.ToDataTable(System.Collections.Generic.IDictionary(Of String, Object))
-  nameWithType: DictionaryExtension.ToDataTable(IDictionary<string, object>)
-  nameWithType.vb: DictionaryExtension.ToDataTable(IDictionary(Of String, Object))
-- uid: WeihanLi.Extensions.DictionaryExtension.ToDataTable*
-  name: ToDataTable
-  href: api/WeihanLi.Extensions.DictionaryExtension.html#WeihanLi_Extensions_DictionaryExtension_ToDataTable_
-  commentId: Overload:WeihanLi.Extensions.DictionaryExtension.ToDataTable
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.DictionaryExtension.ToDataTable
-  nameWithType: DictionaryExtension.ToDataTable
 - uid: WeihanLi.Extensions.DictionaryExtension.ToDbParameters(System.Collections.Generic.IDictionary{System.String,System.Object},System.Data.Common.DbCommand)
   name: ToDbParameters(IDictionary<string, object>, DbCommand)
   href: api/WeihanLi.Extensions.DictionaryExtension.html#WeihanLi_Extensions_DictionaryExtension_ToDbParameters_System_Collections_Generic_IDictionary_System_String_System_Object__System_Data_Common_DbCommand_
@@ -28025,38 +28543,6 @@ references:
   commentId: T:WeihanLi.Extensions.HttpClientExtension
   fullName: WeihanLi.Extensions.HttpClientExtension
   nameWithType: HttpClientExtension
-- uid: WeihanLi.Extensions.HttpClientExtension.HttpJsonAsync*
-  name: HttpJsonAsync
-  href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_HttpJsonAsync_
-  commentId: Overload:WeihanLi.Extensions.HttpClientExtension.HttpJsonAsync
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.HttpClientExtension.HttpJsonAsync
-  nameWithType: HttpClientExtension.HttpJsonAsync
-- uid: WeihanLi.Extensions.HttpClientExtension.HttpJsonAsync``2(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
-  name: HttpJsonAsync<TRequest, TResponse>(HttpClient, HttpMethod, string, TRequest, Action<HttpRequestMessage>?, Action<HttpResponseMessage>?, CancellationToken)
-  href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_HttpJsonAsync__2_System_Net_Http_HttpClient_System_Net_Http_HttpMethod_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Action_System_Net_Http_HttpResponseMessage__System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.HttpClientExtension.HttpJsonAsync``2(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
-  name.vb: HttpJsonAsync(Of TRequest, TResponse)(HttpClient, HttpMethod, String, TRequest, Action(Of HttpRequestMessage), Action(Of HttpResponseMessage), CancellationToken)
-  fullName: WeihanLi.Extensions.HttpClientExtension.HttpJsonAsync<TRequest, TResponse>(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, string, TRequest, System.Action<System.Net.Http.HttpRequestMessage>?, System.Action<System.Net.Http.HttpResponseMessage>?, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.HttpClientExtension.HttpJsonAsync(Of TRequest, TResponse)(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, String, TRequest, System.Action(Of System.Net.Http.HttpRequestMessage), System.Action(Of System.Net.Http.HttpResponseMessage), System.Threading.CancellationToken)
-  nameWithType: HttpClientExtension.HttpJsonAsync<TRequest, TResponse>(HttpClient, HttpMethod, string, TRequest, Action<HttpRequestMessage>?, Action<HttpResponseMessage>?, CancellationToken)
-  nameWithType.vb: HttpClientExtension.HttpJsonAsync(Of TRequest, TResponse)(HttpClient, HttpMethod, String, TRequest, Action(Of HttpRequestMessage), Action(Of HttpResponseMessage), CancellationToken)
-- uid: WeihanLi.Extensions.HttpClientExtension.HttpJsonRequestAsync*
-  name: HttpJsonRequestAsync
-  href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_HttpJsonRequestAsync_
-  commentId: Overload:WeihanLi.Extensions.HttpClientExtension.HttpJsonRequestAsync
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.HttpClientExtension.HttpJsonRequestAsync
-  nameWithType: HttpClientExtension.HttpJsonRequestAsync
-- uid: WeihanLi.Extensions.HttpClientExtension.HttpJsonRequestAsync``1(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)
-  name: HttpJsonRequestAsync<TRequest>(HttpClient, HttpMethod, string, TRequest, Action<HttpRequestMessage>?, CancellationToken)
-  href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_HttpJsonRequestAsync__1_System_Net_Http_HttpClient_System_Net_Http_HttpMethod_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.HttpClientExtension.HttpJsonRequestAsync``1(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)
-  name.vb: HttpJsonRequestAsync(Of TRequest)(HttpClient, HttpMethod, String, TRequest, Action(Of HttpRequestMessage), CancellationToken)
-  fullName: WeihanLi.Extensions.HttpClientExtension.HttpJsonRequestAsync<TRequest>(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, string, TRequest, System.Action<System.Net.Http.HttpRequestMessage>?, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.HttpClientExtension.HttpJsonRequestAsync(Of TRequest)(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, String, TRequest, System.Action(Of System.Net.Http.HttpRequestMessage), System.Threading.CancellationToken)
-  nameWithType: HttpClientExtension.HttpJsonRequestAsync<TRequest>(HttpClient, HttpMethod, string, TRequest, Action<HttpRequestMessage>?, CancellationToken)
-  nameWithType.vb: HttpClientExtension.HttpJsonRequestAsync(Of TRequest)(HttpClient, HttpMethod, String, TRequest, Action(Of HttpRequestMessage), CancellationToken)
 - uid: WeihanLi.Extensions.HttpClientExtension.PostAsFormAsync(System.Net.Http.HttpClient,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Threading.CancellationToken)
   name: PostAsFormAsync(HttpClient, string, IEnumerable<KeyValuePair<string, string>>, CancellationToken)
   href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_PostAsFormAsync_System_Net_Http_HttpClient_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Threading_CancellationToken_
@@ -28116,38 +28602,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.HttpClientExtension.PostFileAsync
   nameWithType: HttpClientExtension.PostFileAsync
-- uid: WeihanLi.Extensions.HttpClientExtension.PostJsonAsync*
-  name: PostJsonAsync
-  href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_PostJsonAsync_
-  commentId: Overload:WeihanLi.Extensions.HttpClientExtension.PostJsonAsync
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.HttpClientExtension.PostJsonAsync
-  nameWithType: HttpClientExtension.PostJsonAsync
-- uid: WeihanLi.Extensions.HttpClientExtension.PostJsonAsync``2(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
-  name: PostJsonAsync<TRequest, TResponse>(HttpClient, string, TRequest, Action<HttpRequestMessage>?, Action<HttpResponseMessage>?, CancellationToken)
-  href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_PostJsonAsync__2_System_Net_Http_HttpClient_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Action_System_Net_Http_HttpResponseMessage__System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.HttpClientExtension.PostJsonAsync``2(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
-  name.vb: PostJsonAsync(Of TRequest, TResponse)(HttpClient, String, TRequest, Action(Of HttpRequestMessage), Action(Of HttpResponseMessage), CancellationToken)
-  fullName: WeihanLi.Extensions.HttpClientExtension.PostJsonAsync<TRequest, TResponse>(System.Net.Http.HttpClient, string, TRequest, System.Action<System.Net.Http.HttpRequestMessage>?, System.Action<System.Net.Http.HttpResponseMessage>?, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.HttpClientExtension.PostJsonAsync(Of TRequest, TResponse)(System.Net.Http.HttpClient, String, TRequest, System.Action(Of System.Net.Http.HttpRequestMessage), System.Action(Of System.Net.Http.HttpResponseMessage), System.Threading.CancellationToken)
-  nameWithType: HttpClientExtension.PostJsonAsync<TRequest, TResponse>(HttpClient, string, TRequest, Action<HttpRequestMessage>?, Action<HttpResponseMessage>?, CancellationToken)
-  nameWithType.vb: HttpClientExtension.PostJsonAsync(Of TRequest, TResponse)(HttpClient, String, TRequest, Action(Of HttpRequestMessage), Action(Of HttpResponseMessage), CancellationToken)
-- uid: WeihanLi.Extensions.HttpClientExtension.PostJsonRequestAsync*
-  name: PostJsonRequestAsync
-  href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_PostJsonRequestAsync_
-  commentId: Overload:WeihanLi.Extensions.HttpClientExtension.PostJsonRequestAsync
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.HttpClientExtension.PostJsonRequestAsync
-  nameWithType: HttpClientExtension.PostJsonRequestAsync
-- uid: WeihanLi.Extensions.HttpClientExtension.PostJsonRequestAsync``1(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)
-  name: PostJsonRequestAsync<T>(HttpClient, string, T, Action<HttpRequestMessage>?, CancellationToken)
-  href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_PostJsonRequestAsync__1_System_Net_Http_HttpClient_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.HttpClientExtension.PostJsonRequestAsync``1(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)
-  name.vb: PostJsonRequestAsync(Of T)(HttpClient, String, T, Action(Of HttpRequestMessage), CancellationToken)
-  fullName: WeihanLi.Extensions.HttpClientExtension.PostJsonRequestAsync<T>(System.Net.Http.HttpClient, string, T, System.Action<System.Net.Http.HttpRequestMessage>?, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.HttpClientExtension.PostJsonRequestAsync(Of T)(System.Net.Http.HttpClient, String, T, System.Action(Of System.Net.Http.HttpRequestMessage), System.Threading.CancellationToken)
-  nameWithType: HttpClientExtension.PostJsonRequestAsync<T>(HttpClient, string, T, Action<HttpRequestMessage>?, CancellationToken)
-  nameWithType.vb: HttpClientExtension.PostJsonRequestAsync(Of T)(HttpClient, String, T, Action(Of HttpRequestMessage), CancellationToken)
 - uid: WeihanLi.Extensions.HttpClientExtension.PutAsFormAsync(System.Net.Http.HttpClient,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Threading.CancellationToken)
   name: PutAsFormAsync(HttpClient, string, IEnumerable<KeyValuePair<string, string>>, CancellationToken)
   href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_PutAsFormAsync_System_Net_Http_HttpClient_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Threading_CancellationToken_
@@ -28164,54 +28618,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.HttpClientExtension.PutAsFormAsync
   nameWithType: HttpClientExtension.PutAsFormAsync
-- uid: WeihanLi.Extensions.HttpClientExtension.PutJsonAsync*
-  name: PutJsonAsync
-  href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_PutJsonAsync_
-  commentId: Overload:WeihanLi.Extensions.HttpClientExtension.PutJsonAsync
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.HttpClientExtension.PutJsonAsync
-  nameWithType: HttpClientExtension.PutJsonAsync
-- uid: WeihanLi.Extensions.HttpClientExtension.PutJsonAsync``2(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
-  name: PutJsonAsync<TRequest, TResponse>(HttpClient, string, TRequest, Action<HttpRequestMessage>?, Action<HttpResponseMessage>?, CancellationToken)
-  href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_PutJsonAsync__2_System_Net_Http_HttpClient_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Action_System_Net_Http_HttpResponseMessage__System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.HttpClientExtension.PutJsonAsync``2(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
-  name.vb: PutJsonAsync(Of TRequest, TResponse)(HttpClient, String, TRequest, Action(Of HttpRequestMessage), Action(Of HttpResponseMessage), CancellationToken)
-  fullName: WeihanLi.Extensions.HttpClientExtension.PutJsonAsync<TRequest, TResponse>(System.Net.Http.HttpClient, string, TRequest, System.Action<System.Net.Http.HttpRequestMessage>?, System.Action<System.Net.Http.HttpResponseMessage>?, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.HttpClientExtension.PutJsonAsync(Of TRequest, TResponse)(System.Net.Http.HttpClient, String, TRequest, System.Action(Of System.Net.Http.HttpRequestMessage), System.Action(Of System.Net.Http.HttpResponseMessage), System.Threading.CancellationToken)
-  nameWithType: HttpClientExtension.PutJsonAsync<TRequest, TResponse>(HttpClient, string, TRequest, Action<HttpRequestMessage>?, Action<HttpResponseMessage>?, CancellationToken)
-  nameWithType.vb: HttpClientExtension.PutJsonAsync(Of TRequest, TResponse)(HttpClient, String, TRequest, Action(Of HttpRequestMessage), Action(Of HttpResponseMessage), CancellationToken)
-- uid: WeihanLi.Extensions.HttpClientExtension.PutJsonRequestAsync*
-  name: PutJsonRequestAsync
-  href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_PutJsonRequestAsync_
-  commentId: Overload:WeihanLi.Extensions.HttpClientExtension.PutJsonRequestAsync
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.HttpClientExtension.PutJsonRequestAsync
-  nameWithType: HttpClientExtension.PutJsonRequestAsync
-- uid: WeihanLi.Extensions.HttpClientExtension.PutJsonRequestAsync``1(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)
-  name: PutJsonRequestAsync<T>(HttpClient, string, T, Action<HttpRequestMessage>?, CancellationToken)
-  href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_PutJsonRequestAsync__1_System_Net_Http_HttpClient_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.HttpClientExtension.PutJsonRequestAsync``1(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)
-  name.vb: PutJsonRequestAsync(Of T)(HttpClient, String, T, Action(Of HttpRequestMessage), CancellationToken)
-  fullName: WeihanLi.Extensions.HttpClientExtension.PutJsonRequestAsync<T>(System.Net.Http.HttpClient, string, T, System.Action<System.Net.Http.HttpRequestMessage>?, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.HttpClientExtension.PutJsonRequestAsync(Of T)(System.Net.Http.HttpClient, String, T, System.Action(Of System.Net.Http.HttpRequestMessage), System.Threading.CancellationToken)
-  nameWithType: HttpClientExtension.PutJsonRequestAsync<T>(HttpClient, string, T, Action<HttpRequestMessage>?, CancellationToken)
-  nameWithType.vb: HttpClientExtension.PutJsonRequestAsync(Of T)(HttpClient, String, T, Action(Of HttpRequestMessage), CancellationToken)
-- uid: WeihanLi.Extensions.HttpClientExtension.ReadJsonResponseAsync*
-  name: ReadJsonResponseAsync
-  href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_ReadJsonResponseAsync_
-  commentId: Overload:WeihanLi.Extensions.HttpClientExtension.ReadJsonResponseAsync
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.HttpClientExtension.ReadJsonResponseAsync
-  nameWithType: HttpClientExtension.ReadJsonResponseAsync
-- uid: WeihanLi.Extensions.HttpClientExtension.ReadJsonResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
-  name: ReadJsonResponseAsync<TResponse>(HttpResponseMessage, Action<HttpResponseMessage>?, CancellationToken)
-  href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_ReadJsonResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Action_System_Net_Http_HttpResponseMessage__System_Threading_CancellationToken_
-  commentId: M:WeihanLi.Extensions.HttpClientExtension.ReadJsonResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
-  name.vb: ReadJsonResponseAsync(Of TResponse)(HttpResponseMessage, Action(Of HttpResponseMessage), CancellationToken)
-  fullName: WeihanLi.Extensions.HttpClientExtension.ReadJsonResponseAsync<TResponse>(System.Net.Http.HttpResponseMessage, System.Action<System.Net.Http.HttpResponseMessage>?, System.Threading.CancellationToken)
-  fullName.vb: WeihanLi.Extensions.HttpClientExtension.ReadJsonResponseAsync(Of TResponse)(System.Net.Http.HttpResponseMessage, System.Action(Of System.Net.Http.HttpResponseMessage), System.Threading.CancellationToken)
-  nameWithType: HttpClientExtension.ReadJsonResponseAsync<TResponse>(HttpResponseMessage, Action<HttpResponseMessage>?, CancellationToken)
-  nameWithType.vb: HttpClientExtension.ReadJsonResponseAsync(Of TResponse)(HttpResponseMessage, Action(Of HttpResponseMessage), CancellationToken)
 - uid: WeihanLi.Extensions.HttpClientExtension.SetBasicAuthentication(System.Net.Http.HttpClient,System.String,System.String)
   name: SetBasicAuthentication(HttpClient, string, string)
   href: api/WeihanLi.Extensions.HttpClientExtension.html#WeihanLi_Extensions_HttpClientExtension_SetBasicAuthentication_System_Net_Http_HttpClient_System_String_System_String_
@@ -28335,6 +28741,124 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.HttpClientExtension.TryAddHeaderIfNotExists
   nameWithType: HttpClientExtension.TryAddHeaderIfNotExists
+- uid: WeihanLi.Extensions.HttpJsonClientExtension
+  name: HttpJsonClientExtension
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html
+  commentId: T:WeihanLi.Extensions.HttpJsonClientExtension
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension
+  nameWithType: HttpJsonClientExtension
+- uid: WeihanLi.Extensions.HttpJsonClientExtension.HttpJsonAsync*
+  name: HttpJsonAsync
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html#WeihanLi_Extensions_HttpJsonClientExtension_HttpJsonAsync_
+  commentId: Overload:WeihanLi.Extensions.HttpJsonClientExtension.HttpJsonAsync
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension.HttpJsonAsync
+  nameWithType: HttpJsonClientExtension.HttpJsonAsync
+- uid: WeihanLi.Extensions.HttpJsonClientExtension.HttpJsonAsync``2(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
+  name: HttpJsonAsync<TRequest, TResponse>(HttpClient, HttpMethod, string, TRequest, Action<HttpRequestMessage>?, Action<HttpResponseMessage>?, CancellationToken)
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html#WeihanLi_Extensions_HttpJsonClientExtension_HttpJsonAsync__2_System_Net_Http_HttpClient_System_Net_Http_HttpMethod_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Action_System_Net_Http_HttpResponseMessage__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.HttpJsonClientExtension.HttpJsonAsync``2(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
+  name.vb: HttpJsonAsync(Of TRequest, TResponse)(HttpClient, HttpMethod, String, TRequest, Action(Of HttpRequestMessage), Action(Of HttpResponseMessage), CancellationToken)
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension.HttpJsonAsync<TRequest, TResponse>(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, string, TRequest, System.Action<System.Net.Http.HttpRequestMessage>?, System.Action<System.Net.Http.HttpResponseMessage>?, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.HttpJsonClientExtension.HttpJsonAsync(Of TRequest, TResponse)(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, String, TRequest, System.Action(Of System.Net.Http.HttpRequestMessage), System.Action(Of System.Net.Http.HttpResponseMessage), System.Threading.CancellationToken)
+  nameWithType: HttpJsonClientExtension.HttpJsonAsync<TRequest, TResponse>(HttpClient, HttpMethod, string, TRequest, Action<HttpRequestMessage>?, Action<HttpResponseMessage>?, CancellationToken)
+  nameWithType.vb: HttpJsonClientExtension.HttpJsonAsync(Of TRequest, TResponse)(HttpClient, HttpMethod, String, TRequest, Action(Of HttpRequestMessage), Action(Of HttpResponseMessage), CancellationToken)
+- uid: WeihanLi.Extensions.HttpJsonClientExtension.HttpJsonRequestAsync*
+  name: HttpJsonRequestAsync
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html#WeihanLi_Extensions_HttpJsonClientExtension_HttpJsonRequestAsync_
+  commentId: Overload:WeihanLi.Extensions.HttpJsonClientExtension.HttpJsonRequestAsync
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension.HttpJsonRequestAsync
+  nameWithType: HttpJsonClientExtension.HttpJsonRequestAsync
+- uid: WeihanLi.Extensions.HttpJsonClientExtension.HttpJsonRequestAsync``1(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)
+  name: HttpJsonRequestAsync<TRequest>(HttpClient, HttpMethod, string, TRequest, Action<HttpRequestMessage>?, CancellationToken)
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html#WeihanLi_Extensions_HttpJsonClientExtension_HttpJsonRequestAsync__1_System_Net_Http_HttpClient_System_Net_Http_HttpMethod_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.HttpJsonClientExtension.HttpJsonRequestAsync``1(System.Net.Http.HttpClient,System.Net.Http.HttpMethod,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)
+  name.vb: HttpJsonRequestAsync(Of TRequest)(HttpClient, HttpMethod, String, TRequest, Action(Of HttpRequestMessage), CancellationToken)
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension.HttpJsonRequestAsync<TRequest>(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, string, TRequest, System.Action<System.Net.Http.HttpRequestMessage>?, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.HttpJsonClientExtension.HttpJsonRequestAsync(Of TRequest)(System.Net.Http.HttpClient, System.Net.Http.HttpMethod, String, TRequest, System.Action(Of System.Net.Http.HttpRequestMessage), System.Threading.CancellationToken)
+  nameWithType: HttpJsonClientExtension.HttpJsonRequestAsync<TRequest>(HttpClient, HttpMethod, string, TRequest, Action<HttpRequestMessage>?, CancellationToken)
+  nameWithType.vb: HttpJsonClientExtension.HttpJsonRequestAsync(Of TRequest)(HttpClient, HttpMethod, String, TRequest, Action(Of HttpRequestMessage), CancellationToken)
+- uid: WeihanLi.Extensions.HttpJsonClientExtension.PostJsonAsync*
+  name: PostJsonAsync
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html#WeihanLi_Extensions_HttpJsonClientExtension_PostJsonAsync_
+  commentId: Overload:WeihanLi.Extensions.HttpJsonClientExtension.PostJsonAsync
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension.PostJsonAsync
+  nameWithType: HttpJsonClientExtension.PostJsonAsync
+- uid: WeihanLi.Extensions.HttpJsonClientExtension.PostJsonAsync``2(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
+  name: PostJsonAsync<TRequest, TResponse>(HttpClient, string, TRequest, Action<HttpRequestMessage>?, Action<HttpResponseMessage>?, CancellationToken)
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html#WeihanLi_Extensions_HttpJsonClientExtension_PostJsonAsync__2_System_Net_Http_HttpClient_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Action_System_Net_Http_HttpResponseMessage__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.HttpJsonClientExtension.PostJsonAsync``2(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
+  name.vb: PostJsonAsync(Of TRequest, TResponse)(HttpClient, String, TRequest, Action(Of HttpRequestMessage), Action(Of HttpResponseMessage), CancellationToken)
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension.PostJsonAsync<TRequest, TResponse>(System.Net.Http.HttpClient, string, TRequest, System.Action<System.Net.Http.HttpRequestMessage>?, System.Action<System.Net.Http.HttpResponseMessage>?, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.HttpJsonClientExtension.PostJsonAsync(Of TRequest, TResponse)(System.Net.Http.HttpClient, String, TRequest, System.Action(Of System.Net.Http.HttpRequestMessage), System.Action(Of System.Net.Http.HttpResponseMessage), System.Threading.CancellationToken)
+  nameWithType: HttpJsonClientExtension.PostJsonAsync<TRequest, TResponse>(HttpClient, string, TRequest, Action<HttpRequestMessage>?, Action<HttpResponseMessage>?, CancellationToken)
+  nameWithType.vb: HttpJsonClientExtension.PostJsonAsync(Of TRequest, TResponse)(HttpClient, String, TRequest, Action(Of HttpRequestMessage), Action(Of HttpResponseMessage), CancellationToken)
+- uid: WeihanLi.Extensions.HttpJsonClientExtension.PostJsonRequestAsync*
+  name: PostJsonRequestAsync
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html#WeihanLi_Extensions_HttpJsonClientExtension_PostJsonRequestAsync_
+  commentId: Overload:WeihanLi.Extensions.HttpJsonClientExtension.PostJsonRequestAsync
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension.PostJsonRequestAsync
+  nameWithType: HttpJsonClientExtension.PostJsonRequestAsync
+- uid: WeihanLi.Extensions.HttpJsonClientExtension.PostJsonRequestAsync``1(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)
+  name: PostJsonRequestAsync<T>(HttpClient, string, T, Action<HttpRequestMessage>?, CancellationToken)
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html#WeihanLi_Extensions_HttpJsonClientExtension_PostJsonRequestAsync__1_System_Net_Http_HttpClient_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.HttpJsonClientExtension.PostJsonRequestAsync``1(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)
+  name.vb: PostJsonRequestAsync(Of T)(HttpClient, String, T, Action(Of HttpRequestMessage), CancellationToken)
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension.PostJsonRequestAsync<T>(System.Net.Http.HttpClient, string, T, System.Action<System.Net.Http.HttpRequestMessage>?, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.HttpJsonClientExtension.PostJsonRequestAsync(Of T)(System.Net.Http.HttpClient, String, T, System.Action(Of System.Net.Http.HttpRequestMessage), System.Threading.CancellationToken)
+  nameWithType: HttpJsonClientExtension.PostJsonRequestAsync<T>(HttpClient, string, T, Action<HttpRequestMessage>?, CancellationToken)
+  nameWithType.vb: HttpJsonClientExtension.PostJsonRequestAsync(Of T)(HttpClient, String, T, Action(Of HttpRequestMessage), CancellationToken)
+- uid: WeihanLi.Extensions.HttpJsonClientExtension.PutJsonAsync*
+  name: PutJsonAsync
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html#WeihanLi_Extensions_HttpJsonClientExtension_PutJsonAsync_
+  commentId: Overload:WeihanLi.Extensions.HttpJsonClientExtension.PutJsonAsync
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension.PutJsonAsync
+  nameWithType: HttpJsonClientExtension.PutJsonAsync
+- uid: WeihanLi.Extensions.HttpJsonClientExtension.PutJsonAsync``2(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
+  name: PutJsonAsync<TRequest, TResponse>(HttpClient, string, TRequest, Action<HttpRequestMessage>?, Action<HttpResponseMessage>?, CancellationToken)
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html#WeihanLi_Extensions_HttpJsonClientExtension_PutJsonAsync__2_System_Net_Http_HttpClient_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Action_System_Net_Http_HttpResponseMessage__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.HttpJsonClientExtension.PutJsonAsync``2(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
+  name.vb: PutJsonAsync(Of TRequest, TResponse)(HttpClient, String, TRequest, Action(Of HttpRequestMessage), Action(Of HttpResponseMessage), CancellationToken)
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension.PutJsonAsync<TRequest, TResponse>(System.Net.Http.HttpClient, string, TRequest, System.Action<System.Net.Http.HttpRequestMessage>?, System.Action<System.Net.Http.HttpResponseMessage>?, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.HttpJsonClientExtension.PutJsonAsync(Of TRequest, TResponse)(System.Net.Http.HttpClient, String, TRequest, System.Action(Of System.Net.Http.HttpRequestMessage), System.Action(Of System.Net.Http.HttpResponseMessage), System.Threading.CancellationToken)
+  nameWithType: HttpJsonClientExtension.PutJsonAsync<TRequest, TResponse>(HttpClient, string, TRequest, Action<HttpRequestMessage>?, Action<HttpResponseMessage>?, CancellationToken)
+  nameWithType.vb: HttpJsonClientExtension.PutJsonAsync(Of TRequest, TResponse)(HttpClient, String, TRequest, Action(Of HttpRequestMessage), Action(Of HttpResponseMessage), CancellationToken)
+- uid: WeihanLi.Extensions.HttpJsonClientExtension.PutJsonRequestAsync*
+  name: PutJsonRequestAsync
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html#WeihanLi_Extensions_HttpJsonClientExtension_PutJsonRequestAsync_
+  commentId: Overload:WeihanLi.Extensions.HttpJsonClientExtension.PutJsonRequestAsync
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension.PutJsonRequestAsync
+  nameWithType: HttpJsonClientExtension.PutJsonRequestAsync
+- uid: WeihanLi.Extensions.HttpJsonClientExtension.PutJsonRequestAsync``1(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)
+  name: PutJsonRequestAsync<T>(HttpClient, string, T, Action<HttpRequestMessage>?, CancellationToken)
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html#WeihanLi_Extensions_HttpJsonClientExtension_PutJsonRequestAsync__1_System_Net_Http_HttpClient_System_String___0_System_Action_System_Net_Http_HttpRequestMessage__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.HttpJsonClientExtension.PutJsonRequestAsync``1(System.Net.Http.HttpClient,System.String,``0,System.Action{System.Net.Http.HttpRequestMessage},System.Threading.CancellationToken)
+  name.vb: PutJsonRequestAsync(Of T)(HttpClient, String, T, Action(Of HttpRequestMessage), CancellationToken)
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension.PutJsonRequestAsync<T>(System.Net.Http.HttpClient, string, T, System.Action<System.Net.Http.HttpRequestMessage>?, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.HttpJsonClientExtension.PutJsonRequestAsync(Of T)(System.Net.Http.HttpClient, String, T, System.Action(Of System.Net.Http.HttpRequestMessage), System.Threading.CancellationToken)
+  nameWithType: HttpJsonClientExtension.PutJsonRequestAsync<T>(HttpClient, string, T, Action<HttpRequestMessage>?, CancellationToken)
+  nameWithType.vb: HttpJsonClientExtension.PutJsonRequestAsync(Of T)(HttpClient, String, T, Action(Of HttpRequestMessage), CancellationToken)
+- uid: WeihanLi.Extensions.HttpJsonClientExtension.ReadJsonResponseAsync*
+  name: ReadJsonResponseAsync
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html#WeihanLi_Extensions_HttpJsonClientExtension_ReadJsonResponseAsync_
+  commentId: Overload:WeihanLi.Extensions.HttpJsonClientExtension.ReadJsonResponseAsync
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension.ReadJsonResponseAsync
+  nameWithType: HttpJsonClientExtension.ReadJsonResponseAsync
+- uid: WeihanLi.Extensions.HttpJsonClientExtension.ReadJsonResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
+  name: ReadJsonResponseAsync<TResponse>(HttpResponseMessage, Action<HttpResponseMessage>?, CancellationToken)
+  href: api/WeihanLi.Extensions.HttpJsonClientExtension.html#WeihanLi_Extensions_HttpJsonClientExtension_ReadJsonResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Action_System_Net_Http_HttpResponseMessage__System_Threading_CancellationToken_
+  commentId: M:WeihanLi.Extensions.HttpJsonClientExtension.ReadJsonResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Action{System.Net.Http.HttpResponseMessage},System.Threading.CancellationToken)
+  name.vb: ReadJsonResponseAsync(Of TResponse)(HttpResponseMessage, Action(Of HttpResponseMessage), CancellationToken)
+  fullName: WeihanLi.Extensions.HttpJsonClientExtension.ReadJsonResponseAsync<TResponse>(System.Net.Http.HttpResponseMessage, System.Action<System.Net.Http.HttpResponseMessage>?, System.Threading.CancellationToken)
+  fullName.vb: WeihanLi.Extensions.HttpJsonClientExtension.ReadJsonResponseAsync(Of TResponse)(System.Net.Http.HttpResponseMessage, System.Action(Of System.Net.Http.HttpResponseMessage), System.Threading.CancellationToken)
+  nameWithType: HttpJsonClientExtension.ReadJsonResponseAsync<TResponse>(HttpResponseMessage, Action<HttpResponseMessage>?, CancellationToken)
+  nameWithType.vb: HttpJsonClientExtension.ReadJsonResponseAsync(Of TResponse)(HttpResponseMessage, Action(Of HttpResponseMessage), CancellationToken)
 - uid: WeihanLi.Extensions.HttpRequesterExtension
   name: HttpRequesterExtension
   href: api/WeihanLi.Extensions.HttpRequesterExtension.html
@@ -29360,6 +29884,44 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.NetExtension.ReadToEndAsync
   nameWithType: NetExtension.ReadToEndAsync
+- uid: WeihanLi.Extensions.ParameterDictionaryExtension
+  name: ParameterDictionaryExtension
+  href: api/WeihanLi.Extensions.ParameterDictionaryExtension.html
+  commentId: T:WeihanLi.Extensions.ParameterDictionaryExtension
+  fullName: WeihanLi.Extensions.ParameterDictionaryExtension
+  nameWithType: ParameterDictionaryExtension
+- uid: WeihanLi.Extensions.ParameterDictionaryExtension.ParseParamDictionary(System.Object)
+  name: ParseParamDictionary(object?)
+  href: api/WeihanLi.Extensions.ParameterDictionaryExtension.html#WeihanLi_Extensions_ParameterDictionaryExtension_ParseParamDictionary_System_Object_
+  commentId: M:WeihanLi.Extensions.ParameterDictionaryExtension.ParseParamDictionary(System.Object)
+  name.vb: ParseParamDictionary(Object)
+  fullName: WeihanLi.Extensions.ParameterDictionaryExtension.ParseParamDictionary(object?)
+  fullName.vb: WeihanLi.Extensions.ParameterDictionaryExtension.ParseParamDictionary(Object)
+  nameWithType: ParameterDictionaryExtension.ParseParamDictionary(object?)
+  nameWithType.vb: ParameterDictionaryExtension.ParseParamDictionary(Object)
+- uid: WeihanLi.Extensions.ParameterDictionaryExtension.ParseParamDictionary*
+  name: ParseParamDictionary
+  href: api/WeihanLi.Extensions.ParameterDictionaryExtension.html#WeihanLi_Extensions_ParameterDictionaryExtension_ParseParamDictionary_
+  commentId: Overload:WeihanLi.Extensions.ParameterDictionaryExtension.ParseParamDictionary
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.ParameterDictionaryExtension.ParseParamDictionary
+  nameWithType: ParameterDictionaryExtension.ParseParamDictionary
+- uid: WeihanLi.Extensions.ParameterDictionaryExtension.ToDataTable(System.Collections.Generic.IDictionary{System.String,System.Object})
+  name: ToDataTable(IDictionary<string, object>)
+  href: api/WeihanLi.Extensions.ParameterDictionaryExtension.html#WeihanLi_Extensions_ParameterDictionaryExtension_ToDataTable_System_Collections_Generic_IDictionary_System_String_System_Object__
+  commentId: M:WeihanLi.Extensions.ParameterDictionaryExtension.ToDataTable(System.Collections.Generic.IDictionary{System.String,System.Object})
+  name.vb: ToDataTable(IDictionary(Of String, Object))
+  fullName: WeihanLi.Extensions.ParameterDictionaryExtension.ToDataTable(System.Collections.Generic.IDictionary<string, object>)
+  fullName.vb: WeihanLi.Extensions.ParameterDictionaryExtension.ToDataTable(System.Collections.Generic.IDictionary(Of String, Object))
+  nameWithType: ParameterDictionaryExtension.ToDataTable(IDictionary<string, object>)
+  nameWithType.vb: ParameterDictionaryExtension.ToDataTable(IDictionary(Of String, Object))
+- uid: WeihanLi.Extensions.ParameterDictionaryExtension.ToDataTable*
+  name: ToDataTable
+  href: api/WeihanLi.Extensions.ParameterDictionaryExtension.html#WeihanLi_Extensions_ParameterDictionaryExtension_ToDataTable_
+  commentId: Overload:WeihanLi.Extensions.ParameterDictionaryExtension.ToDataTable
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.ParameterDictionaryExtension.ToDataTable
+  nameWithType: ParameterDictionaryExtension.ToDataTable
 - uid: WeihanLi.Extensions.ProcessExtension
   name: ProcessExtension
   href: api/WeihanLi.Extensions.ProcessExtension.html
@@ -29527,6 +30089,62 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.ProcessExtension.WithEnv
   nameWithType: ProcessExtension.WithEnv
+- uid: WeihanLi.Extensions.PropertiesExtensions
+  name: PropertiesExtensions
+  href: api/WeihanLi.Extensions.PropertiesExtensions.html
+  commentId: T:WeihanLi.Extensions.PropertiesExtensions
+  fullName: WeihanLi.Extensions.PropertiesExtensions
+  nameWithType: PropertiesExtensions
+- uid: WeihanLi.Extensions.PropertiesExtensions.GetProperty*
+  name: GetProperty
+  href: api/WeihanLi.Extensions.PropertiesExtensions.html#WeihanLi_Extensions_PropertiesExtensions_GetProperty_
+  commentId: Overload:WeihanLi.Extensions.PropertiesExtensions.GetProperty
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.PropertiesExtensions.GetProperty
+  nameWithType: PropertiesExtensions.GetProperty
+- uid: WeihanLi.Extensions.PropertiesExtensions.GetProperty``1(System.Collections.Generic.IDictionary{System.String,System.Object},System.String)
+  name: GetProperty<T>(IDictionary<string, object?>, string)
+  href: api/WeihanLi.Extensions.PropertiesExtensions.html#WeihanLi_Extensions_PropertiesExtensions_GetProperty__1_System_Collections_Generic_IDictionary_System_String_System_Object__System_String_
+  commentId: M:WeihanLi.Extensions.PropertiesExtensions.GetProperty``1(System.Collections.Generic.IDictionary{System.String,System.Object},System.String)
+  name.vb: GetProperty(Of T)(IDictionary(Of String, Object), String)
+  fullName: WeihanLi.Extensions.PropertiesExtensions.GetProperty<T>(System.Collections.Generic.IDictionary<string, object?>, string)
+  fullName.vb: WeihanLi.Extensions.PropertiesExtensions.GetProperty(Of T)(System.Collections.Generic.IDictionary(Of String, Object), String)
+  nameWithType: PropertiesExtensions.GetProperty<T>(IDictionary<string, object?>, string)
+  nameWithType.vb: PropertiesExtensions.GetProperty(Of T)(IDictionary(Of String, Object), String)
+- uid: WeihanLi.Extensions.PropertiesExtensions.GetProperty``1(WeihanLi.Common.Abstractions.IProperties,System.String)
+  name: GetProperty<T>(IProperties, string)
+  href: api/WeihanLi.Extensions.PropertiesExtensions.html#WeihanLi_Extensions_PropertiesExtensions_GetProperty__1_WeihanLi_Common_Abstractions_IProperties_System_String_
+  commentId: M:WeihanLi.Extensions.PropertiesExtensions.GetProperty``1(WeihanLi.Common.Abstractions.IProperties,System.String)
+  name.vb: GetProperty(Of T)(IProperties, String)
+  fullName: WeihanLi.Extensions.PropertiesExtensions.GetProperty<T>(WeihanLi.Common.Abstractions.IProperties, string)
+  fullName.vb: WeihanLi.Extensions.PropertiesExtensions.GetProperty(Of T)(WeihanLi.Common.Abstractions.IProperties, String)
+  nameWithType: PropertiesExtensions.GetProperty<T>(IProperties, string)
+  nameWithType.vb: PropertiesExtensions.GetProperty(Of T)(IProperties, String)
+- uid: WeihanLi.Extensions.PropertiesExtensions.SetProperty*
+  name: SetProperty
+  href: api/WeihanLi.Extensions.PropertiesExtensions.html#WeihanLi_Extensions_PropertiesExtensions_SetProperty_
+  commentId: Overload:WeihanLi.Extensions.PropertiesExtensions.SetProperty
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.PropertiesExtensions.SetProperty
+  nameWithType: PropertiesExtensions.SetProperty
+- uid: WeihanLi.Extensions.PropertiesExtensions.SetProperty``1(System.Collections.Generic.IDictionary{System.String,System.Object},System.String,``0)
+  name: SetProperty<T>(IDictionary<string, object?>, string, T)
+  href: api/WeihanLi.Extensions.PropertiesExtensions.html#WeihanLi_Extensions_PropertiesExtensions_SetProperty__1_System_Collections_Generic_IDictionary_System_String_System_Object__System_String___0_
+  commentId: M:WeihanLi.Extensions.PropertiesExtensions.SetProperty``1(System.Collections.Generic.IDictionary{System.String,System.Object},System.String,``0)
+  name.vb: SetProperty(Of T)(IDictionary(Of String, Object), String, T)
+  fullName: WeihanLi.Extensions.PropertiesExtensions.SetProperty<T>(System.Collections.Generic.IDictionary<string, object?>, string, T)
+  fullName.vb: WeihanLi.Extensions.PropertiesExtensions.SetProperty(Of T)(System.Collections.Generic.IDictionary(Of String, Object), String, T)
+  nameWithType: PropertiesExtensions.SetProperty<T>(IDictionary<string, object?>, string, T)
+  nameWithType.vb: PropertiesExtensions.SetProperty(Of T)(IDictionary(Of String, Object), String, T)
+- uid: WeihanLi.Extensions.PropertiesExtensions.SetProperty``1(WeihanLi.Common.Abstractions.IProperties,System.String,``0)
+  name: SetProperty<T>(IProperties, string, T)
+  href: api/WeihanLi.Extensions.PropertiesExtensions.html#WeihanLi_Extensions_PropertiesExtensions_SetProperty__1_WeihanLi_Common_Abstractions_IProperties_System_String___0_
+  commentId: M:WeihanLi.Extensions.PropertiesExtensions.SetProperty``1(WeihanLi.Common.Abstractions.IProperties,System.String,``0)
+  name.vb: SetProperty(Of T)(IProperties, String, T)
+  fullName: WeihanLi.Extensions.PropertiesExtensions.SetProperty<T>(WeihanLi.Common.Abstractions.IProperties, string, T)
+  fullName.vb: WeihanLi.Extensions.PropertiesExtensions.SetProperty(Of T)(WeihanLi.Common.Abstractions.IProperties, String, T)
+  nameWithType: PropertiesExtensions.SetProperty<T>(IProperties, string, T)
+  nameWithType.vb: PropertiesExtensions.SetProperty(Of T)(IProperties, String, T)
 - uid: WeihanLi.Extensions.QueryableExtension
   name: QueryableExtension
   href: api/WeihanLi.Extensions.QueryableExtension.html
@@ -29850,6 +30468,44 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.ReflectionExtension.IsVisibleAndVirtual
   nameWithType: ReflectionExtension.IsVisibleAndVirtual
+- uid: WeihanLi.Extensions.ServiceExtensions
+  name: ServiceExtensions
+  href: api/WeihanLi.Extensions.ServiceExtensions.html
+  commentId: T:WeihanLi.Extensions.ServiceExtensions
+  fullName: WeihanLi.Extensions.ServiceExtensions
+  nameWithType: ServiceExtensions
+- uid: WeihanLi.Extensions.ServiceExtensions.GetTenantId*
+  name: GetTenantId
+  href: api/WeihanLi.Extensions.ServiceExtensions.html#WeihanLi_Extensions_ServiceExtensions_GetTenantId_
+  commentId: Overload:WeihanLi.Extensions.ServiceExtensions.GetTenantId
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.ServiceExtensions.GetTenantId
+  nameWithType: ServiceExtensions.GetTenantId
+- uid: WeihanLi.Extensions.ServiceExtensions.GetTenantId``1(WeihanLi.Common.Services.ITenantProvider,``0)
+  name: GetTenantId<T>(ITenantProvider, T?)
+  href: api/WeihanLi.Extensions.ServiceExtensions.html#WeihanLi_Extensions_ServiceExtensions_GetTenantId__1_WeihanLi_Common_Services_ITenantProvider___0_
+  commentId: M:WeihanLi.Extensions.ServiceExtensions.GetTenantId``1(WeihanLi.Common.Services.ITenantProvider,``0)
+  name.vb: GetTenantId(Of T)(ITenantProvider, T)
+  fullName: WeihanLi.Extensions.ServiceExtensions.GetTenantId<T>(WeihanLi.Common.Services.ITenantProvider, T?)
+  fullName.vb: WeihanLi.Extensions.ServiceExtensions.GetTenantId(Of T)(WeihanLi.Common.Services.ITenantProvider, T)
+  nameWithType: ServiceExtensions.GetTenantId<T>(ITenantProvider, T?)
+  nameWithType.vb: ServiceExtensions.GetTenantId(Of T)(ITenantProvider, T)
+- uid: WeihanLi.Extensions.ServiceExtensions.TryGetTenantId*
+  name: TryGetTenantId
+  href: api/WeihanLi.Extensions.ServiceExtensions.html#WeihanLi_Extensions_ServiceExtensions_TryGetTenantId_
+  commentId: Overload:WeihanLi.Extensions.ServiceExtensions.TryGetTenantId
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.ServiceExtensions.TryGetTenantId
+  nameWithType: ServiceExtensions.TryGetTenantId
+- uid: WeihanLi.Extensions.ServiceExtensions.TryGetTenantId``1(WeihanLi.Common.Services.ITenantProvider,``0@,``0)
+  name: TryGetTenantId<T>(ITenantProvider, out T?, T?)
+  href: api/WeihanLi.Extensions.ServiceExtensions.html#WeihanLi_Extensions_ServiceExtensions_TryGetTenantId__1_WeihanLi_Common_Services_ITenantProvider___0____0_
+  commentId: M:WeihanLi.Extensions.ServiceExtensions.TryGetTenantId``1(WeihanLi.Common.Services.ITenantProvider,``0@,``0)
+  name.vb: TryGetTenantId(Of T)(ITenantProvider, T, T)
+  fullName: WeihanLi.Extensions.ServiceExtensions.TryGetTenantId<T>(WeihanLi.Common.Services.ITenantProvider, out T?, T?)
+  fullName.vb: WeihanLi.Extensions.ServiceExtensions.TryGetTenantId(Of T)(WeihanLi.Common.Services.ITenantProvider, T, T)
+  nameWithType: ServiceExtensions.TryGetTenantId<T>(ITenantProvider, out T?, T?)
+  nameWithType.vb: ServiceExtensions.TryGetTenantId(Of T)(ITenantProvider, T, T)
 - uid: WeihanLi.Extensions.StringExtension
   name: StringExtension
   href: api/WeihanLi.Extensions.StringExtension.html
@@ -29954,22 +30610,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.StringExtension.GetNotEmptyValueOrDefault
   nameWithType: StringExtension.GetNotEmptyValueOrDefault
-- uid: WeihanLi.Extensions.StringExtension.GetTypeByTypeName(System.String)
-  name: GetTypeByTypeName(string)
-  href: api/WeihanLi.Extensions.StringExtension.html#WeihanLi_Extensions_StringExtension_GetTypeByTypeName_System_String_
-  commentId: M:WeihanLi.Extensions.StringExtension.GetTypeByTypeName(System.String)
-  name.vb: GetTypeByTypeName(String)
-  fullName: WeihanLi.Extensions.StringExtension.GetTypeByTypeName(string)
-  fullName.vb: WeihanLi.Extensions.StringExtension.GetTypeByTypeName(String)
-  nameWithType: StringExtension.GetTypeByTypeName(string)
-  nameWithType.vb: StringExtension.GetTypeByTypeName(String)
-- uid: WeihanLi.Extensions.StringExtension.GetTypeByTypeName*
-  name: GetTypeByTypeName
-  href: api/WeihanLi.Extensions.StringExtension.html#WeihanLi_Extensions_StringExtension_GetTypeByTypeName_
-  commentId: Overload:WeihanLi.Extensions.StringExtension.GetTypeByTypeName
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.StringExtension.GetTypeByTypeName
-  nameWithType: StringExtension.GetTypeByTypeName
 - uid: WeihanLi.Extensions.StringExtension.GetValueOrDefault(System.String,System.Func{System.String})
   name: GetValueOrDefault(string?, Func<string>)
   href: api/WeihanLi.Extensions.StringExtension.html#WeihanLi_Extensions_StringExtension_GetValueOrDefault_System_String_System_Func_System_String__
@@ -30077,31 +30717,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.StringExtension.ParseQueryString
   nameWithType: StringExtension.ParseQueryString
-- uid: WeihanLi.Extensions.StringExtension.SplitArray*
-  name: SplitArray
-  href: api/WeihanLi.Extensions.StringExtension.html#WeihanLi_Extensions_StringExtension_SplitArray_
-  commentId: Overload:WeihanLi.Extensions.StringExtension.SplitArray
-  isSpec: "True"
-  fullName: WeihanLi.Extensions.StringExtension.SplitArray
-  nameWithType: StringExtension.SplitArray
-- uid: WeihanLi.Extensions.StringExtension.SplitArray``1(System.String,System.Char[],System.StringSplitOptions)
-  name: SplitArray<T>(string?, char[], StringSplitOptions)
-  href: api/WeihanLi.Extensions.StringExtension.html#WeihanLi_Extensions_StringExtension_SplitArray__1_System_String_System_Char___System_StringSplitOptions_
-  commentId: M:WeihanLi.Extensions.StringExtension.SplitArray``1(System.String,System.Char[],System.StringSplitOptions)
-  name.vb: SplitArray(Of T)(String, Char(), StringSplitOptions)
-  fullName: WeihanLi.Extensions.StringExtension.SplitArray<T>(string?, char[], System.StringSplitOptions)
-  fullName.vb: WeihanLi.Extensions.StringExtension.SplitArray(Of T)(String, Char(), System.StringSplitOptions)
-  nameWithType: StringExtension.SplitArray<T>(string?, char[], StringSplitOptions)
-  nameWithType.vb: StringExtension.SplitArray(Of T)(String, Char(), StringSplitOptions)
-- uid: WeihanLi.Extensions.StringExtension.SplitArray``1(System.String,System.StringSplitOptions)
-  name: SplitArray<T>(string?, StringSplitOptions)
-  href: api/WeihanLi.Extensions.StringExtension.html#WeihanLi_Extensions_StringExtension_SplitArray__1_System_String_System_StringSplitOptions_
-  commentId: M:WeihanLi.Extensions.StringExtension.SplitArray``1(System.String,System.StringSplitOptions)
-  name.vb: SplitArray(Of T)(String, StringSplitOptions)
-  fullName: WeihanLi.Extensions.StringExtension.SplitArray<T>(string?, System.StringSplitOptions)
-  fullName.vb: WeihanLi.Extensions.StringExtension.SplitArray(Of T)(String, System.StringSplitOptions)
-  nameWithType: StringExtension.SplitArray<T>(string?, StringSplitOptions)
-  nameWithType.vb: StringExtension.SplitArray(Of T)(String, StringSplitOptions)
 - uid: WeihanLi.Extensions.StringExtension.TrimStart(System.String,System.String)
   name: TrimStart(string?, string)
   href: api/WeihanLi.Extensions.StringExtension.html#WeihanLi_Extensions_StringExtension_TrimStart_System_String_System_String_
@@ -30427,6 +31042,22 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Extensions.TypeExtension.GetMatchingConstructor
   nameWithType: TypeExtension.GetMatchingConstructor
+- uid: WeihanLi.Extensions.TypeExtension.GetTypeByTypeName(System.String)
+  name: GetTypeByTypeName(string)
+  href: api/WeihanLi.Extensions.TypeExtension.html#WeihanLi_Extensions_TypeExtension_GetTypeByTypeName_System_String_
+  commentId: M:WeihanLi.Extensions.TypeExtension.GetTypeByTypeName(System.String)
+  name.vb: GetTypeByTypeName(String)
+  fullName: WeihanLi.Extensions.TypeExtension.GetTypeByTypeName(string)
+  fullName.vb: WeihanLi.Extensions.TypeExtension.GetTypeByTypeName(String)
+  nameWithType: TypeExtension.GetTypeByTypeName(string)
+  nameWithType.vb: TypeExtension.GetTypeByTypeName(String)
+- uid: WeihanLi.Extensions.TypeExtension.GetTypeByTypeName*
+  name: GetTypeByTypeName
+  href: api/WeihanLi.Extensions.TypeExtension.html#WeihanLi_Extensions_TypeExtension_GetTypeByTypeName_
+  commentId: Overload:WeihanLi.Extensions.TypeExtension.GetTypeByTypeName
+  isSpec: "True"
+  fullName: WeihanLi.Extensions.TypeExtension.GetTypeByTypeName
+  nameWithType: TypeExtension.GetTypeByTypeName
 - uid: WeihanLi.Extensions.TypeExtension.GetTypeCode(System.Type)
   name: GetTypeCode(Type)
   href: api/WeihanLi.Extensions.TypeExtension.html#WeihanLi_Extensions_TypeExtension_GetTypeCode_System_Type_

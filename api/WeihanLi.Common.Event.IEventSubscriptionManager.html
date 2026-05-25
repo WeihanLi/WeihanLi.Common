@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Event_IEventSubscriptionManager" data-uid="WeihanLi.Common.Event.IEventSubscriptionManager" class="text-break">
-Interface IEventSubscriptionManager  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Interface IEventSubscriptionManager  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -133,28 +133,25 @@ Interface IEventSubscriptionManager  <a class="header-action link-secondary" tit
       <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object___0_">CoreExtension.AsOrDefault&lt;T&gt;(object?, T)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ParseParamDictionary_System_Object_">CoreExtension.ParseParamDictionary(object?)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_To_System_Object_System_Type_">CoreExtensions.To(object?, Type)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_To_System_Object_System_Type_">CoreExtension.To(object?, Type)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault_System_Object_System_Type_">CoreExtensions.ToOrDefault(object?, Type)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault_System_Object_System_Type_">CoreExtension.ToOrDefault(object?, Type)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object_">CoreExtensions.ToOrDefault&lt;T&gt;(object?)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_">CoreExtension.ToOrDefault&lt;T&gt;(object?)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object_System_Func_System_Object___0__">CoreExtensions.ToOrDefault&lt;T&gt;(object?, Func&lt;object?, T&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func_System_Object___0__">CoreExtension.ToOrDefault&lt;T&gt;(object?, Func&lt;object?, T&gt;)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object_System_Func___0__">CoreExtensions.ToOrDefault&lt;T&gt;(object?, Func&lt;T&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func___0__">CoreExtension.ToOrDefault&lt;T&gt;(object?, Func&lt;T&gt;)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object___0_">CoreExtensions.ToOrDefault&lt;T&gt;(object?, T)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object___0_">CoreExtension.ToOrDefault&lt;T&gt;(object?, T)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_To__1_System_Object_">CoreExtension.To&lt;T&gt;(object?)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_To__1_System_Object_">CoreExtensions.To&lt;T&gt;(object?)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToIndentedJson_System_Object_">JsonSerializeExtension.ToIndentedJson(object)</a>
@@ -173,6 +170,9 @@ Interface IEventSubscriptionManager  <a class="header-action link-secondary" tit
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJsonOrString_System_Object_">JsonSerializeExtension.ToJsonOrString(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ParameterDictionaryExtension.html#WeihanLi_Extensions_ParameterDictionaryExtension_ParseParamDictionary_System_Object_">ParameterDictionaryExtension.ParseParamDictionary(object?)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Common.Event.EventSubscriberExtensions.html#WeihanLi_Common_Event_EventSubscriberExtensions_SubscribeAsync__2_WeihanLi_Common_Event_IEventSubscriber_">EventSubscriberExtensions.SubscribeAsync&lt;TEvent, TEventHandler&gt;(IEventSubscriber)</a>
@@ -266,7 +266,7 @@ Interface IEventSubscriptionManager  <a class="header-action link-secondary" tit
 
   <h3 id="WeihanLi_Common_Event_IEventSubscriptionManager_GetEventHandlers_System_Type_" data-uid="WeihanLi.Common.Event.IEventSubscriptionManager.GetEventHandlers(System.Type)">
   GetEventHandlers(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get EventHandlers for event</p>
@@ -305,7 +305,7 @@ Interface IEventSubscriptionManager  <a class="header-action link-secondary" tit
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Event/EventSubscriptionManager.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
 

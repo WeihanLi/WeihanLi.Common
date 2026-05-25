@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IStream&lt;T&gt; </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IStream&lt;T&gt; ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/WeihanLi/WeihanLi.Common/new/master/apiSpec/new?filename=WeihanLi_Common_Helpers_IStream_1.md&amp;value=---%0Auid%3A%20WeihanLi.Common.Helpers.IStream%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="WeihanLi.Common.Helpers.IStream`1">
+
+
+
+  <h1 id="WeihanLi_Common_Helpers_IStream_1" data-uid="WeihanLi.Common.Helpers.IStream`1" class="text-break">
+Interface IStream&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Helpers/InMemoryStream.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="WeihanLi.html">WeihanLi</a>.<a class="xref" href="WeihanLi.Common.html">Common</a>.<a class="xref" href="WeihanLi.Common.Helpers.html">Helpers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>WeihanLi.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IStream&lt;T&gt;</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object_">CoreExtension.AsOrDefault&lt;T&gt;(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object_System_Func___0__">CoreExtension.AsOrDefault&lt;T&gt;(object?, Func&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object___0_">CoreExtension.AsOrDefault&lt;T&gt;(object?, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_To_System_Object_System_Type_">CoreExtensions.To(object?, Type)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault_System_Object_System_Type_">CoreExtensions.ToOrDefault(object?, Type)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object_">CoreExtensions.ToOrDefault&lt;T&gt;(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object_System_Func_System_Object___0__">CoreExtensions.ToOrDefault&lt;T&gt;(object?, Func&lt;object?, T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object_System_Func___0__">CoreExtensions.ToOrDefault&lt;T&gt;(object?, Func&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object___0_">CoreExtensions.ToOrDefault&lt;T&gt;(object?, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_To__1_System_Object_">CoreExtensions.To&lt;T&gt;(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToIndentedJson_System_Object_">JsonSerializeExtension.ToIndentedJson(object)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_">JsonSerializeExtension.ToJson(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_Newtonsoft_Json_JsonSerializerSettings_">JsonSerializeExtension.ToJson(object, JsonSerializerSettings?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_">JsonSerializeExtension.ToJson(object?, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJson_System_Object_System_Boolean_Newtonsoft_Json_JsonSerializerSettings_">JsonSerializeExtension.ToJson(object?, bool, JsonSerializerSettings?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJsonOrString_System_Object_">JsonSerializeExtension.ToJsonOrString(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ParameterDictionaryExtension.html#WeihanLi_Extensions_ParameterDictionaryExtension_ParseParamDictionary_System_Object_">ParameterDictionaryExtension.ParseParamDictionary(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Event.EventExtensions.html#WeihanLi_Common_Event_EventExtensions_ToEventMsg__1___0_">EventExtensions.ToEventMsg&lt;TEvent&gt;(TEvent)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Event.EventExtensions.html#WeihanLi_Common_Event_EventExtensions_ToEventRawMsg__1___0_">EventExtensions.ToEventRawMsg&lt;TEvent&gt;(TEvent)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Common.Models.ResultExtensions.html#WeihanLi_Common_Models_ResultExtensions_WrapResult__1___0_WeihanLi_Common_Models_ResultStatus_System_String_">ResultExtensions.WrapResult&lt;T&gt;(T, ResultStatus, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Chain__1___0_System_Action___0__">CoreExtension.Chain&lt;T&gt;(T, Action&lt;T&gt;?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_GetValueOrDefault__2___0_System_Func___0___1__">CoreExtension.GetValueOrDefault&lt;T, TResult&gt;(T, Func&lt;T, TResult&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_GetValueOrDefault__2___0_System_Func___0___1____1_">CoreExtension.GetValueOrDefault&lt;T, TResult&gt;(T, Func&lt;T, TResult&gt;, TResult)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_IsDefault__1___0_">CoreExtension.IsDefault&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__1___0_System_Action___0__">CoreExtension.Try&lt;TType&gt;(TType, Action&lt;TType&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__1___0_System_Action___0__System_Action___0__">CoreExtension.Try&lt;TType&gt;(TType, Action&lt;TType&gt;, Action&lt;TType&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1__System_Func___0___1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, Func&lt;TType, TResult&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1__System_Func___0___1____1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, Func&lt;TType, TResult&gt;, out TResult)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1_">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, TResult)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1___1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, TResult, out TResult)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_Try__2___0_System_Func___0___1____1__">CoreExtension.Try&lt;TType, TResult&gt;(TType, Func&lt;TType, TResult&gt;, out TResult?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_Task__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, Task&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_Task__System_Func___0_System_String__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, Task&gt;, Func&lt;T, string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_ValueTask__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, ValueTask&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_DumpAsync__1___0_System_Func_System_String_System_Threading_Tasks_ValueTask__System_Func___0_System_String__">DumpExtension.DumpAsync&lt;T&gt;(T, Func&lt;string, ValueTask&gt;, Func&lt;T, string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_">DumpExtension.Dump&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_System_Action_System_String__">DumpExtension.Dump&lt;T&gt;(T, Action&lt;string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.Dump.DumpExtension.html#WeihanLi_Extensions_Dump_DumpExtension_Dump__1___0_System_Action_System_String__System_Func___0_System_String__">DumpExtension.Dump&lt;T&gt;(T, Action&lt;string&gt;, Func&lt;T, string&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.TaskExtension.html#WeihanLi_Extensions_TaskExtension_WrapTask__1___0_">TaskExtension.WrapTask&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.TaskExtension.html#WeihanLi_Extensions_TaskExtension_WrapValueTask__1___0_">TaskExtension.WrapValueTask&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="WeihanLi_Common_Helpers_IStream_1_StreamName_" data-uid="WeihanLi.Common.Helpers.IStream`1.StreamName*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_IStream_1_StreamName" data-uid="WeihanLi.Common.Helpers.IStream`1.StreamName">
+  StreamName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Helpers/InMemoryStream.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string StreamName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="WeihanLi_Common_Helpers_IStream_1_AckAsync_" data-uid="WeihanLi.Common.Helpers.IStream`1.AckAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_IStream_1_AckAsync_System_String__0_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.IStream`1.AckAsync(System.String,`0,System.Threading.CancellationToken)">
+  AckAsync(string, T, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Helpers/InMemoryStream.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task AckAsync(string groupName, T id, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>id</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_IStream_1_AddAsync_" data-uid="WeihanLi.Common.Helpers.IStream`1.AddAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_IStream_1_AddAsync__0_System_Collections_Generic_Dictionary_System_String_System_String__System_Nullable_System_DateTimeOffset__System_Collections_Generic_Dictionary_System_String_System_Object__System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.IStream`1.AddAsync(`0,System.Collections.Generic.Dictionary{System.String,System.String},System.Nullable{System.DateTimeOffset},System.Collections.Generic.Dictionary{System.String,System.Object},System.Threading.CancellationToken)">
+  AddAsync(T, Dictionary&lt;string, string&gt;, DateTimeOffset?, Dictionary&lt;string, object&gt;?, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Helpers/InMemoryStream.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task AddAsync(T id, Dictionary&lt;string, string&gt; fields, DateTimeOffset? timestamp = null, Dictionary&lt;string, object&gt;? properties = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>fields</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>timestamp</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>?</dt>
+    <dd></dd>
+    <dt><code>properties</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_IStream_1_AddGroupAsync_" data-uid="WeihanLi.Common.Helpers.IStream`1.AddGroupAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_IStream_1_AddGroupAsync_System_String__0_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.IStream`1.AddGroupAsync(System.String,`0,System.Threading.CancellationToken)">
+  AddGroupAsync(string, T, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Helpers/InMemoryStream.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task AddGroupAsync(string groupName, T offset, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_IStream_1_CountAsync_" data-uid="WeihanLi.Common.Helpers.IStream`1.CountAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_IStream_1_CountAsync__0__0_WeihanLi_Common_Models_RangeInclusion_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.IStream`1.CountAsync(`0,`0,WeihanLi.Common.Models.RangeInclusion,System.Threading.CancellationToken)">
+  CountAsync(T?, T?, RangeInclusion, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Helpers/InMemoryStream.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; CountAsync(T? min = default, T? max = default, RangeInclusion inclusion = RangeInclusion.None, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>min</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>max</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>inclusion</code> <a class="xref" href="WeihanLi.Common.Models.RangeInclusion.html">RangeInclusion</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_IStream_1_FetchAsync_" data-uid="WeihanLi.Common.Helpers.IStream`1.FetchAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_IStream_1_FetchAsync__0_System_Int32_WeihanLi_Common_Models_Ordering_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.IStream`1.FetchAsync(`0,System.Int32,WeihanLi.Common.Models.Ordering,System.Threading.CancellationToken)">
+  FetchAsync(T, int, Ordering, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Helpers/InMemoryStream.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IAsyncEnumerable&lt;StreamMessage&lt;T&gt;&gt; FetchAsync(T lastId, int count, Ordering order = Ordering.Ascending, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lastId</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>order</code> <a class="xref" href="WeihanLi.Common.Models.Ordering.html">Ordering</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;<a class="xref" href="WeihanLi.Common.Helpers.StreamMessage-1.html">StreamMessage</a>&lt;T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_IStream_1_GroupInfoAsync_" data-uid="WeihanLi.Common.Helpers.IStream`1.GroupInfoAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_IStream_1_GroupInfoAsync_System_String_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.IStream`1.GroupInfoAsync(System.String,System.Threading.CancellationToken)">
+  GroupInfoAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Helpers/InMemoryStream.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;StreamGroupInfo&lt;T&gt;?&gt; GroupInfoAsync(string groupName, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="WeihanLi.Common.Helpers.StreamGroupInfo-1.html">StreamGroupInfo</a>&lt;T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_IStream_1_GroupsAsync_" data-uid="WeihanLi.Common.Helpers.IStream`1.GroupsAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_IStream_1_GroupsAsync_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.IStream`1.GroupsAsync(System.Threading.CancellationToken)">
+  GroupsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Helpers/InMemoryStream.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IReadOnlyCollection&lt;StreamGroupInfo&lt;T&gt;&gt;&gt; GroupsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="WeihanLi.Common.Helpers.StreamGroupInfo-1.html">StreamGroupInfo</a>&lt;T&gt;&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_IStream_1_InfoAsync_" data-uid="WeihanLi.Common.Helpers.IStream`1.InfoAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_IStream_1_InfoAsync_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.IStream`1.InfoAsync(System.Threading.CancellationToken)">
+  InfoAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Helpers/InMemoryStream.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;StreamInfo&lt;T&gt;&gt; InfoAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="WeihanLi.Common.Helpers.StreamInfo-1.html">StreamInfo</a>&lt;T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="WeihanLi_Common_Helpers_IStream_1_RemoveGroupAsync_" data-uid="WeihanLi.Common.Helpers.IStream`1.RemoveGroupAsync*"></a>
+
+  <h3 id="WeihanLi_Common_Helpers_IStream_1_RemoveGroupAsync_System_String_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Helpers.IStream`1.RemoveGroupAsync(System.String,System.Threading.CancellationToken)">
+  RemoveGroupAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Helpers/InMemoryStream.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;bool&gt; RemoveGroupAsync(string groupName, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>groupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Helpers/InMemoryStream.cs/#L34" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -97,8 +97,7 @@ Class UnitOfWork  <a class="header-action link-secondary" title="View source" hr
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[CLSCompliant(false)]
-public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
   </div>
 
 
@@ -160,28 +159,25 @@ public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
       <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_AsOrDefault__1_System_Object___0_">CoreExtension.AsOrDefault&lt;T&gt;(object?, T)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ParseParamDictionary_System_Object_">CoreExtension.ParseParamDictionary(object?)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_To_System_Object_System_Type_">CoreExtensions.To(object?, Type)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_To_System_Object_System_Type_">CoreExtension.To(object?, Type)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault_System_Object_System_Type_">CoreExtensions.ToOrDefault(object?, Type)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault_System_Object_System_Type_">CoreExtension.ToOrDefault(object?, Type)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object_">CoreExtensions.ToOrDefault&lt;T&gt;(object?)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_">CoreExtension.ToOrDefault&lt;T&gt;(object?)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object_System_Func_System_Object___0__">CoreExtensions.ToOrDefault&lt;T&gt;(object?, Func&lt;object?, T&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func_System_Object___0__">CoreExtension.ToOrDefault&lt;T&gt;(object?, Func&lt;object?, T&gt;)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object_System_Func___0__">CoreExtensions.ToOrDefault&lt;T&gt;(object?, Func&lt;T&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object_System_Func___0__">CoreExtension.ToOrDefault&lt;T&gt;(object?, Func&lt;T&gt;)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_ToOrDefault__1_System_Object___0_">CoreExtensions.ToOrDefault&lt;T&gt;(object?, T)</a>
   </div>
   <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_ToOrDefault__1_System_Object___0_">CoreExtension.ToOrDefault&lt;T&gt;(object?, T)</a>
-  </div>
-  <div>
-      <a class="xref" href="WeihanLi.Extensions.CoreExtension.html#WeihanLi_Extensions_CoreExtension_To__1_System_Object_">CoreExtension.To&lt;T&gt;(object?)</a>
+      <a class="xref" href="WeihanLi.Extensions.CoreExtensions.html#WeihanLi_Extensions_CoreExtensions_To__1_System_Object_">CoreExtensions.To&lt;T&gt;(object?)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToIndentedJson_System_Object_">JsonSerializeExtension.ToIndentedJson(object)</a>
@@ -200,6 +196,9 @@ public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Extensions.JsonSerializeExtension.html#WeihanLi_Extensions_JsonSerializeExtension_ToJsonOrString_System_Object_">JsonSerializeExtension.ToJsonOrString(object?)</a>
+  </div>
+  <div>
+      <a class="xref" href="WeihanLi.Extensions.ParameterDictionaryExtension.html#WeihanLi_Extensions_ParameterDictionaryExtension_ParseParamDictionary_System_Object_">ParameterDictionaryExtension.ParseParamDictionary(object?)</a>
   </div>
   <div>
       <a class="xref" href="WeihanLi.Common.Event.EventExtensions.html#WeihanLi_Common_Event_EventExtensions_ToEventMsg__1___0_">EventExtensions.ToEventMsg&lt;TEvent&gt;(TEvent)</a>
@@ -284,7 +283,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
 
   <h3 id="WeihanLi_Common_Data_UnitOfWork__ctor_System_Data_IDbConnection_" data-uid="WeihanLi.Common.Data.UnitOfWork.#ctor(System.Data.IDbConnection)">
   UnitOfWork(IDbConnection)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -315,7 +314,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
 
   <h3 id="WeihanLi_Common_Data_UnitOfWork__ctor_System_Data_IDbTransaction_" data-uid="WeihanLi.Common.Data.UnitOfWork.#ctor(System.Data.IDbTransaction)">
   UnitOfWork(IDbTransaction)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -350,7 +349,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
 
   <h3 id="WeihanLi_Common_Data_UnitOfWork_DbTransaction" data-uid="WeihanLi.Common.Data.UnitOfWork.DbTransaction">
   DbTransaction
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -385,7 +384,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
 
   <h3 id="WeihanLi_Common_Data_UnitOfWork_Commit" data-uid="WeihanLi.Common.Data.UnitOfWork.Commit">
   Commit()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -411,7 +410,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
 
   <h3 id="WeihanLi_Common_Data_UnitOfWork_CommitAsync_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.UnitOfWork.CommitAsync(System.Threading.CancellationToken)">
   CommitAsync(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -447,7 +446,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
 
   <h3 id="WeihanLi_Common_Data_UnitOfWork_Dispose" data-uid="WeihanLi.Common.Data.UnitOfWork.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -473,7 +472,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
 
   <h3 id="WeihanLi_Common_Data_UnitOfWork_Dispose_System_Boolean_" data-uid="WeihanLi.Common.Data.UnitOfWork.Dispose(System.Boolean)">
   Dispose(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -504,7 +503,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
 
   <h3 id="WeihanLi_Common_Data_UnitOfWork_Finalize" data-uid="WeihanLi.Common.Data.UnitOfWork.Finalize">
   ~UnitOfWork()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -530,7 +529,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
 
   <h3 id="WeihanLi_Common_Data_UnitOfWork_Rollback" data-uid="WeihanLi.Common.Data.UnitOfWork.Rollback">
   Rollback()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -556,7 +555,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable</code></pre>
 
   <h3 id="WeihanLi_Common_Data_UnitOfWork_RollbackAsync_System_Threading_CancellationToken_" data-uid="WeihanLi.Common.Data.UnitOfWork.RollbackAsync(System.Threading.CancellationToken)">
   RollbackAsync(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/Data/UnitOfWork.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
