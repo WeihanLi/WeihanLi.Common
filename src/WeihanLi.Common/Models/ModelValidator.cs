@@ -2,7 +2,6 @@
 // Licensed under the Apache license.
 
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Models;

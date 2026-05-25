@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;

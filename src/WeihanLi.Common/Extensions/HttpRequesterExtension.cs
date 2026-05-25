@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Net;
+﻿using System.Net;
 using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Http;
 

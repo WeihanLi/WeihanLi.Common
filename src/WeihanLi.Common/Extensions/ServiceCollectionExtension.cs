@@ -2,7 +2,6 @@
 // Licensed under the Apache license.
 
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using WeihanLi.Common;
 using WeihanLi.Common.Helpers;

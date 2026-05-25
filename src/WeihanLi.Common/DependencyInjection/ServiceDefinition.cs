@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace WeihanLi.Common.DependencyInjection;
+﻿namespace WeihanLi.Common.DependencyInjection;
 
 public class ServiceDefinition
 {
