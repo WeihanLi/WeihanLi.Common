@@ -13,7 +13,8 @@
 
 | Package | Description |
 | --- | --- |
-| `WeihanLi.Common` | Core helpers and extensions: dependency resolver, configuration helpers, pipelines, TOTP utilities, command executors, etc. |
+| `WeihanLi.Core` | AOT-compatible core extensions, helpers, models, compression primitives, and utility APIs with no package dependencies. |
+| `WeihanLi.Common` | Full utility package built on `WeihanLi.Core`: dependency resolver, DI, AOP, logging, data access, configuration helpers, TOTP utilities, command executors, etc. |
 | `WeihanLi.Common.Logging.Serilog` | Integration layer so core logging abstractions seamlessly forward to Serilog or Microsoft.Extensions.Logging. |
 | `WeihanLi.Extensions.Hosting` | Hosting helpers for quickly wiring background services, console apps, and DI bootstrapping. |
 
@@ -24,6 +25,8 @@ Each package is available on NuGet and can be referenced independently.
 Install the package you need using the .NET CLI or NuGet Package Manager:
 
 ```bash
+dotnet add package WeihanLi.Core
+# or install the full utility package
 dotnet add package WeihanLi.Common
 # or install the Serilog integration
 dotnet add package WeihanLi.Common.Logging.Serilog
@@ -50,6 +53,7 @@ See `samples/DotNetCoreSample` and `samples/AspNetCoreSample` for richer scenari
 
 ## Feature Highlights
 
+- **AOT-Friendly Core**: Low-dependency extensions, helpers, models, compression utilities, and result/paging primitives are available from `WeihanLi.Core`.
 - **Dependency Injection**: Lightweight container abstractions, decorator helpers, metadata-based registrations, proxy support, and integration with `Microsoft.Extensions.DependencyInjection`.
 - **Fluent Aspects (AOP)**: Dynamic proxy-based interception with fluent configuration for method-level behaviors (logging, validation, caching, etc.).
 - **Event Infrastructure**: In-memory and queue-backed `EventBus`, `EventStore`, and handler helpers to wire publish/subscribe workflows.

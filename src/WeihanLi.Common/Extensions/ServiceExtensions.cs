@@ -1,22 +1,17 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using WeihanLi.Common.Models;
-using WeihanLi.Extensions;
+﻿// Copyright (c) Weihan Li. All rights reserved.
+// Licensed under the Apache license.
 
-namespace WeihanLi.Common.Services;
+using WeihanLi.Common.Services;
 
-public interface ITenantProvider
-{
-    string? GetTenantId();
+// ReSharper disable once CheckNamespace
+namespace WeihanLi.Extensions;
 
-    TenantInfo? GetTenantInfo();
-}
-
-public static class TenantIdProviderExtensions
+public static class ServiceExtensions
 {
     [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
     public static T? GetTenantId<T>(this ITenantProvider tenantIdProvider, T? defaultValue = default)
     {
-        return tenantIdProvider.GetTenantId().ToOrDefault(defaultValue);
+        return tenantIdProvider.GetTenantId().ToOrDefault(defaultValue: defaultValue);
     }
 
     [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]

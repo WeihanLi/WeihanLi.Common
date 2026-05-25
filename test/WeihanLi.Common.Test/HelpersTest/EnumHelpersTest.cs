@@ -4,7 +4,7 @@ using Xunit;
 
 namespace WeihanLi.Common.Test.HelpersTest;
 
-public class EnumHelperTest
+public class EnumHelpersTest
 {
     [Fact]
     public void IdNameListTest()
@@ -21,7 +21,7 @@ public class EnumHelperTest
     [Fact]
     public void IdNameDescListTest()
     {
-        var list = EnumHelper.ToIdNameDescList<ReviewState, sbyte>();
+        var list = EnumHelpers.ToIdNameDescList<ReviewState, sbyte>();
         Assert.Equal(list.Count, Enum.GetNames<ReviewState>().Length);
         foreach (var (id, name, description) in list)
         {

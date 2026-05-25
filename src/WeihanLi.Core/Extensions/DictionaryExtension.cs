@@ -388,29 +388,6 @@ public static class DictionaryExtension
         }).ToArray();
     }
 
-    /// <summary>
-    /// IDictionary to dataTable
-    /// </summary>
-    /// <param name="dictionary">IDictionary</param>
-    /// <returns></returns>
-    public static DataTable ToDataTable(this IDictionary<string, object> dictionary)
-    {
-        Guard.NotNull(dictionary);
-        var dataTable = new DataTable();
-        if (dictionary.Keys.Count == 0)
-        {
-            return dataTable;
-        }
-        dataTable.Columns.AddRange(dictionary.Keys.Select(key => new DataColumn(key, dictionary[key].GetType())).ToArray());
-        foreach (var key in dictionary.Keys)
-        {
-            var row = dataTable.NewRow();
-            row[key] = dictionary[key];
-            dataTable.Rows.Add(row);
-        }
-        return dataTable;
-    }
-
     public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> source) where TKey : notnull => source.ToDictionary(pair => pair.Key, pair => pair.Value);
 
     public static IEnumerable<KeyValuePair<string, string?>> ToKeyValuePair(this NameValueCollection? collection)

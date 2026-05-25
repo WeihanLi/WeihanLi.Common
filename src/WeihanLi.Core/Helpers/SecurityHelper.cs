@@ -5,7 +5,7 @@ namespace WeihanLi.Common.Helpers;
 
 public static class SecurityHelper
 {
-    private static readonly char[] _constantLetterCharacters =
+    private static readonly char[] ConstantLetterCharacters =
     [
         'A',
         'B',
@@ -36,7 +36,7 @@ public static class SecurityHelper
         'Z'
     ];
 
-    private static readonly char[] _constantNumber =
+    private static readonly char[] ConstantNumber =
     [
         '0',
         '1',
@@ -50,7 +50,7 @@ public static class SecurityHelper
         '9'
     ];
 
-    private static readonly char[] _constantHexNumber =
+    private static readonly char[] ConstantHexNumber =
     [
         '0',
         '1',
@@ -91,12 +91,6 @@ public static class SecurityHelper
 
 #endif
 
-    /// <summary>
-    /// 生成随机验证码
-    /// </summary>
-    /// <param name="length">验证码长度</param>
-    /// <param name="isNumberOnly">验证码是否是纯数字</param>
-    /// <returns></returns>
     public static string GenerateRandomCode(int length, bool isNumberOnly = false)
     {
         if (isNumberOnly)
@@ -105,17 +99,17 @@ public static class SecurityHelper
         }
 
         var charArray = new char[length];
-        var maxLength = _constantNumber.Length + _constantLetterCharacters.Length;
+        var maxLength = ConstantNumber.Length + ConstantLetterCharacters.Length;
         for (var i = 0; i < length; i++)
         {
             var idx = Random.Next(maxLength);
-            if (idx < _constantNumber.Length)
+            if (idx < ConstantNumber.Length)
             {
-                charArray[i] = _constantNumber[idx];
+                charArray[i] = ConstantNumber[idx];
             }
             else
             {
-                charArray[i] = _constantLetterCharacters[idx - _constantNumber.Length];
+                charArray[i] = ConstantLetterCharacters[idx - ConstantNumber.Length];
             }
         }
 
@@ -128,9 +122,9 @@ public static class SecurityHelper
 
         var array = type switch
         {
-            RandomCodeType.Number => _constantNumber,
-            RandomCodeType.Letter => _constantLetterCharacters,
-            RandomCodeType.HexNumber => _constantHexNumber,
+            RandomCodeType.Number => ConstantNumber,
+            RandomCodeType.Letter => ConstantLetterCharacters,
+            RandomCodeType.HexNumber => ConstantHexNumber,
             _ => throw new NotSupportedException($"Type {type} is not supported")
         };
         var charArray = new char[length];

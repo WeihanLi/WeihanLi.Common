@@ -1,121 +1,149 @@
-# AGENTS.md — WeihanLi.Common
+# AGENTS.md - WeihanLi.Common
 
-This file gives AI coding agents the context needed to work on this repository effectively.
+This file gives AI coding agents the repository-specific context needed to make correct, focused changes. It applies to the whole repository unless a nested `AGENTS.md` appears in a subdirectory.
 
 ## Project Overview
 
-**WeihanLi.Common** is a production-ready .NET utility library that bundles helpers, extensions, and middleware for .NET application development. It covers dependency injection, AOP (Fluent Aspects), eventing, logging, data access helpers, OTP utilities, templating, and more.
+`WeihanLi.Common` is a production-ready .NET utility library that bundles helpers, extensions, middleware, and application primitives for .NET development. It covers AOT-friendly core utilities, dependency injection, Fluent Aspects AOP, eventing, logging, data access helpers, OTP utilities, templating, hosting helpers, and more.
 
-Three NuGet packages are published from this repository:
+Four NuGet packages are published from this repository:
 
 | Package | Description |
 |---|---|
-| `WeihanLi.Common` | Core helpers, extensions, DI, AOP, event bus, TOTP, templating, and more |
-| `WeihanLi.Common.Logging.Serilog` | Integration layer forwarding to Serilog or Microsoft.Extensions.Logging |
-| `WeihanLi.Extensions.Hosting` | Helpers for background services, console apps, and DI bootstrapping |
+| `WeihanLi.Core` | AOT-compatible core extensions, helpers, models, compression primitives, OTP utilities, and dependency-light APIs |
+| `WeihanLi.Common` | Full utility package built on `WeihanLi.Core`, including DI, AOP, logging, data access, HTTP, JSON, configuration, templating, and eventing |
+| `WeihanLi.Common.Logging.Serilog` | Serilog integration layer for `WeihanLi.Common.Logging` |
+| `WeihanLi.Extensions.Hosting` | Hosting helpers for background services, console apps, and DI bootstrapping |
 
-## Repository Structure
+## Repository Map
 
-```
-├── src/
-│   ├── WeihanLi.Common/                    # Core library
-│   ├── WeihanLi.Common.Logging.Serilog/    # Serilog integration
-│   └── WeihanLi.Extensions.Hosting/        # Hosting extensions
-├── test/
-│   └── WeihanLi.Common.Test/               # xUnit tests
-├── samples/
-│   ├── AspNetCoreSample/                   # ASP.NET Core usage examples
-│   └── DotNetCoreSample/                   # Console app examples
-├── perf/
-│   └── WeihanLi.Common.Benchmark/         # BenchmarkDotNet benchmarks
-├── docs/                                   # DocFX documentation
-├── build/                                  # Build configuration (signing, versioning)
-├── .github/workflows/                      # GitHub Actions CI/CD
-├── build.cs                                # C# build script (run with dotnet build.cs)
-├── WeihanLi.Common.slnx                   # Solution file (modern .slnx format)
-├── Directory.Build.props                   # Centralized MSBuild configuration
-├── Directory.Packages.props               # Centralized NuGet package versions
-└── global.json                            # .NET SDK version pin
+```text
+src/
+  WeihanLi.Core/                    AOT-friendly core package; root namespace remains WeihanLi.Common
+  WeihanLi.Common/                  Full utility package referencing WeihanLi.Core
+  WeihanLi.Common.Logging.Serilog/  Serilog integration package
+  WeihanLi.Extensions.Hosting/      Hosting extensions package
+test/
+  WeihanLi.Common.Test/             xUnit v3 tests on Microsoft Testing Platform
+samples/
+  AspNetCoreSample/                 ASP.NET Core examples
+  DotNetCoreSample/                 Console examples
+perf/
+  WeihanLi.Common.Benchmark/        BenchmarkDotNet benchmarks
+docs/                               DocFX documentation
+build/                              Versioning and signing MSBuild props
 ```
 
-## Build and Test
+Important root files:
 
-### Prerequisites
+| File | Purpose |
+|---|---|
+| `WeihanLi.Common.slnx` | Solution file |
+| `build.cs` | C# build script used by CI |
+| `Directory.Build.props` | Shared MSBuild properties; sets `LatestTargetFramework` to `net10.0` |
+| `src/Directory.Build.props` | Source-package MSBuild properties, docs, packaging, signing, Source Link |
+| `Directory.Packages.props` | Central package management and NuGet audit configuration |
+| `.github/workflows/default.yml` | GitHub Actions CI |
+| `azure-pipelines.yml` | Azure Pipelines CI |
 
-- .NET SDK 10.0+ (see `global.json`; `rollForward` is enabled for newer versions)
-- Supported SDK versions for CI: 8.0.x, 9.0.x, 10.0.x
+There is currently no `global.json`; use the SDK versions required by the project and CI instead of assuming an SDK pin.
 
-### Commands
+## Build And Test
+
+Prerequisites:
+
+- Install .NET SDK `10.0.x` and .NET SDK `11.0.x` preview when building all source projects, because `WeihanLi.Core` and `WeihanLi.Common` target `net11.0`.
+- CI installs both SDKs. Azure Pipelines uses `includePreviewVersions: true` for .NET 11.
+
+Common commands:
 
 ```bash
-# Build the entire solution
+# Build the solution
 dotnet build
 
 # Run all tests
 dotnet test
 
-# Full CI build (build + test + pack)
+# Full CI build: build, test, and pack according to build.cs
 dotnet build.cs
 
-# Format code
+# Verify formatting
+dotnet format --verify-no-changes
+
+# Apply formatting
 dotnet format
 ```
 
-> Set `DISABLE_GITHUB_ACTIONS_TEST_LOGGER=true` to opt out of the GitHub Actions test logger when running tests locally.
+Set `DISABLE_GITHUB_ACTIONS_TEST_LOGGER=true` to opt out of the GitHub Actions test logger when running tests locally.
 
-### CI
+Before submitting a change, run the narrowest relevant test first, then run these required checks when practical:
 
-- **GitHub Actions** (`.github/workflows/default.yml`): runs `dotnet build.cs` on Ubuntu, macOS, and Windows
-- **Azure Pipelines** (`azure-pipelines.yml`): additional pipeline for Azure DevOps
+```bash
+dotnet build
+dotnet test
+dotnet format --verify-no-changes
+```
 
 ## Target Frameworks
 
-- `WeihanLi.Common`: `netstandard2.0`, `net8.0`, `net9.0`, `net10.0`
-- `WeihanLi.Common.Logging.Serilog`: `netstandard2.0`, `net8.0`
-- `WeihanLi.Extensions.Hosting`: `net8.0`
+| Project | Target frameworks |
+|---|---|
+| `src/WeihanLi.Core` | `netstandard2.0`, `net8.0`, `net10.0`, `net11.0` |
+| `src/WeihanLi.Common` | `netstandard2.0`, `net8.0`, `net10.0`, `net11.0` |
+| `src/WeihanLi.Common.Logging.Serilog` | `netstandard2.0`, `net10.0` |
+| `src/WeihanLi.Extensions.Hosting` | `net10.0` |
+| `test/WeihanLi.Common.Test` | `$(LatestTargetFramework)` (`net10.0`) |
 
-Use conditional compilation (`#if NET8_0_OR_GREATER` etc.) for framework-specific code.
+Use conditional compilation for framework-specific behavior, for example `#if NET8_0_OR_GREATER`, `#if NET10_0_OR_GREATER`, or explicit `netstandard2.0` conditions. Be careful with `Reflection.Emit` and APIs missing from `netstandard2.0`.
 
-## Key Namespaces and Components
+## Key Namespaces And Components
 
 | Namespace | Purpose |
 |---|---|
-| `WeihanLi.Common` | Core utilities, `Guard`, `CacheUtil`, `DependencyResolver` |
-| `WeihanLi.Common.Aspect` | Fluent Aspects AOP — dynamic proxies, interceptors, invocation |
-| `WeihanLi.Common.Data` | ADO.NET extensions, entity mapping, SQL expression parsers |
-| `WeihanLi.Common.DependencyInjection` | Lightweight DI container, service definitions, module support |
-| `WeihanLi.Common.Event` | `EventBus`, `EventQueue`, `EventStore`, publish/subscribe |
-| `WeihanLi.Common.Extensions` | Extension methods for core .NET types |
-| `WeihanLi.Common.Helpers` | `ApplicationHelper`, `TotpHelper`, `CommandExecutor`, `ConsoleHelper`, etc. |
-| `WeihanLi.Common.Http` | HTTP client utilities, mock handlers |
+| `WeihanLi.Common` | Core utilities such as `Guard`, `CacheUtil`, and `DependencyResolver` |
+| `WeihanLi.Common.Abstractions` | Shared primitives and property bags |
+| `WeihanLi.Common.Aspect` | Fluent Aspects AOP, dynamic proxies, interceptors, and invocation pipeline |
+| `WeihanLi.Common.Compressor` | Compression helpers from `WeihanLi.Core` |
+| `WeihanLi.Common.Data` | ADO.NET extensions, repository helpers, entity mapping, SQL expression parsers |
+| `WeihanLi.Common.DependencyInjection` | Lightweight DI container, service definitions, modules, decorators |
+| `WeihanLi.Common.Event` | `EventBus`, `EventQueue`, `EventStore`, publish/subscribe helpers |
+| `WeihanLi.Common.Helpers` | `ApplicationHelper`, `TotpHelper`, `CommandExecutor`, `ConsoleHelper`, cron and pipeline helpers |
+| `WeihanLi.Common.Http` | HTTP client utilities and mock handlers |
+| `WeihanLi.Common.Json` | JSON converters and serialization helpers |
 | `WeihanLi.Common.Logging` | Logging abstractions and adapters |
+| `WeihanLi.Common.Models` | Result, paging, entity, tenant, validation, and common model types |
 | `WeihanLi.Common.Otp` | TOTP/OTP implementation |
-| `WeihanLi.Common.Services` | Common service implementations |
+| `WeihanLi.Common.Services` | Common service abstractions and implementations |
 | `WeihanLi.Common.Template` | Lightweight template engine |
-| `WeihanLi.Extensions` | Shared extension methods (string, collections, etc.) |
+| `WeihanLi.Extensions` | Shared extension methods |
 
-## Code Style and Conventions
+## Code Style
 
-- **Language**: C# with nullable reference types enabled (`<Nullable>enable</Nullable>`) and implicit usings
-- **Naming**: PascalCase for public members; _camelCase for private fields (private static readonly fields may use PascalCase)
-- **License header**: Apache License 2.0 header in every source file
-- **Formatting**: governed by `.editorconfig` — run `dotnet format` before committing
+- C# nullable reference types and implicit usings are enabled.
+- `LangVersion` is `preview`; do not use preview-only syntax casually when older target frameworks need compatibility.
+- Public APIs use PascalCase. Private fields use `_camelCase`; private static readonly fields may use PascalCase when matching the existing style.
+- Source files should include the Apache License 2.0 header used throughout the repository.
+- XML documentation is required for public APIs in source packages.
+- Prefer existing helpers, extension patterns, and namespace layout over introducing new abstractions.
+- Keep changes narrowly scoped; avoid unrelated refactors or generated-file churn.
+- Package versions are centrally managed in `Directory.Packages.props`; do not add `<Version>` metadata in individual `.csproj` files.
+- The repository has T4-generated files such as `ServiceContainerBuilderExtensions.generated.cs`, `DbCommandExtension.generated.cs`, and `DbConnectionExtension.generated.cs`; update the `.tt` source when changing generated APIs.
 
 ### Parameter Validation
 
-Always validate parameters using the `Guard` class:
+Use `Guard` utilities for parameter validation:
 
 ```csharp
 public static string Process(string input)
 {
     Guard.NotNullOrEmpty(input);
-    // implementation
+    return input;
 }
 ```
 
 ### Extension Methods
 
-Place extension methods in dedicated files with descriptive names, using the `WeihanLi.Extensions` namespace:
+Place extension methods in dedicated files under the appropriate `Extensions/` folder and use the `WeihanLi.Extensions` namespace:
 
 ```csharp
 namespace WeihanLi.Extensions;
@@ -126,9 +154,9 @@ public static class StringExtension
 }
 ```
 
-### Fluent API Design
+### Fluent APIs
 
-Many components expose fluent interfaces:
+Many components expose fluent configuration APIs. Match the existing style:
 
 ```csharp
 FluentAspects.Configure(options =>
@@ -137,26 +165,17 @@ FluentAspects.Configure(options =>
 );
 ```
 
-### Options Pattern
-
-Use the options pattern for configurable components:
-
-```csharp
-public sealed class ServiceOptions
-{
-    public string ConnectionString { get; set; } = string.Empty;
-    public int Timeout { get; set; } = 30;
-}
-```
-
 ## Testing Guidelines
 
-- **Framework**: xUnit v3 on Microsoft Testing Platform (`xunit.v3.mtp-v2`)
-- **Runner**: Microsoft Testing Platform (`UseMicrosoftTestingPlatformRunner=true`)
-- **Location**: `test/WeihanLi.Common.Test/`
-- **File naming**: `{ComponentName}Test.cs`
-- **Namespace**: `WeihanLi.Common.Test`
-- Test method names follow the pattern `MethodName_Scenario_ExpectedResult`
+- Tests live under `test/WeihanLi.Common.Test/`.
+- The test stack is xUnit v3 on Microsoft Testing Platform.
+- Test files are named `{ComponentName}Test.cs`.
+- Test namespace is usually `WeihanLi.Common.Test` or a component-specific child namespace.
+- Test method names should follow `MethodName_Scenario_ExpectedResult`.
+- Use `[Theory]` and `[InlineData]` for parameterized coverage.
+- Add or update tests for behavior changes, bug fixes, and public API additions.
+
+Example:
 
 ```csharp
 [Fact]
@@ -173,141 +192,88 @@ public void MethodName_Scenario_ExpectedResult()
 }
 ```
 
-Use `[Theory]` + `[InlineData]` for parameterized tests.
-
 ## Common Development Tasks
 
-### Adding a New Extension Method
+### Add A Core Utility Or Extension
 
-1. Create (or edit) the appropriate file in `src/WeihanLi.Common/Extensions/`
-2. Use namespace `WeihanLi.Extensions`
-3. Add XML documentation for all public members
-4. Write a corresponding test in `test/WeihanLi.Common.Test/`
+1. Prefer `src/WeihanLi.Core/` when the API is dependency-light and AOT-compatible.
+2. Use existing namespaces such as `WeihanLi.Common.Helpers`, `WeihanLi.Common.Models`, or `WeihanLi.Extensions`.
+3. Preserve compatibility with all target frameworks.
+4. Add XML documentation and focused tests.
 
-### Adding a New Helper or Service
+### Add A Full Common Feature
 
-1. Define an interface in `Abstractions/` if applicable
-2. Implement in `Helpers/` or `Services/`
-3. Add configuration options class if configurable
-4. Register with DI if applicable
-5. Write tests and update samples if the feature is significant
+1. Use `src/WeihanLi.Common/` for features that depend on DI, logging, data access, HTTP, JSON, configuration, AOP, or other heavier integrations.
+2. Define abstractions when the existing design calls for them.
+3. Register services with the existing DI patterns when applicable.
+4. Add options classes for configurable behavior.
+5. Add tests and update samples for significant new behavior.
 
-### Working with AOP (Fluent Aspects)
+### Work With Fluent Aspects
 
 ```csharp
-// Configure interceptors
 FluentAspects.Configure(options =>
 {
     options.InterceptMethod<IService>(s => s.Process(Argument.Any<string>()))
            .With<ValidationInterceptor>();
 });
 
-// Create proxy
 var service = FluentAspects.AspectOptions.ProxyFactory
     .CreateProxy<IService>(new ServiceImplementation());
 ```
 
-### Database / Data-Access Extensions
+### Work With Data Access
 
 ```csharp
-// Query using ADO.NET extensions
 var users = connection.Select<User>(
     "SELECT * FROM Users WHERE Age > @age", new { age = 18 });
 
-// Repository pattern
 var repository = new Repository<User>(() => connectionFactory.GetConnection());
 var user = repository.Fetch(u => u.Id == userId);
 ```
 
-## Dependencies
-
-Key NuGet dependencies and their roles:
-
-| Package | Role |
-|---|---|
-| `Microsoft.Extensions.*` | Configuration, Logging, Hosting, DI abstractions |
-| `Newtonsoft.Json` | JSON serialization |
-| `Serilog` | Structured logging (via Serilog integration package) |
-| `Dapper` | Lightweight ORM / ADO.NET helper |
-| `PolySharp` | Polyfill attributes for older .NET targets |
-| `xunit.v3` | Test framework |
-| `BenchmarkDotNet` | Performance benchmarks |
-
-Package versions are centrally managed in `Directory.Packages.props` — update versions there rather than in individual project files.
-
 ## Security
 
-- Validate all inputs using `Guard` utilities
-- Dispose resources properly (use `using` statements)
-- Use `RandomNumberGenerator` (not `Random`) for cryptographic operations
-- Never commit secrets or credentials
-- NuGet audit is enabled via MSBuild properties (see `Directory.Build.props` / `Directory.Packages.props` with `<NuGetAudit>true</NuGetAudit>`); do not suppress audit warnings without justification
-
-## Pull Request Guidelines
-
-### Commit Message Conventions
-
-This project follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification. Every commit message must be structured as:
-
-```
-<type>[optional scope]: <description>
-
-[optional body]
-
-[optional footer(s)]
-```
-
-**Common types:**
-
-| Type | When to use |
-|---|---|
-| `feat` | A new feature (correlates with MINOR in SemVer) |
-| `fix` | A bug fix (correlates with PATCH in SemVer) |
-| `docs` | Documentation-only changes |
-| `style` | Formatting, missing semicolons, etc. — no logic change |
-| `refactor` | Code change that is neither a fix nor a feature |
-| `perf` | Performance improvement |
-| `test` | Adding or correcting tests |
-| `build` | Changes to the build system or external dependencies |
-| `ci` | Changes to CI/CD configuration files |
-| `chore` | Maintenance tasks that don't modify src or test files |
-
-**Breaking changes**: append `!` after the type/scope or add a `BREAKING CHANGE:` footer.
-
-**Examples:**
-
-```
-feat(event): add retry support to EventBus
-fix(otp): correct TOTP window boundary calculation
-docs: update AGENTS.md with PR guidelines
-build: bump Newtonsoft.Json to 13.0.4
-feat!: remove obsolete IDependencyResolver overloads
-
-BREAKING CHANGE: IDependencyResolver.GetService<T>() overloads that
-accepted a string key have been removed. Use keyed services instead.
-```
-
-### Required Checks Before Submitting
-
-- `dotnet build` — must compile without errors or warnings
-- `dotnet test` — all tests must pass
-- `dotnet format --verify-no-changes` — no formatting violations
-
-### PR Title Format
-
-Use the same `<type>[optional scope]: <description>` format as the commit message.
-
-## Debugging and Troubleshooting
-
-- **Build failures**: run `dotnet build --verbosity detailed` for full MSBuild output
-- **Test failures on a specific framework**: use `dotnet test -f net8.0` to target one TFM
-- **GitHub Actions test logger noise locally**: set `DISABLE_GITHUB_ACTIONS_TEST_LOGGER=true`
-- **NuGet restore errors**: verify `Directory.Packages.props` contains the version; do not add `<Version>` in individual `.csproj` files
-- **Reflection.Emit issues on netstandard2.0**: the package conditionally references `System.Reflection.Emit` — guard with `#if !NETSTANDARD2_0` or `#if NET8_0_OR_GREATER` as appropriate
+- Validate inputs with `Guard`.
+- Dispose resources properly with `using` declarations or equivalent ownership patterns.
+- Use `RandomNumberGenerator` instead of `Random` for cryptographic or security-sensitive randomness.
+- Never commit secrets, credentials, tokens, or local machine configuration.
+- NuGet audit is enabled and NU1901-NU1904 are warnings-as-errors through central package management; do not suppress audit warnings without justification.
 
 ## Documentation
 
-- XML documentation is required on all public APIs
-- Docs live in `docs/` and are generated with DocFX (`docs/docfx.json`)
-- Release notes are in `docs/ReleaseNotes.md`
-- Samples in `samples/` demonstrate end-to-end usage patterns
+- Update XML docs for public API changes.
+- Update package README files under `src/*/README.md` when package-level behavior changes.
+- Docs live under `docs/` and are generated with DocFX (`docs/docfx.json`).
+- Release notes live in `docs/ReleaseNotes.md`.
+- Samples in `samples/` should demonstrate significant end-to-end usage patterns.
+
+## Pull Requests
+
+Use Conventional Commits for commit messages and PR titles:
+
+```text
+<type>[optional scope]: <description>
+```
+
+Common types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`.
+
+Examples:
+
+```text
+feat(event): add retry support to EventBus
+fix(otp): correct TOTP window boundary calculation
+docs: update AGENTS.md with current project guidance
+build: bump Newtonsoft.Json to 13.0.4
+feat!: remove obsolete IDependencyResolver overloads
+```
+
+For breaking changes, append `!` after the type/scope or add a `BREAKING CHANGE:` footer.
+
+## Troubleshooting
+
+- Build failures: run `dotnet build --verbosity detailed`.
+- Test failures on the current test TFM: run `dotnet test test/WeihanLi.Common.Test/WeihanLi.Common.Test.csproj`.
+- NuGet restore errors: check `Directory.Packages.props` first.
+- Missing API on `netstandard2.0`: add framework guards or use compatible alternatives.
+- Local GitHub Actions logger issues: set `DISABLE_GITHUB_ACTIONS_TEST_LOGGER=true`.

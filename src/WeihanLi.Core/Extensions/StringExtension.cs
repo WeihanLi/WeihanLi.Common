@@ -1,5 +1,4 @@
 ﻿using System.Collections.Specialized;
-using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Web;
 using WeihanLi.Common;
@@ -166,40 +165,6 @@ public static class StringExtension
     #endregion Encode/Decode
 
     /// <summary>
-    /// Get type by TypeName
-    /// Support type alias，for example: int => System.Int32
-    /// </summary>
-    /// <param name="typeName">typename</param>
-    /// <returns>Type</returns>
-    [RequiresUnreferencedCode("The type might be removed")]
-    public static Type GetTypeByTypeName(this string typeName)
-    {
-        var type = Guard.NotNullOrEmpty(typeName, nameof(typeName))
-                .ToLower() switch
-        {
-            "bool" => Type.GetType("System.Boolean", true, true),
-            "byte" => Type.GetType("System.Byte", true, true),
-            "sbyte" => Type.GetType("System.SByte", true, true),
-            "char" => Type.GetType("System.Char", true, true),
-            "decimal" => Type.GetType("System.Decimal", true, true),
-            "double" => Type.GetType("System.Double", true, true),
-            "float" => Type.GetType("System.Single", true, true),
-            "int" => Type.GetType("System.Int32", true, true),
-            "uint" => Type.GetType("System.UInt32", true, true),
-            "long" => Type.GetType("System.Int64", true, true),
-            "ulong" => Type.GetType("System.UInt64", true, true),
-            "object" => Type.GetType("System.Object", true, true),
-            "short" => Type.GetType("System.Int16", true, true),
-            "ushort" => Type.GetType("System.UInt16", true, true),
-            "string" => Type.GetType("System.String", true, true),
-            "datetime" => Type.GetType("System.DateTime", true, true),
-            "guid" => Type.GetType("System.Guid", true, true),
-            _ => Type.GetType(typeName, true, true),
-        };
-        return Guard.NotNull(type);
-    }
-
-    /// <summary>
     /// Return value if value IsNotNullOrEmpty else return defaultValue
     /// </summary>
     /// <param name="str">string value</param>
@@ -230,35 +195,6 @@ public static class StringExtension
     public static string GetValueOrDefault(this string? str, Func<string> getDefault)
     {
         return str.IsNullOrWhiteSpace() ? getDefault() : str;
-    }
-
-    /// <summary>
-    /// split comma separated string to T array
-    /// </summary>
-    /// <typeparam name="T">Type</typeparam>
-    /// <param name="str">str</param>
-    /// <param name="splitOptions"></param>
-    /// <returns></returns>
-    public static T[] SplitArray<T>(this string? str, StringSplitOptions splitOptions = StringSplitOptions.None) => SplitArray<T>(str, [','], splitOptions);
-
-    /// <summary>
-    /// split specific separator separated string to T array
-    /// </summary>
-    /// <typeparam name="T">Type</typeparam>
-    /// <param name="str">str</param>
-    /// <param name="separators">separators</param>
-    /// <param name="splitOptions">splitOptions</param>
-    /// <returns></returns>
-    public static T[] SplitArray<T>(this string? str, char[] separators, StringSplitOptions splitOptions = StringSplitOptions.None)
-    {
-        if (string.IsNullOrWhiteSpace(str))
-        {
-            return [];
-        }
-        return Guard.NotNull(str)
-            .Split(separators, splitOptions)
-            .Select(_ => _.To<T>())
-            .ToArray();
     }
 
     /// <summary>

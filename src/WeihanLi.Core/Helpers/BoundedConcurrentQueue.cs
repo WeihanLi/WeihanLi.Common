@@ -20,7 +20,7 @@ public sealed class BoundedConcurrentQueue<T>
     public BoundedConcurrentQueue(int queueLimit, BoundedQueueFullMode mode = BoundedQueueFullMode.DropWrite)
     {
         if (queueLimit <= 0)
-            throw new ArgumentOutOfRangeException(nameof(queueLimit), Resource.ValueMustBePositive);
+            throw new ArgumentOutOfRangeException(nameof(queueLimit), queueLimit, "Value must be positive.");
 
         _queueLimit = queueLimit;
         _mode = mode;

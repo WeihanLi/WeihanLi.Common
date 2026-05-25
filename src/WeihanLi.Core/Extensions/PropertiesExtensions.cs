@@ -1,9 +1,10 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
+using WeihanLi.Common;
 using WeihanLi.Common.Abstractions;
 
-namespace WeihanLi.Common.Extensions;
+namespace WeihanLi.Extensions;
 
 public static class PropertiesExtensions
 {
