@@ -15,7 +15,7 @@ public static class EnumHelper
             Id = Convert.ToInt32(Enum.Parse(enumType, name))
         });
     }
-    
+
     public static IReadOnlyList<IdNameDescModel> ToIdNameDescList<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicFields)] TEnum>() where TEnum : Enum
     {
         var enumType = typeof(TEnum);

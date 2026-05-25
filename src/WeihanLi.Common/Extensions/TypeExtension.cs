@@ -46,7 +46,7 @@ public static class TypeExtension
     public static bool IsValueTuple(this Type type)
             => type.IsValueType && type.FullName?.StartsWith("System.ValueTuple`", StringComparison.Ordinal) == true;
 
-    
+
     /// <summary>
     /// Get type by TypeName
     /// Support type alias，for example: int => System.Int32
@@ -101,7 +101,7 @@ public static class TypeExtension
 
         throw new TypeLoadException($"Could not load type '{typeName}'.");
     }
-    
+
     /// <summary>
     /// GetDescription
     /// </summary>
