@@ -1,4 +1,4 @@
-﻿// Copyright (c) Weihan Li. All rights reserved.
+// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
 namespace WeihanLi.Common.Models;
@@ -28,12 +28,25 @@ public enum ReviewState
     Rejected = 2,
 }
 
+/// <summary>
+/// Represents a review request.
+/// </summary>
 public class ReviewRequest
 {
+    /// <summary>
+    /// Gets or sets the requested review state.
+    /// </summary>
     public ReviewState State { get; set; }
 
+    /// <summary>
+    /// Gets or sets the review remark.
+    /// </summary>
     public string? Remark { get; set; }
 
+    /// <summary>
+    /// Determines whether the review request is valid.
+    /// </summary>
+    /// <returns><see langword="true"/> when the request is valid; otherwise, <see langword="false"/>.</returns>
     public virtual bool IsValid()
     {
         if (State == ReviewState.Rejected && string.IsNullOrWhiteSpace(Remark))
