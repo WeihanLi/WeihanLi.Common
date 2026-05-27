@@ -1,4 +1,4 @@
-namespace WeihanLi.Common.Models;
+﻿namespace WeihanLi.Common.Models;
 
 /// <summary>
 /// Marker interface for soft-delete entities.
