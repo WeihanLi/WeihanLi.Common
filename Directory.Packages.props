@@ -49,6 +49,6 @@
     <PackageVersion Include="Dapper" Version="2.1.79" />
   </ItemGroup>
   <ItemGroup>
-    <GlobalPackageReference Include="PolySharp" Version="1.15.0" />
+    <GlobalPackageReference Condition="!$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net10.0'))" Include="PolySharp" Version="1.16.0" />
   </ItemGroup>
 </Project>
