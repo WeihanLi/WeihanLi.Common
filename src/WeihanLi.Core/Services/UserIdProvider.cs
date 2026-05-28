@@ -78,7 +78,10 @@ public class EnvironmentUserIdProvider : IUserIdProvider
     /// </summary>
     public static EnvironmentUserIdProvider Instance { get; } = new();
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets the operating system user name.
+    /// </summary>
+    /// <returns>The current operating system user name.</returns>
     public virtual string GetUserId() => Environment.UserName;
 }
 
@@ -96,6 +99,9 @@ public sealed class DelegateUserIdProvider(Func<string?> userIdFactory) : IUserI
     {
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets the current user identifier from the configured delegate.
+    /// </summary>
+    /// <returns>The current user identifier, or <see langword="null"/> when no user is available.</returns>
     public string? GetUserId() => userIdFactory();
 }

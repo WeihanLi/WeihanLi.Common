@@ -106,7 +106,11 @@ public sealed class TotpService : ITotpService
         _totp = new Totp(_totpOptions.Algorithm, _totpOptions.Size);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Generates a time-based one-time password for the specified security token.
+    /// </summary>
+    /// <param name="securityToken">The security token bytes.</param>
+    /// <returns>The generated one-time password.</returns>
     public string GetCode(byte[] securityToken)
     {
         Guard.NotNull(securityToken, nameof(securityToken));
@@ -120,7 +124,11 @@ public sealed class TotpService : ITotpService
         return _totp.Compute(bytes);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Generates a time-based one-time password and returns its remaining time to live.
+    /// </summary>
+    /// <param name="securityToken">The security token bytes.</param>
+    /// <returns>The generated one-time password and its remaining lifetime in seconds.</returns>
     public (string Code, int Ttl) GetCodeWithTtl(byte[] securityToken)
     {
         Guard.NotNull(securityToken, nameof(securityToken));
@@ -134,7 +142,12 @@ public sealed class TotpService : ITotpService
         return _totp.ComputeWithTtl(bytes);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Verifies a time-based one-time password for the specified security token.
+    /// </summary>
+    /// <param name="securityToken">The security token bytes.</param>
+    /// <param name="code">The one-time password to verify.</param>
+    /// <returns><see langword="true"/> when the code is valid; otherwise, <see langword="false"/>.</returns>
     public bool VerifyCode(byte[] securityToken, string code)
     {
         if (string.IsNullOrEmpty(code) || code.Length != _totpOptions.Size) return false;

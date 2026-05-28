@@ -26,10 +26,14 @@ public sealed class ValidationResult : IValidationResult
 {
     private Dictionary<string, string[]> _errors = [];
 
-    /// <inheritdoc cref="IValidationResult"/>
+    /// <summary>
+    /// Gets or sets a value indicating whether validation succeeded.
+    /// </summary>
     public bool Valid { get; set; }
 
-    /// <inheritdoc cref="IValidationResult"/>
+    /// <summary>
+    /// Gets or sets validation errors keyed by member name.
+    /// </summary>
     public Dictionary<string, string[]> Errors
     {
         get => _errors;

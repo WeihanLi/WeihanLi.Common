@@ -17,6 +17,9 @@ public interface ICancellationTokenProvider
 /// </summary>
 public sealed class NullCancellationTokenProvider : ICancellationTokenProvider
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets <see cref="CancellationToken.None"/>.
+    /// </summary>
+    /// <returns><see cref="CancellationToken.None"/>.</returns>
     public CancellationToken GetCancellationToken() => CancellationToken.None;
 }

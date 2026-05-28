@@ -23,7 +23,9 @@ public interface IEntity<TKey>
 /// <typeparam name="TKey">The identifier type.</typeparam>
 public class BaseEntity<TKey> : IEntity<TKey>
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the entity identifier.
+    /// </summary>
     public TKey Id { get; set; } = default!;
 }
 
@@ -117,7 +119,9 @@ public interface IEntityWithReviewStateAndRemark : IEntityWithReviewState, IEnti
 /// <typeparam name="TKey">The identifier type.</typeparam>
 public class BaseEntityWithDeleted<TKey> : BaseEntity<TKey>, ISoftDeleteEntityWithDeleted
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets a value indicating whether the entity is soft deleted.
+    /// </summary>
     public bool IsDeleted { get; set; }
 }
 
@@ -127,7 +131,9 @@ public class BaseEntityWithDeleted<TKey> : BaseEntity<TKey>, ISoftDeleteEntityWi
 /// <typeparam name="TKey">The identifier type.</typeparam>
 public class BaseEntityWithUpdatedAt<TKey> : BaseEntity<TKey>, IEntityWithUpdatedAt
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the update timestamp.
+    /// </summary>
     public DateTimeOffset UpdatedAt { get; set; }
 }
 
@@ -137,7 +143,9 @@ public class BaseEntityWithUpdatedAt<TKey> : BaseEntity<TKey>, IEntityWithUpdate
 /// <typeparam name="TKey">The identifier type.</typeparam>
 public class BaseEntityWithCreatedUpdatedAt<TKey> : BaseEntityWithUpdatedAt<TKey>, IEntityWithCreatedUpdatedAt
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the creation timestamp.
+    /// </summary>
     public DateTimeOffset CreatedAt { get; set; }
 }
 
@@ -148,7 +156,9 @@ public class BaseEntityWithCreatedUpdatedAt<TKey> : BaseEntityWithUpdatedAt<TKey
 public class BaseEntityWithCreatedUpdatedAtAndDeleted<TKey> : BaseEntityWithCreatedUpdatedAt<TKey>,
     ISoftDeleteEntityWithDeleted
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets a value indicating whether the entity is soft deleted.
+    /// </summary>
     public bool IsDeleted { get; set; }
 }
 
@@ -160,7 +170,9 @@ public class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey>
     : BaseEntityWithCreatedUpdatedAtAndDeleted<TKey>,
     IEntityWithRemark
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the remark.
+    /// </summary>
     [StringLength(2048)]
     public string? Remark { get; set; }
 }
@@ -172,7 +184,9 @@ public class BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey>
 public class BaseEntityWithUpdatedAtAndBy<TKey>
     : BaseEntityWithUpdatedAt<TKey>, IEntityWithUpdatedAtAndBy
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the updater identifier.
+    /// </summary>
     [StringLength(256)]
     public string UpdatedBy { get; set; } = default!;
 }
@@ -184,10 +198,15 @@ public class BaseEntityWithUpdatedAtAndBy<TKey>
 public class BaseEntityWithCreatedUpdatedAtAndBy<TKey>
     : BaseEntityWithCreatedUpdatedAt<TKey>, IEntityWithCreatedUpdatedAtAndBy
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the creator identifier.
+    /// </summary>
     [StringLength(256)]
     public string CreatedBy { get; set; } = default!;
-    /// <inheritdoc />
+
+    /// <summary>
+    /// Gets or sets the updater identifier.
+    /// </summary>
     [StringLength(256)]
     public string UpdatedBy { get; set; } = default!;
 }
@@ -199,7 +218,9 @@ public class BaseEntityWithCreatedUpdatedAtAndBy<TKey>
 public class BaseEntityWithUpdatedAtAndByAndDeleted<TKey> : BaseEntityWithUpdatedAtAndBy<TKey>,
     ISoftDeleteEntityWithDeleted
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets a value indicating whether the entity is soft deleted.
+    /// </summary>
     public bool IsDeleted { get; set; }
 }
 
@@ -210,7 +231,9 @@ public class BaseEntityWithUpdatedAtAndByAndDeleted<TKey> : BaseEntityWithUpdate
 public class BaseEntityWithCreatedUpdatedAtAndByAndDeleted<TKey> : BaseEntityWithCreatedUpdatedAtAndBy<TKey>,
     ISoftDeleteEntityWithDeleted
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets a value indicating whether the entity is soft deleted.
+    /// </summary>
     public bool IsDeleted { get; set; }
 }
 
@@ -220,7 +243,9 @@ public class BaseEntityWithCreatedUpdatedAtAndByAndDeleted<TKey> : BaseEntityWit
 /// <typeparam name="TKey">The identifier type.</typeparam>
 public class BaseEntityWithReviewState<TKey> : BaseEntity<TKey>, IEntityWithReviewState
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the review state.
+    /// </summary>
     public ReviewState State { get; set; }
 }
 
@@ -231,7 +256,9 @@ public class BaseEntityWithReviewState<TKey> : BaseEntity<TKey>, IEntityWithRevi
 public class BaseEntityWithReviewStateAndRemark<TKey>
     : BaseEntityWithReviewState<TKey>, IEntityWithReviewStateAndRemark
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the remark.
+    /// </summary>
     [StringLength(2048)]
     public string? Remark { get; set; }
 }
@@ -243,7 +270,9 @@ public class BaseEntityWithReviewStateAndRemark<TKey>
 public class BaseEntityWithReviewStateWithDeleted<TKey>
     : BaseEntityWithDeleted<TKey>, IEntityWithReviewState
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the review state.
+    /// </summary>
     public ReviewState State { get; set; }
 }
 
@@ -254,7 +283,9 @@ public class BaseEntityWithReviewStateWithDeleted<TKey>
 public class BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState<TKey> :
     BaseEntityWithCreatedUpdatedAtAndDeleted<TKey>, IEntityWithReviewState
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the review state.
+    /// </summary>
     public ReviewState State { get; set; }
 }
 
@@ -265,7 +296,9 @@ public class BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState<TKey> :
 public class BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark<TKey> :
     BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState<TKey>, IEntityWithReviewStateAndRemark
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the remark.
+    /// </summary>
     [StringLength(2048)]
     public string? Remark { get; set; }
 }
@@ -277,7 +310,9 @@ public class BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark<TKe
 public class BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState<TKey> :
     BaseEntityWithCreatedUpdatedAtAndByAndDeleted<TKey>, IEntityWithReviewState
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the review state.
+    /// </summary>
     public ReviewState State { get; set; }
 }
 
@@ -288,7 +323,9 @@ public class BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState<TKey> :
 public class BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark<TKey> :
     BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState<TKey>, IEntityWithReviewStateAndRemark
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the remark.
+    /// </summary>
     [StringLength(2048)]
     public string? Remark { get; set; }
 }

@@ -22,6 +22,8 @@ public interface IWrapper<out T>
 /// <param name="value">The value to wrap.</param>
 public class Wrapper<T>(T value) : IWrapper<T>
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets the wrapped value.
+    /// </summary>
     public T Value { get; } = value;
 }

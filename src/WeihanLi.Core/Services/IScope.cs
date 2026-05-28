@@ -10,7 +10,9 @@ public interface IScope : IDisposable;
 /// </summary>
 public sealed class NullScope : IScope
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Disposes the scope.
+    /// </summary>
     public void Dispose()
     {
     }

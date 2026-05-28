@@ -24,7 +24,10 @@ public sealed class GuidIdGenerator : IIdGenerator
     /// </summary>
     public static GuidIdGenerator Instance { get; } = new();
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Generates a new compact GUID string without separators.
+    /// </summary>
+    /// <returns>The generated identifier.</returns>
     public string NewId() => Guid.NewGuid().ToString("N");
 }
 
@@ -36,6 +39,9 @@ public sealed class SequentialGuidIdGenerator(SequentialGuidType sequentialGuidT
 {
     private readonly SequentialGuidType _sequentialGuidType = sequentialGuidType;
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Generates a new compact sequential GUID string without separators.
+    /// </summary>
+    /// <returns>The generated identifier.</returns>
     public string NewId() => SequentialGuidGenerator.Create(_sequentialGuidType).ToString("N");
 }

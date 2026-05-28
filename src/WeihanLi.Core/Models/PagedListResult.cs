@@ -75,14 +75,18 @@ public class ListResultWithTotal<T> : IListResultWithTotal<T>
 
     private IReadOnlyList<T> _data = Array.Empty<T>();
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the result items.
+    /// </summary>
     public IReadOnlyList<T> Data
     {
         get => _data;
         set => _data = Guard.NotNull(value, nameof(value));
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the total item count.
+    /// </summary>
     public int TotalCount { get; set; }
 }
 
@@ -100,7 +104,9 @@ public class PagedListResult<T> : IPagedListResult<T>
 
     private IReadOnlyList<T> _data = Array.Empty<T>();
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the result items.
+    /// </summary>
     public IReadOnlyList<T> Data
     {
         get => _data;
@@ -109,7 +115,9 @@ public class PagedListResult<T> : IPagedListResult<T>
 
     private int _pageNumber = 1;
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the one-based page number.
+    /// </summary>
     public int PageNumber
     {
         get => _pageNumber;
@@ -124,7 +132,9 @@ public class PagedListResult<T> : IPagedListResult<T>
 
     private int _pageSize = 10;
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the page size.
+    /// </summary>
     public int PageSize
     {
         get => _pageSize;
@@ -139,7 +149,9 @@ public class PagedListResult<T> : IPagedListResult<T>
 
     private int _totalCount;
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets or sets the total item count.
+    /// </summary>
     public int TotalCount
     {
         get => _totalCount;
@@ -152,7 +164,9 @@ public class PagedListResult<T> : IPagedListResult<T>
         }
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets the total page count.
+    /// </summary>
     public int PageCount => (_totalCount + _pageSize - 1) / _pageSize;
 
     /// <summary>
@@ -162,6 +176,8 @@ public class PagedListResult<T> : IPagedListResult<T>
     /// <returns>The item at the specified index.</returns>
     public T this[int index] => Data[index];
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets the item count in the current page.
+    /// </summary>
     public int Count => Data.Count;
 }

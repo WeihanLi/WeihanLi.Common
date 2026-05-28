@@ -31,24 +31,32 @@ public sealed class StopwatchProfiler : IProfiler
 {
     private readonly Stopwatch _stopwatch = new();
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Starts or resumes measuring elapsed time.
+    /// </summary>
     public void Start()
     {
         _stopwatch.Start();
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Stops measuring elapsed time.
+    /// </summary>
     public void Stop()
     {
         _stopwatch.Stop();
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Resets elapsed time to zero and starts measuring elapsed time.
+    /// </summary>
     public void Restart()
     {
         _stopwatch.Restart();
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Gets the total elapsed time measured by the profiler.
+    /// </summary>
     public TimeSpan Elapsed => _stopwatch.Elapsed;
 }

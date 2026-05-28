@@ -64,7 +64,12 @@ public sealed class MockHttpHandler : HttpMessageHandler
         _responseFactory = responseFactory;
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Sends the specified request through the configured response factory.
+    /// </summary>
+    /// <param name="request">The request message.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The response created by the configured response factory.</returns>
     protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
         return _responseFactory(request);
