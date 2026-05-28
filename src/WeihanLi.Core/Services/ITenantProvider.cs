@@ -1,4 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using WeihanLi.Common.Models;
 using WeihanLi.Extensions;
 

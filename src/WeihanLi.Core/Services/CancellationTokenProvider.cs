@@ -1,4 +1,4 @@
-namespace WeihanLi.Common.Services;
+﻿namespace WeihanLi.Common.Services;
 
 /// <summary>
 /// Provides a cancellation token for the current operation.

@@ -1,4 +1,4 @@
-namespace WeihanLi.Common.Http;
+﻿namespace WeihanLi.Common.Http;
 
 /// <summary>
 /// HTTP client handler configured without proxy, cookies, automatic redirects, or certificate revocation checks.
