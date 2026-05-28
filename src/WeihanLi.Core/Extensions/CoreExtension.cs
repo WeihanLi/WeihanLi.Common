@@ -901,160 +901,36 @@ public static class CoreExtension
         }
     }
 
+#if NET
     /// <summary>
-    ///     A System.Object extension method that toes the given this.
+    /// Parse ReadOnlySpan to specific type instance
     /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">this.</param>
-    /// <returns>A T.</returns>
-    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
-    public static T To<T>(this object? @this)
+    /// <param name="this">span text</param>
+    /// <param name="formatProvider">An object that provides culture-specific formatting information</param>
+    /// <typeparam name="T">The destination type</typeparam>
+    /// <returns>The parsed value of type T.</returns>
+    public static T To<T>(this string @this, IFormatProvider? formatProvider = null) 
+        where T: IParsable<T>
     {
-#nullable disable
-
-        if (@this == null || @this == DBNull.Value)
-        {
-            return (T)(object)null;
-        }
-#nullable restore
-
-        var targetType = typeof(T).Unwrap();
-        var sourceType = @this.GetType().Unwrap();
-        if (sourceType == targetType)
-        {
-            return (T)@this;
-        }
-        var converter = TypeDescriptor.GetConverter(sourceType);
-        if (converter.CanConvertTo(targetType))
-        {
-            return (T)converter.ConvertTo(@this, targetType)!;
-        }
-
-        converter = TypeDescriptor.GetConverter(targetType);
-        if (converter.CanConvertFrom(sourceType))
-        {
-            return (T)converter.ConvertFrom(@this)!;
-        }
-
-        return (T)Convert.ChangeType(@this, targetType);
+        return T.Parse(@this, formatProvider);
     }
 
     /// <summary>
-    ///     A System.Object extension method that toes the given this.
+    /// Parse ReadOnlySpan to specific type instance
     /// </summary>
-    /// <param name="this">this.</param>
-    /// <param name="type">The type.</param>
-    /// <returns>An object.</returns>
-    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
-    public static object? To(this object? @this, Type type)
+    /// <param name="this">span text</param>
+    /// <param name="formatProvider">An object that provides culture-specific formatting information</param>
+    /// <param name="defaultValue">default value</param>
+    /// <typeparam name="T">The destination type</typeparam>
+    /// <returns>The parsed value of type T, or the default value if parsing fails.</returns>
+    public static T? ToOrDefault<T>(this string? @this, 
+        IFormatProvider? formatProvider = null, 
+        T? defaultValue = default) 
+        where T: IParsable<T>
     {
-        if (@this == null || @this == DBNull.Value)
-        {
-            return null;
-        }
-
-        var targetType = type.Unwrap();
-        var sourceType = @this.GetType().Unwrap();
-
-        if (sourceType == targetType)
-        {
-            return @this;
-        }
-
-        var converter = TypeDescriptor.GetConverter(sourceType);
-        if (converter.CanConvertTo(targetType))
-        {
-            return converter.ConvertTo(@this, targetType);
-        }
-
-        converter = TypeDescriptor.GetConverter(targetType);
-        if (converter.CanConvertFrom(sourceType))
-        {
-            return converter.ConvertFrom(@this);
-        }
-
-        return Convert.ChangeType(@this, targetType);
+        return T.TryParse(@this, formatProvider, out var result) ? result : defaultValue;
     }
 
-    /// <summary>
-    ///     A System.Object extension method that converts this object to an or default.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">this.</param>
-    /// <param name="defaultValueFactory">The default value factory.</param>
-    /// <returns>The given data converted to a T.</returns>
-    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
-    public static T ToOrDefault<T>(this object? @this, Func<object?, T> defaultValueFactory)
-    {
-        try
-        {
-            return (T)@this.To(typeof(T))!;
-        }
-        catch (Exception)
-        {
-            return defaultValueFactory(@this);
-        }
-    }
-
-    /// <summary>
-    ///     A System.Object extension method that converts this object to an or default.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">this.</param>
-    /// <param name="defaultValueFactory">The default value factory.</param>
-    /// <returns>The given data converted to a T.</returns>
-    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
-    public static T ToOrDefault<T>(this object? @this, Func<T> defaultValueFactory)
-    {
-        return @this.ToOrDefault(_ => defaultValueFactory());
-    }
-
-    /// <summary>
-    ///     A System.Object extension method that converts this object to an or default.
-    /// </summary>
-    /// <param name="this">this.</param>
-    /// <param name="type">type</param>
-    /// <returns>The given data converted to</returns>
-    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
-    public static object? ToOrDefault(this object? @this, Type type)
-    {
-        Guard.NotNull(type, nameof(type));
-        try
-        {
-            return @this.To(type);
-        }
-        catch (Exception)
-        {
-            return type.GetDefaultValue();
-        }
-    }
-
-    /// <summary>
-    ///     A System.Object extension method that converts this object to an or default.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">this.</param>
-    /// <returns>The given data converted to a T.</returns>
-    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
-    public static T? ToOrDefault<T>(this object? @this)
-    {
-        return @this.ToOrDefault(_ => default(T));
-    }
-
-    /// <summary>
-    ///     A System.Object extension method that converts this object to an or default.
-    /// </summary>
-    /// <typeparam name="T">Generic type parameter.</typeparam>
-    /// <param name="this">this.</param>
-    /// <param name="defaultValue">The default value.</param>
-    /// <returns>The given data converted to a T.</returns>
-    [RequiresUnreferencedCode("Generic TypeConverters may require the generic types to be annotated. For example, NullableConverter requires the underlying type to be DynamicallyAccessedMembers All.")]
-    public static T ToOrDefault<T>(this object? @this, T defaultValue)
-    {
-        return @this.ToOrDefault(_ => defaultValue);
-    }
-
-#if NET    
     /// <summary>
     /// Parse ReadOnlySpan to specific type instance
     /// </summary>

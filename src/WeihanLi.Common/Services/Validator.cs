@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 using WeihanLi.Extensions;
 using AnnotationValidationResult = System.ComponentModel.DataAnnotations.ValidationResult;
 using ValidationResult = WeihanLi.Common.Models.ValidationResult;

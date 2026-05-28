@@ -1,8 +1,6 @@
 ﻿// Copyright (c) Weihan Li. All rights reserved.
 // Licensed under the Apache license.
 
-using WeihanLi.Extensions;
-
 namespace WeihanLi.Common.Event;
 
 public sealed class DelegateEventHandler<TEvent> : EventHandlerBase<TEvent>

@@ -121,8 +121,8 @@ public class StringExtensionTest
         Assert.Equal(count, array.Length);
         Assert.True(array.SequenceEqual(Enumerable.Range(1, count)));
 
-        var array1 = str.SplitArray<int?>([';']);
+        var array1 = str.SplitArray<int>([';']);
         Assert.Equal(count, array1.Length);
-        Assert.True(array1.Select(x => x.GetValueOrDefault()).SequenceEqual(Enumerable.Range(1, count)));
+        Assert.True(array1.Select(x => x).SequenceEqual(Enumerable.Range(1, count)));
     }
 }

@@ -6,6 +6,9 @@ namespace WeihanLi.Common.Logging;
 
 public sealed class GenericLoggerOptions
 {
+    /// <summary>
+    /// Gets or sets the predicate that determines whether generic type parameters are included in logger names.
+    /// </summary>
     public Func<Type, bool>? FullNamePredict { get; set; } = _ => true;
 }
 
@@ -25,19 +28,16 @@ internal sealed class GenericLogger<T> : ILogger<T>
         _logger = factory.CreateLogger(TypeHelper.GetTypeDisplayName(typeof(T), includeGenericParameters: includeGenericParameters, nestedTypeDelimiter: '.'));
     }
 
-    /// <inheritdoc />
     IDisposable? ILogger.BeginScope<TState>(TState state)
     {
         return _logger.BeginScope(state);
     }
 
-    /// <inheritdoc />
     bool ILogger.IsEnabled(LogLevel logLevel)
     {
         return _logger.IsEnabled(logLevel);
     }
 
-    /// <inheritdoc />
     void ILogger.Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
     {
         _logger.Log(logLevel, eventId, state, exception, formatter);

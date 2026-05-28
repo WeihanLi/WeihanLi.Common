@@ -41,7 +41,6 @@ using WeihanLi.Extensions;
 [assembly: TypeForwardedTo(typeof(CommandLineParser))]
 [assembly: TypeForwardedTo(typeof(LineParseOptions))]
 [assembly: TypeForwardedTo(typeof(EnvHelper))]
-[assembly: TypeForwardedTo(typeof(EnumHelper))]
 [assembly: TypeForwardedTo(typeof(TypeHelper))]
 [assembly: TypeForwardedTo(typeof(ValidateHelper))]
 [assembly: TypeForwardedTo(typeof(ValueStopwatch))]

@@ -2,12 +2,11 @@
   <PropertyGroup>
     <PackageId>WeihanLi.Core</PackageId>
     <Title>WeihanLi.Core</Title>
-    <TargetFrameworks>netstandard2.0;net10.0;net11.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net8.0;net10.0;net11.0</TargetFrameworks>
     <Description>AOT-compatible core helpers, extensions, models, and utility primitives for .NET applications</Description>
     <PackageTags>$(PackageTags);core;aot;utility;extensions;helpers</PackageTags>
     <PackageSummary>AOT-compatible core helpers, extensions, models, and utility primitives</PackageSummary>
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Core</PackageProjectUrl>
-    <NoWarn>$(NoWarn);1591;DE0003;SYSLIB0014;</NoWarn>
     <RootNamespace>WeihanLi.Common</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>

@@ -3,11 +3,13 @@
 
 namespace WeihanLi.Common.Models;
 
+/// <summary>
+/// Represents a page-based request.
+/// </summary>
 public class PagedRequest
 {
     /// <summary>
-    /// PageNumber
-    /// 1 by default, 1 based
+    /// Gets or sets the one-based page number. The default value is 1.
     /// </summary>
     public int PageNum
     {
@@ -22,8 +24,7 @@ public class PagedRequest
     } = 1;
 
     /// <summary>
-    /// PageSize
-    /// 10 by default
+    /// Gets or sets the page size. The default value is 10.
     /// </summary>
     public int PageSize
     {
@@ -38,8 +39,14 @@ public class PagedRequest
     } = 10;
 }
 
+/// <summary>
+/// Represents an offset-based request.
+/// </summary>
 public class OffsetRequest
 {
+    /// <summary>
+    /// Gets or sets the zero-based offset.
+    /// </summary>
     public int Offset
     {
         get => field;
@@ -52,6 +59,9 @@ public class OffsetRequest
         }
     }
 
+    /// <summary>
+    /// Gets or sets the requested item count. The default value is 10.
+    /// </summary>
     public int Count
     {
         get => field;

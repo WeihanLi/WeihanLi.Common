@@ -3,17 +3,18 @@ using WeihanLi.Extensions;
 
 namespace WeihanLi.Common.Otp;
 
+/// <summary>
+/// Options for time-based one-time password generation and validation.
+/// </summary>
 public sealed class TotpOptions
 {
     /// <summary>
-    /// 计算 code 的算法
-    /// The algorithm for calculating the totp code
+    /// Gets or sets the hash algorithm used to calculate the TOTP code.
     /// </summary>
     public OtpHashAlgorithm Algorithm { get; set; } = OtpHashAlgorithm.SHA1;
 
     /// <summary>
-    /// 生成的 code 长度
-    /// The expected code length, 4-9 expected
+    /// Gets or sets the generated code length. Allowed values are 4 through 9.
     /// </summary>
     public int Size
     {
@@ -27,8 +28,7 @@ public sealed class TotpOptions
     }
 
     /// <summary>
-    /// 过期时间，单位是秒
-    /// The code expire time, 300s by default, should be 30,60,90..., the min value is 30s
+    /// Gets or sets the code expiration time in seconds. The default value is 300.
     /// </summary>
     public int ExpiresIn { get; set; } = 300;
 
@@ -36,7 +36,7 @@ public sealed class TotpOptions
     private int _size = 6;
 
     /// <summary>
-    /// Salt for security consideration
+    /// Gets or sets the salt appended to the security token before code generation.
     /// </summary>
     public string? Salt
     {
