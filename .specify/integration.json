@@ -7,7 +7,11 @@
   "integration_settings": {
     "copilot": {
       "script": "ps",
-      "invoke_separator": "."
+      "raw_options": "--skills",
+      "parsed_options": {
+        "skills": true
+      },
+      "invoke_separator": "-"
     }
   },
   "integration": "copilot",
