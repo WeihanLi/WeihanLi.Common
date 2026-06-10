@@ -92,6 +92,9 @@ public static class ProcessExtension
     /// <returns>process output and exitCode</returns>
     public static CommandResult GetResult(this ProcessStartInfo psi)
     {
+        // RedirectStandardOutput and RedirectStandardError must both be set to true 
+        psi.RedirectStandardOutput = true;
+        psi.RedirectStandardError = true;
 #if NET11_0_OR_GREATER
         var output = Process.RunAndCaptureText(psi);
         return new CommandResult(output.ExitStatus.ExitCode, output.StandardOutput, output.StandardError)
@@ -131,6 +134,9 @@ public static class ProcessExtension
     /// <returns>process output and exitCode</returns>
     public static async Task<CommandResult> GetResultAsync(this ProcessStartInfo psi, CancellationToken cancellationToken = default)
     {
+        // RedirectStandardOutput and RedirectStandardError must both be set to true 
+        psi.RedirectStandardOutput = true;
+        psi.RedirectStandardError = true;
 #if NET11_0_OR_GREATER
         var output = await Process.RunAndCaptureTextAsync(psi, cancellationToken);
         return new CommandResult(output.ExitStatus.ExitCode, output.StandardOutput, output.StandardError)
