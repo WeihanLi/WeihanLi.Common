@@ -57,11 +57,15 @@ public static class ProcessExtension
     /// <returns>process exit code</returns>
     public static int Execute(this ProcessStartInfo processStartInfo)
     {
+#if NET11_0_OR_GREATER
+        return Process.Run(processStartInfo).ExitCode;
+#else
         using var process = new Process();
         process.StartInfo = processStartInfo;
         process.Start();
         process.WaitForExit();
         return process.ExitCode;
+#endif
     }
 
     /// <summary>
@@ -183,9 +187,6 @@ public static class ProcessExtension
     public static int GetExitCode(this ProcessStartInfo psi, TextWriter? stdOut = null,
         TextWriter? stdErr = null)
     {
-#if NET11_0_OR_GREATER
-        return Process.RunAndCaptureText(psi).ExitStatus.ExitCode;
-#else
         try
         {
             using var process = psi.ExecuteProcess(stdOut, stdErr);
@@ -195,7 +196,6 @@ public static class ProcessExtension
         {
             return win32Exception.ErrorCode;
         }
-#endif
     }
 
     /// <summary>
@@ -209,9 +209,6 @@ public static class ProcessExtension
     public static async Task<int> GetExitCodeAsync(this ProcessStartInfo psi, TextWriter? stdOut = null,
         TextWriter? stdErr = null, CancellationToken cancellationToken = default)
     {
-#if NET11_0_OR_GREATER
-        return (await Process.RunAndCaptureTextAsync(psi, cancellationToken)).ExitStatus.ExitCode;
-#else
         try
         {
             using var process = await psi.ExecuteProcessAsync(stdOut, stdErr, null, cancellationToken);
@@ -221,7 +218,6 @@ public static class ProcessExtension
         {
             return win32Exception.ErrorCode;
         }
-#endif
     }
 
     /// <summary>
