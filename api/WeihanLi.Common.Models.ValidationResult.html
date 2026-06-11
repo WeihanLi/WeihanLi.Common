@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ValidationResult ">
       
-      
+      <meta name="description" content="Default implementation of .">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Models_ValidationResult" data-uid="WeihanLi.Common.Models.ValidationResult" class="text-break">
-Class ValidationResult  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/ValidationResult.cs/#L21"><i class="bi bi-code-slash"></i></a>
+Class ValidationResult  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/ValidationResult.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -93,7 +93,8 @@ Class ValidationResult  <a class="header-action link-secondary" title="View sour
   <dl><dt>Assembly</dt><dd>WeihanLi.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Default implementation of <a class="xref" href="WeihanLi.Common.Models.IValidationResult.html">IValidationResult</a>.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -279,10 +280,11 @@ Class ValidationResult  <a class="header-action link-secondary" title="View sour
 
   <h3 id="WeihanLi_Common_Models_ValidationResult_Errors" data-uid="WeihanLi.Common.Models.ValidationResult.Errors">
   Errors
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/ValidationResult.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/ValidationResult.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets validation errors keyed by member name.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -310,10 +312,11 @@ Class ValidationResult  <a class="header-action link-secondary" title="View sour
 
   <h3 id="WeihanLi_Common_Models_ValidationResult_Valid" data-uid="WeihanLi.Common.Models.ValidationResult.Valid">
   Valid
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/ValidationResult.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/ValidationResult.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether validation succeeded.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -345,10 +348,11 @@ Class ValidationResult  <a class="header-action link-secondary" title="View sour
 
   <h3 id="WeihanLi_Common_Models_ValidationResult_Failed_System_Collections_Generic_Dictionary_System_String_System_String____" data-uid="WeihanLi.Common.Models.ValidationResult.Failed(System.Collections.Generic.Dictionary{System.String,System.String[]})">
   Failed(Dictionary&lt;string, string[]&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/ValidationResult.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/ValidationResult.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a failed validation result with member-level errors.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -358,13 +362,15 @@ Class ValidationResult  <a class="header-action link-secondary" title="View sour
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>errors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]&gt;</dt>
-    <dd></dd>
+    <dd><p>The validation errors keyed by member name.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="WeihanLi.Common.Models.ValidationResult.html">ValidationResult</a></dt>
-    <dd></dd>
+    <dd><p>A failed validation result.</p>
+</dd>
   </dl>
 
 
@@ -381,10 +387,11 @@ Class ValidationResult  <a class="header-action link-secondary" title="View sour
 
   <h3 id="WeihanLi_Common_Models_ValidationResult_Failed_System_String___" data-uid="WeihanLi.Common.Models.ValidationResult.Failed(System.String[])">
   Failed(params string[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/ValidationResult.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/ValidationResult.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a failed validation result with model-level errors.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -394,13 +401,15 @@ Class ValidationResult  <a class="header-action link-secondary" title="View sour
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>errors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
-    <dd></dd>
+    <dd><p>The validation error messages.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="WeihanLi.Common.Models.ValidationResult.html">ValidationResult</a></dt>
-    <dd></dd>
+    <dd><p>A failed validation result.</p>
+</dd>
   </dl>
 
 
@@ -417,7 +426,7 @@ Class ValidationResult  <a class="header-action link-secondary" title="View sour
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/ValidationResult.cs/#L21" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/ValidationResult.cs/#L25" class="edit-link">Edit this page</a>
         </div>
 
 

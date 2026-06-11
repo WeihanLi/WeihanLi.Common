@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class DelegateUserIdProvider ">
       
-      
+      <meta name="description" content="User identifier provider backed by a delegate.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Services_DelegateUserIdProvider" data-uid="WeihanLi.Common.Services.DelegateUserIdProvider" class="text-break">
-Class DelegateUserIdProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/UserIdProvider.cs/#L53"><i class="bi bi-code-slash"></i></a>
+Class DelegateUserIdProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/UserIdProvider.cs/#L92"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -93,7 +93,8 @@ Class DelegateUserIdProvider  <a class="header-action link-secondary" title="Vie
   <dl><dt>Assembly</dt><dd>WeihanLi.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>User identifier provider backed by a delegate.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -279,10 +280,11 @@ Class DelegateUserIdProvider  <a class="header-action link-secondary" title="Vie
 
   <h3 id="WeihanLi_Common_Services_DelegateUserIdProvider__ctor_System_Func_System_String__" data-uid="WeihanLi.Common.Services.DelegateUserIdProvider.#ctor(System.Func{System.String})">
   DelegateUserIdProvider(Func&lt;string?&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/UserIdProvider.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/UserIdProvider.cs/#L92"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>User identifier provider backed by a delegate.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -292,7 +294,8 @@ Class DelegateUserIdProvider  <a class="header-action link-secondary" title="Vie
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>userIdFactory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The delegate used to resolve the current user identifier.</p>
+</dd>
   </dl>
 
 
@@ -310,10 +313,11 @@ Class DelegateUserIdProvider  <a class="header-action link-secondary" title="Vie
 
   <h3 id="WeihanLi_Common_Services_DelegateUserIdProvider__ctor_System_String_" data-uid="WeihanLi.Common.Services.DelegateUserIdProvider.#ctor(System.String)">
   DelegateUserIdProvider(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/UserIdProvider.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/UserIdProvider.cs/#L98"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="WeihanLi.Common.Services.DelegateUserIdProvider.html">DelegateUserIdProvider</a> class with a fixed user identifier.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -323,7 +327,8 @@ Class DelegateUserIdProvider  <a class="header-action link-secondary" title="Vie
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>userId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The fixed user identifier.</p>
+</dd>
   </dl>
 
 
@@ -345,10 +350,11 @@ Class DelegateUserIdProvider  <a class="header-action link-secondary" title="Vie
 
   <h3 id="WeihanLi_Common_Services_DelegateUserIdProvider_GetUserId" data-uid="WeihanLi.Common.Services.DelegateUserIdProvider.GetUserId">
   GetUserId()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/UserIdProvider.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/UserIdProvider.cs/#L106"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the current user identifier from the configured delegate.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -359,7 +365,8 @@ Class DelegateUserIdProvider  <a class="header-action link-secondary" title="Vie
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The current user identifier, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> when no user is available.</p>
+</dd>
   </dl>
 
 
@@ -376,7 +383,7 @@ Class DelegateUserIdProvider  <a class="header-action link-secondary" title="Vie
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/UserIdProvider.cs/#L53" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/UserIdProvider.cs/#L92" class="edit-link">Edit this page</a>
         </div>
 
 

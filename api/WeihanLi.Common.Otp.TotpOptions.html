@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class TotpOptions ">
       
-      
+      <meta name="description" content="Options for time-based one-time password generation and validation.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Otp_TotpOptions" data-uid="WeihanLi.Common.Otp.TotpOptions" class="text-break">
-Class TotpOptions  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Otp/TotpOptions.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class TotpOptions  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Otp/TotpOptions.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -93,7 +93,8 @@ Class TotpOptions  <a class="header-action link-secondary" title="View source" h
   <dl><dt>Assembly</dt><dd>WeihanLi.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Options for time-based one-time password generation and validation.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -273,11 +274,10 @@ Class TotpOptions  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="WeihanLi_Common_Otp_TotpOptions_Algorithm" data-uid="WeihanLi.Common.Otp.TotpOptions.Algorithm">
   Algorithm
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Otp/TotpOptions.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Otp/TotpOptions.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>计算 code 的算法
-The algorithm for calculating the totp code</p>
+  <div class="markdown level1 summary"><p>Gets or sets the hash algorithm used to calculate the TOTP code.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -309,8 +309,7 @@ The algorithm for calculating the totp code</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Otp/TotpOptions.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>过期时间，单位是秒
-The code expire time, 300s by default, should be 30,60,90..., the min value is 30s</p>
+  <div class="markdown level1 summary"><p>Gets or sets the code expiration time in seconds. The default value is 300.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -342,7 +341,7 @@ The code expire time, 300s by default, should be 30,60,90..., the min value is 3
   <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Otp/TotpOptions.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Salt for security consideration</p>
+  <div class="markdown level1 summary"><p>Gets or sets the salt appended to the security token before code generation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -371,11 +370,10 @@ The code expire time, 300s by default, should be 30,60,90..., the min value is 3
 
   <h3 id="WeihanLi_Common_Otp_TotpOptions_Size" data-uid="WeihanLi.Common.Otp.TotpOptions.Size">
   Size
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Otp/TotpOptions.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Otp/TotpOptions.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>生成的 code 长度
-The expected code length, 4-9 expected</p>
+  <div class="markdown level1 summary"><p>Gets or sets the generated code length. Allowed values are 4 through 9.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -404,7 +402,7 @@ The expected code length, 4-9 expected</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Otp/TotpOptions.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Otp/TotpOptions.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
 

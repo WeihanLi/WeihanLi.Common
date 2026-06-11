@@ -136,7 +136,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Abstractions.IProperties",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Abstractions.IProperties.yml\" sourcestartlinenumber=\"1\">Exposes an object property bag.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -150,7 +150,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Abstractions.IStringProperties",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Abstractions.IStringProperties.yml\" sourcestartlinenumber=\"1\">Exposes a string property bag.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -962,7 +962,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.DependencyResolverExtensions",
-      "Summary": "<p sourcefile=\"api/WeihanLi.Common.DependencyResolverExtensions.yml\" sourcestartlinenumber=\"1\">DependencyResolverExtensions</p>\n"
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.DependencyResolverExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"WeihanLi.Common.IDependencyResolver\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3010,6 +3010,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/WeihanLi.Common.Helpers.WebRequestHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/WeihanLi.Common.Helpers.WebRequestHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WeihanLi.Common.Helpers.WebRequestHelper",
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Helpers.WebRequestHelper.yml\" sourcestartlinenumber=\"1\">Http request helper</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/WeihanLi.Common.Helpers.XmlDataSerializer.yml",
       "output": {
         ".html": {
@@ -3118,7 +3132,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Http.MockHttpHandler",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Http.MockHttpHandler.yml\" sourcestartlinenumber=\"1\">HTTP message handler that returns responses from a configurable factory.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3132,7 +3146,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Http.NoProxyHttpClientHandler",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Http.NoProxyHttpClientHandler.yml\" sourcestartlinenumber=\"1\">HTTP client handler configured without proxy, cookies, automatic redirects, or certificate revocation checks.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3174,7 +3188,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.IDependencyResolver",
-      "Summary": "<p sourcefile=\"api/WeihanLi.Common.IDependencyResolver.yml\" sourcestartlinenumber=\"1\">IDependencyResolver</p>\n"
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.IDependencyResolver.yml\" sourcestartlinenumber=\"1\">Resolves services from the application's dependency container.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3482,7 +3496,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntity<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntity-1.yml\" sourcestartlinenumber=\"1\">Base entity with an identifier.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3496,7 +3510,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntity",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntity.yml\" sourcestartlinenumber=\"1\">Base entity with an integer identifier.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3510,7 +3524,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt-1.yml\" sourcestartlinenumber=\"1\">Base entity with creation and update timestamps.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3524,7 +3538,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAt.yml\" sourcestartlinenumber=\"1\">Base entity with an integer identifier plus creation and update timestamps.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3538,7 +3552,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy-1.yml\" sourcestartlinenumber=\"1\">Base entity with creation and update timestamps plus creator and updater information.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3552,7 +3566,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndBy.yml\" sourcestartlinenumber=\"1\">Base entity with an integer identifier, creation and update timestamps, and creator and updater information.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3566,7 +3580,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted-1.yml\" sourcestartlinenumber=\"1\">Base entity with creation and update timestamps, creator and updater information, and soft-delete state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3580,7 +3594,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeleted.yml\" sourcestartlinenumber=\"1\">Base entity with an integer identifier, creation and update timestamps, creator and updater information, and soft-delete state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3594,7 +3608,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState-1.yml\" sourcestartlinenumber=\"1\">Base entity with creation and update timestamps, creator and updater information, soft-delete state, and review state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3608,7 +3622,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewState.yml\" sourcestartlinenumber=\"1\">Base entity with an integer identifier, creation and update timestamps, creator and updater information, soft-delete state, and review state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3622,7 +3636,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark-1.yml\" sourcestartlinenumber=\"1\">Base entity with creation and update timestamps, creator and updater information, soft-delete state, review state, and remark.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3636,7 +3650,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndByAndDeletedAndReviewStateAndRemark.yml\" sourcestartlinenumber=\"1\">Base entity with an integer identifier, creation and update timestamps, creator and updater information, soft-delete state, review state, and remark.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3650,7 +3664,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted-1.yml\" sourcestartlinenumber=\"1\">Base entity with creation and update timestamps plus soft-delete state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3664,7 +3678,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeleted.yml\" sourcestartlinenumber=\"1\">Base entity with an integer identifier, creation and update timestamps, and soft-delete state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3678,7 +3692,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark-1.yml\" sourcestartlinenumber=\"1\">Base entity with creation and update timestamps, soft-delete state, and remark.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3692,7 +3706,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndRemark.yml\" sourcestartlinenumber=\"1\">Base entity with an integer identifier, creation and update timestamps, soft-delete state, and remark.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3706,7 +3720,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState-1.yml\" sourcestartlinenumber=\"1\">Base entity with creation and update timestamps, soft-delete state, and review state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3720,7 +3734,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewState.yml\" sourcestartlinenumber=\"1\">Base entity with an integer identifier, creation and update timestamps, soft-delete state, and review state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3734,7 +3748,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark-1.yml\" sourcestartlinenumber=\"1\">Base entity with creation and update timestamps, soft-delete state, review state, and remark.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3748,7 +3762,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithCreatedUpdatedAtAndDeletedAndReviewStateAndRemark.yml\" sourcestartlinenumber=\"1\">Base entity with an integer identifier, creation and update timestamps, soft-delete state, review state, and remark.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3762,7 +3776,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithDeleted<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithDeleted-1.yml\" sourcestartlinenumber=\"1\">Base entity with soft-delete state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3776,7 +3790,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithDeleted",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithDeleted.yml\" sourcestartlinenumber=\"1\">Base entity with an integer identifier and soft-delete state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3790,7 +3804,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithReviewState<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithReviewState-1.yml\" sourcestartlinenumber=\"1\">Base entity with a review state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3804,7 +3818,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithReviewState",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithReviewState.yml\" sourcestartlinenumber=\"1\">Base entity with an integer identifier and review state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3818,7 +3832,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark-1.yml\" sourcestartlinenumber=\"1\">Base entity with review state and remark.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3832,7 +3846,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithReviewStateAndRemark.yml\" sourcestartlinenumber=\"1\">Base entity with an integer identifier, review state, and remark.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3846,7 +3860,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted-1.yml\" sourcestartlinenumber=\"1\">Base entity with review state and soft-delete state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3860,7 +3874,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithReviewStateWithDeleted.yml\" sourcestartlinenumber=\"1\">Base entity with an integer identifier, review state, and soft-delete state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3874,7 +3888,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithUpdatedAt<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithUpdatedAt-1.yml\" sourcestartlinenumber=\"1\">Base entity with an update timestamp.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3888,7 +3902,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndBy-1.yml\" sourcestartlinenumber=\"1\">Base entity with update timestamp and updater information.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3902,7 +3916,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.BaseEntityWithUpdatedAtAndByAndDeleted-1.yml\" sourcestartlinenumber=\"1\">Base entity with update timestamp, updater information, and soft-delete state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3916,7 +3930,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.Category<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.Category-1.yml\" sourcestartlinenumber=\"1\">Represents a category.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3930,7 +3944,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.Category",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.Category.yml\" sourcestartlinenumber=\"1\">Represents a category with an integer identifier.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3944,7 +3958,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.CategoryWithDesc",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.CategoryWithDesc.yml\" sourcestartlinenumber=\"1\">Represents a category with a description.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3958,7 +3972,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.DataOperationType",
-      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.DataOperationType.yml\" sourcestartlinenumber=\"1\">DataOperationType</p>\n"
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.DataOperationType.yml\" sourcestartlinenumber=\"1\">Specifies a data operation type.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3972,7 +3986,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.EnumerableExtensions",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.EnumerableExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for list results.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3986,7 +4000,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IEntity<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IEntity-1.yml\" sourcestartlinenumber=\"1\">Represents an entity with an identifier.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4000,7 +4014,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAt.yml\" sourcestartlinenumber=\"1\">Represents an entity with creation and update timestamps.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4014,7 +4028,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IEntityWithCreatedUpdatedAtAndBy",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedAtAndBy.yml\" sourcestartlinenumber=\"1\">Represents an entity with creation and update timestamps plus creator and updater information.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4028,7 +4042,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IEntityWithCreatedUpdatedBy.yml\" sourcestartlinenumber=\"1\">Represents an entity with creator and updater information.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4042,7 +4056,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IEntityWithRemark",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IEntityWithRemark.yml\" sourcestartlinenumber=\"1\">Represents an entity with a remark.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4056,7 +4070,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IEntityWithReviewState",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IEntityWithReviewState.yml\" sourcestartlinenumber=\"1\">Represents an entity with a review state.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4070,7 +4084,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IEntityWithReviewStateAndRemark",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IEntityWithReviewStateAndRemark.yml\" sourcestartlinenumber=\"1\">Represents an entity with review state and remark.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4084,7 +4098,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IEntityWithUpdatedAt",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IEntityWithUpdatedAt.yml\" sourcestartlinenumber=\"1\">Represents an entity with an update timestamp.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4098,7 +4112,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IEntityWithUpdatedAtAndBy",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IEntityWithUpdatedAtAndBy.yml\" sourcestartlinenumber=\"1\">Represents an entity with update timestamp and updater information.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4112,7 +4126,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IEntityWithUpdatedBy",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IEntityWithUpdatedBy.yml\" sourcestartlinenumber=\"1\">Represents an entity with updater information.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4126,7 +4140,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IListResultWithTotal<T>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IListResultWithTotal-1.yml\" sourcestartlinenumber=\"1\">Represents a list result with a total item count.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4140,7 +4154,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IPagedListResult<T>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IPagedListResult-1.yml\" sourcestartlinenumber=\"1\">Represents a paged list result.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4154,7 +4168,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.ISoftDeleteEntity",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.ISoftDeleteEntity.yml\" sourcestartlinenumber=\"1\">Marker interface for soft-delete entities.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4168,7 +4182,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.ISoftDeleteEntityWithDeleted",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.ISoftDeleteEntityWithDeleted.yml\" sourcestartlinenumber=\"1\">Represents a soft-delete entity with a deletion flag.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4182,7 +4196,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IValidationResult",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IValidationResult.yml\" sourcestartlinenumber=\"1\">Represents the result of a validation operation.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4196,7 +4210,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IdNameDescModel<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IdNameDescModel-1.yml\" sourcestartlinenumber=\"1\">Represents a model with an identifier, name, and description.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4210,7 +4224,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IdNameDescModel",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IdNameDescModel.yml\" sourcestartlinenumber=\"1\">Represents a model with an integer identifier, name, and description.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4224,7 +4238,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IdNameModel<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IdNameModel-1.yml\" sourcestartlinenumber=\"1\">Represents a model with an identifier and name.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4238,7 +4252,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.IdNameModel",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.IdNameModel.yml\" sourcestartlinenumber=\"1\">Represents a model with an integer identifier and name.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4252,7 +4266,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.KeyEntry",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.KeyEntry.yml\" sourcestartlinenumber=\"1\">Represents a key entry that maps a property to a column and value.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4266,7 +4280,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.ListResultWithTotal<T>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.ListResultWithTotal-1.yml\" sourcestartlinenumber=\"1\">Represents a list result with total item count.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4294,7 +4308,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.OffsetRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.OffsetRequest.yml\" sourcestartlinenumber=\"1\">Represents an offset-based request.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4308,7 +4322,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.Ordering",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.Ordering.yml\" sourcestartlinenumber=\"1\">Specifies sort ordering.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4322,7 +4336,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.PagedListResult<T>",
-      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.PagedListResult-1.yml\" sourcestartlinenumber=\"1\">分页Model</p>\n"
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.PagedListResult-1.yml\" sourcestartlinenumber=\"1\">Represents a paged list result.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4336,7 +4350,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.PagedRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.PagedRequest.yml\" sourcestartlinenumber=\"1\">Represents a page-based request.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4350,7 +4364,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.RangeInclusion",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.RangeInclusion.yml\" sourcestartlinenumber=\"1\">Specifies which bounds are included in a range.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4364,7 +4378,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.Result<T>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.Result-1.yml\" sourcestartlinenumber=\"1\">Represents a standard operation result with data.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4378,7 +4392,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.Result",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.Result.yml\" sourcestartlinenumber=\"1\">Represents a standard operation result.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4392,7 +4406,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.ResultExtensions",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.ResultExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"WeihanLi.Common.Models.Result\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4406,7 +4420,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.ResultStatus",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.ResultStatus.yml\" sourcestartlinenumber=\"1\">Specifies standard result statuses.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4420,7 +4434,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.ReviewRequest",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.ReviewRequest.yml\" sourcestartlinenumber=\"1\">Represents a review request.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4462,7 +4476,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.TenantInfo<TKey>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.TenantInfo-1.yml\" sourcestartlinenumber=\"1\">Represents tenant information.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4476,7 +4490,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.TenantInfo",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.TenantInfo.yml\" sourcestartlinenumber=\"1\">Represents tenant information with a string tenant identifier.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4490,7 +4504,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Models.ValidationResult",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Models.ValidationResult.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"WeihanLi.Common.Models.IValidationResult\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4518,7 +4532,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Otp.OtpHashAlgorithm",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Otp.OtpHashAlgorithm.yml\" sourcestartlinenumber=\"1\">Specifies the HMAC hash algorithm used for one-time password generation.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4546,7 +4560,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Otp.TotpOptions",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Otp.TotpOptions.yml\" sourcestartlinenumber=\"1\">Options for time-based one-time password generation and validation.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4588,7 +4602,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.DelegateUserIdProvider",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.DelegateUserIdProvider.yml\" sourcestartlinenumber=\"1\">User identifier provider backed by a delegate.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4630,7 +4644,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.EnvironmentUserIdProvider",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.EnvironmentUserIdProvider.yml\" sourcestartlinenumber=\"1\">User identifier provider that returns <xref href=\"System.Environment.UserName\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4644,7 +4658,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.GuidIdGenerator",
-      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.GuidIdGenerator.yml\" sourcestartlinenumber=\"1\">IdGenerator based on Guid</p>\n"
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.GuidIdGenerator.yml\" sourcestartlinenumber=\"1\">Identifier generator based on <xref href=\"System.Guid.NewGuid\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4672,7 +4686,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.ICancellationTokenProvider",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.ICancellationTokenProvider.yml\" sourcestartlinenumber=\"1\">Provides a cancellation token for the current operation.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4686,7 +4700,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.IIdGenerator",
-      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.IIdGenerator.yml\" sourcestartlinenumber=\"1\">IdGenerator</p>\n"
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.IIdGenerator.yml\" sourcestartlinenumber=\"1\">Generates string identifiers.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4700,7 +4714,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.IProfiler",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.IProfiler.yml\" sourcestartlinenumber=\"1\">Measures elapsed time for an operation.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4714,7 +4728,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.IScope",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.IScope.yml\" sourcestartlinenumber=\"1\">Represents a disposable scope.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4728,7 +4742,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.ITenantProvider",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.ITenantProvider.yml\" sourcestartlinenumber=\"1\">Provides current tenant information.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4770,7 +4784,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.IUserIdProvider",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.IUserIdProvider.yml\" sourcestartlinenumber=\"1\">Provides the current user identifier.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4812,7 +4826,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.IWrapper<T>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.IWrapper-1.yml\" sourcestartlinenumber=\"1\">Provides access to a wrapped value.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4826,7 +4840,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.NullCancellationTokenProvider",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.NullCancellationTokenProvider.yml\" sourcestartlinenumber=\"1\">Cancellation token provider that always returns <xref href=\"System.Threading.CancellationToken.None\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4840,7 +4854,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.NullScope",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.NullScope.yml\" sourcestartlinenumber=\"1\">Empty scope implementation.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4854,7 +4868,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.SequentialGuidIdGenerator",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.SequentialGuidIdGenerator.yml\" sourcestartlinenumber=\"1\">Identifier generator based on sequential GUID values.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4868,7 +4882,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.StopwatchProfiler",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.StopwatchProfiler.yml\" sourcestartlinenumber=\"1\"><xref href=\"WeihanLi.Common.Services.IProfiler\" data-throw-if-not-resolved=\"false\"></xref> implementation backed by <xref href=\"System.Diagnostics.Stopwatch\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4882,7 +4896,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.TenantIdProviderExtensions",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.TenantIdProviderExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"WeihanLi.Common.Services.ITenantProvider\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4896,7 +4910,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.TotpService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.TotpService.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"WeihanLi.Common.Services.ITotpService\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4910,7 +4924,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.TotpServiceExtensions",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.TotpServiceExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"WeihanLi.Common.Services.ITotpService\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4938,7 +4952,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.UserIdProviderExtensions",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.UserIdProviderExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"WeihanLi.Common.Services.IUserIdProvider\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4952,7 +4966,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "WeihanLi.Common.Services.Wrapper<T>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/WeihanLi.Common.Services.Wrapper-1.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"WeihanLi.Common.Services.IWrapper%601\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",

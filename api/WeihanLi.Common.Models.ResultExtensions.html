@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ResultExtensions ">
       
-      
+      <meta name="description" content="Extension methods for .">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Models_ResultExtensions" data-uid="WeihanLi.Common.Models.ResultExtensions" class="text-break">
-Class ResultExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L83"><i class="bi bi-code-slash"></i></a>
+Class ResultExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L134"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -93,7 +93,8 @@ Class ResultExtensions  <a class="header-action link-secondary" title="View sour
   <dl><dt>Assembly</dt><dd>WeihanLi.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Extension methods for <a class="xref" href="WeihanLi.Common.Models.Result.html">Result</a>.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -152,10 +153,10 @@ Class ResultExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="WeihanLi_Common_Models_ResultExtensions_IsSuccess_WeihanLi_Common_Models_Result_" data-uid="WeihanLi.Common.Models.ResultExtensions.IsSuccess(WeihanLi.Common.Models.Result)">
   IsSuccess(Result)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L141"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Whether the result status is Success</p>
+  <div class="markdown level1 summary"><p>Determines whether the result status is <a class="xref" href="WeihanLi.Common.Models.ResultStatus.html#WeihanLi_Common_Models_ResultStatus_Success">Success</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -166,14 +167,14 @@ Class ResultExtensions  <a class="header-action link-secondary" title="View sour
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>result</code> <a class="xref" href="WeihanLi.Common.Models.Result.html">Result</a></dt>
-    <dd><p>result</p>
+    <dd><p>The result to check.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>true, status is Success, otherwise not</p>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the result status is <a class="xref" href="WeihanLi.Common.Models.ResultStatus.html#WeihanLi_Common_Models_ResultStatus_Success">Success</a>; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
   </dl>
 
@@ -191,10 +192,11 @@ Class ResultExtensions  <a class="header-action link-secondary" title="View sour
 
   <h3 id="WeihanLi_Common_Models_ResultExtensions_WrapResult__1___0_WeihanLi_Common_Models_ResultStatus_System_String_" data-uid="WeihanLi.Common.Models.ResultExtensions.WrapResult``1(``0,WeihanLi.Common.Models.ResultStatus,System.String)">
   WrapResult&lt;T&gt;(T, ResultStatus, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Wraps a value in a typed result.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -204,23 +206,28 @@ Class ResultExtensions  <a class="header-action link-secondary" title="View sour
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>t</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The value to wrap.</p>
+</dd>
     <dt><code>status</code> <a class="xref" href="WeihanLi.Common.Models.ResultStatus.html">ResultStatus</a></dt>
-    <dd></dd>
+    <dd><p>The result status.</p>
+</dd>
     <dt><code>msg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The optional result message.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="WeihanLi.Common.Models.Result-1.html">Result</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>A typed result containing <code class="paramref">t</code>.</p>
+</dd>
   </dl>
 
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>T</code></dt>
-    <dd></dd>
+    <dd><p>The value type.</p>
+</dd>
   </dl>
 
 
@@ -236,7 +243,7 @@ Class ResultExtensions  <a class="header-action link-secondary" title="View sour
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L83" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L134" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Result ">
       
-      
+      <meta name="description" content="Represents a standard operation result.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Models_Result" data-uid="WeihanLi.Common.Models.Result" class="text-break">
-Class Result  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class Result  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -93,7 +93,8 @@ Class Result  <a class="header-action link-secondary" title="View source" href="
   <dl><dt>Assembly</dt><dd>WeihanLi.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Represents a standard operation result.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -291,10 +292,10 @@ Class Result  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="WeihanLi_Common_Models_Result_Msg" data-uid="WeihanLi.Common.Models.Result.Msg">
   Msg
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Message</p>
+  <div class="markdown level1 summary"><p>Gets or sets the result message.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -323,10 +324,10 @@ Class Result  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="WeihanLi_Common_Models_Result_Status" data-uid="WeihanLi.Common.Models.Result.Status">
   Status
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>ResultStatus</p>
+  <div class="markdown level1 summary"><p>Gets or sets the result status.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -359,10 +360,11 @@ Class Result  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="WeihanLi_Common_Models_Result_Fail_System_String_WeihanLi_Common_Models_ResultStatus_" data-uid="WeihanLi.Common.Models.Result.Fail(System.String,WeihanLi.Common.Models.ResultStatus)">
   Fail(string?, ResultStatus)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a failed result.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -372,15 +374,18 @@ Class Result  <a class="header-action link-secondary" title="View source" href="
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>msg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The failure message.</p>
+</dd>
     <dt><code>status</code> <a class="xref" href="WeihanLi.Common.Models.ResultStatus.html">ResultStatus</a></dt>
-    <dd></dd>
+    <dd><p>The failure status.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="WeihanLi.Common.Models.Result.html">Result</a></dt>
-    <dd></dd>
+    <dd><p>A failed result.</p>
+</dd>
   </dl>
 
 
@@ -397,10 +402,11 @@ Class Result  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="WeihanLi_Common_Models_Result_Fail__1_System_String_WeihanLi_Common_Models_ResultStatus___0_" data-uid="WeihanLi.Common.Models.Result.Fail``1(System.String,WeihanLi.Common.Models.ResultStatus,``0)">
   Fail&lt;T&gt;(string?, ResultStatus, T?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a failed result with optional data.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -410,23 +416,28 @@ Class Result  <a class="header-action link-secondary" title="View source" href="
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>msg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The failure message.</p>
+</dd>
     <dt><code>status</code> <a class="xref" href="WeihanLi.Common.Models.ResultStatus.html">ResultStatus</a></dt>
-    <dd></dd>
+    <dd><p>The failure status.</p>
+</dd>
     <dt><code>result</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The optional result data.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="WeihanLi.Common.Models.Result-1.html">Result</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>A failed result.</p>
+</dd>
   </dl>
 
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>T</code></dt>
-    <dd></dd>
+    <dd><p>The data type.</p>
+</dd>
   </dl>
 
 
@@ -442,10 +453,11 @@ Class Result  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="WeihanLi_Common_Models_Result_Success_System_String_" data-uid="WeihanLi.Common.Models.Result.Success(System.String)">
   Success(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a successful result.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -455,13 +467,15 @@ Class Result  <a class="header-action link-secondary" title="View source" href="
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>msg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The optional result message.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="WeihanLi.Common.Models.Result.html">Result</a></dt>
-    <dd></dd>
+    <dd><p>A successful result.</p>
+</dd>
   </dl>
 
 
@@ -478,10 +492,11 @@ Class Result  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="WeihanLi_Common_Models_Result_Success__1___0_System_String_" data-uid="WeihanLi.Common.Models.Result.Success``1(``0,System.String)">
   Success&lt;T&gt;(T, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a successful result with data.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -491,21 +506,25 @@ Class Result  <a class="header-action link-secondary" title="View source" href="
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>result</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The result data.</p>
+</dd>
     <dt><code>msg</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The optional result message.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="WeihanLi.Common.Models.Result-1.html">Result</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>A successful result containing <code class="paramref">result</code>.</p>
+</dd>
   </dl>
 
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>T</code></dt>
-    <dd></dd>
+    <dd><p>The data type.</p>
+</dd>
   </dl>
 
 
@@ -521,10 +540,11 @@ Class Result  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="WeihanLi_Common_Models_Result_ToResult__1___0_" data-uid="WeihanLi.Common.Models.Result.ToResult``1(``0)">
   ToResult&lt;T&gt;(T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L91"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Converts this result to a typed result with the specified data.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -534,19 +554,22 @@ Class Result  <a class="header-action link-secondary" title="View source" href="
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>data</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The result data.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="WeihanLi.Common.Models.Result-1.html">Result</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>A typed result that preserves this result's status and message.</p>
+</dd>
   </dl>
 
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>T</code></dt>
-    <dd></dd>
+    <dd><p>The data type.</p>
+</dd>
   </dl>
 
 
@@ -562,7 +585,7 @@ Class Result  <a class="header-action link-secondary" title="View source" href="
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Models/Result.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
 

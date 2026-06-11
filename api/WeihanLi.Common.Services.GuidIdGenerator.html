@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class GuidIdGenerator ">
       
-      <meta name="description" content="IdGenerator based on Guid">
+      <meta name="description" content="Identifier generator based on .">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -93,7 +93,7 @@ Class GuidIdGenerator  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>WeihanLi.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>IdGenerator based on Guid</p>
+  <div class="markdown summary"><p>Identifier generator based on <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid.newguid">NewGuid()</a>.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -280,10 +280,11 @@ Class GuidIdGenerator  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="WeihanLi_Common_Services_GuidIdGenerator_Instance" data-uid="WeihanLi.Common.Services.GuidIdGenerator.Instance">
   Instance
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IdGenerator.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IdGenerator.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the singleton instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -315,10 +316,10 @@ Class GuidIdGenerator  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="WeihanLi_Common_Services_GuidIdGenerator_NewId" data-uid="WeihanLi.Common.Services.GuidIdGenerator.NewId">
   NewId()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IdGenerator.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IdGenerator.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Generate a new id</p>
+  <div class="markdown level1 summary"><p>Generates a new compact GUID string without separators.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -330,7 +331,7 @@ Class GuidIdGenerator  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>new id</p>
+    <dd><p>The generated identifier.</p>
 </dd>
   </dl>
 

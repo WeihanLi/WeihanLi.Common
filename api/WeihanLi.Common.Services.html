@@ -96,7 +96,8 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.DelegateUserIdProvider.html">DelegateUserIdProvider</a></dt>
-      <dd></dd>
+      <dd><p>User identifier provider backed by a delegate.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.DelegateValidator.html">DelegateValidator</a></dt>
@@ -108,40 +109,48 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.EnvironmentUserIdProvider.html">EnvironmentUserIdProvider</a></dt>
-      <dd></dd>
+      <dd><p>User identifier provider that returns <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.environment.username">UserName</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.GuidIdGenerator.html">GuidIdGenerator</a></dt>
-      <dd><p>IdGenerator based on Guid</p>
+      <dd><p>Identifier generator based on <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid.newguid">NewGuid()</a>.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.NullCancellationTokenProvider.html">NullCancellationTokenProvider</a></dt>
-      <dd></dd>
+      <dd><p>Cancellation token provider that always returns <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none">None</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.NullScope.html">NullScope</a></dt>
-      <dd></dd>
+      <dd><p>Empty scope implementation.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.SequentialGuidIdGenerator.html">SequentialGuidIdGenerator</a></dt>
-      <dd></dd>
+      <dd><p>Identifier generator based on sequential GUID values.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.StopwatchProfiler.html">StopwatchProfiler</a></dt>
-      <dd></dd>
+      <dd><p><a class="xref" href="WeihanLi.Common.Services.IProfiler.html">IProfiler</a> implementation backed by <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.stopwatch">Stopwatch</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.TenantIdProviderExtensions.html">TenantIdProviderExtensions</a></dt>
-      <dd></dd>
+      <dd><p>Extension methods for <a class="xref" href="WeihanLi.Common.Services.ITenantProvider.html">ITenantProvider</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.TotpService.html">TotpService</a></dt>
-      <dd></dd>
+      <dd><p>Default implementation of <a class="xref" href="WeihanLi.Common.Services.ITotpService.html">ITotpService</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.TotpServiceExtensions.html">TotpServiceExtensions</a></dt>
-      <dd></dd>
+      <dd><p>Extension methods for <a class="xref" href="WeihanLi.Common.Services.ITotpService.html">ITotpService</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.TotpServiceFactory.html">TotpServiceFactory</a></dt>
@@ -149,11 +158,13 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.UserIdProviderExtensions.html">UserIdProviderExtensions</a></dt>
-      <dd></dd>
+      <dd><p>Extension methods for <a class="xref" href="WeihanLi.Common.Services.IUserIdProvider.html">IUserIdProvider</a>.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.Wrapper-1.html">Wrapper&lt;T&gt;</a></dt>
-      <dd></dd>
+      <dd><p>Default implementation of <a class="xref" href="WeihanLi.Common.Services.IWrapper-1.html">IWrapper&lt;T&gt;</a>.</p>
+</dd>
     </dl>
     <h3 id="interfaces">
 Interfaces
@@ -164,24 +175,28 @@ Interfaces
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.ICancellationTokenProvider.html">ICancellationTokenProvider</a></dt>
-      <dd></dd>
+      <dd><p>Provides a cancellation token for the current operation.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.IIdGenerator.html">IIdGenerator</a></dt>
-      <dd><p>IdGenerator</p>
+      <dd><p>Generates string identifiers.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.IProfiler.html">IProfiler</a></dt>
-      <dd></dd>
+      <dd><p>Measures elapsed time for an operation.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.IScope.html">IScope</a></dt>
-      <dd></dd>
+      <dd><p>Represents a disposable scope.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.ITenantProvider.html">ITenantProvider</a></dt>
-      <dd></dd>
+      <dd><p>Provides current tenant information.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.ITotpService.html">ITotpService</a></dt>
@@ -194,7 +209,8 @@ Interfaces
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.IUserIdProvider.html">IUserIdProvider</a></dt>
-      <dd></dd>
+      <dd><p>Provides the current user identifier.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.IValidator.html">IValidator</a></dt>
@@ -206,7 +222,8 @@ Interfaces
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="WeihanLi.Common.Services.IWrapper-1.html">IWrapper&lt;T&gt;</a></dt>
-      <dd></dd>
+      <dd><p>Provides access to a wrapped value.</p>
+</dd>
     </dl>
 
 

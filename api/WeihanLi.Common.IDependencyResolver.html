@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IDependencyResolver ">
       
-      <meta name="description" content="IDependencyResolver">
+      <meta name="description" content="Resolves services from the application&#39;s dependency container.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_IDependencyResolver" data-uid="WeihanLi.Common.IDependencyResolver" class="text-break">
-Interface IDependencyResolver  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/IDependencyResolver.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Interface IDependencyResolver  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/IDependencyResolver.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -93,7 +93,7 @@ Interface IDependencyResolver  <a class="header-action link-secondary" title="Vi
   <dl><dt>Assembly</dt><dd>WeihanLi.Common.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>IDependencyResolver</p>
+  <div class="markdown summary"><p>Resolves services from the application's dependency container.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -285,7 +285,7 @@ Interface IDependencyResolver  <a class="header-action link-secondary" title="Vi
   <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/IDependencyResolver.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>GetServices</p>
+  <div class="markdown level1 summary"><p>Gets all registered service instances for the specified service type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -296,13 +296,15 @@ Interface IDependencyResolver  <a class="header-action link-secondary" title="Vi
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>serviceType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd></dd>
+    <dd><p>The service type to resolve.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The resolved service instances.</p>
+</dd>
   </dl>
 
 
@@ -319,10 +321,11 @@ Interface IDependencyResolver  <a class="header-action link-secondary" title="Vi
 
   <h3 id="WeihanLi_Common_IDependencyResolver_TryInvokeServiceAsync__1_System_Func___0_System_Threading_Tasks_Task__" data-uid="WeihanLi.Common.IDependencyResolver.TryInvokeServiceAsync``1(System.Func{``0,System.Threading.Tasks.Task})">
   TryInvokeServiceAsync&lt;TService&gt;(Func&lt;TService, Task&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/IDependencyResolver.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/IDependencyResolver.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Resolves a service and invokes the specified asynchronous action when the service is available.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -332,19 +335,22 @@ Interface IDependencyResolver  <a class="header-action link-secondary" title="Vi
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TService, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The asynchronous action to invoke with the resolved service instance.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the service is resolved and the action is invoked; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>TService</code></dt>
-    <dd></dd>
+    <dd><p>The service type to resolve.</p>
+</dd>
   </dl>
 
 
@@ -360,10 +366,10 @@ Interface IDependencyResolver  <a class="header-action link-secondary" title="Vi
 
   <h3 id="WeihanLi_Common_IDependencyResolver_TryInvokeService__1_System_Action___0__" data-uid="WeihanLi.Common.IDependencyResolver.TryInvokeService``1(System.Action{``0})">
   TryInvokeService&lt;TService&gt;(Action&lt;TService&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/IDependencyResolver.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/IDependencyResolver.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Invoke action via get a service instance internal</p>
+  <div class="markdown level1 summary"><p>Resolves a service and invokes the specified action when the service is available.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -374,20 +380,21 @@ Interface IDependencyResolver  <a class="header-action link-secondary" title="Vi
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TService&gt;</dt>
-    <dd><p>action</p>
+    <dd><p>The action to invoke with the resolved service instance.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the service is resolved and the action is invoked; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>TService</code></dt>
-    <dd><p>service type</p>
+    <dd><p>The service type to resolve.</p>
 </dd>
   </dl>
 
@@ -404,7 +411,7 @@ Interface IDependencyResolver  <a class="header-action link-secondary" title="Vi
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/IDependencyResolver.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Common/IDependencyResolver.cs/#L8" class="edit-link">Edit this page</a>
         </div>
 
 

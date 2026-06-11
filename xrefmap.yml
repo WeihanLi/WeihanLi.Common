@@ -11600,12 +11600,36 @@ references:
   commentId: F:WeihanLi.Common.Helpers.HttpHelper.ApplicationXmlMediaType
   fullName: WeihanLi.Common.Helpers.HttpHelper.ApplicationXmlMediaType
   nameWithType: HttpHelper.ApplicationXmlMediaType
+- uid: WeihanLi.Common.Helpers.HttpHelper.ApplicationYamlContentType
+  name: ApplicationYamlContentType
+  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_ApplicationYamlContentType
+  commentId: F:WeihanLi.Common.Helpers.HttpHelper.ApplicationYamlContentType
+  fullName: WeihanLi.Common.Helpers.HttpHelper.ApplicationYamlContentType
+  nameWithType: HttpHelper.ApplicationYamlContentType
+- uid: WeihanLi.Common.Helpers.HttpHelper.ApplicationYamlMediaType
+  name: ApplicationYamlMediaType
+  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_ApplicationYamlMediaType
+  commentId: F:WeihanLi.Common.Helpers.HttpHelper.ApplicationYamlMediaType
+  fullName: WeihanLi.Common.Helpers.HttpHelper.ApplicationYamlMediaType
+  nameWithType: HttpHelper.ApplicationYamlMediaType
+- uid: WeihanLi.Common.Helpers.HttpHelper.FileHeaderFormat
+  name: FileHeaderFormat
+  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_FileHeaderFormat
+  commentId: F:WeihanLi.Common.Helpers.HttpHelper.FileHeaderFormat
+  fullName: WeihanLi.Common.Helpers.HttpHelper.FileHeaderFormat
+  nameWithType: HttpHelper.FileHeaderFormat
 - uid: WeihanLi.Common.Helpers.HttpHelper.FormDataContentType
   name: FormDataContentType
   href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_FormDataContentType
   commentId: F:WeihanLi.Common.Helpers.HttpHelper.FormDataContentType
   fullName: WeihanLi.Common.Helpers.HttpHelper.FormDataContentType
   nameWithType: HttpHelper.FormDataContentType
+- uid: WeihanLi.Common.Helpers.HttpHelper.FormDataFormat
+  name: FormDataFormat
+  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_FormDataFormat
+  commentId: F:WeihanLi.Common.Helpers.HttpHelper.FormDataFormat
+  fullName: WeihanLi.Common.Helpers.HttpHelper.FormDataFormat
+  nameWithType: HttpHelper.FormDataFormat
 - uid: WeihanLi.Common.Helpers.HttpHelper.GetUserAgent(System.Boolean)
   name: GetUserAgent(bool)
   href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_GetUserAgent_System_Boolean_
@@ -11648,591 +11672,6 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.HttpHelper.HttpClient
   nameWithType: HttpHelper.HttpClient
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetFor*
-  name: HttpGetFor
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetFor_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpGetFor
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetFor
-  nameWithType: HttpHelper.HttpGetFor
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync*
-  name: HttpGetForAsync
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForAsync_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync
-  nameWithType: HttpHelper.HttpGetForAsync
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync``1(System.String)
-  name: HttpGetForAsync<T>(string)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForAsync__1_System_String_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync``1(System.String)
-  name.vb: HttpGetForAsync(Of T)(String)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync<T>(string)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync(Of T)(String)
-  nameWithType: HttpHelper.HttpGetForAsync<T>(string)
-  nameWithType.vb: HttpHelper.HttpGetForAsync(Of T)(String)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name: HttpGetForAsync<T>(string, IDictionary<string, string>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForAsync__1_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name.vb: HttpGetForAsync(Of T)(String, IDictionary(Of String, String))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync<T>(string, System.Collections.Generic.IDictionary<string, string>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync(Of T)(String, System.Collections.Generic.IDictionary(Of String, String))
-  nameWithType: HttpHelper.HttpGetForAsync<T>(string, IDictionary<string, string>?)
-  nameWithType.vb: HttpHelper.HttpGetForAsync(Of T)(String, IDictionary(Of String, String))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name: HttpGetForAsync<T>(string, IEnumerable<KeyValuePair<string, string>>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForAsync__1_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name.vb: HttpGetForAsync(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync<T>(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync(Of T)(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-  nameWithType: HttpHelper.HttpGetForAsync<T>(string, IEnumerable<KeyValuePair<string, string>>?)
-  nameWithType.vb: HttpHelper.HttpGetForAsync(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name: HttpGetForAsync<T>(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForAsync__1_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name.vb: HttpGetForAsync(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync<T>(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetForAsync(Of T)(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
-  nameWithType: HttpHelper.HttpGetForAsync<T>(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  nameWithType.vb: HttpHelper.HttpGetForAsync(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(System.String)
-  name: HttpGetForBytes(string)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytes_System_String_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(System.String)
-  name.vb: HttpGetForBytes(String)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(string)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(String)
-  nameWithType: HttpHelper.HttpGetForBytes(string)
-  nameWithType.vb: HttpHelper.HttpGetForBytes(String)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name: HttpGetForBytes(string, IDictionary<string, string>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytes_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name.vb: HttpGetForBytes(String, IDictionary(Of String, String))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(string, System.Collections.Generic.IDictionary<string, string>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(String, System.Collections.Generic.IDictionary(Of String, String))
-  nameWithType: HttpHelper.HttpGetForBytes(string, IDictionary<string, string>?)
-  nameWithType.vb: HttpHelper.HttpGetForBytes(String, IDictionary(Of String, String))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name: HttpGetForBytes(string, IEnumerable<KeyValuePair<string, string>>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytes_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name.vb: HttpGetForBytes(String, IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-  nameWithType: HttpHelper.HttpGetForBytes(string, IEnumerable<KeyValuePair<string, string>>?)
-  nameWithType.vb: HttpHelper.HttpGetForBytes(String, IEnumerable(Of KeyValuePair(Of String, String)))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name: HttpGetForBytes(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytes_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name.vb: HttpGetForBytes(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
-  nameWithType: HttpHelper.HttpGetForBytes(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  nameWithType.vb: HttpHelper.HttpGetForBytes(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes*
-  name: HttpGetForBytes
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytes_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytes
-  nameWithType: HttpHelper.HttpGetForBytes
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(System.String)
-  name: HttpGetForBytesAsync(string)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytesAsync_System_String_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(System.String)
-  name.vb: HttpGetForBytesAsync(String)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(string)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(String)
-  nameWithType: HttpHelper.HttpGetForBytesAsync(string)
-  nameWithType.vb: HttpHelper.HttpGetForBytesAsync(String)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name: HttpGetForBytesAsync(string, IDictionary<string, string>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytesAsync_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name.vb: HttpGetForBytesAsync(String, IDictionary(Of String, String))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(string, System.Collections.Generic.IDictionary<string, string>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(String, System.Collections.Generic.IDictionary(Of String, String))
-  nameWithType: HttpHelper.HttpGetForBytesAsync(string, IDictionary<string, string>?)
-  nameWithType.vb: HttpHelper.HttpGetForBytesAsync(String, IDictionary(Of String, String))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name: HttpGetForBytesAsync(string, IEnumerable<KeyValuePair<string, string>>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytesAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name.vb: HttpGetForBytesAsync(String, IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-  nameWithType: HttpHelper.HttpGetForBytesAsync(string, IEnumerable<KeyValuePair<string, string>>?)
-  nameWithType.vb: HttpHelper.HttpGetForBytesAsync(String, IEnumerable(Of KeyValuePair(Of String, String)))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name: HttpGetForBytesAsync(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytesAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name.vb: HttpGetForBytesAsync(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
-  nameWithType: HttpHelper.HttpGetForBytesAsync(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  nameWithType.vb: HttpHelper.HttpGetForBytesAsync(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync*
-  name: HttpGetForBytesAsync
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetForBytesAsync_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetForBytesAsync
-  nameWithType: HttpHelper.HttpGetForBytesAsync
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetFor``1(System.String)
-  name: HttpGetFor<T>(string)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetFor__1_System_String_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetFor``1(System.String)
-  name.vb: HttpGetFor(Of T)(String)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetFor<T>(string)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetFor(Of T)(String)
-  nameWithType: HttpHelper.HttpGetFor<T>(string)
-  nameWithType.vb: HttpHelper.HttpGetFor(Of T)(String)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetFor``1(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name: HttpGetFor<T>(string, IDictionary<string, string>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetFor__1_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetFor``1(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name.vb: HttpGetFor(Of T)(String, IDictionary(Of String, String))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetFor<T>(string, System.Collections.Generic.IDictionary<string, string>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetFor(Of T)(String, System.Collections.Generic.IDictionary(Of String, String))
-  nameWithType: HttpHelper.HttpGetFor<T>(string, IDictionary<string, string>?)
-  nameWithType.vb: HttpHelper.HttpGetFor(Of T)(String, IDictionary(Of String, String))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetFor``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name: HttpGetFor<T>(string, IEnumerable<KeyValuePair<string, string>>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetFor__1_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetFor``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name.vb: HttpGetFor(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetFor<T>(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetFor(Of T)(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-  nameWithType: HttpHelper.HttpGetFor<T>(string, IEnumerable<KeyValuePair<string, string>>?)
-  nameWithType.vb: HttpHelper.HttpGetFor(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetFor``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name: HttpGetFor<T>(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetFor__1_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetFor``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name.vb: HttpGetFor(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetFor<T>(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetFor(Of T)(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
-  nameWithType: HttpHelper.HttpGetFor<T>(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  nameWithType.vb: HttpHelper.HttpGetFor(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetString(System.String)
-  name: HttpGetString(string)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetString_System_String_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetString(System.String)
-  name.vb: HttpGetString(String)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetString(string)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetString(String)
-  nameWithType: HttpHelper.HttpGetString(string)
-  nameWithType.vb: HttpHelper.HttpGetString(String)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetString(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name: HttpGetString(string, IDictionary<string, string>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetString_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetString(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name.vb: HttpGetString(String, IDictionary(Of String, String))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetString(string, System.Collections.Generic.IDictionary<string, string>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetString(String, System.Collections.Generic.IDictionary(Of String, String))
-  nameWithType: HttpHelper.HttpGetString(string, IDictionary<string, string>?)
-  nameWithType.vb: HttpHelper.HttpGetString(String, IDictionary(Of String, String))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetString(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name: HttpGetString(string, IEnumerable<KeyValuePair<string, string>>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetString_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetString(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name.vb: HttpGetString(String, IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetString(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetString(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-  nameWithType: HttpHelper.HttpGetString(string, IEnumerable<KeyValuePair<string, string>>?)
-  nameWithType.vb: HttpHelper.HttpGetString(String, IEnumerable(Of KeyValuePair(Of String, String)))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetString(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name: HttpGetString(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetString_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetString(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name.vb: HttpGetString(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetString(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetString(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
-  nameWithType: HttpHelper.HttpGetString(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  nameWithType.vb: HttpHelper.HttpGetString(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetString*
-  name: HttpGetString
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetString_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpGetString
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetString
-  nameWithType: HttpHelper.HttpGetString
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(System.String)
-  name: HttpGetStringAsync(string)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetStringAsync_System_String_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(System.String)
-  name.vb: HttpGetStringAsync(String)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(string)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(String)
-  nameWithType: HttpHelper.HttpGetStringAsync(string)
-  nameWithType.vb: HttpHelper.HttpGetStringAsync(String)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name: HttpGetStringAsync(string, IDictionary<string, string>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetStringAsync_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name.vb: HttpGetStringAsync(String, IDictionary(Of String, String))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(string, System.Collections.Generic.IDictionary<string, string>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(String, System.Collections.Generic.IDictionary(Of String, String))
-  nameWithType: HttpHelper.HttpGetStringAsync(string, IDictionary<string, string>?)
-  nameWithType.vb: HttpHelper.HttpGetStringAsync(String, IDictionary(Of String, String))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name: HttpGetStringAsync(string, IEnumerable<KeyValuePair<string, string>>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetStringAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name.vb: HttpGetStringAsync(String, IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-  nameWithType: HttpHelper.HttpGetStringAsync(string, IEnumerable<KeyValuePair<string, string>>?)
-  nameWithType.vb: HttpHelper.HttpGetStringAsync(String, IEnumerable(Of KeyValuePair(Of String, String)))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name: HttpGetStringAsync(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetStringAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name.vb: HttpGetStringAsync(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
-  nameWithType: HttpHelper.HttpGetStringAsync(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  nameWithType.vb: HttpHelper.HttpGetStringAsync(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync*
-  name: HttpGetStringAsync
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpGetStringAsync_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpGetStringAsync
-  nameWithType: HttpHelper.HttpGetStringAsync
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPost(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name: HttpPost(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPost_System_String_System_Byte___System_Boolean_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPost(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name.vb: HttpPost(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPost(string, byte[], bool, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPost(String, Byte(), Boolean, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
-  nameWithType: HttpHelper.HttpPost(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  nameWithType.vb: HttpHelper.HttpPost(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPost(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name: HttpPost(string, IDictionary<string, string>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPost_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPost(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name.vb: HttpPost(String, IDictionary(Of String, String))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPost(string, System.Collections.Generic.IDictionary<string, string>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPost(String, System.Collections.Generic.IDictionary(Of String, String))
-  nameWithType: HttpHelper.HttpPost(string, IDictionary<string, string>?)
-  nameWithType.vb: HttpHelper.HttpPost(String, IDictionary(Of String, String))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPost*
-  name: HttpPost
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPost_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpPost
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPost
-  nameWithType: HttpHelper.HttpPost
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name: HttpPostAsync(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostAsync_System_String_System_Byte___System_Boolean_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name.vb: HttpPostAsync(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(string, byte[], bool, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(String, Byte(), Boolean, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
-  nameWithType: HttpHelper.HttpPostAsync(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  nameWithType.vb: HttpHelper.HttpPostAsync(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name: HttpPostAsync(string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostAsync_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name.vb: HttpPostAsync(String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(string, byte[], string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(String, Byte(), String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
-  nameWithType: HttpHelper.HttpPostAsync(string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  nameWithType.vb: HttpHelper.HttpPostAsync(String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name: HttpPostAsync(string, IDictionary<string, string>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostAsync_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
-  name.vb: HttpPostAsync(String, IDictionary(Of String, String))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(string, System.Collections.Generic.IDictionary<string, string>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync(String, System.Collections.Generic.IDictionary(Of String, String))
-  nameWithType: HttpHelper.HttpPostAsync(string, IDictionary<string, string>?)
-  nameWithType.vb: HttpHelper.HttpPostAsync(String, IDictionary(Of String, String))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync*
-  name: HttpPostAsync
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostAsync_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostAsync
-  nameWithType: HttpHelper.HttpPostAsync
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Byte[]}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name: HttpPostFile(string, IEnumerable<KeyValuePair<string, byte[]>>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostFile_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Byte_____System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Byte[]}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name.vb: HttpPostFile(String, IEnumerable(Of KeyValuePair(Of String, Byte())), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, byte[]>>, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, Byte())), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-  nameWithType: HttpHelper.HttpPostFile(string, IEnumerable<KeyValuePair<string, byte[]>>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  nameWithType.vb: HttpHelper.HttpPostFile(String, IEnumerable(Of KeyValuePair(Of String, Byte())), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name: HttpPostFile(string, IEnumerable<string>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostFile_System_String_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name.vb: HttpPostFile(String, IEnumerable(Of String), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(string, System.Collections.Generic.IEnumerable<string>, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(String, System.Collections.Generic.IEnumerable(Of String), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-  nameWithType: HttpHelper.HttpPostFile(string, IEnumerable<string>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  nameWithType.vb: HttpHelper.HttpPostFile(String, IEnumerable(Of String), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(System.String,System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name: HttpPostFile(string, string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostFile_System_String_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(System.String,System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name.vb: HttpPostFile(String, String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(string, string, byte[], string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(String, String, Byte(), String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-  nameWithType: HttpHelper.HttpPostFile(string, string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  nameWithType.vb: HttpHelper.HttpPostFile(String, String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name: HttpPostFile(string, string, string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostFile_System_String_System_String_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name.vb: HttpPostFile(String, String, String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(string, string, string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostFile(String, String, String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-  nameWithType: HttpHelper.HttpPostFile(string, string, string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  nameWithType.vb: HttpHelper.HttpPostFile(String, String, String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostFile*
-  name: HttpPostFile
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostFile_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpPostFile
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostFile
-  nameWithType: HttpHelper.HttpPostFile
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Byte[]}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name: HttpPostFileAsync(string, IEnumerable<KeyValuePair<string, byte[]>>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostFileAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Byte_____System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Byte[]}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name.vb: HttpPostFileAsync(String, IEnumerable(Of KeyValuePair(Of String, Byte())), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, byte[]>>, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, Byte())), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-  nameWithType: HttpHelper.HttpPostFileAsync(string, IEnumerable<KeyValuePair<string, byte[]>>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  nameWithType.vb: HttpHelper.HttpPostFileAsync(String, IEnumerable(Of KeyValuePair(Of String, Byte())), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name: HttpPostFileAsync(string, IEnumerable<string>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostFileAsync_System_String_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name.vb: HttpPostFileAsync(String, IEnumerable(Of String), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(string, System.Collections.Generic.IEnumerable<string>, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(String, System.Collections.Generic.IEnumerable(Of String), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-  nameWithType: HttpHelper.HttpPostFileAsync(string, IEnumerable<string>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  nameWithType.vb: HttpHelper.HttpPostFileAsync(String, IEnumerable(Of String), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(System.String,System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name: HttpPostFileAsync(string, string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostFileAsync_System_String_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(System.String,System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name.vb: HttpPostFileAsync(String, String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(string, string, byte[], string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(String, String, Byte(), String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-  nameWithType: HttpHelper.HttpPostFileAsync(string, string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  nameWithType.vb: HttpHelper.HttpPostFileAsync(String, String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name: HttpPostFileAsync(string, string, string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostFileAsync_System_String_System_String_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
-  name.vb: HttpPostFileAsync(String, String, String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(string, string, string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync(String, String, String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
-  nameWithType: HttpHelper.HttpPostFileAsync(string, string, string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
-  nameWithType.vb: HttpHelper.HttpPostFileAsync(String, String, String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync*
-  name: HttpPostFileAsync
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostFileAsync_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostFileAsync
-  nameWithType: HttpHelper.HttpPostFileAsync
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostFor*
-  name: HttpPostFor
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostFor_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpPostFor
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostFor
-  nameWithType: HttpHelper.HttpPostFor
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostForAsync*
-  name: HttpPostForAsync
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostForAsync_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpPostForAsync
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostForAsync
-  nameWithType: HttpHelper.HttpPostForAsync
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostForAsync``1(System.String,System.Byte[],System.Boolean)
-  name: HttpPostForAsync<T>(string, byte[], bool)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostForAsync__1_System_String_System_Byte___System_Boolean_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostForAsync``1(System.String,System.Byte[],System.Boolean)
-  name.vb: HttpPostForAsync(Of T)(String, Byte(), Boolean)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostForAsync<T>(string, byte[], bool)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostForAsync(Of T)(String, Byte(), Boolean)
-  nameWithType: HttpHelper.HttpPostForAsync<T>(string, byte[], bool)
-  nameWithType.vb: HttpHelper.HttpPostForAsync(Of T)(String, Byte(), Boolean)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name: HttpPostForBytes(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostForBytes_System_String_System_Byte___System_Boolean_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name.vb: HttpPostForBytes(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes(string, byte[], bool, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes(String, Byte(), Boolean, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
-  nameWithType: HttpHelper.HttpPostForBytes(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  nameWithType.vb: HttpHelper.HttpPostForBytes(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name: HttpPostForBytes(string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostForBytes_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name.vb: HttpPostForBytes(String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes(string, byte[], string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes(String, Byte(), String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
-  nameWithType: HttpHelper.HttpPostForBytes(string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  nameWithType.vb: HttpHelper.HttpPostForBytes(String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes*
-  name: HttpPostForBytes
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostForBytes_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytes
-  nameWithType: HttpHelper.HttpPostForBytes
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name: HttpPostForBytesAsync(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostForBytesAsync_System_String_System_Byte___System_Boolean_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name.vb: HttpPostForBytesAsync(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync(string, byte[], bool, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync(String, Byte(), Boolean, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
-  nameWithType: HttpHelper.HttpPostForBytesAsync(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  nameWithType.vb: HttpHelper.HttpPostForBytesAsync(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name: HttpPostForBytesAsync(string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostForBytesAsync_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
-  name.vb: HttpPostForBytesAsync(String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync(string, byte[], string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync(String, Byte(), String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
-  nameWithType: HttpHelper.HttpPostForBytesAsync(string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
-  nameWithType.vb: HttpHelper.HttpPostForBytesAsync(String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync*
-  name: HttpPostForBytesAsync
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostForBytesAsync_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostForBytesAsync
-  nameWithType: HttpHelper.HttpPostForBytesAsync
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostFor``1(System.String,System.Byte[],System.Boolean)
-  name: HttpPostFor<T>(string, byte[], bool)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostFor__1_System_String_System_Byte___System_Boolean_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostFor``1(System.String,System.Byte[],System.Boolean)
-  name.vb: HttpPostFor(Of T)(String, Byte(), Boolean)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostFor<T>(string, byte[], bool)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostFor(Of T)(String, Byte(), Boolean)
-  nameWithType: HttpHelper.HttpPostFor<T>(string, byte[], bool)
-  nameWithType.vb: HttpHelper.HttpPostFor(Of T)(String, Byte(), Boolean)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostJson*
-  name: HttpPostJson
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostJson_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpPostJson
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostJson
-  nameWithType: HttpHelper.HttpPostJson
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync*
-  name: HttpPostJsonAsync
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonAsync_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync
-  nameWithType: HttpHelper.HttpPostJsonAsync
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync``1(System.String,``0)
-  name: HttpPostJsonAsync<T>(string, T)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonAsync__1_System_String___0_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync``1(System.String,``0)
-  name.vb: HttpPostJsonAsync(Of T)(String, T)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync<T>(string, T)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync(Of T)(String, T)
-  nameWithType: HttpHelper.HttpPostJsonAsync<T>(string, T)
-  nameWithType.vb: HttpHelper.HttpPostJsonAsync(Of T)(String, T)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync``1(System.String,``0,System.Text.Encoding)
-  name: HttpPostJsonAsync<T>(string, T, Encoding)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonAsync__1_System_String___0_System_Text_Encoding_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync``1(System.String,``0,System.Text.Encoding)
-  name.vb: HttpPostJsonAsync(Of T)(String, T, Encoding)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync<T>(string, T, System.Text.Encoding)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonAsync(Of T)(String, T, System.Text.Encoding)
-  nameWithType: HttpHelper.HttpPostJsonAsync<T>(string, T, Encoding)
-  nameWithType.vb: HttpHelper.HttpPostJsonAsync(Of T)(String, T, Encoding)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor*
-  name: HttpPostJsonFor
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonFor_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor
-  nameWithType: HttpHelper.HttpPostJsonFor
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync*
-  name: HttpPostJsonForAsync
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonForAsync_
-  commentId: Overload:WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync
-  isSpec: "True"
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync
-  nameWithType: HttpHelper.HttpPostJsonForAsync
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync``2(System.String,``0)
-  name: HttpPostJsonForAsync<TRequest, TResponse>(string, TRequest)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonForAsync__2_System_String___0_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync``2(System.String,``0)
-  name.vb: HttpPostJsonForAsync(Of TRequest, TResponse)(String, TRequest)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync<TRequest, TResponse>(string, TRequest)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync(Of TRequest, TResponse)(String, TRequest)
-  nameWithType: HttpHelper.HttpPostJsonForAsync<TRequest, TResponse>(string, TRequest)
-  nameWithType.vb: HttpHelper.HttpPostJsonForAsync(Of TRequest, TResponse)(String, TRequest)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync``2(System.String,``0,System.Text.Encoding)
-  name: HttpPostJsonForAsync<TRequest, TResponse>(string, TRequest, Encoding)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonForAsync__2_System_String___0_System_Text_Encoding_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync``2(System.String,``0,System.Text.Encoding)
-  name.vb: HttpPostJsonForAsync(Of TRequest, TResponse)(String, TRequest, Encoding)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync<TRequest, TResponse>(string, TRequest, System.Text.Encoding)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonForAsync(Of TRequest, TResponse)(String, TRequest, System.Text.Encoding)
-  nameWithType: HttpHelper.HttpPostJsonForAsync<TRequest, TResponse>(string, TRequest, Encoding)
-  nameWithType.vb: HttpHelper.HttpPostJsonForAsync(Of TRequest, TResponse)(String, TRequest, Encoding)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor``2(System.String,``0)
-  name: HttpPostJsonFor<TRequest, TResponse>(string, TRequest)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonFor__2_System_String___0_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor``2(System.String,``0)
-  name.vb: HttpPostJsonFor(Of TRequest, TResponse)(String, TRequest)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor<TRequest, TResponse>(string, TRequest)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor(Of TRequest, TResponse)(String, TRequest)
-  nameWithType: HttpHelper.HttpPostJsonFor<TRequest, TResponse>(string, TRequest)
-  nameWithType.vb: HttpHelper.HttpPostJsonFor(Of TRequest, TResponse)(String, TRequest)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor``2(System.String,``0,System.Text.Encoding)
-  name: HttpPostJsonFor<TRequest, TResponse>(string, TRequest, Encoding)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostJsonFor__2_System_String___0_System_Text_Encoding_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor``2(System.String,``0,System.Text.Encoding)
-  name.vb: HttpPostJsonFor(Of TRequest, TResponse)(String, TRequest, Encoding)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor<TRequest, TResponse>(string, TRequest, System.Text.Encoding)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostJsonFor(Of TRequest, TResponse)(String, TRequest, System.Text.Encoding)
-  nameWithType: HttpHelper.HttpPostJsonFor<TRequest, TResponse>(string, TRequest, Encoding)
-  nameWithType.vb: HttpHelper.HttpPostJsonFor(Of TRequest, TResponse)(String, TRequest, Encoding)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostJson``1(System.String,``0)
-  name: HttpPostJson<T>(string, T)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostJson__1_System_String___0_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostJson``1(System.String,``0)
-  name.vb: HttpPostJson(Of T)(String, T)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostJson<T>(string, T)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostJson(Of T)(String, T)
-  nameWithType: HttpHelper.HttpPostJson<T>(string, T)
-  nameWithType.vb: HttpHelper.HttpPostJson(Of T)(String, T)
-- uid: WeihanLi.Common.Helpers.HttpHelper.HttpPostJson``1(System.String,``0,System.Text.Encoding)
-  name: HttpPostJson<T>(string, T, Encoding)
-  href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_HttpPostJson__1_System_String___0_System_Text_Encoding_
-  commentId: M:WeihanLi.Common.Helpers.HttpHelper.HttpPostJson``1(System.String,``0,System.Text.Encoding)
-  name.vb: HttpPostJson(Of T)(String, T, Encoding)
-  fullName: WeihanLi.Common.Helpers.HttpHelper.HttpPostJson<T>(string, T, System.Text.Encoding)
-  fullName.vb: WeihanLi.Common.Helpers.HttpHelper.HttpPostJson(Of T)(String, T, System.Text.Encoding)
-  nameWithType: HttpHelper.HttpPostJson<T>(string, T, Encoding)
-  nameWithType.vb: HttpHelper.HttpPostJson(Of T)(String, T, Encoding)
 - uid: WeihanLi.Common.Helpers.HttpHelper.IsWellKnownContentHeader(System.String)
   name: IsWellKnownContentHeader(string)
   href: api/WeihanLi.Common.Helpers.HttpHelper.html#WeihanLi_Common_Helpers_HttpHelper_IsWellKnownContentHeader_System_String_
@@ -16034,6 +15473,597 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.ValueStopwatch.Stop
   nameWithType: ValueStopwatch.Stop
+- uid: WeihanLi.Common.Helpers.WebRequestHelper
+  name: WebRequestHelper
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html
+  commentId: T:WeihanLi.Common.Helpers.WebRequestHelper
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper
+  nameWithType: WebRequestHelper
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor*
+  name: HttpGetFor
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetFor_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor
+  nameWithType: WebRequestHelper.HttpGetFor
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync*
+  name: HttpGetForAsync
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync
+  nameWithType: WebRequestHelper.HttpGetForAsync
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync``1(System.String)
+  name: HttpGetForAsync<T>(string)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForAsync__1_System_String_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync``1(System.String)
+  name.vb: HttpGetForAsync(Of T)(String)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync<T>(string)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync(Of T)(String)
+  nameWithType: WebRequestHelper.HttpGetForAsync<T>(string)
+  nameWithType.vb: WebRequestHelper.HttpGetForAsync(Of T)(String)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name: HttpGetForAsync<T>(string, IDictionary<string, string>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForAsync__1_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name.vb: HttpGetForAsync(Of T)(String, IDictionary(Of String, String))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync<T>(string, System.Collections.Generic.IDictionary<string, string>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync(Of T)(String, System.Collections.Generic.IDictionary(Of String, String))
+  nameWithType: WebRequestHelper.HttpGetForAsync<T>(string, IDictionary<string, string>?)
+  nameWithType.vb: WebRequestHelper.HttpGetForAsync(Of T)(String, IDictionary(Of String, String))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name: HttpGetForAsync<T>(string, IEnumerable<KeyValuePair<string, string>>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForAsync__1_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name.vb: HttpGetForAsync(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync<T>(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync(Of T)(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  nameWithType: WebRequestHelper.HttpGetForAsync<T>(string, IEnumerable<KeyValuePair<string, string>>?)
+  nameWithType.vb: WebRequestHelper.HttpGetForAsync(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name: HttpGetForAsync<T>(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForAsync__1_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name.vb: HttpGetForAsync(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync<T>(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForAsync(Of T)(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
+  nameWithType: WebRequestHelper.HttpGetForAsync<T>(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  nameWithType.vb: WebRequestHelper.HttpGetForAsync(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(System.String)
+  name: HttpGetForBytes(string)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForBytes_System_String_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(System.String)
+  name.vb: HttpGetForBytes(String)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(string)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(String)
+  nameWithType: WebRequestHelper.HttpGetForBytes(string)
+  nameWithType.vb: WebRequestHelper.HttpGetForBytes(String)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name: HttpGetForBytes(string, IDictionary<string, string>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForBytes_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name.vb: HttpGetForBytes(String, IDictionary(Of String, String))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(string, System.Collections.Generic.IDictionary<string, string>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(String, System.Collections.Generic.IDictionary(Of String, String))
+  nameWithType: WebRequestHelper.HttpGetForBytes(string, IDictionary<string, string>?)
+  nameWithType.vb: WebRequestHelper.HttpGetForBytes(String, IDictionary(Of String, String))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name: HttpGetForBytes(string, IEnumerable<KeyValuePair<string, string>>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForBytes_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name.vb: HttpGetForBytes(String, IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  nameWithType: WebRequestHelper.HttpGetForBytes(string, IEnumerable<KeyValuePair<string, string>>?)
+  nameWithType.vb: WebRequestHelper.HttpGetForBytes(String, IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name: HttpGetForBytes(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForBytes_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name.vb: HttpGetForBytes(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
+  nameWithType: WebRequestHelper.HttpGetForBytes(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  nameWithType.vb: WebRequestHelper.HttpGetForBytes(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes*
+  name: HttpGetForBytes
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForBytes_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytes
+  nameWithType: WebRequestHelper.HttpGetForBytes
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(System.String)
+  name: HttpGetForBytesAsync(string)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForBytesAsync_System_String_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(System.String)
+  name.vb: HttpGetForBytesAsync(String)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(string)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(String)
+  nameWithType: WebRequestHelper.HttpGetForBytesAsync(string)
+  nameWithType.vb: WebRequestHelper.HttpGetForBytesAsync(String)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name: HttpGetForBytesAsync(string, IDictionary<string, string>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForBytesAsync_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name.vb: HttpGetForBytesAsync(String, IDictionary(Of String, String))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(string, System.Collections.Generic.IDictionary<string, string>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(String, System.Collections.Generic.IDictionary(Of String, String))
+  nameWithType: WebRequestHelper.HttpGetForBytesAsync(string, IDictionary<string, string>?)
+  nameWithType.vb: WebRequestHelper.HttpGetForBytesAsync(String, IDictionary(Of String, String))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name: HttpGetForBytesAsync(string, IEnumerable<KeyValuePair<string, string>>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForBytesAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name.vb: HttpGetForBytesAsync(String, IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  nameWithType: WebRequestHelper.HttpGetForBytesAsync(string, IEnumerable<KeyValuePair<string, string>>?)
+  nameWithType.vb: WebRequestHelper.HttpGetForBytesAsync(String, IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name: HttpGetForBytesAsync(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForBytesAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name.vb: HttpGetForBytesAsync(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
+  nameWithType: WebRequestHelper.HttpGetForBytesAsync(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  nameWithType.vb: WebRequestHelper.HttpGetForBytesAsync(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync*
+  name: HttpGetForBytesAsync
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetForBytesAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetForBytesAsync
+  nameWithType: WebRequestHelper.HttpGetForBytesAsync
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor``1(System.String)
+  name: HttpGetFor<T>(string)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetFor__1_System_String_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor``1(System.String)
+  name.vb: HttpGetFor(Of T)(String)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor<T>(string)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor(Of T)(String)
+  nameWithType: WebRequestHelper.HttpGetFor<T>(string)
+  nameWithType.vb: WebRequestHelper.HttpGetFor(Of T)(String)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor``1(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name: HttpGetFor<T>(string, IDictionary<string, string>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetFor__1_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor``1(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name.vb: HttpGetFor(Of T)(String, IDictionary(Of String, String))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor<T>(string, System.Collections.Generic.IDictionary<string, string>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor(Of T)(String, System.Collections.Generic.IDictionary(Of String, String))
+  nameWithType: WebRequestHelper.HttpGetFor<T>(string, IDictionary<string, string>?)
+  nameWithType.vb: WebRequestHelper.HttpGetFor(Of T)(String, IDictionary(Of String, String))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name: HttpGetFor<T>(string, IEnumerable<KeyValuePair<string, string>>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetFor__1_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name.vb: HttpGetFor(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor<T>(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor(Of T)(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  nameWithType: WebRequestHelper.HttpGetFor<T>(string, IEnumerable<KeyValuePair<string, string>>?)
+  nameWithType.vb: WebRequestHelper.HttpGetFor(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name: HttpGetFor<T>(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetFor__1_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor``1(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name.vb: HttpGetFor(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor<T>(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetFor(Of T)(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
+  nameWithType: WebRequestHelper.HttpGetFor<T>(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  nameWithType.vb: WebRequestHelper.HttpGetFor(Of T)(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(System.String)
+  name: HttpGetString(string)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetString_System_String_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(System.String)
+  name.vb: HttpGetString(String)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(string)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(String)
+  nameWithType: WebRequestHelper.HttpGetString(string)
+  nameWithType.vb: WebRequestHelper.HttpGetString(String)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name: HttpGetString(string, IDictionary<string, string>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetString_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name.vb: HttpGetString(String, IDictionary(Of String, String))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(string, System.Collections.Generic.IDictionary<string, string>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(String, System.Collections.Generic.IDictionary(Of String, String))
+  nameWithType: WebRequestHelper.HttpGetString(string, IDictionary<string, string>?)
+  nameWithType.vb: WebRequestHelper.HttpGetString(String, IDictionary(Of String, String))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name: HttpGetString(string, IEnumerable<KeyValuePair<string, string>>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetString_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name.vb: HttpGetString(String, IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  nameWithType: WebRequestHelper.HttpGetString(string, IEnumerable<KeyValuePair<string, string>>?)
+  nameWithType.vb: WebRequestHelper.HttpGetString(String, IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name: HttpGetString(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetString_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name.vb: HttpGetString(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
+  nameWithType: WebRequestHelper.HttpGetString(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  nameWithType.vb: WebRequestHelper.HttpGetString(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString*
+  name: HttpGetString
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetString_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetString
+  nameWithType: WebRequestHelper.HttpGetString
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(System.String)
+  name: HttpGetStringAsync(string)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetStringAsync_System_String_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(System.String)
+  name.vb: HttpGetStringAsync(String)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(string)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(String)
+  nameWithType: WebRequestHelper.HttpGetStringAsync(string)
+  nameWithType.vb: WebRequestHelper.HttpGetStringAsync(String)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name: HttpGetStringAsync(string, IDictionary<string, string>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetStringAsync_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name.vb: HttpGetStringAsync(String, IDictionary(Of String, String))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(string, System.Collections.Generic.IDictionary<string, string>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(String, System.Collections.Generic.IDictionary(Of String, String))
+  nameWithType: WebRequestHelper.HttpGetStringAsync(string, IDictionary<string, string>?)
+  nameWithType.vb: WebRequestHelper.HttpGetStringAsync(String, IDictionary(Of String, String))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name: HttpGetStringAsync(string, IEnumerable<KeyValuePair<string, string>>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetStringAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name.vb: HttpGetStringAsync(String, IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  nameWithType: WebRequestHelper.HttpGetStringAsync(string, IEnumerable<KeyValuePair<string, string>>?)
+  nameWithType.vb: WebRequestHelper.HttpGetStringAsync(String, IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name: HttpGetStringAsync(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetStringAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name.vb: HttpGetStringAsync(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
+  nameWithType: WebRequestHelper.HttpGetStringAsync(string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  nameWithType.vb: WebRequestHelper.HttpGetStringAsync(String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync*
+  name: HttpGetStringAsync
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpGetStringAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpGetStringAsync
+  nameWithType: WebRequestHelper.HttpGetStringAsync
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPost(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name: HttpPost(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPost_System_String_System_Byte___System_Boolean_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPost(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name.vb: HttpPost(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPost(string, byte[], bool, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPost(String, Byte(), Boolean, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
+  nameWithType: WebRequestHelper.HttpPost(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  nameWithType.vb: WebRequestHelper.HttpPost(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPost(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name: HttpPost(string, IDictionary<string, string>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPost_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPost(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name.vb: HttpPost(String, IDictionary(Of String, String))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPost(string, System.Collections.Generic.IDictionary<string, string>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPost(String, System.Collections.Generic.IDictionary(Of String, String))
+  nameWithType: WebRequestHelper.HttpPost(string, IDictionary<string, string>?)
+  nameWithType.vb: WebRequestHelper.HttpPost(String, IDictionary(Of String, String))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPost*
+  name: HttpPost
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPost_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpPost
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPost
+  nameWithType: WebRequestHelper.HttpPost
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name: HttpPostAsync(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostAsync_System_String_System_Byte___System_Boolean_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name.vb: HttpPostAsync(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync(string, byte[], bool, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync(String, Byte(), Boolean, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
+  nameWithType: WebRequestHelper.HttpPostAsync(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  nameWithType.vb: WebRequestHelper.HttpPostAsync(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name: HttpPostAsync(string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostAsync_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name.vb: HttpPostAsync(String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync(string, byte[], string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync(String, Byte(), String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
+  nameWithType: WebRequestHelper.HttpPostAsync(string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  nameWithType.vb: WebRequestHelper.HttpPostAsync(String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name: HttpPostAsync(string, IDictionary<string, string>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostAsync_System_String_System_Collections_Generic_IDictionary_System_String_System_String__
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})
+  name.vb: HttpPostAsync(String, IDictionary(Of String, String))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync(string, System.Collections.Generic.IDictionary<string, string>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync(String, System.Collections.Generic.IDictionary(Of String, String))
+  nameWithType: WebRequestHelper.HttpPostAsync(string, IDictionary<string, string>?)
+  nameWithType.vb: WebRequestHelper.HttpPostAsync(String, IDictionary(Of String, String))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync*
+  name: HttpPostAsync
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostAsync
+  nameWithType: WebRequestHelper.HttpPostAsync
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Byte[]}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name: HttpPostFile(string, IEnumerable<KeyValuePair<string, byte[]>>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostFile_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Byte_____System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Byte[]}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name.vb: HttpPostFile(String, IEnumerable(Of KeyValuePair(Of String, Byte())), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, byte[]>>, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, Byte())), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  nameWithType: WebRequestHelper.HttpPostFile(string, IEnumerable<KeyValuePair<string, byte[]>>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  nameWithType.vb: WebRequestHelper.HttpPostFile(String, IEnumerable(Of KeyValuePair(Of String, Byte())), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name: HttpPostFile(string, IEnumerable<string>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostFile_System_String_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name.vb: HttpPostFile(String, IEnumerable(Of String), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(string, System.Collections.Generic.IEnumerable<string>, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(String, System.Collections.Generic.IEnumerable(Of String), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  nameWithType: WebRequestHelper.HttpPostFile(string, IEnumerable<string>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  nameWithType.vb: WebRequestHelper.HttpPostFile(String, IEnumerable(Of String), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(System.String,System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name: HttpPostFile(string, string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostFile_System_String_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(System.String,System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name.vb: HttpPostFile(String, String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(string, string, byte[], string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(String, String, Byte(), String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  nameWithType: WebRequestHelper.HttpPostFile(string, string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  nameWithType.vb: WebRequestHelper.HttpPostFile(String, String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name: HttpPostFile(string, string, string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostFile_System_String_System_String_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name.vb: HttpPostFile(String, String, String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(string, string, string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile(String, String, String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  nameWithType: WebRequestHelper.HttpPostFile(string, string, string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  nameWithType.vb: WebRequestHelper.HttpPostFile(String, String, String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile*
+  name: HttpPostFile
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostFile_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFile
+  nameWithType: WebRequestHelper.HttpPostFile
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Byte[]}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name: HttpPostFileAsync(string, IEnumerable<KeyValuePair<string, byte[]>>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostFileAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Byte_____System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Byte[]}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name.vb: HttpPostFileAsync(String, IEnumerable(Of KeyValuePair(Of String, Byte())), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, byte[]>>, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, Byte())), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  nameWithType: WebRequestHelper.HttpPostFileAsync(string, IEnumerable<KeyValuePair<string, byte[]>>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  nameWithType.vb: WebRequestHelper.HttpPostFileAsync(String, IEnumerable(Of KeyValuePair(Of String, Byte())), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name: HttpPostFileAsync(string, IEnumerable<string>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostFileAsync_System_String_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name.vb: HttpPostFileAsync(String, IEnumerable(Of String), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(string, System.Collections.Generic.IEnumerable<string>, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(String, System.Collections.Generic.IEnumerable(Of String), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  nameWithType: WebRequestHelper.HttpPostFileAsync(string, IEnumerable<string>, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  nameWithType.vb: WebRequestHelper.HttpPostFileAsync(String, IEnumerable(Of String), IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(System.String,System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name: HttpPostFileAsync(string, string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostFileAsync_System_String_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(System.String,System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name.vb: HttpPostFileAsync(String, String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(string, string, byte[], string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(String, String, Byte(), String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  nameWithType: WebRequestHelper.HttpPostFileAsync(string, string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  nameWithType.vb: WebRequestHelper.HttpPostFileAsync(String, String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name: HttpPostFileAsync(string, string, string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostFileAsync_System_String_System_String_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  name.vb: HttpPostFileAsync(String, String, String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(string, string, string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync(String, String, String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  nameWithType: WebRequestHelper.HttpPostFileAsync(string, string, string, IEnumerable<KeyValuePair<string, string>>?, IEnumerable<KeyValuePair<string, string>>?)
+  nameWithType.vb: WebRequestHelper.HttpPostFileAsync(String, String, String, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync*
+  name: HttpPostFileAsync
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostFileAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFileAsync
+  nameWithType: WebRequestHelper.HttpPostFileAsync
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFor*
+  name: HttpPostFor
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostFor_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFor
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFor
+  nameWithType: WebRequestHelper.HttpPostFor
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForAsync*
+  name: HttpPostForAsync
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostForAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForAsync
+  nameWithType: WebRequestHelper.HttpPostForAsync
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForAsync``1(System.String,System.Byte[],System.Boolean)
+  name: HttpPostForAsync<T>(string, byte[], bool)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostForAsync__1_System_String_System_Byte___System_Boolean_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForAsync``1(System.String,System.Byte[],System.Boolean)
+  name.vb: HttpPostForAsync(Of T)(String, Byte(), Boolean)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForAsync<T>(string, byte[], bool)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForAsync(Of T)(String, Byte(), Boolean)
+  nameWithType: WebRequestHelper.HttpPostForAsync<T>(string, byte[], bool)
+  nameWithType.vb: WebRequestHelper.HttpPostForAsync(Of T)(String, Byte(), Boolean)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytes(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name: HttpPostForBytes(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostForBytes_System_String_System_Byte___System_Boolean_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytes(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name.vb: HttpPostForBytes(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytes(string, byte[], bool, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytes(String, Byte(), Boolean, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
+  nameWithType: WebRequestHelper.HttpPostForBytes(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  nameWithType.vb: WebRequestHelper.HttpPostForBytes(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytes(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name: HttpPostForBytes(string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostForBytes_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytes(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name.vb: HttpPostForBytes(String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytes(string, byte[], string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytes(String, Byte(), String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
+  nameWithType: WebRequestHelper.HttpPostForBytes(string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  nameWithType.vb: WebRequestHelper.HttpPostForBytes(String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytes*
+  name: HttpPostForBytes
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostForBytes_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytes
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytes
+  nameWithType: WebRequestHelper.HttpPostForBytes
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytesAsync(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name: HttpPostForBytesAsync(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostForBytesAsync_System_String_System_Byte___System_Boolean_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytesAsync(System.String,System.Byte[],System.Boolean,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name.vb: HttpPostForBytesAsync(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytesAsync(string, byte[], bool, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytesAsync(String, Byte(), Boolean, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
+  nameWithType: WebRequestHelper.HttpPostForBytesAsync(string, byte[], bool, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  nameWithType.vb: WebRequestHelper.HttpPostForBytesAsync(String, Byte(), Boolean, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytesAsync(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name: HttpPostForBytesAsync(string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostForBytesAsync_System_String_System_Byte___System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Net_WebProxy_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytesAsync(System.String,System.Byte[],System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Net.WebProxy)
+  name.vb: HttpPostForBytesAsync(String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytesAsync(string, byte[], string, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>?, System.Net.WebProxy?)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytesAsync(String, Byte(), String, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)), System.Net.WebProxy)
+  nameWithType: WebRequestHelper.HttpPostForBytesAsync(string, byte[], string, IEnumerable<KeyValuePair<string, string>>?, WebProxy?)
+  nameWithType.vb: WebRequestHelper.HttpPostForBytesAsync(String, Byte(), String, IEnumerable(Of KeyValuePair(Of String, String)), WebProxy)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytesAsync*
+  name: HttpPostForBytesAsync
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostForBytesAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytesAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostForBytesAsync
+  nameWithType: WebRequestHelper.HttpPostForBytesAsync
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFor``1(System.String,System.Byte[],System.Boolean)
+  name: HttpPostFor<T>(string, byte[], bool)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostFor__1_System_String_System_Byte___System_Boolean_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFor``1(System.String,System.Byte[],System.Boolean)
+  name.vb: HttpPostFor(Of T)(String, Byte(), Boolean)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFor<T>(string, byte[], bool)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostFor(Of T)(String, Byte(), Boolean)
+  nameWithType: WebRequestHelper.HttpPostFor<T>(string, byte[], bool)
+  nameWithType.vb: WebRequestHelper.HttpPostFor(Of T)(String, Byte(), Boolean)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJson*
+  name: HttpPostJson
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostJson_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJson
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJson
+  nameWithType: WebRequestHelper.HttpPostJson
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonAsync*
+  name: HttpPostJsonAsync
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostJsonAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonAsync
+  nameWithType: WebRequestHelper.HttpPostJsonAsync
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonAsync``1(System.String,``0)
+  name: HttpPostJsonAsync<T>(string, T)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostJsonAsync__1_System_String___0_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonAsync``1(System.String,``0)
+  name.vb: HttpPostJsonAsync(Of T)(String, T)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonAsync<T>(string, T)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonAsync(Of T)(String, T)
+  nameWithType: WebRequestHelper.HttpPostJsonAsync<T>(string, T)
+  nameWithType.vb: WebRequestHelper.HttpPostJsonAsync(Of T)(String, T)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonAsync``1(System.String,``0,System.Text.Encoding)
+  name: HttpPostJsonAsync<T>(string, T, Encoding)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostJsonAsync__1_System_String___0_System_Text_Encoding_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonAsync``1(System.String,``0,System.Text.Encoding)
+  name.vb: HttpPostJsonAsync(Of T)(String, T, Encoding)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonAsync<T>(string, T, System.Text.Encoding)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonAsync(Of T)(String, T, System.Text.Encoding)
+  nameWithType: WebRequestHelper.HttpPostJsonAsync<T>(string, T, Encoding)
+  nameWithType.vb: WebRequestHelper.HttpPostJsonAsync(Of T)(String, T, Encoding)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonFor*
+  name: HttpPostJsonFor
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostJsonFor_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonFor
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonFor
+  nameWithType: WebRequestHelper.HttpPostJsonFor
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonForAsync*
+  name: HttpPostJsonForAsync
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostJsonForAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonForAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonForAsync
+  nameWithType: WebRequestHelper.HttpPostJsonForAsync
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonForAsync``2(System.String,``0)
+  name: HttpPostJsonForAsync<TRequest, TResponse>(string, TRequest)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostJsonForAsync__2_System_String___0_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonForAsync``2(System.String,``0)
+  name.vb: HttpPostJsonForAsync(Of TRequest, TResponse)(String, TRequest)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonForAsync<TRequest, TResponse>(string, TRequest)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonForAsync(Of TRequest, TResponse)(String, TRequest)
+  nameWithType: WebRequestHelper.HttpPostJsonForAsync<TRequest, TResponse>(string, TRequest)
+  nameWithType.vb: WebRequestHelper.HttpPostJsonForAsync(Of TRequest, TResponse)(String, TRequest)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonForAsync``2(System.String,``0,System.Text.Encoding)
+  name: HttpPostJsonForAsync<TRequest, TResponse>(string, TRequest, Encoding)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostJsonForAsync__2_System_String___0_System_Text_Encoding_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonForAsync``2(System.String,``0,System.Text.Encoding)
+  name.vb: HttpPostJsonForAsync(Of TRequest, TResponse)(String, TRequest, Encoding)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonForAsync<TRequest, TResponse>(string, TRequest, System.Text.Encoding)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonForAsync(Of TRequest, TResponse)(String, TRequest, System.Text.Encoding)
+  nameWithType: WebRequestHelper.HttpPostJsonForAsync<TRequest, TResponse>(string, TRequest, Encoding)
+  nameWithType.vb: WebRequestHelper.HttpPostJsonForAsync(Of TRequest, TResponse)(String, TRequest, Encoding)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonFor``2(System.String,``0)
+  name: HttpPostJsonFor<TRequest, TResponse>(string, TRequest)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostJsonFor__2_System_String___0_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonFor``2(System.String,``0)
+  name.vb: HttpPostJsonFor(Of TRequest, TResponse)(String, TRequest)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonFor<TRequest, TResponse>(string, TRequest)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonFor(Of TRequest, TResponse)(String, TRequest)
+  nameWithType: WebRequestHelper.HttpPostJsonFor<TRequest, TResponse>(string, TRequest)
+  nameWithType.vb: WebRequestHelper.HttpPostJsonFor(Of TRequest, TResponse)(String, TRequest)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonFor``2(System.String,``0,System.Text.Encoding)
+  name: HttpPostJsonFor<TRequest, TResponse>(string, TRequest, Encoding)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostJsonFor__2_System_String___0_System_Text_Encoding_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonFor``2(System.String,``0,System.Text.Encoding)
+  name.vb: HttpPostJsonFor(Of TRequest, TResponse)(String, TRequest, Encoding)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonFor<TRequest, TResponse>(string, TRequest, System.Text.Encoding)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJsonFor(Of TRequest, TResponse)(String, TRequest, System.Text.Encoding)
+  nameWithType: WebRequestHelper.HttpPostJsonFor<TRequest, TResponse>(string, TRequest, Encoding)
+  nameWithType.vb: WebRequestHelper.HttpPostJsonFor(Of TRequest, TResponse)(String, TRequest, Encoding)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJson``1(System.String,``0)
+  name: HttpPostJson<T>(string, T)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostJson__1_System_String___0_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJson``1(System.String,``0)
+  name.vb: HttpPostJson(Of T)(String, T)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJson<T>(string, T)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJson(Of T)(String, T)
+  nameWithType: WebRequestHelper.HttpPostJson<T>(string, T)
+  nameWithType.vb: WebRequestHelper.HttpPostJson(Of T)(String, T)
+- uid: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJson``1(System.String,``0,System.Text.Encoding)
+  name: HttpPostJson<T>(string, T, Encoding)
+  href: api/WeihanLi.Common.Helpers.WebRequestHelper.html#WeihanLi_Common_Helpers_WebRequestHelper_HttpPostJson__1_System_String___0_System_Text_Encoding_
+  commentId: M:WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJson``1(System.String,``0,System.Text.Encoding)
+  name.vb: HttpPostJson(Of T)(String, T, Encoding)
+  fullName: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJson<T>(string, T, System.Text.Encoding)
+  fullName.vb: WeihanLi.Common.Helpers.WebRequestHelper.HttpPostJson(Of T)(String, T, System.Text.Encoding)
+  nameWithType: WebRequestHelper.HttpPostJson<T>(string, T, Encoding)
+  nameWithType.vb: WebRequestHelper.HttpPostJson(Of T)(String, T, Encoding)
 - uid: WeihanLi.Common.Helpers.XmlDataSerializer
   name: XmlDataSerializer
   href: api/WeihanLi.Common.Helpers.XmlDataSerializer.html

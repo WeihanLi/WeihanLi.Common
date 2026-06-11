@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class StopwatchProfiler ">
       
-      
+      <meta name="description" content="implementation backed by .">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -85,7 +85,7 @@
 
 
   <h1 id="WeihanLi_Common_Services_StopwatchProfiler" data-uid="WeihanLi.Common.Services.StopwatchProfiler" class="text-break">
-Class StopwatchProfiler  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IProfiler.cs/#L24"><i class="bi bi-code-slash"></i></a>
+Class StopwatchProfiler  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IProfiler.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -93,7 +93,8 @@ Class StopwatchProfiler  <a class="header-action link-secondary" title="View sou
   <dl><dt>Assembly</dt><dd>WeihanLi.Core.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p><a class="xref" href="WeihanLi.Common.Services.IProfiler.html">IProfiler</a> implementation backed by <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.stopwatch">Stopwatch</a>.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -282,10 +283,10 @@ Class StopwatchProfiler  <a class="header-action link-secondary" title="View sou
 
   <h3 id="WeihanLi_Common_Services_StopwatchProfiler_Elapsed" data-uid="WeihanLi.Common.Services.StopwatchProfiler.Elapsed">
   Elapsed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IProfiler.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IProfiler.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the total elapsed time measured by the current instance, in milliseconds.</p>
+  <div class="markdown level1 summary"><p>Gets the total elapsed time measured by the profiler.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -318,10 +319,10 @@ Class StopwatchProfiler  <a class="header-action link-secondary" title="View sou
 
   <h3 id="WeihanLi_Common_Services_StopwatchProfiler_Restart" data-uid="WeihanLi.Common.Services.StopwatchProfiler.Restart">
   Restart()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IProfiler.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IProfiler.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Stops time interval measurement, resets the elapsed time to zero, and starts measuring elapsed time.</p>
+  <div class="markdown level1 summary"><p>Resets elapsed time to zero and starts measuring elapsed time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -345,10 +346,10 @@ Class StopwatchProfiler  <a class="header-action link-secondary" title="View sou
 
   <h3 id="WeihanLi_Common_Services_StopwatchProfiler_Start" data-uid="WeihanLi.Common.Services.StopwatchProfiler.Start">
   Start()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IProfiler.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IProfiler.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Starts, or resumes, measuring elapsed time for an interval.</p>
+  <div class="markdown level1 summary"><p>Starts or resumes measuring elapsed time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -372,10 +373,10 @@ Class StopwatchProfiler  <a class="header-action link-secondary" title="View sou
 
   <h3 id="WeihanLi_Common_Services_StopwatchProfiler_Stop" data-uid="WeihanLi.Common.Services.StopwatchProfiler.Stop">
   Stop()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IProfiler.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IProfiler.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Stops measuring elapsed time for an interval.</p>
+  <div class="markdown level1 summary"><p>Stops measuring elapsed time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -399,7 +400,7 @@ Class StopwatchProfiler  <a class="header-action link-secondary" title="View sou
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IProfiler.cs/#L24" class="edit-link">Edit this page</a>
+          <a href="https://github.com/WeihanLi/WeihanLi.Common/blob/master/src/WeihanLi.Core/Services/IProfiler.cs/#L30" class="edit-link">Edit this page</a>
         </div>
 
 
