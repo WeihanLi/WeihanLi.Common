@@ -136,7 +136,9 @@ public sealed class Variations<T> : IEnumerable<IReadOnlyList<T>>
 
         object IEnumerator.Current => Current;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Releases resources used by the enumerator.
+        /// </summary>
         public void Dispose()
         {
         }
@@ -216,7 +218,9 @@ public sealed class Variations<T> : IEnumerable<IReadOnlyList<T>>
 
         object IEnumerator.Current => Current;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Releases resources used by the underlying permutation enumerator.
+        /// </summary>
         public void Dispose() => _myPermutationsEnumerator.Dispose();
 
         /// <summary>

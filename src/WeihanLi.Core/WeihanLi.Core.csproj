@@ -7,7 +7,6 @@
     <PackageTags>$(PackageTags);core;aot;utility;extensions;helpers</PackageTags>
     <PackageSummary>AOT-compatible core helpers, extensions, models, and utility primitives</PackageSummary>
     <PackageProjectUrl>https://github.com/WeihanLi/WeihanLi.Common/tree/dev/src/WeihanLi.Core</PackageProjectUrl>
-    <NoWarn>$(NoWarn);1591;DE0003;SYSLIB0014;</NoWarn>
     <RootNamespace>WeihanLi.Common</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>

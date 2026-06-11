@@ -9,10 +9,9 @@ namespace WeihanLi.Common.Helpers;
 
 public static class JsonHelper
 {
-    public static JsonSerializerOptions WebOptions => new(JsonSerializerDefaults.Web);
-    public static JsonSerializerOptions UnsafeEncoderOptions => 
-        new JsonSerializerOptions(JsonSerializerDefaults.General).WithUnsafeEncoder();
-    public static JsonSerializerOptions WriteIntendedUnsafeEncoderOptions => 
+    public static JsonSerializerOptions UnsafeEncoderOptions =>
+         new JsonSerializerOptions(JsonSerializerDefaults.General).WithUnsafeEncoder();
+    public static JsonSerializerOptions WriteIntendedUnsafeEncoderOptions =>
         new JsonSerializerOptions(JsonSerializerDefaults.General).WithWriteIntended().WithUnsafeEncoder();
 
     public static JsonSerializerOptions WithWriteIntended(this JsonSerializerOptions jsonSerializerOptions)
@@ -21,7 +20,7 @@ public static class JsonHelper
         jsonSerializerOptions.WriteIndented = true;
         return jsonSerializerOptions;
     }
-    
+
     public static JsonSerializerOptions WithUnsafeEncoder(this JsonSerializerOptions jsonSerializerOptions)
     {
         Guard.NotNull(jsonSerializerOptions);

@@ -2,40 +2,47 @@
 
 namespace WeihanLi.Common;
 
-/// <inheritdoc />
 /// <summary>
-/// IDependencyResolver
+/// Resolves services from the application's dependency container.
 /// </summary>
 public interface IDependencyResolver : IServiceProvider
 {
     /// <summary>
-    /// GetServices
+    /// Gets all registered service instances for the specified service type.
     /// </summary>
-    /// <returns></returns>
+    /// <param name="serviceType">The service type to resolve.</param>
+    /// <returns>The resolved service instances.</returns>
     IEnumerable<object> GetServices(Type serviceType);
 
     /// <summary>
-    /// Invoke action via get a service instance internal
+    /// Resolves a service and invokes the specified action when the service is available.
     /// </summary>
-    /// <typeparam name="TService">service type</typeparam>
-    /// <param name="action">action</param>
+    /// <typeparam name="TService">The service type to resolve.</typeparam>
+    /// <param name="action">The action to invoke with the resolved service instance.</param>
+    /// <returns><see langword="true"/> when the service is resolved and the action is invoked; otherwise, <see langword="false"/>.</returns>
     bool TryInvokeService<TService>(Action<TService> action);
 
+    /// <summary>
+    /// Resolves a service and invokes the specified asynchronous action when the service is available.
+    /// </summary>
+    /// <typeparam name="TService">The service type to resolve.</typeparam>
+    /// <param name="action">The asynchronous action to invoke with the resolved service instance.</param>
+    /// <returns><see langword="true"/> when the service is resolved and the action is invoked; otherwise, <see langword="false"/>.</returns>
     Task<bool> TryInvokeServiceAsync<TService>(Func<TService, Task> action);
 }
 
 /// <summary>
-/// DependencyResolverExtensions
+/// Extension methods for <see cref="IDependencyResolver"/>.
 /// </summary>
 public static class DependencyResolverExtensions
 {
     /// <summary>
-    /// TryGetService
+    /// Tries to resolve a service of the specified type.
     /// </summary>
-    /// <param name="dependencyResolver">dependencyResolver</param>
-    /// <param name="serviceType">serviceType</param>
-    /// <param name="service">service</param>
-    /// <returns>true if successfully get service otherwise false</returns>
+    /// <param name="dependencyResolver">The dependency resolver.</param>
+    /// <param name="serviceType">The service type to resolve.</param>
+    /// <param name="service">When this method returns, contains the resolved service instance if resolution succeeded; otherwise, <see langword="null"/>.</param>
+    /// <returns><see langword="true"/> when the service is resolved; otherwise, <see langword="false"/>.</returns>
     public static bool TryGetService(this IDependencyResolver dependencyResolver, Type serviceType, out object? service)
     {
         try
@@ -51,6 +58,13 @@ public static class DependencyResolverExtensions
         }
     }
 
+    /// <summary>
+    /// Tries to resolve a service of the specified generic type.
+    /// </summary>
+    /// <typeparam name="TService">The service type to resolve.</typeparam>
+    /// <param name="dependencyResolver">The dependency resolver.</param>
+    /// <param name="service">When this method returns, contains the resolved service instance if resolution succeeded; otherwise, <see langword="null"/>.</param>
+    /// <returns><see langword="true"/> when the service is resolved; otherwise, <see langword="false"/>.</returns>
     public static bool TryResolveService<TService>(this IDependencyResolver dependencyResolver,
         out TService? service)
     {

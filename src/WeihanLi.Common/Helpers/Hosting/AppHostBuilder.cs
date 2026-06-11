@@ -12,7 +12,7 @@ public interface IAppHostBuilder
     /// <summary>
     /// Gets the set of key/value configuration properties.
     /// </summary>
-    ConfigurationManager Configuration { get; }
+    IConfigurationManager Configuration { get; }
 
     /// <summary>
     /// Gets a collection of logging providers for the application to compose. This is useful for adding new logging providers.
@@ -41,7 +41,7 @@ public sealed class AppHostBuilder : IAppHostBuilder
         _serviceCollection.AddLogging();
     }
 
-    public ConfigurationManager Configuration { get; }
+    public IConfigurationManager Configuration { get; }
     public ILoggingBuilder Logging { get; }
     public IServiceCollection Services => _serviceCollection;
 

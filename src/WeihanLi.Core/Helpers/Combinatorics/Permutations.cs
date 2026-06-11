@@ -210,7 +210,9 @@ public sealed class Permutations<T> : IEnumerable<IReadOnlyList<T>>
             }
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Releases resources used by the enumerator.
+        /// </summary>
         public void Dispose()
         {
         }

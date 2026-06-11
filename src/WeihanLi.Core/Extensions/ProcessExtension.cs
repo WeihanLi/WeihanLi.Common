@@ -57,11 +57,15 @@ public static class ProcessExtension
     /// <returns>process exit code</returns>
     public static int Execute(this ProcessStartInfo processStartInfo)
     {
+#if NET11_0_OR_GREATER
+        return Process.Run(processStartInfo).ExitCode;
+#else
         using var process = new Process();
         process.StartInfo = processStartInfo;
         process.Start();
         process.WaitForExit();
         return process.ExitCode;
+#endif
     }
 
     /// <summary>
@@ -72,6 +76,9 @@ public static class ProcessExtension
     /// <returns>process exit code</returns>
     public static async Task<int> ExecuteAsync(this ProcessStartInfo processStartInfo, CancellationToken cancellationToken = default)
     {
+#if NET11_0_OR_GREATER
+        return (await Process.RunAsync(processStartInfo, cancellationToken)).ExitCode;
+#else
         using var process = new Process();
         process.StartInfo = processStartInfo;
         process.Start();
@@ -79,6 +86,7 @@ public static class ProcessExtension
         cts.Token.Register((p) => ((Process)p!).TryKill(), process);
         await process.WaitForExitAsync(cts.Token);
         return process.ExitCode;
+#endif
     }
 
     /// <summary>
@@ -88,6 +96,16 @@ public static class ProcessExtension
     /// <returns>process output and exitCode</returns>
     public static CommandResult GetResult(this ProcessStartInfo psi)
     {
+        // RedirectStandardOutput and RedirectStandardError must both be set to true 
+        psi.RedirectStandardOutput = true;
+        psi.RedirectStandardError = true;
+#if NET11_0_OR_GREATER
+        var output = Process.RunAndCaptureText(psi);
+        return new CommandResult(output.ExitStatus.ExitCode, output.StandardOutput, output.StandardError)
+        {
+            ProcessId = output.ProcessId
+        };
+#else
         var stdOutStringBuilder = new StringBuilder();
         using var stdOut = new StringWriter(stdOutStringBuilder);
         var stdErrStringBuilder = new StringBuilder();
@@ -109,6 +127,7 @@ public static class ProcessExtension
         {
             ProcessId = processId
         };
+#endif
     }
 
     /// <summary>
@@ -119,6 +138,16 @@ public static class ProcessExtension
     /// <returns>process output and exitCode</returns>
     public static async Task<CommandResult> GetResultAsync(this ProcessStartInfo psi, CancellationToken cancellationToken = default)
     {
+        // RedirectStandardOutput and RedirectStandardError must both be set to true 
+        psi.RedirectStandardOutput = true;
+        psi.RedirectStandardError = true;
+#if NET11_0_OR_GREATER
+        var output = await Process.RunAndCaptureTextAsync(psi, cancellationToken);
+        return new CommandResult(output.ExitStatus.ExitCode, output.StandardOutput, output.StandardError)
+        {
+            ProcessId = output.ProcessId
+        };
+#else
         var stdOutStringBuilder = new StringBuilder();
 #if NET
         await
@@ -145,6 +174,7 @@ public static class ProcessExtension
         {
             ProcessId = processId
         };
+#endif
     }
 
     /// <summary>
