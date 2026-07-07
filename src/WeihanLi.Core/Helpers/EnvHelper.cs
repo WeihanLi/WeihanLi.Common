@@ -15,7 +15,7 @@ public static class EnvHelper
     
     public static string RequiredVal(string envName)
     {
-        return Environment.GetEnvironmentVariable(envName) ?? throw new InvalidOperationException($"Required environment variable `{envName}` not found.");
+        return Environment.GetEnvironmentVariable(envName) ?? throw new InvalidOperationException($"Environment variable `{envName}` not found.");
     }
 
     public static bool BooleanVal(string envName, bool defaultValue = false)
