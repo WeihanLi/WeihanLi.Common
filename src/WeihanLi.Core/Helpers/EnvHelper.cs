@@ -12,6 +12,12 @@ public static class EnvHelper
     {
         return Environment.GetEnvironmentVariable(envName) ?? defaultValue;
     }
+    
+    public static string RequiredVal(string envName)
+    {
+        envName = WeihanLi.Common.Guard.NotNullOrWhiteSpace(envName);
+        return Environment.GetEnvironmentVariable(envName) ?? throw new InvalidOperationException($"Environment variable `{envName}` not found.");
+    }
 
     public static bool BooleanVal(string envName, bool defaultValue = false)
     {
