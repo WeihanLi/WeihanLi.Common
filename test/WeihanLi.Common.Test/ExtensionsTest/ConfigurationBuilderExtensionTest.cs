@@ -67,7 +67,7 @@ public class ConfigurationBuilderExtensionTest
         var cancellationToken = TestContext.Current.CancellationToken;
         await File.WriteAllTextAsync(filePath, "Watcher__Value=Before", cancellationToken);
 
-        using var configuration = new ConfigurationBuilder()
+        var configuration = new ConfigurationBuilder()
             .AddDotEnv(options =>
             {
                 options.WorkingDirectory = tempDirectory.FullName;
