@@ -12,7 +12,7 @@ public static class EnvHelper
     {
         return Environment.GetEnvironmentVariable(envName) ?? defaultValue;
     }
-    
+
     public static string RequiredVal(string envName)
     {
         envName = WeihanLi.Common.Guard.NotNullOrWhiteSpace(envName);
