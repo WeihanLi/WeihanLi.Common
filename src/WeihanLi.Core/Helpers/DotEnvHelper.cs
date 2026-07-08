@@ -229,5 +229,5 @@ public static class DotEnvHelper
     }
 
     private static FormatException CreateFormatException(string filePath, int lineNumber, string line) =>
-        new($"Invalid .env entry at line {lineNumber} in '{filePath}': '{line}'.");
+        new($"Invalid .env entry at line {lineNumber} in '{filePath}'");
 }
