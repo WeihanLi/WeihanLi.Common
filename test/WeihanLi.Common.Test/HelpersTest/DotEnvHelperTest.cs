@@ -79,6 +79,7 @@ public class DotEnvHelperTest
         const string key = "WEIHANLI_COMMON_DOTENV_LOAD_TEST";
         File.WriteAllText(tempDirectory.GetPath(".env"), $"{key}=LoadedValue");
 
+        var originalValue = Environment.GetEnvironmentVariable(key);
         try
         {
             DotEnvHelper.Load(options =>
@@ -90,7 +91,7 @@ public class DotEnvHelperTest
         }
         finally
         {
-            Environment.SetEnvironmentVariable(key, null);
+            Environment.SetEnvironmentVariable(key, originalValue);
         }
     }
 
