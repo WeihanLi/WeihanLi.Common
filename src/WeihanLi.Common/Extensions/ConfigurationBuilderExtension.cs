@@ -214,8 +214,23 @@ public static class ConfigurationBuilderExtension
                 _reloadTimer?.Dispose();
                 _reloadTimer = new Timer(_ =>
                 {
-                    Load(reload: true);
-                    OnReload();
+                    lock (_reloadLock)
+                    {
+                        if (_watcher is null)
+                        {
+                            return;
+                        }
+
+                        try
+                        {
+                            Load(reload: true);
+                            OnReload();
+                        }
+                        catch
+                        {
+                            // Ignore reload errors to avoid crashing the process on a background timer thread.
+                        }
+                    }
                 }, null, TimeSpan.FromMilliseconds(250), Timeout.InfiniteTimeSpan);
             }
         }
