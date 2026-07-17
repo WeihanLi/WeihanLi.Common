@@ -164,7 +164,7 @@ public static class ConfigurationBuilderExtension
                 return;
             }
 
-            var values = DotEnvHelper.Read(options =>
+            var values = EnvHelper.Read(options =>
             {
                 options.Recursive = false;
                 options.ExportSupport = _source.DotEnvOptions.ExportSupport;

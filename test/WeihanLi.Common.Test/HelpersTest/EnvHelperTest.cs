@@ -3,7 +3,7 @@ using Xunit;
 
 namespace WeihanLi.Common.Test.HelpersTest;
 
-public class DotEnvHelperTest
+public class EnvHelperTest
 {
     [Fact]
     public void Read_ShouldParseDotEnvFile()
@@ -18,7 +18,7 @@ public class DotEnvHelperTest
             First=Overridden
             """);
 
-        var values = DotEnvHelper.Read(options =>
+        var values = EnvHelper.Read(options =>
         {
             options.WorkingDirectory = tempDirectory.FullName;
             options.ExportSupport = true;
@@ -39,7 +39,7 @@ public class DotEnvHelperTest
         Directory.CreateDirectory(nestedDirectory);
         File.WriteAllText(tempDirectory.GetPath(".env"), "RecursiveKey=RecursiveValue");
 
-        var values = DotEnvHelper.Read(options =>
+        var values = EnvHelper.Read(options =>
         {
             options.WorkingDirectory = nestedDirectory;
             options.Recursive = true;
@@ -57,13 +57,13 @@ public class DotEnvHelperTest
             Trimmed = value
             """);
 
-        var syncValues = DotEnvHelper.Read(options =>
+        var syncValues = EnvHelper.Read(options =>
         {
             options.WorkingDirectory = tempDirectory.FullName;
             options.ValueConverter = value => value.ToUpperInvariant();
         });
 
-        var asyncValues = await DotEnvHelper.ReadAsync(options =>
+        var asyncValues = await EnvHelper.ReadAsync(options =>
         {
             options.WorkingDirectory = tempDirectory.FullName;
             options.ValueConverter = value => value.ToUpperInvariant();
@@ -82,7 +82,7 @@ public class DotEnvHelperTest
         var originalValue = Environment.GetEnvironmentVariable(key);
         try
         {
-            DotEnvHelper.Load(options =>
+            EnvHelper.Load(options =>
             {
                 options.WorkingDirectory = tempDirectory.FullName;
             });
@@ -100,7 +100,7 @@ public class DotEnvHelperTest
     {
         using var tempDirectory = new TempDirectory();
 
-        var values = DotEnvHelper.Read(options =>
+        var values = EnvHelper.Read(options =>
         {
             options.WorkingDirectory = tempDirectory.FullName;
         });
@@ -117,7 +117,7 @@ public class DotEnvHelperTest
             invalid line
             """);
 
-        Assert.Throws<FormatException>(() => DotEnvHelper.Read(options =>
+        Assert.Throws<FormatException>(() => EnvHelper.Read(options =>
         {
             options.WorkingDirectory = tempDirectory.FullName;
         }));
