@@ -140,15 +140,16 @@ public static class ConfigurationBuilderExtension
         public DotEnvConfigurationProvider(DotEnvConfigurationSource source)
         {
             _source = source;
-            if (_source.ReloadOnChange)
-            {
-                InitializeWatcher();
-            }
         }
 
         public override void Load()
         {
             Load(reload: false);
+
+            if (_source.ReloadOnChange && _watcher is null)
+            {
+                InitializeWatcher();
+            }
         }
 
         private void Load(bool reload)
