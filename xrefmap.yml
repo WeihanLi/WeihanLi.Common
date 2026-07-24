@@ -7,6 +7,28 @@ references:
   commentId: N:Microsoft.Extensions.Configuration
   fullName: Microsoft.Extensions.Configuration
   nameWithType: Microsoft.Extensions.Configuration
+- uid: Microsoft.Extensions.Configuration.ConfigurationBuilderExtension
+  name: ConfigurationBuilderExtension
+  href: api/Microsoft.Extensions.Configuration.ConfigurationBuilderExtension.html
+  commentId: T:Microsoft.Extensions.Configuration.ConfigurationBuilderExtension
+  fullName: Microsoft.Extensions.Configuration.ConfigurationBuilderExtension
+  nameWithType: ConfigurationBuilderExtension
+- uid: Microsoft.Extensions.Configuration.ConfigurationBuilderExtension.AddDotEnv(Microsoft.Extensions.Configuration.IConfigurationBuilder,System.Action{WeihanLi.Common.Helpers.DotEnvOptions},System.Boolean,System.Boolean)
+  name: AddDotEnv(IConfigurationBuilder, Action<DotEnvOptions>?, bool, bool)
+  href: api/Microsoft.Extensions.Configuration.ConfigurationBuilderExtension.html#Microsoft_Extensions_Configuration_ConfigurationBuilderExtension_AddDotEnv_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_Action_WeihanLi_Common_Helpers_DotEnvOptions__System_Boolean_System_Boolean_
+  commentId: M:Microsoft.Extensions.Configuration.ConfigurationBuilderExtension.AddDotEnv(Microsoft.Extensions.Configuration.IConfigurationBuilder,System.Action{WeihanLi.Common.Helpers.DotEnvOptions},System.Boolean,System.Boolean)
+  name.vb: AddDotEnv(IConfigurationBuilder, Action(Of DotEnvOptions), Boolean, Boolean)
+  fullName: Microsoft.Extensions.Configuration.ConfigurationBuilderExtension.AddDotEnv(Microsoft.Extensions.Configuration.IConfigurationBuilder, System.Action<WeihanLi.Common.Helpers.DotEnvOptions>?, bool, bool)
+  fullName.vb: Microsoft.Extensions.Configuration.ConfigurationBuilderExtension.AddDotEnv(Microsoft.Extensions.Configuration.IConfigurationBuilder, System.Action(Of WeihanLi.Common.Helpers.DotEnvOptions), Boolean, Boolean)
+  nameWithType: ConfigurationBuilderExtension.AddDotEnv(IConfigurationBuilder, Action<DotEnvOptions>?, bool, bool)
+  nameWithType.vb: ConfigurationBuilderExtension.AddDotEnv(IConfigurationBuilder, Action(Of DotEnvOptions), Boolean, Boolean)
+- uid: Microsoft.Extensions.Configuration.ConfigurationBuilderExtension.AddDotEnv*
+  name: AddDotEnv
+  href: api/Microsoft.Extensions.Configuration.ConfigurationBuilderExtension.html#Microsoft_Extensions_Configuration_ConfigurationBuilderExtension_AddDotEnv_
+  commentId: Overload:Microsoft.Extensions.Configuration.ConfigurationBuilderExtension.AddDotEnv
+  isSpec: "True"
+  fullName: Microsoft.Extensions.Configuration.ConfigurationBuilderExtension.AddDotEnv
+  nameWithType: ConfigurationBuilderExtension.AddDotEnv
 - uid: Microsoft.Extensions.Configuration.ConfigurationExtension
   name: ConfigurationExtension
   href: api/Microsoft.Extensions.Configuration.ConfigurationExtension.html
@@ -10353,6 +10375,77 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.DisposableBase.~DisposableBase
   nameWithType: DisposableBase.~DisposableBase
+- uid: WeihanLi.Common.Helpers.DotEnvOptions
+  name: DotEnvOptions
+  href: api/WeihanLi.Common.Helpers.DotEnvOptions.html
+  commentId: T:WeihanLi.Common.Helpers.DotEnvOptions
+  fullName: WeihanLi.Common.Helpers.DotEnvOptions
+  nameWithType: DotEnvOptions
+- uid: WeihanLi.Common.Helpers.DotEnvOptions.ExportSupport
+  name: ExportSupport
+  href: api/WeihanLi.Common.Helpers.DotEnvOptions.html#WeihanLi_Common_Helpers_DotEnvOptions_ExportSupport
+  commentId: P:WeihanLi.Common.Helpers.DotEnvOptions.ExportSupport
+  fullName: WeihanLi.Common.Helpers.DotEnvOptions.ExportSupport
+  nameWithType: DotEnvOptions.ExportSupport
+- uid: WeihanLi.Common.Helpers.DotEnvOptions.ExportSupport*
+  name: ExportSupport
+  href: api/WeihanLi.Common.Helpers.DotEnvOptions.html#WeihanLi_Common_Helpers_DotEnvOptions_ExportSupport_
+  commentId: Overload:WeihanLi.Common.Helpers.DotEnvOptions.ExportSupport
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotEnvOptions.ExportSupport
+  nameWithType: DotEnvOptions.ExportSupport
+- uid: WeihanLi.Common.Helpers.DotEnvOptions.Recursive
+  name: Recursive
+  href: api/WeihanLi.Common.Helpers.DotEnvOptions.html#WeihanLi_Common_Helpers_DotEnvOptions_Recursive
+  commentId: P:WeihanLi.Common.Helpers.DotEnvOptions.Recursive
+  fullName: WeihanLi.Common.Helpers.DotEnvOptions.Recursive
+  nameWithType: DotEnvOptions.Recursive
+- uid: WeihanLi.Common.Helpers.DotEnvOptions.Recursive*
+  name: Recursive
+  href: api/WeihanLi.Common.Helpers.DotEnvOptions.html#WeihanLi_Common_Helpers_DotEnvOptions_Recursive_
+  commentId: Overload:WeihanLi.Common.Helpers.DotEnvOptions.Recursive
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotEnvOptions.Recursive
+  nameWithType: DotEnvOptions.Recursive
+- uid: WeihanLi.Common.Helpers.DotEnvOptions.TrimValues
+  name: TrimValues
+  href: api/WeihanLi.Common.Helpers.DotEnvOptions.html#WeihanLi_Common_Helpers_DotEnvOptions_TrimValues
+  commentId: P:WeihanLi.Common.Helpers.DotEnvOptions.TrimValues
+  fullName: WeihanLi.Common.Helpers.DotEnvOptions.TrimValues
+  nameWithType: DotEnvOptions.TrimValues
+- uid: WeihanLi.Common.Helpers.DotEnvOptions.TrimValues*
+  name: TrimValues
+  href: api/WeihanLi.Common.Helpers.DotEnvOptions.html#WeihanLi_Common_Helpers_DotEnvOptions_TrimValues_
+  commentId: Overload:WeihanLi.Common.Helpers.DotEnvOptions.TrimValues
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotEnvOptions.TrimValues
+  nameWithType: DotEnvOptions.TrimValues
+- uid: WeihanLi.Common.Helpers.DotEnvOptions.ValueConverter
+  name: ValueConverter
+  href: api/WeihanLi.Common.Helpers.DotEnvOptions.html#WeihanLi_Common_Helpers_DotEnvOptions_ValueConverter
+  commentId: P:WeihanLi.Common.Helpers.DotEnvOptions.ValueConverter
+  fullName: WeihanLi.Common.Helpers.DotEnvOptions.ValueConverter
+  nameWithType: DotEnvOptions.ValueConverter
+- uid: WeihanLi.Common.Helpers.DotEnvOptions.ValueConverter*
+  name: ValueConverter
+  href: api/WeihanLi.Common.Helpers.DotEnvOptions.html#WeihanLi_Common_Helpers_DotEnvOptions_ValueConverter_
+  commentId: Overload:WeihanLi.Common.Helpers.DotEnvOptions.ValueConverter
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotEnvOptions.ValueConverter
+  nameWithType: DotEnvOptions.ValueConverter
+- uid: WeihanLi.Common.Helpers.DotEnvOptions.WorkingDirectory
+  name: WorkingDirectory
+  href: api/WeihanLi.Common.Helpers.DotEnvOptions.html#WeihanLi_Common_Helpers_DotEnvOptions_WorkingDirectory
+  commentId: P:WeihanLi.Common.Helpers.DotEnvOptions.WorkingDirectory
+  fullName: WeihanLi.Common.Helpers.DotEnvOptions.WorkingDirectory
+  nameWithType: DotEnvOptions.WorkingDirectory
+- uid: WeihanLi.Common.Helpers.DotEnvOptions.WorkingDirectory*
+  name: WorkingDirectory
+  href: api/WeihanLi.Common.Helpers.DotEnvOptions.html#WeihanLi_Common_Helpers_DotEnvOptions_WorkingDirectory_
+  commentId: Overload:WeihanLi.Common.Helpers.DotEnvOptions.WorkingDirectory
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.DotEnvOptions.WorkingDirectory
+  nameWithType: DotEnvOptions.WorkingDirectory
 - uid: WeihanLi.Common.Helpers.DotNetBuildProcessOptions
   name: DotNetBuildProcessOptions
   href: api/WeihanLi.Common.Helpers.DotNetBuildProcessOptions.html
@@ -10644,6 +10737,86 @@ references:
   isSpec: "True"
   fullName: WeihanLi.Common.Helpers.EnvHelper.BooleanVal
   nameWithType: EnvHelper.BooleanVal
+- uid: WeihanLi.Common.Helpers.EnvHelper.Load(System.Action{WeihanLi.Common.Helpers.DotEnvOptions})
+  name: Load(Action<DotEnvOptions>?)
+  href: api/WeihanLi.Common.Helpers.EnvHelper.html#WeihanLi_Common_Helpers_EnvHelper_Load_System_Action_WeihanLi_Common_Helpers_DotEnvOptions__
+  commentId: M:WeihanLi.Common.Helpers.EnvHelper.Load(System.Action{WeihanLi.Common.Helpers.DotEnvOptions})
+  name.vb: Load(Action(Of DotEnvOptions))
+  fullName: WeihanLi.Common.Helpers.EnvHelper.Load(System.Action<WeihanLi.Common.Helpers.DotEnvOptions>?)
+  fullName.vb: WeihanLi.Common.Helpers.EnvHelper.Load(System.Action(Of WeihanLi.Common.Helpers.DotEnvOptions))
+  nameWithType: EnvHelper.Load(Action<DotEnvOptions>?)
+  nameWithType.vb: EnvHelper.Load(Action(Of DotEnvOptions))
+- uid: WeihanLi.Common.Helpers.EnvHelper.Load*
+  name: Load
+  href: api/WeihanLi.Common.Helpers.EnvHelper.html#WeihanLi_Common_Helpers_EnvHelper_Load_
+  commentId: Overload:WeihanLi.Common.Helpers.EnvHelper.Load
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.EnvHelper.Load
+  nameWithType: EnvHelper.Load
+- uid: WeihanLi.Common.Helpers.EnvHelper.LoadAsync(System.Action{WeihanLi.Common.Helpers.DotEnvOptions})
+  name: LoadAsync(Action<DotEnvOptions>?)
+  href: api/WeihanLi.Common.Helpers.EnvHelper.html#WeihanLi_Common_Helpers_EnvHelper_LoadAsync_System_Action_WeihanLi_Common_Helpers_DotEnvOptions__
+  commentId: M:WeihanLi.Common.Helpers.EnvHelper.LoadAsync(System.Action{WeihanLi.Common.Helpers.DotEnvOptions})
+  name.vb: LoadAsync(Action(Of DotEnvOptions))
+  fullName: WeihanLi.Common.Helpers.EnvHelper.LoadAsync(System.Action<WeihanLi.Common.Helpers.DotEnvOptions>?)
+  fullName.vb: WeihanLi.Common.Helpers.EnvHelper.LoadAsync(System.Action(Of WeihanLi.Common.Helpers.DotEnvOptions))
+  nameWithType: EnvHelper.LoadAsync(Action<DotEnvOptions>?)
+  nameWithType.vb: EnvHelper.LoadAsync(Action(Of DotEnvOptions))
+- uid: WeihanLi.Common.Helpers.EnvHelper.LoadAsync*
+  name: LoadAsync
+  href: api/WeihanLi.Common.Helpers.EnvHelper.html#WeihanLi_Common_Helpers_EnvHelper_LoadAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.EnvHelper.LoadAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.EnvHelper.LoadAsync
+  nameWithType: EnvHelper.LoadAsync
+- uid: WeihanLi.Common.Helpers.EnvHelper.Read(System.Action{WeihanLi.Common.Helpers.DotEnvOptions})
+  name: Read(Action<DotEnvOptions>?)
+  href: api/WeihanLi.Common.Helpers.EnvHelper.html#WeihanLi_Common_Helpers_EnvHelper_Read_System_Action_WeihanLi_Common_Helpers_DotEnvOptions__
+  commentId: M:WeihanLi.Common.Helpers.EnvHelper.Read(System.Action{WeihanLi.Common.Helpers.DotEnvOptions})
+  name.vb: Read(Action(Of DotEnvOptions))
+  fullName: WeihanLi.Common.Helpers.EnvHelper.Read(System.Action<WeihanLi.Common.Helpers.DotEnvOptions>?)
+  fullName.vb: WeihanLi.Common.Helpers.EnvHelper.Read(System.Action(Of WeihanLi.Common.Helpers.DotEnvOptions))
+  nameWithType: EnvHelper.Read(Action<DotEnvOptions>?)
+  nameWithType.vb: EnvHelper.Read(Action(Of DotEnvOptions))
+- uid: WeihanLi.Common.Helpers.EnvHelper.Read*
+  name: Read
+  href: api/WeihanLi.Common.Helpers.EnvHelper.html#WeihanLi_Common_Helpers_EnvHelper_Read_
+  commentId: Overload:WeihanLi.Common.Helpers.EnvHelper.Read
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.EnvHelper.Read
+  nameWithType: EnvHelper.Read
+- uid: WeihanLi.Common.Helpers.EnvHelper.ReadAsync(System.Action{WeihanLi.Common.Helpers.DotEnvOptions})
+  name: ReadAsync(Action<DotEnvOptions>?)
+  href: api/WeihanLi.Common.Helpers.EnvHelper.html#WeihanLi_Common_Helpers_EnvHelper_ReadAsync_System_Action_WeihanLi_Common_Helpers_DotEnvOptions__
+  commentId: M:WeihanLi.Common.Helpers.EnvHelper.ReadAsync(System.Action{WeihanLi.Common.Helpers.DotEnvOptions})
+  name.vb: ReadAsync(Action(Of DotEnvOptions))
+  fullName: WeihanLi.Common.Helpers.EnvHelper.ReadAsync(System.Action<WeihanLi.Common.Helpers.DotEnvOptions>?)
+  fullName.vb: WeihanLi.Common.Helpers.EnvHelper.ReadAsync(System.Action(Of WeihanLi.Common.Helpers.DotEnvOptions))
+  nameWithType: EnvHelper.ReadAsync(Action<DotEnvOptions>?)
+  nameWithType.vb: EnvHelper.ReadAsync(Action(Of DotEnvOptions))
+- uid: WeihanLi.Common.Helpers.EnvHelper.ReadAsync*
+  name: ReadAsync
+  href: api/WeihanLi.Common.Helpers.EnvHelper.html#WeihanLi_Common_Helpers_EnvHelper_ReadAsync_
+  commentId: Overload:WeihanLi.Common.Helpers.EnvHelper.ReadAsync
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.EnvHelper.ReadAsync
+  nameWithType: EnvHelper.ReadAsync
+- uid: WeihanLi.Common.Helpers.EnvHelper.RequiredVal(System.String)
+  name: RequiredVal(string)
+  href: api/WeihanLi.Common.Helpers.EnvHelper.html#WeihanLi_Common_Helpers_EnvHelper_RequiredVal_System_String_
+  commentId: M:WeihanLi.Common.Helpers.EnvHelper.RequiredVal(System.String)
+  name.vb: RequiredVal(String)
+  fullName: WeihanLi.Common.Helpers.EnvHelper.RequiredVal(string)
+  fullName.vb: WeihanLi.Common.Helpers.EnvHelper.RequiredVal(String)
+  nameWithType: EnvHelper.RequiredVal(string)
+  nameWithType.vb: EnvHelper.RequiredVal(String)
+- uid: WeihanLi.Common.Helpers.EnvHelper.RequiredVal*
+  name: RequiredVal
+  href: api/WeihanLi.Common.Helpers.EnvHelper.html#WeihanLi_Common_Helpers_EnvHelper_RequiredVal_
+  commentId: Overload:WeihanLi.Common.Helpers.EnvHelper.RequiredVal
+  isSpec: "True"
+  fullName: WeihanLi.Common.Helpers.EnvHelper.RequiredVal
+  nameWithType: EnvHelper.RequiredVal
 - uid: WeihanLi.Common.Helpers.EnvHelper.Val(System.String,System.String)
   name: Val(string, string?)
   href: api/WeihanLi.Common.Helpers.EnvHelper.html#WeihanLi_Common_Helpers_EnvHelper_Val_System_String_System_String_
