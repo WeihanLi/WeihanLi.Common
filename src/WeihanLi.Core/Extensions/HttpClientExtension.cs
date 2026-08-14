@@ -291,16 +291,16 @@ public static class HttpClientExtension
     extension(HttpContent)
     {
         public static StringContent CreateFromJson(
-            [StringSyntax(StringSyntaxAttribute.Json)]string json,
+            [StringSyntax(StringSyntaxAttribute.Json)] string json,
             string mediaType = HttpHelper.ApplicationJsonMediaType,
             Encoding? encoding = null
             )
         {
             return new StringContent(json, encoding ?? Encoding.UTF8, mediaType);
         }
-        
+
         public static StringContent CreateFromYaml(
-            [StringSyntax("yaml")]string yaml,
+            [StringSyntax("yaml")] string yaml,
             string mediaType = HttpHelper.ApplicationYamlMediaType,
             Encoding? encoding = null
         )
