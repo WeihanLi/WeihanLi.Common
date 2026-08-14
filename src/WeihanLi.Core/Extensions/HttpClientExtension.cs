@@ -1,5 +1,8 @@
 ﻿using System.Net.Http.Headers;
+using System.Net.Mime;
+using System.Text;
 using WeihanLi.Common;
+using WeihanLi.Common.Helpers;
 using WeihanLi.Common.Http;
 
 // ReSharper disable once CheckNamespace
@@ -26,7 +29,7 @@ public static class HttpClientExtension
     /// </summary>
     /// <seealso cref="T:System.Net.Http.Headers.AuthenticationHeaderValue" />
     /// <remarks>
-    /// Initializes a new instance of the <see cref="T:System.Net.Http.BasicAuthenticationOAuthHeaderValue" /> class.
+    /// Initializes a new instance of the <see cref="BasicAuthenticationHeaderValue" /> class.
     /// </remarks>
     /// <param name="userName">Name of the user.</param>
     /// <param name="password">The password.</param>
@@ -283,5 +286,26 @@ public static class HttpClientExtension
     private static bool IsWellKnownContentHeader(string header)
     {
         return WellKnownContentHeaders.Contains(header);
+    }
+
+    extension(HttpContent)
+    {
+        public static StringContent CreateFromJson(
+            [StringSyntax(StringSyntaxAttribute.Json)]string json,
+            string mediaType = HttpHelper.ApplicationJsonMediaType,
+            Encoding? encoding = null
+            )
+        {
+            return new StringContent(json, encoding ?? Encoding.UTF8, mediaType);
+        }
+        
+        public static StringContent CreateFromYaml(
+            [StringSyntax("yaml")]string yaml,
+            string mediaType = HttpHelper.ApplicationYamlMediaType,
+            Encoding? encoding = null
+        )
+        {
+            return new StringContent(yaml, encoding ?? Encoding.UTF8, mediaType);
+        }
     }
 }
