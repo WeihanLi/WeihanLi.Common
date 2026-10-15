@@ -49,7 +49,7 @@ If the GitHub Actions test logger gets in the way locally, set `DISABLE_GITHUB_A
 - Public APIs in source packages should keep XML documentation enabled and source files should retain the existing Apache license header style.
 - Use `Guard` helpers for parameter validation instead of ad hoc checks.
 - Put extension methods in dedicated files under an `Extensions\` folder and use the `WeihanLi.Extensions` namespace.
-- This repo multi-targets `netstandard2.0`, `net8.0`, `net10.0`, and `net11.0` depending on the package. Prefer framework guards for TFM-specific behavior instead of dropping compatibility.
+- This repo multi-targets `netstandard2.0`, `net10.0`, and `net11.0` depending on the package. Prefer framework guards for TFM-specific behavior instead of dropping compatibility.
 - Package versions are centrally managed in `Directory.Packages.props`; do not add per-project package versions unless the repo already does so.
 - Some APIs are generated from T4 templates. If you need to change `ServiceContainerBuilderExtensions.generated.cs`, `DbCommandExtension.generated.cs`, or `DbConnectionExtension.generated.cs`, edit the corresponding `.tt` file instead of only patching generated output.
 - Tests follow the existing `*Test.cs` naming and usually live under `WeihanLi.Common.Test` plus a feature sub-namespace such as `EventsTest` or `ExtensionsTest`.

@@ -26,7 +26,7 @@ belong in `WeihanLi.Common` or dedicated integration packages.
 ### II. Multi-Target Compatibility
 
 Every source package MUST build and pass tests on ALL declared target frameworks
-(`netstandard2.0`, `net8.0`, `net10.0`, `net11.0` for `WeihanLi.Core` and
+(`netstandard2.0`, `net10.0`, `net11.0` for `WeihanLi.Core` and
 `WeihanLi.Common`). Framework-specific code MUST be guarded with `#if` directives
 (e.g., `#if NET8_0_OR_GREATER`). APIs missing from `netstandard2.0` MUST use compatible
 alternatives; `Reflection.Emit` and similar unavailable APIs MUST be conditionally excluded.
