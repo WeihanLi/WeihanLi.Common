@@ -87,9 +87,9 @@ dotnet format --verify-no-changes
 ## Target Frameworks
 
 | Project | Target frameworks |
-|---|---|
-| `src/WeihanLi.Core` | `netstandard2.0`, `net8.0`, `net10.0`, `net11.0` |
-| `src/WeihanLi.Common` | `netstandard2.0`, `net8.0`, `net10.0`, `net11.0` |
+| --- | --- |
+| `src/WeihanLi.Core` | `netstandard2.0`, `net10.0`, `net11.0` |
+| `src/WeihanLi.Common` | `netstandard2.0`, `net10.0`, `net11.0` |
 | `src/WeihanLi.Common.Logging.Serilog` | `netstandard2.0`, `net10.0` |
 | `src/WeihanLi.Extensions.Hosting` | `net10.0` |
 | `test/WeihanLi.Common.Test` | `$(LatestTargetFramework)` (`net10.0`) |
@@ -99,7 +99,7 @@ Use conditional compilation for framework-specific behavior, for example `#if NE
 ## Key Namespaces And Components
 
 | Namespace | Purpose |
-|---|---|
+| --- | --- |
 | `WeihanLi.Common` | Core utilities such as `Guard`, `CacheUtil`, and `DependencyResolver` |
 | `WeihanLi.Common.Abstractions` | Shared primitives and property bags |
 | `WeihanLi.Common.Aspect` | Fluent Aspects AOP, dynamic proxies, interceptors, and invocation pipeline |
